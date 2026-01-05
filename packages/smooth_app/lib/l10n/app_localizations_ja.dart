@@ -142,7 +142,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get match_short_unknown => '一致度は不明';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'ライセンス';
 
   @override
   String get looking_for => '検索中';
@@ -631,7 +631,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unknownBrand => '不明なブランド';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => '不明な数量';
 
   @override
   String get unknownProductName => '不明な製品名';
@@ -698,10 +698,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutrition_facts_editing_title => '栄養成分表示を編集する';
 
   @override
-  String get packaging_information => 'パッケージ情報';
+  String get packaging_information => 'リサイクル手順';
 
   @override
-  String get packaging_information_photo => 'パッケージ情報の画像';
+  String get packaging_information_photo => 'リサイクル手順の画像';
 
   @override
   String get missing_product => '新しい製品を見つけました！';
@@ -802,7 +802,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutritional_facts_photo_title => '栄養成分表の画像';
 
   @override
-  String get recycling_photo_title => 'リサイクル情報の画像';
+  String get recycling_photo_title => 'リサイクル手順写真';
 
   @override
   String get take_photo_title => '画像を撮る';
@@ -3894,10 +3894,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (新しい計算)';
 
   @override
-  String get nutriscore_unknown => '不明な栄養スコア';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
-  String get nutriscore_unknown_new_formula => '未知の栄養スコア（新しい計算）';
+  String get nutriscore_unknown_new_formula =>
+      'Unknown Nutri-Score (New calculation)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Scoreは適用されません';
@@ -4994,7 +4995,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get photo_field_nutrition => '栄養写真';
 
   @override
-  String get photo_field_packaging => 'パッケージ情報の画像';
+  String get photo_field_packaging => 'リサイクル手順の画像';
 
   @override
   String get photo_already_exists => 'この写真は既に存在します';
@@ -5515,18 +5516,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'Open Food Factsを発見';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => 'オープンビューティーファクトを発見';
 
   @override
-  String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+  String get preferences_faq_discover_opff_title => 'オープンペットフードの事実を知る';
 
   @override
   String get preferences_faq_discover_op_title => 'Open Pricesを見る';
 
   @override
-  String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+  String get preferences_faq_discover_opf_title => 'オープンプロダクトの詳細を見る';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - よくある質問';
@@ -5839,8 +5838,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_about_app_development_title => 'Development';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+  String get preferences_page_open_food_facts_labs_title => 'Open Food Factsラボ';
 
   @override
   String get preferences_root_account_title => 'アカウント';

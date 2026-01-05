@@ -143,7 +143,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get match_short_unknown => 'தெரியாத பொருத்தம்';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'உரிமங்கள்';
 
   @override
   String get looking_for => 'தேடுகிறேன்';
@@ -497,7 +497,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'திறந்த உணவு உண்மைகளுக்கு உங்கள் திறமைகளைப் பங்களிக்கவும். திறன் குழுவில் சேருங்கள்!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
@@ -669,7 +669,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get unknownBrand => 'தெரியாத பிராண்ட்';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'தெரியாத அளவு';
 
   @override
   String get unknownProductName => 'தெரியாத தயாரிப்பு பெயர்';
@@ -739,10 +739,10 @@ class AppLocalizationsTa extends AppLocalizations {
       'ஊட்டச்சத்து உண்மைகளைத் திருத்தவும்';
 
   @override
-  String get packaging_information => 'பேக்கேஜிங் தகவல்';
+  String get packaging_information => 'மறுசுழற்சி வழிமுறைகள்';
 
   @override
-  String get packaging_information_photo => 'பேக்கேஜிங் தகவல் புகைப்படம்';
+  String get packaging_information_photo => 'மறுசுழற்சி வழிமுறைகள் புகைப்படம்';
 
   @override
   String get missing_product =>
@@ -848,7 +848,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get nutritional_facts_photo_title => 'ஊட்டச்சத்து உண்மைகள் புகைப்படம்';
 
   @override
-  String get recycling_photo_title => 'மறுசுழற்சி புகைப்படம்';
+  String get recycling_photo_title => 'மறுசுழற்சி வழிமுறைகள் புகைப்படம்';
 
   @override
   String get take_photo_title => 'ஒரு படம் எடு';
@@ -885,7 +885,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get categories_added => 'வகைகள் சேர்க்கப்பட்டன';
 
   @override
-  String get new_product_title_nutriscore => 'நியூட்ரி-ஸ்கோரைக் கணக்கிடுங்கள்';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -920,7 +920,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'பின்வரும் புகைப்படங்களை எடுங்கள், மீதமுள்ளவற்றை ஓபன் ஃபுட் ஃபேக்ட்ஸ் எஞ்சின் சரிசெய்யும்!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
   String get new_product_title_misc => 'மேலும் சில அடிப்படைத் தரவு…';
@@ -1397,15 +1397,15 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get product_improvement_add_category =>
-      'நியூட்ரி-ஸ்கோரைக் கணக்கிட ஒரு வகையைச் சேர்க்கவும்.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'நியூட்ரி-ஸ்கோரைக் கணக்கிட ஊட்டச்சத்து உண்மைகளைச் சேர்க்கவும்.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'ஊட்டச்சத்து மதிப்பெண்ணைக் கணக்கிட ஊட்டச்சத்து உண்மைகளையும் ஒரு வகையையும் சேர்க்கவும்.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -3056,7 +3056,7 @@ class AppLocalizationsTa extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'திறந்த விலைகள் பற்றி மேலும் அறிக';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'முடிந்தது';
@@ -4139,37 +4139,37 @@ class AppLocalizationsTa extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'நியூட்ரி-ஸ்கோர் ஏ';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'நியூட்ரி-ஸ்கோர் பி';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
-  String get nutriscore_c => 'நியூட்ரி-ஸ்கோர் சி';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'நியூட்ரி-ஸ்கோர் டி';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => 'நியூட்ரி-ஸ்கோர் E';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'நியூட்ரி-ஸ்கோர் $letter (புதிய கணக்கீடு)';
+    return 'Nutri-Score $letter (New calculation)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'நியூட்ரி-ஸ்கோர் (புதிய கணக்கீடு)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'தெரியாத நியூட்ரி-ஸ்கோர்';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
       'தெரியாத Nutri-Score (புதிய கணக்கீடு)';
 
   @override
-  String get nutriscore_not_applicable => 'நியூட்ரி-ஸ்கோர் பொருந்தாது.';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
@@ -4205,16 +4205,16 @@ class AppLocalizationsTa extends AppLocalizations {
       'மிகவும் பதப்படுத்தப்பட்ட உணவுகள் - NOVA குழுக்கள்';
 
   @override
-  String get nova_group_1 => 'நோவா குழு 1';
+  String get nova_group_1 => 'NOVA Group 1';
 
   @override
-  String get nova_group_2 => 'நோவா குழு 2';
+  String get nova_group_2 => 'NOVA Group 2';
 
   @override
-  String get nova_group_3 => 'நோவா குழு 3';
+  String get nova_group_3 => 'NOVA Group 3';
 
   @override
-  String get nova_group_4 => 'நோவா குழு 4';
+  String get nova_group_4 => 'NOVA Group 4';
 
   @override
   String get nova_group_unknown => 'தெரியாத NOVA குழு';
@@ -4960,23 +4960,22 @@ class AppLocalizationsTa extends AppLocalizations {
       'https://world-ta.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'திறந்த விலைகளுக்கு வருக!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'திறந்த விலைகள் என்றால் என்ன?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'திறந்த விலைகள் என்பது **உலகம் முழுவதும் உள்ள பொருட்களின் விலைகளைச் சேகரித்துப் பகிர்ந்து கொள்ளும்** ஒரு திட்டமாகும். இது ஆராய்ச்சி, பகுப்பாய்வு மற்றும் பலவற்றிற்குப் பயன்படுத்தக்கூடிய பொதுவில் கிடைக்கும் தரவுத்தொகுப்பாகும். திறந்த விலைகள் திறந்த உணவு உண்மைகளால் உருவாக்கப்பட்டு பராமரிக்கப்படுகின்றன.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'பார்கோடு அளவில் தயாரிப்பு விலைகளின் பெரிய தரவுத்தளங்களை வைத்திருக்கும் நிறுவனங்கள் தற்போது மிகக் குறைவு. இந்த விலைகள் இலவசமாகக் கிடைக்காது, ஆனால் தனியார் நிறுவனங்கள், ஆராய்ச்சியாளர்கள் மற்றும் அவற்றை வாங்கக்கூடிய பிற நிறுவனங்களுக்கு அதிக விலைக்கு விற்கப்படுகின்றன.';
 
   @override
-  String get guide_open_prices_how_title =>
-      'ஓப்பன் பிரைசஸ் எப்படி வேலை செய்கிறது?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5020,11 +5019,11 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'சட்ட மற்றும் தொழில்நுட்ப காரணங்களுக்காக, **சில்லறை விற்பனையாளர்களின் வலைத்தளங்களில் இருந்து விலைகளைக் குறைப்பதை திறந்த விலைகளுக்கு பங்களிப்பதற்கான ஒரு செல்லுபடியாகும் வழியாக நாங்கள் கருதுவதில்லை**. நாங்கள் சேகரிக்கும் விலைகள் துல்லியமாகவும் புதுப்பித்ததாகவும் இருப்பதை உறுதிசெய்ய விரும்புகிறோம், மேலும் பங்களிப்பாளர்களிடமிருந்து விலைகளைக் குறைப்பது எங்களை அவ்வாறு செய்ய அனுமதிக்காது.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'ஓப்பன் பிரைஸ்களின் எதிர்கால பதிப்பில் விலை ஸ்க்ராப்பிங் ஒரு கருதப்படும் விருப்பமாகும், ஆனால் இது ஓப்பன் பிரைஸ்களால் செய்யப்படும், இதனால் HTML பக்கத்தின் அடிப்படையில் விலைக்கான ஆதாரத்தை நாம் பெற முடியும்.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -5345,7 +5344,7 @@ class AppLocalizationsTa extends AppLocalizations {
   String get photo_field_nutrition => 'ஊட்டச்சத்து புகைப்படம்';
 
   @override
-  String get photo_field_packaging => 'பேக்கேஜிங் தகவல் புகைப்படம்';
+  String get photo_field_packaging => 'மறுசுழற்சி வழிமுறைகள் புகைப்படம்';
 
   @override
   String get photo_already_exists => 'இந்தப் புகைப்படம் ஏற்கனவே உள்ளது.';
@@ -5905,18 +5904,19 @@ class AppLocalizationsTa extends AppLocalizations {
       'Open Food Facts உண்மைகளைக் கண்டறியவும்';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Open Beauty உண்மைகளைக் கண்டறியவும்';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'திறந்த செல்லப்பிராணி உணவு உண்மைகளைக் கண்டறியவும்';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'திறந்த தயாரிப்புகள் உண்மைகளைக் கண்டறியவும்';
 
   @override
   String get preferences_faq_faq_title =>
@@ -6269,7 +6269,7 @@ class AppLocalizationsTa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Open Food Facts ஆய்வகங்கள்';
 
   @override
   String get preferences_root_account_title => 'கணக்கு';

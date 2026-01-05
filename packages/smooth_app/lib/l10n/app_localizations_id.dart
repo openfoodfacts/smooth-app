@@ -658,7 +658,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get unknownBrand => 'Merek tidak dikenal';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Jumlah yang tidak diketahui';
 
   @override
   String get unknownProductName => 'Nama produk tidak dikenal';
@@ -727,10 +727,10 @@ class AppLocalizationsId extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Ubah informasi nilai gizi';
 
   @override
-  String get packaging_information => 'Informasi kemasan';
+  String get packaging_information => 'Petunjuk daur ulang';
 
   @override
-  String get packaging_information_photo => 'Foto informasi kemasan';
+  String get packaging_information_photo => 'Foto instruksi daur ulang';
 
   @override
   String get missing_product => 'Anda menemukan produk baru!';
@@ -834,7 +834,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Foto Informasi Nilai Gizi';
 
   @override
-  String get recycling_photo_title => 'Foto daur ulang';
+  String get recycling_photo_title => 'Petunjuk daur ulang Foto';
 
   @override
   String get take_photo_title => 'Ambil gambar';
@@ -2936,7 +2936,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get prices_proof_find => 'Pilih bukti';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Bukti perubahan';
 
   @override
   String get prices_proof_receipt => 'Resi';
@@ -3090,7 +3090,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Bukti dari \"$user\"';
   }
 
   @override
@@ -4419,21 +4419,21 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Untuk memberi penghargaan kepada produk yang lebih baik dalam suatu kategori, kami kemudian menerapkan **bonus & penalti berdasarkan beberapa kriteria**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title => 'Mode produksi';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**Bonus** diberikan kepada produk yang memiliki **label resmi, label atau sertifikasi yang menjamin manfaat lingkungan** (organik, perdagangan adil, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title => 'Asal usul bahan';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      'Bonus diberikan berdasarkan asal bahan-bahan. Bonus ini memperhitungkan dampak transportasi dan juga kebijakan lingkungan dari negara produsen masing-masing.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4441,14 +4441,14 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      '**Sanksi** diberikan kepada produk yang mengandung bahan-bahan yang memiliki **dampak negatif yang signifikan terhadap keanekaragaman hayati dan ekosistem**, seperti minyak sawit, yang produksinya bertanggung jawab atas deforestasi besar-besaran.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Kemasan';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      '**Denda** dihitung dengan mempertimbangkan **sirkularitas kemasan** (penggunaan bahan baku daur ulang dan kemampuan daur ulang) dan pengemasan berlebihan.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4456,19 +4456,19 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Untuk menghitung Green-Score secara akurat, diperlukan **informasi yang tidak selalu tercantum pada kemasan** (seperti asal dan persentase pasti dari setiap bahan) atau yang jarang tersedia dalam bentuk yang mudah digunakan (seperti daftar semua komponen kemasan dengan jenis plastik yang digunakan secara tepat).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**Nilai rata-rata digunakan ketika informasi ini belum tersedia**, tetapi kami sekarang mengajak semua orang untuk membantu kami mengumpulkan informasi ini yang akan sangat berguna untuk Green-Score tetapi juga untuk banyak kegunaan lainnya.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Bagaimana warga dapat membantu?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Seluruh warga dapat membantu kami mengumpulkan dan menyusun informasi yang terdapat pada produk atau yang dapat disimpulkan dari produk tersebut, seperti informasi tentang **kemasan**: \"Mission Emballages\": inventarisasi kemasan skala besar yang dilakukan secara kolaboratif untuk semua produk makanan (dalam bahasa Prancis).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4543,7 +4543,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Makanan yang tidak diolah (atau alami) adalah **bagian tanaman yang dapat dimakan** (biji, buah, daun, batang, akar) **atau hewan** (otot, jeroan, telur, susu), serta jamur, alga, dan air, setelah dipisahkan dari alam.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Bahan - bahan kuliner olahan';
@@ -4575,7 +4575,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Banyak di antaranya **berasal dari pengolahan lebih lanjut komponen makanan**, seperti minyak terhidrogenasi atau teresterifikasi, protein terhidrolisis, isolat protein kedelai, maltodekstrin, gula invert, dan sirup jagung fruktosa tinggi.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4583,7 +4583,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Zat aditif dalam makanan ultra-olahan mencakup beberapa zat yang juga digunakan dalam makanan olahan, seperti pengawet, antioksidan, dan penstabil. Kelas zat aditif yang hanya ditemukan dalam produk ultra-olahan meliputi zat yang digunakan **untuk meniru atau meningkatkan kualitas sensorik makanan atau untuk menyamarkan aspek yang tidak enak dari produk akhir**. Zat aditif ini meliputi pewarna dan warna lainnya, penstabil warna; perisa, penguat rasa, pemanis non-gula; dan bahan pembantu pengolahan seperti zat karbonasi, pengental, pengembang dan anti-pengembang, penghilang busa, anti-penggumpalan dan pelapis, pengemulsi, pengikat, dan humektan.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4591,7 +4591,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**Banyak sekali rangkaian proses yang digunakan** untuk menggabungkan berbagai bahan yang biasanya banyak dan menciptakan produk akhir (karena itu disebut \'ultra-proses\'). Proses-proses tersebut mencakup beberapa proses **yang tidak memiliki padanan di dalam negeri**, seperti hidrogenasi dan hidrolisis, ekstrusi dan pencetakan, serta pra-pemrosesan untuk penggorengan.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4599,104 +4599,107 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '**Tujuan utama dari pengolahan ultra adalah untuk menciptakan produk makanan bermerek**, **praktis** (tahan lama, siap dikonsumsi), **menarik** (sangat lezat), dan **sangat menguntungkan** (bahan-bahan berbiaya rendah) yang dirancang untuk menggantikan semua kelompok makanan lainnya. Produk makanan ultra-olahan biasanya dikemas secara menarik dan dipasarkan secara intensif.**';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Bahaya bagi kesehatan';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      'Sejak 2018, dengan NutriNet-Santé, hubungan pertama antara **konsumsi makanan ultra-olahan dan peningkatan risiko kanker, penyakit kardiovaskular, dan diabetes telah disoroti**. Saat ini, lebih dari 90 studi di seluruh dunia mengkonfirmasi temuan ini.\nHubungan terkuat berkaitan dengan **obesitas, kematian akibat penyakit kardiovaskular, dan gejala depresi**. Pada anak-anak, efeknya terutama diamati pada berat badan dan ketidakseimbangan lipid.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Negara-negara merekomendasikan untuk membatasinya.';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'Beberapa negara menggunakan kelompok NOVA untuk pedoman atau tujuan diet mereka, misalnya:\n\n- Pedoman diet **🇧🇷 Brasil** merekomendasikan untuk membatasi konsumsi makanan olahan dan menghindari makanan ultra-olahan.\n\n- Tujuan kebijakan gizi kesehatan masyarakat **🇫🇷 Prancis** untuk tahun 2018-2022 bertujuan untuk **mengurangi konsumsi makanan ultra-olahan kelompok 4 sebesar 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title =>
+      'Selamat datang di Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Apa itu Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Open Food Facts adalah basis data produk makanan dari seluruh dunia yang **kolaboratif**, **gratis**, dan **terbuka**.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Kami percaya bahwa setiap orang harus memiliki akses ke informasi tentang apa yang mereka makan. Dengan mengumpulkan data tentang bahan-bahan, alergen, fakta nutrisi, dan banyak lagi, **kami memberdayakan konsumen untuk membuat pilihan yang tepat** dan mendorong industri makanan **menuju transparansi yang lebih besar**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Fitur-fitur dari Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title =>
+      'Tips untuk mengambil foto yang bagus';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Larangan';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Hindari bayangan dan pantulan cahaya.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Tidak ada teks yang buram atau tidak fokus.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Jangan memotong bagian-bagian teks.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Hindari latar belakang yang ramai.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title =>
+      'Hal yang harus dilakukan';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Gunakan pencahayaan yang baik dan merata.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Pastikan teks tajam dan mudah dibaca.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Catat seluruh daftar bahan-bahannya.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Letakkan produk di permukaan yang datar.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Bantu kami membangun \"Wikipedia Makanan\"';
 
   @override
-  String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+  String get guide_open_food_facts_scores_arg1_title => 'Skor kualitas nutrisi';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Skor untuk menghindari makanan ultra-olahan';
 
   @override
   String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+      'Sebuah skor untuk planet ini';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4704,175 +4707,180 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Selamat datang di Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Apa itu Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'Open Pet Food Facts memperluas misi kami kepada teman-teman berbulu kami! Ini adalah **basis data produk makanan hewan peliharaan untuk kucing, anjing, dan hewan peliharaan lainnya**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Kami mengumpulkan informasi tentang **bahan-bahan**, **analisis nutrisi**, dan panduan pemberian makan untuk membantu pemilik hewan peliharaan memilih makanan terbaik sesuai kebutuhan hewan mereka.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Fitur-fitur dari Informasi Fakta Makanan Hewan Peliharaan yang Terbuka';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Apakah hewan peliharaan Anda alergi terhadap bahan-bahan tertentu? Anda dapat mengatur daftar bahan kosmetik yang harus dihindari, langsung di aplikasi!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Tips untuk mengambil foto yang bagus';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Larangan';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Hindari bayangan dan pantulan cahaya.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Tidak ada teks yang buram atau tidak fokus.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Jangan memotong bagian-bagian teks.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Hindari latar belakang yang ramai.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title =>
+      'Hal yang harus dilakukan';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Gunakan pencahayaan yang baik dan merata.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Pastikan teks tajam dan mudah dibaca.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Catat seluruh daftar bahan-bahannya.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Letakkan produk di permukaan yang datar.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'Catatan tentang penilaian';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'Mengembangkan sistem penilaian untuk makanan hewan peliharaan **bukan prioritas saat ini**. Metodologinya akan kompleks, karena kebutuhan nutrisi sangat bervariasi menurut spesies, usia, dan kondisi kesehatan. Kami belum menemukan tim ilmiah independen yang mampu mengembangkan skor tersebut.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-id.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title =>
+      'Selamat datang di Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Apa itu Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts adalah basis data kolaboratif untuk **produk kosmetik**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Tujuan kami adalah untuk menguraikan daftar bahan agar Anda dapat **memahami apa yang terkandung dalam produk perawatan pribadi Anda**. Mulai dari pelembap hingga riasan, kami mengumpulkan data tentang bahan-bahan, alergen, dan kemasan untuk mendorong transparansi dalam industri kosmetik.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Fitur-fitur dari Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Apakah Anda alergi terhadap bahan tertentu? Ingin menghindari zat komedogen? Ingin menjauhi komponen yang kontroversial? Anda dapat mengatur daftar bahan kosmetik yang ingin dihindari, langsung di aplikasi!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Tips untuk mengambil foto yang bagus';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Larangan';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Hindari bayangan dan pantulan cahaya.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Tidak ada teks yang buram atau tidak fokus.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Jangan memotong bagian-bagian teks.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Hindari latar belakang yang ramai.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title =>
+      'Hal yang harus dilakukan';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Gunakan pencahayaan yang baik dan merata.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Pastikan teks tajam dan mudah dibaca.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Catat seluruh daftar bahan-bahannya.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Ambil foto sebanyak yang diperlukan jika botolnya melengkung.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Anda mungkin perlu mengupas labelnya untuk melihat daftar bahan-bahannya.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Letakkan produk di permukaan yang datar.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title =>
+      'Catatan tentang penilaian';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'Tidak seperti produk makanan, dunia kosmetik **tidak memiliki sistem penilaian yang diakui secara universal dan didukung pemerintah seperti Nutri-Score**. Efek bahan-bahan tertentu sangat personal dan bergantung pada jenis kulit, alergi, dan masalah individu.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-id.openbeautyfacts.org/temukan';
 
   @override
-  String get guide_open_prices_title => 'Welcome to Open Prices!';
+  String get guide_open_prices_title => 'Selamat datang di Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
@@ -4880,7 +4888,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+      'Open Prices adalah sebuah proyek untuk **mengumpulkan dan membagikan harga produk di seluruh dunia**. Ini adalah kumpulan data yang tersedia untuk umum yang dapat digunakan untuk penelitian, analisis, dan banyak lagi. Open Prices dikembangkan dan dikelola oleh Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
@@ -4891,49 +4899,51 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Kami sedang mengumpulkan data harga sumber terbuka melalui crowdsourcing.** Harga dapat ditambahkan oleh pengguna melalui aplikasi web ini, atau melalui aplikasi seluler resmi Open Food Facts. Peritel atau aplikasi pihak ketiga juga dapat berkontribusi dengan menggunakan API kami.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Kumpulkan foto label harga di lorong-lorong toko.';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title =>
+      'Kumpulkan foto-foto struk pembelian.';
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'Mengapa Open Food Facts melakukan ini?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'Informasi harga sangat penting untuk memahami sistem pangan. Ini merupakan faktor kunci dalam memahami biaya pangan dan untuk mempromosikan pola makan yang lebih sehat. Membuka data harga adalah cara untuk mempermudah peneliti, jurnalis, dan warga untuk **memiliki pemahaman yang lebih baik tentang bagaimana harga pangan bervariasi secara geografis dan dari waktu ke waktu**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Lacak perkembangan harga dari waktu ke waktu.';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Saksikan **evolusi harga**: shrinkflation, cheapflation, kita bisa melacaknya bersama!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title =>
+      'Bandingkan harga di dekat Anda';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'Dengan semakin banyaknya harga yang kami dapatkan, Anda dapat menemukan **toko-toko termurah di sekitar Anda**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Apakah Anda mempertimbangkan untuk mengambil data harga dari situs web pengecer?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+      'Karena alasan hukum dan teknis, **kami tidak menganggap pengambilan data harga dari situs web pengecer sebagai cara yang sah untuk berkontribusi pada Open Prices**. Kami ingin memastikan bahwa harga yang kami kumpulkan akurat dan terkini, dan menerima data harga yang diambil dari kontributor tidak memungkinkan kami untuk melakukan hal tersebut.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'Pengambilan data harga (price scraping) merupakan opsi yang dipertimbangkan dalam versi Open Prices mendatang, tetapi hal itu akan dilakukan oleh Open Prices sendiri sehingga kita dapat memiliki bukti harga berdasarkan halaman HTML.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4941,7 +4951,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Anda dapat berkontribusi dalam hal harga dengan menggunakan API kami.\nJika Anda ingin berkontribusi dalam hal harga dalam skala besar, silakan hubungi kami di prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4949,88 +4959,89 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Selamat datang di Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Apa itu Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'Open Products Facts adalah basis data terbuka yang sangat besar untuk **produk apa pun yang memiliki kode batang, yang bukan makanan, kosmetik, atau makanan hewan peliharaan**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'Mulai dari **elektronik** hingga **mainan**, dan **pakaian** hingga **perlengkapan kebersihan**, jika memiliki barcode, maka dapat ditambahkan. Proyek ini bertujuan untuk menciptakan \"Internet of Things\" untuk objek sehari-hari, sehingga informasi tentang objek tersebut dapat diakses secara universal.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Fitur-fitur Produk Terbuka (Fakta-fakta)';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'Open Products Facts bertujuan untuk memberikan solusi sirkular kepada konsumen agar dapat **memperpanjang umur barang**, dengan memelihara, **memperbaiki**, **mendaur ulang** barang mereka, atau memberikannya kepada pemilik baru.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Jejak karbon untuk beberapa produk';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      '**Dampak CO2** dari Otoritas Lingkungan Prancis ADEME memberikan **dampak karbon** dari berbagai kategori, pastikan untuk mengkategorikan produk dengan tepat.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Indeks kemampuan perbaikan untuk banyak produk';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Setiap kali indeks kemampuan perbaikan Prancis tersedia, kami akan menampilkannya. Selain itu, **Anda dapat mulai mengumpulkan variabel menggunakan Folksonomy Engine**; sehingga kami dapat menghitung ulang sendiri di masa mendatang, bahkan di negara-negara yang belum memiliki indeks tersebut.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Temukan cara untuk menyumbangkan/menjual kembali produk Anda.';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Kami menyediakan tautan ke **layanan pihak ketiga yang ramah terhadap ekonomi sirkular** yang membantu Anda mendapatkan jenis produk yang Anda cari, sebagai produk bekas, agar lebih ramah terhadap sumber daya planet.\nPerlu dicatat bahwa kami tidak dibayar untuk melakukan hal itu, dan sistem ini hanya berfungsi sebagai contoh untuk dua situs web di Prancis. Anda dapat membantu memperluas sistem ini dengan mendokumentasikan lebih banyak situs di wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Informasi apa yang bermanfaat?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Untuk berbagai macam barang seperti itu, **data yang kami kumpulkan bersifat fleksibel**. Untuk itu, **kami menciptakan Folksonomy Engine**.';
 
   @override
-  String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+  String get guide_open_products_facts_folksonomy_title => 'Mesin Folksonomi';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'Folksonomy Engine adalah alat yang membantu Anda melengkapi produk dengan properti yang relevan. Ini membantu meningkatkan pencarian dan kemudahan penemuan, serta menghitung dan menampilkan hal-hal menarik di masa mendatang.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Anda dapat menambahkan kunci dan nilai apa pun seperti: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Anda akan mendapatkan saran otomatis mengenai properti yang mungkin, dan Anda dipersilakan untuk menambahkan dan mendokumentasikan properti baru pada jenis produk favorit Anda.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-id.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title =>
+      'Terbuka terhadap preferensi makanan';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Segera hadir';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle =>
+      'Ketuk untuk mempelajari lebih lanjut';
 
   @override
   String get preview_badge => 'Pratinjau';
@@ -5253,7 +5264,7 @@ class AppLocalizationsId extends AppLocalizations {
   String get photo_field_nutrition => 'Foto nutrisi';
 
   @override
-  String get photo_field_packaging => 'Foto informasi kemasan';
+  String get photo_field_packaging => 'Foto instruksi daur ulang';
 
   @override
   String get photo_already_exists => 'Foto ini sudah ada';
@@ -5368,11 +5379,11 @@ class AppLocalizationsId extends AppLocalizations {
       'Properti ini dibuat dan diarsipkan oleh kontributor untuk segala jenis penggunaan.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'Buka tautan eksternal';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Tautan eksternal mungkin tidak aman. Apakah Anda benar-benar ingin mengunjunginya?';
 
   @override
   String get prices_products_empty_title => 'Tidak ada harga yang tersedia';
@@ -5808,18 +5819,19 @@ class AppLocalizationsId extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'Temukan Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Temukan Fakta Kecantikan Terbuka';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Temukan Fakta Makanan Hewan Peliharaan Terbuka';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Temukan Fakta Produk Terbuka';
 
   @override
   String get preferences_faq_faq_title =>
@@ -6168,7 +6180,7 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Laboratorium Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'Akun';
@@ -6197,26 +6209,26 @@ class AppLocalizationsId extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Detail lokasi';
 
   @override
   String get location_map_details_name => 'Nama';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Jalan';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Kota';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Kode Pos';
 
   @override
   String get location_map_details_country => 'Negara';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Koordinat';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'ID OSM';
 }

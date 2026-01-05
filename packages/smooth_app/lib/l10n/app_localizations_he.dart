@@ -641,7 +641,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get unknownBrand => 'מותג לא ידוע';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'כמות לא ידועה';
 
   @override
   String get unknownProductName => 'שם המוצר אינו ידוע';
@@ -709,10 +709,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get nutrition_facts_editing_title => 'עריכת עובדות תזונתיות';
 
   @override
-  String get packaging_information => 'פרטי אריזה';
+  String get packaging_information => 'הוראות מיחזור';
 
   @override
-  String get packaging_information_photo => 'תמונת פרטי אריזה';
+  String get packaging_information_photo => 'תמונת הנחיות מיחזור';
 
   @override
   String get missing_product => 'מצאת מוצר חדש!';
@@ -815,7 +815,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get nutritional_facts_photo_title => 'תמונת פירוט תזונתי';
 
   @override
-  String get recycling_photo_title => 'תמונת מיחזור';
+  String get recycling_photo_title => 'תמונת הוראות מיחזור';
 
   @override
   String get take_photo_title => 'צילום תמונה';
@@ -5188,7 +5188,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get photo_field_nutrition => 'תמונת מפרט תזונתי';
 
   @override
-  String get photo_field_packaging => 'תמונת פרטי אריזה';
+  String get photo_field_packaging => 'תמונת הנחיות מיחזור';
 
   @override
   String get photo_already_exists => 'התמונה הזאת כבר קיימת';
@@ -5721,7 +5721,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'לגלות עוד על המיזם';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'גלה עובדות על אוכל פתוח';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6071,7 +6071,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'מעבדות Open Food Facts';
 
   @override
   String get preferences_root_account_title => 'חשבון';

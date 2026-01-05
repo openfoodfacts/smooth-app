@@ -143,7 +143,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get match_short_unknown => 'Ვერ ვნახულობ';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'ლიცენზიები';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,7 +653,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'უცნობი რაოდენობა';
 
   @override
   String get unknownProductName => 'Unknown product name';
@@ -722,10 +722,10 @@ class AppLocalizationsKa extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'გადამუშავების ინსტრუქციები';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -828,7 +828,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'გადამუშავების ინსტრუქციები ფოტო';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -5217,7 +5217,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -6134,7 +6134,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Open Food Factsს ლაბორატორიები';
 
   @override
   String get preferences_root_account_title => 'Account';

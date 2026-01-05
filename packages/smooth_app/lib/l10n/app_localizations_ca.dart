@@ -153,7 +153,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get whatIsOff =>
-      'Open Food Facts is a global non-profit powered by local communities.';
+      'Open Food Facts és una organització sense ànim de lucre global impulsada per les comunitats locals.';
 
   @override
   String get productDataUtility =>
@@ -178,21 +178,22 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get password_lost_incorrect_credentials =>
-      'This email or username doesn\'t exist. Please check your credentials.';
+      'Aquest correu electrònic o nom d\'usuari no existeix. Si us plau, comproveu les vostres credencials.';
 
   @override
   String get password_lost_server_unavailable =>
-      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
+      'Actualment estem experimentant alentiments als nostres servidors i ens disculpem per això. Si us plau, torneu-ho a intentar més tard.';
 
   @override
   String get login => 'Nom d\'usuari';
 
   @override
-  String get login_result_type_server_unreachable => 'Network is unreachable';
+  String get login_result_type_server_unreachable =>
+      'La xarxa no és accessible';
 
   @override
   String get login_result_type_server_issue =>
-      'Problem on the server. Please try later.';
+      'Problema al servidor. Si us plau, intenta-ho més tard.';
 
   @override
   String get login_page_username_or_email =>
@@ -326,7 +327,8 @@ class AppLocalizationsCa extends AppLocalizations {
       'Les contrasenyes no coincideixen';
 
   @override
-  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
+  String get sign_up_page_agree_text =>
+      'Accepto la Política de Dades sobre Aliments Oberts';
 
   @override
   String get sign_up_page_terms_text => 'termes d\'ús i contribució';
@@ -351,7 +353,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
+      'Vull subscriure\'m al butlletí d\'Open Food Facts (pots donar-te de baixa en qualsevol moment)';
 
   @override
   String get sign_up_page_user_name_already_used =>
@@ -367,7 +369,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get sign_up_page_server_busy =>
-      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
+      'Ho sentim molt, tenim algunes dificultats tècniques per crear el vostre compte. Torneu-ho a intentar més tard.';
 
   @override
   String get settingsTitle => 'Preferències';
@@ -385,7 +387,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get darkmode_system_default => 'Per defecte del sistema';
 
   @override
-  String get thanks_for_contributing => 'Thanks for contributing!';
+  String get thanks_for_contributing => 'Gràcies per la teva contribució!';
 
   @override
   String get contributors_label => 'Estan construint l\'aplicació';
@@ -426,10 +428,10 @@ class AppLocalizationsCa extends AppLocalizations {
   String get termsOfUse => 'Condicions d\'ús';
 
   @override
-  String get legalNotices => 'Legal notices';
+  String get legalNotices => 'Avisos legals';
 
   @override
-  String get privacy_policy => 'Privacy policy';
+  String get privacy_policy => 'Política de privacitat';
 
   @override
   String get about_this_app => 'Quant a aquesta aplicació';
@@ -442,11 +444,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get contribute_develop_text =>
-      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
+      'El codi de tots els productes d\'Open Food Facts està disponible a GitHub. Us convidem a reutilitzar el codi (és de codi obert) i ajudar-nos a millorar-lo, per a tothom, a tot el planeta.';
 
   @override
   String get contribute_develop_text_2 =>
-      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
+      'Pots unir-te a la sala de xat de Slack d\'Open Food Facts, que és la manera preferida de fer preguntes.';
 
   @override
   String get contribute_develop_dev_mode_title => 'Mode Desenvolupador?';
@@ -458,11 +460,11 @@ class AppLocalizationsCa extends AppLocalizations {
   String get contribute_donate_title => 'Feu un donatiu';
 
   @override
-  String get contribute_donate_header => 'Donate to Open Food Facts';
+  String get contribute_donate_header => 'Dona a Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
+      'Si us plau, tingueu en compte que amb la versió alfa interna, és possible la pèrdua completa de dades i l\'aplicació pot quedar inutilitzable en qualsevol moment!';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
@@ -473,7 +475,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get contribute_improve_text =>
-      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
+      'La base de dades és el nucli del projecte. És fàcil i molt ràpid d\'ajudar. Podeu descarregar l\'aplicació mòbil per al vostre telèfon i començar a afegir o millorar productes.\n\nD\'altra banda, el lloc web Open Food Facts ofereix moltes maneres de contribuir: ';
 
   @override
   String get contribute_translate_header => 'Tradueix';
@@ -486,7 +488,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
+      'Open Food Facts és un projecte global que conté productes de més de 160 països. Open Food Facts es tradueix a desenes d\'idiomes i el contingut està en constant evolució.';
 
   @override
   String get contribute_translate_text_2 =>
@@ -494,11 +496,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Contribute your skills to Open Food Facts. Join the skill pool!';
+      'Contribueix amb les teves habilitats a Open Food Facts. Uneix-te al grup d\'habilitats!';
 
   @override
   String get contribute_share_header =>
-      'Share Open Food Facts with your friends';
+      'Comparteix Open Food Facts amb els teus amics';
 
   @override
   String get contribute_share_content =>
@@ -506,7 +508,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Contribueix amb els preus sol·licitant una exportació per RGPD de les dades de les teves targetes de fidelització';
 
   @override
   String get tap_to_answer => 'Fes clic per respondre preguntes';
@@ -528,7 +530,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Sign in to your Open Food Facts account to get credit for your contributions';
+      'Inicia la sessió al teu compte d\'Open Food Facts per obtenir crèdit per les teves contribucions';
 
   @override
   String get question_yes_button_accessibility_value => 'Respondre amb sí';
@@ -548,7 +550,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get account_create_message =>
-      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
+      'Crea el teu compte i uneix-te a la comunitat Open Food Facts per ajudar a construir coneixement sobre aliments a tot el món!';
 
   @override
   String get join_us => 'Uneix-te\'ns';
@@ -558,13 +560,13 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Manage your Open Food Facts contributor account.';
+      'Gestiona el teu compte de col·laborador d\'Open Food Facts.';
 
   @override
   String get myPreferences_settings_title => 'Configuració de l\'App';
 
   @override
-  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
+  String get myPreferences_settings_subtitle => 'Mode fosc, Idiomes…';
 
   @override
   String get myPreferences_food_title => 'Preferències alimentàries';
@@ -575,7 +577,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get myPreferences_food_comment =>
-      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
+      'Trieu quina informació sobre els aliments us importa més per classificar els aliments segons les vostres preferències, veure primer la informació que us interessa i obtenir un resum de compatibilitat. Aquestes preferències alimentàries es queden al vostre dispositiu i no estan associades al vostre compte de col·laborador d\'Open Food Facts si en teniu un.';
 
   @override
   String get confirmResetPreferences =>
@@ -629,7 +631,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get filter => 'Filtre';
 
   @override
-  String get scan => 'Products from the Scan screen';
+  String get scan => 'Productes de la pantalla Escaneja';
 
   @override
   String get scan_history => 'Historial d\'escaneig';
@@ -648,13 +650,13 @@ class AppLocalizationsCa extends AppLocalizations {
   String get search_history => 'Historial de cerca';
 
   @override
-  String get search_store => 'Search for a store';
+  String get search_store => 'Cerca una botiga';
 
   @override
   String get search_store_help => 'Consell: afegiu la ciutat o el país';
 
   @override
-  String get tap_for_more => 'Tap to see more info…';
+  String get tap_for_more => 'Toca per veure més informació…';
 
   @override
   String get product => 'Producte';
@@ -663,7 +665,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get unknownBrand => 'Marca desconeguda';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Quantitat desconeguda';
 
   @override
   String get unknownProductName => 'Nom de producte desconegut';
@@ -672,7 +674,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get label_refresh => 'Refresca';
 
   @override
-  String get label_reload => 'Reload';
+  String get label_reload => 'Torna a carregar';
 
   @override
   String get image => 'Imatge';
@@ -682,18 +684,18 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (this image may be outdated)';
+    return '$imageType (aquesta imatge pot estar desactualitzada)';
   }
 
   @override
-  String get outdated_image_short_label => 'may be outdated';
+  String get outdated_image_short_label => 'pot estar desactualitzat';
 
   @override
   String get ingredients => 'Ingredients';
 
   @override
   String get ingredients_editing_instructions =>
-      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
+      'Mantingueu l\'ordre original. Indiqueu el percentatge quan s\'especifiqui. Separeu amb una coma o un guionet i utilitzeu parèntesis per als ingredients d\'un ingredient.';
 
   @override
   String get ingredients_editing_error =>
@@ -730,14 +732,14 @@ class AppLocalizationsCa extends AppLocalizations {
   String get nutrition_facts_photo => 'Fotos dels valors nutricionals';
 
   @override
-  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
+  String get nutrition_facts_editing_title => 'Edita la informació nutricional';
 
   @override
-  String get packaging_information => 'Informació de l\'embolcall';
+  String get packaging_information => 'Instruccions de reciclatge';
 
   @override
   String get packaging_information_photo =>
-      'Foto de la informació de l\'embolcall';
+      'Foto d\'instruccions sobre el reciclatge';
 
   @override
   String get missing_product => 'Heu trobat un nou producte!';
@@ -758,17 +760,17 @@ class AppLocalizationsCa extends AppLocalizations {
   String get new_product => 'Nou producte';
 
   @override
-  String get new_product_found_title => 'New product found!';
+  String get new_product_found_title => 'Nou producte trobat!';
 
   @override
   String get new_product_found_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'La nostra base de dades col·laborativa conté més de **3 milions de productes**, però aquest codi de barres no existeix: ';
 
   @override
   String get new_product_found_button => 'Afegir aquest producte';
 
   @override
-  String get new_product_leave_title => 'Leave this page?';
+  String get new_product_leave_title => 'Voleu sortir d\'aquesta pàgina?';
 
   @override
   String get new_product_leave_message =>
@@ -776,11 +778,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get new_product_dialog_description =>
-      'Please take photos of the packaging to add this product to our common database';
+      'Si us plau, feu fotos de l\'embalatge per afegir aquest producte a la nostra base de dades comuna.';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'An illustration with unknown Nutri-Score and Green Score';
+      'Una il·lustració amb Nutri-Score i Green Score desconegudes';
 
   @override
   String get front_packaging_photo_button_label => 'Foto frontal del producte';
@@ -806,14 +808,14 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get crop_page_action_local_failed_title =>
-      'Oops… there\'s something with your photo!';
+      'Ups… hi ha alguna cosa amb la teva foto!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
+      'No podem processar la imatge localment abans d\'enviar-la al nostre servidor. Si us plau, torneu-ho a intentar més tard o poseu-vos en contacte amb nosaltres si el problema persisteix.';
 
   @override
-  String get crop_page_action_retake => 'Retake a photo';
+  String get crop_page_action_retake => 'Torna a fer una foto';
 
   @override
   String get crop_page_too_small_image_title => 'La imatge és massa petita!';
@@ -841,7 +843,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Foto dels valors nutricionals';
 
   @override
-  String get recycling_photo_title => 'Foto del reciclatge';
+  String get recycling_photo_title => 'Instruccions de reciclatge Foto';
 
   @override
   String get take_photo_title => 'Fer una foto';
@@ -885,15 +887,16 @@ class AppLocalizationsCa extends AppLocalizations {
       'Aconsegueix-ho omplint la categoria de l\'aliment i els valors nutricionals';
 
   @override
-  String get new_product_title_environmental_score => 'Compute the Green Score';
+  String get new_product_title_environmental_score =>
+      'Calcula la puntuació verda';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Get it by filling at least a category';
+      'Aconsegueix-ho omplint com a mínim una categoria';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Make Green Score computation more precise with origins, packaging & more';
+      'Feu que el càlcul de la puntuació verda sigui més precís amb orígens, empaquetatge i més';
 
   @override
   String get new_product_title_nova =>
@@ -912,37 +915,37 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'Please take the following photos and the Open Food Facts engine can work out the rest!';
+      'Si us plau, feu les fotos següents i el motor Open Food Facts s\'encarregarà de la resta!';
 
   @override
   String get new_product_title_misc => 'I algunes dades bàsiques…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'Thanks for your contribution “$username”!';
+    return 'Gràcies per la teva contribució “$username”!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
+  String get new_product_done_msg_no_user => 'Gràcies per la teva contribució!';
 
   @override
-  String get new_product_done_button_label => 'Discover the completed product';
+  String get new_product_done_button_label => 'Descobreix el producte acabat';
 
   @override
   String get hey_incomplete_product_message =>
-      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
+      'Toca per respondre 3 preguntes ARA per calcular Nutri-Score, Green Score i Ultra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tap now to answer 2 questions to help analyze this cosmetic!';
+      'Toca ara per respondre 2 preguntes que t\'ajudaran a analitzar aquest cosmètic!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Tap now to answer 3 questions to help analyze this pet food product!';
+      'Toca ara per respondre 3 preguntes que t\'ajudaran a analitzar aquest producte alimentari per a mascotes!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Tap now to help complete this product!';
+      'Toca ara per ajudar a completar aquest producte!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
@@ -972,27 +975,27 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get uploading_image_type_front =>
-      'Uploading front image to Open Food Facts';
+      'Pujant la imatge frontal a Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Uploading ingredients image to Open Food Facts';
+      'Pujant la imatge dels ingredients a Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Uploading nutrition image to Open Food Facts';
+      'Pujant una imatge nutricional a Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'Uploading packaging image to Open Food Facts';
+      'Pujant la imatge de l\'envàs a Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'Uploading other image to Open Food Facts';
+      'Pujant una altra imatge a Open Food Facts';
 
   @override
   String get uploading_image_type_generic =>
-      'Uploading image to Open Food Facts';
+      'Pujant una imatge a Open Food Facts';
 
   @override
   String get score_add_missing_ingredients =>
@@ -1007,7 +1010,8 @@ class AppLocalizationsCa extends AppLocalizations {
       'Afegiu les dades nutricionals que falten';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces =>
+      'Afegeix traces de productes que falten';
 
   @override
   String get score_add_missing_product_category =>
@@ -1038,7 +1042,8 @@ class AppLocalizationsCa extends AppLocalizations {
       'Afegeix les botigues de productes que falten';
 
   @override
-  String get score_add_missing_product_brands => 'Add missing product brands';
+  String get score_add_missing_product_brands =>
+      'Afegeix marques de productes que falten';
 
   @override
   String get score_update_nutrition_facts =>
@@ -1048,11 +1053,11 @@ class AppLocalizationsCa extends AppLocalizations {
   String get nutrition_page_title => 'Informació nutricional';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'Informació nutricional';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Values specified on the product:';
+      'Valors especificats al producte:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Si';
@@ -1061,24 +1066,24 @@ class AppLocalizationsCa extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'No';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo => 'Obre la foto';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Good practices: Nutritional information';
+      'Bones pràctiques: Informació nutricional';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'De vegades, la informació nutricional **no s\'especifica a l\'envàs** ni en un document que s\'inclou amb el producte. En aquest cas, i només en aquest cas, podeu establir el valor a **NO**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Nutritional values:';
+  String get nutrition_page_serving_type_label => 'Valors nutricionals:';
 
   @override
   String get nutrition_page_per_100g => 'per 100 g';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
+  String get nutrition_page_per_100g_100ml => 'per 100 g/ml';
 
   @override
   String get nutrition_page_per_serving => 'per porció';
@@ -1091,31 +1096,31 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Input a serving size (eg: 100g)';
+      'Introdueix una mida de porció (per exemple: 100 g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'Bones pràctiques: Mida de la porció';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'Aquest valor ajuda a **fer un càlcul proporcional de cada nutrient per ració**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '**Les unitats permeses** són: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 公升.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 g**, **60 g** o **60 g** (preferiu el primer)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 ml** o **1 L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Invalid unit';
+      'Unitat no vàlida';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1123,15 +1128,15 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Invalid units';
+      'Unitats no vàlides';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **caramels** i 2 **galetes**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Missing unit';
+      'Unitat que falta';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
@@ -1149,23 +1154,23 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Use the product quantity as serving size';
+      'Utilitzeu la quantitat del producte com a mida de la porció';
 
   @override
-  String get nutrition_page_photo_error => 'Unable to load the photo';
+  String get nutrition_page_photo_error => 'No es pot carregar la foto';
 
   @override
   String get more_photos => 'Més fotos interessants';
 
   @override
   String get view_more_photo_button =>
-      'View all existing photos for this product';
+      'Veure totes les fotos existents d\'aquest producte';
 
   @override
   String get no_product_found => 'Cap producte trobat';
 
   @override
-  String get no_location_found => 'No location found';
+  String get no_location_found => 'No s\'ha trobat cap ubicació';
 
   @override
   String get not_found => 'no trobat:';
@@ -1178,33 +1183,34 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Image taken on $date';
+    return 'Imatge feta el $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Image taken on $date. This image may be outdated';
+    return 'Imatge feta el $date. Pot ser que aquesta imatge estigui desactualitzada.';
   }
 
   @override
-  String get product_image_outdated => 'This image may be outdated';
+  String get product_image_outdated =>
+      'Aquesta imatge pot estar desactualitzada';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'This image may be outdated';
+      'Aquesta imatge pot estar desactualitzada';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
+      'Aquesta imatge es va fer fa més d\'un any.\n**Si us plau, comproveu que encara estigui actualitzada**.\n\nAixò **només és un avís**. Si el contingut continua sent el mateix, podeu ignorar aquest missatge.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Replace photo ($type)';
+    return 'Substitueix la foto ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Add a photo ($type)';
+    return 'Afegeix una foto ($type)';
   }
 
   @override
@@ -1215,24 +1221,24 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get product_image_action_from_gallery =>
-      'Select from your phone\'s gallery';
+      'Selecciona de la galeria del teu telèfon';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'Select from the product photos';
+      'Selecciona entre les fotos del producte';
 
   @override
-  String get product_image_details_label => 'Information about the photo';
+  String get product_image_details_label => 'Informació sobre la foto';
 
   @override
-  String get product_image_details_from_producer => 'From the producer';
+  String get product_image_details_from_producer => 'Del productor';
 
   @override
   String get product_image_details_contributor => 'Voluntari/a';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Contributor (producer)';
+      'Col·laborador (productor)';
 
   @override
   String get product_image_details_date => 'Data';
@@ -1242,21 +1248,21 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get homepage_main_card_logo_description =>
-      'Welcome to Open Food Facts';
+      'Benvinguts a Open Food Facts';
 
   @override
   String get homepage_main_card_subheading =>
-      '**Scan** a barcode or\n**search** for a product';
+      '**Escaneja** un codi de barres o\n**cerca** un producte';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Search for a product';
+  String get homepage_main_card_search_field_hint => 'Cerca un producte';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Start search';
+  String get homepage_main_card_search_field_tooltip => 'Inicia la cerca';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Latest news: $news_title';
+    return 'Últimes notícies: $news_title';
   }
 
   @override
@@ -1272,7 +1278,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get tagline_app_review_button_later => 'Pregunta-m\'ho després';
 
   @override
-  String get tagline_feed_news_button => 'Know more';
+  String get tagline_feed_news_button => 'Més informació';
 
   @override
   String get app_review_negative_modal_title =>
@@ -1292,15 +1298,15 @@ class AppLocalizationsCa extends AppLocalizations {
   String get could_not_refresh => 'Impossible d\'actualitzar el producte';
 
   @override
-  String get product_internet_error_modal_title => 'An error has occurred!';
+  String get product_internet_error_modal_title => 'S\'ha produït un error!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
+    return 'No podem obtenir informació sobre aquest producte a causa d\'un error de xarxa. Si us plau, comproveu la connexió a Internet i torneu-ho a intentar.\n\nError intern:\n$error';
   }
 
   @override
-  String get product_tags_title => 'Product properties';
+  String get product_tags_title => 'Propietats del producte';
 
   @override
   String get no_product_tags_found_message =>
@@ -1317,28 +1323,28 @@ class AppLocalizationsCa extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Add properties';
+  String get add_tags => 'Afegeix propietats';
 
   @override
-  String get add_edit_tags => 'Add or edit properties';
+  String get add_edit_tags => 'Afegir o editar propietats';
 
   @override
-  String get edit_tag => 'Edit property';
+  String get edit_tag => 'Edita la propietat';
 
   @override
-  String get remove_tag => 'Remove property';
+  String get remove_tag => 'Elimina la propietat';
 
   @override
-  String get tag_key => 'Property';
+  String get tag_key => 'Propietat';
 
   @override
   String get tag_keys => 'Propietats';
 
   @override
-  String get tag_key_uneditable => 'Property (uneditable)';
+  String get tag_key_uneditable => 'Propietat (no editable)';
 
   @override
-  String get tag_key_input_hint => 'Input a property';
+  String get tag_key_input_hint => 'Introdueix una propietat';
 
   @override
   String get tag_value => 'Valor';
@@ -1347,21 +1353,21 @@ class AppLocalizationsCa extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'Input a value';
+  String get tag_value_input_hint => 'Introdueix un valor';
 
   @override
-  String get tag_key_item => 'Property:';
+  String get tag_key_item => 'Propietat:';
 
   @override
-  String get tag_value_item => 'Value:';
+  String get tag_value_item => 'Valor:';
 
   @override
   String get tag_key_explanations =>
-      'A key must be lowercase and without any spaces.';
+      'Una clau ha d\'estar en minúscules i sense espais.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'A tag with a property $property already exists!';
+    return 'Ja existeix una etiqueta amb la propietat $property !';
   }
 
   @override
@@ -1379,7 +1385,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
+      'Aquesta funció només es pot utilitzar per a productes amb una categoria.\n\nEditeu el producte per afegir una categoria.';
 
   @override
   String get product_improvement_add_category =>
@@ -1403,7 +1409,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
+      'La Puntuació Verda té en compte els orígens dels ingredients. Si us plau, feu una foto de la llista d\'ingredients i/o qualsevol afirmació geogràfica o editeu el producte perquè es puguin tenir en compte.';
 
   @override
   String get country_chooser_label => 'Si us plau, trieu un país';
@@ -1412,18 +1418,18 @@ class AppLocalizationsCa extends AppLocalizations {
   String get currency_chooser_label => 'Trieu la vostra moneda';
 
   @override
-  String get country_change_message => 'You have just changed countries.';
+  String get country_change_message => 'Acabes de canviar de país.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
+    return 'Voleu canviar la moneda de $previousCurrency a $possibleCurrency?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Please choose a country:';
+  String get onboarding_country_chooser_label => 'Si us plau, trieu un país:';
 
   @override
   String get country_chooser_label_from_settings => 'El vostre país';
@@ -1546,24 +1552,24 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count selected products',
-      one: 'One selected product',
-      zero: 'No selected product',
+      other: '$count productes seleccionats',
+      one: 'Un producte seleccionat',
+      zero: 'Cap producte seleccionat',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Compare selected products';
+  String get compare_products_mode => 'Compara els productes seleccionats';
 
   @override
-  String get delete_products_mode => 'Delete selected products';
+  String get delete_products_mode => 'Suprimeix els productes seleccionats';
 
   @override
-  String get select_all_products_mode => 'Select all products';
+  String get select_all_products_mode => 'Selecciona tots els productes';
 
   @override
-  String get select_none_products_mode => 'Select none';
+  String get select_none_products_mode => 'No seleccionar cap';
 
   @override
   String get compare_products_appbar_title => 'Comparar productes';
@@ -1579,7 +1585,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get connect_with_us => 'Connecta amb nosaltres';
 
   @override
-  String get tiktok => 'Follow us on TikTok';
+  String get tiktok => 'Segueix-nos a TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
@@ -1597,13 +1603,13 @@ class AppLocalizationsCa extends AppLocalizations {
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Follow us on Mastodon';
+  String get mastodon => 'Segueix-nos a Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Follow us on BlueSky';
+  String get bsky => 'Segueix-nos a BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
@@ -1684,11 +1690,11 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Welcome !';
+  String get onboarding_home_welcome_text1 => 'Benvingut/da!';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'The app that helps you choose food that is good for **you** and the **planet**!';
+      'L\'aplicació que t\'ajuda a triar aliments bons per a **tu** i per al **planeta**!';
 
   @override
   String get onboarding_continue_button => 'Continuar';
@@ -1762,11 +1768,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get user_profile_subtitle_guest =>
-      'Sign-in or sign-up to join the Open Food Facts community';
+      'Inicia la sessió o registra\'t per unir-te a la comunitat Open Food Facts';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Open Food Facts login: $email';
+    return 'Inici de sessió a Open Food Facts: $email';
   }
 
   @override
@@ -1779,7 +1785,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Hi there, please delete my Open Food Facts account: $userId';
+    return 'Hola, si us plau, esborreu el meu compte d\'Open Food Facts: $userId';
   }
 
   @override
@@ -1806,7 +1812,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get camera_window_accessibility_label =>
-      'Scan a barcode with your camera';
+      'Escaneja un codi de barres amb la càmera';
 
   @override
   String get app_haptic_feedback_title => 'Vibració i hàptica';
@@ -1820,7 +1826,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
+      'Quan estan habilitades, els informes d\'errors s\'envien automàticament al sistema de seguiment d\'errors d\'Open Food Facts, de manera que es puguin corregir errors i així millorar l\'aplicació.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Enviament de dades anònimes';
@@ -1869,66 +1875,71 @@ class AppLocalizationsCa extends AppLocalizations {
   String get permission_photo_denied => 'No s\'ha concedit accés a la càmera';
 
   @override
-  String get show_product_pictures => 'Show product pictures';
+  String get show_product_pictures => 'Mostra imatges del producte';
 
   @override
   String get edit_product_label => 'Edita el producte';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Pujant les teves edicions…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
+      'Les teves edicions s\'estan **enviant en segon pla** (o més tard en cas d\'error).\nPots continuar editant altres camps de producte.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Your edits are being **sent in the background** (or later in case of error).';
+      'Les teves edicions s\'estan **enviant en segon pla** (o més tard en cas d\'error).';
 
   @override
   String get edit_product_label_short => 'Edita';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'How to enter \"$value\"?';
+    return 'Com s\'introdueix \"$value\"?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Please enter a non-empty value!';
+      'Si us plau, introduïu un valor que no sigui buit!';
 
   @override
-  String get edit_product_form_item_error_existing =>
-      'This value is already there!';
+  String get edit_product_form_item_error_existing => 'Aquest valor ja hi és!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Add a new brand';
+  String get edit_product_form_item_add_action_brand =>
+      'Afegeix una nova marca';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Add a new label';
+  String get edit_product_form_item_add_action_label =>
+      'Afegeix una etiqueta nova';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Add a new store';
+  String get edit_product_form_item_add_action_store =>
+      'Afegeix una botiga nova';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Add a new origin';
+  String get edit_product_form_item_add_action_origin =>
+      'Afegeix un nou origen';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Add a new traceability code';
+      'Afegir un nou codi de traçabilitat';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country => 'Afegeix un país nou';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Add a new category';
+  String get edit_product_form_item_add_action_category =>
+      'Afegeix una nova categoria';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace =>
+      'Afegeix una nova traça';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+  String get edit_product_form_item_add_suggestion => 'Afegeix un suggeriment';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Rebutja el suggeriment';
@@ -1963,18 +1974,18 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Input a label (eg: NutriScore)';
+      'Introduïu una etiqueta (per exemple: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'etiqueta';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'Bones pràctiques: Etiquetes';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'Qualsevol característica del producte **que sigui factual** i diferent dels altres camps.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1982,7 +1993,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'Fabricat a Bèlgica, produït a Bretanya…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -1990,28 +2001,28 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'Ric en fibra, font de ferro…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'Comerç just, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'Botigues';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Input a store';
+  String get edit_product_form_item_stores_hint => 'Introdueix una botiga';
 
   @override
   String get edit_product_form_item_stores_type => 'botiga';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'Bones pràctiques: Botigues';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'Introdueix la botiga on has comprat el producte.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -2030,70 +2041,70 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Input an origin (eg: Germany)';
+      'Introdueix un origen (per exemple: Alemanya)';
 
   @override
   String get edit_product_form_item_origins_type => 'país';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'Bones pràctiques: Orígens';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      'Afegiu **qualsevol indicació d\'origen que trobeu a l\'envàs**.\nNo us heu de preocupar pels orígens indicats directament a la llista d\'ingredients.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'Vedella d\'Argentina';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'La soja no prové de la Unió Europea';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Input a country (eg: Germany)';
+      'Introdueix un país (per exemple: Alemanya)';
 
   @override
   String get edit_product_form_item_countries_type => 'país';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'Bones pràctiques: Països';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**Països on el producte està àmpliament disponible** (sense incloure botigues especialitzades en productes estrangers).';
 
   @override
   String get edit_product_form_item_emb_codes_title => 'Codis de traçabilitat';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Introduïu un codi (p. ex.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
   String get edit_product_form_item_emb_codes_type => 'codi de traçabilitat';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+      'Bones pràctiques: Codis de traçabilitat';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'En aquesta secció, podeu introduir codis relacionats amb les **marques d\'envasament**, les **marques d\'identificació** o les **marques sanitàries**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+      'Exemples de codis de traçabilitat';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**Codis CE** utilitzats a la Comunitat Europea per identificar productors o envasadors d\'aliments:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2101,11 +2112,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: codi de país de **França**\n**72.264.002**: dades geogràfiques\n**CE**: Comunitat Europea';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      '**Codis EMB** utilitzats a França:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2119,7 +2130,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'Introduïu una traça (per exemple: soja)';
 
   @override
   String get edit_product_form_item_categories_title => 'Categories';
@@ -2129,34 +2140,34 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Input a category (eg: Orange juice)';
+      'Introdueix una categoria (per exemple: Suc de taronja)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'Bones pràctiques: Categories';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      'Indiqueu **només la categoria més específica**.\nLes categories principals s\'afegiran automàticament.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'Categoria que falta?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'En cas que una categoria **no estigui disponible a l\'autocompleció**, podeu afegir-la igualment.\nAixò ens ajudarà a millorar Open Food Facts al vostre país.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'Sardines en oli d\'oliva';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'Suc de taronja a partir de concentrat';
 
   @override
-  String get edit_product_form_item_exit_title => 'Quit without saving?';
+  String get edit_product_form_item_exit_title => 'Voleu sortir sense desar?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
@@ -2175,15 +2186,15 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoom in and out by pinching the screen';
+      'Apropa i allunya el zoom pinçant la pantalla';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoom in and out the photo';
+      'Apropar i allunyar la foto';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      'Amb el gest **Pinch to zoom**, pots ampliar o reduir la foto:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Afegeix';
@@ -2196,11 +2207,12 @@ class AppLocalizationsCa extends AppLocalizations {
   String get edit_product_form_item_remove_item_tooltip => 'Suprimeix';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
+  String get edit_product_form_item_save_edit_item_tooltip =>
+      'Desa la teva edició';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cancel your edit';
+      'Cancel·la la teva edició';
 
   @override
   String get edit_product_form_item_packaging_title =>
@@ -2216,15 +2228,15 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'Bones pràctiques: Informació nutricional';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'Valors nutricionals';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'Primer, seleccioneu si es proporcionen els **valors**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
@@ -2232,15 +2244,15 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'A continuació, introdueix els valors nutricionals **tal com s\'indica a l\'envàs**. Si no hi ha cap valor, pots fer clic a la icona \"Ull\".';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'Camp que falta?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'Si falta una entrada, podeu **fer clic a la icona \"Més\"** per afegir-la (per exemple: vitamina D, magnesi…).';
 
   @override
   String get edit_product_form_save => 'Edita';
@@ -2252,19 +2264,19 @@ class AppLocalizationsCa extends AppLocalizations {
   String get edit_product_ingredients_list_title => 'Llistat d\'ingredients';
 
   @override
-  String get edit_product_packaging_photo_title => 'Packaging photo';
+  String get edit_product_packaging_photo_title => 'Foto d\'embalatge';
 
   @override
-  String get edit_product_packaging_list_title => 'Packaging list';
+  String get edit_product_packaging_list_title => 'Llista d\'embalatges';
 
   @override
-  String get no_data_available => 'No data available';
+  String get no_data_available => 'No hi ha dades disponibles';
 
   @override
   String get product_field_website_title => 'Lloc web';
 
   @override
-  String get origins_editing_title => 'Edit Origins';
+  String get origins_editing_title => 'Edita els orígens';
 
   @override
   String get completed_basic_details_btn_text => 'Detalls bàsics complets';
@@ -2277,7 +2289,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Extract ingredients from the photo';
+      'Extreure els ingredients de la foto';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2285,43 +2297,45 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Extracting ingredients\nfrom the photo';
+      'Extracció d\'ingredients\nde la foto';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
+  String get edit_ingredients_loading_photo_btn_text =>
+      'S\'està carregant la foto…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'Per què veig aquest missatge?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'Per utilitzar la funció \"Extreure ingredients\", primer cal penjar la foto.\n\nEspereu uns segons o introduïu-los manualment.';
 
   @override
   String get edit_ingredients_refresh_photo_btn_text => 'Actualitza la foto';
 
   @override
   String get edit_packaging_extract_btn_text =>
-      'Extract packaging\nfrom the photo';
+      'Extreu l\'embalatge\nde la foto';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
+  String get edit_packaging_extract_btn_text_short => 'Extracte d\'envasament';
 
   @override
   String get edit_packaging_extracting_btn_text =>
-      'Extracting packaging from the photo';
+      'Extracció de l\'embalatge de la foto';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
+  String get edit_packaging_loading_photo_btn_text =>
+      'S\'està carregant la foto…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'Per què veig aquest missatge?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'Per utilitzar la funció \"Extreu l\'embalatge\", primer cal carregar la foto.\n\nEspereu uns segons o introduïu-les manualment.';
 
   @override
   String get edit_packaging_refresh_photo_btn_text => 'Actualitza la foto';
@@ -2331,11 +2345,11 @@ class AppLocalizationsCa extends AppLocalizations {
       'No ha pogut detectar text a la imatge.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'No picture!';
+  String get edit_ocr_extract_disabled_title => 'Cap imatge!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'In order to use the text extraction feature, you must first take a photo.';
+      'Per utilitzar la funció d\'extracció de text, primer heu de fer una foto.';
 
   @override
   String get user_list_dialog_new_title => 'Nova llista de productes';
@@ -2384,7 +2398,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get user_list_name_error_same => 'Aquest és el mateix nom';
 
   @override
-  String get user_list_name_input_hint => 'Name of the list';
+  String get user_list_name_input_hint => 'Nom de la llista';
 
   @override
   String get try_again => 'Torneu-ho a provar';
@@ -2422,7 +2436,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Click to open in your browser or in the application (if installed)';
+      'Feu clic per obrir-ho al navegador o a l\'aplicació (si està instal·lada)';
 
   @override
   String get dev_preferences_screen_title => 'Mode Desenvolupador';
@@ -2528,28 +2542,28 @@ class AppLocalizationsCa extends AppLocalizations {
       'Esborrarà l\'historial i hi posarà 3 productes';
 
   @override
-  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
+  String get dev_preferences_news_custom_url_title =>
+      'URL personalitzada per a notícies';
 
   @override
-  String get dev_preferences_news_custom_url_subtitle =>
-      'URL of the JSON file:';
+  String get dev_preferences_news_custom_url_subtitle => 'URL del fitxer JSON:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'Not set';
+  String get dev_preferences_news_custom_url_empty_value => 'No definit';
 
   @override
   String get dev_preferences_news_provider_status_title => 'Estat';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Last refresh: $date';
+    return 'Última actualització: $date';
   }
 
   @override
   String get product_type_label_food => 'Menjar';
 
   @override
-  String get product_type_label_beauty => 'Personal care';
+  String get product_type_label_beauty => 'Cura personal';
 
   @override
   String get product_type_label_pet_food => 'Menjar per a mascotes';
@@ -2558,38 +2572,38 @@ class AppLocalizationsCa extends AppLocalizations {
   String get product_type_label_product => 'Altres';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Tipus de producte';
 
   @override
   String get product_type_selection_subtitle =>
-      'Select the type of this product';
+      'Seleccioneu el tipus d\'aquest producte';
 
   @override
   String get product_type_selection_empty =>
-      'You need to select a product type first!';
+      'Primer has de seleccionar un tipus de producte!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'You cannot change the product type ($productType)!';
+    return 'No podeu canviar el tipus de producte ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Shortcut to Prices app on product page';
+      'Drecera a l\'aplicació Preus a la pàgina del producte';
 
   @override
-  String get prices_app_button => 'Go to Prices app';
+  String get prices_app_button => 'Ves a l\'aplicació Preus';
 
   @override
   String get prices_website_button => 'Obre al lloc web de Preus Oberts';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'Afegeix etiquetes de preu directament des de la galeria';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'Un cop hagis seleccionat les imatges, no les podràs editar!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2600,10 +2614,10 @@ class AppLocalizationsCa extends AppLocalizations {
       'Permetre que la comunitat validi els preus extrets per la IA.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'Etiquetes de preu múltiples';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'Càrrega massiva de proves';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Seleccionant fitxers';
@@ -2634,8 +2648,8 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Add $count prices',
-      one: 'Add a price',
+      other: 'Afegeix $count preus',
+      one: 'Afegeix un preu',
     );
     return '$_temp0';
   }
@@ -2645,42 +2659,42 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Send $count prices',
-      one: 'Send the price',
+      other: 'Envia $count preus',
+      one: 'Envia el preu',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Add an item';
+  String get prices_add_an_item => 'Afegeix un element';
 
   @override
   String get prices_add_a_price => 'Afegir un preu';
 
   @override
-  String get prices_add_a_receipt => 'Add a receipt';
+  String get prices_add_a_receipt => 'Afegeix un rebut';
 
   @override
-  String get prices_add_price_tags => 'Add price tags';
+  String get prices_add_price_tags => 'Afegir etiquetes de preu';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'This barcode ($barcode) is already in the list!';
+    return 'Aquest codi de barres ($barcode) ja és a la llista!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'No s\'ha trobat el producte';
 
   @override
-  String get prices_barcode_search_none_yet => 'No product yet';
+  String get prices_barcode_search_none_yet => 'Encara no hi ha cap producte';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'Looking for $barcode';
+    return 'Buscant $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Enter the Barcode';
+  String get prices_barcode_enter => 'Introduïu el codi de barres';
 
   @override
   String get prices_category_enter => 'Article sense codi de barres';
@@ -2707,10 +2721,10 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_category_error_mandatory => 'La categoria és obligatòria';
 
   @override
-  String get prices_barcode_reader_action => 'Barcode reader';
+  String get prices_barcode_reader_action => 'Lector de codis de barres';
 
   @override
-  String get prices_view_prices => 'View the prices';
+  String get prices_view_prices => 'Veure els preus';
 
   @override
   String get prices_list_title => 'Llista de preus';
@@ -2758,10 +2772,10 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: '1 price',
+      other: '$count preus',
+      one: '1 preu',
     );
-    return '$_temp0 for $product';
+    return '$_temp0 per a $product';
   }
 
   @override
@@ -2769,16 +2783,16 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count prices',
-      one: 'Only one price',
-      zero: 'No price yet',
+      other: 'Tots els $count preus',
+      one: 'Només un preu',
+      zero: 'Encara no hi ha preu',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize prices (total: $total)';
+    return 'Preus més recents $pageSize (total: $total)';
   }
 
   @override
@@ -2788,32 +2802,32 @@ class AppLocalizationsCa extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
+    return 'Preu: $price / Botiga: \"$location\" / Publicat a $date per \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Open proofs of \"$user\"';
+    return 'Proves obertes de \"$user\"';
   }
 
   @override
-  String get prices_open_proof => 'Open price proof';
+  String get prices_open_proof => 'Prova de preu obert';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count proofs',
-      one: 'Only one proof',
-      zero: 'No proof yet',
+      other: 'Totes les $count proves',
+      one: 'Només una prova',
+      zero: 'Encara no hi ha cap prova',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize proofs (total: $total)';
+    return 'Últimes proves $pageSize (total: $total)';
   }
 
   @override
@@ -2825,7 +2839,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize contributors (total: $total)';
+    return 'Col·laboradors principals $pageSize (total: $total)';
   }
 
   @override
@@ -2837,7 +2851,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize locations (total: $total)';
+    return 'Ubicacions principals $pageSize (total: $total)';
   }
 
   @override
@@ -2845,9 +2859,9 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count proofs',
-      one: 'One proof',
-      zero: 'No proof',
+      other: '$count proves',
+      one: 'Una prova',
+      zero: 'Cap prova',
     );
     return '$_temp0';
   }
@@ -2857,9 +2871,9 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'No product',
+      other: '$count productes',
+      one: 'Un producte',
+      zero: 'Cap producte',
     );
     return '$_temp0';
   }
@@ -2869,9 +2883,9 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count users',
-      one: 'One user',
-      zero: 'No user',
+      other: '$count usuaris',
+      one: 'Un usuari',
+      zero: 'Cap usuari',
     );
     return '$_temp0';
   }
@@ -2881,9 +2895,9 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: 'One price',
-      zero: 'No price',
+      other: '$count preus',
+      one: 'Un preu',
+      zero: 'Sense preu',
     );
     return '$_temp0';
   }
@@ -2892,10 +2906,10 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'Preu afegit anteriorment';
 
   @override
-  String get prices_amount_subtitle => 'Amount';
+  String get prices_amount_subtitle => 'Import';
 
   @override
-  String get prices_amount_is_discounted => 'Is discounted?';
+  String get prices_amount_is_discounted => 'Té descompte?';
 
   @override
   String get prices_amount_price_normal => 'Preu';
@@ -2904,16 +2918,16 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_amount_price_discounted => 'Preu rebaixat';
 
   @override
-  String get prices_amount_price_not_discounted => 'Original price';
+  String get prices_amount_price_not_discounted => 'Preu original';
 
   @override
-  String get prices_amount_no_product => 'One product is missing!';
+  String get prices_amount_no_product => 'Falta un producte!';
 
   @override
-  String get prices_amount_price_incorrect => 'Incorrect value';
+  String get prices_amount_price_incorrect => 'Valor incorrecte';
 
   @override
-  String get prices_amount_price_mandatory => 'Mandatory value';
+  String get prices_amount_price_mandatory => 'Valor obligatori';
 
   @override
   String get prices_currency_subtitle => 'Moneda';
@@ -2922,17 +2936,17 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_date_subtitle => 'Data';
 
   @override
-  String get prices_location_subtitle => 'Shop';
+  String get prices_location_subtitle => 'Botiga';
 
   @override
-  String get prices_location_find => 'Find a shop';
+  String get prices_location_find => 'Troba una botiga';
 
   @override
-  String get prices_location_mandatory => 'You need to select a shop!';
+  String get prices_location_mandatory => 'Has de triar una botiga!';
 
   @override
   String get prices_location_search_broader =>
-      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
+      'No has trobat el que buscaves? Provem una cerca més àmplia!';
 
   @override
   String get prices_proof_subtitle => 'Prova';
@@ -2945,70 +2959,70 @@ class AppLocalizationsCa extends AppLocalizations {
       'Comença afegint una foto d\'un **rebut** o una **etiqueta de preu**!';
 
   @override
-  String get prices_proof_find => 'Select a proof';
+  String get prices_proof_find => 'Selecciona una prova';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Prova de canvi';
 
   @override
-  String get prices_proof_receipt => 'Receipt';
+  String get prices_proof_receipt => 'Rebut';
 
   @override
-  String get prices_proof_price_tag => 'Price tag';
+  String get prices_proof_price_tag => 'Etiqueta de preu';
 
   @override
-  String get prices_proof_mandatory => 'You need to select a proof!';
+  String get prices_proof_mandatory => 'Has de triar una prova!';
 
   @override
-  String get prices_add_validation_error => 'Validation error';
+  String get prices_add_validation_error => 'Error de validació';
 
   @override
-  String get prices_privacy_warning_title => 'Privacy warning';
+  String get prices_privacy_warning_title => 'Avís de privadesa';
 
   @override
-  String get prices_unknown_product => 'Unknown product';
+  String get prices_unknown_product => 'Producte desconegut';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'Els preus **seran públics**, juntament amb la botiga a la qual es refereixen.\n\nAixò podria permetre a les persones que coneixen el vostre pseudònim d\'Open Food Facts:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Infer in which area you live';
+      'Dedueix en quina zona vius';
 
   @override
   String get prices_privacy_warning_message_bullet_2 =>
-      'Know what you are buying';
+      'Sàpigues què estàs comprant';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'Si això no us sembla còmode, canvieu el pseudònim o creeu un compte nou d\'Open Food Facts i inicieu la sessió a l\'aplicació amb ell.';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'Em nego';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'Accepto';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'Canviar la moneda?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
+    return 'La teva moneda actual és **$currency**. Vols canviar-la a **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'Sí, feu servir $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'No, conserva $currency';
   }
 
   @override
@@ -3018,30 +3032,32 @@ class AppLocalizationsCa extends AppLocalizations {
   String get dev_preferences_import_history_result_success => 'Fet';
 
   @override
-  String get dev_mode_section_server => 'Server configuration';
+  String get dev_mode_section_server => 'Configuració del servidor';
 
   @override
-  String get dev_mode_section_news => 'News provider configuration';
+  String get dev_mode_section_news => 'Configuració del proveïdor de notícies';
 
   @override
-  String get dev_mode_section_product_page => 'Product page';
+  String get dev_mode_section_product_page => 'Pàgina del producte';
 
   @override
-  String get dev_mode_section_ui => 'User Interface';
+  String get dev_mode_section_ui => 'Interfície d\'usuari';
 
   @override
-  String get dev_mode_section_experimental_features => 'Experimental features';
+  String get dev_mode_section_experimental_features =>
+      'Característiques experimentals';
 
   @override
-  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
+  String get dev_mode_hide_environmental_score_title =>
+      'Exclou la puntuació verda';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Use a spellchecker for OCR screens';
+      'Utilitzeu un corrector ortogràfic per a les pantalles OCR';
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(Ingredients and packaging)';
+      '(Ingredients i embalatge)';
 
   @override
   String get dev_mode_reset_app_language_title =>
@@ -3055,7 +3071,8 @@ class AppLocalizationsCa extends AppLocalizations {
       'Canvia entre prices.openfoodfacts.org (PROD) i l\'entorn de prova';
 
   @override
-  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+  String get search_history_item_edit_tooltip =>
+      'Reutilitza i edita aquesta cerca';
 
   @override
   String get search_history_item_remove_tooltip => 'Suprimeix';
@@ -3076,7 +3093,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String product_search_loading_message(Object search) {
-    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
+    return 'La cerca de $search està en curs.\n\nEspereu uns segons…';
   }
 
   @override
@@ -3093,17 +3110,17 @@ class AppLocalizationsCa extends AppLocalizations {
       'Els meus productes pendents de completar';
 
   @override
-  String get user_search_prices_title => 'My prices';
+  String get user_search_prices_title => 'Els meus preus';
 
   @override
-  String get user_search_proofs_title => 'My proofs';
+  String get user_search_proofs_title => 'Les meves proves';
 
   @override
-  String get user_search_proof_title => 'My proof';
+  String get user_search_proof_title => 'La meva prova';
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Prova de \"$user\"';
   }
 
   @override
@@ -3112,17 +3129,18 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'Latest Prices added';
+  String get all_search_prices_latest_title => 'Últims preus afegits';
 
   @override
-  String get all_search_prices_top_user_title => 'Top price contributors';
+  String get all_search_prices_top_user_title =>
+      'Els que més contribueixen al preu';
 
   @override
-  String get all_search_prices_top_location_title =>
-      'Stores with the most prices';
+  String get all_search_prices_top_location_title => 'Botigues amb més preus';
 
   @override
-  String get prices_contribution_assistant => 'Price Contribution Assistant';
+  String get prices_contribution_assistant =>
+      'Assistent de contribució de preus';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3131,14 +3149,14 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'Afegeix diverses proves';
 
   @override
-  String get all_search_prices_top_location_single_title => 'Prices in a store';
+  String get all_search_prices_top_location_single_title =>
+      'Preus en una botiga';
 
   @override
-  String get all_search_prices_top_product_title =>
-      'Products with the most prices';
+  String get all_search_prices_top_product_title => 'Productes amb més preus';
 
   @override
   String get all_search_to_be_completed_title =>
@@ -3146,7 +3164,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get categorize_products_country_title =>
-      'Help categorize products in your country';
+      'Ajuda a classificar els productes del teu país';
 
   @override
   String get edit_product_action_retake_picture => 'Torna a fer la foto';
@@ -3159,7 +3177,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'I agree to the Open Food Facts ';
+      'Accepto la Política de Dades sobre Aliments Oberts ';
 
   @override
   String get signup_page_terms_of_use_line2 => 'termes d\'ús i contribució';
@@ -3196,7 +3214,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Select an image by clicking on it';
+      'Seleccioneu una imatge fent-hi clic';
 
   @override
   String get edit_photo_select_existing_download_label =>
@@ -3223,25 +3241,26 @@ class AppLocalizationsCa extends AppLocalizations {
   String get product_name => 'Nom del producte';
 
   @override
-  String get product_names => 'Product Names';
+  String get product_names => 'Noms de productes';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Add a new translation';
+      'Afegeix una nova traducció';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'Abans de validar, assegureu-vos d\'afegir només una traducció **si l\'idioma és present a l\'envàs**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'View front photo';
+  String get add_basic_details_product_name_open_photo => 'Veure foto frontal';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'Take front photo';
+  String get add_basic_details_product_name_take_photo =>
+      'Fes una foto frontal';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Input the name of the product (eg: Nutella)';
+      'Introdueix el nom del producte (per exemple: Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3255,41 +3274,41 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Good examples';
+  String get explanation_section_good_examples => 'Bons exemples';
 
   @override
-  String get explanation_section_bad_examples => 'Bad examples';
+  String get explanation_section_bad_examples => 'Mals exemples';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+      'Bones pràctiques: Nom del producte';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
+      'El nom del producte és el **nom principal imprès a l\'envàs**. Pot ser una marca registrada.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
+      '**Nota:** Si us plau, no afegiu una traducció **si l\'idioma no apareix a l\'envàs**.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tomato Ketchup';
+      'quètxup de tomàquet';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Don\'t include the brand in the name';
+      'No inclogueu la marca al nom';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Tomato Ketchup **by Heinz**';
+      'Ketchup de tomàquet **de Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Don\'t use symbols ®, ™, © or similar';
+      'No utilitzeu símbols ®, ™, © ni similars.';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3300,8 +3319,8 @@ class AppLocalizationsCa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count other translations',
-      one: '$count other translation',
+      other: '$count altres traduccions',
+      one: '$count altra traducció',
     );
     return '$_temp0';
   }
@@ -3310,48 +3329,51 @@ class AppLocalizationsCa extends AppLocalizations {
   String get brand_name => 'Nom de la marca';
 
   @override
-  String get brand_names => 'Brand names';
+  String get brand_names => 'Noms de marca';
 
   @override
   String get add_basic_details_brand_name_error =>
       'Si us plau, introduïu el nom de la marca';
 
   @override
-  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
+  String get add_basic_details_brand_names_hint =>
+      'Marques d\'entrada (per exemple: Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+      'Bones pràctiques: Marques';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'Introduïu **totes les marques del producte**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title =>
+      'Marca principal';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      'La **marca principal**, que generalment es mostra clarament a l\'envàs frontal, s\'ha d\'**introduir primer**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title =>
+      'Altres marques';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'Quan ho ven **una gran empresa**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**Actimel** és venut per **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'Quan es ven amb la seva marca **traduïda a diversos idiomes**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**Vall de la Natura** de vegades s\'escriu **Vall Natura**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3365,27 +3387,27 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Input the weight and if needed the quantity (eg : 4x100g)';
+      'Introduïu el pes i, si cal, la quantitat (per exemple: 4x100g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'Bones pràctiques: Quantitat';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'Copieu el valor indicat al producte i **no us oblideu de les unitats**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230 g** o **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (per a 6 ous)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150 g**\n(per a un producte amb 3 caixes, cadascuna de 150 g)';
 
   @override
   String get barcode => 'Codi de barres';
@@ -3407,7 +3429,7 @@ class AppLocalizationsCa extends AppLocalizations {
       'No es poden afegir detalls bàsics. Si us plau, torna-ho a provar d\'aquí a un temps';
 
   @override
-  String get clear_search => 'Clear your search';
+  String get clear_search => 'Esborra la cerca';
 
   @override
   String get confirm_clear =>
@@ -3431,15 +3453,15 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Delete the list?';
+  String get confirm_delete_user_list_title => 'Voleu eliminar la llista?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
+    return 'Esteu a punt d\'eliminar la llista \"$name\".\nEsteu segur que voleu continuar?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Yes, I confirm';
+  String get confirm_delete_user_list_button => 'Sí, confirmo';
 
   @override
   String importance_label(String name, String id) {
@@ -3483,15 +3505,15 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get add_origin_photo_button_label =>
-      'Take photos of any origin information';
+      'Feu fotos de qualsevol informació d\'origen';
 
   @override
   String get add_emb_photo_button_label =>
-      'Take photos of any traceability code information';
+      'Feu fotos de qualsevol informació del codi de traçabilitat';
 
   @override
   String get add_label_photo_button_label =>
-      'Take photos of any labels & certifications information';
+      'Feu fotos de qualsevol informació sobre etiquetes i certificacions';
 
   @override
   String get choose_image_source_title => 'Trieu la font de la imatge';
@@ -3518,27 +3540,27 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String share_product_text(String url) {
-    return 'Have a look at this product on Open Food Facts: $url';
+    return 'Fes una ullada a aquest producte a Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Have a look at this product on Open Beauty Facts: $url';
+    return 'Fes una ullada a aquest producte a Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Have a look at this product on Open PetFood Facts: $url';
+    return 'Fes una ullada a aquest producte a Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Have a look at this product on Open Products Facts: $url';
+    return 'Fes una ullada a aquest producte a Open Products Facts: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Have a look at my list of products on Open Food Facts: $url';
+    return 'Fes una ullada a la meva llista de productes a Open Food Facts: $url';
   }
 
   @override
@@ -3556,7 +3578,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get add_price_queued =>
-      'The price will be sent to the server as soon as possible.';
+      'El preu s\'enviarà al servidor tan aviat com sigui possible.';
 
   @override
   String get background_task_title_full_refresh =>
@@ -3597,11 +3619,11 @@ class AppLocalizationsCa extends AppLocalizations {
   String get copy_to_clipboard => 'Copia';
 
   @override
-  String get paste_from_clipboard => 'Paste from clipboard';
+  String get paste_from_clipboard => 'Enganxa des del porta-retalls';
 
   @override
   String get no_data_available_in_clipboard =>
-      'No data available in your clipboard';
+      'No hi ha dades disponibles al porta-retalls';
 
   @override
   String get clipboard_barcode_copy =>
@@ -3613,16 +3635,16 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get open_product_website => 'Open this product on the website';
+  String get open_product_website => 'Obre aquest producte al lloc web';
 
   @override
-  String get language_picker_label => 'Your language';
+  String get language_picker_label => 'El vostre idioma';
 
   @override
   String get country_picker_label => 'El vostre país';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'La teva moneda';
 
   @override
   String get help_with_openfoodfacts => 'Ajuda a OpenFoodFacts';
@@ -3637,7 +3659,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Please send us manually an email to mobile@openfoodfacts.org';
+      'Si us plau, envieu-nos un correu electrònic manualment a mobile@openfoodfacts.org';
 
   @override
   String get all_images => 'Totes les imatges';
@@ -3666,42 +3688,42 @@ class AppLocalizationsCa extends AppLocalizations {
       'Feu clic per comparar els productes que heu escanejat';
 
   @override
-  String get scan_product_loading => 'You have scanned\nthe barcode:';
+  String get scan_product_loading => 'Has escanejat\nel codi de barres:';
 
   @override
   String get scan_product_loading_initial =>
-      'We\'re looking for this product!\nPlease wait a few seconds…';
+      'Estem buscant aquest producte!\nSi us plau, espereu uns segons…';
 
   @override
   String get scan_product_loading_long_request =>
-      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
+      'Encara estem buscant aquest producte!\nTrobeu que triga molt a carregar? Nosaltres també…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'We\'re still looking for this product.\nWould you like to restart the search?';
+      'Encara estem buscant aquest producte.\nVoleu reiniciar la cerca?';
 
   @override
-  String get scan_product_loading_restart_button => 'Restart search';
+  String get scan_product_loading_restart_button => 'Reinicia la cerca';
 
   @override
   String get portion_calculator_description =>
       'Calcula els valors nutricionals per a una quantitat específica';
 
   @override
-  String get portion_calculator_hint => 'Quantity in';
+  String get portion_calculator_hint => 'Quantitat en';
 
   @override
   String get portion_calculator_accessibility =>
-      'Input a quantity to calculate nutrition facts';
+      'Introdueix una quantitat per calcular les dades nutricionals';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Please enter a quantity between $min and $max g';
+    return 'Si us plau, introduïu una quantitat entre $min i $max g';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Missing data. Calculation could not be performed.';
+      'Falten dades. No s\'ha pogut realitzar el càlcul.';
 
   @override
   String portion_calculator_result_title(int grams) {
@@ -3735,7 +3757,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get user_picture_source_remember => 'Recorda la meva selecció';
 
   @override
-  String get user_picture_source_ask => 'Ask each time';
+  String get user_picture_source_ask => 'Pregunta cada vegada.';
 
   @override
   String get robotoff_continue => 'Continuar';
@@ -3755,18 +3777,18 @@ class AppLocalizationsCa extends AppLocalizations {
   String get show_password => 'Mostra la contrasenya';
 
   @override
-  String get owner_field_info_title => 'Producer provided values';
+  String get owner_field_info_title => 'Valors proporcionats pel productor';
 
   @override
   String get owner_field_info_message =>
-      'With that logo we highlight data provided by the producer, and that may not be editable.';
+      'Amb aquest logotip destaquem les dades proporcionades pel productor, i que poden no ser editables.';
 
   @override
-  String get owner_field_info_close_button => 'Close this info';
+  String get owner_field_info_close_button => 'Tanca aquesta informació';
 
   @override
   String get owner_field_image =>
-      'This image is provided by the producer. It may not be editable.';
+      'Aquesta imatge és proporcionada pel productor. És possible que no sigui editable.';
 
   @override
   String get edit_packagings_title => 'Components d\'embalatge';
@@ -3783,7 +3805,7 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Number of units';
+  String get edit_packagings_element_field_units => 'Nombre d\'unitats';
 
   @override
   String get edit_packagings_element_hint_units =>
@@ -3952,16 +3974,16 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get product_refresher_internet_not_connected =>
-      'You are not connected to internet!';
+      'No estàs connectat a Internet!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Server down ($host)';
+    return 'Servidor inactiu ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Server error ($exception)';
+    return 'Error del servidor ($exception)';
   }
 
   @override
@@ -4018,7 +4040,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get update_local_database_sub =>
-      'Update the local product database with the latest data from Open Food Facts';
+      'Actualitzeu la base de dades de productes locals amb les dades més recents d\'Open Food Facts';
 
   @override
   String get clear_local_database =>
@@ -4058,19 +4080,20 @@ class AppLocalizationsCa extends AppLocalizations {
   String get currency_selector_title => 'Seleccioneu la vostra moneda:';
 
   @override
-  String get language_selector_title => 'Select your language:';
+  String get language_selector_title => 'Selecciona el teu idioma:';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'Idiomes seleccionats';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used =>
+      'Utilitzat amb freqüència';
 
   @override
   String get action_delete_list => 'Elimina';
 
   @override
-  String get action_change_list => 'Change the current list';
+  String get action_change_list => 'Canvia la llista actual';
 
   @override
   String get product_list_create => 'Crea';
@@ -4112,11 +4135,12 @@ class AppLocalizationsCa extends AppLocalizations {
       'Nutri-Score desconegut (nou càlcul)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
+  String get nutriscore_not_applicable =>
+      'La puntuació Nutri-Score no és aplicable.';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+      'Nutri-Score no és aplicable (nou càlcul)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4147,67 +4171,68 @@ class AppLocalizationsCa extends AppLocalizations {
   String get nova_group_generic_new => 'Aliments ultraprocessats - Grups NOVA';
 
   @override
-  String get nova_group_1 => 'NOVA Group 1';
+  String get nova_group_1 => 'Grup NOVA 1';
 
   @override
-  String get nova_group_2 => 'NOVA Group 2';
+  String get nova_group_2 => 'Grup NOVA 2';
 
   @override
-  String get nova_group_3 => 'NOVA Group 3';
+  String get nova_group_3 => 'Grup NOVA 3';
 
   @override
-  String get nova_group_4 => 'NOVA Group 4';
+  String get nova_group_4 => 'Grup NOVA 4';
 
   @override
-  String get nova_group_unknown => 'Unknown NOVA Group';
+  String get nova_group_unknown => 'Grup NOVA desconegut';
 
   @override
-  String get nutrition_facts => 'Nutrient Levels';
+  String get nutrition_facts => 'Nivells de nutrients';
 
   @override
-  String get faq_title_partners => 'Partners & Patrons of the NGO';
+  String get faq_title_partners => 'Socis i patrocinadors de l\'ONG';
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'La visió, la missió, els valors i els programes d\'Open Food Facts';
 
   @override
   String get faq_title_install_beauty =>
-      'Install Open Beauty Facts to create a cosmetic database';
+      'Instal·la Open Beauty Facts per crear una base de dades de cosmètics';
 
   @override
   String get faq_title_install_pet =>
-      'Install Open Pet Food Facts to create a pet food database';
+      'Instal·la Open Pet Food Facts per crear una base de dades d\'aliments per a mascotes';
 
   @override
   String get faq_title_install_product =>
-      'Install Open Products Facts to create a products database to extend the life of objects';
+      'Instal·leu Open Products Facts per crear una base de dades de productes per allargar la vida útil dels objectes.';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'New calculation of the Nutri-Score: what\'s new?';
+      'Nou càlcul del Nutri-Score: què hi ha de nou?';
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Import your products in Open Food Facts';
+      'Pro? Importa els teus productes a Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'Producer Contact';
+  String get contact_title_pro_email => 'Contacte del productor';
 
   @override
-  String get contact_title_press_page => 'Press Page';
+  String get contact_title_press_page => 'Pàgina de premsa';
 
   @override
-  String get contact_title_press_email => 'Press Contact';
+  String get contact_title_press_email => 'Contacte de premsa';
 
   @override
   String get contact_title_newsletter => 'Subscriu-te al nostre butlletí';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar =>
+      'Subscriu-te al calendari de la nostra comunitat';
 
   @override
-  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
+  String get hunger_games_loading_line1 => 'Si us plau, doneu-nos uns segons…';
 
   @override
   String get hunger_games_loading_line2 => 'Estem descarregant les preguntes!';
@@ -4220,7 +4245,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get hunger_games_error_retry_button => 'Tornem-ho a provar!';
 
   @override
-  String get reorder_attribute_action => 'Reorder the attributes';
+  String get reorder_attribute_action => 'Reordenar els atributs';
 
   @override
   String get link_cant_be_opened =>
@@ -4323,15 +4348,15 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Where to find the new Nutri-Score calculation?';
+      'On puc trobar el nou càlcul de Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'El Nutri-Score s\'aplica a 7 països: França, Alemanya, Bèlgica, Espanya, Luxemburg, Països Baixos i Suïssa.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Els fabricants tenen com a màxim **2 anys** després de la signatura del decret **per substituir** el càlcul antic pel nou.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4442,7 +4467,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Per recompensar els millors productes dins d\'una categoria, apliquem **bonificacions i penalitzacions basades en diversos criteris**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4450,7 +4475,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'Es concedeix una **bonus** als productes que tenen una **etiqueta oficial, una etiqueta o una certificació que garanteix beneficis mediambientals** (orgànic, comerç just, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4458,7 +4483,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      'S\'atorga una **bonificació** en funció de l\'origen dels ingredients. Aquesta bonificació té en compte l\'**impacte en el transport** i també la **política ambiental** del país de cada productor.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4466,14 +4491,14 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      'S\'imposa una **penalització** als productes que contenen ingredients amb impactes negatius significatius sobre la biodiversitat i els ecosistemes, com ara l\'oli de palma, la producció del qual és responsable d\'una desforestació massiva.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Empaquetament';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      'Es calcula una **penalització** tenint en compte la **circularitat dels envasos** (ús de matèries primeres reciclades i reciclabilitat) i l\'excés d\'embalatge.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4481,19 +4506,19 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Per calcular amb precisió el Green-Score, cal tenir informació que no necessàriament s\'especifica a l\'envàs (com ara l\'origen i el percentatge exacte de cada ingredient) o que rarament està disponible en forma útil (com ara una llista de tots els components de l\'envàs amb els tipus precisos de plàstics utilitzats).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**Es fan servir valors mitjans quan aquesta informació encara no està disponible**, però ara demanem a tothom que ens ajudi a recopilar aquesta informació, que serà molt útil per al Green-Score, però també per a molts altres usos.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Com poden ajudar els ciutadans?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Tots els ciutadans ens poden ajudar a recopilar i estructurar la informació que hi ha als productes o que se\'n pot deduir, com ara la informació sobre els **envasos**: \"Mission Emballages\": un inventari col·laboratiu a gran escala d\'envasos per a tots els productes alimentaris (en francès).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4567,7 +4592,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Els aliments no processats (o naturals) són les **parts comestibles de les plantes** (llavors, fruits, fulles, tiges, arrels) **o animals** (múscul, despulles, ous, llet), així com els fongs, les algues i l\'aigua, després d\'haver-les separat de la natura.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Ingredients culinaris processats';
@@ -4600,7 +4625,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Molts **deriven del processament posterior de constituents alimentaris**, com ara olis hidrogenats o interesterificats, proteïnes hidrolitzades, aïllat de proteïna de soja, maltodextrina, sucre invertit i xarop de blat de moro amb alt contingut en fructosa.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4608,7 +4633,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Els additius dels aliments ultraprocessats inclouen alguns que també s\'utilitzen en aliments processats, com ara conservants, antioxidants i estabilitzadors. Les classes d\'additius que només es troben en productes ultraprocessats inclouen els que s\'utilitzen **per imitar o millorar les qualitats sensorials dels aliments o per dissimular aspectes desagradables del producte final**. Aquests additius inclouen colorants i altres colorants, estabilitzadors del color; sabors, potenciadors del sabor, edulcorants sense sucre; i coadjuvants de processament com ara agents carbonatants, reafirmants, volumitzants i antivoluminants, agents antiespumants, antiaglomerants i glacejants, emulsionants, segrestants i humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4616,7 +4641,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**S\'utilitza una multitud de seqüències de processos** per combinar els ingredients que normalment són nombrosos i crear el producte final (d\'aquí que es digui \"ultraprocessat\"). Els processos n\'inclouen diversos **sense equivalents domèstics**, com ara la hidrogenació i la hidrolització, l\'extrusió i el modelat, i el preprocessament per a la fregidura.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4624,104 +4649,105 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'L\'objectiu general de l\'ultraprocessament és crear productes alimentaris de marca, pràctics (duradors, llestos per consumir), atractius (hiperpalatables) i altament rendibles (ingredients de baix cost), dissenyats per desplaçar tots els altres grups d\'aliments. Els productes alimentaris ultraprocessats solen envasar-se de manera atractiva i es comercialitzen de manera intensiva.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Un perill per a la salut';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      'Des del 2018, amb NutriNet-Santé, s\'han destacat els primers vincles entre **el consum d\'aliments ultraprocessats i l\'augment dels riscos de càncer, malalties cardiovasculars i diabetis**. Avui dia, més de 90 estudis a tot el món confirmen aquestes troballes.\nLes associacions més fortes es relacionen amb **l\'obesitat, la mortalitat cardiovascular i els símptomes depressius**. En els nens, els efectes s\'observen principalment en el pes i els desequilibris lipídics.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Els països recomanen limitar-los';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'Alguns països utilitzen els grups NOVA per a les seves pautes o objectius dietètics, per exemple:\n\n- **🇧🇷 Les pautes dietètiques del Brasil** **recomanen limitar el consum** d\'aliments processats i evitar els aliments ultraprocessats.\n\n- **🇫🇷 Els objectius de la política nutricional de salut pública de França** per al període 2018-2022 tenen com a objectiu **reduir el consum d\'aliments ultraprocessats del grup 4 en un 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world-ca.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title => 'Benvinguts a Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Què és Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Open Food Facts és una base de dades **col·laborativa**, **gratuïta** i **oberta** de productes alimentaris d\'arreu del món.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Creiem que tothom hauria de tenir accés a la informació sobre el que menja. Recopilant dades sobre ingredients, al·lèrgens, informació nutricional i més, **capacitem els consumidors per prendre decisions informades** i impulsem la indústria alimentària **cap a una major transparència**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Característiques d\'Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Rep alertes sobre els ingredients no desitjats';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title => 'Consells per fer bones fotos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Què no fer';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Eviteu les ombres i els enlluernaments.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Sense text borrós ni desenfocat.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'No retallis parts del text.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Eviteu els fons carregats.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'Què fer';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Utilitza una bona il·luminació uniforme.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Assegureu-vos que el text sigui nítid i llegible.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Captura tota la llista d\'ingredients.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Mantingueu el producte sobre una superfície plana.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Ajuda\'ns a construir la \"Viquipèdia del menjar\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Una puntuació sobre la qualitat nutricional';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Una puntuació per evitar els aliments ultraprocessats';
 
   @override
   String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+      'Una puntuació per al planeta';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4729,168 +4755,170 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Benvinguts a Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Què és Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'Open Pet Food Facts estén la nostra missió als nostres amics peluts! És una **base de dades de productes alimentaris per a mascotes per a gats, gossos i altres companys**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Recopilem informació sobre **ingredients**, **anàlisi nutricional** i pautes d\'alimentació per ajudar els propietaris de mascotes a triar el millor aliment per a les necessitats dels seus animals.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Característiques dels aliments oberts per a mascotes';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Rep alertes sobre els ingredients no desitjats';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'La teva mascota és al·lèrgica a algun ingredient? Pots definir una llista d\'ingredients cosmètics que cal evitar, directament a l\'aplicació!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Consells per fer bones fotos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Què no fer';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Eviteu les ombres i els enlluernaments.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Sense text borrós ni desenfocat.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'No retallis parts del text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Eviteu els fons carregats.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Què fer';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Utilitza una bona il·luminació uniforme.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Assegureu-vos que el text sigui nítid i llegible.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Captura tota la llista d\'ingredients.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Mantingueu el producte sobre una superfície plana.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'Una nota sobre la puntuació';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'Desenvolupar un sistema de puntuació per a aliments per a mascotes **no és una prioritat ara mateix**. La metodologia seria complexa, ja que les necessitats nutricionals varien molt segons l\'espècie, l\'edat i l\'estat de salut. Encara no hem trobat cap equip científic independent capaç de desenvolupar aquesta puntuació.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-ca.openpetfoodfacts.org/descobrir';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title => 'Benvinguts a Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Què és Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts és una base de dades col·laborativa de **productes cosmètics**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'El nostre objectiu és desxifrar les llistes d\'ingredients per ajudar-vos a **entendre què contenen els vostres productes d\'higiene personal**. Des de cremes hidratants fins a maquillatge, recopilem dades sobre ingredients, al·lèrgens i envasos per promoure la transparència en la indústria cosmètica.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Característiques d\'Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Rep alertes sobre els ingredients no desitjats';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Ets al·lèrgic a algun ingredient? Vols evitar les substàncies comedogèniques? Vols mantenir-te allunyat dels components controvertits? Pots definir una llista d\'ingredients cosmètics que cal evitar, directament a l\'aplicació!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Consells per fer bones fotos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Què no fer';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Eviteu les ombres i els enlluernaments.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Sense text borrós ni desenfocat.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'No retallis parts del text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Eviteu els fons carregats.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Què fer';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Utilitza una bona il·luminació uniforme.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Assegureu-vos que el text sigui nítid i llegible.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Captura tota la llista d\'ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Fes tantes fotos com necessitis si l\'ampolla és corba.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Potser haureu de desenganxar l\'etiqueta per veure la llista d\'ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Mantingueu el producte sobre una superfície plana.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title =>
+      'Una nota sobre la puntuació';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'A diferència dels productes alimentaris, el món dels cosmètics **no té un sistema de puntuació universalment reconegut i avalat pel govern com el Nutri-Score**. Els efectes dels ingredients poden ser molt personals i depenen del tipus de pell, les al·lèrgies i les preocupacions individuals.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
@@ -4905,60 +4933,59 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+      'Open Prices és un projecte per **recopilar i compartir preus de productes a tot el món**. És un conjunt de dades disponible públicament que es pot utilitzar per a la recerca, l\'anàlisi i més. Open Prices està desenvolupat i mantingut per Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'How does Open Prices work?';
+  String get guide_open_prices_how_title => 'Com funciona Open Prices?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Estem creant col·laboracions amb un conjunt de dades de preus de codi obert.** Els usuaris poden afegir preus a través d\'aquesta aplicació web o a través de l\'aplicació mòbil oficial Open Food Facts. Els minoristes o les aplicacions de tercers també poden contribuir mitjançant la nostra API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Recopila fotos d\'etiquetes de preus als passadissos';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title => 'Recopila fotos de rebuts';
 
   @override
-  String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+  String get guide_open_prices_why_title => 'Per què fa això Open Food Facts?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'La informació sobre els preus és de suma importància per entendre els sistemes alimentaris. És un factor clau per entendre el cost dels aliments i per promoure dietes més saludables. Les dades de preus d\'obertura són una manera de facilitar que els investigadors, periodistes i ciutadans puguin **comprensió millor de com varien geogràficament i en el temps els preus dels aliments**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Seguir l\'evolució dels preus al llarg del temps';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Vegeu l\'**evolució dels preus**: inflació minvant, inflació barata, les podem seguir junts!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title => 'Compara preus a prop teu';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'A mesura que tinguem més preus, podreu detectar **les botigues més barates del vostre voltant**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Has considerat extreure preus dels llocs web dels minoristes?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
+      'Per motius legals i tècnics, **no considerem que extreure preus dels llocs web dels minoristes sigui una manera vàlida de contribuir a Open Prices**. Volem assegurar-nos que els preus que recopilem siguin precisos i estiguin actualitzats, i rebre preus extrets dels col·laboradors no ens permet fer-ho.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'El scraping de preus és una opció considerada en una versió futura d\'Open Prices, però ho faria el mateix Open Prices per tal que puguem tenir una prova del preu basada en la pàgina HTML.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4966,7 +4993,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Podeu contribuir amb preus mitjançant la nostra API.\nSi voleu contribuir amb preus a gran escala, poseu-vos en contacte amb nosaltres a prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4974,132 +5001,135 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Benvinguts a Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Què són els fets sobre productes oberts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'Open Products Facts és una base de dades massiva i oberta per a **qualsevol producte amb codi de barres, que no sigui aliment, cosmètic o menjar per a mascotes**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'Des d\'**electrònica** fins a **joguines**, i **roba** fins a **productes de neteja**, si té un codi de barres, es pot afegir. Aquest projecte pretén crear una \"Internet de les coses\" per a objectes quotidians, fent que la informació sobre ells sigui universalment accessible.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Característiques dels productes oberts Dades';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'Open Products Facts té com a objectiu proporcionar als consumidors la possibilitat d\'**allargar la vida útil dels objectes** proporcionant solucions circulars per mantenir, **reparar**, **reciclar** els seus objectes o donar-los un nou propietari.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Petjades de carboni per a alguns productes';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      '**Impact CO2** de l\'ADEME, l\'Autoritat Francesa de Medi Ambient, proporciona l\'**impacte en carboni** de moltes categories; assegureu-vos de classificar els productes amb precisió.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Índex de reparabilitat per a molts productes';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Sempre que hi hagi un índex de reparabilitat francès disponible, el mostrarem. A més, **podeu començar a recopilar les variables mitjançant el motor de folksonomia**; de manera que puguem recalcular-lo nosaltres mateixos en el futur, fins i tot en països on no està disponible.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Troba maneres de donar/revendre el teu producte';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Us proporcionem enllaços a **serveis de tercers respectuosos amb el medi ambient** que us ajuden a obtenir el tipus de producte que busqueu, com a producte de segona mà, per ser més respectuós amb els recursos planetaris.\nTingueu en compte que no ens paguen per fer això i que el sistema només funciona com a exemple per a dos llocs web a França. Podeu ajudar a ampliar aquest sistema documentant més llocs a la wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Quina informació és útil?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Per a una gamma tan àmplia d\'elements, **les dades que recopilem són flexibles**. Per fer-ho, **hem creat el motor de folksonomia**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+      'El motor de folksonomia';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'El motor de folksonomia és una eina que t\'ajuda a completar productes amb propietats rellevants. Això ajuda a millorar la cerca i la descobribilitat, però també a calcular i mostrar coses interessants en el futur.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Podeu afegir qualsevol clau i valor com ara: **compatibilitat_amb_network_mobile_5G: sí**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Rebràs un autosuggeriment de possibles propietats i et convidem a afegir-ne de noves sobre els teus tipus de productes preferits.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-ca.openproductsfacts.org/descobrir';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title =>
+      'Preferències alimentàries obertes';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Properament';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'Toca per obtenir més informació';
 
   @override
-  String get preview_badge => 'Preview';
+  String get preview_badge => 'Vista prèvia';
 
   @override
   String get prices_feedback_form =>
-      'Click here to send us your feedback about this new feature!';
+      'Feu clic aquí per enviar-nos els vostres comentaris sobre aquesta nova funció!';
 
   @override
-  String get menu_button_list_actions => 'Select an action';
+  String get menu_button_list_actions => 'Selecciona una acció';
 
   @override
-  String get error_loading_photo => 'Error loading photo';
+  String get error_loading_photo =>
+      'S\'ha produït un error en carregar la foto';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Use as…';
+  String get photo_viewer_action_use_picture_as => 'Utilitza com a…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
+  String get photo_viewer_use_picture_as_tooltip =>
+      'Fes servir aquesta imatge com a…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Use this picture as… ($language)';
+    return 'Fes servir aquesta imatge com a… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'Details';
+  String get photo_viewer_details_button => 'Detalls';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Details of this photo';
+      'Detalls d\'aquesta foto';
 
   @override
-  String get photo_viewer_details_title => 'Details of the photo';
+  String get photo_viewer_details_title => 'Detalls de la foto';
 
   @override
   String get photo_viewer_details_contributor_title => 'Voluntari/a';
 
   @override
-  String get photo_viewer_details_size_title => 'Size';
+  String get photo_viewer_details_size_title => 'Mida';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height pixels';
+    return '$width x $height píxels';
   }
 
   @override
@@ -5112,11 +5142,11 @@ class AppLocalizationsCa extends AppLocalizations {
   String get product_page_compatibility_score => 'Compatible';
 
   @override
-  String get user_lists_action_multi_select => 'Multi-select';
+  String get user_lists_action_multi_select => 'Selecció múltiple';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Your compatibility score: $score%';
+    return 'La teva puntuació de compatibilitat: $score%';
   }
 
   @override
@@ -5127,161 +5157,167 @@ class AppLocalizationsCa extends AppLocalizations {
       'Imatge dels ingredients';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
+  String get product_image_nutrition_accessibility_label =>
+      'Imatge nutricional';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Packaging picture';
+  String get product_image_packaging_accessibility_label =>
+      'Imatge de l\'embalatge';
 
   @override
-  String get product_image_other_accessibility_label => 'Other picture';
+  String get product_image_other_accessibility_label => 'Altra imatge';
 
   @override
-  String get product_image_outdated_message => 'This picture may be outdated';
+  String get product_image_outdated_message =>
+      'Aquesta imatge pot estar desactualitzada';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (this image may be outdated)';
+    return '$type (aquesta imatge pot estar desactualitzada)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (this image may be locked by the producer)';
+    return '$type (és possible que el productor hagi bloquejat aquesta imatge)';
   }
 
   @override
-  String get product_image_error => 'Unable to load the image!';
+  String get product_image_error => 'No s\'ha pogut carregar la imatge!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'Unable to load the $type (network error?)';
+    return 'No es pot carregar $type (error de xarxa?)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'No\nimage!';
+  String get product_page_image_no_image_available => 'Cap imatge\n!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'No picture available for this product';
+      'No hi ha cap imatge disponible per a aquest producte';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Reorder or hide actions';
+      'Reordenar o ocultar accions';
 
   @override
-  String get product_page_action_bar_setting_modal_title => 'Edit actions';
+  String get product_page_action_bar_setting_modal_title => 'Edita accions';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Move up';
+  String get product_page_action_bar_item_move_up => 'Puja';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Move down';
+  String get product_page_action_bar_item_move_down => 'Moure cap avall';
 
   @override
-  String get product_page_action_bar_item_enable => 'Enable action';
+  String get product_page_action_bar_item_enable => 'Activa l\'acció';
 
   @override
-  String get product_page_action_bar_item_disable => 'Disable action';
+  String get product_page_action_bar_item_disable => 'Desactiva l\'acció';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Pujant les teves edicions…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
+      'Les dades que es mostren en aquesta pàgina **encara no reflecteixen les vostres modificacions**.\nEspereu uns segons…';
 
   @override
-  String get product_add_a_language => 'Add a language';
+  String get product_add_a_language => 'Afegeix un idioma';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Barcode $barcode';
+    return 'Codi de barres $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Remove this product from the carousel';
+  String get carousel_close_tooltip => 'Elimina aquest producte del carrusel';
 
   @override
-  String get carousel_unsupported_header => 'Unsupported barcode!';
+  String get carousel_unsupported_header => 'Codi de barres no compatible!';
 
   @override
-  String get carousel_unsupported_title => 'Ooops!';
+  String get carousel_unsupported_title => 'Ups!';
 
   @override
   String get carousel_unsupported_text =>
-      'The barcode scanned is not supported by Open Food Facts!';
+      'El codi de barres escanejat no és compatible amb Open Food Facts!';
 
   @override
   String get carousel_error_header => 'Error!';
 
   @override
-  String get carousel_error_title => 'It\'s a bummer!';
+  String get carousel_error_title => 'És una llàstima!';
 
   @override
   String get carousel_error_text_1 =>
-      'We couldn\'t download information on this barcode:';
+      'No hem pogut descarregar la informació d\'aquest codi de barres:';
 
   @override
   String get carousel_error_text_2 =>
-      'Please check your Internet connection or click this button:';
+      'Si us plau, comproveu la vostra connexió a Internet o feu clic en aquest botó:';
 
   @override
   String get carousel_error_button => 'Torna a provar';
 
   @override
-  String get carousel_unknown_product_header => 'Unknown product';
+  String get carousel_unknown_product_header => 'Producte desconegut';
 
   @override
   String get carousel_unknown_product_title =>
-      'Congratulations!\nYou\'ve found __the rare gem!__';
+      'Felicitats!\nHas trobat __la joia rara!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'La nostra base de dades col·laborativa conté més de **3 milions de productes**, però aquest codi de barres no existeix: ';
 
   @override
   String get carousel_unknown_product_button => 'Afegir aquest producte';
 
   @override
-  String get carousel_loading_header => 'Loading information...';
+  String get carousel_loading_header => 'S\'està carregant la informació...';
 
   @override
   String get carousel_loading_title =>
-      'You\'ve just scanned a product with the following barcode:';
+      'Acabes d\'escanejar un producte amb el següent codi de barres:';
 
   @override
   String get carousel_loading_text =>
-      'We are searching for it in our database of more than **3 million products!**';
+      'Ho estem buscant a la nostra base de dades de més de **3 milions de productes!**';
 
   @override
-  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
+  String get product_type_subtitle_food =>
+      'Verdures, fruites, aliments congelats…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
+  String get product_type_subtitle_beauty =>
+      'Maquillatge, sabons, pastes de dents…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'Menjar per a gossos, gats…';
 
   @override
-  String get product_type_subtitle_product => 'Smartphones, furniture…';
+  String get product_type_subtitle_product => 'Telèfons intel·ligents, mobles…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'Foto del producte';
 
   @override
   String get photo_field_ingredients => 'Foto dels ingredients';
 
   @override
-  String get photo_field_nutrition => 'Nutrition photo';
+  String get photo_field_nutrition => 'Foto de nutrició';
 
   @override
-  String get photo_field_packaging => 'Foto de la informació de l\'embolcall';
+  String get photo_field_packaging =>
+      'Foto d\'instruccions sobre el reciclatge';
 
   @override
-  String get photo_already_exists => 'This photo already exists';
+  String get photo_already_exists => 'Aquesta foto ja existeix';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'Falta aquesta foto';
 
   @override
   String get date => 'Data';
@@ -5293,16 +5329,16 @@ class AppLocalizationsCa extends AppLocalizations {
   String get photo_rotate_right => 'Gira a la dreta';
 
   @override
-  String get photo_undo_action => 'Undo the previous action';
+  String get photo_undo_action => 'Desfer l\'acció anterior';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'A world map of $location';
+    return 'Un mapa del món de $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'OpenStreetMap contributors';
+      'Col·laboradors d\'OpenStreetMap';
 
   @override
   String get not_applicable_short => 'N/A';
@@ -5312,48 +5348,48 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'Per què aquesta Nutri-Score és diferent de la que apareix a l\'envàs?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'Hi ha dues explicacions possibles:\nLa llista d\'ingredients i/o la informació nutricional no estan actualitzades.\n\nUs proporcionem el \"Nou càlcul\" del Nutri-Score (o V2). Comproveu que tingueu el bàner \"Nou càlcul\" a l\'envàs.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'Comprova els ingredients';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Check nutrition facts';
+      'Consulta la informació nutricional';
 
   @override
   String url_not_supported(String url) {
-    return 'Unfortunately, we can\'t open the URL:\n$url';
+    return 'Malauradament, no podem obrir l\'URL:\n$url';
   }
 
   @override
-  String get product_list_export => 'Export';
+  String get product_list_export => 'Exporta';
 
   @override
-  String get product_list_import => 'Import';
+  String get product_list_import => 'Importa';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'Veure codi de barres';
 
   @override
   String get product_footer_action_barcode_short => 'Codi de barres';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'Obre el lloc web';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'Informe';
 
   @override
-  String get product_footer_action_contributor_guide => 'Help';
+  String get product_footer_action_contributor_guide => 'Ajuda';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'Qualitat de les dades';
 
   @override
   String get product_page_tab_for_me => 'Per a mi';
@@ -5375,7 +5411,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get explanation_card_learn_more_button => 'Saber-ne més';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5390,11 +5426,11 @@ class AppLocalizationsCa extends AppLocalizations {
       'Aquestes propietats són creades i arxivades pels col·laboradors per a qualsevol tipus d\'ús.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'Obre l\'enllaç extern';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Els enllaços externs poden ser perillosos. De veritat que els voleu visitar?';
 
   @override
   String get prices_products_empty_title => 'No hi ha preu disponible';
@@ -5405,41 +5441,41 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize products (total: $total)';
+    return 'Productes principals $pageSize (total: $total)';
   }
 
   @override
-  String get app_review_title => 'Are you enjoying this app?';
+  String get app_review_title => 'Estàs gaudint d\'aquesta aplicació?';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'Podria fer-ho millor';
 
   @override
-  String get app_review_medium => 'Not bad';
+  String get app_review_medium => 'No està malament';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'M\'encanta!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Help us improve our application';
+      'Ajuda\'ns a millorar la nostra aplicació';
 
   @override
   String get app_review_feedback_modal_content =>
-      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+      'Si tens uns minuts, podries respondre aquest formulari perquè **puguem millorar en futures actualitzacions**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Answer the form';
+  String get app_review_feedback_modal_open_form => 'Respon el formulari';
 
   @override
   String get app_review_feedback_modal_later => 'Pregunta-m\'ho després';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEW: You can automatically extract the nutrients from the picture!';
+      'NOU: Pots extreure automàticament els nutrients de la imatge!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Extract now';
+  String get nutrition_facts_extract_button_text => 'Extreu ara';
 
   @override
   String get nutrition_facts_extract_in_progress => 'Extracció en curs…';
@@ -5449,16 +5485,16 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Failed to extract nutrients from picture';
+      'No s\'han pogut extreure els nutrients de la imatge';
 
   @override
   String get prices_discount => 'Descompte';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Estadístiques';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Estadístiques de preus';
 
   @override
   String get prices_stats_prices_section => 'Preus';
@@ -5524,10 +5560,10 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_stats_countries => 'Països';
 
   @override
-  String get prices_stats_price_tag => 'Price tag';
+  String get prices_stats_price_tag => 'Etiqueta de preu';
 
   @override
-  String get prices_stats_receipt => 'Receipt';
+  String get prices_stats_receipt => 'Rebut';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5563,14 +5599,14 @@ class AppLocalizationsCa extends AppLocalizations {
   String get prices_stats_other => 'Altres';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Última actualització el';
 
   @override
   String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+      'S\'ha produït un error en carregar les estadístiques.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Pregunta resposta!';
 
   @override
   String get product_edit_robotoff_proof => 'Prova';
@@ -5683,7 +5719,7 @@ class AppLocalizationsCa extends AppLocalizations {
       'Open Food Facts és una base de dades de productes alimentaris **feta per tothom, per a tothom**.\nLa podeu utilitzar per prendre millors decisions alimentàries i, com que són **dades obertes**, tothom la pot **reutilitzar per a qualsevol propòsit**.';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'Política de privacitat';
 
   @override
   String get preferences_licenses => 'Llicències';
@@ -5828,21 +5864,23 @@ class AppLocalizationsCa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descobreix el projecte';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Descobreix els fets sobre menjar obert';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Descobreix els fets de bellesa oberts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Descobreix els fets sobre aliments per a mascotes oberts';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Descobreix els productes oberts Dades';
 
   @override
   String get preferences_faq_faq_title => 'Preguntes freqüents';
@@ -5863,7 +5901,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Subscriu-te al calendari de la nostra comunitat';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -5971,7 +6009,8 @@ class AppLocalizationsCa extends AppLocalizations {
       'Passos senzills per augmentar la transparència alimentària al vostre país';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title =>
+      'Qualitat de les dades';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -6001,7 +6040,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get preferences_my_contributions_prices_title => 'Preus';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'Els meus preus';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6194,7 +6233,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Laboratoris oberts d\'informació sobre aliments';
 
   @override
   String get preferences_root_account_title => 'Compte';
@@ -6224,26 +6263,26 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Detalls de la ubicació';
 
   @override
   String get location_map_details_name => 'Nom';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Carrer';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Ciutat';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Codi postal';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Coordenades';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'ID d\'OSM';
 }

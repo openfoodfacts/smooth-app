@@ -673,7 +673,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get unknownBrand => 'Marca desconocida';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Cantidad desconocida';
 
   @override
   String get unknownProductName => 'Nombre de producto desconocido';
@@ -742,10 +742,11 @@ class AppLocalizationsEs extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Editar Información nutricional';
 
   @override
-  String get packaging_information => 'Información sobre el envase';
+  String get packaging_information => 'Instrucciones de reciclaje';
 
   @override
-  String get packaging_information_photo => 'Foto de la información del envase';
+  String get packaging_information_photo =>
+      'Foto sobre instrucciones de reciclaje';
 
   @override
   String get missing_product => '¡Has encontrado un nuevo producto!';
@@ -851,7 +852,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Foto de la información nutricional';
 
   @override
-  String get recycling_photo_title => 'Foto sobre el reciclaje';
+  String get recycling_photo_title => 'Instrucciones de reciclaje Foto';
 
   @override
   String get take_photo_title => 'Saca una foto';
@@ -1402,7 +1403,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'No se ha podido calcular la Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.';
+      'No se ha podido calcular la puntuación Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -4153,19 +4154,19 @@ class AppLocalizationsEs extends AppLocalizations {
   String get environmental_score_generic_new => 'Green-Score';
 
   @override
-  String get environmental_score_a_new => 'Green-Score A';
+  String get environmental_score_a_new => 'Puntuación verde A';
 
   @override
-  String get environmental_score_b_new => 'Green-Score B';
+  String get environmental_score_b_new => 'Puntuación verde B';
 
   @override
-  String get environmental_score_c_new => 'Green-Score C';
+  String get environmental_score_c_new => 'Puntuación verde C';
 
   @override
-  String get environmental_score_d_new => 'Green-Score D';
+  String get environmental_score_d_new => 'Puntuación verde D';
 
   @override
-  String get environmental_score_e_new => 'Green-Score E';
+  String get environmental_score_e_new => 'Puntuación verde E';
 
   @override
   String get environmental_score_unknown_new => 'Green-Score desconocida';
@@ -5323,7 +5324,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get photo_field_nutrition => 'Foto de nutrición';
 
   @override
-  String get photo_field_packaging => 'Foto de la información del envase';
+  String get photo_field_packaging => 'Foto sobre instrucciones de reciclaje';
 
   @override
   String get photo_already_exists => 'Esta foto ya existe';
@@ -6239,7 +6240,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Laboratorios abiertos de datos alimentarios';
 
   @override
   String get preferences_root_account_title => 'Cuenta';

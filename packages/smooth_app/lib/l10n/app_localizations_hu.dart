@@ -143,7 +143,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get match_short_unknown => 'Ismeretlen egyezés';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Licencek';
 
   @override
   String get looking_for => 'Keresés';
@@ -664,7 +664,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get unknownBrand => 'Ismeretlen márka';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Ismeretlen mennyiség';
 
   @override
   String get unknownProductName => 'Ismeretlen terméknév';
@@ -734,10 +734,11 @@ class AppLocalizationsHu extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Tápértékadatok szerkesztése';
 
   @override
-  String get packaging_information => 'Csomagolási információk';
+  String get packaging_information => 'Újrahasznosítási utasítások';
 
   @override
-  String get packaging_information_photo => 'Csomagolási információk fényképe';
+  String get packaging_information_photo =>
+      'Újrahasznosítási utasítások fényképe';
 
   @override
   String get missing_product => 'Új terméket talált!';
@@ -842,7 +843,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Tápértékadatok fényképe';
 
   @override
-  String get recycling_photo_title => 'Újrahasznosítási fénykép';
+  String get recycling_photo_title => 'Újrahasznosítási utasítások Fotó';
 
   @override
   String get take_photo_title => 'Fénykép készítése';
@@ -910,7 +911,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
   String get new_product_title_misc => 'És pár alapvető adat…';
@@ -2944,7 +2945,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get prices_proof_find => 'Bizonylat kiválasztása';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Változásbizonyítás';
 
   @override
   String get prices_proof_receipt => 'Nyugta';
@@ -3099,7 +3100,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Bizonyítás a \"$user\"-ból';
   }
 
   @override
@@ -4424,7 +4425,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'A kategórián belüli jobb termékek jutalmazása érdekében **bónuszokat és büntetéseket alkalmazunk számos kritérium alapján**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4432,7 +4433,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**Bónuszt** azok a termékek kapnak, amelyek **hivatalos címkével, környezeti előnyöket garantáló címkével vagy tanúsítvánnyal** rendelkeznek (bio, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4440,7 +4441,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      'A **bónuszt** az összetevők származása alapján ítélik oda. Ez a bónusz figyelembe veszi a **szállításra gyakorolt hatást**, valamint az egyes termelők országának **környezetvédelmi politikáját** is.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4448,14 +4449,14 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      '**Büntetést** szabnak ki azokra a termékekre, amelyek olyan összetevőket tartalmaznak, amelyek jelentős **negatív hatással vannak a biológiai sokféleségre és az ökoszisztémákra**, például a pálmaolajat, amelynek termelése tömeges erdőirtásért felelős.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Csomagolás';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      'A **büntetés** kiszámításakor figyelembe vesszük a **csomagolás körforgását** (újrahasznosított alapanyagok használata és újrahasznosíthatósága), valamint a túlcsomagolást.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4463,19 +4464,19 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'A Green-Score pontos kiszámításához olyan információkra van szükség, **amelyek nem feltétlenül szerepelnek a csomagoláson** (például az egyes összetevők eredete és pontos százalékos aránya), vagy amelyek ritkán állnak rendelkezésre használható formában (például a csomagolás összes összetevőjének listája a felhasznált műanyagok pontos típusaival).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**Átlagos értékeket használunk, ha ez az információ még nem áll rendelkezésre**, de most mindenkit arra kérünk, hogy segítsen nekünk összegyűjteni ezeket az információkat, amelyek nagyon hasznosak lesznek a Green-Score, de sok más célra is.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Hogyan segíthetnek a polgárok?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Minden állampolgár segíthet nekünk a termékeken található vagy azokból kikövetkeztethető információk összegyűjtésében és rendszerezésében, például a **csomagoláson** található információkban: „Mission Emballages”: nagyszabású, közösen készített leltár az összes élelmiszertermék csomagolásáról (francia nyelven).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4584,7 +4585,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Sokuk **élelmiszer-összetevők további feldolgozásából származik**, például hidrogénezett vagy interészterezett olajok, hidrolizált fehérjék, szójafehérje-izolátum, maltodextrin, invertcukor és magas fruktóztartalmú kukoricaszirup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4592,7 +4593,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Az ultrafeldolgozott élelmiszerekben található adalékanyagok között vannak olyanok, amelyeket a feldolgozott élelmiszerekben is használnak, például tartósítószerek, antioxidánsok és stabilizátorok. Az adalékanyagok azon osztályai, amelyek csak az ultrafeldolgozott termékekben találhatók, magukban foglalják azokat, amelyeket **az élelmiszerek érzékszervi tulajdonságainak utánzására vagy fokozására, illetve a végtermék kellemetlen tulajdonságainak elrejtésére** használnak. Ezek az adalékanyagok közé tartoznak a színezékek és egyéb színezékek, színstabilizátorok; aromák, ízfokozók, nem cukor alapú édesítőszerek; és feldolgozási segédanyagok, például szénsavasító, szilárdító, tömegnövelő és térfogatnövelő szerek, habzásgátló, csomósodást gátló és fényező anyagok, emulgeálószerek, komplexképzők és nedvesítőszerek.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4600,7 +4601,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**Számos folyamatsorozatot alkalmaznak** a szokásosan sok összetevő kombinálására és a végtermék (innen ered az „ultra feldolgozott”) előállítására. A folyamatok között több olyan is van, **amelyeknek nincs hazai megfelelőjük**, mint például a hidrogénezés és hidrolizálás, az extrudálás és formázás, valamint a sütéshez való előfeldolgozás.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4608,104 +4609,106 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      'Az ultrafeldolgozott élelmiszerek átfogó célja márkás, kényelmes (tartós, fogyasztásra kész), vonzó (hiperízletes) és rendkívül jövedelmező (alacsony költségű összetevőkből készült) élelmiszerek létrehozása, amelyek célja, hogy kiszorítsanak minden más élelmiszercsoportot. Az ultrafeldolgozott élelmiszereket általában vonzó csomagolásban csomagolják és intenzíven forgalmazzák.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Egészségügyi kockázat';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      '2018 óta a NutriNet-Santé programnak köszönhetően először mutattak ki összefüggéseket **az ultra-feldolgozott élelmiszerek fogyasztása és a rák, a szív- és érrendszeri betegségek, valamint a cukorbetegség fokozott kockázata között**. Ma már több mint 90 tanulmány erősíti meg ezeket a megállapításokat világszerte.\nA legerősebb összefüggések az **elhízáshoz, a szív- és érrendszeri halálozáshoz és a depressziós tünetekhez** kapcsolódnak. Gyermekeknél a hatások elsősorban a testsúlyban és a lipidegyensúly felborulásában figyelhetők meg.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Az országok a korlátozásukat javasolják';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'Néhány ország a NOVA csoportokat használja étkezési irányelveihez vagy céljaihoz, például:\n\n- **🇧🇷 Brazília** étkezési irányelvei **a feldolgozott élelmiszerek fogyasztásának korlátozását** és az ultra-feldolgozott élelmiszerek kerülését javasolják.\n\n- **🇫🇷 Franciaország** 2018-2022 közötti közegészségügyi táplálkozáspolitikai céljai a **4. csoportba tartozó ultra-feldolgozott élelmiszerek fogyasztásának 20%-kal történő csökkentése**.';
 
   @override
   String get guide_nova_share_link => 'https://world-hu.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title =>
+      'Üdvözlünk az Open Food Facts oldalán!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Mi az a Nyílt Élelmiszerinformációk?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Az Open Food Facts egy **együttműködésen alapuló**, **ingyenes** és **nyílt** adatbázis, amely a világ minden tájáról származó élelmiszertermékeket tartalmaz.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Úgy gondoljuk, hogy mindenkinek hozzáférése kell legyen az információkhoz arról, hogy mit eszik. Az összetevőkre, allergénekre, tápértékre és egyebekre vonatkozó adatok gyűjtésével **felhatalmazzuk a fogyasztókat a megalapozott döntések meghozatalára**, és az élelmiszeripart **nagyobb átláthatóság** felé tereljük.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Az Open Food Facts jellemzői';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Értesítéseket kaphat a nem kívánt összetevőkről';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title =>
+      'Tippek nagyszerű fotók készítéséhez';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Tiltott dolgok';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Kerülje az árnyékokat és a tükröződést.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Nincs elmosódott vagy életlen szöveg.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Ne vágj ki részeket a szövegből.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Kerüld a zsúfolt háttereket.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'Tennivalók';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Használjon jó, egyenletes megvilágítást.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Ügyeljen arra, hogy a szöveg éles és olvasható legyen.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Rögzítse a teljes összetevőlistát.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Tartsa a terméket sík felületen.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Segíts nekünk felépíteni az \"Ételek Wikipédiáját\"!';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Pontszám a tápértékre vonatkozóan';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Egy pontszám az ultra-feldolgozott élelmiszerek elkerülésére';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+  String get guide_open_food_facts_scores_arg3_title => 'Egy pont a bolygónak';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4713,168 +4716,170 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Üdvözöljük az Open Pet Food Facts oldalán!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Mi az a Nyílt Állateledel Tények?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'Az Open Pet Food Facts kiterjeszti küldetésünket szőrös barátainkra! Ez egy **macskák, kutyák és más társak számára készült állateledel-termékek adatbázisa**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Információkat gyűjtünk az **összetevőkről**, a **tápanyag-összetételről** és az etetési irányelvekről, hogy segítsük a gazdiknak kiválasztani az állataik igényeinek leginkább megfelelő eledelt.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Az Open Pet Food Facts jellemzői';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Értesítéseket kaphat a nem kívánt összetevőkről';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Allergiás bármilyen összetevőre a kedvenced? Az alkalmazásban beállíthatsz egy listát a kerülendő kozmetikai összetevőkről!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Tippek nagyszerű fotók készítéséhez';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Tiltott dolgok';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Kerülje az árnyékokat és a tükröződést.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Nincs elmosódott vagy életlen szöveg.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Ne vágj ki részeket a szövegből.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Kerüld a zsúfolt háttereket.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Tennivalók';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Használjon jó, egyenletes megvilágítást.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Ügyeljen arra, hogy a szöveg éles és olvasható legyen.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Rögzítse a teljes összetevőlistát.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Tartsa a terméket sík felületen.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'Megjegyzés a pontozásról';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'Egy állateledel pontozási rendszerének kidolgozása **jelenleg nem prioritás**. A módszertan összetett lenne, mivel a táplálkozási igények fajonként, koronként és egészségi állapotonként nagymértékben eltérnek. Még nem találtunk független tudományos csapatot, amely képes lenne ilyen pontozást kidolgozni.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-hu.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title =>
+      'Üdvözlünk az Open Beauty Facts oldalán!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Mi az a Nyílt Szépség Tények?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Az Open Beauty Facts egy közösen létrehozott adatbázis, amely **kozmetikai termékeket** tartalmaz.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Célunk az összetevők listájának megfejtése, hogy segítsünk megérteni, **mi van a testápolási termékeidben**. A hidratálókrémektől a sminktermékekig adatokat gyűjtünk az összetevőkről, allergénekről és a csomagolásról, hogy elősegítsük az átláthatóságot a kozmetikai iparban.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Az Open Beauty Facts jellemzői';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Értesítéseket kaphat a nem kívánt összetevőkről';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Allergiás vagy bármilyen összetevőre? El szeretnéd kerülni a komedogén anyagokat? Szeretnéd elkerülni a vitatott összetevőket? Beállíthatsz egy listát a kerülendő kozmetikai összetevőkről közvetlenül az alkalmazásban!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Tippek nagyszerű fotók készítéséhez';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Tiltott dolgok';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Kerülje az árnyékokat és a tükröződést.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Nincs elmosódott vagy életlen szöveg.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Ne vágj ki részeket a szövegből.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Kerüld a zsúfolt háttereket.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Tennivalók';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Használjon jó, egyenletes megvilágítást.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Ügyeljen arra, hogy a szöveg éles és olvasható legyen.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Rögzítse a teljes összetevőlistát.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Készítsen annyi képet, amennyire szüksége van, ha az üveg görbe.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Lehet, hogy le kell húznia a címkét az összetevők listájának megtekintéséhez.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Tartsa a terméket sík felületen.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title => 'Megjegyzés a pontozásról';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'Az élelmiszerekkel ellentétben a kozmetikumok világában **nincs egyetemesen elismert, kormány által támogatott pontozási rendszer, mint a Nutri-Score**. Az összetevők hatásai nagyon személyesek lehetnek, és függhetnek a bőrtípustól, az allergiáktól és az egyéni aggályoktól.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
@@ -4889,7 +4894,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+      'Az Open Prices egy olyan projekt, amelynek célja a **világ minden tájáról származó termékek árainak gyűjtése és megosztása**. Ez egy nyilvánosan elérhető adathalmaz, amely kutatásra, elemzésre és egyebekre felhasználható. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
@@ -4900,41 +4905,43 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Nyílt forráskódú áradatbázist gyűjtünk közösségi finanszírozásból**. Az árakat a felhasználók ezen a webes alkalmazáson vagy a hivatalos Open Food Facts mobilalkalmazáson keresztül adhatják meg. Kiskereskedők vagy harmadik féltől származó alkalmazások is hozzájárulhatnak az API-nk használatával.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Gyűjtsön fotókat az árcédulákról a folyosókon';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title =>
+      'Gyűjtsd össze a nyugták fotóit';
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'Miért csinálja ezt az Open Food Facts?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'Az árinformációk kiemelkedően fontosak az élelmiszerrendszerek megértéséhez. Kulcsfontosságú tényezők az élelmiszerek költségeinek megértésében és az egészségesebb étrend előmozdításában. A nyitó áradatok megkönnyítik a kutatók, újságírók és polgárok számára, hogy **jobban megértsék az élelmiszerárak földrajzi és időbeli változását**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Az árak időbeli alakulásának nyomon követése';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Nézd az **árak alakulását**: zsugorodási infláció, olcsónflació, együtt nyomon követhetjük őket!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title =>
+      'Hasonlítsa össze az árakat a közelben';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'Ahogy egyre több árat kapunk, megtalálhatod **a környékeden a legolcsóbb üzleteket**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Fontolóra vetted már, hogy lemásolod az árakat a kiskereskedők weboldalairól?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
@@ -4942,7 +4949,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'Az árlekaparás egy fontolóra vett lehetőség az Open Prices jövőbeli verzióiban, de ezt maga az Open Prices végezné el, hogy a HTML oldal alapján bizonyítékot kaphassunk az árról.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4950,7 +4957,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Az árakhoz az API-nkon keresztül is hozzájárulhatsz.\nHa nagyobb mennyiségben szeretnél árakat megadni, kérjük, vedd fel velünk a kapcsolatot a prices@openfoodfacts.org címen.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4958,88 +4965,89 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Üdvözöljük az Open Products Facts oldalán!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Mi az a Nyílt Terméktények?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'Az Open Products Facts egy hatalmas, nyílt adatbázis, amely **vonalkóddal ellátott termékekre vonatkozik, amelyek nem élelmiszerek, kozmetikumok vagy állateledel**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'Az **elektronikától** a **játékokon** át a **ruhákon** át a **tisztítószerekig**, ha van vonalkódjuk, az hozzáadható. Ez a projekt egy „dolgok internetének” létrehozását célozza a mindennapi tárgyak számára, így a róluk szóló információk univerzálisan hozzáférhetőek.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'A nyílt termékek jellemzői Tények';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'Az Open Products Facts célja, hogy a fogyasztók számára **meghosszabbítsák tárgyaik élettartamát** körforgásos megoldások biztosításával, amelyekkel karbantarthatják, **javíthatják**, **újrahasznosíthatják** tárgyaikat, vagy új tulajdonoshoz juthatnak.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Egyes termékek szénlábnyoma';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      'A Francia Környezetvédelmi Hatóság (ADEME) által készített **CO2 hatás** adatai számos kategóriára kiterjednek, ezért ügyeljen a termékek pontos kategorizálására.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Javíthatósági index számos termék esetében';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Amikor elérhetővé válik egy francia javíthatósági index, megjelenítjük. Ezenkívül **elkezdheti a változók gyűjtését a Folksonomy Engine segítségével**; így a jövőben mi magunk is újra tudjuk számolni, még azokban az országokban is, ahol nem érhető el.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Találj módokat a terméked adományozására/viszonteladására';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Linkeket biztosítunk **harmadik féltől származó, körforgásbarát szolgáltatásokhoz**, amelyek segítenek abban, hogy a keresett terméket használt termékként szerezd be, hogy kíméletesebb legyél a bolygó erőforrásaival.\nFontos megjegyezni, hogy ezért nem fizetnek nekünk, és a rendszer csak példaként működik két franciaországi weboldal esetében. A rendszer bővítésében segíthetsz, ha további oldalakat dokumentálsz a wikin.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Milyen információk hasznosak?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Ilyen széles termékkör esetén **rugalmasan gyűjtjük az adatokat**. Ennek érdekében **hoztuk létre a Folksonomy Engine-t**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+      'A Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'A Folksonomy Engine egy olyan eszköz, amely segít releváns tulajdonságokkal rendelkező termékeket létrehozni. Ez segít javítani a keresést és a felfedezhetőséget, valamint a jövőben érdekes dolgok kiszámítását és megjelenítését is lehetővé teszi.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Bármilyen kulcsot és értéket hozzáadhatsz, például: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Automatikus javaslatokat kapsz a lehetséges tulajdonságokra, és szívesen látunk, ha újakat adsz hozzá és dokumentálsz a kedvenc termékeidhez.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-hu.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title =>
+      'Ételbeállítások megnyitása';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Hamarosan érkezik';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'Koppintson a további információkért';
 
   @override
   String get preview_badge => 'Előnézet';
@@ -5263,7 +5271,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get photo_field_nutrition => 'Tápértékadatok fényképe';
 
   @override
-  String get photo_field_packaging => 'Csomagolási információk fényképe';
+  String get photo_field_packaging => 'Újrahasznosítási utasítások fényképe';
 
   @override
   String get photo_already_exists => 'Ez a fénykép már létezik';
@@ -5363,7 +5371,7 @@ class AppLocalizationsHu extends AppLocalizations {
   String get explanation_card_learn_more_button => 'További információk';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5378,11 +5386,12 @@ class AppLocalizationsHu extends AppLocalizations {
       'Ezeket a tulajdonságokat a közreműködők hozzák létre és iktatják bármilyen felhasználásra.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title =>
+      'Külső hivatkozás megnyitása';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'A külső linkek nem biztonságosak lehetnek. Biztosan meg szeretnéd látogatni őket?';
 
   @override
   String get prices_products_empty_title => 'Nincs elérhető ár';
@@ -5818,18 +5827,19 @@ class AppLocalizationsHu extends AppLocalizations {
       'Fedezze fel az Open Food Facts-et';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Fedezze fel a nyílt szépségápolási tényeket';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Fedezze fel az Open állateledel-információkat';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Fedezze fel a nyílt termékekre vonatkozó tényeket';
 
   @override
   String get preferences_faq_faq_title => 'GYIK - Gyakran Ismételt Kérdések';
@@ -6179,7 +6189,7 @@ class AppLocalizationsHu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Nyílt Élelmiszerinformációs Laboratóriumok';
 
   @override
   String get preferences_root_account_title => 'Fiók';
@@ -6209,26 +6219,26 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Helyszín részletei';
 
   @override
   String get location_map_details_name => 'Név';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Utca';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Város';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Irányítószám';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Koordináták';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'OSM-azonosító';
 }

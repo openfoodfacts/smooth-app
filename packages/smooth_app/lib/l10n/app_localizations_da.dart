@@ -654,7 +654,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get unknownBrand => 'Ukendt brand';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Ukendt mængde';
 
   @override
   String get unknownProductName => 'Ukendt produktnavn';
@@ -723,10 +723,10 @@ class AppLocalizationsDa extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Rediger ernæringsfakta';
 
   @override
-  String get packaging_information => 'Emballageoplysning';
+  String get packaging_information => 'Genbrugsinstruktioner';
 
   @override
-  String get packaging_information_photo => 'Emballageoplysningsfoto';
+  String get packaging_information_photo => 'Genbrugsvejledningsfoto';
 
   @override
   String get missing_product => 'Nyt produkt blev fundet!';
@@ -830,7 +830,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Næringsfaktafoto';
 
   @override
-  String get recycling_photo_title => 'Genbrugsfoto';
+  String get recycling_photo_title => 'Genbrugsinstruktioner Foto';
 
   @override
   String get take_photo_title => 'Tag et billede';
@@ -5239,7 +5239,7 @@ class AppLocalizationsDa extends AppLocalizations {
   String get photo_field_nutrition => 'Ernæringsfoto';
 
   @override
-  String get photo_field_packaging => 'Emballageoplysningsfoto';
+  String get photo_field_packaging => 'Genbrugsvejledningsfoto';
 
   @override
   String get photo_already_exists => 'Dette billede findes allerede';
@@ -5788,7 +5788,7 @@ class AppLocalizationsDa extends AppLocalizations {
       'Gå på opdagelse i projektet';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Opdag åbne fødevarefakta';
 
   @override
   String get preferences_faq_discover_obf_title => 'Opdag Open Beauty Facts';
@@ -6146,7 +6146,7 @@ class AppLocalizationsDa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Åbne fødevarefakta-laboratorier';
 
   @override
   String get preferences_root_account_title => 'Konto';

@@ -664,7 +664,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get unknownBrand => 'Marca desconhecida';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Quantidade desconhecida';
 
   @override
   String get unknownProductName => 'Nome de produto desconhecido';
@@ -733,10 +733,11 @@ class AppLocalizationsPt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Editar informações nutricionais';
 
   @override
-  String get packaging_information => 'Informação de embalagem';
+  String get packaging_information => 'Instruções de reciclagem';
 
   @override
-  String get packaging_information_photo => 'Foto de informações da embalagem';
+  String get packaging_information_photo =>
+      'Fotografia das instruções de reciclagem';
 
   @override
   String get missing_product => 'Encontrou um novo produto!';
@@ -843,7 +844,7 @@ class AppLocalizationsPt extends AppLocalizations {
       'Fotografia das informações nutricionais';
 
   @override
-  String get recycling_photo_title => 'Fotografia de reciclagem';
+  String get recycling_photo_title => 'Instruções de reciclagem Foto';
 
   @override
   String get take_photo_title => 'Tirar uma foto';
@@ -5314,7 +5315,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get photo_field_nutrition => 'Fotografia das informações nutricionais';
 
   @override
-  String get photo_field_packaging => 'Foto de informações da embalagem';
+  String get photo_field_packaging => 'Fotografia das instruções de reciclagem';
 
   @override
   String get photo_already_exists => 'Esta fotografia já existe';
@@ -5866,21 +5867,23 @@ class AppLocalizationsPt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descubra o projeto';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Descubra factos sobre os alimentos abertos';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Descubra factos sobre a beleza sem censura';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Descubra informações sobre alimentos para animais de estimação da Open Pet Food.';
 
   @override
   String get preferences_faq_discover_op_title => 'Descubra os Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Descubra informações sobre os produtos abertos';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Perguntas Frequentes';
@@ -6228,7 +6231,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Laboratórios Abertos de Informação Alimentar';
 
   @override
   String get preferences_root_account_title => 'Conta';
@@ -6918,7 +6921,8 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get search => 'Procurar';
 
   @override
-  String get search_product_help => 'Search a product,\na brand or a barcode';
+  String get search_product_help =>
+      'Pesquisar um produto, marca ou um código de barras';
 
   @override
   String get search_filter => 'Filtro de pesquisa';
@@ -6940,6 +6944,9 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get unknownBrand => 'Marca desconhecida';
+
+  @override
+  String get unknownQuantity => 'Quantidade desconhecida';
 
   @override
   String get unknownProductName => 'Nome de produto desconhecido';
@@ -7008,10 +7015,11 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get nutrition_facts_editing_title => 'Editar informações nutricionais';
 
   @override
-  String get packaging_information => 'Informação de embalagem';
+  String get packaging_information => 'Instruções de reciclagem';
 
   @override
-  String get packaging_information_photo => 'Foto de informações da embalagem';
+  String get packaging_information_photo =>
+      'Fotografia das instruções de reciclagem';
 
   @override
   String get missing_product => 'Você encontrou um novo produto!';
@@ -7118,7 +7126,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Fotografia das informações nutricionais';
 
   @override
-  String get recycling_photo_title => 'Fotografia de reciclagem';
+  String get recycling_photo_title => 'Instruções de reciclagem Foto';
 
   @override
   String get take_photo_title => 'Tirar uma foto';
@@ -10414,7 +10422,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'O Nutri-Score não é aplicável (novo cálculo)';
 
   @override
-  String get environmental_score_generic_new => 'Eco-Pontuação';
+  String get environmental_score_generic_new => 'Green-Score';
 
   @override
   String get environmental_score_a_new => 'Green-Score A';
@@ -10436,7 +10444,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
 
   @override
   String get environmental_score_not_applicable_new =>
-      'Green-Score não é aplicável';
+      'O Green-Score não é aplicável';
 
   @override
   String get nova_group_generic_new =>
@@ -10647,7 +10655,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
       'Para os fabricantes, a exibição do Nutri-Score **continua opcional**.';
 
   @override
-  String get guide_greenscore_title => 'Eco-Pontuação';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
@@ -11584,7 +11592,7 @@ class AppLocalizationsPtBr extends AppLocalizationsPt {
   String get photo_field_nutrition => 'Fotografia das informações nutricionais';
 
   @override
-  String get photo_field_packaging => 'Foto de informações da embalagem';
+  String get photo_field_packaging => 'Fotografia das instruções de reciclagem';
 
   @override
   String get photo_already_exists => 'Esta fotografia já existe';

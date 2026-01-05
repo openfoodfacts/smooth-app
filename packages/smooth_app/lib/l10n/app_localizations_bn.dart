@@ -143,7 +143,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get match_short_unknown => 'অজানা মিল';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'লাইসেন্স';
 
   @override
   String get looking_for => 'আমি খুঁজছি';
@@ -216,7 +216,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'আপনার দেশে ওপেন ফুড ফ্যাক্টস উন্নত করতে সাহায্য করুন';
+      'Help improve Open Food Facts in your country';
 
   @override
   String get sign_out => 'সাইন আউট করুন';
@@ -497,7 +497,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'ওপেন ফুড ফ্যাক্টস-এ আপনার দক্ষতা অবদান রাখুন। স্কিল পুলে যোগদান করুন!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
@@ -665,7 +665,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get unknownBrand => 'অজানা ব্র্যান্ড';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'অজানা পরিমাণ';
 
   @override
   String get unknownProductName => 'অজানা পণ্যের নাম';
@@ -734,10 +734,10 @@ class AppLocalizationsBn extends AppLocalizations {
   String get nutrition_facts_editing_title => 'পুষ্টির তথ্য সম্পাদনা করুন';
 
   @override
-  String get packaging_information => 'প্যাকেজিং তথ্য';
+  String get packaging_information => 'পুনর্ব্যবহারের নির্দেশাবলী';
 
   @override
-  String get packaging_information_photo => 'প্যাকেজিং তথ্য ছবি';
+  String get packaging_information_photo => 'পুনর্ব্যবহারের নির্দেশাবলীর ছবি';
 
   @override
   String get missing_product => 'তুমি একটি নতুন পণ্য খুঁজে পেয়েছ!';
@@ -840,7 +840,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get nutritional_facts_photo_title => 'পুষ্টির তথ্য ছবি';
 
   @override
-  String get recycling_photo_title => 'পুনর্ব্যবহারযোগ্য ছবি';
+  String get recycling_photo_title => 'পুনর্ব্যবহারের নির্দেশাবলী ছবি';
 
   @override
   String get take_photo_title => 'একটি ছবি নিন';
@@ -908,7 +908,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'অনুগ্রহ করে নিচের ছবিগুলো তুলুন, ওপেন ফুড ফ্যাক্টস ইঞ্জিন বাকিটা ঠিক করে ফেলবে!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
   String get new_product_title_misc => 'এবং কিছু মৌলিক তথ্য…';
@@ -3001,7 +3001,7 @@ class AppLocalizationsBn extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'ওপেন প্রাইস সম্পর্কে আরও জানুন';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'সম্পন্ন';
@@ -4867,21 +4867,22 @@ class AppLocalizationsBn extends AppLocalizations {
       'https://world-bn.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'ওপেন প্রাইসসে স্বাগতম!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
-  String get guide_open_prices_what_is_open_prices_title => 'ওপেন প্রাইস কী?';
+  String get guide_open_prices_what_is_open_prices_title =>
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'ওপেন প্রাইস হল **বিশ্বজুড়ে পণ্যের দাম সংগ্রহ এবং ভাগ করে নেওয়ার* একটি প্রকল্প। এটি একটি সর্বজনীনভাবে উপলব্ধ ডেটাসেট যা গবেষণা, বিশ্লেষণ এবং আরও অনেক কিছুর জন্য ব্যবহার করা যেতে পারে। ওপেন প্রাইসগুলি ওপেন ফুড ফ্যাক্টস দ্বারা তৈরি এবং রক্ষণাবেক্ষণ করা হয়।';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'ওপেন প্রাইস কিভাবে কাজ করে?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4923,11 +4924,11 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'আইনি এবং প্রযুক্তিগত কারণে, **খুচরা বিক্রেতাদের ওয়েবসাইট থেকে মূল্য স্ক্র্যাপ করাকে আমরা ওপেন প্রাইস**-এ অবদান রাখার বৈধ উপায় হিসেবে বিবেচনা করি না। আমরা নিশ্চিত করতে চাই যে আমরা যে মূল্য সংগ্রহ করি তা সঠিক এবং হালনাগাদ, এবং অবদানকারীদের কাছ থেকে মূল্য স্ক্র্যাপ করা আমাদের তা করার অনুমতি দেয় না।';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'ওপেন প্রাইসের ভবিষ্যতের সংস্করণে মূল্য স্ক্র্যাপিং একটি বিবেচিত বিকল্প, তবে এটি ওপেন প্রাইস নিজেই করবে যাতে আমরা HTML পৃষ্ঠার উপর ভিত্তি করে মূল্যের প্রমাণ পেতে পারি।';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -5244,7 +5245,7 @@ class AppLocalizationsBn extends AppLocalizations {
   String get photo_field_nutrition => 'পুষ্টির ছবি';
 
   @override
-  String get photo_field_packaging => 'প্যাকেজিং তথ্য ছবি';
+  String get photo_field_packaging => 'পুনর্ব্যবহারের নির্দেশাবলীর ছবি';
 
   @override
   String get photo_already_exists => 'এই ছবিটি ইতিমধ্যেই আছে';
@@ -5795,21 +5796,23 @@ class AppLocalizationsBn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Open Food তথ্য আবিষ্কার করুন।';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Open Beauty তথ্য আবিষ্কার করুন';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Open Pet Food তথ্য আবিষ্কার করুন।';
 
   @override
   String get preferences_faq_discover_op_title => 'Open Prices আবিষ্কার করুন';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'ওপেন প্রোডাক্টস সম্পর্কিত তথ্য আবিষ্কার করুন।';
 
   @override
   String get preferences_faq_faq_title =>
@@ -6155,7 +6158,7 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Open Food Facts ল্যাব খুলুন';
 
   @override
   String get preferences_root_account_title => 'হিসাব';

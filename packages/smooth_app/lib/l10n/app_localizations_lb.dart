@@ -143,7 +143,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Lizenzen';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,7 +654,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Onbekannt Quantitéit';
 
   @override
   String get unknownProductName => 'Unknown product name';
@@ -723,10 +723,10 @@ class AppLocalizationsLb extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Recyclinginstruktiounen';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -829,7 +829,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Recyclinginstruktiounen Foto';
 
   @override
   String get take_photo_title => 'Eng Foto maachen';
@@ -5222,7 +5222,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5771,7 +5771,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Entdeckt d\'Projet';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Entdeckt Open Food Fakten';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';

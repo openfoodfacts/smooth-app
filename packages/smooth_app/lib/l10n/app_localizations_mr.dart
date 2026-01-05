@@ -144,7 +144,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'परवाने';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,7 +654,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'अज्ञात प्रमाण';
 
   @override
   String get unknownProductName => 'Unknown product name';
@@ -723,10 +723,10 @@ class AppLocalizationsMr extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'पुनर्वापर सूचना';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -829,7 +829,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'पुनर्वापर सूचना फोटो';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -4087,8 +4087,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'ग्रीन-स्कोअर लागू नाही.';
 
   @override
-  String get nova_group_generic_new =>
-      'अल्ट्रा-प्रक्रिया केलेले अन्न - नोव्हा गट';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -5214,7 +5213,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5759,7 +5758,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Open Food तथ्ये शोधा.';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6014,7 +6013,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'अन्न तथ्ये उघडण्यास मदत करण्याचे सोपे मार्ग';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6122,7 +6121,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'अन्न तथ्य प्रयोगशाळा उघडा';
 
   @override
   String get preferences_root_account_title => 'Account';

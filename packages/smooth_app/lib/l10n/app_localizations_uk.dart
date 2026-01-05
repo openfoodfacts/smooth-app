@@ -659,7 +659,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unknownBrand => 'Невідома марка';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Невідома кількість';
 
   @override
   String get unknownProductName => 'Невідомий продукт';
@@ -728,10 +728,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Редагувати харчові показники';
 
   @override
-  String get packaging_information => 'Інформація про упакування';
+  String get packaging_information => 'Інструкції з переробки';
 
   @override
-  String get packaging_information_photo => 'Фото з інформацією про упакування';
+  String get packaging_information_photo => 'Інструкція з перероблювання';
 
   @override
   String get missing_product => 'Ви знайшли новий продукт!';
@@ -837,7 +837,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Світлина харчової цінності продукту';
 
   @override
-  String get recycling_photo_title => 'Обробка фото';
+  String get recycling_photo_title => 'Інструкції з переробки Фото';
 
   @override
   String get take_photo_title => 'Сфотографувати';
@@ -5270,7 +5270,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get photo_field_nutrition => 'Фото харчування';
 
   @override
-  String get photo_field_packaging => 'Фото з інформацією про упакування';
+  String get photo_field_packaging => 'Інструкція з перероблювання';
 
   @override
   String get photo_already_exists => 'Це фото вже існує';
@@ -5827,7 +5827,8 @@ class AppLocalizationsUk extends AppLocalizations {
       'Відкрийте для себе проєкт';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Відкрийте для себе факти про відкриту їжу';
 
   @override
   String get preferences_faq_discover_obf_title =>
@@ -6193,7 +6194,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Відкриті лабораторії фактів про їжу';
 
   @override
   String get preferences_root_account_title => 'Обліковий запис';

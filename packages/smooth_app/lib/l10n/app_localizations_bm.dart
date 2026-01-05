@@ -143,7 +143,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Lasegin-ka-bɔnyew';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,7 +653,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Hakɛ dɔnbali';
 
   @override
   String get unknownProductName => 'Unknown product name';
@@ -722,10 +722,11 @@ class AppLocalizationsBm extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information =>
+      'Ladilikanw minnu bɛ kɛ ka fɛnw lasegin u cogo kɔrɔ la';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -828,7 +829,8 @@ class AppLocalizationsBm extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title =>
+      'Ladilikanw ka ɲɛsin fɛnw lasegincogo ma Foto';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -5222,7 +5224,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5773,7 +5775,7 @@ class AppLocalizationsBm extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Dumuni Dabɔlenw Tiɲɛw Sɔrɔ';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6135,7 +6137,7 @@ class AppLocalizationsBm extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Dumunifɛnw tiɲɛni laboratuwaraw da wuli';
 
   @override
   String get preferences_root_account_title => 'Account';

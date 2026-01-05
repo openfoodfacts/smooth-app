@@ -143,7 +143,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get match_short_unknown => 'Nje pershtatje e panjohur';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Licencat';
 
   @override
   String get looking_for => 'Ne kerkim te';
@@ -662,7 +662,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get unknownBrand => 'Markë e panjohur';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Sasi e panjohur';
 
   @override
   String get unknownProductName => 'Emer i panjohur produkti.';
@@ -731,11 +731,10 @@ class AppLocalizationsSq extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Informacion i paketimit';
+  String get packaging_information => 'Udhëzime për riciklimin';
 
   @override
-  String get packaging_information_photo =>
-      'Foto e informacionit te paketimit.';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'Ju gjetet nje produkt te ri!';
@@ -838,7 +837,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Udhëzime për riciklim Foto';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -5235,7 +5234,7 @@ class AppLocalizationsSq extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Foto e informacionit te paketimit.';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5784,7 +5783,8 @@ class AppLocalizationsSq extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Zbuloni Fakte të Hapura për Ushqimin';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5993,7 +5993,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Çmimet më të fundit të shtuara nga komuniteti i Çmimeve të Hapura';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6042,7 +6042,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Mënyra të thjeshta për të ndihmuar në Hapjen e Fakte Ushqimore';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6150,7 +6150,7 @@ class AppLocalizationsSq extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Laboratorët e Fakteve Ushqimore të Hapura';
 
   @override
   String get preferences_root_account_title => 'Account';

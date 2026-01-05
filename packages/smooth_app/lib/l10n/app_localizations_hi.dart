@@ -143,7 +143,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get match_short_unknown => 'अज्ञात मिलान';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'लाइसेंस';
 
   @override
   String get looking_for => 'ढूंढ रहे हैं';
@@ -216,7 +216,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'अपने देश में ओपन फ़ूड फैक्ट्स को बेहतर बनाने में मदद करें';
+      'Help improve Open Food Facts in your country';
 
   @override
   String get sign_out => 'साइन आउट';
@@ -492,7 +492,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'ओपन फ़ूड फ़ैक्ट्स में अपने कौशल का योगदान दें। कौशल पूल में शामिल हों!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
@@ -658,7 +658,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get unknownBrand => 'अज्ञात ब्रांड';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'अज्ञात मात्रा';
 
   @override
   String get unknownProductName => 'अज्ञात उत्पाद का नाम';
@@ -727,10 +727,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nutrition_facts_editing_title => 'पोषण तथ्य संपादित करें';
 
   @override
-  String get packaging_information => 'पैकेजिंग जानकारी';
+  String get packaging_information => 'पुनर्चक्रण निर्देश';
 
   @override
-  String get packaging_information_photo => 'पैकेजिंग जानकारी फोटो';
+  String get packaging_information_photo => 'रीसाइक्लिंग निर्देश फोटो';
 
   @override
   String get missing_product => 'आपको एक नया उत्पाद मिला!';
@@ -834,7 +834,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nutritional_facts_photo_title => 'पोषण तथ्य फोटो';
 
   @override
-  String get recycling_photo_title => 'रीसाइक्लिंग फोटो';
+  String get recycling_photo_title => 'पुनर्चक्रण संबंधी निर्देश (फोटो)';
 
   @override
   String get take_photo_title => 'एक तस्वीर ले लो';
@@ -868,7 +868,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get categories_added => 'श्रेणियाँ जोड़ी गईं';
 
   @override
-  String get new_product_title_nutriscore => 'न्यूट्री-स्कोर की गणना करें';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -902,7 +902,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'कृपया निम्नलिखित तस्वीरें लें और ओपन फूड फैक्ट्स इंजन बाकी का पता लगा लेगा!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
   String get new_product_title_misc => 'और कुछ बुनियादी डेटा…';
@@ -1361,15 +1361,15 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get product_improvement_add_category =>
-      'न्यूट्री-स्कोर की गणना करने के लिए एक श्रेणी जोड़ें।';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'न्यूट्री-स्कोर की गणना करने के लिए पोषण संबंधी तथ्य जोड़ें।';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'न्यूट्री-स्कोर की गणना करने के लिए पोषण संबंधी तथ्य और एक श्रेणी जोड़ें।';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -2982,7 +2982,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'खुली कीमतों के बारे में अधिक जानें';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'हो गया';
@@ -4063,18 +4063,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (नई गणना)';
 
   @override
-  String get nutriscore_unknown => 'अज्ञात न्यूट्री-स्कोर';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'अज्ञात न्यूट्री-स्कोर (नई गणना)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'न्यूट्री-स्कोर लागू नहीं है';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'न्यूट्री-स्कोर लागू नहीं है (नई गणना)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4854,7 +4854,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'https://world-hi.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'ओपन प्राइसेस में आपका स्वागत है!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
@@ -4862,14 +4862,14 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'ओपन प्राइसेज़ दुनिया भर के उत्पादों की कीमतें एकत्रित करने और साझा करने की एक परियोजना है। यह एक सार्वजनिक रूप से उपलब्ध डेटासेट है जिसका उपयोग शोध, विश्लेषण आदि के लिए किया जा सकता है। ओपन प्राइसेज़ का विकास और रखरखाव ओपन फ़ूड फ़ैक्ट्स द्वारा किया जाता है।';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'ओपन प्राइस कैसे काम करता है?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4913,11 +4913,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'कानूनी और तकनीकी कारणों से, **हम खुदरा विक्रेताओं की वेबसाइटों से कीमतें स्क्रैप करना ओपन प्राइसेज़ में योगदान करने का एक वैध तरीका नहीं मानते**। हम यह सुनिश्चित करना चाहते हैं कि हमारे द्वारा एकत्रित की गई कीमतें सटीक और अद्यतित हों, और योगदानकर्ताओं से स्क्रैप की गई कीमतें प्राप्त करने से हमें ऐसा करने की अनुमति नहीं मिलती।';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'ओपन प्राइस के भावी संस्करण में मूल्य स्क्रैपिंग एक विचारणीय विकल्प है, लेकिन यह ओपन प्राइस द्वारा ही किया जाएगा, ताकि हमें HTML पृष्ठ के आधार पर मूल्य का प्रमाण मिल सके।';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -5236,7 +5236,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get photo_field_nutrition => 'पोषण फोटो';
 
   @override
-  String get photo_field_packaging => 'पैकेजिंग जानकारी फोटो';
+  String get photo_field_packaging => 'रीसाइक्लिंग निर्देश फोटो';
 
   @override
   String get photo_already_exists => 'यह फ़ोटो पहले से मौजूद है';
@@ -5783,21 +5783,23 @@ class AppLocalizationsHi extends AppLocalizations {
       'परियोजना के बारे में जानें';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'खुले भोजन के बारे में तथ्य जानें';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'खुले सौंदर्य तथ्यों की खोज करें';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'खुले पालतू भोजन के बारे में तथ्य जानें';
 
   @override
   String get preferences_faq_discover_op_title => 'Open Prices खोजें';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'ओपन प्रोडक्ट्स के तथ्य जानें';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - अक्सर पूछे जाने वाले प्रश्न';
@@ -6143,7 +6145,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'ओपन फ़ूड फैक्ट्स लैब्स';
 
   @override
   String get preferences_root_account_title => 'खाता';

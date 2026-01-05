@@ -143,7 +143,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'લાઇસન્સ';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,7 +653,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'અજાણ્યો જથ્થો';
 
   @override
   String get unknownProductName => 'Unknown product name';
@@ -722,10 +722,10 @@ class AppLocalizationsGu extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'રિસાયક્લિંગ સૂચનાઓ';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -828,7 +828,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'રિસાયક્લિંગ સૂચનાઓ ફોટો';
 
   @override
   String get take_photo_title => 'ફોટો પાડો';
@@ -5215,7 +5215,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5760,7 +5760,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'પ્રોજેક્ટ શોધો';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Open Food તથ્યો શોધો.';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5965,7 +5965,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ઓપન પ્રાઈસ સમુદાય દ્વારા ઉમેરવામાં આવેલી નવીનતમ કિંમતો';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6013,7 +6013,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'ખોરાકની હકીકતો ખોલવામાં મદદ કરવાની સરળ રીતો';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6120,7 +6120,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'ફૂડ ફેક્ટ્સ લેબ્સ ખોલો';
 
   @override
   String get preferences_root_account_title => 'Account';

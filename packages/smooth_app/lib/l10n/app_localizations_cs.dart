@@ -660,7 +660,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get unknownBrand => 'Neznámá značka';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Neznámé množství';
 
   @override
   String get unknownProductName => 'Neznámý název produktu';
@@ -729,10 +729,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Upravit nutriční fakta';
 
   @override
-  String get packaging_information => 'Informace o balení';
+  String get packaging_information => 'Pokyny pro recyklaci';
 
   @override
-  String get packaging_information_photo => 'Informační foto balení';
+  String get packaging_information_photo => 'Fotografie pokynů pro recyklaci';
 
   @override
   String get missing_product => 'Našli jste nový produkt!';
@@ -836,7 +836,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Fotografie nutričních údajů';
 
   @override
-  String get recycling_photo_title => 'Fotografie recyklace';
+  String get recycling_photo_title => 'Pokyny k recyklaci Fotografie';
 
   @override
   String get take_photo_title => 'Vyfotit';
@@ -4772,7 +4772,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'https://world-cs.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title => 'Vítejte na Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
@@ -4780,11 +4780,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts je kooperativní databáze **kosmetických produktů**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Naším cílem je rozluštit seznamy složek, abyste **pochopili, co se nachází ve vašich produktech osobní péče**. Od hydratačních krémů po make-up shromažďujeme data o složkách, alergenech a obalech, abychom podpořili transparentnost v kosmetickém průmyslu.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
@@ -5241,7 +5241,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get photo_field_nutrition => 'Fotografie výživových údajů';
 
   @override
-  String get photo_field_packaging => 'Informační foto balení';
+  String get photo_field_packaging => 'Fotografie pokynů pro recyklaci';
 
   @override
   String get photo_already_exists => 'Tato fotografie již existuje';
@@ -5789,7 +5789,8 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zjistěte více o projektu';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Objevte fakta o jídle na Open Food';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6152,7 +6153,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Otevřené laboratoře faktů o potravinách';
 
   @override
   String get preferences_root_account_title => 'Účet';

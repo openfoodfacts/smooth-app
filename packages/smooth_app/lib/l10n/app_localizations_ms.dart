@@ -22,10 +22,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get account_delete_message =>
-      'Are you sure you want to delete your account?\nIf there is a specific reason, please share below';
+      'Adakah anda pasti mahu memadamkan akaun anda?\nJika terdapat sebab tertentu, sila kongsikan di bawah';
 
   @override
-  String get reason => 'Reason';
+  String get reason => 'Sebab';
 
   @override
   String get okay => 'Okey';
@@ -34,7 +34,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get validate => 'Tentusahkan';
 
   @override
-  String get create => 'Create';
+  String get create => 'Cipta';
 
   @override
   String get applyButtonText => 'Memohon';
@@ -43,7 +43,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get next_label => 'Seterusnya';
 
   @override
-  String get continue_label => 'Continue';
+  String get continue_label => 'Teruskan';
 
   @override
   String get exit_label => 'Exit';
@@ -52,7 +52,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get previous_label => 'Terdahulu';
 
   @override
-  String get go_back_to_top => 'Go back to top';
+  String get go_back_to_top => 'Kembali ke atas';
 
   @override
   String get save => 'Simpan';
@@ -67,7 +67,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
-  String get ignore => 'Ignore';
+  String get ignore => 'Abaikan';
 
   @override
   String get close => 'Tutup';
@@ -79,16 +79,16 @@ class AppLocalizationsMs extends AppLocalizations {
   String get stop => 'Berhenti';
 
   @override
-  String get finish => 'Finish';
+  String get finish => 'Selesai';
 
   @override
-  String get calculate => 'Calculate';
+  String get calculate => 'Kira';
 
   @override
-  String get reset_food_prefs => 'Reset food preferences';
+  String get reset_food_prefs => 'Tetapkan semula pilihan makanan';
 
   @override
-  String get error => 'Something went wrong';
+  String get error => 'Ada yang tidak kena';
 
   @override
   String get error_occurred => 'Ralat berlaku';
@@ -97,7 +97,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get featureInProgress => 'Kami masih mengusahakan ciri ini, nantikan';
 
   @override
-  String get label_web => 'View on the web';
+  String get label_web => 'Lihat di web';
 
   @override
   String get learnMore => 'Ketahui lebih lanjut';
@@ -106,13 +106,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get unknown => 'Tidak diketahui';
 
   @override
-  String get match_very_good => 'Very good match';
+  String get match_very_good => 'Padanan yang sangat baik';
 
   @override
-  String get match_good => 'Good match';
+  String get match_good => 'Padanan yang baik';
 
   @override
-  String get match_poor => 'Poor match';
+  String get match_poor => 'Padanan yang lemah';
 
   @override
   String get match_may_not => 'May not match';
@@ -124,13 +124,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get match_unknown => 'Padanan yang tidak diketahui';
 
   @override
-  String get match_short_very_good => 'Very good match';
+  String get match_short_very_good => 'Padanan yang sangat baik';
 
   @override
-  String get match_short_good => 'Good match';
+  String get match_short_good => 'Padanan yang baik';
 
   @override
-  String get match_short_poor => 'Poor match';
+  String get match_short_poor => 'Padanan yang lemah';
 
   @override
   String get match_short_may_not => 'May not match';
@@ -142,17 +142,18 @@ class AppLocalizationsMs extends AppLocalizations {
   String get match_short_unknown => 'Padanan yang tidak diketahui';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Lesen';
 
   @override
   String get looking_for => 'Sedang mencari';
 
   @override
-  String get welcomeToOpenFoodFacts => 'Welcome to Open Food Facts';
+  String get welcomeToOpenFoodFacts =>
+      'Selamat datang ke Fakta Makanan Terbuka';
 
   @override
   String get whatIsOff =>
-      'Open Food Facts is a global non-profit powered by local communities.';
+      'Open Food Facts ialah sebuah pertubuhan bukan berasaskan keuntungan global yang dikuasakan oleh komuniti tempatan.';
 
   @override
   String get productDataUtility =>
@@ -166,48 +167,50 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get server_error_open_new_issue =>
-      'No server response! You may open an issue with the following link.';
+      'Tiada respons pelayan! Anda mungkin menghadapi masalah dengan pautan berikut.';
 
   @override
   String get sign_in_text =>
-      'Sign in to your Open Food Facts account to save your contributions';
+      'Log masuk ke akaun Fakta Makanan Terbuka anda untuk menyimpan sumbangan anda';
 
   @override
   String get incorrect_credentials => 'Nama pengguna atau kata laluan salah.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'This email or username doesn\'t exist. Please check your credentials.';
+      'E-mel atau nama pengguna ini tidak wujud. Sila semak kelayakan anda.';
 
   @override
   String get password_lost_server_unavailable =>
-      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
+      'Kami sedang mengalami kelembapan pada pelayan kami dan kami memohon maaf atasnya. Sila cuba lagi nanti.';
 
   @override
   String get login => 'Login';
 
   @override
-  String get login_result_type_server_unreachable => 'Network is unreachable';
+  String get login_result_type_server_unreachable =>
+      'Rangkaian tidak dapat dicapai';
 
   @override
   String get login_result_type_server_issue =>
-      'Problem on the server. Please try later.';
+      'Masalah pada pelayan. Sila cuba kemudian.';
 
   @override
   String get login_page_username_or_email =>
       'Sila masukkan nama pengguna atau e-mel';
 
   @override
-  String get login_page_password_error_empty => 'Please enter a password';
+  String get login_page_password_error_empty => 'Sila masukkan kata laluan';
 
   @override
-  String get create_account => 'Create account';
+  String get create_account => 'Buat akaun';
 
   @override
-  String get sign_in => 'Sign in';
+  String get sign_in => 'Daftar masuk';
 
   @override
-  String get sign_in_mandatory => 'For that feature we need you to sign in.';
+  String get sign_in_mandatory =>
+      'Untuk ciri tersebut, kami memerlukan anda log masuk.';
 
   @override
   String get help_improve_country =>
@@ -223,7 +226,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get password => 'Kata laluan';
 
   @override
-  String get forgot_password => 'Forgot password';
+  String get forgot_password => 'Lupa kata laluan';
 
   @override
   String get forgot_password_question => 'Lupa kata laluan?';
@@ -246,49 +249,50 @@ class AppLocalizationsMs extends AppLocalizations {
       'E-mel dengan pautan untuk menetapkan semula kata laluan anda telah dihantar ke alamat e-mel yang dikaitkan dengan akaun anda. Semak juga spam anda';
 
   @override
-  String get send_reset_password_mail => 'Change password';
+  String get send_reset_password_mail => 'Tukar kata laluan';
 
   @override
-  String get enter_some_text => 'Please enter some text';
+  String get enter_some_text => 'Sila masukkan sedikit teks';
 
   @override
-  String get sign_up_page_title => 'Sign Up';
+  String get sign_up_page_title => 'Daftar';
 
   @override
-  String get sign_up_page_action_button => 'Sign Up';
+  String get sign_up_page_action_button => 'Daftar';
 
   @override
-  String get sign_up_page_action_doing_it => 'Signing up…';
+  String get sign_up_page_action_doing_it => 'Mendaftar…';
 
   @override
   String get sign_up_page_action_ok =>
-      'Congratulations! Your account has just been created.';
+      'Tahniah! Akaun anda baru sahaja dibuat.';
 
   @override
   String get sign_up_page_display_name_hint => 'Nama';
 
   @override
   String get sign_up_page_display_name_error_empty =>
-      'Please enter the display name you want to use';
+      'Sila masukkan nama paparan yang ingin anda gunakan';
 
   @override
-  String get sign_up_page_email_hint => 'E-mail';
+  String get sign_up_page_email_hint => 'E-mel';
 
   @override
-  String get sign_up_page_email_error_empty => 'E-mail is required';
+  String get sign_up_page_email_error_empty => 'E-mel diperlukan';
 
   @override
-  String get sign_up_page_email_error_invalid => 'Invalid e-mail';
+  String get sign_up_page_email_error_invalid => 'E-mel tidak sah';
 
   @override
-  String get sign_up_page_username_hint => 'Username: Publicly visible';
+  String get sign_up_page_username_hint =>
+      'Nama pengguna: Boleh dilihat secara umum';
 
   @override
-  String get sign_up_page_username_error_empty => 'Please enter a username';
+  String get sign_up_page_username_error_empty => 'Sila masukkan nama pengguna';
 
   @override
   String get sign_up_page_username_error_invalid =>
-      'Please enter a valid username';
+      'Sila masukkan nama pengguna yang sah';
 
   @override
   String get sign_up_page_username_description =>
@@ -296,32 +300,33 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'Username cannot exceed $value characters';
+    return 'Nama pengguna tidak boleh melebihi aksara $value';
   }
 
   @override
   String get sign_up_page_password_hint => 'Kata laluan';
 
   @override
-  String get sign_up_page_password_error_empty => 'Please enter a password';
+  String get sign_up_page_password_error_empty => 'Sila masukkan kata laluan';
 
   @override
   String get sign_up_page_password_error_invalid =>
-      'Please enter a valid password (at least 6 characters)';
+      'Sila masukkan kata laluan yang sah (sekurang-kurangnya 6 aksara)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'Confirm Password';
+  String get sign_up_page_confirm_password_hint => 'Sahkan Kata Laluan';
 
   @override
   String get sign_up_page_confirm_password_error_empty =>
-      'Please confirm the password';
+      'Sila sahkan kata laluan';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
-      'Passwords don\'t match';
+      'Kata laluan tidak sepadan';
 
   @override
-  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
+  String get sign_up_page_agree_text =>
+      'Saya bersetuju dengan Fakta Makanan Terbuka';
 
   @override
   String get sign_up_page_terms_text => 'syarat penggunaan dan sumbangan';
@@ -334,139 +339,140 @@ class AppLocalizationsMs extends AppLocalizations {
       'Semasa membuat akaun, bersetuju dengan Syarat Penggunaan adalah wajib, namun, sumbangan tanpa nama masih boleh dibuat melalui aplikasi';
 
   @override
-  String get sign_up_page_producer_checkbox => 'I am a food producer';
+  String get sign_up_page_producer_checkbox => 'Saya seorang pengeluar makanan';
 
   @override
-  String get sign_up_page_producer_hint => 'Producer/brand';
+  String get sign_up_page_producer_hint => 'Pengeluar/jenama';
 
   @override
   String get sign_up_page_producer_error_empty =>
-      'Please enter a producer or a brand name';
+      'Sila masukkan pengeluar atau nama jenama';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
+      'Saya ingin melanggan surat berita Open Food Facts (Anda boleh berhenti melanggannya pada bila-bila masa)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'The user name already exists, please choose another username.';
+      'Nama pengguna sudah wujud, sila pilih nama pengguna lain.';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'already exists, login to the account or try with another email.';
+      'sudah wujud, log masuk ke akaun atau cuba dengan e-mel lain.';
 
   @override
   String get sign_up_page_provide_valid_email =>
-      'Please provide a valid email address.';
+      'Sila berikan alamat e-mel yang sah.';
 
   @override
   String get sign_up_page_server_busy =>
-      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
+      'Kami amat memohon maaf, kami mengalami sedikit masalah teknikal untuk membuat akaun anda. Sila cuba lagi nanti.';
 
   @override
   String get settingsTitle => 'Tetapan';
 
   @override
-  String get darkmode => 'Theme';
+  String get darkmode => 'Tema';
 
   @override
-  String get darkmode_dark => 'Dark';
+  String get darkmode_dark => 'Gelap';
 
   @override
-  String get darkmode_light => 'Light';
+  String get darkmode_light => 'Cahaya';
 
   @override
-  String get darkmode_system_default => 'System default';
+  String get darkmode_system_default => 'Sistem lalai';
 
   @override
-  String get thanks_for_contributing => 'Thanks for contributing!';
+  String get thanks_for_contributing => 'Terima kasih kerana menyumbang!';
 
   @override
-  String get contributors_label => 'They are building the app';
+  String get contributors_label => 'Mereka sedang membina aplikasi';
 
   @override
   String get contributors_dialog_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'Contributor: $name';
+    return 'Penyumbang: $name';
   }
 
   @override
   String get contributors_description =>
-      'A list of all contributors of this app';
+      'Senarai semua penyumbang aplikasi ini';
 
   @override
-  String get support => 'Support';
+  String get support => 'Sokongan';
 
   @override
-  String get support_join_slack => 'Ask for help in our Slack channel';
+  String get support_join_slack => 'Minta bantuan di saluran Slack kami';
 
   @override
-  String get support_via_forum => 'Ask for help on our forum';
+  String get support_via_forum => 'Minta bantuan di forum kami';
 
   @override
-  String get support_via_email => 'Send us an e-mail';
+  String get support_via_email => 'Hantarkan e-mel kepada kami';
 
   @override
-  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
+  String get support_via_email_include_logs_dialog_title =>
+      'Hantar log aplikasi?';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'Do you wish to include application logs in attachment to your email?';
+      'Adakah anda ingin memasukkan log aplikasi sebagai lampiran pada e-mel anda?';
 
   @override
   String get termsOfUse => 'Syarat-syarat penggunaan';
 
   @override
-  String get legalNotices => 'Legal notices';
+  String get legalNotices => 'Notis undang-undang';
 
   @override
-  String get privacy_policy => 'Privacy policy';
+  String get privacy_policy => 'Dasar privasi';
 
   @override
-  String get about_this_app => 'About this app';
+  String get about_this_app => 'Mengenai aplikasi ini';
 
   @override
   String get contribute => 'Sumbang';
 
   @override
-  String get contribute_sw_development => 'Software development';
+  String get contribute_sw_development => 'Pembangunan perisian';
 
   @override
   String get contribute_develop_text =>
-      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
+      'Kod untuk setiap produk Open Food Facts tersedia di GitHub. Anda dialu-alukan untuk menggunakan semula kod ini (ia adalah sumber terbuka) dan membantu kami menambah baiknya, untuk semua orang, di seluruh planet ini.';
 
   @override
   String get contribute_develop_text_2 =>
-      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
+      'Anda boleh menyertai bilik sembang Open Food Facts Slack yang merupakan cara pilihan untuk bertanya soalan.';
 
   @override
-  String get contribute_develop_dev_mode_title => 'DEV Mode?';
+  String get contribute_develop_dev_mode_title => 'Mod DEV?';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
+  String get contribute_develop_dev_mode_subtitle => 'Aktifkan Mod DEV';
 
   @override
   String get contribute_donate_title => 'Donate';
 
   @override
-  String get contribute_donate_header => 'Donate to Open Food Facts';
+  String get contribute_donate_header => 'Derma kepada Fakta Makanan Terbuka';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
+      'Sila maklum bahawa dengan versi alfa dalaman, kehilangan data sepenuhnya adalah mungkin, dan aplikasi mungkin tidak dapat digunakan pada bila-bila masa!';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'Products to be completed';
+      'Produk yang perlu disiapkan';
 
   @override
   String get contribute_improve_header => 'Menambah baik';
 
   @override
   String get contribute_improve_text =>
-      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
+      'Pangkalan data merupakan teras projek ini. Ia mudah dan cepat untuk membantu. Anda boleh memuat turun aplikasi mudah alih untuk telefon anda dan mula menambah atau menambah baik produk.\n\nSebaliknya, laman web Open Food Facts menawarkan pelbagai cara untuk menyumbang: ';
 
   @override
   String get contribute_translate_header => 'Terjemahkan';
@@ -479,7 +485,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
+      'Open Food Facts merupakan projek global yang mengandungi produk dari lebih 160 buah negara. Open Food Facts diterjemahkan ke dalam berpuluh-puluh bahasa, dengan kandungan yang sentiasa berubah.';
 
   @override
   String get contribute_translate_text_2 =>
@@ -487,11 +493,11 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Contribute your skills to Open Food Facts. Join the skill pool!';
+      'Sumbang kemahiran anda kepada Open Food Facts. Sertai kumpulan kemahiran!';
 
   @override
   String get contribute_share_header =>
-      'Share Open Food Facts with your friends';
+      'Kongsikan Fakta Makanan Terbuka dengan rakan-rakan anda';
 
   @override
   String get contribute_share_content =>
@@ -499,21 +505,21 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Sumbang harga dengan meminta eksport GDPR data kad kesetiaan anda';
 
   @override
-  String get tap_to_answer => 'Tap here to answer questions';
+  String get tap_to_answer => 'Ketik di sini untuk menjawab soalan';
 
   @override
   String get tap_to_answer_hint =>
-      'Tap here to answer questions about this product';
+      'Ketik di sini untuk menjawab soalan tentang produk ini';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'Please wait while questions about this product are loaded';
+      'Sila tunggu sementara soalan tentang produk ini dimuatkan';
 
   @override
-  String get saving_answer => 'Saving your answer';
+  String get saving_answer => 'Menyimpan jawapan anda';
 
   @override
   String get contribute_to_get_rewards =>
@@ -521,56 +527,56 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Sign in to your Open Food Facts account to get credit for your contributions';
+      'Log masuk ke akaun Fakta Makanan Terbuka anda untuk mendapatkan kredit bagi sumbangan anda';
 
   @override
-  String get question_yes_button_accessibility_value => 'Answer with yes';
+  String get question_yes_button_accessibility_value => 'Jawab dengan ya';
 
   @override
-  String get question_no_button_accessibility_value => 'Answer with no';
+  String get question_no_button_accessibility_value => 'Jawab dengan tidak';
 
   @override
-  String get question_skip_button_accessibility_value => 'Skip this question';
+  String get question_skip_button_accessibility_value => 'Langkau soalan ini';
 
   @override
-  String get tap_to_edit_search => 'Tap to edit search';
+  String get tap_to_edit_search => 'Ketik untuk mengedit carian';
 
   @override
   String get myPreferences => 'Keutamaan Saya';
 
   @override
   String get account_create_message =>
-      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
+      'Cipta akaun anda dan sertai komuniti Fakta Makanan Terbuka untuk membantu membina pengetahuan tentang makanan di seluruh dunia!';
 
   @override
-  String get join_us => 'Join us';
+  String get join_us => 'Sertai kami';
 
   @override
-  String get myPreferences_profile_title => 'Your Profile';
+  String get myPreferences_profile_title => 'Profil Anda';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Manage your Open Food Facts contributor account.';
+      'Urus akaun penyumbang Fakta Makanan Terbuka anda.';
 
   @override
-  String get myPreferences_settings_title => 'App Settings';
+  String get myPreferences_settings_title => 'Tetapan Aplikasi';
 
   @override
-  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
+  String get myPreferences_settings_subtitle => 'Mod gelap, Bahasa…';
 
   @override
-  String get myPreferences_food_title => 'Food Preferences';
+  String get myPreferences_food_title => 'Keutamaan Makanan';
 
   @override
   String get myPreferences_food_subtitle =>
-      'Choose what information about food matters most to you.';
+      'Pilih maklumat tentang makanan yang paling penting bagi anda.';
 
   @override
   String get myPreferences_food_comment =>
-      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
+      'Pilih maklumat tentang makanan yang paling penting bagi anda untuk menilai makanan mengikut pilihan anda, lihat maklumat yang anda minati dahulu dan dapatkan ringkasan keserasian. Pilihan makanan tersebut kekal pada peranti anda dan tidak dikaitkan dengan akaun penyumbang Fakta Makanan Terbuka anda jika anda mempunyainya.';
 
   @override
-  String get confirmResetPreferences => 'Reset your food preferences?';
+  String get confirmResetPreferences => 'Tetapkan semula pilihan makanan anda?';
 
   @override
   String get myPersonalizedRanking => 'Kedudukan saya yang diperibadikan';
@@ -579,17 +585,17 @@ class AppLocalizationsMs extends AppLocalizations {
   String get ranking_tab_all => 'Semua';
 
   @override
-  String get ranking_subtitle_match_yes => 'A great match for you';
+  String get ranking_subtitle_match_yes => 'Padanan yang hebat untuk anda';
 
   @override
-  String get ranking_subtitle_match_no => 'Very poor match';
+  String get ranking_subtitle_match_no => 'Padanan yang sangat lemah';
 
   @override
   String get ranking_subtitle_match_maybe => 'Padanan yang tidak diketahui';
 
   @override
   String get refresh_with_new_preferences =>
-      'Refresh the list with your new preferences';
+      'Segarkan semula senarai dengan pilihan baharu anda';
 
   @override
   String get reloaded_with_new_preferences =>
@@ -602,13 +608,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get scan_navbar_label => 'Imbas';
 
   @override
-  String get history_navbar_label => 'History';
+  String get history_navbar_label => 'Sejarah';
 
   @override
-  String get list_navbar_label => 'Lists';
+  String get list_navbar_label => 'Senarai';
 
   @override
-  String get category => 'Filter by category';
+  String get category => 'Tapis mengikut kategori';
 
   @override
   String get category_all => 'Semua';
@@ -620,7 +626,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get filter => 'Tapis';
 
   @override
-  String get scan => 'Products from the Scan screen';
+  String get scan => 'Produk daripada skrin Imbas';
 
   @override
   String get scan_history => 'Imbas sejarah';
@@ -638,13 +644,13 @@ class AppLocalizationsMs extends AppLocalizations {
   String get search_history => 'Sejarah carian';
 
   @override
-  String get search_store => 'Search for a store';
+  String get search_store => 'Cari kedai';
 
   @override
   String get search_store_help => 'Petunjuk: tambah bandar atau negara';
 
   @override
-  String get tap_for_more => 'Tap to see more info…';
+  String get tap_for_more => 'Ketik untuk melihat maklumat lanjut…';
 
   @override
   String get product => 'Produk';
@@ -653,7 +659,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get unknownBrand => 'Jenama tidak diketahui';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Kuantiti tidak diketahui';
 
   @override
   String get unknownProductName => 'Nama produk yang tidak diketahui';
@@ -662,28 +668,28 @@ class AppLocalizationsMs extends AppLocalizations {
   String get label_refresh => 'Refresh';
 
   @override
-  String get label_reload => 'Reload';
+  String get label_reload => 'Muat semula';
 
   @override
-  String get image => 'Image';
+  String get image => 'Imej';
 
   @override
   String get front_photo => 'Foto depan';
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (this image may be outdated)';
+    return '$imageType (imej ini mungkin sudah ketinggalan zaman)';
   }
 
   @override
-  String get outdated_image_short_label => 'may be outdated';
+  String get outdated_image_short_label => 'mungkin ketinggalan zaman';
 
   @override
   String get ingredients => 'Bahan-bahan';
 
   @override
   String get ingredients_editing_instructions =>
-      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
+      'Kekalkan susunan asal. Nyatakan peratusan apabila dinyatakan. Asingkan dengan koma atau tanda sempang dan gunakan kurungan untuk ramuan sesuatu ramuan.';
 
   @override
   String get ingredients_editing_error => 'Gagal untuk menyimpan ramuan.';
@@ -700,17 +706,17 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get packaging_editing_instructions =>
-      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
+      'Senaraikan semua bahagian pembungkusan yang dipisahkan dengan koma atau suapan baris, dengan jumlahnya (cth. 1 atau 6) jenis (cth. botol, kotak, tin), bahan (cth. plastik, logam, aluminium) dan jika ada saiznya (cth. 33cl) dan arahan kitar semula.\nContoh: 1 botol kaca untuk dikitar semula, 1 gabus plastik untuk dibuang';
 
   @override
-  String get packaging_editing_error => 'Failed to save the packaging.';
+  String get packaging_editing_error => 'Gagal menyimpan pembungkusan.';
 
   @override
   String get packaging_editing_image_error =>
-      'Failed to get a new packaging image.';
+      'Gagal mendapatkan imej pembungkusan baharu.';
 
   @override
-  String get packaging_editing_title => 'Edit Packaging';
+  String get packaging_editing_title => 'Edit Pembungkusan';
 
   @override
   String get nutrition => 'Pemakanan';
@@ -719,24 +725,24 @@ class AppLocalizationsMs extends AppLocalizations {
   String get nutrition_facts_photo => 'Foto fakta pemakanan';
 
   @override
-  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
+  String get nutrition_facts_editing_title => 'Edit Fakta Pemakanan';
 
   @override
-  String get packaging_information => 'Maklumat pembungkusan';
+  String get packaging_information => 'Arahan kitar semula';
 
   @override
-  String get packaging_information_photo => 'Foto maklumat pembungkusan';
+  String get packaging_information_photo => 'Foto arahan kitar semula';
 
   @override
   String get missing_product => 'Anda telah menemui produk baharu!';
 
   @override
   String get add_product_take_photos =>
-      'Take photos of the packaging to add this product to Open Food Facts';
+      'Ambil gambar pembungkusan untuk menambah produk ini ke Open Food Facts';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'Please take some photos first. You may always complete the product at a later time.';
+      'Sila ambil beberapa gambar dahulu. Anda boleh menyiapkan produk ini pada masa akan datang.';
 
   @override
   String get add_product_information_button_label => 'Add product information';
@@ -745,65 +751,65 @@ class AppLocalizationsMs extends AppLocalizations {
   String get new_product => 'Produk Baharu';
 
   @override
-  String get new_product_found_title => 'New product found!';
+  String get new_product_found_title => 'Produk baharu ditemui!';
 
   @override
   String get new_product_found_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'Pangkalan data kolaboratif kami mengandungi lebih daripada **3 juta produk**, tetapi kod bar ini tidak wujud: ';
 
   @override
   String get new_product_found_button => 'Add this product';
 
   @override
-  String get new_product_leave_title => 'Leave this page?';
+  String get new_product_leave_title => 'Tinggalkan halaman ini?';
 
   @override
   String get new_product_leave_message =>
-      'It looks like you didn\'t input anything. Do you really want to leave this page?';
+      'Nampaknya anda tidak memasukkan apa-apa. Adakah anda benar-benar mahu meninggalkan halaman ini?';
 
   @override
   String get new_product_dialog_description =>
-      'Please take photos of the packaging to add this product to our common database';
+      'Sila ambil gambar pembungkusan untuk menambah produk ini ke pangkalan data umum kami';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'An illustration with unknown Nutri-Score and Green Score';
+      'Ilustrasi dengan Skor Nutri dan Skor Hijau yang tidak diketahui';
 
   @override
-  String get front_packaging_photo_button_label => 'Front packaging photo';
+  String get front_packaging_photo_button_label => 'Foto pembungkusan hadapan';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'Confirm upload of Front packaging photo';
+      'Sahkan muat naik foto pembungkusan hadapan';
 
   @override
   String get confirm_button_label => 'Sahkan';
 
   @override
-  String get send_image_button_label => 'Send image';
+  String get send_image_button_label => 'Hantar imej';
 
   @override
-  String get crop_page_action_saving => 'Saving the image…';
+  String get crop_page_action_saving => 'Menyimpan imej…';
 
   @override
-  String get crop_page_action_cropping => 'Cropping the image…';
+  String get crop_page_action_cropping => 'Memotong imej…';
 
   @override
-  String get crop_page_action_local => 'Saving a local version…';
+  String get crop_page_action_local => 'Menyimpan versi setempat…';
 
   @override
   String get crop_page_action_local_failed_title =>
-      'Oops… there\'s something with your photo!';
+      'Alamak… ada sesuatu dengan foto awak!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
+      'Kami tidak dapat memproses imej secara setempat sebelum menghantarnya ke pelayan kami. Sila cuba lagi nanti atau hubungi kami jika masalah berterusan.';
 
   @override
-  String get crop_page_action_retake => 'Retake a photo';
+  String get crop_page_action_retake => 'Ambil semula foto';
 
   @override
-  String get crop_page_too_small_image_title => 'The image is too small!';
+  String get crop_page_too_small_image_title => 'Imej itu terlalu kecil!';
 
   @override
   String crop_page_too_small_image_message(
@@ -812,11 +818,11 @@ class AppLocalizationsMs extends AppLocalizations {
     int actualWidth,
     int actualHeight,
   ) {
-    return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
+    return 'Saiz minimum dalam piksel untuk muat naik gambar ialah ${expectedMinWidth}x$expectedMinHeight. Gambar semasa ialah ${actualWidth}x$actualHeight.';
   }
 
   @override
-  String get crop_page_action_server => 'Preparing a call to the server…';
+  String get crop_page_action_server => 'Menyediakan panggilan ke pelayan…';
 
   @override
   String get front_packaging_photo_title => 'Foto Pembungkusan Hadapan';
@@ -825,10 +831,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get ingredients_photo_title => 'Foto Ramuan';
 
   @override
-  String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
+  String get nutritional_facts_photo_title => 'Foto Fakta Pemakanan';
 
   @override
-  String get recycling_photo_title => 'Foto Kitar Semula';
+  String get recycling_photo_title => 'Arahan kitar semula Foto';
 
   @override
   String get take_photo_title => 'Ambil gambar';
@@ -837,157 +843,160 @@ class AppLocalizationsMs extends AppLocalizations {
   String get take_more_photo_title => 'Take more photos';
 
   @override
-  String get front_photo_uploaded => 'Front photo uploaded';
+  String get front_photo_uploaded => 'Foto hadapan dimuat naik';
 
   @override
   String get ingredients_photo_button_label => 'Foto ramuan';
 
   @override
-  String get ingredients_photo_uploaded => 'Ingredients photo uploaded';
+  String get ingredients_photo_uploaded => 'Foto bahan-bahan dimuat naik';
 
   @override
   String get nutrition_cache_loading_error =>
-      'Unable to load nutrients from cache';
+      'Tidak dapat memuatkan nutrien daripada cache';
 
   @override
   String get nutritional_facts_photo_button_label => 'Foto fakta pemakanan';
 
   @override
-  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
+  String get nutritional_facts_input_button_label => 'Isi fakta pemakanan';
 
   @override
-  String get nutritional_facts_added => 'Nutrition facts added';
+  String get nutritional_facts_added => 'Fakta pemakanan ditambah';
 
   @override
-  String get categories_added => 'Categories added';
+  String get categories_added => 'Kategori ditambah';
 
   @override
   String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'Help us by filling at least a category and nutritional values';
+      'Bantu kami dengan mengisi sekurang-kurangnya satu kategori dan nilai pemakanan';
 
   @override
-  String get new_product_title_environmental_score => 'Compute the Green Score';
+  String get new_product_title_environmental_score => 'Kira Skor Hijau';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Get it by filling at least a category';
+      'Dapatkannya dengan mengisi sekurang-kurangnya satu kategori';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Make Green Score computation more precise with origins, packaging & more';
+      'Jadikan pengiraan Skor Hijau lebih tepat dengan asal usul, pembungkusan & banyak lagi';
 
   @override
-  String get new_product_title_nova =>
-      'Compute the food processing level (NOVA)';
+  String get new_product_title_nova => 'Kira tahap pemprosesan makanan (NOVA)';
 
   @override
   String get new_product_subtitle_nova =>
-      'Get it by filling the food category and ingredients';
+      'Dapatkannya dengan mengisi kategori makanan dan bahan-bahan';
 
   @override
-  String get new_product_desc_nova_unknown => 'Food processing level unknown';
+  String get new_product_desc_nova_unknown =>
+      'Tahap pemprosesan makanan tidak diketahui';
 
   @override
-  String get new_product_title_pictures => 'New product';
+  String get new_product_title_pictures => 'Produk baharu';
 
   @override
   String get new_product_title_pictures_details =>
       'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'And some basic data…';
+  String get new_product_title_misc => 'Dan beberapa data asas…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'Thanks for your contribution “$username”!';
+    return 'Terima kasih atas sumbangan anda \"$username\"!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
+  String get new_product_done_msg_no_user =>
+      'Terima kasih atas sumbangan anda!';
 
   @override
-  String get new_product_done_button_label => 'Discover the completed product';
+  String get new_product_done_button_label => 'Temui produk yang telah siap';
 
   @override
   String get hey_incomplete_product_message =>
-      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
+      'Ketik untuk menjawab 3 soalan SEKARANG untuk mengira Nutri-Score, Green Score & Ultra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tap now to answer 2 questions to help analyze this cosmetic!';
+      'Ketik sekarang untuk menjawab 2 soalan bagi membantu menganalisis kosmetik ini!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Tap now to answer 3 questions to help analyze this pet food product!';
+      'Ketik sekarang untuk menjawab 3 soalan bagi membantu menganalisis produk makanan haiwan peliharaan ini!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Tap now to help complete this product!';
+      'Ketik sekarang untuk membantu melengkapkan produk ini!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
       'Foto fakta nutrisi dimuat naik';
 
   @override
-  String get recycling_photo_button_label => 'Recycling photo';
+  String get recycling_photo_button_label => 'Foto kitar semula';
 
   @override
-  String get recycling_photo_uploaded => 'Recycling photo uploaded';
+  String get recycling_photo_uploaded => 'Foto kitar semula dimuat naik';
 
   @override
   String get take_more_photo_button_label => 'Take more photos';
 
   @override
-  String get other_photo_uploaded => 'Miscellaneous photo uploaded';
+  String get other_photo_uploaded => 'Pelbagai foto dimuat naik';
 
   @override
-  String get retake_photo_button_label => 'Retake';
+  String get retake_photo_button_label => 'Ambil Semula';
 
   @override
-  String get selecting_photo => 'Selecting photo';
+  String get selecting_photo => 'Memilih foto';
 
   @override
-  String get uploading_image => 'Uploading photo to the server';
+  String get uploading_image => 'Memuat naik foto ke pelayan';
 
   @override
   String get uploading_image_type_front =>
-      'Uploading front image to Open Food Facts';
+      'Memuat naik imej hadapan ke Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Uploading ingredients image to Open Food Facts';
+      'Memuat naik imej ramuan ke Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Uploading nutrition image to Open Food Facts';
+      'Memuat naik imej nutrisi ke Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'Uploading packaging image to Open Food Facts';
+      'Memuat naik imej pembungkusan ke Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'Uploading other image to Open Food Facts';
+      'Memuat naik imej lain ke Open Food Facts';
 
   @override
   String get uploading_image_type_generic =>
-      'Uploading image to Open Food Facts';
+      'Memuat naik imej ke Open Food Facts';
 
   @override
   String get score_add_missing_ingredients => 'Tambahkan ramuan yang hilang';
 
   @override
-  String get score_add_missing_packaging_image => 'Add missing packaging image';
+  String get score_add_missing_packaging_image =>
+      'Tambahkan imej pembungkusan yang hilang';
 
   @override
   String get score_add_missing_nutrition_facts =>
       'Tambahkan fakta pemakanan yang tiada';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces =>
+      'Tambahkan jejak produk yang hilang';
 
   @override
   String get score_add_missing_product_category =>
@@ -999,36 +1008,40 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get score_add_missing_product_countries =>
-      'Add missing product countries';
+      'Tambahkan negara produk yang tiada';
 
   @override
   String get score_add_missing_product_emb =>
-      'Add missing product traceability codes';
+      'Tambahkan kod kebolehkesanan produk yang hilang';
 
   @override
-  String get score_add_missing_product_labels => 'Add missing product labels';
+  String get score_add_missing_product_labels =>
+      'Tambahkan label produk yang hilang';
 
   @override
-  String get score_add_missing_product_origins => 'Add missing product origins';
+  String get score_add_missing_product_origins =>
+      'Tambahkan asal produk yang hilang';
 
   @override
-  String get score_add_missing_product_stores => 'Add missing product stores';
+  String get score_add_missing_product_stores =>
+      'Tambahkan kedai produk yang tiada';
 
   @override
-  String get score_add_missing_product_brands => 'Add missing product brands';
+  String get score_add_missing_product_brands =>
+      'Tambahkan jenama produk yang tiada';
 
   @override
-  String get score_update_nutrition_facts => 'Update nutrition facts';
+  String get score_update_nutrition_facts => 'Kemas kini fakta pemakanan';
 
   @override
-  String get nutrition_page_title => 'Nutrition Facts';
+  String get nutrition_page_title => 'Fakta Pemakanan';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'Maklumat pemakanan';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Values specified on the product:';
+      'Nilai yang dinyatakan pada produk:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Ya';
@@ -1037,24 +1050,24 @@ class AppLocalizationsMs extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'Tidak';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo => 'Buka foto';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Good practices: Nutritional information';
+      'Amalan baik: Maklumat pemakanan';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'Kadangkala fakta pemakanan **tidak dinyatakan pada pembungkusan** atau pada dokumen yang diberikan bersama produk. Dalam kes ini, dan hanya dalam kes ini, anda boleh menetapkan nilai kepada **TIDAK**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Nutritional values:';
+  String get nutrition_page_serving_type_label => 'Nilai pemakanan:';
 
   @override
-  String get nutrition_page_per_100g => 'per 100g';
+  String get nutrition_page_per_100g => 'setiap 100g';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
+  String get nutrition_page_per_100g_100ml => 'setiap 100g/ml';
 
   @override
   String get nutrition_page_per_serving => 'setiap hidangan';
@@ -1067,31 +1080,31 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Input a serving size (eg: 100g)';
+      'Masukkan saiz hidangan (cth: 100g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'Amalan baik: Saiz hidangan';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'Nilai ini membantu **membuat pengiraan berkadaran bagi setiap nutrien bagi setiap saiz hidangan**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '**Unit yang dibenarkan** ialah: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 公升, 公升';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 g**, **60g** atau **60 G** (lebih suka yang pertama)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 ml** atau **1L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Invalid unit';
+      'Unit tidak sah';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1099,49 +1112,49 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Invalid units';
+      'Unit tidak sah';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **gula-gula** dan 2 **biskut**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Missing unit';
+      'Unit yang hilang';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => 'Invalid number';
+  String get nutrition_page_invalid_number => 'Nombor tidak sah';
 
   @override
   String get nutrition_page_update_running =>
-      'Updating the product on the server…';
+      'Mengemas kini produk pada pelayan…';
 
   @override
-  String get nutrition_page_update_done => 'Product updated!';
+  String get nutrition_page_update_done => 'Produk dikemas kini!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Use the product quantity as serving size';
+      'Gunakan kuantiti produk sebagai saiz hidangan';
 
   @override
-  String get nutrition_page_photo_error => 'Unable to load the photo';
+  String get nutrition_page_photo_error => 'Tidak dapat memuatkan foto';
 
   @override
   String get more_photos => 'Foto yang lebih menarik';
 
   @override
   String get view_more_photo_button =>
-      'View all existing photos for this product';
+      'Lihat semua foto sedia ada untuk produk ini';
 
   @override
   String get no_product_found => 'Tiada Produk Ditemui';
 
   @override
-  String get no_location_found => 'No location found';
+  String get no_location_found => 'Tiada lokasi ditemui';
 
   @override
   String get not_found => 'tidak ditemui:';
@@ -1154,33 +1167,34 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Image taken on $date';
+    return 'Imej diambil pada $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Image taken on $date. This image may be outdated';
+    return 'Imej diambil pada $date. Imej ini mungkin sudah ketinggalan zaman';
   }
 
   @override
-  String get product_image_outdated => 'This image may be outdated';
+  String get product_image_outdated =>
+      'Imej ini mungkin sudah ketinggalan zaman';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'This image may be outdated';
+      'Imej ini mungkin sudah ketinggalan zaman';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
+      'Imej ini diambil lebih setahun yang lalu.\n**Sila semak sama ada ia masih terkini**.\n\nIni **sekadar amaran**. Jika kandungan masih sama, anda boleh mengabaikan mesej ini.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Replace photo ($type)';
+    return 'Gantikan foto ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Add a photo ($type)';
+    return 'Tambah foto ($type)';
   }
 
   @override
@@ -1191,74 +1205,75 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get product_image_action_from_gallery =>
-      'Select from your phone\'s gallery';
+      'Pilih daripada galeri telefon anda';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'Select from the product photos';
+      'Pilih daripada foto produk';
 
   @override
-  String get product_image_details_label => 'Information about the photo';
+  String get product_image_details_label => 'Maklumat tentang foto itu';
 
   @override
-  String get product_image_details_from_producer => 'From the producer';
+  String get product_image_details_from_producer => 'Daripada pengeluar';
 
   @override
   String get product_image_details_contributor => 'Contributor';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Contributor (producer)';
+      'Penyumbang (penerbit)';
 
   @override
-  String get product_image_details_date => 'Date';
+  String get product_image_details_date => 'Tarikh';
 
   @override
   String get product_image_details_date_unknown => 'Tidak diketahui';
 
   @override
   String get homepage_main_card_logo_description =>
-      'Welcome to Open Food Facts';
+      'Selamat datang ke Fakta Makanan Terbuka';
 
   @override
   String get homepage_main_card_subheading =>
-      '**Scan** a barcode or\n**search** for a product';
+      '**Imbas** kod bar atau\n**cari** produk';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Search for a product';
+  String get homepage_main_card_search_field_hint => 'Cari produk';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Start search';
+  String get homepage_main_card_search_field_tooltip => 'Mulakan carian';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Latest news: $news_title';
+    return 'Berita terkini: $news_title';
   }
 
   @override
-  String get tagline_app_review => 'Do you like the app?';
+  String get tagline_app_review => 'Adakah anda suka aplikasi ini?';
 
   @override
-  String get tagline_app_review_button_positive => 'I love it! 😍';
+  String get tagline_app_review_button_positive => 'Saya sukakannya! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'Not really…';
+  String get tagline_app_review_button_negative => 'Tidak juga…';
 
   @override
-  String get tagline_app_review_button_later => 'Ask me later';
+  String get tagline_app_review_button_later => 'Tanya saya kemudian';
 
   @override
-  String get tagline_feed_news_button => 'Know more';
+  String get tagline_feed_news_button => 'Ketahui lebih lanjut';
 
   @override
-  String get app_review_negative_modal_title => 'You don\'t like our app?';
+  String get app_review_negative_modal_title =>
+      'Anda tidak suka aplikasi kami?';
 
   @override
   String get app_review_negative_modal_text =>
-      'Could you take a few seconds to tell us why?';
+      'Bolehkah anda luangkan beberapa saat untuk memberitahu kami sebabnya?';
 
   @override
-  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
+  String get app_review_negative_modal_positive_button => 'Ya, sudah tentu!';
 
   @override
   String get app_review_negative_modal_negative_button => 'Tidak';
@@ -1267,15 +1282,15 @@ class AppLocalizationsMs extends AppLocalizations {
   String get could_not_refresh => 'Tidak dapat memperbaharui produk';
 
   @override
-  String get product_internet_error_modal_title => 'An error has occurred!';
+  String get product_internet_error_modal_title => 'Ralat telah berlaku!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
+    return 'Kami tidak dapat mendapatkan maklumat tentang produk ini disebabkan oleh ralat rangkaian. Sila semak sambungan internet anda dan cuba lagi.\n\nRalat dalaman:\n$error';
   }
 
   @override
-  String get product_tags_title => 'Product properties';
+  String get product_tags_title => 'Sifat produk';
 
   @override
   String get no_product_tags_found_message =>
@@ -1292,28 +1307,28 @@ class AppLocalizationsMs extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Add properties';
+  String get add_tags => 'Tambah sifat';
 
   @override
-  String get add_edit_tags => 'Add or edit properties';
+  String get add_edit_tags => 'Tambah atau edit sifat';
 
   @override
-  String get edit_tag => 'Edit property';
+  String get edit_tag => 'Edit sifat';
 
   @override
-  String get remove_tag => 'Remove property';
+  String get remove_tag => 'Alih keluar harta';
 
   @override
-  String get tag_key => 'Property';
+  String get tag_key => 'Hartanah';
 
   @override
   String get tag_keys => 'Hartanah';
 
   @override
-  String get tag_key_uneditable => 'Property (uneditable)';
+  String get tag_key_uneditable => 'Hartanah (tidak boleh diedit)';
 
   @override
-  String get tag_key_input_hint => 'Input a property';
+  String get tag_key_input_hint => 'Masukkan sifat';
 
   @override
   String get tag_value => 'Nilai';
@@ -1322,29 +1337,29 @@ class AppLocalizationsMs extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'Input a value';
+  String get tag_value_input_hint => 'Masukkan nilai';
 
   @override
-  String get tag_key_item => 'Property:';
+  String get tag_key_item => 'Hartanah:';
 
   @override
-  String get tag_value_item => 'Value:';
+  String get tag_value_item => 'Nilai:';
 
   @override
   String get tag_key_explanations =>
-      'A key must be lowercase and without any spaces.';
+      'Kunci mestilah huruf kecil dan tanpa sebarang jarak.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'A tag with a property $property already exists!';
+    return 'Tag dengan sifat $property sudah wujud!';
   }
 
   @override
   String get product_internet_error =>
-      'Impossible to fetch information about this product due to a network error.';
+      'Mustahil untuk mendapatkan maklumat tentang produk ini disebabkan oleh ralat rangkaian.';
 
   @override
-  String get cached_results_from => 'Show results from:';
+  String get cached_results_from => 'Tunjukkan hasil daripada:';
 
   @override
   String get product_search_same_category => 'Cari alternatif';
@@ -1354,7 +1369,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
+      'Ciri ini hanya boleh digunakan untuk produk yang mempunyai kategori.\n\nSila edit produk untuk menambah kategori.';
 
   @override
   String get product_improvement_add_category =>
@@ -1374,34 +1389,34 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'The nutrition image is obsolete: please refresh it.';
+      'Imej pemakanan sudah lapuk: sila muat semula.';
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
+      'Skor Hijau mengambil kira asal-usul ramuan. Sila ambil gambar senarai ramuan dan/atau sebarang tuntutan geografi atau sunting produk, supaya ia boleh diambil kira.';
 
   @override
-  String get country_chooser_label => 'Please choose a country';
+  String get country_chooser_label => 'Sila pilih negara';
 
   @override
-  String get currency_chooser_label => 'Please choose a currency';
+  String get currency_chooser_label => 'Sila pilih mata wang';
 
   @override
-  String get country_change_message => 'You have just changed countries.';
+  String get country_change_message => 'Awak baru sahaja bertukar negara.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
+    return 'Adakah anda ingin menukar mata wang daripada $previousCurrency kepada $possibleCurrency?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Please choose a country:';
+  String get onboarding_country_chooser_label => 'Sila pilih negara:';
 
   @override
-  String get country_chooser_label_from_settings => 'Your country';
+  String get country_chooser_label_from_settings => 'Negara anda';
 
   @override
   String get country_selection_explanation =>
@@ -1412,20 +1427,20 @@ class AppLocalizationsMs extends AppLocalizations {
       'Produk dialih keluar daripada perbandingan';
 
   @override
-  String get native_app_settings => 'Native App Settings';
+  String get native_app_settings => 'Tetapan Aplikasi Asli';
 
   @override
   String get native_app_description =>
-      'Open systems settings for Open Food Facts';
+      'Tetapan sistem terbuka untuk Fakta Makanan Terbuka';
 
   @override
   String get product_removed_history => 'Produk dialih keluar daripada sejarah';
 
   @override
-  String get product_removed_list => 'Product removed from list';
+  String get product_removed_list => 'Produk dialih keluar daripada senarai';
 
   @override
-  String get product_could_not_remove => 'Could not remove product';
+  String get product_could_not_remove => 'Tidak dapat mengalih keluar produk';
 
   @override
   String get no_prodcut_in_list => 'Tiada terdapat produk dalam senarai ini';
@@ -1434,16 +1449,17 @@ class AppLocalizationsMs extends AppLocalizations {
   String get no_product_in_section => 'Tiada terdapat produk di seksyen ini';
 
   @override
-  String get recently_seen_products => 'All viewed products';
+  String get recently_seen_products => 'Semua produk yang dilihat';
 
   @override
-  String get clear => 'Clear';
+  String get clear => 'Jelas';
 
   @override
-  String get clear_long => 'Empty the list';
+  String get clear_long => 'Kosongkan senarai';
 
   @override
-  String get really_clear => 'Do you really want to delete this list?';
+  String get really_clear =>
+      'Adakah anda benar-benar mahu memadamkan senarai ini?';
 
   @override
   String pct_match(Object percent) {
@@ -1455,8 +1471,8 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count days ago',
-      one: 'one day ago',
+      other: '$count hari yang lalu',
+      one: 'sehari yang lalu',
     );
     return '$_temp0';
   }
@@ -1466,8 +1482,8 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count hours ago',
-      one: 'one hour ago',
+      other: '$count jam yang lalu',
+      one: 'sejam yang lalu',
     );
     return '$_temp0';
   }
@@ -1477,9 +1493,9 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count minutes ago',
-      one: 'one minute ago',
-      zero: 'less than a minute ago',
+      other: '$count minit yang lalu',
+      one: 'seminit yang lalu',
+      zero: 'kurang seminit yang lalu',
     );
     return '$_temp0';
   }
@@ -1489,8 +1505,8 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count months ago',
-      one: 'one month ago',
+      other: '$count bulan yang lalu',
+      one: 'sebulan yang lalu',
     );
     return '$_temp0';
   }
@@ -1500,8 +1516,8 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count weeks ago',
-      one: 'one week ago',
+      other: '$count minggu yang lalu',
+      one: 'seminggu yang lalu',
     );
     return '$_temp0';
   }
@@ -1511,8 +1527,8 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Compare $count Products',
-      one: 'Compare one Product',
+      other: 'Bandingkan $count Produk',
+      one: 'Bandingkan satu Produk',
     );
     return '$_temp0';
   }
@@ -1522,31 +1538,31 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count selected products',
-      one: 'One selected product',
-      zero: 'No selected product',
+      other: '$count produk yang dipilih',
+      one: 'Satu produk yang dipilih',
+      zero: 'Tiada produk yang dipilih',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Compare selected products';
+  String get compare_products_mode => 'Bandingkan produk terpilih';
 
   @override
-  String get delete_products_mode => 'Delete selected products';
+  String get delete_products_mode => 'Padam produk yang dipilih';
 
   @override
-  String get select_all_products_mode => 'Select all products';
+  String get select_all_products_mode => 'Pilih semua produk';
 
   @override
-  String get select_none_products_mode => 'Select none';
+  String get select_none_products_mode => 'Pilih tiada';
 
   @override
   String get compare_products_appbar_title => 'Banding produk';
 
   @override
   String get compare_products_appbar_subtitle =>
-      'Please select at least two products';
+      'Sila pilih sekurang-kurangnya dua produk';
 
   @override
   String get retry_button_label => 'Cuba lagi';
@@ -1555,31 +1571,31 @@ class AppLocalizationsMs extends AppLocalizations {
   String get connect_with_us => 'Berhubunglah dengan kami';
 
   @override
-  String get tiktok => 'Follow us on TikTok';
+  String get tiktok => 'Ikuti kami di TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'Follow us on Instagram';
+  String get instagram => 'Ikuti kami di Instagram';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'Follow us on X (formerly Twitter)';
+  String get twitter => 'Ikuti kami di X (dahulunya Twitter)';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Follow us on Mastodon';
+  String get mastodon => 'Ikuti kami di Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Follow us on BlueSky';
+  String get bsky => 'Ikuti kami di BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
@@ -1598,10 +1614,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get hint_knowledge_panel_message =>
-      'Your can tap on any part of the card to get more details about what you see. Try it now!';
+      'Anda boleh mengetik mana-mana bahagian kad untuk mendapatkan butiran lanjut tentang apa yang anda lihat. Cubalah sekarang!';
 
   @override
-  String get permissions_page_title => 'Camera access';
+  String get permissions_page_title => 'Akses kamera';
 
   @override
   String get permissions_page_body1 =>
@@ -1620,7 +1636,7 @@ class AppLocalizationsMs extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
+    return 'OS: Android (SDK Antarabangsa: $sdkInt / Keluaran: $release)\nModel: $model\nProduk: $product\nPeranti: $device\nJenama:$brand';
   }
 
   @override
@@ -1629,7 +1645,7 @@ class AppLocalizationsMs extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
+    return 'OS: iOS ($version)\nModel: $model\nModel setempat: $localizedModel';
   }
 
   @override
@@ -1639,7 +1655,7 @@ class AppLocalizationsMs extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
+    return '$osContent\nVersi aplikasi:$appVersion\nNombor binaan aplikasi:$appBuildNumber\nNama pakej aplikasi:$appPackageName';
   }
 
   @override
@@ -1649,57 +1665,57 @@ class AppLocalizationsMs extends AppLocalizations {
   String get refuse_button_label => 'Menolak';
 
   @override
-  String get ask_me_later_button_label => 'Later';
+  String get ask_me_later_button_label => 'Kemudian';
 
   @override
-  String get are_you_sure => 'Are you sure?';
+  String get are_you_sure => 'Awak pasti?';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
-    return 'Go further on $sourceName';
+    return 'Teruskan di $sourceName';
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Welcome !';
+  String get onboarding_home_welcome_text1 => 'Selamat datang!';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'The app that helps you choose food that is good for **you** and the **planet**!';
+      'Aplikasi yang membantu anda memilih makanan yang baik untuk **anda** dan **planet**!';
 
   @override
-  String get onboarding_continue_button => 'Continue';
+  String get onboarding_continue_button => 'Teruskan';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'Loading your first example product';
+      'Memuatkan produk contoh pertama anda';
 
   @override
   String get onboarding_welcome_warning =>
       'Maaf, ini contoh produk kami, anda tidak boleh mengeditnya :)';
 
   @override
-  String get product_list_your_ranking => 'Your ranking';
+  String get product_list_your_ranking => 'Kedudukan anda';
 
   @override
-  String get product_list_empty_icon_desc => 'History not available';
+  String get product_list_empty_icon_desc => 'Sejarah tidak tersedia';
 
   @override
-  String get product_list_empty_title => 'Start scanning';
+  String get product_list_empty_title => 'Mulakan pengimbasan';
 
   @override
   String get product_list_empty_message =>
-      'Scanned products will appear here and you can check detailed information about them';
+      'Produk yang diimbas akan dipaparkan di sini dan anda boleh menyemak maklumat terperinci mengenainya';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'products',
-      one: 'product',
-      zero: 'product',
+      other: 'produk',
+      one: 'produk',
+      zero: 'produk',
     );
-    return 'Refreshing $_temp0 in your history';
+    return 'Menyegarkan $_temp0 dalam sejarah anda';
   }
 
   @override
@@ -1707,11 +1723,11 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Products',
-      one: 'Product',
-      zero: 'Product',
+      other: 'Produk',
+      one: 'Produk',
+      zero: 'Produk',
     );
-    return '$_temp0 refresh complete';
+    return '$_temp0 muat semula selesai';
   }
 
   @override
@@ -1719,83 +1735,85 @@ class AppLocalizationsMs extends AppLocalizations {
       'Bandingkan sebelah menyebelah';
 
   @override
-  String get loading_dialog_default_title => 'Downloading data';
+  String get loading_dialog_default_title => 'Memuat turun data';
 
   @override
-  String get loading_dialog_default_error_message => 'Could not download data';
+  String get loading_dialog_default_error_message =>
+      'Tidak dapat memuat turun data';
 
   @override
-  String get account_delete => 'Delete account';
+  String get account_delete => 'Padam akaun';
 
   @override
   String get account_delete_title => 'Padam akaun saya';
 
   @override
-  String get user_profile => 'Account';
+  String get user_profile => 'Akaun';
 
   @override
   String get user_profile_title_guest => 'Selamat Datang!';
 
   @override
   String get user_profile_subtitle_guest =>
-      'Sign-in or sign-up to join the Open Food Facts community';
+      'Daftar masuk atau daftar untuk menyertai komuniti Fakta Makanan Terbuka';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Open Food Facts login: $email';
+    return 'Log masuk Fakta Makanan Terbuka: $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Welcome $id!';
+    return 'Selamat datang $id!';
   }
 
   @override
-  String get email_subject_account_deletion => 'Delete account';
+  String get email_subject_account_deletion => 'Padam akaun';
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Hi there, please delete my Open Food Facts account: $userId';
+    return 'Hai semua, sila padamkan akaun Fakta Makanan Terbuka saya: $userId';
   }
 
   @override
-  String get settings_app_app => 'Application';
+  String get settings_app_app => 'Permohonan';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Camera';
+  String get settings_app_camera => 'Kamera';
 
   @override
   String get settings_app_products => 'Produk';
 
   @override
-  String get settings_app_miscellaneous => 'Miscellaneous';
+  String get settings_app_miscellaneous => 'Pelbagai';
 
   @override
-  String get camera_play_sound_title => 'Play a sound on scan';
+  String get camera_play_sound_title => 'Mainkan bunyi semasa imbasan';
 
   @override
-  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
+  String get camera_play_sound_subtitle =>
+      'Akan berbunyi bip pada setiap imbasan yang berjaya';
 
   @override
   String get camera_window_accessibility_label =>
-      'Scan a barcode with your camera';
+      'Imbas kod bar dengan kamera anda';
 
   @override
-  String get app_haptic_feedback_title => 'Vibration & Haptics';
+  String get app_haptic_feedback_title => 'Getaran & Haptik';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'Vibrations after executing some actions (barcode decoded, product removed…).';
+      'Getaran selepas melaksanakan beberapa tindakan (kod bar dinyahkod, produk dialih keluar…).';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
+      'Apabila diaktifkan, laporan ranap sistem akan dihantar secara automatik ke sistem penjejakan ralat Open Food Facts supaya pepijat dapat dibaiki dan seterusnya menambah baik aplikasi.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1805,149 +1823,151 @@ class AppLocalizationsMs extends AppLocalizations {
       'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
 
   @override
-  String get product_edit_photo_title => 'Edit Photo';
+  String get product_edit_photo_title => 'Edit Foto';
 
   @override
   String get permission_photo_error => 'Ralat';
 
   @override
   String get permission_photo_denied_title =>
-      'Allow camera use to scan barcodes';
+      'Benarkan penggunaan kamera untuk mengimbas kod bar';
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'For an enhanced experience, please allow $appName to access your camera. You will be able to directly scan barcodes.';
+    return 'Untuk pengalaman yang dipertingkatkan, sila benarkan $appName mengakses kamera anda. Anda boleh mengimbas kod bar secara langsung.';
   }
 
   @override
-  String get permission_photo_denied_button => 'Allow';
+  String get permission_photo_denied_button => 'Benarkan';
 
   @override
   String get permission_photo_denied_dialog_settings_title =>
-      'Permission denied';
+      'Kebenaran ditolak';
 
   @override
   String get permission_photo_denied_dialog_settings_message =>
-      'As you\'ve previously denied the camera permission, you must allow it manually from the Settings.';
+      'Memandangkan anda telah menolak kebenaran kamera sebelum ini, anda mesti membenarkannya secara manual daripada Tetapan.';
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
-      'Open settings';
+      'Buka tetapan';
 
   @override
   String get permission_photo_denied_dialog_settings_button_cancel => 'Cancel';
 
   @override
-  String get permission_photo_none_found => 'No camera detected';
+  String get permission_photo_none_found => 'Tiada kamera dikesan';
 
   @override
-  String get permission_photo_denied => 'No camera access granted';
+  String get permission_photo_denied => 'Tiada akses kamera diberikan';
 
   @override
-  String get show_product_pictures => 'Show product pictures';
+  String get show_product_pictures => 'Tunjukkan gambar produk';
 
   @override
-  String get edit_product_label => 'Edit product';
+  String get edit_product_label => 'Edit produk';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Memuat naik suntingan anda…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
+      'Suntingan anda **dihantar di latar belakang** (atau kemudian sekiranya berlaku ralat).\nAnda boleh terus mengedit medan produk lain.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Your edits are being **sent in the background** (or later in case of error).';
+      'Suntingan anda sedang **dihantar di latar belakang** (atau kemudian sekiranya berlaku ralat).';
 
   @override
   String get edit_product_label_short => 'Edit';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'How to enter \"$value\"?';
+    return 'Bagaimana untuk memasukkan \"$value\"?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Please enter a non-empty value!';
+      'Sila masukkan nilai yang bukan kosong!';
 
   @override
-  String get edit_product_form_item_error_existing =>
-      'This value is already there!';
+  String get edit_product_form_item_error_existing => 'Nilai ini sudah ada!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Add a new brand';
+  String get edit_product_form_item_add_action_brand => 'Tambah jenama baharu';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Add a new label';
+  String get edit_product_form_item_add_action_label => 'Tambah label baharu';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Add a new store';
+  String get edit_product_form_item_add_action_store => 'Tambah kedai baharu';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Add a new origin';
+  String get edit_product_form_item_add_action_origin => 'Tambah asal baharu';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Add a new traceability code';
+      'Tambah kod kebolehkesanan baharu';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country =>
+      'Tambah negara baharu';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Add a new category';
+  String get edit_product_form_item_add_action_category =>
+      'Tambah kategori baharu';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace => 'Tambah jejak baharu';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+  String get edit_product_form_item_add_suggestion => 'Tambah cadangan';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Tolak cadangan';
 
   @override
-  String get edit_product_form_item_details_title => 'Basic details';
+  String get edit_product_form_item_details_title => 'Butiran asas';
 
   @override
   String get edit_product_form_item_details_subtitle =>
-      'Product name, brand, quantity';
+      'Nama produk, jenama, kuantiti';
 
   @override
-  String get edit_product_form_item_other_details_title => 'Additional details';
+  String get edit_product_form_item_other_details_title => 'Butiran tambahan';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'Website…';
+  String get edit_product_form_item_other_details_subtitle => 'Laman Web…';
 
   @override
-  String get edit_product_form_item_photos_title => 'Photos';
+  String get edit_product_form_item_photos_title => 'Foto';
 
   @override
-  String get edit_product_form_item_photos_subtitle => 'Add or refresh photos';
+  String get edit_product_form_item_photos_subtitle =>
+      'Tambah atau muat semula foto';
 
   @override
-  String get edit_product_form_item_labels_title => 'Labels & Certifications';
+  String get edit_product_form_item_labels_title => 'Label & Pensijilan';
 
   @override
   String get edit_product_form_item_labels_subtitle =>
-      'Environmental, Quality labels…';
+      'Label Alam Sekitar, Kualiti…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Input a label (eg: NutriScore)';
+      'Masukkan label (cth.: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'label';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'Amalan baik: Label';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'Sebarang ciri produk **yang berdasarkan fakta** dan berbeza daripada bidang lain.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1955,7 +1975,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'Dibuat di Belgium, dikeluarkan di Brittany…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -1963,28 +1983,28 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'Kaya dengan serat, sumber zat besi…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'Perdagangan yang adil, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'Kedai';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Input a store';
+  String get edit_product_form_item_stores_hint => 'Masukkan kedai';
 
   @override
   String get edit_product_form_item_stores_type => 'kedai';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'Amalan baik: Kedai';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'Masukkan kedai tempat anda membeli produk tersebut.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -1999,74 +2019,74 @@ class AppLocalizationsMs extends AppLocalizations {
       'Lidl';
 
   @override
-  String get edit_product_form_item_origins_title => 'Origins';
+  String get edit_product_form_item_origins_title => 'Asal-usul';
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Input an origin (eg: Germany)';
+      'Masukkan asal (cth.: Jerman)';
 
   @override
   String get edit_product_form_item_origins_type => 'negara';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'Amalan baik: Asal-usul';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      'Tambahkan **sebarang petunjuk asal usul yang boleh didapati pada pembungkusan**.\nAnda tidak perlu risau tentang asal usul yang ditunjukkan terus dalam senarai ramuan.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'Daging lembu dari Argentina';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'Soya bukan berasal dari Kesatuan Eropah';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Input a country (eg: Germany)';
+      'Masukkan negara (cth.: Jerman)';
 
   @override
   String get edit_product_form_item_countries_type => 'negara';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'Amalan baik: Negara';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**Negara-negara di mana produk ini tersedia secara meluas** (tidak termasuk kedai yang mengkhusus dalam produk asing).';
 
   @override
   String get edit_product_form_item_emb_codes_title => 'Kod kebolehjejakan';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Masukkan kod (cth: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
   String get edit_product_form_item_emb_codes_type => 'kod kebolehjejakan';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+      'Amalan baik: Kod kebolehkesanan';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'Dalam bahagian ini, anda boleh memasukkan kod yang berkaitan dengan **tanda pembungkusan**, **tanda pengenalan** atau **tanda kesihatan**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+      'Contoh kod kebolehkesanan';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**Kod EC** yang digunakan dalam Komuniti Eropah untuk mengenal pasti pengeluar atau pembungkus makanan:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2074,11 +2094,11 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: kod negara **France**\n**72.264.002**: data geografi\n**CE**: Komuniti Eropah';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      '**Kod EMB** yang digunakan di Perancis:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2092,7 +2112,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'Masukkan jejak (cth.: Kacang soya)';
 
   @override
   String get edit_product_form_item_categories_title => 'Kategori-kategori';
@@ -2102,117 +2122,118 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Input a category (eg: Orange juice)';
+      'Masukkan kategori (cth.: Jus oren)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'Amalan baik: Kategori';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      'Nyatakan **hanya kategori yang paling khusus**.\nKategori induk akan ditambah secara automatik.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'Kategori tiada?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'Sekiranya kategori **tidak tersedia dalam autolengkap**, sila tambahkannya.\nIni akan membantu kami menambah baik Fakta Makanan Terbuka di negara anda.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'Sardin dalam minyak zaitun';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'Jus oren daripada pekatan';
 
   @override
-  String get edit_product_form_item_exit_title => 'Quit without saving?';
+  String get edit_product_form_item_exit_title => 'Berhenti tanpa menyimpan?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Do you want to save your changes before leaving this page?';
+      'Adakah anda ingin menyimpan perubahan anda sebelum meninggalkan halaman ini?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
-      'Save changes';
+      'Simpan perubahan';
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'Discard changes';
+      'Buang perubahan';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Bahan-bahan';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoom in and out by pinching the screen';
+      'Zum masuk dan keluar dengan mencubit skrin';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoom in and out the photo';
+      'Zum masuk dan keluar foto';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      'Menggunakan **Gerak isyarat Cubit untuk zum**, anda boleh zum masuk atau keluar foto:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Tambah';
 
   @override
   String get edit_product_form_item_add_invalid_item_tooltip =>
-      'Please enter a text first';
+      'Sila masukkan teks terlebih dahulu';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'Remove';
+  String get edit_product_form_item_remove_item_tooltip => 'Alih keluar';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
+  String get edit_product_form_item_save_edit_item_tooltip =>
+      'Simpan suntingan anda';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cancel your edit';
+      'Batalkan suntingan anda';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'Recycling instructions photo';
+      'Foto arahan kitar semula';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
+  String get edit_product_form_item_nutrition_facts_title => 'Fakta pemakanan';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
-      'Nutrition, alcohol content…';
+      'Pemakanan, kandungan alkohol…';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'Amalan baik: Fakta pemakanan';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'Nilai pemakanan';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'Pertama, pilih jika **nilai disediakan**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'Nutrition facts';
+      'Fakta pemakanan';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'Kemudian, masukkan nilai pemakanan **seperti yang ditunjukkan pada pembungkusan**. Jika tiada nilai, anda boleh klik pada ikon \"Mata\".';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'Medan tiada?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'Jika terdapat entri yang hilang, anda boleh **klik pada ikon \"Tambah\"** untuk menambahkannya (cth: vitamin D, magnesium…).';
 
   @override
   String get edit_product_form_save => 'Edit';
@@ -2224,19 +2245,19 @@ class AppLocalizationsMs extends AppLocalizations {
   String get edit_product_ingredients_list_title => 'List of ingredients';
 
   @override
-  String get edit_product_packaging_photo_title => 'Packaging photo';
+  String get edit_product_packaging_photo_title => 'Foto pembungkusan';
 
   @override
-  String get edit_product_packaging_list_title => 'Packaging list';
+  String get edit_product_packaging_list_title => 'Senarai pembungkusan';
 
   @override
   String get no_data_available => 'Tiada data tersedia';
 
   @override
-  String get product_field_website_title => 'Website';
+  String get product_field_website_title => 'Laman Web';
 
   @override
-  String get origins_editing_title => 'Edit Origins';
+  String get origins_editing_title => 'Sunting Asal-usul';
 
   @override
   String get completed_basic_details_btn_text => 'Lengkapkan butiran asas';
@@ -2249,7 +2270,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Extract ingredients from the photo';
+      'Ekstrak bahan-bahan daripada foto';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2257,204 +2278,205 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Extracting ingredients\nfrom the photo';
+      'Mengekstrak bahan-bahan\ndaripada foto';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
+  String get edit_ingredients_loading_photo_btn_text => 'Memuatkan foto…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'Mengapa saya nampak mesej ini?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'Untuk menggunakan ciri \"Ekstrak bahan\", foto perlu dimuat naik terlebih dahulu.\n\nSila tunggu beberapa saat atau masukkannya secara manual.';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
+  String get edit_ingredients_refresh_photo_btn_text => 'Muat semula foto';
 
   @override
   String get edit_packaging_extract_btn_text =>
-      'Extract packaging\nfrom the photo';
+      'Ekstrak pembungkusan\ndaripada foto';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
+  String get edit_packaging_extract_btn_text_short => 'Pembungkusan ekstrak';
 
   @override
   String get edit_packaging_extracting_btn_text =>
-      'Extracting packaging from the photo';
+      'Mengekstrak pembungkusan daripada foto';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
+  String get edit_packaging_loading_photo_btn_text => 'Memuatkan foto…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'Mengapa saya nampak mesej ini?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'Untuk menggunakan ciri \"Ekstrak pembungkusan\", foto perlu dimuat naik terlebih dahulu.\n\nSila tunggu beberapa saat atau masukkannya secara manual.';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
+  String get edit_packaging_refresh_photo_btn_text => 'Muat semula foto';
 
   @override
-  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
+  String get edit_ocr_extract_failed => 'Gagal mengesan teks dalam imej.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'No picture!';
+  String get edit_ocr_extract_disabled_title => 'Tiada gambar!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'In order to use the text extraction feature, you must first take a photo.';
+      'Untuk menggunakan ciri pengekstrakan teks, anda mesti mengambil gambar terlebih dahulu.';
 
   @override
-  String get user_list_dialog_new_title => 'New list of products';
+  String get user_list_dialog_new_title => 'Senarai produk baharu';
 
   @override
-  String get user_list_dialog_rename_title => 'Rename list';
+  String get user_list_dialog_rename_title => 'Namakan semula senarai';
 
   @override
-  String get user_list_subtitle_product => 'Lists';
+  String get user_list_subtitle_product => 'Senarai';
 
   @override
   String get user_list_title => 'Your lists';
 
   @override
-  String get user_list_add_product => 'Add the product to your lists';
+  String get user_list_add_product => 'Tambahkan produk ke senarai anda';
 
   @override
-  String get user_list_button_new => 'Create a new list';
+  String get user_list_button_new => 'Cipta senarai baharu';
 
   @override
   String get user_list_empty_label =>
       'No list available yet, please start by creating one';
 
   @override
-  String get user_list_button_add_product => 'Add to list';
+  String get user_list_button_add_product => 'Tambah ke senarai';
 
   @override
-  String get added_to_list_msg => 'Added to list';
+  String get added_to_list_msg => 'Ditambah ke senarai';
 
   @override
-  String get user_list_popup_clear => 'Clear your history';
+  String get user_list_popup_clear => 'Kosongkan sejarah anda';
 
   @override
-  String get user_list_popup_rename => 'Rename';
+  String get user_list_popup_rename => 'Namakan semula';
 
   @override
-  String get user_list_name_hint => 'My list';
+  String get user_list_name_hint => 'Senarai saya';
 
   @override
-  String get user_list_name_error_empty => 'Name is mandatory';
+  String get user_list_name_error_empty => 'Nama adalah wajib';
 
   @override
-  String get user_list_name_error_already => 'That name is already used';
+  String get user_list_name_error_already => 'Nama itu sudah digunakan';
 
   @override
-  String get user_list_name_error_same => 'That is the same name';
+  String get user_list_name_error_same => 'Itu nama yang sama';
 
   @override
-  String get user_list_name_input_hint => 'Name of the list';
+  String get user_list_name_input_hint => 'Nama senarai';
 
   @override
-  String get try_again => 'Try Again';
+  String get try_again => 'Cuba Lagi';
 
   @override
-  String get there_was_an_error => 'There was an error';
+  String get there_was_an_error => 'Terdapat ralat';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return 'No category found for $items';
+    return 'Tiada kategori ditemui untuk $items';
   }
 
   @override
-  String get camera_toggle_camera => 'Switch between back and front camera';
+  String get camera_toggle_camera => 'Tukar antara kamera belakang dan hadapan';
 
   @override
-  String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
+  String get camera_toggle_flash => 'HIDUPKAN atau MATIKAN denyar kamera';
 
   @override
-  String get camera_enable_flash => 'Enable flash';
+  String get camera_enable_flash => 'Dayakan denyar';
 
   @override
-  String get camera_disable_flash => 'Disable flash';
+  String get camera_disable_flash => 'Lumpuhkan denyar';
 
   @override
-  String get camera_flash_error_dialog_title => 'An error occurred!';
+  String get camera_flash_error_dialog_title => 'Ralat telah berlaku!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
+      'Ralat berlaku semasa menukar keadaan lampu kilat anda. Sila pastikan telefon pintar anda tidak mendayakan lampu suluh.';
 
   @override
   String get category_picker_no_category_found_button => 'Undur';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Click to open in your browser or in the application (if installed)';
+      'Klik untuk membuka dalam pelayar anda atau dalam aplikasi (jika dipasang)';
 
   @override
-  String get dev_preferences_screen_title => 'DEV Mode';
+  String get dev_preferences_screen_title => 'Mod DEV';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'Akses ciri percubaan dan alat pembangunan';
 
   @override
-  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
+  String get dev_preferences_reset_onboarding_title =>
+      'Mulakan semula onboarding';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'You then have to restart the App to see it again.';
+      'Anda kemudian perlu memulakan semula Aplikasi untuk melihatnya semula.';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'Switch between openfoodfacts.org (PROD) and test env';
+      'Tukar antara openfoodfacts.org (PROD) dan persekitaran ujian';
 
   @override
   String get dev_preferences_test_environment_title =>
-      'Test environment parameters';
+      'Parameter persekitaran ujian';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'Base URL for current test env: $url';
+    return 'URL asas untuk persekitaran ujian semasa: $url';
   }
 
   @override
   String get dev_preferences_test_environment_dialog_title =>
-      'Test environment host';
+      'Hos persekitaran ujian';
 
   @override
-  String get dev_preferences_ml_kit_title => 'Use ML Kit';
+  String get dev_preferences_ml_kit_title => 'Gunakan Kit ML';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'then you have to restart this app';
+      'maka anda perlu memulakan semula aplikasi ini';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'Additional button on product page';
+      'Butang tambahan pada halaman produk';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'Edit ingredients via a knowledge panel button';
+      'Edit bahan melalui butang panel pengetahuan';
 
   @override
-  String get dev_preferences_export_history_title => 'Export History';
+  String get dev_preferences_export_history_title => 'Sejarah Eksport';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'exception';
+  String get dev_preferences_export_history_progress_error => 'pengecualian';
 
   @override
-  String get dev_preferences_export_history_progress_found => 'product found';
+  String get dev_preferences_export_history_progress_found => 'produk ditemui';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'product NOT found';
+      'produk TIDAK ditemui';
 
   @override
-  String get dev_preferences_export_history_dialog_title => 'Export history';
+  String get dev_preferences_export_history_dialog_title => 'Sejarah eksport';
 
   @override
   String get dev_preferences_button_positive => 'OK';
@@ -2463,7 +2485,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get dev_preferences_button_negative => 'Cancel';
 
   @override
-  String get dev_preferences_migration_title => 'Data migration from V1';
+  String get dev_preferences_migration_title => 'Migrasi data daripada V1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
@@ -2472,91 +2494,91 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get dev_preferences_migration_status_already_done =>
-      'success or fresh install';
+      'kejayaan atau pemasangan baharu';
 
   @override
-  String get dev_preferences_migration_status_success => 'success';
+  String get dev_preferences_migration_status_success => 'kejayaan';
 
   @override
-  String get dev_preferences_migration_status_error => 'error';
+  String get dev_preferences_migration_status_error => 'ralat';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'in progress';
+  String get dev_preferences_migration_status_in_progress =>
+      'sedang dijalankan';
 
   @override
   String get dev_preferences_migration_status_required =>
-      'required (click to start)';
+      'diperlukan (klik untuk mula)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'unknown';
+  String get dev_preferences_migration_status_not_started => 'tidak diketahui';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'Will clear history and put 3 products in there';
+      'Akan membersihkan sejarah dan meletakkan 3 produk di sana';
 
   @override
-  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
+  String get dev_preferences_news_custom_url_title =>
+      'URL tersuai untuk berita';
 
   @override
-  String get dev_preferences_news_custom_url_subtitle =>
-      'URL of the JSON file:';
+  String get dev_preferences_news_custom_url_subtitle => 'URL fail JSON:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'Not set';
+  String get dev_preferences_news_custom_url_empty_value => 'Tidak ditetapkan';
 
   @override
   String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Last refresh: $date';
+    return 'Segar semula terakhir: $date';
   }
 
   @override
-  String get product_type_label_food => 'Food';
+  String get product_type_label_food => 'Makanan';
 
   @override
-  String get product_type_label_beauty => 'Personal care';
+  String get product_type_label_beauty => 'Penjagaan diri';
 
   @override
-  String get product_type_label_pet_food => 'Pet food';
+  String get product_type_label_pet_food => 'Makanan haiwan peliharaan';
 
   @override
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Jenis produk';
 
   @override
-  String get product_type_selection_subtitle =>
-      'Select the type of this product';
+  String get product_type_selection_subtitle => 'Pilih jenis produk ini';
 
   @override
   String get product_type_selection_empty =>
-      'You need to select a product type first!';
+      'Anda perlu memilih jenis produk terlebih dahulu!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'You cannot change the product type ($productType)!';
+    return 'Anda tidak boleh menukar jenis produk ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Shortcut to Prices app on product page';
+      'Pintasan ke aplikasi Harga pada halaman produk';
 
   @override
-  String get prices_app_button => 'Go to Prices app';
+  String get prices_app_button => 'Pergi ke aplikasi Harga';
 
   @override
   String get prices_website_button => 'Buka di laman web Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'Tambah tanda harga terus daripada galeri';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'Sebaik sahaja anda memilih imej, anda tidak akan dapat mengeditnya!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2567,10 +2589,10 @@ class AppLocalizationsMs extends AppLocalizations {
       'Benarkan komuniti mengesahkan harga yang diekstrak oleh AI.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'Tanda Harga Berbilang';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'Muat Naik Bukti Pukal';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Memilih fail';
@@ -2594,15 +2616,15 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'Prices';
+  String get prices_generic_title => 'Harga';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Add $count prices',
-      one: 'Add a price',
+      other: 'Tambah $count harga',
+      one: 'Tambah harga',
     );
     return '$_temp0';
   }
@@ -2612,42 +2634,42 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Send $count prices',
-      one: 'Send the price',
+      other: 'Hantar $count harga',
+      one: 'Hantar harga',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Add an item';
+  String get prices_add_an_item => 'Tambah item';
 
   @override
-  String get prices_add_a_price => 'Add a price';
+  String get prices_add_a_price => 'Tambah harga';
 
   @override
-  String get prices_add_a_receipt => 'Add a receipt';
+  String get prices_add_a_receipt => 'Tambah resit';
 
   @override
-  String get prices_add_price_tags => 'Add price tags';
+  String get prices_add_price_tags => 'Tambah tanda harga';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'This barcode ($barcode) is already in the list!';
+    return 'Kod bar ini ($barcode) sudah ada dalam senarai!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'No product yet';
+  String get prices_barcode_search_none_yet => 'Tiada produk lagi';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'Looking for $barcode';
+    return 'Mencari $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Enter the Barcode';
+  String get prices_barcode_enter => 'Masukkan Kod Bar';
 
   @override
   String get prices_category_enter => 'Item tanpa kod bar';
@@ -2674,10 +2696,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_category_error_mandatory => 'Kategori adalah wajib';
 
   @override
-  String get prices_barcode_reader_action => 'Barcode reader';
+  String get prices_barcode_reader_action => 'Pembaca kod bar';
 
   @override
-  String get prices_view_prices => 'View the prices';
+  String get prices_view_prices => 'Lihat harga';
 
   @override
   String get prices_list_title => 'senarai harga';
@@ -2724,10 +2746,10 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: '1 price',
+      other: '$count harga',
+      one: '1 harga',
     );
-    return '$_temp0 for $product';
+    return '$_temp0 untuk $product';
   }
 
   @override
@@ -2735,16 +2757,16 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count prices',
-      one: 'Only one price',
-      zero: 'No price yet',
+      other: 'Semua $count harga',
+      one: 'Hanya satu harga',
+      zero: 'Tiada harga lagi',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize prices (total: $total)';
+    return 'Harga $pageSize terkini (jumlah: $total)';
   }
 
   @override
@@ -2754,32 +2776,32 @@ class AppLocalizationsMs extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
+    return 'Harga: $price / Kedai: \"$location\" / Diterbitkan pada $date oleh \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Open proofs of \"$user\"';
+    return 'Bukti terbuka bagi \"$user\"';
   }
 
   @override
-  String get prices_open_proof => 'Open price proof';
+  String get prices_open_proof => 'Bukti harga terbuka';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count proofs',
-      one: 'Only one proof',
-      zero: 'No proof yet',
+      other: 'Semua $count bukti',
+      one: 'Hanya satu bukti',
+      zero: 'Tiada bukti lagi',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize proofs (total: $total)';
+    return 'Bukti $pageSize terkini (jumlah: $total)';
   }
 
   @override
@@ -2791,7 +2813,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize contributors (total: $total)';
+    return 'Penyumbang $pageSize teratas (jumlah: $total)';
   }
 
   @override
@@ -2803,7 +2825,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize locations (total: $total)';
+    return 'Lokasi $pageSize teratas (jumlah: $total)';
   }
 
   @override
@@ -2811,9 +2833,9 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count proofs',
-      one: 'One proof',
-      zero: 'No proof',
+      other: '$count bukti',
+      one: 'Satu bukti',
+      zero: 'Tiada bukti',
     );
     return '$_temp0';
   }
@@ -2823,9 +2845,9 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'No product',
+      other: '$count produk',
+      one: 'Satu produk',
+      zero: 'Tiada produk',
     );
     return '$_temp0';
   }
@@ -2835,9 +2857,9 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count users',
-      one: 'One user',
-      zero: 'No user',
+      other: '$count pengguna',
+      one: 'Seorang pengguna',
+      zero: 'Tiada pengguna',
     );
     return '$_temp0';
   }
@@ -2847,9 +2869,9 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: 'One price',
-      zero: 'No price',
+      other: '$count harga',
+      one: 'Satu harga',
+      zero: 'Tiada harga',
     );
     return '$_temp0';
   }
@@ -2858,50 +2880,50 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'Harga ditambah sebelum ini';
 
   @override
-  String get prices_amount_subtitle => 'Amount';
+  String get prices_amount_subtitle => 'Jumlah';
 
   @override
-  String get prices_amount_is_discounted => 'Is discounted?';
+  String get prices_amount_is_discounted => 'Adakah diskaun?';
 
   @override
-  String get prices_amount_price_normal => 'Price';
+  String get prices_amount_price_normal => 'Harga';
 
   @override
-  String get prices_amount_price_discounted => 'Discounted price';
+  String get prices_amount_price_discounted => 'Harga diskaun';
 
   @override
-  String get prices_amount_price_not_discounted => 'Original price';
+  String get prices_amount_price_not_discounted => 'Harga asal';
 
   @override
-  String get prices_amount_no_product => 'One product is missing!';
+  String get prices_amount_no_product => 'Satu produk hilang!';
 
   @override
-  String get prices_amount_price_incorrect => 'Incorrect value';
+  String get prices_amount_price_incorrect => 'Nilai salah';
 
   @override
-  String get prices_amount_price_mandatory => 'Mandatory value';
+  String get prices_amount_price_mandatory => 'Nilai wajib';
 
   @override
-  String get prices_currency_subtitle => 'Currency';
+  String get prices_currency_subtitle => 'Mata wang';
 
   @override
-  String get prices_date_subtitle => 'Date';
+  String get prices_date_subtitle => 'Tarikh';
 
   @override
-  String get prices_location_subtitle => 'Shop';
+  String get prices_location_subtitle => 'Kedai';
 
   @override
-  String get prices_location_find => 'Find a shop';
+  String get prices_location_find => 'Cari kedai';
 
   @override
-  String get prices_location_mandatory => 'You need to select a shop!';
+  String get prices_location_mandatory => 'Anda perlu memilih kedai!';
 
   @override
   String get prices_location_search_broader =>
-      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
+      'Tidak dapat menemui apa yang anda cari? Mari cuba carian yang lebih luas!';
 
   @override
-  String get prices_proof_subtitle => 'Proof';
+  String get prices_proof_subtitle => 'Bukti';
 
   @override
   String get prices_proof_empty_title => 'Belum ada bukti!';
@@ -2911,103 +2933,103 @@ class AppLocalizationsMs extends AppLocalizations {
       'Mulakan dengan menambah foto **resit** atau **tanda harga**!';
 
   @override
-  String get prices_proof_find => 'Select a proof';
+  String get prices_proof_find => 'Pilih bukti';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Bukti perubahan';
 
   @override
-  String get prices_proof_receipt => 'Receipt';
+  String get prices_proof_receipt => 'Resit';
 
   @override
-  String get prices_proof_price_tag => 'Price tag';
+  String get prices_proof_price_tag => 'Tanda harga';
 
   @override
-  String get prices_proof_mandatory => 'You need to select a proof!';
+  String get prices_proof_mandatory => 'Anda perlu memilih bukti!';
 
   @override
-  String get prices_add_validation_error => 'Validation error';
+  String get prices_add_validation_error => 'Ralat pengesahan';
 
   @override
-  String get prices_privacy_warning_title => 'Privacy warning';
+  String get prices_privacy_warning_title => 'Amaran privasi';
 
   @override
-  String get prices_unknown_product => 'Unknown product';
+  String get prices_unknown_product => 'Produk tidak diketahui';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'Harga **akan diumumkan**, bersama-sama dengan kedai yang dirujuk.\n\nItu mungkin membolehkan orang yang mengetahui tentang nama samaran Open Food Facts anda untuk:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Infer in which area you live';
+      'Buat kesimpulan di kawasan mana anda tinggal';
 
   @override
   String get prices_privacy_warning_message_bullet_2 =>
-      'Know what you are buying';
+      'Ketahui apa yang anda beli';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'Jika anda tidak selesa dengan itu, sila tukar nama samaran anda atau buat akaun Open Food Facts baharu dan log masuk ke aplikasi dengannya.';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'Saya menolak';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'Saya terima';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'Tukar mata wang?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
+    return 'Mata wang semasa anda ialah **$currency**. Adakah anda ingin menukarnya kepada **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'Ya, gunakan $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'Tidak, simpan $currency';
   }
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get dev_preferences_import_history_result_success => 'Done';
+  String get dev_preferences_import_history_result_success => 'Selesai';
 
   @override
-  String get dev_mode_section_server => 'Server configuration';
+  String get dev_mode_section_server => 'Konfigurasi pelayan';
 
   @override
-  String get dev_mode_section_news => 'News provider configuration';
+  String get dev_mode_section_news => 'Konfigurasi penyedia berita';
 
   @override
-  String get dev_mode_section_product_page => 'Product page';
+  String get dev_mode_section_product_page => 'Halaman produk';
 
   @override
-  String get dev_mode_section_ui => 'User Interface';
+  String get dev_mode_section_ui => 'Antara Muka Pengguna';
 
   @override
-  String get dev_mode_section_experimental_features => 'Experimental features';
+  String get dev_mode_section_experimental_features => 'Ciri-ciri eksperimen';
 
   @override
-  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
+  String get dev_mode_hide_environmental_score_title => 'Kecualikan Skor Hijau';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Use a spellchecker for OCR screens';
+      'Gunakan pemeriksa ejaan untuk skrin OCR';
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(Ingredients and packaging)';
+      '(Bahan-bahan dan pembungkusan)';
 
   @override
   String get dev_mode_reset_app_language_title => 'Tetapkan semula bahasa apl';
@@ -3020,14 +3042,15 @@ class AppLocalizationsMs extends AppLocalizations {
       'Beralih antara prices.openfoodfacts.org (PROD) dan ujian env';
 
   @override
-  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+  String get search_history_item_edit_tooltip =>
+      'Gunakan semula dan edit carian ini';
 
   @override
-  String get search_history_item_remove_tooltip => 'Remove';
+  String get search_history_item_remove_tooltip => 'Alih keluar';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'You\'ve downloaded all the $totalSize products.';
+    return 'Anda telah memuat turun semua produk $totalSize .';
   }
 
   @override
@@ -3036,38 +3059,39 @@ class AppLocalizationsMs extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
+    return 'Muat turun $count lebih banyak produk\nTelah dimuat turun $downloaded daripada $totalSize.';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
+    return 'Carian anda untuk $search sedang dijalankan.\n\nSila tunggu beberapa saat…';
   }
 
   @override
-  String get user_search_contributor_title => 'Products I added';
+  String get user_search_contributor_title => 'Produk yang saya tambah';
 
   @override
-  String get user_search_informer_title => 'Products I edited';
+  String get user_search_informer_title => 'Produk yang saya edit';
 
   @override
-  String get user_search_photographer_title => 'Products I photographed';
+  String get user_search_photographer_title =>
+      'Produk yang saya ambil gambarnya';
 
   @override
-  String get user_search_to_be_completed_title => 'My to-be-completed products';
+  String get user_search_to_be_completed_title => 'Produk saya yang akan siap';
 
   @override
-  String get user_search_prices_title => 'My prices';
+  String get user_search_prices_title => 'Harga saya';
 
   @override
-  String get user_search_proofs_title => 'My proofs';
+  String get user_search_proofs_title => 'Bukti saya';
 
   @override
-  String get user_search_proof_title => 'My proof';
+  String get user_search_proof_title => 'Bukti saya';
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Bukti daripada \"$user\"';
   }
 
   @override
@@ -3076,17 +3100,17 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'Latest Prices added';
+  String get all_search_prices_latest_title => 'Harga Terkini ditambah';
 
   @override
-  String get all_search_prices_top_user_title => 'Top price contributors';
+  String get all_search_prices_top_user_title => 'Penyumbang harga tertinggi';
 
   @override
   String get all_search_prices_top_location_title =>
-      'Stores with the most prices';
+      'Kedai dengan harga paling tinggi';
 
   @override
-  String get prices_contribution_assistant => 'Price Contribution Assistant';
+  String get prices_contribution_assistant => 'Pembantu Sumbangan Harga';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3095,50 +3119,51 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'Tambah Pelbagai Bukti';
 
   @override
-  String get all_search_prices_top_location_single_title => 'Prices in a store';
+  String get all_search_prices_top_location_single_title => 'Harga di kedai';
 
   @override
   String get all_search_prices_top_product_title =>
-      'Products with the most prices';
+      'Produk dengan harga paling tinggi';
 
   @override
-  String get all_search_to_be_completed_title => 'All to-be-completed products';
+  String get all_search_to_be_completed_title =>
+      'Semua produk yang akan disiapkan';
 
   @override
   String get categorize_products_country_title =>
-      'Help categorize products in your country';
+      'Bantu mengkategorikan produk di negara anda';
 
   @override
-  String get edit_product_action_retake_picture => 'Retake photo';
+  String get edit_product_action_retake_picture => 'Ambil semula foto';
 
   @override
-  String get edit_product_action_take_picture => 'Take photo';
+  String get edit_product_action_take_picture => 'Ambil gambar';
 
   @override
   String get edit_product_action_confirm => 'Sahkan';
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'I agree to the Open Food Facts ';
+      'Saya bersetuju dengan Fakta Makanan Terbuka ';
 
   @override
   String get signup_page_terms_of_use_line2 =>
       'syarat penggunaan dan sumbangan';
 
   @override
-  String get analytics_consent_image_semantic_label => 'Analytics icon';
+  String get analytics_consent_image_semantic_label => 'Ikon analitik';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'Ralat Maut: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'Ralat Maut: $error';
   }
 
   @override
@@ -3148,11 +3173,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get edit_photo_button_label => 'Edit';
 
   @override
-  String get edit_photo_unselect_button_label => 'Unselect photo';
+  String get edit_photo_unselect_button_label => 'Nyahpilih foto';
 
   @override
-  String get edit_photo_select_existing_button_label =>
-      'Select an existing image';
+  String get edit_photo_select_existing_button_label => 'Pilih imej sedia ada';
 
   @override
   String get edit_photo_select_existing_all_label =>
@@ -3160,52 +3184,53 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Select an image by clicking on it';
+      'Pilih imej dengan mengkliknya';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'Retrieving existing images…';
+      'Mendapatkan semula imej sedia ada…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
-      'There are no images previously uploaded related to this product.';
+      'Tiada imej yang dimuat naik sebelum ini berkaitan dengan produk ini.';
 
   @override
   String get edit_photo_language_not_this_one =>
-      'No image in that language yet';
+      'Tiada imej dalam bahasa itu lagi';
 
   @override
-  String get edit_photo_language_none => 'No image yet';
+  String get edit_photo_language_none => 'Tiada imej lagi';
 
   @override
   String get category_picker_screen_title => 'Kategori-kategori';
 
   @override
-  String get basic_details => 'Basic Details';
+  String get basic_details => 'Butiran Asas';
 
   @override
-  String get product_name => 'Product Name';
+  String get product_name => 'Nama Produk';
 
   @override
-  String get product_names => 'Product Names';
+  String get product_names => 'Nama Produk';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Add a new translation';
+      'Tambah terjemahan baharu';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'Sebelum pengesahan, sila pastikan anda hanya menambah terjemahan **jika bahasa tersebut terdapat pada pembungkusan**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'View front photo';
+  String get add_basic_details_product_name_open_photo => 'Lihat foto hadapan';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'Take front photo';
+  String get add_basic_details_product_name_take_photo =>
+      'Ambil gambar hadapan';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Input the name of the product (eg: Nutella)';
+      'Masukkan nama produk (cth: Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3219,41 +3244,41 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Good examples';
+  String get explanation_section_good_examples => 'Contoh yang baik';
 
   @override
-  String get explanation_section_bad_examples => 'Bad examples';
+  String get explanation_section_bad_examples => 'Contoh buruk';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+      'Amalan baik: Nama produk';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
+      'Nama produk ialah **nama utama yang dicetak pada pembungkusan**. Ia boleh menjadi tanda dagangan berdaftar.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
+      '**Nota:** Sila jangan tambah terjemahan **jika bahasa tersebut tiada pada pembungkusan**.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tomato Ketchup';
+      'Sos Tomato';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Don\'t include the brand in the name';
+      'Jangan sertakan jenama dalam nama';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Tomato Ketchup **by Heinz**';
+      'Sos Tomato **oleh Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Don\'t use symbols ®, ™, © or similar';
+      'Jangan gunakan simbol ®, ™, © atau yang serupa';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3264,58 +3289,58 @@ class AppLocalizationsMs extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count other translations',
-      one: '$count other translation',
+      other: '$count terjemahan lain',
+      one: '$count terjemahan lain',
     );
     return '$_temp0';
   }
 
   @override
-  String get brand_name => 'Brand name';
+  String get brand_name => 'Nama jenama';
 
   @override
-  String get brand_names => 'Brand names';
+  String get brand_names => 'Nama jenama';
 
   @override
-  String get add_basic_details_brand_name_error =>
-      'Please enter the brand name';
+  String get add_basic_details_brand_name_error => 'Sila masukkan nama jenama';
 
   @override
-  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
+  String get add_basic_details_brand_names_hint =>
+      'Jenama input (cth.: Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+      'Amalan baik: Jenama';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'Masukkan **semua jenama produk**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title => 'Jenama utama';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      '**Jenama utama**, yang biasanya dipaparkan dengan jelas pada pek hadapan, harus **dimasukkan dahulu**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title => 'Jenama lain';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'Apabila dijual **oleh syarikat besar**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**Actimel** dijual oleh **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'Apabila dijual dengan jenamanya **diterjemahkan dalam pelbagai bahasa**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**Lembah Alam** kadangkala ditulis **Val Alam**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3325,181 +3350,181 @@ class AppLocalizationsMs extends AppLocalizations {
       'Oreo, Mondelez';
 
   @override
-  String get quantity => 'Quantity and weight';
+  String get quantity => 'Kuantiti dan berat';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Input the weight and if needed the quantity (eg : 4x100g)';
+      'Masukkan berat dan kuantiti jika perlu (cth: 4x100g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'Amalan baik: Kuantiti';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'Salin nilai yang ditunjukkan pada produk dan **jangan lupa unitnya**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230g** atau **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (untuk 6 biji telur)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150g**\n(untuk produk dengan 3 kotak, setiap satu 150g)';
 
   @override
   String get barcode => 'Barkod';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Barcode: $barcode';
+    return 'Kod Bar: $barcode';
   }
 
   @override
-  String get barcode_invalid_error => 'Invalid barcode';
+  String get barcode_invalid_error => 'Kod bar tidak sah';
 
   @override
-  String get basic_details_add_success => 'Basic details added successfully';
+  String get basic_details_add_success => 'Butiran asas berjaya ditambah';
 
   @override
   String get basic_details_add_error =>
-      'Unable to add basic details. Please try again after some time';
+      'Tidak dapat menambah butiran asas. Sila cuba lagi selepas beberapa ketika';
 
   @override
-  String get clear_search => 'Clear your search';
+  String get clear_search => 'Kosongkan carian anda';
 
   @override
   String get confirm_clear =>
-      'You\'re about to clear your entire history: are you sure you want to continue?';
+      'Anda akan memadamkan keseluruhan sejarah anda: adakah anda pasti mahu meneruskan?';
 
   @override
   String get alert_clear_selected_user_list =>
-      'You\'re about to clear selected items in your history';
+      'Anda akan memadamkan item yang dipilih dalam sejarah anda';
 
   @override
   String get confirm_clear_selected_user_list =>
-      'Are you sure you want to continue?';
+      'Adakah anda pasti mahu meneruskan?';
 
   @override
   String get alert_select_items_to_clear =>
-      'Please select one or more items to clear';
+      'Sila pilih satu atau lebih item untuk dikosongkan';
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'You\'re about to clear this list ($name): are you sure you want to continue?';
+    return 'Anda akan mengosongkan senarai ini ($name): adakah anda pasti mahu meneruskan?';
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Delete the list?';
+  String get confirm_delete_user_list_title => 'Padamkan senarai itu?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
+    return 'Anda akan memadamkan senarai \"$name\".\nAdakah anda pasti mahu meneruskan?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Yes, I confirm';
+  String get confirm_delete_user_list_button => 'Ya, saya sahkan';
 
   @override
   String importance_label(String name, String id) {
-    return '$name importance: $id';
+    return '$name kepentingan: $id';
   }
 
   @override
-  String get user_list_all_title => 'Lists';
+  String get user_list_all_title => 'Senarai';
 
   @override
-  String get user_list_all_empty => 'Create your first list';
+  String get user_list_all_empty => 'Cipta senarai pertama anda';
 
   @override
-  String get product_list_select => 'Select a list';
+  String get product_list_select => 'Pilih senarai';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'Empty list',
+      other: '$count produk',
+      one: 'Satu produk',
+      zero: 'Senarai kosong',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'Add list';
+  String get add_list_label => 'Tambah senarai';
 
   @override
-  String get open_food_preferences_tooltip => 'Edit your food preferences';
+  String get open_food_preferences_tooltip => 'Edit pilihan makanan anda';
 
   @override
-  String get add_photo_button_label => 'Add photo';
+  String get add_photo_button_label => 'Tambah foto';
 
   @override
   String get add_packaging_photo_button_label =>
-      'Take photos of any packaging/recycling information';
+      'Ambil gambar sebarang maklumat pembungkusan/kitar semula';
 
   @override
   String get add_origin_photo_button_label =>
-      'Take photos of any origin information';
+      'Ambil gambar sebarang maklumat asal';
 
   @override
   String get add_emb_photo_button_label =>
-      'Take photos of any traceability code information';
+      'Ambil gambar sebarang maklumat kod kebolehkesanan';
 
   @override
   String get add_label_photo_button_label =>
-      'Take photos of any labels & certifications information';
+      'Ambil gambar sebarang label & maklumat pensijilan';
 
   @override
-  String get choose_image_source_title => 'Choose image source';
+  String get choose_image_source_title => 'Pilih sumber imej';
 
   @override
-  String get choose_image_source_body => 'Please choose a image source';
+  String get choose_image_source_body => 'Sila pilih sumber imej';
 
   @override
-  String get gallery_source_label => 'Gallery';
+  String get gallery_source_label => 'Galeri';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'Access denied';
+  String get gallery_source_access_denied_dialog_title => 'Akses ditolak';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
+      'Malangnya, aplikasi ini tidak dapat mengakses galeri anda, kerana anda telah menolak kebenaran tersebut sebelum ini.\n\nSila pergi ke tetapan aplikasi dalam Tetapan telefon anda -> Foto';
 
   @override
-  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
+  String get gallery_source_access_denied_dialog_button => 'Buka Tetapan';
 
   @override
   String get share => 'Kongsi';
 
   @override
   String share_product_text(String url) {
-    return 'Have a look at this product on Open Food Facts: $url';
+    return 'Lihat produk ini di Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Have a look at this product on Open Beauty Facts: $url';
+    return 'Lihat produk ini di Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Have a look at this product on Open PetFood Facts: $url';
+    return 'Lihat produk ini di Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Have a look at this product on Open Products Facts: $url';
+    return 'Lihat produk ini di Open Products Facts: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Have a look at my list of products on Open Food Facts: $url';
+    return 'Lihat senarai produk saya di Open Food Facts: $url';
   }
 
   @override
@@ -3509,19 +3534,19 @@ class AppLocalizationsMs extends AppLocalizations {
   String get capture_new_picture => 'Ambil gambar';
 
   @override
-  String get choose_from_gallery => 'Choose from gallery';
+  String get choose_from_gallery => 'Pilih daripada galeri';
 
   @override
   String get image_upload_queued =>
-      'The image will be uploaded in the background as soon as possible.';
+      'Imej akan dimuat naik di latar belakang secepat mungkin.';
 
   @override
   String get add_price_queued =>
-      'The price will be sent to the server as soon as possible.';
+      'Harga akan dihantar ke pelayan secepat mungkin.';
 
   @override
   String get background_task_title_full_refresh =>
-      'Starting the refresh of all the products locally stored';
+      'Memulakan penyegaran semua produk yang disimpan secara setempat';
 
   @override
   String get background_task_title_folksonomy =>
@@ -3529,152 +3554,152 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get background_task_title_top_n =>
-      'Starting the download of the most popular products';
+      'Memulakan muat turun produk paling popular';
 
   @override
-  String get expand_nutrition_facts => 'Expand nutrition facts table';
+  String get expand_nutrition_facts => 'Kembangkan jadual fakta pemakanan';
 
   @override
   String get expand_nutrition_facts_body =>
-      'Keep the nutrition facts table expanded';
+      'Pastikan jadual fakta pemakanan dikembangkan';
 
   @override
-  String get expand_ingredients => 'Expand ingredients';
+  String get expand_ingredients => 'Kembangkan bahan-bahan';
 
   @override
-  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
+  String get expand_ingredients_body => 'Pastikan panel ramuan dikembangkan';
 
   @override
-  String get no_internet_connection => 'No internet connection';
+  String get no_internet_connection => 'Tiada sambungan internet';
 
   @override
-  String get world_results_label => 'Entire world';
+  String get world_results_label => 'Seluruh dunia';
 
   @override
-  String get world_results_action => 'Extend your search to the world';
+  String get world_results_action => 'Luaskan pencarian anda ke seluruh dunia';
 
   @override
-  String get copy_to_clipboard => 'Copy';
+  String get copy_to_clipboard => 'Salin';
 
   @override
-  String get paste_from_clipboard => 'Paste from clipboard';
+  String get paste_from_clipboard => 'Tampal dari papan keratan';
 
   @override
   String get no_data_available_in_clipboard =>
-      'No data available in your clipboard';
+      'Tiada data tersedia dalam papan keratan anda';
 
   @override
-  String get clipboard_barcode_copy => 'Copy barcode to clipboard';
+  String get clipboard_barcode_copy => 'Salin kod bar ke papan keratan';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Barcode $barcode copied to the clipboard!';
+    return 'Kod bar $barcode disalin ke papan keratan!';
   }
 
   @override
-  String get open_product_website => 'Open this product on the website';
+  String get open_product_website => 'Buka produk ini di laman web';
 
   @override
-  String get language_picker_label => 'Your language';
+  String get language_picker_label => 'Bahasa anda';
 
   @override
-  String get country_picker_label => 'Your country';
+  String get country_picker_label => 'Negara anda';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'Mata wang anda';
 
   @override
-  String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
+  String get help_with_openfoodfacts => 'Bantuan dengan OpenFoodFacts';
 
   @override
   String get product_task_background_schedule =>
-      'The product will be updated in the background as soon as possible.';
+      'Produk ini akan dikemas kini di latar belakang secepat mungkin.';
 
   @override
-  String get no_email_client_available_dialog_title => 'No email apps!';
+  String get no_email_client_available_dialog_title => 'Tiada aplikasi e-mel!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Please send us manually an email to mobile@openfoodfacts.org';
+      'Sila hantarkan emel secara manual ke mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'All Images';
+  String get all_images => 'Semua Imej';
 
   @override
-  String get selected_images => 'Selected Images';
+  String get selected_images => 'Imej Terpilih';
 
   @override
-  String get product_card_remove_product_tooltip => 'Remove product';
+  String get product_card_remove_product_tooltip => 'Alih keluar produk';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'New barcode scanned: $barcode';
+    return 'Kod bar baharu diimbas: $barcode';
   }
 
   @override
   String get scan_header_clear_button_tooltip =>
-      'Remove all products from the carousel';
+      'Keluarkan semua produk daripada karusel';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'Please scan at least two products to compare them';
+      'Sila imbas sekurang-kurangnya dua produk untuk membandingkannya';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'Click to compare the products you have scanned';
+      'Klik untuk membandingkan produk yang telah anda imbas';
 
   @override
-  String get scan_product_loading => 'You have scanned\nthe barcode:';
+  String get scan_product_loading => 'Anda telah mengimbas\nkod bar:';
 
   @override
   String get scan_product_loading_initial =>
-      'We\'re looking for this product!\nPlease wait a few seconds…';
+      'Kami sedang mencari produk ini!\nSila tunggu beberapa saat…';
 
   @override
   String get scan_product_loading_long_request =>
-      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
+      'Kami masih mencari produk ini!\nAdakah anda rasa ia mengambil masa yang lama untuk dimuatkan? Kami juga…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'We\'re still looking for this product.\nWould you like to restart the search?';
+      'Kami masih mencari produk ini.\nAdakah anda ingin memulakan semula carian?';
 
   @override
-  String get scan_product_loading_restart_button => 'Restart search';
+  String get scan_product_loading_restart_button => 'Mulakan semula carian';
 
   @override
   String get portion_calculator_description =>
       'Kira fakta pemakanan untuk kuantiti tertentu';
 
   @override
-  String get portion_calculator_hint => 'Quantity in';
+  String get portion_calculator_hint => 'Kuantiti dalam';
 
   @override
   String get portion_calculator_accessibility =>
-      'Input a quantity to calculate nutrition facts';
+      'Masukkan kuantiti untuk mengira fakta pemakanan';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Please enter a quantity between $min and $max g';
+    return 'Sila masukkan kuantiti antara $min dan $max g';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Missing data. Calculation could not be performed.';
+      'Data hilang. Pengiraan tidak dapat dilakukan.';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return 'Nutrition facts for $grams g (or ml)';
+    return 'Fakta pemakanan untuk $grams g (atau ml)';
   }
 
   @override
-  String get offline_data => 'Offline Data';
+  String get offline_data => 'Data Luar Talian';
 
   @override
   String get ocr_image_upload_instruction =>
-      'Upload an image to automatically extract the information it contains.';
+      'Muat naik imej untuk mengekstrak maklumat yang terkandung di dalamnya secara automatik.';
 
   @override
-  String get upload_image => 'Upload Photo';
+  String get upload_image => 'Muat Naik Foto';
 
   @override
   String get word_separator_char => ',';
@@ -3683,348 +3708,352 @@ class AppLocalizationsMs extends AppLocalizations {
   String get word_separator => ', ';
 
   @override
-  String get image_download_error => 'Failed to download image';
+  String get image_download_error => 'Gagal memuat turun imej';
 
   @override
   String get image_edit_url_error =>
-      'Failed to edit image because the image URL was not set.';
+      'Gagal mengedit imej kerana URL imej tidak ditetapkan.';
 
   @override
-  String get user_picture_source_remember => 'Remember my choice';
+  String get user_picture_source_remember => 'Ingat pilihan saya';
 
   @override
-  String get user_picture_source_ask => 'Ask each time';
+  String get user_picture_source_ask => 'Tanya setiap kali';
 
   @override
-  String get robotoff_continue => 'Continue';
+  String get robotoff_continue => 'Teruskan';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count questions',
-      one: 'question',
+      other: '$count soalan',
+      one: 'soalan',
     );
-    return 'Next $_temp0';
+    return 'Seterusnya $_temp0';
   }
 
   @override
-  String get show_password => 'Show Password';
+  String get show_password => 'Tunjukkan Kata Laluan';
 
   @override
-  String get owner_field_info_title => 'Producer provided values';
+  String get owner_field_info_title => 'Pengeluar memberikan nilai';
 
   @override
   String get owner_field_info_message =>
-      'With that logo we highlight data provided by the producer, and that may not be editable.';
+      'Dengan logo tersebut, kami menyerlahkan data yang disediakan oleh pengeluar, dan data tersebut mungkin tidak boleh diedit.';
 
   @override
-  String get owner_field_info_close_button => 'Close this info';
+  String get owner_field_info_close_button => 'Tutup maklumat ini';
 
   @override
   String get owner_field_image =>
-      'This image is provided by the producer. It may not be editable.';
+      'Imej ini disediakan oleh penerbit. Ia mungkin tidak boleh diedit.';
 
   @override
-  String get edit_packagings_title => 'Packaging components';
+  String get edit_packagings_title => 'Komponen pembungkusan';
 
   @override
-  String get edit_packagings_element_add => 'Add a packaging component';
+  String get edit_packagings_element_add => 'Tambah komponen pembungkusan';
 
   @override
-  String get edit_packagings_completed => 'The packaging is complete';
+  String get edit_packagings_completed => 'Pembungkusan sudah lengkap';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'Packaging component #$index';
+    return 'Komponen pembungkusan #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Number of units';
+  String get edit_packagings_element_field_units => 'Bilangan unit';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'Enter the number of packaging units of the same shape and material contained in the product.';
+      'Masukkan bilangan unit pembungkusan dengan bentuk dan bahan yang sama yang terkandung dalam produk.';
 
   @override
-  String get edit_packagings_element_field_shape => 'Shape';
+  String get edit_packagings_element_field_shape => 'Bentuk';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
+      'Masukkan nama bentuk yang disenaraikan dalam arahan kitar semula jika ada atau pilih satu bentuk.';
 
   @override
-  String get edit_packagings_element_example_shape => 'Bottle';
+  String get edit_packagings_element_example_shape => 'Botol';
 
   @override
-  String get edit_packagings_element_field_material => 'Material';
+  String get edit_packagings_element_field_material => 'Bahan';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
+      'Masukkan bahan tertentu jika ia dapat ditentukan (kod bahan di dalam segitiga selalunya boleh didapati pada bahagian pembungkusan), atau bahan generik (contohnya plastik atau logam) jika anda tidak pasti.';
 
   @override
-  String get edit_packagings_element_example_material => 'Glass';
+  String get edit_packagings_element_example_material => 'Kaca';
 
   @override
-  String get edit_packagings_element_field_recycling => 'Recycling instruction';
+  String get edit_packagings_element_field_recycling => 'Arahan kitar semula';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Enter recycling instructions only if they are listed on the product.';
+      'Masukkan arahan kitar semula hanya jika ia disenaraikan pada produk.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Recycle';
+  String get edit_packagings_element_example_recycling => 'Kitar semula';
 
   @override
   String get edit_packagings_element_field_quantity =>
-      'Net quantity of product per unit';
+      'Kuantiti bersih produk seunit';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
+      'Masukkan berat bersih atau isipadu bersih dan nyatakan unitnya (contohnya g atau ml).';
 
   @override
   String get edit_packagings_element_field_weight =>
-      'Weight of one empty unit (g)';
+      'Berat satu unit kosong (g)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
+      'Keluarkan sebarang baki makanan dan basuh serta keringkan bahagian pembungkusan sebelum menimbang. Jika boleh, gunakan penimbang dengan ketepatan 0.1g atau 0.01g.';
 
   @override
-  String get background_task_title => 'Pending contributions';
+  String get background_task_title => 'Sumbangan yang belum selesai';
 
   @override
   String get background_task_subtitle =>
-      'Your contributions are automatically saved to our server, but not always in real-time.';
+      'Sumbangan anda disimpan secara automatik ke pelayan kami, tetapi tidak selalunya dalam masa nyata.';
 
   @override
-  String get background_task_list_empty => 'No Pending Background Tasks';
+  String get background_task_list_empty =>
+      'Tiada Tugas Latar Belakang Tertangguh';
 
   @override
-  String get background_task_error_server_time_out => 'Server timeout';
+  String get background_task_error_server_time_out => 'Tamat masa pelayan';
 
   @override
   String get background_task_error_no_internet =>
-      'Internet connection error. Try later.';
+      'Ralat sambungan internet. Cuba kemudian.';
 
   @override
-  String get background_task_operation_unknown => 'unknown operation type';
+  String get background_task_operation_unknown =>
+      'jenis operasi tidak diketahui';
 
   @override
-  String get background_task_operation_details => 'detailed changes';
+  String get background_task_operation_details => 'perubahan terperinci';
 
   @override
-  String get background_task_operation_image => 'photo upload';
+  String get background_task_operation_image => 'muat naik foto';
 
   @override
   String get background_task_operation_refresh =>
-      'refresh delayed after photo upload';
+      'muat semula ditangguhkan selepas muat naik foto';
 
   @override
-  String get background_task_run_started => 'started';
+  String get background_task_run_started => 'bermula';
 
   @override
-  String get background_task_run_not_started => 'not started yet';
+  String get background_task_run_not_started => 'belum bermula lagi';
 
   @override
-  String get background_task_run_to_be_deleted => 'to be deleted';
+  String get background_task_run_to_be_deleted => 'untuk dipadamkan';
 
   @override
   String get background_task_question_stop =>
-      'Do you want to stop that task ASAP?';
+      'Adakah anda mahu menghentikan tugas itu secepat mungkin?';
 
   @override
-  String get feed_back => 'Feedback';
+  String get feed_back => 'Maklum balas';
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'Buat asal';
 
   @override
-  String get copy_email_to_clip_board => 'Copy email to clipboard';
+  String get copy_email_to_clip_board => 'Salin e-mel ke papan keratan';
 
   @override
   String get please_send_us_an_email_to =>
-      'Please send us manually an email to';
+      'Sila hantarkan emel kepada kami secara manual ke';
 
   @override
-  String get email_copied_to_clip_board => 'Email copied to clipboard!';
+  String get email_copied_to_clip_board => 'E-mel disalin ke papan keratan!';
 
   @override
-  String get select_accent_color => 'Select Accent Color';
+  String get select_accent_color => 'Pilih Warna Aksen';
 
   @override
   String get theme_amoled => 'AMOLED';
 
   @override
-  String get color_blue => 'Blue';
+  String get color_blue => 'Biru';
 
   @override
-  String get color_cyan => 'Cyan';
+  String get color_cyan => 'Sian';
 
   @override
-  String get color_green => 'Green';
+  String get color_green => 'Hijau';
 
   @override
-  String get color_light_brown => 'Default';
+  String get color_light_brown => 'Lalai';
 
   @override
   String get color_magenta => 'Magenta';
 
   @override
-  String get color_orange => 'Orange';
+  String get color_orange => 'Oren';
 
   @override
-  String get color_pink => 'Pink';
+  String get color_pink => 'Merah jambu';
 
   @override
-  String get color_red => 'Red';
+  String get color_red => 'Merah';
 
   @override
-  String get color_rust => 'Rust';
+  String get color_rust => 'Karat';
 
   @override
-  String get color_teal => 'Teal';
+  String get color_teal => 'Biru laut';
 
   @override
-  String get text_contrast_mode => 'Text Contrast';
+  String get text_contrast_mode => 'Kontras Teks';
 
   @override
-  String get contrast_high => 'High';
+  String get contrast_high => 'Tinggi';
 
   @override
-  String get contrast_medium => 'Medium';
+  String get contrast_medium => 'Sederhana';
 
   @override
-  String get contrast_low => 'Low';
+  String get contrast_low => 'Rendah';
 
   @override
-  String get product_refresher_internet_not_found => 'Product not found!';
+  String get product_refresher_internet_not_found => 'Produk tidak dijumpai!';
 
   @override
   String get product_refresher_internet_not_connected =>
-      'You are not connected to internet!';
+      'Anda tidak bersambung ke internet!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Server down ($host)';
+    return 'Pelayan tergendala ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Server error ($exception)';
+    return 'Ralat pelayan ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'Product not found!';
+  String get product_loader_not_found_title => 'Produk tidak dijumpai!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
+    return 'Produk dengan kod bar berikut tidak wujud dalam pangkalan data kami: $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'No internet connection!';
+  String get product_loader_network_error_title => 'Tiada sambungan internet!';
 
   @override
   String get product_loader_network_error_message =>
-      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
+      'Sila pastikan telefon pintar anda berada pada rangkaian WiFi atau data mudah alih telah diaktifkan';
 
   @override
-  String get page_not_found_title => 'Page not found!';
+  String get page_not_found_title => 'Halaman tidak dijumpai!';
 
   @override
-  String get page_not_found_button => 'Go back to the homepage';
+  String get page_not_found_button => 'Kembali ke laman utama';
 
   @override
-  String get download_data => 'Download data';
+  String get download_data => 'Muat turun data';
 
   @override
   String get download_top_products =>
-      'Download the top 1000 products in your country for instant scanning';
+      'Muat turun 1000 produk terbaik di negara anda untuk pengimbasan segera';
 
   @override
   String download_top_n_products(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
+      other: '$count teratas',
     );
-    return 'Download the top $_temp0 in your country for instant scanning';
+    return 'Muat turun produk $_temp0 di negara anda untuk pengimbasan segera';
   }
 
   @override
-  String get download_in_progress => 'Downloading data\nThis may take a while';
+  String get download_in_progress =>
+      'Memuat turun data\nIni mungkin mengambil sedikit masa';
 
   @override
   String downloaded_products(int num) {
-    return '$num products added';
+    return '$num produk telah ditambah';
   }
 
   @override
-  String get update_offline_data => 'Update offline product data';
+  String get update_offline_data => 'Kemas kini data produk luar talian';
 
   @override
   String get update_local_database_sub =>
-      'Update the local product database with the latest data from Open Food Facts';
+      'Kemas kini pangkalan data produk tempatan dengan data terkini daripada Open Food Facts';
 
   @override
-  String get clear_local_database => 'Clear offline product data';
+  String get clear_local_database => 'Kosongkan data produk luar talian';
 
   @override
   String get clear_local_database_sub =>
-      'Clear all local product data from your app to free up space';
+      'Kosongkan semua data produk tempatan daripada apl anda untuk mengosongkan ruang';
 
   @override
   String deleted_products(int num) {
-    return '$num products deleted';
+    return 'Produk $num dipadam';
   }
 
   @override
   String get loading => 'Loading…';
 
   @override
-  String get know_more => 'Know More';
+  String get know_more => 'Ketahui Lebih Lanjut';
 
   @override
-  String get offline_data_desc => 'Click to know more about offline data';
+  String get offline_data_desc =>
+      'Klik untuk mengetahui lebih lanjut tentang data luar talian';
 
   @override
-  String get offline_product_data_title => 'Offline product data';
+  String get offline_product_data_title => 'Data produk luar talian';
 
   @override
   String available_for_download(int num) {
-    return '$num products available for immediate scaning';
+    return 'Produk $num tersedia untuk imbasan segera';
   }
 
   @override
-  String get country_selector_title => 'Select your country:';
+  String get country_selector_title => 'Pilih negara anda:';
 
   @override
-  String get currency_selector_title => 'Select your currency:';
+  String get currency_selector_title => 'Pilih mata wang anda:';
 
   @override
-  String get language_selector_title => 'Select your language:';
+  String get language_selector_title => 'Pilih bahasa anda:';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'Bahasa yang dipilih';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used => 'Kerap digunakan';
 
   @override
-  String get action_delete_list => 'Delete';
+  String get action_delete_list => 'Padam';
 
   @override
-  String get action_change_list => 'Change the current list';
+  String get action_change_list => 'Tukar senarai semasa';
 
   @override
-  String get product_list_create => 'Create';
+  String get product_list_create => 'Cipta';
 
   @override
-  String get product_list_create_tooltip => 'Create a new list';
+  String get product_list_create_tooltip => 'Cipta senarai baharu';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4064,7 +4093,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+      'Nutri-Score tidak berkenaan (Pengiraan baharu)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4095,93 +4124,93 @@ class AppLocalizationsMs extends AppLocalizations {
   String get nova_group_generic_new => 'Makanan ultra-diproses - kumpulan NOVA';
 
   @override
-  String get nova_group_1 => 'NOVA Group 1';
+  String get nova_group_1 => 'Kumpulan NOVA 1';
 
   @override
-  String get nova_group_2 => 'NOVA Group 2';
+  String get nova_group_2 => 'Kumpulan NOVA 2';
 
   @override
-  String get nova_group_3 => 'NOVA Group 3';
+  String get nova_group_3 => 'Kumpulan NOVA 3';
 
   @override
-  String get nova_group_4 => 'NOVA Group 4';
+  String get nova_group_4 => 'Kumpulan NOVA 4';
 
   @override
-  String get nova_group_unknown => 'Unknown NOVA Group';
+  String get nova_group_unknown => 'Kumpulan NOVA Tidak Diketahui';
 
   @override
-  String get nutrition_facts => 'Nutrient Levels';
+  String get nutrition_facts => 'Tahap Nutrien';
 
   @override
-  String get faq_title_partners => 'Partners & Patrons of the NGO';
+  String get faq_title_partners => 'Rakan Kongsi & Penaung NGO';
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'Visi, Misi, Nilai dan Program Fakta Makanan Terbuka';
 
   @override
   String get faq_title_install_beauty =>
-      'Install Open Beauty Facts to create a cosmetic database';
+      'Pasang Open Beauty Facts untuk mencipta pangkalan data kosmetik';
 
   @override
   String get faq_title_install_pet =>
-      'Install Open Pet Food Facts to create a pet food database';
+      'Pasang Fakta Makanan Haiwan Peliharaan Terbuka untuk mencipta pangkalan data makanan haiwan peliharaan';
 
   @override
   String get faq_title_install_product =>
-      'Install Open Products Facts to create a products database to extend the life of objects';
+      'Pasang Open Products Facts untuk mencipta pangkalan data produk bagi memanjangkan hayat objek';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'New calculation of the Nutri-Score: what\'s new?';
+      'Pengiraan baharu Nutri-Score: apa yang baharu?';
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Import your products in Open Food Facts';
+      'Profesional? Import produk anda dalam Fakta Makanan Terbuka';
 
   @override
-  String get contact_title_pro_email => 'Producer Contact';
+  String get contact_title_pro_email => 'Hubungan Penerbit';
 
   @override
-  String get contact_title_press_page => 'Press Page';
+  String get contact_title_press_page => 'Halaman Akhbar';
 
   @override
-  String get contact_title_press_email => 'Press Contact';
+  String get contact_title_press_email => 'Hubungan Akhbar';
 
   @override
   String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar => 'Langgan kalendar komuniti kami';
 
   @override
-  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
+  String get hunger_games_loading_line1 => 'Tolong berikan kami beberapa saat…';
 
   @override
-  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
+  String get hunger_games_loading_line2 => 'Kami sedang memuat turun soalan!';
 
   @override
   String get hunger_games_error_label =>
-      'Argh! Something went wrong… and we couldn\'t load the questions.';
+      'Argh! Ada masalah… dan kami tidak dapat memuatkan soalan.';
 
   @override
-  String get hunger_games_error_retry_button => 'Let\'s retry!';
+  String get hunger_games_error_retry_button => 'Jom cuba lagi!';
 
   @override
-  String get reorder_attribute_action => 'Reorder the attributes';
+  String get reorder_attribute_action => 'Susun semula atribut';
 
   @override
   String get link_cant_be_opened =>
-      'This link can\'t be opened on your device. Please check that you have a browser installed.';
+      'Pautan ini tidak boleh dibuka pada peranti anda. Sila pastikan anda telah memasang pelayar web.';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Details for $productName';
+    return 'Butiran untuk $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Details for $pageName with $productName';
+    return 'Butiran untuk $pageName dengan $productName';
   }
 
   @override
@@ -4270,15 +4299,15 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Where to find the new Nutri-Score calculation?';
+      'Di mana boleh dapatkan pengiraan Nutri-Score yang baharu?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'Nutri-Score digunakan di 7 buah negara: Perancis, Jerman, Belgium, Sepanyol, Luxembourg, Belanda dan Switzerland.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Pengilang mempunyai tempoh paling lama **2 tahun** selepas dekri ditandatangani **untuk menggantikan** pengiraan lama dengan pengiraan baharu.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4386,7 +4415,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Untuk memberi ganjaran kepada produk yang lebih baik dalam sesuatu kategori, kami kemudiannya akan mengenakan **bonus & penalti berdasarkan beberapa kriteria**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4394,7 +4423,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**Bonus** diberikan kepada produk yang mempunyai **label rasmi, label atau pensijilan yang menjamin manfaat alam sekitar** (organik, perdagangan adil, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4402,7 +4431,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      '**Bonus** diberikan berdasarkan asal usul bahan-bahan tersebut. Bonus ini mengambil kira **kesan ke atas pengangkutan** dan juga **dasar alam sekitar** setiap negara pengeluar.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4410,14 +4439,14 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      '**Penalti** diberikan kepada produk yang mengandungi bahan-bahan yang mempunyai **kesan negatif yang ketara terhadap biodiversiti dan ekosistem**, seperti minyak sawit, yang pengeluarannya bertanggungjawab terhadap penebangan hutan secara besar-besaran.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Pembungkusan';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      '**Penalti** dikira untuk mengambil kira **keliling pembungkusan** (penggunaan bahan mentah kitar semula dan kebolehkitar semula) dan pembungkusan berlebihan.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4425,19 +4454,19 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Untuk mengira Skor Hijau dengan tepat, adalah perlu untuk mempunyai **maklumat yang tidak semestinya dinyatakan pada pembungkusan** (seperti asal usul dan peratusan tepat setiap ramuan) atau yang jarang terdapat dalam bentuk yang boleh digunakan (seperti senarai semua komponen pembungkusan dengan jenis plastik yang digunakan dengan tepat).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**Nilai purata digunakan apabila maklumat ini belum tersedia**, tetapi kami kini menyeru semua orang untuk membantu kami mengumpulkan maklumat ini yang akan sangat berguna untuk Skor Hijau tetapi juga untuk banyak kegunaan lain.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Bagaimanakah warganegara boleh membantu?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Semua warganegara boleh membantu kami mengumpulkan dan menstrukturkan maklumat yang terdapat pada produk atau yang boleh disimpulkan daripadanya, seperti maklumat tentang **pembungkusan**: \"Mission Emballages\": inventori pembungkusan kolaboratif berskala besar untuk semua produk makanan (dalam bahasa Perancis).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4512,7 +4541,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Makanan yang tidak diproses (atau semula jadi) ialah **bahagian tumbuhan** (biji, buah, daun, batang, akar) **atau haiwan** (otot, organ, telur, susu) yang boleh dimakan, serta kulat, alga dan air, selepas diasingkan daripada alam semula jadi.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
@@ -4545,7 +4574,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Kebanyakannya **diperoleh daripada pemprosesan lanjut juzuk makanan**, seperti minyak terhidrogenasi atau minyak yang diinteresterifikasi, protein terhidrolisis, isolat protein soya, maltodekstrin, gula invert dan sirap jagung fruktosa tinggi.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4553,7 +4582,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Bahan tambahan dalam makanan ultra-proses termasuk beberapa bahan yang juga digunakan dalam makanan yang diproses, seperti pengawet, antioksidan dan penstabil. Kelas bahan tambahan yang hanya terdapat dalam produk ultra-proses termasuk yang digunakan **untuk meniru atau meningkatkan kualiti deria makanan atau untuk menyembunyikan aspek produk akhir yang tidak sedap**. Bahan tambahan ini termasuk pewarna dan warna lain, penstabil warna; perisa, penambah perisa, pemanis bukan gula; dan alat bantu pemprosesan seperti agen pengkarbonan, penegangan, pemunculan dan anti-pemunculan, agen penyahbuih, anti-penggumpalan dan penggilapan, pengemulsi, sekuestran dan humektan.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4561,7 +4590,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**Pelbagai urutan proses digunakan** untuk menggabungkan bahan-bahan yang biasanya banyak dan menghasilkan produk akhir (oleh itu \'ultra-diproses\'). Proses-proses tersebut merangkumi beberapa **tanpa setara domestik**, seperti penghidrogenan dan hidrolisis, penyemperitan dan pengacuan, dan pra-pemprosesan untuk menggoreng.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4569,104 +4598,108 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '**Tujuan keseluruhan pemprosesan ultra adalah untuk menghasilkan produk makanan berjenama**, **mudah** (tahan lama, sedia untuk dimakan), **menarik** (hiper-sedan) dan **sangat menguntungkan** (bahan-bahan kos rendah) yang direka untuk menggantikan semua kumpulan makanan lain. Produk makanan ultra-proses biasanya dibungkus dengan menarik dan dipasarkan secara intensif.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Bahaya kesihatan';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      'Sejak tahun 2018, dengan NutriNet-Santé, kaitan pertama antara **pengambilan makanan ultra-proses dan peningkatan risiko kanser, penyakit kardiovaskular dan diabetes telah ditonjolkan**. Hari ini, lebih daripada 90 kajian di seluruh dunia mengesahkan penemuan ini.\nKaitan paling kuat berkaitan dengan **obesiti, kematian kardiovaskular dan simptom kemurungan**. Pada kanak-kanak, kesannya terutamanya diperhatikan pada ketidakseimbangan berat badan dan lipid.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Negara-negara mengesyorkan mengehadkannya';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'Sesetengah negara menggunakan kumpulan NOVA untuk garis panduan atau matlamat diet mereka, contohnya:\n\n- **🇧🇷 Garis panduan diet Brazil** **mengesyorkan untuk mengehadkan penggunaan** makanan yang diproses dan mengelakkan makanan yang terlalu diproses.\n\n- **🇫🇷 Matlamat dasar pemakanan kesihatan awam Perancis** untuk 2018-2022 bertujuan untuk **mengurangkan penggunaan makanan yang terlalu diproses kumpulan 4 sebanyak 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world-ms.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title =>
+      'Selamat datang ke Fakta Makanan Terbuka!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Apakah Fakta Makanan Terbuka?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Open Food Facts ialah pangkalan data **kolaboratif**, **percuma** dan **terbuka** yang mengandungi produk makanan dari seluruh dunia.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Kami percaya bahawa setiap orang harus mempunyai akses kepada maklumat tentang apa yang mereka makan. Dengan mengumpul data tentang bahan-bahan, alergen, fakta pemakanan dan banyak lagi, **kami memperkasakan pengguna untuk membuat pilihan yang tepat** dan memacu industri makanan **ke arah ketelusan yang lebih tinggi**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Ciri-ciri Fakta Makanan Terbuka';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Dapatkan makluman untuk bahan-bahan yang tidak diingini';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title =>
+      'Petua untuk mengambil gambar yang hebat';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title =>
+      'Perkara yang tidak boleh dilakukan';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Elakkan bayang-bayang dan silau.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Tiada teks kabur atau tidak fokus.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Jangan potong bahagian teks.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Elakkan latar belakang yang sibuk.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title =>
+      'Perkara yang perlu dilakukan';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Gunakan pencahayaan yang baik dan sekata.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Pastikan teks jelas dan mudah dibaca.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Catatkan keseluruhan senarai ramuan.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Letakkan produk di atas permukaan yang rata.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Bantu kami membina \"Wikipedia Makanan\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Skor pada kualiti pemakanan';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Skor untuk mengelakkan makanan ultra-proses';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+  String get guide_open_food_facts_scores_arg3_title => 'Skor untuk planet ini';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4674,168 +4707,174 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Selamat datang ke Fakta Makanan Haiwan Peliharaan Terbuka!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Apakah Fakta Makanan Haiwan Peliharaan Terbuka?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'Open Pet Food Facts melanjutkan misi kami kepada rakan-rakan berbulu kami! Ia merupakan **pangkalan data produk makanan haiwan peliharaan untuk kucing, anjing dan haiwan peliharaan lain**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Kami mengumpulkan maklumat tentang **ramuan**, **analisis pemakanan** dan garis panduan pemberian makanan untuk membantu pemilik haiwan peliharaan memilih makanan terbaik untuk keperluan haiwan mereka.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Ciri-ciri Fakta Makanan Haiwan Peliharaan Terbuka';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Dapatkan makluman untuk bahan-bahan yang tidak diingini';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Adakah haiwan peliharaan anda alah kepada sebarang bahan? Anda boleh menetapkan senarai bahan kosmetik yang perlu dielakkan, terus dalam aplikasi!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Petua untuk mengambil gambar yang hebat';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title =>
+      'Perkara yang tidak boleh dilakukan';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Elakkan bayang-bayang dan silau.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Tiada teks kabur atau tidak fokus.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Jangan potong bahagian teks.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Elakkan latar belakang yang sibuk.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title =>
+      'Perkara yang perlu dilakukan';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Gunakan pencahayaan yang baik dan sekata.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Pastikan teks jelas dan mudah dibaca.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Catatkan keseluruhan senarai ramuan.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Letakkan produk di atas permukaan yang rata.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'Nota tentang pemarkahan';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'Membangunkan sistem pemarkahan untuk makanan haiwan peliharaan **bukanlah keutamaan buat masa ini**. Metodologinya akan menjadi rumit, kerana keperluan pemakanan sangat berbeza mengikut spesies, umur dan keadaan kesihatan. Kami belum menemui mana-mana pasukan saintifik bebas yang dapat membangunkan skor sedemikian.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-ms.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title =>
+      'Selamat datang ke Fakta Kecantikan Terbuka!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Apakah Fakta Kecantikan Terbuka?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts ialah pangkalan data kolaboratif **produk kosmetik**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Matlamat kami adalah untuk mentafsir senarai ramuan bagi membantu anda **memahami kandungan dalam barangan penjagaan diri anda**. Daripada pelembap hinggalah solekan, kami mengumpul data tentang ramuan, alergen dan pembungkusan untuk menggalakkan ketelusan dalam industri kosmetik.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Ciri-ciri Fakta Kecantikan Terbuka';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Dapatkan makluman untuk bahan-bahan yang tidak diingini';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Adakah anda alah kepada mana-mana bahan? Ingin mengelakkan bahan komedogen? Ingin menjauhi komponen kontroversi? Anda boleh menetapkan senarai bahan kosmetik untuk dielakkan, terus dalam aplikasi!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Petua untuk mengambil gambar yang hebat';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title =>
+      'Perkara yang tidak boleh dilakukan';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Elakkan bayang-bayang dan silau.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Tiada teks kabur atau tidak fokus.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Jangan potong bahagian teks.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Elakkan latar belakang yang sibuk.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title =>
+      'Perkara yang perlu dilakukan';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Gunakan pencahayaan yang baik dan sekata.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Pastikan teks jelas dan mudah dibaca.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Catatkan keseluruhan senarai ramuan.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Ambil seberapa banyak gambar yang diperlukan jika botol itu melengkung.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Anda mungkin perlu membuka label untuk melihat senarai ramuan.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Letakkan produk di atas permukaan yang rata.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title => 'Nota tentang pemarkahan';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'Tidak seperti produk makanan, dunia kosmetik **tidak mempunyai sistem pemarkahan yang diiktiraf secara universal dan disokong oleh kerajaan seperti Nutri-Score**. Kesan ramuan boleh menjadi sangat peribadi dan bergantung pada jenis kulit, alahan dan masalah individu.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
@@ -4850,7 +4889,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+      'Open Prices ialah projek untuk **mengumpul dan berkongsi harga produk di seluruh dunia**. Ia merupakan set data yang tersedia secara umum yang boleh digunakan untuk penyelidikan, analisis dan banyak lagi. Open Prices dibangunkan dan diselenggara oleh Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
@@ -4861,41 +4900,42 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Kami sedang mengumpul dataset harga sumber terbuka**. Harga boleh ditambah oleh pengguna melalui aplikasi web ini atau melalui aplikasi mudah alih rasmi Open Food Facts. Peruncit atau aplikasi pihak ketiga juga boleh menyumbang dengan menggunakan API kami.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Kumpulkan gambar tanda harga di lorong';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title => 'Kumpulkan gambar resit';
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'Mengapakah Open Food Facts melakukan ini?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'Maklumat harga adalah sangat penting untuk memahami sistem makanan. Ia merupakan faktor utama dalam memahami kos makanan dan untuk menggalakkan diet yang lebih sihat. Data harga pembukaan merupakan cara untuk memudahkan penyelidik, wartawan dan rakyat untuk **mempunyai pemahaman yang lebih baik tentang bagaimana harga makanan berubah mengikut geografi dan masa**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Jejaki evolusi harga dari semasa ke semasa';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Lihat **evolusi harga**: pengecutan inflasi, inflasi murah, kita boleh menjejakinya bersama-sama!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title =>
+      'Bandingkan harga berhampiran anda';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'Apabila kami mendapat lebih banyak harga, anda boleh melihat **kedai termurah di sekitar anda**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Adakah anda mempertimbangkan untuk mendapatkan harga daripada laman web peruncit?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
@@ -4911,7 +4951,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Anda boleh menyumbang harga dengan menggunakan API kami.\nJika anda ingin menyumbang harga secara berskala, sila hubungi kami di prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4919,149 +4959,149 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Selamat datang ke Fakta Produk Terbuka!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Apakah Fakta Produk Terbuka?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'Open Products Facts ialah pangkalan data terbuka yang besar untuk **mana-mana produk dengan kod bar, yang bukan makanan, kosmetik atau makanan haiwan peliharaan**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'Daripada **elektronik** kepada **mainan**, dan **pakaian** kepada **bekalan pembersihan**, jika ia mempunyai kod bar, ia boleh ditambah. Projek ini bertujuan untuk mewujudkan \"Internet Pelbagai Benda\" untuk objek harian, menjadikan maklumat tentangnya boleh diakses secara universal.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Ciri-ciri Fakta Produk Terbuka';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'Open Products Facts bertujuan untuk menyediakan pengguna **memanjangkan jangka hayat objek** dengan menyediakan penyelesaian bulat untuk menyelenggara, **membaiki**, **mengitar semula** objek mereka atau memberi mereka pemilik baharu.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Jejak karbon untuk sesetengah produk';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      '**Impak CO2** oleh Pihak Berkuasa Alam Sekitar Perancis ADEME menyediakan **kesan karbon** bagi pelbagai kategori, pastikan anda mengkategorikan produk dengan tepat.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Indeks kebolehbaikan untuk banyak produk';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Apabila indeks kebolehbaikan Perancis tersedia, kami akan memaparkannya. Selain itu, **anda boleh mula mengumpul pembolehubah menggunakan Enjin Folksonomy**; supaya kami boleh mengiranya semula pada masa hadapan, walaupun di negara yang tidak menyediakannya.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Cari cara untuk menderma/menjual semula produk anda';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Kami menyediakan pautan ke **perkhidmatan mesra pekeliling pihak ketiga** yang membantu anda mendapatkan jenis produk yang anda cari, sebagai produk terpakai, agar lebih berhati-hati terhadap sumber planet.\nSila ambil perhatian bahawa kami tidak dibayar untuk berbuat demikian, dan sistem ini hanya berfungsi sebagai contoh untuk dua laman web di Perancis. Anda boleh membantu mengembangkan sistem ini dengan mendokumentasikan lebih banyak laman web di wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Maklumat apa yang berguna?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Untuk pelbagai jenis item, **data yang kami kumpulkan adalah fleksibel**. Untuk berbuat demikian, **kami telah mencipta Enjin Folksonomy**.';
 
   @override
-  String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+  String get guide_open_products_facts_folksonomy_title => 'Enjin Folksonomi';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'Enjin Folksonomy ialah alat untuk membantu anda melengkapkan produk dengan ciri-ciri yang berkaitan. Ini membantu meningkatkan carian dan kebolehtemuan, tetapi juga mengira dan memaparkan perkara yang menarik pada masa hadapan.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Anda boleh menambah sebarang kekunci dan nilai seperti: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Anda akan mendapat cadangan automatik tentang kemungkinan ciri-ciri, dan anda dialu-alukan untuk menambah dan mendokumentasikan ciri-ciri baharu pada jenis produk kegemaran anda.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-ms.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title => 'Pilihan makanan terbuka';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Akan datang tidak lama lagi';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'Ketik untuk mengetahui lebih lanjut';
 
   @override
-  String get preview_badge => 'Preview';
+  String get preview_badge => 'Pratonton';
 
   @override
   String get prices_feedback_form =>
-      'Click here to send us your feedback about this new feature!';
+      'Klik di sini untuk menghantar maklum balas anda tentang ciri baharu ini!';
 
   @override
-  String get menu_button_list_actions => 'Select an action';
+  String get menu_button_list_actions => 'Pilih tindakan';
 
   @override
-  String get error_loading_photo => 'Error loading photo';
+  String get error_loading_photo => 'Ralat memuatkan foto';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Use as…';
+  String get photo_viewer_action_use_picture_as => 'Gunakan sebagai…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
+  String get photo_viewer_use_picture_as_tooltip =>
+      'Gunakan gambar ini sebagai…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Use this picture as… ($language)';
+    return 'Gunakan gambar ini sebagai… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'Details';
+  String get photo_viewer_details_button => 'Butiran';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Details of this photo';
+      'Butiran foto ini';
 
   @override
-  String get photo_viewer_details_title => 'Details of the photo';
+  String get photo_viewer_details_title => 'Butiran foto';
 
   @override
   String get photo_viewer_details_contributor_title => 'Contributor';
 
   @override
-  String get photo_viewer_details_size_title => 'Size';
+  String get photo_viewer_details_size_title => 'Saiz';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height pixels';
+    return '$width x $height piksel';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Date';
+  String get photo_viewer_details_date_title => 'Tarikh';
 
   @override
   String get photo_viewer_details_url_title => 'URL';
 
   @override
-  String get product_page_compatibility_score => 'Compatible';
+  String get product_page_compatibility_score => 'Serasi';
 
   @override
-  String get user_lists_action_multi_select => 'Multi-select';
+  String get user_lists_action_multi_select => 'Pelbagai pilihan';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Your compatibility score: $score%';
+    return 'Skor keserasian anda: $score%';
   }
 
   @override
@@ -5071,164 +5111,168 @@ class AppLocalizationsMs extends AppLocalizations {
   String get product_image_ingredients_accessibility_label => 'Gambar ramuan';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
+  String get product_image_nutrition_accessibility_label => 'Gambar pemakanan';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Packaging picture';
+  String get product_image_packaging_accessibility_label =>
+      'Gambar pembungkusan';
 
   @override
-  String get product_image_other_accessibility_label => 'Other picture';
+  String get product_image_other_accessibility_label => 'Gambar lain';
 
   @override
-  String get product_image_outdated_message => 'This picture may be outdated';
+  String get product_image_outdated_message =>
+      'Gambar ini mungkin sudah ketinggalan zaman';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (this image may be outdated)';
+    return '$type (imej ini mungkin sudah ketinggalan zaman)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (this image may be locked by the producer)';
+    return '$type (imej ini mungkin dikunci oleh penerbit)';
   }
 
   @override
-  String get product_image_error => 'Unable to load the image!';
+  String get product_image_error => 'Tidak dapat memuatkan imej!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'Unable to load the $type (network error?)';
+    return 'Tidak dapat memuatkan $type (ralat rangkaian?)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'No\nimage!';
+  String get product_page_image_no_image_available => 'Tiada imej\n!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'No picture available for this product';
+      'Tiada gambar tersedia untuk produk ini';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Reorder or hide actions';
+      'Susun semula atau sembunyikan tindakan';
 
   @override
-  String get product_page_action_bar_setting_modal_title => 'Edit actions';
+  String get product_page_action_bar_setting_modal_title => 'Edit tindakan';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Move up';
+  String get product_page_action_bar_item_move_up => 'Bergerak ke atas';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Move down';
+  String get product_page_action_bar_item_move_down => 'Bergerak ke bawah';
 
   @override
-  String get product_page_action_bar_item_enable => 'Enable action';
+  String get product_page_action_bar_item_enable => 'Dayakan tindakan';
 
   @override
-  String get product_page_action_bar_item_disable => 'Disable action';
+  String get product_page_action_bar_item_disable => 'Lumpuhkan tindakan';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Memuat naik suntingan anda…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
+      'Data yang dipaparkan pada halaman ini **belum lagi mencerminkan pengubahsuaian anda**.\nSila tunggu beberapa saat…';
 
   @override
-  String get product_add_a_language => 'Add a language';
+  String get product_add_a_language => 'Tambah bahasa';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Barcode $barcode';
+    return 'Kod Bar $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Remove this product from the carousel';
+  String get carousel_close_tooltip =>
+      'Alih keluar produk ini daripada karusel';
 
   @override
-  String get carousel_unsupported_header => 'Unsupported barcode!';
+  String get carousel_unsupported_header => 'Kod bar tidak disokong!';
 
   @override
-  String get carousel_unsupported_title => 'Ooops!';
+  String get carousel_unsupported_title => 'Aduh!';
 
   @override
   String get carousel_unsupported_text =>
-      'The barcode scanned is not supported by Open Food Facts!';
+      'Kod bar yang diimbas tidak disokong oleh Open Food Facts!';
 
   @override
-  String get carousel_error_header => 'Error!';
+  String get carousel_error_header => 'Ralat!';
 
   @override
-  String get carousel_error_title => 'It\'s a bummer!';
+  String get carousel_error_title => 'Ia satu penyesalan!';
 
   @override
   String get carousel_error_text_1 =>
-      'We couldn\'t download information on this barcode:';
+      'Kami tidak dapat memuat turun maklumat pada kod bar ini:';
 
   @override
   String get carousel_error_text_2 =>
-      'Please check your Internet connection or click this button:';
+      'Sila semak sambungan Internet anda atau klik butang ini:';
 
   @override
   String get carousel_error_button => 'Cuba lagi';
 
   @override
-  String get carousel_unknown_product_header => 'Unknown product';
+  String get carousel_unknown_product_header => 'Produk tidak diketahui';
 
   @override
   String get carousel_unknown_product_title =>
-      'Congratulations!\nYou\'ve found __the rare gem!__';
+      'Tahniah!\nAnda telah menemui __permata yang jarang ditemui!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'Pangkalan data kolaboratif kami mengandungi lebih daripada **3 juta produk**, tetapi kod bar ini tidak wujud: ';
 
   @override
   String get carousel_unknown_product_button => 'Add this product';
 
   @override
-  String get carousel_loading_header => 'Loading information...';
+  String get carousel_loading_header => 'Memuatkan maklumat...';
 
   @override
   String get carousel_loading_title =>
-      'You\'ve just scanned a product with the following barcode:';
+      'Anda baru sahaja mengimbas produk dengan kod bar berikut:';
 
   @override
   String get carousel_loading_text =>
-      'We are searching for it in our database of more than **3 million products!**';
+      'Kami sedang mencarinya dalam pangkalan data kami yang mengandungi lebih daripada **3 juta produk!**';
 
   @override
-  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
+  String get product_type_subtitle_food =>
+      'Sayur-sayuran, buah-buahan, makanan sejuk beku…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
+  String get product_type_subtitle_beauty => 'Solekan, sabun, ubat gigi…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'Makanan untuk anjing, kucing…';
 
   @override
-  String get product_type_subtitle_product => 'Smartphones, furniture…';
+  String get product_type_subtitle_product => 'Telefon pintar, perabot…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'Foto produk';
 
   @override
   String get photo_field_ingredients => 'Foto ramuan';
 
   @override
-  String get photo_field_nutrition => 'Nutrition photo';
+  String get photo_field_nutrition => 'Foto pemakanan';
 
   @override
-  String get photo_field_packaging => 'Foto maklumat pembungkusan';
+  String get photo_field_packaging => 'Foto arahan kitar semula';
 
   @override
-  String get photo_already_exists => 'This photo already exists';
+  String get photo_already_exists => 'Foto ini sudah wujud';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'Foto ini tiada';
 
   @override
-  String get date => 'Date';
+  String get date => 'Tarikh';
 
   @override
   String get photo_rotate_left => 'Pusing kiri';
@@ -5237,76 +5281,76 @@ class AppLocalizationsMs extends AppLocalizations {
   String get photo_rotate_right => 'Pusing kanan';
 
   @override
-  String get photo_undo_action => 'Undo the previous action';
+  String get photo_undo_action => 'Batalkan tindakan sebelumnya';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'A world map of $location';
+    return 'Peta dunia $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'OpenStreetMap contributors';
+      'Penyumbang OpenStreetMap';
 
   @override
-  String get not_applicable_short => 'N/A';
+  String get not_applicable_short => 'Tidak Ada';
 
   @override
   String get knowledge_panel_warning_text => 'Amaran';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'Mengapakah Nutri-Score ini berbeza daripada yang tertera pada pakej?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'Terdapat dua kemungkinan penjelasan:\nSenarai ramuan dan/atau fakta pemakanan tidak terkini.\n\nKami menyediakan \"Pengiraan baharu\" bagi Nutri-Score (atau V2). Sila pastikan anda mempunyai sepanduk \"Pengiraan baharu\" pada bungkusan.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'Semak bahan-bahan';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Check nutrition facts';
+      'Semak fakta pemakanan';
 
   @override
   String url_not_supported(String url) {
-    return 'Unfortunately, we can\'t open the URL:\n$url';
+    return 'Malangnya, kami tidak dapat membuka URL:\n$url';
   }
 
   @override
-  String get product_list_export => 'Export';
+  String get product_list_export => 'Eksport';
 
   @override
   String get product_list_import => 'Import';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'Lihat kod bar';
 
   @override
   String get product_footer_action_barcode_short => 'Barkod';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'Buka laman web';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'Laporan';
 
   @override
-  String get product_footer_action_contributor_guide => 'Help';
+  String get product_footer_action_contributor_guide => 'Bantuan';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'Kualiti data';
 
   @override
   String get product_page_tab_for_me => 'Bagi saya';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Laman Web';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'Harga';
 
   @override
   String get prices_explanation_card_title => 'Kenapa harga?';
@@ -5319,7 +5363,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get explanation_card_learn_more_button => 'Ketahui lebih lanjut';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folksonomi';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5334,11 +5378,11 @@ class AppLocalizationsMs extends AppLocalizations {
       'Sifat ini dicipta dan difailkan oleh penyumbang untuk sebarang jenis penggunaan.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'Buka pautan luaran';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Pautan luar mungkin tidak selamat. Adakah anda benar-benar mahu melawatnya?';
 
   @override
   String get prices_products_empty_title => 'Tiada harga tersedia';
@@ -5349,41 +5393,41 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize products (total: $total)';
+    return 'Produk $pageSize teratas (jumlah: $total)';
   }
 
   @override
-  String get app_review_title => 'Are you enjoying this app?';
+  String get app_review_title => 'Adakah anda menikmati aplikasi ini?';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'Boleh buat lebih baik';
 
   @override
-  String get app_review_medium => 'Not bad';
+  String get app_review_medium => 'Tidak teruk';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'Saya sukakannya!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Help us improve our application';
+      'Bantu kami menambah baik aplikasi kami';
 
   @override
   String get app_review_feedback_modal_content =>
-      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+      'Jika anda mempunyai beberapa minit, bolehkah anda menjawab borang ini supaya **kami dapat menambah baik kemas kini akan datang**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Answer the form';
+  String get app_review_feedback_modal_open_form => 'Jawab borang tersebut';
 
   @override
-  String get app_review_feedback_modal_later => 'Ask me later';
+  String get app_review_feedback_modal_later => 'Tanya saya kemudian';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEW: You can automatically extract the nutrients from the picture!';
+      'BARU: Anda boleh mengekstrak nutrien daripada gambar secara automatik!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Extract now';
+  String get nutrition_facts_extract_button_text => 'Ekstrak sekarang';
 
   @override
   String get nutrition_facts_extract_in_progress =>
@@ -5394,19 +5438,19 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Failed to extract nutrients from picture';
+      'Gagal mengekstrak nutrien daripada gambar';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Statistik';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Statistik Harga';
 
   @override
-  String get prices_stats_prices_section => 'Prices';
+  String get prices_stats_prices_section => 'Harga';
 
   @override
   String get prices_stats_products_section => 'Produk';
@@ -5424,7 +5468,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'Miscellaneous';
+  String get prices_stats_misc_section => 'Pelbagai';
 
   @override
   String get prices_stats_total => 'Total';
@@ -5448,7 +5492,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Food';
+  String get prices_stats_food => 'Makanan';
 
   @override
   String get prices_stats_beauty => 'Beauty';
@@ -5457,10 +5501,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_stats_products => 'Produk';
 
   @override
-  String get prices_stats_pet_food => 'Pet food';
+  String get prices_stats_pet_food => 'Makanan haiwan peliharaan';
 
   @override
-  String get prices_stats_osm => 'OpenStreetMap';
+  String get prices_stats_osm => 'Peta Jalan Terbuka';
 
   @override
   String get prices_stats_online => 'Online';
@@ -5469,10 +5513,10 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_stats_countries => 'Negara-negara';
 
   @override
-  String get prices_stats_price_tag => 'Price tag';
+  String get prices_stats_price_tag => 'Tanda harga';
 
   @override
-  String get prices_stats_receipt => 'Receipt';
+  String get prices_stats_receipt => 'Resit';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5496,7 +5540,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Website';
+  String get prices_stats_website => 'Laman Web';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
@@ -5508,23 +5552,22 @@ class AppLocalizationsMs extends AppLocalizations {
   String get prices_stats_other => 'Other';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Kemas kini terakhir pada';
 
   @override
-  String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+  String get prices_stats_error => 'Ralat berlaku semasa memuatkan statistik.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Soalan terjawab!';
 
   @override
-  String get product_edit_robotoff_proof => 'Proof';
+  String get product_edit_robotoff_proof => 'Bukti';
 
   @override
   String get preferences_card_general => 'General';
 
   @override
-  String get preferences_prices_title => 'Prices';
+  String get preferences_prices_title => 'Harga';
 
   @override
   String get preferences_prices_subtitle => 'Urus pilihan harga anda';
@@ -5625,7 +5668,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Open Food Facts ialah pangkalan data produk makanan **dibuat oleh semua orang, untuk semua orang**.\nAnda boleh menggunakannya untuk membuat pilihan makanan yang lebih baik, dan kerana ia adalah **data terbuka**, sesiapa sahaja boleh **menggunakannya semula untuk sebarang tujuan**.';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'Dasar privasi';
 
   @override
   String get preferences_licenses => 'Lesen';
@@ -5770,18 +5813,18 @@ class AppLocalizationsMs extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'Temui Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Temui Fakta Kecantikan Terbuka';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Temui Fakta Makanan Haiwan Peliharaan Terbuka';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
-  String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+  String get preferences_faq_discover_opf_title => 'Temui Fakta Produk Terbuka';
 
   @override
   String get preferences_faq_faq_title => 'Soalan Lazim - Soalan Lazim';
@@ -5802,7 +5845,7 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Langgan kalendar komuniti kami';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -5908,7 +5951,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Langkah mudah untuk mengembangkan ketelusan makanan di negara anda';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'Kualiti data';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -5935,10 +5978,10 @@ class AppLocalizationsMs extends AppLocalizations {
       'Semua produk tidak lengkap';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => 'Harga';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'Harga saya';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6128,10 +6171,10 @@ class AppLocalizationsMs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Makmal Open Food Facts';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => 'Akaun';
 
   @override
   String get preferences_contribute_translate_header =>
@@ -6149,7 +6192,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Jangan tunjukkan Folksonomy';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => 'Akaun';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
@@ -6157,26 +6200,26 @@ class AppLocalizationsMs extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Butiran lokasi';
 
   @override
   String get location_map_details_name => 'Nama';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Jalan';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Bandar';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Poskod';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Koordinat';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'ID OSM';
 }

@@ -143,7 +143,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get match_short_unknown => 'Độ phù hợp không xác định';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Giấy phép';
 
   @override
   String get looking_for => 'Đang tìm';
@@ -659,7 +659,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get unknownBrand => 'Thương hiệu không xác định';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Số lượng không xác định';
 
   @override
   String get unknownProductName => 'Tên sản phẩm không xác định';
@@ -727,10 +727,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Chỉnh sửa thông tin dinh dưỡng';
 
   @override
-  String get packaging_information => 'Thông tin bao bì';
+  String get packaging_information => 'Hướng dẫn tái chế';
 
   @override
-  String get packaging_information_photo => 'Ảnh chụp thông tin bao bì';
+  String get packaging_information_photo => 'Ảnh hướng dẫn tái chế';
 
   @override
   String get missing_product => 'Bạn đã tìm thấy một sản phẩm mới!';
@@ -833,7 +833,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Ảnh chụp thông tin dinh dưỡng';
 
   @override
-  String get recycling_photo_title => 'Ảnh quy định tái chế';
+  String get recycling_photo_title => 'Hướng dẫn tái chế (Ảnh)';
 
   @override
   String get take_photo_title => 'Chụp ảnh';
@@ -4063,16 +4063,16 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Điểm dinh dưỡng A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'Điểm dinh dưỡng B';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
   String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Điểm dinh dưỡng D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
   String get nutriscore_e => 'Nutri-Score E';
@@ -5265,7 +5265,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get photo_field_nutrition => 'Ảnh dinh dưỡng';
 
   @override
-  String get photo_field_packaging => 'Ảnh chụp thông tin bao bì';
+  String get photo_field_packaging => 'Ảnh hướng dẫn tái chế';
 
   @override
   String get photo_already_exists => 'Bức ảnh này đã tồn tại';
@@ -5814,21 +5814,23 @@ class AppLocalizationsVi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Khám phá những dự án';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Khám phá sự thật về thực phẩm mở';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Khám phá sự thật về vẻ đẹp mở';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Khám phá sự thật về thức ăn cho thú cưng';
 
   @override
   String get preferences_faq_discover_op_title => 'Khám phá Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Khám phá sự thật về sản phẩm mở';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Những câu hỏi thường gặp';
@@ -6173,7 +6175,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Phòng thí nghiệm thông tin thực phẩm mở';
 
   @override
   String get preferences_root_account_title => 'Tài khoản';

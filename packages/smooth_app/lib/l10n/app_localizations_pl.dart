@@ -142,7 +142,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get match_short_unknown => 'Nie znaleziono powiązania';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Licencje';
 
   @override
   String get looking_for => 'Szukam';
@@ -664,7 +664,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get unknownBrand => 'Nieznana marka';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Nieznana ilość';
 
   @override
   String get unknownProductName => 'Nieznana nazwa produktu';
@@ -734,11 +734,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edytuj informacje żywieniowe';
 
   @override
-  String get packaging_information => 'Informacje dot. opakowania';
+  String get packaging_information => 'Instrukcje dotyczące recyklingu';
 
   @override
   String get packaging_information_photo =>
-      'Zdjęcie informacji dotyczących opakowania';
+      'Zdjęcie informacji dotyczących recyklingu';
 
   @override
   String get missing_product => 'Znalazłeś(-aś) nowy produkt!';
@@ -844,7 +844,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Zdjęcie tabeli wartości odżywczych';
 
   @override
-  String get recycling_photo_title => 'Zdjęcie informacji o recyklingu';
+  String get recycling_photo_title => 'Instrukcje dotyczące recyklingu Zdjęcie';
 
   @override
   String get take_photo_title => 'Zrób zdjęcie';
@@ -3015,7 +3015,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Dowiedz się więcej o cenach otwartych';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Gotowe';
@@ -4087,7 +4087,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Wskaźnik odżywczy A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
   String get nutriscore_b => 'Wynik Nutri-Score B';
@@ -4907,7 +4907,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Czym są ceny otwarte?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4918,7 +4918,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Jak działają Ceny Otwarte?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5282,7 +5282,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get photo_field_packaging =>
-      'Zdjęcie informacji dotyczących opakowania';
+      'Zdjęcie informacji dotyczących recyklingu';
 
   @override
   String get photo_already_exists => 'To zdjęcie już istnieje';
@@ -5829,21 +5829,23 @@ class AppLocalizationsPl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Odkryj projekt';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Odkryj fakty dotyczące żywności';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Odkryj fakty dotyczące otwartego piękna';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Odkryj fakty dotyczące karmy dla zwierząt';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Odkryj fakty dotyczące produktów Open';
 
   @override
   String get preferences_faq_faq_title => 'FAQ – Najczęściej zadawane pytania';
@@ -6084,7 +6086,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Proste sposoby na pomoc w otwarciu Food Facts';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6192,7 +6194,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Otwarte Laboratoria Faktów Żywnościowych';
 
   @override
   String get preferences_root_account_title => 'Konto';

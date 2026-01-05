@@ -661,7 +661,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get unknownBrand => 'Неизвестна марка';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Неизвестно количество';
 
   @override
   String get unknownProductName => 'Неразпознат продукт';
@@ -731,10 +731,11 @@ class AppLocalizationsBg extends AppLocalizations {
       'Редактиране на хранителните факти';
 
   @override
-  String get packaging_information => 'Информация на опаковката';
+  String get packaging_information => 'Инструкции за рециклиране';
 
   @override
-  String get packaging_information_photo => 'Снимка с информация за опаковката';
+  String get packaging_information_photo =>
+      'Снимка с инструкции за рециклиране';
 
   @override
   String get missing_product => 'Откри нов продукт!';
@@ -840,7 +841,7 @@ class AppLocalizationsBg extends AppLocalizations {
       'Снимка на хранителните стойности';
 
   @override
-  String get recycling_photo_title => 'Снимка на указанията за рециклиране';
+  String get recycling_photo_title => 'Инструкции за рециклиране Снимка';
 
   @override
   String get take_photo_title => 'Направи снимка';
@@ -3020,7 +3021,7 @@ class AppLocalizationsBg extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Научете повече за отворените цени';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Готово';
@@ -4115,7 +4116,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (Ново изчисление)';
 
   @override
-  String get nutriscore_unknown => 'Неизвестен хранителен резултат';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
@@ -4913,7 +4914,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Какво представляват отворените цени?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4924,7 +4925,7 @@ class AppLocalizationsBg extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Как работят отворените цени?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5294,7 +5295,7 @@ class AppLocalizationsBg extends AppLocalizations {
   String get photo_field_nutrition => 'Снимка за хранене';
 
   @override
-  String get photo_field_packaging => 'Снимка с информация за опаковката';
+  String get photo_field_packaging => 'Снимка с инструкции за рециклиране';
 
   @override
   String get photo_already_exists => 'Тази снимка вече съществува';
@@ -5845,21 +5846,23 @@ class AppLocalizationsBg extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Открий проекта';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Открийте фактите за отворената храна';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Открийте открити факти за красотата';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Открийте фактите за храната за домашни любимци на Open';
 
   @override
   String get preferences_faq_discover_op_title => 'Открийте Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Открийте фактите за отворените продукти';
 
   @override
   String get preferences_faq_faq_title => 'ЧЗВ - Често задавани въпроси';
@@ -6215,7 +6218,7 @@ class AppLocalizationsBg extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Отворени лаборатории за факти за храните';
 
   @override
   String get preferences_root_account_title => 'Профил';

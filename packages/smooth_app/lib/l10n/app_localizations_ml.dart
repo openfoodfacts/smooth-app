@@ -143,7 +143,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'ലൈസൻസുകൾ';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,7 +654,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'അജ്ഞാത അളവ്';
 
   @override
   String get unknownProductName => 'Unknown product name';
@@ -723,10 +723,10 @@ class AppLocalizationsMl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'പുനരുപയോഗ നിർദ്ദേശങ്ങൾ';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -829,7 +829,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'പുനരുപയോഗ നിർദ്ദേശങ്ങൾ ഫോട്ടോ';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -5219,7 +5219,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5976,7 +5976,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ഓപ്പൺ പ്രൈസ് കമ്മ്യൂണിറ്റി ചേർത്ത ഏറ്റവും പുതിയ വിലകൾ';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6025,7 +6025,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'സഹായിക്കാനുള്ള ലളിതമായ വഴികൾ ഭക്ഷണ വസ്തുതകൾ തുറക്കുക';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6134,7 +6134,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Open Food Facts ലാബുകൾ';
 
   @override
   String get preferences_root_account_title => 'Account';

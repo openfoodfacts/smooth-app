@@ -658,7 +658,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get unknownBrand => 'Onbekend merk';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Onbekende hoeveelheid';
 
   @override
   String get unknownProductName => 'Onbekende productnaam';
@@ -727,10 +727,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Voedingswaarden bewerken';
 
   @override
-  String get packaging_information => 'Verpakkingsinformatie';
+  String get packaging_information => 'Recyclinginstructies';
 
   @override
-  String get packaging_information_photo => 'Foto van verpakkingsinformatie';
+  String get packaging_information_photo => 'Recycling instructies foto';
 
   @override
   String get missing_product => 'Je hebt een nieuw product gevonden!';
@@ -836,7 +836,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Foto van voedingswaarden';
 
   @override
-  String get recycling_photo_title => 'Recycling afbeelding';
+  String get recycling_photo_title => 'Recyclinginstructies Foto';
 
   @override
   String get take_photo_title => 'Maak een foto';
@@ -4968,7 +4968,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://prijzen.openfoodfacts.org/over';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5278,7 +5278,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get photo_field_nutrition => 'Voedingswaarde foto';
 
   @override
-  String get photo_field_packaging => 'Foto van verpakkingsinformatie';
+  String get photo_field_packaging => 'Recycling instructies foto';
 
   @override
   String get photo_already_exists => 'Deze foto bestaat al';

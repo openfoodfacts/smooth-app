@@ -143,8 +143,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get match_short_unknown => 'Άγνωστη αντιστοιχία';
 
   @override
-  String get licenses =>
-      'Ακρίβεια, πληρότητα και περιεκτικότητα των πληροφοριών και δεδομένων';
+  String get licenses => 'Άδειες';
 
   @override
   String get looking_for => 'Ψάχνουμε για';
@@ -666,7 +665,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get unknownBrand => 'Άγνωστη μάρκα';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Άγνωστη ποσότητα';
 
   @override
   String get unknownProductName => 'Άγνωστο όνομα προϊόντος';
@@ -737,11 +736,10 @@ class AppLocalizationsEl extends AppLocalizations {
       'Επεξεργασία Διατροφικών Στοιχείων';
 
   @override
-  String get packaging_information => 'Πληροφορίες συσκευασίας';
+  String get packaging_information => 'Οδηγίες ανακύκλωσης';
 
   @override
-  String get packaging_information_photo =>
-      'Φωτογραφία πληροφοριών συσκευασίας';
+  String get packaging_information_photo => 'Φωτογραφία οδηγιών ανακύκλωσης';
 
   @override
   String get missing_product => 'Βρήκατε ένα νέο προϊόν!';
@@ -848,7 +846,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Φωτογραφία Διατροφικών Στοιχείων';
 
   @override
-  String get recycling_photo_title => 'Φωτογραφία Ανακύκλωσης';
+  String get recycling_photo_title => 'Οδηγίες ανακύκλωσης Φωτογραφία';
 
   @override
   String get take_photo_title => 'Τραβήξτε μια φωτογραφία';
@@ -3041,8 +3039,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more =>
-      'Μάθετε περισσότερα για τις τιμές ανοίγματος';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Τέλος';
@@ -4947,11 +4944,11 @@ class AppLocalizationsEl extends AppLocalizations {
       'https://world-el.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Καλώς ορίσατε στις Ανοιχτές Τιμές!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Τι είναι οι τιμές ανοίγματος;';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4962,8 +4959,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Υπάρχουν επί του παρόντος λίγες εταιρείες που διαθέτουν μεγάλες βάσεις δεδομένων τιμών προϊόντων σε επίπεδο γραμμωτού κώδικα. Αυτές οι τιμές δεν είναι ελεύθερα διαθέσιμες, αλλά πωλούνται σε υψηλές τιμές σε ιδιώτες φορείς, ερευνητές και άλλους οργανισμούς που μπορούν να τις αντέξουν οικονομικά.';
 
   @override
-  String get guide_open_prices_how_title =>
-      'Πώς λειτουργούν οι Ανοιχτές Τιμές;';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5006,7 +5002,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Για νομικούς και τεχνικούς λόγους, **δεν θεωρούμε την συλλογή τιμών από τους ιστότοπους των λιανοπωλητών ως έγκυρο τρόπο συμβολής στις Ανοιχτές Τιμές**. Θέλουμε να διασφαλίσουμε ότι οι τιμές που συλλέγουμε είναι ακριβείς και ενημερωμένες και η λήψη συλλεγμένων τιμών από τους συνεισφέροντες δεν μας επιτρέπει να το κάνουμε αυτό.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
@@ -5337,7 +5333,7 @@ class AppLocalizationsEl extends AppLocalizations {
   String get photo_field_nutrition => 'Φωτογραφία διατροφής';
 
   @override
-  String get photo_field_packaging => 'Φωτογραφία πληροφοριών συσκευασίας';
+  String get photo_field_packaging => 'Φωτογραφία οδηγιών ανακύκλωσης';
 
   @override
   String get photo_already_exists => 'Αυτή η φωτογραφία υπάρχει ήδη';
@@ -5892,21 +5888,23 @@ class AppLocalizationsEl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Ανακαλύψτε το έργο';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Ανακαλύψτε Ανοιχτά Γεγονότα για τα Τρόφιμα';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Ανακαλύψτε Ανοιχτά Γεγονότα Ομορφιάς';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Ανακαλύψτε πληροφορίες για τις τροφές για κατοικίδια στο διαδίκτυο';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Ανακαλύψτε πληροφορίες για τα ανοιχτά προϊόντα';
 
   @override
   String get preferences_faq_faq_title => 'Συχνές ερωτήσεις - Συχνές ερωτήσεις';
@@ -6254,7 +6252,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Ανοιχτά Εργαστήρια Γεγονότων για τα Τρόφιμα';
 
   @override
   String get preferences_root_account_title => 'Λογαριασμός';

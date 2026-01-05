@@ -663,7 +663,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unknownBrand => 'Неизвестный бренд';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Неизвестная величина';
 
   @override
   String get unknownProductName => 'Неизвестный продукт';
@@ -733,10 +733,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Добавить данные о пищевой ценности';
 
   @override
-  String get packaging_information => 'Информация об упаковке';
+  String get packaging_information => 'Инструкции по переработке';
 
   @override
-  String get packaging_information_photo => 'Фото информации об упаковке';
+  String get packaging_information_photo => 'Фото инструкции по переработке';
 
   @override
   String get missing_product => 'Вы нашли новый продукт!';
@@ -843,7 +843,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Фото информации о пищевой ценности';
 
   @override
-  String get recycling_photo_title => 'Изображение сведений о переработке';
+  String get recycling_photo_title => 'Инструкции по переработке (фото)';
 
   @override
   String get take_photo_title => 'Сфотографировать';
@@ -3048,7 +3048,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Узнайте больше об открытых ценах';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Готово';
@@ -3087,7 +3087,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -4962,7 +4962,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'В настоящее время лишь немногие компании владеют большими базами данных цен на продукты на уровне штрих-кодов. Эти цены не находятся в свободном доступе, а продаются по высокой цене частным лицам, исследователям и другим организациям, которые могут себе их позволить.';
 
   @override
-  String get guide_open_prices_how_title => 'Как работают цены открытия?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5333,7 +5333,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get photo_field_nutrition => 'Фото питания';
 
   @override
-  String get photo_field_packaging => 'Фото информации об упаковке';
+  String get photo_field_packaging => 'Фото инструкции по переработке';
 
   @override
   String get photo_already_exists => 'Это фото уже существует';
@@ -5882,7 +5882,8 @@ class AppLocalizationsRu extends AppLocalizations {
       'Откройте для себя проект';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Откройте для себя факты об открытых продуктах питания';
 
   @override
   String get preferences_faq_discover_obf_title =>
@@ -5890,14 +5891,14 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Откройте для себя факты о кормах для домашних животных';
 
   @override
   String get preferences_faq_discover_op_title => 'Откройте Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Откройте для себя факты об открытых продуктах';
 
   @override
   String get preferences_faq_faq_title => 'FAQ — часто задаваемые вопросы';
@@ -6245,7 +6246,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Открытые лаборатории фактов о продуктах питания';
 
   @override
   String get preferences_root_account_title => 'Учётная запись';

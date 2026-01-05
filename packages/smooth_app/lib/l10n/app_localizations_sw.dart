@@ -143,7 +143,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String get match_short_unknown => 'Ulinganifu usiojulikana';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Leseni';
 
   @override
   String get looking_for => 'Kutafuta';
@@ -212,7 +212,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Saidia kuboresha Ukweli wa Chakula Huria katika nchi yako';
+      'Help improve Open Food Facts in your country';
 
   @override
   String get sign_out => 'Ondoka';
@@ -489,7 +489,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Changia ujuzi wako kwa Fungua Ukweli wa Chakula. Jiunge na bwawa la ujuzi!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
@@ -656,7 +656,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String get unknownBrand => 'Chapa isiyojulikana';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Kiasi kisichojulikana';
 
   @override
   String get unknownProductName => 'Jina la bidhaa lisilojulikana';
@@ -725,10 +725,10 @@ class AppLocalizationsSw extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Hariri Ukweli wa Lishe';
 
   @override
-  String get packaging_information => 'Maelezo ya ufungaji';
+  String get packaging_information => 'Maagizo ya kuchakata tena';
 
   @override
-  String get packaging_information_photo => 'Picha ya habari ya ufungaji';
+  String get packaging_information_photo => 'Maagizo ya kuchakata picha';
 
   @override
   String get missing_product => 'Umepata bidhaa mpya!';
@@ -832,7 +832,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Picha ya Ukweli wa Lishe';
 
   @override
-  String get recycling_photo_title => 'Usafishaji Picha';
+  String get recycling_photo_title => 'Maagizo ya kuchakata tena Picha';
 
   @override
   String get take_photo_title => 'Piga picha';
@@ -866,7 +866,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String get categories_added => 'Kategoria zimeongezwa';
 
   @override
-  String get new_product_title_nutriscore => 'Kuhesabu Nutri-Alama';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -1369,7 +1369,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get product_improvement_add_category =>
-      'Ongeza kategoria ili kukokotoa Nutri-Alama.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
@@ -1377,7 +1377,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Ongeza ukweli wa lishe na kategoria ili kukokotoa Alama ya Nutri.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -1631,7 +1631,7 @@ class AppLocalizationsSw extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
+    return 'Mfumo wa Uendeshaji: Android (SDK Int: $sdkInt / Toleo: $release)\nMfano: $model\nBidhaa: $product\nKifaa: $device\nChapa:$brand';
   }
 
   @override
@@ -2996,7 +2996,7 @@ class AppLocalizationsSw extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Jua zaidi kuhusu Bei Huria';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Imekamilika';
@@ -4066,41 +4066,41 @@ class AppLocalizationsSw extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Nutri-Alama A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'Nutri-Alama B';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
-  String get nutriscore_c => 'Nutri-Alama C';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Nutri-Alama D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => 'Nutri-Alama E';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Alama $letter (Hesabu mpya)';
+    return 'Nutri-Score $letter (New calculation)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Alama (Hesabu Mpya)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'Alama ya Nutri isiyojulikana';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Nutri-Alama Isiyojulikana (Hesabu Mpya)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Alama haitumiki';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Alama haitumiki (Hesabu mpya)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4883,23 +4883,22 @@ class AppLocalizationsSw extends AppLocalizations {
       'https://world-sw.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Karibu kwa Fungua Bei!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Bei Zilizofunguliwa ni nini?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Fungua Bei ni mradi wa **kukusanya na kushiriki bei za bidhaa kote ulimwenguni**. Ni mkusanyiko wa data unaopatikana kwa umma ambao unaweza kutumika kwa utafiti, uchanganuzi na zaidi. Bei Huzi hutengenezwa na kudumishwa na Open Food Facts.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title =>
-      'Je, Bei za Open hufanya kazi vipi?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4942,11 +4941,11 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Kwa sababu za kisheria na kiufundi, **hatuzingatii kuondoa bei kwenye tovuti za wauzaji reja reja kama njia halali ya kuchangia Bei Huria**. Tunataka kuhakikisha kuwa bei tunazokusanya ni sahihi na zimesasishwa, na kupokea bei zilizoondolewa kutoka kwa wachangiaji hakuturuhusu kufanya hivyo.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Kuondoa bei ni chaguo linalozingatiwa katika toleo la baadaye la Bei Huria, lakini itafanywa na Bei Huria yenyewe ili tuweze kuwa na uthibitisho wa bei kulingana na ukurasa wa HTML.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -5266,7 +5265,7 @@ class AppLocalizationsSw extends AppLocalizations {
   String get photo_field_nutrition => 'Picha ya lishe';
 
   @override
-  String get photo_field_packaging => 'Picha ya habari ya ufungaji';
+  String get photo_field_packaging => 'Maagizo ya kuchakata picha';
 
   @override
   String get photo_already_exists => 'Picha hii tayari ipo';
@@ -5810,21 +5809,23 @@ class AppLocalizationsSw extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Gundua Ukweli wa Chakula cha Wazi';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Gundua Ukweli Wazi wa Urembo';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Gundua Ukweli Wazi wa Chakula Kipenzi';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Gundua Ukweli wa Bidhaa Huria';
 
   @override
   String get preferences_faq_faq_title =>
@@ -6015,7 +6016,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Bei za hivi punde zilizoongezwa na jumuiya ya Bei Huria';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6062,7 +6063,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Njia rahisi za kusaidia Fungua Ukweli wa Chakula';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6170,7 +6171,7 @@ class AppLocalizationsSw extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Fungua Maabara ya Ukweli wa Chakula';
 
   @override
   String get preferences_root_account_title => 'Akaunti';

@@ -498,7 +498,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get contribute_join_skill_pool =>
-      'Tragen Sie mit Ihren Fähigkeiten zu OpenFoodFacts bei. Treten Sie dem Kompetenzpool bei!';
+      'Tragen Sie mit Ihren Fähigkeiten zu Open Food Facts bei. Treten Sie dem Kompetenzpool bei!';
 
   @override
   String get contribute_share_header =>
@@ -667,7 +667,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get unknownBrand => 'Unbekannte Marke';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Unbekannte Menge';
 
   @override
   String get unknownProductName => 'Unbekannter Produktname';
@@ -737,10 +737,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Nährwertangaben bearbeiten';
 
   @override
-  String get packaging_information => 'Angaben zur Verpackung';
+  String get packaging_information => 'Recyclinghinweise';
 
   @override
-  String get packaging_information_photo => 'Foto der Verpackungsinformation';
+  String get packaging_information_photo => 'Foto der Recycling-Anweisungen';
 
   @override
   String get missing_product => 'Sie haben eine neues Produkt gefunden!';
@@ -847,7 +847,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Foto der Nährwertangaben';
 
   @override
-  String get recycling_photo_title => 'Foto der Recycling-Informationen';
+  String get recycling_photo_title => 'Recyclinghinweise (Foto)';
 
   @override
   String get take_photo_title => 'Foto aufnehmen';
@@ -5317,7 +5317,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get photo_field_nutrition => 'Foto der Nährwertangaben';
 
   @override
-  String get photo_field_packaging => 'Foto der Verpackungsinformation';
+  String get photo_field_packaging => 'Foto der Recycling-Anweisungen';
 
   @override
   String get photo_already_exists => 'Dieses Foto bereits vorhanden';
@@ -6236,7 +6236,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Offene Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Konto';

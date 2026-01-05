@@ -653,7 +653,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get unknownBrand => 'Okänt varumärke';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Okänd kvantitet';
 
   @override
   String get unknownProductName => 'Okänt produktnamn';
@@ -724,10 +724,10 @@ class AppLocalizationsSv extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Redigera näringsfakta';
 
   @override
-  String get packaging_information => 'Förpackningsinformation';
+  String get packaging_information => 'Återvinningsinstruktioner';
 
   @override
-  String get packaging_information_photo => 'Foto på förpackningsinformation';
+  String get packaging_information_photo => 'Återvinningsinstruktioner foto';
 
   @override
   String get missing_product => 'Du har hittat en ny produkt!';
@@ -832,7 +832,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Näringsfakta Foto';
 
   @override
-  String get recycling_photo_title => 'Bild på återvinningsinformation';
+  String get recycling_photo_title => 'Återvinningsinstruktioner Foto';
 
   @override
   String get take_photo_title => 'Ta en bild';
@@ -2999,7 +2999,7 @@ class AppLocalizationsSv extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Läs mer om öppna priser';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Klar';
@@ -4878,11 +4878,11 @@ class AppLocalizationsSv extends AppLocalizations {
       'https://world-sv.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Välkommen till Öppna Priser!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Vad är öppningspriser?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4893,7 +4893,7 @@ class AppLocalizationsSv extends AppLocalizations {
       'Det finns för närvarande få företag som äger stora databaser med produktpriser på streckkodsnivå. Dessa priser är inte fritt tillgängliga, utan säljs till ett högt pris till privata aktörer, forskare och andra organisationer som har råd med dem.';
 
   @override
-  String get guide_open_prices_how_title => 'Hur fungerar öppna priser?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4934,7 +4934,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Av juridiska och tekniska skäl **anser vi inte att det är ett giltigt sätt att bidra till öppna priser att hämta priser från återförsäljares webbplatser.** Vi vill se till att de priser vi samlar in är korrekta och aktuella, och att ta emot hämtade priser från bidragsgivare tillåter oss inte att göra det.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
@@ -5256,7 +5256,7 @@ class AppLocalizationsSv extends AppLocalizations {
   String get photo_field_nutrition => 'Näringsfoto';
 
   @override
-  String get photo_field_packaging => 'Foto på förpackningsinformation';
+  String get photo_field_packaging => 'Återvinningsinstruktioner foto';
 
   @override
   String get photo_already_exists => 'Det här fotot finns redan';
@@ -5801,21 +5801,22 @@ class AppLocalizationsSv extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Upptäck projektet';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Upptäck öppna matfakta';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Upptäck fakta om öppna skönhetsföremål';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Upptäck öppna fakta om husdjursmat';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Upptäck fakta om öppna produkter';
 
   @override
   String get preferences_faq_faq_title => 'Vanliga frågor - Vanliga frågor';
@@ -6162,7 +6163,7 @@ class AppLocalizationsSv extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Öppna matfaktalabb';
 
   @override
   String get preferences_root_account_title => 'Konto';

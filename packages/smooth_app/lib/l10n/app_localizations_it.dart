@@ -659,7 +659,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get unknownBrand => 'Marca sconosciuta';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Quantità sconosciuta';
 
   @override
   String get unknownProductName => 'Nome del prodotto sconosciuto';
@@ -729,11 +729,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Modifica i valori nutrizionali';
 
   @override
-  String get packaging_information => 'Informazioni sull\'imballaggio';
+  String get packaging_information => 'Istruzioni per il riciclaggio';
 
   @override
   String get packaging_information_photo =>
-      'Foto di informazioni sull\'imballaggio';
+      'Foto delle istruzioni di riciclaggio';
 
   @override
   String get missing_product => 'Hai trovato un nuovo prodotto!';
@@ -837,7 +837,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Foto valori nutrizionali';
 
   @override
-  String get recycling_photo_title => 'Foto delle istruzioni di riciclaggio';
+  String get recycling_photo_title => 'Istruzioni per il riciclaggio Foto';
 
   @override
   String get take_photo_title => 'Scatta una foto';
@@ -5303,7 +5303,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get photo_field_nutrition => 'Foto di nutrizione';
 
   @override
-  String get photo_field_packaging => 'Foto di informazioni sull\'imballaggio';
+  String get photo_field_packaging => 'Foto delle istruzioni di riciclaggio';
 
   @override
   String get photo_already_exists => 'Questa foto esiste già';

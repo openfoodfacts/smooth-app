@@ -141,7 +141,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get match_short_unknown => '未知匹配';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => '許可證';
 
   @override
   String get looking_for => '尋找';
@@ -687,10 +687,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutrition_facts_editing_title => '编辑营养成分表';
 
   @override
-  String get packaging_information => '包裝資訊';
+  String get packaging_information => '回收說明';
 
   @override
-  String get packaging_information_photo => '包裝資訊照片';
+  String get packaging_information_photo => '回收说明照片';
 
   @override
   String get missing_product => '您發現了一個新產品！';
@@ -786,7 +786,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutritional_facts_photo_title => '营养成分表照片';
 
   @override
-  String get recycling_photo_title => '“循环利用标记”的照片';
+  String get recycling_photo_title => 'Recycling instructions Photo';
 
   @override
   String get take_photo_title => '選一張圖片';
@@ -5005,7 +5005,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get photo_field_nutrition => '营养成分的照片';
 
   @override
-  String get photo_field_packaging => '包裝資訊照片';
+  String get photo_field_packaging => '回收说明照片';
 
   @override
   String get photo_already_exists => '这张照片已经存在';
@@ -5838,7 +5838,7 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Open Food Facts實驗室';
 
   @override
   String get preferences_root_account_title => '账户';
@@ -6502,6 +6502,9 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get unknownBrand => '未知品牌';
 
   @override
+  String get unknownQuantity => '未知数量';
+
+  @override
   String get unknownProductName => '未知产品名称';
 
   @override
@@ -6566,10 +6569,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get nutrition_facts_editing_title => '编辑营养成分表';
 
   @override
-  String get packaging_information => '包装信息';
+  String get packaging_information => '回收说明';
 
   @override
-  String get packaging_information_photo => '包装信息照片';
+  String get packaging_information_photo => '回收说明照片';
 
   @override
   String get missing_product => '你发现了一件新产品！';
@@ -6665,7 +6668,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get nutritional_facts_photo_title => '营养成分表照片';
 
   @override
-  String get recycling_photo_title => '“循环利用标记”的照片';
+  String get recycling_photo_title => '回收说明 图片';
 
   @override
   String get take_photo_title => '请拍照';
@@ -10771,7 +10774,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get photo_field_nutrition => '营养成分的照片';
 
   @override
-  String get photo_field_packaging => '包装信息照片';
+  String get photo_field_packaging => '回收说明照片';
 
   @override
   String get photo_already_exists => '这张照片已经存在';
@@ -11296,8 +11299,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get preferences_faq_discover_op_title => '探索Open Prices';
 
   @override
-  String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+  String get preferences_faq_discover_opf_title => '了解开放产品信息';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - 常见问题';
@@ -11601,7 +11603,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Open Food Facts实验室';
 
   @override
   String get preferences_root_account_title => '账户';

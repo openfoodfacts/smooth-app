@@ -18,23 +18,23 @@ class AppLocalizationsAm extends AppLocalizations {
   String get yes => 'Yes';
 
   @override
-  String get add => 'Add';
+  String get add => 'ያክሉ';
 
   @override
   String get account_delete_message =>
-      'Are you sure you want to delete your account?\nIf there is a specific reason, please share below';
+      'መለያዎን መሰረዝ እንደሚፈልጉ እርግጠኛ ነዎት?\nየተወሰነ ምክንያት ካለ፣ እባክዎ ከታች ያጋሩ';
 
   @override
-  String get reason => 'Reason';
+  String get reason => 'ምክንያት';
 
   @override
-  String get okay => 'Okay';
+  String get okay => 'እሺ';
 
   @override
   String get validate => 'Validate';
 
   @override
-  String get create => 'Create';
+  String get create => 'ፍጠር';
 
   @override
   String get applyButtonText => 'Apply';
@@ -43,7 +43,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get next_label => 'Next';
 
   @override
-  String get continue_label => 'Continue';
+  String get continue_label => 'ቀጥል';
 
   @override
   String get exit_label => 'Exit';
@@ -52,13 +52,13 @@ class AppLocalizationsAm extends AppLocalizations {
   String get previous_label => 'Previous';
 
   @override
-  String get go_back_to_top => 'Go back to top';
+  String get go_back_to_top => 'ወደ ላይ ተመለስ';
 
   @override
   String get save => 'Save';
 
   @override
-  String get save_confirmation => 'Are you sure you want to save?';
+  String get save_confirmation => 'እርግጠኛ ነዎት ማስቀመጥ ይፈልጋሉ?';
 
   @override
   String get skip => 'Skip';
@@ -67,7 +67,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
-  String get ignore => 'Ignore';
+  String get ignore => 'ችላ በል';
 
   @override
   String get close => 'Close';
@@ -76,219 +76,213 @@ class AppLocalizationsAm extends AppLocalizations {
   String get no => 'No';
 
   @override
-  String get stop => 'Stop';
+  String get stop => 'ተወ';
 
   @override
-  String get finish => 'Finish';
+  String get finish => 'ጨርስ';
 
   @override
-  String get calculate => 'Calculate';
+  String get calculate => 'አስላ';
 
   @override
-  String get reset_food_prefs => 'Reset food preferences';
+  String get reset_food_prefs => 'የምግብ ምርጫዎችን ዳግም ያስጀምሩ';
 
   @override
-  String get error => 'Something went wrong';
+  String get error => 'የሆነ ችግር ተፈጥሯል';
 
   @override
-  String get error_occurred => 'An error occurred';
+  String get error_occurred => 'ስህተት ተከስቷል';
 
   @override
-  String get featureInProgress =>
-      'We\'re still working on this feature, stay tuned';
+  String get featureInProgress => 'አሁንም በዚህ ባህሪ ላይ እየሰራን ነው፣ ይከታተሉን';
 
   @override
-  String get label_web => 'View on the web';
+  String get label_web => 'በድር ላይ ይመልከቱ';
 
   @override
-  String get learnMore => 'Learn more';
+  String get learnMore => 'ተጨማሪ ይወቁ';
 
   @override
-  String get unknown => 'Unknown';
+  String get unknown => 'ያልታወቀ';
 
   @override
-  String get match_very_good => 'Very good match';
+  String get match_very_good => 'በጣም ጥሩ ተዛማጅ';
 
   @override
-  String get match_good => 'Good match';
+  String get match_good => 'ጥሩ ተዛማጅ';
 
   @override
-  String get match_poor => 'Poor match';
+  String get match_poor => 'ደካማ ተዛማጅ';
 
   @override
   String get match_may_not => 'May not match';
 
   @override
-  String get match_does_not => 'Does not match';
+  String get match_does_not => 'አይዛመድም';
 
   @override
-  String get match_unknown => 'Unknown match';
+  String get match_unknown => 'ያልታወቀ ተዛማጅ';
 
   @override
-  String get match_short_very_good => 'Very good match';
+  String get match_short_very_good => 'በጣም ጥሩ ተዛማጅ';
 
   @override
-  String get match_short_good => 'Good match';
+  String get match_short_good => 'ጥሩ ተዛማጅ';
 
   @override
-  String get match_short_poor => 'Poor match';
+  String get match_short_poor => 'ደካማ ተዛማጅ';
 
   @override
   String get match_short_may_not => 'May not match';
 
   @override
-  String get match_short_does_not => 'Does not match';
+  String get match_short_does_not => 'አይዛመድም';
 
   @override
-  String get match_short_unknown => 'Unknown match';
+  String get match_short_unknown => 'ያልታወቀ ተዛማጅ';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'ፍቃዶች';
 
   @override
-  String get looking_for => 'Looking for';
+  String get looking_for => 'እየፈለግኩ ነው';
 
   @override
-  String get welcomeToOpenFoodFacts => 'Welcome to Open Food Facts';
+  String get welcomeToOpenFoodFacts => 'ወደ Open Food Facts እንኳን በደህና መጡ';
 
   @override
   String get whatIsOff =>
-      'Open Food Facts is a global non-profit powered by local communities.';
+      'ክፍት የምግብ ፋክትስ በአካባቢ ማህበረሰቦች የሚተዳደር ዓለም አቀፍ ለትርፍ ያልተቋቋመ ድርጅት ነው።';
 
   @override
-  String get productDataUtility =>
-      'See the food data relevant to your preferences.';
+  String get productDataUtility => 'ከምርጫዎችዎ ጋር የሚዛመድ የምግብ መረጃ ይመልከቱ።';
 
   @override
-  String get healthCardUtility => 'Choose foods that are good for you.';
+  String get healthCardUtility => 'ለእርስዎ ጥሩ የሆኑ ምግቦችን ይምረጡ።';
 
   @override
-  String get ecoCardUtility => 'Choose foods that are good for the planet.';
+  String get ecoCardUtility => 'ለፕላኔቷ ጥሩ የሆኑ ምግቦችን ምረጥ።';
 
   @override
   String get server_error_open_new_issue =>
-      'No server response! You may open an issue with the following link.';
+      'የአገልጋይ ምላሽ የለም! በሚከተለው አገናኝ ችግር ሊከፍቱ ይችላሉ።';
 
   @override
-  String get sign_in_text =>
-      'Sign in to your Open Food Facts account to save your contributions';
+  String get sign_in_text => 'አስተዋጽዖዎችዎን ለማስቀመጥ ወደ ክፍት የምግብ እውነታዎች መለያዎ ይግቡ';
 
   @override
-  String get incorrect_credentials => 'Incorrect username or password.';
+  String get incorrect_credentials => 'የተሳሳተ የተጠቃሚ ስም ወይም የይለፍ ቃል።';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'This email or username doesn\'t exist. Please check your credentials.';
+      'ይህ ኢሜይል ወይም የተጠቃሚ ስም የለም። እባክዎ የእርስዎን ምስክርነቶች ያረጋግጡ።';
 
   @override
   String get password_lost_server_unavailable =>
-      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
+      'በአሁኑ ጊዜ በአገልጋዮቻችን ላይ ፍጥነት መቀነስ እያጋጠመን ነው፣ እና ለዚህ ይቅርታ እንጠይቃለን። እባክዎ ቆይተው እንደገና ይሞክሩ።';
 
   @override
   String get login => 'Login';
 
   @override
-  String get login_result_type_server_unreachable => 'Network is unreachable';
+  String get login_result_type_server_unreachable => 'አውታረ መረቡ ሊደረስበት የማይችል ነው';
 
   @override
-  String get login_result_type_server_issue =>
-      'Problem on the server. Please try later.';
+  String get login_result_type_server_issue => 'በአገልጋዩ ላይ ችግር። እባክዎ በኋላ ይሞክሩ።';
 
   @override
-  String get login_page_username_or_email => 'Please enter username or e-mail';
+  String get login_page_username_or_email => 'እባክዎ የተጠቃሚ ስም ወይም ኢሜይል ያስገቡ';
 
   @override
-  String get login_page_password_error_empty => 'Please enter a password';
+  String get login_page_password_error_empty => 'እባክዎ የይለፍ ቃል ያስገቡ';
 
   @override
-  String get create_account => 'Create account';
+  String get create_account => 'መለያ ፍጠር';
 
   @override
-  String get sign_in => 'Sign in';
+  String get sign_in => 'ይግቡ';
 
   @override
-  String get sign_in_mandatory => 'For that feature we need you to sign in.';
+  String get sign_in_mandatory => 'ለዚያ ባህሪ እርስዎ በመለያ እንዲገቡ እንፈልጋለን።';
 
   @override
   String get help_improve_country =>
       'Help improve Open Food Facts in your country';
 
   @override
-  String get sign_out => 'Sign out';
+  String get sign_out => 'ውጣ';
 
   @override
-  String get sign_out_confirmation => 'Are you sure you want to sign out?';
+  String get sign_out_confirmation => 'ለመውጣት እርግጠኛ ነዎት?';
 
   @override
-  String get password => 'Password';
+  String get password => 'የይለፍ ቃል';
 
   @override
-  String get forgot_password => 'Forgot password';
+  String get forgot_password => 'የይለፍ ቃል ረስተዋል';
 
   @override
   String get forgot_password_question => 'የይለፍ ቃል ረሱ?';
 
   @override
-  String get view_profile => 'View profile';
+  String get view_profile => 'መገለጫ ይመልከቱ';
 
   @override
-  String get reset_password => 'Reset password';
+  String get reset_password => 'የይለፍ ቃል ዳግም አስጀምር';
 
   @override
   String get reset_password_explanation_text =>
-      'In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.';
+      'የይለፍ ቃል ከተረሳ፣ የይለፍ ቃል ዳግም ለማስጀመር መመሪያዎችን ለመቀበል የተጠቃሚ ስምዎን ወይም የኢሜይል አድራሻዎን ያስገቡ። እንዲሁም የአይፈለጌ መልእክት አቃፊውን መፈተሽዎን ያስታውሱ።';
 
   @override
-  String get username_or_email => 'Username or e-mail';
+  String get username_or_email => 'የተጠቃሚ ስም ወይም ኢሜይል';
 
   @override
   String get reset_password_done =>
-      'An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam';
+      'የይለፍ ቃልዎን ዳግም ለማስጀመር አገናኝ ያለው ኢሜይል ከመለያዎ ጋር ወደተገናኘው የኢሜይል አድራሻ ተልኳል። እንዲሁም አይፈለጌ መልእክትዎን ያረጋግጡ።';
 
   @override
-  String get send_reset_password_mail => 'Change password';
+  String get send_reset_password_mail => 'የይለፍ ቃል ቀይር';
 
   @override
-  String get enter_some_text => 'Please enter some text';
+  String get enter_some_text => 'እባክዎ የተወሰነ ጽሑፍ ያስገቡ';
 
   @override
-  String get sign_up_page_title => 'Sign Up';
+  String get sign_up_page_title => 'ይመዝገቡ';
 
   @override
-  String get sign_up_page_action_button => 'Sign Up';
+  String get sign_up_page_action_button => 'ይመዝገቡ';
 
   @override
-  String get sign_up_page_action_doing_it => 'Signing up…';
+  String get sign_up_page_action_doing_it => 'በመመዝገብ ላይ…';
 
   @override
-  String get sign_up_page_action_ok =>
-      'Congratulations! Your account has just been created.';
+  String get sign_up_page_action_ok => 'እንኳን ደስ አላችሁ! መለያዎ አሁን ተፈጥሯል።';
 
   @override
-  String get sign_up_page_display_name_hint => 'Name';
+  String get sign_up_page_display_name_hint => 'ስም';
 
   @override
   String get sign_up_page_display_name_error_empty =>
-      'Please enter the display name you want to use';
+      'እባክዎ መጠቀም የሚፈልጉትን የማሳያ ስም ያስገቡ';
 
   @override
-  String get sign_up_page_email_hint => 'E-mail';
+  String get sign_up_page_email_hint => 'ኢሜይል';
 
   @override
-  String get sign_up_page_email_error_empty => 'E-mail is required';
+  String get sign_up_page_email_error_empty => 'ኢሜይል ያስፈልጋል';
 
   @override
-  String get sign_up_page_email_error_invalid => 'Invalid e-mail';
+  String get sign_up_page_email_error_invalid => 'ልክ ያልሆነ ኢሜይል';
 
   @override
-  String get sign_up_page_username_hint => 'Username: Publicly visible';
+  String get sign_up_page_username_hint => 'የተጠቃሚ ስም፡ በይፋ የሚታይ';
 
   @override
-  String get sign_up_page_username_error_empty => 'Please enter a username';
+  String get sign_up_page_username_error_empty => 'እባክዎ የተጠቃሚ ስም ያስገቡ';
 
   @override
-  String get sign_up_page_username_error_invalid =>
-      'Please enter a valid username';
+  String get sign_up_page_username_error_invalid => 'እባክዎ ትክክለኛ የተጠቃሚ ስም ያስገቡ';
 
   @override
   String get sign_up_page_username_description =>
@@ -296,202 +290,196 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'Username cannot exceed $value characters';
+    return 'የተጠቃሚ ስም ከ $value ቁምፊዎች መብለጥ አይችልም';
   }
 
   @override
-  String get sign_up_page_password_hint => 'Password';
+  String get sign_up_page_password_hint => 'የይለፍ ቃል';
 
   @override
-  String get sign_up_page_password_error_empty => 'Please enter a password';
+  String get sign_up_page_password_error_empty => 'እባክዎ የይለፍ ቃል ያስገቡ';
 
   @override
   String get sign_up_page_password_error_invalid =>
-      'Please enter a valid password (at least 6 characters)';
+      'እባክዎ ትክክለኛ የይለፍ ቃል ያስገቡ (ቢያንስ 6 ቁምፊዎች)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'Confirm Password';
+  String get sign_up_page_confirm_password_hint => 'የይለፍ ቃል አረጋግጥ';
 
   @override
-  String get sign_up_page_confirm_password_error_empty =>
-      'Please confirm the password';
+  String get sign_up_page_confirm_password_error_empty => 'የይለፍ ቃሉን ያረጋግጡ እባክዎ';
 
   @override
-  String get sign_up_page_confirm_password_error_invalid =>
-      'Passwords don\'t match';
+  String get sign_up_page_confirm_password_error_invalid => 'የይለፍ ቃሎች አይዛመዱም';
 
   @override
-  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
+  String get sign_up_page_agree_text => 'በክፍት የምግብ እውነታዎች እስማማለሁ';
 
   @override
-  String get sign_up_page_terms_text => 'terms of use and contribution';
+  String get sign_up_page_terms_text => 'የአጠቃቀም ውሎች እና መዋጮዎች';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
   String get sign_up_page_agree_error_invalid =>
-      'When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app';
+      'መለያ ሲፈጥሩ፣ የአጠቃቀም ውሉን መስማማት ግዴታ ነው፣ ሆኖም ግን፣ ስም-አልባ አስተዋጽዖዎች አሁንም በመተግበሪያው በኩል ሊደረጉ ይችላሉ።';
 
   @override
-  String get sign_up_page_producer_checkbox => 'I am a food producer';
+  String get sign_up_page_producer_checkbox => 'የምግብ አምራች ነኝ';
 
   @override
-  String get sign_up_page_producer_hint => 'Producer/brand';
+  String get sign_up_page_producer_hint => 'ፕሮዲዩሰር/ብራንድ';
 
   @override
   String get sign_up_page_producer_error_empty =>
-      'Please enter a producer or a brand name';
+      'እባክዎ ፕሮዲዩሰር ወይም የምርት ስም ያስገቡ';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
+      'ለ Open Food Facts ጋዜጣ መመዝገብ እፈልጋለሁ (በማንኛውም ጊዜ ከደንበኝነት ምዝገባ መውጣት ይችላሉ)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'The user name already exists, please choose another username.';
+      'የተጠቃሚ ስም አስቀድሞ አለ፣ እባክዎ ሌላ የተጠቃሚ ስም ይምረጡ።';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'already exists, login to the account or try with another email.';
+      'አስቀድሞ አለ፣ ወደ መለያው ይግቡ ወይም በሌላ ኢሜይል ይሞክሩ።';
 
   @override
-  String get sign_up_page_provide_valid_email =>
-      'Please provide a valid email address.';
+  String get sign_up_page_provide_valid_email => 'እባክዎ ትክክለኛ የኢሜይል አድራሻ ያቅርቡ።';
 
   @override
   String get sign_up_page_server_busy =>
-      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
+      'በጣም እናዝናለን፣ መለያዎን ለመፍጠር አንዳንድ የቴክኒክ ችግሮች አጋጥመውናል። እባክዎ ቆይተው እንደገና ይሞክሩ።';
 
   @override
   String get settingsTitle => 'Settings';
 
   @override
-  String get darkmode => 'Theme';
+  String get darkmode => 'ገጽታ';
 
   @override
-  String get darkmode_dark => 'Dark';
+  String get darkmode_dark => 'ጨለማ';
 
   @override
-  String get darkmode_light => 'Light';
+  String get darkmode_light => 'ብርሃን';
 
   @override
-  String get darkmode_system_default => 'System default';
+  String get darkmode_system_default => 'የስርዓት ነባሪ';
 
   @override
-  String get thanks_for_contributing => 'Thanks for contributing!';
+  String get thanks_for_contributing => 'ስላበረከቱልን እናመሰግናለን!';
 
   @override
-  String get contributors_label => 'They are building the app';
+  String get contributors_label => 'መተግበሪያውን እየገነቡ ነው';
 
   @override
   String get contributors_dialog_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'Contributor: $name';
+    return 'አበርካች፦ $name';
   }
 
   @override
-  String get contributors_description =>
-      'A list of all contributors of this app';
+  String get contributors_description => 'የዚህ መተግበሪያ አስተዋጽዖ አበርካቾች በሙሉ ዝርዝር';
 
   @override
-  String get support => 'Support';
+  String get support => 'ድጋፍ';
 
   @override
-  String get support_join_slack => 'Ask for help in our Slack channel';
+  String get support_join_slack => 'በSlack ቻናላችን እርዳታ ይጠይቁ';
 
   @override
-  String get support_via_forum => 'Ask for help on our forum';
+  String get support_via_forum => 'በእኛ መድረክ ላይ እርዳታ ይጠይቁ';
 
   @override
-  String get support_via_email => 'Send us an e-mail';
+  String get support_via_email => 'ኢሜይል ይላኩልን';
 
   @override
-  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
+  String get support_via_email_include_logs_dialog_title =>
+      'የመተግበሪያ ምዝግብ ማስታወሻዎችን ይላኩ?';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'Do you wish to include application logs in attachment to your email?';
+      'የመተግበሪያ ምዝግብ ማስታወሻዎችን በኢሜልዎ አባሪ ውስጥ ማካተት ይፈልጋሉ?';
 
   @override
-  String get termsOfUse => 'Terms of use';
+  String get termsOfUse => 'የአጠቃቀም ውሎች';
 
   @override
-  String get legalNotices => 'Legal notices';
+  String get legalNotices => 'የህግ ማስታወቂያዎች';
 
   @override
-  String get privacy_policy => 'Privacy policy';
+  String get privacy_policy => 'የግላዊነት መመሪያ';
 
   @override
-  String get about_this_app => 'About this app';
+  String get about_this_app => 'ስለዚህ መተግበሪያ';
 
   @override
   String get contribute => 'Contribute';
 
   @override
-  String get contribute_sw_development => 'Software development';
+  String get contribute_sw_development => 'የሶፍትዌር ልማት';
 
   @override
   String get contribute_develop_text =>
-      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
+      'የእያንዳንዱ ክፍት የምግብ መረጃ ምርት ኮድ በጂትሆብ ላይ ይገኛል። ኮዱን (ክፍት ምንጭ ነው) እንደገና መጠቀም እና በመላው ፕላኔት ላይ ላሉ ሰዎች ሁሉ እንድናሻሽለው መርዳት ይችላሉ።';
 
   @override
   String get contribute_develop_text_2 =>
-      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
+      'ጥያቄዎችን ለመጠየቅ ተመራጭ መንገድ የሆነውን የOpen Food Facts Slack chatroom መቀላቀል ይችላሉ።';
 
   @override
-  String get contribute_develop_dev_mode_title => 'DEV Mode?';
+  String get contribute_develop_dev_mode_title => 'የDEV ሁነታ?';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
+  String get contribute_develop_dev_mode_subtitle => 'የDEV ሁነታን ያግብሩ';
 
   @override
   String get contribute_donate_title => 'Donate';
 
   @override
-  String get contribute_donate_header => 'Donate to Open Food Facts';
+  String get contribute_donate_header => 'ለክፍት የምግብ እውነታዎች ይለግሱ';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
+      'በውስጣዊ የአልፋ ስሪት፣ የውሂብ ሙሉ በሙሉ መጥፋት እንደሚቻል እና መተግበሪያው በማንኛውም ጊዜ ጥቅም ላይ ሊውል እንደማይችል እባክዎ ልብ ይበሉ!';
 
   @override
-  String get contribute_improve_ProductsToBeCompleted =>
-      'Products to be completed';
+  String get contribute_improve_ProductsToBeCompleted => 'የሚጠናቀቁ ምርቶች';
 
   @override
-  String get contribute_improve_header => 'Improving';
+  String get contribute_improve_header => 'ማሻሻል';
 
   @override
   String get contribute_improve_text =>
-      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
+      'የመረጃ ቋቱ የፕሮጀክቱ ዋና አካል ነው። ለመርዳት ቀላል እና በጣም ፈጣን ነው። ለስልክዎ የሞባይል መተግበሪያን ማውረድ እና ምርቶችን ማከል ወይም ማሻሻል መጀመር ይችላሉ።\n\nበሌላ በኩል፣ የOpen Food Facts ድህረ ገጽ አስተዋጽዖ ለማድረግ ብዙ መንገዶችን ያቀርባል፡ ';
 
   @override
-  String get contribute_translate_header => 'Translate';
+  String get contribute_translate_header => 'ተርጉም';
 
   @override
   String get contribute_data_quality => 'Data Quality';
 
   @override
-  String get contribute_translate_link_text => 'Start Translating';
+  String get contribute_translate_link_text => 'መተርጎም ጀምር';
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
+      'ክፍት የምግብ እውነታዎች ከ160 በላይ አገሮችን ያካተተ ዓለም አቀፍ ፕሮጀክት ነው። ክፍት የምግብ እውነታዎች ወደ ደርዘን በሚቆጠሩ ቋንቋዎች የተተረጎመ ሲሆን በየጊዜው እየተሻሻለ የሚሄድ ይዘት አለው።';
 
   @override
-  String get contribute_translate_text_2 =>
-      'Translations is one of the key tasks of the project';
+  String get contribute_translate_text_2 => 'ትርጉሞች ከፕሮጀክቱ ቁልፍ ተግባራት አንዱ ናቸው';
 
   @override
   String get contribute_join_skill_pool =>
-      'Contribute your skills to Open Food Facts. Join the skill pool!';
+      'ክህሎቶችዎን ለ Open Food Facts ያበርክቱ። የክህሎት ቡድኑን ይቀላቀሉ!';
 
   @override
-  String get contribute_share_header =>
-      'Share Open Food Facts with your friends';
+  String get contribute_share_header => 'ክፍት የምግብ እውነታዎችን ከጓደኞችዎ ጋር ያጋሩ';
 
   @override
   String get contribute_share_content =>
@@ -499,21 +487,20 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'የታማኝነት ካርዶችዎን ውሂብ ወደ ውጭ ለመላክ የጂዲፒአር (GDPR) በመጠየቅ ዋጋዎችን ያበርክቱ';
 
   @override
-  String get tap_to_answer => 'Tap here to answer questions';
+  String get tap_to_answer => 'ጥያቄዎችን ለመመለስ እዚህ መታ ያድርጉ';
 
   @override
-  String get tap_to_answer_hint =>
-      'Tap here to answer questions about this product';
+  String get tap_to_answer_hint => 'ስለዚህ ምርት ጥያቄዎችን ለመመለስ እዚህ መታ ያድርጉ';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'Please wait while questions about this product are loaded';
+      'ስለዚህ ምርት ጥያቄዎች እስኪጫኑ ድረስ እባክዎ ይጠብቁ';
 
   @override
-  String get saving_answer => 'Saving your answer';
+  String get saving_answer => 'መልስዎን በማስቀመጥ ላይ';
 
   @override
   String get contribute_to_get_rewards =>
@@ -521,79 +508,76 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Sign in to your Open Food Facts account to get credit for your contributions';
+      'ለምታበረክቱት አስተዋጽኦ ክሬዲት ለማግኘት ወደ ክፍት የምግብ እውነታዎች መለያዎ ይግቡ';
 
   @override
-  String get question_yes_button_accessibility_value => 'Answer with yes';
+  String get question_yes_button_accessibility_value => 'አዎ የሚል መልስ';
 
   @override
-  String get question_no_button_accessibility_value => 'Answer with no';
+  String get question_no_button_accessibility_value => 'አይ የሚል መልስ';
 
   @override
-  String get question_skip_button_accessibility_value => 'Skip this question';
+  String get question_skip_button_accessibility_value => 'ይህንን ጥያቄ ዝለል';
 
   @override
-  String get tap_to_edit_search => 'Tap to edit search';
+  String get tap_to_edit_search => 'ፍለጋን ለማርትዕ መታ ያድርጉ';
 
   @override
-  String get myPreferences => 'My preferences';
+  String get myPreferences => 'የእኔ ምርጫዎች';
 
   @override
   String get account_create_message =>
-      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
+      'በዓለም ዙሪያ የምግብ እውቀትን ለመገንባት መለያዎን ይፍጠሩ እና ክፍት የምግብ እውነታዎች ማህበረሰብን ይቀላቀሉ!';
 
   @override
-  String get join_us => 'Join us';
+  String get join_us => 'ይቀላቀሉን';
 
   @override
-  String get myPreferences_profile_title => 'Your Profile';
+  String get myPreferences_profile_title => 'የእርስዎ መገለጫ';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Manage your Open Food Facts contributor account.';
+      'የክፍት ምግብ እውነታዎች አስተዋጽዖ አበርካች መለያዎን ያስተዳድሩ።';
 
   @override
-  String get myPreferences_settings_title => 'App Settings';
+  String get myPreferences_settings_title => 'የመተግበሪያ ቅንብሮች';
 
   @override
-  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
+  String get myPreferences_settings_subtitle => 'ጨለማ ሁነታ፣ ቋንቋዎች…';
 
   @override
-  String get myPreferences_food_title => 'Food Preferences';
+  String get myPreferences_food_title => 'የምግብ ምርጫዎች';
 
   @override
-  String get myPreferences_food_subtitle =>
-      'Choose what information about food matters most to you.';
+  String get myPreferences_food_subtitle => 'ስለ ምግብ በጣም አስፈላጊ የሆነውን መረጃ ይምረጡ።';
 
   @override
   String get myPreferences_food_comment =>
-      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
+      'ምግብን እንደ ምርጫዎ ደረጃ ለመስጠት፣ ቅድሚያ የሚሰጧቸውን መረጃዎች ለማየት እና የተኳሃኝነት ማጠቃለያ ለማግኘት ስለ ምግብ ምን አይነት መረጃ ለእርስዎ በጣም አስፈላጊ እንደሆነ ይምረጡ፣ ይህም በመሳሪያዎ ላይ ይቆያል፣ እና ካለዎት ከክፍት የምግብ እውነታዎች አስተዋጽዖ አበርካች መለያዎ ጋር አይቆራኙም።';
 
   @override
-  String get confirmResetPreferences => 'Reset your food preferences?';
+  String get confirmResetPreferences => 'የምግብ ምርጫዎችዎን ዳግም ያስጀምሩ?';
 
   @override
-  String get myPersonalizedRanking => 'My personalized ranking';
+  String get myPersonalizedRanking => 'የእኔ የግል ደረጃ አሰጣጥ';
 
   @override
   String get ranking_tab_all => 'All';
 
   @override
-  String get ranking_subtitle_match_yes => 'A great match for you';
+  String get ranking_subtitle_match_yes => 'ለእርስዎ በጣም ጥሩ ተዛማጅ';
 
   @override
-  String get ranking_subtitle_match_no => 'Very poor match';
+  String get ranking_subtitle_match_no => 'በጣም ደካማ ተዛማጅ';
 
   @override
-  String get ranking_subtitle_match_maybe => 'Unknown match';
+  String get ranking_subtitle_match_maybe => 'ያልታወቀ ተዛማጅ';
 
   @override
-  String get refresh_with_new_preferences =>
-      'Refresh the list with your new preferences';
+  String get refresh_with_new_preferences => 'ዝርዝሩን በአዲሶቹ ምርጫዎችዎ ያድሱ';
 
   @override
-  String get reloaded_with_new_preferences =>
-      'Reloaded with your new preferences';
+  String get reloaded_with_new_preferences => 'በአዲሶቹ ምርጫዎችዎ እንደገና ተጭኗል';
 
   @override
   String get profile_navbar_label => 'Community';
@@ -602,28 +586,28 @@ class AppLocalizationsAm extends AppLocalizations {
   String get scan_navbar_label => 'ቃኝ';
 
   @override
-  String get history_navbar_label => 'History';
+  String get history_navbar_label => 'ታሪክ';
 
   @override
-  String get list_navbar_label => 'Lists';
+  String get list_navbar_label => 'ዝርዝሮች';
 
   @override
-  String get category => 'Filter by category';
+  String get category => 'በምድብ ያጣሩ';
 
   @override
   String get category_all => 'All';
 
   @override
-  String get category_search => '(category search)';
+  String get category_search => '(የምድብ ፍለጋ)';
 
   @override
-  String get filter => 'Filter';
+  String get filter => 'ማጣሪያ';
 
   @override
-  String get scan => 'Products from the Scan screen';
+  String get scan => 'ከቅኝት ማያ ገጽ የተገኙ ምርቶች';
 
   @override
-  String get scan_history => 'Scan history';
+  String get scan_history => 'ታሪክን ይቃኙ';
 
   @override
   String get search => 'Search';
@@ -638,172 +622,170 @@ class AppLocalizationsAm extends AppLocalizations {
   String get search_history => 'የፍለጋ ታሪክ';
 
   @override
-  String get search_store => 'Search for a store';
+  String get search_store => 'ሱቅ ይፈልጉ';
 
   @override
   String get search_store_help => 'ፍንጭ፡ ከተማዋን ወይም አገሩን ጨምሩ';
 
   @override
-  String get tap_for_more => 'Tap to see more info…';
+  String get tap_for_more => 'ተጨማሪ መረጃ ለማየት መታ ያድርጉ…';
 
   @override
   String get product => 'Product';
 
   @override
-  String get unknownBrand => 'Unknown brand';
+  String get unknownBrand => 'የማይታወቅ የምርት ስም';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'ያልታወቀ ብዛት';
 
   @override
-  String get unknownProductName => 'Unknown product name';
+  String get unknownProductName => 'ያልታወቀ የምርት ስም';
 
   @override
   String get label_refresh => 'Refresh';
 
   @override
-  String get label_reload => 'Reload';
+  String get label_reload => 'እንደገና ጫን';
 
   @override
-  String get image => 'Image';
+  String get image => 'ምስል';
 
   @override
-  String get front_photo => 'Front photo';
+  String get front_photo => 'የፊት ፎቶ';
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (this image may be outdated)';
+    return '$imageType (ይህ ምስል ጊዜው ያለፈበት ሊሆን ይችላል)';
   }
 
   @override
-  String get outdated_image_short_label => 'may be outdated';
+  String get outdated_image_short_label => 'ጊዜ ያለፈበት ሊሆን ይችላል';
 
   @override
   String get ingredients => 'Ingredients';
 
   @override
   String get ingredients_editing_instructions =>
-      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
+      'የመጀመሪያውን ቅደም ተከተል ያስቀምጡ። ሲገለጽ መቶኛውን ይጥቀሱ። በኮማ ወይም በሰረዝ ይለያዩት እና ለአንድ ንጥረ ነገር ንጥረ ነገሮች ቅንፎችን ይጠቀሙ።';
 
   @override
-  String get ingredients_editing_error => 'Failed to save the ingredients.';
+  String get ingredients_editing_error => 'ንጥረ ነገሮቹን ማስቀመጥ አልተሳካም።';
 
   @override
   String get ingredients_editing_image_error =>
-      'Failed to get a new ingredients image.';
+      'አዲስ የንጥረ ነገሮች ምስል ማግኘት አልተሳካም።';
 
   @override
-  String get ingredients_editing_title => 'Edit Ingredients';
+  String get ingredients_editing_title => 'ግብዓቶችን አርትዕ ያድርጉ';
 
   @override
-  String get ingredients_photo => 'Ingredients photo';
+  String get ingredients_photo => 'የንጥረ ነገሮች ፎቶ';
 
   @override
   String get packaging_editing_instructions =>
-      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
+      'ሁሉንም የማሸጊያ ክፍሎች በኮማ ወይም በመስመር ምግብ የተለዩ፣ መጠናቸው (ለምሳሌ 1 ወይም 6) ዓይነት (ለምሳሌ ጠርሙስ፣ ሳጥን፣ ቆርቆሮ)፣ ቁሳቁስ (ለምሳሌ ፕላስቲክ፣ ብረት፣ አሉሚኒየም) እና መጠናቸው (ለምሳሌ 33cl) እና እንደገና ጥቅም ላይ የማዋል መመሪያዎቻቸውን ይዘረዝራሉ።\nምሳሌ፡ 1 ብርጭቆ ጠርሙስ እንደገና ጥቅም ላይ ለማዋል፣ 1 የፕላስቲክ ቡሽ ለመወርወር';
 
   @override
-  String get packaging_editing_error => 'Failed to save the packaging.';
+  String get packaging_editing_error => 'ማሸጊያውን ማስቀመጥ አልተሳካም።';
 
   @override
-  String get packaging_editing_image_error =>
-      'Failed to get a new packaging image.';
+  String get packaging_editing_image_error => 'አዲስ የማሸጊያ ምስል ማግኘት አልተሳካም።';
 
   @override
-  String get packaging_editing_title => 'Edit Packaging';
+  String get packaging_editing_title => 'ማሸጊያን ያርትዑ';
 
   @override
-  String get nutrition => 'Nutrition';
+  String get nutrition => 'የተመጣጠነ ምግብ';
 
   @override
-  String get nutrition_facts_photo => 'Nutrition facts photo';
+  String get nutrition_facts_photo => 'የአመጋገብ እውነታዎች ፎቶ';
 
   @override
-  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
+  String get nutrition_facts_editing_title => 'የአመጋገብ እውነታዎችን ያርትዑ';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'የመልሶ ጥቅም ላይ የማዋል መመሪያዎች';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'የመልሶ ጥቅም ላይ ማዋል መመሪያዎች ፎቶ';
 
   @override
-  String get missing_product => 'You found a new product!';
+  String get missing_product => 'አዲስ ምርት አግኝተዋል!';
 
   @override
   String get add_product_take_photos =>
-      'Take photos of the packaging to add this product to Open Food Facts';
+      'ይህንን ምርት ወደ Open Food Facts ለማከል የማሸጊያውን ፎቶ ያንሱ';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'Please take some photos first. You may always complete the product at a later time.';
+      'እባክዎን መጀመሪያ አንዳንድ ፎቶዎችን ያንሱ። ምርቱን በኋላ ላይ ሁልጊዜ ማጠናቀቅ ይችላሉ።';
 
   @override
   String get add_product_information_button_label => 'Add product information';
 
   @override
-  String get new_product => 'New Product';
+  String get new_product => 'አዲስ ምርት';
 
   @override
-  String get new_product_found_title => 'New product found!';
+  String get new_product_found_title => 'አዲስ ምርት ተገኝቷል!';
 
   @override
   String get new_product_found_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'የትብብር ዳታቤዛችን ከ **3 ሚሊዮን በላይ ምርቶችን** ይዟል፣ ነገር ግን ይህ ባርኮድ የለም፦ ';
 
   @override
   String get new_product_found_button => 'Add this product';
 
   @override
-  String get new_product_leave_title => 'Leave this page?';
+  String get new_product_leave_title => 'ከዚህ ገጽ ውጣ?';
 
   @override
   String get new_product_leave_message =>
-      'It looks like you didn\'t input anything. Do you really want to leave this page?';
+      'ምንም ነገር ያላስገቡ ይመስላል። ይህንን ገጽ መልቀቅ በእርግጥ ይፈልጋሉ?';
 
   @override
   String get new_product_dialog_description =>
-      'Please take photos of the packaging to add this product to our common database';
+      'እባክዎን ይህንን ምርት ወደ የጋራ የመረጃ ቋታችን ለማከል የማሸጊያውን ፎቶዎች ያንሱ';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'An illustration with unknown Nutri-Score and Green Score';
+      'የማይታወቅ የኑትሪ-ስኮር እና የአረንጓዴ ነጥብ ያለው ምሳሌ';
 
   @override
-  String get front_packaging_photo_button_label => 'Front packaging photo';
+  String get front_packaging_photo_button_label => 'የፊት ማሸጊያ ፎቶ';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'Confirm upload of Front packaging photo';
+      'የፊት ማሸጊያ ፎቶ መጫንን ያረጋግጡ';
 
   @override
-  String get confirm_button_label => 'Confirm';
+  String get confirm_button_label => 'አረጋግጥ';
 
   @override
-  String get send_image_button_label => 'Send image';
+  String get send_image_button_label => 'ምስል ላክ';
 
   @override
-  String get crop_page_action_saving => 'Saving the image…';
+  String get crop_page_action_saving => 'ምስሉን በማስቀመጥ ላይ…';
 
   @override
-  String get crop_page_action_cropping => 'Cropping the image…';
+  String get crop_page_action_cropping => 'ምስሉን መከርከም…';
 
   @override
-  String get crop_page_action_local => 'Saving a local version…';
+  String get crop_page_action_local => 'የአካባቢውን ስሪት በማስቀመጥ ላይ…';
 
   @override
-  String get crop_page_action_local_failed_title =>
-      'Oops… there\'s something with your photo!';
+  String get crop_page_action_local_failed_title => 'ውይ… ፎቶህ ላይ የሆነ ነገር አለ!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
+      'ምስሉን ወደ አገልጋያችን ከመላክዎ በፊት በአካባቢው ማስኬድ አልቻልንም። እባክዎ ቆይተው እንደገና ይሞክሩ ወይም ችግሩ ከቀጠለ ያግኙን።';
 
   @override
-  String get crop_page_action_retake => 'Retake a photo';
+  String get crop_page_action_retake => 'ፎቶ እንደገና አንሳ';
 
   @override
-  String get crop_page_too_small_image_title => 'The image is too small!';
+  String get crop_page_too_small_image_title => 'ምስሉ በጣም ትንሽ ነው!';
 
   @override
   String crop_page_too_small_image_message(
@@ -812,23 +794,23 @@ class AppLocalizationsAm extends AppLocalizations {
     int actualWidth,
     int actualHeight,
   ) {
-    return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
+    return 'ለስዕል ለመስቀል ዝቅተኛው የፒክሰል መጠን ${expectedMinWidth}x$expectedMinHeightነው። የአሁኑ ስዕል ${actualWidth}x$actualHeightነው።';
   }
 
   @override
-  String get crop_page_action_server => 'Preparing a call to the server…';
+  String get crop_page_action_server => 'ወደ አገልጋዩ ጥሪ በማዘጋጀት ላይ…';
 
   @override
-  String get front_packaging_photo_title => 'Front Packaging Photo';
+  String get front_packaging_photo_title => 'የፊት ማሸጊያ ፎቶ';
 
   @override
-  String get ingredients_photo_title => 'Ingredients Photo';
+  String get ingredients_photo_title => 'የግብዓቶች ፎቶ';
 
   @override
-  String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
+  String get nutritional_facts_photo_title => 'የአመጋገብ እውነታዎች ፎቶ';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'የመልሶ ጥቅም ላይ ማዋል መመሪያዎች ፎቶ';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -837,196 +819,187 @@ class AppLocalizationsAm extends AppLocalizations {
   String get take_more_photo_title => 'Take more photos';
 
   @override
-  String get front_photo_uploaded => 'Front photo uploaded';
+  String get front_photo_uploaded => 'የፊት ፎቶ ተሰቅሏል';
 
   @override
-  String get ingredients_photo_button_label => 'Ingredients photo';
+  String get ingredients_photo_button_label => 'የንጥረ ነገሮች ፎቶ';
 
   @override
-  String get ingredients_photo_uploaded => 'Ingredients photo uploaded';
+  String get ingredients_photo_uploaded => 'የግብዓቶች ፎቶ ተሰቅሏል';
 
   @override
-  String get nutrition_cache_loading_error =>
-      'Unable to load nutrients from cache';
+  String get nutrition_cache_loading_error => 'ንጥረ ነገሮችን ከመሸጎጫ መጫን አልተቻለም';
 
   @override
-  String get nutritional_facts_photo_button_label => 'Nutrition facts photo';
+  String get nutritional_facts_photo_button_label => 'የአመጋገብ እውነታዎች ፎቶ';
 
   @override
-  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
+  String get nutritional_facts_input_button_label => 'የአመጋገብ እውነታዎችን ይሙሉ';
 
   @override
-  String get nutritional_facts_added => 'Nutrition facts added';
+  String get nutritional_facts_added => 'የአመጋገብ እውነታዎች ተጨምረዋል';
 
   @override
-  String get categories_added => 'Categories added';
+  String get categories_added => 'ምድቦች ታክለዋል';
 
   @override
   String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'Help us by filling at least a category and nutritional values';
+      'ቢያንስ አንድ ምድብ እና የአመጋገብ እሴቶችን በመሙላት ያግዙን';
 
   @override
-  String get new_product_title_environmental_score => 'Compute the Green Score';
+  String get new_product_title_environmental_score => 'አረንጓዴውን ውጤት አስላ';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Get it by filling at least a category';
+      'ቢያንስ አንድ ምድብ በመሙላት ያግኙት';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Make Green Score computation more precise with origins, packaging & more';
+      'በመነሻ፣ በማሸጊያ እና በሌሎችም አማካኝነት የአረንጓዴ ነጥብ ስሌትን የበለጠ ትክክለኛ ያድርጉት';
 
   @override
-  String get new_product_title_nova =>
-      'Compute the food processing level (NOVA)';
+  String get new_product_title_nova => 'የምግብ ማቀነባበሪያ ደረጃን (NOVA) አስላ';
 
   @override
-  String get new_product_subtitle_nova =>
-      'Get it by filling the food category and ingredients';
+  String get new_product_subtitle_nova => 'የምግብ ምድቡን እና ግብዓቶቹን በመሙላት ያግኙት';
 
   @override
-  String get new_product_desc_nova_unknown => 'Food processing level unknown';
+  String get new_product_desc_nova_unknown => 'የምግብ ማቀነባበሪያ ደረጃ አይታወቅም';
 
   @override
-  String get new_product_title_pictures => 'New product';
+  String get new_product_title_pictures => 'አዲስ ምርት';
 
   @override
   String get new_product_title_pictures_details =>
       'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'And some basic data…';
+  String get new_product_title_misc => 'እና አንዳንድ መሰረታዊ መረጃዎች…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'Thanks for your contribution “$username”!';
+    return '\"$username\" ላበረከቱት አስተዋጽኦ እናመሰግናለን!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
+  String get new_product_done_msg_no_user => 'ላበረከቱት አስተዋጽኦ እናመሰግናለን!';
 
   @override
-  String get new_product_done_button_label => 'Discover the completed product';
+  String get new_product_done_button_label => 'የተጠናቀቀውን ምርት ያግኙ';
 
   @override
   String get hey_incomplete_product_message =>
-      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
+      'Nutri-Score፣ Green Score & Ultra-processing (NOVA) ለማስላት 3 ጥያቄዎችን ለመመለስ አሁን መታ ያድርጉ!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tap now to answer 2 questions to help analyze this cosmetic!';
+      'ይህንን ኮስሞቲክስ ለመተንተን ሁለት ጥያቄዎችን ለመመለስ አሁን ይንኩ!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Tap now to answer 3 questions to help analyze this pet food product!';
+      'ይህንን የቤት እንስሳት የምግብ ምርት ለመተንተን የሚረዱ 3 ጥያቄዎችን ለመመለስ አሁን ይንኩ!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Tap now to help complete this product!';
+      'ይህንን ምርት ለማጠናቀቅ አሁን ይንኩ!';
 
   @override
-  String get nutritional_facts_photo_uploaded =>
-      'Nutrition facts photo uploaded';
+  String get nutritional_facts_photo_uploaded => 'የአመጋገብ እውነታዎች ፎቶ ተሰቅሏል';
 
   @override
-  String get recycling_photo_button_label => 'Recycling photo';
+  String get recycling_photo_button_label => 'የመልሶ ጥቅም ላይ ማዋል ፎቶ';
 
   @override
-  String get recycling_photo_uploaded => 'Recycling photo uploaded';
+  String get recycling_photo_uploaded => 'የመልሶ ጥቅም ላይ የዋለ ፎቶ ተሰቅሏል';
 
   @override
   String get take_more_photo_button_label => 'Take more photos';
 
   @override
-  String get other_photo_uploaded => 'Miscellaneous photo uploaded';
+  String get other_photo_uploaded => 'የተለያዩ ፎቶዎች ተሰቅለዋል';
 
   @override
-  String get retake_photo_button_label => 'Retake';
+  String get retake_photo_button_label => 'እንደገና ውሰድ';
 
   @override
-  String get selecting_photo => 'Selecting photo';
+  String get selecting_photo => 'ፎቶን በመምረጥ ላይ';
 
   @override
-  String get uploading_image => 'Uploading photo to the server';
+  String get uploading_image => 'ፎቶ ወደ አገልጋዩ በመስቀል ላይ';
 
   @override
   String get uploading_image_type_front =>
-      'Uploading front image to Open Food Facts';
+      'የፊት ፎቶን ወደ Open Food Facts በመስቀል ላይ';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Uploading ingredients image to Open Food Facts';
+      'የንጥረ ነገሮች ምስል ወደ ክፍት የምግብ እውነታዎች መስቀል';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Uploading nutrition image to Open Food Facts';
+      'የአመጋገብ ምስልን ወደ ክፍት የምግብ እውነታዎች መስቀል';
 
   @override
   String get uploading_image_type_packaging =>
-      'Uploading packaging image to Open Food Facts';
+      'የማሸጊያ ምስልን ወደ ክፍት የምግብ እውነታዎች መስቀል';
 
   @override
-  String get uploading_image_type_other =>
-      'Uploading other image to Open Food Facts';
+  String get uploading_image_type_other => 'ሌላ ምስል ወደ Open Food Facts በመስቀል ላይ';
 
   @override
-  String get uploading_image_type_generic =>
-      'Uploading image to Open Food Facts';
+  String get uploading_image_type_generic => 'ምስል ወደ ክፍት የምግብ እውነታዎች መስቀል';
 
   @override
-  String get score_add_missing_ingredients => 'Add missing ingredients';
+  String get score_add_missing_ingredients => 'የጎደሉ ንጥረ ነገሮችን ያክሉ';
 
   @override
-  String get score_add_missing_packaging_image => 'Add missing packaging image';
+  String get score_add_missing_packaging_image => 'የጎደለውን የማሸጊያ ምስል ያክሉ';
 
   @override
-  String get score_add_missing_nutrition_facts => 'Add missing nutrition facts';
+  String get score_add_missing_nutrition_facts => 'የጎደሉ የአመጋገብ እውነታዎችን ያክሉ';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces => 'የጎደሉ የምርት ዱካዎችን ያክሉ';
 
   @override
-  String get score_add_missing_product_category => 'Select a category';
+  String get score_add_missing_product_category => 'ምድብ ይምረጡ';
 
   @override
   String get score_add_missing_precise_product_category =>
       'ይበልጥ ትክክለኛ የሆነ ምድብ ይምረጡ';
 
   @override
-  String get score_add_missing_product_countries =>
-      'Add missing product countries';
+  String get score_add_missing_product_countries => 'የጎደሉ የምርት አገሮችን ያክሉ';
 
   @override
-  String get score_add_missing_product_emb =>
-      'Add missing product traceability codes';
+  String get score_add_missing_product_emb => 'የጎደሉ የምርት መከታተያ ኮዶችን ያክሉ';
 
   @override
-  String get score_add_missing_product_labels => 'Add missing product labels';
+  String get score_add_missing_product_labels => 'የጎደሉ የምርት መለያዎችን ያክሉ';
 
   @override
-  String get score_add_missing_product_origins => 'Add missing product origins';
+  String get score_add_missing_product_origins => 'የጎደሉ የምርት መነሻዎችን ያክሉ';
 
   @override
-  String get score_add_missing_product_stores => 'Add missing product stores';
+  String get score_add_missing_product_stores => 'የጎደሉ የምርት መደብሮችን ያክሉ';
 
   @override
-  String get score_add_missing_product_brands => 'Add missing product brands';
+  String get score_add_missing_product_brands => 'የጎደሉ የምርት ብራንዶችን ያክሉ';
 
   @override
-  String get score_update_nutrition_facts => 'Update nutrition facts';
+  String get score_update_nutrition_facts => 'የአመጋገብ እውነታዎችን አዘምን';
 
   @override
-  String get nutrition_page_title => 'Nutrition Facts';
+  String get nutrition_page_title => 'የአመጋገብ እውነታዎች';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'የአመጋገብ መረጃ';
 
   @override
-  String get nutrition_page_nutritional_info_label =>
-      'Values specified on the product:';
+  String get nutrition_page_nutritional_info_label => 'በምርቱ ላይ የተገለጹ እሴቶች፡';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Yes';
@@ -1035,150 +1008,148 @@ class AppLocalizationsAm extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'No';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo => 'ፎቶ ክፈት';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Good practices: Nutritional information';
+      'ጥሩ ልምዶች፡ የአመጋገብ መረጃ';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'አንዳንድ ጊዜ የአመጋገብ እውነታዎች **በማሸጊያው** ላይ ወይም ከምርቱ ጋር በተሰጠው ሰነድ ላይ አይገለጹም። በዚህ ሁኔታ፣ እና በዚህ ሁኔታ ብቻ፣ እሴቱን ወደ **NO** ማቀናበር ይችላሉ።';
 
   @override
-  String get nutrition_page_serving_type_label => 'Nutritional values:';
+  String get nutrition_page_serving_type_label => 'የአመጋገብ እሴቶች፡';
 
   @override
-  String get nutrition_page_per_100g => 'per 100g';
+  String get nutrition_page_per_100g => 'በ100 ግራም';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
+  String get nutrition_page_per_100g_100ml => 'በ100 ግራም/ሚሊ ሊትር';
 
   @override
-  String get nutrition_page_per_serving => 'per serving';
+  String get nutrition_page_per_serving => 'በአንድ አቅርቦት';
 
   @override
-  String get nutrition_page_add_nutrient => 'Add a nutrient';
+  String get nutrition_page_add_nutrient => 'ንጥረ ነገር ይጨምሩ';
 
   @override
-  String get nutrition_page_serving_size => 'Serving size';
+  String get nutrition_page_serving_size => 'የማቅረቢያ መጠን';
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Input a serving size (eg: 100g)';
+      'የማቅረቢያ መጠን ያስገቡ (ለምሳሌ፡ 100 ግራም)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'ጥሩ ልምዶች፡ የማቅረቢያ መጠን';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'ይህ እሴት **በአንድ አቅርቦት መጠን የእያንዳንዱን ንጥረ ነገር ተመጣጣኝ ስሌት ለማድረግ ይረዳል**።';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '** የተፈቀዱ ክፍሎች ** ናቸው፡ ኪግ፣ g፣ mg፣ µg፣ oz፣ l፣ dl፣ cl፣ ml፣ fl.oz፣ fl oz፣ г, мг, кг, ኤል, дл, kl, мл, 毫克, 公斤, 毫名, 公斤, 毫名, 公斤, 毫名, 公斤, 毫名, 公斤';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 ግራም**፣ **60 ግራም** ወይም **60 ግራም** (የመጀመሪያውን ይመርጣሉ)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 ሚሊ ሊትር** ወይም **1 ሊትር**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Invalid unit';
+      'ልክ ያልሆነ አሃድ';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
-      '30 **gr**';
+      '30 **ግራ**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Invalid units';
+      'ልክ ያልሆኑ አሃዶች';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **ከረሜላዎች** እና 2 **ብስኩት**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Missing unit';
+      'የጠፋ አሃድ';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => 'Invalid number';
+  String get nutrition_page_invalid_number => 'ልክ ያልሆነ ቁጥር';
 
   @override
-  String get nutrition_page_update_running =>
-      'Updating the product on the server…';
+  String get nutrition_page_update_running => 'ምርቱን በአገልጋዩ ላይ ማዘመን…';
 
   @override
-  String get nutrition_page_update_done => 'Product updated!';
+  String get nutrition_page_update_done => 'ምርት ተዘምኗል!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Use the product quantity as serving size';
+      'የምርቱን መጠን እንደ የማቅረቢያ መጠን ይጠቀሙበት';
 
   @override
-  String get nutrition_page_photo_error => 'Unable to load the photo';
+  String get nutrition_page_photo_error => 'ፎቶውን መጫን አልተቻለም';
 
   @override
-  String get more_photos => 'More interesting photos';
+  String get more_photos => 'ተጨማሪ አስደሳች ፎቶዎች';
 
   @override
-  String get view_more_photo_button =>
-      'View all existing photos for this product';
+  String get view_more_photo_button => 'የዚህን ምርት ሁሉንም ነባር ፎቶዎች ይመልከቱ';
 
   @override
-  String get no_product_found => 'No product found';
+  String get no_product_found => 'ምንም ምርት አልተገኘም';
 
   @override
-  String get no_location_found => 'No location found';
+  String get no_location_found => 'ምንም ቦታ አልተገኘም';
 
   @override
-  String get not_found => 'not found:';
+  String get not_found => 'አልተገኘም፦';
 
   @override
-  String get refreshing_product => 'Refreshing product';
+  String get refreshing_product => 'ምርትን የሚያድስ';
 
   @override
-  String get product_refreshed => 'Product refreshed';
+  String get product_refreshed => 'ምርቱ ታድሷል';
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Image taken on $date';
+    return 'ምስሉ የተነሳው በ $dateላይ ነው';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Image taken on $date. This image may be outdated';
+    return 'ምስሉ የተነሳው በ $dateላይ ነው። ይህ ምስል ጊዜው ያለፈበት ሊሆን ይችላል';
   }
 
   @override
-  String get product_image_outdated => 'This image may be outdated';
+  String get product_image_outdated => 'ይህ ምስል ጊዜው ያለፈበት ሊሆን ይችላል';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'This image may be outdated';
+      'ይህ ምስል ጊዜው ያለፈበት ሊሆን ይችላል';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
+      'ይህ ምስል የተወሰደው ከአንድ ዓመት በፊት ነው።\n**እባክዎ አሁንም ወቅታዊ መሆኑን ያረጋግጡ።**።\n\nይህ **ማስጠንቀቂያ ብቻ ነው**። ይዘቱ አሁንም ተመሳሳይ ከሆነ፣ ይህንን መልእክት ችላ ማለት ይችላሉ።';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Replace photo ($type)';
+    return 'ፎቶ ተካ ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Add a photo ($type)';
+    return 'ፎቶ ያክሉ ($type)';
   }
 
   @override
@@ -1188,92 +1159,89 @@ class AppLocalizationsAm extends AppLocalizations {
   String get product_image_action_take_picture => 'Take a picture';
 
   @override
-  String get product_image_action_from_gallery =>
-      'Select from your phone\'s gallery';
+  String get product_image_action_from_gallery => 'ከስልክዎ ጋለሪ ውስጥ ይምረጡ';
 
   @override
-  String get product_image_action_choose_existing_photo =>
-      'Select from the product photos';
+  String get product_image_action_choose_existing_photo => 'ከምርት ፎቶዎች ውስጥ ይምረጡ';
 
   @override
-  String get product_image_details_label => 'Information about the photo';
+  String get product_image_details_label => 'ስለ ፎቶው መረጃ';
 
   @override
-  String get product_image_details_from_producer => 'From the producer';
+  String get product_image_details_from_producer => 'ከፕሮዲዩሰሩ';
 
   @override
   String get product_image_details_contributor => 'Contributor';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Contributor (producer)';
+      'አስተዋጽዖ አበርካች (አዘጋጅ)';
 
   @override
-  String get product_image_details_date => 'Date';
+  String get product_image_details_date => 'ቀን';
 
   @override
-  String get product_image_details_date_unknown => 'Unknown';
+  String get product_image_details_date_unknown => 'ያልታወቀ';
 
   @override
   String get homepage_main_card_logo_description =>
-      'Welcome to Open Food Facts';
+      'ወደ Open Food Facts እንኳን በደህና መጡ';
 
   @override
-  String get homepage_main_card_subheading =>
-      '**Scan** a barcode or\n**search** for a product';
+  String get homepage_main_card_subheading => '**ባርኮድ ወይም\n**ምርትን ይፈልጉ*** ይቃኙ';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Search for a product';
+  String get homepage_main_card_search_field_hint => 'ምርት ይፈልጉ';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Start search';
+  String get homepage_main_card_search_field_tooltip => 'ፍለጋ ጀምር';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Latest news: $news_title';
+    return 'የቅርብ ጊዜ ዜና፦ $news_title';
   }
 
   @override
-  String get tagline_app_review => 'Do you like the app?';
+  String get tagline_app_review => 'መተግበሪያውን ወደዱት?';
 
   @override
-  String get tagline_app_review_button_positive => 'I love it! 😍';
+  String get tagline_app_review_button_positive => 'ወድጄዋለሁ! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'Not really…';
+  String get tagline_app_review_button_negative => 'በእውነቱ አይደለም…';
 
   @override
-  String get tagline_app_review_button_later => 'Ask me later';
+  String get tagline_app_review_button_later => 'በኋላ ጠይቀኝ';
 
   @override
-  String get tagline_feed_news_button => 'Know more';
+  String get tagline_feed_news_button => 'ተጨማሪ እወቅ';
 
   @override
-  String get app_review_negative_modal_title => 'You don\'t like our app?';
+  String get app_review_negative_modal_title => 'መተግበሪያችንን አልወደዱትም?';
 
   @override
   String get app_review_negative_modal_text =>
-      'Could you take a few seconds to tell us why?';
+      'ለምን እንደሆነ ጥቂት ሰከንዶች ወስደህ ልትነግረን ትችላለህ?';
 
   @override
-  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
+  String get app_review_negative_modal_positive_button => 'አዎ፣ በፍጹም!';
 
   @override
   String get app_review_negative_modal_negative_button => 'No';
 
   @override
-  String get could_not_refresh => 'Could not refresh product';
+  String get could_not_refresh => 'ምርቱን ማደስ አልተቻለም';
 
   @override
-  String get product_internet_error_modal_title => 'An error has occurred!';
+  String get product_internet_error_modal_title => 'ስህተት ተከስቷል!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
+    return 'በአውታረ መረብ ስህተት ምክንያት ስለዚህ ምርት መረጃ ማግኘት አልቻልንም። እባክዎ የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ።\n\nውስጣዊ ስህተት፦\n$error';
   }
 
   @override
-  String get product_tags_title => 'Product properties';
+  String get product_tags_title => 'የምርት ባህሪያት';
 
   @override
   String get no_product_tags_found_message =>
@@ -1290,28 +1258,28 @@ class AppLocalizationsAm extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Add properties';
+  String get add_tags => 'ባህሪያትን ያክሉ';
 
   @override
-  String get add_edit_tags => 'Add or edit properties';
+  String get add_edit_tags => 'ባህሪያትን ያክሉ ወይም ያርትዑ';
 
   @override
-  String get edit_tag => 'Edit property';
+  String get edit_tag => 'ባህሪን ያርትዑ';
 
   @override
-  String get remove_tag => 'Remove property';
+  String get remove_tag => 'ንብረትን አስወግድ';
 
   @override
-  String get tag_key => 'Property';
+  String get tag_key => 'ንብረት';
 
   @override
   String get tag_keys => 'ንብረቶች';
 
   @override
-  String get tag_key_uneditable => 'Property (uneditable)';
+  String get tag_key_uneditable => 'ንብረት (ሊስተካከል የማይችል)';
 
   @override
-  String get tag_key_input_hint => 'Input a property';
+  String get tag_key_input_hint => 'ባህሪ ያስገቡ';
 
   @override
   String get tag_value => 'Value';
@@ -1320,29 +1288,28 @@ class AppLocalizationsAm extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'Input a value';
+  String get tag_value_input_hint => 'እሴት ያስገቡ';
 
   @override
-  String get tag_key_item => 'Property:';
+  String get tag_key_item => 'ንብረት፡';
 
   @override
-  String get tag_value_item => 'Value:';
+  String get tag_value_item => 'ዋጋ፡';
 
   @override
-  String get tag_key_explanations =>
-      'A key must be lowercase and without any spaces.';
+  String get tag_key_explanations => 'ቁልፍ ትንሽ ፊደል እና ምንም ቦታ የሌለው መሆን አለበት።';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'A tag with a property $property already exists!';
+    return '$property ንብረት ያለው መለያ አስቀድሞ አለ!';
   }
 
   @override
   String get product_internet_error =>
-      'Impossible to fetch information about this product due to a network error.';
+      'በአውታረ መረብ ስህተት ምክንያት ስለዚህ ምርት መረጃ ማግኘት አይቻልም።';
 
   @override
-  String get cached_results_from => 'Show results from:';
+  String get cached_results_from => 'ውጤቶችን አሳይ ከ፡';
 
   @override
   String get product_search_same_category => 'አማራጮችን ያግኙ';
@@ -1352,99 +1319,98 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
+      'ይህ ባህሪ ጥቅም ላይ ሊውል የሚችለው ምድብ ላላቸው ምርቶች ብቻ ነው።\n\nምድብ ለማከል ምርቱን ያርትዑ።';
 
   @override
   String get product_improvement_add_category =>
-      'Add a category to calculate the Nutri-Score.';
+      'የNutri-Score ን ለማስላት ምድብ ያክሉ።';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Add nutrition facts to calculate the Nutri-Score.';
+      'የNutri-Score ን ለማስላት የአመጋገብ እውነታዎችን ያክሉ።';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Add nutrition facts and a category to calculate the Nutri-Score.';
+      'የNutri-Score ን ለማስላት የአመጋገብ እውነታዎችን እና ምድብ ያክሉ።';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
+      'የዚህ ምርት የNutri-Score ሊሰላ አይችልም፣ ይህም ምናልባት መደበኛ ያልሆነ ምድብ ሊሆን ይችላል። ይህ እንደ ስህተት ከተቆጠረ፣ እባክዎን ያግኙን።';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'The nutrition image is obsolete: please refresh it.';
+      'የአመጋገብ ምስሉ ጊዜ ያለፈበት ነው፡ እባክዎን ያድሱት።';
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
+      'አረንጓዴው ነጥብ የንጥረ ነገሮቹን አመጣጥ ግምት ውስጥ ያስገባል። እባክዎን የንጥረ ነገሮቹን ዝርዝር እና/ወይም ማንኛውንም የጂኦግራፊያዊ ጥያቄ ፎቶ ያንሱ ወይም ምርቱን ያርትዑ፣ ስለዚህ ግምት ውስጥ መግባት ይችላሉ።';
 
   @override
-  String get country_chooser_label => 'Please choose a country';
+  String get country_chooser_label => 'እባክዎ አገር ይምረጡ';
 
   @override
-  String get currency_chooser_label => 'Please choose a currency';
+  String get currency_chooser_label => 'እባክዎ ምንዛሬ ይምረጡ';
 
   @override
-  String get country_change_message => 'You have just changed countries.';
+  String get country_change_message => 'አገሮችን አሁን ቀይረሃል።';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
+    return 'ምንዛሬውን ከ $previousCurrency ወደ $possibleCurrencyመቀየር ይፈልጋሉ?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Please choose a country:';
+  String get onboarding_country_chooser_label => 'እባክዎ አገር ይምረጡ፦';
 
   @override
-  String get country_chooser_label_from_settings => 'Your country';
+  String get country_chooser_label_from_settings => 'ሀገርህ';
 
   @override
   String get country_selection_explanation =>
-      'Some environmental features are location-specific';
+      'አንዳንድ የአካባቢ ገጽታዎች ለአካባቢ የተወሰኑ ናቸው';
 
   @override
-  String get product_removed_comparison => 'Product removed from comparison';
+  String get product_removed_comparison => 'ምርቱ ከንጽጽር ተወግዷል';
 
   @override
-  String get native_app_settings => 'Native App Settings';
+  String get native_app_settings => 'ቤተኛ የመተግበሪያ ቅንብሮች';
 
   @override
-  String get native_app_description =>
-      'Open systems settings for Open Food Facts';
+  String get native_app_description => 'ለክፍት የምግብ እውነታዎች የስርዓት ቅንብሮችን ይክፈቱ';
 
   @override
-  String get product_removed_history => 'Product removed from history';
+  String get product_removed_history => 'ምርቱ ከታሪክ ተወግዷል';
 
   @override
-  String get product_removed_list => 'Product removed from list';
+  String get product_removed_list => 'ምርቱ ከዝርዝሩ ተወግዷል';
 
   @override
-  String get product_could_not_remove => 'Could not remove product';
+  String get product_could_not_remove => 'ምርቱን ማስወገድ አልተቻለም';
 
   @override
-  String get no_prodcut_in_list => 'There is no product in this list';
+  String get no_prodcut_in_list => 'በዚህ ዝርዝር ውስጥ ምንም አይነት ምርት የለም';
 
   @override
-  String get no_product_in_section => 'There is no product in this section';
+  String get no_product_in_section => 'በዚህ ክፍል ውስጥ ምንም ምርት የለም';
 
   @override
-  String get recently_seen_products => 'All viewed products';
+  String get recently_seen_products => 'ሁሉም የታዩ ምርቶች';
 
   @override
-  String get clear => 'Clear';
+  String get clear => 'አጽዳ';
 
   @override
-  String get clear_long => 'Empty the list';
+  String get clear_long => 'ዝርዝሩን ባዶ አድርግ';
 
   @override
-  String get really_clear => 'Do you really want to delete this list?';
+  String get really_clear => 'ይህንን ዝርዝር በእርግጥ መሰረዝ ይፈልጋሉ?';
 
   @override
   String pct_match(Object percent) {
-    return '$percent% match';
+    return '$percent% ተዛማጅ';
   }
 
   @override
@@ -1452,8 +1418,8 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count days ago',
-      one: 'one day ago',
+      other: '$count ከቀናት በፊት',
+      one: 'ከአንድ ቀን በፊት',
     );
     return '$_temp0';
   }
@@ -1463,8 +1429,8 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count hours ago',
-      one: 'one hour ago',
+      other: '$count ከሰዓታት በፊት',
+      one: 'ከአንድ ሰዓት በፊት',
     );
     return '$_temp0';
   }
@@ -1474,9 +1440,9 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count minutes ago',
-      one: 'one minute ago',
-      zero: 'less than a minute ago',
+      other: '$count ከደቂቃዎች በፊት',
+      one: 'ከአንድ ደቂቃ በፊት',
+      zero: 'ከአንድ ደቂቃ ባነሰ ጊዜ ውስጥ',
     );
     return '$_temp0';
   }
@@ -1486,8 +1452,8 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count months ago',
-      one: 'one month ago',
+      other: '$count ከወራት በፊት',
+      one: 'ከአንድ ወር በፊት',
     );
     return '$_temp0';
   }
@@ -1497,8 +1463,8 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count weeks ago',
-      one: 'one week ago',
+      other: '$count ከሳምንታት በፊት',
+      one: 'ከአንድ ሳምንት በፊት',
     );
     return '$_temp0';
   }
@@ -1508,8 +1474,8 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Compare $count Products',
-      one: 'Compare one Product',
+      other: 'ያወዳድሩ $count ምርቶች',
+      one: 'አንድ ምርት ያወዳድሩ',
     );
     return '$_temp0';
   }
@@ -1519,86 +1485,85 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count selected products',
-      one: 'One selected product',
-      zero: 'No selected product',
+      other: '$count የተመረጡ ምርቶች',
+      one: 'አንድ የተመረጠ ምርት',
+      zero: 'የተመረጠ ምርት የለም',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Compare selected products';
+  String get compare_products_mode => 'የተመረጡ ምርቶችን ያወዳድሩ';
 
   @override
-  String get delete_products_mode => 'Delete selected products';
+  String get delete_products_mode => 'የተመረጡ ምርቶችን ሰርዝ';
 
   @override
-  String get select_all_products_mode => 'Select all products';
+  String get select_all_products_mode => 'ሁሉንም ምርቶች ይምረጡ';
 
   @override
-  String get select_none_products_mode => 'Select none';
+  String get select_none_products_mode => 'ምንም አትምረጥ';
 
   @override
   String get compare_products_appbar_title => 'Compare products';
 
   @override
-  String get compare_products_appbar_subtitle =>
-      'Please select at least two products';
+  String get compare_products_appbar_subtitle => 'እባክዎ ቢያንስ ሁለት ምርቶችን ይምረጡ';
 
   @override
-  String get retry_button_label => 'Retry';
+  String get retry_button_label => 'እንደገና ሞክር';
 
   @override
-  String get connect_with_us => 'Connect with us';
+  String get connect_with_us => 'ከእኛ ጋር ይገናኙ';
 
   @override
-  String get tiktok => 'Follow us on TikTok';
+  String get tiktok => 'በቲኪት ላይ ይከተሉን';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'Follow us on Instagram';
+  String get instagram => 'በኢንስታግራም ይከተሉን';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'Follow us on X (formerly Twitter)';
+  String get twitter => 'በX (ቀደም ሲል ትዊተር) ይከተሉን';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Follow us on Mastodon';
+  String get mastodon => 'በማስቶዶን ይከተሉን';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Follow us on BlueSky';
+  String get bsky => 'በBlueSky ላይ ይከተሉን';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
 
   @override
-  String get blog => 'Blog';
+  String get blog => 'ጦማር';
 
   @override
-  String get faq => 'FAQ';
+  String get faq => 'ተደጋጋሚ ጥያቄዎች';
 
   @override
   String get discover => 'Discover';
 
   @override
-  String get how_to_contribute => 'How to Contribute';
+  String get how_to_contribute => 'እንዴት መዋጮ ማድረግ እንደሚቻል';
 
   @override
   String get hint_knowledge_panel_message =>
-      'Your can tap on any part of the card to get more details about what you see. Try it now!';
+      'ስለምታዩት ነገር የበለጠ ዝርዝር መረጃ ለማግኘት የካርዱን ማንኛውንም ክፍል መታ ማድረግ ይችላሉ። አሁኑኑ ይሞክሩት!';
 
   @override
-  String get permissions_page_title => 'Camera access';
+  String get permissions_page_title => 'የካሜራ መዳረሻ';
 
   @override
   String get permissions_page_body1 =>
@@ -1606,7 +1571,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get permissions_page_body2 =>
-      'If you change your mind, this option can be enabled and disabled at any time from the settings.';
+      'ሀሳብዎን ከቀየሩ፣ ይህ አማራጭ በማንኛውም ጊዜ ከቅንብሮች ውስጥ ሊነቃ እና ሊሰናከል ይችላል።';
 
   @override
   String contact_form_body_android(
@@ -1617,7 +1582,7 @@ class AppLocalizationsAm extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
+    return 'ስርዓተ ክወና፦ አንድሮይድ (SDK Int: $sdkInt / ልቀት፦ $release)\nሞዴል፦ $model\nምርት፦ $product\nመሣሪያ፦ $device\nየምርት ስም፦$brand';
   }
 
   @override
@@ -1626,7 +1591,7 @@ class AppLocalizationsAm extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
+    return 'ስርዓተ ክወና፡ iOS ($version)\nሞዴል፡ $model\nአካባቢያዊ የተደረገ ሞዴል፡ $localizedModel';
   }
 
   @override
@@ -1636,67 +1601,67 @@ class AppLocalizationsAm extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
+    return '$osContent\nየመተግበሪያ ስሪት፡$appVersion\nየመተግበሪያ ግንባታ ቁጥር፡$appBuildNumber\nየመተግበሪያ ጥቅል ስም፡$appPackageName';
   }
 
   @override
   String get authorize_button_label => 'Authorise';
 
   @override
-  String get refuse_button_label => 'Refuse';
+  String get refuse_button_label => 'እምቢ ማለት';
 
   @override
-  String get ask_me_later_button_label => 'Later';
+  String get ask_me_later_button_label => 'በኋላ ላይ';
 
   @override
-  String get are_you_sure => 'Are you sure?';
+  String get are_you_sure => 'ኧረ';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
-    return 'Go further on $sourceName';
+    return 'በ $sourceNameላይ ተጨማሪ ይሂዱ';
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Welcome !';
+  String get onboarding_home_welcome_text1 => 'እንኳን ደህና መጣህ !';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'The app that helps you choose food that is good for **you** and the **planet**!';
+      'ለእርስዎ እና ለ **ፕላኔቷ** ጥሩ የሆነ ምግብ እንዲመርጡ የሚያግዝዎት መተግበሪያ!';
 
   @override
-  String get onboarding_continue_button => 'Continue';
+  String get onboarding_continue_button => 'ቀጥል';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'Loading your first example product';
+      'የመጀመሪያውን የምሳሌ ምርትዎን በመጫን ላይ';
 
   @override
   String get onboarding_welcome_warning =>
       'ይቅርታ፣ የእኛ ምሳሌ ምርት ነው፣ እርስዎ ሊያስተካክሉት አይችሉም :)';
 
   @override
-  String get product_list_your_ranking => 'Your ranking';
+  String get product_list_your_ranking => 'ደረጃዎ';
 
   @override
-  String get product_list_empty_icon_desc => 'History not available';
+  String get product_list_empty_icon_desc => 'ታሪክ አይገኝም';
 
   @override
-  String get product_list_empty_title => 'Start scanning';
+  String get product_list_empty_title => 'መቃኘት ጀምር';
 
   @override
   String get product_list_empty_message =>
-      'Scanned products will appear here and you can check detailed information about them';
+      'የተቃኙ ምርቶች እዚህ ይታያሉ እና ስለእነሱ ዝርዝር መረጃ ማየት ይችላሉ';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'products',
-      one: 'product',
-      zero: 'product',
+      other: 'ምርቶች',
+      one: 'ምርት',
+      zero: 'ምርት',
     );
-    return 'Refreshing $_temp0 in your history';
+    return 'የሚያድስ $_temp0 በታሪክዎ ውስጥ';
   }
 
   @override
@@ -1704,94 +1669,93 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Products',
-      one: 'Product',
-      zero: 'Product',
+      other: 'ምርቶች',
+      one: 'ምርት',
+      zero: 'ምርት',
     );
-    return '$_temp0 refresh complete';
+    return '$_temp0 ማደስ ተጠናቋል';
   }
 
   @override
   String get product_list_compare_side_by_side => 'ጎን ለጎን አወዳድር';
 
   @override
-  String get loading_dialog_default_title => 'Downloading data';
+  String get loading_dialog_default_title => 'ውሂብን በማውረድ ላይ';
 
   @override
-  String get loading_dialog_default_error_message => 'Could not download data';
+  String get loading_dialog_default_error_message => 'ውሂብ ማውረድ አልተቻለም';
 
   @override
-  String get account_delete => 'Delete account';
+  String get account_delete => 'መለያ ሰርዝ';
 
   @override
   String get account_delete_title => 'መለያዬን ሰርዝ';
 
   @override
-  String get user_profile => 'Account';
+  String get user_profile => 'መለያ';
 
   @override
-  String get user_profile_title_guest => 'Welcome!';
+  String get user_profile_title_guest => 'እንኳን ደህና መጣህ!';
 
   @override
   String get user_profile_subtitle_guest =>
-      'Sign-in or sign-up to join the Open Food Facts community';
+      'ወደ ክፍት የምግብ እውነታዎች ማህበረሰብ ለመቀላቀል ይግቡ ወይም ይመዝገቡ';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Open Food Facts login: $email';
+    return 'የምግብ እውነታዎችን ክፍት መግቢያ፦ $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Welcome $id!';
+    return 'እንኳን ደህና መጡ $id!';
   }
 
   @override
-  String get email_subject_account_deletion => 'Delete account';
+  String get email_subject_account_deletion => 'መለያ ሰርዝ';
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Hi there, please delete my Open Food Facts account: $userId';
+    return 'ሰላም፣ እባክዎን የክፍት ምግብ እውነታዎች መለያዬን ይሰርዙ፦ $userId';
   }
 
   @override
-  String get settings_app_app => 'Application';
+  String get settings_app_app => 'ማመልከቻ';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Camera';
+  String get settings_app_camera => 'ካሜራ';
 
   @override
-  String get settings_app_products => 'Products';
+  String get settings_app_products => 'ምርቶች';
 
   @override
-  String get settings_app_miscellaneous => 'Miscellaneous';
+  String get settings_app_miscellaneous => 'የተለያዩ';
 
   @override
-  String get camera_play_sound_title => 'Play a sound on scan';
+  String get camera_play_sound_title => 'ቃኝ ላይ ድምጽ አጫውት';
 
   @override
-  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
+  String get camera_play_sound_subtitle => 'በእያንዳንዱ ስኬታማ ቅኝት ላይ ድምጽ ያሰማል';
 
   @override
-  String get camera_window_accessibility_label =>
-      'Scan a barcode with your camera';
+  String get camera_window_accessibility_label => 'ባርኮድ በካሜራዎ ይቃኙ';
 
   @override
-  String get app_haptic_feedback_title => 'Vibration & Haptics';
+  String get app_haptic_feedback_title => 'ንዝረት እና ሃፕቲክስ';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'Vibrations after executing some actions (barcode decoded, product removed…).';
+      'አንዳንድ እርምጃዎችን ከፈጸሙ በኋላ የሚፈጠሩ ንዝረቶች (የባርኮድ ዲኮድ ተፈትቷል፣ ምርቱ ተወግዷል…)።';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
+      'ሲነቃ፣ የብልሽት ሪፖርቶች በራስ-ሰር ወደ Open Food Facts\' የስህተት መከታተያ ስርዓት ይገባሉ፣ በዚህም ሳንካዎች ሊስተካከሉ እና በዚህም መተግበሪያውን ማሻሻል ይችላሉ።';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1801,280 +1765,268 @@ class AppLocalizationsAm extends AppLocalizations {
       'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
 
   @override
-  String get product_edit_photo_title => 'Edit Photo';
+  String get product_edit_photo_title => 'ፎቶን ያርትዑ';
 
   @override
-  String get permission_photo_error => 'Error';
+  String get permission_photo_error => 'ስህተት';
 
   @override
-  String get permission_photo_denied_title =>
-      'Allow camera use to scan barcodes';
+  String get permission_photo_denied_title => 'ባርኮዶችን ለመቃኘት ካሜራውን እንዲጠቀሙ ይፍቀዱ';
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'For an enhanced experience, please allow $appName to access your camera. You will be able to directly scan barcodes.';
+    return 'ለተሻሻለ ተሞክሮ፣ እባክዎ $appName ካሜራዎን እንዲደርስ ይፍቀዱለት። ባርኮዶችን በቀጥታ መቃኘት ይችላሉ።';
   }
 
   @override
-  String get permission_photo_denied_button => 'Allow';
+  String get permission_photo_denied_button => 'ፍቀድ';
 
   @override
-  String get permission_photo_denied_dialog_settings_title =>
-      'Permission denied';
+  String get permission_photo_denied_dialog_settings_title => 'ፈቃድ ተከልክሏል';
 
   @override
   String get permission_photo_denied_dialog_settings_message =>
-      'As you\'ve previously denied the camera permission, you must allow it manually from the Settings.';
+      'ቀደም ሲል የካሜራውን ፈቃድ እንደከለከሉት፣ ከቅንብሮች ውስጥ እራስዎ መፍቀድ አለብዎት።';
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
-      'Open settings';
+      'ቅንብሮችን ክፈት';
 
   @override
   String get permission_photo_denied_dialog_settings_button_cancel => 'Cancel';
 
   @override
-  String get permission_photo_none_found => 'No camera detected';
+  String get permission_photo_none_found => 'ምንም ካሜራ አልተገኘም';
 
   @override
-  String get permission_photo_denied => 'No camera access granted';
+  String get permission_photo_denied => 'የካሜራ መዳረሻ አልተሰጠም';
 
   @override
-  String get show_product_pictures => 'Show product pictures';
+  String get show_product_pictures => 'የምርት ስዕሎችን አሳይ';
 
   @override
-  String get edit_product_label => 'Edit product';
+  String get edit_product_label => 'ምርትን ያርትዑ';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'አርትዖቶችዎን በመስቀል ላይ…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
+      'አርትዖቶችዎ **ከበስተጀርባ** እየተላኩ ነው (ወይም በኋላ ላይ ስህተት ከተፈጠረ)።\nሌሎች የምርት መስኮችን ማርትዕ መቀጠል ይችላሉ።';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Your edits are being **sent in the background** (or later in case of error).';
+      'አርትዖቶችዎ ከበስተጀርባ እየተላኩ ነው** (ወይም በኋላ ላይ ስህተት ከተፈጠረ)።';
 
   @override
   String get edit_product_label_short => 'Edit';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'How to enter \"$value\"?';
+    return '\"$value\" እንዴት ማስገባት ይቻላል?';
   }
 
   @override
-  String get edit_product_form_item_error_empty =>
-      'Please enter a non-empty value!';
+  String get edit_product_form_item_error_empty => 'እባክዎ ባዶ ያልሆነ እሴት ያስገቡ!';
 
   @override
-  String get edit_product_form_item_error_existing =>
-      'This value is already there!';
+  String get edit_product_form_item_error_existing => 'ይህ ዋጋ አስቀድሞ አለ!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Add a new brand';
+  String get edit_product_form_item_add_action_brand => 'አዲስ የምርት ስም ያክሉ';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Add a new label';
+  String get edit_product_form_item_add_action_label => 'አዲስ መለያ ያክሉ';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Add a new store';
+  String get edit_product_form_item_add_action_store => 'አዲስ መደብር ያክሉ';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Add a new origin';
+  String get edit_product_form_item_add_action_origin => 'አዲስ መነሻ ያክሉ';
 
   @override
-  String get edit_product_form_item_add_action_emb_code =>
-      'Add a new traceability code';
+  String get edit_product_form_item_add_action_emb_code => 'አዲስ የመከታተያ ኮድ ያክሉ';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country => 'አዲስ አገር ያክሉ';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Add a new category';
+  String get edit_product_form_item_add_action_category => 'አዲስ ምድብ ያክሉ';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace => 'አዲስ ዱካ ያክሉ';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+  String get edit_product_form_item_add_suggestion => 'ጥቆማ ያክሉ';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'ጥቆማን እምቢ';
 
   @override
-  String get edit_product_form_item_details_title => 'Basic details';
+  String get edit_product_form_item_details_title => 'መሰረታዊ ዝርዝሮች';
 
   @override
-  String get edit_product_form_item_details_subtitle =>
-      'Product name, brand, quantity';
+  String get edit_product_form_item_details_subtitle => 'የምርት ስም፣ የምርት ስም፣ ብዛት';
 
   @override
-  String get edit_product_form_item_other_details_title => 'Additional details';
+  String get edit_product_form_item_other_details_title => 'ተጨማሪ ዝርዝሮች';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'Website…';
+  String get edit_product_form_item_other_details_subtitle => 'ድህረ ገጽ…';
 
   @override
-  String get edit_product_form_item_photos_title => 'Photos';
+  String get edit_product_form_item_photos_title => 'ፎቶዎች';
 
   @override
-  String get edit_product_form_item_photos_subtitle => 'Add or refresh photos';
+  String get edit_product_form_item_photos_subtitle => 'ፎቶዎችን ያክሉ ወይም ያድሱ';
 
   @override
-  String get edit_product_form_item_labels_title => 'Labels & Certifications';
+  String get edit_product_form_item_labels_title => 'መለያዎች እና የምስክር ወረቀቶች';
 
   @override
-  String get edit_product_form_item_labels_subtitle =>
-      'Environmental, Quality labels…';
+  String get edit_product_form_item_labels_subtitle => 'የአካባቢ፣ የጥራት መለያዎች…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Input a label (eg: NutriScore)';
+      'መለያ ያስገቡ (ለምሳሌ፡ NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'label';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'ጥሩ ልምዶች፡ መለያዎች';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'የምርቱ ማንኛውም ባህሪ **እውነታ ያለው** እና ከሌሎች መስኮች የተለየ።';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Nutri-Score, NOVA…';
+      'Nutri-Score፣ NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'በቤልጂየም የተሰራ፣ በብሪታኒ የተሰራ…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
-      'ISO 9001, ISO 22000…';
+      'ISO 9001፣ ISO 22000…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'በፋይበር የበለፀገ፣ የብረት ምንጭ…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'ፍትሃዊ ንግድ፣ Max Havelaar…';
 
   @override
-  String get edit_product_form_item_stores_title => 'Stores';
+  String get edit_product_form_item_stores_title => 'መደብሮች';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Input a store';
+  String get edit_product_form_item_stores_hint => 'መደብር ያስገቡ';
 
   @override
-  String get edit_product_form_item_stores_type => 'store';
+  String get edit_product_form_item_stores_type => 'መደብር';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'ጥሩ ልምዶች፡ መደብሮች';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'ምርቱን የገዙበትን መደብር ያስገቡ።';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
-      'Walmart';
+      'ዎልማርት';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_2 =>
-      'Carrefour';
+      'ካርሬፎር';
 
   @override
-  String get edit_product_form_item_stores_explanation_good_examples_3 =>
-      'Lidl';
+  String get edit_product_form_item_stores_explanation_good_examples_3 => 'ሊድል';
 
   @override
-  String get edit_product_form_item_origins_title => 'Origins';
+  String get edit_product_form_item_origins_title => 'መነሻዎች';
 
   @override
-  String get edit_product_form_item_origins_hint =>
-      'Input an origin (eg: Germany)';
+  String get edit_product_form_item_origins_hint => 'መነሻ ያስገቡ (ለምሳሌ፡ ጀርመን)';
 
   @override
   String get edit_product_form_item_origins_type => 'country';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'ጥሩ ልምዶች፡ መነሻዎች';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      'በማሸጊያው ላይ የሚያገኟቸውን **የመነሻ ምልክቶችን** ያክሉ።\nበቀጥታ በንጥረ ነገሮች ዝርዝር ውስጥ ስለተጠቀሱት አመጣጥ መጨነቅ አያስፈልግዎትም።';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'ከአርጀንቲና የመጣ የበሬ ሥጋ';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'አኩሪ አተር ከአውሮፓ ህብረት አይመጣም';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
-  String get edit_product_form_item_countries_hint =>
-      'Input a country (eg: Germany)';
+  String get edit_product_form_item_countries_hint => 'አገር ያስገቡ (ለምሳሌ፡ ጀርመን)';
 
   @override
   String get edit_product_form_item_countries_type => 'country';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'ጥሩ ልምዶች፡ አገሮች';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**ምርቱ በስፋት የሚገኝባቸው አገሮች** (በውጭ ምርቶች ላይ የተካኑ መደብሮችን ሳይጨምር)።';
 
   @override
-  String get edit_product_form_item_emb_codes_title => 'Traceability codes';
+  String get edit_product_form_item_emb_codes_title => 'የመከታተያ ኮዶች';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'ኮድ ያስገቡ (ለምሳሌ፡ EMB 53062፣ FR 62.448.034 CE፣ 84 R 20፣ 33 RECOLTANT 522…)';
 
   @override
-  String get edit_product_form_item_emb_codes_type => 'traceability code';
+  String get edit_product_form_item_emb_codes_type => 'የመከታተያ ኮድ';
 
   @override
-  String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+  String get edit_product_form_item_emb_help_title => 'ጥሩ ልምዶች፡ የመከታተያ ኮዶች';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'በዚህ ክፍል ውስጥ፣ ከ **የማሸጊያ ምልክቶች**፣ **የመለያ ምልክቶች** ወይም **የጤና ምልክቶች** ጋር የተያያዙ ኮዶችን ማስገባት ይችላሉ።';
 
   @override
-  String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+  String get edit_product_form_item_emb_help_info2_title => 'የመከታተያ ኮዶች ምሳሌዎች';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**የኢሲ ኮዶች** በአውሮፓ ማህበረሰብ ውስጥ የምግብ አምራቾችን ወይም ፓኬጆችን ለመለየት ጥቅም ላይ ይውላሉ፡';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
-      'FR\n72.264.002\nCE';
+      'FR\n72.264.002\nዓ.ም.';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: የ **ፈረንሳይ የአገር ኮድ**\n**72.264.002**: የጂኦግራፊያዊ መረጃ\n**CE**: የአውሮፓ ማህበረሰብ';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      '**የኢኤምቢ ኮዶች** በፈረንሳይ ጥቅም ላይ የዋሉ፦';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2088,7 +2040,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'ዱካ ያስገቡ (ለምሳሌ፡ የአኩሪ አተር ባቄላ)';
 
   @override
   String get edit_product_form_item_categories_title => 'Categories';
@@ -2098,154 +2050,153 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Input a category (eg: Orange juice)';
+      'ምድብ ያስገቡ (ለምሳሌ፡ የብርቱካን ጭማቂ)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'ጥሩ ልምዶች፡ ምድቦች';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      '**በጣም ልዩ የሆነውን ምድብ ብቻ** ያመልክቱ።\nየወላጅ ምድቦች በራስ-ሰር ይታከላሉ።';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'ምድብ ይጎድላል?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'አንድ ምድብ **በራስ-ኮምፕሌት** የማይገኝ ከሆነ፣ ለማንኛውም ለማከል ነፃነት ይሰማዎ።\nይህ በአገርዎ ውስጥ ክፍት የምግብ እውነታዎችን እንድናሻሽል ይረዳናል።';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'ሳርዲን በወይራ ዘይት ውስጥ';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'ከኮምዩቴሽን የተገኘ የብርቱካን ጭማቂ';
 
   @override
-  String get edit_product_form_item_exit_title => 'Quit without saving?';
+  String get edit_product_form_item_exit_title => 'ሳያስቀምጡ ይቁሙ?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Do you want to save your changes before leaving this page?';
+      'ከዚህ ገጽ ከመውጣትዎ በፊት ለውጦችዎን ማስቀመጥ ይፈልጋሉ?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
-      'Save changes';
+      'ለውጦችን አስቀምጥ';
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'Discard changes';
+      'ለውጦችን አስወግድ';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Ingredients';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoom in and out by pinching the screen';
+      'ማያ ገጹን በመቆንጠጥ ያጉሉ እና ያሳንሱ';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoom in and out the photo';
+      'ፎቶውን አጉላና አሳንስ';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      '**የማጉላት-ቁንጥጫ ምልክትን** በመጠቀም፣ ፎቶውን ማጉላት ወይም ማሳነስ ይችላሉ፦';
 
   @override
-  String get edit_product_form_item_add_valid_item_tooltip => 'Add';
+  String get edit_product_form_item_add_valid_item_tooltip => 'ያክሉ';
 
   @override
   String get edit_product_form_item_add_invalid_item_tooltip =>
-      'Please enter a text first';
+      'እባክዎ መጀመሪያ ጽሑፍ ያስገቡ';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'Remove';
+  String get edit_product_form_item_remove_item_tooltip => 'አስወግድ';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
+  String get edit_product_form_item_save_edit_item_tooltip => 'አርትዖትዎን ያስቀምጡ';
 
   @override
-  String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cancel your edit';
+  String get edit_product_form_item_cancel_edit_item_tooltip => 'አርትዖትዎን ሰርዝ';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'Recycling instructions photo';
+      'የመልሶ ጥቅም ላይ ማዋል መመሪያዎች ፎቶ';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
+  String get edit_product_form_item_nutrition_facts_title => 'የአመጋገብ እውነታዎች';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
-      'Nutrition, alcohol content…';
+      'የአመጋገብ፣ የአልኮል ይዘት…';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'ጥሩ ልምዶች፡ የአመጋገብ እውነታዎች';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'የአመጋገብ እሴቶች';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'በመጀመሪያ፣ **እሴቶቹ የተሰጡ መሆናቸውን** ይምረጡ፡';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'Nutrition facts';
+      'የአመጋገብ እውነታዎች';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'ከዚያም በማሸጊያው ላይ እንደተገለጸው የአመጋገብ ዋጋዎቹን **ያስገቡ**። ምንም ዋጋ ከሌለ \"ዓይን\" የሚለውን አዶ ጠቅ ማድረግ ይችላሉ።';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'የጎደለ መስክ?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'አንድ ግቤት ከጠፋ፣ \"ፕላስ\" የሚለውን አዶ** ላይ ጠቅ በማድረግ ማከል ይችላሉ (ለምሳሌ፡ ቫይታሚን ዲ፣ ማግኒዚየም…)።';
 
   @override
   String get edit_product_form_save => 'Edit';
 
   @override
-  String get edit_product_ingredients_photo_title => 'Ingredients photo';
+  String get edit_product_ingredients_photo_title => 'የንጥረ ነገሮች ፎቶ';
 
   @override
   String get edit_product_ingredients_list_title => 'List of ingredients';
 
   @override
-  String get edit_product_packaging_photo_title => 'Packaging photo';
+  String get edit_product_packaging_photo_title => 'የማሸጊያ ፎቶ';
 
   @override
-  String get edit_product_packaging_list_title => 'Packaging list';
+  String get edit_product_packaging_list_title => 'የማሸጊያ ዝርዝር';
 
   @override
-  String get no_data_available => 'No data available';
+  String get no_data_available => 'ምንም ውሂብ አይገኝም';
 
   @override
-  String get product_field_website_title => 'Website';
+  String get product_field_website_title => 'ድህረገፅ';
 
   @override
-  String get origins_editing_title => 'Edit Origins';
+  String get origins_editing_title => 'መነሻዎችን አርትዕ';
 
   @override
-  String get completed_basic_details_btn_text => 'Complete basic details';
+  String get completed_basic_details_btn_text => 'መሰረታዊ ዝርዝሮችን ይሙሉ';
 
   @override
-  String get not_implemented_snackbar_text => 'Not implemented yet';
+  String get not_implemented_snackbar_text => 'እስካሁን አልተተገበረም';
 
   @override
   String get category_picker_page_appbar_text => 'Categories';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Extract ingredients from the photo';
+      'ከፎቶው ውስጥ ንጥረ ነገሮችን ያውጡ';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2253,306 +2204,297 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Extracting ingredients\nfrom the photo';
+      'ከፎቶው ውስጥ ንጥረ ነገሮችን ማውጣት\n';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
+  String get edit_ingredients_loading_photo_btn_text => 'ፎቶ በመጫን ላይ…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'ይህንን መልእክት ለምን አየዋለሁ?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      'የ\"ኤክስትራክት ኢንዳክተሮች\" ባህሪን ለመጠቀም፣ ፎቶው መጀመሪያ መጫን አለበት።\n\nእባክዎ ለጥቂት ሰከንዶች ይጠብቁ ወይም በእጅ ያስገቡዋቸው።';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
+  String get edit_ingredients_refresh_photo_btn_text => 'ፎቶን አድስ';
 
   @override
-  String get edit_packaging_extract_btn_text =>
-      'Extract packaging\nfrom the photo';
+  String get edit_packaging_extract_btn_text => 'ከፎቶው ላይ የማሸጊያውን ማውጣት\n';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
+  String get edit_packaging_extract_btn_text_short => 'የማውጣት ማሸጊያ';
 
   @override
-  String get edit_packaging_extracting_btn_text =>
-      'Extracting packaging from the photo';
+  String get edit_packaging_extracting_btn_text => 'ማሸጊያውን ከፎቶው ማውጣት';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
+  String get edit_packaging_loading_photo_btn_text => 'ፎቶ በመጫን ላይ…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Why do I see this message?';
+      'ይህንን መልእክት ለምን አየዋለሁ?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
+      '\"የማውጣት ማሸጊያ\" ባህሪን ለመጠቀም፣ ፎቶው መጀመሪያ መጫን አለበት።\n\nእባክዎ ለጥቂት ሰከንዶች ይጠብቁ ወይም በእጅ ያስገቡዋቸው።';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
+  String get edit_packaging_refresh_photo_btn_text => 'ፎቶን አድስ';
 
   @override
-  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
+  String get edit_ocr_extract_failed => 'በምስሉ ላይ ያለውን ጽሑፍ ማግኘት አልተሳካም።';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'No picture!';
+  String get edit_ocr_extract_disabled_title => 'ፎቶ የለም!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'In order to use the text extraction feature, you must first take a photo.';
+      'የጽሑፍ ማውጣት ባህሪውን ለመጠቀም መጀመሪያ ፎቶ ማንሳት አለብዎት።';
 
   @override
-  String get user_list_dialog_new_title => 'New list of products';
+  String get user_list_dialog_new_title => 'አዲስ የምርት ዝርዝር';
 
   @override
-  String get user_list_dialog_rename_title => 'Rename list';
+  String get user_list_dialog_rename_title => 'ዝርዝሩን እንደገና ይሰይሙ';
 
   @override
-  String get user_list_subtitle_product => 'Lists';
+  String get user_list_subtitle_product => 'ዝርዝሮች';
 
   @override
   String get user_list_title => 'Your lists';
 
   @override
-  String get user_list_add_product => 'Add the product to your lists';
+  String get user_list_add_product => 'ምርቱን ወደ ዝርዝሮችዎ ያክሉ';
 
   @override
-  String get user_list_button_new => 'Create a new list';
+  String get user_list_button_new => 'አዲስ ዝርዝር ይፍጠሩ';
 
   @override
   String get user_list_empty_label =>
       'No list available yet, please start by creating one';
 
   @override
-  String get user_list_button_add_product => 'Add to list';
+  String get user_list_button_add_product => 'ወደ ዝርዝሩ ያክሉ';
 
   @override
-  String get added_to_list_msg => 'Added to list';
+  String get added_to_list_msg => 'ወደ ዝርዝሩ ታክሏል';
 
   @override
-  String get user_list_popup_clear => 'Clear your history';
+  String get user_list_popup_clear => 'ታሪክዎን ያጽዱ';
 
   @override
-  String get user_list_popup_rename => 'Rename';
+  String get user_list_popup_rename => 'እንደገና ሰይም';
 
   @override
-  String get user_list_name_hint => 'My list';
+  String get user_list_name_hint => 'የእኔ ዝርዝር';
 
   @override
-  String get user_list_name_error_empty => 'Name is mandatory';
+  String get user_list_name_error_empty => 'ስም ግዴታ ነው';
 
   @override
-  String get user_list_name_error_already => 'That name is already used';
+  String get user_list_name_error_already => 'ያ ስም አስቀድሞ ጥቅም ላይ ውሏል';
 
   @override
-  String get user_list_name_error_same => 'That is the same name';
+  String get user_list_name_error_same => 'ያ ስም ተመሳሳይ ነው';
 
   @override
-  String get user_list_name_input_hint => 'Name of the list';
+  String get user_list_name_input_hint => 'የዝርዝሩ ስም';
 
   @override
-  String get try_again => 'Try Again';
+  String get try_again => 'እንደገና ይሞክሩ';
 
   @override
-  String get there_was_an_error => 'There was an error';
+  String get there_was_an_error => 'ስህተት ነበር';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return 'No category found for $items';
+    return 'ለ $itemsምንም ምድብ አልተገኘም';
   }
 
   @override
-  String get camera_toggle_camera => 'Switch between back and front camera';
+  String get camera_toggle_camera => 'በጀርባ እና በፊት ካሜራ መካከል ይቀያይሩ';
 
   @override
-  String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
+  String get camera_toggle_flash => 'የካሜራውን ብልጭታ ያብሩ ወይም ያጥፉ';
 
   @override
-  String get camera_enable_flash => 'Enable flash';
+  String get camera_enable_flash => 'ፍላሽ አንቃ';
 
   @override
-  String get camera_disable_flash => 'Disable flash';
+  String get camera_disable_flash => 'ፍላሽን አሰናክል';
 
   @override
-  String get camera_flash_error_dialog_title => 'An error occurred!';
+  String get camera_flash_error_dialog_title => 'ስህተት ተከስቷል!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
+      'የፍላሽዎን ሁኔታ በመቀየር ላይ ስህተት ተከስቷል። እባክዎ ስማርት ስልክዎ ችቦው አስቀድሞ እንዳልነቃ ያረጋግጡ።';
 
   @override
-  String get category_picker_no_category_found_button => 'Back';
+  String get category_picker_no_category_found_button => 'ተመለስ';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Click to open in your browser or in the application (if installed)';
+      'በአሳሽዎ ወይም በመተግበሪያው ውስጥ ለመክፈት ጠቅ ያድርጉ (ከተጫነ)';
 
   @override
-  String get dev_preferences_screen_title => 'DEV Mode';
+  String get dev_preferences_screen_title => 'የDEV ሁነታ';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'የሙከራ ባህሪያትን እና የልማት መሳሪያዎችን ይድረሱ';
 
   @override
-  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
+  String get dev_preferences_reset_onboarding_title => 'ማዋሃድን እንደገና ያስጀምሩ';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'You then have to restart the App to see it again.';
+      'ከዚያ መተግበሪያውን እንደገና ለማየት እንደገና ማስጀመር አለብዎት።';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'Switch between openfoodfacts.org (PROD) and test env';
+      'በ openfoodfacts.org (PROD) እና በሙከራ env መካከል ይቀያይሩ';
 
   @override
-  String get dev_preferences_test_environment_title =>
-      'Test environment parameters';
+  String get dev_preferences_test_environment_title => 'የሙከራ አካባቢ መለኪያዎች';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'Base URL for current test env: $url';
+    return 'የአሁኑ የሙከራ ኢንቭ መሰረታዊ ዩአርኤል፦ $url';
   }
 
   @override
   String get dev_preferences_test_environment_dialog_title =>
-      'Test environment host';
+      'የሙከራ አካባቢ አስተናጋጅ';
 
   @override
-  String get dev_preferences_ml_kit_title => 'Use ML Kit';
+  String get dev_preferences_ml_kit_title => 'የኤምኤል ኪትን ይጠቀሙ';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'then you have to restart this app';
+      'ከዚያ ይህንን መተግበሪያ እንደገና ማስጀመር አለብዎት';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'Additional button on product page';
+      'በምርት ገጽ ላይ ተጨማሪ አዝራር';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'Edit ingredients via a knowledge panel button';
+      'ግብዓቶችን በእውቀት ፓነል አዝራር ያርትዑ';
 
   @override
-  String get dev_preferences_export_history_title => 'Export History';
+  String get dev_preferences_export_history_title => 'የውጪ ታሪክ';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'exception';
+  String get dev_preferences_export_history_progress_error => 'ልዩ ሁኔታ';
 
   @override
-  String get dev_preferences_export_history_progress_found => 'product found';
+  String get dev_preferences_export_history_progress_found => 'ምርት ተገኝቷል';
 
   @override
-  String get dev_preferences_export_history_progress_not_found =>
-      'product NOT found';
+  String get dev_preferences_export_history_progress_not_found => 'ምርት አልተገኘም';
 
   @override
-  String get dev_preferences_export_history_dialog_title => 'Export history';
+  String get dev_preferences_export_history_dialog_title => 'የውጪ ታሪክ';
 
   @override
-  String get dev_preferences_button_positive => 'OK';
+  String get dev_preferences_button_positive => 'እሺ';
 
   @override
   String get dev_preferences_button_negative => 'Cancel';
 
   @override
-  String get dev_preferences_migration_title => 'Data migration from V1';
+  String get dev_preferences_migration_title => 'የውሂብ ዝውውር ከV1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
-    return 'Status: $status';
+    return 'ሁኔታ፡ $status';
   }
 
   @override
-  String get dev_preferences_migration_status_already_done =>
-      'success or fresh install';
+  String get dev_preferences_migration_status_already_done => 'ስኬት ወይም አዲስ ጭነት';
 
   @override
-  String get dev_preferences_migration_status_success => 'success';
+  String get dev_preferences_migration_status_success => 'ስኬት';
 
   @override
-  String get dev_preferences_migration_status_error => 'error';
+  String get dev_preferences_migration_status_error => 'ስህተት';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'in progress';
+  String get dev_preferences_migration_status_in_progress => 'በሂደት ላይ';
 
   @override
   String get dev_preferences_migration_status_required =>
-      'required (click to start)';
+      'ያስፈልጋል (ለመጀመር ጠቅ ያድርጉ)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'unknown';
+  String get dev_preferences_migration_status_not_started => 'ያልታወቀ';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'Will clear history and put 3 products in there';
+      'ታሪክን ያጸዳል እና 3 ምርቶችን እዚያ ውስጥ ያስቀምጣል';
 
   @override
-  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
+  String get dev_preferences_news_custom_url_title => 'ለዜና ብጁ ዩአርኤል';
 
   @override
-  String get dev_preferences_news_custom_url_subtitle =>
-      'URL of the JSON file:';
+  String get dev_preferences_news_custom_url_subtitle => 'የJSON ፋይል ዩአርኤል፦';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'Not set';
+  String get dev_preferences_news_custom_url_empty_value => 'አልተዘጋጀም';
 
   @override
   String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Last refresh: $date';
+    return 'የመጨረሻ እድሳት፦ $date';
   }
 
   @override
-  String get product_type_label_food => 'Food';
+  String get product_type_label_food => 'ምግብ';
 
   @override
-  String get product_type_label_beauty => 'Personal care';
+  String get product_type_label_beauty => 'የግል እንክብካቤ';
 
   @override
-  String get product_type_label_pet_food => 'Pet food';
+  String get product_type_label_pet_food => 'የቤት እንስሳት ምግብ';
 
   @override
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'የምርት አይነት';
 
   @override
-  String get product_type_selection_subtitle =>
-      'Select the type of this product';
+  String get product_type_selection_subtitle => 'የዚህን ምርት አይነት ይምረጡ';
 
   @override
-  String get product_type_selection_empty =>
-      'You need to select a product type first!';
+  String get product_type_selection_empty => 'መጀመሪያ የምርት አይነት መምረጥ ያስፈልግዎታል!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'You cannot change the product type ($productType)!';
+    return 'የምርት አይነትን መቀየር አይችሉም ($productType)!';
   }
 
   @override
-  String get prices_app_dev_mode_flag =>
-      'Shortcut to Prices app on product page';
+  String get prices_app_dev_mode_flag => 'በምርት ገጽ ላይ የዋጋዎች አቋራጭ መተግበሪያ';
 
   @override
-  String get prices_app_button => 'Go to Prices app';
+  String get prices_app_button => 'ወደ የዋጋዎች መተግበሪያ ይሂዱ';
 
   @override
   String get prices_website_button => 'በክፍት ዋጋዎች ድህረ ገጽ ላይ ክፈት';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'የዋጋ መለያዎችን በቀጥታ ከማዕከለ-ስዕላት ያክሉ';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'ምስሎችን አንዴ ከመረጡ በኋላ፣ እነሱን ማርትዕ አይችሉም!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2563,10 +2505,10 @@ class AppLocalizationsAm extends AppLocalizations {
       'ማህበረሰቡ በ AI የወጡትን ዋጋዎች እንዲያረጋግጥ ይፍቀዱለት።';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'በርካታ የዋጋ መለያዎች';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'የጅምላ ማረጋገጫ ጭነት';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'ፋይሎችን መምረጥ';
@@ -2590,15 +2532,15 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'Prices';
+  String get prices_generic_title => 'ዋጋዎች';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Add $count prices',
-      one: 'Add a price',
+      other: 'ያክሉ $count ዋጋዎች',
+      one: 'ዋጋ ያክሉ',
     );
     return '$_temp0';
   }
@@ -2608,42 +2550,42 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Send $count prices',
-      one: 'Send the price',
+      other: 'ላክ $count ዋጋዎች',
+      one: 'ዋጋውን ላክ',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Add an item';
+  String get prices_add_an_item => 'አንድ ንጥል ያክሉ';
 
   @override
-  String get prices_add_a_price => 'Add a price';
+  String get prices_add_a_price => 'ዋጋ ያክሉ';
 
   @override
-  String get prices_add_a_receipt => 'Add a receipt';
+  String get prices_add_a_receipt => 'ደረሰኝ ያክሉ';
 
   @override
-  String get prices_add_price_tags => 'Add price tags';
+  String get prices_add_price_tags => 'የዋጋ መለያዎችን ያክሉ';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'This barcode ($barcode) is already in the list!';
+    return 'ይህ ባርኮድ ($barcode) አስቀድሞ በዝርዝሩ ውስጥ አለ!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'No product yet';
+  String get prices_barcode_search_none_yet => 'እስካሁን ምንም ምርት የለም';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'Looking for $barcode';
+    return '$barcodeን እየፈለግኩ ነው';
   }
 
   @override
-  String get prices_barcode_enter => 'Enter the Barcode';
+  String get prices_barcode_enter => 'የባርኮዱን ያስገቡ';
 
   @override
   String get prices_category_enter => 'ያለ ባርኮድ እቃ';
@@ -2670,10 +2612,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_category_error_mandatory => 'ምድቡ የግዴታ ነው';
 
   @override
-  String get prices_barcode_reader_action => 'Barcode reader';
+  String get prices_barcode_reader_action => 'የባርኮድ አንባቢ';
 
   @override
-  String get prices_view_prices => 'View the prices';
+  String get prices_view_prices => 'ዋጋዎችን ይመልከቱ';
 
   @override
   String get prices_list_title => 'የዋጋ ዝርዝር';
@@ -2720,10 +2662,10 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: '1 price',
+      other: '$count ዋጋዎች',
+      one: '1 ዋጋ',
     );
-    return '$_temp0 for $product';
+    return '$_temp0 ለ $product';
   }
 
   @override
@@ -2731,16 +2673,16 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count prices',
-      one: 'Only one price',
-      zero: 'No price yet',
+      other: 'ሁሉም $count ዋጋዎች',
+      one: 'አንድ ዋጋ ብቻ',
+      zero: 'እስካሁን ምንም ዋጋ የለም',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize prices (total: $total)';
+    return 'የቅርብ ጊዜ $pageSize ዋጋዎች (ጠቅላላ፡ $total)';
   }
 
   @override
@@ -2750,32 +2692,32 @@ class AppLocalizationsAm extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
+    return 'ዋጋ፡ $price / መደብር፡ \"$location\" / በ $date በ\"$user\" ላይ ታትሟል';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Open proofs of \"$user\"';
+    return 'የ\"$user\" ግልጽ ማስረጃዎች';
   }
 
   @override
-  String get prices_open_proof => 'Open price proof';
+  String get prices_open_proof => 'ክፍት የዋጋ ማረጋገጫ';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'All $count proofs',
-      one: 'Only one proof',
-      zero: 'No proof yet',
+      other: 'ሁሉም $count ማስረጃዎች',
+      one: 'አንድ ማረጋገጫ ብቻ',
+      zero: 'እስካሁን ምንም ማረጋገጫ የለም',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Latest $pageSize proofs (total: $total)';
+    return 'የቅርብ ጊዜ $pageSize ማስረጃዎች (ጠቅላላ፡ $total)';
   }
 
   @override
@@ -2786,7 +2728,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize contributors (total: $total)';
+    return 'ከፍተኛ $pageSize አስተዋጽዖ አበርካቾች (ጠቅላላ፡ $total)';
   }
 
   @override
@@ -2797,7 +2739,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize locations (total: $total)';
+    return 'ከፍተኛ $pageSize አካባቢዎች (ጠቅላላ፡ $total)';
   }
 
   @override
@@ -2805,9 +2747,9 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count proofs',
-      one: 'One proof',
-      zero: 'No proof',
+      other: '$count ማስረጃዎች',
+      one: 'አንድ ማረጋገጫ',
+      zero: 'ምንም ማረጋገጫ የለም',
     );
     return '$_temp0';
   }
@@ -2817,9 +2759,9 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'No product',
+      other: '$count ምርቶች',
+      one: 'አንድ ምርት',
+      zero: 'ምርት የለም',
     );
     return '$_temp0';
   }
@@ -2829,9 +2771,9 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count users',
-      one: 'One user',
-      zero: 'No user',
+      other: '$count ተጠቃሚዎች',
+      one: 'አንድ ተጠቃሚ',
+      zero: 'ተጠቃሚ የለም',
     );
     return '$_temp0';
   }
@@ -2841,9 +2783,9 @@ class AppLocalizationsAm extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prices',
-      one: 'One price',
-      zero: 'No price',
+      other: '$count ዋጋዎች',
+      one: 'አንድ ዋጋ',
+      zero: 'ዋጋ የለውም',
     );
     return '$_temp0';
   }
@@ -2852,50 +2794,50 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'ዋጋ ከዚህ ቀደም ታክሏል።';
 
   @override
-  String get prices_amount_subtitle => 'Amount';
+  String get prices_amount_subtitle => 'መጠን';
 
   @override
-  String get prices_amount_is_discounted => 'Is discounted?';
+  String get prices_amount_is_discounted => 'ቅናሽ አለው?';
 
   @override
-  String get prices_amount_price_normal => 'Price';
+  String get prices_amount_price_normal => 'ዋጋ';
 
   @override
-  String get prices_amount_price_discounted => 'Discounted price';
+  String get prices_amount_price_discounted => 'ቅናሽ የተደረገበት ዋጋ';
 
   @override
-  String get prices_amount_price_not_discounted => 'Original price';
+  String get prices_amount_price_not_discounted => 'የመጀመሪያው ዋጋ';
 
   @override
-  String get prices_amount_no_product => 'One product is missing!';
+  String get prices_amount_no_product => 'አንድ ምርት ጠፍቷል!';
 
   @override
-  String get prices_amount_price_incorrect => 'Incorrect value';
+  String get prices_amount_price_incorrect => 'የተሳሳተ እሴት';
 
   @override
-  String get prices_amount_price_mandatory => 'Mandatory value';
+  String get prices_amount_price_mandatory => 'የግዴታ እሴት';
 
   @override
-  String get prices_currency_subtitle => 'Currency';
+  String get prices_currency_subtitle => 'ምንዛሬ';
 
   @override
-  String get prices_date_subtitle => 'Date';
+  String get prices_date_subtitle => 'ቀን';
 
   @override
-  String get prices_location_subtitle => 'Shop';
+  String get prices_location_subtitle => 'ሱቅ';
 
   @override
-  String get prices_location_find => 'Find a shop';
+  String get prices_location_find => 'ሱቅ ያግኙ';
 
   @override
-  String get prices_location_mandatory => 'You need to select a shop!';
+  String get prices_location_mandatory => 'ሱቅ መምረጥ አለብህ!';
 
   @override
   String get prices_location_search_broader =>
-      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
+      'የሚፈልጉትን ማግኘት አልቻሉም? ሰፋ ያለ ፍለጋ እንሞክር!';
 
   @override
-  String get prices_proof_subtitle => 'Proof';
+  String get prices_proof_subtitle => 'ማረጋገጫ';
 
   @override
   String get prices_proof_empty_title => 'እስካሁን ምንም ማረጋገጫ የለም!';
@@ -2905,103 +2847,100 @@ class AppLocalizationsAm extends AppLocalizations {
       '**ደረሰኝ** ወይም **የዋጋ መለያ** ፎቶ በማከል ይጀምሩ!';
 
   @override
-  String get prices_proof_find => 'Select a proof';
+  String get prices_proof_find => 'ማስረጃ ይምረጡ';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'የለውጥ ማረጋገጫ';
 
   @override
-  String get prices_proof_receipt => 'Receipt';
+  String get prices_proof_receipt => 'ደረሰኝ';
 
   @override
-  String get prices_proof_price_tag => 'Price tag';
+  String get prices_proof_price_tag => 'የዋጋ መለያ';
 
   @override
-  String get prices_proof_mandatory => 'You need to select a proof!';
+  String get prices_proof_mandatory => 'ማስረጃ መምረጥ ያስፈልግዎታል!';
 
   @override
-  String get prices_add_validation_error => 'Validation error';
+  String get prices_add_validation_error => 'የማረጋገጫ ስህተት';
 
   @override
-  String get prices_privacy_warning_title => 'Privacy warning';
+  String get prices_privacy_warning_title => 'የግላዊነት ማስጠንቀቂያ';
 
   @override
-  String get prices_unknown_product => 'Unknown product';
+  String get prices_unknown_product => 'ያልታወቀ ምርት';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'ዋጋዎች **ለሕዝብ ይፋ ይሆናሉ**፣ ከሚያመለክቱበት መደብር ጋር።\n\nይህ ስለ ክፍት የምግብ እውነታዎች ቅጽል ስምዎ የሚያውቁ ሰዎች የሚከተሉትን እንዲያደርጉ ያስችላቸዋል፦\n';
 
   @override
-  String get prices_privacy_warning_message_bullet_1 =>
-      'Infer in which area you live';
+  String get prices_privacy_warning_message_bullet_1 => 'በየትኛው አካባቢ እንደሚኖሩ ገምቱ';
 
   @override
-  String get prices_privacy_warning_message_bullet_2 =>
-      'Know what you are buying';
+  String get prices_privacy_warning_message_bullet_2 => 'ምን እየገዙ እንደሆነ ይወቁ';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'በዚህ ካልተደሰቱ፣ እባክዎን የውሸት ስምዎን ይቀይሩ ወይም አዲስ የክፍት ምግብ እውነታዎች መለያ ይፍጠሩ እና በእሱ ወደ መተግበሪያው ይግቡ።';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'እምቢ እላለሁ';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'እቀበላለሁ';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'ምንዛሬውን ይለውጣሉ?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
+    return 'የአሁኑ ምንዛሬዎ **$currency** ነው። ወደ **$newCurrencyሊቀይሩት ይፈልጋሉ **?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'አዎ፣ $newCurrencyን ይጠቀሙ';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'አይ፣ አስቀምጥ $currency';
   }
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get dev_preferences_import_history_result_success => 'Done';
+  String get dev_preferences_import_history_result_success => 'ተጠናቅቋል';
 
   @override
-  String get dev_mode_section_server => 'Server configuration';
+  String get dev_mode_section_server => 'የአገልጋይ ውቅር';
 
   @override
-  String get dev_mode_section_news => 'News provider configuration';
+  String get dev_mode_section_news => 'የዜና አቅራቢ ውቅር';
 
   @override
-  String get dev_mode_section_product_page => 'Product page';
+  String get dev_mode_section_product_page => 'የምርት ገጽ';
 
   @override
-  String get dev_mode_section_ui => 'User Interface';
+  String get dev_mode_section_ui => 'የተጠቃሚ በይነገጽ';
 
   @override
-  String get dev_mode_section_experimental_features => 'Experimental features';
+  String get dev_mode_section_experimental_features => 'የሙከራ ባህሪያት';
 
   @override
-  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
+  String get dev_mode_hide_environmental_score_title => 'አረንጓዴ ነጥብ አታካትት';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Use a spellchecker for OCR screens';
+      'ለኦሲአር ማያ ገጾች የፊደል አራሚ ይጠቀሙ';
 
   @override
-  String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(Ingredients and packaging)';
+  String get dev_mode_spellchecker_for_ocr_subtitle => '(ግብዓቶች እና ማሸጊያዎች)';
 
   @override
   String get dev_mode_reset_app_language_title => 'የመተግበሪያ ቋንቋን ዳግም ያስጀምሩ';
@@ -3014,14 +2953,15 @@ class AppLocalizationsAm extends AppLocalizations {
       'prices.openfoodfacts.org (PROD) እና test env መካከል ይቀያይሩ';
 
   @override
-  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
+  String get search_history_item_edit_tooltip =>
+      'ይህንን ፍለጋ እንደገና ይጠቀሙበት እና ያርትዑ';
 
   @override
-  String get search_history_item_remove_tooltip => 'Remove';
+  String get search_history_item_remove_tooltip => 'አስወግድ';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'You\'ve downloaded all the $totalSize products.';
+    return 'ሁሉንም $totalSize ምርቶች አውርደዋል።';
   }
 
   @override
@@ -3030,38 +2970,38 @@ class AppLocalizationsAm extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
+    return '$count ተጨማሪ ምርቶችን ያውርዱ\nአስቀድመው ወርደዋል $downloaded ከ $totalSize።';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
+    return 'የ $search ፍለጋዎ በሂደት ላይ ነው።\n\nእባክዎ ጥቂት ሰከንዶች ይጠብቁ…';
   }
 
   @override
-  String get user_search_contributor_title => 'Products I added';
+  String get user_search_contributor_title => 'የጨመርኳቸው ምርቶች';
 
   @override
-  String get user_search_informer_title => 'Products I edited';
+  String get user_search_informer_title => 'አርትዕ ያደረግኳቸው ምርቶች';
 
   @override
-  String get user_search_photographer_title => 'Products I photographed';
+  String get user_search_photographer_title => 'ፎቶግራፍ ያነሳኋቸው ምርቶች';
 
   @override
-  String get user_search_to_be_completed_title => 'My to-be-completed products';
+  String get user_search_to_be_completed_title => 'የሚጠናቀቁልኝ ምርቶቼ';
 
   @override
-  String get user_search_prices_title => 'My prices';
+  String get user_search_prices_title => 'የእኔ ዋጋዎች';
 
   @override
-  String get user_search_proofs_title => 'My proofs';
+  String get user_search_proofs_title => 'ማስረጃዎቼ';
 
   @override
-  String get user_search_proof_title => 'My proof';
+  String get user_search_proof_title => 'የእኔ ማስረጃ';
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'ከ \"$user\" የተገኘ ማስረጃ';
   }
 
   @override
@@ -3070,17 +3010,16 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'Latest Prices added';
+  String get all_search_prices_latest_title => 'የቅርብ ጊዜ ዋጋዎች ታክለዋል';
 
   @override
-  String get all_search_prices_top_user_title => 'Top price contributors';
+  String get all_search_prices_top_user_title => 'ከፍተኛ የዋጋ አስተዋጽዖ አበርካቾች';
 
   @override
-  String get all_search_prices_top_location_title =>
-      'Stores with the most prices';
+  String get all_search_prices_top_location_title => 'ከፍተኛ ዋጋ ያላቸው መደብሮች';
 
   @override
-  String get prices_contribution_assistant => 'Price Contribution Assistant';
+  String get prices_contribution_assistant => 'የዋጋ አስተዋጽዖ ረዳት';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3089,116 +3028,109 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system => 'በርካታ ማረጋገጫዎችን ያክሉ';
 
   @override
-  String get all_search_prices_top_location_single_title => 'Prices in a store';
+  String get all_search_prices_top_location_single_title => 'ዋጋዎች በሱቅ ውስጥ';
 
   @override
-  String get all_search_prices_top_product_title =>
-      'Products with the most prices';
+  String get all_search_prices_top_product_title => 'ከፍተኛ ዋጋ ያላቸው ምርቶች';
 
   @override
-  String get all_search_to_be_completed_title => 'All to-be-completed products';
+  String get all_search_to_be_completed_title => 'ሁሉም የሚጠናቀቁ ምርቶች';
 
   @override
-  String get categorize_products_country_title =>
-      'Help categorize products in your country';
+  String get categorize_products_country_title => 'በአገርዎ ውስጥ ምርቶችን ለመመደብ ያግዙ';
 
   @override
-  String get edit_product_action_retake_picture => 'Retake photo';
+  String get edit_product_action_retake_picture => 'ፎቶ እንደገና አንሳ';
 
   @override
-  String get edit_product_action_take_picture => 'Take photo';
+  String get edit_product_action_take_picture => 'ፎቶ አንሳ';
 
   @override
-  String get edit_product_action_confirm => 'Confirm';
+  String get edit_product_action_confirm => 'አረጋግጥ';
 
   @override
-  String get signup_page_terms_of_use_line1 =>
-      'I agree to the Open Food Facts ';
+  String get signup_page_terms_of_use_line1 => 'በክፍት የምግብ እውነታዎች እስማማለሁ ';
 
   @override
-  String get signup_page_terms_of_use_line2 => 'terms of use and contribution';
+  String get signup_page_terms_of_use_line2 => 'የአጠቃቀም ውሎች እና መዋጮዎች';
 
   @override
-  String get analytics_consent_image_semantic_label => 'Analytics icon';
+  String get analytics_consent_image_semantic_label => 'የትንታኔ አዶ';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'ገዳይ ስህተት፦ $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Fatal Error: $error';
+    return 'ገዳይ ስህተት፦ $error';
   }
 
   @override
-  String get summary_card_button_add_basic_details => 'Complete basic details';
+  String get summary_card_button_add_basic_details => 'መሰረታዊ ዝርዝሮችን ይሙሉ';
 
   @override
   String get edit_photo_button_label => 'Edit';
 
   @override
-  String get edit_photo_unselect_button_label => 'Unselect photo';
+  String get edit_photo_unselect_button_label => 'ፎቶን አትምረጥ';
 
   @override
-  String get edit_photo_select_existing_button_label =>
-      'Select an existing image';
+  String get edit_photo_select_existing_button_label => 'አሁን ያለ ምስል ይምረጡ';
 
   @override
   String get edit_photo_select_existing_all_label =>
       'Existing images for this product';
 
   @override
-  String get edit_photo_select_existing_all_subtitle =>
-      'Select an image by clicking on it';
+  String get edit_photo_select_existing_all_subtitle => 'ምስሉን ጠቅ በማድረግ ይምረጡ';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'Retrieving existing images…';
+      'ነባር ምስሎችን ሰርስሮ ማውጣት…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
-      'There are no images previously uploaded related to this product.';
+      'ከዚህ ምርት ጋር የተያያዙ ቀደም ሲል የተሰቀሉ ምስሎች የሉም።';
 
   @override
-  String get edit_photo_language_not_this_one =>
-      'No image in that language yet';
+  String get edit_photo_language_not_this_one => 'በዚያ ቋንቋ እስካሁን ምንም ምስል የለም';
 
   @override
-  String get edit_photo_language_none => 'No image yet';
+  String get edit_photo_language_none => 'እስካሁን ምንም ምስል የለም';
 
   @override
   String get category_picker_screen_title => 'Categories';
 
   @override
-  String get basic_details => 'Basic Details';
+  String get basic_details => 'መሰረታዊ ዝርዝሮች';
 
   @override
-  String get product_name => 'Product Name';
+  String get product_name => 'የምርት ስም';
 
   @override
-  String get product_names => 'Product Names';
+  String get product_names => 'የምርት ስሞች';
 
   @override
-  String get add_basic_details_product_name_add_translation =>
-      'Add a new translation';
+  String get add_basic_details_product_name_add_translation => 'አዲስ ትርጉም ያክሉ';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'ከማረጋገጥዎ በፊት፣ እባክዎ በማሸጊያው ላይ ያለው ቋንቋ ካለ ብቻ ትርጉም ማከልዎን ያረጋግጡ**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'View front photo';
+  String get add_basic_details_product_name_open_photo => 'የፊት ፎቶውን ይመልከቱ';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'Take front photo';
+  String get add_basic_details_product_name_take_photo => 'የፊት ፎቶ አንሳ';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Input the name of the product (eg: Nutella)';
+      'የምርት ስም ያስገቡ (ለምሳሌ፡ Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3212,287 +3144,278 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Good examples';
+  String get explanation_section_good_examples => 'ጥሩ ምሳሌዎች';
 
   @override
-  String get explanation_section_bad_examples => 'Bad examples';
+  String get explanation_section_bad_examples => 'መጥፎ ምሳሌዎች';
 
   @override
-  String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+  String get add_basic_details_product_name_help_title => 'ጥሩ ልምዶች፡ የምርት ስም';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
+      'የምርት ስሙ በማሸጊያው ላይ የታተመው **ዋና ስም** ነው። የተመዘገበ የንግድ ምልክት ሊሆን ይችላል።';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
+      '**ማሳሰቢያ፡** ቋንቋው በማሸጊያው ላይ ከሌለ እባክዎን ትርጉም አያክሉ**።';
 
   @override
-  String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
+  String get add_basic_details_product_name_help_good_examples_1 => 'ኔስኩዊክ';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tomato Ketchup';
+      'የቲማቲም ኬትጪፕ';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Don\'t include the brand in the name';
+      'የምርት ስሙን በስሙ ውስጥ አያካትቱ';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Tomato Ketchup **by Heinz**';
+      'ቲማቲም ኬትጪፕ **በሄንዝ**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Don\'t use symbols ®, ™, © or similar';
+      'ምልክቶችን ®፣ ™፣ © ወይም ተመሳሳይ አይጠቀሙ';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
-      'Nesquik**®**';
+      'ኔስኩዊክ**®**';
 
   @override
   String add_basic_details_product_name_other_translations(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count other translations',
-      one: '$count other translation',
+      other: '$count ሌሎች ትርጉሞች',
+      one: '$count ሌላ ትርጉም',
     );
     return '$_temp0';
   }
 
   @override
-  String get brand_name => 'Brand name';
+  String get brand_name => 'የምርት ስም';
 
   @override
-  String get brand_names => 'Brand names';
+  String get brand_names => 'የምርት ስሞች';
 
   @override
-  String get add_basic_details_brand_name_error =>
-      'Please enter the brand name';
+  String get add_basic_details_brand_name_error => 'የምርት ስሙን እባክዎ ያስገቡ';
 
   @override
-  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
+  String get add_basic_details_brand_names_hint => 'የግብዓት ብራንዶች (ለምሳሌ፡ ፌሬሮ)';
 
   @override
-  String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+  String get add_basic_details_product_brand_help_title => 'ጥሩ ልምዶች፡ ብራንዶች';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'ያስገቡ **የምርቱ ሁሉንም የምርት ስሞች**።';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title => 'ዋና የምርት ስም';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      'ዋናው የምርት ስም**፣ በአጠቃላይ በፊት ፓኬጁ ላይ በግልጽ የሚታየው፣ **መጀመሪያ መግባት** አለበት።';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title => 'ሌሎች የምርት ስሞች';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'በአንድ ትልቅ ኩባንያ ሲሸጥ **';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**አክቲሜል** የሚሸጠው በ **ዳንኖን** ነው*';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'ከብራንዱ ጋር ሲሸጥ **በብዙ ቋንቋዎች የተተረጎመ**፦';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**የተፈጥሮ ቫሊ** አንዳንድ ጊዜ የሚጻፈው **የተፈጥሮ ቫሊ**';
 
   @override
-  String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
+  String get add_basic_details_product_brand_help_good_examples_1 => 'ኑቴላ';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_2 =>
-      'Oreo, Mondelez';
+      'ኦሬኦ፣ ሞንዴሌዝ';
 
   @override
-  String get quantity => 'Quantity and weight';
+  String get quantity => 'ብዛት እና ክብደት';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Input the weight and if needed the quantity (eg : 4x100g)';
+      'ክብደቱን እና አስፈላጊ ከሆነ ብዛቱን ያስገቡ (ለምሳሌ፡ 4x100g)';
 
   @override
-  String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+  String get add_basic_details_product_quantity_help_title => 'ጥሩ ልምዶች፡ ብዛት';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'በምርቱ ላይ የተጠቀሰውን እሴት ይቅዱ እና **አሃዶችን አይርሱ**።';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230 ግራም** ወይም **230 ግራም**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (ለ6 እንቁላሎች)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150 ግራም**\n(እያንዳንዳቸው 150 ግራም 3 ሳጥኖች ላሏቸው ምርቶች)';
 
   @override
   String get barcode => 'Barcode';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Barcode: $barcode';
+    return 'ባርኮድ፡ $barcode';
   }
 
   @override
-  String get barcode_invalid_error => 'Invalid barcode';
+  String get barcode_invalid_error => 'ልክ ያልሆነ ባርኮድ';
 
   @override
-  String get basic_details_add_success => 'Basic details added successfully';
+  String get basic_details_add_success => 'መሰረታዊ ዝርዝሮች በተሳካ ሁኔታ ታክለዋል';
 
   @override
   String get basic_details_add_error =>
-      'Unable to add basic details. Please try again after some time';
+      'መሰረታዊ ዝርዝሮችን ማከል አልተቻለም። እባክዎ ከተወሰነ ጊዜ በኋላ እንደገና ይሞክሩ።';
 
   @override
-  String get clear_search => 'Clear your search';
+  String get clear_search => 'ፍለጋዎን ያጽዱ';
 
   @override
-  String get confirm_clear =>
-      'You\'re about to clear your entire history: are you sure you want to continue?';
+  String get confirm_clear => 'ታሪክህን በሙሉ ልታጸዳው ነው፡ እርግጠኛ ነህ መቀጠል ትፈልጋለህ?';
 
   @override
-  String get alert_clear_selected_user_list =>
-      'You\'re about to clear selected items in your history';
+  String get alert_clear_selected_user_list => 'በታሪክዎ ውስጥ የተመረጡትን ንጥሎች ሊያጸዱ ነው';
 
   @override
-  String get confirm_clear_selected_user_list =>
-      'Are you sure you want to continue?';
+  String get confirm_clear_selected_user_list => 'እርግጠኛ ነዎት መቀጠል ይፈልጋሉ?';
 
   @override
   String get alert_select_items_to_clear =>
-      'Please select one or more items to clear';
+      'ለማጽዳት እባክዎ አንድ ወይም ከዚያ በላይ እቃዎችን ይምረጡ';
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'You\'re about to clear this list ($name): are you sure you want to continue?';
+    return 'ይህንን ዝርዝር ሊያጸዱ ነው ($name): መቀጠል እንደሚፈልጉ እርግጠኛ ነዎት?';
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Delete the list?';
+  String get confirm_delete_user_list_title => 'ዝርዝሩን ሰርዝ?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
+    return '\"$name\"ዝርዝሩን ልትሰርዝ ነው።\nመቀጠል እንደምትፈልግ እርግጠኛ ነህ?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Yes, I confirm';
+  String get confirm_delete_user_list_button => 'አዎ፣ አረጋግጣለሁ';
 
   @override
   String importance_label(String name, String id) {
-    return '$name importance: $id';
+    return '$name አስፈላጊነት፡ $id';
   }
 
   @override
-  String get user_list_all_title => 'Lists';
+  String get user_list_all_title => 'ዝርዝሮች';
 
   @override
-  String get user_list_all_empty => 'Create your first list';
+  String get user_list_all_empty => 'የመጀመሪያ ዝርዝርዎን ይፍጠሩ';
 
   @override
-  String get product_list_select => 'Select a list';
+  String get product_list_select => 'ዝርዝር ይምረጡ';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
-      one: 'One product',
-      zero: 'Empty list',
+      other: '$count ምርቶች',
+      one: 'አንድ ምርት',
+      zero: 'ባዶ ዝርዝር',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'Add list';
+  String get add_list_label => 'ዝርዝር ያክሉ';
 
   @override
-  String get open_food_preferences_tooltip => 'Edit your food preferences';
+  String get open_food_preferences_tooltip => 'የምግብ ምርጫዎችዎን ያርትዑ';
 
   @override
-  String get add_photo_button_label => 'Add photo';
+  String get add_photo_button_label => 'ፎቶ ያክሉ';
 
   @override
   String get add_packaging_photo_button_label =>
-      'Take photos of any packaging/recycling information';
+      'የማሸጊያ/የድጋሚ ጥቅም ላይ የዋለ ማንኛውንም መረጃ ፎቶግራፍ ያንሱ';
 
   @override
-  String get add_origin_photo_button_label =>
-      'Take photos of any origin information';
+  String get add_origin_photo_button_label => 'የማንኛውንም የመነሻ መረጃ ፎቶዎች ያንሱ';
 
   @override
-  String get add_emb_photo_button_label =>
-      'Take photos of any traceability code information';
+  String get add_emb_photo_button_label => 'የማንኛውንም የመከታተያ ኮድ መረጃ ፎቶዎች ያንሱ';
 
   @override
   String get add_label_photo_button_label =>
-      'Take photos of any labels & certifications information';
+      'የማንኛውንም መለያዎች እና የምስክር ወረቀቶች መረጃ ፎቶዎችን ያንሱ';
 
   @override
-  String get choose_image_source_title => 'Choose image source';
+  String get choose_image_source_title => 'የምስል ምንጭ ይምረጡ';
 
   @override
-  String get choose_image_source_body => 'Please choose a image source';
+  String get choose_image_source_body => 'እባክዎ የምስል ምንጭ ይምረጡ';
 
   @override
-  String get gallery_source_label => 'Gallery';
+  String get gallery_source_label => 'ጋለሪ';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'Access denied';
+  String get gallery_source_access_denied_dialog_title => 'መዳረሻ ተከልክሏል';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
+      'እንደ አለመታደል ሆኖ፣ ቀደም ሲል ፈቃዱን ስለከለከሉ መተግበሪያው ወደ ጋለሪዎ መድረስ አይችልም።\n\nእባክዎ በስልክዎ ቅንብሮች ውስጥ ወዳለው የመተግበሪያ ቅንብሮች ይሂዱ -> ፎቶዎች';
 
   @override
-  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
+  String get gallery_source_access_denied_dialog_button => 'ቅንብሮችን ይክፈቱ';
 
   @override
-  String get share => 'Share';
+  String get share => 'አጋራ';
 
   @override
   String share_product_text(String url) {
-    return 'Have a look at this product on Open Food Facts: $url';
+    return 'ይህንን ምርት በክፍት የምግብ እውነታዎች ላይ ይመልከቱ፡ $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Have a look at this product on Open Beauty Facts: $url';
+    return 'ይህንን ምርት በክፍት የውበት እውነታዎች ላይ ይመልከቱ፡ $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Have a look at this product on Open PetFood Facts: $url';
+    return 'ይህንን ምርት በክፍት የቤት እንስሳት ምግብ እውነታዎች ላይ ይመልከቱ፦ $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Have a look at this product on Open Products Facts: $url';
+    return 'ይህንን ምርት በክፍት ምርቶች እውነታዎች ላይ ይመልከቱ፦ $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Have a look at my list of products on Open Food Facts: $url';
+    return 'በክፍት የምግብ እውነታዎች ላይ የምርቶቼን ዝርዝር ይመልከቱ፡ $url';
   }
 
   @override
@@ -3502,172 +3425,164 @@ class AppLocalizationsAm extends AppLocalizations {
   String get capture_new_picture => 'Take a picture';
 
   @override
-  String get choose_from_gallery => 'Choose from gallery';
+  String get choose_from_gallery => 'ከማዕከለ-ስዕላት ይምረጡ';
 
   @override
-  String get image_upload_queued =>
-      'The image will be uploaded in the background as soon as possible.';
+  String get image_upload_queued => 'ምስሉ በተቻለ ፍጥነት ከበስተጀርባ ይሰቀላል።';
 
   @override
-  String get add_price_queued =>
-      'The price will be sent to the server as soon as possible.';
+  String get add_price_queued => 'ዋጋው በተቻለ ፍጥነት ወደ አገልጋዩ ይላካል።';
 
   @override
   String get background_task_title_full_refresh =>
-      'Starting the refresh of all the products locally stored';
+      'በአካባቢው የተከማቹትን ምርቶች በሙሉ ማደስ መጀመር';
 
   @override
   String get background_task_title_folksonomy =>
       'በአገር ውስጥ ለተከማቹ የ folksonomy ዝመናዎች የአገልጋይ እርምጃዎችን ማከናወን በመጀመር ላይ';
 
   @override
-  String get background_task_title_top_n =>
-      'Starting the download of the most popular products';
+  String get background_task_title_top_n => 'በጣም ተወዳጅ ምርቶችን ማውረድ መጀመር';
 
   @override
-  String get expand_nutrition_facts => 'Expand nutrition facts table';
+  String get expand_nutrition_facts => 'የአመጋገብ እውነታዎችን ሰንጠረዥ ዘርጋ';
 
   @override
-  String get expand_nutrition_facts_body =>
-      'Keep the nutrition facts table expanded';
+  String get expand_nutrition_facts_body => 'የአመጋገብ እውነታዎችን ሰንጠረዥ ማስፋትዎን ይቀጥሉ';
 
   @override
-  String get expand_ingredients => 'Expand ingredients';
+  String get expand_ingredients => 'ንጥረ ነገሮችን ዘርጋ';
 
   @override
-  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
+  String get expand_ingredients_body => 'የንጥረ ነገሮች ፓነል እንዲሰፋ ያድርጉት';
 
   @override
-  String get no_internet_connection => 'No internet connection';
+  String get no_internet_connection => 'የኢንተርኔት ግንኙነት የለም';
 
   @override
-  String get world_results_label => 'Entire world';
+  String get world_results_label => 'መላው ዓለም';
 
   @override
-  String get world_results_action => 'Extend your search to the world';
+  String get world_results_action => 'ፍለጋዎን ወደ ዓለም ያስፋፉ';
 
   @override
-  String get copy_to_clipboard => 'Copy';
+  String get copy_to_clipboard => 'ቅጂ';
 
   @override
-  String get paste_from_clipboard => 'Paste from clipboard';
+  String get paste_from_clipboard => 'ከቅንጥብ ሰሌዳ ይለጥፉ';
 
   @override
-  String get no_data_available_in_clipboard =>
-      'No data available in your clipboard';
+  String get no_data_available_in_clipboard => 'በቅንጥብ ሰሌዳዎ ውስጥ ምንም ውሂብ አይገኝም';
 
   @override
-  String get clipboard_barcode_copy => 'Copy barcode to clipboard';
+  String get clipboard_barcode_copy => 'ባርኮዱን ወደ ቅንጥብ ሰሌዳው ይቅዱ';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Barcode $barcode copied to the clipboard!';
+    return 'ባርኮድ $barcode ወደ ቅንጥብ ሰሌዳው ተገልብጧል!';
   }
 
   @override
-  String get open_product_website => 'Open this product on the website';
+  String get open_product_website => 'ይህንን ምርት በድር ጣቢያው ላይ ይክፈቱ';
 
   @override
-  String get language_picker_label => 'Your language';
+  String get language_picker_label => 'የእርስዎ ቋንቋ';
 
   @override
-  String get country_picker_label => 'Your country';
+  String get country_picker_label => 'ሀገርህ';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'የእርስዎ ምንዛሬ';
 
   @override
-  String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
+  String get help_with_openfoodfacts => 'በኦፕንፉድፋክስ ላይ እገዛ';
 
   @override
-  String get product_task_background_schedule =>
-      'The product will be updated in the background as soon as possible.';
+  String get product_task_background_schedule => 'ምርቱ በተቻለ ፍጥነት ከበስተጀርባ ይዘምናል።';
 
   @override
-  String get no_email_client_available_dialog_title => 'No email apps!';
+  String get no_email_client_available_dialog_title => 'የኢሜይል መተግበሪያዎች የሉም!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Please send us manually an email to mobile@openfoodfacts.org';
+      'እባክዎን በእጅ ኢሜይል ወደ mobile@openfoodfacts.org ይላኩልን።';
 
   @override
-  String get all_images => 'All Images';
+  String get all_images => 'ሁሉም ምስሎች';
 
   @override
-  String get selected_images => 'Selected Images';
+  String get selected_images => 'የተመረጡ ምስሎች';
 
   @override
-  String get product_card_remove_product_tooltip => 'Remove product';
+  String get product_card_remove_product_tooltip => 'ምርትን ያስወግዱ';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'New barcode scanned: $barcode';
+    return 'አዲስ የባርኮድ ስካነር፦ $barcode';
   }
 
   @override
-  String get scan_header_clear_button_tooltip =>
-      'Remove all products from the carousel';
+  String get scan_header_clear_button_tooltip => 'ሁሉንም ምርቶች ከካሮሴል ውስጥ ያስወግዱ';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'Please scan at least two products to compare them';
+      'እባክዎ ቢያንስ ሁለት ምርቶችን ለማነፃፀር ይቃኙ';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'Click to compare the products you have scanned';
+      'የተቃኙዋቸውን ምርቶች ለማነፃፀር ጠቅ ያድርጉ';
 
   @override
-  String get scan_product_loading => 'You have scanned\nthe barcode:';
+  String get scan_product_loading => 'የ\nባርኮዱን ቃኝተሃል፦';
 
   @override
   String get scan_product_loading_initial =>
-      'We\'re looking for this product!\nPlease wait a few seconds…';
+      'ይህንን ምርት እየፈለግን ነው!\nእባክዎ ለጥቂት ሰከንዶች ይጠብቁ…';
 
   @override
   String get scan_product_loading_long_request =>
-      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
+      'አሁንም ይህንን ምርት እየፈለግን ነው!\nለመጫን ረጅም ጊዜ እንደሚወስድ ይሰማዎታል? እኛም…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'We\'re still looking for this product.\nWould you like to restart the search?';
+      'አሁንም ይህንን ምርት እየፈለግን ነው።\nፍለጋውን እንደገና ማስጀመር ይፈልጋሉ?';
 
   @override
-  String get scan_product_loading_restart_button => 'Restart search';
+  String get scan_product_loading_restart_button => 'ፍለጋን እንደገና ያስጀምሩ';
 
   @override
-  String get portion_calculator_description =>
-      'Calculate nutrition facts for a specific quantity';
+  String get portion_calculator_description => 'ለተወሰነ መጠን የአመጋገብ እውነታዎችን አስላ';
 
   @override
-  String get portion_calculator_hint => 'Quantity in';
+  String get portion_calculator_hint => 'ብዛት በ';
 
   @override
   String get portion_calculator_accessibility =>
-      'Input a quantity to calculate nutrition facts';
+      'የአመጋገብ እውነታዎችን ለማስላት ብዛት ያስገቡ';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Please enter a quantity between $min and $max g';
+    return 'እባክዎ በ $min እና $max g መካከል ያለ መጠን ያስገቡ';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Missing data. Calculation could not be performed.';
+      'የጎደለ ውሂብ። ስሌት ሊከናወን አልቻለም።';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return 'Nutrition facts for $grams g (or ml)';
+    return 'የአመጋገብ እውነታዎች ለ $grams ግ (ወይም ሚሊ ሊትር)';
   }
 
   @override
-  String get offline_data => 'Offline Data';
+  String get offline_data => 'ከመስመር ውጭ ውሂብ';
 
   @override
   String get ocr_image_upload_instruction =>
-      'Upload an image to automatically extract the information it contains.';
+      'በውስጡ ያለውን መረጃ በራስ-ሰር ለማውጣት ምስል ይስቀሉ።';
 
   @override
-  String get upload_image => 'Upload Photo';
+  String get upload_image => 'ፎቶ ስቀል';
 
   @override
   String get word_separator_char => ',';
@@ -3676,348 +3591,341 @@ class AppLocalizationsAm extends AppLocalizations {
   String get word_separator => ', ';
 
   @override
-  String get image_download_error => 'Failed to download image';
+  String get image_download_error => 'ምስሉን ማውረድ አልተሳካም';
 
   @override
-  String get image_edit_url_error =>
-      'Failed to edit image because the image URL was not set.';
+  String get image_edit_url_error => 'የምስሉ ዩአርኤል ስላልተዘጋጀ ምስሉን ማርትዕ አልተሳካም።';
 
   @override
-  String get user_picture_source_remember => 'Remember my choice';
+  String get user_picture_source_remember => 'ምርጫዬን አስታውስ';
 
   @override
-  String get user_picture_source_ask => 'Ask each time';
+  String get user_picture_source_ask => 'በእያንዳንዱ ጊዜ ጠይቅ';
 
   @override
-  String get robotoff_continue => 'Continue';
+  String get robotoff_continue => 'ቀጥል';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count questions',
-      one: 'question',
+      other: '$count ጥያቄዎች',
+      one: 'ጥያቄ',
     );
-    return 'Next $_temp0';
+    return 'ቀጣይ $_temp0';
   }
 
   @override
-  String get show_password => 'Show Password';
+  String get show_password => 'የይለፍ ቃል አሳይ';
 
   @override
-  String get owner_field_info_title => 'Producer provided values';
+  String get owner_field_info_title => 'አዘጋጅ የሰጡት እሴቶች';
 
   @override
   String get owner_field_info_message =>
-      'With that logo we highlight data provided by the producer, and that may not be editable.';
+      'በዚያ አርማ በአምራቹ የቀረበውን መረጃ እናደምቃለን፤ ይህም ሊስተካከል የማይችል ሊሆን ይችላል።';
 
   @override
-  String get owner_field_info_close_button => 'Close this info';
+  String get owner_field_info_close_button => 'ይህንን መረጃ ዝጋ';
 
   @override
   String get owner_field_image =>
-      'This image is provided by the producer. It may not be editable.';
+      'ይህ ምስል የቀረበው በአምራቹ ነው። ሊስተካከል የማይችል ሊሆን ይችላል።';
 
   @override
-  String get edit_packagings_title => 'Packaging components';
+  String get edit_packagings_title => 'የማሸጊያ ክፍሎች';
 
   @override
-  String get edit_packagings_element_add => 'Add a packaging component';
+  String get edit_packagings_element_add => 'የማሸጊያ ክፍል ያክሉ';
 
   @override
-  String get edit_packagings_completed => 'The packaging is complete';
+  String get edit_packagings_completed => 'ማሸጊያው ተጠናቅቋል';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'Packaging component #$index';
+    return 'የማሸጊያ ክፍል #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Number of units';
+  String get edit_packagings_element_field_units => 'የአሃዶች ብዛት';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'Enter the number of packaging units of the same shape and material contained in the product.';
+      'በምርቱ ውስጥ የተካተቱትን ተመሳሳይ ቅርፅ እና ቁሳቁስ ያላቸውን የማሸጊያ ክፍሎች ብዛት ያስገቡ።';
 
   @override
-  String get edit_packagings_element_field_shape => 'Shape';
+  String get edit_packagings_element_field_shape => 'ቅርጽ';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
+      'በሪሳይክል አጠቃቀም መመሪያው ውስጥ የተዘረዘሩትን የቅርጽ ስም ያስገቡ ወይም ቅርፅ ይምረጡ።';
 
   @override
-  String get edit_packagings_element_example_shape => 'Bottle';
+  String get edit_packagings_element_example_shape => 'ጠርሙስ';
 
   @override
-  String get edit_packagings_element_field_material => 'Material';
+  String get edit_packagings_element_field_material => 'ቁሳቁስ';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
+      'የተወሰነውን ቁሳቁስ መለየት ከተቻለ (በሶስት ማዕዘን ውስጥ ያለ የቁሳቁስ ኮድ ብዙውን ጊዜ በማሸጊያ ክፍሎች ላይ ሊገኝ ይችላል) ወይም እርግጠኛ ካልሆኑ አጠቃላይ ቁሳቁስ (ለምሳሌ ፕላስቲክ ወይም ብረት) ያስገቡ።';
 
   @override
-  String get edit_packagings_element_example_material => 'Glass';
+  String get edit_packagings_element_example_material => 'ብርጭቆ';
 
   @override
-  String get edit_packagings_element_field_recycling => 'Recycling instruction';
+  String get edit_packagings_element_field_recycling => 'የመልሶ ጥቅም ላይ የማዋል መመሪያ';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Enter recycling instructions only if they are listed on the product.';
+      'በምርቱ ላይ ከተዘረዘሩ ብቻ የሪሳይክል አጠቃቀም መመሪያዎችን ያስገቡ።';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Recycle';
+  String get edit_packagings_element_example_recycling => 'እንደገና ጥቅም ላይ ማዋል';
 
   @override
-  String get edit_packagings_element_field_quantity =>
-      'Net quantity of product per unit';
+  String get edit_packagings_element_field_quantity => 'በአንድ አሃድ የተጣራ የምርት ብዛት';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
+      'የተጣራ ክብደትን ወይም የተጣራ መጠን ያስገቡ እና መለኪያውን (ለምሳሌ ግ ወይም ሚሊ ሊትር) ያመልክቱ።';
 
   @override
-  String get edit_packagings_element_field_weight =>
-      'Weight of one empty unit (g)';
+  String get edit_packagings_element_field_weight => 'የአንድ ባዶ አሃድ ክብደት (ግ)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
+      'የቀረውን ምግብ ያስወግዱና ከመመዘንዎ በፊት የማሸጊያውን ክፍል ያጠቡና ያድርቁ። ከተቻለ 0.1 ግራም ወይም 0.01 ግራም ትክክለኛነት ያለው ሚዛን ይጠቀሙ።';
 
   @override
-  String get background_task_title => 'Pending contributions';
+  String get background_task_title => 'በመጠባበቅ ላይ ያሉ አስተዋጽዖዎች';
 
   @override
   String get background_task_subtitle =>
-      'Your contributions are automatically saved to our server, but not always in real-time.';
+      'የእርስዎ አስተዋጽዖዎች በራስ-ሰር ወደ አገልጋያችን ይቀመጣሉ፣ ነገር ግን ሁልጊዜ በእውነተኛ ጊዜ ላይሆኑ ይችላሉ።';
 
   @override
-  String get background_task_list_empty => 'No Pending Background Tasks';
+  String get background_task_list_empty => 'ምንም በመጠባበቅ ላይ ያሉ የጀርባ ተግባራት የሉም';
 
   @override
-  String get background_task_error_server_time_out => 'Server timeout';
+  String get background_task_error_server_time_out => 'የአገልጋይ ጊዜ አልቋል';
 
   @override
   String get background_task_error_no_internet =>
-      'Internet connection error. Try later.';
+      'የኢንተርኔት ግንኙነት ስህተት። በኋላ ይሞክሩ።';
 
   @override
-  String get background_task_operation_unknown => 'unknown operation type';
+  String get background_task_operation_unknown => 'የማይታወቅ የአሠራር አይነት';
 
   @override
-  String get background_task_operation_details => 'detailed changes';
+  String get background_task_operation_details => 'ዝርዝር ለውጦች';
 
   @override
-  String get background_task_operation_image => 'photo upload';
+  String get background_task_operation_image => 'የፎቶ ሰቀላ';
 
   @override
-  String get background_task_operation_refresh =>
-      'refresh delayed after photo upload';
+  String get background_task_operation_refresh => 'ፎቶ ከተሰቀለ በኋላ ማደስ ዘግይቷል';
 
   @override
-  String get background_task_run_started => 'started';
+  String get background_task_run_started => 'ተጀምሯል';
 
   @override
-  String get background_task_run_not_started => 'not started yet';
+  String get background_task_run_not_started => 'ገና አልተጀመረም';
 
   @override
-  String get background_task_run_to_be_deleted => 'to be deleted';
+  String get background_task_run_to_be_deleted => 'ሊሰረዝ ነው';
 
   @override
-  String get background_task_question_stop =>
-      'Do you want to stop that task ASAP?';
+  String get background_task_question_stop => 'ያንን ተግባር በተቻለ ፍጥነት ማቆም ይፈልጋሉ?';
 
   @override
-  String get feed_back => 'Feedback';
+  String get feed_back => 'ግብረመልስ';
 
   @override
-  String get undo => 'Undo';
+  String get undo => 'ቀልብስ';
 
   @override
-  String get copy_email_to_clip_board => 'Copy email to clipboard';
+  String get copy_email_to_clip_board => 'ኢሜይልን ወደ ቅንጥብ ሰሌዳ ቅዳ';
 
   @override
-  String get please_send_us_an_email_to =>
-      'Please send us manually an email to';
+  String get please_send_us_an_email_to => 'እባክዎን በእጅ ኢሜይል ይላኩልን ወደ';
 
   @override
-  String get email_copied_to_clip_board => 'Email copied to clipboard!';
+  String get email_copied_to_clip_board => 'ኢሜይል ወደ ቅንጥብ ሰሌዳ ተቀድቷል!';
 
   @override
-  String get select_accent_color => 'Select Accent Color';
+  String get select_accent_color => 'የአክሰንት ቀለም ይምረጡ';
 
   @override
   String get theme_amoled => 'AMOLED';
 
   @override
-  String get color_blue => 'Blue';
+  String get color_blue => 'ሰማያዊ';
 
   @override
-  String get color_cyan => 'Cyan';
+  String get color_cyan => 'ሲያን';
 
   @override
-  String get color_green => 'Green';
+  String get color_green => 'አረንጓዴ';
 
   @override
-  String get color_light_brown => 'Default';
+  String get color_light_brown => 'ነባሪ';
 
   @override
-  String get color_magenta => 'Magenta';
+  String get color_magenta => 'ማጀንታ';
 
   @override
-  String get color_orange => 'Orange';
+  String get color_orange => 'ብርቱካናማ';
 
   @override
-  String get color_pink => 'Pink';
+  String get color_pink => 'ሮዝ';
 
   @override
-  String get color_red => 'Red';
+  String get color_red => 'ቀይ';
 
   @override
-  String get color_rust => 'Rust';
+  String get color_rust => 'ዝገት';
 
   @override
-  String get color_teal => 'Teal';
+  String get color_teal => 'ቲል';
 
   @override
-  String get text_contrast_mode => 'Text Contrast';
+  String get text_contrast_mode => 'የጽሑፍ ንፅፅር';
 
   @override
-  String get contrast_high => 'High';
+  String get contrast_high => 'ከፍተኛ';
 
   @override
-  String get contrast_medium => 'Medium';
+  String get contrast_medium => 'መካከለኛ';
 
   @override
-  String get contrast_low => 'Low';
+  String get contrast_low => 'ዝቅተኛ';
 
   @override
-  String get product_refresher_internet_not_found => 'Product not found!';
+  String get product_refresher_internet_not_found => 'ምርቱ አልተገኘም!';
 
   @override
-  String get product_refresher_internet_not_connected =>
-      'You are not connected to internet!';
+  String get product_refresher_internet_not_connected => 'ከኢንተርኔት ጋር አልተገናኙም!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Server down ($host)';
+    return 'አገልጋይ ጠፍቷል ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Server error ($exception)';
+    return 'የአገልጋይ ስህተት ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'Product not found!';
+  String get product_loader_not_found_title => 'ምርቱ አልተገኘም!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
+    return 'የሚከተለው ባርኮድ ያለው ምርት በእኛ የውሂብ ጎታ ውስጥ የለም፦ $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'No internet connection!';
+  String get product_loader_network_error_title => 'የኢንተርኔት ግንኙነት የለም!';
 
   @override
   String get product_loader_network_error_message =>
-      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
+      'ስማርት ስልክዎ በዋይፋይ ኔትወርክ ላይ መሆኑን ወይም የሞባይል ዳታ መብራቱን ያረጋግጡ።';
 
   @override
-  String get page_not_found_title => 'Page not found!';
+  String get page_not_found_title => 'ገጹ አልተገኘም!';
 
   @override
-  String get page_not_found_button => 'Go back to the homepage';
+  String get page_not_found_button => 'ወደ መነሻ ገጹ ይመለሱ';
 
   @override
-  String get download_data => 'Download data';
+  String get download_data => 'ውሂብ አውርድ';
 
   @override
   String get download_top_products =>
-      'Download the top 1000 products in your country for instant scanning';
+      'ለፈጣን ቅኝት በአገርዎ ውስጥ ያሉትን 1000 ምርጥ ምርቶችን ያውርዱ';
 
   @override
   String download_top_n_products(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count products',
+      other: '$count ምርቶች',
     );
-    return 'Download the top $_temp0 in your country for instant scanning';
+    return 'ለፈጣን ቅኝት በአገርዎ ውስጥ ያሉትን ምርጥ $_temp0 ያውርዱ';
   }
 
   @override
-  String get download_in_progress => 'Downloading data\nThis may take a while';
+  String get download_in_progress => 'ውሂብ በማውረድ ላይ\nይህ ጊዜ ሊወስድ ይችላል';
 
   @override
   String downloaded_products(int num) {
-    return '$num products added';
+    return '$num ምርቶች ታክለዋል';
   }
 
   @override
-  String get update_offline_data => 'Update offline product data';
+  String get update_offline_data => 'የመስመር ውጪ የምርት ውሂብን አዘምን';
 
   @override
   String get update_local_database_sub =>
-      'Update the local product database with the latest data from Open Food Facts';
+      'የአካባቢውን የምርት ዳታቤዝ ከ Open Food Facts የቅርብ ጊዜ መረጃ ጋር ያዘምኑ';
 
   @override
-  String get clear_local_database => 'Clear offline product data';
+  String get clear_local_database => 'የመስመር ውጪ የምርት ውሂብን ያጽዱ';
 
   @override
   String get clear_local_database_sub =>
-      'Clear all local product data from your app to free up space';
+      'ቦታ ለማስለቀቅ ከመተግበሪያዎ ውስጥ ሁሉንም የአካባቢ ምርት ውሂብ ያጽዱ';
 
   @override
   String deleted_products(int num) {
-    return '$num products deleted';
+    return '$num ምርቶች ተሰርዘዋል';
   }
 
   @override
   String get loading => 'Loading…';
 
   @override
-  String get know_more => 'Know More';
+  String get know_more => 'ተጨማሪ እወቅ';
 
   @override
-  String get offline_data_desc => 'Click to know more about offline data';
+  String get offline_data_desc => 'ስለ ከመስመር ውጭ ውሂብ የበለጠ ለማወቅ ጠቅ ያድርጉ';
 
   @override
-  String get offline_product_data_title => 'Offline product data';
+  String get offline_product_data_title => 'የመስመር ውጪ የምርት ውሂብ';
 
   @override
   String available_for_download(int num) {
-    return '$num products available for immediate scaning';
+    return '$num ምርቶች ወዲያውኑ ለመቃኘት ይገኛሉ';
   }
 
   @override
-  String get country_selector_title => 'Select your country:';
+  String get country_selector_title => 'አገርዎን ይምረጡ፦';
 
   @override
-  String get currency_selector_title => 'Select your currency:';
+  String get currency_selector_title => 'ምንዛሬዎን ይምረጡ፦';
 
   @override
-  String get language_selector_title => 'Select your language:';
+  String get language_selector_title => 'ቋንቋዎን ይምረጡ፦';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'የተመረጡ ቋንቋዎች';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used => 'በተደጋጋሚ ጥቅም ላይ የዋለ';
 
   @override
-  String get action_delete_list => 'Delete';
+  String get action_delete_list => 'ሰርዝ';
 
   @override
-  String get action_change_list => 'Change the current list';
+  String get action_change_list => 'የአሁኑን ዝርዝር ይቀይሩ';
 
   @override
-  String get product_list_create => 'Create';
+  String get product_list_create => 'ፍጠር';
 
   @override
-  String get product_list_create_tooltip => 'Create a new list';
+  String get product_list_create_tooltip => 'አዲስ ዝርዝር ይፍጠሩ';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4039,11 +3947,11 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Score $letter (New calculation)';
+    return 'Nutri-Score $letter (አዲስ ስሌት)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (አዲስ ስሌት)';
 
   @override
   String get nutriscore_unknown => 'Unknown Nutri-Score';
@@ -4053,11 +3961,11 @@ class AppLocalizationsAm extends AppLocalizations {
       'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
+  String get nutriscore_not_applicable => 'Nutri-Score ተፈጻሚ አይሆንም';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score is not applicable (New calculation)';
+      'Nutri-Score ተፈጻሚ አይሆንም (አዲስ ስሌት)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4102,85 +4010,83 @@ class AppLocalizationsAm extends AppLocalizations {
   String get nova_group_unknown => 'Unknown NOVA Group';
 
   @override
-  String get nutrition_facts => 'Nutrient Levels';
+  String get nutrition_facts => 'የአመጋገብ ደረጃዎች';
 
   @override
-  String get faq_title_partners => 'Partners & Patrons of the NGO';
+  String get faq_title_partners => 'የመንግስታዊ ያልሆነ ድርጅት አጋሮች እና ደጋፊዎች';
 
   @override
-  String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+  String get faq_title_vision => 'ክፍት የምግብ እውነታዎች ራዕይ፣ ተልዕኮ፣ እሴቶች እና ፕሮግራሞች';
 
   @override
   String get faq_title_install_beauty =>
-      'Install Open Beauty Facts to create a cosmetic database';
+      'የመዋቢያ ዳታቤዝ ለመፍጠር ክፍት የውበት እውነታዎችን ይጫኑ';
 
   @override
   String get faq_title_install_pet =>
-      'Install Open Pet Food Facts to create a pet food database';
+      'የቤት እንስሳት ምግብ ዳታቤዝ ለመፍጠር ክፍት የቤት እንስሳት ምግብ እውነታዎችን ይጫኑ';
 
   @override
   String get faq_title_install_product =>
-      'Install Open Products Facts to create a products database to extend the life of objects';
+      'የነገሮችን ዕድሜ ለማራዘም የምርት ዳታቤዝ ለመፍጠር የክፍት ምርቶች እውነታዎችን ይጫኑ';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'New calculation of the Nutri-Score: what\'s new?';
+      'የ Nutri-Score አዲስ ስሌት፡ ምን አዲስ ነገር አለ?';
 
   @override
-  String get contact_title_pro_page =>
-      'Pro? Import your products in Open Food Facts';
+  String get contact_title_pro_page => 'ፕሮፌሽናል? ምርቶችዎን ወደ ክፍት የምግብ እውነታዎች ያስገቡ';
 
   @override
-  String get contact_title_pro_email => 'Producer Contact';
+  String get contact_title_pro_email => 'የአምራች እውቂያ';
 
   @override
-  String get contact_title_press_page => 'Press Page';
+  String get contact_title_press_page => 'ገጽን ይጫኑ';
 
   @override
-  String get contact_title_press_email => 'Press Contact';
+  String get contact_title_press_email => 'የፕሬስ እውቂያ';
 
   @override
   String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar => 'ለማህበረሰብ የቀን መቁጠሪያችን ይመዝገቡ';
 
   @override
-  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
+  String get hunger_games_loading_line1 => 'እባክዎ ጥቂት ሰከንዶች ይስጡን…';
 
   @override
-  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
+  String get hunger_games_loading_line2 => 'ጥያቄዎቹን እያወረድን ነው!';
 
   @override
   String get hunger_games_error_label =>
-      'Argh! Something went wrong… and we couldn\'t load the questions.';
+      'ኧረ! የሆነ ችግር ተፈጥሯል… እና ጥያቄዎቹን መጫን አልቻልንም።';
 
   @override
-  String get hunger_games_error_retry_button => 'Let\'s retry!';
+  String get hunger_games_error_retry_button => 'እንደገና እንሞክር!';
 
   @override
-  String get reorder_attribute_action => 'Reorder the attributes';
+  String get reorder_attribute_action => 'ባህሪያትን እንደገና ደርድር';
 
   @override
   String get link_cant_be_opened =>
-      'This link can\'t be opened on your device. Please check that you have a browser installed.';
+      'ይህ አገናኝ በመሳሪያዎ ላይ ሊከፈት አይችልም። እባክዎ አሳሽ መጫኑን ያረጋግጡ።';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Details for $productName';
+    return 'ዝርዝሮች ለ $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Details for $pageName with $productName';
+    return 'ዝርዝሮች ለ $pageName ከ $productNameጋር';
   }
 
   @override
   String get guide_title => 'Guide';
 
   @override
-  String get guide_share_label => 'Share';
+  String get guide_share_label => 'አጋራ';
 
   @override
   String get guide_nutriscore_v2_title =>
@@ -4262,15 +4168,15 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Where to find the new Nutri-Score calculation?';
+      'አዲሱን የ Nutri-Score ስሌት የት ማግኘት ይቻላል?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'የኑትሪ-ስኮር ውጤት በ7 አገሮች ውስጥ ጥቅም ላይ ውሏል፤ ፈረንሳይ፣ ጀርመን፣ ቤልጂየም፣ ስፔን፣ ሉክሰምበርግ፣ ኔዘርላንድስ እና ስዊዘርላንድ።';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'አምራቾች አዋጁን ከፈረሙ በኋላ ቢበዛ **2 ዓመት** የድሮውን ስሌት በአዲሱ ለመተካት አላቸው።';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4375,7 +4281,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'በአንድ ምድብ ውስጥ የተሻሉ ምርቶችን ለመሸለም፣ ከዚያም በበርካታ መስፈርቶች ላይ የተመሰረቱ **ጉርሻዎችን እና ቅጣቶችን** እንተገብራለን፡';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4383,7 +4289,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**ጉርሻ** የሚሰጠው **ኦፊሴላዊ መለያ፣ መለያ ወይም የአካባቢ ጥቅሞችን የሚያረጋግጥ የምስክር ወረቀት ላላቸው ምርቶች** (ኦርጋኒክ፣ ፍትሃዊ ንግድ፣ HVE፣ Label Rouge፣ Bleu Blanc Cœur፣ MSC/ASC) ነው።';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4391,7 +4297,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      '**ጉርሻ** የሚሰጠው በንጥረ ነገሮቹ አመጣጥ ላይ በመመስረት ነው። ይህ ጉርሻ በመጓጓዣ ላይ ያለውን **ተፅዕኖ** እና የእያንዳንዱን አምራች ሀገር **የአካባቢ ፖሊሲ** ግምት ውስጥ ያስገባል።';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4399,14 +4305,14 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      'እንደ የዘንባባ ዘይት ያሉ በብዝሃ ሕይወት እና በሥነ-ምህዳሮች ላይ ከፍተኛ አሉታዊ ተጽዕኖ የሚያሳድሩ ንጥረ ነገሮችን የያዙ ምርቶች **ቅጣት** ይሰጣቸዋል፤ ይህም የዘንባባ ዘይት ምርት ለከፍተኛ የደን ጭፍጨፋ ምክንያት ነው።';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      '**ቅጣት** የሚሰላው የማሸጊያውን ክብ ቅርጽ** (እንደገና ጥቅም ላይ የዋለ ጥሬ ዕቃ እና እንደገና ጥቅም ላይ ሊውል የሚችልበትን) እና ከመጠን በላይ ማሸግን ግምት ውስጥ በማስገባት ነው።';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4414,19 +4320,18 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'አረንጓዴ-ነጥብ በትክክል ለማስላት፣ በማሸጊያው ላይ ያልተጠቀሰ ** መረጃ (እንደ አመጣጥ እና የእያንዳንዱ ንጥረ ነገር ትክክለኛ መቶኛ) ወይም በቀላሉ ጥቅም ላይ በሚውል መልኩ የማይገኝ (ለምሳሌ ጥቅም ላይ የዋሉ ትክክለኛ የፕላስቲክ ዓይነቶችን የያዘ የማሸጊያውን ሁሉንም ክፍሎች ዝርዝር) መያዝ ያስፈልጋል።';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**አማካይ እሴቶች ይህ መረጃ ገና በማይገኝበት ጊዜ ጥቅም ላይ ይውላሉ**፣ ነገር ግን አሁን ይህንን መረጃ ለመሰብሰብ ሁሉም ሰው እንዲረዳን ጥሪ እናቀርባለን፣ ይህም ለአረንጓዴ-ውጤት በጣም ጠቃሚ ቢሆንም ለሌሎች ብዙ አገልግሎቶችም ጭምር ነው።';
 
   @override
-  String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+  String get guide_greenscore_transparency_arg1_title => 'ዜጎች እንዴት ሊረዱ ይችላሉ?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'ሁሉም ዜጎች በምርቶች ላይ የሚገኘውን ወይም ከእነሱ ሊገኙ የሚችሉ መረጃዎችን ለመሰብሰብ እና ለማዋቀር ሊረዱን ይችላሉ፣ ለምሳሌ ስለ **ማሸጊያ** መረጃ፡ \"Mission Emballages\"፡ ለሁሉም የምግብ ምርቶች (በፈረንሳይኛ) ሰፊ የጋራ የማሸጊያ ክምችት።';
 
   @override
   String get guide_greenscore_transparency_arg2_title => 'አምራቾች እንዴት እንደሚረዱ';
@@ -4528,7 +4433,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'ብዙዎቹ እንደ ሃይድሮጂን የተጨመረባቸው ወይም ወለድ ያላቸው ዘይቶች፣ ሃይድሮላይዝድ ፕሮቲኖች፣ የአኩሪ አተር ፕሮቲን ኢሶሌት፣ ማልቶዴክስትሪን፣ ኢንቨርት ስኳር እና ከፍተኛ የፍሩክቶስ የበቆሎ ሽሮፕ ካሉ የምግብ ንጥረ ነገሮች ተጨማሪ ሂደት የተገኙ ናቸው።';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4536,7 +4441,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'እጅግ በጣም በተቀነባበሩ ምግቦች ውስጥ ያሉ ተጨማሪዎች እንደ መከላከያዎች፣ አንቲኦክሲደንቶች እና ማረጋጊያዎች ባሉ በተቀነባበሩ ምግቦች ውስጥም ጥቅም ላይ የሚውሉትን ያካትታሉ። እጅግ በጣም በተቀነባበሩ ምርቶች ውስጥ ብቻ የሚገኙ ተጨማሪዎች ምድቦች የምግቦችን የስሜት ህዋሳት ለመምሰል ወይም ለማሻሻል ወይም የመጨረሻውን ምርት የማይመቹ ገጽታዎችን ለመደበቅ የሚያገለግሉትን ያካትታሉ**። እነዚህ ተጨማሪዎች ማቅለሚያዎችን እና ሌሎች ቀለሞችን፣ የቀለም ማረጋጊያዎችን፤ ጣዕሞችን፣ የጣዕም ማበልጸጊያዎችን፣ ስኳር ያልሆኑ ጣፋጮችን እና እንደ ካርቦን ማጠንከር፣ ማጠንከር፣ ማጉላት እና ፀረ-ቡልኪንግ ወኪሎች፣ አረፋ ማውጣት፣ ፀረ-ኬኪንግ እና ግላዝ ወኪሎች፣ ኢሙልሲፋየሮች፣ ሴክስታንት እና እርጥበት አዘል ንጥረ ነገሮችን ያካትታሉ።';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4544,7 +4449,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**ብዙውን ጊዜ ብዙ ንጥረ ነገሮችን ለማጣመር እና የመጨረሻውን ምርት (ስለዚህ \'እጅግ በጣም የተዋቀረ\') ለመፍጠር በርካታ የሂደቶች ቅደም ተከተሎች ጥቅም ላይ ይውላሉ። ሂደቶቹ እንደ ሃይድሮጂንዜሽን እና ሃይድሮላይዜሽን፣ ኤክስትሩዥን እና ሻጋታ እና ለመጥበስ ቅድመ-ማቀነባበሪያ ያሉ በርካታ የቤት ውስጥ ተመጣጣኝ ያልሆኑ **ያሉ** ያካትታሉ።';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4552,104 +4457,98 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '**የአልትራ-ፕሮሰሲንግ አጠቃላይ ዓላማ ሌሎች የምግብ ቡድኖችን ለማፈናቀል የተነደፉ የምርት ስም**፣ **ምቹ** (ዘላቂ፣ ለመበላት ዝግጁ)፣ **ማራኪ** (በጣም ጣፋጭ) እና **በጣም ትርፋማ** (ዝቅተኛ ዋጋ ያላቸው ግብዓቶች) የምግብ ምርቶችን መፍጠር ነው። አልትራ-ፕሮሰሲንግ የምግብ ምርቶች ብዙውን ጊዜ ማራኪ በሆነ መልኩ የታሸጉ እና በከፍተኛ ሁኔታ ለገበያ የሚቀርቡ ናቸው።';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'የጤና አደጋ';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      'ከ2018 ጀምሮ፣ ከNutriNet-Santé ጋር፣ እጅግ በጣም የተቀነባበሩ ምግቦችን ፍጆታ እና የካንሰር፣ የልብና የደም ቧንቧ በሽታዎች እና የስኳር በሽታ አደጋዎች መጨመር መካከል የመጀመሪያው ትስስር ጎልቶ ታይቷል**። ዛሬ፣ በዓለም ዙሪያ ከ90 በላይ ጥናቶች እነዚህን ግኝቶች አረጋግጠዋል።\nጠንካራዎቹ ግንኙነቶች ከ**ውፍረት፣ የልብና የደም ቧንቧ ሞት እና የመንፈስ ጭንቀት ምልክቶች** ጋር የተያያዙ ናቸው። በልጆች ላይ፣ ውጤቶቹ በዋነኝነት የሚታዩት በክብደት እና በሊፒድ አለመመጣጠን ላይ ነው።';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'አገሮች እነዚህን ገደቦች እንዲገድቡ ይመክራሉ';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'አንዳንድ አገሮች የNOVA ቡድኖችን ለአመጋገብ መመሪያዎቻቸው ወይም ግቦቻቸው ይጠቀማሉ፣ ለምሳሌ፦\n\n- **🇧🇷 የብራዚል** የአመጋገብ መመሪያዎች **የተቀነባበሩ ምግቦችን ፍጆታ ለመገደብ** እና እጅግ በጣም የተቀነባበሩ ምግቦችን ለማስወገድ ይመክራሉ።\n\n- **🇫🇷 የፈረንሳይ** የ2018-2022 የህዝብ ጤና የአመጋገብ ፖሊሲ ግቦች **የቡድን 4 እጅግ በጣም የተቀነባበሩ ምግቦችን ፍጆታ በ20% ለመቀነስ ያለመ ነው።**';
 
   @override
   String get guide_nova_share_link => 'https://world-am.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title => 'ወደ Open Food Facts እንኳን በደህና መጡ!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'የምግብ ክፍት እውነታዎች ምንድን ነው?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'ክፍት የምግብ ፋንታክስ **ተባባሪ**፣ **ነጻ** እና **ክፍት** የምግብ መረጃ ቋት ሲሆን ከመላው ዓለም የተውጣጡ የምግብ ምርቶችን ያካትታል።';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'ሁሉም ሰው ስለሚመገበው ምግብ መረጃ ማግኘት እንዳለበት እናምናለን። ስለ ንጥረ ነገሮች፣ ስለ አለርጂዎች፣ ስለ አመጋገብ እውነታዎች እና ሌሎችም መረጃዎችን በመሰብሰብ፣ **ሸማቾች በመረጃ ላይ የተመሰረተ ምርጫ እንዲያደርጉ እና የምግብ ኢንዱስትሪውን ወደተሻለ ግልጽነት እንዲያመሩ እናበረታታቸዋለን**።';
 
   @override
-  String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+  String get guide_open_food_facts_features_title => 'የክፍት ምግብ እውነታዎች ባህሪያት';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'የማይፈለጉ ንጥረ ነገሮችን በተመለከተ ማንቂያዎችን ያግኙ';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title => 'ምርጥ ፎቶዎችን ለማንሳት ጠቃሚ ምክሮች';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'ማድረግ የሌለባቸው ነገሮች';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+  String get guide_open_food_facts_tips_arg1_text1 => 'ጥላዎችን እና ነጸብራቅን ያስወግዱ።';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'ምንም ብዥታ ወይም ትኩረት የማይሰጥ ጽሑፍ የለም።';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+  String get guide_open_food_facts_tips_arg1_text3 => 'የጽሑፉን ክፍሎች አይቁረጡ።';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'የተጨናነቁ ዳራዎችን ያስወግዱ።';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'የሚደረጉ ነገሮች';
 
   @override
-  String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+  String get guide_open_food_facts_tips_arg2_text1 => 'ጥሩ፣ እኩል የሆነ ብርሃን ይጠቀሙ።';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'ጽሑፉ ስለታም እና ሊነበብ የሚችል መሆኑን ያረጋግጡ።';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'የጠቅላላውን ንጥረ ነገር ዝርዝር ይያዙ።';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'ምርቱን በጠፍጣፋ መሬት ላይ ያስቀምጡት።';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      '\"ዊኪፔዲያ ኦፍ ፉድ\" እንድንገነባ ያግዙን';
 
   @override
-  String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+  String get guide_open_food_facts_scores_arg1_title => 'የአመጋገብ ጥራት ላይ ነጥብ';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'እጅግ በጣም የተቀነባበሩ ምግቦችን ለማስወገድ የሚያስችል ውጤት';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+  String get guide_open_food_facts_scores_arg3_title => 'ለፕላኔቷ የሚሆን ነጥብ';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4657,168 +4556,162 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'ወደ Open Pet Food Facts እንኳን በደህና መጡ!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'የክፍት የቤት እንስሳት ምግብ እውነታዎች ምንድን ናቸው?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'ክፍት የቤት እንስሳት የምግብ እውነታዎች ተልእኳችንን ለፀጉር ጓደኞቻችን ያሰፋዋል! ለድመቶች፣ ለውሾች እና ለሌሎች አጋሮች የቤት እንስሳት የምግብ ምርቶች የውሂብ ጎታ ነው**።';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'የቤት እንስሳት ባለቤቶች ለእንስሳቶቻቸው ፍላጎት የሚስማማውን ምርጥ ምግብ እንዲመርጡ ለመርዳት ስለ **ንጥረ ነገሮች**፣ **የአመጋገብ ትንተና** እና ስለ አመጋገብ መመሪያዎች መረጃ እንሰበስባለን።';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'የክፍት የቤት እንስሳት ምግብ እውነታዎች ባህሪያት';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'የማይፈለጉ ንጥረ ነገሮችን በተመለከተ ማንቂያዎችን ያግኙ';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'የቤት እንስሳዎ ለማንኛውም ንጥረ ነገሮች አለርጂክ ነው? በመተግበሪያው ውስጥ ለማስወገድ የሚያስፈልጉዎትን የመዋቢያ ንጥረ ነገሮች ዝርዝር ማዘጋጀት ይችላሉ!';
 
   @override
-  String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+  String get guide_open_pet_food_facts_tips_title => 'ምርጥ ፎቶዎችን ለማንሳት ጠቃሚ ምክሮች';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'ማድረግ የሌለባቸው ነገሮች';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'ጥላዎችን እና ነጸብራቅን ያስወግዱ።';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'ምንም ብዥታ ወይም ትኩረት የማይሰጥ ጽሑፍ የለም።';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+  String get guide_open_pet_food_facts_tips_arg1_text3 => 'የጽሑፉን ክፍሎች አይቁረጡ።';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+  String get guide_open_pet_food_facts_tips_arg1_text4 => 'የተጨናነቁ ዳራዎችን ያስወግዱ።';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'የሚደረጉ ነገሮች';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'ጥሩ፣ እኩል የሆነ ብርሃን ይጠቀሙ።';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'ጽሑፉ ስለታም እና ሊነበብ የሚችል መሆኑን ያረጋግጡ።';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'የጠቅላላውን ንጥረ ነገር ዝርዝር ይያዙ።';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'ምርቱን በጠፍጣፋ መሬት ላይ ያስቀምጡት።';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title => 'ስለ ውጤት ማስቆጠር ማስታወሻ';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'የቤት እንስሳትን ለመመገብ የውጤት አሰጣጥ ስርዓት ማዘጋጀት **አሁን ቅድሚያ የሚሰጠው ጉዳይ አይደለም**። የአመጋገብ ፍላጎቶች በእንስሳት፣ በእድሜ እና በጤና ሁኔታ በእጅጉ ስለሚለያዩ ዘዴው ውስብስብ ይሆናል። እንዲህ አይነት ውጤት ሊያመጣ የሚችል ገለልተኛ የሳይንስ ቡድን እስካሁን አላገኘንም።';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-am.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title =>
+      'ወደ ክፍት የውበት እውነታዎች እንኳን በደህና መጡ!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'ክፍት የውበት እውነታዎች ምንድን ናቸው?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'ክፍት የውበት እውነታዎች የ **ኮስሜቲክ ምርቶች** የጋራ የመረጃ ቋት ነው።';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'ግባችን በግል እንክብካቤ ዕቃዎችዎ ውስጥ ያለውን ነገር እንዲረዱ ለማገዝ የንጥረ ነገሮች ዝርዝርን መፍታት ነው። ከእርጥበት ማድረቂያዎች እስከ ሜካፕ፣ በመዋቢያ ኢንዱስትሪ ውስጥ ግልጽነትን ለማስተዋወቅ ስለ ንጥረ ነገሮች፣ ስለ አለርጂዎች እና ስለ ማሸጊያዎች መረጃዎችን እንሰበስባለን።';
 
   @override
-  String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+  String get guide_open_beauty_facts_features_title => 'የክፍት ውበት እውነታዎች ገጽታዎች';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'የማይፈለጉ ንጥረ ነገሮችን በተመለከተ ማንቂያዎችን ያግኙ';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'ለማንኛውም ንጥረ ነገሮች አለርጂክ ነዎት? የኮሜዶጅን ንጥረ ነገሮችን ማስወገድ ይፈልጋሉ? አወዛጋቢ ከሆኑ ንጥረ ነገሮች መራቅ ይፈልጋሉ? በመተግበሪያው ውስጥ ሊያስወግዷቸው የሚገቡ የመዋቢያ ንጥረ ነገሮችን ዝርዝር ማዘጋጀት ይችላሉ!';
 
   @override
-  String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+  String get guide_open_beauty_facts_tips_title => 'ምርጥ ፎቶዎችን ለማንሳት ጠቃሚ ምክሮች';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'ማድረግ የሌለባቸው ነገሮች';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'ጥላዎችን እና ነጸብራቅን ያስወግዱ።';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'ምንም ብዥታ ወይም ትኩረት የማይሰጥ ጽሑፍ የለም።';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+  String get guide_open_beauty_facts_tips_arg1_text3 => 'የጽሑፉን ክፍሎች አይቁረጡ።';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+  String get guide_open_beauty_facts_tips_arg1_text4 => 'የተጨናነቁ ዳራዎችን ያስወግዱ።';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'የሚደረጉ ነገሮች';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'ጥሩ፣ እኩል የሆነ ብርሃን ይጠቀሙ።';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'ጽሑፉ ስለታም እና ሊነበብ የሚችል መሆኑን ያረጋግጡ።';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'የጠቅላላውን ንጥረ ነገር ዝርዝር ይያዙ።';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'ጠርሙሱ የተጠማዘዘ ከሆነ የሚያስፈልገውን ያህል ፎቶ ያንሱ።';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'የንጥረ ነገሮችን ዝርዝር ለማየት መለያውን መገልበጥ ያስፈልግዎት ይሆናል።';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'ምርቱን በጠፍጣፋ መሬት ላይ ያስቀምጡት።';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title => 'ስለ ውጤት ማስቆጠር ማስታወሻ';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'ከምግብ ምርቶች በተለየ መልኩ የመዋቢያዎች ዓለም **እንደ Nutri-Score** ያለ በዓለም አቀፍ ደረጃ የታወቀ፣ በመንግስት የሚደገፍ የውጤት አሰጣጥ ስርዓት የለውም። የንጥረ ነገሮች ተፅእኖዎች በጣም ግላዊ ሊሆኑ እና በቆዳ አይነት፣ በአለርጂዎች እና በግለሰብ ጉዳዮች ላይ የተመሰረቱ ሊሆኑ ይችላሉ።';
 
   @override
   String get guide_open_beauty_facts_share_link =>
@@ -4844,41 +4737,40 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**ዋጋዎችን ክፍት ምንጭ የውሂብ ስብስብ እያሰባሰብን ነው**። ዋጋዎች በተጠቃሚዎች በዚህ የድር መተግበሪያ ወይም በይፋዊው የክፍት ምግብ እውነታዎች የሞባይል መተግበሪያ በኩል ሊታከሉ ይችላሉ። ቸርቻሪዎች ወይም የሶስተኛ ወገን መተግበሪያዎች የእኛን ኤፒአይ በመጠቀምም አስተዋጽዖ ማድረግ ይችላሉ።';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'የዋጋ መለያዎችን ፎቶዎች በመተላለፊያዎች ውስጥ ይሰብስቡ';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title => 'የደረሰኞችን ፎቶዎች ይሰብስቡ';
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'ኦፕን ፉድ ፋውንትስ ይህን የሚያደርገው ለምንድን ነው?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'የምግብ ስርዓቶችን ለመረዳት የዋጋ መረጃ እጅግ በጣም አስፈላጊ ነው። የምግብ ዋጋን ለመረዳት እና ጤናማ ምግቦችን ለማስተዋወቅ ቁልፍ ነገር ነው። የዋጋ መረጃ መክፈት ተመራማሪዎች፣ ጋዜጠኞች እና ዜጎች የምግብ ዋጋ በጂኦግራፊያዊ እና በጊዜ እንዴት እንደሚለያይ የተሻለ ግንዛቤ እንዲኖራቸው ለማድረግ የሚያስችል መንገድ ነው።';
 
   @override
-  String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+  String get guide_open_prices_why_arg1_title => 'የዋጋዎችን እድገት በጊዜ ሂደት ይከታተሉ';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'የዋጋዎችን **ዝግመተ ለውጥ** ይመልከቱ፡ የዋጋ ንረት መቀነስ፣ ርካሽ የዋጋ ንረት፣ አብረን መከታተል እንችላለን!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title => 'በአቅራቢያዎ ያሉ ዋጋዎችን ያወዳድሩ';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'ተጨማሪ ዋጋዎችን ስናገኝ፣ **በዙሪያዎ በጣም ርካሹን መደብሮች** ማግኘት ይችላሉ።';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'ከቸርቻሪዎች ድረ-ገጾች ላይ የዋጋ ቅነሳዎችን አስበዋል?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
@@ -4886,7 +4778,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'የዋጋ ቅየራ (Preces scraping) ወደፊት በሚካሄደው የOpen Prices ስሪት ውስጥ እንደ አማራጭ የሚወሰድ ቢሆንም፣ በHTML ገጹ ላይ ተመስርቶ የዋጋውን ማረጋገጫ ማግኘት እንድንችል በክፍት Prices ራሱ ይከናወናል።';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4894,7 +4786,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'የእኛን ኤፒአይ በመጠቀም ዋጋዎችን ማበርከት ይችላሉ።\nዋጋዎችን በስፋት ማበርከት ከፈለጉ፣ እባክዎን በprices@openfoodfacts.org ያግኙን።';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4902,149 +4794,147 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'ወደ Open Products Facts እንኳን በደህና መጡ!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'የክፍት ምርቶች እውነታዎች ምንድን ናቸው?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'ክፍት ምርቶች ፋክትስ ባርኮድ ያለው ለማንኛውም ምርት ግዙፍ፣ ክፍት የመረጃ ቋት ሲሆን ይህም ምግብ፣ የመዋቢያ ወይም የቤት እንስሳት ምግብ ያልሆነ** ነው።';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      'ከ **ኤሌክትሮኒክስ** እስከ **መጫወቻዎች**፣ እና **ልብስ** እስከ **የጽዳት አቅርቦቶች**፣ ባርኮድ ካለው፣ ሊጨመር ይችላል። ይህ ፕሮጀክት ለዕለታዊ ዕቃዎች \"የነገሮች በይነመረብ\" ለመፍጠር ያለመ ሲሆን ስለእነሱ መረጃ በዓለም አቀፍ ደረጃ ተደራሽ ያደርገዋል።';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'የክፍት ምርቶች እውነታዎች ባህሪያት';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'ክፍት ምርቶች ፋውንቴሽን ሸማቾች ዕቃዎቻቸውን ለመጠገን፣ ለመጠገን፣ እንደገና ጥቅም ላይ ለማዋል ወይም አዲስ ባለቤት ለመስጠት ክብ መፍትሄዎችን በማቅረብ የነገሮችን ዕድሜ እንዲያራዝሙ** ለማቅረብ ያለመ ነው።';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'ለአንዳንድ ምርቶች የካርቦን አሻራዎች';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      '**የካርቦን ዳይኦክሳይድ ተጽእኖ** በፈረንሳይ የአካባቢ ባለስልጣን ADEME የብዙ ምድቦችን **የካርቦን ተጽእኖ** ያቀርባል፣ ምርቶችን በትክክል መመደብዎን ያረጋግጡ።';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'ለብዙ ምርቶች የማሻሻያ መረጃ ጠቋሚ';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'የፈረንሳይ የማካካሻ ኢንዴክስ በሚገኝበት ጊዜ ሁሉ እናሳየዋለን። ከዚህም በላይ፣ **ተለዋዋጮቹን በፎልክሶኖሚ ሞተር** በመጠቀም መሰብሰብ መጀመር ይችላሉ፤ ስለዚህም ወደፊት በማይገኝባቸው አገሮች ውስጥ እንኳን እራሳችንን እንደገና ማስላት እንችላለን።';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'ምርትዎን ለመለገስ/እንደገና ለመሸጥ መንገዶችን ያግኙ';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'ለሶስተኛ ወገን ክብ ቅርጽ ያላቸው አገልግሎቶች** አገናኞችን እናቀርባለን፤ እነዚህም የሚፈልጉትን ምርት እንደ ሁለተኛ እጅ ምርት እንዲያገኙ የሚያግዙዎት ሲሆን ይህም በፕላኔታዊ ሀብቶች ላይ የበለጠ ጨዋነት እንዲኖራቸው ይረዳል።\nያንን ለማድረግ ክፍያ እንዳልተከፈለን እና ስርዓቱ በፈረንሳይ ውስጥ ላሉ ሁለት ድር ጣቢያዎች ብቻ እንደ ምሳሌ ሆኖ እንደሚሰራ ልብ ይበሉ። በዊኪው ላይ ተጨማሪ ጣቢያዎችን በመመዝገብ ይህንን ስርዓት ለማስፋፋት ሊረዱዎት ይችላሉ።';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'ምን አይነት መረጃ ጠቃሚ ነው?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'ለእንደዚህ አይነት ሰፊ የእቃዎች ክልል **የምንሰበስበው መረጃ ተለዋዋጭ ነው**። ይህንን ለማድረግ **ፎልክሶኖሚ ሞተር** ፈጠርን።';
 
   @override
-  String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+  String get guide_open_products_facts_folksonomy_title => 'የፎልክሶኖሚ ሞተር';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'የፎልክሶኖሚ ሞተር ተዛማጅ ባህሪያት ያላቸውን ምርቶች እንዲያጠናቅቁ የሚያግዝ መሳሪያ ነው። ይህ ፍለጋን እና ተገኝነትን ለማሻሻል ይረዳል፣ ነገር ግን ለወደፊቱ አስደሳች ነገሮችን ለማስላት እና ለማሳየት ይረዳል።';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'እንደ **ተኳሃኝነት_ከ_5G_mobile_network ጋር፡ አዎ** ያሉ ማንኛውንም ቁልፎችን እና እሴቶችን ማከል ይችላሉ';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'ሊሆኑ የሚችሉ ንብረቶችን በራስ-ሰር የመምከር እድል ያገኛሉ፣ እና በሚወዷቸው የምርት አይነቶች ላይ አዳዲስ ምርቶችን ማከል እና መመዝገብ ይችላሉ።';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-am.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title => 'ክፍት የምግብ ምርጫዎች';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'በቅርቡ ይመጣል';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'ተጨማሪ ለማወቅ መታ ያድርጉ';
 
   @override
-  String get preview_badge => 'Preview';
+  String get preview_badge => 'ቅድመ እይታ';
 
   @override
   String get prices_feedback_form =>
-      'Click here to send us your feedback about this new feature!';
+      'ስለዚህ አዲስ ባህሪ ያለዎትን አስተያየት ለመላክ እዚህ ጠቅ ያድርጉ!';
 
   @override
-  String get menu_button_list_actions => 'Select an action';
+  String get menu_button_list_actions => 'እርምጃ ይምረጡ';
 
   @override
-  String get error_loading_photo => 'Error loading photo';
+  String get error_loading_photo => 'ፎቶ በመጫን ላይ ስህተት';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Use as…';
+  String get photo_viewer_action_use_picture_as => 'እንደ…ይጠቀሙ';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
+  String get photo_viewer_use_picture_as_tooltip => 'ይህንን ስዕል እንደ…ይጠቀሙበት';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Use this picture as… ($language)';
+    return 'ይህንን ስዕል እንደ… ($language) ይጠቀሙበት';
   }
 
   @override
-  String get photo_viewer_details_button => 'Details';
+  String get photo_viewer_details_button => 'ዝርዝሮች';
 
   @override
-  String get photo_viewer_details_button_accessibility_label =>
-      'Details of this photo';
+  String get photo_viewer_details_button_accessibility_label => 'የዚህ ፎቶ ዝርዝሮች';
 
   @override
-  String get photo_viewer_details_title => 'Details of the photo';
+  String get photo_viewer_details_title => 'የፎቶው ዝርዝሮች';
 
   @override
   String get photo_viewer_details_contributor_title => 'Contributor';
 
   @override
-  String get photo_viewer_details_size_title => 'Size';
+  String get photo_viewer_details_size_title => 'መጠን';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height pixels';
+    return '$width x $height ፒክስሎች';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Date';
+  String get photo_viewer_details_date_title => 'ቀን';
 
   @override
-  String get photo_viewer_details_url_title => 'URL';
+  String get photo_viewer_details_url_title => 'ዩአርኤል';
 
   @override
-  String get product_page_compatibility_score => 'Compatible';
+  String get product_page_compatibility_score => 'ተኳሃኝ';
 
   @override
-  String get user_lists_action_multi_select => 'Multi-select';
+  String get user_lists_action_multi_select => 'ባለብዙ ምርጫ';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Your compatibility score: $score%';
+    return 'የተኳሃኝነት ነጥብዎ፦ $score%';
   }
 
   @override
@@ -5055,164 +4945,160 @@ class AppLocalizationsAm extends AppLocalizations {
       'Ingredients picture';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
+  String get product_image_nutrition_accessibility_label => 'የአመጋገብ ምስል';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Packaging picture';
+  String get product_image_packaging_accessibility_label => 'የማሸጊያ ስዕል';
 
   @override
-  String get product_image_other_accessibility_label => 'Other picture';
+  String get product_image_other_accessibility_label => 'ሌላ ሥዕል';
 
   @override
-  String get product_image_outdated_message => 'This picture may be outdated';
+  String get product_image_outdated_message => 'ይህ ፎቶ ጊዜው ያለፈበት ሊሆን ይችላል';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (this image may be outdated)';
+    return '$type (ይህ ምስል ጊዜው ያለፈበት ሊሆን ይችላል)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (this image may be locked by the producer)';
+    return '$type (ይህ ምስል በአምራቹ ሊቆለፍ ይችላል)';
   }
 
   @override
-  String get product_image_error => 'Unable to load the image!';
+  String get product_image_error => 'ምስሉን መጫን አልተቻለም!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'Unable to load the $type (network error?)';
+    return '$type ን መጫን አልተቻለም (የአውታረ መረብ ስህተት?)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'No\nimage!';
+  String get product_page_image_no_image_available => 'ምንም\nምስል የለም!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'No picture available for this product';
+      'ለዚህ ምርት ምንም ፎቶ የለም';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Reorder or hide actions';
+      'እርምጃዎችን እንደገና ደርድር ወይም ደብቅ';
 
   @override
-  String get product_page_action_bar_setting_modal_title => 'Edit actions';
+  String get product_page_action_bar_setting_modal_title => 'እርምጃዎችን ያርትዑ';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Move up';
+  String get product_page_action_bar_item_move_up => 'ወደ ላይ ውሰድ';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Move down';
+  String get product_page_action_bar_item_move_down => 'ወደ ታች ውሰድ';
 
   @override
-  String get product_page_action_bar_item_enable => 'Enable action';
+  String get product_page_action_bar_item_enable => 'እርምጃን አንቃ';
 
   @override
-  String get product_page_action_bar_item_disable => 'Disable action';
+  String get product_page_action_bar_item_disable => 'እርምጃን አሰናክል';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'አርትዖቶችዎን በመስቀል ላይ…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
+      'በዚህ ገጽ ላይ የሚታየው ውሂብ **እስካሁን ማሻሻያዎችዎን አያንጸባርቅም።**።\nእባክዎ ጥቂት ሰከንዶች ይጠብቁ…';
 
   @override
-  String get product_add_a_language => 'Add a language';
+  String get product_add_a_language => 'ቋንቋ ያክሉ';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Barcode $barcode';
+    return 'ባርኮድ $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Remove this product from the carousel';
+  String get carousel_close_tooltip => 'ይህንን ምርት ከካሮሴል ውስጥ ያስወግዱት';
 
   @override
-  String get carousel_unsupported_header => 'Unsupported barcode!';
+  String get carousel_unsupported_header => 'የማይደገፍ ባርኮድ!';
 
   @override
-  String get carousel_unsupported_title => 'Ooops!';
+  String get carousel_unsupported_title => 'ኡፍፍፍ!';
 
   @override
-  String get carousel_unsupported_text =>
-      'The barcode scanned is not supported by Open Food Facts!';
+  String get carousel_unsupported_text => 'የተቃኘው ባርኮድ በክፍት ፉድ ፋክትስ አይደገፍም!';
 
   @override
-  String get carousel_error_header => 'Error!';
+  String get carousel_error_header => 'ስህተት!';
 
   @override
-  String get carousel_error_title => 'It\'s a bummer!';
+  String get carousel_error_title => 'በጣም ያሳዝናል!';
 
   @override
-  String get carousel_error_text_1 =>
-      'We couldn\'t download information on this barcode:';
+  String get carousel_error_text_1 => 'በዚህ ባርኮድ ላይ መረጃ ማውረድ አልቻልንም፡';
 
   @override
-  String get carousel_error_text_2 =>
-      'Please check your Internet connection or click this button:';
+  String get carousel_error_text_2 => 'የኢንተርኔት ግንኙነትዎን ያረጋግጡ ወይም ይህንን ቁልፍ ይጫኑ፦';
 
   @override
-  String get carousel_error_button => 'Retry';
+  String get carousel_error_button => 'እንደገና ሞክር';
 
   @override
-  String get carousel_unknown_product_header => 'Unknown product';
+  String get carousel_unknown_product_header => 'ያልታወቀ ምርት';
 
   @override
   String get carousel_unknown_product_title =>
-      'Congratulations!\nYou\'ve found __the rare gem!__';
+      'እንኳን ደስ አላችሁ!\nብርቅዬውን ዕንቁ አግኝተሃል!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'የትብብር ዳታቤዛችን ከ **3 ሚሊዮን በላይ ምርቶችን** ይዟል፣ ነገር ግን ይህ ባርኮድ የለም፦ ';
 
   @override
   String get carousel_unknown_product_button => 'Add this product';
 
   @override
-  String get carousel_loading_header => 'Loading information...';
+  String get carousel_loading_header => 'መረጃ በመጫን ላይ...';
 
   @override
-  String get carousel_loading_title =>
-      'You\'ve just scanned a product with the following barcode:';
+  String get carousel_loading_title => 'የሚከተለውን ባርኮድ በመጠቀም አንድን ምርት አሁን ቃኝተሃል፦';
 
   @override
   String get carousel_loading_text =>
-      'We are searching for it in our database of more than **3 million products!**';
+      'ከ **3 ሚሊዮን በላይ ምርቶች ባሉበት የውሂብ ጎታችን ውስጥ እየፈለግነው ነው!**';
 
   @override
-  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
+  String get product_type_subtitle_food => 'አትክልቶች፣ ፍራፍሬዎች፣ የቀዘቀዘ ምግብ…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
+  String get product_type_subtitle_beauty => 'ሜካፕ፣ ሳሙናዎች፣ የጥርስ ሳሙናዎች…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'ለውሾች፣ ድመቶች የሚሆን ምግብ…';
 
   @override
-  String get product_type_subtitle_product => 'Smartphones, furniture…';
+  String get product_type_subtitle_product => 'ስማርት ስልኮች፣ የቤት እቃዎች…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'የምርት ፎቶ';
 
   @override
-  String get photo_field_ingredients => 'Ingredients photo';
+  String get photo_field_ingredients => 'የንጥረ ነገሮች ፎቶ';
 
   @override
-  String get photo_field_nutrition => 'Nutrition photo';
+  String get photo_field_nutrition => 'የአመጋገብ ፎቶ';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'የመልሶ ጥቅም ላይ ማዋል መመሪያዎች ፎቶ';
 
   @override
-  String get photo_already_exists => 'This photo already exists';
+  String get photo_already_exists => 'ይህ ፎቶ አስቀድሞ አለ';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'ይህ ፎቶ ጠፍቷል';
 
   @override
-  String get date => 'Date';
+  String get date => 'ቀን';
 
   @override
   String get photo_rotate_left => 'Rotate left';
@@ -5221,76 +5107,76 @@ class AppLocalizationsAm extends AppLocalizations {
   String get photo_rotate_right => 'Rotate right';
 
   @override
-  String get photo_undo_action => 'Undo the previous action';
+  String get photo_undo_action => 'ቀዳሚውን እርምጃ ቀልብስ';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'A world map of $location';
+    return 'የ $locationየዓለም ካርታ';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'OpenStreetMap contributors';
+      'የOpenStreetMap አስተዋጽዖ አበርካቾች';
 
   @override
-  String get not_applicable_short => 'N/A';
+  String get not_applicable_short => 'የለም';
 
   @override
   String get knowledge_panel_warning_text => 'Warning';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'ይህ የኑትሪ-ስኮር ከጥቅሉ ላይ ካለው የተለየ የሆነው ለምንድነው?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'ሁለት ሊሆኑ የሚችሉ ማብራሪያዎች አሉ፦\nየንጥረ ነገሮች እና/ወይም የአመጋገብ እውነታዎች ዝርዝር ወቅታዊ አይደለም።\n\nየNutri-Score (ወይም V2) \"አዲስ ስሌት\" እናቀርባለን። እባክዎን በጥቅሉ ላይ \"አዲስ ስሌት\" የሚለውን ባነር እንዳለዎት ያረጋግጡ።';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'ንጥረ ነገሮችን ያረጋግጡ';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Check nutrition facts';
+      'የአመጋገብ እውነታዎችን ያረጋግጡ';
 
   @override
   String url_not_supported(String url) {
-    return 'Unfortunately, we can\'t open the URL:\n$url';
+    return 'በሚያሳዝን ሁኔታ፣ ዩአርኤሉን መክፈት አንችልም፦\n$url';
   }
 
   @override
-  String get product_list_export => 'Export';
+  String get product_list_export => 'ወደ ውጭ ላክ';
 
   @override
-  String get product_list_import => 'Import';
+  String get product_list_import => 'አስመጣ';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'ባርኮድ ይመልከቱ';
 
   @override
   String get product_footer_action_barcode_short => 'Barcode';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'ድህረ ገጽን ክፈት';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'ሪፖርት ያድርጉ';
 
   @override
-  String get product_footer_action_contributor_guide => 'Help';
+  String get product_footer_action_contributor_guide => 'እገዛ';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'የውሂብ ጥራት';
 
   @override
   String get product_page_tab_for_me => 'ለኔ';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'ድህረገፅ';
 
   @override
-  String get product_page_tab_prices => 'Prices';
+  String get product_page_tab_prices => 'ዋጋዎች';
 
   @override
   String get prices_explanation_card_title => 'ለምን ዋጋዎች?';
@@ -5300,10 +5186,10 @@ class AppLocalizationsAm extends AppLocalizations {
       '** Open Prices ** በዓለም ዙሪያ ያሉ ምርቶችን የመሰብሰብ እና የመጋራት ፕሮጀክት ነው 🌍። Open Prices የሚዘጋጀው በክፍት Open Food Facts ነው።';
 
   @override
-  String get explanation_card_learn_more_button => 'Learn more';
+  String get explanation_card_learn_more_button => 'ተጨማሪ ይወቁ';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'ፎልክሶኖሚ';
 
   @override
   String get folksonomy_explanation_card_title => 'Folksonomy ባህሪያት ምንድን ናቸው?';
@@ -5317,11 +5203,11 @@ class AppLocalizationsAm extends AppLocalizations {
       'እነዚህ ንብረቶች ለየትኛውም አይነት አገልግሎት አስተዋፅዖ አበርካቾች የተፈጠሩ እና የተመዘገቡ ናቸው።';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'ውጫዊ ሊንክ ክፈት';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'ውጫዊ አገናኞች ደህንነታቸው ያልተጠበቀ ሊሆን ይችላል። በእርግጥ መጎብኘት ይፈልጋሉ?';
 
   @override
   String get prices_products_empty_title => 'ምንም ዋጋ አይገኝም';
@@ -5331,41 +5217,40 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize products (total: $total)';
+    return 'ከፍተኛ $pageSize ምርቶች (ጠቅላላ፡ $total)';
   }
 
   @override
-  String get app_review_title => 'Are you enjoying this app?';
+  String get app_review_title => 'ይህን መተግበሪያ እየተደሰቱበት ነው?';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'የተሻለ ማድረግ ይቻል ነበር';
 
   @override
-  String get app_review_medium => 'Not bad';
+  String get app_review_medium => 'መጥፎ አይደለም';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'በጣም እወደዋለሁ!';
 
   @override
-  String get app_review_feedback_modal_title =>
-      'Help us improve our application';
+  String get app_review_feedback_modal_title => 'መተግበሪያችንን እንድናሻሽል ያግዙን';
 
   @override
   String get app_review_feedback_modal_content =>
-      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+      'ጥቂት ደቂቃዎች ካሉዎት፣ **በወደፊት ዝማኔዎች ላይ ማሻሻል እንድንችል ይህንን ቅጽ መመለስ ይችላሉ**፡';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Answer the form';
+  String get app_review_feedback_modal_open_form => 'ለቅጹ መልስ ይስጡ';
 
   @override
-  String get app_review_feedback_modal_later => 'Ask me later';
+  String get app_review_feedback_modal_later => 'በኋላ ጠይቀኝ';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEW: You can automatically extract the nutrients from the picture!';
+      'አዲስ፡- ንጥረ ነገሮቹን ከስዕሉ በራስ-ሰር ማውጣት ይችላሉ!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Extract now';
+  String get nutrition_facts_extract_button_text => 'አሁን አውጥተህ አውጣ';
 
   @override
   String get nutrition_facts_extract_in_progress => 'ማውጣት በሂደት ላይ…';
@@ -5374,23 +5259,22 @@ class AppLocalizationsAm extends AppLocalizations {
   String get nutrition_facts_extract_successful => 'ማውጣት ተሳክቷል።';
 
   @override
-  String get nutrition_facts_extract_failed =>
-      'Failed to extract nutrients from picture';
+  String get nutrition_facts_extract_failed => 'ከስዕሉ ውስጥ ንጥረ ነገሮችን ማውጣት አልተሳካም';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'ስታቲስቲክስ';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'የዋጋዎች ስታቲስቲክስ';
 
   @override
-  String get prices_stats_prices_section => 'Prices';
+  String get prices_stats_prices_section => 'ዋጋዎች';
 
   @override
-  String get prices_stats_products_section => 'Products';
+  String get prices_stats_products_section => 'ምርቶች';
 
   @override
   String get prices_stats_locations_section => 'Locations';
@@ -5405,7 +5289,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'Miscellaneous';
+  String get prices_stats_misc_section => 'የተለያዩ';
 
   @override
   String get prices_stats_total => 'Total';
@@ -5429,19 +5313,19 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Food';
+  String get prices_stats_food => 'ምግብ';
 
   @override
   String get prices_stats_beauty => 'Beauty';
 
   @override
-  String get prices_stats_products => 'Products';
+  String get prices_stats_products => 'ምርቶች';
 
   @override
-  String get prices_stats_pet_food => 'Pet food';
+  String get prices_stats_pet_food => 'የቤት እንስሳት ምግብ';
 
   @override
-  String get prices_stats_osm => 'OpenStreetMap';
+  String get prices_stats_osm => 'ኦፕን ስትሪት ካርታ';
 
   @override
   String get prices_stats_online => 'Online';
@@ -5450,10 +5334,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_stats_countries => 'Countries';
 
   @override
-  String get prices_stats_price_tag => 'Price tag';
+  String get prices_stats_price_tag => 'የዋጋ መለያ';
 
   @override
-  String get prices_stats_receipt => 'Receipt';
+  String get prices_stats_receipt => 'ደረሰኝ';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5477,35 +5361,34 @@ class AppLocalizationsAm extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Website';
+  String get prices_stats_website => 'ድህረገፅ';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
 
   @override
-  String get prices_stats_api => 'API';
+  String get prices_stats_api => 'ኤፒአይ';
 
   @override
   String get prices_stats_other => 'Other';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'ለመጨረሻ ጊዜ የተዘመነው በ';
 
   @override
-  String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+  String get prices_stats_error => 'ስታቲስቲክስን በመጫን ላይ ስህተት ተከስቷል።';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'ጥያቄው መልስ አግኝቷል!';
 
   @override
-  String get product_edit_robotoff_proof => 'Proof';
+  String get product_edit_robotoff_proof => 'ማረጋገጫ';
 
   @override
   String get preferences_card_general => 'General';
 
   @override
-  String get preferences_prices_title => 'Prices';
+  String get preferences_prices_title => 'ዋጋዎች';
 
   @override
   String get preferences_prices_subtitle => 'የዋጋ ምርጫዎችዎን ያስተዳድሩ';
@@ -5542,7 +5425,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_card_help => 'እገዛ እና ድጋፍ';
 
   @override
-  String get preferences_faq_title => 'FAQ';
+  String get preferences_faq_title => 'ተደጋጋሚ ጥያቄዎች';
 
   @override
   String get preferences_faq_subtitle => 'ለጥያቄዎችዎ መልስ ያግኙ';
@@ -5577,7 +5460,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_accessibility_remove_colors => 'ተደራሽነት: ቀለሞችን ያስወግዱ';
 
   @override
-  String get preferences_app_settings_products => 'Products';
+  String get preferences_app_settings_products => 'ምርቶች';
 
   @override
   String get preferences_card_about => 'About';
@@ -5590,7 +5473,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'የአጠቃቀም ውል፣ የግላዊነት ፖሊሲ እና ሌሎችም።';
 
   @override
-  String get preferences_terms_of_use => 'Terms of use';
+  String get preferences_terms_of_use => 'የአጠቃቀም ውሎች';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
@@ -5600,7 +5483,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'ክፍት Open Food Facts የምግብ ምርቶች ዳታቤዝ ነው **በሁሉም ሰው የተሰራ ለሁሉም**።\nየተሻሉ የምግብ ምርጫዎችን ለማድረግ ሊጠቀሙበት ይችላሉ፣ እና **ክፍት ዳታ** እንደመሆኑ ማንኛውም ሰው ** ለማንኛውም ዓላማ እንደገና ሊጠቀምበት ይችላል**።';
 
   @override
-  String get preferences_privacy_policy => 'Privacy policy';
+  String get preferences_privacy_policy => 'የግላዊነት መመሪያ';
 
   @override
   String get preferences_licenses => 'ፍቃዶች';
@@ -5742,18 +5625,17 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'ክፍት Open Food Factsን ያግኙ';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => 'ክፍት የውበት እውነታዎችን ያግኙ';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'የክፍት የቤት እንስሳት ምግብ እውነታዎችን ያግኙ';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
-  String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+  String get preferences_faq_discover_opf_title => 'የክፍት ምርቶች እውነታዎችን ያግኙ';
 
   @override
   String get preferences_faq_faq_title => 'ተደጋጋሚ ጥያቄዎች - ተዘውትረው የሚጠየቁ ጥያቄዎች';
@@ -5775,7 +5657,7 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'ለማህበረሰብ የቀን መቁጠሪያችን ይመዝገቡ';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -5874,7 +5756,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'በአገርዎ ውስጥ የምግብ ግልፅነትን ለማሳደግ ቀላል እርምጃዎች';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'የውሂብ ጥራት';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -5899,10 +5781,10 @@ class AppLocalizationsAm extends AppLocalizations {
   String get preferences_contributions_all_incomplete_title => 'ሁሉም ያልተሟሉ ምርቶች';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prices';
+  String get preferences_my_contributions_prices_title => 'ዋጋዎች';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'My prices';
+  String get preferences_my_contributions_my_prices_title => 'የእኔ ዋጋዎች';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6084,10 +5966,10 @@ class AppLocalizationsAm extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Open Food Facts ቤተሙከራዎችን ይክፈቱ';
 
   @override
-  String get preferences_root_account_title => 'Account';
+  String get preferences_root_account_title => 'መለያ';
 
   @override
   String get preferences_contribute_translate_header =>
@@ -6105,7 +5987,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'Folksonomy አታሳይ';
 
   @override
-  String get preferences_account_title => 'Account';
+  String get preferences_account_title => 'መለያ';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
@@ -6113,26 +5995,26 @@ class AppLocalizationsAm extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'የአካባቢ ዝርዝሮች';
 
   @override
-  String get location_map_details_name => 'Name';
+  String get location_map_details_name => 'ስም';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'ጎዳና';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'ከተማ';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'የፖስታ ኮድ';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'መጋጠሚያዎች';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'የOSM መታወቂያ';
 }

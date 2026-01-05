@@ -630,7 +630,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get unknownBrand => '알 수 없는 상표';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => '알 수 없는 양';
 
   @override
   String get unknownProductName => '알 수 없는 상품명';
@@ -697,10 +697,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nutrition_facts_editing_title => '영양 정보 편집';
 
   @override
-  String get packaging_information => '포장 정보';
+  String get packaging_information => '재활용 지침';
 
   @override
-  String get packaging_information_photo => '포장 정보 사진';
+  String get packaging_information_photo => '재활용 지침 사진';
 
   @override
   String get missing_product => '새 상품을 찾았습니다!';
@@ -801,7 +801,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nutritional_facts_photo_title => '영양 성분 사진';
 
   @override
-  String get recycling_photo_title => '재활용 사진';
+  String get recycling_photo_title => '재활용 지침 사진';
 
   @override
   String get take_photo_title => '사진을 촬영';
@@ -1307,11 +1307,12 @@ class AppLocalizationsKo extends AppLocalizations {
       'Nutri-Score를 계산할 카테고리를 추가하세요.';
 
   @override
-  String get product_improvement_add_nutrition_facts => '영양 성분을 추가하여 영양 점수 계산';
+  String get product_improvement_add_nutrition_facts =>
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      '영양 성분을 추가하여 영양 점수 계산';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
@@ -3870,19 +3871,19 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => '뉴트리스코어 A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => '뉴트리스코어 B';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
-  String get nutriscore_c => '뉴트리스코어 C';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => '뉴트리스코어 D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => '뉴트리스코어 E';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
@@ -3893,7 +3894,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score(새로운 계산)';
 
   @override
-  String get nutriscore_unknown => '알 수 없는 영양 점수';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula => '알 수 없는 Nutri-Score(새로운 계산)';
@@ -4996,7 +4997,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get photo_field_nutrition => '영양 사진';
 
   @override
-  String get photo_field_packaging => '포장 정보 사진';
+  String get photo_field_packaging => '재활용 지침 사진';
 
   @override
   String get photo_already_exists => '이 사진은 이미 존재합니다';
@@ -5517,21 +5518,19 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_faq_discover_project_title => '프로젝트보세요';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => '공개 식품 정보를 알아보세요';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => '공개된 뷰티 정보를 확인하세요';
 
   @override
-  String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+  String get preferences_faq_discover_opff_title => '공개된 반려동물 사료 정보를 확인하세요';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
-  String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+  String get preferences_faq_discover_opf_title => '오픈 제품 정보를 확인하세요';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - 자주 묻는 질문';
@@ -5703,7 +5702,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Open Price 커뮤니티에서 추가한 최신 가격';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title => '가장 많은 가격을 제시한 기여자';
@@ -5848,8 +5847,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_about_app_development_title => '개발';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+  String get preferences_page_open_food_facts_labs_title => '오픈 푸드 팩츠 랩스';
 
   @override
   String get preferences_root_account_title => '계정';

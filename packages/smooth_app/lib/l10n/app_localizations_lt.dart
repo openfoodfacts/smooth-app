@@ -143,7 +143,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get match_short_unknown => 'Nežinomas atitikmuo';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Licencijos';
 
   @override
   String get looking_for => 'Ieškoti';
@@ -665,7 +665,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get unknownBrand => 'Nežinomas prekės ženklas';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Nežinomas kiekis';
 
   @override
   String get unknownProductName => 'Nežinomas produkto pavadinimas';
@@ -734,11 +734,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Redaguoti maistinę vertę';
 
   @override
-  String get packaging_information => 'Informacija apie pakuotę';
+  String get packaging_information => 'Perdirbimo instrukcijos';
 
   @override
-  String get packaging_information_photo =>
-      'Informacijos apie pakuotę nuotrauka';
+  String get packaging_information_photo => 'Perdirbimo instrukcijos nuotrauka';
 
   @override
   String get missing_product => 'Radote naują produktą!';
@@ -842,7 +841,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Maistingumo duomenų nuotrauka';
 
   @override
-  String get recycling_photo_title => 'Perdirbimo Nuotrauka';
+  String get recycling_photo_title => 'Perdirbimo instrukcijos Nuotrauka';
 
   @override
   String get take_photo_title => 'Fotografuoti';
@@ -3018,7 +3017,7 @@ class AppLocalizationsLt extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Sužinokite daugiau apie atviras kainas';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Atlikta';
@@ -4114,7 +4113,7 @@ class AppLocalizationsLt extends AppLocalizations {
       '„Nutri-Score“ (naujas skaičiavimas)';
 
   @override
-  String get nutriscore_unknown => 'Nežinomas maistingumo balas';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
@@ -4908,12 +4907,11 @@ class AppLocalizationsLt extends AppLocalizations {
       'https://world-lt.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title =>
-      'Sveiki atvykę į atvirų kainų atidarymo programą!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Kas yra atviros kainos?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4924,7 +4922,7 @@ class AppLocalizationsLt extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Kaip veikia atviros kainos?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4966,7 +4964,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Dėl teisinių ir techninių priežasčių **nelaikome kainų nuskaitymo iš mažmenininkų svetainių tinkamu būdu prisidėti prie atvirų kainų**. Norime įsitikinti, kad mūsų renkamos kainos yra tikslios ir atnaujintos, o nuskaitytų kainų gavimas iš bendraautorių neleidžia mums to daryti.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
@@ -5295,7 +5293,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get photo_field_nutrition => 'Mitybos nuotrauka';
 
   @override
-  String get photo_field_packaging => 'Informacijos apie pakuotę nuotrauka';
+  String get photo_field_packaging => 'Perdirbimo instrukcijos nuotrauka';
 
   @override
   String get photo_already_exists => 'Ši nuotrauka jau yra';
@@ -5848,21 +5846,23 @@ class AppLocalizationsLt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Apie projektą';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Atraskite atvirus faktus apie maistą';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Atraskite atvirus grožio faktus';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Atraskite atvirus faktus apie naminių gyvūnėlių ėdalą';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Atraskite atvirus produktų faktus';
 
   @override
   String get preferences_faq_faq_title => 'DUK – Dažnai užduodami klausimai';
@@ -6211,7 +6211,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Atviros maisto faktų laboratorijos';
 
   @override
   String get preferences_root_account_title => 'Paskyra';

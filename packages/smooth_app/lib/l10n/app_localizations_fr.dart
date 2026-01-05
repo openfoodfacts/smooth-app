@@ -670,7 +670,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get unknownBrand => 'Marque inconnue';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'quantité inconnue';
 
   @override
   String get unknownProductName => 'Produit inconnu';
@@ -745,7 +745,8 @@ class AppLocalizationsFr extends AppLocalizations {
   String get packaging_information => 'Consignes de tri / recyclage';
 
   @override
-  String get packaging_information_photo => 'Consignes de tri ou recyclage';
+  String get packaging_information_photo =>
+      'Photo des informations de recyclage';
 
   @override
   String get missing_product => 'Vous avez trouvé un nouveau produit !';

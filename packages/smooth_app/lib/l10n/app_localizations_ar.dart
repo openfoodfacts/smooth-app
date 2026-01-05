@@ -212,7 +212,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'ساعد في تحسين حقائق الأغذية المفتوحة في بلدك';
+      'Help improve Open Food Facts in your country';
 
   @override
   String get sign_out => 'تسجيل الخروج';
@@ -651,7 +651,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unknownBrand => 'علامة تجارية مجهولة';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'كمية غير معروفة';
 
   @override
   String get unknownProductName => 'إسم منتج غير معروف';
@@ -720,10 +720,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nutrition_facts_editing_title => 'تعديل حقائق التغذية';
 
   @override
-  String get packaging_information => 'معلومات التعبِئة';
+  String get packaging_information => 'تعليمات إعادة التدوير';
 
   @override
-  String get packaging_information_photo => 'صورة معلومات التعبِئة';
+  String get packaging_information_photo => 'صورة تعليمات إعادة التدوير';
 
   @override
   String get missing_product => 'لقد وجدت منتجا جديدا!';
@@ -826,7 +826,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nutritional_facts_photo_title => 'صورة الحقائق الغذائية';
 
   @override
-  String get recycling_photo_title => 'إعادة تدوير الصور';
+  String get recycling_photo_title => 'تعليمات إعادة التدوير (صورة)';
 
   @override
   String get take_photo_title => 'التقاط صورة';
@@ -860,7 +860,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get categories_added => 'تمت إضافة الفئات';
 
   @override
-  String get new_product_title_nutriscore => 'حساب النتيجة الغذائية';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -892,7 +892,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get new_product_title_pictures_details =>
-      'يرجى التقاط الصور التالية وسيتمكن محرك حقائق الغذاء المفتوحة من معرفة الباقي!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
   String get new_product_title_misc => 'وبعض البيانات الأساسية…';
@@ -2956,7 +2956,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'تعرف على المزيد حول الأسعار المفتوحة';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'تم';
@@ -4020,7 +4020,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get nutriscore_b => 'Nutri-Score ب';
 
   @override
-  String get nutriscore_c => 'نيوتري-سكور سي';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
   String get nutriscore_d => 'Nutri-Score د';
@@ -4813,22 +4813,22 @@ class AppLocalizationsAr extends AppLocalizations {
       'https://world-ar.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'مرحباً بكم في الأسعار المفتوحة!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'ما هي الأسعار المفتوحة؟';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      '\"الأسعار المفتوحة\" مشروع لجمع ومشاركة أسعار المنتجات حول العالم. وهي قاعدة بيانات متاحة للعامة، ويمكن استخدامها للبحث والتحليل وغيرها. طُوّرت \"الأسعار المفتوحة\" وصيانتها بواسطة \"حقائق الغذاء المفتوحة\".';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'يوجد حاليًا عدد قليل من الشركات التي تمتلك قواعد بيانات ضخمة لأسعار المنتجات على مستوى الباركود. هذه الأسعار ليست متاحة مجانًا، بل تُباع بأسعار مرتفعة لجهات خاصة وباحثين ومنظمات أخرى قادرة على تحمل تكلفتها.';
 
   @override
-  String get guide_open_prices_how_title => 'كيف تعمل الأسعار المفتوحة؟';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4869,7 +4869,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'لأسباب قانونية وفنية، **لا نعتبر جمع الأسعار من مواقع تجار التجزئة طريقةً صالحةً للمساهمة في \"الأسعار المفتوحة\". نحرص على دقة الأسعار التي نجمعها وتحديثها، وتلقينا أسعارًا من المساهمين لا يسمح لنا بذلك.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
@@ -5189,7 +5189,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get photo_field_nutrition => 'صورة التغذية';
 
   @override
-  String get photo_field_packaging => 'صورة معلومات التعبِئة';
+  String get photo_field_packaging => 'صورة تعليمات إعادة التدوير';
 
   @override
   String get photo_already_exists => 'هذه الصورة موجودة بالفعل';
@@ -5733,18 +5733,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'اكتشف Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'اكتشف حقائق الجمال المفتوحة';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'اكتشف حقائق طعام الحيوانات الأليفة المفتوحة';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'اكتشف حقائق المنتجات المفتوحة';
 
   @override
   String get preferences_faq_faq_title => 'الأسئلة الشائعة';
@@ -6088,7 +6089,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'مختبرات حقائق الغذاء المفتوحة';
 
   @override
   String get preferences_root_account_title => 'الحساب';

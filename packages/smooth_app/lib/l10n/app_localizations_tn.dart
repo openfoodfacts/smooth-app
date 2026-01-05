@@ -143,7 +143,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Dilaesense';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,7 +654,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Bontsi jo bo sa itsiweng';
 
   @override
   String get unknownProductName => 'Unknown product name';
@@ -723,10 +723,10 @@ class AppLocalizationsTn extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Ditaelo tsa tirisopoeletso';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -829,7 +829,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Ditaelo tsa tirisopoeletso Senepe';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3019,7 +3019,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Fetola fa gare ga ditlhwatlhwa.dintlha tsa dijo.org (PROD) le tikologo ya teko';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -4920,7 +4920,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://ditlhwatlhwa.dintlha tsa dijo tse di bulegileng.org/ka ga';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5225,7 +5225,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5983,7 +5983,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Ditlhwatlhwa tsa bosheng tse di tsentsweng ke baagi ba Ditlhwatlhwa tse di Buletsweng';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6034,7 +6034,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Ditsela tse di bonolo tsa go thusa go Bula Dintlha tsa Dijo';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6143,7 +6143,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Bula Dilaboratori tsa Dintlha tsa Dijo';
 
   @override
   String get preferences_root_account_title => 'Account';

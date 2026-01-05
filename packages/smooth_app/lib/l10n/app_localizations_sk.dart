@@ -143,7 +143,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get match_short_unknown => 'Neznáma zhoda';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Licencie';
 
   @override
   String get looking_for => 'Hľadám';
@@ -663,7 +663,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get unknownBrand => 'Neznáma značka';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Neznáme množstvo';
 
   @override
   String get unknownProductName => 'Neznámy názov výrobku';
@@ -732,10 +732,10 @@ class AppLocalizationsSk extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Upraviť výživové údaje';
 
   @override
-  String get packaging_information => 'Informácie o balení';
+  String get packaging_information => 'Pokyny na recykláciu';
 
   @override
-  String get packaging_information_photo => 'Informačná fotografia balenia';
+  String get packaging_information_photo => 'Fotografia recyklačných pokynov';
 
   @override
   String get missing_product => 'Našli ste nový produkt!';
@@ -839,7 +839,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Fotografia výživových údajov';
 
   @override
-  String get recycling_photo_title => 'Fotografia recyklačných pokynov';
+  String get recycling_photo_title => 'Pokyny na recykláciu Fotografia';
 
   @override
   String get take_photo_title => 'Odfotiť';
@@ -3002,8 +3002,7 @@ class AppLocalizationsSk extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more =>
-      'Získajte viac informácií o otvorených cenách';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Hotovo';
@@ -4878,11 +4877,11 @@ class AppLocalizationsSk extends AppLocalizations {
       'https://world-sk.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Vitajte v sekcii Otvorené ceny!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Čo sú to otváracie ceny?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4893,7 +4892,7 @@ class AppLocalizationsSk extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Ako fungujú otváracie ceny?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5262,7 +5261,7 @@ class AppLocalizationsSk extends AppLocalizations {
   String get photo_field_nutrition => 'Fotografia nutričných hodnôt';
 
   @override
-  String get photo_field_packaging => 'Informačná fotografia balenia';
+  String get photo_field_packaging => 'Fotografia recyklačných pokynov';
 
   @override
   String get photo_already_exists => 'Táto fotografia už existuje';
@@ -5810,21 +5809,23 @@ class AppLocalizationsSk extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Objavte projekt';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Objavte fakty o otvorenom jedle';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Objavte fakty o otvorenej kráse';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Objavte fakty o krmive pre domáce zvieratá na Open Pet Food';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Objavte fakty o otvorených produktoch';
 
   @override
   String get preferences_faq_faq_title =>
@@ -6175,7 +6176,7 @@ class AppLocalizationsSk extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Otvorené laboratóriá faktov o potravinách';
 
   @override
   String get preferences_root_account_title => 'Účet';

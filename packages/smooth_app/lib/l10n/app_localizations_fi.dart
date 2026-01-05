@@ -216,7 +216,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get help_improve_country =>
-      'Help improve Open Food Facts in your country';
+      'Auta parantamaan Open Food Facts -sivustoa maassasi';
 
   @override
   String get sign_out => 'Kirjaudu ulos';
@@ -503,7 +503,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Contribute prices by requesting a GDPR export of your loyalty cards data';
+      'Osallistu hintoihin pyytämällä kanta-asiakaskorttitietojesi GDPR-vientiä';
 
   @override
   String get tap_to_answer => 'Vastaa tästä kysymyksiin';
@@ -560,7 +560,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get myPreferences_settings_title => 'Sovellusasetukset';
 
   @override
-  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
+  String get myPreferences_settings_subtitle => 'Tumma tila, Kielet…';
 
   @override
   String get myPreferences_food_title => 'Ruokamieltymykset';
@@ -657,7 +657,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get unknownBrand => 'Tuntematon tuotemerkki';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Tuntematon määrä';
 
   @override
   String get unknownProductName => 'Tuntematon tuotenimi';
@@ -666,7 +666,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get label_refresh => 'Päivitä';
 
   @override
-  String get label_reload => 'Reload';
+  String get label_reload => 'Lataa uudelleen';
 
   @override
   String get image => 'Kuva';
@@ -680,14 +680,14 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get outdated_image_short_label => 'may be outdated';
+  String get outdated_image_short_label => 'voi olla vanhentunut';
 
   @override
   String get ingredients => 'Ainesosat';
 
   @override
   String get ingredients_editing_instructions =>
-      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
+      'Säilytä alkuperäinen järjestys. Ilmoita prosenttiosuus, jos se on määritetty. Erota pilkulla tai yhdysviivalla ja käytä sulkeita ainesosan ainesosille.';
 
   @override
   String get ingredients_editing_error =>
@@ -724,13 +724,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get nutrition_facts_photo => 'Ravintosisältökuva';
 
   @override
-  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
+  String get nutrition_facts_editing_title => 'Muokkaa ravintotietoja';
 
   @override
-  String get packaging_information => 'Pakkaustiedot';
+  String get packaging_information => 'Kierrätysohjeet';
 
   @override
-  String get packaging_information_photo => 'Pakkaustietokuva';
+  String get packaging_information_photo => 'Kierrätysohjekuva';
 
   @override
   String get missing_product => 'Löysit uuden tuotteen!';
@@ -754,7 +754,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get new_product_found_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'Yhteistyössämme luomamme tietokanta sisältää yli **3 miljoonaa tuotetta**, mutta tätä viivakoodia ei ole olemassa: ';
 
   @override
   String get new_product_found_button => 'Lisää tämä tuote';
@@ -805,7 +805,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Emme pysty käsittelemään kuvaa paikallisesti ennen sen lähettämistä palvelimellemme. Yritä myöhemmin uudelleen tai ota meihin yhteyttä, jos ongelma jatkuu.';
 
   @override
-  String get crop_page_action_retake => 'Retake a photo';
+  String get crop_page_action_retake => 'Ota kuva uudelleen';
 
   @override
   String get crop_page_too_small_image_title => 'Kuva on liian pieni!';
@@ -833,7 +833,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Ravintosisältökuva';
 
   @override
-  String get recycling_photo_title => 'Kierrätyksen kuva';
+  String get recycling_photo_title => 'Kierrätysohjeet Kuva';
 
   @override
   String get take_photo_title => 'Ota kuva';
@@ -990,7 +990,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Lisää puuttuva ravintosisältö';
 
   @override
-  String get score_add_missing_product_traces => 'Add missing product traces';
+  String get score_add_missing_product_traces => 'Lisää puuttuvat tuotejäljet';
 
   @override
   String get score_add_missing_product_category => 'Lisää puuttuva tuoteluokka';
@@ -1015,7 +1015,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get score_add_missing_product_stores => 'Lisää kaupat';
 
   @override
-  String get score_add_missing_product_brands => 'Add missing product brands';
+  String get score_add_missing_product_brands => 'Lisää puuttuvat tuotemerkit';
 
   @override
   String get score_update_nutrition_facts => 'Päivitä ravintosisältö';
@@ -1024,11 +1024,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get nutrition_page_title => 'Ravintosisältö';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Nutritional information';
+  String get nutrition_page_nutritional_info_title => 'Ravintosisältötiedot';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Values specified on the product:';
+      'Tuotteessa ilmoitetut arvot:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Kyllä';
@@ -1037,24 +1037,24 @@ class AppLocalizationsFi extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'Ei';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
+  String get nutrition_page_nutritional_info_open_photo => 'Avaa kuva';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Good practices: Nutritional information';
+      'Hyvät käytännöt: Ravintosisältötiedot';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
+      'Joskus ravintosisältöä **ei ole mainittu pakkauksessa** tai tuotteen mukana toimitetussa asiakirjassa. Tässä ja vain tässä tapauksessa voit asettaa arvoksi **EI**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Nutritional values:';
+  String get nutrition_page_serving_type_label => 'Ravintoarvot:';
 
   @override
   String get nutrition_page_per_100g => '100 grammaa kohti';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
+  String get nutrition_page_per_100g_100ml => '100 g/ml kohden';
 
   @override
   String get nutrition_page_per_serving => 'annosta kohti';
@@ -1067,47 +1067,47 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Input a serving size (eg: 100g)';
+      'Syötä annoskoko (esim. 100 g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Good practices: Serving size';
+      'Hyvät käytännöt: Annoskoko';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
+      'Tämä arvo auttaa **laskemaan kunkin ravintoaineen suhteellisen osuuden annosta kohden**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
+      '**Sallitut yksiköt** ovat: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫名, , 公升';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** or **60 G** (prefer the first one)';
+      '**60 g**, **60 g** tai **60 G** (mieluummin ensimmäinen)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** or **1L**';
+      '**1000 ml** tai **1 l**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Invalid unit';
+      'Virheellinen yksikkö';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
-      '30 **gr**';
+      '30 g';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Invalid units';
+      'Virheelliset yksiköt';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **candies** and 2 **biscuits**';
+      '9 **karkkia** ja 2 **keksiä**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Missing unit';
+      'Puuttuva yksikkö';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
@@ -1128,7 +1128,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Käytä tuotteen määrää annoskokona';
 
   @override
-  String get nutrition_page_photo_error => 'Unable to load the photo';
+  String get nutrition_page_photo_error => 'Kuvan lataaminen epäonnistui';
 
   @override
   String get more_photos => 'Lisää kuvia';
@@ -1171,7 +1171,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get product_image_outdated_explanations_content =>
-      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
+      'Tämä kuva on otettu yli vuosi sitten.\n**Tarkista, että se on edelleen ajan tasalla**.\n\nTämä on **vain varoitus**. Jos sisältö on edelleen sama, voit jättää tämän viestin huomiotta.';
 
   @override
   String product_image_action_replace_photo(String type) {
@@ -1198,17 +1198,17 @@ class AppLocalizationsFi extends AppLocalizations {
       'Valitse tuotekuvista';
 
   @override
-  String get product_image_details_label => 'Information about the photo';
+  String get product_image_details_label => 'Tietoja valokuvasta';
 
   @override
-  String get product_image_details_from_producer => 'From the producer';
+  String get product_image_details_from_producer => 'Tuottajalta';
 
   @override
   String get product_image_details_contributor => 'Osallistuja';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Contributor (producer)';
+      'Avustaja (tuottaja)';
 
   @override
   String get product_image_details_date => 'Päivämäärä';
@@ -1293,10 +1293,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get add_tag => 'Lisää omaisuus';
 
   @override
-  String get add_tags => 'Add properties';
+  String get add_tags => 'Lisää ominaisuuksia';
 
   @override
-  String get add_edit_tags => 'Add or edit properties';
+  String get add_edit_tags => 'Lisää tai muokkaa ominaisuuksia';
 
   @override
   String get edit_tag => 'Muokkaa ominaisuutta';
@@ -1311,10 +1311,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get tag_keys => 'Ominaisuudet';
 
   @override
-  String get tag_key_uneditable => 'Property (uneditable)';
+  String get tag_key_uneditable => 'Ominaisuus (ei muokattavissa)';
 
   @override
-  String get tag_key_input_hint => 'Input a property';
+  String get tag_key_input_hint => 'Syötä ominaisuus';
 
   @override
   String get tag_value => 'Arvo';
@@ -1323,21 +1323,21 @@ class AppLocalizationsFi extends AppLocalizations {
   String get tag_values => 'Arvot';
 
   @override
-  String get tag_value_input_hint => 'Input a value';
+  String get tag_value_input_hint => 'Syötä arvo';
 
   @override
-  String get tag_key_item => 'Property:';
+  String get tag_key_item => 'Kiinteistö:';
 
   @override
-  String get tag_value_item => 'Value:';
+  String get tag_value_item => 'Arvo:';
 
   @override
   String get tag_key_explanations =>
-      'A key must be lowercase and without any spaces.';
+      'Avaimen on oltava pienillä kirjaimilla ja ilman välilyöntejä.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'A tag with a property $property already exists!';
+    return 'Ominaisuus $property -tunniste on jo olemassa!';
   }
 
   @override
@@ -1554,7 +1554,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get connect_with_us => 'Ota yhteyttä';
 
   @override
-  String get tiktok => 'Follow us on TikTok';
+  String get tiktok => 'Seuraa meitä TikTokissa';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
@@ -1572,13 +1572,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Follow us on Mastodon';
+  String get mastodon => 'Seuraa meitä Mastodonissa';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Follow us on BlueSky';
+  String get bsky => 'Seuraa meitä BlueSkyssa';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
@@ -1842,66 +1842,68 @@ class AppLocalizationsFi extends AppLocalizations {
   String get permission_photo_denied => 'Ei lupaa käyttää kameraa';
 
   @override
-  String get show_product_pictures => 'Show product pictures';
+  String get show_product_pictures => 'Näytä tuotekuvat';
 
   @override
   String get edit_product_label => 'Muokkaa tuotetta';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Muokkausten lataaminen…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
+      'Muokkauksiasi **lähetetään taustalla** (tai myöhemmin virheen sattuessa).\nVoit jatkaa muiden tuotekenttien muokkaamista.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Your edits are being **sent in the background** (or later in case of error).';
+      'Muokkauksiasi **lähetetään taustalla** (tai myöhemmin virheen sattuessa).';
 
   @override
   String get edit_product_label_short => 'Muokkaa';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'How to enter \"$value\"?';
+    return 'Kuinka syöttää \"$value\"?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Please enter a non-empty value!';
+      'Anna arvo, joka ei ole tyhjä!';
 
   @override
   String get edit_product_form_item_error_existing =>
-      'This value is already there!';
+      'Tämä arvo on jo olemassa!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Add a new brand';
+  String get edit_product_form_item_add_action_brand =>
+      'Lisää uusi tuotemerkki';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Add a new label';
+  String get edit_product_form_item_add_action_label => 'Lisää uusi tunniste';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Add a new store';
+  String get edit_product_form_item_add_action_store => 'Lisää uusi myymälä';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Add a new origin';
+  String get edit_product_form_item_add_action_origin =>
+      'Lisää uusi lähtöpiste';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Add a new traceability code';
+      'Lisää uusi jäljitettävyyskoodi';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Add a new country';
+  String get edit_product_form_item_add_action_country => 'Lisää uusi maa';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Add a new category';
+  String get edit_product_form_item_add_action_category => 'Lisää uusi luokka';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Add a new trace';
+  String get edit_product_form_item_add_action_trace => 'Lisää uusi jälki';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Add suggestion';
+  String get edit_product_form_item_add_suggestion => 'Lisää ehdotus';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Hylkää ehdotus';
@@ -1935,18 +1937,18 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Input a label (eg: NutriScore)';
+      'Syötä otsikko (esim. NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'merkki';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Good practices: Labels';
+      'Hyvät käytännöt: Merkinnät';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Any characteristic of the product **which is factual** and different from the other fields.';
+      'Mikä tahansa tuotteen ominaisuus, **joka on tosiasiallinen** ja eroaa muista kentistä.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1954,7 +1956,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Made in Belgium, produced in Brittany…';
+      'Valmistettu Belgiassa, tuotettu Bretagnessa…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -1962,28 +1964,28 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Rich in fiber, source of iron…';
+      'Runsaasti kuitua, raudan lähde…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Fair trade, Max Havelaar…';
+      'Reilu kauppa, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'Myymälät';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Input a store';
+  String get edit_product_form_item_stores_hint => 'Syötä myymälä';
 
   @override
   String get edit_product_form_item_stores_type => 'myymälä';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Good practices: Stores';
+      'Hyvät käytännöt: Kaupat';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Input the store where you bought the product.';
+      'Syötä kauppa, josta ostit tuotteen.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -2002,70 +2004,69 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Input an origin (eg: Germany)';
+      'Syötä alkuperämaa (esim. Saksa)';
 
   @override
   String get edit_product_form_item_origins_type => 'maa';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Good practices: Origins';
+      'Hyvät käytännöt: Alkuperä';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
+      'Lisää **kaikki pakkauksesta löytyvät alkuperämerkinnät**.\nSinun ei tarvitse huolehtia ainesosaluettelossa suoraan ilmoitetuista alkuperämerkinnöistä.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Beef from Argentina';
+      'Naudanlihaa Argentiinasta';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'The soy does not come from the European Union';
+      'Soija ei ole peräisin Euroopan unionista';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
-  String get edit_product_form_item_countries_hint =>
-      'Input a country (eg: Germany)';
+  String get edit_product_form_item_countries_hint => 'Syötä maa (esim. Saksa)';
 
   @override
   String get edit_product_form_item_countries_type => 'maa';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Good practices: Countries';
+      'Hyvät käytännöt: Maat';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
+      '**Maat, joissa tuotetta on laajalti saatavilla** (ei sisällä ulkomaisiin tuotteisiin erikoistuneita myymälöitä).';
 
   @override
   String get edit_product_form_item_emb_codes_title => 'Jäljitettävyyskoodit';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Syötä koodi (esim.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
   String get edit_product_form_item_emb_codes_type => 'jäljitettävyyskoodi';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Good practices: Traceability codes';
+      'Hyvät käytännöt: Jäljitettävyyskoodit';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
+      'Tässä osiossa voit syöttää **pakkausmerkintöihin**, **tunnistusmerkintöihin** tai **terveysmerkintöihin** liittyviä koodeja.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Examples of traceability codes';
+      'Esimerkkejä jäljitettävyyskoodeista';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC codes** used in the European Community to identify food producers or packagers:';
+      '**EY-koodit**, joita käytetään Euroopan yhteisössä elintarvikkeiden tuottajien tai pakkaajien tunnistamiseen:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2073,11 +2074,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
+      '**FR**: Ranskan maakoodi\n**72.264.002**: maantieteellinen data\n**CE**: Euroopan yhteisö';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB codes** used in France:';
+      '**Ranskassa käytetyt EMB-koodit**:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2091,7 +2092,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Input a trace (eg: Soy beans)';
+      'Syötä jälki (esim. soijapavut)';
 
   @override
   String get edit_product_form_item_categories_title => 'Tuoteluokat';
@@ -2101,34 +2102,34 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Input a category (eg: Orange juice)';
+      'Syötä kategoria (esim.: Appelsiinimehu)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Good practices: Categories';
+      'Hyvät käytännöt: Luokat';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
+      'Ilmoita **vain tarkin kategoria**.\nPääkategoriat lisätään automaattisesti.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Missing category?';
+      'Puuttuva kategoria?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
+      'Jos jokin kategoria **ei ole saatavilla automaattisessa täydennyksessä**, voit lisätä sen silti.\nTämä auttaa meitä parantamaan Open Food Factsia maassasi.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardines in olive oil';
+      'Sardiinit oliiviöljyssä';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Orange juice from concentrate';
+      'Appelsiinimehutiiviste';
 
   @override
-  String get edit_product_form_item_exit_title => 'Quit without saving?';
+  String get edit_product_form_item_exit_title => 'Lopetetaanko tallentamatta?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
@@ -2147,15 +2148,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoom in and out by pinching the screen';
+      'Lähennä ja loitonna nipistämällä näyttöä';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoom in and out the photo';
+      'Lähennä ja loitonna kuvaa';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
+      'Voit zoomata kuvaa nipistys- tai zoomaustoiminnolla:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Lisää';
@@ -2168,11 +2169,12 @@ class AppLocalizationsFi extends AppLocalizations {
   String get edit_product_form_item_remove_item_tooltip => 'Poista';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
+  String get edit_product_form_item_save_edit_item_tooltip =>
+      'Tallenna muokkauksesi';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cancel your edit';
+      'Peruuta muokkaus';
 
   @override
   String get edit_product_form_item_packaging_title => 'Kierrätysohjekuva';
@@ -2186,15 +2188,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Good practices: Nutrition facts';
+      'Hyvät käytännöt: Ravintosisältö';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Nutritional values';
+      'Ravintoarvot';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'First, select if the **values are provided**:';
+      'Valitse ensin, jos **arvot annetaan**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
@@ -2202,15 +2204,15 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
+      'Syötä sitten ravintosisältö **pakkauksen merkintöjen mukaisesti**. Jos ravintosisältöä ei ole, voit napsauttaa \"Silmä\"-kuvaketta.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Missing field?';
+      'Puuttuva kenttä?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
+      'Jos jokin merkintä puuttuu, voit **napsauttaa \"Plus\"-kuvaketta** lisätäksesi sen (esim.: D-vitamiini, magnesium…).';
 
   @override
   String get edit_product_form_save => 'Muokkaa';
@@ -2222,10 +2224,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get edit_product_ingredients_list_title => 'Ainesosaluettelo';
 
   @override
-  String get edit_product_packaging_photo_title => 'Packaging photo';
+  String get edit_product_packaging_photo_title => 'Pakkauskuva';
 
   @override
-  String get edit_product_packaging_list_title => 'Packaging list';
+  String get edit_product_packaging_list_title => 'Pakkausluettelo';
 
   @override
   String get no_data_available => 'Tietoja ei ole saatavilla';
@@ -2234,7 +2236,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get product_field_website_title => 'Nettisivusto';
 
   @override
-  String get origins_editing_title => 'Edit Origins';
+  String get origins_editing_title => 'Muokkaa lähtökohtia';
 
   @override
   String get completed_basic_details_btn_text => 'Täytä perustiedot';
@@ -2275,7 +2277,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get edit_packaging_extract_btn_text => 'Poimi pakkaus\nvalokuvasta';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
+  String get edit_packaging_extract_btn_text_short => 'Uutepakkaus';
 
   @override
   String get edit_packaging_extracting_btn_text =>
@@ -2299,11 +2301,11 @@ class AppLocalizationsFi extends AppLocalizations {
   String get edit_ocr_extract_failed => 'Tekstintunnistus epäonnistui.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'No picture!';
+  String get edit_ocr_extract_disabled_title => 'Ei kuvaa!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'In order to use the text extraction feature, you must first take a photo.';
+      'Jotta voit käyttää tekstinpoimintatoimintoa, sinun on ensin otettava valokuva.';
 
   @override
   String get user_list_dialog_new_title => 'Uusi tuotelista';
@@ -2551,11 +2553,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Add price tags directly from gallery';
+      'Lisää hintalaput suoraan galleriasta';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Once you\'ve selected images, you won\'t be able to edit them!';
+      'Kun olet valinnut kuvat, et voi muokata niitä!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2566,10 +2568,10 @@ class AppLocalizationsFi extends AppLocalizations {
       'Salli yhteisön vahvistaa tekoälyn laskemat hinnat.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
+  String get prices_bulk_proof_upload_subtitle => 'Useita hintalappuja';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
+  String get prices_bulk_proof_upload_title => 'Joukkovedosten lataus';
 
   @override
   String get prices_bulk_proof_upload_step_selecting =>
@@ -2914,7 +2916,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_proof_find => 'Valitse todiste';
 
   @override
-  String get prices_proof_change => 'Change proof';
+  String get prices_proof_change => 'Muutostodistus';
 
   @override
   String get prices_proof_receipt => 'Kuitti';
@@ -2936,45 +2938,44 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'Hinnat **ovat julkisia**, samoin kuin kauppa, johon ne viittaavat.\n\nTämä voi antaa Open Food Facts -nimimerkilläsi tunnetuille henkilöille mahdollisuuden:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Infer in which area you live';
+      'Päättele, millä alueella asut';
 
   @override
-  String get prices_privacy_warning_message_bullet_2 =>
-      'Know what you are buying';
+  String get prices_privacy_warning_message_bullet_2 => 'Tiedä mitä ostat';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'Jos tämä on sinulle epämukavaa, vaihda salanimesi tai luo uusi Open Food Facts -tili ja kirjaudu sovellukseen sillä.';
 
   @override
-  String get i_refuse => 'I refuse';
+  String get i_refuse => 'Kieltäydyn';
 
   @override
-  String get i_accept => 'I accept';
+  String get i_accept => 'Hyväksyn';
 
   @override
-  String get prices_currency_change_proposal_title => 'Change the currency?';
+  String get prices_currency_change_proposal_title => 'Vaihtaa valuuttaa?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
+    return 'Nykyinen valuuttasi on **$currency**. Haluatko vaihtaa sen muotoon **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Yes, use $newCurrency';
+    return 'Kyllä, käytä $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'No, keep $currency';
+    return 'Ei, pidä $currency';
   }
 
   @override
@@ -3068,7 +3069,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String search_proof_title(String user) {
-    return 'Proof from \"$user\"';
+    return 'Todiste kohdasta \"$user\"';
   }
 
   @override
@@ -3087,7 +3088,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Kaupat, joilla on eniten hintoja';
 
   @override
-  String get prices_contribution_assistant => 'Price Contribution Assistant';
+  String get prices_contribution_assistant => 'Hintavaikutusavustaja';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3096,7 +3097,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
+  String get prices_multiple_proof_addition_system =>
+      'Lisää useita todistuksia';
 
   @override
   String get all_search_prices_top_location_single_title => 'Myymälähinnat';
@@ -3185,25 +3187,25 @@ class AppLocalizationsFi extends AppLocalizations {
   String get product_name => 'Tuotteen nimi';
 
   @override
-  String get product_names => 'Product Names';
+  String get product_names => 'Tuotenimet';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Add a new translation';
+      'Lisää uusi käännös';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
+      'Ennen validointia varmista, että lisäät käännöksen vain, **jos kieli on pakkauksessa**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'View front photo';
+  String get add_basic_details_product_name_open_photo => 'Näytä etukuva';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'Take front photo';
+  String get add_basic_details_product_name_take_photo => 'Ota kuva edestä';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Input the name of the product (eg: Nutella)';
+      'Syötä tuotteen nimi (esim. Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3217,41 +3219,41 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Good examples';
+  String get explanation_section_good_examples => 'Hyviä esimerkkejä';
 
   @override
-  String get explanation_section_bad_examples => 'Bad examples';
+  String get explanation_section_bad_examples => 'Huonoja esimerkkejä';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Good practices: Product name';
+      'Hyvät käytännöt: Tuotteen nimi';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
+      'Tuotteen nimi on **pakkaukseen painettu päänimi**. Se voi olla rekisteröity tavaramerkki.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
+      '**Huom:** Älä lisää käännöstä, **jos kieltä ei ole pakkauksessa**.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tomato Ketchup';
+      'Tomaattiketsuppi';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Don\'t include the brand in the name';
+      'Älä sisällytä tuotemerkkiä nimeen';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Tomato Ketchup **by Heinz**';
+      'Tomaattiketsuppi **valmistaja Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Don\'t use symbols ®, ™, © or similar';
+      'Älä käytä symboleja ®, ™, © tai vastaavia';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3262,8 +3264,8 @@ class AppLocalizationsFi extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count other translations',
-      one: '$count other translation',
+      other: '$count muut käännökset',
+      one: '$count muu käännös',
     );
     return '$_temp0';
   }
@@ -3272,47 +3274,49 @@ class AppLocalizationsFi extends AppLocalizations {
   String get brand_name => 'Merkki';
 
   @override
-  String get brand_names => 'Brand names';
+  String get brand_names => 'Tuotemerkit';
 
   @override
   String get add_basic_details_brand_name_error => 'Syötä merkki';
 
   @override
-  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
+  String get add_basic_details_brand_names_hint =>
+      'Syötemerkit (esim. Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Good practices: Brands';
+      'Hyvät käytännöt: Tuotemerkit';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Input **all the brands of the product**.';
+      'Syötä **kaikki tuotteen tuotemerkit**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
+  String get add_basic_details_product_brand_help_info2_title => 'Pääbrändi';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
+      '**Päätuotemerkki**, joka yleensä näkyy selvästi pakkauksen etupuolella, tulee **syöttää ensin**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
+  String get add_basic_details_product_brand_help_info3_title =>
+      'Muut tuotemerkit';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'When sold **by a big company**:';
+      'Kun **suuryritys** myy:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** is sold by **Danone**';
+      '**Actimel**-valmistetta myy **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'When sold with its brand **translated in multiple languages**:';
+      'Kun myydään tuotemerkillään **useille kielille käännettynä**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** is sometimes written **Val Nature**';
+      '**Luontolaakso** kirjoitetaan joskus nimellä **Val Nature**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3326,27 +3330,27 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Input the weight and if needed the quantity (eg : 4x100g)';
+      'Syötä paino ja tarvittaessa määrä (esim. 4 x 100 g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Good practices: Quantity';
+      'Hyvät käytännöt: Määrä';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Copy the value indicated on the product and **don\'t forget the units**.';
+      'Kopioi tuotteessa ilmoitettu arvo ja **älä unohda yksiköitä**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** or **230 g**';
+      '**230 g** tai **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (for 6 eggs)';
+      '**6** (6 munaa kohden)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
+      '**3 x 150 g**\n(tuotteelle, jossa on 3 laatikkoa, kukin 150 g)';
 
   @override
   String get barcode => 'Viivakoodi';
@@ -3565,7 +3569,7 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get open_product_website => 'Open this product on the website';
+  String get open_product_website => 'Avaa tämä tuote verkkosivustolla';
 
   @override
   String get language_picker_label => 'Sinun kielesi';
@@ -3574,7 +3578,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get country_picker_label => 'Maasi';
 
   @override
-  String get currency_picker_label => 'Your currency';
+  String get currency_picker_label => 'Valuuttasi';
 
   @override
   String get help_with_openfoodfacts => 'Neuvoja OpenFoodFactsiin';
@@ -3653,7 +3657,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get portion_calculator_computation_error =>
-      'Missing data. Calculation could not be performed.';
+      'Puuttuvaa dataa. Laskelmaa ei voitu suorittaa.';
 
   @override
   String portion_calculator_result_title(int grams) {
@@ -4005,10 +4009,10 @@ class AppLocalizationsFi extends AppLocalizations {
   String get language_selector_title => 'Valitse kieli:';
 
   @override
-  String get language_selector_section_selected => 'Selected languages';
+  String get language_selector_section_selected => 'Valitut kielet';
 
   @override
-  String get language_selector_section_frequently_used => 'Frequently used';
+  String get language_selector_section_frequently_used => 'Usein käytetty';
 
   @override
   String get action_delete_list => 'Poista';
@@ -4149,7 +4153,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get contact_title_newsletter => 'Tilaa uutiskirjeemme';
 
   @override
-  String get contact_title_calendar => 'Subscribe to our community calendar';
+  String get contact_title_calendar => 'Tilaa yhteisökalenterimme';
 
   @override
   String get hunger_games_loading_line1 =>
@@ -4270,11 +4274,11 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'Nutri-Score-pistettä käytetään seitsemässä maassa: Ranskassa, Saksassa, Belgiassa, Espanjassa, Luxemburgissa, Alankomaissa ja Sveitsissä.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
+      'Valmistajilla on asetuksen allekirjoittamisen jälkeen enintään **kaksi vuotta** aikaa korvata** vanha laskelma uudella.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4384,14 +4388,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
+      'Palkitsemaan parempia tuotteita tietyssä kategoriassa käytämme **bonuksia ja rangaistuksia useiden kriteerien perusteella**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title => 'Tuotantotapa';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      '**Bonus** myönnetään tuotteille, joilla on **virallinen merkintä, ympäristöhyötyjä takaava merkintä tai sertifikaatti** (luomu, reilun kaupan, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4399,7 +4403,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
+      'Bonus myönnetään ainesosien alkuperän perusteella. Tämä bonus ottaa huomioon **kuljetukseen kohdistuvat vaikutukset** ja kunkin tuottajan maan **ympäristöpolitiikan**.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4407,14 +4411,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
+      '**Sakko** määrätään tuotteille, jotka sisältävät ainesosia, joilla on merkittäviä **kielteisiä vaikutuksia luonnon monimuotoisuuteen ja ekosysteemeihin**, kuten palmuöljy, jonka tuotanto on vastuussa massiivisesta metsäkadosta.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Pakkaus';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
+      '**Sakko** lasketaan ottaen huomioon **pakkauksen kiertotalous** (kierrätetyn raaka-aineen käyttö ja kierrätettävyys) ja ylipakkaaminen.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4422,19 +4426,19 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
+      'Vihreän pistemäärän tarkka laskeminen edellyttää **tietoja, joita ei välttämättä ole eritelty pakkauksessa** (kuten kunkin ainesosan alkuperä ja tarkka prosenttiosuus) tai joita on harvoin saatavilla käyttökelpoisessa muodossa (kuten luettelo kaikista pakkauksen osista ja käytetyistä muovityypeistä).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
+      '**Keskiarvoja käytetään, kun näitä tietoja ei ole vielä saatavilla**, mutta pyydämme nyt kaikkia auttamaan meitä keräämään näitä tietoja, jotka ovat erittäin hyödyllisiä Green-Scoren lisäksi myös moniin muihin käyttötarkoituksiin.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'How citizens can help?';
+      'Miten kansalaiset voivat auttaa?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
+      'Kaikki kansalaiset voivat auttaa meitä keräämään ja jäsentämään tuotteissa olevia tai niistä johdettavia tietoja, kuten **pakkaustietoja**: \"Mission Emballages\": laaja yhteistyönä tehty pakkauskartoitus kaikille elintarvikkeille (ranskaksi).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4508,14 +4512,14 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
+      'Käsittelemättömät (tai luonnonmukaiset) elintarvikkeet ovat **kasvien** (siemenet, hedelmät, lehdet, varret, juuret) **tai eläinten** (lihakset, sisälmykset, munat, maito) sekä sienten, levien ja veden syötäviä osia sen jälkeen, kun ne on erotettu luonnosta.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Jalostetut ruoanvalmistusaineet';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
+      'Jalostetut ruoanlaittoainesosat, kuten **öljyt, voi, sokeri ja suola**, ovat aineita, jotka on saatu ryhmän 1 elintarvikkeista tai luonnosta puristamalla, puhdistamalla, jauhamalla, jauhamalla ja kuivaamalla.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Jalostetut ruoat';
@@ -4540,7 +4544,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
+      'Monet ovat **johdettu elintarvikkeiden ainesosien jatkojalostuksesta**, kuten hydratut tai vaihtoesteröidyt öljyt, hydrolysoidut proteiinit, soijaproteiini-isolaatti, maltodekstriini, inverttisokeri ja runsasfruktoosinen maissisiirappi.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4548,7 +4552,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
+      'Erittäin jalostettujen elintarvikkeiden lisäaineisiin kuuluu joitakin sellaisia, joita käytetään myös jalostetuissa elintarvikkeissa, kuten säilöntäaineita, antioksidantteja ja stabilointiaineita. Vain erittäin jalostetuissa tuotteissa esiintyviin lisäaineisiin kuuluvat ne, joita käytetään **jäljittelemään tai parantamaan elintarvikkeiden aistinvaraisia ominaisuuksia tai peittämään lopputuotteen epämiellyttäviä puolia**. Näitä lisäaineita ovat väriaineet ja muut väriaineet, värinvakauttajat; aromit, arominvahventeet, sokerittomat makeutusaineet; ja valmistuksen apuaineet, kuten hiilihapotus-, kiinteyttämis-, täyte- ja paakkuuntumisenestoaineet, vaahdonestoaineet, paakkuuntumisenestoaineet ja kiillotusaineet, emulgointiaineet, kompleksointiaineet ja kosteudensäilyttäjät.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4556,7 +4560,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
+      '**Useita prosessisarjoja käytetään** yhdistämään yleensä useita ainesosia ja luomaan lopputuote (tästä syystä \'ultraprosessoitu\'). Prosesseihin kuuluu useita, **joilla ei ole kotimaisia vastineita**, kuten hydraus ja hydrolysointi, ekstruusio ja muovaus sekä esikäsittely paistamista varten.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4564,104 +4568,106 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
+      '**Ultraprosessoinnin yleisenä tarkoituksena on luoda brändättyjä**, **käteviä** (kestäviä, valmiita kuluttamaan), **houkuttelevia** (hypermaukkaita) ja **erittäin kannattavia** (edullisia ainesosia) elintarvikkeita, joiden tarkoituksena on syrjäyttää kaikki muut elintarvikeryhmät. Ultraprosessoidut elintarvikkeet pakataan yleensä houkuttelevasti ja niitä markkinoidaan intensiivisesti.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'A health hazard';
+  String get guide_nova_explanations_arg5_title => 'Terveysriski';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
+      'Vuodesta 2018 lähtien NutriNet-Santé on tuonut ensimmäiset yhteydet **erittäin prosessoitujen elintarvikkeiden kulutuksen ja lisääntyneen syöpä-, sydän- ja verisuonitauti- ja diabetesriskin välillä**. Nykyään yli 90 tutkimusta maailmanlaajuisesti vahvistaa nämä havainnot.\nVahvimmat yhteydet liittyvät **lihavuuteen, sydän- ja verisuonitautikuolleisuuteen ja masennusoireisiin**. Lapsilla vaikutukset havaitaan ensisijaisesti painon ja lipiditasapainon epätasapainossa.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Countries recommend limiting them';
+      'Maat suosittelevat niiden rajoittamista';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
+      'Jotkut maat käyttävät NOVA-ryhmiä ruokavalio-ohjeissaan tai -tavoitteissaan, esimerkiksi:\n\n- **🇧🇷 Brasilian** ruokavalio-ohjeissa **suositellaan jalostettujen elintarvikkeiden kulutuksen rajoittamista** ja erittäin jalostettujen elintarvikkeiden välttämistä.\n\n- **🇫🇷 Ranskan** kansanterveys- ja ravitsemuspolitiikan tavoitteet vuosille 2018–2022 pyrkivät **vähentämään ryhmän 4 erittäin jalostettujen elintarvikkeiden kulutusta 20 %:lla**.';
 
   @override
   String get guide_nova_share_link => 'https://world-fi.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
+  String get guide_open_food_facts_title =>
+      'Tervetuloa Open Food Facts -sivustolle!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Mitä on Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'Open Food Facts on **yhteistyöhön perustuva**, **ilmainen** ja **avoin** tietokanta elintarvikkeista ympäri maailmaa.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
+      'Uskomme, että jokaisella tulisi olla pääsy tietoon siitä, mitä hän syö. Keräämällä tietoja ainesosista, allergeeneista, ravintotiedoista ja muusta **antaa kuluttajille mahdollisuuden tehdä tietoon perustuvia valintoja** ja edistää elintarviketeollisuutta **kohti suurempaa läpinäkyvyyttä**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Avoimen ruokatiedon ominaisuudet';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Saat ilmoituksia ei-toivotuista ainesosista';
 
   @override
-  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
+  String get guide_open_food_facts_tips_title =>
+      'Vinkkejä upeiden kuvien ottamiseen';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_food_facts_tips_arg1_title => 'Älä tee niin';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Vältä varjoja ja heijastuksia.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Ei epätarkkaa tai epätarkkaa tekstiä.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Älä rajaa osia tekstistä pois.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
+  String get guide_open_food_facts_tips_arg1_text4 =>
+      'Vältä kiireisiä taustoja.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_food_facts_tips_arg2_title => 'Tee näin';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Käytä hyvää ja tasaista valaistusta.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Varmista, että teksti on selkeää ja luettavaa.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Ota talteen koko ainesosaluettelo.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Pidä tuotetta tasaisella alustalla.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Help us build the \"Wikipedia of Food\"';
+      'Auta meitä rakentamaan \"Ruoan Wikipediaa\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'A score on the nutritional quality';
+      'Ravitsemuksellisen laadun pisteytys';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'A score to avoid ultra-processed foods';
+      'Pistemäärä erittäin prosessoitujen ruokien välttämiseksi';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title =>
-      'A score for the planet';
+  String get guide_open_food_facts_scores_arg3_title => 'Pisteet planeetalle';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4669,168 +4675,170 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Welcome to Open Pet Food Facts!';
+      'Tervetuloa Open Pet Food Facts -sivustolle!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Mitä on Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'Open Pet Food Facts laajentaa missiomme karvaisiin ystäviimme! Se on **tietokanta lemmikkieläinten ruoista kissoille, koirille ja muille seuralaisille**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
+      'Keräämme tietoa **ainesosista**, **ravintosisältöanalyysistä** ja ruokintaohjeista auttaaksemme lemmikkien omistajia valitsemaan parhaan ruoan eläinten tarpeisiin.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Avoimen lemmikkieläinten ruokatietojen ominaisuudet';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Saat ilmoituksia ei-toivotuista ainesosista';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Onko lemmikkisi allerginen jollekin ainesosalle? Voit asettaa sovelluksessa listan vältettävistä kosmeettisista ainesosista!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tips for taking great photos';
+      'Vinkkejä upeiden kuvien ottamiseen';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Älä tee niin';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Vältä varjoja ja heijastuksia.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Ei epätarkkaa tai epätarkkaa tekstiä.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Älä rajaa osia tekstistä pois.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Vältä kiireisiä taustoja.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Tee näin';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Käytä hyvää ja tasaista valaistusta.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Varmista, että teksti on selkeää ja luettavaa.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Ota talteen koko ainesosaluettelo.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Keep the product on a flat surface.';
+      'Pidä tuotetta tasaisella alustalla.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
+  String get guide_open_pet_food_facts_scores_title =>
+      'Huomautus pisteytyksestä';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
+      'Lemmikkieläinten ruoan pisteytysjärjestelmän kehittäminen **ei ole tällä hetkellä prioriteetti**. Menetelmä olisi monimutkainen, koska ravitsemukselliset tarpeet vaihtelevat suuresti lajin, iän ja terveydentilan mukaan. Emme ole vielä löytäneet riippumatonta tieteellistä tiimiä, joka pystyisi kehittämään tällaisen pisteytyksen.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-fi.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
+  String get guide_open_beauty_facts_title =>
+      'Tervetuloa Open Beauty Facts -sivustolle!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Mitä on Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'Open Beauty Facts on yhteistyöhön perustuva **kosmetiikkatuotteiden** tietokanta.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
+      'Tavoitteenamme on tulkita ainesosaluetteloita, jotta voit **ymmärtää, mitä hygieniatuotteissasi on**. Kosteusvoiteista meikkeihin – keräämme tietoja ainesosista, allergeeneista ja pakkauksista edistääksemme läpinäkyvyyttä kosmetiikkateollisuudessa.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Avointen kauneustietojen ominaisuudet';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Get alerts for your unwanted ingredients';
+      'Saat ilmoituksia ei-toivotuista ainesosista';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
+      'Oletko allerginen jollekin ainesosalle? Haluatko välttää komedogeenisia aineita? Haluatko pysyä erossa kiistanalaisista ainesosista? Voit asettaa listan vältettävistä kosmeettisista ainesosista suoraan sovelluksessa!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tips for taking great photos';
+      'Vinkkejä upeiden kuvien ottamiseen';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Älä tee niin';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Avoid shadows and glare.';
+      'Vältä varjoja ja heijastuksia.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'No blurry or out-of-focus text.';
+      'Ei epätarkkaa tai epätarkkaa tekstiä.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Don\'t crop out parts of the text.';
+      'Älä rajaa osia tekstistä pois.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Avoid busy backgrounds.';
+      'Vältä kiireisiä taustoja.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Tee näin';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Use good, even lighting.';
+      'Käytä hyvää ja tasaista valaistusta.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ensure text is sharp and readable.';
+      'Varmista, että teksti on selkeää ja luettavaa.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Capture the entire ingredients list.';
+      'Ota talteen koko ainesosaluettelo.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Take as many picture as need if the bottle is curved.';
+      'Ota niin monta kuvaa kuin on tarpeen, jos pullo on kaareva.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'You might need to peel the label to see the list of ingredients.';
+      'Saatat joutua irrottamaan etiketin nähdäksesi ainesosaluettelon.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Keep the product on a flat surface.';
+      'Pidä tuotetta tasaisella alustalla.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
+  String get guide_open_beauty_facts_scores_title => 'Huomautus pisteytyksestä';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'Toisin kuin elintarvikkeilla, kosmetiikkamaailmassa **ei ole yleisesti tunnustettua, hallituksen tukemaa pisteytysjärjestelmää, kuten Nutri-Score**. Ainesosien vaikutukset voivat olla hyvin henkilökohtaisia ja riippua ihotyypistä, allergioista ja yksilöllisistä huolenaiheista.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
@@ -4845,7 +4853,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
+      'Open Prices on projekti, jonka tarkoituksena on **kerätä ja jakaa tuotteiden hintoja ympäri maailmaa**. Se on julkisesti saatavilla oleva tietojoukko, jota voidaan käyttää tutkimukseen, analyysiin ja muuhun. Open Pricesin on kehittänyt ja ylläpitää Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
@@ -4856,41 +4864,40 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**Joukkoistamme avoimen lähdekoodin hintatietoaineistoa**. Käyttäjät voivat lisätä hintoja tämän verkkosovelluksen tai virallisen Open Food Facts -mobiilisovelluksen kautta. Jälleenmyyjät tai kolmannen osapuolen sovellukset voivat myös osallistua käyttämällä API-rajapintaamme.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Collect photos of price tags in aisles';
+      'Kerää kuvia hintalapuista käytävillä';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
+  String get guide_open_prices_how_arg2_title => 'Kerää kuvia kuiteista';
 
   @override
-  String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+  String get guide_open_prices_why_title => 'Miksi Open Food Facts tekee näin?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
+      'Hintatiedot ovat ensiarvoisen tärkeitä ruokajärjestelmien ymmärtämiseksi. Ne ovat avainasemassa ruoan kustannusten ymmärtämisessä ja terveellisempien ruokavalioiden edistämisessä. Avaushintatiedot ovat tapa helpottaa tutkijoiden, toimittajien ja kansalaisten **ymmärrystä siitä, miten ruoan hinnat vaihtelevat maantieteellisesti ja ajassa**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Track the evolution of prices over time';
+      'Seuraa hintojen kehitystä ajan kuluessa';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
+      'Katso **hintojen kehitystä**: kutistumisinflaatio, halpainflaatio, voimme seurata niitä yhdessä!';
 
   @override
-  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
+  String get guide_open_prices_why_arg2_title => 'Vertaile hintoja lähelläsi';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'As we get more prices, you can spot **the cheapest stores around you**.';
+      'Kun saamme lisää hintoja, voit paikantaa **halvimmat kaupat lähistöltä**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Did you consider scraping prices from retailers\' websites?';
+      'Oletko harkinnut hintojen kopioimista jälleenmyyjien verkkosivuilta?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
@@ -4898,7 +4905,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
+      'Hintakaapumista harkitaan tulevassa Open Prices -versiossa, mutta Open Prices tekisi sen itse, jotta meillä olisi HTML-sivun perusteella todiste hinnasta.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4906,7 +4913,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
+      'Voit osallistua hintojen kehittämiseen API:mme kautta.\nJos haluat osallistua hintojen kehittämiseen suuremmassa mittakaavassa, ota meihin yhteyttä osoitteessa prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4914,88 +4921,88 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Welcome to Open Products Facts!';
+      'Tervetuloa Open Products Facts -sivustolle!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Mitä ovat avoimet tuotetiedot?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'Open Products Facts on massiivinen, avoin tietokanta **kaikille viivakoodillisille tuotteille, jotka eivät ole elintarvikkeita, kosmetiikkaa tai lemmikkieläinten ruokaa**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
+      '**Elektroniikasta** **leluihin** ja **vaatteista** **siivousvälineisiin** – jos niissä on viivakoodi, se voidaan lisätä. Tämän projektin tavoitteena on luoda \"esineiden internet\" arkipäivän esineille, jolloin niitä koskevat tiedot ovat yleisesti saatavilla.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Avointen tuotteiden ominaisuudet Faktat';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'Open Products Factsin tavoitteena on tarjota kuluttajille **esineiden käyttöiän pidentämisen** tarjoamalla kiertotalouden ratkaisuja esineiden huoltoon, **korjaukseen**, **kierrätykseen** tai uuden omistajan antamiseen niille.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Carbon footprints for some products';
+      'Joidenkin tuotteiden hiilijalanjäljet';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
+      'Ranskan ympäristöviranomaisen ADEME:n **CO2-vaikutus** tarjoaa tiedot useiden luokkien **hiilidioksidivaikutuksista**, joten varmista, että luokittelet tuotteet tarkasti.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparability index for many products';
+      'Monien tuotteiden korjattavuusindeksi';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
+      'Aina kun ranskalainen korjattavuusindeksi on saatavilla, näytämme sen. Lisäksi **voit alkaa kerätä muuttujia Folksonomy Enginen avulla**, jotta voimme laskea sen itse uudelleen tulevaisuudessa, myös maissa, joissa se ei ole saatavilla.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Find ways to donate/resell your product';
+      'Etsi tapoja lahjoittaa/myydä tuotettasi edelleen';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
+      'Tarjoamme linkkejä **kolmannen osapuolen kiertotalousystävällisiin palveluihin**, jotka auttavat sinua hankkimaan etsimäsi kaltaisen tuotteen käytettynä tuotteena ja olemaan hellävaraisempi planeetan resursseille.\nHuomaa, että meille ei makseta tästä, ja että järjestelmä toimii vain esimerkkinä kahdelle ranskalaiselle verkkosivustolle. Voit auttaa laajentamaan tätä järjestelmää dokumentoimalla lisää sivustoja wikissä.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'What information is useful?';
+      'Mitkä tiedot ovat hyödyllisiä?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
+      'Näin laajan tuotevalikoiman osalta **keräämämme data on joustavaa**. Tätä varten **loimme Folksonomy-moottorin**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'The Folksonomy Engine';
+      'Folksonomiamoottori';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
+      'Folksonomy Engine on työkalu, jonka avulla voit täydentää tuotteita relevanteilla ominaisuuksilla. Tämä auttaa parantamaan hakua ja löydettävyyttä, mutta myös laskemaan ja näyttämään mielenkiintoisia asioita tulevaisuudessa.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
+      'Voit lisätä mitä tahansa avaimia ja arvoja, kuten: **compatibility_with_5G_mobile_network: kyllä**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
+      'Saat automaattisesti ehdotuksia mahdollisista ominaisuuksista, ja olet erittäin tervetullut lisäämään ja dokumentoimaan uusia suosikkituotetyyppejäsi.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-fi.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Open food preferences';
+  String get guide_open_preferences_button_title => 'Avaa ruoka-asetukset';
 
   @override
-  String get guide_coming_soon_button_title => 'Coming soon';
+  String get guide_coming_soon_button_title => 'Tulossa pian';
 
   @override
-  String get guide_learn_more_subtitle => 'Tap to learn more';
+  String get guide_learn_more_subtitle => 'Napauta saadaksesi lisätietoja';
 
   @override
   String get preview_badge => 'Esikatselu';
@@ -5014,7 +5021,8 @@ class AppLocalizationsFi extends AppLocalizations {
   String get photo_viewer_action_use_picture_as => 'Tee tästä kuvasta…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
+  String get photo_viewer_use_picture_as_tooltip =>
+      'Käytä tätä kuvaa muodossa…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
@@ -5045,7 +5053,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get photo_viewer_details_date_title => 'Päivämäärä';
 
   @override
-  String get photo_viewer_details_url_title => 'URL';
+  String get photo_viewer_details_url_title => 'URL-osoite';
 
   @override
   String get product_page_compatibility_score => 'Yhteensopiva';
@@ -5108,62 +5116,63 @@ class AppLocalizationsFi extends AppLocalizations {
       'Järjestä tai piilota toimintoja';
 
   @override
-  String get product_page_action_bar_setting_modal_title => 'Edit actions';
+  String get product_page_action_bar_setting_modal_title =>
+      'Muokkaa toimintoja';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Move up';
+  String get product_page_action_bar_item_move_up => 'Siirry ylös';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Move down';
+  String get product_page_action_bar_item_move_down => 'Siirrä alas';
 
   @override
-  String get product_page_action_bar_item_enable => 'Enable action';
+  String get product_page_action_bar_item_enable => 'Ota toiminto käyttöön';
 
   @override
-  String get product_page_action_bar_item_disable => 'Disable action';
+  String get product_page_action_bar_item_disable => 'Poista toiminto käytöstä';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'Uploading your edits…';
+      'Muokkausten lataaminen…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
+      'Tällä sivulla näkyvät tiedot **eivät vielä heijasta tekemiäsi muutoksia**.\nOdota muutama sekunti…';
 
   @override
-  String get product_add_a_language => 'Add a language';
+  String get product_add_a_language => 'Lisää kieli';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Barcode $barcode';
+    return 'Viivakoodi $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Remove this product from the carousel';
+  String get carousel_close_tooltip => 'Poista tämä tuote karuselista';
 
   @override
-  String get carousel_unsupported_header => 'Unsupported barcode!';
+  String get carousel_unsupported_header => 'Viivakoodia ei tueta!';
 
   @override
-  String get carousel_unsupported_title => 'Ooops!';
+  String get carousel_unsupported_title => 'Hupsista!';
 
   @override
   String get carousel_unsupported_text =>
-      'The barcode scanned is not supported by Open Food Facts!';
+      'Open Food Facts ei tue skannattua viivakoodia!';
 
   @override
-  String get carousel_error_header => 'Error!';
+  String get carousel_error_header => 'Virhe!';
 
   @override
-  String get carousel_error_title => 'It\'s a bummer!';
+  String get carousel_error_title => 'Se on harmi!';
 
   @override
   String get carousel_error_text_1 =>
-      'We couldn\'t download information on this barcode:';
+      'Emme voineet ladata tietoja tästä viivakoodista:';
 
   @override
   String get carousel_error_text_2 =>
-      'Please check your Internet connection or click this button:';
+      'Tarkista internetyhteytesi tai napsauta tätä painiketta:';
 
   @override
   String get carousel_error_button => 'Yritä uudelleen';
@@ -5173,55 +5182,55 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get carousel_unknown_product_title =>
-      'Congratulations!\nYou\'ve found __the rare gem!__';
+      'Onnittelut!\nOlet löytänyt __harvinaisen jalokiven!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
+      'Yhteistyössämme luomamme tietokanta sisältää yli **3 miljoonaa tuotetta**, mutta tätä viivakoodia ei ole olemassa: ';
 
   @override
   String get carousel_unknown_product_button => 'Lisää tämä tuote';
 
   @override
-  String get carousel_loading_header => 'Loading information...';
+  String get carousel_loading_header => 'Tietoja ladataan...';
 
   @override
   String get carousel_loading_title =>
-      'You\'ve just scanned a product with the following barcode:';
+      'Olet juuri skannannut tuotteen, jossa on seuraava viivakoodi:';
 
   @override
   String get carousel_loading_text =>
-      'We are searching for it in our database of more than **3 million products!**';
+      'Etsimme sitä yli **3 miljoonan tuotteen** tietokannastamme!**';
 
   @override
-  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
+  String get product_type_subtitle_food => 'Vihannekset, hedelmät, pakasteet…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
+  String get product_type_subtitle_beauty => 'Meikit, saippuat, hammastahnat…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
+  String get product_type_subtitle_pet_food => 'Ruokaa koirille, kissoille…';
 
   @override
-  String get product_type_subtitle_product => 'Smartphones, furniture…';
+  String get product_type_subtitle_product => 'Älypuhelimet, huonekalut…';
 
   @override
-  String get photo_field_front => 'Product photo';
+  String get photo_field_front => 'Tuotekuva';
 
   @override
   String get photo_field_ingredients => 'Ainesosakuva';
 
   @override
-  String get photo_field_nutrition => 'Nutrition photo';
+  String get photo_field_nutrition => 'Ravitsemuskuva';
 
   @override
-  String get photo_field_packaging => 'Pakkaustietokuva';
+  String get photo_field_packaging => 'Kierrätysohjekuva';
 
   @override
-  String get photo_already_exists => 'This photo already exists';
+  String get photo_already_exists => 'Tämä kuva on jo olemassa';
 
   @override
-  String get photo_missing => 'This photo is missing';
+  String get photo_missing => 'Tämä kuva puuttuu';
 
   @override
   String get date => 'Päivämäärä';
@@ -5233,67 +5242,67 @@ class AppLocalizationsFi extends AppLocalizations {
   String get photo_rotate_right => 'Kierrä oikealle';
 
   @override
-  String get photo_undo_action => 'Undo the previous action';
+  String get photo_undo_action => 'Kumoa edellinen toiminto';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'A world map of $location';
+    return 'Maailmankartta $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'OpenStreetMap contributors';
+      'OpenStreetMapin avustajat';
 
   @override
-  String get not_applicable_short => 'N/A';
+  String get not_applicable_short => 'Ei saatavilla';
 
   @override
   String get knowledge_panel_warning_text => 'Varoitus';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'Miksi tämä Nutri-Score eroaa pakkauksessa olevasta?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'Tähän on kaksi mahdollista selitystä:\nAinesosaluettelo ja/tai ravintotiedot eivät ole ajan tasalla.\n\nTarjoamme Nutri-Scoren (tai V2:n) \"Uuden laskennan\". Tarkista, että pakkauksessa on \"Uusi laskelma\" -banneri.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Check ingredients';
+      'Tarkista ainesosat';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Check nutrition facts';
+      'Tarkista ravintosisältötiedot';
 
   @override
   String url_not_supported(String url) {
-    return 'Unfortunately, we can\'t open the URL:\n$url';
+    return 'Valitettavasti emme voi avata URL-osoitetta:\n$url';
   }
 
   @override
-  String get product_list_export => 'Export';
+  String get product_list_export => 'Viedä';
 
   @override
-  String get product_list_import => 'Import';
+  String get product_list_import => 'Tuoda';
 
   @override
-  String get product_footer_action_barcode => 'View barcode';
+  String get product_footer_action_barcode => 'Näytä viivakoodi';
 
   @override
   String get product_footer_action_barcode_short => 'Viivakoodi';
 
   @override
-  String get product_footer_action_open_website => 'Open website';
+  String get product_footer_action_open_website => 'Avaa verkkosivusto';
 
   @override
-  String get product_footer_action_report => 'Report';
+  String get product_footer_action_report => 'Raportti';
 
   @override
   String get product_footer_action_contributor_guide => 'Ohje';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Data quality';
+  String get product_footer_action_data_quality_tags => 'Tiedon laatu';
 
   @override
   String get product_page_tab_for_me => 'Minulle';
@@ -5315,7 +5324,7 @@ class AppLocalizationsFi extends AppLocalizations {
   String get explanation_card_learn_more_button => 'Opi lisää';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomy';
+  String get product_page_tab_folksonomy => 'Folksonomia';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5330,11 +5339,11 @@ class AppLocalizationsFi extends AppLocalizations {
       'Nämä ominaisuudet luovat ja arkistoivat avustajat kaikenlaiseen käyttöön.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Open external link';
+  String get folksonomy_action_external_link_title => 'Avaa ulkoinen linkki';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'External links may be unsafe. Do you really want to visit it?';
+      'Ulkoiset linkit saattavat olla vaarallisia. Haluatko todella vierailla niillä?';
 
   @override
   String get prices_products_empty_title => 'Ei hintaa saatavilla';
@@ -5345,41 +5354,41 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Top $pageSize products (total: $total)';
+    return 'Suosituimmat $pageSize tuotteet (yhteensä: $total)';
   }
 
   @override
-  String get app_review_title => 'Are you enjoying this app?';
+  String get app_review_title => 'Pidätkö tästä sovelluksesta?';
 
   @override
-  String get app_review_low => 'Could do better';
+  String get app_review_low => 'Voisi tehdä paremmin';
 
   @override
   String get app_review_medium => 'Ei huono';
 
   @override
-  String get app_review_high => 'I love it!';
+  String get app_review_high => 'Rakastan sitä!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Help us improve our application';
+      'Auta meitä parantamaan sovellustamme';
 
   @override
   String get app_review_feedback_modal_content =>
-      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
+      'Jos sinulla on muutama minuutti aikaa, voisitko vastata tähän lomakkeeseen, jotta **voimme parantaa tulevia päivityksiä**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Answer the form';
+  String get app_review_feedback_modal_open_form => 'Vastaa lomakkeeseen';
 
   @override
   String get app_review_feedback_modal_later => 'Kysy myöhemmin';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEW: You can automatically extract the nutrients from the picture!';
+      'UUTTA: Voit automaattisesti poimia ravinteet kuvasta!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Extract now';
+  String get nutrition_facts_extract_button_text => 'Pura nyt';
 
   @override
   String get nutrition_facts_extract_in_progress => 'Uutto käynnissä…';
@@ -5389,16 +5398,16 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Failed to extract nutrients from picture';
+      'Ravinteiden erottaminen kuvasta epäonnistui.';
 
   @override
   String get prices_discount => 'Alennus';
 
   @override
-  String get prices_stats_statistics => 'Statistics';
+  String get prices_stats_statistics => 'Tilastot';
 
   @override
-  String get prices_stats_title => 'Prices Statistics';
+  String get prices_stats_title => 'Hintatilastot';
 
   @override
   String get prices_stats_prices_section => 'Hinnat';
@@ -5503,14 +5512,13 @@ class AppLocalizationsFi extends AppLocalizations {
   String get prices_stats_other => 'Muu';
 
   @override
-  String get prices_stats_last_updated => 'Last updated on';
+  String get prices_stats_last_updated => 'Viimeksi päivitetty';
 
   @override
-  String get prices_stats_error =>
-      'An error occurred while loading statistics.';
+  String get prices_stats_error => 'Tilastojen latauksessa tapahtui virhe.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Question answered!';
+  String get product_edit_robotoff_question_answered => 'Kysymykseen vastattu!';
 
   @override
   String get product_edit_robotoff_proof => 'Todiste';
@@ -5762,21 +5770,23 @@ class AppLocalizationsFi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Tutustu hankkeeseen';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Tutustu avoimiin ruokatietoihin';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Tutustu avoimiin kauneustietoihin';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Tutustu avoimeen lemmikkiruokatietoon';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Tutustu avoimiin tuotetietoihin';
 
   @override
   String get preferences_faq_faq_title => 'Usein kysytyt kysymykset';
@@ -5798,7 +5808,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Subscribe to our community calendar';
+      'Tilaa yhteisökalenterimme';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -5905,7 +5915,7 @@ class AppLocalizationsFi extends AppLocalizations {
       'Yksinkertaisia toimenpiteitä ruoan läpinäkyvyyden lisäämiseksi maassasi';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Data quality';
+  String get preferences_contribute_data_quality_title => 'Tiedon laatu';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -6123,7 +6133,7 @@ class AppLocalizationsFi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Avoimet ruokatietolaboratoriot';
 
   @override
   String get preferences_root_account_title => 'Tili';
@@ -6152,26 +6162,26 @@ class AppLocalizationsFi extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Location details';
+  String get location_map_details_title => 'Sijaintitiedot';
 
   @override
   String get location_map_details_name => 'Nimi';
 
   @override
-  String get location_map_details_street => 'Street';
+  String get location_map_details_street => 'Katu';
 
   @override
-  String get location_map_details_city => 'City';
+  String get location_map_details_city => 'Kaupunki';
 
   @override
-  String get location_map_details_postcode => 'Postcode';
+  String get location_map_details_postcode => 'Postinumero';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Coordinates';
+  String get location_map_details_coordinates => 'Koordinaatit';
 
   @override
-  String get location_map_details_osm_id => 'OSM ID';
+  String get location_map_details_osm_id => 'OSM-tunnus';
 }

@@ -323,7 +323,7 @@ class AppLocalizationsNb extends AppLocalizations {
       'Passordene er ikke like';
 
   @override
-  String get sign_up_page_agree_text => 'Jeg godtar de åpne matfaktaene';
+  String get sign_up_page_agree_text => 'Jeg godtar Open Food Facts';
 
   @override
   String get sign_up_page_terms_text => 'vilkår for bruk og bidrag';
@@ -657,7 +657,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get unknownBrand => 'Ukjent merke';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
+  String get unknownQuantity => 'Ukjent antall';
 
   @override
   String get unknownProductName => 'Ukjent produktnavn';
@@ -726,10 +726,11 @@ class AppLocalizationsNb extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Rediger næringsinnhold';
 
   @override
-  String get packaging_information => 'Emballasjeinformasjon';
+  String get packaging_information => 'Instrukser for resirkulering';
 
   @override
-  String get packaging_information_photo => 'Emballasjeinformasjonsbilde';
+  String get packaging_information_photo =>
+      'Instruksjoner for resirkulering, bilde';
 
   @override
   String get missing_product => 'Du har funnet et nytt produkt!';
@@ -834,7 +835,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Bilde av ernæringsfakta';
 
   @override
-  String get recycling_photo_title => 'Bilde av resirkuleringsinformasjon';
+  String get recycling_photo_title => 'Instruksjoner for resirkulering foto';
 
   @override
   String get take_photo_title => 'Ta et bilde';
@@ -869,7 +870,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get categories_added => 'Kategorier lagt til';
 
   @override
-  String get new_product_title_nutriscore => 'Beregn ernæringspoengsummen';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
@@ -3003,7 +3004,7 @@ class AppLocalizationsNb extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Lær mer om åpne priser';
+  String get prices_menu_know_more => 'Lær mer om Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Ferdig';
@@ -3152,8 +3153,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get edit_product_action_confirm => 'Bekreft';
 
   @override
-  String get signup_page_terms_of_use_line1 =>
-      'Jeg godtar de åpne matfaktaene ';
+  String get signup_page_terms_of_use_line1 => 'Jeg godtar Open Food Facts ';
 
   @override
   String get signup_page_terms_of_use_line2 => 'vilkår for bruk og bidrag';
@@ -4064,19 +4064,19 @@ class AppLocalizationsNb extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Næringsscore A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'Næringsscore B';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
-  String get nutriscore_c => 'Næringsscore C';
+  String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Næringsscore D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
-  String get nutriscore_e => 'Næringsscore E';
+  String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
@@ -4087,11 +4087,11 @@ class AppLocalizationsNb extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (Ny beregning)';
 
   @override
-  String get nutriscore_unknown => 'Ukjent ernæringspoengsum';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Ukjent ernæringspoengsum (ny beregning)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score er ikke aktuelt';
@@ -4629,7 +4629,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Hva er åpne matfakta?';
+      'Hva er Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4641,7 +4641,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Funksjoner ved åpne matfakta';
+      'Funksjoner ved Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4881,11 +4881,11 @@ class AppLocalizationsNb extends AppLocalizations {
       'https://world-nb.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Velkommen til Åpne priser!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Hva er åpningspriser?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4896,7 +4896,7 @@ class AppLocalizationsNb extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Hvordan fungerer åpne priser?';
+  String get guide_open_prices_how_title => 'Hvordan fungerer Open Prices?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4939,7 +4939,7 @@ class AppLocalizationsNb extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Av juridiske og tekniske årsaker **anser vi ikke det å hente priser fra forhandlernes nettsteder som en gyldig måte å bidra til åpne priser**. Vi ønsker å sørge for at prisene vi samler inn er nøyaktige og oppdaterte, og det å motta hentede priser fra bidragsytere tillater oss ikke å gjøre det.';
+      'Av juridiske og tekniske årsaker **anser vi ikke det å hente priser fra forhandlernes nettsteder som en gyldig måte å bidra til Open Prices**. Vi ønsker å sørge for at prisene vi samler inn er nøyaktige og oppdaterte, og det å motta hentede priser fra bidragsytere tillater oss ikke å gjøre det.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
@@ -5260,7 +5260,7 @@ class AppLocalizationsNb extends AppLocalizations {
   String get photo_field_nutrition => 'Næringsinnholdsbilde';
 
   @override
-  String get photo_field_packaging => 'Emballasjeinformasjonsbilde';
+  String get photo_field_packaging => 'Instruksjoner for resirkulering, bilde';
 
   @override
   String get photo_already_exists => 'Dette bildet finnes allerede';
@@ -5812,18 +5812,18 @@ class AppLocalizationsNb extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'Oppdag Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => 'Oppdag Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Oppdag Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Discover Open Prices';
+  String get preferences_faq_discover_op_title => 'Oppdag Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Oppdag fakta om åpne produkter';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Ofte stilte spørsmål';
