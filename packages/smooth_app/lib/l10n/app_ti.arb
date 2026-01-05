@@ -3861,7 +3861,7 @@
   "environmental_score_e_new": "ቀጠልያ-ነጥቢ E",
   "environmental_score_unknown_new": "ዘይፍለጥ ቀጠልያ-ነጥቢ",
   "environmental_score_not_applicable_new": "ግሪን-ስኮር ተግባራዊ ኣይኮነን።",
-  "nova_group_generic_new": "Ultra-processed foods - NOVA groups",
+  "nova_group_generic_new": "ኣዝዩ ዝተመስርሑ መግብታት - ጉጅለታት ኖቫ",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -5384,7 +5384,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "ቀለልቲ መገድታት ንኽፉት ሓቅታት መግቢ ንምሕጋዝ",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
