@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Узнайте больше об открытых ценах",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2685,7 +2685,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
+  "dev_mode_openprices_switch_env_title": "Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Как работают цены открытия?",
   "guide_open_prices_how_paragraph1": "**Мы собираем данные о ценах из открытого источника**. Пользователи могут добавлять цены через это веб-приложение или через официальное мобильное приложение Open Food Facts. Розничные продавцы и сторонние приложения также могут вносить свой вклад, используя наш API.",
   "guide_open_prices_how_arg1_title": "Собирайте фотографии ценников в проходах.",
   "guide_open_prices_how_arg2_title": "Собирайте фотографии квитанций",
