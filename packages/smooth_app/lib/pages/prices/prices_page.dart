@@ -11,7 +11,6 @@ import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/prices_page_header.dart';
 import 'package:smooth_app/pages/prices/product_prices_list.dart';
 import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';

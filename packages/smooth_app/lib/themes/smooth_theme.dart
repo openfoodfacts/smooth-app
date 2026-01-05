@@ -255,12 +255,6 @@ class SmoothTheme {
   }
 }
 
-extension SmoothThemeExtension on BuildContext {
-  T extension<T>() {
-    return Theme.of(this).extension<T>()!;
-  }
-}
-
 extension SmoothColorExtension on Color {
   /// ignore: deprecated_member_use
   /// [Color.value] is deprecated, use [Color.intValue] instead

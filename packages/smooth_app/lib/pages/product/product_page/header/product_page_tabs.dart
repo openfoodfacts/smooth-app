@@ -14,7 +14,6 @@ import 'package:smooth_app/pages/prices/product_price_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/folksonomy/product_folksonomy_tab.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/prices/product_prices_tab.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_circle.dart';

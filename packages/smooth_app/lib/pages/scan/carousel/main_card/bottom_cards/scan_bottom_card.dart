@@ -11,7 +11,6 @@ import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_news_provider.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_app_review_card.dart';
 import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 

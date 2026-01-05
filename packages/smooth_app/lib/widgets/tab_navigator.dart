@@ -13,8 +13,9 @@ class TabNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Widget child = switch (tabItem) {
-      BottomNavigationTab.Profile => PreferencesPage(),
+      BottomNavigationTab.HomePage => const Placeholder(),
       BottomNavigationTab.List => const HistoryPage(),
+      BottomNavigationTab.Profile => PreferencesPage(),
       BottomNavigationTab.Scan => const ScanPage(),
     };
 

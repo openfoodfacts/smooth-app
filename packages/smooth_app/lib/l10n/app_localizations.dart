@@ -354,6 +354,12 @@ abstract class AppLocalizations {
   /// **'Open Food Facts'**
   String get app_name;
 
+  /// No description provided for @open_prices.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Prices'**
+  String get open_prices;
+
   /// Separator just before a colon (':'). Probably only populated in French and empty in other languages.
   ///
   /// In en, this message translates to:

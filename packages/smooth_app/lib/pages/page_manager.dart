@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
@@ -9,7 +10,7 @@ import 'package:smooth_app/widgets/smooth_navigation_bar.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
-enum BottomNavigationTab { Profile, Scan, List }
+enum BottomNavigationTab { Profile, HomePage, Scan, List }
 
 /// Here the different tabs in the bottom navigation bar are taken care of,
 /// so that they are stateful, that is not only things like the scroll position
@@ -25,6 +26,7 @@ class PageManager extends StatefulWidget {
 class PageManagerState extends State<PageManager> {
   static const List<BottomNavigationTab> _pageKeys = <BottomNavigationTab>[
     BottomNavigationTab.Profile,
+    BottomNavigationTab.HomePage,
     BottomNavigationTab.Scan,
     BottomNavigationTab.List,
   ];
@@ -32,6 +34,7 @@ class PageManagerState extends State<PageManager> {
   static final Map<BottomNavigationTab, GlobalKey<NavigatorState>>
   _navigatorKeys = <BottomNavigationTab, GlobalKey<NavigatorState>>{
     BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
+    BottomNavigationTab.HomePage: GlobalKey<NavigatorState>(),
     BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
     BottomNavigationTab.List: GlobalKey<NavigatorState>(),
   };
@@ -46,6 +49,10 @@ class PageManagerState extends State<PageManager> {
     TabNavigator(
       navigatorKey: _navigatorKeys[BottomNavigationTab.Scan]!,
       tabItem: BottomNavigationTab.Scan,
+    ),
+    TabNavigator(
+      navigatorKey: _navigatorKeys[BottomNavigationTab.HomePage]!,
+      tabItem: BottomNavigationTab.HomePage,
     ),
     TabNavigator(
       navigatorKey: _navigatorKeys[BottomNavigationTab.List]!,
@@ -75,12 +82,6 @@ class PageManagerState extends State<PageManager> {
       _currentPage = BottomNavigationTab.Scan;
     }
 
-    final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final bool isProd =
-        userPreferences.getFlag(
-          UserPreferencesDevMode.userPreferencesFlagProd,
-        ) ??
-        true;
     final Widget bar = DecoratedBox(
       decoration: BoxDecoration(
         boxShadow: <BoxShadow>[
@@ -108,10 +109,18 @@ class PageManagerState extends State<PageManager> {
               label: appLocalizations.scan_navbar_label,
             ),
             SmoothNavigationDestination(
+              icon: const Padding(
+                padding: EdgeInsetsDirectional.only(bottom: 1.0),
+                child: icons.Search.offRounded(),
+              ),
+              label: appLocalizations.scan_navbar_label,
+              visible: _showNewHomePage(context.watch<UserPreferences>()),
+            ),
+            SmoothNavigationDestination(
               icon: const icons.Lists(),
               label: appLocalizations.list_navbar_label,
             ),
-          ],
+          ].nonNulls,
           selectedIndex: _currentPage.index,
           onDestinationSelected: (int index) {
             if (_currentPage == BottomNavigationTab.Scan &&
@@ -148,15 +157,39 @@ class PageManagerState extends State<PageManager> {
           value: _currentPage,
           child: IndexedStack(index: _currentPage.index, children: tabs),
         ),
-        bottomNavigationBar: isProd
-            ? bar
-            : Banner(
-                message: 'TEST ENV',
-                location: BannerLocation.bottomEnd,
-                color: Colors.blue,
-                child: bar,
-              ),
+        bottomNavigationBar: ConsumerFilter<UserPreferences>(
+          buildWhen:
+              (UserPreferences? previousValue, UserPreferences currentValue) =>
+                  _isProd(currentValue) != (_isProd(previousValue)),
+          builder:
+              (BuildContext context, UserPreferences prefs, Widget? child) {
+                if (_isProd(prefs)) {
+                  return bar;
+                } else {
+                  return Banner(
+                    message: 'TEST ENV',
+                    location: BannerLocation.bottomEnd,
+                    color: Colors.blue,
+                    child: bar,
+                  );
+                }
+              },
+          child: bar,
+        ),
       ),
     );
   }
+
+  bool _isProd(UserPreferences? userPreferences) =>
+      userPreferences?.getFlag(
+        UserPreferencesDevMode.userPreferencesFlagProd,
+      ) ??
+      true;
+
+  // TODO(g123k): Remove once the Scan page is removed.
+  bool _showNewHomePage(UserPreferences userPreferences) =>
+      userPreferences.getFlag(
+        UserPreferencesDevMode.userPreferencesFlagHomePageV2,
+      ) ??
+      false;
 }

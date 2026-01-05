@@ -207,3 +207,9 @@ class SmoothColorsThemeExtension
     );
   }
 }
+
+extension SmoothThemeExtension on BuildContext {
+  T extension<T>() {
+    return Theme.of(this).extension<T>()!;
+  }
+}

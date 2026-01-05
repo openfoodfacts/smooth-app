@@ -12,6 +12,9 @@ class AppLocalizationsNn extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
+  String get open_prices => 'Open Prices';
+
+  @override
   String get sep => '';
 
   @override

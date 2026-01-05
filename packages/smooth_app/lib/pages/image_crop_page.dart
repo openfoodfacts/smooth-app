@@ -22,7 +22,6 @@ import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
