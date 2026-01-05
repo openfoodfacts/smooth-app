@@ -1771,7 +1771,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Zemlja",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -5624,7 +5624,7 @@
   "location_map_details_street": "Street",
   "location_map_details_city": "City",
   "location_map_details_postcode": "Postcode",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Zemlja",
   "location_map_details_coordinates": "Coordinates",
   "location_map_details_osm_id": "OSM ID"
 }
