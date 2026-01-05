@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Lisateave avatud hindade kohta",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3835,7 +3835,7 @@
   },
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_b": "Nutri-skoor B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
@@ -3849,7 +3849,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (uus arvutus)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown": "Tundmatu toiteväärtus",
   "nutriscore_unknown_new_formula": "Tundmatu Nutri-Score (uus arvutus)",
   "nutriscore_not_applicable": "Nutri-Score ei ole kohaldatav",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ei ole kohaldatav (uus arvutus)",
@@ -4149,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Märkus punktiarvestuse kohta",
   "guide_open_beauty_facts_scores_paragraph1": "Erinevalt toiduainetest puudub kosmeetikamaailmas **üldiselt tunnustatud, valitsuse toetatud hindamissüsteem nagu Nutri-Score**. Koostisosade mõju võib olla väga individuaalne ja sõltuda nahatüübist, allergiatest ja individuaalsetest eelistustest.",
   "guide_open_beauty_facts_share_link": "https://world-et.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Tere tulemast avatud hindadesse!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Mis on avatud hinnad?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices on projekt, mille eesmärk on **koguda ja jagada toodete hindu üle maailma**. See on avalikult kättesaadav andmestik, mida saab kasutada uuringuteks, analüüsiks ja muuks. Open Pricesi arendab ja haldab Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Kuidas avatud hinnad toimivad?",
   "guide_open_prices_how_paragraph1": "**Me kogume avatud lähtekoodiga hinnaandmestikku rahvahulga abil**. Kasutajad saavad hindu lisada selle veebirakenduse või ametliku Open Food Factsi mobiilirakenduse kaudu. Jaemüüjad või kolmandate osapoolte rakendused saavad samuti meie API abil panustada.",
   "guide_open_prices_how_arg1_title": "Koguge vahekäikudes olevate hinnasiltide fotosid",
   "guide_open_prices_how_arg2_title": "Koguge kviitungite fotosid",
@@ -4173,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Võrdle hindu enda lähedal",
   "guide_open_prices_why_arg2_text": "Mida rohkem hindu saame, seda paremini saate märgata **odavamaid poode enda ümber**.",
   "guide_open_prices_scrapping_title": "Kas kaalusite hindade kopeerimist jaemüüjate veebisaitidelt?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Juriidilistel ja tehnilistel põhjustel **ei pea me jaemüüjate veebisaitidelt hindade kopeerimist kehtivaks viisiks avatud hindade avaldamiseks**. Soovime veenduda, et meie kogutud hinnad on täpsed ja ajakohased ning kaastööliste käest kopeeritud hindade saamine ei võimalda meil seda teha.",
   "guide_open_prices_scrapping_paragraph2": "Hinna kraapimist kaalutakse Open Prices'i tulevases versioonis, kuid seda teeks Open Prices ise, et meil oleks HTML-lehel põhinev hinna tõend.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Hindade avaldamiseks saate kasutada meie API-t.\nKui soovite hindu laiemalt avaldada, võtke meiega ühendust aadressil prices@openfoodfacts.org.",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Avasta avatud hinnad",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
