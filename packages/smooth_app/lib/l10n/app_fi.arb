@@ -1771,7 +1771,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Maa",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -5624,7 +5624,7 @@
   "location_map_details_street": "Katu",
   "location_map_details_city": "Kaupunki",
   "location_map_details_postcode": "Postinumero",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Maa",
   "location_map_details_coordinates": "Koordinaatit",
   "location_map_details_osm_id": "OSM-tunnus"
 }
