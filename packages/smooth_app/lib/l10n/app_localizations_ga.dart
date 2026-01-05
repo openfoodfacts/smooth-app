@@ -654,6 +654,9 @@ class AppLocalizationsGa extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Cainníocht anaithnid';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -720,10 +723,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Treoracha athchúrsála';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -826,7 +829,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Treoracha athchúrsála Grianghraf';
 
   @override
   String get take_photo_title => 'Tóg pictiúr';
@@ -3524,7 +3527,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Ag tosú ag déanamh gníomhartha an fhreastalaí le haghaidh nuashonruithe folksonomy atá stóráilte go háitiúil';
 
   @override
   String get background_task_title_top_n =>
@@ -5218,7 +5221,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5667,7 +5670,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_tips => 'Leideanna';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Faigh amach an Scór Cothaithe nua';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5766,7 +5769,8 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Faigh amach Fíricí Bia Oscailte';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5787,7 +5791,8 @@ class AppLocalizationsGa extends AppLocalizations {
       'Ceisteanna Coitianta - Ceisteanna Coitianta';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'An Eagraíocht Neamhrialtasach Fíricí Bia Oscailte';
 
   @override
   String get preferences_about_information_title => 'Eolas';
@@ -5809,7 +5814,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Bí páirteach trí fhreastal ar cheann dár n-imeachtaí fíorúla';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blag Fíricí Bia Oscailte';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6131,14 +6136,14 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Saotharlanna Fíricí Bia Oscailte';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Tabhair Fíricí Bia Oscailte chuig do theanga';
 
   @override
   String get preferences_contribute_enroll_alpha =>

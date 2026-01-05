@@ -143,7 +143,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Lizentziak';
 
   @override
   String get looking_for => 'Bilatzen';
@@ -656,6 +656,9 @@ class AppLocalizationsEu extends AppLocalizations {
   String get unknownBrand => 'Marka ezezaguna';
 
   @override
+  String get unknownQuantity => 'Kantitate ezezaguna';
+
+  @override
   String get unknownProductName => 'Produktu-izen ezezaguna';
 
   @override
@@ -722,10 +725,10 @@ class AppLocalizationsEu extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Birziklatzeko argibideak';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -829,7 +832,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Birziklapenaren argazkia';
+  String get recycling_photo_title => 'Birziklatzeko argibideak Argazkia';
 
   @override
   String get take_photo_title => 'Atera argazki bat';
@@ -3528,7 +3531,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Tokikoki gordetako folksonomy eguneratzeetarako zerbitzariaren ekintzak egiten hasten da';
 
   @override
   String get background_task_title_top_n =>
@@ -5232,7 +5235,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5781,7 +5784,8 @@ class AppLocalizationsEu extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Ezagutu Janari Irekien Datuak';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5823,7 +5827,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'Parte hartu gure ekitaldi birtualetako batean parte hartuz';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Elikagaien Datu Irekien bloga';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6145,14 +6149,14 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Elikagaien Datuen Laborategi Irekiak';
 
   @override
   String get preferences_root_account_title => 'Kontua';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Ekarri Janari Informazio Irekia zure hizkuntzara';
 
   @override
   String get preferences_contribute_enroll_alpha =>

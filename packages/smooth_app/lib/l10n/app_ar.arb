@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "ساعد في تحسين حقائق الأغذية المفتوحة في بلدك",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "الكل",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(بحث عن فئة)",
@@ -535,9 +535,17 @@
   "product": "نتاج",
   "@product": {},
   "unknownBrand": "علامة تجارية مجهولة",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "كمية غير معروفة",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "إسم منتج غير معروف",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "تحديث",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "معلومات التعبِئة",
+  "packaging_information": "تعليمات إعادة التدوير",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "صورة معلومات التعبِئة",
+  "packaging_information_photo": "صورة تعليمات إعادة التدوير",
   "@packaging_information_photo": {},
   "missing_product": "لقد وجدت منتجا جديدا!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "صورة التغليف الأمامية",
   "ingredients_photo_title": "صورة المكونات",
   "nutritional_facts_photo_title": "صورة الحقائق الغذائية",
-  "recycling_photo_title": "إعادة تدوير الصور",
+  "recycling_photo_title": "تعليمات إعادة التدوير (صورة)",
   "take_photo_title": "التقاط صورة",
   "take_more_photo_title": "التقط المزيد من الصور",
   "front_photo_uploaded": "تم تحميل الصورة الأمامية",
@@ -703,7 +711,7 @@
   "nutritional_facts_input_button_label": "املأ حقائق التغذية",
   "nutritional_facts_added": "تمت إضافة حقائق التغذية",
   "categories_added": "تمت إضافة الفئات",
-  "new_product_title_nutriscore": "حساب النتيجة الغذائية",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "ساعدنا عن طريق ملء فئة واحدة على الأقل والقيم الغذائية",
   "new_product_title_environmental_score": "حساب النتيجة الخضراء",
   "new_product_subtitle_environmental_score": "احصل عليه عن طريق ملء فئة واحدة على الأقل",
@@ -712,7 +720,7 @@
   "new_product_subtitle_nova": "احصل عليه عن طريق ملء فئة الطعام والمكونات",
   "new_product_desc_nova_unknown": "مستوى معالجة الطعام غير معروف",
   "new_product_title_pictures": "منتج جديد",
-  "new_product_title_pictures_details": "يرجى التقاط الصور التالية وسيتمكن محرك حقائق الغذاء المفتوحة من معرفة الباقي!",
+  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
   "new_product_title_misc": "وبعض البيانات الأساسية…",
   "new_product_done_msg": "شكرًا على مساهمتك “{username}”!",
   "@new_product_done_msg": {
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "تعرف على المزيد حول الأسعار المفتوحة",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3828,7 +3836,7 @@
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Nutri-Score أ",
   "nutriscore_b": "Nutri-Score ب",
-  "nutriscore_c": "نيوتري-سكور سي",
+  "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score د",
   "nutriscore_e": "Nutri-Score إي",
   "nutriscore_new_formula": "Nutri-Score {letter} (حساب جديد)",
@@ -4141,12 +4149,12 @@
   "guide_open_beauty_facts_scores_title": "ملاحظة حول التسجيل",
   "guide_open_beauty_facts_scores_paragraph1": "على عكس المنتجات الغذائية، لا يعتمد عالم مستحضرات التجميل نظام تقييم معتمد عالميًا ومدعوم حكوميًا مثل نظام Nutri-Score. قد تختلف تأثيرات المكونات باختلاف نوع البشرة والحساسية والمخاوف الشخصية.",
   "guide_open_beauty_facts_share_link": "https://world-ar.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "مرحباً بكم في الأسعار المفتوحة!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ما هي الأسعار المفتوحة؟",
-  "guide_open_prices_what_is_open_prices_paragraph1": "\"الأسعار المفتوحة\" مشروع لجمع ومشاركة أسعار المنتجات حول العالم. وهي قاعدة بيانات متاحة للعامة، ويمكن استخدامها للبحث والتحليل وغيرها. طُوّرت \"الأسعار المفتوحة\" وصيانتها بواسطة \"حقائق الغذاء المفتوحة\".",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "كيف تعمل الأسعار المفتوحة؟",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**نعمل على جمع بيانات أسعار مفتوحة المصدر من الجمهور**. يمكن للمستخدمين إضافة الأسعار عبر تطبيق الويب هذا، أو عبر تطبيق Open Food Facts الرسمي للهواتف المحمولة. كما يمكن لتجار التجزئة أو تطبيقات الجهات الخارجية المساهمة باستخدام واجهة برمجة التطبيقات الخاصة بنا.",
   "guide_open_prices_how_arg1_title": "جمع صور لعلامات الأسعار في الممرات",
   "guide_open_prices_how_arg2_title": "جمع صور الإيصالات",
@@ -4165,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "قارن الأسعار بالقرب منك",
   "guide_open_prices_why_arg2_text": "مع حصولنا على المزيد من الأسعار، يمكنك تحديد **المتاجر الأرخص حولك**.",
   "guide_open_prices_scrapping_title": "هل فكرت في استخراج الأسعار من مواقع الويب الخاصة بالمتاجر؟",
-  "guide_open_prices_scrapping_paragraph1": "لأسباب قانونية وفنية، **لا نعتبر جمع الأسعار من مواقع تجار التجزئة طريقةً صالحةً للمساهمة في \"الأسعار المفتوحة\". نحرص على دقة الأسعار التي نجمعها وتحديثها، وتلقينا أسعارًا من المساهمين لا يسمح لنا بذلك.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "يعد استخراج الأسعار خيارًا مدروسًا في الإصدار المستقبلي من Open Prices، ولكن سيتم ذلك بواسطة Open Prices نفسها حتى نتمكن من الحصول على دليل على السعر استنادًا إلى صفحة HTML.",
   "guide_open_prices_retailers_title": "أنا بائع تجزئة وأرغب في المساهمة في تحديد الأسعار. كيف يمكنني فعل ذلك؟",
   "guide_open_prices_retailers_paragraph1": "يمكنك المساهمة في الأسعار باستخدام واجهة برمجة التطبيقات الخاصة بنا.\nإذا كنت ترغب في المساهمة في الأسعار على نطاق واسع، فيرجى التواصل معنا على prices@openfoodfacts.org.",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "صورة المنتج",
   "photo_field_ingredients": "صورة المكونات",
   "photo_field_nutrition": "صورة التغذية",
-  "photo_field_packaging": "صورة معلومات التعبِئة",
+  "photo_field_packaging": "صورة تعليمات إعادة التدوير",
   "photo_already_exists": "هذه الصورة موجودة بالفعل",
   "photo_missing": "هذه الصورة مفقودة",
   "date": "تاريخ",
@@ -5108,11 +5116,11 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "اكتشف حقائق الجمال المفتوحة",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "اكتشف حقائق طعام الحيوانات الأليفة المفتوحة",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "اكتشف حقائق المنتجات المفتوحة",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "مختبرات حقائق الغذاء المفتوحة",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

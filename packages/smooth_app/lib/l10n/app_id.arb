@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Semua",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(pencarian kategori)",
@@ -535,9 +535,17 @@
   "product": "Produk",
   "@product": {},
   "unknownBrand": "Merek tidak dikenal",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Jumlah yang tidak diketahui",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nama produk tidak dikenal",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Muat ulang",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informasi kemasan",
+  "packaging_information": "Petunjuk daur ulang",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto informasi kemasan",
+  "packaging_information_photo": "Foto instruksi daur ulang",
   "@packaging_information_photo": {},
   "missing_product": "Anda menemukan produk baru!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Foto Kemasan Depan",
   "ingredients_photo_title": "Foto Komposisi",
   "nutritional_facts_photo_title": "Foto Informasi Nilai Gizi",
-  "recycling_photo_title": "Foto daur ulang",
+  "recycling_photo_title": "Petunjuk daur ulang Foto",
   "take_photo_title": "Ambil gambar",
   "take_more_photo_title": "Ambil lebih banyak foto",
   "front_photo_uploaded": "Foto depan diunggah",
@@ -2597,7 +2605,7 @@
   "prices_proof_empty_title": "Belum ada bukti!",
   "prices_proof_empty_explanation": "Mulailah dengan menambahkan foto **kwitansi** atau **label harga**!",
   "prices_proof_find": "Pilih bukti",
-  "prices_proof_change": "Change proof",
+  "prices_proof_change": "Bukti perubahan",
   "prices_proof_receipt": "Resi",
   "prices_proof_price_tag": "Label harga",
   "prices_proof_mandatory": "Anda harus memilih bukti!",
@@ -2748,7 +2756,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Proof from \"{user}\"",
+  "search_proof_title": "Bukti dari \"{user}\"",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -3982,20 +3990,20 @@
   "guide_greenscore_lca_arg3_text7": "Air laut & air tawar (partikel, pengasaman, eutrofikasi)",
   "guide_greenscore_lca_arg3_text8": "Penipisan sumber daya.",
   "guide_greenscore_bonuses_penalties_title": "Bonus dan penalti",
-  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
+  "guide_greenscore_bonuses_penalties_intro": "Untuk memberi penghargaan kepada produk yang lebih baik dalam suatu kategori, kami kemudian menerapkan **bonus & penalti berdasarkan beberapa kriteria**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode produksi",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "**Bonus** diberikan kepada produk yang memiliki **label resmi, label atau sertifikasi yang menjamin manfaat lingkungan** (organik, perdagangan adil, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Asal usul bahan",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Bonus diberikan berdasarkan asal bahan-bahan. Bonus ini memperhitungkan dampak transportasi dan juga kebijakan lingkungan dari negara produsen masing-masing.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Spesies yang terancam punah",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "**Sanksi** diberikan kepada produk yang mengandung bahan-bahan yang memiliki **dampak negatif yang signifikan terhadap keanekaragaman hayati dan ekosistem**, seperti minyak sawit, yang produksinya bertanggung jawab atas deforestasi besar-besaran.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Kemasan",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "**Denda** dihitung dengan mempertimbangkan **sirkularitas kemasan** (penggunaan bahan baku daur ulang dan kemampuan daur ulang) dan pengemasan berlebihan.",
   "guide_greenscore_transparency_title": "Meningkatnya kebutuhan akan transparansi untuk mengukur dan mengurangi dampak lingkungan dengan lebih baik",
-  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
-  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
-  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
+  "guide_greenscore_transparency_intro1": "Untuk menghitung Green-Score secara akurat, diperlukan **informasi yang tidak selalu tercantum pada kemasan** (seperti asal dan persentase pasti dari setiap bahan) atau yang jarang tersedia dalam bentuk yang mudah digunakan (seperti daftar semua komponen kemasan dengan jenis plastik yang digunakan secara tepat).",
+  "guide_greenscore_transparency_intro2": "**Nilai rata-rata digunakan ketika informasi ini belum tersedia**, tetapi kami sekarang mengajak semua orang untuk membantu kami mengumpulkan informasi ini yang akan sangat berguna untuk Green-Score tetapi juga untuk banyak kegunaan lainnya.",
+  "guide_greenscore_transparency_arg1_title": "Bagaimana warga dapat membantu?",
+  "guide_greenscore_transparency_arg1_text": "Seluruh warga dapat membantu kami mengumpulkan dan menyusun informasi yang terdapat pada produk atau yang dapat disimpulkan dari produk tersebut, seperti informasi tentang **kemasan**: \"Mission Emballages\": inventarisasi kemasan skala besar yang dilakukan secara kolaboratif untuk semua produk makanan (dalam bahasa Prancis).",
   "guide_greenscore_transparency_arg2_title": "Bagaimana produsen dapat membantu",
   "guide_greenscore_transparency_arg2_text": "Produsen dapat mengirimkan informasi mereka langsung kepada kami melalui platform gratis kami untuk produsen.",
   "guide_greenscore_better_product_title": "Produk mana yang lebih baik untuk planet ini?",
@@ -4024,7 +4032,7 @@
   "guide_nova_groups_title": "4 grup NOVA",
   "guide_nova_groups_intro": "Ada 4 kelompok NOVA, yang bermasalah adalah Kelompok 4 - Makanan ultra-olahan.",
   "guide_nova_groups_arg1_title": "Makanan yang diproses minimal atau tidak diproses",
-  "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
+  "guide_nova_groups_arg1_text": "Makanan yang tidak diolah (atau alami) adalah **bagian tanaman yang dapat dimakan** (biji, buah, daun, batang, akar) **atau hewan** (otot, jeroan, telur, susu), serta jamur, alga, dan air, setelah dipisahkan dari alam.",
   "guide_nova_groups_arg2_title": "Bahan - bahan kuliner olahan",
   "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Makanan olahan",
@@ -4033,120 +4041,120 @@
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in These formulations Usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain Other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted From foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Masalah dengan ultra-processing",
   "guide_nova_explanations_arg1_title": "Pemrosesan bahan makanan secara ekstrem",
-  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
+  "guide_nova_explanations_arg1_text": "Banyak di antaranya **berasal dari pengolahan lebih lanjut komponen makanan**, seperti minyak terhidrogenasi atau teresterifikasi, protein terhidrolisis, isolat protein kedelai, maltodekstrin, gula invert, dan sirup jagung fruktosa tinggi.",
   "guide_nova_explanations_arg2_title": "Aditif yang melampaui keamanan pangan murni",
-  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
+  "guide_nova_explanations_arg2_text": "Zat aditif dalam makanan ultra-olahan mencakup beberapa zat yang juga digunakan dalam makanan olahan, seperti pengawet, antioksidan, dan penstabil. Kelas zat aditif yang hanya ditemukan dalam produk ultra-olahan meliputi zat yang digunakan **untuk meniru atau meningkatkan kualitas sensorik makanan atau untuk menyamarkan aspek yang tidak enak dari produk akhir**. Zat aditif ini meliputi pewarna dan warna lainnya, penstabil warna; perisa, penguat rasa, pemanis non-gula; dan bahan pembantu pengolahan seperti zat karbonasi, pengental, pengembang dan anti-pengembang, penghilang busa, anti-penggumpalan dan pelapis, pengemulsi, pengikat, dan humektan.",
   "guide_nova_explanations_arg3_title": "Pemrosesan yang tidak dapat Anda lakukan di rumah",
-  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
+  "guide_nova_explanations_arg3_text": "**Banyak sekali rangkaian proses yang digunakan** untuk menggabungkan berbagai bahan yang biasanya banyak dan menciptakan produk akhir (karena itu disebut 'ultra-proses'). Proses-proses tersebut mencakup beberapa proses **yang tidak memiliki padanan di dalam negeri**, seperti hidrogenasi dan hidrolisis, ekstrusi dan pencetakan, serta pra-pemrosesan untuk penggorengan.",
   "guide_nova_explanations_arg4_title": "Aspek predator dan finansial dari ultra-processing",
-  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
-  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
-  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
+  "guide_nova_explanations_arg4_text": "**Tujuan utama dari pengolahan ultra adalah untuk menciptakan produk makanan bermerek**, **praktis** (tahan lama, siap dikonsumsi), **menarik** (sangat lezat), dan **sangat menguntungkan** (bahan-bahan berbiaya rendah) yang dirancang untuk menggantikan semua kelompok makanan lainnya. Produk makanan ultra-olahan biasanya dikemas secara menarik dan dipasarkan secara intensif.**",
+  "guide_nova_explanations_arg5_title": "Bahaya bagi kesehatan",
+  "guide_nova_explanations_arg5_text": "Sejak 2018, dengan NutriNet-Santé, hubungan pertama antara **konsumsi makanan ultra-olahan dan peningkatan risiko kanker, penyakit kardiovaskular, dan diabetes telah disoroti**. Saat ini, lebih dari 90 studi di seluruh dunia mengkonfirmasi temuan ini.\nHubungan terkuat berkaitan dengan **obesitas, kematian akibat penyakit kardiovaskular, dan gejala depresi**. Pada anak-anak, efeknya terutama diamati pada berat badan dan ketidakseimbangan lipid.",
+  "guide_nova_explanations_arg6_title": "Negara-negara merekomendasikan untuk membatasinya.",
+  "guide_nova_explanations_arg6_text": "Beberapa negara menggunakan kelompok NOVA untuk pedoman atau tujuan diet mereka, misalnya:\n\n- Pedoman diet **🇧🇷 Brasil** merekomendasikan untuk membatasi konsumsi makanan olahan dan menghindari makanan ultra-olahan.\n\n- Tujuan kebijakan gizi kesehatan masyarakat **🇫🇷 Prancis** untuk tahun 2018-2022 bertujuan untuk **mengurangi konsumsi makanan ultra-olahan kelompok 4 sebesar 20%**.",
   "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "guide_open_food_facts_title": "Selamat datang di Open Food Facts!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Apa itu Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts adalah basis data produk makanan dari seluruh dunia yang **kolaboratif**, **gratis**, dan **terbuka**.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Kami percaya bahwa setiap orang harus memiliki akses ke informasi tentang apa yang mereka makan. Dengan mengumpulkan data tentang bahan-bahan, alergen, fakta nutrisi, dan banyak lagi, **kami memberdayakan konsumen untuk membuat pilihan yang tepat** dan mendorong industri makanan **menuju transparansi yang lebih besar**.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
-  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
-  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
-  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
-  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
+  "guide_open_food_facts_features_title": "Fitur-fitur dari Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan",
+  "guide_open_food_facts_tips_title": "Tips untuk mengambil foto yang bagus",
+  "guide_open_food_facts_tips_arg1_title": "Larangan",
+  "guide_open_food_facts_tips_arg1_text1": "Hindari bayangan dan pantulan cahaya.",
+  "guide_open_food_facts_tips_arg1_text2": "Tidak ada teks yang buram atau tidak fokus.",
+  "guide_open_food_facts_tips_arg1_text3": "Jangan memotong bagian-bagian teks.",
+  "guide_open_food_facts_tips_arg1_text4": "Hindari latar belakang yang ramai.",
+  "guide_open_food_facts_tips_arg2_title": "Hal yang harus dilakukan",
+  "guide_open_food_facts_tips_arg2_text1": "Gunakan pencahayaan yang baik dan merata.",
+  "guide_open_food_facts_tips_arg2_text2": "Pastikan teks tajam dan mudah dibaca.",
+  "guide_open_food_facts_tips_arg2_text3": "Catat seluruh daftar bahan-bahannya.",
+  "guide_open_food_facts_tips_arg2_text4": "Letakkan produk di permukaan yang datar.",
+  "guide_open_food_facts_scores_title": "Bantu kami membangun \"Wikipedia Makanan\"",
+  "guide_open_food_facts_scores_arg1_title": "Skor kualitas nutrisi",
+  "guide_open_food_facts_scores_arg2_title": "Skor untuk menghindari makanan ultra-olahan",
+  "guide_open_food_facts_scores_arg3_title": "Sebuah skor untuk planet ini",
   "guide_open_food_facts_share_link": "https://world-id.openfoodfacts.org/discover",
-  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "guide_open_pet_food_facts_title": "Selamat datang di Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Apa itu Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts memperluas misi kami kepada teman-teman berbulu kami! Ini adalah **basis data produk makanan hewan peliharaan untuk kucing, anjing, dan hewan peliharaan lainnya**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Kami mengumpulkan informasi tentang **bahan-bahan**, **analisis nutrisi**, dan panduan pemberian makan untuk membantu pemilik hewan peliharaan memilih makanan terbaik sesuai kebutuhan hewan mereka.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_pet_food_facts_scores_title": "A note on scoring",
-  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_pet_food_facts_features_title": "Fitur-fitur dari Informasi Fakta Makanan Hewan Peliharaan yang Terbuka",
+  "guide_open_pet_food_facts_features_arg1_title": "Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Apakah hewan peliharaan Anda alergi terhadap bahan-bahan tertentu? Anda dapat mengatur daftar bahan kosmetik yang harus dihindari, langsung di aplikasi!",
+  "guide_open_pet_food_facts_tips_title": "Tips untuk mengambil foto yang bagus",
+  "guide_open_pet_food_facts_tips_arg1_title": "Larangan",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Hindari bayangan dan pantulan cahaya.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Tidak ada teks yang buram atau tidak fokus.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Jangan memotong bagian-bagian teks.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Hindari latar belakang yang ramai.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Hal yang harus dilakukan",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Gunakan pencahayaan yang baik dan merata.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Pastikan teks tajam dan mudah dibaca.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Catat seluruh daftar bahan-bahannya.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Letakkan produk di permukaan yang datar.",
+  "guide_open_pet_food_facts_scores_title": "Catatan tentang penilaian",
+  "guide_open_pet_food_facts_scores_paragraph1": "Mengembangkan sistem penilaian untuk makanan hewan peliharaan **bukan prioritas saat ini**. Metodologinya akan kompleks, karena kebutuhan nutrisi sangat bervariasi menurut spesies, usia, dan kondisi kesehatan. Kami belum menemukan tim ilmiah independen yang mampu mengembangkan skor tersebut.",
   "guide_open_pet_food_facts_share_link": "https://world-id.openpetfoodfacts.org/discover",
-  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "guide_open_beauty_facts_title": "Selamat datang di Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Apa itu Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts adalah basis data kolaboratif untuk **produk kosmetik**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Tujuan kami adalah untuk menguraikan daftar bahan agar Anda dapat **memahami apa yang terkandung dalam produk perawatan pribadi Anda**. Mulai dari pelembap hingga riasan, kami mengumpulkan data tentang bahan-bahan, alergen, dan kemasan untuk mendorong transparansi dalam industri kosmetik.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
-  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
-  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
-  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
-  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
-  "guide_open_beauty_facts_scores_title": "A note on scoring",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_features_title": "Fitur-fitur dari Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Apakah Anda alergi terhadap bahan tertentu? Ingin menghindari zat komedogen? Ingin menjauhi komponen yang kontroversial? Anda dapat mengatur daftar bahan kosmetik yang ingin dihindari, langsung di aplikasi!",
+  "guide_open_beauty_facts_tips_title": "Tips untuk mengambil foto yang bagus",
+  "guide_open_beauty_facts_tips_arg1_title": "Larangan",
+  "guide_open_beauty_facts_tips_arg1_text1": "Hindari bayangan dan pantulan cahaya.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Tidak ada teks yang buram atau tidak fokus.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Jangan memotong bagian-bagian teks.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Hindari latar belakang yang ramai.",
+  "guide_open_beauty_facts_tips_arg2_title": "Hal yang harus dilakukan",
+  "guide_open_beauty_facts_tips_arg2_text1": "Gunakan pencahayaan yang baik dan merata.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Pastikan teks tajam dan mudah dibaca.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Catat seluruh daftar bahan-bahannya.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Ambil foto sebanyak yang diperlukan jika botolnya melengkung.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Anda mungkin perlu mengupas labelnya untuk melihat daftar bahan-bahannya.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Letakkan produk di permukaan yang datar.",
+  "guide_open_beauty_facts_scores_title": "Catatan tentang penilaian",
+  "guide_open_beauty_facts_scores_paragraph1": "Tidak seperti produk makanan, dunia kosmetik **tidak memiliki sistem penilaian yang diakui secara universal dan didukung pemerintah seperti Nutri-Score**. Efek bahan-bahan tertentu sangat personal dan bergantung pada jenis kulit, alergi, dan masalah individu.",
   "guide_open_beauty_facts_share_link": "https://world-id.openbeautyfacts.org/temukan",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Selamat datang di Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices adalah sebuah proyek untuk **mengumpulkan dan membagikan harga produk di seluruh dunia**. Ini adalah kumpulan data yang tersedia untuk umum yang dapat digunakan untuk penelitian, analisis, dan banyak lagi. Open Prices dikembangkan dan dikelola oleh Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4155,52 +4163,52 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_how_paragraph1": "**Kami sedang mengumpulkan data harga sumber terbuka melalui crowdsourcing.** Harga dapat ditambahkan oleh pengguna melalui aplikasi web ini, atau melalui aplikasi seluler resmi Open Food Facts. Peritel atau aplikasi pihak ketiga juga dapat berkontribusi dengan menggunakan API kami.",
+  "guide_open_prices_how_arg1_title": "Kumpulkan foto label harga di lorong-lorong toko.",
+  "guide_open_prices_how_arg2_title": "Kumpulkan foto-foto struk pembelian.",
+  "guide_open_prices_why_title": "Mengapa Open Food Facts melakukan ini?",
+  "guide_open_prices_why_paragraph1": "Informasi harga sangat penting untuk memahami sistem pangan. Ini merupakan faktor kunci dalam memahami biaya pangan dan untuk mempromosikan pola makan yang lebih sehat. Membuka data harga adalah cara untuk mempermudah peneliti, jurnalis, dan warga untuk **memiliki pemahaman yang lebih baik tentang bagaimana harga pangan bervariasi secara geografis dan dari waktu ke waktu**.",
+  "guide_open_prices_why_arg1_title": "Lacak perkembangan harga dari waktu ke waktu.",
+  "guide_open_prices_why_arg1_text": "Saksikan **evolusi harga**: shrinkflation, cheapflation, kita bisa melacaknya bersama!",
+  "guide_open_prices_why_arg2_title": "Bandingkan harga di dekat Anda",
+  "guide_open_prices_why_arg2_text": "Dengan semakin banyaknya harga yang kami dapatkan, Anda dapat menemukan **toko-toko termurah di sekitar Anda**.",
+  "guide_open_prices_scrapping_title": "Apakah Anda mempertimbangkan untuk mengambil data harga dari situs web pengecer?",
+  "guide_open_prices_scrapping_paragraph1": "Karena alasan hukum dan teknis, **kami tidak menganggap pengambilan data harga dari situs web pengecer sebagai cara yang sah untuk berkontribusi pada Open Prices**. Kami ingin memastikan bahwa harga yang kami kumpulkan akurat dan terkini, dan menerima data harga yang diambil dari kontributor tidak memungkinkan kami untuk melakukan hal tersebut.",
+  "guide_open_prices_scrapping_paragraph2": "Pengambilan data harga (price scraping) merupakan opsi yang dipertimbangkan dalam versi Open Prices mendatang, tetapi hal itu akan dilakukan oleh Open Prices sendiri sehingga kita dapat memiliki bukti harga berdasarkan halaman HTML.",
   "guide_open_prices_retailers_title": "Saya seorang pengecer dan saya ingin memberikan kontribusi harga. Bagaimana saya bisa melakukan itu?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "Anda dapat berkontribusi dalam hal harga dengan menggunakan API kami.\nJika Anda ingin berkontribusi dalam hal harga dalam skala besar, silakan hubungi kami di prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Selamat datang di Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Apa itu Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts adalah basis data terbuka yang sangat besar untuk **produk apa pun yang memiliki kode batang, yang bukan makanan, kosmetik, atau makanan hewan peliharaan**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Mulai dari **elektronik** hingga **mainan**, dan **pakaian** hingga **perlengkapan kebersihan**, jika memiliki barcode, maka dapat ditambahkan. Proyek ini bertujuan untuk menciptakan \"Internet of Things\" untuk objek sehari-hari, sehingga informasi tentang objek tersebut dapat diakses secara universal.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
-  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
-  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
-  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
-  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
-  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
-  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
-  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
-  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
-  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
+  "guide_open_products_facts_features_title": "Fitur-fitur Produk Terbuka (Fakta-fakta)",
+  "guide_open_products_facts_features_text": "Open Products Facts bertujuan untuk memberikan solusi sirkular kepada konsumen agar dapat **memperpanjang umur barang**, dengan memelihara, **memperbaiki**, **mendaur ulang** barang mereka, atau memberikannya kepada pemilik baru.",
+  "guide_open_products_facts_features_arg1_title": "Jejak karbon untuk beberapa produk",
+  "guide_open_products_facts_features_arg1_text": "**Dampak CO2** dari Otoritas Lingkungan Prancis ADEME memberikan **dampak karbon** dari berbagai kategori, pastikan untuk mengkategorikan produk dengan tepat.",
+  "guide_open_products_facts_features_arg2_title": "Indeks kemampuan perbaikan untuk banyak produk",
+  "guide_open_products_facts_features_arg2_text": "Setiap kali indeks kemampuan perbaikan Prancis tersedia, kami akan menampilkannya. Selain itu, **Anda dapat mulai mengumpulkan variabel menggunakan Folksonomy Engine**; sehingga kami dapat menghitung ulang sendiri di masa mendatang, bahkan di negara-negara yang belum memiliki indeks tersebut.",
+  "guide_open_products_facts_features_arg3_title": "Temukan cara untuk menyumbangkan/menjual kembali produk Anda.",
+  "guide_open_products_facts_features_arg3_text": "Kami menyediakan tautan ke **layanan pihak ketiga yang ramah terhadap ekonomi sirkular** yang membantu Anda mendapatkan jenis produk yang Anda cari, sebagai produk bekas, agar lebih ramah terhadap sumber daya planet.\nPerlu dicatat bahwa kami tidak dibayar untuk melakukan hal itu, dan sistem ini hanya berfungsi sebagai contoh untuk dua situs web di Prancis. Anda dapat membantu memperluas sistem ini dengan mendokumentasikan lebih banyak situs di wiki.",
+  "guide_open_products_facts_information_title": "Informasi apa yang bermanfaat?",
+  "guide_open_products_facts_information_text": "Untuk berbagai macam barang seperti itu, **data yang kami kumpulkan bersifat fleksibel**. Untuk itu, **kami menciptakan Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "Mesin Folksonomi",
+  "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine adalah alat yang membantu Anda melengkapi produk dengan properti yang relevan. Ini membantu meningkatkan pencarian dan kemudahan penemuan, serta menghitung dan menampilkan hal-hal menarik di masa mendatang.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Anda dapat menambahkan kunci dan nilai apa pun seperti: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Anda akan mendapatkan saran otomatis mengenai properti yang mungkin, dan Anda dipersilakan untuk menambahkan dan mendokumentasikan properti baru pada jenis produk favorit Anda.",
   "guide_open_products_facts_share_link": "https://world-id.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_open_preferences_button_title": "Terbuka terhadap preferensi makanan",
+  "guide_coming_soon_button_title": "Segera hadir",
+  "guide_learn_more_subtitle": "Ketuk untuk mempelajari lebih lanjut",
   "preview_badge": "Pratinjau",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Foto produk",
   "photo_field_ingredients": "Foto kandungan bahan",
   "photo_field_nutrition": "Foto nutrisi",
-  "photo_field_packaging": "Foto informasi kemasan",
+  "photo_field_packaging": "Foto instruksi daur ulang",
   "photo_already_exists": "Foto ini sudah ada",
   "photo_missing": "Foto ini hilang",
   "date": "Tanggal",
@@ -4565,11 +4573,11 @@
   "folksonomy_explanation_card_title": "Apa saja atribut Folksonomi?",
   "folksonomy_explanation_card_line1": "Atribut didasarkan pada **kunci-nilai**.",
   "folksonomy_explanation_card_line2": "Properti ini dibuat dan diarsipkan oleh kontributor untuk segala jenis penggunaan.",
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_action_external_link_title": "Buka tautan eksternal",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "Tautan eksternal mungkin tidak aman. Apakah Anda benar-benar ingin mengunjunginya?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -5108,11 +5116,11 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Temukan Fakta Kecantikan Terbuka",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Temukan Fakta Makanan Hewan Peliharaan Terbuka",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Temukan Fakta Produk Terbuka",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratorium Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5611,12 +5619,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Detail lokasi",
   "location_map_details_name": "Nama",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Jalan",
+  "location_map_details_city": "Kota",
+  "location_map_details_postcode": "Kode Pos",
   "location_map_details_country": "Negara",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_coordinates": "Koordinat",
+  "location_map_details_osm_id": "ID OSM"
 }

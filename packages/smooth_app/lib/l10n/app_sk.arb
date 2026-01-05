@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Licencie",
   "@licenses": {},
   "looking_for": "Hľadám",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Všetky",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(vyhľadávanie podľa kategórií)",
@@ -535,9 +535,17 @@
   "product": "Produkt",
   "@product": {},
   "unknownBrand": "Neznáma značka",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Neznáme množstvo",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Neznámy názov výrobku",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Obnoviť",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informácie o balení",
+  "packaging_information": "Pokyny na recykláciu",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Informačná fotografia balenia",
+  "packaging_information_photo": "Fotografia recyklačných pokynov",
   "@packaging_information_photo": {},
   "missing_product": "Našli ste nový produkt!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Predná fotografia produktu",
   "ingredients_photo_title": "Fotografia zložiek",
   "nutritional_facts_photo_title": "Fotografia výživových údajov",
-  "recycling_photo_title": "Fotografia recyklačných pokynov",
+  "recycling_photo_title": "Pokyny na recykláciu Fotografia",
   "take_photo_title": "Odfotiť",
   "take_more_photo_title": "Odfotiť viacej fotografií",
   "front_photo_uploaded": "Predná fotografia produktu bola nahraná",
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Získajte viac informácií o otvorených cenách",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4141,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Poznámka k bodovaniu",
   "guide_open_beauty_facts_scores_paragraph1": "Na rozdiel od potravinárskych výrobkov, svet kozmetiky **nemá všeobecne uznávaný, vládou podporovaný systém hodnotenia ako Nutri-Score**. Účinky zložiek môžu byť veľmi individuálne a závisia od typu pleti, alergií a individuálnych obáv.",
   "guide_open_beauty_facts_share_link": "https://world-sk.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Vitajte v sekcii Otvorené ceny!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Čo sú to otváracie ceny?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt na **zhromažďovanie a zdieľanie cien produktov z celého sveta**. Ide o verejne dostupný súbor údajov, ktorý možno použiť na výskum, analýzu a ďalšie účely. Open Prices vyvíja a spravuje spoločnosť Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Ako fungujú otváracie ceny?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Zhromažďujeme súbor údajov o cenách s otvoreným zdrojovým kódom**. Ceny môžu pridávať používatelia prostredníctvom tejto webovej aplikácie alebo prostredníctvom oficiálnej mobilnej aplikácie Open Food Facts. Prispieť môžu aj maloobchodníci alebo aplikácie tretích strán pomocou nášho API.",
   "guide_open_prices_how_arg1_title": "Zbierajte fotografie cenovok v uličkách",
   "guide_open_prices_how_arg2_title": "Zbierajte fotografie účteniek",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Fotografia produktu",
   "photo_field_ingredients": "Fotografia zložiek",
   "photo_field_nutrition": "Fotografia nutričných hodnôt",
-  "photo_field_packaging": "Informačná fotografia balenia",
+  "photo_field_packaging": "Fotografia recyklačných pokynov",
   "photo_already_exists": "Táto fotografia už existuje",
   "photo_missing": "Táto fotografia chýba",
   "date": "Dátum",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Objavte fakty o otvorenom jedle",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Objavte fakty o otvorenej kráse",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Objavte fakty o krmive pre domáce zvieratá na Open Pet Food",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Objavte fakty o otvorených produktoch",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Otvorené laboratóriá faktov o potravinách",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

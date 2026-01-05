@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "הכול",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(חיפוש לפי קטגוריות)",
@@ -535,9 +535,17 @@
   "product": "מוצר",
   "@product": {},
   "unknownBrand": "מותג לא ידוע",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "כמות לא ידועה",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "שם המוצר אינו ידוע",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "רענון",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "פרטי אריזה",
+  "packaging_information": "הוראות מיחזור",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "תמונת פרטי אריזה",
+  "packaging_information_photo": "תמונת הנחיות מיחזור",
   "@packaging_information_photo": {},
   "missing_product": "מצאת מוצר חדש!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "תמונת חזית האריזה",
   "ingredients_photo_title": "תמונת רכיבים",
   "nutritional_facts_photo_title": "תמונת פירוט תזונתי",
-  "recycling_photo_title": "תמונת מיחזור",
+  "recycling_photo_title": "תמונת הוראות מיחזור",
   "take_photo_title": "צילום תמונה",
   "take_more_photo_title": "צילום תמונות נוספות",
   "front_photo_uploaded": "תמונת החזית נשלחה",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "תמונת המוצר",
   "photo_field_ingredients": "תמונת רכיבים",
   "photo_field_nutrition": "תמונת מפרט תזונתי",
-  "photo_field_packaging": "תמונת פרטי אריזה",
+  "photo_field_packaging": "תמונת הנחיות מיחזור",
   "photo_already_exists": "התמונה הזאת כבר קיימת",
   "photo_missing": "התמונה הזאת חסרה",
   "date": "תאריך",
@@ -5104,7 +5112,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "גלה עובדות על אוכל פתוח",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "מעבדות Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -143,7 +143,7 @@ class AppLocalizationsUg extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'ئىجازەتنامە';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,6 +654,9 @@ class AppLocalizationsUg extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'نامەلۇم مىقدار';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -720,10 +723,10 @@ class AppLocalizationsUg extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'قايتا ئىشلەش كۆرسەتمىلىرى';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -826,7 +829,7 @@ class AppLocalizationsUg extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'قايتا ئىشلەش كۆرسەتمىسى رەسىم';
 
   @override
   String get take_photo_title => 'رەسىمگە تارتىش';
@@ -3517,7 +3520,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'يەرلىك ساقلانغان ساقلانما يېڭىلاش ئۈچۈن مۇلازىمېتىر ھەرىكىتىنى قىلىشقا باشلايدۇ';
 
   @override
   String get background_task_title_top_n =>
@@ -5213,7 +5216,7 @@ class AppLocalizationsUg extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5945,7 +5948,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'دۆلىتىڭىزدىكى ئوزۇقلۇق نومۇرى ۋە يېشىل نومۇرلارنى ھېسابلاشقا ياردەملىشىڭ';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'مەن تۆھپە قوشقان باھا';

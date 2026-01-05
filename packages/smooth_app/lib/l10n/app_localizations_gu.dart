@@ -143,7 +143,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'લાઇસન્સ';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,6 +653,9 @@ class AppLocalizationsGu extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'અજાણ્યો જથ્થો';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -719,10 +722,10 @@ class AppLocalizationsGu extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'રિસાયક્લિંગ સૂચનાઓ';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -825,7 +828,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'રિસાયક્લિંગ સૂચનાઓ ફોટો';
 
   @override
   String get take_photo_title => 'ફોટો પાડો';
@@ -3519,7 +3522,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'સ્થાનિક રીતે સંગ્રહિત ફોલ્કસોનોમી અપડેટ્સ માટે સર્વર ક્રિયાઓ કરવાનું શરૂ કરી રહ્યા છીએ';
 
   @override
   String get background_task_title_top_n =>
@@ -5212,7 +5215,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5581,7 +5584,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'સેટિંગ શોધો (દા.ત. ન્યુટ્રી-સ્કોર)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5658,7 +5661,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get preferences_tips => 'ટિપ્સ';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'નવા ન્યુટ્રી-સ્કોર શોધો';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5747,7 +5750,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'ન્યુટ્રી-સ્કોરની ગણતરી કેવી રીતે થાય છે તે શોધો';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5757,7 +5760,7 @@ class AppLocalizationsGu extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'પ્રોજેક્ટ શોધો';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Open Food તથ્યો શોધો.';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5941,7 +5944,7 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'તમારા દેશમાં ન્યુટ્રી-સ્કોર અને ગ્રીન-સ્કોરની ગણતરી કરવામાં મદદ કરો';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'મેં ફાળો આપેલા ભાવો';
@@ -6117,14 +6120,14 @@ class AppLocalizationsGu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'ફૂડ ફેક્ટ્સ લેબ્સ ખોલો';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'તમારી ભાષામાં ખુલ્લા ખોરાકના તથ્યો લાવો';
 
   @override
   String get preferences_contribute_enroll_alpha =>

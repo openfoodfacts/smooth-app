@@ -143,7 +143,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'လိုင်စင်များ';
 
   @override
   String get looking_for => 'Looking for';
@@ -655,6 +655,9 @@ class AppLocalizationsMy extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'မသိရသော ပမာဏ';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -721,10 +724,11 @@ class AppLocalizationsMy extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information =>
+      'ပြန်လည်အသုံးပြုခြင်းဆိုင်ရာ ညွှန်ကြားချက်များ';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -827,7 +831,8 @@ class AppLocalizationsMy extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title =>
+      'ပြန်လည်အသုံးပြုခြင်းဆိုင်ရာ ညွှန်ကြားချက်များ ဓာတ်ပုံ';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3527,7 +3532,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'စက်တွင်းသိမ်းဆည်းထားသော folksonomy အပ်ဒိတ်များအတွက် ဆာဗာလုပ်ဆောင်ချက်များကို စတင်လုပ်ဆောင်နေပါသည်။';
 
   @override
   String get background_task_title_top_n =>
@@ -5225,7 +5230,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -6146,7 +6151,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Food Facts Labs ကိုဖွင့်ပါ။';
 
   @override
   String get preferences_root_account_title => 'Account';

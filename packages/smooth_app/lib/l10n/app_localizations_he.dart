@@ -641,6 +641,9 @@ class AppLocalizationsHe extends AppLocalizations {
   String get unknownBrand => 'מותג לא ידוע';
 
   @override
+  String get unknownQuantity => 'כמות לא ידועה';
+
+  @override
   String get unknownProductName => 'שם המוצר אינו ידוע';
 
   @override
@@ -706,10 +709,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get nutrition_facts_editing_title => 'עריכת עובדות תזונתיות';
 
   @override
-  String get packaging_information => 'פרטי אריזה';
+  String get packaging_information => 'הוראות מיחזור';
 
   @override
-  String get packaging_information_photo => 'תמונת פרטי אריזה';
+  String get packaging_information_photo => 'תמונת הנחיות מיחזור';
 
   @override
   String get missing_product => 'מצאת מוצר חדש!';
@@ -812,7 +815,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get nutritional_facts_photo_title => 'תמונת פירוט תזונתי';
 
   @override
-  String get recycling_photo_title => 'תמונת מיחזור';
+  String get recycling_photo_title => 'תמונת הוראות מיחזור';
 
   @override
   String get take_photo_title => 'צילום תמונה';
@@ -3507,7 +3510,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'מתחיל לבצע את פעולות השרת עבור עדכוני פולקסונומיה המאוחסנים באופן מקומי';
 
   @override
   String get background_task_title_top_n =>
@@ -5185,7 +5188,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get photo_field_nutrition => 'תמונת מפרט תזונתי';
 
   @override
-  String get photo_field_packaging => 'תמונת פרטי אריזה';
+  String get photo_field_packaging => 'תמונת הנחיות מיחזור';
 
   @override
   String get photo_already_exists => 'התמונה הזאת כבר קיימת';
@@ -5278,7 +5281,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Prices פתוחים** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Prices פתוחים פותח ומתוחזק על ידי Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'מידע נוסף';
@@ -5718,7 +5721,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'לגלות עוד על המיזם';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'גלה עובדות על אוכל פתוח';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5738,7 +5741,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_faq_title => 'שאלות נפוצות - שאלות נפוצות';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'עמותת \"עובדות על אוכל פתוח\"';
 
   @override
   String get preferences_about_information_title => 'פרטים';
@@ -5759,7 +5762,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'הצטרפו אלינו באחד מהאירועים הווירטואליים שלנו';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'הבלוג של עובדות המזון הפתוחות';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6075,7 +6078,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'הביאו עובדות פתוחות על מזון לשפה שלכם';
 
   @override
   String get preferences_contribute_enroll_alpha =>

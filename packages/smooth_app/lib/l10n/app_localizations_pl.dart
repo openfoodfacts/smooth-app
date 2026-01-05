@@ -142,7 +142,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get match_short_unknown => 'Nie znaleziono powiązania';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Licencje';
 
   @override
   String get looking_for => 'Szukam';
@@ -664,6 +664,9 @@ class AppLocalizationsPl extends AppLocalizations {
   String get unknownBrand => 'Nieznana marka';
 
   @override
+  String get unknownQuantity => 'Nieznana ilość';
+
+  @override
   String get unknownProductName => 'Nieznana nazwa produktu';
 
   @override
@@ -731,11 +734,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edytuj informacje żywieniowe';
 
   @override
-  String get packaging_information => 'Informacje dot. opakowania';
+  String get packaging_information => 'Instrukcje dotyczące recyklingu';
 
   @override
   String get packaging_information_photo =>
-      'Zdjęcie informacji dotyczących opakowania';
+      'Zdjęcie informacji dotyczących recyklingu';
 
   @override
   String get missing_product => 'Znalazłeś(-aś) nowy produkt!';
@@ -841,7 +844,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Zdjęcie tabeli wartości odżywczych';
 
   @override
-  String get recycling_photo_title => 'Zdjęcie informacji o recyklingu';
+  String get recycling_photo_title => 'Instrukcje dotyczące recyklingu Zdjęcie';
 
   @override
   String get take_photo_title => 'Zrób zdjęcie';
@@ -3570,7 +3573,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Rozpoczęcie wykonywania działań serwerowych dla aktualizacji folksonomii przechowywanych lokalnie';
 
   @override
   String get background_task_title_top_n =>
@@ -4662,7 +4665,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Cechy otwartych informacji o żywności';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4746,7 +4749,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Cechy otwartych informacji o karmie dla zwierząt';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4991,7 +4994,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Cechy produktów otwartych Fakty';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5279,7 +5282,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get photo_field_packaging =>
-      'Zdjęcie informacji dotyczących opakowania';
+      'Zdjęcie informacji dotyczących recyklingu';
 
   @override
   String get photo_already_exists => 'To zdjęcie już istnieje';
@@ -5826,21 +5829,23 @@ class AppLocalizationsPl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Odkryj projekt';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Odkryj fakty dotyczące żywności';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Odkryj fakty dotyczące otwartego piękna';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Odkryj fakty dotyczące karmy dla zwierząt';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Odkryj fakty dotyczące produktów Open';
 
   @override
   String get preferences_faq_faq_title => 'FAQ – Najczęściej zadawane pytania';
@@ -6189,14 +6194,14 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Otwarte Laboratoria Faktów Żywnościowych';
 
   @override
   String get preferences_root_account_title => 'Konto';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Przenieś Open Food Fakty do swojego języka';
 
   @override
   String get preferences_contribute_enroll_alpha =>

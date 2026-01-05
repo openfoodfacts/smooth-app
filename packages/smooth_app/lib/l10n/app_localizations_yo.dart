@@ -143,7 +143,7 @@ class AppLocalizationsYo extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Awọn iwe-aṣẹ';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,6 +654,9 @@ class AppLocalizationsYo extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Iye ti a ko mọ';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -720,10 +723,10 @@ class AppLocalizationsYo extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Àwọn ìtọ́ni àtúnlò';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -826,7 +829,7 @@ class AppLocalizationsYo extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Àwọn ìtọ́ni àtúnlò Fọ́tò';
 
   @override
   String get take_photo_title => 'Ya aworan kan';
@@ -3518,7 +3521,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Bibẹrẹ lati ṣe awọn iṣe olupin fun awọn imudojuiwọn folksonomy ti o fipamọ ni agbegbe';
 
   @override
   String get background_task_title_top_n =>
@@ -5212,7 +5215,7 @@ class AppLocalizationsYo extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5306,7 +5309,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '** Open Prices *** jẹ iṣẹ akanṣe kan lati gba ati pin awọn idiyele ti awọn ọja ni ayika agbaye 🌍. Awọn idiyele Ṣii jẹ idagbasoke ati itọju nipasẹ Awọn Otitọ Ounjẹ Ṣii.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5612,7 +5615,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Ṣii Awọn Otitọ Ounjẹ jẹ aaye data awọn ọja ounjẹ ** ti gbogbo eniyan ṣe, fun gbogbo eniyan ***.\nO le lo lati ṣe awọn yiyan ounjẹ to dara julọ, ati pe bi o ti jẹ ** data ṣiṣi **, ẹnikẹni le **tun-lo fun idi eyikeyi ***.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5663,7 +5666,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Lori oju opo wẹẹbu Awọn Otitọ Ounjẹ Ṣii';
 
   @override
   String get preferences_manage_account_title => 'Ṣakoso akọọlẹ mi';
@@ -5912,7 +5915,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Awọn ọja titun Mo ṣafikun si Awọn Otitọ Ounjẹ Ṣii';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6115,14 +6118,14 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Ṣii Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Mu Awọn Otitọ Ounjẹ Ṣii wá si ede rẹ';
 
   @override
   String get preferences_contribute_enroll_alpha =>

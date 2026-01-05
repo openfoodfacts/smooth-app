@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Giấy phép",
   "@licenses": {},
   "looking_for": "Đang tìm",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Tất cả",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(tìm kiếm danh mục)",
@@ -535,9 +535,17 @@
   "product": "Sản phẩm",
   "@product": {},
   "unknownBrand": "Thương hiệu không xác định",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Số lượng không xác định",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Tên sản phẩm không xác định",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Làm mới",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Thông tin bao bì",
+  "packaging_information": "Hướng dẫn tái chế",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Ảnh chụp thông tin bao bì",
+  "packaging_information_photo": "Ảnh hướng dẫn tái chế",
   "@packaging_information_photo": {},
   "missing_product": "Bạn đã tìm thấy một sản phẩm mới!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Ảnh bao bì phía trước",
   "ingredients_photo_title": "Ảnh thành phần",
   "nutritional_facts_photo_title": "Ảnh chụp thông tin dinh dưỡng",
-  "recycling_photo_title": "Ảnh quy định tái chế",
+  "recycling_photo_title": "Hướng dẫn tái chế (Ảnh)",
   "take_photo_title": "Chụp ảnh",
   "take_more_photo_title": "Chụp thêm ảnh",
   "front_photo_uploaded": "Đã tải ảnh mặt trước lên",
@@ -3826,10 +3834,10 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Điểm dinh dưỡng A",
-  "nutriscore_b": "Điểm dinh dưỡng B",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Điểm dinh dưỡng D",
+  "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Tính toán mới)",
   "@nutriscore_new_formula": {
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Ảnh sản phẩm",
   "photo_field_ingredients": "Ảnh chụp thành phần",
   "photo_field_nutrition": "Ảnh dinh dưỡng",
-  "photo_field_packaging": "Ảnh chụp thông tin bao bì",
+  "photo_field_packaging": "Ảnh hướng dẫn tái chế",
   "photo_already_exists": "Bức ảnh này đã tồn tại",
   "photo_missing": "Bức ảnh này bị mất",
   "date": "Ngày",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Khám phá sự thật về thực phẩm mở",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Khám phá sự thật về vẻ đẹp mở",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Khám phá sự thật về thức ăn cho thú cưng",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Khám phá sự thật về sản phẩm mở",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Phòng thí nghiệm thông tin thực phẩm mở",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

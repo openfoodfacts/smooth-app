@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Всички",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(търсене по категории)",
@@ -535,9 +535,17 @@
   "product": "Продукт",
   "@product": {},
   "unknownBrand": "Неизвестна марка",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Неизвестно количество",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Неразпознат продукт",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Опресни",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Информация на опаковката",
+  "packaging_information": "Инструкции за рециклиране",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Снимка с информация за опаковката",
+  "packaging_information_photo": "Снимка с инструкции за рециклиране",
   "@packaging_information_photo": {},
   "missing_product": "Откри нов продукт!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Снимка на предната част на опаковката",
   "ingredients_photo_title": "Снимка на съставките",
   "nutritional_facts_photo_title": "Снимка на хранителните стойности",
-  "recycling_photo_title": "Снимка на указанията за рециклиране",
+  "recycling_photo_title": "Инструкции за рециклиране Снимка",
   "take_photo_title": "Направи снимка",
   "take_more_photo_title": "Направи още снимки",
   "front_photo_uploaded": "Снимката на предната страна е качена",
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Научете повече за отворените цени",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3841,7 +3849,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ново изчисление)",
-  "nutriscore_unknown": "Неизвестен хранителен резултат",
+  "nutriscore_unknown": "Unknown Nutri-Score",
   "nutriscore_unknown_new_formula": "Неизвестен Nutri-Score (ново изчисление)",
   "nutriscore_not_applicable": "Nutri-Score не е приложим",
   "nutriscore_not_applicable_new_formula": "Nutri-Score не е приложим (ново изчисление)",
@@ -4145,7 +4153,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Какво представляват отворените цени?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices е проект за **събиране и споделяне на цени на продукти по целия свят**. Това е публично достъпен набор от данни, който може да се използва за изследвания, анализи и други. Open Prices е разработен и поддържан от Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Как работят отворените цени?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Ние използваме краудсорсинг за събиране на данни с отворен код за цени**. Цените могат да бъдат добавяни от потребителите чрез това уеб приложение или чрез официалното мобилно приложение Open Food Facts. Търговците на дребно или приложения на трети страни също могат да допринесат, като използват нашия API.",
   "guide_open_prices_how_arg1_title": "Събирайте снимки на етикети с цени по пътеките",
   "guide_open_prices_how_arg2_title": "Събирайте снимки на касови бележки",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Снимка на продукта",
   "photo_field_ingredients": "Снимка на съставките",
   "photo_field_nutrition": "Снимка за хранене",
-  "photo_field_packaging": "Снимка с информация за опаковката",
+  "photo_field_packaging": "Снимка с инструкции за рециклиране",
   "photo_already_exists": "Тази снимка вече съществува",
   "photo_missing": "Тази снимка липсва",
   "date": "Дата",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Открийте фактите за отворената храна",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Открийте открити факти за красотата",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Открийте фактите за храната за домашни любимци на Open",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Открийте фактите за отворените продукти",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Отворени лаборатории за факти за храните",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

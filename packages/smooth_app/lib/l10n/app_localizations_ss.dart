@@ -143,7 +143,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Emalayisensi';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,6 +653,9 @@ class AppLocalizationsSs extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Inani lelingatiwa';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -719,10 +722,10 @@ class AppLocalizationsSs extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Ticondziso tekuphindza usebentise';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -825,7 +828,8 @@ class AppLocalizationsSs extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title =>
+      'Tiyaleto tekuphindza usebentise Sitfombe';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3522,7 +3526,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Kucala kwenta tento teseva tetibuyeketo te-folksonomy letigcinwe endzaweni';
 
   @override
   String get background_task_title_top_n =>
@@ -5222,7 +5226,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5676,7 +5680,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .';
 
   @override
   String get preferences_manage_account_title => 'Lawula i-akhawunti yami';
@@ -5792,7 +5796,8 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Imibuto Levame Kubutwa';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'I-NGO yeMaciniso Ekudla Lokuvulekile';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5814,7 +5819,8 @@ class AppLocalizationsSs extends AppLocalizations {
       'Tibandzakanye ngekuya kulomunye wemicimbi yetfu lebonakalako';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Ibhulogi Yemaciniso Ekudla Lokuvulekile';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6135,7 +6141,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Vula Emalabs Emaciniso Ekudla';
 
   @override
   String get preferences_root_account_title => 'Account';

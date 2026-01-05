@@ -143,7 +143,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Liċenzji';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,6 +653,9 @@ class AppLocalizationsMt extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Kwantità mhux magħrufa';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -719,10 +722,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Istruzzjonijiet dwar ir-riċiklaġġ';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -825,7 +828,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Istruzzjonijiet għar-riċiklaġġ Ritratt';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3518,7 +3521,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Nibdew inwettqu l-azzjonijiet tas-server għall-aġġornamenti tal-folksonomija maħżuna lokalment';
 
   @override
   String get background_task_title_top_n =>
@@ -5213,7 +5216,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5763,7 +5766,8 @@ class AppLocalizationsMt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Skopri Fatti dwar l-Ikel Miftuħ';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5806,7 +5810,8 @@ class AppLocalizationsMt extends AppLocalizations {
       'Involvi ruħek billi tattendi wieħed mill-avvenimenti virtwali tagħna';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Il-blogg tal-Fatti dwar l-Ikel Miftuħ';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6127,14 +6132,14 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Laboratorji Miftuħa tal-Fatti dwar l-Ikel';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Ġib il-Fatti Miftuħa dwar l-Ikel fil-lingwa tiegħek';
 
   @override
   String get preferences_contribute_enroll_alpha =>

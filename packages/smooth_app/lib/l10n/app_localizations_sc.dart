@@ -653,6 +653,9 @@ class AppLocalizationsSc extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override

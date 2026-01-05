@@ -657,6 +657,9 @@ class AppLocalizationsSl extends AppLocalizations {
   String get unknownBrand => 'Neznana znamka';
 
   @override
+  String get unknownQuantity => 'Neznana količina';
+
+  @override
   String get unknownProductName => 'Neznano ime izdelka';
 
   @override
@@ -723,10 +726,11 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Uredi hranilne vrednosti';
 
   @override
-  String get packaging_information => 'Informacije o embalaži';
+  String get packaging_information => 'Navodila za recikliranje';
 
   @override
-  String get packaging_information_photo => 'Slika informacij o embalaži';
+  String get packaging_information_photo =>
+      'Fotografija navodil za recikliranje';
 
   @override
   String get missing_product => 'Našli ste nov izdelek!';
@@ -831,7 +835,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Fotografija hranilnih vrednosti';
 
   @override
-  String get recycling_photo_title => 'Fotografija recikliranja';
+  String get recycling_photo_title => 'Navodila za recikliranje Fotografija';
 
   @override
   String get take_photo_title => 'Posnemi fotografijo';
@@ -3555,7 +3559,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Začetek izvajanja dejanj strežnika za lokalno shranjene posodobitve folksonomy';
 
   @override
   String get background_task_title_top_n =>
@@ -4156,7 +4160,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'Vizija, poslanstvo, vrednote in programi Odprtega programa za živila';
 
   @override
   String get faq_title_install_beauty =>
@@ -4632,7 +4636,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Kaj so odprta dejstva o hrani?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4644,7 +4648,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Značilnosti odprtih dejstev o hrani';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4729,7 +4733,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Značilnosti odprtih dejstev o hrani za hišne ljubljenčke';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4799,7 +4803,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Kaj so odprta dejstva o lepoti?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4964,7 +4968,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Kaj so dejstva o odprtih izdelkih?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4976,7 +4980,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Značilnosti odprtih izdelkov Dejstva';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5261,7 +5265,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get photo_field_nutrition => 'Fotografija prehrane';
 
   @override
-  String get photo_field_packaging => 'Slika informacij o embalaži';
+  String get photo_field_packaging => 'Fotografija navodil za recikliranje';
 
   @override
   String get photo_already_exists => 'Ta fotografija že obstaja';
@@ -5811,21 +5815,23 @@ class AppLocalizationsSl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Odkrijte projekt';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Odkrijte dejstva o odprti hrani';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Odkrijte odprta dejstva o lepoti';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Odkrijte dejstva o hrani za hišne ljubljenčke na Open';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Odkrijte dejstva o odprtih izdelkih';
 
   @override
   String get preferences_faq_faq_title =>
@@ -6175,14 +6181,14 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Odprti laboratoriji za dejstva o hrani';
 
   @override
   String get preferences_root_account_title => 'Račun';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Prinesite odprta dejstva o hrani v svoj jezik';
 
   @override
   String get preferences_contribute_enroll_alpha =>

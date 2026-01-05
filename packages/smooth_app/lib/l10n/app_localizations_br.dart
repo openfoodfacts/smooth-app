@@ -143,7 +143,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Lañvazioù';
+  String get licenses => 'Aotreoù';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,6 +654,9 @@ class AppLocalizationsBr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Kementad dianav';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -720,10 +723,10 @@ class AppLocalizationsBr extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Titouroù evit adkempenn';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -827,7 +830,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Titouroù evit adkempenn Skeudenn';
 
   @override
   String get take_photo_title => 'Tapout ur skeudenn';
@@ -3522,7 +3525,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Kregiñ da seveniñ oberoù an dafariad evit an hizivadennoù folksonomy enrollet lec\'hel';
 
   @override
   String get background_task_title_top_n =>
@@ -5220,7 +5223,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5768,7 +5771,8 @@ class AppLocalizationsBr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Dizoleiñ ar raktres';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Dizoloit fedoù diwar-benn ar boued digor';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5953,7 +5957,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Sikour da jediñ ar Skor Nutri hag ar Skor Glas en ho bro';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6133,14 +6137,14 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Labouradegoù digor war ar fedoù boued';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Degas fedoù boued digor d\'ho yezh';
 
   @override
   String get preferences_contribute_enroll_alpha =>

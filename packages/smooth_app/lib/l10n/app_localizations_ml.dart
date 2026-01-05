@@ -143,7 +143,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'ലൈസൻസുകൾ';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,6 +654,9 @@ class AppLocalizationsMl extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'അജ്ഞാത അളവ്';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -720,10 +723,10 @@ class AppLocalizationsMl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'പുനരുപയോഗ നിർദ്ദേശങ്ങൾ';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -826,7 +829,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'പുനരുപയോഗ നിർദ്ദേശങ്ങൾ ഫോട്ടോ';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3520,7 +3523,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'പ്രാദേശികമായി സംഭരിച്ചിരിക്കുന്ന ഫോക്ക്‌സോണമി അപ്‌ഡേറ്റുകൾക്കായി സെർവർ പ്രവർത്തനങ്ങൾ നടത്താൻ ആരംഭിക്കുന്നു.';
 
   @override
   String get background_task_title_top_n =>
@@ -5216,7 +5219,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5925,7 +5928,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'ഓപ്പൺ ഫുഡ് ഫാക്റ്റുകളിൽ ഞാൻ ചേർത്ത പുതിയ ഉൽപ്പന്നങ്ങൾ';
 
   @override
   String get preferences_contributions_to_be_completed_title =>

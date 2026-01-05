@@ -143,7 +143,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Лицензүүд';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,6 +653,9 @@ class AppLocalizationsMn extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Тодорхойгүй тоо хэмжээ';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -719,10 +722,10 @@ class AppLocalizationsMn extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Дахин боловсруулах зааварчилгаа';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -825,7 +828,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Дахин боловсруулах зааварчилгааны зураг';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3520,7 +3523,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Орон нутагт хадгалагдсан фолксономи шинэчлэлтийн серверийн үйлдлийг хийж эхэлж байна';
 
   @override
   String get background_task_title_top_n =>
@@ -5218,7 +5221,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5765,7 +5768,8 @@ class AppLocalizationsMn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Нээлттэй хүнсний баримтуудыг олж мэдээрэй';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5786,7 +5790,7 @@ class AppLocalizationsMn extends AppLocalizations {
       'Түгээмэл асуултууд - Түгээмэл асуултууд';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'Нээлттэй хүнсний баримт ТББ';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5808,7 +5812,7 @@ class AppLocalizationsMn extends AppLocalizations {
       'Манай виртуал арга хэмжээнүүдийн аль нэгэнд оролцож, оролцоорой';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Нээлттэй хүнсний баримт блог';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6130,14 +6134,14 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Хүнсний баримтын лабораторийг нээнэ үү';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Нээлттэй хүнсний баримтуудыг хэл дээрээ авчир';
 
   @override
   String get preferences_contribute_enroll_alpha =>

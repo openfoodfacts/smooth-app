@@ -142,7 +142,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get match_short_unknown => '一致度は不明';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'ライセンス';
 
   @override
   String get looking_for => '検索中';
@@ -631,6 +631,9 @@ class AppLocalizationsJa extends AppLocalizations {
   String get unknownBrand => '不明なブランド';
 
   @override
+  String get unknownQuantity => '不明な数量';
+
+  @override
   String get unknownProductName => '不明な製品名';
 
   @override
@@ -695,10 +698,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutrition_facts_editing_title => '栄養成分表示を編集する';
 
   @override
-  String get packaging_information => 'パッケージ情報';
+  String get packaging_information => 'リサイクル手順';
 
   @override
-  String get packaging_information_photo => 'パッケージ情報の画像';
+  String get packaging_information_photo => 'リサイクル手順の画像';
 
   @override
   String get missing_product => '新しい製品を見つけました！';
@@ -799,7 +802,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutritional_facts_photo_title => '栄養成分表の画像';
 
   @override
-  String get recycling_photo_title => 'リサイクル情報の画像';
+  String get recycling_photo_title => 'リサイクル手順写真';
 
   @override
   String get take_photo_title => '画像を撮る';
@@ -3382,7 +3385,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'ローカルに保存されたフォークソノミーの更新に対するサーバーアクションの実行を開始します';
 
   @override
   String get background_task_title_top_n => '最も人気のある製品のダウンロードを開始します';
@@ -4490,8 +4493,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '私たちは、ペットの飼い主が動物のニーズに最適な食べ物を選択できるように、**原材料**、**栄養分析**、給餌ガイドラインに関する情報を収集しています。';
 
   @override
-  String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+  String get guide_open_pet_food_facts_features_title => 'オープンペットフードファクトの特徴';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4564,8 +4566,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '私たちの目標は、**パーソナルケア製品に何が含まれているのか**を理解していただくために、成分リストを解読することです。保湿剤から化粧品まで、化粧品業界の透明性を高めるために、成分、アレルゲン、パッケージに関するデータを収集しています。';
 
   @override
-  String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+  String get guide_open_beauty_facts_features_title => 'オープンビューティーファクトの特徴';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4719,8 +4720,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '**電化製品**から**おもちゃ**、**衣類**から**掃除用品**まで、バーコードがあれば追加できます。このプロジェクトは、日常のあらゆるモノに「モノのインターネット」を構築し、それらに関する情報を誰もがアクセスできるようにすることを目的としています。';
 
   @override
-  String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+  String get guide_open_products_facts_features_title => 'オープンプロダクトの特徴';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -4995,7 +4995,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get photo_field_nutrition => '栄養写真';
 
   @override
-  String get photo_field_packaging => 'パッケージ情報の画像';
+  String get photo_field_packaging => 'リサイクル手順の画像';
 
   @override
   String get photo_already_exists => 'この写真は既に存在します';
@@ -5516,18 +5516,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'Open Food Factsを発見';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => 'オープンビューティーファクトを発見';
 
   @override
-  String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+  String get preferences_faq_discover_opff_title => 'オープンペットフードの事実を知る';
 
   @override
   String get preferences_faq_discover_op_title => 'Open Pricesを見る';
 
   @override
-  String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+  String get preferences_faq_discover_opf_title => 'オープンプロダクトの詳細を見る';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - よくある質問';

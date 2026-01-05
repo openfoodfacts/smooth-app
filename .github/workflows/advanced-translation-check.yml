@@ -1,0 +1,97 @@
+name: Advanced Translation Quality Check
+
+permissions:
+  contents: read
+  pull-requests: write
+
+on:
+  pull_request:
+    paths:
+      - 'packages/smooth_app/lib/l10n/app_*.arb'
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  advanced-translation-check:
+    runs-on: ubuntu-latest
+    if: |
+      github.event.pull_request.head.repo.fork == false
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.x'
+      
+      - name: Install translation quality tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq gettext translate-toolkit
+          pip3 install --quiet polib babel
+      
+      - name: Run basic translation validation
+        id: basic-validation
+        run: |
+          python3 .github/scripts/validate_translations.py > basic_report.md
+          echo "BASIC_REPORT=basic_report.md" >> $GITHUB_OUTPUT
+      
+      - name: Run advanced translation quality checks
+        id: advanced-validation
+        run: |
+          python3 .github/scripts/advanced_translation_check.py > advanced_report.md
+          echo "ADVANCED_REPORT=advanced_report.md" >> $GITHUB_OUTPUT
+      
+      - name: Run translate-toolkit quality checks
+        id: toolkit-validation
+        run: |
+          python3 .github/scripts/translate_toolkit_check.py --filters variables,brackets,urls,endwhitespace > toolkit_report.md
+          echo "TOOLKIT_REPORT=toolkit_report.md" >> $GITHUB_OUTPUT
+      
+      - name: Combine reports
+        run: |
+          echo "# 🌍 Translation Quality Report" > combined_report.md
+          echo "" >> combined_report.md
+          echo "This report combines multiple translation quality checks:" >> combined_report.md
+          echo "" >> combined_report.md
+          echo "---" >> combined_report.md
+          echo "" >> combined_report.md
+          cat basic_report.md >> combined_report.md
+          echo "" >> combined_report.md
+          echo "---" >> combined_report.md
+          echo "" >> combined_report.md
+          cat advanced_report.md >> combined_report.md
+          echo "" >> combined_report.md
+          echo "---" >> combined_report.md
+          echo "" >> combined_report.md
+          cat toolkit_report.md >> combined_report.md
+          echo "" >> combined_report.md
+          echo "---" >> combined_report.md
+          echo "" >> combined_report.md
+          echo "## 🔧 Tools Used" >> combined_report.md
+          echo "" >> combined_report.md
+          echo "- **validate_translations.py**: Brand name and URL validation" >> combined_report.md
+          echo "- **advanced_translation_check.py**: Placeholder, punctuation, whitespace, and consistency checks" >> combined_report.md
+          echo "- **translate_toolkit_check.py**: Industry-standard translation quality using translate-toolkit" >> combined_report.md
+          echo "- **gettext**: Format string validation (msgfmt)" >> combined_report.md
+          echo "- **translate-toolkit**: Translation quality analysis (pocount, pofilter)" >> combined_report.md
+          echo "" >> combined_report.md
+          echo "*Generated on $(date -u '+%Y-%m-%d %H:%M:%S UTC')*" >> combined_report.md
+      
+      - name: Find existing comment
+        uses: peter-evans/find-comment@v4
+        id: find-comment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '🌍 Translation Quality Report'
+      
+      - name: Create or update comment
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body-path: combined_report.md
+          edit-mode: replace

@@ -143,7 +143,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Trwyddedau';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,6 +653,9 @@ class AppLocalizationsCy extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Maint anhysbys';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -719,10 +722,10 @@ class AppLocalizationsCy extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Cyfarwyddiadau ailgylchu';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -825,7 +828,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Cyfarwyddiadau ailgylchu Llun';
 
   @override
   String get take_photo_title => 'Tynnu llun';
@@ -3519,7 +3522,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Dechrau cyflawni\'r gweithredoedd gweinydd ar gyfer diweddariadau folksonomy sydd wedi\'u storio\'n lleol';
 
   @override
   String get background_task_title_top_n =>
@@ -5216,7 +5219,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5586,7 +5589,7 @@ class AppLocalizationsCy extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'Chwiliwch am leoliad (e.e. Sgôr Maeth)';
 
   @override
   String get preferences_accessibility_show_emoji => 'Hygyrchedd: Dangos emoji';
@@ -5663,7 +5666,7 @@ class AppLocalizationsCy extends AppLocalizations {
   String get preferences_tips => 'Awgrymiadau';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'Darganfyddwch y Sgôr Maeth newydd';
 
   @override
   String get preferences_on_off_website_subtitle => 'Ar wefan Open Food Facts';

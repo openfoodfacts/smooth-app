@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Tutti",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(ricerca per categoria)",
@@ -535,9 +535,17 @@
   "product": "Prodotto",
   "@product": {},
   "unknownBrand": "Marca sconosciuta",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Quantità sconosciuta",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nome del prodotto sconosciuto",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Aggiorna",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informazioni sull'imballaggio",
+  "packaging_information": "Istruzioni per il riciclaggio",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto di informazioni sull'imballaggio",
+  "packaging_information_photo": "Foto delle istruzioni di riciclaggio",
   "@packaging_information_photo": {},
   "missing_product": "Hai trovato un nuovo prodotto!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Foto dell'Imballaggio Anteriore",
   "ingredients_photo_title": "Foto degli Ingredienti",
   "nutritional_facts_photo_title": "Foto valori nutrizionali",
-  "recycling_photo_title": "Foto delle istruzioni di riciclaggio",
+  "recycling_photo_title": "Istruzioni per il riciclaggio Foto",
   "take_photo_title": "Scatta una foto",
   "take_more_photo_title": "Scatta più foto",
   "front_photo_uploaded": "Foto frontale caricata",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Foto del prodotto",
   "photo_field_ingredients": "Foto degli ingredienti",
   "photo_field_nutrition": "Foto di nutrizione",
-  "photo_field_packaging": "Foto di informazioni sull'imballaggio",
+  "photo_field_packaging": "Foto delle istruzioni di riciclaggio",
   "photo_already_exists": "Questa foto esiste già",
   "photo_missing": "Questa foto è mancante",
   "date": "Data",

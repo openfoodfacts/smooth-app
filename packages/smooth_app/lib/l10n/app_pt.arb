@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Todos",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(pesquisa de categoria)",
@@ -535,9 +535,17 @@
   "product": "Produto",
   "@product": {},
   "unknownBrand": "Marca desconhecida",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Quantidade desconhecida",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nome de produto desconhecido",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Atualizar",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informação de embalagem",
+  "packaging_information": "Instruções de reciclagem",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto de informações da embalagem",
+  "packaging_information_photo": "Fotografia das instruções de reciclagem",
   "@packaging_information_photo": {},
   "missing_product": "Encontrou um novo produto!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Fotografia frontal da embalagem",
   "ingredients_photo_title": "Fotografia dos ingredientes",
   "nutritional_facts_photo_title": "Fotografia das informações nutricionais",
-  "recycling_photo_title": "Fotografia de reciclagem",
+  "recycling_photo_title": "Instruções de reciclagem Foto",
   "take_photo_title": "Tirar uma foto",
   "take_more_photo_title": "Tirar mais fotografias",
   "front_photo_uploaded": "Fotografia inicial enviada",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Fotografia do produto",
   "photo_field_ingredients": "Foto de ingredientes",
   "photo_field_nutrition": "Fotografia das informações nutricionais",
-  "photo_field_packaging": "Foto de informações da embalagem",
+  "photo_field_packaging": "Fotografia das instruções de reciclagem",
   "photo_already_exists": "Esta fotografia já existe",
   "photo_missing": "Esta fotografia está em falta",
   "date": "Data",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Descubra factos sobre os alimentos abertos",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Descubra factos sobre a beleza sem censura",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Descubra informações sobre alimentos para animais de estimação da Open Pet Food.",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Descubra informações sobre os produtos abertos",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratórios Abertos de Informação Alimentar",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

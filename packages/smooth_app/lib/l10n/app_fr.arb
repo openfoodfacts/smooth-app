@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Tout",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(recherche par catégorie)",
@@ -535,9 +535,17 @@
   "product": "Produit",
   "@product": {},
   "unknownBrand": "Marque inconnue",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "quantité inconnue",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Produit inconnu",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Actualiser",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -590,7 +598,7 @@
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Consignes de tri ou recyclage",
+  "packaging_information_photo": "Photo des informations de recyclage",
   "@packaging_information_photo": {},
   "missing_product": "Vous avez trouvé un nouveau produit !",
   "@missing_product": {},

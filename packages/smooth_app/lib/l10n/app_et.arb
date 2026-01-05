@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Litsentsid",
   "@licenses": {},
   "looking_for": "Otsin",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Kõik",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategooria otsing)",
@@ -535,9 +535,17 @@
   "product": "Toode",
   "@product": {},
   "unknownBrand": "Tundmatu kaubamärk",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Tundmatu kogus",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Tundmatu tootenimi",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Värskenda",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Pakendiinfo",
+  "packaging_information": "Taaskasutusjuhised",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Pakendiinfo foto",
+  "packaging_information_photo": "Foto ringlussevõtu juhistest",
   "@packaging_information_photo": {},
   "missing_product": "Oled leidnud uue toote!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Esikülje pakendi foto",
   "ingredients_photo_title": "Koostisosade foto",
   "nutritional_facts_photo_title": "Toitumisalane teave Foto",
-  "recycling_photo_title": "Foto ringlussevõtt",
+  "recycling_photo_title": "Taaskasutusjuhised Foto",
   "take_photo_title": "Tehke foto",
   "take_more_photo_title": "Take more photos",
   "front_photo_uploaded": "Esikülgne foto üles laaditud",
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Lisateave avatud hindade kohta",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3827,7 +3835,7 @@
   },
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-skoor B",
+  "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
@@ -3841,7 +3849,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (uus arvutus)",
-  "nutriscore_unknown": "Tundmatu toiteväärtus",
+  "nutriscore_unknown": "Unknown Nutri-Score",
   "nutriscore_unknown_new_formula": "Tundmatu Nutri-Score (uus arvutus)",
   "nutriscore_not_applicable": "Nutri-Score ei ole kohaldatav",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ei ole kohaldatav (uus arvutus)",
@@ -4141,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Märkus punktiarvestuse kohta",
   "guide_open_beauty_facts_scores_paragraph1": "Erinevalt toiduainetest puudub kosmeetikamaailmas **üldiselt tunnustatud, valitsuse toetatud hindamissüsteem nagu Nutri-Score**. Koostisosade mõju võib olla väga individuaalne ja sõltuda nahatüübist, allergiatest ja individuaalsetest eelistustest.",
   "guide_open_beauty_facts_share_link": "https://world-et.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Tere tulemast avatud hindadesse!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Mis on avatud hinnad?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices on projekt, mille eesmärk on **koguda ja jagada toodete hindu üle maailma**. See on avalikult kättesaadav andmestik, mida saab kasutada uuringuteks, analüüsiks ja muuks. Open Pricesi arendab ja haldab Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Kuidas avatud hinnad toimivad?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Me kogume avatud lähtekoodiga hinnaandmestikku rahvahulga abil**. Kasutajad saavad hindu lisada selle veebirakenduse või ametliku Open Food Factsi mobiilirakenduse kaudu. Jaemüüjad või kolmandate osapoolte rakendused saavad samuti meie API abil panustada.",
   "guide_open_prices_how_arg1_title": "Koguge vahekäikudes olevate hinnasiltide fotosid",
   "guide_open_prices_how_arg2_title": "Koguge kviitungite fotosid",
@@ -4165,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Võrdle hindu enda lähedal",
   "guide_open_prices_why_arg2_text": "Mida rohkem hindu saame, seda paremini saate märgata **odavamaid poode enda ümber**.",
   "guide_open_prices_scrapping_title": "Kas kaalusite hindade kopeerimist jaemüüjate veebisaitidelt?",
-  "guide_open_prices_scrapping_paragraph1": "Juriidilistel ja tehnilistel põhjustel **ei pea me jaemüüjate veebisaitidelt hindade kopeerimist kehtivaks viisiks avatud hindade avaldamiseks**. Soovime veenduda, et meie kogutud hinnad on täpsed ja ajakohased ning kaastööliste käest kopeeritud hindade saamine ei võimalda meil seda teha.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "Hinna kraapimist kaalutakse Open Prices'i tulevases versioonis, kuid seda teeks Open Prices ise, et meil oleks HTML-lehel põhinev hinna tõend.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Hindade avaldamiseks saate kasutada meie API-t.\nKui soovite hindu laiemalt avaldada, võtke meiega ühendust aadressil prices@openfoodfacts.org.",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Toote foto",
   "photo_field_ingredients": "Koostisosade foto",
   "photo_field_nutrition": "Toitumisfoto",
-  "photo_field_packaging": "Pakendiinfo foto",
+  "photo_field_packaging": "Foto ringlussevõtu juhistest",
   "photo_already_exists": "See foto on juba olemas",
   "photo_missing": "See foto puudub",
   "date": "Kuupäev",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Avastage avatud toidufaktid",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Avastage avatud ilufaktid",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Avastage lemmikloomatoitude fakte",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Avastage avatud toodete fakte",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Avatud toidufaktide laborid",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

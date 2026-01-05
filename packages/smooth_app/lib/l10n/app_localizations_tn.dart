@@ -143,7 +143,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Dilaesense';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,6 +654,9 @@ class AppLocalizationsTn extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Bontsi jo bo sa itsiweng';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -720,10 +723,10 @@ class AppLocalizationsTn extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Ditaelo tsa tirisopoeletso';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -826,7 +829,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Ditaelo tsa tirisopoeletso Senepe';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3523,7 +3526,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Go simolola go dira ditiro tsa sefara tsa dintšhwafatso tsa folksonomy tse di bolokilweng mo lefelong la gaeno';
 
   @override
   String get background_task_title_top_n =>
@@ -5222,7 +5225,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5316,7 +5319,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** ke porojeke ya go kokoanya le go abelana ditlhwatlhwa tsa dikumo lefatshe ka bophara 🌍. Ditheko tse Bulehileng di ntshetswa pele le ho bolokwa ke Dintlha tsa Dijo tse Bulehileng.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5931,7 +5934,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Dikumo tse disha tse ke di tsentseng mo Dintlhang tsa Dijo tse di Buletsweng';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5957,7 +5960,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'Thusa go balelela Maduo a Dikotla le Green-Score mo nageng ya gaeno';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6140,14 +6143,14 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Bula Dilaboratori tsa Dintlha tsa Dijo';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Tlisa Dintlha tsa Dijo tse di Bulegileng mo puong ya gago';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Vše",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(hledání kategorií)",
@@ -535,9 +535,17 @@
   "product": "Produkt",
   "@product": {},
   "unknownBrand": "Neznámá značka",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Neznámé množství",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Neznámý název produktu",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Obnovit",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informace o balení",
+  "packaging_information": "Pokyny pro recyklaci",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Informační foto balení",
+  "packaging_information_photo": "Fotografie pokynů pro recyklaci",
   "@packaging_information_photo": {},
   "missing_product": "Našli jste nový produkt!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Fotografie předního obalu",
   "ingredients_photo_title": "Fotografie ingrediencí",
   "nutritional_facts_photo_title": "Fotografie nutričních údajů",
-  "recycling_photo_title": "Fotografie recyklace",
+  "recycling_photo_title": "Pokyny k recyklaci Fotografie",
   "take_photo_title": "Vyfotit",
   "take_more_photo_title": "Vyfotit další obrázky",
   "front_photo_uploaded": "Přední fotka nahrána",
@@ -4109,16 +4117,16 @@
   "guide_open_pet_food_facts_scores_title": "Poznámka k bodování",
   "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
   "guide_open_pet_food_facts_share_link": "https://world-cs.openpetfoodfacts.org/discover",
-  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "guide_open_beauty_facts_title": "Vítejte na Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts je kooperativní databáze **kosmetických produktů**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Naším cílem je rozluštit seznamy složek, abyste **pochopili, co se nachází ve vašich produktech osobní péče**. Od hydratačních krémů po make-up shromažďujeme data o složkách, alergenech a obalech, abychom podpořili transparentnost v kosmetickém průmyslu.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Fotografie produktu",
   "photo_field_ingredients": "Fotografie ingrediencí",
   "photo_field_nutrition": "Fotografie výživových údajů",
-  "photo_field_packaging": "Informační foto balení",
+  "photo_field_packaging": "Fotografie pokynů pro recyklaci",
   "photo_already_exists": "Tato fotografie již existuje",
   "photo_missing": "Tato fotografie chybí",
   "date": "Datum",
@@ -5104,7 +5112,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Objevte fakta o jídle na Open Food",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Otevřené laboratoře faktů o potravinách",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

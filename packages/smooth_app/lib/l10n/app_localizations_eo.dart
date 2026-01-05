@@ -143,7 +143,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Licencoj';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,6 +653,9 @@ class AppLocalizationsEo extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Nekonata kvanto';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -719,10 +722,10 @@ class AppLocalizationsEo extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Reciklaj instrukcioj';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -825,7 +828,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Reciklaj instrukcioj Foto';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3519,7 +3522,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Komencante plenumi la servilajn agojn por folksonomy-ĝisdatigoj konservitaj loke';
 
   @override
   String get background_task_title_top_n =>
@@ -5214,7 +5217,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5616,7 +5619,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Malfermaj Nutraĵaj Faktoj estas datumbazo pri nutraĵoj **farita de ĉiuj, por ĉiuj**.\nVi povas uzi ĝin por fari pli bonajn elektojn pri nutraĵoj, kaj ĉar ĝi estas **malfermaj datumoj**, ĉiu povas **reuzi ĝin por iu ajn celo**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5753,7 +5756,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'Malkovru kiel la Nutri-Poentaro estas kalkulata';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5763,7 +5766,8 @@ class AppLocalizationsEo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Esploru la projekton';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Malkovru Malfermajn Manĝaĵojn Faktojn';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5783,7 +5787,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get preferences_faq_faq_title => 'Oftaj Demandoj - Oftaj Demandoj';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'La Malferma Manĝaĵa Faktoj NRO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5922,7 +5926,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Novaj produktoj, kiujn mi aldonis al Malfermaj Manĝaĵaj Faktoj';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6125,14 +6129,14 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Malfermaj Laboratorioj pri Manĝaĵaj Faktoj';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Alportu Malfermajn Manĝaĵajn Informojn al via lingvo';
 
   @override
   String get preferences_contribute_enroll_alpha =>

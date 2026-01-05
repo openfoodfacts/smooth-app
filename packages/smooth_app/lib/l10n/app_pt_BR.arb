@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Todos",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(pesquisa de categoria)",
@@ -513,7 +513,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_product_help": "Search a product,\na brand or a barcode",
+  "search_product_help": "Pesquisar um produto, marca ou um código de barras",
   "@search_product_help": {
     "description": "Help text of a search text input field. Please respect the line break."
   },
@@ -535,9 +535,17 @@
   "product": "Produto",
   "@product": {},
   "unknownBrand": "Marca desconhecida",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Quantidade desconhecida",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nome de produto desconhecido",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Atualizar",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informação de embalagem",
+  "packaging_information": "Instruções de reciclagem",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto de informações da embalagem",
+  "packaging_information_photo": "Fotografia das instruções de reciclagem",
   "@packaging_information_photo": {},
   "missing_product": "Você encontrou um novo produto!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Foto frontal da embalagem",
   "ingredients_photo_title": "Fotografia dos ingredientes",
   "nutritional_facts_photo_title": "Fotografia das informações nutricionais",
-  "recycling_photo_title": "Fotografia de reciclagem",
+  "recycling_photo_title": "Instruções de reciclagem Foto",
   "take_photo_title": "Tirar uma foto",
   "take_more_photo_title": "Tirar mais fotografias",
   "front_photo_uploaded": "Fotografia inicial enviada",
@@ -3845,14 +3853,14 @@
   "nutriscore_unknown_new_formula": "Nutri-Score desconhecido (novo cálculo)",
   "nutriscore_not_applicable": "Nutri-Score não aplicável",
   "nutriscore_not_applicable_new_formula": "O Nutri-Score não é aplicável (novo cálculo)",
-  "environmental_score_generic_new": "Eco-Pontuação",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Green-Score Desconhecida",
-  "environmental_score_not_applicable_new": "Green-Score não é aplicável",
+  "environmental_score_not_applicable_new": "O Green-Score não é aplicável",
   "nova_group_generic_new": "Alimentos ultraprocessados - Grupos NOVA",
   "nova_group_1": "NOVA Grupo 1",
   "nova_group_2": "NOVA Grupo 2",
@@ -3946,7 +3954,7 @@
   "guide_nutriscore_v2_unchanged_title": "O que não muda",
   "guide_nutriscore_v2_unchanged_paragraph1": "O Nutri-Score é uma pontuação projetada para **medir a qualidade nutricional**. É **complementar ao grupo NOVA** sobre **alimentos ultraprocessados** (também presente no aplicativo).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Para os fabricantes, a exibição do Nutri-Score **continua opcional**.",
-  "guide_greenscore_title": "Eco-Pontuação",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Fotografia do produto",
   "photo_field_ingredients": "Foto de ingredientes",
   "photo_field_nutrition": "Fotografia das informações nutricionais",
-  "photo_field_packaging": "Foto de informações da embalagem",
+  "photo_field_packaging": "Fotografia das instruções de reciclagem",
   "photo_already_exists": "Esta fotografia já existe",
   "photo_missing": "Esta fotografia está em falta",
   "date": "Data",

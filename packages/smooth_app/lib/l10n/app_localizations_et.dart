@@ -143,7 +143,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get match_short_unknown => 'Vaste pole teada';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Litsentsid';
 
   @override
   String get looking_for => 'Otsin';
@@ -656,6 +656,9 @@ class AppLocalizationsEt extends AppLocalizations {
   String get unknownBrand => 'Tundmatu kaubamärk';
 
   @override
+  String get unknownQuantity => 'Tundmatu kogus';
+
+  @override
   String get unknownProductName => 'Tundmatu tootenimi';
 
   @override
@@ -723,10 +726,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Toitumisalase teabe muutmine';
 
   @override
-  String get packaging_information => 'Pakendiinfo';
+  String get packaging_information => 'Taaskasutusjuhised';
 
   @override
-  String get packaging_information_photo => 'Pakendiinfo foto';
+  String get packaging_information_photo => 'Foto ringlussevõtu juhistest';
 
   @override
   String get missing_product => 'Oled leidnud uue toote!';
@@ -829,7 +832,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Toitumisalane teave Foto';
 
   @override
-  String get recycling_photo_title => 'Foto ringlussevõtt';
+  String get recycling_photo_title => 'Taaskasutusjuhised Foto';
 
   @override
   String get take_photo_title => 'Tehke foto';
@@ -3532,7 +3535,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Serveri toimingute teostamise alustamine lokaalselt salvestatud folksonomy värskenduste jaoks';
 
   @override
   String get background_task_title_top_n =>
@@ -4126,7 +4129,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'Avatud toidufaktide visioon, missioon, väärtused ja programmid';
 
   @override
   String get faq_title_install_beauty =>
@@ -4603,7 +4606,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Mis on avatud toidufaktid?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4615,7 +4618,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Avatud toidufaktide omadused';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4686,7 +4689,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Mis on avatud lemmikloomatoidu faktid?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4698,7 +4701,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Avatud lemmikloomatoidu faktide omadused';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4768,7 +4771,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Mis on avatud ilufaktid?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4780,7 +4783,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Avatud ilufaktide omadused';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4931,7 +4934,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Mis on avatud tootefaktid?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4943,7 +4946,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Avatud toodete faktide omadused';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5229,7 +5232,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get photo_field_nutrition => 'Toitumisfoto';
 
   @override
-  String get photo_field_packaging => 'Pakendiinfo foto';
+  String get photo_field_packaging => 'Foto ringlussevõtu juhistest';
 
   @override
   String get photo_already_exists => 'See foto on juba olemas';
@@ -5680,7 +5683,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Avatud toidufaktide veebisaidil';
 
   @override
   String get preferences_manage_account_title => 'Halda minu kontot';
@@ -5776,27 +5779,28 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Avastage avatud toidufaktid';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => 'Avastage avatud ilufaktid';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Avastage lemmikloomatoitude fakte';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Avastage avatud toodete fakte';
 
   @override
   String get preferences_faq_faq_title => 'KKK - Korduma kippuvad küsimused';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'Avatud toidufaktide vabaühendus';
 
   @override
   String get preferences_about_information_title => 'Informatsioon';
@@ -5818,7 +5822,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Osale ühel meie virtuaalsel üritusel';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Avatud toidufaktide ajaveeb';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6135,7 +6139,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Avatud toidufaktide laborid';
 
   @override
   String get preferences_root_account_title => 'Konto';

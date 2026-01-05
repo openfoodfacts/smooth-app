@@ -143,7 +143,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'ಪರವಾನಗಿಗಳು';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,6 +654,9 @@ class AppLocalizationsKn extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'ತಿಳಿದಿಲ್ಲದ ಪ್ರಮಾಣ';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -720,10 +723,10 @@ class AppLocalizationsKn extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'ಮರುಬಳಕೆ ಸೂಚನೆಗಳು';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -826,7 +829,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'ಮರುಬಳಕೆ ಸೂಚನೆಗಳು ಫೋಟೋ';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3523,7 +3526,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'ಸ್ಥಳೀಯವಾಗಿ ಸಂಗ್ರಹವಾಗಿರುವ ಫೋಲ್ಕ್‌ಸೊನಮಿ ನವೀಕರಣಗಳಿಗಾಗಿ ಸರ್ವರ್ ಕ್ರಿಯೆಗಳನ್ನು ನಿರ್ವಹಿಸಲು ಪ್ರಾರಂಭಿಸಲಾಗುತ್ತಿದೆ.';
 
   @override
   String get background_task_title_top_n =>
@@ -5216,7 +5219,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5310,7 +5313,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**ಓಪನ್ ಪ್ರೈಸಸ್** ಎಂಬುದು ಪ್ರಪಂಚದಾದ್ಯಂತದ ಉತ್ಪನ್ನಗಳ ಬೆಲೆಗಳನ್ನು ಸಂಗ್ರಹಿಸಿ ಹಂಚಿಕೊಳ್ಳುವ ಯೋಜನೆಯಾಗಿದೆ 🌍. ಓಪನ್ ಪ್ರೈಸಸ್ ಅನ್ನು Open Food Facts ಅಭಿವೃದ್ಧಿಪಡಿಸಿದೆ ಮತ್ತು ನಿರ್ವಹಿಸುತ್ತದೆ.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5590,7 +5593,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'ಸೆಟ್ಟಿಂಗ್‌ಗಾಗಿ ಹುಡುಕಿ (ಉದಾ. ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5668,7 +5671,7 @@ class AppLocalizationsKn extends AppLocalizations {
   String get preferences_tips => 'ಸಲಹೆಗಳು';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'ಹೊಸ ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಅನ್ವೇಷಿಸಿ';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5758,7 +5761,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಅನ್ನು ಹೇಗೆ ಲೆಕ್ಕ ಹಾಕಲಾಗುತ್ತದೆ ಎಂಬುದನ್ನು ಕಂಡುಕೊಳ್ಳಿ';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5768,7 +5771,8 @@ class AppLocalizationsKn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'ಓಪನ್ ಫುಡ್ ಸಂಗತಿಗಳನ್ನು ಅನ್ವೇಷಿಸಿ';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5926,7 +5930,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್‌ಗಳಿಗೆ ನಾನು ಸೇರಿಸಿದ ಹೊಸ ಉತ್ಪನ್ನಗಳು';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5952,7 +5956,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'ನಿಮ್ಮ ದೇಶದಲ್ಲಿ ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್ ಮತ್ತು ಗ್ರೀನ್-ಸ್ಕೋರ್ ಅನ್ನು ಲೆಕ್ಕಾಚಾರ ಮಾಡಲು ಸಹಾಯ ಮಾಡಿ';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6139,7 +6143,7 @@ class AppLocalizationsKn extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'ಮುಕ್ತ ಆಹಾರ ಸಂಗತಿಗಳನ್ನು ನಿಮ್ಮ ಭಾಷೆಗೆ ತನ್ನಿ';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Licencek",
   "@licenses": {},
   "looking_for": "Keresés",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Összes",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategória keresés)",
@@ -535,9 +535,17 @@
   "product": "Termék",
   "@product": {},
   "unknownBrand": "Ismeretlen márka",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Ismeretlen mennyiség",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Ismeretlen terméknév",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Frissítés",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Csomagolási információk",
+  "packaging_information": "Újrahasznosítási utasítások",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Csomagolási információk fényképe",
+  "packaging_information_photo": "Újrahasznosítási utasítások fényképe",
   "@packaging_information_photo": {},
   "missing_product": "Új terméket talált!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Csomagolás fényképe szemből",
   "ingredients_photo_title": "Összetevők fényképe",
   "nutritional_facts_photo_title": "Tápértékadatok fényképe",
-  "recycling_photo_title": "Újrahasznosítási fénykép",
+  "recycling_photo_title": "Újrahasznosítási utasítások Fotó",
   "take_photo_title": "Fénykép készítése",
   "take_more_photo_title": "Készítsen további képeket",
   "front_photo_uploaded": "Szemből készült kép feltöltve",
@@ -712,7 +720,7 @@
   "new_product_subtitle_nova": "Az élelmiszerkategória és az összetevők kitöltésével megtudhatja",
   "new_product_desc_nova_unknown": "Az élelmiszer-feldolgozottság szintje ismeretlen",
   "new_product_title_pictures": "Új termék",
-  "new_product_title_pictures_details": "Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!",
+  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
   "new_product_title_misc": "És pár alapvető adat…",
   "new_product_done_msg": "Köszönjük a közreműködését, {username}!",
   "@new_product_done_msg": {
@@ -2597,7 +2605,7 @@
   "prices_proof_empty_title": "Még nincs bizonyíték!",
   "prices_proof_empty_explanation": "Kezdd egy **nyugta** vagy egy **árcédula** fotójának hozzáadásával!",
   "prices_proof_find": "Bizonylat kiválasztása",
-  "prices_proof_change": "Change proof",
+  "prices_proof_change": "Változásbizonyítás",
   "prices_proof_receipt": "Nyugta",
   "prices_proof_price_tag": "Árcédula",
   "prices_proof_mandatory": "Ki kell választani egy bizonylatot!",
@@ -2748,7 +2756,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Proof from \"{user}\"",
+  "search_proof_title": "Bizonyítás a \"{user}\"-ból",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -3982,20 +3990,20 @@
   "guide_greenscore_lca_arg3_text7": "Tengeri és édesvíz (részecskék, savasodás, eutrofizáció)",
   "guide_greenscore_lca_arg3_text8": "Erőforrások kimerülése.",
   "guide_greenscore_bonuses_penalties_title": "Bónuszok és büntetések",
-  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
+  "guide_greenscore_bonuses_penalties_intro": "A kategórián belüli jobb termékek jutalmazása érdekében **bónuszokat és büntetéseket alkalmazunk számos kritérium alapján**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "**Bónuszt** azok a termékek kapnak, amelyek **hivatalos címkével, környezeti előnyöket garantáló címkével vagy tanúsítvánnyal** rendelkeznek (bio, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Összetevők eredete",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "A **bónuszt** az összetevők származása alapján ítélik oda. Ez a bónusz figyelembe veszi a **szállításra gyakorolt hatást**, valamint az egyes termelők országának **környezetvédelmi politikáját** is.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "**Büntetést** szabnak ki azokra a termékekre, amelyek olyan összetevőket tartalmaznak, amelyek jelentős **negatív hatással vannak a biológiai sokféleségre és az ökoszisztémákra**, például a pálmaolajat, amelynek termelése tömeges erdőirtásért felelős.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Csomagolás",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A **büntetés** kiszámításakor figyelembe vesszük a **csomagolás körforgását** (újrahasznosított alapanyagok használata és újrahasznosíthatósága), valamint a túlcsomagolást.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
-  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
-  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
-  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
+  "guide_greenscore_transparency_intro1": "A Green-Score pontos kiszámításához olyan információkra van szükség, **amelyek nem feltétlenül szerepelnek a csomagoláson** (például az egyes összetevők eredete és pontos százalékos aránya), vagy amelyek ritkán állnak rendelkezésre használható formában (például a csomagolás összes összetevőjének listája a felhasznált műanyagok pontos típusaival).",
+  "guide_greenscore_transparency_intro2": "**Átlagos értékeket használunk, ha ez az információ még nem áll rendelkezésre**, de most mindenkit arra kérünk, hogy segítsen nekünk összegyűjteni ezeket az információkat, amelyek nagyon hasznosak lesznek a Green-Score, de sok más célra is.",
+  "guide_greenscore_transparency_arg1_title": "Hogyan segíthetnek a polgárok?",
+  "guide_greenscore_transparency_arg1_text": "Minden állampolgár segíthet nekünk a termékeken található vagy azokból kikövetkeztethető információk összegyűjtésében és rendszerezésében, például a **csomagoláson** található információkban: „Mission Emballages”: nagyszabású, közösen készített leltár az összes élelmiszertermék csomagolásáról (francia nyelven).",
   "guide_greenscore_transparency_arg2_title": "Hogyan segíthetnek a gyártók",
   "guide_greenscore_transparency_arg2_text": "A gyártók közvetlenül elküldhetik nekünk adataikat az ingyenes platformunkon keresztül.",
   "guide_greenscore_better_product_title": "Melyik termék jobb a bolygónak?",
@@ -4033,120 +4041,120 @@
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used In culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Az ultra-feldolgozással kapcsolatos problémák",
   "guide_nova_explanations_arg1_title": "Az élelmiszer-összetevők extrém feldolgozása",
-  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
+  "guide_nova_explanations_arg1_text": "Sokuk **élelmiszer-összetevők további feldolgozásából származik**, például hidrogénezett vagy interészterezett olajok, hidrolizált fehérjék, szójafehérje-izolátum, maltodextrin, invertcukor és magas fruktóztartalmú kukoricaszirup.",
   "guide_nova_explanations_arg2_title": "Adalékanyagok, amelyek túlmutatnak a puszta élelmiszerbiztonságon",
-  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
+  "guide_nova_explanations_arg2_text": "Az ultrafeldolgozott élelmiszerekben található adalékanyagok között vannak olyanok, amelyeket a feldolgozott élelmiszerekben is használnak, például tartósítószerek, antioxidánsok és stabilizátorok. Az adalékanyagok azon osztályai, amelyek csak az ultrafeldolgozott termékekben találhatók, magukban foglalják azokat, amelyeket **az élelmiszerek érzékszervi tulajdonságainak utánzására vagy fokozására, illetve a végtermék kellemetlen tulajdonságainak elrejtésére** használnak. Ezek az adalékanyagok közé tartoznak a színezékek és egyéb színezékek, színstabilizátorok; aromák, ízfokozók, nem cukor alapú édesítőszerek; és feldolgozási segédanyagok, például szénsavasító, szilárdító, tömegnövelő és térfogatnövelő szerek, habzásgátló, csomósodást gátló és fényező anyagok, emulgeálószerek, komplexképzők és nedvesítőszerek.",
   "guide_nova_explanations_arg3_title": "Otthon nem elvégezhető feldolgozás",
-  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
+  "guide_nova_explanations_arg3_text": "**Számos folyamatsorozatot alkalmaznak** a szokásosan sok összetevő kombinálására és a végtermék (innen ered az „ultra feldolgozott”) előállítására. A folyamatok között több olyan is van, **amelyeknek nincs hazai megfelelőjük**, mint például a hidrogénezés és hidrolizálás, az extrudálás és formázás, valamint a sütéshez való előfeldolgozás.",
   "guide_nova_explanations_arg4_title": "Az ultrafeldolgozás ragadozó és pénzügyi vonatkozásai",
-  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
-  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
-  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
+  "guide_nova_explanations_arg4_text": "Az ultrafeldolgozott élelmiszerek átfogó célja márkás, kényelmes (tartós, fogyasztásra kész), vonzó (hiperízletes) és rendkívül jövedelmező (alacsony költségű összetevőkből készült) élelmiszerek létrehozása, amelyek célja, hogy kiszorítsanak minden más élelmiszercsoportot. Az ultrafeldolgozott élelmiszereket általában vonzó csomagolásban csomagolják és intenzíven forgalmazzák.",
+  "guide_nova_explanations_arg5_title": "Egészségügyi kockázat",
+  "guide_nova_explanations_arg5_text": "2018 óta a NutriNet-Santé programnak köszönhetően először mutattak ki összefüggéseket **az ultra-feldolgozott élelmiszerek fogyasztása és a rák, a szív- és érrendszeri betegségek, valamint a cukorbetegség fokozott kockázata között**. Ma már több mint 90 tanulmány erősíti meg ezeket a megállapításokat világszerte.\nA legerősebb összefüggések az **elhízáshoz, a szív- és érrendszeri halálozáshoz és a depressziós tünetekhez** kapcsolódnak. Gyermekeknél a hatások elsősorban a testsúlyban és a lipidegyensúly felborulásában figyelhetők meg.",
+  "guide_nova_explanations_arg6_title": "Az országok a korlátozásukat javasolják",
+  "guide_nova_explanations_arg6_text": "Néhány ország a NOVA csoportokat használja étkezési irányelveihez vagy céljaihoz, például:\n\n- **🇧🇷 Brazília** étkezési irányelvei **a feldolgozott élelmiszerek fogyasztásának korlátozását** és az ultra-feldolgozott élelmiszerek kerülését javasolják.\n\n- **🇫🇷 Franciaország** 2018-2022 közötti közegészségügyi táplálkozáspolitikai céljai a **4. csoportba tartozó ultra-feldolgozott élelmiszerek fogyasztásának 20%-kal történő csökkentése**.",
   "guide_nova_share_link": "https://world-hu.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
+  "guide_open_food_facts_title": "Üdvözlünk az Open Food Facts oldalán!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Mi az a Nyílt Élelmiszerinformációk?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Az Open Food Facts egy **együttműködésen alapuló**, **ingyenes** és **nyílt** adatbázis, amely a világ minden tájáról származó élelmiszertermékeket tartalmaz.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Úgy gondoljuk, hogy mindenkinek hozzáférése kell legyen az információkhoz arról, hogy mit eszik. Az összetevőkre, allergénekre, tápértékre és egyebekre vonatkozó adatok gyűjtésével **felhatalmazzuk a fogyasztókat a megalapozott döntések meghozatalára**, és az élelmiszeripart **nagyobb átláthatóság** felé tereljük.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
-  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
-  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
-  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
-  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
+  "guide_open_food_facts_features_title": "Az Open Food Facts jellemzői",
+  "guide_open_food_facts_features_arg1_title": "Értesítéseket kaphat a nem kívánt összetevőkről",
+  "guide_open_food_facts_tips_title": "Tippek nagyszerű fotók készítéséhez",
+  "guide_open_food_facts_tips_arg1_title": "Tiltott dolgok",
+  "guide_open_food_facts_tips_arg1_text1": "Kerülje az árnyékokat és a tükröződést.",
+  "guide_open_food_facts_tips_arg1_text2": "Nincs elmosódott vagy életlen szöveg.",
+  "guide_open_food_facts_tips_arg1_text3": "Ne vágj ki részeket a szövegből.",
+  "guide_open_food_facts_tips_arg1_text4": "Kerüld a zsúfolt háttereket.",
+  "guide_open_food_facts_tips_arg2_title": "Tennivalók",
+  "guide_open_food_facts_tips_arg2_text1": "Használjon jó, egyenletes megvilágítást.",
+  "guide_open_food_facts_tips_arg2_text2": "Ügyeljen arra, hogy a szöveg éles és olvasható legyen.",
+  "guide_open_food_facts_tips_arg2_text3": "Rögzítse a teljes összetevőlistát.",
+  "guide_open_food_facts_tips_arg2_text4": "Tartsa a terméket sík felületen.",
+  "guide_open_food_facts_scores_title": "Segíts nekünk felépíteni az \"Ételek Wikipédiáját\"!",
+  "guide_open_food_facts_scores_arg1_title": "Pontszám a tápértékre vonatkozóan",
+  "guide_open_food_facts_scores_arg2_title": "Egy pontszám az ultra-feldolgozott élelmiszerek elkerülésére",
+  "guide_open_food_facts_scores_arg3_title": "Egy pont a bolygónak",
   "guide_open_food_facts_share_link": "https://world-hu.openfoodfacts.org/discover",
-  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "guide_open_pet_food_facts_title": "Üdvözöljük az Open Pet Food Facts oldalán!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Mi az a Nyílt Állateledel Tények?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Az Open Pet Food Facts kiterjeszti küldetésünket szőrös barátainkra! Ez egy **macskák, kutyák és más társak számára készült állateledel-termékek adatbázisa**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Információkat gyűjtünk az **összetevőkről**, a **tápanyag-összetételről** és az etetési irányelvekről, hogy segítsük a gazdiknak kiválasztani az állataik igényeinek leginkább megfelelő eledelt.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_pet_food_facts_scores_title": "A note on scoring",
-  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_pet_food_facts_features_title": "Az Open Pet Food Facts jellemzői",
+  "guide_open_pet_food_facts_features_arg1_title": "Értesítéseket kaphat a nem kívánt összetevőkről",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Allergiás bármilyen összetevőre a kedvenced? Az alkalmazásban beállíthatsz egy listát a kerülendő kozmetikai összetevőkről!",
+  "guide_open_pet_food_facts_tips_title": "Tippek nagyszerű fotók készítéséhez",
+  "guide_open_pet_food_facts_tips_arg1_title": "Tiltott dolgok",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Kerülje az árnyékokat és a tükröződést.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Nincs elmosódott vagy életlen szöveg.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Ne vágj ki részeket a szövegből.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Kerüld a zsúfolt háttereket.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Tennivalók",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Használjon jó, egyenletes megvilágítást.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Ügyeljen arra, hogy a szöveg éles és olvasható legyen.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Rögzítse a teljes összetevőlistát.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Tartsa a terméket sík felületen.",
+  "guide_open_pet_food_facts_scores_title": "Megjegyzés a pontozásról",
+  "guide_open_pet_food_facts_scores_paragraph1": "Egy állateledel pontozási rendszerének kidolgozása **jelenleg nem prioritás**. A módszertan összetett lenne, mivel a táplálkozási igények fajonként, koronként és egészségi állapotonként nagymértékben eltérnek. Még nem találtunk független tudományos csapatot, amely képes lenne ilyen pontozást kidolgozni.",
   "guide_open_pet_food_facts_share_link": "https://world-hu.openpetfoodfacts.org/discover",
-  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "guide_open_beauty_facts_title": "Üdvözlünk az Open Beauty Facts oldalán!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Mi az a Nyílt Szépség Tények?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Az Open Beauty Facts egy közösen létrehozott adatbázis, amely **kozmetikai termékeket** tartalmaz.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Célunk az összetevők listájának megfejtése, hogy segítsünk megérteni, **mi van a testápolási termékeidben**. A hidratálókrémektől a sminktermékekig adatokat gyűjtünk az összetevőkről, allergénekről és a csomagolásról, hogy elősegítsük az átláthatóságot a kozmetikai iparban.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
-  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
-  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
-  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
-  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
-  "guide_open_beauty_facts_scores_title": "A note on scoring",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_features_title": "Az Open Beauty Facts jellemzői",
+  "guide_open_beauty_facts_features_arg1_title": "Értesítéseket kaphat a nem kívánt összetevőkről",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Allergiás vagy bármilyen összetevőre? El szeretnéd kerülni a komedogén anyagokat? Szeretnéd elkerülni a vitatott összetevőket? Beállíthatsz egy listát a kerülendő kozmetikai összetevőkről közvetlenül az alkalmazásban!",
+  "guide_open_beauty_facts_tips_title": "Tippek nagyszerű fotók készítéséhez",
+  "guide_open_beauty_facts_tips_arg1_title": "Tiltott dolgok",
+  "guide_open_beauty_facts_tips_arg1_text1": "Kerülje az árnyékokat és a tükröződést.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Nincs elmosódott vagy életlen szöveg.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Ne vágj ki részeket a szövegből.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Kerüld a zsúfolt háttereket.",
+  "guide_open_beauty_facts_tips_arg2_title": "Tennivalók",
+  "guide_open_beauty_facts_tips_arg2_text1": "Használjon jó, egyenletes megvilágítást.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Ügyeljen arra, hogy a szöveg éles és olvasható legyen.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Rögzítse a teljes összetevőlistát.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Készítsen annyi képet, amennyire szüksége van, ha az üveg görbe.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Lehet, hogy le kell húznia a címkét az összetevők listájának megtekintéséhez.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Tartsa a terméket sík felületen.",
+  "guide_open_beauty_facts_scores_title": "Megjegyzés a pontozásról",
+  "guide_open_beauty_facts_scores_paragraph1": "Az élelmiszerekkel ellentétben a kozmetikumok világában **nincs egyetemesen elismert, kormány által támogatott pontozási rendszer, mint a Nutri-Score**. Az összetevők hatásai nagyon személyesek lehetnek, és függhetnek a bőrtípustól, az allergiáktól és az egyéni aggályoktól.",
   "guide_open_beauty_facts_share_link": "https://world-hu.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Az Open Prices egy olyan projekt, amelynek célja a **világ minden tájáról származó termékek árainak gyűjtése és megosztása**. Ez egy nyilvánosan elérhető adathalmaz, amely kutatásra, elemzésre és egyebekre felhasználható. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4155,52 +4163,52 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
+  "guide_open_prices_how_paragraph1": "**Nyílt forráskódú áradatbázist gyűjtünk közösségi finanszírozásból**. Az árakat a felhasználók ezen a webes alkalmazáson vagy a hivatalos Open Food Facts mobilalkalmazáson keresztül adhatják meg. Kiskereskedők vagy harmadik féltől származó alkalmazások is hozzájárulhatnak az API-nk használatával.",
+  "guide_open_prices_how_arg1_title": "Gyűjtsön fotókat az árcédulákról a folyosókon",
+  "guide_open_prices_how_arg2_title": "Gyűjtsd össze a nyugták fotóit",
+  "guide_open_prices_why_title": "Miért csinálja ezt az Open Food Facts?",
+  "guide_open_prices_why_paragraph1": "Az árinformációk kiemelkedően fontosak az élelmiszerrendszerek megértéséhez. Kulcsfontosságú tényezők az élelmiszerek költségeinek megértésében és az egészségesebb étrend előmozdításában. A nyitó áradatok megkönnyítik a kutatók, újságírók és polgárok számára, hogy **jobban megértsék az élelmiszerárak földrajzi és időbeli változását**.",
+  "guide_open_prices_why_arg1_title": "Az árak időbeli alakulásának nyomon követése",
+  "guide_open_prices_why_arg1_text": "Nézd az **árak alakulását**: zsugorodási infláció, olcsónflació, együtt nyomon követhetjük őket!",
+  "guide_open_prices_why_arg2_title": "Hasonlítsa össze az árakat a közelben",
+  "guide_open_prices_why_arg2_text": "Ahogy egyre több árat kapunk, megtalálhatod **a környékeden a legolcsóbb üzleteket**.",
+  "guide_open_prices_scrapping_title": "Fontolóra vetted már, hogy lemásolod az árakat a kiskereskedők weboldalairól?",
   "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_scrapping_paragraph2": "Az árlekaparás egy fontolóra vett lehetőség az Open Prices jövőbeli verzióiban, de ezt maga az Open Prices végezné el, hogy a HTML oldal alapján bizonyítékot kaphassunk az árról.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "Az árakhoz az API-nkon keresztül is hozzájárulhatsz.\nHa nagyobb mennyiségben szeretnél árakat megadni, kérjük, vedd fel velünk a kapcsolatot a prices@openfoodfacts.org címen.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Üdvözöljük az Open Products Facts oldalán!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Mi az a Nyílt Terméktények?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Az Open Products Facts egy hatalmas, nyílt adatbázis, amely **vonalkóddal ellátott termékekre vonatkozik, amelyek nem élelmiszerek, kozmetikumok vagy állateledel**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Az **elektronikától** a **játékokon** át a **ruhákon** át a **tisztítószerekig**, ha van vonalkódjuk, az hozzáadható. Ez a projekt egy „dolgok internetének” létrehozását célozza a mindennapi tárgyak számára, így a róluk szóló információk univerzálisan hozzáférhetőek.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
-  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
-  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
-  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
-  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
-  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
-  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
-  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
-  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
-  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
+  "guide_open_products_facts_features_title": "A nyílt termékek jellemzői Tények",
+  "guide_open_products_facts_features_text": "Az Open Products Facts célja, hogy a fogyasztók számára **meghosszabbítsák tárgyaik élettartamát** körforgásos megoldások biztosításával, amelyekkel karbantarthatják, **javíthatják**, **újrahasznosíthatják** tárgyaikat, vagy új tulajdonoshoz juthatnak.",
+  "guide_open_products_facts_features_arg1_title": "Egyes termékek szénlábnyoma",
+  "guide_open_products_facts_features_arg1_text": "A Francia Környezetvédelmi Hatóság (ADEME) által készített **CO2 hatás** adatai számos kategóriára kiterjednek, ezért ügyeljen a termékek pontos kategorizálására.",
+  "guide_open_products_facts_features_arg2_title": "Javíthatósági index számos termék esetében",
+  "guide_open_products_facts_features_arg2_text": "Amikor elérhetővé válik egy francia javíthatósági index, megjelenítjük. Ezenkívül **elkezdheti a változók gyűjtését a Folksonomy Engine segítségével**; így a jövőben mi magunk is újra tudjuk számolni, még azokban az országokban is, ahol nem érhető el.",
+  "guide_open_products_facts_features_arg3_title": "Találj módokat a terméked adományozására/viszonteladására",
+  "guide_open_products_facts_features_arg3_text": "Linkeket biztosítunk **harmadik féltől származó, körforgásbarát szolgáltatásokhoz**, amelyek segítenek abban, hogy a keresett terméket használt termékként szerezd be, hogy kíméletesebb legyél a bolygó erőforrásaival.\nFontos megjegyezni, hogy ezért nem fizetnek nekünk, és a rendszer csak példaként működik két franciaországi weboldal esetében. A rendszer bővítésében segíthetsz, ha további oldalakat dokumentálsz a wikin.",
+  "guide_open_products_facts_information_title": "Milyen információk hasznosak?",
+  "guide_open_products_facts_information_text": "Ilyen széles termékkör esetén **rugalmasan gyűjtjük az adatokat**. Ennek érdekében **hoztuk létre a Folksonomy Engine-t**.",
+  "guide_open_products_facts_folksonomy_title": "A Folksonomy Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "A Folksonomy Engine egy olyan eszköz, amely segít releváns tulajdonságokkal rendelkező termékeket létrehozni. Ez segít javítani a keresést és a felfedezhetőséget, valamint a jövőben érdekes dolgok kiszámítását és megjelenítését is lehetővé teszi.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Bármilyen kulcsot és értéket hozzáadhatsz, például: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Automatikus javaslatokat kapsz a lehetséges tulajdonságokra, és szívesen látunk, ha újakat adsz hozzá és dokumentálsz a kedvenc termékeidhez.",
   "guide_open_products_facts_share_link": "https://world-hu.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_open_preferences_button_title": "Ételbeállítások megnyitása",
+  "guide_coming_soon_button_title": "Hamarosan érkezik",
+  "guide_learn_more_subtitle": "Koppintson a további információkért",
   "preview_badge": "Előnézet",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Termékfotó",
   "photo_field_ingredients": "Összetevők fényképe",
   "photo_field_nutrition": "Tápértékadatok fényképe",
-  "photo_field_packaging": "Csomagolási információk fényképe",
+  "photo_field_packaging": "Újrahasznosítási utasítások fényképe",
   "photo_already_exists": "Ez a fénykép már létezik",
   "photo_missing": "Ez a fénykép hiányzik",
   "date": "Dátum",
@@ -4558,18 +4566,18 @@
   "prices_explanation_card_title": "Miért az árak?",
   "prices_explanation_card_line1": "Az **Open Prices** egy olyan projekt, amelynek célja a világ minden tájáról származó termékek árainak összegyűjtése és megosztása 🌍. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.",
   "explanation_card_learn_more_button": "További információk",
-  "product_page_tab_folksonomy": "Folksonomy",
+  "product_page_tab_folksonomy": "Folksonomia",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
   "folksonomy_explanation_card_title": "Mik a folksonomia attribútumai?",
   "folksonomy_explanation_card_line1": "Az attribútumok **kulcs-érték** alapúak.",
   "folksonomy_explanation_card_line2": "Ezeket a tulajdonságokat a közreműködők hozzák létre és iktatják bármilyen felhasználásra.",
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_action_external_link_title": "Külső hivatkozás megnyitása",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "A külső linkek nem biztonságosak lehetnek. Biztosan meg szeretnéd látogatni őket?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -5108,11 +5116,11 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Fedezze fel a nyílt szépségápolási tényeket",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Fedezze fel az Open állateledel-információkat",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Fedezze fel a nyílt termékekre vonatkozó tényeket",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Nyílt Élelmiszerinformációs Laboratóriumok",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5611,12 +5619,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Helyszín részletei",
   "location_map_details_name": "Név",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Utca",
+  "location_map_details_city": "Város",
+  "location_map_details_postcode": "Irányítószám",
   "location_map_details_country": "Country",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_coordinates": "Koordináták",
+  "location_map_details_osm_id": "OSM-azonosító"
 }

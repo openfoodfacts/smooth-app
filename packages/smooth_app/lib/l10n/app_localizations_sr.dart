@@ -143,7 +143,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Лиценце';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,6 +653,9 @@ class AppLocalizationsSr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Unknown quantity';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -719,10 +722,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Упутства за рециклажу';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -825,7 +828,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Recycling instructions Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -5213,7 +5216,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5783,7 +5786,7 @@ class AppLocalizationsSr extends AppLocalizations {
   String get preferences_faq_faq_title => 'ЧПП - Често постављана питања';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'НВО Отворене чињенице о храни';
 
   @override
   String get preferences_about_information_title => 'Informacija';
@@ -5805,7 +5808,8 @@ class AppLocalizationsSr extends AppLocalizations {
       'Укључите се тако што ћете присуствовати једном од наших виртуелних догађаја';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title =>
+      'Блог „Чињенице о отвореној храни“';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6124,7 +6128,7 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Отворене лабораторије за чињенице о храни';
 
   @override
   String get preferences_root_account_title => 'Account';

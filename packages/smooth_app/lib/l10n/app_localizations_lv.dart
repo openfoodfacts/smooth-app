@@ -110,7 +110,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get match_very_good => 'Ļoti laba spēle';
 
   @override
-  String get match_good => 'Laba spēle';
+  String get match_good => 'Laba atbilstība';
 
   @override
   String get match_poor => 'Slikta atbilstība';
@@ -128,7 +128,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get match_short_very_good => 'Ļoti laba spēle';
 
   @override
-  String get match_short_good => 'Laba spēle';
+  String get match_short_good => 'Laba atbilstība';
 
   @override
   String get match_short_poor => 'Slikta atbilstība';
@@ -662,6 +662,9 @@ class AppLocalizationsLv extends AppLocalizations {
   String get unknownBrand => 'Nezināms zīmols';
 
   @override
+  String get unknownQuantity => 'Nezināms daudzums';
+
+  @override
   String get unknownProductName => 'Nezināms produkta nosaukums';
 
   @override
@@ -728,11 +731,10 @@ class AppLocalizationsLv extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Rediģēt uztura informāciju';
 
   @override
-  String get packaging_information => 'Informācija par iepakojumu';
+  String get packaging_information => 'Pārstrādes instrukcijas';
 
   @override
-  String get packaging_information_photo =>
-      'Iepakojuma informācijas fotoattēls';
+  String get packaging_information_photo => 'Pārstrādes instrukciju fotoattēls';
 
   @override
   String get missing_product => 'Jūs atradāt jaunu produktu!';
@@ -837,7 +839,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Uzturvērtības fakti Foto';
 
   @override
-  String get recycling_photo_title => 'Pārstrādes foto';
+  String get recycling_photo_title => 'Pārstrādes instrukcijas Fotoattēls';
 
   @override
   String get take_photo_title => 'Fotografēt';
@@ -3572,7 +3574,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Servera darbību veikšanas sākšana lokāli saglabātajiem folksonomy atjauninājumiem';
 
   @override
   String get background_task_title_top_n =>
@@ -4169,7 +4171,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'Atvērto pārtikas faktu vīzija, misija, vērtības un programmas';
 
   @override
   String get faq_title_install_beauty =>
@@ -4647,7 +4649,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Kas ir Atklātie pārtikas fakti?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4659,7 +4661,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Atvērto pārtikas faktu iezīmes';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4732,7 +4734,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Kas ir atklātie mājdzīvnieku barības fakti?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4744,7 +4746,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Atvērtā mājdzīvnieku barības faktu sadaļas iezīmes';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4814,7 +4816,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Kas ir Atklātie skaistumkopšanas fakti?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4826,7 +4828,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Atvērto skaistumkopšanas faktu iezīmes';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4980,7 +4982,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Kas ir atklātie produktu fakti?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4992,7 +4994,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Atvērto produktu faktu iezīmes';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5278,7 +5280,7 @@ class AppLocalizationsLv extends AppLocalizations {
   String get photo_field_nutrition => 'Uztura foto';
 
   @override
-  String get photo_field_packaging => 'Iepakojuma informācijas fotoattēls';
+  String get photo_field_packaging => 'Pārstrādes instrukciju fotoattēls';
 
   @override
   String get photo_already_exists => 'Šī fotogrāfija jau pastāv';
@@ -5732,7 +5734,7 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Atvērto pārtikas faktu tīmekļa vietnē';
 
   @override
   String get preferences_manage_account_title => 'Pārvaldīt manu kontu';
@@ -5828,21 +5830,23 @@ class AppLocalizationsLv extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Atklājiet projektu';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Atklājiet atklātos faktus par pārtiku';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Atklājiet atklātus skaistumkopšanas faktus';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Atklājiet faktus par mājdzīvnieku barību';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Atklājiet atklātos produktu faktus';
 
   @override
   String get preferences_faq_faq_title => 'BUJ — bieži uzdotie jautājumi';
@@ -5870,7 +5874,7 @@ class AppLocalizationsLv extends AppLocalizations {
       'Iesaistieties, apmeklējot kādu no mūsu virtuālajiem pasākumiem';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Atvērto pārtikas faktu emuārs';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6190,14 +6194,14 @@ class AppLocalizationsLv extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Atvērtās pārtikas faktu laboratorijas';
 
   @override
   String get preferences_root_account_title => 'Konts';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Atvērtie pārtikas fakti jūsu valodā';
 
   @override
   String get preferences_contribute_enroll_alpha =>

@@ -143,7 +143,7 @@ class AppLocalizationsSa extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'अनुज्ञापत्राणि';
 
   @override
   String get looking_for => 'Looking for';
@@ -654,6 +654,9 @@ class AppLocalizationsSa extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'अज्ञात परिमाण';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -720,10 +723,10 @@ class AppLocalizationsSa extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'पुनःप्रयोगस्य निर्देशाः';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -826,7 +829,7 @@ class AppLocalizationsSa extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'पुनःप्रयोगस्य निर्देशाः Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -3519,7 +3522,7 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'स्थानीयरूपेण संगृहीतस्य folksonomy अद्यतनस्य कृते सर्वरक्रियाः कर्तुं आरभते';
 
   @override
   String get background_task_title_top_n =>
@@ -5214,7 +5217,7 @@ class AppLocalizationsSa extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5764,7 +5767,8 @@ class AppLocalizationsSa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'खुले खाद्यतथ्यस्य आविष्कारं कुर्वन्तु';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6126,7 +6130,7 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'खाद्यतथ्यप्रयोगशालाः उद्घाटयन्तु';
 
   @override
   String get preferences_root_account_title => 'Account';

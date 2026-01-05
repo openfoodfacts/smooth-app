@@ -663,6 +663,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unknownBrand => 'Неизвестный бренд';
 
   @override
+  String get unknownQuantity => 'Неизвестная величина';
+
+  @override
   String get unknownProductName => 'Неизвестный продукт';
 
   @override
@@ -730,10 +733,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Добавить данные о пищевой ценности';
 
   @override
-  String get packaging_information => 'Информация об упаковке';
+  String get packaging_information => 'Инструкции по переработке';
 
   @override
-  String get packaging_information_photo => 'Фото информации об упаковке';
+  String get packaging_information_photo => 'Фото инструкции по переработке';
 
   @override
   String get missing_product => 'Вы нашли новый продукт!';
@@ -840,7 +843,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Фото информации о пищевой ценности';
 
   @override
-  String get recycling_photo_title => 'Изображение сведений о переработке';
+  String get recycling_photo_title => 'Инструкции по переработке (фото)';
 
   @override
   String get take_photo_title => 'Сфотографировать';
@@ -2063,7 +2066,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Соя не из Европейского Союза';
 
   @override
-  String get edit_product_form_item_countries_title => 'Country';
+  String get edit_product_form_item_countries_title => 'Страна';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -3603,7 +3606,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Начало выполнения действий сервера для обновлений folksonomy, хранящихся локально.';
 
   @override
   String get background_task_title_top_n =>
@@ -5330,7 +5333,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get photo_field_nutrition => 'Фото питания';
 
   @override
-  String get photo_field_packaging => 'Фото информации об упаковке';
+  String get photo_field_packaging => 'Фото инструкции по переработке';
 
   @override
   String get photo_already_exists => 'Это фото уже существует';
@@ -5879,27 +5882,29 @@ class AppLocalizationsRu extends AppLocalizations {
       'Откройте для себя проект';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Откройте для себя факты об открытых продуктах питания';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Откройте для себя Open Beauty Factsе';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Откройте для себя факты о кормах для домашних животных';
 
   @override
   String get preferences_faq_discover_op_title => 'Откройте Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Откройте для себя факты об открытых продуктах';
 
   @override
   String get preferences_faq_faq_title => 'FAQ — часто задаваемые вопросы';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'НПО «Открытые факты о еде»';
 
   @override
   String get preferences_about_information_title => 'Информация';
@@ -6241,7 +6246,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Открытые лаборатории фактов о продуктах питания';
 
   @override
   String get preferences_root_account_title => 'Учётная запись';
@@ -6285,7 +6290,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get location_map_details_postcode => 'Почтовый индекс';
 
   @override
-  String get location_map_details_country => 'Country';
+  String get location_map_details_country => 'Страна';
 
   @override
   String get location_map_details_coordinates => 'Координаты';
