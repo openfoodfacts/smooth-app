@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Uzziniet vairāk par atvērtajām cenām",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Piezīme par punktu skaitīšanu",
   "guide_open_beauty_facts_scores_paragraph1": "Atšķirībā no pārtikas produktiem, kosmētikas pasaulē **nav vispārēji atzītas, valdības atbalstītas vērtēšanas sistēmas kā Nutri-Score**. Sastāvdaļu ietekme var būt ļoti individuāla un atkarīga no ādas tipa, alerģijām un individuālām bažām.",
   "guide_open_beauty_facts_share_link": "https://world-lv.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Laipni lūdzam Atvērtajās cenās!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Kas ir atvērtās cenas?",
   "guide_open_prices_what_is_open_prices_paragraph1": "“Open Prices” ir projekts, kura mērķis ir **apkopot un kopīgot produktu cenas visā pasaulē**. Tas ir publiski pieejams datu kopums, ko var izmantot pētniecībai, analīzei un citiem mērķiem. “Open Prices” izstrādā un uztur “Open Food Facts”.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Kā darbojas Atvērtās cenas?",
   "guide_open_prices_how_paragraph1": "**Mēs izmantojam atvērtā pirmkoda cenu datu kopas pūļa resursus**. Cenas var pievienot lietotāji, izmantojot šo tīmekļa lietotni vai oficiālo Open Food Facts mobilo lietotni. Arī mazumtirgotāji vai trešo pušu lietotnes var sniegt savu ieguldījumu, izmantojot mūsu API.",
   "guide_open_prices_how_arg1_title": "Savāciet cenu zīmju fotoattēlus ejās",
   "guide_open_prices_how_arg2_title": "Savāciet čeku fotoattēlus",
@@ -4173,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Salīdziniet cenas jūsu tuvumā",
   "guide_open_prices_why_arg2_text": "Kad mēs iegūsim vairāk cenu, jūs varēsiet atrast **lētākos veikalus savā apkārtnē**.",
   "guide_open_prices_scrapping_title": "Vai apsvērāt cenu iegūšanu mazumtirgotāju tīmekļa vietnēs?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Juridisku un tehnisku iemeslu dēļ **cenu iegūšanu no mazumtirgotāju tīmekļa vietnēm mēs neuzskatām par derīgu veidu, kā piedalīties atvērto cenu apkopošanā**. Mēs vēlamies pārliecināties, ka mūsu apkopotās cenas ir precīzas un aktuālas, un iegūto cenu saņemšana no līdzstrādniekiem mums to neļauj.",
   "guide_open_prices_scrapping_paragraph2": "Cenu nokasīšana (Cenu skrāpēšana) ir apsvērta iespēja nākotnes Open Prices versijā, taču to veiktu pats Open Prices, lai mēs varētu iegūt cenas pierādījumu, pamatojoties uz HTML lapu.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Jūs varat sniegt savu ieguldījumu cenu noteikšanā, izmantojot mūsu API.\nJa vēlaties sniegt savu ieguldījumu cenu noteikšanā plašā mērogā, lūdzu, sazinieties ar mums pa e-pastu prices@openfoodfacts.org.",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Atklājiet atvērtās cenas",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
