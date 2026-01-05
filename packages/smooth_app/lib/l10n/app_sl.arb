@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Več o odprtih cenah",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3834,7 +3834,7 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_a": "Nutri-ocena A",
   "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
@@ -3849,8 +3849,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (nov izračun)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "Neznana hranilna vrednost",
+  "nutriscore_unknown_new_formula": "Neznan nutri-rezultat (nov izračun)",
   "nutriscore_not_applicable": "Nutri-Score se ne uporablja.",
   "nutriscore_not_applicable_new_formula": "Nutri-Score se ne uporablja (nov izračun)",
   "environmental_score_generic_new": "Green-Score",
@@ -4149,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Opomba o točkovanju",
   "guide_open_beauty_facts_scores_paragraph1": "Za razliko od živilskih izdelkov svet kozmetike **nima splošno priznanega, vladno podprtega sistema ocenjevanja, kot je Nutri-Score**. Učinki sestavin so lahko zelo osebni in odvisni od tipa kože, alergij in individualnih težav.",
   "guide_open_beauty_facts_share_link": "https://world-sl.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Dobrodošli na Odprtih cenah!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Kaj so odprte cene?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt za **zbiranje in deljenje cen izdelkov po vsem svetu**. Gre za javno dostopen nabor podatkov, ki ga je mogoče uporabiti za raziskave, analize in drugo. Open Prices razvija in vzdržuje Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Kako delujejo odprte cene?",
   "guide_open_prices_how_paragraph1": "**Zbiramo odprtokodne podatke o cenah prek množičnega financiranja.** Cene lahko uporabniki dodajo prek te spletne aplikacije ali prek uradne mobilne aplikacije Open Food Facts. Prispevajo lahko tudi trgovci na drobno ali aplikacije tretjih oseb z uporabo našega API-ja.",
   "guide_open_prices_how_arg1_title": "Zbirajte fotografije cenovnih etiket v hodnikih",
   "guide_open_prices_how_arg2_title": "Zberite fotografije računov",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Odkrijte odprte cene",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
