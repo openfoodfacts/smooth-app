@@ -1771,7 +1771,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Ország",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -5624,7 +5624,7 @@
   "location_map_details_street": "Utca",
   "location_map_details_city": "Város",
   "location_map_details_postcode": "Irányítószám",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Ország",
   "location_map_details_coordinates": "Koordináták",
   "location_map_details_osm_id": "OSM-azonosító"
 }
