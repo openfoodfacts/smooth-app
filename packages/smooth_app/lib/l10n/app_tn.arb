@@ -2685,7 +2685,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Fetola fa gare ga ditlhwatlhwa.dintlha tsa dijo.org (PROD) le tikologo ya teko",
+  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -4177,7 +4177,7 @@
   "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://ditlhwatlhwa.dintlha tsa dijo tse di bulegileng.org/ka ga",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5332,7 +5332,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Ditlhwatlhwa tsa bosheng tse di tsentsweng ke baagi ba Ditlhwatlhwa tse di Buletsweng",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5384,7 +5384,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Ditsela tse di bonolo tsa go thusa go Bula Dintlha tsa Dijo",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

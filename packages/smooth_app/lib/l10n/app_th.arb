@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "ช่วยปรับปรุงข้อมูลอาหารแบบเปิดเผยในประเทศของคุณ",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -711,7 +711,7 @@
   "nutritional_facts_input_button_label": "กรอกข้อมูลโภชนาการ",
   "nutritional_facts_added": "เพิ่มข้อมูลโภชนาการ",
   "categories_added": "เพิ่มหมวดหมู่แล้ว",
-  "new_product_title_nutriscore": "คำนวณคะแนนโภชนาการ",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "โปรดช่วยเราด้วยการกรอกข้อมูลอย่างน้อยหนึ่งหมวดหมู่และข้อมูลโภชนาการ",
   "new_product_title_environmental_score": "คำนวณคะแนนสีเขียว",
   "new_product_subtitle_environmental_score": "รับสิทธิ์โดยการกรอกข้อมูลอย่างน้อยหนึ่งหมวดหมู่",
@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "เรียนรู้เพิ่มเติมเกี่ยวกับราคาเปิด",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3834,12 +3834,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "คะแนนโภชนาการ A",
-  "nutriscore_b": "นูทริ-สกอร์ บี",
-  "nutriscore_c": "นูทริ-สกอร์ ซี",
-  "nutriscore_d": "นูทริ-สกอร์ ดี",
-  "nutriscore_e": "นูทริ-สกอร์ อี",
-  "nutriscore_new_formula": "คะแนนโภชนาการ {letter} (การคำนวณใหม่)",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3848,9 +3848,9 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "คะแนนโภชนาการ (การคำนวณแบบใหม่)",
+  "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
   "nutriscore_unknown": "ไม่ทราบค่า Nutri-Score",
-  "nutriscore_unknown_new_formula": "ค่าโภชนาการที่ไม่ทราบค่า (การคำนวณใหม่)",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "ไม่สามารถใช้ Nutri-Score ได้",
   "nutriscore_not_applicable_new_formula": "ไม่สามารถใช้ Nutri-Score ได้ (การคำนวณใหม่)",
   "environmental_score_generic_new": "Green-Score",
@@ -3862,10 +3862,10 @@
   "environmental_score_unknown_new": "Green-Scoreที่ไม่รู้จัก",
   "environmental_score_not_applicable_new": "Green-Scoreไม่สามารถใช้งานได้",
   "nova_group_generic_new": "อาหารแปรรูปขั้นสูง - กลุ่ม NOVA",
-  "nova_group_1": "กลุ่มโนวา 1",
-  "nova_group_2": "กลุ่มโนวา 2",
-  "nova_group_3": "กลุ่มโนวา 3",
-  "nova_group_4": "กลุ่มโนวา 4",
+  "nova_group_1": "NOVA Group 1",
+  "nova_group_2": "NOVA Group 2",
+  "nova_group_3": "NOVA Group 3",
+  "nova_group_4": "NOVA Group 4",
   "nova_group_unknown": "กลุ่ม NOVA ที่ไม่เปิดเผยตัวตน",
   "nutrition_facts": "ระดับสารอาหาร",
   "faq_title_partners": "พันธมิตรและผู้อุปถัมภ์ขององค์กรพัฒนาเอกชน",
@@ -4153,7 +4153,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ราคาเปิดคืออะไร?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices คือโครงการที่ **รวบรวมและแบ่งปันราคาสินค้าทั่วโลก** เป็นชุดข้อมูลสาธารณะที่สามารถนำไปใช้ในการวิจัย วิเคราะห์ และอื่นๆ ได้ Open Prices พัฒนาและดูแลโดย Open Food Facts",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "ราคาเปิดทำงานอย่างไร?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**เรากำลังรวบรวมชุดข้อมูลราคาแบบโอเพนซอร์สจากผู้ใช้งาน** ผู้ใช้สามารถเพิ่มราคาได้ผ่านเว็บแอปพลิเคชันนี้ หรือผ่านแอปพลิเคชันมือถือ Open Food Facts อย่างเป็นทางการ นอกจากนี้ ผู้ค้าปลีกหรือแอปพลิเคชันจากบุคคลที่สามก็สามารถร่วมให้ข้อมูลได้โดยใช้ API ของเรา",
   "guide_open_prices_how_arg1_title": "รวบรวมภาพถ่ายป้ายราคาตามชั้นวางสินค้า",
   "guide_open_prices_how_arg2_title": "รวบรวมรูปถ่ายใบเสร็จรับเงิน",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "ค้นพบราคาแบบเปิด",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },

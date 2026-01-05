@@ -1080,11 +1080,11 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Adăugați informații nutriționale pentru a calcula Scorul Nutrițional.",
+  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Adăugați informații nutriționale și o categorie pentru a calcula Scorul Nutrițional.",
+  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -3851,8 +3851,8 @@
   "nutriscore_new_formula_title": "Nutri-Score (Calcul nou)",
   "nutriscore_unknown": "Nutri-Score necunoscut",
   "nutriscore_unknown_new_formula": "Nutri-Score necunoscut (calcul nou)",
-  "nutriscore_not_applicable": "Scorul nutrițional nu se aplică",
-  "nutriscore_not_applicable_new_formula": "Scorul Nutri nu este aplicabil (calcul nou)",
+  "nutriscore_not_applicable": "Nutri-Score is not applicable",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Scor Ecologic",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
@@ -4153,7 +4153,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Ce sunt prețurile deschise?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices este un proiect care are ca scop **colectarea și partajarea prețurilor produselor din întreaga lume**. Este un set de date disponibil publicului, care poate fi utilizat pentru cercetare, analiză și multe altele. Open Prices este dezvoltat și întreținut de Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Cum funcționează Prețurile Deschise?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Utilizăm crowdsourcing pentru a obține un set de date open-source cu prețuri.** Prețurile pot fi adăugate de utilizatori prin intermediul acestei aplicații web sau prin intermediul aplicației mobile oficiale Open Food Facts. Comercianții cu amănuntul sau aplicațiile terțe pot contribui, de asemenea, utilizând API-ul nostru.",
   "guide_open_prices_how_arg1_title": "Colectați fotografii cu etichetele de preț de pe culoar",
   "guide_open_prices_how_arg2_title": "Colectați fotografii ale chitanțelor",
@@ -5384,7 +5384,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Modalități simple de a ajuta la Open Food Informations",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },

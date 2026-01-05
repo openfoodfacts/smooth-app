@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Získajte viac informácií o otvorených cenách",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Poznámka k bodovaniu",
   "guide_open_beauty_facts_scores_paragraph1": "Na rozdiel od potravinárskych výrobkov, svet kozmetiky **nemá všeobecne uznávaný, vládou podporovaný systém hodnotenia ako Nutri-Score**. Účinky zložiek môžu byť veľmi individuálne a závisia od typu pleti, alergií a individuálnych obáv.",
   "guide_open_beauty_facts_share_link": "https://world-sk.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Vitajte v sekcii Otvorené ceny!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Čo sú to otváracie ceny?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt na **zhromažďovanie a zdieľanie cien produktov z celého sveta**. Ide o verejne dostupný súbor údajov, ktorý možno použiť na výskum, analýzu a ďalšie účely. Open Prices vyvíja a spravuje spoločnosť Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Ako fungujú otváracie ceny?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Zhromažďujeme súbor údajov o cenách s otvoreným zdrojovým kódom**. Ceny môžu pridávať používatelia prostredníctvom tejto webovej aplikácie alebo prostredníctvom oficiálnej mobilnej aplikácie Open Food Facts. Prispieť môžu aj maloobchodníci alebo aplikácie tretích strán pomocou nášho API.",
   "guide_open_prices_how_arg1_title": "Zbierajte fotografie cenovok v uličkách",
   "guide_open_prices_how_arg2_title": "Zbierajte fotografie účteniek",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Objavte otvorené ceny",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },

@@ -3849,8 +3849,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (新しい計算)",
-  "nutriscore_unknown": "不明な栄養スコア",
-  "nutriscore_unknown_new_formula": "未知の栄養スコア（新しい計算）",
+  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Scoreは適用されません",
   "nutriscore_not_applicable_new_formula": "Nutri-Scoreは適用されません（新しい計算）",
   "environmental_score_generic_new": "Green-Score",

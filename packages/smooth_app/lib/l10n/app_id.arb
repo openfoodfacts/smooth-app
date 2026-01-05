@@ -2652,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Pelajari lebih lanjut tentang Harga Terbuka",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4153,7 +4153,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Apa itu Harga Terbuka?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices adalah sebuah proyek untuk **mengumpulkan dan membagikan harga produk di seluruh dunia**. Ini adalah kumpulan data yang tersedia untuk umum yang dapat digunakan untuk penelitian, analisis, dan banyak lagi. Open Prices dikembangkan dan dikelola oleh Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Bagaimana cara kerja Open Price?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Kami sedang mengumpulkan data harga sumber terbuka melalui crowdsourcing.** Harga dapat ditambahkan oleh pengguna melalui aplikasi web ini, atau melalui aplikasi seluler resmi Open Food Facts. Peritel atau aplikasi pihak ketiga juga dapat berkontribusi dengan menggunakan API kami.",
   "guide_open_prices_how_arg1_title": "Kumpulkan foto label harga di lorong-lorong toko.",
   "guide_open_prices_how_arg2_title": "Kumpulkan foto-foto struk pembelian.",
@@ -5124,7 +5124,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Temukan Harga Terbuka",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
