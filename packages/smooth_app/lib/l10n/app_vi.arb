@@ -3834,10 +3834,10 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_a": "Điểm dinh dưỡng A",
+  "nutriscore_b": "Điểm dinh dưỡng B",
   "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_d": "Điểm dinh dưỡng D",
   "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Tính toán mới)",
   "@nutriscore_new_formula": {
