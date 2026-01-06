@@ -242,11 +242,11 @@ class AnalyticsHelper {
               'scanner': GlobalVars.scannerLabel.name,
             };
         };
-      // Configure trace sampling based on analytics opt-in
+      // Configure trace sampling based on analytics and crash reporting opt-in
       options
         ..tracesSampler = (SentrySamplingContext samplingContext) {
-          // Only sample traces if user has opted in to analytics
-          return _crashReports ? 1.0 : 0.0;
+          // Only sample traces if user has opted in to both analytics and crash reporting
+          return isTracingEnabled ? 1.0 : 0.0;
         }
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
