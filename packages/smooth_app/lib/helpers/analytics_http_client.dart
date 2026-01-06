@@ -33,6 +33,11 @@ class AnalyticsHttpClient extends http.BaseClient {
       return _sentryClient!.send(request);
     } else {
       // User has not opted in or has opted out - use regular client
+      // Clean up Sentry client if it was previously created
+      if (_sentryClient != null) {
+        _sentryClient!.close();
+        _sentryClient = null;
+      }
       return _innerClient.send(request);
     }
   }
