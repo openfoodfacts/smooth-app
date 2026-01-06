@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:http/http.dart' as http;
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -29,6 +30,7 @@ import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
+import 'package:smooth_app/helpers/sentry_http_client_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
@@ -89,11 +91,24 @@ Future<void> launchSmoothApp({
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-      appRunner: () => runApp(const SmoothApp()),
+      appRunner: () => _runAppWithHttpTracing(),
     );
   } else {
-    runApp(const SmoothApp());
+    _runAppWithHttpTracing();
   }
+}
+
+/// Runs the app with HTTP tracing enabled via runWithClient.
+///
+/// This wraps the entire app in a custom HTTP client zone, where all HTTP
+/// requests made by the app (including those from the openfoodfacts package)
+/// will use a client that conditionally enables Sentry tracing based on
+/// user consent.
+void _runAppWithHttpTracing() {
+  http.runWithClient(
+    () => runApp(const SmoothApp()),
+    SentryHttpClientHelper.createClient,
+  );
 }
 
 void _enableEdgeToEdgeMode() {
