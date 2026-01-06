@@ -94,7 +94,7 @@ Future<void> launchSmoothApp({
       appRunner: () => _runAppWithHttpTracing(),
     );
   } else {
-    _runAppWithHttpTracing();
+    runApp(const SmoothApp());
   }
 }
 
