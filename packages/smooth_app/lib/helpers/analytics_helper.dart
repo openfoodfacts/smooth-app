@@ -242,9 +242,12 @@ class AnalyticsHelper {
               'scanner': GlobalVars.scannerLabel.name,
             };
         };
-      // To set a uniform sample rate
+      // Configure trace sampling based on analytics opt-in
       options
-        ..tracesSampleRate = 1.0
+        ..tracesSampler = (SentrySamplingContext samplingContext) {
+          // Only sample traces if user has opted in to analytics
+          return _crashReports ? 1.0 : 0.0;
+        }
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
         ..environment =

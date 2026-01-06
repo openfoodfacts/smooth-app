@@ -4,13 +4,23 @@ import 'package:device_info_plus/device_info_plus.dart' deferred as dip;
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:smooth_app/helpers/analytics_http_client.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:uuid/uuid.dart';
 
 /// Initializes both the user agent && the SSL certificate
 Future<void> setupAppNetworkConfig() async {
   await _initUserAgent();
+  _initHttpClient();
   return _importSSLCertificate();
+}
+
+/// Initializes the HTTP client with Sentry tracing support.
+///
+/// This sets up a custom HTTP client that conditionally enables Sentry tracing
+/// based on the user's analytics opt-in preference at the time of each HTTP call.
+void _initHttpClient() {
+  OpenFoodAPIConfiguration.httpClient = AnalyticsHttpClient();
 }
 
 String _getUuidId() {
