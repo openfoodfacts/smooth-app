@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:math' as math;
 import 'dart:ui';
 
@@ -93,7 +94,7 @@ class _ScanPageState extends State<ScanPage> {
                   }
 
                   // Both are Future methods, but it doesn't matter to wait here
-                  SmoothHapticFeedback.lightNotification();
+                  unawaited(SmoothHapticFeedback.lightNotification());
 
                   if (_userPreferences.playCameraSound) {
                     await _initSoundManagerIfNecessary();

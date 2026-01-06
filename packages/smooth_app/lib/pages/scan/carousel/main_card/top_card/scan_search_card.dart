@@ -183,7 +183,7 @@ class _ScanSearchBar extends StatelessWidget {
 }
 
 class OxFLogosAnimation extends StatefulWidget {
-  const OxFLogosAnimation({super.key});
+  const OxFLogosAnimation();
 
   @override
   State<OxFLogosAnimation> createState() => _OxFLogosAnimationState();

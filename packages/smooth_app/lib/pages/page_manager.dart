@@ -10,7 +10,7 @@ import 'package:smooth_app/widgets/smooth_navigation_bar.dart';
 import 'package:smooth_app/widgets/tab_navigator.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
-enum BottomNavigationTab { Profile, HomePage, Scan, List }
+enum BottomNavigationTab { Profile, Scan, HomePage, List }
 
 /// Here the different tabs in the bottom navigation bar are taken care of,
 /// so that they are stateful, that is not only things like the scroll position
@@ -26,20 +26,20 @@ class PageManager extends StatefulWidget {
 class PageManagerState extends State<PageManager> {
   static const List<BottomNavigationTab> _pageKeys = <BottomNavigationTab>[
     BottomNavigationTab.Profile,
-    BottomNavigationTab.HomePage,
     BottomNavigationTab.Scan,
+    BottomNavigationTab.HomePage,
     BottomNavigationTab.List,
   ];
 
   static final Map<BottomNavigationTab, GlobalKey<NavigatorState>>
   _navigatorKeys = <BottomNavigationTab, GlobalKey<NavigatorState>>{
     BottomNavigationTab.Profile: GlobalKey<NavigatorState>(),
-    BottomNavigationTab.HomePage: GlobalKey<NavigatorState>(),
     BottomNavigationTab.Scan: GlobalKey<NavigatorState>(),
+    BottomNavigationTab.HomePage: GlobalKey<NavigatorState>(),
     BottomNavigationTab.List: GlobalKey<NavigatorState>(),
   };
 
-  BottomNavigationTab _currentPage = BottomNavigationTab.Scan;
+  BottomNavigationTab? _currentPage;
 
   static final List<Widget> tabs = <Widget>[
     TabNavigator(
@@ -74,12 +74,22 @@ class PageManagerState extends State<PageManager> {
 
   @override
   Widget build(BuildContext context) {
+    final bool showNewHomePage = _showNewHomePage(
+      context.watch<UserPreferences>(),
+    );
+
+    _currentPage ??= showNewHomePage
+        ? BottomNavigationTab.HomePage
+        : BottomNavigationTab.Scan;
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ExternalScanCarouselManagerState carouselManager =
         ExternalScanCarouselManager.watch(context);
 
     if (carouselManager.forceShowScannerTab) {
-      _currentPage = BottomNavigationTab.Scan;
+      _currentPage = showNewHomePage
+          ? BottomNavigationTab.HomePage
+          : BottomNavigationTab.Scan;
     }
 
     final Widget bar = DecoratedBox(
@@ -107,6 +117,7 @@ class PageManagerState extends State<PageManager> {
                 child: icons.Search.offRounded(),
               ),
               label: appLocalizations.scan_navbar_label,
+              visible: !showNewHomePage,
             ),
             SmoothNavigationDestination(
               icon: const Padding(
@@ -114,14 +125,14 @@ class PageManagerState extends State<PageManager> {
                 child: icons.Search.offRounded(),
               ),
               label: appLocalizations.scan_navbar_label,
-              visible: _showNewHomePage(context.watch<UserPreferences>()),
+              visible: showNewHomePage,
             ),
             SmoothNavigationDestination(
               icon: const icons.Lists(),
               label: appLocalizations.list_navbar_label,
             ),
           ].nonNulls,
-          selectedIndex: _currentPage.index,
+          selectedIndex: _currentPage!.index,
           onDestinationSelected: (int index) {
             if (_currentPage == BottomNavigationTab.Scan &&
                 _pageKeys[index] == BottomNavigationTab.Scan) {
@@ -154,8 +165,8 @@ class PageManagerState extends State<PageManager> {
       },
       child: Scaffold(
         body: Provider<BottomNavigationTab>.value(
-          value: _currentPage,
-          child: IndexedStack(index: _currentPage.index, children: tabs),
+          value: _currentPage!,
+          child: IndexedStack(index: _currentPage!.index, children: tabs),
         ),
         bottomNavigationBar: ConsumerFilter<UserPreferences>(
           buildWhen:
