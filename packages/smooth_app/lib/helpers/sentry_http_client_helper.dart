@@ -7,6 +7,8 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 /// This class provides factory methods to create HTTP clients that conditionally
 /// enable Sentry tracing based on user consent for both analytics and crash reporting.
 class SentryHttpClientHelper {
+  const SentryHttpClientHelper._();
+
   /// Creates an HTTP client that conditionally uses Sentry tracing.
   ///
   /// If the user has opted in to both analytics and crash reporting,
