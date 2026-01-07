@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Prix ouverts",
   "sep": " ",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Hygiène personnelle",
   "product_type_label_pet_food": "Nourriture pour animaux de compagnie",
   "product_type_label_product": "Autre",
+  "product_type_label_unknown": "Inconnu",
   "product_type_selection_title": "Type de produit",
   "product_type_selection_subtitle": "Sélectionnez le type de ce produit",
   "product_type_selection_empty": "Vous devez d'abord sélectionner un type de produit !",
@@ -4555,6 +4557,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Ma compatibilité",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatible",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Données insuffisantes pour calculer un score de compatibilité.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Il est impossible de calculer un score pour un produit de type \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Importance",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Allumettes",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Bonnes correspondances",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Matchs moyens",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Mauvaises correspondances",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Correspondances inconnues",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Site Web",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -5626,5 +5678,50 @@
   "location_map_details_postcode": "Code postal",
   "location_map_details_country": "Pays",
   "location_map_details_coordinates": "Coordonnées",
-  "location_map_details_osm_id": "ID OSM"
+  "location_map_details_osm_id": "ID OSM",
+  "homepage_scanner_back_to_home_button": "Retour à l'accueil",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Activer/désactiver la caméra",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Afficher le lecteur de codes-barres",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Appuyez pour scanner un **code-barres**\net découvrez si c'est **bon pour vous** !",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Lampe torche",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scannez un produit en vous approchant de son code-barres",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Nous avons détecté le code-barres suivant : {barcode}, mais il semble être invalide.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Voir plus…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Produits les plus scannés",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Derniers produits scannés",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  }
 }
