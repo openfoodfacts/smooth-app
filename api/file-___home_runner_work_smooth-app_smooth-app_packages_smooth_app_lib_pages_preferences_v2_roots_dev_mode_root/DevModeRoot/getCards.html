@@ -143,7 +143,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
       ],
     ),
     PreferenceCard(
-      title: &#39;Open Prices&#39;,
+      title: appLocalizations.open_prices,
       tiles: &lt;PreferenceTile&gt;[
         _buildBulkProofUploadTile(appLocalizations, userPreferences),
         _buildMultiProductsSelectionTile(
@@ -156,6 +156,7 @@ List&lt;PreferenceCard&gt; getCards(BuildContext context) {
     PreferenceCard(
       title: appLocalizations.dev_mode_section_experimental_features,
       tiles: &lt;PreferenceTile&gt;[
+        _buildNewHomePageTile(context, appLocalizations, userPreferences),
         _buildSpellCheckerOcrTile(appLocalizations, userPreferences),
         _buildBoostedComparisonTile(
           context,

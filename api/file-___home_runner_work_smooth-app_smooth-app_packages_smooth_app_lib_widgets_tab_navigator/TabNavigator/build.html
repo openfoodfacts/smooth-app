@@ -72,8 +72,9 @@
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
   final Widget child = switch (tabItem) {
-    BottomNavigationTab.Profile =&gt; PreferencesPage(),
+    BottomNavigationTab.HomePage =&gt; const HomePage(),
     BottomNavigationTab.List =&gt; const HistoryPage(),
+    BottomNavigationTab.Profile =&gt; PreferencesPage(),
     BottomNavigationTab.Scan =&gt; const ScanPage(),
   };
 

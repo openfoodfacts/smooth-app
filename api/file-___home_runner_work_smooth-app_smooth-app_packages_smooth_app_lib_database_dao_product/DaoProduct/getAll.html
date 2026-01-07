@@ -52,7 +52,7 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/Map-class.html">Map</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>, <span class="type-parameter">dynamic</span>&gt;</span></span>&gt;</span></span>
-<span class="name ">getAll</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getAll-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span></span></li>
+<span class="name ">getAll</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getAll-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span></span></li>
 </ol>)
 
       
@@ -67,7 +67,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(final List&lt;String&gt; barcodes) async {
+  <pre class="language-dart"><code class="language-dart">Future&lt;Map&lt;String, Product&gt;&gt; getAll(final Iterable&lt;String&gt; barcodes) async {
   final Map&lt;String, Product&gt; result = &lt;String, Product&gt;{};
   if (barcodes.isEmpty) {
     return result;
@@ -87,7 +87,9 @@
           _TABLE_PRODUCT,
           columns: _columns,
           where: &#39;$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${&#39;,?&#39; * (size - 1)})&#39;,
-          whereArgs: barcodes.sublist(start, start + size),
+          whereArgs: barcodes
+              .subList(start, start + size)
+              .toList(growable: true),
         );
     for (final Map&lt;String, dynamic&gt; row in queryResults) {
       result[row[_TABLE_PRODUCT_COLUMN_BARCODE] as String] =

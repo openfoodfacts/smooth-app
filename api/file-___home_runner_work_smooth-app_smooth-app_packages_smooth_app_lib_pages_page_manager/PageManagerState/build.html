@@ -71,20 +71,24 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
+  final bool showNewHomePage = _showNewHomePage(
+    context.watch&lt;UserPreferences&gt;(),
+  );
+
+  _currentPage ??= showNewHomePage
+      ? BottomNavigationTab.HomePage
+      : BottomNavigationTab.Scan;
+
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final ExternalScanCarouselManagerState carouselManager =
       ExternalScanCarouselManager.watch(context);
 
   if (carouselManager.forceShowScannerTab) {
-    _currentPage = BottomNavigationTab.Scan;
+    _currentPage = showNewHomePage
+        ? BottomNavigationTab.HomePage
+        : BottomNavigationTab.Scan;
   }
 
-  final UserPreferences userPreferences = context.watch&lt;UserPreferences&gt;();
-  final bool isProd =
-      userPreferences.getFlag(
-        UserPreferencesDevMode.userPreferencesFlagProd,
-      ) ??
-      true;
   final Widget bar = DecoratedBox(
     decoration: BoxDecoration(
       boxShadow: &lt;BoxShadow&gt;[
@@ -110,13 +114,22 @@ Widget build(BuildContext context) {
               child: icons.Search.offRounded(),
             ),
             label: appLocalizations.scan_navbar_label,
+            visible: !showNewHomePage,
+          ),
+          SmoothNavigationDestination(
+            icon: const Padding(
+              padding: EdgeInsetsDirectional.only(bottom: 1.0),
+              child: icons.Search.offRounded(),
+            ),
+            label: appLocalizations.scan_navbar_label,
+            visible: showNewHomePage,
           ),
           SmoothNavigationDestination(
             icon: const icons.Lists(),
             label: appLocalizations.list_navbar_label,
           ),
-        ],
-        selectedIndex: _currentPage.index,
+        ].nonNulls,
+        selectedIndex: _currentPage!.index,
         onDestinationSelected: (int index) {
           if (_currentPage == BottomNavigationTab.Scan &amp;&amp;
               _pageKeys[index] == BottomNavigationTab.Scan) {
@@ -149,17 +162,28 @@ Widget build(BuildContext context) {
     },
     child: Scaffold(
       body: Provider&lt;BottomNavigationTab&gt;.value(
-        value: _currentPage,
-        child: IndexedStack(index: _currentPage.index, children: tabs),
+        value: _currentPage!,
+        child: IndexedStack(index: _currentPage!.index, children: tabs),
       ),
-      bottomNavigationBar: isProd
-          ? bar
-          : Banner(
-              message: &#39;TEST ENV&#39;,
-              location: BannerLocation.bottomEnd,
-              color: Colors.blue,
-              child: bar,
-            ),
+      bottomNavigationBar: ConsumerFilter&lt;UserPreferences&gt;(
+        buildWhen:
+            (UserPreferences? previousValue, UserPreferences currentValue) =&gt;
+                _isProd(currentValue) != (_isProd(previousValue)),
+        builder:
+            (BuildContext context, UserPreferences prefs, Widget? child) {
+              if (_isProd(prefs)) {
+                return bar;
+              } else {
+                return Banner(
+                  message: &#39;TEST ENV&#39;,
+                  location: BannerLocation.bottomEnd,
+                  color: Colors.blue,
+                  child: bar,
+                );
+              }
+            },
+        child: bar,
+      ),
     ),
   );
 }</code></pre>

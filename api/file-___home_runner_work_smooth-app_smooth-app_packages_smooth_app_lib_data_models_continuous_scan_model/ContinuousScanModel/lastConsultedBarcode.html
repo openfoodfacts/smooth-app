@@ -67,9 +67,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">set lastConsultedBarcode(String? barcode) {
   _latestConsultedBarcode = barcode;
-  if (barcode != null) {
-    notifyListeners();
-  }
+  notifyListeners();
 }</code></pre>
 </section>
 
