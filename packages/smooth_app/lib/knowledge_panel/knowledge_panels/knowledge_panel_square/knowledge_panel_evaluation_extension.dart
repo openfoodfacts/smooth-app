@@ -11,7 +11,7 @@ extension EvaluationExtension on Evaluation? {
       Evaluation.GOOD => theme.success,
       Evaluation.BAD => theme.error,
       Evaluation.AVERAGE => theme.warning,
-      _ => Colors.grey,
+      _ => theme.greyNormal,
     };
   }
 }
