@@ -17,7 +17,7 @@ class KnowledgePanelSquareCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension = context
+    final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
 
     return Column(
@@ -33,18 +33,10 @@ class KnowledgePanelSquareCard extends StatelessWidget {
                     IntrinsicHeight(
                       child: Row(
                         children: <Widget>[
-                          _buildPanel(
-                            context,
-                            panels[firstIndex],
-                            themeExtension,
-                          ),
+                          _buildPanel(context, panels[firstIndex], theme),
                           const VerticalDivider(thickness: 1.0),
                           if (secondIndex < panels.length)
-                            _buildPanel(
-                              context,
-                              panels[secondIndex],
-                              themeExtension,
-                            )
+                            _buildPanel(context, panels[secondIndex], theme)
                           else
                             const Spacer(),
                         ],
@@ -64,14 +56,14 @@ class KnowledgePanelSquareCard extends StatelessWidget {
                       horizontal: MEDIUM_SPACE,
                       vertical: VERY_SMALL_SPACE,
                     ),
-                    leading: _buildIndicator(panel.evaluation, themeExtension),
+                    leading: _buildIndicator(panel.evaluation, theme),
                     title: _buildTitle(
                       context,
                       panel.titleElement?.title ?? '',
                     ),
                     trailing: Icon(
                       ConstantIcons.forwardIcon,
-                      color: themeExtension.primaryTone,
+                      color: theme.primaryTone,
                       size: 16.0,
                     ),
                     visualDensity: VisualDensity.compact,
@@ -95,15 +87,13 @@ class KnowledgePanelSquareCard extends StatelessWidget {
         '';
 
     return Expanded(
-      child: Container(
-        padding: const EdgeInsets.symmetric(
+      child: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(
           horizontal: VERY_LARGE_SPACE,
           vertical: MEDIUM_SPACE,
         ),
         child: Column(
-          mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Row(
               spacing: SMALL_SPACE,
@@ -123,14 +113,11 @@ class KnowledgePanelSquareCard extends StatelessWidget {
             ),
             const SizedBox(height: SMALL_SPACE),
             Row(
+              spacing: MEDIUM_SPACE,
               children: <Widget>[
                 _buildIndicator(panel.evaluation, themeExtension),
-                const SizedBox(width: MEDIUM_SPACE),
                 Text(
-                  panel.titleElement?.valueString ??
-                      (panel.titleElement?.value != null
-                          ? '${panel.titleElement?.value}'
-                          : ''),
+                  title,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: indicatorColor(panel.evaluation, themeExtension),
@@ -148,12 +135,14 @@ class KnowledgePanelSquareCard extends StatelessWidget {
     Evaluation? evaluation,
     SmoothColorsThemeExtension themeExtension,
   ) {
-    return Container(
+    return SizedBox(
       width: 20.0,
       height: 20.0,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: indicatorColor(evaluation, themeExtension),
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: indicatorColor(evaluation, themeExtension),
+        ),
       ),
     );
   }

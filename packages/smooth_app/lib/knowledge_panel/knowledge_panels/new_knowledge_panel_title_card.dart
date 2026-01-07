@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -19,19 +18,17 @@ class NewKnowledgePanelTitleCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension themeExtension = context
+    final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Container(
-      padding: const EdgeInsets.symmetric(
+      padding: const EdgeInsetsDirectional.symmetric(
         horizontal: VERY_LARGE_SPACE,
         vertical: MEDIUM_SPACE,
       ),
       decoration: BoxDecoration(
-        color: lightTheme
-            ? themeExtension.primaryMedium
-            : themeExtension.primaryDark,
+        color: lightTheme ? theme.primaryMedium : theme.primaryDark,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -59,8 +56,8 @@ class NewKnowledgePanelTitleCard extends StatelessWidget {
                           subtitle!,
                           style: TextStyle(
                             color: lightTheme
-                                ? themeExtension.primarySemiDark
-                                : themeExtension.primaryMedium,
+                                ? theme.primarySemiDark
+                                : theme.primaryMedium,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -72,7 +69,7 @@ class NewKnowledgePanelTitleCard extends StatelessWidget {
           ),
           const SizedBox(width: LARGE_SPACE),
           if (iconUrl != null && iconUrl!.isNotEmpty)
-            SvgPicture.network(iconUrl!, height: 42.0, fit: BoxFit.cover),
+            SvgCache(iconUrl, height: 42.0),
         ],
       ),
     );

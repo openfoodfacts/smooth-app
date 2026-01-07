@@ -10,7 +10,6 @@ import 'package:smooth_app/pages/product/product_page/tabs/for_me/attributes/fil
 import 'package:smooth_app/pages/product/product_page/tabs/for_me/attributes/filters/product_for_me_collection_evaluation.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/for_me/attributes/filters/product_for_me_collection_importance.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/for_me/attributes/product_for_me_attributes_group.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_segmented_control.dart';
