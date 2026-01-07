@@ -84,6 +84,7 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
           language: ProductQuery.getLanguage(),
           country: ProductQuery.getCountry(),
           version: ProductQuery.productQueryVersion,
+          activateKnowledgePanelsSimplified: true,
         ),
         uriHelper: uriProductHelper,
         type: SearchProductsType.background,

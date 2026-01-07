@@ -96,9 +96,7 @@ Widget build(BuildContext context) {
       );
       backgroundIconColor = colorFromEvaluation;
 
-      iconColor = colorFromEvaluation != null
-          ? theme.primaryLight
-          : theme.primaryDark;
+      iconColor = colorFromEvaluation ?? theme.primaryDark;
 
       textColor =
           colorFromEvaluation ??
@@ -137,6 +135,7 @@ Widget build(BuildContext context) {
   return Padding(
     padding: EdgeInsetsDirectional.symmetric(
       vertical: iconWidget == null ? MEDIUM_SPACE : BALANCED_SPACE,
+      horizontal: LARGE_SPACE,
     ),
     child: Semantics(
       value: _generateSemanticsValue(context),
@@ -162,7 +161,9 @@ Widget build(BuildContext context) {
                     SizedBox(
                       width: constraints.maxWidth,
                       child: Text(
-                        knowledgePanelTitleElement.title ?? &#39;&#39;,
+                        knowledgePanelTitleElement.title ??
+                            knowledgePanelTitleElement.name ??
+                            &#39;&#39;,
                         style:
                             textStyleOverride ??
                             TextStyle(

@@ -57,7 +57,8 @@
 <li><span class="parameter" id="getElementWidget-param-isInitiallyExpanded"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isInitiallyExpanded</span>, </span></li>
 <li><span class="parameter" id="getElementWidget-param-isClickable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isClickable</span>, </span></li>
 <li><span class="parameter" id="getElementWidget-param-isTextSelectable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isTextSelectable</span>, </span></li>
-<li><span class="parameter" id="getElementWidget-param-position"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">position</span>}</span></li>
+<li><span class="parameter" id="getElementWidget-param-position"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">position</span>, </span></li>
+<li><span class="parameter" id="getElementWidget-param-simplified"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">simplified</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
 
       
@@ -79,6 +80,7 @@
   required final bool isClickable,
   required final bool isTextSelectable,
   required final int position,
+  final bool simplified = false,
 }) {
   final Widget? result = _getElementWidget(
     element: knowledgePanelElement,
@@ -87,6 +89,7 @@
     isClickable: isClickable,
     isTextSelectable: isTextSelectable,
     position: position,
+    simplified: simplified,
   );
   if (result == null) {
     return null;
@@ -156,7 +159,10 @@
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getPanelSummaryWidget.html">getPanelSummaryWidget</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootPanelElement.html">getRootPanelElement</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootPanelElements.html">getRootPanelElements</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getSquarePanels.html">getSquarePanels</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/hasSimplifiedPanels.html">hasSimplifiedPanels</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/hasSomethingToDisplay.html">hasSomethingToDisplay</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/lookForSquarePanels.html">lookForSquarePanels</a></li>
 
 </ol>
 

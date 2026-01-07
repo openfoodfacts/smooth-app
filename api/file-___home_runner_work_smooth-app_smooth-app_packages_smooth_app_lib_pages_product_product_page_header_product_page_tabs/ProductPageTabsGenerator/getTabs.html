@@ -69,7 +69,8 @@
   final List&lt;ProductPageTab&gt; tabs = &lt;ProductPageTab&gt;[];
 
   final List&lt;KnowledgePanelElement&gt; roots =
-      KnowledgePanelsBuilder.getRootPanelElements(product);
+      KnowledgePanelsBuilder.getRootPanelElements(product, simplified: true);
+
   for (final KnowledgePanelElement root in roots) {
     final String? id = root.panelElement?.panelId;
     if (id == null) {
@@ -81,11 +82,26 @@
       panelElement: root,
       product: product,
       onboardingMode: false,
+      simplified: true,
     );
 
     if (children.isEmpty) {
       continue;
     }
+
+    children.add(
+      TextButton(
+        onPressed: () =&gt; Navigator.of(context).push(
+          MaterialPageRoute&lt;void&gt;(
+            builder: (BuildContext context) =&gt; KnowledgePanelPage(
+              panelId: id.replaceAll(&#39;simplified_&#39;, &#39;&#39;),
+              product: product,
+            ),
+          ),
+        ),
+        child: Text(AppLocalizations.of(context).learnMore),
+      ),
+    );
 
     final KnowledgePanelTitle knowledgePanelTitle =
         children.first as KnowledgePanelTitle;

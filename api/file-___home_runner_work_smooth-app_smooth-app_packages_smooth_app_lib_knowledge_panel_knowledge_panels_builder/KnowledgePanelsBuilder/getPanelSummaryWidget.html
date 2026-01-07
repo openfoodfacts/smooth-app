@@ -53,11 +53,13 @@
 
 <span class="returntype">dynamic</span>
 <span class="name ">getPanelSummaryWidget</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getPanelSummaryWidget-param-knowledgePanel"><span class="type-annotation">dynamic</span> <span class="parameter-name">knowledgePanel</span>, </span></li>
+<li><span class="parameter" id="getPanelSummaryWidget-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
 <li><span class="parameter" id="getPanelSummaryWidget-param-isClickable">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isClickable</span>, </span></li>
 <li><span class="parameter" id="getPanelSummaryWidget-param-ignoreEvaluation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">ignoreEvaluation</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="getPanelSummaryWidget-param-textStyleOverride"><span class="type-annotation">dynamic</span> <span class="parameter-name">textStyleOverride</span>, </span></li>
 <li><span class="parameter" id="getPanelSummaryWidget-param-margin"><span class="type-annotation">dynamic</span> <span class="parameter-name">margin</span>, </span></li>
-<li><span class="parameter" id="getPanelSummaryWidget-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>}</span></li>
+<li><span class="parameter" id="getPanelSummaryWidget-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
+<li><span class="parameter" id="getPanelSummaryWidget-param-simplified"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">simplified</span> = <span class="default-value">true</span>}</span></li>
 </ol>)
 
       
@@ -73,40 +75,92 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Widget? getPanelSummaryWidget(
-  final KnowledgePanel knowledgePanel, {
+  final KnowledgePanel knowledgePanel,
+  final Product product, {
   required final bool isClickable,
   final bool ignoreEvaluation = false,
   final TextStyle? textStyleOverride,
   final EdgeInsetsGeometry? margin,
   final EdgeInsetsGeometry? padding,
+  final bool simplified = true,
 }) {
   if (knowledgePanel.titleElement == null) {
+    if (simplified) {
+      for (final KnowledgePanelElement element
+          in knowledgePanel.elements ?? &lt;KnowledgePanelElement&gt;[]) {
+        if (element.elementType == KnowledgePanelElementType.PANEL_GROUP) {
+          final List&lt;KnowledgePanel&gt; squarePanels = lookForSquarePanels(
+            element: element,
+            product: product,
+          );
+          if (squarePanels.isNotEmpty) {
+            return KnowledgePanelSquareCard(
+              panels: squarePanels,
+              product: product,
+            );
+          }
+        }
+      }
+    }
+
     return null;
   }
 
   switch (knowledgePanel.titleElement!.type) {
     case TitleElementType.GRADE:
-      return ScoreCard.titleElement(
-        titleElement: knowledgePanel.titleElement!,
-        isClickable: isClickable,
-        margin: margin,
-      );
+      return simplified
+          ? SimplifiedKnowledgePanelTitleCard(
+              title: knowledgePanel.titleElement?.title ?? &#39;&#39;,
+              subtitle: knowledgePanel.titleElement!.subtitle,
+              iconUrl: knowledgePanel.titleElement!.iconUrl,
+            )
+          : ScoreCard.titleElement(
+              titleElement: knowledgePanel.titleElement!,
+              isClickable: isClickable,
+              margin: margin,
+            );
 
     case null:
     case TitleElementType.PERCENTAGE:
     case TitleElementType.UNKNOWN:
-      return Padding(
-        padding: const EdgeInsetsDirectional.only(
-          start: SMALL_SPACE,
-          end: BALANCED_SPACE,
-        ).add(padding ?? EdgeInsets.zero),
-        child: KnowledgePanelTitleCard(
-          knowledgePanelTitleElement: knowledgePanel.titleElement!,
-          evaluation: ignoreEvaluation ? null : knowledgePanel.evaluation,
-          textStyleOverride: textStyleOverride,
-          isClickable: isClickable,
-        ),
-      );
+      if (simplified) {
+        for (final KnowledgePanelElement element
+            in knowledgePanel.elements ?? &lt;KnowledgePanelElement&gt;[]) {
+          if (element.elementType == KnowledgePanelElementType.PANEL_GROUP) {
+            final List&lt;KnowledgePanel&gt; squarePanels = lookForSquarePanels(
+              element: element,
+              product: product,
+            );
+            if (squarePanels.isNotEmpty) {
+              return KnowledgePanelSquareCard(
+                panels: squarePanels,
+                product: product,
+              );
+            }
+          }
+        }
+      }
+
+      return simplified &amp;&amp; knowledgePanel.titleElement!.iconUrl != null
+          ? SimplifiedKnowledgePanelTitleCard(
+              title: knowledgePanel.titleElement?.title ?? &#39;&#39;,
+              subtitle: knowledgePanel.titleElement!.subtitle,
+              iconUrl: knowledgePanel.titleElement!.iconUrl,
+            )
+          : Padding(
+              padding: const EdgeInsetsDirectional.only(
+                start: SMALL_SPACE,
+                end: BALANCED_SPACE,
+              ).add(padding ?? EdgeInsetsDirectional.zero),
+              child: KnowledgePanelTitleCard(
+                knowledgePanelTitleElement: knowledgePanel.titleElement!,
+                evaluation: ignoreEvaluation
+                    ? null
+                    : knowledgePanel.evaluation,
+                textStyleOverride: textStyleOverride,
+                isClickable: isClickable,
+              ),
+            );
   }
 }</code></pre>
 </section>
@@ -157,7 +211,10 @@
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getPanelSummaryWidget.html">getPanelSummaryWidget</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootPanelElement.html">getRootPanelElement</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootPanelElements.html">getRootPanelElements</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getSquarePanels.html">getSquarePanels</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/hasSimplifiedPanels.html">hasSimplifiedPanels</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/hasSomethingToDisplay.html">hasSomethingToDisplay</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/lookForSquarePanels.html">lookForSquarePanels</a></li>
 
 </ol>
 
