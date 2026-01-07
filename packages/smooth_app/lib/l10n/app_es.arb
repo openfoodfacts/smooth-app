@@ -4587,7 +4587,7 @@
   "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_order_evaluation": "Partidos",
+  "product_page_for_me_attributes_order_evaluation": "Coincidencias",
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },
@@ -4599,7 +4599,7 @@
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
-  "product_page_for_me_attributes_group_bad_matches": "Malos partidos",
+  "product_page_for_me_attributes_group_bad_matches": "Malas coincidencias",
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
@@ -5679,7 +5679,7 @@
   "location_map_details_country": "País",
   "location_map_details_coordinates": "Coordenadas",
   "location_map_details_osm_id": "ID de OSM",
-  "homepage_scanner_back_to_home_button": "De vuelta a casa",
+  "homepage_scanner_back_to_home_button": "Volver al inicio",
   "@homepage_scanner_back_to_home_button": {
     "description": "Button to go back to home from the scanner page"
   },
