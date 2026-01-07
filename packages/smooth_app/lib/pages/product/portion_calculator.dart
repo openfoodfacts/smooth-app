@@ -9,7 +9,6 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
 import 'package:smooth_app/pages/product/portion_helper.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_circle.dart';

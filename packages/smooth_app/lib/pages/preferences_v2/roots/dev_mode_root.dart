@@ -97,7 +97,7 @@ class DevModeRoot extends PreferencesRoot {
         ],
       ),
       PreferenceCard(
-        title: 'Open Prices',
+        title: appLocalizations.open_prices,
         tiles: <PreferenceTile>[
           _buildBulkProofUploadTile(appLocalizations, userPreferences),
           _buildMultiProductsSelectionTile(
@@ -110,6 +110,7 @@ class DevModeRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.dev_mode_section_experimental_features,
         tiles: <PreferenceTile>[
+          _buildNewHomePageTile(context, appLocalizations, userPreferences),
           _buildSpellCheckerOcrTile(appLocalizations, userPreferences),
           _buildBoostedComparisonTile(
             context,
@@ -498,6 +499,35 @@ class DevModeRoot extends PreferencesRoot {
       onToggle: (bool value) async {
         await userPreferences.setFlag(
           UserPreferencesDevMode.userPreferencesFlagBoostedComparison,
+          value,
+        );
+
+        if (!context.mounted) {
+          return;
+        }
+
+        _showSuccessMessage(context, appLocalizations);
+      },
+    );
+  }
+
+  // TODO(g123k): Temporary toggle
+  TogglePreferenceTile _buildNewHomePageTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return TogglePreferenceTile(
+      title: 'Enable new Home Page',
+      icon: const icons.Search.offRounded(),
+      state:
+          userPreferences.getFlag(
+            UserPreferencesDevMode.userPreferencesFlagHomePageV2,
+          ) ??
+          false,
+      onToggle: (bool value) async {
+        await userPreferences.setFlag(
+          UserPreferencesDevMode.userPreferencesFlagHomePageV2,
           value,
         );
 

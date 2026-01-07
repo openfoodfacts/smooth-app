@@ -1,3 +1,4 @@
+// ignore_for_file: must_be_immutable
 import 'dart:io';
 import 'dart:math' as math;
 
@@ -160,9 +161,37 @@ class VerticalSnapScrollPhysics extends ScrollPhysics {
       );
     }
   }
+
+  static double fixInconsistency(
+    List<double> steps,
+    double proposedPixels,
+    double initialPixelPosition,
+  ) {
+    final int newPosition = _getStepPosition(steps, proposedPixels);
+    final int oldPosition = _getStepPosition(steps, initialPixelPosition);
+
+    if (newPosition - oldPosition >= 2) {
+      return steps[math.min(newPosition - 1, 0)];
+    } else if (newPosition - oldPosition <= -2) {
+      return steps[math.min(newPosition + 1, steps.length - 1)];
+    }
+
+    return proposedPixels;
+  }
+
+  static int _getStepPosition(List<double> steps, double pixels) {
+    for (int i = steps.length - 1; i >= 0; i--) {
+      final double step = steps.elementAt(i);
+
+      if (pixels >= step) {
+        return i;
+      }
+    }
+
+    return 0;
+  }
 }
 
-//ignore: must_be_immutable
 class _VerticalSnapClampingScrollPhysics extends ClampingScrollPhysics
     with _VerticalSnapScrollPhysicsHelper {
   _VerticalSnapClampingScrollPhysics({
@@ -189,7 +218,6 @@ class _VerticalSnapClampingScrollPhysics extends ClampingScrollPhysics
   }
 }
 
-//ignore: must_be_immutable
 class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
     with _VerticalSnapScrollPhysicsHelper {
   _VerticalSnapBouncingScrollPhysics({
@@ -217,7 +245,6 @@ class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
 }
 
 /// A custom [ScrollPhysics] that snaps to specific [steps].
-/// ignore: must_be_immutable
 mixin _VerticalSnapScrollPhysicsHelper on ScrollPhysics {
   void _init({required List<double> steps, bool lastStepBlocking = true}) {
     _steps = steps.toList()..sort();
