@@ -6,9 +6,7 @@ import 'package:smooth_app/pages/product/edit_language_tabbar.dart';
 
 class ProductImageGalleryTabBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const ProductImageGalleryTabBar({
-    required this.onTabChanged,
-  });
+  const ProductImageGalleryTabBar({required this.onTabChanged});
 
   final void Function(OpenFoodFactsLanguage) onTabChanged;
 
@@ -23,18 +21,51 @@ class ProductImageGalleryTabBar extends StatelessWidget
   }
 
   List<ProductLanguageWithState> productLanguages(Product product) {
-    return <OpenFoodFactsLanguage>{
-      ...getProductImageLanguages(product, ImageField.FRONT),
-      ...getProductImageLanguages(product, ImageField.INGREDIENTS),
-      ...getProductImageLanguages(product, ImageField.NUTRITION),
-      ...getProductImageLanguages(product, ImageField.PACKAGING),
-    }
-        .map(
-          (OpenFoodFactsLanguage l) =>
-              ProductLanguageWithState.normal(language: l),
-        )
-        .toList(growable: false);
+    final List<ProductLanguageWithState> languages =
+        <OpenFoodFactsLanguage>{
+              ...getProductImageLanguages(product, ImageField.FRONT),
+              ...getProductImageLanguages(product, ImageField.INGREDIENTS),
+              ...getProductImageLanguages(product, ImageField.NUTRITION),
+              ...getProductImageLanguages(product, ImageField.PACKAGING),
+            }
+            .map(
+              (OpenFoodFactsLanguage l) =>
+                  ProductLanguageWithState.normal(language: l),
+            )
+            .toList();
+
+    _removeUnknownLanguage(languages);
+
+    return languages;
   }
+
+  /// If we have both unknown language and English, we merge them
+  void _removeUnknownLanguage(List<ProductLanguageWithState> languages) {
+    final bool hasUnknownLanguage = _hasLanguage(
+      languages,
+      OpenFoodFactsLanguage.UNKNOWN_LANGUAGE,
+    );
+    if (hasUnknownLanguage) {
+      final bool hasEnglish = _hasLanguage(
+        languages,
+        OpenFoodFactsLanguage.ENGLISH,
+      );
+
+      if (hasEnglish) {
+        languages.removeWhere(
+          (ProductLanguageWithState lang) =>
+              lang.language == OpenFoodFactsLanguage.UNKNOWN_LANGUAGE,
+        );
+      }
+    }
+  }
+
+  bool _hasLanguage(
+    List<ProductLanguageWithState> languages,
+    OpenFoodFactsLanguage language,
+  ) => languages.any(
+    (ProductLanguageWithState lang) => lang.language == language,
+  );
 
   bool productEquality(Product oldProduct, Product product) {
     return product.barcode == oldProduct.barcode &&
@@ -48,13 +79,19 @@ class ProductImageGalleryTabBar extends StatelessWidget
         product.imageNutritionSmallUrl == oldProduct.imageNutritionSmallUrl &&
         product.imagePackagingUrl == oldProduct.imagePackagingUrl &&
         product.imagePackagingSmallUrl == oldProduct.imagePackagingSmallUrl &&
-        const ListEquality<ProductImage>()
-            .equals(product.selectedImages, oldProduct.selectedImages) &&
-        const ListEquality<ProductImage>()
-            .equals(product.images, oldProduct.images) &&
+        const ListEquality<ProductImage>().equals(
+          product.selectedImages,
+          oldProduct.selectedImages,
+        ) &&
+        const ListEquality<ProductImage>().equals(
+          product.images,
+          oldProduct.images,
+        ) &&
         product.lastImage == oldProduct.lastImage &&
-        const ListEquality<String>()
-            .equals(product.lastImageDates, oldProduct.lastImageDates);
+        const ListEquality<String>().equals(
+          product.lastImageDates,
+          oldProduct.lastImageDates,
+        );
   }
 
   @override

@@ -4,11 +4,11 @@ import 'package:provider/provider.dart';
 
 class SmoothDraggableBottomSheet extends StatefulWidget {
   const SmoothDraggableBottomSheet({
-    super.key,
     required this.headerBuilder,
     required this.headerHeight,
     required this.bodyBuilder,
     required this.borderRadius,
+    super.key,
     this.initHeightFraction = 0.5,
     this.minHeightFraction,
     this.maxHeightFraction = 1.0,
@@ -49,13 +49,15 @@ class SmoothDraggableBottomSheetState
 
   @override
   Widget build(BuildContext context) {
-    final Color backgroundColor = widget.bottomSheetColor ??
+    final Color backgroundColor =
+        widget.bottomSheetColor ??
         Theme.of(context).bottomSheetTheme.backgroundColor ??
         Theme.of(context).scaffoldBackgroundColor;
     final double bottomPaddingHeight = MediaQuery.paddingOf(context).bottom;
 
     // Fix keyboard glitch
-    final double keyboardFraction = MediaQuery.viewInsetsOf(context).bottom /
+    final double keyboardFraction =
+        MediaQuery.viewInsetsOf(context).bottom /
         MediaQuery.sizeOf(context).height;
 
     return ChangeNotifierProvider<DraggableScrollableController>(
@@ -207,16 +209,14 @@ class _SmoothDraggableContentState extends State<_SmoothDraggableContent> {
 
 /// A fixed header
 class _SliverHeader extends SliverPersistentHeaderDelegate {
-  _SliverHeader({
-    required this.child,
-    required this.height,
-  }) : assert(height > 0.0);
+  _SliverHeader({required this.child, required this.height})
+    : assert(height > 0.0);
 
   final Widget child;
   final double height;
 
   @override
-  Widget build(BuildContext context, _, __) {
+  Widget build(BuildContext context, _, _) {
     // Align is mandatory here (a known-bug in the framework)
     return Align(child: child);
   }

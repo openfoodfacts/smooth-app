@@ -5,11 +5,11 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 
 class SmoothExpandableFloatingActionButton extends StatefulWidget {
   const SmoothExpandableFloatingActionButton({
-    super.key,
     required this.icon,
     required this.label,
     required this.scrollController,
     required this.onPressed,
+    super.key,
     this.shape,
   });
 
@@ -58,10 +58,10 @@ class _SmoothExpandableFloatingActionButtonState
         7.5) {
       final bool maxScrollReached =
           widget.scrollController.position.maxScrollExtent ==
-              widget.scrollController.position.pixels;
+          widget.scrollController.position.pixels;
       final bool scrollUp =
           widget.scrollController.position.userScrollDirection ==
-              ScrollDirection.forward;
+          ScrollDirection.forward;
 
       setState(() => _extended = maxScrollReached || scrollUp);
     }

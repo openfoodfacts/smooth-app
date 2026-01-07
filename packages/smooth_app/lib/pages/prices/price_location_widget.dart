@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
-import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Price Location display (no price data here).
 class PriceLocationWidget extends StatelessWidget {
-  const PriceLocationWidget(
-    this.location,
-  );
+  const PriceLocationWidget(this.location);
 
   final Location location;
 
@@ -19,14 +17,10 @@ class PriceLocationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final String? title = getLocationTitle(location);
     return ListTile(
-      leading: const Icon(PriceButton.locationIconData),
+      leading: const icons.Location(),
       title: title == null
           ? null
-          : Text(
-              title,
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-            ),
+          : Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
       subtitle: location.displayName == null
           ? null
           : Text(
@@ -72,22 +66,22 @@ class PriceLocationWidget extends StatelessWidget {
   static Future<void> showLocationPrices({
     required final int locationId,
     required final BuildContext context,
-  }) async =>
-      Navigator.of(context).push(
-        MaterialPageRoute<void>(
-          builder: (BuildContext context) => PricesPage(
-            GetPricesModel(
-              parameters: GetPricesModel.getStandardPricesParameters()
-                ..locationId = locationId,
-              displayEachLocation: false,
-              uri: OpenPricesAPIClient.getUri(
-                path: 'locations/$locationId',
-                uriHelper: ProductQuery.uriPricesHelper,
-              ),
-              title: AppLocalizations.of(context)
-                  .all_search_prices_top_location_single_title,
-            ),
+  }) async => Navigator.of(context).push(
+    MaterialPageRoute<void>(
+      builder: (BuildContext context) => PricesPage(
+        GetPricesModel(
+          parameters: GetPricesModel.getStandardPricesParameters()
+            ..locationId = locationId,
+          displayEachLocation: false,
+          uri: OpenPricesAPIClient.getUri(
+            path: 'locations/$locationId',
+            uriHelper: ProductQuery.uriPricesHelper,
           ),
+          title: AppLocalizations.of(
+            context,
+          ).all_search_prices_top_location_single_title,
         ),
-      );
+      ),
+    ),
+  );
 }

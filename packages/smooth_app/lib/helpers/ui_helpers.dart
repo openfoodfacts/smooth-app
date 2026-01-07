@@ -86,10 +86,5 @@ extension ScrollControllerExtension on ScrollController {
     double offset, {
     required Duration duration,
     required Curve curve,
-  }) =>
-      animateTo(
-        position.pixels + offset,
-        duration: duration,
-        curve: curve,
-      );
+  }) => animateTo(position.pixels + offset, duration: duration, curve: curve);
 }

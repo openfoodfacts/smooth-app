@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -15,6 +14,7 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
 import 'package:smooth_app/pages/product/common/product_picture_banner.dart';
@@ -94,12 +94,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
       controller: _willPopScope2Controller,
       child: MultiProvider(
         providers: <SingleChildWidget>[
-          Provider<Product>(
-            create: (BuildContext context) => upToDateProduct,
-          ),
-          Provider<OcrState>.value(
-            value: _extractState(transientFile),
-          ),
+          Provider<Product>(create: (BuildContext context) => upToDateProduct),
+          Provider<OcrState>.value(value: _extractState(transientFile)),
         ],
         child: UnfocusFieldWhenTapOutside(
           child: SmoothScaffold(
@@ -112,10 +108,7 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                   ? EditOcrTabBar(
                       onTabChanged: (OpenFoodFactsLanguage language) {
                         if (_multilingualHelper.changeLanguage(language)) {
-                          onNextFrame(
-                            () => setState(() {}),
-                            forceRedraw: true,
-                          );
+                          onNextFrame(() => setState(() {}), forceRedraw: true);
                         }
                       },
                       imageField: _helper.getImageField(),
@@ -132,7 +125,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
                 EditOCRImageWidget(
                   helper: _helper,
                   transientFile: transientFile,
-                  ownerField: upToDateProduct.isImageLocked(
+                  ownerField:
+                      upToDateProduct.isImageLocked(
                         _helper.getImageField(),
                         _multilingualHelper.getCurrentLanguage(),
                       ) ??
@@ -163,12 +157,9 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
             ),
             resizeToAvoidBottomInset: true,
             bottomNavigationBar: ProductBottomButtonsBar(
-              onSave: () async => _exitPage(
-                await _mayExitPage(saving: true),
-              ),
-              onCancel: () async => _exitPage(
-                await _mayExitPage(saving: false),
-              ),
+              onSave: () async => _exitPage(await _mayExitPage(saving: true)),
+              onCancel: () async =>
+                  _exitPage(await _mayExitPage(saving: false)),
             ),
           ),
         ),
@@ -259,8 +250,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(context);
 
       if (pleaseSave == false) {
         return true;
@@ -304,8 +295,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   }
 
   List<OpenFoodFactsLanguage> _getLanguagesWithText() {
-    final Map<OpenFoodFactsLanguage, String> allLanguages =
-        _multilingualHelper.getInitialMultiLingualTexts();
+    final Map<OpenFoodFactsLanguage, String> allLanguages = _multilingualHelper
+        .getInitialMultiLingualTexts();
 
     final List<OpenFoodFactsLanguage> languages = <OpenFoodFactsLanguage>[];
 
@@ -331,8 +322,8 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
         _helper.setMonolingualText(result, changed);
       }
     } else {
-      final Map<OpenFoodFactsLanguage, String>? changed =
-          _multilingualHelper.getChangedMultilingualText();
+      final Map<OpenFoodFactsLanguage, String>? changed = _multilingualHelper
+          .getChangedMultilingualText();
       if (changed != null) {
         result ??= getBasicProduct();
         _helper.setMultilingualTexts(result, changed);
@@ -366,9 +357,4 @@ class _EditOcrPageState extends State<EditOcrPage> with UpToDateMixin {
   }
 }
 
-enum OcrState {
-  IMAGE_LOADING,
-  IMAGE_LOADED,
-  EXTRACTING_DATA,
-  OTHER,
-}
+enum OcrState { IMAGE_LOADING, IMAGE_LOADED, EXTRACTING_DATA, OTHER }

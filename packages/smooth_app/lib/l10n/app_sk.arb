@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Licencie",
   "@licenses": {},
   "looking_for": "Hľadám",
   "@looking_for": {
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Zabudli ste heslo?",
   "view_profile": "Zobraziť účet",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -267,10 +268,6 @@
   "sign_up_page_terms_text": "podmienkami používania a prispievaním",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://sk.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
@@ -370,8 +367,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Prispejte na Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Zaregistrujte sa do internej verzie alfa",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Berte prosím na vedomie, že s internou alfa verziou je možná úplná strata údajov a aplikácia sa môže kedykoľvek stať nepoužiteľnou!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Výrobky, ktoré sa majú dokončiť",
@@ -477,7 +472,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Účet",
+  "profile_navbar_label": "Community",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -498,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Všetky",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(vyhľadávanie podľa kategórií)",
@@ -518,18 +513,39 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Vyhľadajte produkt,\nznačku alebo čiarový kód",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Vyhľadávací filter",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "História vyhľadávania",
   "search_store": "Vyhľadajte obchod",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Tip: pridajte mesto alebo krajinu",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Klepnutím zobrazíte ďalšie informácie…",
   "@Product": {},
   "product": "Produkt",
   "@product": {},
   "unknownBrand": "Neznáma značka",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Neznáme množstvo",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Neznámy názov výrobku",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Obnoviť",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -578,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informácie o balení",
+  "packaging_information": "Pokyny na recykláciu",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Informačná fotografia balenia",
+  "packaging_information_photo": "Fotografia recyklačných pokynov",
   "@packaging_information_photo": {},
   "missing_product": "Našli ste nový produkt!",
   "@missing_product": {},
@@ -680,7 +696,7 @@
   "front_packaging_photo_title": "Predná fotografia produktu",
   "ingredients_photo_title": "Fotografia zložiek",
   "nutritional_facts_photo_title": "Fotografia výživových údajov",
-  "recycling_photo_title": "Fotografia recyklačných pokynov",
+  "recycling_photo_title": "Pokyny na recykláciu Fotografia",
   "take_photo_title": "Odfotiť",
   "take_more_photo_title": "Odfotiť viacej fotografií",
   "front_photo_uploaded": "Predná fotografia produktu bola nahraná",
@@ -776,6 +792,7 @@
   "score_add_missing_nutrition_facts": "Pridajte chýbajúce výživové údaje",
   "score_add_missing_product_traces": "Pridajte chýbajúce stopy produktu",
   "score_add_missing_product_category": "Pridajte chýbajúcu kategóriu produktu",
+  "score_add_missing_precise_product_category": "Vyberte presnejšiu kategóriu",
   "score_add_missing_product_countries": "Pridajte chýbajúce krajiny produktu",
   "score_add_missing_product_emb": "Pridajte chýbajúce kódy sledovateľnosti produktu",
   "score_add_missing_product_labels": "Pridajte chýbajúce štítky produktov",
@@ -1015,15 +1032,19 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Žiadne nehnuteľnosti",
+  "product_tags_explanation": "Pridaním vlastností (kľúč/hodnota) k produktu ho pomáhate obohatiť.",
   "add_tag": "Pridajte vlastnosť",
   "add_tags": "Pridať vlastnosti",
   "add_edit_tags": "Pridajte alebo upravte vlastnosti",
   "edit_tag": "Upraviť vlastnosť",
   "remove_tag": "Odstrániť vlastnosť",
   "tag_key": "Vlastnosť",
+  "tag_keys": "Nehnuteľnosti",
   "tag_key_uneditable": "Vlastnosť (neupraviteľné)",
   "tag_key_input_hint": "Zadajte vlastnosť",
   "tag_value": "Hodnota",
+  "tag_values": "Values",
   "tag_value_input_hint": "Zadajte hodnotu",
   "tag_key_item": "Vlastnosť:",
   "tag_value_item": "Hodnota:",
@@ -1043,7 +1064,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Porovnajte s kategóriou",
+  "product_search_same_category": "Nájsť alternatívy",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1372,6 +1393,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Prepáčte, je to náš vzorový produkt, nemôžete ho upravovať :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Vaše hodnotenie",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1402,6 +1427,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Porovnajte vedľa seba",
   "loading_dialog_default_title": "Sťahovanie údajov",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1414,8 +1440,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Zmazať môj účet",
-  "@account_deletion_subject": {
+  "account_delete_title": "Odstrániť môj účet",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Účet",
@@ -1745,7 +1771,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Krajina",
+  "edit_product_form_item_countries_title": "Country",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2148,6 +2174,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Prístup k experimentálnym funkciám a vývojovým nástrojom",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Reštartujte registráciu",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2286,10 +2316,51 @@
   },
   "prices_app_dev_mode_flag": "Odkaz na ceny na stránke produktu",
   "prices_app_button": "Prejdite do sekcie Ceny",
+  "prices_website_button": "Otvoriť na webovej stránke Open Prices",
   "prices_bulk_proof_upload_select": "Pridajte cenovky priamo z galérie",
   "prices_bulk_proof_upload_warning": "Po vybratí obrázkov ich už nebudete môcť upravovať!",
+  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_community_switch": "Umožniť komunite overovať ceny získané umelou inteligenciou.",
   "prices_bulk_proof_upload_subtitle": "Viaceré cenovky",
   "prices_bulk_proof_upload_title": "Hromadné nahrávanie potvrdení",
+  "prices_bulk_proof_upload_step_selecting": "Výber súborov",
+  "prices_bulk_proof_upload_step_starting": "Spustenie nahrávania",
+  "prices_bulk_proof_upload_step_copying": "Lokálne kopírovanie súboru #{index}/{count}",
+  "@prices_bulk_proof_upload_step_copying": {
+    "description": "A message stating the current copy step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_preparing": "Pripravuje sa nahrávanie #{index}/{count}",
+  "@prices_bulk_proof_upload_step_preparing": {
+    "description": "A message stating the current upload step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_error": "Zlyhalo na obrázku #{index}/{count}",
+  "@prices_bulk_proof_upload_step_error": {
+    "description": "A message stating the current error step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "prices_generic_title": "Ceny",
   "prices_add_n_prices": "{count,plural, =1{Pridať cenu} other{Pridať {count} ceny}}",
   "prices_send_n_prices": "{count,plural, =1{Pošli cenu} other{Pošli {count} ceny}}",
@@ -2318,8 +2389,54 @@
     }
   },
   "prices_barcode_enter": "Zadajte čiarový kód",
+  "prices_category_enter": "Položka bez čiarového kódu",
+  "prices_per_kilogram": "Cena za kilogram",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Cena za jednotku",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / jednotka",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Povinné",
+  "prices_category_optional": "Voliteľné",
+  "prices_category_error_mandatory": "Kategória je povinná",
   "prices_barcode_reader_action": "Čítačka čiarových kódov",
   "prices_view_prices": "Pozrite si ceny",
+  "prices_list_title": "Cenník",
+  "prices_list_count": "Počet cien\n",
+  "@prices_list_count": {
+    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+  },
+  "prices_list_add_new_price": "Pridať novú cenu\n",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_list_empty_title": "Zatiaľ žiadna cena!",
+  "prices_list_empty_subtitle": "Buďte prvý, kto ho pridá:\nNaskenovaním **účtenky** alebo **cenovky**!",
+  "prices_entry_shop_not_found": "Neznámy obchod",
+  "prices_entry_menu_title": "Zadaná cena od „{user}“",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_product_prices": "Zobraziť všetky ceny tohto produktu",
+  "prices_entry_menu_open_proof": "Zobraziť dôkaz",
+  "prices_entry_menu_my_prices": "Pozrite si moje ďalšie ceny",
+  "prices_entry_menu_author_prices": "Zobraziť ďalšie ceny od autora",
+  "prices_entry_menu_shop_prices": "Pozrite si ďalšie ceny z obchodu",
   "prices_product_accessibility_summary": "{count,plural, =1{1 cena} other{{count} ceny}} pre {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2405,6 +2522,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Zatiaľ žiadny prispievateľ!",
+  "prices_users_empty_explanation": "Buďte prvý, kto pridá cenu!",
   "prices_users_list_length_many_pages": "Najlepších {pageSize} prispievateľov (celkom: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2417,6 +2536,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Zatiaľ žiadny obchod!",
+  "prices_locations_empty_explanation": "Buďte prvý, kto pridá cenu!",
   "prices_locations_list_length_many_pages": "Najlepších {pageSize} polôh (celkom: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2465,6 +2586,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Cena bola predtým pridaná",
   "prices_amount_subtitle": "Množstvo",
   "prices_amount_is_discounted": "Je zľavnený?",
   "prices_amount_price_normal": "Cena",
@@ -2480,7 +2602,10 @@
   "prices_location_mandatory": "Musíte vybrať obchod!",
   "prices_location_search_broader": "Nenašli ste, čo ste hľadali? Skúste širšie vyhľadávanie!",
   "prices_proof_subtitle": "Potvrdenie",
+  "prices_proof_empty_title": "Zatiaľ žiadny dôkaz!",
+  "prices_proof_empty_explanation": "Začnite pridaním fotografie **účtenky** alebo **cenovky**!",
   "prices_proof_find": "Vyberte potvrdenie",
+  "prices_proof_change": "Dôkaz o zmene",
   "prices_proof_receipt": "Účtenka",
   "prices_proof_price_tag": "Cenovka",
   "prices_proof_mandatory": "Musíte si vybrať potvrdenie!",
@@ -2527,6 +2652,10 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
+  "prices_menu_know_more": "Know more about Open Prices",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
+  },
   "dev_preferences_import_history_result_success": "Hotovo",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2535,12 +2664,7 @@
   "dev_mode_section_news": "Konfigurácia poskytovateľa noviniek",
   "dev_mode_section_product_page": "Stránka produktu",
   "dev_mode_section_ui": "Používateľské rozhranie",
-  "dev_mode_section_data": "Údaje",
   "dev_mode_section_experimental_features": "Experimentálne funkcie",
-  "dev_preferences_show_folksonomy_title": "Vylúčte folksonómiu",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Vylúčiť Green Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -2553,9 +2677,25 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
+  "dev_mode_reset_app_language_title": "Obnoviť jazyk aplikácie",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Pridať karty",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Prepínanie medzi prices.openfoodfacts.org (PROD) a testovacím prostredím",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
+  },
   "search_history_item_edit_tooltip": "Opätovne použite a upravte toto vyhľadávanie",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Odstrániť",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "Stiahli ste si všetky {totalSize} produkty.",
   "@product_search_no_more_results": {
@@ -2616,9 +2756,23 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Ceny prispievateľov",
+  "search_proof_title": "Dôkaz z „{user}“",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "user_any_search_prices_title": "Ceny prispievateľov: {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Najnovšie pridané ceny",
   "@all_search_prices_latest_title": {
@@ -2772,6 +2926,19 @@
   "add_basic_details_product_name_hint": "Zadajte názov produktu (napr.: Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
+  },
+  "add_basic_details_product_name_change_main_language_title": "Zmeniť predvolený jazyk?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Chcete, aby bol predvolený jazyk produktu nastavený na „{language}“?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
   },
   "explanation_section_good_examples": "Dobré príklady",
   "@explanation_section_good_examples": {
@@ -3105,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Spustenie vykonávania akcií servera pre lokálne uložené aktualizácie folksonomy",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Spustenie sťahovania najpopulárnejších produktov",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3119,11 +3290,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Rozbaľovať tabuľku zložiek",
-  "search_product_filter_visibility_title": "Zobraziť filter vo vyhľadávaní",
-  "search_product_filter_visibility_subtitle": "Vyberte zdroj vyhľadávania: Open Food Facts, Open Beauty Facts, Open Pet Food Facts alebo Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Žiadne pripojenie na internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3687,15 +3853,15 @@
   "nutriscore_unknown_new_formula": "Neznáme Nutri-Score (nový výpočet)",
   "nutriscore_not_applicable": "Nutri-Score nie je použiteľné",
   "nutriscore_not_applicable_new_formula": "Nutri-Score sa nedá použiť (nový výpočet)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Neznáme Green Score",
-  "environmental_score_not_applicable": "Green Score sa neaplikuje",
-  "nova_group_generic": "Ultra-spracovanie - skupiny NOVA",
+  "environmental_score_generic_new": "Eko-skóre",
+  "environmental_score_a_new": "Zelené skóre A",
+  "environmental_score_b_new": "Zelené skóre B",
+  "environmental_score_c_new": "Zelené skóre C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Zelené skóre E",
+  "environmental_score_unknown_new": "Neznáme zelené skóre",
+  "environmental_score_not_applicable_new": "Green-Score sa nepoužije",
+  "nova_group_generic_new": "Ultraspracované potraviny - skupiny NOVA",
   "nova_group_1": "Skupina NOVA 1",
   "nova_group_2": "Skupina NOVA 2",
   "nova_group_3": "Skupina NOVA 3",
@@ -3752,10 +3918,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Zdielať",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3792,11 +3954,261 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Eko-skóre",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Čo je to Zelené skóre?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score je logo, ktorého cieľom je informovať vás o **vplyve potravín na životné prostredie**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Farebný kód sa pohybuje od tmavozelenej (**A+**) pre produkty s **najmenej vplyvom** po tmavočervenú (**F**) pre produkty s **najväčším vplyvom**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Logá Green-Score",
+  "guide_greenscore_lca_title": "Jadro: Posúdenie životného cyklu (LCA)",
+  "guide_greenscore_lca_arg1_title": "Vedecké hodnotenie kategórií potravín",
+  "guide_greenscore_lca_arg1_text1": "Pre každú kategóriu produktov sa stanovuje **referenčné** skóre s použitím údajov z environmentálnej databázy Agribalyse (ktorú navrhli ADEME a INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Analýza životného cyklu** je štandardizovaná metóda hodnotenia na vykonávanie viacstupňového a viackriteriálneho environmentálneho hodnotenia.",
+  "guide_greenscore_lca_arg1_text3": "**Merie:**",
+  "guide_greenscore_lca_arg2_title": "6 výrobných krokov",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_packaging": "Balenie",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg3_title": "14 ukazovateľov vplyvu na životné prostredie",
+  "guide_greenscore_lca_arg3_text1": "Klimatická zmena/uhlíková stopa",
+  "guide_greenscore_lca_arg3_text2": "Úbytok ozónovej vrstvy",
+  "guide_greenscore_lca_arg3_text3": "Ionizujúce žiarenie",
+  "guide_greenscore_lca_arg3_text4": "Pozemok",
+  "guide_greenscore_lca_arg3_text5": "Spotreba vody a energie",
+  "guide_greenscore_lca_arg3_text6": "Znečistenie ovzdušia",
+  "guide_greenscore_lca_arg3_text7": "Morská a sladká voda (častice, okysľovanie, eutrofizácia)",
+  "guide_greenscore_lca_arg3_text8": "Vyčerpanie zdrojov.",
+  "guide_greenscore_bonuses_penalties_title": "Bonusy a sankcie",
+  "guide_greenscore_bonuses_penalties_intro": "Aby sme odmenili lepšie produkty v rámci kategórie, uplatňujeme **bonusy a penalizácie na základe niekoľkých kritérií**:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Spôsob výroby",
+  "guide_greenscore_bonuses_penalties_arg1_text": "**Bonus** sa udeľuje produktom, ktoré majú **oficiálnu etiketu, etiketu alebo certifikáciu, ktorá zaručuje environmentálne prínosy** (bio, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Pôvod surovín",
+  "guide_greenscore_bonuses_penalties_arg2_text": "**Bonus** sa udeľuje na základe pôvodu surovín. Tento bonus zohľadňuje **vplyv na dopravu** a tiež **environmentálnu politiku** krajiny každého výrobcu.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Ohrozené druhy",
+  "guide_greenscore_bonuses_penalties_arg3_text": "**Pokuta** sa udeľuje výrobkom, ktoré obsahujú zložky s významným **negatívnym vplyvom na biodiverzitu a ekosystémy**, ako napríklad palmový olej, ktorého výroba je zodpovedná za masívne odlesňovanie.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Balenie",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Výška pokuty sa vypočíta s ohľadom na **obehovosť obalov** (použitie recyklovaných surovín a recyklovateľnosť) a nadmerné balenie.",
+  "guide_greenscore_transparency_title": "Zvýšená potreba transparentnosti na lepšie meranie a znižovanie vplyvov na životné prostredie",
+  "guide_greenscore_transparency_intro1": "Na presný výpočet Green-Score je potrebné mať **informácie, ktoré nie sú nevyhnutne uvedené na obale** (ako napríklad pôvod a presné percento každej zložky) alebo ktoré sú zriedkavo dostupné v použiteľnej forme (ako napríklad zoznam všetkých zložiek obalu s presným uvedením použitých typov plastov).",
+  "guide_greenscore_transparency_intro2": "**Priemerné hodnoty sa používajú, keď tieto informácie ešte nie sú k dispozícii**, ale teraz vyzývame všetkých, aby nám pomohli zhromaždiť tieto informácie, ktoré budú veľmi užitočné pre Green-Score, ale aj pre mnoho ďalších použití.",
+  "guide_greenscore_transparency_arg1_title": "Ako môžu občania pomôcť?",
+  "guide_greenscore_transparency_arg1_text": "Všetci občania nám môžu pomôcť zhromaždiť a štruktúrovať informácie, ktoré sú uvedené na výrobkoch alebo ktoré sa z nich dajú odvodiť, ako napríklad informácie o **obaloch**: „Misia Emballages“: rozsiahly kolaboratívny inventár obalov pre všetky potravinárske výrobky (vo francúzštine).",
+  "guide_greenscore_transparency_arg2_title": "Ako môžu pomôcť výrobcovia",
+  "guide_greenscore_transparency_arg2_text": "Výrobcovia nám môžu posielať svoje informácie priamo prostredníctvom našej bezplatnej platformy pre výrobcov.",
+  "guide_greenscore_better_product_title": "Ktorý produkt je lepší pre planétu?",
+  "guide_greenscore_better_product_arg1_title": "Môže byť ťažké povedať",
+  "guide_greenscore_better_product_arg1_text": "Výber udržateľných potravín je jednou z najsilnejších vecí, ktoré môžeme urobiť pre klímu, pretože **náš globálny potravinový systém je zodpovedný za viac ako štvrtinu všetkých emisií skleníkových plynov**.\n(Zdroj: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Máš moc!",
+  "guide_greenscore_better_product_arg2_text": "Dobrou správou je, že nám to dáva silný spôsob, ako dosiahnuť zmenu.\n**Každý z nás zje približne 1 000 jedál ročne**. To je 1 000 príležitostí **vybrať si lepšiu budúcnosť pre planétu**!",
+  "guide_greenscore_better_product_arg3_title": "Pomáha byť zodpovedný a rozhodovať sa",
+  "guide_greenscore_better_product_arg3_text": "Výber udržateľných potravín sa môže zdať zložitý. Etikety sú mätúce a informácie často chýbajú. Green-Score bol vytvorený, aby to zjednodušil a poskytol vám **jasné**, **vedecky podložené** a **transparentné** environmentálne hodnotenie potravinárskych výrobkov priamo tam, kde ho potrebujete: počas nakupovania.",
+  "guide_greenscore_better_product_arg4_title": "Transparentnosť",
+  "guide_greenscore_better_product_arg4_text": "Na rozdiel od proprietárnych značiek je výpočet Green-Score **úplne otvorený** a môže ho **overiť ktokoľvek**.",
+  "guide_nova_title": "Ultra spracované potraviny",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Čo je ultraprocesovanie?",
+  "guide_nova_what_is_nova_paragraph1": "Skupiny NOVA vás informujú o úrovni spracovania potravín.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Klasifikácia NOVA umožňuje kategorizáciu potravín do **4 skupín** na základe ich **stupňa priemyselného spracovania** (minimálne spracované alebo nespracované potraviny, kulinárske prísady, spracované potraviny, ultraspracované potraviny).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Logá NOVA",
+  "guide_nova_groups_title": "4 skupiny NOVA",
+  "guide_nova_groups_intro": "Existujú 4 skupiny NOVA, pričom problematickou je skupina 4 – Ultraspracované potraviny.",
+  "guide_nova_groups_arg1_title": "Minimálne spracované alebo nespracované potraviny",
+  "guide_nova_groups_arg1_text": "Nespracované (alebo prírodné) potraviny sú **jedlé časti rastlín** (semená, plody, listy, stonky, korene) **alebo zvierat** (svaly, vnútornosti, vajcia, mlieko), ako aj huby, riasy a voda po oddelení od prírody.",
+  "guide_nova_groups_arg2_title": "Spracované kulinárske prísady",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
+  "guide_nova_groups_arg3_title": "Spracované jedlá",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to group 1** Foods. processes include various preservation or cooking methods, and in the case of breads and Cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
+  "guide_nova_groups_arg4_title": "Ultra spracované potraviny",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 Food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, Ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
+  "guide_nova_explanations_title": "Problémy s ultraprocesovaním",
+  "guide_nova_explanations_arg1_title": "Extrémne spracovanie potravinárskych zložiek",
+  "guide_nova_explanations_arg1_text": "Mnohé z nich pochádzajú z **ďalšieho spracovania zložiek potravín**, ako sú hydrogenované alebo interesterifikované oleje, hydrolyzované bielkoviny, izolát sójových bielkovín, maltodextrín, invertný cukor a kukuričný sirup s vysokým obsahom fruktózy.",
+  "guide_nova_explanations_arg2_title": "Prísady, ktoré idú nad rámec čistej bezpečnosti potravín",
+  "guide_nova_explanations_arg2_text": "Medzi prísady v ultraspracovaných potravinách patria niektoré, ktoré sa používajú aj v spracovaných potravinách, ako sú konzervačné látky, antioxidanty a stabilizátory. Medzi triedy prísad, ktoré sa nachádzajú iba v ultraspracovaných výrobkoch, patria tie, ktoré sa používajú **na napodobnenie alebo zlepšenie senzorických vlastností potravín alebo na zamaskovanie nechutných aspektov konečného výrobku**. Medzi tieto prísady patria farbivá a iné farby, stabilizátory farieb; arómy, zvýrazňovače chuti, necukrové sladidlá; a pomocné látky pri spracovaní, ako sú sýtiace, spevňujúce, objemové a protihrudkujúce látky, odpeňovacie, protihrudkujúce a leštiace látky, emulgátory, sekvestranty a zvlhčovadlá.",
+  "guide_nova_explanations_arg3_title": "Spracovanie, ktoré doma nezvládnete",
+  "guide_nova_explanations_arg3_text": "Na skombinovanie zvyčajne veľkého množstva zložiek a vytvorenie konečného produktu (odtiaľ „ultra spracovaný“) sa používa **množstvo postupov**. Medzi tieto procesy patrí niekoľko **ktorých neexistuje žiadny domáci ekvivalent**, ako je hydrogenácia a hydrolýza, extrúzia a tvarovanie a predbežné spracovanie na vyprážanie.",
+  "guide_nova_explanations_arg4_title": "Predátorské a finančné aspekty ultraprocesovania",
+  "guide_nova_explanations_arg4_text": "Celkovým cieľom ultraspracovania je vytvoriť značkové, pohodlné (trvanlivé, pripravené na konzumáciu), atraktívne (hyperchutné) a vysoko ziskové (s nízkonákladovými zložkami) potravinárske výrobky určené na nahradenie všetkých ostatných skupín potravín. Ultraspracované potraviny sú zvyčajne atraktívne balené a intenzívne sa predávajú.",
+  "guide_nova_explanations_arg5_title": "Zdravotné riziko",
+  "guide_nova_explanations_arg5_text": "Od roku 2018 boli vďaka projektu NutriNet-Santé zdôraznené prvé súvislosti medzi **konzumáciou ultraspracovaných potravín a zvýšeným rizikom rakoviny, kardiovaskulárnych ochorení a cukrovky**. Dnes tieto zistenia potvrdzuje viac ako 90 štúdií na celom svete.\nNajsilnejšie súvislosti sa týkajú **obezity, kardiovaskulárnej úmrtnosti a depresívnych symptómov**. U detí sa účinky pozorujú predovšetkým na hmotnosti a nerovnováhe lipidov.",
+  "guide_nova_explanations_arg6_title": "Krajiny odporúčajú ich obmedzenie",
+  "guide_nova_explanations_arg6_text": "Niektoré krajiny používajú skupiny NOVA pre svoje stravovacie odporúčania alebo ciele, napríklad:\n\n- **🇧🇷 Brazílske** stravovacie odporúčania **odporúčajú obmedziť** konzumáciu spracovaných potravín a vyhýbať sa ultraspracovaným potravinám.\n\n- **🇫🇷 Francúzsko** má za cieľ **znížiť konzumáciu ultraspracovaných potravín skupiny 4 o 20 %**.",
+  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Vitajte na stránke Otvorené fakty o jedle!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "Čo je to Otvorené fakty o jedle?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts je **kolaboratívna**, **bezplatná** a **otvorená** databáza potravinárskych výrobkov z celého sveta.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Veríme, že každý by mal mať prístup k informáciám o tom, čo konzumuje. Zhromažďovaním údajov o zložkách, alergénoch, nutričných hodnotách a ďalších údajoch **posilňujeme spotrebiteľov, aby sa mohli informovane rozhodovať** a posúvame potravinársky priemysel **k väčšej transparentnosti**.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Funkcie Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Dostávajte upozornenia na nežiaduce zložky",
+  "guide_open_food_facts_tips_title": "Tipy na fotografovanie skvelých fotografií",
+  "guide_open_food_facts_tips_arg1_title": "Čo nerobiť",
+  "guide_open_food_facts_tips_arg1_text1": "Vyhnite sa tieňom a oslneniu.",
+  "guide_open_food_facts_tips_arg1_text2": "Žiadny rozmazaný alebo nezaostrený text.",
+  "guide_open_food_facts_tips_arg1_text3": "Nevystrihujte časti textu.",
+  "guide_open_food_facts_tips_arg1_text4": "Vyhnite sa rušnému pozadiu.",
+  "guide_open_food_facts_tips_arg2_title": "Čo robiť",
+  "guide_open_food_facts_tips_arg2_text1": "Používajte dobré, rovnomerné osvetlenie.",
+  "guide_open_food_facts_tips_arg2_text2": "Uistite sa, že text je ostrý a čitateľný.",
+  "guide_open_food_facts_tips_arg2_text3": "Zaznamenajte si celý zoznam ingrediencií.",
+  "guide_open_food_facts_tips_arg2_text4": "Výrobok uchovávajte na rovnom povrchu.",
+  "guide_open_food_facts_scores_title": "Pomôžte nám vytvoriť „Wikipédiu jedla“",
+  "guide_open_food_facts_scores_arg1_title": "Skóre za nutričnú kvalitu",
+  "guide_open_food_facts_scores_arg2_title": "Skóre, ako sa vyhnúť ultraspracovaným potravinám",
+  "guide_open_food_facts_scores_arg3_title": "Skóre pre planétu",
+  "guide_open_food_facts_share_link": "https://world-sk.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Vitajte na stránke Open Pet Food Facts!",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Čo je Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts rozširuje naše poslanie aj na našich chlpatých priateľov! Je to **databáza krmiva pre mačky, psy a iných domácich miláčikov**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Zhromažďujeme informácie o **zložkách**, **nutričnej analýze** a pokynoch na kŕmenie, aby sme majiteľom domácich zvierat pomohli vybrať si najlepšie krmivo pre potreby ich zvierat.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Vlastnosti Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Dostávajte upozornenia na nežiaduce zložky",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Je váš maznáčik alergický na nejaké zložky? Priamo v aplikácii si môžete nastaviť zoznam kozmetických zložiek, ktorým sa chcete vyhnúť!",
+  "guide_open_pet_food_facts_tips_title": "Tipy na fotografovanie skvelých fotografií",
+  "guide_open_pet_food_facts_tips_arg1_title": "Čo nerobiť",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Vyhnite sa tieňom a oslneniu.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Žiadny rozmazaný alebo nezaostrený text.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Nevystrihujte časti textu.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Vyhnite sa rušnému pozadiu.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Čo robiť",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Používajte dobré, rovnomerné osvetlenie.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Uistite sa, že text je ostrý a čitateľný.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Zaznamenajte si celý zoznam ingrediencií.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Výrobok uchovávajte na rovnom povrchu.",
+  "guide_open_pet_food_facts_scores_title": "Poznámka k bodovaniu",
+  "guide_open_pet_food_facts_scores_paragraph1": "Vytvorenie systému hodnotenia krmiva pre domáce zvieratá **nie je momentálne prioritou**. Metodika by bola zložitá, pretože nutričné potreby sa značne líšia v závislosti od druhu, veku a zdravotného stavu. Zatiaľ sme nenašli žiadny nezávislý vedecký tím, ktorý by bol schopný vyvinúť takéto hodnotenie.",
+  "guide_open_pet_food_facts_share_link": "https://world-sk.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Vitajte na stránke Otvorené fakty o kráse!",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Čo je to Otvorené fakty o kráse?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts je spoločná databáza **kozmetických produktov**.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Naším cieľom je rozlúštiť zoznamy zložiek, aby ste **pochopili, čo sa nachádza vo vašich produktoch osobnej starostlivosti**. Od hydratačných krémov až po mejkap zhromažďujeme údaje o zložkách, alergénoch a obaloch s cieľom podporiť transparentnosť v kozmetickom priemysle.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Funkcie Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Dostávajte upozornenia na nežiaduce zložky",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Ste alergický/á na nejaké zložky? Chcete sa vyhnúť komedogénnym látkam? Chcete sa vyhnúť kontroverzným zložkám? Priamo v aplikácii si môžete nastaviť zoznam kozmetických zložiek, ktorým sa chcete vyhnúť!",
+  "guide_open_beauty_facts_tips_title": "Tipy na fotografovanie skvelých fotografií",
+  "guide_open_beauty_facts_tips_arg1_title": "Čo nerobiť",
+  "guide_open_beauty_facts_tips_arg1_text1": "Vyhnite sa tieňom a oslneniu.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Žiadny rozmazaný alebo nezaostrený text.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Nevystrihujte časti textu.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Vyhnite sa rušnému pozadiu.",
+  "guide_open_beauty_facts_tips_arg2_title": "Čo robiť",
+  "guide_open_beauty_facts_tips_arg2_text1": "Používajte dobré, rovnomerné osvetlenie.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Uistite sa, že text je ostrý a čitateľný.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Zaznamenajte si celý zoznam ingrediencií.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Ak je fľaša zakrivená, urobte toľko fotiek, koľko potrebujete.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Možno budete musieť odlepiť štítok, aby ste videli zoznam zložiek.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Výrobok uchovávajte na rovnom povrchu.",
+  "guide_open_beauty_facts_scores_title": "Poznámka k bodovaniu",
+  "guide_open_beauty_facts_scores_paragraph1": "Na rozdiel od potravinárskych výrobkov, svet kozmetiky **nemá všeobecne uznávaný, vládou podporovaný systém hodnotenia ako Nutri-Score**. Účinky zložiek môžu byť veľmi individuálne a závisia od typu pleti, alergií a individuálnych obáv.",
+  "guide_open_beauty_facts_share_link": "https://world-sk.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Welcome to Open Prices!",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt na **zhromažďovanie a zdieľanie cien produktov z celého sveta**. Ide o verejne dostupný súbor údajov, ktorý možno použiť na výskum, analýzu a ďalšie účely. Open Prices vyvíja a spravuje spoločnosť Open Food Facts.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_paragraph1": "**Zhromažďujeme súbor údajov o cenách s otvoreným zdrojovým kódom**. Ceny môžu pridávať používatelia prostredníctvom tejto webovej aplikácie alebo prostredníctvom oficiálnej mobilnej aplikácie Open Food Facts. Prispieť môžu aj maloobchodníci alebo aplikácie tretích strán pomocou nášho API.",
+  "guide_open_prices_how_arg1_title": "Zbierajte fotografie cenovok v uličkách",
+  "guide_open_prices_how_arg2_title": "Zbierajte fotografie účteniek",
+  "guide_open_prices_why_title": "Prečo to Open Food Facts robí?",
+  "guide_open_prices_why_paragraph1": "Informácie o cenách sú mimoriadne dôležité pre pochopenie potravinových systémov. Sú kľúčovým faktorom pre pochopenie nákladov na potraviny a pre podporu zdravšieho stravovania. Údaje o počiatočných cenách sú spôsob, ako uľahčiť výskumníkom, novinárom a občanom **lepšie pochopenie toho, ako sa ceny potravín menia geograficky a v čase**.",
+  "guide_open_prices_why_arg1_title": "Sledujte vývoj cien v priebehu času",
+  "guide_open_prices_why_arg1_text": "Pozrite sa na **vývoj cien**: zmenšujúca sa inflácia, lacná inflácia, môžeme ich sledovať spoločne!",
+  "guide_open_prices_why_arg2_title": "Porovnajte ceny vo vašom okolí",
+  "guide_open_prices_why_arg2_text": "Ako budeme dostávať viac cien, môžete nájsť **najlacnejšie obchody vo vašom okolí**.",
+  "guide_open_prices_scrapping_title": "Zvažovali ste zhromaždenie cien z webových stránok predajcov?",
+  "guide_open_prices_scrapping_paragraph1": "Z právnych a technických dôvodov **nepovažujeme získavanie cien z webových stránok maloobchodníkov za platný spôsob prispievania do Open Prices**. Chceme sa uistiť, že ceny, ktoré zhromažďujeme, sú presné a aktuálne, a prijímanie získaných cien od prispievateľov nám to neumožňuje.",
+  "guide_open_prices_scrapping_paragraph2": "Zber údajov o cenách je v budúcej verzii Open Prices zvažovanou možnosťou, ale vykonával by ho samotný Open Prices, aby sme mali dôkaz o cene na základe HTML stránky.",
+  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_paragraph1": "Ceny môžete prispieť pomocou nášho API.\nAk chcete prispieť cenami vo veľkom, kontaktujte nás na adrese prices@openfoodfacts.org.",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_products_facts_title": "Vitajte na stránke Otvorené fakty o produktoch!",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "Čo sú to fakty o otvorených produktoch?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts je rozsiahla otvorená databáza pre **akýkoľvek produkt s čiarovým kódom, ktorý nie je potravinou, kozmetikou ani krmivom pre domáce zvieratá**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Od **elektroniky** po **hračky** a od **oblečenia** po **čistiace prostriedky**, ak má niečo čiarový kód, je možné ho pridať. Cieľom tohto projektu je vytvoriť „internet vecí“ pre predmety každodennej potreby a sprístupniť informácie o nich univerzálne.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Funkcie otvorených produktov Fakty",
+  "guide_open_products_facts_features_text": "Cieľom Open Products Facts je poskytnúť spotrebiteľom možnosť **predĺžiť životnosť predmetov** poskytovaním obehových riešení na údržbu, **opravu**, **recykláciu** ich predmetov alebo im dať nového majiteľa.",
+  "guide_open_products_facts_features_arg1_title": "Uhlíková stopa niektorých produktov",
+  "guide_open_products_facts_features_arg1_text": "**Vplyv CO2** od francúzskeho úradu pre životné prostredie ADEME poskytuje **vplyv uhlíka** z mnohých kategórií, uistite sa, že produkty presne kategorizujete.",
+  "guide_open_products_facts_features_arg2_title": "Index opraviteľnosti pre mnoho produktov",
+  "guide_open_products_facts_features_arg2_text": "Vždy, keď bude k dispozícii francúzsky index opraviteľnosti, zobrazíme ho. Okrem toho **môžete začať zhromažďovať premenné pomocou nástroja Folksonomy Engine**, aby sme ho v budúcnosti mohli prepočítať sami, a to aj v krajinách, kde nie je k dispozícii.",
+  "guide_open_products_facts_features_arg3_title": "Nájdite spôsoby, ako darovať/ďalšie predať svoj produkt",
+  "guide_open_products_facts_features_arg3_text": "Poskytujeme odkazy na **služby tretích strán priateľské k obehovému hospodárstvu**, ktoré vám pomôžu získať požadovaný druh produktu, napríklad z druhej ruky, aby sme boli šetrnejší k planetárnym zdrojom.\nUpozorňujeme, že za to nie sme platení a že systém funguje iba ako príklad pre dve webové stránky vo Francúzsku. Môžete pomôcť rozšíriť tento systém zdokumentovaním ďalších stránok na wiki.",
+  "guide_open_products_facts_information_title": "Aké informácie sú užitočné?",
+  "guide_open_products_facts_information_text": "Pre takú širokú škálu položiek sú **údaje, ktoré zhromažďujeme, flexibilné**. Na tento účel sme **vytvorili Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "Folksonomický motor",
+  "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine je nástroj, ktorý vám pomôže doplniť produkty relevantnými vlastnosťami. To pomáha zlepšiť vyhľadávanie a objaviteľnosť, ale aj vypočítať a zobraziť zaujímavé veci v budúcnosti.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Môžete pridať ľubovoľné kľúče a hodnoty, ako napríklad: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Dostanete automatické návrhy možných vlastností a budete môcť pridávať a dokumentovať nové vlastnosti pre vaše obľúbené druhy produktov.",
+  "guide_open_products_facts_share_link": "https://world-sk.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Otvorte preferencie jedál",
+  "guide_coming_soon_button_title": "Čoskoro",
+  "guide_learn_more_subtitle": "Klepnutím sa dozviete viac",
   "preview_badge": "Náhľad",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4057,7 +4469,7 @@
   "photo_field_front": "Fotografia produktu",
   "photo_field_ingredients": "Fotografia zložiek",
   "photo_field_nutrition": "Fotografia nutričných hodnôt",
-  "photo_field_packaging": "Informačná fotografia balenia",
+  "photo_field_packaging": "Fotografia recyklačných pokynov",
   "photo_already_exists": "Táto fotografia už existuje",
   "photo_missing": "Táto fotografia chýba",
   "date": "Dátum",
@@ -4139,6 +4551,38 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
+  "product_page_tab_for_me": "Pre mňa",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_tab_website": "Webová stránka",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Ceny",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "prices_explanation_card_title": "Prečo ceny?",
+  "prices_explanation_card_line1": "**Open Prices** je projekt na zhromažďovanie a zdieľanie cien produktov z celého sveta 🌍. Open Prices vyvíja a spravuje spoločnosť Open Food Facts.",
+  "explanation_card_learn_more_button": "Zistiť viac",
+  "product_page_tab_folksonomy": "Folksonomia",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
+  "folksonomy_explanation_card_title": "Aké sú atribúty folksonomie?",
+  "folksonomy_explanation_card_line1": "Atribúty sú založené na **kľúč-hodnota**.",
+  "folksonomy_explanation_card_line2": "Tieto vlastnosti vytvárajú a ukladajú prispievatelia pre akékoľvek použitie.",
+  "folksonomy_action_external_link_title": "Otvoriť externý odkaz",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "Externé odkazy môžu byť nebezpečné. Naozaj to chcete navštíviť?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
+  },
+  "prices_products_empty_title": "Nie je k dispozícii žiadna cena",
+  "prices_products_empty_explanation": "Buďte prvý, kto prispeje!",
   "prices_products_list_length_many_pages": "Naj {pageSize} produktov (celkom: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4191,9 +4635,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Rozpoznanie úspešné",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "Prebieha extrakcia…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "Extrakcia úspešná",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Nepodarilo sa rozpoznať výživové údaje z obrázka",
   "@nutrition_facts_extract_failed": {
@@ -4363,6 +4811,587 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Všeobecné",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Ceny",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Spravujte svoje cenové preferencie",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Projekt Otvorené fakty o jedle",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Prispieť",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_my_contributions_title": "Moje prispevky",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "Moje štatistiky",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
+  "preferences_contribute_subtitle": "Prekladajte, vylepšite naše nástroje…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Pripojiť",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Kontaktujte nás alebo nás sledujte na sociálnych sieťach",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Prispieť",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Pomôžte nám informovať milióny spotrebiteľov na celom svete",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Pomoc a podpora",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "Často kladené otázky",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Získajte odpovede na svoje otázky",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Odhlásený/á",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Ďakujeme, že ste jedným z našich členov!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Products modified",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Zobraziť všetky štatistiky",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Hľadať {provider} pre výraz „{keyword}“",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Vyhľadajte nastavenie (napr. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Prístupnosť: Zobraziť emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Prístupnosť: Odstrániť farby",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Výrobky",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "O",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Právne informácie",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Podmienky používania, zásady ochrany osobných údajov a ďalšie",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Podmienky používania",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Legal mentions",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_legal_header": "Open Food Facts je databáza potravinových výrobkov **vytvorená každým, pre každého**.\nMôžete ju použiť na lepšie rozhodnutia ohľadom potravín a keďže ide o **otvorené dáta**, ktokoľvek ich môže **znovu použiť na akýkoľvek účel**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
+  "preferences_privacy_policy": "Zásady ochrany osobných údajov",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licencie",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "O aplikácii",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Technické informácie, informácie pre vývojárov a ďalšie",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Informácia",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Číslo verzie",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Skener",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Obchod s aplikáciami",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Systémové nastavenia",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Prístup k zdrojovému kódu",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "A začnite pôsobiť na milióny ľudí",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Dokončite produkty",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Tipy",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Objavte nový Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Na webovej stránke Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Spravovať môj účet",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "Spravujte svoj účet",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
+  },
+  "preferences_change_password_title": "Zmeniť moje heslo",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Nebezpečná zóna",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Všetky vaše príspevky budú stratené",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Príspevky",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Nastavenia aplikácie",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Veľmi experimentálny spôsob skenovania produktov offline",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Obnoviť všetky produkty zo servera",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Prosím, vyhnite sa tomu, pokiaľ to nie je absolútne nevyhnutné",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demo režim",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Pridajte karty do skenera",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Pridá do skenera 3 vzorové produkty",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Hostiteľ folksonomie",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Hostiteľ: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Experimenty s prístupnosťou",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Výber viacerých produktov za rôzne ceny",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Používateľom zoradené znalostné panely",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Dočasný prístup k vyhľadávaniu polohy",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Porovnanie 2 alebo 3 produktov vedľa seba",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Import zoznamu produktov",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Skóre a metodiky",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Zistite, ako sa vypočítava Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Objavte hlavné zmeny v metodike",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Objavte projekt",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Objavte fakty o otvorenom jedle",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_discover_obf_title": "Objavte fakty o otvorenej kráse",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Objavte fakty o krmive pre domáce zvieratá na Open Pet Food",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Objavte fakty o otvorených produktoch",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
+  },
+  "preferences_faq_faq_title": "Často kladené otázky - Často kladené otázky",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Mimovládna organizácia Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Informácia",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Získajte aktualizácie komunity",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Zostaňte v obraze s novinkami z aplikácie a komunity",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Prihláste sa na odber nášho komunitného kalendára",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Zapojte sa účasťou na jednom z našich virtuálnych podujatí",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_blog_title": "Blog Otvorené fakty o jedle",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Získajte najnovšie správy hneď, ako sa dejú",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Získajte pomoc od komunity",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Pomôžte nám vylepšiť aplikáciu",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Pošlite nám informácie o ladení",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Pošlite nám e-mail s podrobnými informáciami o ladení",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Pošlite nám spätnú väzbu k aplikácii",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Pomôžte formovať budúcnosť aplikácie",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Zúčastnite sa prieskumu aplikácie",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Pomôžte nám pochopiť, čo by sme mali ďalej budovať",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesionáli",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Úplne zadarmo, zaisťuje presné údaje pre 500 aplikácií a milióny spotrebiteľov. Samoobsluha, kompatibilná s vaším PIM alebo tabuľkami (XLSX).",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Kontaktujte nás a začnite",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Média",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Získajte všetky materiály, ktoré potrebujete pre svoju správu",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Kontaktujte nás v prípade tlačových otázok alebo ak chcete informovať o svojej správe",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Staňte sa aktívnym dobrovoľníkom",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Vývoj, komunikácia, dizajn… akýkoľvek druh dobrovoľníctva alebo odbornosti je vítaný!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Objavte niektoré z mnohých spôsobov, ako môžete prispieť",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Vývoj mobilných aplikácií",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Naučte sa, ako prispieť k vývoju softvéru",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Denne nestabilné zostavenia, úplne nové funkcie",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Rozvíjajte svoju miestnu komunitu",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Pomoc so softvérom, obsahom a prekladmi analýz zložiek",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Pripravili sme pre vás malú šablónu, ktorá vám s tým pomôže :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Jednoduché kroky k zvýšeniu transparentnosti potravín vo vašej krajine",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Kvalita údajov",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Pridajte sa k tímu pre kvalitu údajov",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Pridajte sa k nášmu úsiliu zabezpečiť, aby databáza bola úplná a presná",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_products_added_title": "Pridané produkty",
+  "@preferences_contributions_products_added_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Nové produkty, ktoré som pridal do Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added subtile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produkty, ktoré potrebujem dokončiť",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Všetky neúplné produkty",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Ceny",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "Moje ceny",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "Moje ceny, moje dôkazy…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produkty, ktoré môžete pomôcť dokončiť",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Pomôžte vypočítať Nutri-Score a Green-Score vo vašej krajine",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Ceny, ktoré som prispel/a",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Cenovky a účtenky",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Odfoťte si účtenky a naskenujte príslušné čiarové kódy",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Odfoťte si ceny v obchode",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Najnovšie ceny",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Najnovšie ceny pridané komunitou Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Prispievatelia s najvyššími cenami",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metriky otvorenej ceny",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Sledujte vývoj projektu",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Spôsoby, ako prispieť",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Potvrďte ceny, ktoré ste pridali vy alebo iní, pomocou umelej inteligencie",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Rýchlo pridajte viacero účteniek alebo fotografií políc z vášho fotoaparátu",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Mesačné výzvy",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Zúčastnite sa mesačných tematických úloh a zbierajte ceny",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Získajte späť svoje údaje o vernostnom programe",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Zistite, ako požiadať o svoje údaje",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Prispôsobte si aplikáciu",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Prispejte k projektu",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Jednoduché spôsoby, ako pomôcť Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodiky hodnotenia, pomoc a ďalšie informácie o projekte",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Prijať návrh",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4378,6 +5407,10 @@
   "product_edit_robotoff_expand_proof": "Rozbaliť dôkaz",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
+  },
+  "product_page_tab_raw_data": "Nespracované údaje",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "Strana {current} / {total}",
   "@page_indicator_with_total": {
@@ -4417,12 +5450,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{count} z {total} položiek",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} položiek",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} položiek",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -4438,5 +5495,136 @@
   "prices_proof_error": "Overenie zlyhalo, nepodarilo sa načítať dôkazy",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
-  }
+  },
+  "proofs_count_with_total": "{count} z {total} dôkazov",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} z {total} prispievateľov",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} prispievateľov",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} z {total} lokalít",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} lokalít",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
+  "restart_to_apply_message": "Reštartujte aplikáciu, aby sa zmeny prejavili.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafické rozhranie",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Médiá",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Vývoj",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Otvorené laboratóriá faktov o potravinách",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Účet",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Prineste fakty o otvorených potravinách do svojho jazyka",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Zaregistrujte sa do alfa verzie aplikácie",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Príspevky a údaje o produktoch",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Nezobrazovať folksonomiu",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Účet",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "Pridané dňa {created}",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
+  },
+  "location_map_details_title": "Podrobnosti o polohe",
+  "location_map_details_name": "Názov",
+  "location_map_details_street": "Ulica",
+  "location_map_details_city": "Mesto",
+  "location_map_details_postcode": "PSČ",
+  "location_map_details_country": "Country",
+  "location_map_details_coordinates": "Súradnice",
+  "location_map_details_osm_id": "ID OSM"
 }

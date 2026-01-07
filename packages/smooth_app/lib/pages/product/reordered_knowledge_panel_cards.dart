@@ -16,7 +16,8 @@ class ReorderedKnowledgePanelCards extends StatelessWidget {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
     final List<String> order =
         ReorderableKnowledgePanelPage.getOrderedKnowledgePanels(
-            userPreferences);
+          userPreferences,
+        );
     final List<Widget> children = <Widget>[];
     for (final String panelId in order) {
       children.add(

@@ -29,14 +29,14 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
   });
 
   BackgroundTaskUpload.fromJson(super.json)
-      : imageField = json[_jsonTagImageField] as String,
-        croppedPath = json[_jsonTagCroppedPath] as String,
-        rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
-        cropX1 = json[_jsonTagX1] as int? ?? 0,
-        cropY1 = json[_jsonTagY1] as int? ?? 0,
-        cropX2 = json[_jsonTagX2] as int? ?? 0,
-        cropY2 = json[_jsonTagY2] as int? ?? 0,
-        super.fromJson();
+    : imageField = json[_jsonTagImageField] as String,
+      croppedPath = json[_jsonTagCroppedPath] as String,
+      rotationDegrees = json[_jsonTagRotation] as int? ?? 0,
+      cropX1 = json[_jsonTagX1] as int? ?? 0,
+      cropY1 = json[_jsonTagY1] as int? ?? 0,
+      cropX2 = json[_jsonTagX2] as int? ?? 0,
+      cropY2 = json[_jsonTagY2] as int? ?? 0,
+      super.fromJson();
 
   final String imageField;
   final String croppedPath;
@@ -67,18 +67,12 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
     return result;
   }
 
-  TransientFile _getTransientFile() => TransientFile(
-        ImageField.fromOffTag(imageField)!,
-        barcode,
-        getLanguage(),
-      );
+  TransientFile _getTransientFile() =>
+      TransientFile(ImageField.fromOffTag(imageField)!, barcode, getLanguage());
 
   @protected
   Future<void> putTransientImage(final LocalDatabase localDatabase) async =>
-      _getTransientFile().putImage(
-        localDatabase,
-        await getFile(croppedPath),
-      );
+      _getTransientFile().putImage(localDatabase, await getFile(croppedPath));
 
   @protected
   void removeTransientImage(final LocalDatabase localDatabase) =>
@@ -98,8 +92,7 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
     final String barcode,
     final String imageField,
     final String language,
-  ) =>
-      '$barcode;image;$imageField;$language';
+  ) => '$barcode;image;$imageField;$language';
 
   static Future<Directory> getDirectory() async =>
       getApplicationSupportDirectory();
@@ -113,8 +106,9 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
   static Future<File> getFile(String path) async {
     if (Platform.isIOS) {
       final int lastSeparator = path.lastIndexOf('/');
-      final String filename =
-          lastSeparator == -1 ? path : path.substring(lastSeparator + 1);
+      final String filename = lastSeparator == -1
+          ? path
+          : path.substring(lastSeparator + 1);
       final Directory directory = await getDirectory();
       path = '${directory.path}/$filename';
     }
@@ -123,18 +117,15 @@ abstract class BackgroundTaskUpload extends BackgroundTaskBarcode
 
   @override
   Future<void> preExecute(final LocalDatabase localDatabase) async {
-    await localDatabase.upToDate.addChange(
-      uniqueId,
-      getProductChange(),
-    );
+    await localDatabase.upToDate.addChange(uniqueId, getProductChange());
     await putTransientImage(localDatabase);
   }
 
   @override
   Product getProductChange() => Product(
-        barcode: barcode,
-        images: <ProductImage>[getProductImageChange()],
-      );
+    barcode: barcode,
+    images: <ProductImage>[getProductImageChange()],
+  );
 
   /// Changed [ProductImage] for this product change.
   ///

@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image/product_image_widget.dart';
@@ -44,17 +44,15 @@ class UploadedImageGallery extends StatelessWidget {
 
     return SmoothScaffold(
       backgroundColor: Colors.black,
-      brightness: Brightness.light,
       appBar: SmoothAppBar(
         title: Text(appLocalizations.edit_photo_select_existing_all_label),
-        subTitle:
-            Text(appLocalizations.edit_photo_select_existing_all_subtitle),
+        subTitle: Text(
+          appLocalizations.edit_photo_select_existing_all_subtitle,
+        ),
         backgroundColor: Colors.black,
         foregroundColor: WHITE_COLOR,
         elevation: 0,
-        leading: const SmoothBackButton(
-          iconColor: Colors.white,
-        ),
+        leading: const SmoothBackButton(iconColor: Colors.white),
       ),
       body: GridView.builder(
         itemCount: rawImages.length,
@@ -93,16 +91,16 @@ class UploadedImageGallery extends StatelessWidget {
                         borderRadius: ANGULAR_BORDER_RADIUS,
                         onTap: () async =>
                             Navigator.of(context).pop<CropParameters?>(
-                          await useExistingPhotoFor(
-                            context: context,
-                            rawImage: rawImage,
-                            barcode: barcode,
-                            imageField: imageField,
-                            isLoggedInMandatory: isLoggedInMandatory,
-                            productType: productType,
-                            language: language,
-                          ),
-                        ),
+                              await useExistingPhotoFor(
+                                context: context,
+                                rawImage: rawImage,
+                                barcode: barcode,
+                                imageField: imageField,
+                                isLoggedInMandatory: isLoggedInMandatory,
+                                productType: productType,
+                                language: language,
+                              ),
+                            ),
                       ),
                     ),
                   ),
@@ -130,9 +128,7 @@ class UploadedImageGallery extends StatelessWidget {
       rawImage.getUrl(
         barcode,
         imageSize: ImageSize.ORIGINAL,
-        uriHelper: ProductQuery.getUriProductHelper(
-          productType: productType,
-        ),
+        uriHelper: ProductQuery.getUriProductHelper(productType: productType),
       ),
       DaoInt(localDatabase),
     );

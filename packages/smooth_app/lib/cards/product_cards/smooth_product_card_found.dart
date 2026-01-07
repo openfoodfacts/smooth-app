@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -13,11 +12,12 @@ import 'package:smooth_app/generic_lib/widgets/picture_not_found.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class SmoothProductCardItemFound extends StatelessWidget {
   const SmoothProductCardItemFound({
@@ -62,7 +62,7 @@ class SmoothProductCardItemFound extends StatelessWidget {
                         constraints: BoxConstraints(
                           minHeight:
                               themeData.textTheme.headlineMedium!.fontSize! *
-                                  2.0,
+                              2.0,
                         ),
                         child: Align(
                           alignment: AlignmentDirectional.centerStart,
@@ -80,13 +80,17 @@ class SmoothProductCardItemFound extends StatelessWidget {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       Text(
-                        getProductBrands(product, appLocalizations),
+                        getProductBrandsList(
+                              product,
+                              appLocalizations,
+                            ).firstOrNull ??
+                            appLocalizations.unknownBrand,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: themeData.textTheme.bodyMedium,
                       ),
                       const Spacer(),
-                      const _SmoothProductItemScores()
+                      const _SmoothProductItemScores(),
                     ],
                   ),
                 ),
@@ -112,20 +116,16 @@ class SmoothProductCardItemFound extends StatelessWidget {
 
     return MultiProvider(
       providers: <SingleChildWidget>[
-        Provider<Product>(
-          create: (_) => product,
-        ),
+        Provider<Product>(create: (_) => product),
         Provider<String>.value(value: heroTag),
       ],
       child: InkWell(
-        onTap: onTap ??
+        onTap:
+            onTap ??
             () => AppNavigator.of(context).push(
-                  AppRoutes.PRODUCT(
-                    product.barcode!,
-                    heroTag: heroTag,
-                  ),
-                  extra: product,
-                ),
+              AppRoutes.PRODUCT(product.barcode!, heroTag: heroTag),
+              extra: product,
+            ),
         onLongPress: () => onLongPress?.call(),
         child: child,
       ),
@@ -145,8 +145,8 @@ class _SmoothProductItemPicture extends StatelessWidget {
     final Widget? scoreWidget;
 
     if (hasScore) {
-      final ProductPreferences productPreferences =
-          context.watch<ProductPreferences>();
+      final ProductPreferences productPreferences = context
+          .watch<ProductPreferences>();
 
       final MatchedProductV2 matchedProduct = MatchedProductV2(
         product,
@@ -196,13 +196,8 @@ class _SmoothProductItemPicture extends StatelessWidget {
 
     return Ink(
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(09.0),
-        ),
-        border: Border.all(
-          color: borderColor,
-          width: 1.0,
-        ),
+        borderRadius: const BorderRadius.all(Radius.circular(09.0)),
+        border: Border.all(color: borderColor, width: 1.0),
       ),
       child: Column(
         children: <Widget>[
@@ -248,8 +243,8 @@ class _SmoothProductItemScores extends StatelessWidget {
 
     final UserPreferences userPreferences = context.watch<UserPreferences>();
 
-    final List<String> excludedAttributeIds =
-        userPreferences.getExcludedAttributeIds();
+    final List<String> excludedAttributeIds = userPreferences
+        .getExcludedAttributeIds();
 
     final List<Attribute> attributes = getPopulatedAttributes(
       product,
@@ -257,41 +252,23 @@ class _SmoothProductItemScores extends StatelessWidget {
       excludedAttributeIds,
     );
 
-    final List<Widget> scores = List<Widget>.generate(
-      attributes.length,
-      (int index) {
-        final bool nutriScoreLogo = attributes[index]
-                .iconUrl
-                ?.contains(RegExp(r'.*/nutriscore-[a-z]-.*\.svg')) ==
-            true;
+    final List<Widget> scores = List<Widget>.generate(attributes.length, (
+      int index,
+    ) {
+      final bool nutriScoreLogo =
+          attributes[index].iconUrl?.contains(
+            RegExp(r'.*/nutriscore-[a-z]-.*\.svg'),
+          ) ==
+          true;
 
-        Widget child = SvgIconChip(
+      return Padding(
+        padding: const EdgeInsetsDirectional.only(end: 1.0),
+        child: SvgIconChip(
           attributes[index].iconUrl!,
           height: 39.0 - (nutriScoreLogo ? 1.0 : 0.0),
-        );
-
-        if (nutriScoreLogo) {
-          child = DecoratedBox(
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: context.lightTheme() ? Colors.black26 : Colors.white54,
-                width: 1.0,
-                strokeAlign: BorderSide.strokeAlignOutside,
-              ),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(6.5),
-              ),
-            ),
-            child: child,
-          );
-        }
-
-        return Padding(
-          padding: const EdgeInsetsDirectional.only(end: 1.0),
-          child: child,
-        );
-      },
-    );
+        ),
+      );
+    });
     return scores;
   }
 }
@@ -307,8 +284,8 @@ class _SmoothProductItemTypeIndicator extends StatelessWidget {
       return EMPTY_WIDGET;
     }
 
-    return SvgPicture.asset(
-      productType.getIllustration(),
+    return SvgPicture(
+      AssetBytesLoader(productType.getIllustration()),
       width: 50.0,
     );
   }

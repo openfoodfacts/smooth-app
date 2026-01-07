@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:vector_graphics/vector_graphics.dart';
 
 class ProductTypeRadioListTile extends StatefulWidget {
   const ProductTypeRadioListTile({
@@ -60,8 +61,9 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
     final bool lightTheme = context.lightTheme();
     _initAnimationsIfNecessary(lightTheme);
 
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return Semantics(
       label:
@@ -94,8 +96,8 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(ANGULAR_RADIUS.x - 2.0),
                   ),
-                  child: SvgPicture.asset(
-                    widget.productType.getIllustration(),
+                  child: SvgPicture(
+                    AssetBytesLoader(widget.productType.getIllustration()),
                     width: 50.0,
                   ),
                 ),
@@ -121,9 +123,7 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
                       ),
                       child: Opacity(
                         opacity: _opacityAnimation.value,
-                        child: const icons.Check(
-                          size: 9.0,
-                        ),
+                        child: const icons.Check(size: 9.0),
                       ),
                     ),
                     const SizedBox(width: MEDIUM_SPACE),
@@ -157,7 +157,7 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
                           ],
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -182,14 +182,17 @@ class _ProductTypeRadioListTile extends State<ProductTypeRadioListTile>
 
     final ThemeData themeData = Theme.of(context);
 
-    _colorAnimation = ColorTween(
-      begin: themeData.scaffoldBackgroundColor.withValues(alpha: 0.0),
-      end: lightTheme
-          ? themeData.extension<SmoothColorsThemeExtension>()!.primaryMedium
-          : themeData.extension<SmoothColorsThemeExtension>()!.primarySemiDark,
-    ).animate(
-      CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),
-    );
+    _colorAnimation =
+        ColorTween(
+          begin: themeData.scaffoldBackgroundColor.withValues(alpha: 0.0),
+          end: lightTheme
+              ? themeData.extension<SmoothColorsThemeExtension>()!.primaryMedium
+              : themeData
+                    .extension<SmoothColorsThemeExtension>()!
+                    .primarySemiDark,
+        ).animate(
+          CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),
+        );
 
     _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(parent: _controller!, curve: Curves.fastOutSlowIn),

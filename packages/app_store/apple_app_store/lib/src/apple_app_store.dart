@@ -7,9 +7,9 @@ import 'package:in_app_review/in_app_review.dart';
 /// Apple App Store implementation
 class AppleAppStore extends AppStore {
   AppleAppStore(this.appId)
-      : assert(appId.isNotEmpty),
-        assert(!appId.startsWith('id')),
-        assert(Platform.isIOS || Platform.isMacOS);
+    : assert(appId.isNotEmpty),
+      assert(!appId.startsWith('id')),
+      assert(Platform.isIOS || Platform.isMacOS);
 
   final String appId;
   final InAppReview _inAppReview = InAppReview.instance;

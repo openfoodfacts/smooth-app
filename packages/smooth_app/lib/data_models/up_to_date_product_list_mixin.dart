@@ -48,8 +48,8 @@ mixin UpToDateProductListMixin<T extends StatefulWidget> on State<T> {
   /// To be used in the `build` method, after a call to
   /// `context.watch<LocalDatabase>()`.
   void refreshUpToDate() {
-    final List<String> barcodes =
-        _localDatabase.upToDateProductList.getLocalUpToDate(_productList);
+    final List<String> barcodes = _localDatabase.upToDateProductList
+        .getLocalUpToDate(_productList);
     _productList.set(barcodes);
   }
 }

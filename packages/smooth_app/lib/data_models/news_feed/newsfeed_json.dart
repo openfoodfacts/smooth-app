@@ -4,13 +4,13 @@ part of 'newsfeed_provider.dart';
 
 class _TagLineJSON {
   _TagLineJSON.fromJson(Map<dynamic, dynamic> json)
-      : news = (json['news'] as Map<dynamic, dynamic>).map(
-          (dynamic id, dynamic value) => MapEntry<String, _TagLineItemNewsItem>(
-            id,
-            _TagLineItemNewsItem.fromJson(id, value),
-          ),
+    : news = (json['news'] as Map<dynamic, dynamic>).map(
+        (dynamic id, dynamic value) => MapEntry<String, _TagLineItemNewsItem>(
+          id,
+          _TagLineItemNewsItem.fromJson(id, value),
         ),
-        taglineFeed = _TaglineJSONFeed.fromJson(json['tagline_feed']);
+      ),
+      taglineFeed = _TaglineJSONFeed.fromJson(json['tagline_feed']);
 
   final _TagLineJSONNewsList news;
   final _TaglineJSONFeed taglineFeed;
@@ -27,14 +27,14 @@ class _TagLineJSON {
     );
 
     final _TagLineJSONFeedLocale localizedFeed = taglineFeed.loadNews(locale);
-    final Iterable<AppNewsFeedItem> feed =
-        _getAppNewsFeedItems(localizedFeed, locale);
+    final Iterable<AppNewsFeedItem> feed = _getAppNewsFeedItems(
+      localizedFeed,
+      locale,
+    );
 
     return AppNews(
       news: AppNewsList(tagLineNews),
-      feed: AppNewsFeed(
-        feed.toList(growable: false),
-      ),
+      feed: AppNewsFeed(feed.toList(growable: false)),
     );
   }
 
@@ -44,13 +44,12 @@ class _TagLineJSON {
     int appLaunches,
   ) {
     final Map<String, AppNewsItem> tagLineNews = news.map(
-      (String key, _TagLineItemNewsItem value) => MapEntry<String, AppNewsItem>(
-        key,
-        value.toTagLineItem(locale),
-      ),
+      (String key, _TagLineItemNewsItem value) =>
+          MapEntry<String, AppNewsItem>(key, value.toTagLineItem(locale)),
     );
-    final Iterable<AppNewsItem> values =
-        List<AppNewsItem>.of(tagLineNews.values);
+    final Iterable<AppNewsItem> values = List<AppNewsItem>.of(
+      tagLineNews.values,
+    );
 
     final int? appVersionNumber = _extractVersionNumber(appVersion);
 
@@ -85,7 +84,9 @@ class _TagLineJSON {
   }
 
   Iterable<AppNewsFeedItem> _getAppNewsFeedItems(
-      _TagLineJSONFeedLocale localizedFeed, String locale) {
+    _TagLineJSONFeedLocale localizedFeed,
+    String locale,
+  ) {
     final Iterable<AppNewsFeedItem> feed = localizedFeed.news
         .map((_TagLineJSONFeedLocaleItem item) {
           if (news[item.id] == null) {
@@ -94,11 +95,13 @@ class _TagLineJSON {
           }
           return item.overrideNewsItem(news[item.id]!, locale);
         })
-        .where((AppNewsFeedItem? item) =>
-            item != null &&
-            (item.startDate == null ||
-                item.startDate!.isBefore(DateTime.now())) &&
-            (item.endDate == null || item.endDate!.isAfter(DateTime.now())))
+        .where(
+          (AppNewsFeedItem? item) =>
+              item != null &&
+              (item.startDate == null ||
+                  item.startDate!.isBefore(DateTime.now())) &&
+              (item.endDate == null || item.endDate!.isAfter(DateTime.now())),
+        )
         .nonNulls;
     return feed;
   }
@@ -127,30 +130,35 @@ class _TagLineItemNewsItem {
   }) : _translations = translations;
 
   _TagLineItemNewsItem.fromJson(this.id, Map<dynamic, dynamic> json)
-      : assert((json['url'] as String).isNotEmpty),
-        url = json['url'],
-        assert((json['translations'] as Map<dynamic, dynamic>)
-            .containsKey('default')),
-        _translations = (json['translations'] as Map<dynamic, dynamic>)
-            .map((dynamic key, dynamic value) {
-          if (key == 'default') {
-            return MapEntry<String, _TagLineItemNewsTranslation>(
-                key, _TagLineItemNewsTranslationDefault.fromJson(value));
-          } else {
-            return MapEntry<String, _TagLineItemNewsTranslation>(
-              key,
-              _TagLineItemNewsTranslation.fromJson(value),
-            );
-          }
-        }),
-        minLaunches = json['min_launches'] is int ? json['min_launches'] : null,
-        startDate = DateTime.tryParse(json['start_date']),
-        endDate = DateTime.tryParse(json['end_date']),
-        minVersion = json['min_version'],
-        maxVersion = json['max_version'],
-        style = json['style'] == null
-            ? null
-            : _TagLineNewsStyle.fromJson(json['style']);
+    : assert((json['url'] as String).isNotEmpty),
+      url = json['url'],
+      assert(
+        (json['translations'] as Map<dynamic, dynamic>).containsKey('default'),
+      ),
+      _translations = (json['translations'] as Map<dynamic, dynamic>).map((
+        dynamic key,
+        dynamic value,
+      ) {
+        if (key == 'default') {
+          return MapEntry<String, _TagLineItemNewsTranslation>(
+            key,
+            _TagLineItemNewsTranslationDefault.fromJson(value),
+          );
+        } else {
+          return MapEntry<String, _TagLineItemNewsTranslation>(
+            key,
+            _TagLineItemNewsTranslation.fromJson(value),
+          );
+        }
+      }),
+      minLaunches = json['min_launches'] is int ? json['min_launches'] : null,
+      startDate = DateTime.tryParse(json['start_date']),
+      endDate = DateTime.tryParse(json['end_date']),
+      minVersion = json['min_version'],
+      maxVersion = json['max_version'],
+      style = json['style'] == null
+          ? null
+          : _TagLineNewsStyle.fromJson(json['style']);
 
   final String id;
   final String url;
@@ -243,22 +251,23 @@ class _TagLineItemNewsTranslation {
   });
 
   _TagLineItemNewsTranslation.fromJson(Map<dynamic, dynamic> json)
-      : assert(json['title'] == null || (json['title'] as String).isNotEmpty),
-        assert(
-            json['message'] == null || (json['message'] as String).isNotEmpty),
-        assert(json['url'] == null || (json['url'] as String).isNotEmpty),
-        assert(json['button_label'] == null ||
-            (json['button_label'] as String).isNotEmpty),
-        title = json['title'],
-        message = json['message'],
-        url = json['url'],
-        buttonLabel = json['button_label'],
-        image = json['image'] == null
-            ? null
-            : _TagLineNewsImage.fromJson(json['image']),
-        darkImage = json['image_dark'] == null
-            ? null
-            : _TagLineNewsImage.fromJson(json['image_dark']);
+    : assert(json['title'] == null || (json['title'] as String).isNotEmpty),
+      assert(json['message'] == null || (json['message'] as String).isNotEmpty),
+      assert(json['url'] == null || (json['url'] as String).isNotEmpty),
+      assert(
+        json['button_label'] == null ||
+            (json['button_label'] as String).isNotEmpty,
+      ),
+      title = json['title'],
+      message = json['message'],
+      url = json['url'],
+      buttonLabel = json['button_label'],
+      image = json['image'] == null
+          ? null
+          : _TagLineNewsImage.fromJson(json['image']),
+      darkImage = json['image_dark'] == null
+          ? null
+          : _TagLineNewsImage.fromJson(json['image_dark']);
   final String? title;
   final String? message;
   final String? url;
@@ -302,36 +311,38 @@ class _TagLineItemNewsTranslation {
 
 class _TagLineItemNewsTranslationDefault extends _TagLineItemNewsTranslation {
   _TagLineItemNewsTranslationDefault.fromJson(super.json)
-      : assert((json['title'] as String).isNotEmpty),
-        assert((json['message'] as String).isNotEmpty),
-        assert(json['image'] == null ||
+    : assert((json['title'] as String).isNotEmpty),
+      assert((json['message'] as String).isNotEmpty),
+      assert(
+        json['image'] == null ||
             ((json['image'] as Map<String, dynamic>)['url'] as String)
-                .isNotEmpty),
-        assert(json['image_dark'] == null ||
+                .isNotEmpty,
+      ),
+      assert(
+        json['image_dark'] == null ||
             ((json['image_dark'] as Map<String, dynamic>)['url'] as String)
-                .isNotEmpty),
-        super.fromJson();
+                .isNotEmpty,
+      ),
+      super.fromJson();
 }
 
 class _TagLineNewsImage {
   _TagLineNewsImage.fromJson(Map<dynamic, dynamic> json)
-      : assert(json['width'] == null ||
-            ((json['width'] as num) >= 0.0 && (json['width'] as num) <= 1.0)),
-        assert(json['alt'] == null || (json['alt'] as String).isNotEmpty),
-        url = json['url'],
-        width = json['width'],
-        alt = json['alt'];
+    : assert(
+        json['width'] == null ||
+            ((json['width'] as num) >= 0.0 && (json['width'] as num) <= 1.0),
+      ),
+      assert(json['alt'] == null || (json['alt'] as String).isNotEmpty),
+      url = json['url'],
+      width = json['width'],
+      alt = json['alt'];
 
   final String? url;
   final double? width;
   final String? alt;
 
   AppNewsImage toTagLineImage() {
-    return AppNewsImage(
-      src: url,
-      width: width,
-      alt: alt,
-    );
+    return AppNewsImage(src: url, width: width, alt: alt);
   }
 
   bool get overridesContent => url != null || width != null || alt != null;
@@ -350,30 +361,46 @@ class _TagLineNewsStyle {
   });
 
   _TagLineNewsStyle.fromJson(Map<dynamic, dynamic> json)
-      : assert(json['title_background'] == null ||
-            (json['title_background'] as String).startsWith('#')),
-        assert(json['title_text_color'] == null ||
-            (json['title_text_color'] as String).startsWith('#')),
-        assert(json['title_indicator_color'] == null ||
-            (json['title_indicator_color'] as String).startsWith('#')),
-        assert(json['message_background'] == null ||
-            (json['message_background'] as String).startsWith('#')),
-        assert(json['message_text_color'] == null ||
-            (json['message_text_color'] as String).startsWith('#')),
-        assert(json['button_background'] == null ||
-            (json['button_background'] as String).startsWith('#')),
-        assert(json['button_text_color'] == null ||
-            (json['button_text_color'] as String).startsWith('#')),
-        assert(json['content_background_color'] == null ||
-            (json['content_background_color'] as String).startsWith('#')),
-        titleBackground = json['title_background'],
-        titleTextColor = json['title_text_color'],
-        titleIndicatorColor = json['title_indicator_color'],
-        messageBackground = json['message_background'],
-        messageTextColor = json['message_text_color'],
-        buttonBackground = json['button_background'],
-        buttonTextColor = json['button_text_color'],
-        contentBackgroundColor = json['content_background_color'];
+    : assert(
+        json['title_background'] == null ||
+            (json['title_background'] as String).startsWith('#'),
+      ),
+      assert(
+        json['title_text_color'] == null ||
+            (json['title_text_color'] as String).startsWith('#'),
+      ),
+      assert(
+        json['title_indicator_color'] == null ||
+            (json['title_indicator_color'] as String).startsWith('#'),
+      ),
+      assert(
+        json['message_background'] == null ||
+            (json['message_background'] as String).startsWith('#'),
+      ),
+      assert(
+        json['message_text_color'] == null ||
+            (json['message_text_color'] as String).startsWith('#'),
+      ),
+      assert(
+        json['button_background'] == null ||
+            (json['button_background'] as String).startsWith('#'),
+      ),
+      assert(
+        json['button_text_color'] == null ||
+            (json['button_text_color'] as String).startsWith('#'),
+      ),
+      assert(
+        json['content_background_color'] == null ||
+            (json['content_background_color'] as String).startsWith('#'),
+      ),
+      titleBackground = json['title_background'],
+      titleTextColor = json['title_text_color'],
+      titleIndicatorColor = json['title_indicator_color'],
+      messageBackground = json['message_background'],
+      messageTextColor = json['message_text_color'],
+      buttonBackground = json['button_background'],
+      buttonTextColor = json['button_text_color'],
+      contentBackgroundColor = json['content_background_color'];
 
   final String? titleBackground;
   final String? titleTextColor;
@@ -408,27 +435,27 @@ class _TagLineNewsStyle {
   }
 
   AppNewsStyle toTagLineStyle() => AppNewsStyle.fromHex(
-        titleBackground: titleBackground,
-        titleTextColor: titleTextColor,
-        titleIndicatorColor: titleIndicatorColor,
-        messageBackground: messageBackground,
-        messageTextColor: messageTextColor,
-        buttonBackground: buttonBackground,
-        buttonTextColor: buttonTextColor,
-        contentBackgroundColor: contentBackgroundColor,
-      );
+    titleBackground: titleBackground,
+    titleTextColor: titleTextColor,
+    titleIndicatorColor: titleIndicatorColor,
+    messageBackground: messageBackground,
+    messageTextColor: messageTextColor,
+    buttonBackground: buttonBackground,
+    buttonTextColor: buttonTextColor,
+    contentBackgroundColor: contentBackgroundColor,
+  );
 }
 
 class _TaglineJSONFeed {
   _TaglineJSONFeed.fromJson(Map<dynamic, dynamic> json)
-      : assert(json.containsKey('default')),
-        _news = json.map(
-          (dynamic key, dynamic value) =>
-              MapEntry<String, _TagLineJSONFeedLocale>(
-            key,
-            _TagLineJSONFeedLocale.fromJson(value),
-          ),
-        );
+    : assert(json.containsKey('default')),
+      _news = json.map(
+        (dynamic key, dynamic value) =>
+            MapEntry<String, _TagLineJSONFeedLocale>(
+              key,
+              _TagLineJSONFeedLocale.fromJson(value),
+            ),
+      );
 
   final _TagLineJSONFeedList _news;
 
@@ -458,21 +485,23 @@ typedef _TagLineJSONFeedList = Map<String, _TagLineJSONFeedLocale>;
 
 class _TagLineJSONFeedLocale {
   _TagLineJSONFeedLocale.fromJson(Map<dynamic, dynamic> json)
-      : assert(json['news'] is Iterable<dynamic>),
-        news = (json['news'] as Iterable<dynamic>)
-            .map((dynamic json) => _TagLineJSONFeedLocaleItem.fromJson(json));
+    : assert(json['news'] is Iterable<dynamic>),
+      news = (json['news'] as Iterable<dynamic>).map(
+        (dynamic json) => _TagLineJSONFeedLocaleItem.fromJson(json),
+      );
 
   final Iterable<_TagLineJSONFeedLocaleItem> news;
 }
 
 class _TagLineJSONFeedLocaleItem {
   _TagLineJSONFeedLocaleItem.fromJson(Map<dynamic, dynamic> json)
-      : assert((json['id'] as String).isNotEmpty),
-        id = json['id'],
-        overrideContent = json['override'] != null
-            ? _TagLineJSONFeedNewsItemOverride.fromJson(
-                json['override'] as Map<dynamic, dynamic>)
-            : null;
+    : assert((json['id'] as String).isNotEmpty),
+      id = json['id'],
+      overrideContent = json['override'] != null
+          ? _TagLineJSONFeedNewsItemOverride.fromJson(
+              json['override'] as Map<dynamic, dynamic>,
+            )
+          : null;
 
   final String id;
   final _TagLineJSONFeedNewsItemOverride? overrideContent;
@@ -504,17 +533,17 @@ class _TagLineJSONFeedLocaleItem {
 
 class _TagLineJSONFeedNewsItemOverride {
   _TagLineJSONFeedNewsItemOverride.fromJson(Map<dynamic, dynamic> json)
-      : assert(json['url'] == null || (json['url'] as String).isNotEmpty),
-        url = json['url'],
-        startDate = json['start_date'] != null
-            ? DateTime.tryParse(json['start_date'])
-            : null,
-        endDate = json['end_date'] != null
-            ? DateTime.tryParse(json['end_date'])
-            : null,
-        style = json['style'] == null
-            ? null
-            : _TagLineNewsStyle.fromJson(json['style']);
+    : assert(json['url'] == null || (json['url'] as String).isNotEmpty),
+      url = json['url'],
+      startDate = json['start_date'] != null
+          ? DateTime.tryParse(json['start_date'])
+          : null,
+      endDate = json['end_date'] != null
+          ? DateTime.tryParse(json['end_date'])
+          : null,
+      style = json['style'] == null
+          ? null
+          : _TagLineNewsStyle.fromJson(json['style']);
 
   final String? url;
   final DateTime? startDate;

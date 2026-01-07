@@ -41,12 +41,7 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
       vsync: this,
     )..addListener(() => setState(() {}));
 
-    _controller.drive(
-      Tween<double>(
-        begin: 0.0,
-        end: 1.0,
-      ),
-    );
+    _controller.drive(Tween<double>(begin: 0.0, end: 1.0));
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _controller.forward();
@@ -55,26 +50,25 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
 
   @override
   Widget build(BuildContext context) {
-    final double viewPadding =
-        widget.addViewPadding ? MediaQuery.viewPaddingOf(context).bottom : 0.0;
-    final SmoothColorsThemeExtension? colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>();
+    final double viewPadding = widget.addViewPadding
+        ? MediaQuery.viewPaddingOf(context).bottom
+        : 0.0;
+    final SmoothColorsThemeExtension? colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>();
 
-    final Widget positiveButtonWidget =
-        _SmoothPositiveButton2(data: widget.positiveButton);
+    final Widget positiveButtonWidget = _SmoothPositiveButton2(
+      data: widget.positiveButton,
+    );
 
     final Widget child;
     if (widget.negativeButton != null) {
       child = Row(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          Expanded(
-            child: _SmoothNegativeButton2(data: widget.negativeButton!),
-          ),
+          Expanded(child: _SmoothNegativeButton2(data: widget.negativeButton!)),
           const SizedBox(width: SMALL_SPACE),
-          Expanded(
-            child: positiveButtonWidget,
-          ),
+          Expanded(child: positiveButtonWidget),
         ],
       );
     } else {
@@ -95,7 +89,8 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
         ),
         width: double.infinity,
         decoration: BoxDecoration(
-          color: widget.backgroundColor ??
+          color:
+              widget.backgroundColor ??
               (context.lightTheme() ? Colors.white : colors!.primaryUltraBlack),
           boxShadow: const <BoxShadow>[
             BoxShadow(
@@ -137,11 +132,8 @@ class _SmoothButtonsBar2State extends State<SmoothButtonsBar2>
 }
 
 class SmoothActionButton2 {
-  SmoothActionButton2({
-    required this.text,
-    required this.onPressed,
-    this.icon,
-  }) : assert(text.isNotEmpty);
+  SmoothActionButton2({required this.text, required this.onPressed, this.icon})
+    : assert(text.isNotEmpty);
 
   final String text;
   final Widget? icon;
@@ -155,8 +147,8 @@ class _SmoothPositiveButton2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return _SmoothBaseButton2(
@@ -174,8 +166,8 @@ class _SmoothNegativeButton2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 
@@ -220,23 +212,15 @@ class _SmoothBaseButton2 extends StatelessWidget {
         children: <Widget>[
           AutoSizeText(
             data.text,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 15.0,
-            ),
+            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0),
             maxLines: 1,
           ),
           if (data.icon != null) ...<Widget>[
             const SizedBox(width: SMALL_SPACE),
             Padding(
               padding: const EdgeInsetsDirectional.only(top: 0.5),
-              child: SizedBox(
-                height: 13.0,
-                child: FittedBox(
-                  child: data.icon,
-                ),
-              ),
-            )
+              child: SizedBox(height: 13.0, child: FittedBox(child: data.icon)),
+            ),
           ],
         ],
       ),

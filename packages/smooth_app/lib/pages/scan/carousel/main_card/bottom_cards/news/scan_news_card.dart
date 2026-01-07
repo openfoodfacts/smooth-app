@@ -1,24 +1,23 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 class ScanNewsCard extends StatefulWidget {
-  const ScanNewsCard({
-    required this.news,
-  });
+  const ScanNewsCard({required this.news});
 
   final Iterable<AppNewsItem> news;
 
@@ -135,8 +134,9 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     final Widget text = TextWithBoldParts(
       text: widget.message,
@@ -145,7 +145,8 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       maxLines: widget.dense ? 500 : null,
       overflow: widget.dense ? TextOverflow.ellipsis : null,
       textStyle: TextStyle(
-        color: widget.textColor ??
+        color:
+            widget.textColor ??
             (context.lightTheme(listen: true)
                 ? theme.primaryBlack
                 : theme.primaryLight),
@@ -155,10 +156,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
     // There's no check for the dark image, as it's optional.
     if (widget.image == null || _imageError) {
-      return Padding(
-        padding: _contentPadding,
-        child: text,
-      );
+      return Padding(padding: _contentPadding, child: text);
     }
 
     final int imageFlex = ((widget.image!.width ?? 0.2) * 10).toInt();
@@ -173,18 +171,12 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
                 constraints: BoxConstraints(
                   maxHeight: MediaQuery.sizeOf(context).height * 0.06,
                 ),
-                child: AspectRatio(
-                  aspectRatio: 1.0,
-                  child: _image(),
-                ),
+                child: AspectRatio(aspectRatio: 1.0, child: _image()),
               ),
             ),
             SizedBox(width: widget.dense ? SMALL_SPACE : MEDIUM_SPACE),
           ],
-          Expanded(
-            flex: 10 - imageFlex,
-            child: text,
-          ),
+          Expanded(flex: 10 - imageFlex, child: text),
         ],
       ),
     );
@@ -200,24 +192,12 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
         image.src,
         semanticsLabel: image.alt,
         loadingBuilder: (_) => _onLoading(),
-        errorBuilder: (_, __) => _onError(),
+        errorBuilder: (_, _) => _onError(),
       );
     } else {
-      return Image.network(
-        semanticLabel: image.alt,
-        loadingBuilder: (
-          _,
-          Widget child,
-          ImageChunkEvent? loadingProgress,
-        ) {
-          if (loadingProgress == null) {
-            return _onLoading();
-          }
-
-          return child;
-        },
-        errorBuilder: (_, __, ___) => _onError(),
-        image.src ?? '-',
+      return SmoothImage(
+        semanticsLabel: image.alt,
+        imageProvider: NetworkImage(image.src ?? '-'),
       );
     }
   }
@@ -253,8 +233,9 @@ class _TagLineContentButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final SmoothColorsThemeExtension theme = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
 
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: SMALL_SPACE),

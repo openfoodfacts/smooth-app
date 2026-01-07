@@ -1,15 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:intl/intl.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// A generic abstract class for handling infinite scrolling in lists.
 /// [T] is the type of items being displayed.
 abstract class InfiniteScrollManager<T> {
-  /// Creates an instance of [InfiniteScrollManager] with optional initial items.
+  /// Creates an [InfiniteScrollManager] with optional initial state.
   InfiniteScrollManager({
-    List<T>? initialItems,
-  })  : _items = initialItems ?? <T>[],
-        _currentPage =
-            initialItems != null && initialItems.isNotEmpty ? _initialPage : 0;
+    final List<T>? initialItems,
+    final int? totalItems,
+    final int? totalPages,
+  }) : _items = List<T>.from(initialItems ?? <T>[]),
+       _currentPage = initialItems != null && initialItems.isNotEmpty
+           ? _initialPage
+           : 0,
+       _totalPages = totalPages,
+       _totalItems = totalItems;
 
   static const int _initialPage = 1;
 
@@ -41,23 +51,22 @@ abstract class InfiniteScrollManager<T> {
   /// Getter for total pages
   int? get totalPages => _totalPages;
 
+  /// svg.vec format expected (cf [EmptyScreenLayout])
+  Widget get emptyListIcon;
+
+  String emptyListTitle(AppLocalizations appLocalizations);
+
+  String emptyListExplanation(AppLocalizations appLocalizations);
+
   @protected
-  Future<void> fetchInit() async {}
+  Future<void> fetchInit(final BuildContext context) async {}
 
   /// Fetches data for a specific page
   @protected
   Future<void> fetchData(int pageNumber);
 
   /// Displays an item.
-  @protected
-  Widget buildItem({
-    required BuildContext context,
-    required T item,
-  });
-
-  Widget getItemWidget({required BuildContext context, required T item}) {
-    return buildItem(context: context, item: item);
-  }
+  Widget buildItem({required BuildContext context, required T item});
 
   /// Update the list with new items and pagination info
   @protected
@@ -82,7 +91,7 @@ abstract class InfiniteScrollManager<T> {
 
   /// Load initial data only if the list is empty
   Future<void> loadInitiallyIfNeeded(BuildContext context) async {
-    await fetchInit();
+    await fetchInit(context);
     if (_items.isNotEmpty) {
       return;
     }
@@ -115,14 +124,16 @@ abstract class InfiniteScrollManager<T> {
     _isLoading = true;
 
     try {
+      await fetchInit(context);
       await fetchData(pageNumber);
     } catch (e) {
       if (context.mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
+          SmoothFloatingSnackbar(
             content: Text(
               AppLocalizations.of(context).prices_error_loading_more_items,
             ),
+            duration: SnackBarDuration.medium,
           ),
         );
       }
@@ -131,11 +142,22 @@ abstract class InfiniteScrollManager<T> {
     }
   }
 
+  final NumberFormat _numberFormat = NumberFormat.decimalPattern(
+    ProductQuery.getLocaleString(),
+  );
+
   /// Returns a formatted item count (e.g., "25 of 100 items")
-  String formattedItemCount(BuildContext context) {
+  String formattedItemCount(
+    BuildContext context,
+    int loadedItems,
+    int? totalItems,
+  ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return _totalItems != null
-        ? appLocalizations.item_count_with_total(_items.length, _totalItems!)
-        : appLocalizations.item_count(_items.length);
+    return totalItems != null
+        ? appLocalizations.item_count_with_total_string(
+            _numberFormat.format(loadedItems),
+            _numberFormat.format(totalItems),
+          )
+        : appLocalizations.item_count_string(_numberFormat.format(loadedItems));
   }
 }

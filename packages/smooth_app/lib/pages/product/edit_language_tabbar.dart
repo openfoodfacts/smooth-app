@@ -1,6 +1,5 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -8,6 +7,7 @@ import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
 import 'package:smooth_app/helpers/border_radius_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -19,11 +19,11 @@ import 'package:smooth_app/widgets/smooth_tabbar.dart';
 
 class EditLanguageTabBar extends StatefulWidget {
   const EditLanguageTabBar({
-    super.key,
     required this.productEquality,
     required this.productLanguages,
     required this.onTabChanged,
     required this.forceUserLanguage,
+    super.key,
     this.defaultLanguageMissingState = OpenFoodFactsLanguageState.warning,
     this.mainLanguageMissingState = OpenFoodFactsLanguageState.warning,
     this.userLanguageMissingState,
@@ -35,19 +35,19 @@ class EditLanguageTabBar extends StatefulWidget {
   });
 
   const EditLanguageTabBar.noIndicator({
-    super.key,
     required this.productEquality,
     required this.productLanguages,
     required this.onTabChanged,
     required this.forceUserLanguage,
+    super.key,
     this.padding = const EdgeInsetsDirectional.only(start: 55.0),
-  })  : defaultLanguageMissingState = OpenFoodFactsLanguageState.normal,
-        mainLanguageMissingState = OpenFoodFactsLanguageState.normal,
-        userLanguageMissingState = OpenFoodFactsLanguageState.normal,
-        languageIndicatorNormal = null,
-        languageIndicatorWarning = null,
-        languageIndicatorError = null,
-        showLanguageIndicator = false;
+  }) : defaultLanguageMissingState = OpenFoodFactsLanguageState.normal,
+       mainLanguageMissingState = OpenFoodFactsLanguageState.normal,
+       userLanguageMissingState = OpenFoodFactsLanguageState.normal,
+       languageIndicatorNormal = null,
+       languageIndicatorWarning = null,
+       languageIndicatorError = null,
+       showLanguageIndicator = false;
 
   /// Compare two products to know if they are the same
   final DidProductChanged productEquality;
@@ -115,43 +115,51 @@ class _EditLanguageTabBarState extends State<EditLanguageTabBar>
       child: Padding(
         padding: const EdgeInsetsDirectional.only(top: BALANCED_SPACE),
         child: Listener<Product>(
-            listener: (BuildContext context, _, Product product) {
-              _provider.attachProduct(product);
-            },
-            child: ChangeNotifierProvider<_EditLanguageProvider>(
-              create: (_) => _provider,
-              child: Consumer<_EditLanguageProvider>(
-                builder: (
-                  final BuildContext context,
-                  final _EditLanguageProvider provider,
-                  _,
-                ) {
-                  if (provider.value.languages == null) {
-                    return const Center(
-                      child: CircularProgressIndicator.adaptive(),
-                    );
-                  }
+          listener: (BuildContext context, _, Product product) {
+            _provider.attachProduct(product);
+          },
+          child: ChangeNotifierProvider<_EditLanguageProvider>(
+            create: (_) => _provider,
+            child: Consumer<_EditLanguageProvider>(
+              builder:
+                  (
+                    final BuildContext context,
+                    final _EditLanguageProvider provider,
+                    _,
+                  ) {
+                    if (provider.value.languages == null) {
+                      return const Center(
+                        child: CircularProgressIndicator.adaptive(),
+                      );
+                    }
 
-                  /// We need a Stack to have to tab bar shadow below the button
-                  return Stack(
-                    children: <Widget>[
-                      PositionedDirectional(
-                        top: 0.0,
-                        start: 0.0,
-                        bottom: 0.0,
-                        end: 40.0,
-                        child: SmoothTabBar<OpenFoodFactsLanguage>(
-                          tabController: _tabController!,
-                          items: provider.value.languages!.map(
-                            (final OpenFoodFactsLanguage language) =>
-                                SmoothTabBarItem<OpenFoodFactsLanguage>(
-                              label: Languages().getNameInLanguage(language),
-                              value: language,
+                    final SmoothColorsThemeExtension theme = context
+                        .extension<SmoothColorsThemeExtension>();
+                    final bool lightTheme = context.lightTheme();
+
+                    /// We need a Stack to have to tab bar shadow below the button
+                    return Stack(
+                      children: <Widget>[
+                        PositionedDirectional(
+                          top: 0.0,
+                          start: 0.0,
+                          bottom: 0.0,
+                          end: 40.0,
+                          child: SmoothTabBar<OpenFoodFactsLanguage>(
+                            tabController: _tabController!,
+                            items: provider.value.languages!.map(
+                              (final OpenFoodFactsLanguage language) =>
+                                  SmoothTabBarItem<OpenFoodFactsLanguage>(
+                                    label: Languages().getNameInLanguage(
+                                      language,
+                                    ),
+                                    value: language,
+                                  ),
                             ),
-                          ),
-                          leadingItems: widget.showLanguageIndicator
-                              ? provider.value.languagesStates!.map(
-                                  (final OpenFoodFactsLanguageState state) {
+                            leadingItems: widget.showLanguageIndicator
+                                ? provider.value.languagesStates!.map((
+                                    final OpenFoodFactsLanguageState state,
+                                  ) {
                                     switch (state) {
                                       case OpenFoodFactsLanguageState.normal:
                                         return widget.languageIndicatorNormal;
@@ -163,30 +171,31 @@ class _EditLanguageTabBarState extends State<EditLanguageTabBar>
                                         return widget.languageIndicatorError ??
                                             const icons.Warning();
                                     }
-                                  },
-                                )
-                              : null,
-                          onTabChanged: (final OpenFoodFactsLanguage value) {
-                            widget.onTabChanged.call(value);
-                          },
-                          padding: widget.padding.add(
-                            const EdgeInsetsDirectional.only(
-                              end: 20.0,
+                                  })
+                                : null,
+                            onTabChanged: (final OpenFoodFactsLanguage value) {
+                              widget.onTabChanged.call(value);
+                            },
+                            padding: widget.padding.add(
+                              const EdgeInsetsDirectional.only(end: 20.0),
                             ),
+                            overflowMainColor: lightTheme
+                                ? theme.primaryLight
+                                : theme.primaryDark,
                           ),
                         ),
-                      ),
-                      const PositionedDirectional(
-                        top: 0.0,
-                        end: 0.0,
-                        bottom: 0.0,
-                        child: _EditLanguageTabBarAddLanguageButton(),
-                      ),
-                    ],
-                  );
-                },
-              ),
-            )),
+                        const PositionedDirectional(
+                          top: 0.0,
+                          end: 0.0,
+                          bottom: 0.0,
+                          child: _EditLanguageTabBarAddLanguageButton(),
+                        ),
+                      ],
+                    );
+                  },
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -225,8 +234,8 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final BorderRadius borderRadius = BorderRadiusHelper.fromDirectional(
@@ -247,24 +256,24 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
             borderRadius: borderRadius,
             border: Border(
               bottom: BorderSide(
-                color: lightTheme ? theme.primarySemiDark : theme.primaryDark,
+                color: lightTheme ? theme.primaryLight : theme.primaryDark,
                 width: lightTheme ? 1.5 : 2.0,
               ),
             ),
-            color: lightTheme ? theme.primaryBlack : theme.primaryNormal,
+            color: lightTheme ? theme.primaryLight : theme.primaryNormal,
           ),
           child: Material(
             type: MaterialType.transparency,
             child: InkWell(
               borderRadius: borderRadius,
               onTap: () => _addLanguage(context),
-              child: const Padding(
-                padding: EdgeInsetsDirectional.only(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(
                   start: LARGE_SPACE,
                   end: MEDIUM_SPACE,
                 ),
                 child: icons.Add(
-                  color: Colors.white,
+                  color: lightTheme ? Colors.black : Colors.white,
                 ),
               ),
             ),
@@ -275,14 +284,17 @@ class _EditLanguageTabBarAddLanguageButton extends StatelessWidget {
   }
 
   Future<void> _addLanguage(BuildContext context) async {
-    final List<OpenFoodFactsLanguage>? selectedLanguages =
-        context.read<_EditLanguageProvider>().value.languages;
+    final List<OpenFoodFactsLanguage>? selectedLanguages = context
+        .read<_EditLanguageProvider>()
+        .value
+        .languages;
 
     final OpenFoodFactsLanguage? language =
         await LanguagesSelector.openLanguageSelector(
-      context,
-      selectedLanguages: selectedLanguages,
-    );
+          context,
+          disabledLanguages: selectedLanguages,
+          showSelectedLanguages: true,
+        );
 
     if (language != null && context.mounted) {
       context.read<_EditLanguageProvider>().addLanguage(language);
@@ -320,7 +332,7 @@ class _EditLanguageProvider
   void refreshLanguages({bool initial = false}) {
     final (
       List<OpenFoodFactsLanguage> imageLanguages,
-      List<OpenFoodFactsLanguageState> languagesStates
+      List<OpenFoodFactsLanguageState> languagesStates,
     ) = _extractLanguages();
 
     final OpenFoodFactsLanguage userLanguage = ProductQuery.getLanguage();
@@ -371,8 +383,10 @@ class _EditLanguageProvider
       }
     }
 
-    if (!const ListEquality<OpenFoodFactsLanguage>()
-        .equals(value.languages, languages)) {
+    if (!const ListEquality<OpenFoodFactsLanguage>().equals(
+      value.languages,
+      languages,
+    )) {
       value = _EditLanguageTabBarProviderState(
         languages: languages,
         languagesStates: states,
@@ -382,16 +396,15 @@ class _EditLanguageProvider
     }
   }
 
-  (
-    List<OpenFoodFactsLanguage>,
-    List<OpenFoodFactsLanguageState>,
-  ) _extractLanguages() {
+  (List<OpenFoodFactsLanguage>, List<OpenFoodFactsLanguageState>)
+  _extractLanguages() {
     final List<ProductLanguageWithState> imageLanguagesWithState =
-        languagesProvider(product!)
-          ..sort((final ProductLanguageWithState a,
-              final ProductLanguageWithState b) {
-            return a.code.compareTo(b.code);
-          });
+        languagesProvider(product!)..sort((
+          final ProductLanguageWithState a,
+          final ProductLanguageWithState b,
+        ) {
+          return a.code.compareTo(b.code);
+        });
 
     final List<OpenFoodFactsLanguage> imageLanguages =
         <OpenFoodFactsLanguage>[];
@@ -456,22 +469,22 @@ class _EditLanguageTabBarProviderState {
     required this.selectedLanguage,
     this.hasNewLanguage = false,
     this.initialValue = false,
-  })  : assert(
-          selectedLanguage == null || languages!.contains(selectedLanguage),
-        ),
-        assert(
-          languagesStates == null && languages == null ||
-              languagesStates != null &&
-                  languages != null &&
-                  languagesStates.length == languages.length,
-        );
+  }) : assert(
+         selectedLanguage == null || languages!.contains(selectedLanguage),
+       ),
+       assert(
+         languagesStates == null && languages == null ||
+             languagesStates != null &&
+                 languages != null &&
+                 languagesStates.length == languages.length,
+       );
 
   const _EditLanguageTabBarProviderState.empty()
-      : languages = null,
-        languagesStates = null,
-        selectedLanguage = null,
-        hasNewLanguage = false,
-        initialValue = false;
+    : languages = null,
+      languagesStates = null,
+      selectedLanguage = null,
+      hasNewLanguage = false,
+      initialValue = false;
 
   final List<OpenFoodFactsLanguage>? languages;
   final List<OpenFoodFactsLanguageState>? languagesStates;
@@ -480,24 +493,17 @@ class _EditLanguageTabBarProviderState {
   final bool hasNewLanguage;
 }
 
-typedef DidProductChanged = bool Function(
-  Product oldProduct,
-  Product newProduct,
-);
-typedef ProductLanguagesProvider = List<ProductLanguageWithState> Function(
-  Product product,
-);
+typedef DidProductChanged =
+    bool Function(Product oldProduct, Product newProduct);
+typedef ProductLanguagesProvider =
+    List<ProductLanguageWithState> Function(Product product);
 
 @immutable
 class ProductLanguageWithState {
-  const ProductLanguageWithState({
-    required this.language,
-    required this.state,
-  });
+  const ProductLanguageWithState({required this.language, required this.state});
 
-  const ProductLanguageWithState.normal({
-    required this.language,
-  }) : state = OpenFoodFactsLanguageState.normal;
+  const ProductLanguageWithState.normal({required this.language})
+    : state = OpenFoodFactsLanguageState.normal;
 
   final OpenFoodFactsLanguage language;
   final OpenFoodFactsLanguageState state;
@@ -516,8 +522,4 @@ class ProductLanguageWithState {
   int get hashCode => language.hashCode ^ state.hashCode;
 }
 
-enum OpenFoodFactsLanguageState {
-  normal,
-  warning,
-  error,
-}
+enum OpenFoodFactsLanguageState { normal, warning, error }

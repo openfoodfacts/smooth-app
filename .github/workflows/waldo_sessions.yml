@@ -12,6 +12,9 @@ on:
         required: true
         type: string
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: macos-latest
@@ -20,14 +23,14 @@ jobs:
         shell: bash
     steps:
       - name: "Checkout code"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: ${{ github.event.inputs.repo }}
           ref: ${{ github.event.inputs.branch }}
           fetch-depth: 0
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v4.7.1
+        uses: actions/setup-java@v5.1.0
         with:
           distribution: 'zulu'
           java-version: 21
@@ -47,7 +50,7 @@ jobs:
       - run: flutter --version
 
       - name: Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ci/pub_get.sh
         
       # Build apk.
       - name: Build APK

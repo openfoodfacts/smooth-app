@@ -58,19 +58,13 @@ class SmoothDropdownButton<T> extends StatelessWidget {
         color: context.extension<SmoothColorsThemeExtension>().primarySemiDark,
         borderRadius: CIRCULAR_BORDER_RADIUS,
       ),
-      child: Material(
-        type: MaterialType.transparency,
-        child: child,
-      ),
+      child: Material(type: MaterialType.transparency, child: child),
     );
   }
 
   DropdownButton<dynamic> _createDropdownMenu(BuildContext context) {
     return DropdownButton<T>(
-      icon: const icons.Chevron.down(
-        color: Colors.white,
-        size: 14.0,
-      ),
+      icon: const icons.Chevron.down(color: Colors.white, size: 14.0),
       elevation: 4,
       isDense: true,
       isExpanded: isExpanded,
@@ -89,9 +83,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
           return items
               .map(
                 (SmoothDropdownItem<T> item) => const Padding(
-                  padding: EdgeInsetsDirectional.only(
-                    end: MEDIUM_SPACE,
-                  ),
+                  padding: EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
                   child: SizedBox.square(
                     dimension: 12.0,
                     child: CircularProgressIndicator(),
@@ -101,26 +93,26 @@ class SmoothDropdownButton<T> extends StatelessWidget {
               .toList(growable: false);
         }
 
-        return items.map((SmoothDropdownItem<T> item) {
-          return SizedBox(
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(
-                end: MEDIUM_SPACE,
-              ),
-              child: Center(
-                child: Text(
-                  item.label,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 14.5,
+        return items
+            .map((SmoothDropdownItem<T> item) {
+              return SizedBox(
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
+                  child: Center(
+                    child: Text(
+                      item.label,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.5,
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ),
-          );
-        }).toList(growable: false);
+              );
+            })
+            .toList(growable: false);
       },
       style: TextStyle(
         fontSize: 14.0,
@@ -134,9 +126,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
                 padding: const EdgeInsetsDirectional.symmetric(
                   horizontal: SMALL_SPACE,
                 ),
-                child: Text(
-                  item.label,
-                ),
+                child: Text(item.label),
               ),
             ),
           )
@@ -148,11 +138,7 @@ class SmoothDropdownButton<T> extends StatelessWidget {
 }
 
 class SmoothDropdownItem<T> {
-  SmoothDropdownItem({
-    required this.value,
-    required this.label,
-    this.onTap,
-  });
+  SmoothDropdownItem({required this.value, required this.label, this.onTap});
 
   final T value;
   final String label;

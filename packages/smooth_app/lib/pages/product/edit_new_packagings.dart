@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/common/product_buttons.dart';
@@ -50,8 +50,10 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   final List<EditNewPackagingsHelper> _helpers = <EditNewPackagingsHelper>[];
 
   void _openPackagingImage(BuildContext context) {
-    final Iterable<OpenFoodFactsLanguage> languages =
-        getProductImageLanguages(upToDateProduct, ImageField.PACKAGING);
+    final Iterable<OpenFoodFactsLanguage> languages = getProductImageLanguages(
+      upToDateProduct,
+      ImageField.PACKAGING,
+    );
 
     if (languages.isNotEmpty) {
       setState(() {
@@ -92,9 +94,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     _decimalNumberFormat = SimpleInputNumberField.getNumberFormat(
       decimal: true,
     );
-    _unitNumberFormat = SimpleInputNumberField.getNumberFormat(
-      decimal: false,
-    );
+    _unitNumberFormat = SimpleInputNumberField.getNumberFormat(decimal: false);
     if (upToDateProduct.packagings != null) {
       upToDateProduct.packagings!.forEach(_addPackagingToControllers);
     }
@@ -121,7 +121,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     ).isNotEmpty;
     children.add(
       Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
         child: ImageField.PACKAGING.getPhotoButton(
           context,
           upToDateProduct,
@@ -135,6 +135,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
       children.add(
         SmoothCard(
           color: _getSmoothCardColorAlternate(context, index),
+          padding: EdgeInsetsDirectional.zero,
           child: EditNewPackagingsComponent(
             title: _helpers[index].getSubTitle(),
             deleteCallback: () =>
@@ -149,21 +150,27 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     children.add(
       SmoothCard(
         color: _getSmoothCardColor(context),
-        child: ListTile(
-          title: Text(appLocalizations.edit_packagings_completed),
-          trailing: Icon(
-            _packagingsComplete == true
-                ? Icons.check_box
-                : Icons.check_box_outline_blank,
-          ),
-          onTap: () => setState(
-            () {
-              if (_packagingsComplete == null) {
-                _packagingsComplete = true;
-              } else {
-                _packagingsComplete = !_packagingsComplete!;
-              }
-            },
+        padding: EdgeInsetsDirectional.zero,
+        child: InkWell(
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          onTap: () => setState(() {
+            if (_packagingsComplete == null) {
+              _packagingsComplete = true;
+            } else {
+              _packagingsComplete = !_packagingsComplete!;
+            }
+          }),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.all(5.0),
+            child: ListTile(
+              title: Text(appLocalizations.edit_packagings_completed),
+              trailing: IgnorePointer(
+                child: Checkbox(
+                  value: _packagingsComplete == true,
+                  onChanged: (_) {},
+                ),
+              ),
+            ),
           ),
         ),
       ),
@@ -226,8 +233,9 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
                     icon: hasPackagingImages
                         ? const Picture.open()
                         : const Icon(Icons.add_a_photo),
-                    tooltip: ImageField.PACKAGING
-                        .getProductImageButtonText(appLocalizations),
+                    tooltip: ImageField.PACKAGING.getProductImageButtonText(
+                      appLocalizations,
+                    ),
                     onPressed: () => _openPackagingImage(context),
                   ),
               ],
@@ -249,12 +257,9 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
               ],
             ),
             bottomNavigationBar: ProductBottomButtonsBar(
-              onSave: () async => _exitPage(
-                await _mayExitPage(saving: true),
-              ),
-              onCancel: () async => _exitPage(
-                await _mayExitPage(saving: false),
-              ),
+              onSave: () async => _exitPage(await _mayExitPage(saving: true)),
+              onCancel: () async =>
+                  _exitPage(await _mayExitPage(saving: false)),
             ),
           ),
         ),
@@ -330,8 +335,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         return false;
       }
@@ -361,8 +366,8 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
 
 Color _getSmoothCardColor(final BuildContext context) =>
     Theme.of(context).brightness == Brightness.light
-        ? GREY_COLOR
-        : PRIMARY_GREY_COLOR;
+    ? GREY_COLOR
+    : PRIMARY_GREY_COLOR;
 
 Color _getSmoothCardColorAlternate(final BuildContext context, int index) {
   final bool lightTheme = Theme.of(context).brightness == Brightness.light;

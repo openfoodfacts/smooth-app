@@ -1,9 +1,14 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_autocompleter.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_text_field.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
@@ -32,6 +37,10 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
   late TextEditingController valueController;
   bool isKeyValid = true;
   bool isValueValid = true;
+  late final FocusNode keyFocusNode = FocusNode();
+  late final FocusNode valueFocusNode = FocusNode();
+  final Key keyAutocompleteKey = UniqueKey();
+  final Key valueAutocompleteKey = UniqueKey();
 
   @override
   void initState() {
@@ -53,10 +62,12 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
           isKeyValid: isKeyValid,
           isValueValid: isValueValid,
           onSave: _onSubmit,
+          keyFocusNode: keyFocusNode,
+          valueFocusNode: valueFocusNode,
+          keyAutocompleteKey: keyAutocompleteKey,
+          valueAutocompleteKey: valueAutocompleteKey,
         ),
-        _FolksonomyEditTagContentFooter(
-          onSave: _onSubmit,
-        ),
+        _FolksonomyEditTagContentFooter(onSave: _onSubmit),
       ],
     );
   }
@@ -66,9 +77,11 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
 
     if (widget.action == FolksonomyAction.add) {
       isKeyValid =
-          isKeyValid && !widget.existingKeys!.contains(keyController.text);
+          isKeyValid &&
+          widget.existingKeys?.contains(keyController.text) != true;
     } else if (widget.action == FolksonomyAction.edit) {
-      isKeyValid = isKeyValid &&
+      isKeyValid =
+          isKeyValid &&
           (keyController.text == widget.oldKey ||
               !widget.existingKeys!.contains(keyController.text));
     }
@@ -80,18 +93,17 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
       return SmoothHapticFeedback.error();
     }
 
-    return Navigator.of(context).pop(
-      FolksonomyTag(
-        key: keyController.text,
-        value: valueController.text,
-      ),
-    );
+    return Navigator.of(
+      context,
+    ).pop(FolksonomyTag(key: keyController.text, value: valueController.text));
   }
 
   @override
   void dispose() {
     keyController.dispose();
     valueController.dispose();
+    keyFocusNode.dispose();
+    valueFocusNode.dispose();
     super.dispose();
   }
 }
@@ -104,6 +116,10 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
     required this.isKeyEditable,
     required this.isKeyValid,
     required this.isValueValid,
+    required this.keyFocusNode,
+    required this.valueFocusNode,
+    required this.keyAutocompleteKey,
+    required this.valueAutocompleteKey,
   });
 
   final TextEditingController keyController;
@@ -112,6 +128,12 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
   final bool isKeyValid;
   final bool isValueValid;
   final VoidCallback onSave;
+  final FocusNode keyFocusNode;
+  final FocusNode valueFocusNode;
+  final Key keyAutocompleteKey;
+  final Key valueAutocompleteKey;
+
+  static const int _autocompleteSuggestionsLimit = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -133,23 +155,20 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             explanation: appLocalizations.tag_key_explanations,
             hasErrors: !isKeyValid,
           ),
-          TextField(
+          SimpleInputTextField(
+            focusNode: keyFocusNode,
+            autofocus: true,
+            autocompleteKey: keyAutocompleteKey,
+            constraints: const BoxConstraints(maxWidth: double.infinity),
+            borderRadius: HEADER_BORDER_RADIUS,
+            tagType: null,
+            hintText: appLocalizations.tag_key_input_hint,
             controller: keyController,
-            autofocus: isKeyEditable,
-            autocorrect: false,
-            readOnly: !isKeyEditable,
-            textInputAction: TextInputAction.next,
-            textCapitalization: TextCapitalization.none,
-            keyboardType: TextInputType.text,
-            inputFormatters: <TextInputFormatter>[
-              FilteringTextInputFormatter.allow(
-                RegExp(r'[a-zA-Z0-9_\-\:]'),
-              ),
-              LowerCaseTextFormatter(),
-            ],
-            decoration: InputDecoration(
-              hintText: appLocalizations.tag_key_input_hint,
-              hintStyle: const TextStyle(fontStyle: FontStyle.italic),
+            productType: null,
+            withClearButton: false,
+            margin: EdgeInsetsDirectional.zero,
+            autocompleteManager: AutocompleteManager(
+              const FolksonomyKeysAutocompleter(limit: 10),
             ),
           ),
           const SizedBox(height: LARGE_SPACE),
@@ -157,16 +176,28 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             appLocalizations.tag_value,
             hasErrors: isValueValid,
           ),
-          TextField(
-            controller: valueController,
-            autofocus: !isKeyEditable,
-            keyboardType: TextInputType.text,
-            textInputAction: TextInputAction.send,
-            decoration: InputDecoration(
-              hintText: appLocalizations.tag_value_input_hint,
-              hintStyle: const TextStyle(fontStyle: FontStyle.italic),
-            ),
-            onSubmitted: (_) => onSave(),
+          ValueListenableBuilder<TextEditingValue>(
+            valueListenable: keyController,
+            builder: (BuildContext context, _, _) {
+              return SimpleInputTextField(
+                focusNode: valueFocusNode,
+                autocompleteKey: valueAutocompleteKey,
+                constraints: const BoxConstraints(maxWidth: double.infinity),
+                borderRadius: HEADER_BORDER_RADIUS,
+                tagType: null,
+                hintText: appLocalizations.tag_value_input_hint,
+                controller: valueController,
+                productType: null,
+                withClearButton: false,
+                margin: EdgeInsetsDirectional.zero,
+                autocompleteManager: AutocompleteManager(
+                  FolksonomyValuesAutocompleter(
+                    keyProvider: () => keyController.text,
+                    limit: _autocompleteSuggestionsLimit,
+                  ),
+                ),
+              );
+            },
           ),
         ],
       ),
@@ -200,16 +231,17 @@ class _FolksonomyEditTagContentTitleState
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..addStatusListener((AnimationStatus status) {
-        if (status == AnimationStatus.completed) {
-          _controller.reverse();
-        }
-      });
+    _controller =
+        AnimationController(
+            duration: const Duration(milliseconds: 500),
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..addStatusListener((AnimationStatus status) {
+            if (status == AnimationStatus.completed) {
+              _controller.reverse();
+            }
+          });
   }
 
   @override
@@ -224,8 +256,8 @@ class _FolksonomyEditTagContentTitleState
   @override
   Widget build(BuildContext context) {
     if (_animation == null) {
-      final SmoothColorsThemeExtension extension =
-          context.extension<SmoothColorsThemeExtension>();
+      final SmoothColorsThemeExtension extension = context
+          .extension<SmoothColorsThemeExtension>();
 
       _animation = ColorTween(
         begin: DefaultTextStyle.of(context).style.color,
@@ -249,10 +281,7 @@ class _FolksonomyEditTagContentTitleState
           text,
           Text(
             widget.explanation!,
-            style: TextStyle(
-              color: _animation!.value,
-              fontSize: 14.5,
-            ),
+            style: TextStyle(color: _animation!.value, fontSize: 14.5),
           ),
         ],
       );
@@ -263,9 +292,7 @@ class _FolksonomyEditTagContentTitleState
 }
 
 class _FolksonomyEditTagContentFooter extends StatelessWidget {
-  const _FolksonomyEditTagContentFooter({
-    required this.onSave,
-  });
+  const _FolksonomyEditTagContentFooter({required this.onSave});
 
   final VoidCallback onSave;
 
@@ -311,10 +338,7 @@ class LowerCaseTextFormatter extends TextInputFormatter {
 }
 
 class FolksonomyTag {
-  FolksonomyTag({
-    required this.key,
-    required this.value,
-  });
+  FolksonomyTag({required this.key, required this.value});
 
   final String key;
   final String value;

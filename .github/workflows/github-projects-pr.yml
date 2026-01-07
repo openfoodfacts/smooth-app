@@ -3,6 +3,10 @@ name: Add PRs to the relevant GitHub Projects
 on:
 - pull_request_target
 
+permissions:
+  contents: read
+  pull-requests: write
+
 jobs:
   add-to-project:
     name: Add issue to project

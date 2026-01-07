@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Implementation for "Traces" of an [AbstractSimpleInputPageHelper].
 class SimpleInputPageTraceHelper extends AbstractSimpleInputPageHelper {
@@ -64,11 +65,14 @@ class SimpleInputPageTraceHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.TRACES;
 
   @override
-  Widget getIcon() => const Icon(Icons.photo_size_select_small_sharp);
+  Widget getIcon() => const icons.Traces();
 
   @override
   BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.traces;
 
   @override
   AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.traces;
+
+  @override
+  InsightType? get robotoffInsightType => null;
 }

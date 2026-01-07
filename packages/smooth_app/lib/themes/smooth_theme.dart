@@ -42,9 +42,7 @@ class SmoothTheme {
     }
 
     final SmoothColorsThemeExtension smoothExtension =
-        SmoothColorsThemeExtension.defaultValues(
-      lightTheme,
-    );
+        SmoothColorsThemeExtension.defaultValues(lightTheme);
 
     final TextTheme textTheme = brightness == Brightness.dark
         ? getTextTheme(themeProvider, textContrastProvider)
@@ -58,7 +56,14 @@ class SmoothTheme {
       canvasColor: themeProvider.currentTheme == THEME_AMOLED
           ? myColorScheme.surface
           : null,
-      scaffoldBackgroundColor: lightTheme ? null : const Color(0xFF303030),
+      scaffoldBackgroundColor:
+          themeProvider.currentTheme == THEME_DARK ||
+              (!lightTheme && themeProvider.currentTheme != THEME_AMOLED)
+          ? const Color(0xFF303030)
+          : null,
+      shadowColor: brightness == Brightness.light
+          ? Colors.black54
+          : Colors.white12,
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.resolveWith<Color?>(
@@ -75,14 +80,15 @@ class SmoothTheme {
         ),
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor:
-            lightTheme ? smoothExtension.primaryDark : myColorScheme.primary,
+        backgroundColor: lightTheme
+            ? smoothExtension.primaryDark
+            : myColorScheme.primary,
         foregroundColor: myColorScheme.onPrimary,
       ),
       textTheme: textTheme,
       appBarTheme: AppBarTheme(
         centerTitle: false,
-        color: myColorScheme.surface,
+        backgroundColor: myColorScheme.surface,
         foregroundColor: myColorScheme.onSurface,
         systemOverlayStyle: SystemUiOverlayStyle.light,
         titleTextStyle: textTheme.titleLarge,
@@ -95,9 +101,7 @@ class SmoothTheme {
       inputDecorationTheme: InputDecorationTheme(
         fillColor: myColorScheme.secondary,
       ),
-      iconTheme: IconThemeData(
-        color: myColorScheme.onSurface,
-      ),
+      iconTheme: IconThemeData(color: myColorScheme.onSurface),
       snackBarTheme: SnackBarThemeData(
         contentTextStyle: _TEXT_THEME.bodyMedium?.copyWith(
           color: Colors.white,
@@ -112,8 +116,9 @@ class SmoothTheme {
         backgroundColor: myColorScheme.secondary,
       ),
       checkboxTheme: CheckboxThemeData(
-        fillColor:
-            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        fillColor: WidgetStateProperty.resolveWith<Color?>((
+          Set<WidgetState> states,
+        ) {
           if (states.contains(WidgetState.disabled)) {
             return null;
           }
@@ -130,14 +135,13 @@ class SmoothTheme {
               : smoothExtension.primarySemiDark,
           width: 2.0,
         ),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(3.0),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
         checkColor: const WidgetStatePropertyAll<Color>(Colors.white),
       ),
       radioTheme: RadioThemeData(
-        fillColor:
-            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        fillColor: WidgetStateProperty.resolveWith<Color?>((
+          Set<WidgetState> states,
+        ) {
           if (states.contains(WidgetState.disabled)) {
             return null;
           }
@@ -148,8 +152,9 @@ class SmoothTheme {
         }),
       ),
       switchTheme: SwitchThemeData(
-        thumbColor:
-            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        thumbColor: WidgetStateProperty.resolveWith<Color?>((
+          Set<WidgetState> states,
+        ) {
           if (states.contains(WidgetState.selected)) {
             if (lightTheme) {
               return smoothExtension.primaryDark;
@@ -166,8 +171,9 @@ class SmoothTheme {
             return null;
           }
         }),
-        trackColor:
-            WidgetStateProperty.resolveWith<Color?>((Set<WidgetState> states) {
+        trackColor: WidgetStateProperty.resolveWith<Color?>((
+          Set<WidgetState> states,
+        ) {
           if (lightTheme) {
             return smoothExtension.primaryMedium;
           } else {
@@ -188,8 +194,9 @@ class SmoothTheme {
 
     return _TEXT_THEME.copyWith(
       displayMedium: _TEXT_THEME.displayMedium?.copyWith(color: contrastLevel),
-      headlineMedium:
-          _TEXT_THEME.headlineMedium?.copyWith(color: contrastLevel),
+      headlineMedium: _TEXT_THEME.headlineMedium?.copyWith(
+        color: contrastLevel,
+      ),
       bodyMedium: _TEXT_THEME.bodyMedium?.copyWith(color: contrastLevel),
       displaySmall: _TEXT_THEME.bodySmall?.copyWith(color: contrastLevel),
       titleLarge: _TEXT_THEME.titleLarge?.copyWith(color: contrastLevel),
@@ -199,34 +206,21 @@ class SmoothTheme {
   }
 
   static const TextTheme _TEXT_THEME = TextTheme(
-    displayLarge: TextStyle(
-      fontSize: 28.0,
-      fontWeight: FontWeight.bold,
-    ),
+    displayLarge: TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
     displayMedium: TextStyle(
       fontSize: 24.0,
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
-    displaySmall: TextStyle(
-      fontSize: 18.0,
-      fontWeight: FontWeight.bold,
-    ),
+    displaySmall: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
     headlineMedium: TextStyle(
       fontSize: LARGE_SPACE,
       fontWeight: FontWeight.bold,
       color: Colors.black,
     ),
-    bodyMedium: TextStyle(
-      fontSize: 14,
-      letterSpacing: 0.5,
-    ),
-    titleMedium: TextStyle(
-      fontSize: 14.0,
-    ),
-    titleSmall: TextStyle(
-      fontSize: 12.0,
-    ),
+    bodyMedium: TextStyle(fontSize: 14, letterSpacing: 0.5),
+    titleMedium: TextStyle(fontSize: 14.0),
+    titleSmall: TextStyle(fontSize: 12.0),
   );
 
   static MaterialColor getMaterialColorFromColor(Color color) {
@@ -251,8 +245,11 @@ class SmoothTheme {
 
     final HSLColor hsl = HSLColor.fromColor(color);
     final HSLColor hslDark = hsl.withLightness(
-        (darker ? (hsl.lightness - value) : (hsl.lightness + value))
-            .clamp(0.0, 1.0));
+      (darker ? (hsl.lightness - value) : (hsl.lightness + value)).clamp(
+        0.0,
+        1.0,
+      ),
+    );
 
     return hslDark.toColor();
   }

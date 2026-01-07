@@ -4,7 +4,6 @@ import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -14,9 +13,11 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/temp_product_list_share_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_list_helper.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -37,7 +38,7 @@ abstract class ProductListPopupItem {
   String getTitle(final AppLocalizations appLocalizations);
 
   /// IconData of the popup menu item.
-  IconData getIconData();
+  Widget getIcon();
 
   /// Popup menu entry of the popup menu item.
   ProductListPopupMenuEntry getEntry();
@@ -57,12 +58,11 @@ abstract class ProductListPopupItem {
   /// Returns the popup menu item.
   SmoothPopupMenuItem<ProductListPopupItem> getMenuItem(
     final AppLocalizations appLocalizations,
-  ) =>
-      SmoothPopupMenuItem<ProductListPopupItem>(
-        value: this,
-        icon: getIconData(),
-        label: getTitle(appLocalizations),
-      );
+  ) => SmoothPopupMenuItem<ProductListPopupItem>(
+    value: this,
+    icon: getIcon(),
+    label: getTitle(appLocalizations),
+  );
 
   /// Returns the first possible URL/server that contains at least one product.
   @protected
@@ -71,8 +71,9 @@ abstract class ProductListPopupItem {
     required final LocalDatabase localDatabase,
   }) async {
     final List<String> products = productList.getList();
-    final Map<ProductType, List<String>> productTypes =
-        await DaoProduct(localDatabase).getProductTypes(products);
+    final Map<ProductType, List<String>> productTypes = await DaoProduct(
+      localDatabase,
+    ).getProductTypes(products);
     for (final MapEntry<ProductType, List<String>> entry
         in productTypes.entries) {
       return shareProductList(entry.value, entry.key);
@@ -88,7 +89,10 @@ class ProductListPopupClear extends ProductListPopupItem {
       appLocalizations.clear_long;
 
   @override
-  IconData getIconData() => Icons.delete_sweep;
+  Widget getIcon() => const Padding(
+    padding: EdgeInsetsDirectional.only(start: 1.5),
+    child: icons.Trash.clear(),
+  );
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.clear;
@@ -139,7 +143,7 @@ class ProductListPopupRename extends ProductListPopupItem {
       appLocalizations.user_list_popup_rename;
 
   @override
-  IconData getIconData() => Icons.edit;
+  Widget getIcon() => const icons.Edit(size: 16.0);
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.rename;
@@ -149,9 +153,9 @@ class ProductListPopupRename extends ProductListPopupItem {
     required final ProductList productList,
     required final LocalDatabase localDatabase,
     required final BuildContext context,
-  }) async =>
-      ProductListUserDialogHelper(DaoProductList(localDatabase))
-          .showRenameUserListDialog(context, productList);
+  }) async => ProductListUserDialogHelper(
+    DaoProductList(localDatabase),
+  ).showRenameUserListDialog(context, productList);
 }
 
 /// Popup menu item for the product list page: share list.
@@ -161,7 +165,7 @@ class ProductListPopupShare extends ProductListPopupItem {
       appLocalizations.share;
 
   @override
-  IconData getIconData() => Icons.share;
+  Widget getIcon() => icons.Share();
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.share;
@@ -177,14 +181,15 @@ class ProductListPopupShare extends ProductListPopupItem {
     final String? url = (await _getFirstUrl(
       productList: productList,
       localDatabase: localDatabase,
-    ))
-        ?.toString();
+    ))?.toString();
     if (url != null) {
       AnalyticsHelper.trackEvent(AnalyticsEvent.shareList);
       unawaited(
-        Share.share(
-          appLocalizations.share_product_list_text(url),
-          sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+        SharePlus.instance.share(
+          ShareParams(
+            text: appLocalizations.share_product_list_text(url),
+            sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size,
+          ),
         ),
       );
     }
@@ -199,7 +204,7 @@ class ProductListPopupOpenInWeb extends ProductListPopupItem {
       appLocalizations.label_web;
 
   @override
-  IconData getIconData() => Icons.public;
+  Widget getIcon() => const icons.Countries();
 
   @override
   ProductListPopupMenuEntry getEntry() =>
@@ -230,7 +235,7 @@ class ProductListPopupExport extends ProductListPopupItem {
       appLocalizations.product_list_export;
 
   @override
-  IconData getIconData() => Icons.download;
+  Widget getIcon() => const icons.Download();
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.export;
@@ -256,15 +261,17 @@ class ProductListPopupExport extends ProductListPopupItem {
     ).exportBarcodesToString();
 
     unawaited(
-      Share.shareXFiles(
-        <XFile>[
-          XFile.fromData(
-            utf8.encode(csv),
-            name: '$fileName.csv',
-            mimeType: 'text/csv',
-          ),
-        ],
-        fileNameOverrides: <String>['$fileName.csv'],
+      SharePlus.instance.share(
+        ShareParams(
+          files: <XFile>[
+            XFile.fromData(
+              utf8.encode(csv),
+              name: '$fileName.csv',
+              mimeType: 'text/csv',
+            ),
+          ],
+          fileNameOverrides: <String>['$fileName.csv'],
+        ),
       ),
     );
 
@@ -273,8 +280,11 @@ class ProductListPopupExport extends ProductListPopupItem {
 
   String _buildFileName(String listName) {
     final String name = listName.replaceAll(' ', '-').toLowerCase();
-    final String timestamp =
-        DateTime.now().toIso8601String().replaceAll(':', '_').split('.').first;
+    final String timestamp = DateTime.now()
+        .toIso8601String()
+        .replaceAll(':', '_')
+        .split('.')
+        .first;
 
     return '$name-$timestamp.csv';
   }
@@ -287,7 +297,7 @@ class ProductListPopupImport extends ProductListPopupItem {
       appLocalizations.product_list_import;
 
   @override
-  IconData getIconData() => Icons.upload;
+  Widget getIcon() => const icons.Upload();
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.import;
@@ -326,7 +336,7 @@ class ProductListPopupDelete extends ProductListPopupItem {
       appLocalizations.action_delete_list;
 
   @override
-  IconData getIconData() => Icons.delete;
+  Widget getIcon() => const icons.Trash();
 
   @override
   ProductListPopupMenuEntry getEntry() => ProductListPopupMenuEntry.delete;
@@ -337,9 +347,9 @@ class ProductListPopupDelete extends ProductListPopupItem {
     required final LocalDatabase localDatabase,
     required final BuildContext context,
   }) async {
-    final bool deleted =
-        await ProductListUserDialogHelper(DaoProductList(localDatabase))
-            .showDeleteUserListDialog(context, productList);
+    final bool deleted = await ProductListUserDialogHelper(
+      DaoProductList(localDatabase),
+    ).showDeleteUserListDialog(context, productList);
     return deleted ? null : productList;
   }
 }

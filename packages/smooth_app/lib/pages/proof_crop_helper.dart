@@ -4,17 +4,16 @@ import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/proof_type_extensions.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Crop Helper for proof images: brand new image.
 class ProofCropHelper extends CropHelper {
-  ProofCropHelper({
-    required this.model,
-  });
+  ProofCropHelper({required this.model});
 
   final PriceModel model;
 
@@ -26,7 +25,7 @@ class ProofCropHelper extends CropHelper {
       model.proofType.getTitle(appLocalizations);
 
   @override
-  IconData getProcessIcon() => Icons.check;
+  Widget getProcessIcon() => const icons.Check();
 
   @override
   String getProcessLabel(final AppLocalizations appLocalizations) =>

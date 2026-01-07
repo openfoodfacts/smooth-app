@@ -19,14 +19,15 @@ class SmoothImage extends StatelessWidget {
     this.heroTag,
     this.cacheWidth,
     this.cacheHeight,
-  })  : assert(
-          cacheWidth == null || imageProvider is NetworkImage,
-          'cacheWidth requires a NetworkImage',
-        ),
-        assert(
-          cacheHeight == null || imageProvider is NetworkImage,
-          'cacheHeight requires a NetworkImage',
-        );
+    this.semanticsLabel,
+  }) : assert(
+         cacheWidth == null || imageProvider is NetworkImage,
+         'cacheWidth requires a NetworkImage',
+       ),
+       assert(
+         cacheHeight == null || imageProvider is NetworkImage,
+         'cacheHeight requires a NetworkImage',
+       );
 
   final ImageProvider? imageProvider;
   final double? height;
@@ -38,33 +39,34 @@ class SmoothImage extends StatelessWidget {
   final bool rounded;
   final int? cacheWidth;
   final int? cacheHeight;
+  final String? semanticsLabel;
 
   @override
   Widget build(BuildContext context) {
     Widget child = switch (imageProvider) {
       NetworkImage(url: final String url) => Image.network(
-          url,
-          fit: fit,
-          loadingBuilder: _loadingBuilder,
-          errorBuilder: _errorBuilder,
-          frameBuilder: (_, Widget child, int? frame, ____) {
-            if (frame == null) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
+        url,
+        fit: fit,
+        semanticLabel: semanticsLabel,
+        loadingBuilder: _loadingBuilder,
+        errorBuilder: _errorBuilder,
+        frameBuilder: (_, Widget child, int? frame, _) {
+          if (frame == null) {
+            return const Center(child: CircularProgressIndicator());
+          }
 
-            return child;
-          },
-          cacheWidth: cacheWidth,
-          cacheHeight: cacheHeight,
-        ),
+          return child;
+        },
+        cacheWidth: cacheWidth,
+        cacheHeight: cacheHeight,
+      ),
       ImageProvider<Object>() => Image(
-          image: imageProvider!,
-          fit: fit,
-          loadingBuilder: _loadingBuilder,
-          errorBuilder: _errorBuilder,
-        ),
+        image: imageProvider!,
+        fit: fit,
+        semanticLabel: semanticsLabel,
+        loadingBuilder: _loadingBuilder,
+        errorBuilder: _errorBuilder,
+      ),
       _ => const PictureNotFound(),
     };
 
@@ -73,17 +75,15 @@ class SmoothImage extends StatelessWidget {
     }
 
     child = Container(
-        decoration: decoration,
-        width: width,
-        height: height,
-        color: color,
-        child: child);
+      decoration: decoration,
+      width: width,
+      height: height,
+      color: color,
+      child: child,
+    );
 
     if (rounded) {
-      child = ClipRRect(
-        borderRadius: ROUNDED_BORDER_RADIUS,
-        child: child,
-      );
+      child = ClipRRect(borderRadius: ROUNDED_BORDER_RADIUS, child: child);
     }
 
     return child;
@@ -109,35 +109,26 @@ class SmoothImage extends StatelessWidget {
           padding: const EdgeInsets.all(SMALL_SPACE),
           child: const SmoothAnimatedLogo(),
         ),
-        layoutBuilder: (
-          Widget topChild,
-          Key topChildKey,
-          Widget bottomChild,
-          Key bottomChildKey,
-        ) {
-          return Stack(
-            clipBehavior: Clip.none,
-            children: <Widget>[
-              Positioned.fill(
-                key: bottomChildKey,
-                child: bottomChild,
-              ),
-              Positioned.fill(
-                key: topChildKey,
-                child: topChild,
-              ),
-            ],
-          );
-        },
+        layoutBuilder:
+            (
+              Widget topChild,
+              Key topChildKey,
+              Widget bottomChild,
+              Key bottomChildKey,
+            ) {
+              return Stack(
+                clipBehavior: Clip.none,
+                children: <Widget>[
+                  Positioned.fill(key: bottomChildKey, child: bottomChild),
+                  Positioned.fill(key: topChildKey, child: topChild),
+                ],
+              );
+            },
       ),
     );
   }
 
-  Widget _errorBuilder(
-    BuildContext context,
-    Object _,
-    StackTrace? __,
-  ) {
+  Widget _errorBuilder(BuildContext context, _, _) {
     return Container(
       color: Theme.of(context).primaryColor.withValues(alpha: 0.1),
       padding: const EdgeInsets.all(SMALL_SPACE),
@@ -146,9 +137,7 @@ class SmoothImage extends StatelessWidget {
           Colors.grey.withValues(alpha: 0.7),
           BlendMode.srcIn,
         ),
-        child: const PictureNotFound(
-          style: PictureNotFoundStyle.sad,
-        ),
+        child: const PictureNotFound(style: PictureNotFoundStyle.sad),
       ),
     );
   }

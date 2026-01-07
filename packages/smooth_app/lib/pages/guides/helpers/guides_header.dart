@@ -4,8 +4,10 @@ import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A collapsing header with:
 /// In the expanded state:
@@ -22,8 +24,6 @@ class GuidesHeader extends StatelessWidget {
     super.key,
   });
 
-  static const double HEADER_HEIGHT = 250.0;
-
   final String title;
   final Widget illustration;
 
@@ -32,9 +32,7 @@ class GuidesHeader extends StatelessWidget {
     return DefaultTextStyle.merge(
       style: const TextStyle(color: Colors.white),
       child: SliverPadding(
-        padding: const EdgeInsetsDirectional.only(
-          bottom: BALANCED_SPACE,
-        ),
+        padding: const EdgeInsetsDirectional.only(bottom: BALANCED_SPACE),
         // Pinned = for the header to stay at the top of the screen
         sliver: SliverPersistentHeader(
           floating: false,
@@ -43,6 +41,7 @@ class GuidesHeader extends StatelessWidget {
             title: title,
             illustration: illustration,
             topPadding: MediaQuery.viewPaddingOf(context).top,
+            height: context.read<GuidesHeaderType>().height,
           ),
         ),
       ),
@@ -50,17 +49,28 @@ class GuidesHeader extends StatelessWidget {
   }
 }
 
+enum GuidesHeaderType {
+  large(250.0),
+  small(200.0);
+
+  const GuidesHeaderType(this.height);
+
+  final double height;
+}
+
 class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
   const _GuidesHeaderDelegate({
     required this.title,
     required this.illustration,
     required this.topPadding,
-  })  : assert(title.length > 0),
-        assert(topPadding >= 0.0);
+    required this.height,
+  }) : assert(title.length > 0),
+       assert(topPadding >= 0.0);
 
   final String title;
   final Widget illustration;
   final double topPadding;
+  final double height;
 
   @override
   Widget build(
@@ -68,10 +78,18 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
-    final double progress =
-        shrinkOffset.progressAndClamp(0.0, maxExtent - minExtent, 1.0);
+    final SmoothColorsThemeExtension colors = Theme.of(
+      context,
+    ).extension<SmoothColorsThemeExtension>()!;
+    final double progress = shrinkOffset.progressAndClamp(
+      0.0,
+      maxExtent - minExtent,
+      1.0,
+    );
+
+    final Color backgroundColor = context.lightTheme()
+        ? colors.primaryDark
+        : colors.primaryUltraBlack;
 
     return Provider<double>.value(
       value: progress,
@@ -79,27 +97,27 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
         decoration: ShapeDecoration(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.vertical(
-              bottom: HEADER_ROUNDED_RADIUS * (1 - progress),
+              bottom: HEADER_ROUNDED_RADIUS * (1.0 - progress),
             ),
           ),
-          color: colors.primaryDark,
+          color: backgroundColor,
           shadows: <BoxShadow>[
             BoxShadow(
-              color: Colors.black
-                  .withValues(alpha: progress.progressAndClamp(0.5, 1, 0.2)),
+              color: Colors.black.withValues(
+                alpha: progress.progressAndClamp(0.5, 1, 0.2),
+              ),
               offset: const Offset(0.5, 0.5),
               blurRadius: 2.0,
             ),
           ],
         ),
-        padding: const EdgeInsetsDirectional.symmetric(
-          horizontal: VERY_LARGE_SPACE,
+        padding: const EdgeInsetsDirectional.only(
+          start: VERY_SMALL_SPACE,
+          end: VERY_LARGE_SPACE,
         ),
         child: ClipRRect(
           child: CustomMultiChildLayout(
-            delegate: _GuidesHeaderLayout(
-              topPadding: topPadding,
-            ),
+            delegate: _GuidesHeaderLayout(topPadding: topPadding),
             children: <Widget>[
               LayoutId(
                 id: _GuidesHeaderLayoutId.expandedTitle,
@@ -107,13 +125,15 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
                   opacity: 1 - progress,
                   child: OverflowBox(
                     fit: OverflowBoxFit.deferToChild,
-                    maxHeight: GuidesHeader.HEADER_HEIGHT -
-                        10 -
-                        _CloseButtonLayout._CLOSE_BUTTON_SIZE,
+                    maxHeight:
+                        height - 10.0 - _CloseButtonLayout._CLOSE_BUTTON_SIZE,
                     child: Align(
                       alignment: Alignment.bottomLeft,
                       child: Padding(
-                        padding: const EdgeInsets.only(bottom: BALANCED_SPACE),
+                        padding: const EdgeInsetsDirectional.only(
+                          start: LARGE_SPACE,
+                          bottom: BALANCED_SPACE,
+                        ),
                         child: AutoSizeText(
                           title,
                           maxLines: 4,
@@ -132,12 +152,12 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
               LayoutId(
                 id: _GuidesHeaderLayoutId.illustration,
                 child: OverflowBox(
-                  maxHeight: GuidesHeader.HEADER_HEIGHT - 33,
+                  maxHeight: height - 33.0,
                   fit: OverflowBoxFit.deferToChild,
                   child: Offstage(
                     offstage: progress == 1.0,
                     child: Opacity(
-                      opacity: 1 - progress,
+                      opacity: 1.0 - progress,
                       child: illustration,
                     ),
                   ),
@@ -163,7 +183,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
               LayoutId(
                 id: _GuidesHeaderLayoutId.closeButton,
-                child: const _BackButton(),
+                child: _BackButton(color: backgroundColor),
               ),
             ],
           ),
@@ -173,7 +193,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => GuidesHeader.HEADER_HEIGHT + topPadding;
+  double get maxExtent => height + topPadding;
 
   @override
   double get minExtent => kToolbarHeight + topPadding;
@@ -185,9 +205,7 @@ class _GuidesHeaderDelegate extends SliverPersistentHeaderDelegate {
 }
 
 class _GuidesHeaderLayout extends MultiChildLayoutDelegate {
-  _GuidesHeaderLayout({
-    required this.topPadding,
-  });
+  _GuidesHeaderLayout({required this.topPadding});
 
   final double topPadding;
 
@@ -199,31 +217,20 @@ class _GuidesHeaderLayout extends MultiChildLayoutDelegate {
     final Size closeButtonSize = layoutChild(
       _GuidesHeaderLayoutId.closeButton,
       BoxConstraints.loose(
-        Size(
-          size.width * 0.6,
-          _CloseButtonLayout._CLOSE_BUTTON_SIZE,
-        ),
+        Size(size.width * 0.6, _CloseButtonLayout._CLOSE_BUTTON_SIZE),
       ),
     );
 
     layoutChild(
       _GuidesHeaderLayoutId.expandedTitle,
       BoxConstraints.loose(
-        Size(
-          size.width * 0.6,
-          maxHeight - closeButtonSize.height,
-        ),
+        Size(size.width * 0.6, maxHeight - closeButtonSize.height),
       ),
     );
 
     final Size illustrationSize = layoutChild(
       _GuidesHeaderLayoutId.illustration,
-      BoxConstraints.loose(
-        Size(
-          size.width * 0.4,
-          maxHeight,
-        ),
-      ),
+      BoxConstraints.loose(Size(size.width * 0.4, maxHeight)),
     );
 
     layoutChild(
@@ -243,8 +250,10 @@ class _GuidesHeaderLayout extends MultiChildLayoutDelegate {
     );
     positionChild(
       _GuidesHeaderLayoutId.illustration,
-      Offset(size.width * 0.6,
-          topPadding + (maxHeight - illustrationSize.height) + 5.0),
+      Offset(
+        size.width * 0.6,
+        topPadding + (maxHeight - illustrationSize.height) + 5.0,
+      ),
     );
 
     positionChild(
@@ -270,23 +279,22 @@ enum _GuidesHeaderLayoutId {
 }
 
 class _BackButton extends StatelessWidget {
-  const _BackButton();
+  const _BackButton({required this.color});
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors =
-        Theme.of(context).extension<SmoothColorsThemeExtension>()!;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SizedBox(
       height: _CloseButtonLayout._CLOSE_BUTTON_SIZE,
       child: Material(
         type: MaterialType.transparency,
         child: Consumer<double>(
-          builder: (_, double progress, __) {
+          builder: (_, double progress, _) {
             return CustomMultiChildLayout(
-              delegate: _CloseButtonLayout(
-                progress: 1 - progress,
-              ),
+              delegate: _CloseButtonLayout(progress: 1 - progress),
               children: <Widget>[
                 LayoutId(
                   id: _CloseButtonLayoutId.text,
@@ -300,12 +308,12 @@ class _BackButton extends StatelessWidget {
                         ),
                         child: Opacity(
                           opacity: 1 - progress.progressAndClamp(0.0, 0.7, 1.0),
-                          child: const Text(
-                            'Guide',
-                            style: TextStyle(
+                          child: Text(
+                            appLocalizations.guide_title,
+                            style: const TextStyle(
                               fontSize: 18.0,
                               color: Colors.white,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
@@ -322,18 +330,16 @@ class _BackButton extends StatelessWidget {
                     ),
                     child: SizedBox.square(
                       dimension: 36.0,
-                      child: Close(
-                        size: 16.0,
-                        color: colors.primaryBlack,
-                      ),
+                      child: icons.Close.bold(size: 16.0, color: color),
                     ),
                   ),
                 ),
                 LayoutId(
                   id: _CloseButtonLayoutId.background,
                   child: Tooltip(
-                    message:
-                        MaterialLocalizations.of(context).closeButtonTooltip,
+                    message: MaterialLocalizations.of(
+                      context,
+                    ).closeButtonTooltip,
                     child: InkWell(
                       onTap: () => Navigator.of(context).maybePop(true),
                       borderRadius: ROUNDED_BORDER_RADIUS,
@@ -342,10 +348,7 @@ class _BackButton extends StatelessWidget {
                         child: Container(
                           decoration: const ShapeDecoration(
                             shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                color: Colors.white,
-                                width: 1.0,
-                              ),
+                              side: BorderSide(color: Colors.white, width: 1.0),
                               borderRadius: ROUNDED_BORDER_RADIUS,
                             ),
                           ),
@@ -365,7 +368,7 @@ class _BackButton extends StatelessWidget {
 
 class _CloseButtonLayout extends MultiChildLayoutDelegate {
   _CloseButtonLayout({required this.progress})
-      : assert(progress >= 0.0 && progress <= 1.0);
+    : assert(progress >= 0.0 && progress <= 1.0);
 
   static const double _CLOSE_BUTTON_SIZE = 36.0;
 
@@ -382,10 +385,7 @@ class _CloseButtonLayout extends MultiChildLayoutDelegate {
     );
 
     if (progress == 0.0) {
-      layoutChild(
-        _CloseButtonLayoutId.text,
-        BoxConstraints.loose(Size.zero),
-      );
+      layoutChild(_CloseButtonLayoutId.text, BoxConstraints.loose(Size.zero));
 
       layoutChild(
         _CloseButtonLayoutId.background,
@@ -437,8 +437,4 @@ class _CloseButtonLayout extends MultiChildLayoutDelegate {
   }
 }
 
-enum _CloseButtonLayoutId {
-  closeButton,
-  text,
-  background,
-}
+enum _CloseButtonLayoutId { closeButton, text, background }

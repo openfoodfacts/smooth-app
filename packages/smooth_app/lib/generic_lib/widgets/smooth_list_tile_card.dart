@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/themes/constant_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -27,17 +27,17 @@ class SmoothListTileCard extends StatelessWidget {
     EdgeInsetsGeometry? margin,
     Key? key,
   }) : this(
-          title: title,
-          subtitle: subtitle,
-          key: key,
-          onTap: onTap,
-          // we use a Column to have the icon centered vertically
-          leading: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[icon ?? const Icon(Icons.edit)],
-          ),
-          margin: margin,
-        );
+         title: title,
+         subtitle: subtitle,
+         key: key,
+         onTap: onTap,
+         // we use a Column to have the icon centered vertically
+         leading: Column(
+           mainAxisAlignment: MainAxisAlignment.center,
+           children: <Widget>[icon ?? const Icon(Icons.edit)],
+         ),
+         margin: margin,
+       );
 
   final Widget? title;
   final Widget? subtitle;
@@ -47,8 +47,8 @@ class SmoothListTileCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return SmoothCard(
@@ -81,7 +81,7 @@ class SmoothListTileCard extends StatelessWidget {
                   ),
                 )
               : null,
-          trailing: Icon(ConstantIcons.forwardIcon),
+          trailing: const icons.Chevron.right(size: 15.0),
         ),
       ),
     );

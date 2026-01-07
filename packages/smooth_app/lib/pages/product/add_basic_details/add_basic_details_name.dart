@@ -3,10 +3,10 @@ import 'dart:math' as math;
 
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/languages_selector.dart';
@@ -14,17 +14,19 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/paint_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/input/debounced_text_editing_controller.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_languages_list.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_explanation_banner.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
 
 /// Widget to edit the product name in multiple languages
@@ -36,10 +38,8 @@ class AddProductNameInputWidget extends StatefulWidget {
   });
 
   final Product product;
-  final Function(
-    ImageField imageField,
-    OpenFoodFactsLanguage language,
-  ) onShowImagePreview;
+  final Function(ImageField imageField, OpenFoodFactsLanguage language)
+  onShowImagePreview;
 
   @override
   State<AddProductNameInputWidget> createState() =>
@@ -48,7 +48,7 @@ class AddProductNameInputWidget extends StatefulWidget {
 
 class _AddProductNameInputWidgetState extends State<AddProductNameInputWidget> {
   final Map<OpenFoodFactsLanguage, DebouncedTextEditingController>
-      _controllers = <OpenFoodFactsLanguage, DebouncedTextEditingController>{};
+  _controllers = <OpenFoodFactsLanguage, DebouncedTextEditingController>{};
 
   static const int MIN_COLLAPSED_COUNT = 3;
 
@@ -73,104 +73,130 @@ class _AddProductNameInputWidgetState extends State<AddProductNameInputWidget> {
           ],
         ),
         contentPadding: EdgeInsets.zero,
-        child: ValueNotifierListener<ProductNameEditorProvider,
-            _ProductNameEditorProviderState>(
-          listener: (
-            final BuildContext context,
-            _ProductNameEditorProviderState? oldValue,
-            _ProductNameEditorProviderState value,
-          ) {
-            if (oldValue?.productNames.length != value.productNames.length) {
-              for (final _EditingProductName productName
-                  in value.productNames) {
-                if (!_controllers.containsKey(productName.language)) {
-                  _controllers[productName.language] =
-                      DebouncedTextEditingController(
-                    controller: TextEditingController(text: productName.name)
-                      ..addListener(
-                        () {
-                          context
-                              .read<ProductNameEditorProvider>()
-                              .onNameChanged(
-                                productName.language,
-                                _controllers[productName.language]!.text,
-                              );
+        child:
+            ValueNotifierListener<
+              ProductNameEditorProvider,
+              _ProductNameEditorProviderState
+            >(
+              listener:
+                  (
+                    final BuildContext context,
+                    _ProductNameEditorProviderState? oldValue,
+                    _ProductNameEditorProviderState value,
+                  ) {
+                    if (oldValue?.productNames.length !=
+                        value.productNames.length) {
+                      for (final _EditingProductName productName
+                          in value.productNames) {
+                        if (!_controllers.containsKey(productName.language)) {
+                          _controllers[productName
+                              .language] = DebouncedTextEditingController(
+                            controller:
+                                TextEditingController(text: productName.name)
+                                  ..addListener(() {
+                                    context
+                                        .read<ProductNameEditorProvider>()
+                                        .onNameChanged(
+                                          productName.language,
+                                          _controllers[productName.language]!
+                                              .text,
+                                        );
+                                  }),
+                          );
+                        }
+                      }
+                    }
+                  },
+              child:
+                  ConsumerValueNotifierFilter<
+                    ProductNameEditorProvider,
+                    _ProductNameEditorProviderState
+                  >(
+                    buildWhen:
+                        (
+                          _ProductNameEditorProviderState? oldValue,
+                          _ProductNameEditorProviderState value,
+                        ) =>
+                            oldValue?.productNames.length !=
+                                value.productNames.length ||
+                            oldValue?.addedLanguages.length !=
+                                value.addedLanguages.length,
+                    builder:
+                        (
+                          final BuildContext context,
+                          final _ProductNameEditorProviderState value,
+                          _,
+                        ) {
+                          final int count = _collapsed
+                              ? math.min(
+                                  value.productNames.length -
+                                      value.addedLanguages.length,
+                                  MIN_COLLAPSED_COUNT,
+                                )
+                              : value.productNames.length;
+
+                          final bool collapsed =
+                              _collapsed &&
+                              value.productNames.length -
+                                      value.addedLanguages.length >
+                                  MIN_COLLAPSED_COUNT;
+
+                          return Column(
+                            children: <Widget>[
+                              ...value.productNames
+                                  .sublist(0, count)
+                                  .map(
+                                    (
+                                      _EditingProductName productName,
+                                    ) => _ProductNameInputWidget(
+                                      productName: productName,
+                                      controller:
+                                          _controllers[productName.language]!,
+                                      onShowImagePreview: () {
+                                        widget.onShowImagePreview(
+                                          ImageField.FRONT,
+                                          productName.language,
+                                        );
+                                      },
+                                    ),
+                                  ),
+                              if (value.addedLanguages.isNotEmpty &&
+                                  _collapsed) ...<Widget>[
+                                const _ProductNameNewTranslationWarning(),
+                                ...value.productNames
+                                    .sublist(
+                                      value.productNames.length -
+                                          value.addedLanguages.length,
+                                    )
+                                    .map(
+                                      (
+                                        _EditingProductName productName,
+                                      ) => _ProductNameInputWidget(
+                                        productName: productName,
+                                        controller:
+                                            _controllers[productName.language]!,
+                                        onShowImagePreview: () {
+                                          widget.onShowImagePreview(
+                                            ImageField.FRONT,
+                                            productName.language,
+                                          );
+                                        },
+                                      ),
+                                    ),
+                              ],
+                              if (collapsed)
+                                _ProductNameCollapsedSection(
+                                  onTap: () => setState(() {
+                                    _collapsed = false;
+                                  }),
+                                )
+                              else
+                                const SizedBox(height: BALANCED_SPACE),
+                            ],
+                          );
                         },
-                      ),
-                  );
-                }
-              }
-            }
-          },
-          child: ConsumerValueNotifierFilter<ProductNameEditorProvider,
-              _ProductNameEditorProviderState>(
-            buildWhen: (_ProductNameEditorProviderState? oldValue,
-                    _ProductNameEditorProviderState value) =>
-                oldValue?.productNames.length != value.productNames.length ||
-                oldValue?.addedLanguages.length != value.addedLanguages.length,
-            builder: (
-              final BuildContext context,
-              final _ProductNameEditorProviderState value,
-              _,
-            ) {
-              final int count = _collapsed
-                  ? math.min(
-                      value.productNames.length - value.addedLanguages.length,
-                      MIN_COLLAPSED_COUNT)
-                  : value.productNames.length;
-
-              final bool collapsed = _collapsed &&
-                  value.productNames.length - value.addedLanguages.length >
-                      MIN_COLLAPSED_COUNT;
-
-              return Column(
-                children: <Widget>[
-                  ...value.productNames.sublist(0, count).map(
-                        (_EditingProductName productName) =>
-                            _ProductNameInputWidget(
-                          productName: productName,
-                          controller: _controllers[productName.language]!,
-                          onShowImagePreview: () {
-                            widget.onShowImagePreview(
-                              ImageField.FRONT,
-                              productName.language,
-                            );
-                          },
-                        ),
-                      ),
-                  if (value.addedLanguages.isNotEmpty &&
-                      _collapsed) ...<Widget>[
-                    const _ProductNameNewTranslationWarning(),
-                    ...value.productNames
-                        .sublist(value.productNames.length -
-                            value.addedLanguages.length)
-                        .map(
-                          (_EditingProductName productName) =>
-                              _ProductNameInputWidget(
-                            productName: productName,
-                            controller: _controllers[productName.language]!,
-                            onShowImagePreview: () {
-                              widget.onShowImagePreview(
-                                ImageField.FRONT,
-                                productName.language,
-                              );
-                            },
-                          ),
-                        ),
-                  ],
-                  if (collapsed)
-                    _ProductNameCollapsedSection(
-                      onTap: () => setState(() {
-                        _collapsed = false;
-                      }),
-                    )
-                  else
-                    const SizedBox(height: BALANCED_SPACE),
-                ],
-              );
-            },
-          ),
-        ),
+                  ),
+            ),
       ),
     );
   }
@@ -201,21 +227,23 @@ class _ProductNameAddNewLanguage extends StatelessWidget {
   }
 
   Future<void> _openLanguagePicker(BuildContext context) async {
-    final ProductNameEditorProvider provider =
-        context.read<ProductNameEditorProvider>();
+    final ProductNameEditorProvider provider = context
+        .read<ProductNameEditorProvider>();
 
     final List<OpenFoodFactsLanguage> selectedLanguages = provider
-        .value.productNames
+        .value
+        .productNames
         .map((final _EditingProductName productName) => productName.language)
         .toList(growable: false);
 
     final OpenFoodFactsLanguage? language =
         await LanguagesSelector.openLanguageSelector(
-      context,
-      selectedLanguages: selectedLanguages,
-      title: AppLocalizations.of(context)
-          .add_basic_details_product_name_add_translation,
-    );
+          context,
+          disabledLanguages: selectedLanguages,
+          title: AppLocalizations.of(
+            context,
+          ).add_basic_details_product_name_add_translation,
+        );
 
     if (language != null) {
       provider.addLanguage(language);
@@ -244,8 +272,8 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -274,22 +302,24 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
               children: <Widget>[
                 AspectRatio(
                   aspectRatio: 1.0,
-                  child: Tooltip(
-                    message: Languages().getNameInEnglish(
-                      widget.productName.language,
-                    ),
-                    child: CircleAvatar(
-                      backgroundColor: lightTheme
-                          ? extension.primaryMedium
-                          : extension.primarySemiDark,
-                      child: AutoSizeText(
-                        widget.productName.language.offTag.toUpperCase(),
-                        style: TextStyle(
-                          color: lightTheme
-                              ? extension.primaryDark
-                              : extension.primaryLight,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 17.0,
+                  child: Material(
+                    shape: const CircleBorder(),
+                    color: _getCircleBackgroundColor(lightTheme, extension),
+                    child: InkWell(
+                      customBorder: const CircleBorder(),
+                      onLongPress: _changeDefaultLanguage,
+                      child: CircleAvatar(
+                        backgroundColor: Colors.transparent,
+                        child: AutoSizeText(
+                          widget.productName.language.offTag.toUpperCase(),
+                          style: TextStyle(
+                            color: _getCircleForegroundColor(
+                              lightTheme,
+                              extension,
+                            ),
+                            fontWeight: FontWeight.w700,
+                            fontSize: 17.0,
+                          ),
                         ),
                       ),
                     ),
@@ -303,8 +333,9 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
                     textCapitalization: TextCapitalization.sentences,
                     hintText:
                         appLocalizations.add_basic_details_product_name_hint,
-                    hintTextStyle:
-                        SmoothTextFormField.defaultHintTextStyle(context),
+                    hintTextStyle: SmoothTextFormField.defaultHintTextStyle(
+                      context,
+                    ),
                     borderRadius: CIRCULAR_BORDER_RADIUS,
                     contentPadding: const EdgeInsets.symmetric(
                       horizontal: LARGE_SPACE,
@@ -317,9 +348,7 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
                 const SizedBox(width: 2.0),
                 if (widget.productName.hasPhoto || _photoTaken)
                   IconButton(
-                    icon: icons.Picture.check(
-                      color: extension.success,
-                    ),
+                    icon: icons.Picture.check(color: extension.success),
                     tooltip: appLocalizations
                         .add_basic_details_product_name_open_photo,
                     onPressed: widget.onShowImagePreview,
@@ -334,13 +363,77 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
                     tooltip: appLocalizations
                         .add_basic_details_product_name_take_photo,
                     onPressed: () => _takePicture(context),
-                  )
+                  ),
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Color _getCircleBackgroundColor(
+    bool lightTheme,
+    SmoothColorsThemeExtension extension,
+  ) {
+    if (widget.productName.mainLanguage) {
+      return lightTheme ? extension.primaryDark : extension.primaryNormal;
+    }
+    return lightTheme ? extension.primaryMedium : extension.primarySemiDark;
+  }
+
+  Color _getCircleForegroundColor(
+    bool lightTheme,
+    SmoothColorsThemeExtension extension,
+  ) {
+    if (widget.productName.mainLanguage) {
+      return lightTheme ? extension.primaryLight : extension.primaryDark;
+    }
+    return lightTheme ? extension.primaryDark : extension.primaryLight;
+  }
+
+  Future<void> _changeDefaultLanguage() async {
+    if (widget.productName.mainLanguage) {
+      return;
+    }
+
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+
+    final bool? res = await showSmoothListOfChoicesModalSheet<bool>(
+      context: context,
+      title: appLocalizations
+          .add_basic_details_product_name_change_main_language_title,
+      header: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: LARGE_SPACE,
+          vertical: MEDIUM_SPACE,
+        ),
+        child: TextWithBoldParts(
+          text: appLocalizations
+              .add_basic_details_product_name_change_main_language_text(
+                Languages().getNameInEnglish(widget.productName.language),
+              ),
+          textStyle: Theme.of(
+            context,
+          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
+        ),
+      ),
+      prefixIcons: <Widget>[
+        Icon(Icons.check_circle_rounded, color: extension.success),
+        Icon(Icons.cancel_rounded, color: extension.error),
+      ],
+      labels: <String>[appLocalizations.yes, appLocalizations.cancel],
+      values: <bool>[true, false],
+      safeArea: true,
+    );
+
+    if (mounted && res == true) {
+      context.read<ProductNameEditorProvider>().changeDefaultLanguage(
+        widget.productName.language,
+      );
+    }
   }
 
   Future<void> _takePicture(BuildContext context) async {
@@ -359,23 +452,25 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
 }
 
 class _ProductNameCollapsedSection extends StatelessWidget {
-  const _ProductNameCollapsedSection({
-    required this.onTap,
-  });
+  const _ProductNameCollapsedSection({required this.onTap});
 
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
-    final _ProductNameEditorProviderState state =
-        context.watch<ProductNameEditorProvider>().value;
-    final int count = state.productNames.length -
-        (math.min(state.productNames.length,
-                _AddProductNameInputWidgetState.MIN_COLLAPSED_COUNT) +
+    final _ProductNameEditorProviderState state = context
+        .watch<ProductNameEditorProvider>()
+        .value;
+    final int count =
+        state.productNames.length -
+        (math.min(
+              state.productNames.length,
+              _AddProductNameInputWidgetState.MIN_COLLAPSED_COUNT,
+            ) +
             state.addedLanguages.length);
 
     return Column(
@@ -383,10 +478,11 @@ class _ProductNameCollapsedSection extends StatelessWidget {
       children: <Widget>[
         const SizedBox(height: BALANCED_SPACE),
         CustomPaint(
-          foregroundPainter: DashedLinePainter(
+          foregroundPainter: DashedBorderPainter(
             color: extension.primaryMedium,
             dashGap: 4.0,
             dashSpace: 4.0,
+            sides: <Side>{Side.top},
           ),
           size: const Size(double.infinity, 1.0),
           child: Ink(
@@ -406,9 +502,7 @@ class _ProductNameCollapsedSection extends StatelessWidget {
                 bottomRight: ROUNDED_RADIUS,
               ),
               child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: SMALL_SPACE,
-                ),
+                padding: const EdgeInsets.symmetric(vertical: SMALL_SPACE),
                 child: icons.AppIconTheme(
                   color: lightTheme
                       ? extension.greyMedium
@@ -420,8 +514,9 @@ class _ProductNameCollapsedSection extends StatelessWidget {
                       const icons.DoubleChevron.down(),
                       const SizedBox(width: SMALL_SPACE),
                       Text(
-                        AppLocalizations.of(context)
-                            .add_basic_details_product_name_other_translations(
+                        AppLocalizations.of(
+                          context,
+                        ).add_basic_details_product_name_other_translations(
                           count,
                         ),
                         textAlign: TextAlign.center,
@@ -520,8 +615,8 @@ class _ProductNameNewTranslationWarningState
       return EMPTY_WIDGET;
     }
 
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     double? height;
@@ -574,8 +669,9 @@ class _ProductNameNewTranslationWarningState
                       children: <Widget>[
                         Expanded(
                           child: TextWithBoldParts(
-                            text: AppLocalizations.of(context)
-                                .add_basic_details_product_name_warning_translations,
+                            text: AppLocalizations.of(
+                              context,
+                            ).add_basic_details_product_name_warning_translations,
                             textStyle: const TextStyle(height: 1.6),
                           ),
                         ),
@@ -590,14 +686,16 @@ class _ProductNameNewTranslationWarningState
                           child: Material(
                             type: MaterialType.transparency,
                             child: Tooltip(
-                              message: MaterialLocalizations.of(context)
-                                  .closeButtonTooltip,
+                              message: MaterialLocalizations.of(
+                                context,
+                              ).closeButtonTooltip,
                               child: InkWell(
                                 customBorder: const CircleBorder(),
                                 onTap: _startAnimation,
                                 child: const Padding(
-                                  padding:
-                                      EdgeInsetsDirectional.all(SMALL_SPACE),
+                                  padding: EdgeInsetsDirectional.all(
+                                    SMALL_SPACE,
+                                  ),
                                   child: icons.Close(
                                     size: 10.0,
                                     color: Colors.white,
@@ -624,16 +722,17 @@ class _ProductNameNewTranslationWarningState
       return;
     }
 
-    _controller = AnimationController(
-      duration: SmoothAnimationsDuration.medium,
-      vsync: this,
-    )
-      ..addListener(() => setState(() {}))
-      ..addStatusListener((final AnimationStatus status) {
-        if (status == AnimationStatus.completed) {
-          context.read<UserPreferences>().hideInputProductNameBanner();
-        }
-      });
+    _controller =
+        AnimationController(
+            duration: SmoothAnimationsDuration.medium,
+            vsync: this,
+          )
+          ..addListener(() => setState(() {}))
+          ..addStatusListener((final AnimationStatus status) {
+            if (status == AnimationStatus.completed) {
+              context.read<UserPreferences>().hideInputProductNameBanner();
+            }
+          });
     _animation = Tween<double>(begin: 0.0, end: _size!.height).animate(
       CurvedAnimation(curve: Curves.easeInOutCubic, parent: _controller!),
     );
@@ -649,10 +748,7 @@ class _ProductNameNewTranslationWarningState
 
 class ProductNameEditorProvider
     extends ValueNotifier<_ProductNameEditorProviderState> {
-  ProductNameEditorProvider()
-      : super(
-          _ProductNameEditorProviderState.init(),
-        );
+  ProductNameEditorProvider() : super(_ProductNameEditorProviderState.init());
 
   void loadLanguages({
     required final Product product,
@@ -668,8 +764,9 @@ class ProductNameEditorProvider
         product.productNameInLanguages;
     if (multilingualTexts != null) {
       for (final OpenFoodFactsLanguage language in multilingualTexts.keys) {
-        final String name =
-            MultilingualHelper.getCleanText(multilingualTexts[language]);
+        final String name = MultilingualHelper.getCleanText(
+          multilingualTexts[language],
+        );
         if (name.isNotEmpty) {
           localizedNames[language] = name;
         }
@@ -681,8 +778,10 @@ class ProductNameEditorProvider
       for (final ProductImage image in product.images!) {
         if (image.field == imageField) {
           if (image.language != null &&
-              !productNames.any((final _EditingProductName productName) =>
-                  productName.language == image.language)) {
+              !productNames.any(
+                (final _EditingProductName productName) =>
+                    productName.language == image.language,
+              )) {
             final OpenFoodFactsLanguage language = image.language!;
 
             if (localizedNames.containsKey(language)) {
@@ -691,6 +790,7 @@ class ProductNameEditorProvider
                   language: language,
                   initialName: localizedNames[language]!,
                   hasPhoto: true,
+                  mainLanguage: language == product.lang,
                 ),
               );
             } else {
@@ -699,6 +799,7 @@ class ProductNameEditorProvider
                   language: language,
                   initialName: '',
                   hasPhoto: true,
+                  mainLanguage: language == product.lang,
                 ),
               );
             }
@@ -709,13 +810,16 @@ class ProductNameEditorProvider
 
     /// Add existing languages without photo
     for (final OpenFoodFactsLanguage language in localizedNames.keys) {
-      if (!productNames.any((final _EditingProductName productName) =>
-          productName.language == language)) {
+      if (!productNames.any(
+        (final _EditingProductName productName) =>
+            productName.language == language,
+      )) {
         productNames.add(
           _EditingProductName.initial(
             language: language,
             initialName: localizedNames[language]!,
             hasPhoto: false,
+            mainLanguage: language == product.lang,
           ),
         );
       }
@@ -723,44 +827,57 @@ class ProductNameEditorProvider
 
     /// Add user language
     if (userLanguage != null) {
-      if (!productNames.any((final _EditingProductName productName) =>
-          productName.language == userLanguage)) {
+      if (!productNames.any(
+        (final _EditingProductName productName) =>
+            productName.language == userLanguage,
+      )) {
         productNames.add(
           _EditingProductName.initial(
             language: userLanguage,
             initialName: '',
             hasPhoto: false,
+            mainLanguage: userLanguage == product.lang,
           ),
         );
       }
     }
 
-    final OpenFoodFactsLanguage? productLanguage = product.lang;
-    productNames.sort(
-      (final _EditingProductName a, final _EditingProductName b) {
-        // Product language is always first
-        if (a.language == productLanguage) {
-          return -1;
-        } else if (b.language == productLanguage) {
-          return 1;
-        }
-
-        // Then user language
-        if (a.language == userLanguage && b.language != productLanguage) {
-          return -1;
-        } else if (b.language == userLanguage &&
-            a.language != productLanguage) {
-          return 1;
-        }
-
-        return a.language.offTag.compareTo(b.language.offTag);
-      },
-    );
+    final OpenFoodFactsLanguage? productLanguage =
+        value.defaultLanguageOverride ?? product.lang;
+    _sortLanguages(productNames, productLanguage, userLanguage);
 
     value = _ProductNameEditorProviderState(
       productNames: productNames,
       addedLanguages: const <OpenFoodFactsLanguage>[],
+      defaultLanguageOverride: value.defaultLanguageOverride,
     );
+  }
+
+  void _sortLanguages(
+    List<_EditingProductName> productNames,
+    OpenFoodFactsLanguage? productLanguage,
+    OpenFoodFactsLanguage? userLanguage,
+  ) {
+    productNames.sort((
+      final _EditingProductName a,
+      final _EditingProductName b,
+    ) {
+      // Product language is always first
+      if (a.language == productLanguage) {
+        return -1;
+      } else if (b.language == productLanguage) {
+        return 1;
+      }
+
+      // Then user language
+      if (a.language == userLanguage && b.language != productLanguage) {
+        return -1;
+      } else if (b.language == userLanguage && a.language != productLanguage) {
+        return 1;
+      }
+
+      return a.language.offTag.compareTo(b.language.offTag);
+    });
   }
 
   void addLanguage(OpenFoodFactsLanguage language) {
@@ -771,6 +888,7 @@ class ProductNameEditorProvider
         language: language,
         initialName: '',
         hasPhoto: false,
+        mainLanguage: false,
       ),
     );
 
@@ -778,13 +896,11 @@ class ProductNameEditorProvider
       productNames: productNames,
       addedLanguages: List<OpenFoodFactsLanguage>.from(value.addedLanguages)
         ..add(language),
+      defaultLanguageOverride: value.defaultLanguageOverride,
     );
   }
 
-  void onNameChanged(
-    OpenFoodFactsLanguage language,
-    String name,
-  ) {
+  void onNameChanged(OpenFoodFactsLanguage language, String name) {
     final List<_EditingProductName> productNames = value.productNames;
     final int index = productNames.indexWhere(
       (final _EditingProductName productName) =>
@@ -799,8 +915,27 @@ class ProductNameEditorProvider
       value = _ProductNameEditorProviderState(
         productNames: editedProductNames,
         addedLanguages: value.addedLanguages,
+        defaultLanguageOverride: value.defaultLanguageOverride,
       );
     }
+  }
+
+  void changeDefaultLanguage(OpenFoodFactsLanguage language) {
+    final List<_EditingProductName> languages = <_EditingProductName>[];
+
+    for (final _EditingProductName productName in value.productNames) {
+      languages.add(
+        productName.copyWith(mainLanguage: productName.language == language),
+      );
+    }
+
+    _sortLanguages(languages, language, ProductQuery.getLanguage());
+
+    value = _ProductNameEditorProviderState(
+      productNames: languages,
+      addedLanguages: value.addedLanguages,
+      defaultLanguageOverride: language,
+    );
   }
 
   Map<OpenFoodFactsLanguage, String> getChangedProductNames() {
@@ -817,7 +952,8 @@ class ProductNameEditorProvider
   }
 
   bool hasChanged() {
-    if (value.addedLanguages.isNotEmpty) {
+    if (value.addedLanguages.isNotEmpty ||
+        value.defaultLanguageOverride != null) {
       return true;
     }
 
@@ -836,14 +972,17 @@ class _ProductNameEditorProviderState {
   const _ProductNameEditorProviderState({
     required this.productNames,
     required this.addedLanguages,
+    required this.defaultLanguageOverride,
   });
 
   _ProductNameEditorProviderState.init()
-      : productNames = <_EditingProductName>[],
-        addedLanguages = <OpenFoodFactsLanguage>[];
+    : productNames = <_EditingProductName>[],
+      addedLanguages = <OpenFoodFactsLanguage>[],
+      defaultLanguageOverride = null;
 
   final List<_EditingProductName> productNames;
   final List<OpenFoodFactsLanguage> addedLanguages;
+  final OpenFoodFactsLanguage? defaultLanguageOverride;
 }
 
 class _EditingProductName {
@@ -852,35 +991,41 @@ class _EditingProductName {
     required this.initialName,
     required this.name,
     required this.hasPhoto,
+    required this.mainLanguage,
   });
 
   _EditingProductName.initial({
     required OpenFoodFactsLanguage language,
     required String initialName,
     required bool hasPhoto,
+    required bool mainLanguage,
   }) : this(
-          language: language,
-          initialName: initialName,
-          name: initialName,
-          hasPhoto: hasPhoto,
-        );
+         language: language,
+         initialName: initialName,
+         name: initialName,
+         hasPhoto: hasPhoto,
+         mainLanguage: mainLanguage,
+       );
 
   final OpenFoodFactsLanguage language;
   final String initialName;
   final String name;
   final bool hasPhoto;
+  final bool mainLanguage;
 
   _EditingProductName copyWith({
     OpenFoodFactsLanguage? language,
     String? initialName,
     String? name,
     bool? hasPhoto,
+    bool? mainLanguage,
   }) {
     return _EditingProductName(
       language: language ?? this.language,
       initialName: initialName ?? this.initialName,
       name: name ?? this.name,
       hasPhoto: hasPhoto ?? this.hasPhoto,
+      mainLanguage: mainLanguage ?? this.mainLanguage,
     );
   }
 

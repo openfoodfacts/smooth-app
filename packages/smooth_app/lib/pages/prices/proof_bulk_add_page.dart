@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
 import 'package:smooth_app/pages/prices/price_bulk_proof_card.dart';
@@ -21,9 +22,7 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Single page that displays all the elements of bulk proof adding.
 class ProofBulkAddPage extends StatefulWidget {
-  const ProofBulkAddPage(
-    this.model,
-  );
+  const ProofBulkAddPage(this.model);
 
   final PriceModel model;
 
@@ -41,24 +40,19 @@ class ProofBulkAddPage extends StatefulWidget {
     }
 
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
-    final List<OsmLocation> osmLocations = await priceAddHelper.getLocations();
-    if (!context.mounted) {
-      return null;
-    }
 
     final Currency currency = priceAddHelper.getCurrency();
 
     return PriceModel(
       proofType: ProofType.priceTag,
-      locations: osmLocations,
       currency: currency,
       multipleProducts: true,
+      readyForPriceTagValidation:
+          UserPreferences.getUserPreferencesSync().readyForPriceTagValidation,
     );
   }
 
-  static Future<void> showPage({
-    required final BuildContext context,
-  }) async {
+  static Future<void> showPage({required final BuildContext context}) async {
     final PriceModel? priceModel = await _getPriceModel(context: context);
     if (priceModel == null) {
       return;
@@ -86,10 +80,7 @@ class _ProofBulkAddPageState extends State<ProofBulkAddPage>
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PriceModel>.value(
       value: widget.model,
-      builder: (
-        final BuildContext context,
-        final Widget? child,
-      ) {
+      builder: (final BuildContext context, final Widget? child) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final PriceModel model = Provider.of<PriceModel>(context);
         return Form(
@@ -98,9 +89,7 @@ class _ProofBulkAddPageState extends State<ProofBulkAddPage>
             appBar: SmoothAppBar(
               centerTitle: false,
               leading: const SmoothBackButton(),
-              title: Text(
-                appLocalizations.prices_bulk_proof_upload_title,
-              ),
+              title: Text(appLocalizations.prices_bulk_proof_upload_title),
               actions: <Widget>[
                 IconButton(
                   icon: const Icon(Icons.info),
@@ -120,15 +109,8 @@ class _ProofBulkAddPageState extends State<ProofBulkAddPage>
                   const PriceDateCard(),
                   const SizedBox(height: LARGE_SPACE),
                   PriceLocationCard(
-                    onLocationChanged: (
-                      OsmLocation? oldLocation,
-                      OsmLocation location,
-                    ) =>
-                        PriceAddHelper(context).updateCurrency(
-                      oldLocation,
-                      location,
-                      model,
-                    ),
+                    onLocationChanged: (OsmLocation location) =>
+                        PriceAddHelper(context).updateCurrency(location, model),
                   ),
                   const SizedBox(height: LARGE_SPACE),
                   const PriceCurrencyCard(),

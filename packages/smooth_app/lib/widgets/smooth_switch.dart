@@ -6,7 +6,7 @@ import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class SmoothSwitch extends StatefulWidget {
-  SmoothSwitch({
+  const SmoothSwitch({
     required this.value,
     required this.onChanged,
     this.size,
@@ -16,7 +16,7 @@ class SmoothSwitch extends StatefulWidget {
     this.backgroundActiveColor,
     this.backgroundInactiveColor,
     super.key,
-  }) : assert(size == null || (size.width >= 52.0 && size.height >= 30.0));
+  });
 
   final bool value;
   final ValueChanged<bool> onChanged;
@@ -59,6 +59,12 @@ class _SmoothSwitchState extends State<SmoothSwitch>
   }
 
   @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
+  @override
   void didUpdateWidget(covariant SmoothSwitch oldWidget) {
     super.didUpdateWidget(oldWidget);
 
@@ -74,8 +80,8 @@ class _SmoothSwitchState extends State<SmoothSwitch>
   @override
   Widget build(BuildContext context) {
     final SwitchThemeData switchTheme = Theme.of(context).switchTheme;
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Semantics(
       toggled: widget.value,
@@ -85,7 +91,8 @@ class _SmoothSwitchState extends State<SmoothSwitch>
           widget.onChanged(!widget.value);
         },
         child: Padding(
-          padding: widget.padding ??
+          padding:
+              widget.padding ??
               const EdgeInsets.symmetric(
                 horizontal: SMALL_SPACE,
                 vertical: SMALL_SPACE,
@@ -94,21 +101,29 @@ class _SmoothSwitchState extends State<SmoothSwitch>
             size: widget.size ?? const Size(52.0, 30.0),
             painter: _SmoothSwitchPainter(
               progress: _progressAnimation.value,
-              thumbActiveColor: widget.thumbActiveColor ??
-                  switchTheme.thumbColor
-                      ?.resolve(<WidgetState>{WidgetState.selected}) ??
+              thumbActiveColor:
+                  widget.thumbActiveColor ??
+                  switchTheme.thumbColor?.resolve(<WidgetState>{
+                    WidgetState.selected,
+                  }) ??
                   theme.primaryDark,
-              thumbInactiveColor: widget.thumbInactiveColor ??
-                  switchTheme.thumbColor
-                      ?.resolve(<WidgetState>{WidgetState.disabled}) ??
+              thumbInactiveColor:
+                  widget.thumbInactiveColor ??
+                  switchTheme.thumbColor?.resolve(<WidgetState>{
+                    WidgetState.disabled,
+                  }) ??
                   const Color(0xFFC2B5B0),
-              backgroundActiveColor: widget.backgroundActiveColor ??
-                  switchTheme.trackColor
-                      ?.resolve(<WidgetState>{WidgetState.selected}) ??
+              backgroundActiveColor:
+                  widget.backgroundActiveColor ??
+                  switchTheme.trackColor?.resolve(<WidgetState>{
+                    WidgetState.selected,
+                  }) ??
                   theme.primaryMedium,
-              backgroundInactiveColor: widget.backgroundInactiveColor ??
-                  switchTheme.trackColor
-                      ?.resolve(<WidgetState>{WidgetState.disabled}) ??
+              backgroundInactiveColor:
+                  widget.backgroundInactiveColor ??
+                  switchTheme.trackColor?.resolve(<WidgetState>{
+                    WidgetState.disabled,
+                  }) ??
                   theme.primaryMedium,
             ),
           ),
@@ -120,7 +135,9 @@ class _SmoothSwitchState extends State<SmoothSwitch>
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(FlagProperty('active', value: widget.value));
+    properties.add(
+      FlagProperty('active', value: widget.value, ifTrue: 'on', ifFalse: 'off'),
+    );
   }
 }
 
@@ -159,11 +176,7 @@ class _SmoothSwitchPainter extends CustomPainter {
 
     canvas.drawRRect(rrect, paint);
 
-    paint.color = Color.lerp(
-      thumbInactiveColor,
-      thumbActiveColor,
-      progress,
-    )!;
+    paint.color = Color.lerp(thumbInactiveColor, thumbActiveColor, progress)!;
 
     canvas.drawCircle(Offset(thumbPosition, radius), thumbRadius, paint);
   }

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Product Image Button unselecting the current image.
 class ProductImageUnselectButton extends ProductImageButton {
@@ -22,7 +23,7 @@ class ProductImageUnselectButton extends ProductImageButton {
   final ProductType? productType;
 
   @override
-  IconData getIconData() => Icons.do_disturb_on;
+  Widget getIcon() => const icons.Unselect();
 
   @override
   String getLabel(final AppLocalizations appLocalizations) =>
@@ -47,9 +48,7 @@ class ProductImageUnselectButton extends ProductImageButton {
       builder: (BuildContext context) {
         return SmoothAlertDialog(
           title: appLocalizations.confirm_button_label,
-          body: Text(
-            appLocalizations.are_you_sure,
-          ),
+          body: Text(appLocalizations.are_you_sure),
           close: true,
           positiveAction: SmoothActionButton(
             text: appLocalizations.yes,

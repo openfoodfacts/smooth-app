@@ -1,31 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/database/dao_osm_location.dart';
-import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
-import 'package:smooth_app/resources/app_icons.dart' as app_icons;
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 /// Helper around price/proof adding pages.
 class PriceAddHelper {
   const PriceAddHelper(this.context);
 
   final BuildContext context;
-
-  Future<List<OsmLocation>> getLocations() async {
-    final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    return DaoOsmLocation(localDatabase).getAll();
-  }
 
   Currency getCurrency() {
     final UserPreferences userPreferences = context.read<UserPreferences>();
@@ -79,31 +72,31 @@ class PriceAddHelper {
     return true;
   }
 
-  Future<void> updateCurrency(
-    OsmLocation? oldLocation,
-    OsmLocation location,
-    PriceModel model,
-  ) async {
+  Future<void> updateCurrency(OsmLocation location, PriceModel model) async {
+    model.location = location;
     if (location.countryCode == null) {
       return;
     }
-    final Currency? newCurrency =
-        OpenFoodFactsCountry.fromOffTag(location.countryCode)?.currency;
+    final Currency? newCurrency = OpenFoodFactsCountry.fromOffTag(
+      location.countryCode,
+    )?.currency;
 
     if (newCurrency != null && model.currency != newCurrency) {
       final AppLocalizations appLocalizations = AppLocalizations.of(context);
-      final SmoothColorsThemeExtension extension =
-          context.extension<SmoothColorsThemeExtension>();
+      final SmoothColorsThemeExtension extension = context
+          .extension<SmoothColorsThemeExtension>();
 
       final Currency? currency = await showSmoothAlertModalSheet<Currency?>(
         context: context,
         title: appLocalizations.prices_currency_change_proposal_title,
         message: TextWithBoldParts(
           text: appLocalizations.prices_currency_change_proposal_message(
-              model.currency.name, newCurrency.name),
-          textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                fontWeight: FontWeight.w500,
-              ),
+            model.currency.name,
+            newCurrency.name,
+          ),
+          textStyle: Theme.of(
+            context,
+          ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
         ),
         actionLabels: <String>[
           appLocalizations.prices_currency_change_proposal_action_approve(
@@ -129,8 +122,8 @@ class PriceAddHelper {
   Future<bool?> doesAcceptWarning({required final bool justInfo}) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     const Color color = Color(0xFFB81D1D);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     return showSmoothListOfChoicesModalSheet<bool>(
       safeArea: true,
       context: context,
@@ -145,69 +138,79 @@ class PriceAddHelper {
           children: <Widget>[
             TextWithBoldParts(
               text: appLocalizations.prices_privacy_warning_main_message,
-              textStyle: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+              textStyle: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
             ),
-            _buildBulletPoint(
-              appLocalizations.prices_privacy_warning_message_bullet_1,
-              context,
+            DecoratedBox(
+              decoration: BoxDecoration(
+                color: extension.warning.withValues(alpha: 0.1),
+                borderRadius: ANGULAR_BORDER_RADIUS,
+              ),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  vertical: SMALL_SPACE,
+                ),
+                child: Column(
+                  spacing: LARGE_SPACE,
+                  children: <Widget>[
+                    _buildBulletPoint(
+                      appLocalizations.prices_privacy_warning_message_bullet_1,
+                      context,
+                    ),
+                    _buildBulletPoint(
+                      appLocalizations.prices_privacy_warning_message_bullet_2,
+                      context,
+                    ),
+                  ],
+                ),
+              ),
             ),
-            const SizedBox(height: MEDIUM_SPACE),
-            _buildBulletPoint(
-              appLocalizations.prices_privacy_warning_message_bullet_2,
-              context,
-            ),
+
             const SizedBox(height: MEDIUM_SPACE),
             Text(
               appLocalizations.prices_privacy_warning_sub_message,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                    fontWeight: FontWeight.w600,
-                  ),
+              style: Theme.of(
+                context,
+              ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500),
             ),
           ],
         ),
       ),
-      labels: <String>[
-        appLocalizations.i_accept,
-        appLocalizations.i_refuse,
-      ],
-      values: <bool>[
-        true,
-        false,
-      ],
+      labels: <String>[appLocalizations.i_accept, appLocalizations.i_refuse],
+      values: <bool>[true, false],
       prefixIcons: <Widget>[
-        Icon(Icons.check_circle_rounded, color: extension.success),
-        Icon(Icons.cancel_rounded, color: extension.error),
+        icons.Check.circled(color: extension.success),
+        icons.Close.circled(color: extension.error),
       ],
       title: appLocalizations.prices_privacy_warning_title,
     );
   }
 
   Widget _buildBulletPoint(String text, BuildContext context) {
-    const double defaultIconSize = 7.0;
-    const double radius = 10.0;
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     return Row(
+      mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         const SizedBox(width: MEDIUM_SPACE),
-        CircleAvatar(
-          radius: radius,
-          backgroundColor: extension.greyMedium,
-          child: const app_icons.Arrow.right(
+        Padding(
+          padding: const EdgeInsetsDirectional.only(top: 2.0),
+          child: icons.CircledArrow.right(
+            type: icons.CircledArrowType.normal,
+            circleColor: extension.warning,
             color: Colors.white,
-            size: defaultIconSize,
+            size: 20.0,
           ),
         ),
         const SizedBox(width: SMALL_SPACE),
         Expanded(
           child: Text(
             text,
-            style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                  fontWeight: FontWeight.w600,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w600),
           ),
         ),
       ],

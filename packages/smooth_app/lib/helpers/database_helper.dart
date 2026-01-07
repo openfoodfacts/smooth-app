@@ -6,10 +6,7 @@ import 'package:smooth_app/database/dao_int.dart';
 /// The [key] is a string that is used to identify the sequence.
 ///
 /// The progressive number is saved in the database, so that it is persistent.
-Future<int> getNextSequenceNumber(
-  final DaoInt daoInt,
-  final String key,
-) async {
+Future<int> getNextSequenceNumber(final DaoInt daoInt, final String key) async {
   int? result = daoInt.get(key);
   if (result == null) {
     result = 1;

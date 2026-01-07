@@ -76,20 +76,21 @@ class _SliverCardWithRoundedHeaderState
 
     if (_height == null) {
       return SliverToBoxAdapter(
-          child: Column(
-        children: <Widget>[
-          if (widget.banner != null)
+        child: Column(
+          children: <Widget>[
+            if (widget.banner != null)
+              MeasureSize(
+                onChange: (Size size) =>
+                    setState(() => _bannerHeight = size.height),
+                child: widget.banner!,
+              ),
             MeasureSize(
-              onChange: (Size size) =>
-                  setState(() => _bannerHeight = size.height),
-              child: widget.banner!,
+              onChange: (Size size) => setState(() => _height = size.height),
+              child: Opacity(opacity: 0.0, child: child),
             ),
-          MeasureSize(
-            onChange: (Size size) => setState(() => _height = size.height),
-            child: Opacity(opacity: 0.0, child: child),
-          ),
-        ],
-      ));
+          ],
+        ),
+      );
     }
 
     return MultiSliver(
@@ -146,10 +147,7 @@ class _SliverCardWithRoundedHeaderDelegate
                   radius: ROUNDED_RADIUS,
                 )
               : null,
-          child: const SizedBox(
-            height: MEDIUM_SPACE,
-            width: double.infinity,
-          ),
+          child: const SizedBox(height: MEDIUM_SPACE, width: double.infinity),
         ),
         SmoothCardWithRoundedHeaderTopShadowProvider(
           shadow: shrinkOffset.progressAndClamp(0.0, 30.0, 1.0),
@@ -203,14 +201,11 @@ class _SliverCardWithRoundedHeaderClipPainter extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(
-    _SliverCardWithRoundedHeaderClipPainter oldDelegate,
-  ) =>
+  bool shouldRepaint(_SliverCardWithRoundedHeaderClipPainter oldDelegate) =>
       oldDelegate._paint.color != _paint.color;
 
   @override
   bool shouldRebuildSemantics(
     _SliverCardWithRoundedHeaderClipPainter oldDelegate,
-  ) =>
-      false;
+  ) => false;
 }

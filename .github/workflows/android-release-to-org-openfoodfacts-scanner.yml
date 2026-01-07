@@ -58,12 +58,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - run: echo Release type ${{ inputs.RELEASE_TYPE }} + Build type ${{ inputs.BUILD_TYPE }} + Tag name null if not github release ${{ inputs.TAG_NAME }}
 
       - name: Setup Java JDK
-        uses: actions/setup-java@v4.7.1
+        uses: actions/setup-java@v5.1.0
         with:
           distribution: 'zulu'
           java-version: ${{ env.JAVA_VERSION }}
@@ -107,7 +107,7 @@ jobs:
         run: chmod +x ci/dependencies/app_store/enable_${{ inputs.APP_REVIEW }}_dependency.sh && ci/dependencies/app_store/enable_${{ inputs.APP_REVIEW }}_dependency.sh
 
       - name: Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ci/pub_get.sh
 
       # We are using the android version code here to have the version codes from iOS and android in sync 
       # in order for Sentry and other tools to work properly

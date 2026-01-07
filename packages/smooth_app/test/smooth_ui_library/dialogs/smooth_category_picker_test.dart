@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_category_picker.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class TestCategory extends SmoothCategory<String> {
-  TestCategory(
-    super.value, [
-    Iterable<TestCategory>? children,
-  ]) : children = children?.toSet() ?? const <TestCategory>{};
+  TestCategory(super.value, [Iterable<TestCategory>? children])
+    : children = children?.toSet() ?? const <TestCategory>{};
 
   Set<TestCategory> children;
 
@@ -35,45 +33,25 @@ class TestCategory extends SmoothCategory<String> {
   Stream<SmoothCategory<String>> getParents() async* {}
 }
 
-TestCategory categories = TestCategory(
-  'fruit',
-  <TestCategory>{
-    TestCategory(
-      'apple',
-      <TestCategory>{
-        TestCategory(
-          'red',
-          <TestCategory>[
-            TestCategory('Red Delicious'),
-            TestCategory('Fuji'),
-            TestCategory('Crispin'),
-            TestCategory('Pink Lady'),
-          ],
-        ),
-        TestCategory(
-          'yellow',
-          <TestCategory>[
-            TestCategory('Yellow Delicious'),
-            TestCategory('Ginger Gold'),
-          ],
-        ),
-        TestCategory(
-          'green',
-          <TestCategory>[
-            TestCategory('Granny Smith'),
-          ],
-        ),
-      },
-    ),
-    TestCategory(
-      'berry',
-      <TestCategory>{
-        TestCategory('blueberry'),
-        TestCategory('raspberry'),
-      },
-    ),
-  },
-);
+TestCategory categories = TestCategory('fruit', <TestCategory>{
+  TestCategory('apple', <TestCategory>{
+    TestCategory('red', <TestCategory>[
+      TestCategory('Red Delicious'),
+      TestCategory('Fuji'),
+      TestCategory('Crispin'),
+      TestCategory('Pink Lady'),
+    ]),
+    TestCategory('yellow', <TestCategory>[
+      TestCategory('Yellow Delicious'),
+      TestCategory('Ginger Gold'),
+    ]),
+    TestCategory('green', <TestCategory>[TestCategory('Granny Smith')]),
+  }),
+  TestCategory('berry', <TestCategory>{
+    TestCategory('blueberry'),
+    TestCategory('raspberry'),
+  }),
+});
 
 Future<TestCategory?> getCategory(Iterable<String> path) async {
   if (path.isEmpty) {
@@ -181,7 +159,9 @@ void main() {
       await tester.tap(find.byType(Checkbox).first);
       expect(currentCategoryPath, equals(<String>['fruit', 'apple', 'red']));
       expect(
-          currentCategories, equals(<String>{'Granny Smith', 'Red Delicious'}));
+        currentCategories,
+        equals(<String>{'Granny Smith', 'Red Delicious'}),
+      );
       expect(requestedNewCategory, isFalse);
     });
     testWidgets('can create new categories', (WidgetTester tester) async {

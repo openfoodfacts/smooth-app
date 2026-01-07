@@ -1,34 +1,35 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart' hide Listener;
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
-import 'package:smooth_app/helpers/provider_helper.dart';
-import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_create_edit_modal.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_empty_page.dart';
+import 'package:smooth_app/pages/folksonomy/folksonomy_product_tag_extension.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
-import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
-import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 class FolksonomyPage extends StatelessWidget {
-  const FolksonomyPage({
-    required this.product,
-    required this.provider,
-  });
+  const FolksonomyPage({required this.product});
 
   final Product product;
-  final FolksonomyProvider provider;
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<FolksonomyProvider>.value(
-      value: provider,
+    return ChangeNotifierProvider<FolksonomyProvider>(
+      create: (BuildContext context) =>
+          FolksonomyProvider(product.barcode!, context.read<LocalDatabase>()),
       child: _FolksonomyContent(product),
     );
   }
@@ -46,74 +47,42 @@ class _FolksonomyContent extends StatefulWidget {
 class _FolksonomyContentState extends State<_FolksonomyContent> {
   final ScrollController _scrollController = ScrollController();
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+  final ProductRefresher _productRefresher = ProductRefresher();
+  final List<ProductTag> _tags = <ProductTag>[];
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final FolksonomyProvider provider = context.watch<FolksonomyProvider>();
 
-    return SmoothScaffold(
-      appBar: SmoothTopBar2(
-        title: appLocalizations.product_tags_title,
-        leadingAction: SmoothLeadingAction.back,
-      ),
-      body: Listener<FolksonomyProvider>(
-        listener: _onProviderChanged,
-        child: Consumer<FolksonomyProvider>(
-          builder: (BuildContext context, FolksonomyProvider provider, _) {
-            if (provider.value is FolksonomyStateLoading ||
-                provider.value is FolksonomyStateError &&
-                    (provider.value as FolksonomyStateError).action == null) {
-              return const Center(child: CircularProgressIndicator.adaptive());
+    return Consumer<FolksonomyProvider>(
+      builder:
+          (BuildContext context, FolksonomyProvider provider, Widget? child) {
+            _onStateChanged(provider.value);
+            return child!;
+          },
+      child: SmoothScaffold(
+        appBar: SmoothAppBar(
+          title: Text(appLocalizations.product_tags_title),
+          subTitle: Text(
+            getProductNameAndBrands(widget.product, appLocalizations),
+          ),
+        ),
+        body: _buildBody(),
+        floatingActionButton: SmoothExpandableFloatingActionButton(
+          scrollController: _scrollController,
+          onPressed: () async {
+            if (!await _checkIfLoggedIn()) {
+              return;
             }
-
-            return AnimatedList.separated(
-              key: _listKey,
-              controller: _scrollController,
-              initialItemCount: provider.value.tags!.length,
-              itemBuilder: (
-                BuildContext context,
-                int index,
-                Animation<double> animation,
-              ) {
-                final ProductTag entry = provider.value.tags![index];
-
-                return _buildItem(
-                  context,
-                  entry,
-                  animation,
-                  provider.isAuthorized,
-                );
-              },
-              separatorBuilder: (_, __, Animation<double> animation) =>
-                  SizeTransition(
-                sizeFactor: animation,
-                child: const Divider(),
-              ),
-              removedSeparatorBuilder: (
-                BuildContext context,
-                int index,
-                Animation<double> animation,
-              ) =>
-                  SizeTransition(
-                sizeFactor: animation,
-                child: const Divider(),
-              ),
+            await _showEditDialog(
+              action: FolksonomyAction.add,
+              existingKeys: _tags.map((ProductTag tag) => tag.key).toList(),
             );
           },
+          label: Text(appLocalizations.add_tag),
+          icon: const icons.AddProperty.alt(),
         ),
       ),
-      floatingActionButton: provider.isAuthorized
-          ? SmoothExpandableFloatingActionButton(
-              scrollController: _scrollController,
-              onPressed: () async => _showEditDialog(
-                action: FolksonomyAction.add,
-                existingKeys: _getExistingKeys(provider),
-              ),
-              label: Text(appLocalizations.add_tag),
-              icon: const icons.AddProperty.alt(),
-            )
-          : EMPTY_WIDGET,
     );
   }
 
@@ -121,13 +90,13 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     BuildContext context,
     ProductTag entry,
     Animation<double> animation,
-    bool isAuthorized,
   ) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     return SizeTransition(
       sizeFactor: animation,
       child: ListTile(
+        onTap: entry.isAnUrl() ? () async => entry.visitUrl(context) : null,
         title: Padding(
           padding: const EdgeInsetsDirectional.only(
             start: SMALL_SPACE,
@@ -145,9 +114,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                       text: appLocalizations.tag_key_item,
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    TextSpan(
-                      text: ' ${entry.key}',
-                    ),
+                    TextSpan(text: ' ${entry.key}'),
                   ],
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
@@ -161,6 +128,9 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
                     ),
                     TextSpan(
                       text: ' ${entry.value}',
+                      style: entry.isAnUrl()
+                          ? const TextStyle(color: Colors.blue)
+                          : null,
                     ),
                   ],
                   style: Theme.of(context).textTheme.bodyLarge,
@@ -169,47 +139,67 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
             ],
           ),
         ),
-        trailing: isAuthorized
-            ? SmoothPopupMenuButton<FolksonomyAction>(
-                buttonIcon: const Icon(Icons.more_vert),
-                itemBuilder: (BuildContext context) {
-                  return <SmoothPopupMenuItem<FolksonomyAction>>[
-                    SmoothPopupMenuItem<FolksonomyAction>(
-                      label: appLocalizations.edit_tag,
-                      value: FolksonomyAction.edit,
-                      icon: Icons.edit,
-                    ),
-                    SmoothPopupMenuItem<FolksonomyAction>(
-                      label: appLocalizations.remove_tag,
-                      value: FolksonomyAction.remove,
-                      icon: Icons.delete,
-                    ),
-                  ];
-                },
-                onSelected: (FolksonomyAction value) {
-                  if (value == FolksonomyAction.edit) {
-                    _showEditDialog(
-                      action: value,
-                      existingKeys: _getExistingKeys(
-                        context.read<FolksonomyProvider>(),
-                      ),
-                      key: entry.key,
-                      value: entry.value,
-                    );
-                  } else if (value == FolksonomyAction.remove) {
-                    context.read<FolksonomyProvider>().deleteTag(entry.key);
-                  }
-                },
-              )
-            : null,
+        trailing: SmoothPopupMenuButton<FolksonomyAction>(
+          buttonIcon: const Icon(Icons.more_vert),
+          itemBuilder: (BuildContext context) {
+            return <SmoothPopupMenuItem<FolksonomyAction>>[
+              if (entry.isAnUrl())
+                SmoothPopupMenuItem<FolksonomyAction>(
+                  label: appLocalizations.folksonomy_action_external_link_title,
+                  value: FolksonomyAction.visitUrl,
+                  icon: const icons.ExternalLink(),
+                ),
+              SmoothPopupMenuItem<FolksonomyAction>(
+                label: appLocalizations.edit_tag,
+                value: FolksonomyAction.edit,
+                icon: const icons.Edit(),
+              ),
+              SmoothPopupMenuItem<FolksonomyAction>(
+                label: appLocalizations.remove_tag,
+                value: FolksonomyAction.remove,
+                icon: const icons.Trash(),
+              ),
+            ];
+          },
+          onSelected: (FolksonomyAction value) async {
+            if (value == FolksonomyAction.visitUrl) {
+              await entry.visitUrl(context);
+              return;
+            }
+            if (value == FolksonomyAction.edit) {
+              if (!await _checkIfLoggedIn()) {
+                return;
+              }
+              if (!context.mounted) {
+                return;
+              }
+              await _showEditDialog(
+                action: value,
+                existingKeys: _getExistingKeys(
+                  context.read<FolksonomyProvider>(),
+                ),
+                key: entry.key,
+                value: entry.value,
+              );
+            } else if (value == FolksonomyAction.remove) {
+              if (!await _checkIfLoggedIn()) {
+                return;
+              }
+              if (!context.mounted) {
+                return;
+              }
+              unawaited(
+                context.read<FolksonomyProvider>().deleteTag(entry.key),
+              );
+            }
+          },
+        ),
       ),
     );
   }
 
   List<String> _getExistingKeys(FolksonomyProvider provider) {
-    return provider.value.tags!
-        .map((ProductTag tag) => tag.key)
-        .toList(growable: false);
+    return _tags.map((ProductTag tag) => tag.key).toList(growable: false);
   }
 
   Future<void> _showEditDialog({
@@ -219,7 +209,8 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     String? value,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
+    final FolksonomyProvider folksonomyProvider = context
+        .read<FolksonomyProvider>();
     final FolksonomyTag? res = await showSmoothModalSheetForTextField(
       context: context,
       header: SmoothModalSheetHeader(
@@ -227,28 +218,32 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
         prefix: const SmoothModalSheetHeaderPrefixIndicator(),
       ),
       bodyBuilder: (BuildContext context) {
-        return FolksonomyEditTagContent(
-          action: action,
-          existingKeys: existingKeys,
-          oldKey: key,
-          oldValue: value,
+        return ChangeNotifierProvider<FolksonomyProvider>.value(
+          value: folksonomyProvider,
+          child: FolksonomyEditTagContent(
+            action: action,
+            existingKeys: existingKeys,
+            oldKey: key,
+            oldValue: value,
+          ),
         );
       },
     );
 
     if (res != null && mounted) {
       if (action == FolksonomyAction.edit) {
-        context.read<FolksonomyProvider>().editTag(
-              res.key,
-              res.value,
-            );
+        unawaited(
+          context.read<FolksonomyProvider>().editTag(res.key, res.value),
+        );
       } else if (action == FolksonomyAction.add) {
         try {
-          context.read<FolksonomyProvider>().addTag(
-                res.key,
-                res.value,
-              );
+          unawaited(
+            context.read<FolksonomyProvider>().addTag(res.key, res.value),
+          );
         } catch (e) {
+          if (!mounted) {
+            return;
+          }
           ScaffoldMessenger.of(context).showSnackBar(
             SmoothFloatingSnackbar.error(
               context: context,
@@ -260,36 +255,96 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     }
   }
 
-  void _onProviderChanged(
-    BuildContext context,
-    _,
-    FolksonomyProvider provider,
-  ) {
-    if (provider.value is FolksonomyStateAddedItem) {
-      final FolksonomyStateAddedItem state =
-          provider.value as FolksonomyStateAddedItem;
-      _listKey.currentState!.insertItem(state.addedPosition);
-
-      onNextFrame(() => provider.markAsConsumed());
-    } else if (provider.value is FolksonomyStateRemovedItem) {
-      final FolksonomyStateRemovedItem state =
-          provider.value as FolksonomyStateRemovedItem;
-      _listKey.currentState!.removeItem(
-        state.removedPosition,
-        (BuildContext context, Animation<double> animation) {
-          return FadeTransition(
-            opacity: animation,
-            child: _buildItem(
-              context,
-              state.item,
-              animation,
-              provider.isAuthorized,
-            ),
-          );
-        },
-      );
-
-      onNextFrame(() => provider.markAsConsumed());
+  void _onStateChanged(FolksonomyState newState) {
+    if (_listKey.currentState == null) {
+      return;
     }
+
+    if (newState is! FolksonomyStateLoaded) {
+      if (_tags.isNotEmpty) {
+        for (int i = _tags.length - 1; i >= 0; i--) {
+          final ProductTag tag = _tags[i];
+          _listKey.currentState?.removeItem(
+            i,
+            (BuildContext context, Animation<double> animation) =>
+                _buildItem(context, tag, animation),
+          );
+        }
+        _tags.clear();
+      }
+      return;
+    }
+
+    final List<ProductTag> newTags = newState.tags!;
+
+    // Delete tags that are not in the new list.
+    for (int i = _tags.length - 1; i >= 0; i--) {
+      final ProductTag tag = _tags[i];
+      if (!newTags.any((ProductTag newTag) => newTag.key == tag.key)) {
+        _tags.removeAt(i);
+        _listKey.currentState?.removeItem(
+          i,
+          (BuildContext context, Animation<double> animation) =>
+              _buildItem(context, tag, animation),
+        );
+      }
+    }
+
+    // Add tags that are new.
+    for (int i = 0; i < newTags.length; i++) {
+      final ProductTag tag = newTags[i];
+      if (!_tags.any((ProductTag oldTag) => oldTag.key == tag.key)) {
+        _tags.insert(i, tag);
+        _listKey.currentState?.insertItem(i);
+      }
+    }
+
+    // Edit tags that have changed.
+    for (int i = 0; i < newTags.length; i++) {
+      if (i < _tags.length &&
+          newTags[i].key == _tags[i].key &&
+          newTags[i].value != _tags[i].value) {
+        _tags[i] = newTags[i];
+      }
+    }
+  }
+
+  Widget _buildBody() {
+    final FolksonomyState state = context.watch<FolksonomyProvider>().value;
+
+    if (state is FolksonomyStateLoaded && _tags.isEmpty) {
+      _tags.addAll(state.tags!);
+    }
+
+    if (state is FolksonomyStateLoading && _tags.isEmpty) {
+      return const Center(child: CircularProgressIndicator.adaptive());
+    } else if (state is FolksonomyStateLoaded && state.tags!.isEmpty) {
+      return const FolksonomyEmptyPage();
+    } else if (state is FolksonomyStateError && state.action == null) {
+      return const FolksonomyEmptyPage();
+    }
+
+    return AnimatedList.separated(
+      key: _listKey,
+      controller: _scrollController,
+      initialItemCount: _tags.length,
+      itemBuilder:
+          (BuildContext context, int index, Animation<double> animation) {
+            final ProductTag entry = _tags[index];
+            return _buildItem(context, entry, animation);
+          },
+      separatorBuilder: (_, _, Animation<double> animation) =>
+          SizeTransition(sizeFactor: animation, child: const Divider()),
+      removedSeparatorBuilder:
+          (BuildContext context, int index, Animation<double> animation) =>
+              SizeTransition(sizeFactor: animation, child: const Divider()),
+    );
+  }
+
+  Future<bool> _checkIfLoggedIn() {
+    return _productRefresher.checkIfLoggedIn(
+      context,
+      isLoggedInMandatory: true,
+    );
   }
 }

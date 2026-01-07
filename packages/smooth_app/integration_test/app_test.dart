@@ -25,8 +25,9 @@ Future<void> _takeScreenshot(
   if ((!kIsWeb) && Platform.isAndroid) {
     await tester.pumpAndSettle();
   }
-  await binding
-      .takeScreenshot('$platform/$device/$country/$language/$screenshotName');
+  await binding.takeScreenshot(
+    '$platform/$device/$country/$language/$screenshotName',
+  );
 }
 
 const String language = String.fromEnvironment('LANGUAGE'); // e.g. fr
@@ -45,13 +46,11 @@ void main() {
 
   group('end-to-end test', () {
     testWidgets('just a single screenshot', (WidgetTester tester) async {
-      SharedPreferences.setMockInitialValues(
-        const <String, Object>{
-          'IMPORTANCE_AS_STRINGnutriscore': 'important',
-          'IMPORTANCE_AS_STRINGnova': 'important',
-          'IMPORTANCE_AS_STRINGecoscore': 'important',
-        },
-      );
+      SharedPreferences.setMockInitialValues(const <String, Object>{
+        'IMPORTANCE_AS_STRINGnutriscore': 'important',
+        'IMPORTANCE_AS_STRINGnova': 'important',
+        'IMPORTANCE_AS_STRINGecoscore': 'important',
+      });
 
       await tester.runAsync(() async {
         await _initScreenshot(binding);
@@ -68,28 +67,40 @@ void main() {
         sleep(const Duration(seconds: 30));
 
         await _takeScreenshot(
-            tester, binding, 'test-screenshot-onboarding-reinvention');
+          tester,
+          binding,
+          'test-screenshot-onboarding-reinvention',
+        );
         sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('nextAfterReinvention')));
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
-            tester, binding, 'test-screenshot-onboarding-home');
+          tester,
+          binding,
+          'test-screenshot-onboarding-home',
+        );
         sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('nextAfterWelcome')));
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
-            tester, binding, 'test-screenshot-onboarding-scan');
+          tester,
+          binding,
+          'test-screenshot-onboarding-scan',
+        );
         sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('nextAfterScanExample')));
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
-            tester, binding, 'test-screenshot-onboarding-health');
+          tester,
+          binding,
+          'test-screenshot-onboarding-health',
+        );
         sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('toolTipPopUp')));
@@ -99,14 +110,20 @@ void main() {
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
-            tester, binding, 'test-screenshot-onboarding-eco');
+          tester,
+          binding,
+          'test-screenshot-onboarding-eco',
+        );
         sleep(const Duration(seconds: 10));
 
         await tester.tap(find.byKey(const Key('nextAfterEco')));
         await tester.pumpAndSettle();
 
         await _takeScreenshot(
-            tester, binding, 'test-screenshot-onboarding-prefs');
+          tester,
+          binding,
+          'test-screenshot-onboarding-prefs',
+        );
         sleep(const Duration(seconds: 10));
       });
     });

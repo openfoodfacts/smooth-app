@@ -13,10 +13,7 @@ import 'package:smooth_app/query/product_query.dart';
 /// * the first one optimized on shops, as it's what we want.
 /// * an optional one with no restrictions, in case OSM data is a bit clumsy.
 class LocationListPhotonSupplier extends LocationListSupplier {
-  LocationListPhotonSupplier(
-    this.query,
-    this.optimizedSearch,
-  );
+  LocationListPhotonSupplier(this.query, this.optimizedSearch);
 
   /// Query text.
   final String query;
@@ -52,15 +49,20 @@ class LocationListPhotonSupplier extends LocationListSupplier {
           scheme: 'https',
           host: 'photon.komoot.io',
           path: 'api',
-          query: 'q=${Uri.encodeComponent(query)}'
+          query:
+              'q=${Uri.encodeComponent(query)}'
               '&lang=${getQueryLanguage().offTag}'
+              '&limit=100'
               '${_getAdditionalParameters()}',
         ),
+        headers: <String, String>{'User-Agent': 'OpenFoodFacts/MobileApp'},
       );
       if (response.statusCode != 200) {
         return 'Could not retrieve locations';
       }
-      final Map<String, dynamic> map = json.decode(response.body);
+      final Map<String, dynamic> map = jsonDecode(
+        utf8.decode(response.bodyBytes),
+      );
       if (map['type'] != 'FeatureCollection') {
         return 'Unexpected result type: ${map['type']}';
       }

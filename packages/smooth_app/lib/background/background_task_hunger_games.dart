@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
@@ -7,6 +6,7 @@ import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// Background task about answering a hunger games question.
 class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
@@ -21,9 +21,9 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   });
 
   BackgroundTaskHungerGames.fromJson(super.json)
-      : insightId = json[_jsonTagInsightId] as String,
-        insightAnnotation = json[_jsonTagInsightAnnotation] as int,
-        super.fromJson();
+    : insightId = json[_jsonTagInsightId] as String,
+      insightAnnotation = json[_jsonTagInsightAnnotation] as int,
+      super.fromJson();
 
   static const String _jsonTagInsightId = 'insightId';
   static const String _jsonTagInsightAnnotation = 'insightAnnotation';
@@ -72,8 +72,7 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
     final AppLocalizations appLocalizations,
-  ) =>
-      null;
+  ) => null;
 
   /// Returns a new background task about hunger games.
   static BackgroundTaskHungerGames _getNewTask(
@@ -81,17 +80,16 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     final String insightId,
     final int insightAnnotation,
     final String uniqueId,
-  ) =>
-      BackgroundTaskHungerGames._(
-        processName: _operationType.processName,
-        uniqueId: uniqueId,
-        barcode: barcode,
-        // not really relevant for Robotoff
-        productType: ProductType.food,
-        stamp: _getStamp(barcode, insightId),
-        insightId: insightId,
-        insightAnnotation: insightAnnotation,
-      );
+  ) => BackgroundTaskHungerGames._(
+    processName: _operationType.processName,
+    uniqueId: uniqueId,
+    barcode: barcode,
+    // not really relevant for Robotoff
+    productType: ProductType.food,
+    stamp: _getStamp(barcode, insightId),
+    insightId: insightId,
+    insightAnnotation: insightAnnotation,
+  );
 
   static String _getStamp(final String barcode, final String insightId) =>
       '$barcode;hungerGames;$insightId';
@@ -105,19 +103,21 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     final bool success,
   ) async {
     await super.postExecute(localDatabase, success);
-    final RobotoffInsightHelper robotoffInsightHelper =
-        RobotoffInsightHelper(localDatabase);
-    await robotoffInsightHelper.cacheInsightAnnotationVoted(
-      barcode,
-      insightId,
+    final RobotoffInsightHelper robotoffInsightHelper = RobotoffInsightHelper(
+      localDatabase,
     );
+    await robotoffInsightHelper.cacheInsightAnnotationVoted(barcode, insightId);
   }
+
+  @override
+  bool get refreshAfterException => false;
 
   /// Unselects the product image.
   @override
-  Future<void> upload() async {
-    final InsightAnnotation? annotation =
-        InsightAnnotation.fromInt(insightAnnotation);
+  Future<void> upload(final LocalDatabase localDatabase) async {
+    final InsightAnnotation? annotation = InsightAnnotation.fromInt(
+      insightAnnotation,
+    );
     if (annotation == null) {
       // very unlikely
       return;

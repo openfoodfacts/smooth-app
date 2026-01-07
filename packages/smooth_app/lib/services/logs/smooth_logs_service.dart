@@ -19,79 +19,24 @@ class LogsService extends SmoothService<AppLogService> {
     }
   }
 
-  void d(
-    String message, {
-    String? tag,
-    dynamic ex,
-    StackTrace? stacktrace,
-  }) =>
-      log(
-        LogLevel.debug,
-        message,
-        tag: tag,
-        ex: ex,
-        stacktrace: stacktrace,
-      );
+  void d(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) =>
+      log(LogLevel.debug, message, tag: tag, ex: ex, stacktrace: stacktrace);
 
   /// Write an error log
-  void e(
-    String message, {
-    String? tag,
-    dynamic ex,
-    StackTrace? stacktrace,
-  }) =>
-      log(
-        LogLevel.error,
-        message,
-        tag: tag,
-        ex: ex,
-        stacktrace: stacktrace,
-      );
+  void e(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) =>
+      log(LogLevel.error, message, tag: tag, ex: ex, stacktrace: stacktrace);
 
   /// Write an info log
-  void i(
-    String message, {
-    String? tag,
-    dynamic ex,
-    StackTrace? stacktrace,
-  }) =>
-      log(
-        LogLevel.info,
-        message,
-        tag: tag,
-        ex: ex,
-        stacktrace: stacktrace,
-      );
+  void i(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) =>
+      log(LogLevel.info, message, tag: tag, ex: ex, stacktrace: stacktrace);
 
   /// Write a verbose log
-  void v(
-    String message, {
-    String? tag,
-    dynamic ex,
-    StackTrace? stacktrace,
-  }) =>
-      log(
-        LogLevel.info,
-        message,
-        tag: tag,
-        ex: ex,
-        stacktrace: stacktrace,
-      );
+  void v(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) =>
+      log(LogLevel.info, message, tag: tag, ex: ex, stacktrace: stacktrace);
 
   /// Write a warning log
-  void w(
-    String message, {
-    String? tag,
-    dynamic ex,
-    StackTrace? stacktrace,
-  }) =>
-      log(
-        LogLevel.info,
-        message,
-        tag: tag,
-        ex: ex,
-        stacktrace: stacktrace,
-      );
+  void w(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) =>
+      log(LogLevel.info, message, tag: tag, ex: ex, stacktrace: stacktrace);
 
   List<String> get logFilesPaths {
     final List<String> files = <String>[];

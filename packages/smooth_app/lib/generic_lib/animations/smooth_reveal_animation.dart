@@ -3,12 +3,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class SmoothRevealAnimation extends StatefulWidget {
-  const SmoothRevealAnimation(
-      {required this.child,
-      this.delay = 0,
-      this.animationCurve = Curves.ease,
-      this.animationDuration = 400,
-      this.startOffset = const Offset(1.0, 0.0)});
+  const SmoothRevealAnimation({
+    required this.child,
+    this.delay = 0,
+    this.animationCurve = Curves.ease,
+    this.animationDuration = 400,
+    this.startOffset = const Offset(1.0, 0.0),
+  });
 
   final Widget child;
   final int delay;
@@ -30,13 +31,17 @@ class _SmoothRevealAnimationState extends State<SmoothRevealAnimation>
   void initState() {
     super.initState();
     _animationController = AnimationController(
-        vsync: this,
-        duration: Duration(milliseconds: widget.animationDuration));
+      vsync: this,
+      duration: Duration(milliseconds: widget.animationDuration),
+    );
     final CurvedAnimation curve = CurvedAnimation(
-        curve: widget.animationCurve, parent: _animationController);
-    _animationOffset =
-        Tween<Offset>(begin: widget.startOffset, end: Offset.zero)
-            .animate(curve);
+      curve: widget.animationCurve,
+      parent: _animationController,
+    );
+    _animationOffset = Tween<Offset>(
+      begin: widget.startOffset,
+      end: Offset.zero,
+    ).animate(curve);
 
     _animationTimer = Timer(Duration(milliseconds: widget.delay), () {
       _animationController.forward();
@@ -54,10 +59,7 @@ class _SmoothRevealAnimationState extends State<SmoothRevealAnimation>
   Widget build(BuildContext context) {
     return FadeTransition(
       opacity: _animationController,
-      child: SlideTransition(
-        position: _animationOffset,
-        child: widget.child,
-      ),
+      child: SlideTransition(position: _animationOffset, child: widget.child),
     );
   }
 }

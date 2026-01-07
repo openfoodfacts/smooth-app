@@ -70,17 +70,18 @@ class _SmoothInteractiveViewerState extends State<SmoothInteractiveViewer>
       // Zoom x2
       final Offset position = _doubleTapDetails.localPosition;
       matrix = Matrix4.identity()
-        ..translate(-position.dx, -position.dy)
-        ..scale(2.0);
+        ..translateByDouble(-position.dx, -position.dy, 0.0, 1.0)
+        ..scaleByDouble(2.0, 2.0, 2.0, 1.0);
       _animationController.duration = SmoothAnimationsDuration.short;
     }
 
-    _animation = Matrix4Tween(
-      begin: _transformationController.value,
-      end: matrix,
-    ).animate(
-      CurveTween(curve: Curves.easeInCubic).animate(_animationController),
-    );
+    _animation =
+        Matrix4Tween(
+          begin: _transformationController.value,
+          end: matrix,
+        ).animate(
+          CurveTween(curve: Curves.easeInCubic).animate(_animationController),
+        );
     _animationController.forward(from: 0);
   }
 

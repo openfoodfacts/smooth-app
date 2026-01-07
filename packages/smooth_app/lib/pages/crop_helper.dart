@@ -4,8 +4,8 @@ import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/background/background_task_image.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 
 /// Crop Helper for images in crop page: process to run when cropping an image.
@@ -17,7 +17,7 @@ abstract class CropHelper {
   String getPageTitle(final AppLocalizations appLocalizations);
 
   /// Icon of the "process!" button.
-  IconData getProcessIcon();
+  Widget getProcessIcon();
 
   /// Label of the "process!" button.
   String getProcessLabel(final AppLocalizations appLocalizations);
@@ -66,9 +66,7 @@ abstract class CropHelper {
   /// Full-size crop, aka no crop.
   static const Rect fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
 
-  static List<double> getEraserCoordinates(
-    final List<Offset> offsets,
-  ) {
+  static List<double> getEraserCoordinates(final List<Offset> offsets) {
     final List<double> eraserCoordinates = <double>[];
     for (final Offset offset in offsets) {
       eraserCoordinates.add(offset.dx);
@@ -77,9 +75,7 @@ abstract class CropHelper {
     return eraserCoordinates;
   }
 
-  static List<Offset> getOffsets(
-    final List<double>? eraserCoordinates,
-  ) {
+  static List<Offset> getOffsets(final List<double>? eraserCoordinates) {
     final List<Offset> offsets = <Offset>[];
     if (eraserCoordinates != null) {
       for (int i = 0; i < eraserCoordinates.length; i += 2) {

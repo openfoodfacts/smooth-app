@@ -16,7 +16,7 @@ class RandomQuestionsQuery extends QuestionsQuery {
       user: ProductQuery.getReadUser(),
       countries: <OpenFoodFactsCountry>[ProductQuery.getCountry()],
       count: count,
-      questionOrder: RobotoffQuestionOrder.random,
+      questionOrder: RobotoffQuestionOrder.popularity,
     );
 
     if (result.questions?.isNotEmpty != true) {

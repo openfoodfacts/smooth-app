@@ -4,17 +4,10 @@ import 'package:provider/single_child_widget.dart';
 
 /// Same as [Consumer] but only notifies of a new value
 class Listener<T> extends SingleChildStatefulWidget {
-  const Listener({
-    required this.listener,
-    super.key,
-    super.child,
-  });
+  const Listener({required this.listener, super.key, super.child});
 
-  final void Function(
-    BuildContext context,
-    T? previousValue,
-    T currentValue,
-  ) listener;
+  final void Function(BuildContext context, T? previousValue, T currentValue)
+  listener;
 
   @override
   State<Listener<T>> createState() => _ListenerState<T>();
@@ -29,11 +22,7 @@ class _ListenerState<T> extends SingleChildState<Listener<T>> {
     final T newValue = context.watch<T>();
     _oldValue = newValue;
 
-    widget.listener(
-      context,
-      oldValue,
-      newValue,
-    );
+    widget.listener(context, oldValue, newValue);
 
     return child ?? const SizedBox.shrink();
   }
@@ -90,22 +79,20 @@ class ValueNotifierListener<T extends ValueNotifier<S>, S>
     super.key,
     super.child,
   }) : assert(
-          listener != null || listenerWithValueNotifier != null,
-          'At least one listener must be provided',
-        );
+         listener != null || listenerWithValueNotifier != null,
+         'At least one listener must be provided',
+       );
 
-  final void Function(
-    BuildContext context,
-    S? previousValue,
-    S currentValue,
-  )? listener;
+  final void Function(BuildContext context, S? previousValue, S currentValue)?
+  listener;
 
   final void Function(
     BuildContext context,
     T valueNotifier,
     S? previousValue,
     S currentValue,
-  )? listenerWithValueNotifier;
+  )?
+  listenerWithValueNotifier;
 
   @override
   State<ValueNotifierListener<T, S>> createState() =>
@@ -123,11 +110,7 @@ class _ValueNotifierListenerState<T extends ValueNotifier<S>, S>
     final S newValue = valueNotifier.value;
     _oldValue = newValue;
 
-    widget.listener?.call(
-      context,
-      oldValue,
-      newValue,
-    );
+    widget.listener?.call(context, oldValue, newValue);
 
     widget.listenerWithValueNotifier?.call(
       context,
@@ -150,11 +133,7 @@ class ConsumerFilter<T> extends StatefulWidget {
     super.key,
   });
 
-  final Widget Function(
-    BuildContext context,
-    T value,
-    Widget? child,
-  ) builder;
+  final Widget Function(BuildContext context, T value, Widget? child) builder;
   final bool Function(T? previousValue, T currentValue) buildWhen;
 
   final Widget? child;
@@ -172,20 +151,12 @@ class _ConsumerFilterState<T> extends State<ConsumerFilter<T>> {
     return Consumer<T>(
       builder: (BuildContext context, T value, Widget? child) {
         if (widget.buildWhen(oldValue, value) || oldWidget == null) {
-          oldWidget = widget.builder(
-            context,
-            value,
-            child,
-          );
+          oldWidget = widget.builder(context, value, child);
         }
 
         oldValue = value;
 
-        return widget.builder(
-          context,
-          value,
-          oldWidget,
-        );
+        return widget.builder(context, value, oldWidget);
       },
       child: widget.child,
     );
@@ -203,11 +174,7 @@ class ConsumerValueNotifierFilter<T extends ValueNotifier<S>, S>
     super.key,
   });
 
-  final Widget Function(
-    BuildContext context,
-    S value,
-    Widget? child,
-  ) builder;
+  final Widget Function(BuildContext context, S value, Widget? child) builder;
   final bool Function(S? previousValue, S currentValue)? buildWhen;
 
   final Widget? child;
@@ -230,20 +197,12 @@ class _ConsumerValueNotifierFilterState<T extends ValueNotifier<S>, S>
                 widget.buildWhen!.call(oldValue, provider.value)) ||
             widget.buildWhen == null && oldValue != provider.value ||
             oldWidget == null) {
-          oldWidget = widget.builder(
-            context,
-            provider.value,
-            child,
-          );
+          oldWidget = widget.builder(context, provider.value, child);
         }
 
         oldValue = provider.value;
 
-        return widget.builder(
-          context,
-          provider.value,
-          oldWidget,
-        );
+        return widget.builder(context, provider.value, oldWidget);
       },
       child: widget.child,
     );

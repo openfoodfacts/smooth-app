@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
@@ -10,6 +9,7 @@ import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
@@ -17,6 +17,7 @@ import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_image_button.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Product Image Button editing the current image.
 class ProductImageCropButton extends ProductImageButton {
@@ -29,7 +30,7 @@ class ProductImageCropButton extends ProductImageButton {
   });
 
   @override
-  IconData getIconData() => Icons.edit;
+  Widget getIcon() => const icons.Edit();
 
   @override
   String getLabel(final AppLocalizations appLocalizations) =>
@@ -100,9 +101,7 @@ class ProductImageCropButton extends ProductImageButton {
         size: ImageSize.ORIGINAL,
       ).getUrl(
         barcode,
-        uriHelper: ProductQuery.getUriProductHelper(
-          productType: productType,
-        ),
+        uriHelper: ProductQuery.getUriProductHelper(productType: productType),
       ),
       DaoInt(localDatabase),
     );
@@ -135,23 +134,22 @@ class ProductImageCropButton extends ProductImageButton {
   Future<CropParameters?> _openCropNewPage(
     final NavigatorState navigatorState,
     final File imageFile,
-  ) async =>
-      navigatorState.push<CropParameters>(
-        MaterialPageRoute<CropParameters>(
-          builder: (BuildContext context) => CropPage(
-            inputFile: imageFile,
-            initiallyDifferent: false,
-            isLoggedInMandatory: isLoggedInMandatory,
-            cropHelper: ProductCropNewHelper(
-              language: language,
-              barcode: barcode,
-              productType: product.productType,
-              imageField: _imageData.imageField,
-            ),
-          ),
-          fullscreenDialog: true,
+  ) async => navigatorState.push<CropParameters>(
+    MaterialPageRoute<CropParameters>(
+      builder: (BuildContext context) => CropPage(
+        inputFile: imageFile,
+        initiallyDifferent: false,
+        isLoggedInMandatory: isLoggedInMandatory,
+        cropHelper: ProductCropNewHelper(
+          language: language,
+          barcode: barcode,
+          productType: product.productType,
+          imageField: _imageData.imageField,
         ),
-      );
+      ),
+      fullscreenDialog: true,
+    ),
+  );
 
   ProductImage? _getBestProductImage() {
     if (product.images == null) {
@@ -178,25 +176,19 @@ class ProductImageCropButton extends ProductImageButton {
   /// Sometimes you get all null coordinates, or all 0, or all -1.
   Rect? _getCropRect(final ProductImage productImage) =>
       productImage.x1 == productImage.x2 &&
-              productImage.y1 == productImage.y2 &&
-              productImage.x1 == productImage.y1
-          ? null
-          : Rect.fromLTRB(
-              productImage.x1!.toDouble(),
-              productImage.y1!.toDouble(),
-              productImage.x2!.toDouble(),
-              productImage.y2!.toDouble(),
-            );
+          productImage.y1 == productImage.y2 &&
+          productImage.x1 == productImage.y1
+      ? null
+      : Rect.fromLTRB(
+          productImage.x1!.toDouble(),
+          productImage.y1!.toDouble(),
+          productImage.x2!.toDouble(),
+          productImage.y2!.toDouble(),
+        );
 
-  ProductImageData get _imageData => getProductImageData(
-        product,
-        imageField,
-        language,
-      );
+  ProductImageData get _imageData =>
+      getProductImageData(product, imageField, language);
 
-  TransientFile get _transientFile => TransientFile.fromProduct(
-        product,
-        imageField,
-        language,
-      );
+  TransientFile get _transientFile =>
+      TransientFile.fromProduct(product, imageField, language);
 }

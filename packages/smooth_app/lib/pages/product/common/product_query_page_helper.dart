@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_query_page.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
@@ -19,10 +19,7 @@ class ProductQueryPageHelper {
     bool searchResult = true,
   }) async {
     final ProductListSupplier supplier =
-        await ProductListSupplier.getBestSupplier(
-      productQuery,
-      localDatabase,
-    );
+        await ProductListSupplier.getBestSupplier(productQuery, localDatabase);
 
     return ProductQueryPage(
       productListSupplier: supplier,
@@ -55,9 +52,7 @@ class ProductQueryPageHelper {
     }
 
     final bool? result = await Navigator.of(context).push<bool>(
-      MaterialPageRoute<bool>(
-        builder: (BuildContext context) => widget,
-      ),
+      MaterialPageRoute<bool>(builder: (BuildContext context) => widget),
     );
 
     if (result == true) {

@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
-import 'package:smooth_app/pages/preferences/abstract_user_preferences.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_food_search_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_list_tile.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_widgets.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
-class UserPreferencesFood extends AbstractUserPreferences {
+class UserPreferencesFood {
   UserPreferencesFood({
     required this.productPreferences,
-    required super.context,
-    required super.userPreferences,
-    required super.appLocalizations,
-    required super.themeData,
+    required this.context,
+    required this.userPreferences,
+    required this.appLocalizations,
+    required this.themeData,
   });
 
   final ProductPreferences productPreferences;
+  final BuildContext context;
+  final UserPreferences userPreferences;
+  final AppLocalizations appLocalizations;
+  final ThemeData themeData;
 
   static const List<String> _ORDERED_ATTRIBUTE_GROUP_IDS = <String>[
     AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY,
@@ -34,45 +37,45 @@ class UserPreferencesFood extends AbstractUserPreferences {
     AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS,
   ];
 
-  @override
-  PreferencePageType getPreferencePageType() => PreferencePageType.FOOD;
-
-  @override
   String getTitleString() => appLocalizations.myPreferences_food_title;
 
-  @override
-  String getSubtitleString() => appLocalizations.myPreferences_food_subtitle;
-
-  @override
-  IconData getLeadingIconData() => Icons.ramen_dining;
-
-  @override
   String? getHeaderAsset() => 'assets/onboarding/preferences.svg';
 
-  @override
   Color? getHeaderColor() => const Color(0xFFEBF1FF);
 
-  @override
+  List<Widget>? getActions() => <Widget>[
+    IconButton(
+      icon: const Icon(Icons.rotate_left),
+      onPressed: () async => _confirmReset(),
+    ),
+  ];
+
   List<UserPreferencesItem> getChildren() => <UserPreferencesItem>[
-        // we don't want this on the onboarding
-        UserPreferencesItemTile(
-          leading: UserPreferencesListTile.getTintedIcon(
-            Icons.rotate_left,
-            context,
-          ),
-          title: appLocalizations.reset_food_prefs,
-          onTap: () async => _confirmReset(),
+    // we don't want this on the onboarding
+    UserPreferencesItemSimple(
+      labels: <String>[appLocalizations.reset_food_prefs],
+      builder: (final BuildContext context) => ListTile(
+        title: Text(appLocalizations.reset_food_prefs),
+        onTap: () async => _confirmReset(),
+        leading: Icon(
+          Icons.rotate_left,
+          color: Theme.of(context).iconTheme.color,
         ),
-        ..._getOnboardingBody(collapsed: false)
-      ];
+      ),
+    ),
+    ..._getOnboardingBody(collapsed: false),
+  ];
 
   List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {
     final List<AttributeGroup> result = <AttributeGroup>[];
     for (final String id in _ORDERED_ATTRIBUTE_GROUP_IDS) {
       result.addAll(groups.where((AttributeGroup g) => g.id == id));
     }
-    result.addAll(groups.where(
-        (AttributeGroup g) => !_ORDERED_ATTRIBUTE_GROUP_IDS.contains(g.id)));
+    result.addAll(
+      groups.where(
+        (AttributeGroup g) => !_ORDERED_ATTRIBUTE_GROUP_IDS.contains(g.id),
+      ),
+    );
     return result;
   }
 
@@ -87,13 +90,13 @@ class UserPreferencesFood extends AbstractUserPreferences {
           onPressed: () async {
             await context.read<ProductPreferences>().resetImportances();
             if (context.mounted) {
-              Navigator.pop(context);
+              Navigator.of(context).pop();
             }
           },
         ),
         negativeAction: SmoothActionButton(
           text: appLocalizations.no,
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => Navigator.of(context).pop(),
         ),
       ),
     );
@@ -103,29 +106,27 @@ class UserPreferencesFood extends AbstractUserPreferences {
   List<Widget> getOnboardingContent() {
     final List<Widget> result = <Widget>[
       Padding(
-        padding: const EdgeInsetsDirectional.symmetric(
-          horizontal: LARGE_SPACE,
-        ),
-        child: Text(
-          getTitleString(),
-          style: themeData.textTheme.displayMedium,
-        ),
+        padding: const EdgeInsetsDirectional.symmetric(horizontal: LARGE_SPACE),
+        child: Text(getTitleString(), style: themeData.textTheme.displayMedium),
       ),
     ];
     for (final UserPreferencesItem item in _getOnboardingBody()) {
-      result.add(Padding(
-        padding: const EdgeInsetsDirectional.symmetric(
-          horizontal: SMALL_SPACE,
+      result.add(
+        Padding(
+          padding: const EdgeInsetsDirectional.symmetric(
+            horizontal: SMALL_SPACE,
+          ),
+          child: item.builder(context),
         ),
-        child: item.builder(context),
-      ));
+      );
     }
     return result;
   }
 
   List<UserPreferencesItem> _getOnboardingBody({final bool? collapsed}) {
-    final List<AttributeGroup> groups =
-        _reorderGroups(productPreferences.attributeGroups!);
+    final List<AttributeGroup> groups = _reorderGroups(
+      productPreferences.attributeGroups!,
+    );
     final List<UserPreferencesItem> result = <UserPreferencesItem>[
       UserPreferencesItemSimple(
         labels: <String>[appLocalizations.myPreferences_food_comment],
@@ -147,6 +148,42 @@ class UserPreferencesFood extends AbstractUserPreferences {
           appLocalizations: appLocalizations,
           themeData: themeData,
         ).getItems(collapsed: collapsed),
+      );
+    }
+    return result;
+  }
+
+  List<PreferenceTile> searchTiles(BuildContext context, String query) {
+    final List<PreferenceTile> result = <PreferenceTile>[];
+    final UserPreferencesFoodSearchHelper helper =
+        UserPreferencesFoodSearchHelper(query);
+
+    final List<AttributeGroup> groups = _reorderGroups(
+      productPreferences.attributeGroups!,
+    );
+
+    if (helper.matches(<String?>[
+      appLocalizations.myPreferences_food_title,
+      appLocalizations.myPreferences_food_subtitle,
+      appLocalizations.myPreferences_food_comment,
+    ])) {
+      result.add(
+        helper.getPreferenceTile(
+          title: appLocalizations.myPreferences_food_title,
+          context: context,
+        ),
+      );
+    }
+    for (final AttributeGroup group in groups) {
+      result.addAll(
+        UserPreferencesAttributeGroup(
+          productPreferences: productPreferences,
+          group: group,
+          context: context,
+          userPreferences: userPreferences,
+          appLocalizations: appLocalizations,
+          themeData: themeData,
+        ).searchTiles(context, helper),
       );
     }
     return result;

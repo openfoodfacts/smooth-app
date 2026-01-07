@@ -6,7 +6,6 @@ import 'package:dart_ping_ios/dart_ping_ios.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -23,17 +22,18 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/generic_lib/animations/rive_animation.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/network_config.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
@@ -48,7 +48,8 @@ void main() {
   debugPrint(' - flutter run -t lib/entrypoints/android/main_google_play.dart');
   debugPrint(' - flutter run -t lib/entrypoints/ios/main_ios.dart');
   debugPrint(
-      'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project');
+    'More information here: https://github.com/openfoodfacts/smooth-app#how-to-run-the-project',
+  );
   debugPrint('--------');
 
   if (Platform.isAndroid) {
@@ -67,8 +68,6 @@ Future<void> launchSmoothApp({
   required ScannerLabel scannerLabel,
   final bool screenshots = false,
 }) async {
-  unawaited(RiveFile.initialize());
-
   _screenshots = screenshots;
 
   GlobalVars.barcodeScanner = barcodeScanner;
@@ -83,13 +82,15 @@ Future<void> launchSmoothApp({
   }
   final WidgetsBinding widgetsBinding =
       WidgetsFlutterBinding.ensureInitialized();
+  await RiveNative.init();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   _enableEdgeToEdgeMode();
 
   if (kReleaseMode) {
     await AnalyticsHelper.initSentry(
-        appRunner: () => runApp(const SmoothApp()));
+      appRunner: () => runApp(const SmoothApp()),
+    );
   } else {
     runApp(const SmoothApp());
   }
@@ -99,9 +100,7 @@ void _enableEdgeToEdgeMode() {
   if (Platform.isAndroid) {
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     SystemChrome.setSystemUIOverlayStyle(
-      const SystemUiOverlayStyle(
-        systemNavigationBarColor: Colors.transparent,
-      ),
+      const SystemUiOverlayStyle(systemNavigationBarColor: Colors.transparent),
     );
   }
 }
@@ -226,9 +225,7 @@ class _SmoothAppState extends State<SmoothApp> {
             _provide<ThemeProvider>(_themeProvider),
 
             /// The next two providers are only used with the AMOLED theme
-            _lazyProvide<ColorProvider>(
-              (_) => ColorProvider(_userPreferences),
-            ),
+            _lazyProvide<ColorProvider>((_) => ColorProvider(_userPreferences)),
             _lazyProvide<TextContrastProvider>(
               (_) => TextContrastProvider(_userPreferences),
             ),
@@ -242,11 +239,11 @@ class _SmoothAppState extends State<SmoothApp> {
               (_) => AppReviewProvider(_userPreferences),
             ),
           ],
-          child: AnimationsLoader(
+          child: RiveAnimationsLoader(
             child: AppNavigator(
               observers: <NavigatorObserver>[
                 SentryNavigatorObserver(),
-                matomoObserver,
+                matomoLocalObserver,
               ],
               child: Builder(builder: _buildApp),
             ),
@@ -257,32 +254,27 @@ class _SmoothAppState extends State<SmoothApp> {
   }
 
   ChangeNotifierProvider<T> _provide<T extends ChangeNotifier>(T value) =>
-      ChangeNotifierProvider<T>(
-        create: (BuildContext context) => value,
-      );
+      ChangeNotifierProvider<T>(create: (BuildContext context) => value);
 
   ChangeNotifierProvider<T> _lazyProvide<T extends ChangeNotifier>(
     T Function(BuildContext) valueBuilder,
-  ) =>
-      ChangeNotifierProvider<T>(
-        create: valueBuilder,
-        lazy: true,
-      );
+  ) => ChangeNotifierProvider<T>(create: valueBuilder, lazy: true);
 
   Widget _buildApp(BuildContext context) {
     final ThemeProvider themeProvider = context.watch<ThemeProvider>();
     final OnboardingPage lastVisitedOnboardingPage =
         _userPreferences.lastVisitedOnboardingPage;
     OnboardingFlowNavigator(_userPreferences);
-    final bool isOnboardingComplete =
-        lastVisitedOnboardingPage.isOnboardingComplete();
+    final bool isOnboardingComplete = lastVisitedOnboardingPage
+        .isOnboardingComplete();
     themeProvider.setOnboardingComplete(isOnboardingComplete);
 
     // Still need the value from the UserPreferences here, not the ProductQuery
     // as the value is not available at this time
     // will refresh each time the language changes
-    final String? languageCode =
-        context.select((UserPreferences up) => up.appLanguageCode);
+    final String? languageCode = context.select(
+      (UserPreferences up) => up.appLanguageCode,
+    );
 
     return SentryScreenshotWidget(
       child: MaterialApp.router(
@@ -312,11 +304,7 @@ class _SmoothAppState extends State<SmoothApp> {
     return MaterialApp(
       theme: ThemeData(),
       home: SmoothScaffold(
-        body: Center(
-          child: Text(
-            'Fatal Error: ${snapshot.error}',
-          ),
-        ),
+        body: Center(child: Text('Fatal Error: ${snapshot.error}')),
       ),
     );
   }

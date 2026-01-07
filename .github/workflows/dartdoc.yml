@@ -1,3 +1,6 @@
+#permissions:
+#  contents: read
+#  pages: write
 name: GitHub Pages Deploy Action
 on:
     push:
@@ -12,9 +15,9 @@ jobs:
             working-directory: ./packages/smooth_app
         steps:
             - name: Checkout code	
-              uses: actions/checkout@v4	
+              uses: actions/checkout@v6	
             - name: Setup Flutter	
-              uses: actions/cache@v4	
+              uses: actions/cache@v5	
               with:	
                 path: ${{ runner.tool_cache }}/flutter	
                 key: flutter-2.5.0-stable	
@@ -31,7 +34,7 @@ jobs:
             - name: Build documentation using mkdocs
               run: mkdocs build
             - name: Deploy smooth_app documentation to Github Pages
-              uses: JamesIves/github-pages-deploy-action@v4.7.3	
+              uses: JamesIves/github-pages-deploy-action@v4.7.6	
               with:
                 BRANCH: gh-pages
                 FOLDER: packages/smooth_app/gh_pages/

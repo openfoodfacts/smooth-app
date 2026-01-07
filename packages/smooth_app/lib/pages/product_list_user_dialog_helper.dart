@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 
 /// Dialog helper class for user product list.
@@ -137,8 +137,10 @@ class ProductListUserDialogHelper {
     if (newName == null) {
       return null;
     }
-    final ProductList result =
-        await daoProductList.rename(initialProductList, newName);
+    final ProductList result = await daoProductList.rename(
+      initialProductList,
+      newName,
+    );
     daoProductList.localDatabase.notifyListeners();
     return result;
   }
@@ -205,10 +207,8 @@ class ProductListUserDialogHelper {
       return false;
     }
 
-    final List<String> selectedLists =
-        await daoProductList.getUserListsWithBarcodes(
-      barcodes.toList(growable: false),
-    );
+    final List<String> selectedLists = await daoProductList
+        .getUserListsWithBarcodes(barcodes.toList(growable: false));
 
     if (!context.mounted) {
       return null;
@@ -294,29 +294,32 @@ class _UserListsState extends State<_UserLists> {
       positiveAction: SmoothActionButton(
         text: appLocalizations.save,
         onPressed: () async {
-          Navigator.of(context).pop(
-            await widget.onListsSubmitted(selectedLists),
-          );
+          Navigator.of(
+            context,
+          ).pop(await widget.onListsSubmitted(selectedLists));
         },
       ),
       body: Column(
-        children: widget.lists.map((String name) {
-          return ListTile(
-              leading: Icon(
-                selectedLists.contains(name)
-                    ? Icons.check_box
-                    : Icons.check_box_outline_blank,
-              ),
-              title: Text(name),
-              onTap: () {
-                if (selectedLists.contains(name)) {
-                  selectedLists.removeWhere((String e) => e == name);
-                } else {
-                  selectedLists.add(name);
-                }
-                setState(() {});
-              });
-        }).toList(growable: false),
+        children: widget.lists
+            .map((String name) {
+              return ListTile(
+                leading: Icon(
+                  selectedLists.contains(name)
+                      ? Icons.check_box
+                      : Icons.check_box_outline_blank,
+                ),
+                title: Text(name),
+                onTap: () {
+                  if (selectedLists.contains(name)) {
+                    selectedLists.removeWhere((String e) => e == name);
+                  } else {
+                    selectedLists.add(name);
+                  }
+                  setState(() {});
+                },
+              );
+            })
+            .toList(growable: false),
       ),
     );
   }
@@ -325,9 +328,7 @@ class _UserListsState extends State<_UserLists> {
 /// Widget indicate that the user has no lists yet
 /// Pop returns true if a new list is created
 class _UserEmptyLists extends StatefulWidget {
-  const _UserEmptyLists(
-    this.daoProductList,
-  );
+  const _UserEmptyLists(this.daoProductList);
 
   final DaoProductList daoProductList;
 
@@ -367,9 +368,9 @@ class _UserEmptyListsState extends State<_UserEmptyLists> {
       actionsOrder: SmoothButtonsBarOrder.auto,
       positiveAction: SmoothActionButton(
         onPressed: () async {
-          final ProductList? productList =
-              await ProductListUserDialogHelper(widget.daoProductList)
-                  .showCreateUserListDialog(context);
+          final ProductList? productList = await ProductListUserDialogHelper(
+            widget.daoProductList,
+          ).showCreateUserListDialog(context);
 
           if (productList != null && context.mounted) {
             Navigator.pop<bool>(context, true);
@@ -384,8 +385,9 @@ class _UserEmptyListsState extends State<_UserEmptyLists> {
 
 /// Closes the dialog and returns false, as no products were added
 SmoothActionButton _cancelButton(
-        AppLocalizations appLocalizations, BuildContext context) =>
-    SmoothActionButton(
-      onPressed: () => Navigator.pop(context, false),
-      text: appLocalizations.cancel,
-    );
+  AppLocalizations appLocalizations,
+  BuildContext context,
+) => SmoothActionButton(
+  onPressed: () => Navigator.pop(context, false),
+  text: appLocalizations.cancel,
+);

@@ -26,10 +26,7 @@ class DebouncedTextEditingController extends TextEditingController {
       _debounce!.cancel();
     }
 
-    _debounce = Timer(
-      debounceTime,
-      () => super.notifyListeners(),
-    );
+    _debounce = Timer(debounceTime, () => super.notifyListeners());
   }
 
   @override

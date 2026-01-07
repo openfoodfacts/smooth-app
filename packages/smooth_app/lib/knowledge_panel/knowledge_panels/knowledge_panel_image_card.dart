@@ -5,9 +5,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 
 /// Card that displays a Knowledge Panel _Image_ element.
 class KnowledgePanelImageCard extends StatelessWidget {
-  const KnowledgePanelImageCard({
-    required this.imageElement,
-  });
+  const KnowledgePanelImageCard({required this.imageElement});
 
   final KnowledgePanelImageElement imageElement;
 

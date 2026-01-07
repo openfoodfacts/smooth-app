@@ -3,12 +3,11 @@ import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:torch_light/torch_light.dart';
 
 class CustomScannerController {
-  CustomScannerController({
-    required MobileScannerController controller,
-  })  : _controller = controller,
-        _torchState = TorchState(),
-        _availableCamerasState = AvailableCamerasState(),
-        _cameraFacingState = CameraFacingState() {
+  CustomScannerController({required MobileScannerController controller})
+    : _controller = controller,
+      _torchState = TorchState(),
+      _availableCamerasState = AvailableCamerasState(),
+      _cameraFacingState = CameraFacingState() {
     _detectTorch();
   }
 

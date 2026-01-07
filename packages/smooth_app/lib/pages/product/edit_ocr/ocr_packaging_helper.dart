@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/widgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -16,24 +16,20 @@ class OcrPackagingHelper extends OcrHelper {
   String? getMonolingualText(final Product product) => product.packaging;
 
   @override
-  void setMonolingualText(
-    final Product product,
-    final String text,
-  ) =>
+  void setMonolingualText(final Product product, final String text) =>
       // ignore: deprecated_member_use
       product.packaging = text;
 
   @override
   Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
-          final Product product) =>
-      product.packagingTextInLanguages;
+    final Product product,
+  ) => product.packagingTextInLanguages;
 
   @override
   void setMultilingualTexts(
     final Product product,
     final Map<OpenFoodFactsLanguage, String> texts,
-  ) =>
-      product.packagingTextInLanguages = texts;
+  ) => product.packagingTextInLanguages = texts;
 
   @override
   String? getImageUrl(final Product product) => product.imagePackagingUrl;

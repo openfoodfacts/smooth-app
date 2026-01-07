@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 typedef SearchQueryCallback = void Function(String query);
 
@@ -26,7 +26,11 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
   /// Hint text for the search field.
   String getHintText(final AppLocalizations appLocalizations);
 
-  Widget? getAdditionalFilter() => null;
+  /// A small message that will be displayed below the search bar
+  String getHelpText(final AppLocalizations appLocalizations);
+
+  /// An optional leading widget for the search bar.
+  Widget? getLeadingWidget(BuildContext context) => null;
 
   /// Returns all the previous queries, in reverse order.
   List<String> getAllQueries(final LocalDatabase localDatabase) =>
@@ -36,15 +40,13 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
   Future<void> addQuery(
     final LocalDatabase localDatabase,
     final String query,
-  ) async =>
-      DaoStringList(localDatabase).add(historyKey, query);
+  ) async => DaoStringList(localDatabase).add(historyKey, query);
 
   /// Removes a query from the history.
   Future<bool> removeQuery(
     final LocalDatabase localDatabase,
     final String query,
-  ) async =>
-      DaoStringList(localDatabase).remove(historyKey, query);
+  ) async => DaoStringList(localDatabase).remove(historyKey, query);
 
   /// Typical search when we have a controller+focus.
   void searchWithController(
@@ -52,22 +54,19 @@ abstract class SearchHelper extends ValueNotifier<SearchQuery?> {
     String query,
     TextEditingController controller,
     FocusNode focusNode,
-  ) =>
-      search(
-        context,
-        query,
-        searchQueryCallback: (String query) {
-          controller.text = query;
-          focusNode.requestFocus();
-        },
-      );
+  ) => search(
+    context,
+    query,
+    searchQueryCallback: (String query) {
+      controller.text = query;
+      focusNode.requestFocus();
+    },
+  );
 }
 
 class SearchQuery {
-  const SearchQuery({
-    required this.search,
-    required this.widget,
-  }) : assert(search.length > 0);
+  const SearchQuery({required this.search, required this.widget})
+    : assert(search.length > 0);
 
   final String search;
   final Widget widget;

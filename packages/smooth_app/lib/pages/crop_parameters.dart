@@ -9,10 +9,10 @@ class CropParameters {
     required this.rotation,
     required Rect cropRect,
     this.eraserCoordinates,
-  })  : x1 = cropRect.left.ceil(),
-        y1 = cropRect.top.ceil(),
-        x2 = cropRect.right.floor(),
-        y2 = cropRect.bottom.floor();
+  }) : x1 = cropRect.left.ceil(),
+       y1 = cropRect.top.ceil(),
+       x2 = cropRect.right.floor(),
+       y2 = cropRect.bottom.floor();
 
   /// File of the full image.
   final File? fullFile;

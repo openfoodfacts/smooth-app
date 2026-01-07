@@ -9,6 +9,7 @@ class SmoothColorsThemeExtension
     required this.primarySemiDark,
     required this.primaryTone,
     required this.primaryNormal,
+    required this.primaryAccent,
     required this.primaryMedium,
     required this.primaryLight,
     required this.secondaryNormal,
@@ -29,31 +30,30 @@ class SmoothColorsThemeExtension
   });
 
   SmoothColorsThemeExtension.defaultValues(bool lightTheme)
-      : primaryUltraBlack = const Color(0xFF201A17),
-        primaryBlack = const Color(0xFF341100),
-        primaryDark = const Color(0xFF483527),
-        primarySemiDark = const Color(0xFF52443D),
-        primaryTone = const Color(0xFF81756C),
-        primaryNormal = const Color(0xFFA08D84),
-        primaryMedium = const Color(0xFFEDE0DB),
-        primaryLight = const Color(0xFFF6F3F0),
-        secondaryNormal = const Color(0xFFF2994A),
-        secondaryVibrant = const Color(0xFFFB8229),
-        secondaryLight = const Color(0xFFEE8858),
-        success = const Color(0xFF219653),
-        successBackground = const Color(0xFFDEEDDB),
-        warning = const Color(0xFFFB8229),
-        warningBackground = const Color(0xFFF2E2D6),
-        error = const Color(0xFFEB5757),
-        errorBackground = const Color(0xFFF6E4E4),
-        greyDark = const Color(0xFF666666),
-        greyNormal = const Color(0xFF6C6C6C),
-        greyMedium = const Color(0xFF8F8F8F),
-        greyLight = const Color(0xFFE0E0E0),
-        cellOdd =
-            lightTheme ? const Color(0xFFFAF8F6) : const Color(0xFF2D251E),
-        cellEven =
-            lightTheme ? const Color(0xFFFFFFFF) : const Color(0xFF201A17);
+    : primaryUltraBlack = const Color(0xFF201A17),
+      primaryBlack = const Color(0xFF341100),
+      primaryDark = const Color(0xFF483527),
+      primarySemiDark = const Color(0xFF52443D),
+      primaryTone = const Color(0xFF81756C),
+      primaryAccent = const Color(0xFF875737),
+      primaryNormal = const Color(0xFFA08D84),
+      primaryMedium = const Color(0xFFEDE0DB),
+      primaryLight = const Color(0xFFF6F3F0),
+      secondaryNormal = const Color(0xFFF2994A),
+      secondaryVibrant = const Color(0xFFFB8229),
+      secondaryLight = const Color(0xFFEE8858),
+      success = const Color(0xFF219653),
+      successBackground = const Color(0xFFDEEDDB),
+      warning = const Color(0xFFFB8229),
+      warningBackground = const Color(0xFFF2E2D6),
+      error = const Color(0xFFEB5757),
+      errorBackground = const Color(0xFFF6E4E4),
+      greyDark = const Color(0xFF666666),
+      greyNormal = const Color(0xFF6C6C6C),
+      greyMedium = const Color(0xFF8F8F8F),
+      greyLight = const Color(0xFFE0E0E0),
+      cellOdd = lightTheme ? const Color(0xFFFAF8F6) : const Color(0xFF2D251E),
+      cellEven = lightTheme ? const Color(0xFFFFFFFF) : const Color(0xFF201A17);
 
   // Ristreto
   final Color primaryUltraBlack;
@@ -69,6 +69,8 @@ class SmoothColorsThemeExtension
 
   // Darker Macchiato (from old palette)
   final Color primaryTone;
+
+  final Color primaryAccent;
 
   // Macchiato
   final Color primaryNormal;
@@ -105,6 +107,7 @@ class SmoothColorsThemeExtension
     Color? primarySemiDark,
     Color? primaryTone,
     Color? primaryNormal,
+    Color? primaryAccent,
     Color? primaryMedium,
     Color? primaryLight,
     Color? secondaryNormal,
@@ -130,6 +133,7 @@ class SmoothColorsThemeExtension
       primarySemiDark: primarySemiDark ?? this.primarySemiDark,
       primaryTone: primaryTone ?? this.primaryTone,
       primaryNormal: primaryNormal ?? this.primaryNormal,
+      primaryAccent: primaryAccent ?? this.primaryAccent,
       primaryMedium: primaryMedium ?? this.primaryMedium,
       primaryLight: primaryLight ?? this.primaryLight,
       secondaryNormal: secondaryNormal ?? this.secondaryNormal,
@@ -165,116 +169,41 @@ class SmoothColorsThemeExtension
         other.primaryUltraBlack,
         t,
       )!,
-      primaryBlack: Color.lerp(
-        primaryBlack,
-        other.primaryBlack,
-        t,
-      )!,
-      primaryDark: Color.lerp(
-        primaryDark,
-        other.primaryDark,
-        t,
-      )!,
-      primarySemiDark: Color.lerp(
-        primarySemiDark,
-        other.primarySemiDark,
-        t,
-      )!,
-      primaryTone: Color.lerp(
-        primaryTone,
-        other.primaryTone,
-        t,
-      )!,
-      primaryNormal: Color.lerp(
-        primaryNormal,
-        other.primaryNormal,
-        t,
-      )!,
-      primaryMedium: Color.lerp(
-        primaryMedium,
-        other.primaryMedium,
-        t,
-      )!,
-      primaryLight: Color.lerp(
-        primaryLight,
-        other.primaryLight,
-        t,
-      )!,
-      secondaryNormal: Color.lerp(
-        secondaryNormal,
-        other.secondaryNormal,
-        t,
-      )!,
-      secondaryLight: Color.lerp(
-        secondaryLight,
-        other.secondaryLight,
-        t,
-      )!,
+      primaryBlack: Color.lerp(primaryBlack, other.primaryBlack, t)!,
+      primaryDark: Color.lerp(primaryDark, other.primaryDark, t)!,
+      primarySemiDark: Color.lerp(primarySemiDark, other.primarySemiDark, t)!,
+      primaryTone: Color.lerp(primaryTone, other.primaryTone, t)!,
+      primaryNormal: Color.lerp(primaryNormal, other.primaryNormal, t)!,
+      primaryAccent: Color.lerp(primaryAccent, other.primaryAccent, t)!,
+      primaryMedium: Color.lerp(primaryMedium, other.primaryMedium, t)!,
+      primaryLight: Color.lerp(primaryLight, other.primaryLight, t)!,
+      secondaryNormal: Color.lerp(secondaryNormal, other.secondaryNormal, t)!,
+      secondaryLight: Color.lerp(secondaryLight, other.secondaryLight, t)!,
       secondaryVibrant: Color.lerp(
         secondaryVibrant,
         other.secondaryVibrant,
         t,
       )!,
-      error: Color.lerp(
-        error,
-        other.error,
-        t,
-      )!,
-      errorBackground: Color.lerp(
-        errorBackground,
-        other.errorBackground,
-        t,
-      )!,
-      warning: Color.lerp(
-        warning,
-        other.warning,
-        t,
-      )!,
+      error: Color.lerp(error, other.error, t)!,
+      errorBackground: Color.lerp(errorBackground, other.errorBackground, t)!,
+      warning: Color.lerp(warning, other.warning, t)!,
       warningBackground: Color.lerp(
         warningBackground,
         other.warningBackground,
         t,
       )!,
-      success: Color.lerp(
-        success,
-        other.success,
-        t,
-      )!,
+      success: Color.lerp(success, other.success, t)!,
       successBackground: Color.lerp(
         successBackground,
         other.successBackground,
         t,
       )!,
-      greyDark: Color.lerp(
-        greyDark,
-        other.greyDark,
-        t,
-      )!,
-      greyNormal: Color.lerp(
-        greyNormal,
-        other.greyNormal,
-        t,
-      )!,
-      greyMedium: Color.lerp(
-        greyMedium,
-        other.greyMedium,
-        t,
-      )!,
-      greyLight: Color.lerp(
-        greyLight,
-        other.greyLight,
-        t,
-      )!,
-      cellOdd: Color.lerp(
-        cellOdd,
-        other.cellOdd,
-        t,
-      )!,
-      cellEven: Color.lerp(
-        cellEven,
-        other.cellEven,
-        t,
-      )!,
+      greyDark: Color.lerp(greyDark, other.greyDark, t)!,
+      greyNormal: Color.lerp(greyNormal, other.greyNormal, t)!,
+      greyMedium: Color.lerp(greyMedium, other.greyMedium, t)!,
+      greyLight: Color.lerp(greyLight, other.greyLight, t)!,
+      cellOdd: Color.lerp(cellOdd, other.cellOdd, t)!,
+      cellEven: Color.lerp(cellEven, other.cellEven, t)!,
     );
   }
 }

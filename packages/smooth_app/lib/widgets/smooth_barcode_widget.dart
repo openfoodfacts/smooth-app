@@ -1,7 +1,7 @@
 import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -44,9 +44,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
             data: barcode,
             barcode: _barcodeType,
             color: color ?? Colors.black,
-            style: TextStyle(
-              color: contentColor,
-            ),
+            style: TextStyle(color: contentColor),
             errorBuilder: (final BuildContext context, String? error) {
               onInvalidBarcode?.call();
 
@@ -89,6 +87,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
       case 8:
         return Barcode.ean8();
       case 12:
+        return Barcode.upcA();
       case 13:
         return Barcode.ean13();
       default:

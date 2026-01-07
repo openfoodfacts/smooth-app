@@ -13,10 +13,10 @@ class SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight
     this.mainAxisSpacing = 0.0,
     this.crossAxisSpacing = 0.0,
     this.height = 56.0,
-  })  : assert(crossAxisCount > 0),
-        assert(mainAxisSpacing >= 0),
-        assert(crossAxisSpacing >= 0),
-        assert(height >= 0.0);
+  }) : assert(crossAxisCount > 0),
+       assert(mainAxisSpacing >= 0),
+       assert(crossAxisSpacing >= 0),
+       assert(height >= 0.0);
 
   /// The number of children in the cross axis.
   final int crossAxisCount;
@@ -57,7 +57,8 @@ class SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight
 
   @override
   bool shouldRelayout(
-      SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight oldDelegate) {
+    SliverGridDelegateWithFixedCrossAxisCountAndFixedHeight oldDelegate,
+  ) {
     return oldDelegate.crossAxisCount != crossAxisCount ||
         oldDelegate.mainAxisSpacing != mainAxisSpacing ||
         oldDelegate.crossAxisSpacing != crossAxisSpacing ||

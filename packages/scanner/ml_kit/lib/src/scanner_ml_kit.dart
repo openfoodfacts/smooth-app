@@ -19,10 +19,17 @@ class ScannerMLKit extends Scanner {
     required Future<bool> Function(String) onScan,
     required Future<void> Function() hapticFeedback,
     required Function(BuildContext)? onCameraFlashError,
-    required Function(String msg, String category,
-            {int? eventValue, String? barcode})
-        trackCustomEvent,
+    required Function(
+      String msg,
+      String category, {
+      int? eventValue,
+      String? barcode,
+    })
+    trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    required Widget barcodeScannerIcon,
+    required Widget torchOnIcon,
+    required Widget torchOffIcon,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
     EdgeInsetsGeometry? contentPadding,
@@ -35,6 +42,9 @@ class ScannerMLKit extends Scanner {
       hasMoreThanOneCamera: hasMoreThanOneCamera,
       toggleCameraModeTooltip: toggleCameraModeTooltip,
       toggleFlashModeTooltip: toggleFlashModeTooltip,
+      barcodeScannerIcon: barcodeScannerIcon,
+      torchOnIcon: torchOnIcon,
+      torchOffIcon: torchOffIcon,
       contentPadding: contentPadding,
     );
   }
@@ -48,6 +58,9 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
     required this.trackCustomEvent,
     required this.onCameraFlashError,
     required this.hasMoreThanOneCamera,
+    required this.barcodeScannerIcon,
+    required this.torchOnIcon,
+    required this.torchOffIcon,
     this.toggleCameraModeTooltip,
     this.toggleFlashModeTooltip,
     this.contentPadding,
@@ -56,10 +69,19 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
   final Future<bool> Function(String) onScan;
   final Future<void> Function() hapticFeedback;
 
-  final Function(String msg, String category,
-      {int? eventValue, String? barcode}) trackCustomEvent;
+  final Function(
+    String msg,
+    String category, {
+    int? eventValue,
+    String? barcode,
+  })
+  trackCustomEvent;
   final Function(BuildContext)? onCameraFlashError;
   final bool hasMoreThanOneCamera;
+
+  final Widget barcodeScannerIcon;
+  final Widget torchOnIcon;
+  final Widget torchOffIcon;
 
   final EdgeInsetsGeometry? contentPadding;
   final String? toggleCameraModeTooltip;
@@ -71,7 +93,6 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
 
 class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     with SingleTickerProviderStateMixin {
-  // just 1D formats and ios supported
   static const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
     BarcodeFormat.code39,
     BarcodeFormat.code93,
@@ -81,10 +102,14 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     BarcodeFormat.itf,
     BarcodeFormat.upcA,
     BarcodeFormat.upcE,
+    // 2D formats for GS1 Sunrise 2027
+    BarcodeFormat.dataMatrix,
+    BarcodeFormat.qrCode,
   ];
 
-  static const ValueKey<String> _visibilityKey =
-      ValueKey<String>('VisibilityDetector');
+  static const ValueKey<String> _visibilityKey = ValueKey<String>(
+    'VisibilityDetector',
+  );
 
   late CustomScannerController _cameraController;
   late final AppLifecycleListener _lifecycleListener;
@@ -135,12 +160,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             MobileScanner(
               controller: _cameraController.controller,
               fit: BoxFit.cover,
-              errorBuilder: (
-                BuildContext context,
-                MobileScannerException error,
-                Widget? child,
-              ) =>
-                  EMPTY_WIDGET,
+              errorBuilder: (_, _, _) => EMPTY_WIDGET,
               onDetect: (final BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;
@@ -152,13 +172,14 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             ),
             Center(
               child: SmoothBarcodeScannerVisor(
+                icon: widget.barcodeScannerIcon,
                 contentPadding: widget.contentPadding,
               ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.all(
+                padding: const EdgeInsetsDirectional.all(
                   SmoothBarcodeScannerVisor.CORNER_PADDING,
                 ),
                 child: Row(
@@ -170,6 +191,8 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
                       hapticFeedback: widget.hapticFeedback,
                     ),
                     _TorchIcon(
+                      torchOnIcon: widget.torchOnIcon,
+                      torchOffIcon: widget.torchOffIcon,
                       toggleFlashModeTooltip: widget.toggleFlashModeTooltip,
                       hapticFeedback: widget.hapticFeedback,
                       onCameraFlashError: widget.onCameraFlashError,
@@ -204,8 +227,13 @@ class _TorchIcon extends StatefulWidget {
   const _TorchIcon({
     required this.hapticFeedback,
     required this.onCameraFlashError,
+    required this.torchOnIcon,
+    required this.torchOffIcon,
     this.toggleFlashModeTooltip,
   });
+
+  final Widget torchOnIcon;
+  final Widget torchOffIcon;
 
   final String? toggleFlashModeTooltip;
   final Future<void> Function() hapticFeedback;
@@ -225,12 +253,13 @@ class _TorchIconState extends State<_TorchIcon> {
           return EMPTY_WIDGET;
         }
 
-        final CustomScannerController controller =
-            context.watch<CustomScannerController>();
+        final CustomScannerController controller = context
+            .watch<CustomScannerController>();
         final bool isTorchOn = controller.isTorchOn;
 
         return VisorButton(
-          tooltip: widget.toggleFlashModeTooltip ??
+          tooltip:
+              widget.toggleFlashModeTooltip ??
               'Turn ON or OFF the flash of the camera',
           onTap: () async {
             widget.hapticFeedback.call();
@@ -244,14 +273,8 @@ class _TorchIconState extends State<_TorchIcon> {
             }
           },
           child: switch (isTorchOn) {
-            true => const Icon(
-                Icons.flash_off,
-                color: Colors.white,
-              ),
-            false => const Icon(
-                Icons.flash_on,
-                color: Colors.white,
-              ),
+            true => widget.torchOnIcon,
+            false => widget.torchOffIcon,
           },
         );
       },
@@ -270,39 +293,34 @@ class _ToggleCameraIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CustomScannerController controller =
-        context.watch<CustomScannerController>();
+    final CustomScannerController controller = context
+        .watch<CustomScannerController>();
 
     return ValueListenableBuilder<int>(
-        valueListenable: controller.availableCameras,
-        builder: (BuildContext context, int cameras, _) {
-          if (cameras <= 1) {
-            return EMPTY_WIDGET;
-          }
+      valueListenable: controller.availableCameras,
+      builder: (BuildContext context, int cameras, _) {
+        if (cameras <= 1) {
+          return EMPTY_WIDGET;
+        }
 
-          return VisorButton(
-            onTap: () async {
-              hapticFeedback.call();
-              controller.toggleCamera();
+        return VisorButton(
+          onTap: () async {
+            hapticFeedback.call();
+            controller.toggleCamera();
+          },
+          tooltip:
+              toggleCameraModeTooltip ?? 'Switch between back and front camera',
+          child: ValueListenableBuilder<CameraFacing>(
+            valueListenable: controller.cameraFacing,
+            builder: (BuildContext context, CameraFacing state, Widget? child) {
+              return switch (state) {
+                CameraFacing.front => const Icon(Icons.camera_front),
+                CameraFacing.back => const Icon(Icons.camera_rear),
+              };
             },
-            tooltip: toggleCameraModeTooltip ??
-                'Switch between back and front camera',
-            child: ValueListenableBuilder<CameraFacing>(
-              valueListenable: controller.cameraFacing,
-              builder: (
-                BuildContext context,
-                CameraFacing state,
-                Widget? child,
-              ) {
-                switch (state) {
-                  case CameraFacing.front:
-                    return const Icon(Icons.camera_front);
-                  case CameraFacing.back:
-                    return const Icon(Icons.camera_rear);
-                }
-              },
-            ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 }

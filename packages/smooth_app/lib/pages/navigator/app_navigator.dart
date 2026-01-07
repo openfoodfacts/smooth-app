@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -8,9 +7,17 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
+import 'package:smooth_app/helpers/barcode_utils.dart';
+import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
+import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
+import 'package:smooth_app/pages/guides/guide/guide_open_beauty_facts.dart';
+import 'package:smooth_app/pages/guides/guide/guide_open_food_facts.dart';
+import 'package:smooth_app/pages/guides/guide/guide_open_pet_food_facts.dart';
+import 'package:smooth_app/pages/guides/guide/guide_open_prices.dart';
+import 'package:smooth_app/pages/guides/guide/guide_open_products_facts.dart';
 import 'package:smooth_app/pages/navigator/error_page.dart';
 import 'package:smooth_app/pages/navigator/external_page.dart';
 import 'package:smooth_app/pages/navigator/external_page_webview.dart';
@@ -27,6 +34,7 @@ import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/pages/user_management/sign_up_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 /// A replacement for the [Navigator], where we internally use [GoRouter].
 /// By itself the [GoRouter] attribute is not accessible, to allow us to easily
@@ -42,19 +50,17 @@ import 'package:smooth_app/query/product_query.dart';
 /// /!\ [GoRouter] doesn't support [maybePop] or returning a result from a push.
 class AppNavigator extends InheritedWidget {
   AppNavigator({
+    required super.child,
     super.key,
     List<NavigatorObserver>? observers,
-    required super.child,
-  }) : _router = _SmoothGoRouter(
-          observers: observers,
-        );
+  }) : _router = _SmoothGoRouter(observers: observers);
 
   // GoRouter is never accessible directly
   final _SmoothGoRouter _router;
 
   static AppNavigator of(BuildContext context) {
-    final AppNavigator? result =
-        context.dependOnInheritedWidgetOfExactType<AppNavigator>();
+    final AppNavigator? result = context
+        .dependOnInheritedWidgetOfExactType<AppNavigator>();
     assert(result != null, 'No AppNavigator found in context');
     return result!;
   }
@@ -112,19 +118,13 @@ class AppNavigator extends InheritedWidget {
 /// One drawback of the implementation is that we never know the base URL of the
 /// deep link (eg: es.openfoodfacts.org)
 class _SmoothGoRouter {
-  factory _SmoothGoRouter({
-    List<NavigatorObserver>? observers,
-  }) {
-    _singleton ??= _SmoothGoRouter._internal(
-      observers: observers,
-    );
+  factory _SmoothGoRouter({List<NavigatorObserver>? observers}) {
+    _singleton ??= _SmoothGoRouter._internal(observers: observers);
 
     return _singleton!;
   }
 
-  _SmoothGoRouter._internal({
-    List<NavigatorObserver>? observers,
-  }) {
+  _SmoothGoRouter._internal({List<NavigatorObserver>? observers}) {
     router = GoRouter(
       observers: observers,
       routes: <GoRoute>[
@@ -161,7 +161,7 @@ class _SmoothGoRouter {
                   withHeroAnimation:
                       state.uri.queryParameters['heroAnimation'] != 'false',
                   heroTag: state.uri.queryParameters['heroTag'],
-                  backButton: ProductPageBackButton.byName(
+                  backButton: BackButtonType.byName(
                     state.uri.queryParameters['backButtonType'],
                   ),
                 );
@@ -171,11 +171,12 @@ class _SmoothGoRouter {
                 }
 
                 return switch (ProductPageTransition.byName(
-                    state.uri.queryParameters['transition'])) {
+                  state.uri.queryParameters['transition'],
+                )) {
                   ProductPageTransition.standard => MaterialPage<void>(
-                      key: state.pageKey,
-                      child: widget,
-                    ),
+                    key: state.pageKey,
+                    child: widget,
+                  ),
                   ProductPageTransition.slideUp =>
                     OpenUpwardsPage.getTransition<void>(
                       key: state.pageKey,
@@ -218,30 +219,34 @@ class _SmoothGoRouter {
               },
             ),
             GoRoute(
-              path: '${_InternalAppRoutes.PREFERENCES_PAGE}/:preferenceType',
-              builder: (BuildContext context, GoRouterState state) {
-                final String? type = state.pathParameters['preferenceType'];
-
-                final PreferencePageType? pageType = PreferencePageType.values
-                    .firstWhereOrNull((PreferencePageType e) => e.name == type);
-
-                if (pageType == null) {
-                  throw Exception('Unsupported preference page type: $type');
-                }
-
-                return UserPreferencesPage(
-                  type: pageType,
-                );
-              },
+              path: '${_InternalAppRoutes.PREFERENCES_PAGE}/food',
+              builder: (BuildContext context, GoRouterState state) =>
+                  const UserPreferencesFoodPage(),
             ),
             GoRoute(
               path: _InternalAppRoutes.SEARCH_PAGE,
-              builder: (_, GoRouterState state) {
+              pageBuilder: (_, GoRouterState state) {
+                final Widget page;
+
                 if (state.extra != null) {
-                  return SearchPage.fromExtra(state.extra! as SearchPageExtra);
+                  page = SearchPage.fromExtra(state.extra! as SearchPageExtra);
                 } else {
-                  return SearchPage(SearchProductHelper());
+                  page = SearchPage(SearchProductHelper());
                 }
+
+                return switch (ProductPageTransition.byName(
+                  state.uri.queryParameters['transition'],
+                )) {
+                  ProductPageTransition.standard => MaterialPage<void>(
+                    key: state.pageKey,
+                    child: page,
+                  ),
+                  ProductPageTransition.slideUp =>
+                    OpenUpwardsPage.getTransition<void>(
+                      key: state.pageKey,
+                      child: page,
+                    ),
+                };
               },
             ),
             GoRoute(
@@ -249,22 +254,63 @@ class _SmoothGoRouter {
               routes: <GoRoute>[
                 GoRoute(
                   path: _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE,
-                  builder: (_, __) => const GuideNutriscoreV2(),
+                  builder: (_, _) => const GuideNutriscoreV2(),
+                ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE,
+                  builder: (_, _) => const GuideGreenScore(),
+                ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_NOVA_PAGE,
+                  builder: (_, _) => const GuideNOVA(),
+                ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_OPEN_FOOD_FACTS_PAGE,
+                  builder: (_, _) => const GuideOpenFoodFacts(),
+                ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_OPEN_BEAUTY_FACTS_PAGE,
+                  builder: (_, _) => const GuideOpenBeautyFacts(),
+                ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_OPEN_PET_FOOD_FACTS_PAGE,
+                  builder: (_, _) => const GuideOpenPetFoodFacts(),
+                ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_OPEN_PRODUCTS_FACTS_PAGE,
+                  builder: (_, _) => const GuideOpenProductsFacts(),
+                ),
+                GoRoute(
+                  path: _InternalAppRoutes.GUIDE_OPEN_PRICES_PAGE,
+                  builder: (_, _) => const GuideOpenPrices(),
                 ),
               ],
               redirect: (_, GoRouterState state) {
-                if (state.uri.pathSegments.last !=
-                    _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE) {
-                  return AppRoutes.EXTERNAL(state.path ?? '');
-                } else {
+                // Allow all guide routes
+                final String lastSegment = state.uri.pathSegments.last;
+                if (lastSegment ==
+                        _InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE ||
+                    lastSegment == _InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE ||
+                    lastSegment == _InternalAppRoutes.GUIDE_NOVA_PAGE ||
+                    lastSegment ==
+                        _InternalAppRoutes.GUIDE_OPEN_FOOD_FACTS_PAGE ||
+                    lastSegment ==
+                        _InternalAppRoutes.GUIDE_OPEN_BEAUTY_FACTS_PAGE ||
+                    lastSegment ==
+                        _InternalAppRoutes.GUIDE_OPEN_PET_FOOD_FACTS_PAGE ||
+                    lastSegment ==
+                        _InternalAppRoutes.GUIDE_OPEN_PRODUCTS_FACTS_PAGE ||
+                    lastSegment == _InternalAppRoutes.GUIDE_OPEN_PRICES_PAGE) {
                   return null;
+                } else {
+                  return AppRoutes.EXTERNAL(state.path ?? '');
                 }
               },
             ),
             GoRoute(
               path: _InternalAppRoutes.SIGNUP_PAGE,
-              builder: (_, __) => const SignUpPage(),
-            )
+              builder: (_, _) => const SignUpPage(),
+            ),
           ],
         ),
         GoRoute(
@@ -334,6 +380,10 @@ class _SmoothGoRouter {
             }
           } else if (path == _ExternalRoutes.MOBILE_APP_DOWNLOAD) {
             return AppRoutes.HOME();
+          } else if (path == _ExternalRoutes.GUIDE_GREEN_SCORE) {
+            return AppRoutes.GUIDE_GREEN_SCORE;
+          } else if (path == _ExternalRoutes.GUIDE_NOVA_SCORE) {
+            return AppRoutes.GUIDE_NOVA;
           } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
           } else if (path == _ExternalRoutes.SIGNUP) {
@@ -352,9 +402,8 @@ class _SmoothGoRouter {
           return state.uri.toString();
         }
       },
-      errorBuilder: (_, GoRouterState state) => ErrorPage(
-        url: state.uri.toString(),
-      ),
+      errorBuilder: (_, GoRouterState state) =>
+          ErrorPage(url: state.uri.toString()),
     );
   }
 
@@ -370,20 +419,16 @@ class _SmoothGoRouter {
   }
 
   String _openExternalLink(String path) {
-    AnalyticsHelper.trackEvent(
-      AnalyticsEvent.genericDeepLink,
-    );
+    AnalyticsHelper.trackEvent(AnalyticsEvent.genericDeepLink);
 
     // Unsupported link -> open the browser
-    return AppRoutes.EXTERNAL(
-      path[0] == '/' ? path.substring(1) : path,
-    );
+    return AppRoutes.EXTERNAL(path[0] == '/' ? path.substring(1) : path);
   }
 
   static _SmoothGoRouter? _singleton;
   late GoRouter router;
 
-  /// Extract the barcode from a path only if the route have at least 8 digits
+  /// Extract the barcode from a path only if the route have a valid barcode
   /// in the second part (we don't care about extra elements)
   /// Some examples:
   /// - produit/156164894948
@@ -398,8 +443,8 @@ class _SmoothGoRouter {
     if (pathParams.length > 1) {
       final String barcode = pathParams[1];
 
-      // Ensure we only have digits and at least 8 characters
-      if (int.tryParse(barcode) != null && barcode.length >= 8) {
+      // Ensure it's a valid barcode
+      if (barcode.isBarcode) {
         return barcode;
       }
     }
@@ -433,7 +478,7 @@ class _SmoothGoRouter {
     return lastVisitedOnboardingPage;
   }
 
-//endregion Onboarding
+  //endregion Onboarding
 }
 
 /// Internal routes
@@ -453,11 +498,20 @@ class _InternalAppRoutes {
 
   static const String _GUIDES = '_guides';
   static const String GUIDE_NUTRISCORE_V2_PAGE = '_nutriscore-v2';
+  static const String GUIDE_GREEN_SCORE_PAGE = '_green-score';
+  static const String GUIDE_NOVA_PAGE = '_nova-score';
+  static const String GUIDE_OPEN_FOOD_FACTS_PAGE = '_open-food-facts';
+  static const String GUIDE_OPEN_BEAUTY_FACTS_PAGE = '_open-beauty-facts';
+  static const String GUIDE_OPEN_PET_FOOD_FACTS_PAGE = '_open-pet-food-facts';
+  static const String GUIDE_OPEN_PRODUCTS_FACTS_PAGE = '_open-products-facts';
+  static const String GUIDE_OPEN_PRICES_PAGE = '_open-prices';
 }
 
 class _ExternalRoutes {
   static const String MOBILE_APP_DOWNLOAD = '/open-food-facts-mobile-app';
   static const String PRODUCT_EDITION = '/cgi/product.pl';
+  static const String GUIDE_GREEN_SCORE = '/green-score';
+  static const String GUIDE_NOVA_SCORE = '/nova';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
   static const String SIGNUP = '/signup';
 }
@@ -477,37 +531,68 @@ class AppRoutes {
     String barcode, {
     bool useHeroAnimation = true,
     String? heroTag = '',
-    ProductPageBackButton? backButtonType,
+    BackButtonType? backButtonType,
     ProductPageTransition? transition = ProductPageTransition.standard,
   }) =>
-      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/$barcode'
+      '/${_InternalAppRoutes.PRODUCT_DETAILS_PAGE}/${Uri.encodeComponent(barcode)}'
       '?heroAnimation=$useHeroAnimation'
-      '&heroTag=$heroTag'
-      '&backButtonType=${backButtonType?.name}'
-      '&transition=${transition?.name}';
+      '&heroTag=${Uri.encodeQueryComponent(heroTag ?? '')}'
+      '&backButtonType=${Uri.encodeQueryComponent(backButtonType?.name ?? '')}'
+      '&transition=${Uri.encodeQueryComponent(transition?.name ?? '')}';
 
   // Product loader (= when a product is not in the database) - typical use case: deep links
   static String PRODUCT_LOADER(String barcode, {bool edit = false}) =>
-      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/$barcode?edit=$edit';
+      '/${_InternalAppRoutes.PRODUCT_LOADER_PAGE}/${Uri.encodeComponent(barcode)}?edit=$edit';
 
   // Product creator or "add product" feature
   static String PRODUCT_CREATOR(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_CREATOR_PAGE}/${Uri.encodeComponent(barcode)}';
 
   // Product creator or "add product" feature
   static String PRODUCT_EDITOR(String barcode) =>
-      '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/$barcode';
+      '/${_InternalAppRoutes.PRODUCT_EDITOR_PAGE}/${Uri.encodeComponent(barcode)}';
 
   // App preferences
-  static String PREFERENCES(PreferencePageType type) =>
-      '/${_InternalAppRoutes.PREFERENCES_PAGE}/${type.name}';
+  static String get FOOD_PREFERENCES =>
+      '/${_InternalAppRoutes.PREFERENCES_PAGE}/food';
 
   // Search view
-  static String get SEARCH => '/${_InternalAppRoutes.SEARCH_PAGE}';
+  static String SEARCH({
+    ProductPageTransition? transition = ProductPageTransition.standard,
+  }) =>
+      '/${_InternalAppRoutes.SEARCH_PAGE}?transition=${Uri.encodeQueryComponent(transition?.name ?? '')}}';
 
-  // Guide for NutriScore (TODO: If we have more guides, we should use a more generic algorithm)
+  // Guide for NutriScore V2
   static String get GUIDE_NUTRISCORE_V2 =>
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NUTRISCORE_V2_PAGE}';
+
+  // Guide for Green-Score
+  static String get GUIDE_GREEN_SCORE =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_GREEN_SCORE_PAGE}';
+
+  // Guide for Nova
+  static String get GUIDE_NOVA =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_NOVA_PAGE}';
+
+  // Guide for Open Food Facts
+  static String get GUIDE_OPEN_FOOD_FACTS =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_OPEN_FOOD_FACTS_PAGE}';
+
+  // Guide for Open Beauty Facts
+  static String get GUIDE_OPEN_BEAUTY_FACTS =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_OPEN_BEAUTY_FACTS_PAGE}';
+
+  // Guide for Open Pet Food Facts
+  static String get GUIDE_OPEN_PET_FOOD_FACTS =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_OPEN_PET_FOOD_FACTS_PAGE}';
+
+  // Guide for Open Products Facts
+  static String get GUIDE_OPEN_PRODUCTS_FACTS =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_OPEN_PRODUCTS_FACTS_PAGE}';
+
+  // Guide for Open Prices
+  static String get GUIDE_OPEN_PRICES =>
+      '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_OPEN_PRICES_PAGE}';
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
 
@@ -517,7 +602,7 @@ class AppRoutes {
 
   // Open an external link in a WebView
   static String EXTERNAL_WEBVIEW(String path, {String? pageTitle}) =>
-      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=$pageTitle&path=${_encodePath(path)}';
+      '/${_InternalAppRoutes.EXTERNAL_WEBVIEW_PAGE}?title=${Uri.encodeQueryComponent(pageTitle ?? '')}&path=${_encodePath(path)}';
 }
 
 String _encodePath(String path) => base64Encode(utf8.encode(path));

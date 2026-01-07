@@ -1,22 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
 import 'package:smooth_app/pages/product/summary_card.dart';
 
 class ScanProductCardFound extends StatelessWidget {
-  ScanProductCardFound({
-    required this.product,
-    required this.onRemoveProduct,
-  })  : assert(product.barcode!.isNotEmpty),
-        super(key: Key(product.barcode!));
+  ScanProductCardFound({required this.product, required this.onRemoveProduct})
+    : assert(product.barcode!.isNotEmpty),
+      super(key: Key(product.barcode!));
 
   final Product product;
   final OnRemoveCallback? onRemoveProduct;
@@ -25,14 +24,11 @@ class ScanProductCardFound extends StatelessWidget {
   Widget build(BuildContext context) {
     final ProductCompatibilityHelper helper =
         ProductCompatibilityHelper.product(
-      MatchedProductV2(
-        product,
-        context.watch<ProductPreferences>(),
-      ),
-    );
+          MatchedProductV2(product, context.watch<ProductPreferences>()),
+        );
 
-    final ProductPreferences productPreferences =
-        context.watch<ProductPreferences>();
+    final ProductPreferences productPreferences = context
+        .watch<ProductPreferences>();
     final String? compatibilityScore = helper.getFormattedScore();
 
     return GestureDetector(
@@ -58,7 +54,7 @@ class ScanProductCardFound extends StatelessWidget {
           productPreferences,
           heroTag: _heroTag,
           attributeGroupsClickable: false,
-          margin: EdgeInsets.zero,
+          margin: EdgeInsetsDirectional.zero,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: LARGE_SPACE,
             vertical: VERY_SMALL_SPACE,
@@ -70,17 +66,15 @@ class ScanProductCardFound extends StatelessWidget {
     );
   }
 
-  String get _heroTag => ProductPicture.generateHeroTag(
-        product.barcode!,
-        ImageField.FRONT,
-      );
+  String get _heroTag =>
+      ProductPicture.generateHeroTag(product.barcode!, ImageField.FRONT);
 
   void _openProductPage(BuildContext context) {
     AppNavigator.of(context).push(
       AppRoutes.PRODUCT(
         product.barcode!,
         heroTag: _heroTag,
-        backButtonType: ProductPageBackButton.minimize,
+        backButtonType: BackButtonType.minimize,
         transition: ProductPageTransition.slideUp,
       ),
       extra: product,

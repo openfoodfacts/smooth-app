@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/location_query_page.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
+import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Search helper dedicated to location search.
 class SearchLocationHelper extends SearchHelper {
@@ -16,6 +19,30 @@ class SearchLocationHelper extends SearchHelper {
   @override
   String getHintText(final AppLocalizations appLocalizations) =>
       appLocalizations.search_store;
+
+  @override
+  String getHelpText(AppLocalizations appLocalizations) =>
+      appLocalizations.search_store_help;
+
+  @override
+  Widget? getLeadingWidget(BuildContext context) {
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return AspectRatio(
+      aspectRatio: 1.0,
+      child: Ink(
+        decoration: ShapeDecoration(
+          shape: const CircleBorder(),
+          color: theme.primaryMedium,
+        ),
+        child: const Padding(
+          padding: EdgeInsetsDirectional.only(top: 1.0),
+          child: Location(),
+        ),
+      ),
+    );
+  }
 
   @override
   void search(
@@ -35,10 +62,8 @@ class SearchLocationHelper extends SearchHelper {
     Navigator.push<void>(
       context,
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => LocationQueryPage(
-          query: query,
-          editableAppBarTitle: true,
-        ),
+        builder: (BuildContext context) =>
+            LocationQueryPage(query: query, editableAppBarTitle: true),
       ),
     );
   }

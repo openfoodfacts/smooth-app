@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -128,14 +128,14 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Άδειες",
   "@licenses": {},
   "looking_for": "Ψάχνουμε για",
   "@looking_for": {
     "description": "Looking for: BARCODE"
   },
   "@Introduction screen": {},
-  "welcomeToOpenFoodFacts": "Καλώς ήρθατε στο Open Food Facts",
+  "welcomeToOpenFoodFacts": "Καλώς ήρθατε στο Open Food Facts",
   "@welcomeToOpenFoodFacts": {},
   "whatIsOff": "Το Open Food Facts είναι ένας παγκόσμιος μη κερδοσκοπικός οργανισμός που υποστηρίζεται από τις τοπικές κοινότητες.",
   "@whatIsOff": {
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Ξεχάσατε τον κωδικό πρόσβασης;",
   "view_profile": "Προβολή προφίλ",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -268,10 +269,6 @@
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
   },
-  "sign_up_page_agree_url": "https://gr.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
-  },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
     "description": "Please insert the right url from the website here."
@@ -309,11 +306,11 @@
     "description": "Indicator inside the darkmode switch (system default)"
   },
   "thanks_for_contributing": "Ευχαριστούμε για τη συνεισφορά!",
-  "contributors_label": "Χτίζουν την εφαρμογή",
+  "contributors_label": "Ποιοι χτίζουν την εφαρμογή",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
-  "contributors_dialog_title": "Χρηστες",
+  "contributors_dialog_title": "Συνεισφέροντες",
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
@@ -370,8 +367,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Δωρεά στο Open Food Facts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Εγγραφείτε στην εσωτερική έκδοση alpha",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Παρακαλούμε κατανοήστε ότι με την εσωτερική έκδοση alpha, η πλήρης απώλεια δεδομένων είναι πιθανή και η εφαρμογή μπορεί να γίνει άχρηστη ανά πάσα στιγμή!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Προϊόντα προς συμπλήρωση",
@@ -407,7 +402,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Συνεισφέρετε τιμές ζητώντας εξαγωγή των δεδομένων των καρτών αφοσίωσης μέσω GDPR",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -427,7 +422,7 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Become an actor of food transparency",
+  "contribute_to_get_rewards": "Γίνετε ένας παράγοντας διαφάνειας στα τρόφιμα",
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
@@ -477,7 +472,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Προφίλ",
+  "profile_navbar_label": "Community",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -498,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Όλα",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(αναζήτηση κατηγορίας)",
@@ -518,18 +513,39 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Αναζήτηση προϊόντος,\nμάρκας ή γραμμωτού κώδικα",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Φίλτρο αναζήτησης",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Ιστορικό αναζήτησης",
   "search_store": "Αναζήτηση για κατάστημα",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Υπόδειξη: προσθέστε την πόλη ή τη χώρα",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Πατήστε για να δείτε περισσότερες πληροφορίες…",
   "@Product": {},
   "product": "Προϊόν",
   "@product": {},
   "unknownBrand": "Άγνωστη μάρκα",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Άγνωστη ποσότητα",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Άγνωστο όνομα προϊόντος",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Ανανέωση",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -568,7 +584,7 @@
   "packaging_editing_error": "Αποτυχία αποθήκευσης συσκευασίας.",
   "packaging_editing_image_error": "Αποτυχία λήψης νέας εικόνας συσκευασίας.",
   "packaging_editing_title": "Επεξεργασία Συσκευασίας",
-  "nutrition": "Θρεπτική Αξία",
+  "nutrition": "Διατροφική Αξία",
   "@nutrition": {},
   "nutrition_facts_photo": "Φωτογραφία διατροφικών στοιχείων",
   "@nutrition_facts_photo": {
@@ -578,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Πληροφορίες συσκευασίας",
+  "packaging_information": "Οδηγίες ανακύκλωσης",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Φωτογραφία πληροφοριών συσκευασίας",
+  "packaging_information_photo": "Φωτογραφία οδηγιών ανακύκλωσης",
   "@packaging_information_photo": {},
   "missing_product": "Βρήκατε ένα νέο προϊόν!",
   "@missing_product": {},
@@ -680,7 +696,7 @@
   "front_packaging_photo_title": "Φωτογραφία Μπροστινής Συσκευασίας",
   "ingredients_photo_title": "Φωτογραφία Συστατικών",
   "nutritional_facts_photo_title": "Φωτογραφία Διατροφικών Στοιχείων",
-  "recycling_photo_title": "Φωτογραφία Ανακύκλωσης",
+  "recycling_photo_title": "Οδηγίες ανακύκλωσης Φωτογραφία",
   "take_photo_title": "Τραβήξτε μια φωτογραφία",
   "take_more_photo_title": "Τραβήξτε περισσότερες φωτογραφίες",
   "front_photo_uploaded": "Η μπροστινή φωτογραφία μεταφορτώθηκε",
@@ -692,7 +708,7 @@
   "nutrition_cache_loading_error": "Δεν είναι δυνατή η φόρτωση θρεπτικών συστατικών από την προσωρινή μνήμη",
   "nutritional_facts_photo_button_label": "Φωτογραφία διατροφικών στοιχείων",
   "@nutritional_facts_photo_button_label": {},
-  "nutritional_facts_input_button_label": "Προσθήκη διατροφικών στοιχείων",
+  "nutritional_facts_input_button_label": "Συμπλήρωση διατροφικών στοιχείων",
   "nutritional_facts_added": "Προστέθηκαν διατροφικά στοιχεία",
   "categories_added": "Προστέθηκαν κατηγορίες",
   "new_product_title_nutriscore": "Υπολογίστε το Nutri-Score",
@@ -776,6 +792,7 @@
   "score_add_missing_nutrition_facts": "Προσθήκη διατροφικών στοιχείων που λείπουν",
   "score_add_missing_product_traces": "Προσθήκη ιχνών προϊόντων που λείπουν",
   "score_add_missing_product_category": "Προσθήκη κατηγορίας",
+  "score_add_missing_precise_product_category": "Επιλέξτε μια πιο ακριβή κατηγορία",
   "score_add_missing_product_countries": "Προσθήκη χωρών προϊόντος που λείπουν",
   "score_add_missing_product_emb": "Προσθήκη κωδικών ιχνηλασιμότητας προϊόντος που λείπουν",
   "score_add_missing_product_labels": "Προσθήκη ετικετών προϊόντος που λείπουν",
@@ -819,7 +836,7 @@
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60 g** ή **60 g** (προτιμήστε το πρώτο)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** ή **60 G** (προτιμήστε το πρώτο)",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
@@ -1015,15 +1032,19 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Δεν υπάρχουν ακίνητα",
+  "product_tags_explanation": "Προσθέτοντας ιδιότητες (κλειδί/τιμή) σε ένα προϊόν, βοηθάτε στον εμπλουτισμό του.",
   "add_tag": "Προσθήκη ιδιότητας",
   "add_tags": "Προσθήκη ιδιοτήτων",
   "add_edit_tags": "Προσθήκη ή επεξεργασία ιδιοτήτων",
   "edit_tag": "Επεξεργασία ιδιότητας",
   "remove_tag": "Αφαίρεση ιδιότητας",
   "tag_key": "Ιδιότητα",
+  "tag_keys": "Σκηνικά θέατρου",
   "tag_key_uneditable": "Ιδιότητα (μη επεξεργάσιμο)",
   "tag_key_input_hint": "Εισαγάγετε μια ιδιότητα",
   "tag_value": "Τιμή",
+  "tag_values": "Αξίες",
   "tag_value_input_hint": "Εισαγάγετε μια τιμή",
   "tag_key_item": "Ιδιότητα:",
   "tag_value_item": "Τιμή:",
@@ -1043,7 +1064,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Σύγκριση με Κατηγορία",
+  "product_search_same_category": "Βρείτε εναλλακτικές λύσεις",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1121,7 +1142,7 @@
   "@product_removed_comparison": {
     "description": "Product got removed from comparison list"
   },
-  "native_app_settings": "Εγγενείς Ρυθμίσεις Εφαρμογής",
+  "native_app_settings": "Ρυθμίσεις Εγγενούς Εφαρμογής",
   "@native_app_settings": {
     "description": "Native App Settings in app settings"
   },
@@ -1176,7 +1197,7 @@
       "count": {}
     }
   },
-  "plural_ago_minutes": "{count,plural, =0{λιγότερο από πριν ένα λεπτό} =1{ένα λεπτό πριν} other{{count} λεπτά πριν}}",
+  "plural_ago_minutes": "{count,plural, =0{λιγότερο από ένα λεπτό πριν} =1{ένα λεπτό πριν} other{{count} λεπτά πριν}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
@@ -1250,7 +1271,7 @@
   "blog": "Ιστολόγιο",
   "faq": "Συχνές ερωτήσεις",
   "discover": "Ανακαλύψτε",
-  "how_to_contribute": "Πως να Συνεισφέρετε",
+  "how_to_contribute": "Πώς να Συνεισφέρετε",
   "hint_knowledge_panel_message": "Μπορείτε να πατήσετε σε οποιοδήποτε μέρος της κάρτας για περισσότερες λεπτομέρειες σχετικά με το τι βλέπετε. Δοκιμάστε το τώρα!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
@@ -1372,6 +1393,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Λυπούμαστε, είναι το παράδειγμα προϊόντος μας, δεν μπορείτε να το επεξεργαστείτε :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Η κατάταξή σας",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1402,6 +1427,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Σύγκριση δίπλα-δίπλα",
   "loading_dialog_default_title": "Λήψη δεδομένων",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1414,8 +1440,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Διαγραφή του λογαριασμού μου",
-  "@account_deletion_subject": {
+  "account_delete_title": "Διαγραφή του λογαριασμού μου",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Λογαριασμός",
@@ -1936,7 +1962,7 @@
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_ingredients_list_title": "List of ingredients",
+  "edit_product_ingredients_list_title": "Λίστα συστατικών",
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -2148,6 +2174,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Πρόσβαση σε πειραματικές λειτουργίες και εργαλεία ανάπτυξης",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Επανεκκινήστε την εμπειρία εισόδου",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2286,10 +2316,51 @@
   },
   "prices_app_dev_mode_flag": "Συντόμευση στην εφαρμογή Τιμές στη σελίδα προϊόντος",
   "prices_app_button": "Μεταβείτε στην εφαρμογή Τιμές",
+  "prices_website_button": "Ανοιχτό στον ιστότοπο Open Prices",
   "prices_bulk_proof_upload_select": "Προσθήκη ετικετών τιμών απευθείας από τη συλλογή",
   "prices_bulk_proof_upload_warning": "Μόλις επιλέξετε εικόνες, δεν θα μπορείτε να τις επεξεργαστείτε!",
+  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_community_switch": "Επιτρέψτε στην κοινότητα να επικυρώσει τις τιμές που εξάγονται από την Τεχνητή Νοημοσύνη.",
   "prices_bulk_proof_upload_subtitle": "Πολλαπλές Ετικέτες Τιμής",
   "prices_bulk_proof_upload_title": "Μεταφόρτωση Μαζικής Απόδειξης",
+  "prices_bulk_proof_upload_step_selecting": "Επιλογή αρχείων",
+  "prices_bulk_proof_upload_step_starting": "Έναρξη της μεταφόρτωσης",
+  "prices_bulk_proof_upload_step_copying": "Τοπική αντιγραφή αρχείου #{index}/{count}",
+  "@prices_bulk_proof_upload_step_copying": {
+    "description": "A message stating the current copy step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_preparing": "Προετοιμασία μεταφόρτωσης #{index}/{count}",
+  "@prices_bulk_proof_upload_step_preparing": {
+    "description": "A message stating the current upload step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_error": "Αποτυχία στην εικόνα #{index}/{count}",
+  "@prices_bulk_proof_upload_step_error": {
+    "description": "A message stating the current error step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "prices_generic_title": "Τιμές",
   "prices_add_n_prices": "{count,plural, =1{Προσθήκη τιμής} other{Προσθήκη {count} τιμών}}",
   "prices_send_n_prices": "{count,plural, =1{Στείλτε την τιμή} other{Στείλτε {count} τιμές}}",
@@ -2318,8 +2389,54 @@
     }
   },
   "prices_barcode_enter": "Εισαγάγετε τον Γραμμωτό κώδικα",
+  "prices_category_enter": "Προϊόν χωρίς γραμμωτό κώδικα (barcode)",
+  "prices_per_kilogram": "Τιμή ανά κιλό",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Τιμή ανά μονάδα",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / κιλό",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / μονάδα",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Υποχρεωτικό",
+  "prices_category_optional": "Προαιρετικός",
+  "prices_category_error_mandatory": "Η κατηγορία είναι υποχρεωτική",
   "prices_barcode_reader_action": "Αναγνώστης γραμμωτού κώδικα",
   "prices_view_prices": "Δείτε τις τιμές",
+  "prices_list_title": "Τιμοκατάλογος",
+  "prices_list_count": "Αριθμός\nτιμών",
+  "@prices_list_count": {
+    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+  },
+  "prices_list_add_new_price": "Προσθήκη νέας τιμής\n",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_list_empty_title": "Δεν υπάρχει ακόμη τιμή!",
+  "prices_list_empty_subtitle": "Γίνετε ο πρώτος που θα προσθέσει ένα:\nΣαρώνοντας μια **απόδειξη** ή μια **τιμή**!",
+  "prices_entry_shop_not_found": "Άγνωστο κατάστημα",
+  "prices_entry_menu_title": "Εισαγωγή τιμής από \"{user}\"",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_product_prices": "Δείτε όλες τις τιμές για αυτό το προϊόν",
+  "prices_entry_menu_open_proof": "Δείτε την απόδειξη",
+  "prices_entry_menu_my_prices": "Δείτε τις υπόλοιπες τιμές μου",
+  "prices_entry_menu_author_prices": "Δείτε άλλες τιμές από τον συγγραφέα",
+  "prices_entry_menu_shop_prices": "Δείτε άλλες τιμές από το κατάστημα",
   "prices_product_accessibility_summary": "{count,plural, =1{1 τιμή} other{{count} τιμές}} για {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2405,6 +2522,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Δεν υπάρχει ακόμη συνεργάτης!",
+  "prices_users_empty_explanation": "Γίνετε ο πρώτος που θα προσθέσει μια τιμή!",
   "prices_users_list_length_many_pages": "Κορυφαίοι {pageSize} συνεισφέροντες (σύνολο: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2417,6 +2536,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Δεν υπάρχει ακόμα κατάστημα!",
+  "prices_locations_empty_explanation": "Γίνετε ο πρώτος που θα προσθέσει μια τιμή!",
   "prices_locations_list_length_many_pages": "Κορυφαίες {pageSize} τοποθεσίες (σύνολο: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2465,6 +2586,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Τιμή που προστέθηκε προηγουμένως",
   "prices_amount_subtitle": "Ποσότητα",
   "prices_amount_is_discounted": "Σε έκπτωση;",
   "prices_amount_price_normal": "Τιμή",
@@ -2480,7 +2602,10 @@
   "prices_location_mandatory": "Πρέπει να επιλέξετε ένα κατάστημα!",
   "prices_location_search_broader": "Δεν βρήκατε αυτό που ψάχνατε; Ας δοκιμάσουμε μια ευρύτερη αναζήτηση!",
   "prices_proof_subtitle": "Επαλήθευση",
+  "prices_proof_empty_title": "Δεν υπάρχει ακόμη απόδειξη!",
+  "prices_proof_empty_explanation": "Ξεκινήστε προσθέτοντας μια φωτογραφία μιας **απόδειξης** ή μιας **ετικέτας τιμής**!",
   "prices_proof_find": "Επιλέξτε μια απόδειξη",
+  "prices_proof_change": "Απόδειξη αλλαγής",
   "prices_proof_receipt": "Απόδειξη",
   "prices_proof_price_tag": "Ετικέτα τιμής",
   "prices_proof_mandatory": "Πρέπει να επιλέξετε μια απόδειξη!",
@@ -2527,6 +2652,10 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
+  "prices_menu_know_more": "Know more about Open Prices",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
+  },
   "dev_preferences_import_history_result_success": "Τέλος",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2535,12 +2664,7 @@
   "dev_mode_section_news": "Διαμόρφωση παρόχου ειδήσεων",
   "dev_mode_section_product_page": "Σελίδα προϊόντος",
   "dev_mode_section_ui": "Διεπαφή Χρήστη",
-  "dev_mode_section_data": "Δεδομένα",
   "dev_mode_section_experimental_features": "Πειραματικές δυνατότητες",
-  "dev_preferences_show_folksonomy_title": "Εξαίρεση του Folksonomy",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Εξαίρεση του Green-Score",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -2553,9 +2677,25 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
+  "dev_mode_reset_app_language_title": "Επαναφορά γλώσσας εφαρμογής",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Προσθήκη καρτών",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Εναλλαγή μεταξύ prices.openfoodfacts.org (PROD) και περιβάλλοντος δοκιμής",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
+  },
   "search_history_item_edit_tooltip": "Επαναχρησιμοποίηση και επεξεργασία αυτής της αναζήτησης",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Αφαίρεση",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "Έχετε κατεβάσει και τα {totalSize} προϊόντα.",
   "@product_search_no_more_results": {
@@ -2616,9 +2756,23 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Τιμές συνεισφερόντων",
+  "search_proof_title": "Απόδειξη από \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "user_any_search_prices_title": "Τιμές συνεργατών: {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Προστέθηκαν οι πιο Πρόσφατες Τιμές",
   "@all_search_prices_latest_title": {
@@ -2772,6 +2926,19 @@
   "add_basic_details_product_name_hint": "Εισαγάγετε το όνομα του προϊόντος (πχ Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
+  },
+  "add_basic_details_product_name_change_main_language_title": "Αλλαγή της προεπιλεγμένης γλώσσας;",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Θέλετε η προεπιλεγμένη γλώσσα του προϊόντος να οριστεί σε '{language}';",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
   },
   "explanation_section_good_examples": "Καλά παραδείγματα",
   "@explanation_section_good_examples": {
@@ -3105,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Έναρξη εκτέλεσης ενεργειών διακομιστή για ενημερώσεις folksonomy που είναι αποθηκευμένες τοπικά",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Έναρξη λήψης των πιο δημοφιλών προϊόντων",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3119,11 +3290,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Διατήρηση πίνακα συστατικών εκτεταμένο",
-  "search_product_filter_visibility_title": "Εμφάνιση φίλτρου στην αναζήτηση",
-  "search_product_filter_visibility_subtitle": "Επιλέξτε ιστότοπο αναζήτησης: Open Food Facts, Open Beauty Facts, Open Pet Food Facts ή Open Product Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Χωρίς σύνδεση στο διαδίκτυο",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3687,15 +3853,15 @@
   "nutriscore_unknown_new_formula": "Άγνωστο Nutri-Score (Νέος υπολογισμός)",
   "nutriscore_not_applicable": "Το Nutri-Score δεν είναι εφαρμόσιμο",
   "nutriscore_not_applicable_new_formula": "Το Nutri-Score δεν είναι εφαρμόσιμο (Νέος υπολογισμός)",
-  "environmental_score_generic": "Green-Score",
-  "environmental_score_a": "Green-Score A",
-  "environmental_score_b": "Green-Score B",
-  "environmental_score_c": "Green-Score C",
-  "environmental_score_d": "Green-Score D",
-  "environmental_score_e": "Green-Score E",
-  "environmental_score_unknown": "Άγνωστο Green-Score",
-  "environmental_score_not_applicable": "Το Green-Score δεν είναι εφαρμόσιμο",
-  "nova_group_generic": "Υπερεπεξεργασία - ομάδες NOVA",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Πράσινη βαθμολογία Α",
+  "environmental_score_b_new": "Πράσινο-Βαθμολογία Β",
+  "environmental_score_c_new": "Πράσινη βαθμολογία C",
+  "environmental_score_d_new": "Πράσινο-Βαθμολογία D",
+  "environmental_score_e_new": "Πράσινο-Σκορ E",
+  "environmental_score_unknown_new": "Άγνωστο Πράσινο Σκορ",
+  "environmental_score_not_applicable_new": "Το Green-Score δεν ισχύει",
+  "nova_group_generic_new": "Υπερεπεξεργασμένα τρόφιμα - ομάδες NOVA",
   "nova_group_1": "Ομάδα 1 NOVA",
   "nova_group_2": "Ομάδα 2 NOVA",
   "nova_group_3": "Ομάδα 3 NOVA",
@@ -3747,56 +3913,302 @@
       }
     }
   },
-  "guide_title": "Guide",
+  "guide_title": "Οδηγός",
   "@guide_title": {
     "description": "A title for a guide"
   },
   "guide_share_label": "Κοινοποίηση",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Το Nutri-Score εξελίσσεται: εξηγήσεις!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Τι είναι το Nutri-Score;",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Το Nutri-Score είναι ένα λογότυπο που στοχεύει να σας ενημερώσει σχετικά με τη **θρεπτική ποιότητα των τροφίμων**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Ο χρωματικός κώδικας ποικίλλει από σκούρο πράσινο (**A**) για τα **πιο υγιεινά** προϊόντα έως σκούρο κόκκινο (**E**) για τα **λιγότερο υγιεινά** προϊόντα.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Το λογότυπο Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "Γιατί αλλάζει το Nutri-Score;",
+  "guide_nutriscore_v2_why_v2_intro": "Ο τύπος Nutri-Score **εξελίσσεται** για να παρέχει καλύτερες συστάσεις:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Καλύτερη αξιολόγηση όλων των ποτών",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Οι συγκριτικές σημειώσεις του **γάλακτος**, των **γαλακτοκομικών ποτών** με προσθήκη ζάχαρης και των **λαχανικών** ποτών διαφοροποιήθηκαν καλύτερα στον νέο αλγόριθμο.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Καλύτερη κατάταξη ποτών",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Η **περιεκτικότητα σε ζάχαρη** λαμβάνεται καλύτερα υπόψη και ευνοεί τα **ποτά με χαμηλή περιεκτικότητα σε ζάχαρη**.\\n**Τα γλυκαντικά θα τιμωρούνται επίσης**: τα αναψυκτικά διαίτης θα υποβαθμίζονται από βαθμολογία Β σε μεταξύ C και E. Το νερό παραμένει το συνιστώμενο ποτό.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Αλάτι και ζάχαρη τιμωρήθηκαν",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Τα προϊόντα **πολύ γλυκά** ή **πολύ αλμυρά** θα υποβαθμιστούν περαιτέρω.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Ιεραρχία εντός των ελαίων και των ψαριών",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Η βαθμολογία ορισμένων **λιπαρών ψαριών** και **ελαίων πλούσιων σε καλά λιπαρά** θα βελτιωθεί.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Περιορίστε το κόκκινο κρέας",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Η κατανάλωση **κόκκινου κρέατος θα πρέπει να είναι περιορισμένη**. Γι' αυτό το λόγο **τα πουλερικά θα κατατάσσονται συγκριτικά καλύτερα**.",
+  "guide_nutriscore_v2_new_logo_title": "Πώς να ξεχωρίσετε το παλιό Nutri-Score και τον νέο υπολογισμό;",
+  "guide_nutriscore_v2_new_logo_text": "Από εδώ και στο εξής, το λογότυπο μπορεί να εμφανίζει την ένδειξη «**Νέος υπολογισμός**» για να διευκρινίζει ότι όντως πρόκειται για τον νέο υπολογισμό.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Το λογότυπο του νέου Nutri-Score",
   "guide_nutriscore_v2_where_title": "Πού θα βρείτε τον νέο υπολογισμό Nutri-Score;",
   "guide_nutriscore_v2_where_paragraph1": "Το Nutri-Score εφαρμόζεται σε 7 χώρες: Γαλλία, Γερμανία, Βέλγιο, Ισπανία, Λουξεμβούργο, Ολλανδία και Ελβετία.",
   "guide_nutriscore_v2_where_paragraph2": "Οι κατασκευαστές έχουν το πολύ **2 έτη** το αργότερο μετά την υπογραφή του διατάγματος **για να αντικαταστήσουν** τον παλιό υπολογισμό με τον νέο.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://gr.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_nutriscore_v2_where_paragraph3": "Χωρίς να περιμένετε, **θα βρείτε ήδη στην εφαρμογή OpenFoodFacts** τον νέο υπολογισμό, ακόμη και αν οι κατασκευαστές δεν έχουν ενημερώσει τη βαθμολογία.",
+  "guide_nutriscore_v2_unchanged_title": "Τι δεν αλλάζει",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Το Nutri-Score είναι μια βαθμολογία που έχει σχεδιαστεί για να **μετράει τη διατροφική ποιότητα**. Είναι **συμπληρωματική της ομάδας NOVA** για τα **υπερ-επεξεργασμένα τρόφιμα** (υπάρχει επίσης στην εφαρμογή).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Για τους κατασκευαστές, η εμφάνιση του Nutri-Score **παραμένει προαιρετική**.",
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Τι είναι η Πράσινη Βαθμολογία;",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Το Green-Score είναι ένα λογότυπο που στοχεύει να σας ενημερώσει σχετικά με τις **περιβαλλοντικές επιπτώσεις των τροφίμων**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Ο χρωματικός κώδικας ποικίλλει από σκούρο πράσινο (**A+**) για τα **λιγότερο εντυπωσιακά** προϊόντα έως σκούρο κόκκινο (**F**) για τα **περισσότερο εντυπωσιακά** προϊόντα.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Τα λογότυπα του Green-Score",
+  "guide_greenscore_lca_title": "Ο πυρήνας: Αξιολόγηση κύκλου ζωής (LCA)",
+  "guide_greenscore_lca_arg1_title": "Μια επιστημονική αξιολόγηση των κατηγοριών τροφίμων",
+  "guide_greenscore_lca_arg1_text1": "Για κάθε κατηγορία προϊόντος, καθορίζεται μια **βαθμολογία αναφοράς** χρησιμοποιώντας δεδομένα από την περιβαλλοντική βάση δεδομένων Agribalyse (σχεδιασμένη από την ADEME και την INRAE).",
+  "guide_greenscore_lca_arg1_text2": "Η **ανάλυση κύκλου ζωής** είναι μια τυποποιημένη μέθοδος αξιολόγησης για τη διεξαγωγή πολυσταδιακής και πολυκριτηριακής περιβαλλοντικής αξιολόγησης.",
+  "guide_greenscore_lca_arg1_text3": "**Μετράει:**",
+  "guide_greenscore_lca_arg2_title": "6 βήματα παραγωγής",
+  "guide_greenscore_lca_arg2_agriculture": "Γεωργία",
+  "guide_greenscore_lca_arg2_processing": "Επεξεργασία",
+  "guide_greenscore_lca_arg2_packaging": "Συσκευασία",
+  "guide_greenscore_lca_arg2_transportation": "Μεταφορά",
+  "guide_greenscore_lca_arg2_distribution": "Διανομή",
+  "guide_greenscore_lca_arg2_consumption": "Κατανάλωση",
+  "guide_greenscore_lca_arg3_title": "14 δείκτες περιβαλλοντικών επιπτώσεων",
+  "guide_greenscore_lca_arg3_text1": "Κλιματική αλλαγή/αποτύπωμα άνθρακα",
+  "guide_greenscore_lca_arg3_text2": "Καταστροφή της στιβάδας του όζοντος",
+  "guide_greenscore_lca_arg3_text3": "Ιονίζουσα ακτινοβολία",
+  "guide_greenscore_lca_arg3_text4": "Γη",
+  "guide_greenscore_lca_arg3_text5": "Χρήση νερού και ενέργειας",
+  "guide_greenscore_lca_arg3_text6": "Ρύπανση του αέρα",
+  "guide_greenscore_lca_arg3_text7": "Θαλάσσιο και γλυκό νερό (σωματίδια, οξίνιση, ευτροφισμός)",
+  "guide_greenscore_lca_arg3_text8": "Εξάντληση πόρων.",
+  "guide_greenscore_bonuses_penalties_title": "Μπόνους και κυρώσεις",
+  "guide_greenscore_bonuses_penalties_intro": "Για να ανταμείψουμε καλύτερα προϊόντα σε μια κατηγορία, εφαρμόζουμε **μπόνους και κυρώσεις με βάση διάφορα κριτήρια**:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Τρόπος παραγωγής",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Ένα **μπόνους** απονέμεται σε προϊόντα που διαθέτουν **επίσημη ετικέτα, ετικέτα ή πιστοποίηση που εγγυάται περιβαλλοντικά οφέλη** (βιολογικά, δίκαιου εμπορίου, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Προέλευση των συστατικών",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Απονέμεται ένα **μπόνους** με βάση την προέλευση των συστατικών. Αυτό το μπόνους λαμβάνει υπόψη τον **επιπτώσεις στις μεταφορές** καθώς και την **περιβαλλοντική πολιτική** της χώρας κάθε παραγωγού.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Είδη υπό εξαφάνιση",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Επιβάλλεται **ποινή** σε προϊόντα που περιέχουν συστατικά που έχουν σημαντικές **αρνητικές επιπτώσεις στη βιοποικιλότητα και τα οικοσυστήματα**, όπως το φοινικέλαιο, η παραγωγή του οποίου ευθύνεται για την μαζική αποψίλωση των δασών.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Συσκευασία",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Υπολογίζεται **ποινή** λαμβάνοντας υπόψη την **κυκλικότητα της συσκευασίας** (χρήση ανακυκλωμένων πρώτων υλών και ανακυκλωσιμότητα) και την υπερβολική συσκευασία.",
+  "guide_greenscore_transparency_title": "Αυξημένη ανάγκη για διαφάνεια για την καλύτερη μέτρηση και τη μείωση των περιβαλλοντικών επιπτώσεων",
+  "guide_greenscore_transparency_intro1": "Για τον ακριβή υπολογισμό του Green-Score, είναι απαραίτητο να υπάρχουν **πληροφορίες που δεν αναφέρονται απαραίτητα στη συσκευασία** (όπως η προέλευση και το ακριβές ποσοστό κάθε συστατικού) ή που σπάνια είναι διαθέσιμες σε χρησιμοποιήσιμη μορφή (όπως μια λίστα με όλα τα συστατικά της συσκευασίας με τους ακριβείς τύπους πλαστικών που χρησιμοποιούνται).",
+  "guide_greenscore_transparency_intro2": "**Οι μέσες τιμές χρησιμοποιούνται όταν αυτές οι πληροφορίες δεν είναι ακόμη διαθέσιμες**, αλλά τώρα καλούμε όλους να μας βοηθήσουν να συλλέξουμε αυτές τις πληροφορίες, οι οποίες θα είναι πολύ χρήσιμες για το Green-Score αλλά και για πολλές άλλες χρήσεις.",
+  "guide_greenscore_transparency_arg1_title": "Πώς μπορούν να βοηθήσουν οι πολίτες;",
+  "guide_greenscore_transparency_arg1_text": "Όλοι οι πολίτες μπορούν να μας βοηθήσουν να συλλέξουμε και να δομήσουμε τις πληροφορίες που υπάρχουν στα προϊόντα ή που μπορούν να εξαχθούν από αυτά, όπως πληροφορίες σχετικά με τις **συσκευασίες**: \"Mission Emballages\": μια μεγάλης κλίμακας συνεργατική απογραφή συσκευασιών για όλα τα τρόφιμα (στα γαλλικά).",
+  "guide_greenscore_transparency_arg2_title": "Πώς μπορούν να βοηθήσουν οι κατασκευαστές",
+  "guide_greenscore_transparency_arg2_text": "Οι κατασκευαστές μπορούν να μας στείλουν τις πληροφορίες τους απευθείας μέσω της δωρεάν πλατφόρμας μας για παραγωγούς.",
+  "guide_greenscore_better_product_title": "Ποιο προϊόν είναι καλύτερο για τον πλανήτη;",
+  "guide_greenscore_better_product_arg1_title": "Μπορεί να είναι δύσκολο να το καταλάβεις",
+  "guide_greenscore_better_product_arg1_text": "Η επιλογή βιώσιμων τροφίμων είναι ένα από τα πιο ισχυρά πράγματα που μπορούμε να κάνουμε για το κλίμα, καθώς **το παγκόσμιο σύστημα τροφίμων μας ευθύνεται για πάνω από το ένα τέταρτο όλων των εκπομπών αερίων του θερμοκηπίου**.\n(Πηγή: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Εσύ έχεις τη δύναμη!",
+  "guide_greenscore_better_product_arg2_text": "Τα καλά νέα είναι ότι αυτό μας δίνει έναν ισχυρό τρόπο να δημιουργήσουμε αλλαγή.\n**Ο καθένας μας τρώει περίπου 1.000 γεύματα κάθε χρόνο**. Αυτές είναι 1.000 ευκαιρίες να **επιλέξουμε ένα καλύτερο μέλλον για τον πλανήτη**!",
+  "guide_greenscore_better_product_arg3_title": "Βοηθά να είναι κανείς υπεύθυνος και να αποφασίζει",
+  "guide_greenscore_better_product_arg3_text": "Η επιλογή βιώσιμων τροφίμων μπορεί να φαίνεται περίπλοκη. Οι ετικέτες είναι περίπλοκες και οι πληροφορίες συχνά λείπουν. Το Green-Score δημιουργήθηκε για να την κάνει απλή, παρέχοντάς σας μια **σαφή**, **επιστημονικά βασισμένη** και **διαφανή** περιβαλλοντική αξιολόγηση για τα τρόφιμα, ακριβώς εκεί που τη χρειάζεστε: ενώ ψωνίζετε.",
+  "guide_greenscore_better_product_arg4_title": "Διαφάνεια",
+  "guide_greenscore_better_product_arg4_text": "Σε αντίθεση με τις ιδιόκτητες ετικέτες, ο υπολογισμός του Green-Score είναι **εντελώς ανοιχτός** και μπορεί να **επαληθευτεί από οποιονδήποτε**.",
+  "guide_nova_title": "Υπερεπεξεργασμένα τρόφιμα",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Τι είναι η υπερεπεξεργασία;",
+  "guide_nova_what_is_nova_paragraph1": "Οι ομάδες NOVA σας ενημερώνουν για το επίπεδο επεξεργασίας τροφίμων.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Η ταξινόμηση NOVA επιτρέπει την κατηγοριοποίηση των τροφίμων σε **4 ομάδες** με βάση τον **βαθμό βιομηχανικής επεξεργασίας** (ελάχιστα επεξεργασμένα ή μη επεξεργασμένα τρόφιμα, μαγειρικά συστατικά, επεξεργασμένα τρόφιμα, υπερεπεξεργασμένα τρόφιμα).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Τα λογότυπα της NOVA",
+  "guide_nova_groups_title": "Οι 4 ομάδες NOVA",
+  "guide_nova_groups_intro": "Υπάρχουν 4 ομάδες NOVA, με την προβληματική να είναι η Ομάδα 4 - Υπερεπεξεργασμένα τρόφιμα.",
+  "guide_nova_groups_arg1_title": "Ελάχιστα επεξεργασμένα ή μη επεξεργασμένα τρόφιμα",
+  "guide_nova_groups_arg1_text": "Τα μη επεξεργασμένα (ή φυσικά) τρόφιμα είναι τα **βρώσιμα μέρη των φυτών** (σπόροι, καρποί, φύλλα, μίσχοι, ρίζες) **ή ζώων** (μύες, εντόσθια, αυγά, γάλα), καθώς και μύκητες, φύκια και νερό, αφού διαχωριστούν από τη φύση.",
+  "guide_nova_groups_arg2_title": "Επεξεργασμένα μαγειρικά συστατικά",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through Processes that include pressing, refining, grinding, milling, and drying.",
+  "guide_nova_groups_arg3_title": "Επεξεργασμένα τρόφιμα",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes Include various preservation or cooking Methods, and In the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and Are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more Commonly, in Combination with other foods.",
+  "guide_nova_groups_arg4_title": "Υπερεπεξεργασμένα τρόφιμα",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in These formulations Usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain Other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from Foods, such as casein, lactose, whey, and gluten.",
+  "guide_nova_explanations_title": "Τα προβλήματα με την υπερεπεξεργασία",
+  "guide_nova_explanations_arg1_title": "Ακραία επεξεργασία συστατικών τροφίμων",
+  "guide_nova_explanations_arg1_text": "Πολλά προέρχονται **από περαιτέρω επεξεργασία συστατικών τροφίμων**, όπως υδρογονωμένα ή διεστεροποιημένα έλαια, υδρολυμένες πρωτεΐνες, απομονωμένη πρωτεΐνη σόγιας, μαλτοδεξτρίνη, ιμβερτοσάκχαρο και σιρόπι καλαμποκιού υψηλής περιεκτικότητας σε φρουκτόζη.",
+  "guide_nova_explanations_arg2_title": "Πρόσθετα που ξεπερνούν την απλή ασφάλεια των τροφίμων",
+  "guide_nova_explanations_arg2_text": "Τα πρόσθετα στα υπερεπεξεργασμένα τρόφιμα περιλαμβάνουν ορισμένα που χρησιμοποιούνται επίσης σε επεξεργασμένα τρόφιμα, όπως συντηρητικά, αντιοξειδωτικά και σταθεροποιητές. Κατηγορίες προσθέτων που βρίσκονται μόνο σε υπερεπεξεργασμένα προϊόντα περιλαμβάνουν εκείνα που χρησιμοποιούνται **για να μιμηθούν ή να ενισχύσουν τις οργανοληπτικές ιδιότητες των τροφίμων ή για να συγκαλύψουν δυσάρεστες πτυχές του τελικού προϊόντος**. Αυτά τα πρόσθετα περιλαμβάνουν χρωστικές και άλλα χρώματα, σταθεροποιητές χρώματος, αρώματα, ενισχυτικά γεύσης, γλυκαντικά χωρίς ζάχαρη, και βοηθητικά επεξεργασίας όπως παράγοντες ενανθράκωσης, σύσφιξης, διόγκωσης και αντιδιογκωτικοί παράγοντες, παράγοντες αποαφρισμού, αντισυσσωματικούς και γλασαρίσματος, γαλακτωματοποιητές, απομονωτικά και υγραντικά.",
+  "guide_nova_explanations_arg3_title": "Επεξεργασία που δεν μπορείτε να κάνετε στο σπίτι",
+  "guide_nova_explanations_arg3_text": "**Χρησιμοποιείται πληθώρα αλληλουχιών διεργασιών** για τον συνδυασμό των συνήθως πολλών συστατικών και τη δημιουργία του τελικού προϊόντος (εξ ου και «υπερεπεξεργασμένο»). Οι διεργασίες περιλαμβάνουν αρκετές **χωρίς εγχώρια ισοδύναμα**, όπως υδρογόνωση και υδρόλυση, εξώθηση και χύτευση, και προεπεξεργασία για τηγάνισμα.",
+  "guide_nova_explanations_arg4_title": "Οι επιθετικές και οικονομικές πτυχές της υπερεπεξεργασίας",
+  "guide_nova_explanations_arg4_text": "Ο γενικός σκοπός της υπερεπεξεργασίας είναι η δημιουργία επώνυμων**, **βολικών** (ανθεκτικών, έτοιμων προς κατανάλωση), **ελκυστικών** (υπερεύγευστων) και **εξαιρετικά κερδοφόρων** (χαμηλού κόστους συστατικά) τροφίμων, σχεδιασμένων να εκτοπίσουν όλες τις άλλες ομάδες τροφίμων. Τα υπερεπεξεργασμένα τρόφιμα συνήθως συσκευάζονται ελκυστικά και διατίθενται στην αγορά εντατικά.",
+  "guide_nova_explanations_arg5_title": "Ένας κίνδυνος για την υγεία",
+  "guide_nova_explanations_arg5_text": "Από το 2018, με το NutriNet-Santé, έχουν επισημανθεί οι πρώτες συνδέσεις μεταξύ **της κατανάλωσης υπερεπεξεργασμένων τροφίμων και του αυξημένου κινδύνου καρκίνου, καρδιαγγειακών παθήσεων και διαβήτη**. Σήμερα, περισσότερες από 90 μελέτες παγκοσμίως επιβεβαιώνουν αυτά τα ευρήματα.\nΟι ισχυρότερες συσχετίσεις σχετίζονται με την **παχυσαρκία, την καρδιαγγειακή θνησιμότητα και τα συμπτώματα κατάθλιψης**. Στα παιδιά, οι επιπτώσεις παρατηρούνται κυρίως στο βάρος και στις λιπιδαιμικές ανισορροπίες.",
+  "guide_nova_explanations_arg6_title": "Οι χώρες συνιστούν τον περιορισμό τους",
+  "guide_nova_explanations_arg6_text": "Ορισμένες χώρες χρησιμοποιούν τις ομάδες NOVA για τις διατροφικές τους οδηγίες ή στόχους, για παράδειγμα:\n\n- **🇧🇷 Οι διατροφικές οδηγίες της Βραζιλίας** **συνιστούν τον περιορισμό της κατανάλωσης** επεξεργασμένων τροφίμων και την αποφυγή των υπερεπεξεργασμένων τροφίμων.\n\n- **🇫🇷 Οι στόχοι της διατροφικής πολιτικής δημόσιας υγείας της Γαλλίας** για την περίοδο 2018-2022 αποσκοπούν στη **μείωση της κατανάλωσης υπερεπεξεργασμένων τροφίμων της ομάδας 4 κατά 20%**.",
+  "guide_nova_share_link": "https://world-el.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Καλώς ορίσατε στο Open Food Facts!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "Τι είναι το Open Food Facts;",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Το Open Food Facts είναι μια **συνεργατική**, **δωρεάν** και **ανοιχτή** βάση δεδομένων με προϊόντα διατροφής από όλο τον κόσμο.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Πιστεύουμε ότι όλοι πρέπει να έχουν πρόσβαση σε πληροφορίες σχετικά με το τι τρώνε. Συλλέγοντας δεδομένα σχετικά με τα συστατικά, τα αλλεργιογόνα, τις διατροφικές πληροφορίες και άλλα, **ενδυναμώνουμε τους καταναλωτές να κάνουν ενημερωμένες επιλογές** και οδηγούμε τη βιομηχανία τροφίμων **προς μεγαλύτερη διαφάνεια**.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Χαρακτηριστικά του Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Λάβετε ειδοποιήσεις για τα ανεπιθύμητα συστατικά σας",
+  "guide_open_food_facts_tips_title": "Συμβουλές για να τραβάτε υπέροχες φωτογραφίες",
+  "guide_open_food_facts_tips_arg1_title": "Τι δεν πρέπει να κάνετε",
+  "guide_open_food_facts_tips_arg1_text1": "Αποφύγετε τις σκιές και την αντανάκλαση.",
+  "guide_open_food_facts_tips_arg1_text2": "Δεν υπάρχει θολό ή εκτός εστίασης κείμενο.",
+  "guide_open_food_facts_tips_arg1_text3": "Μην περικόπτετε τμήματα του κειμένου.",
+  "guide_open_food_facts_tips_arg1_text4": "Αποφύγετε τα πολυάσχολα φόντα.",
+  "guide_open_food_facts_tips_arg2_title": "Τι πρέπει να κάνετε",
+  "guide_open_food_facts_tips_arg2_text1": "Χρησιμοποιήστε καλό, ομοιόμορφο φωτισμό.",
+  "guide_open_food_facts_tips_arg2_text2": "Βεβαιωθείτε ότι το κείμενο είναι ευκρινές και ευανάγνωστο.",
+  "guide_open_food_facts_tips_arg2_text3": "Καταγράψτε ολόκληρη τη λίστα συστατικών.",
+  "guide_open_food_facts_tips_arg2_text4": "Κρατήστε το προϊόν σε επίπεδη επιφάνεια.",
+  "guide_open_food_facts_scores_title": "Βοηθήστε μας να δημιουργήσουμε τη «Βικιπαίδεια του Φαγητού»",
+  "guide_open_food_facts_scores_arg1_title": "Βαθμολογία για τη διατροφική ποιότητα",
+  "guide_open_food_facts_scores_arg2_title": "Μια βαθμολογία για την αποφυγή υπερεπεξεργασμένων τροφίμων",
+  "guide_open_food_facts_scores_arg3_title": "Ένα σκορ για τον πλανήτη",
+  "guide_open_food_facts_share_link": "https://world-el.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Καλώς ορίσατε στο Open Pet Food Facts!",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Τι είναι το Open Pet Food Facts;",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Το Open Pet Food Facts επεκτείνει την αποστολή μας στους τετράποδους φίλους μας! Είναι μια **βάση δεδομένων με προϊόντα τροφής για κατοικίδια για γάτες, σκύλους και άλλους συντροφικούς φίλους**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Συλλέγουμε πληροφορίες σχετικά με **συστατικά**, **διατροφική ανάλυση** και οδηγίες σίτισης για να βοηθήσουμε τους ιδιοκτήτες κατοικίδιων ζώων να επιλέξουν την καλύτερη τροφή για τις ανάγκες των ζώων τους.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Χαρακτηριστικά των πληροφοριών για την ανοιχτή τροφή για κατοικίδια",
+  "guide_open_pet_food_facts_features_arg1_title": "Λάβετε ειδοποιήσεις για τα ανεπιθύμητα συστατικά σας",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Είναι το κατοικίδιό σας αλλεργικό σε κάποιο συστατικό; Μπορείτε να ορίσετε μια λίστα με τα συστατικά καλλυντικών που πρέπει να αποφεύγετε, απευθείας από την εφαρμογή!",
+  "guide_open_pet_food_facts_tips_title": "Συμβουλές για να τραβάτε υπέροχες φωτογραφίες",
+  "guide_open_pet_food_facts_tips_arg1_title": "Τι δεν πρέπει να κάνετε",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Αποφύγετε τις σκιές και την αντανάκλαση.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Δεν υπάρχει θολό ή εκτός εστίασης κείμενο.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Μην περικόπτετε τμήματα του κειμένου.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Αποφύγετε τα πολυάσχολα φόντα.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Τι πρέπει να κάνετε",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Χρησιμοποιήστε καλό, ομοιόμορφο φωτισμό.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Βεβαιωθείτε ότι το κείμενο είναι ευκρινές και ευανάγνωστο.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Καταγράψτε ολόκληρη τη λίστα συστατικών.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Κρατήστε το προϊόν σε επίπεδη επιφάνεια.",
+  "guide_open_pet_food_facts_scores_title": "Μια σημείωση για τη βαθμολογία",
+  "guide_open_pet_food_facts_scores_paragraph1": "Η ανάπτυξη ενός συστήματος βαθμολόγησης για τις τροφές για κατοικίδια **δεν αποτελεί προτεραιότητα προς το παρόν**. Η μεθοδολογία θα ήταν πολύπλοκη, καθώς οι διατροφικές ανάγκες ποικίλλουν σημαντικά ανά είδος, ηλικία και κατάσταση υγείας. Δεν έχουμε βρει ακόμη κάποια ανεξάρτητη επιστημονική ομάδα, ικανή να αναπτύξει μια τέτοια βαθμολογία.",
+  "guide_open_pet_food_facts_share_link": "https://world-el.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Καλώς ορίσατε στο Open Beauty Facts!",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Τι είναι το Open Beauty Facts;",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Το Open Beauty Facts είναι μια συνεργατική βάση δεδομένων **καλλυντικών προϊόντων**.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Στόχος μας είναι να αποκρυπτογραφήσουμε λίστες συστατικών για να σας βοηθήσουμε **να κατανοήσετε τι περιέχουν τα προϊόντα προσωπικής φροντίδας σας**. Από ενυδατικές κρέμες μέχρι μακιγιάζ, συλλέγουμε δεδομένα σχετικά με τα συστατικά, τα αλλεργιογόνα και τις συσκευασίες για να προωθήσουμε τη διαφάνεια στη βιομηχανία καλλυντικών.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Χαρακτηριστικά του Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Λάβετε ειδοποιήσεις για τα ανεπιθύμητα συστατικά σας",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Έχετε αλλεργία σε κάποιο συστατικό; Θέλετε να αποφύγετε τις φαγεσωρογόνες ουσίες; Θέλετε να αποφύγετε αμφιλεγόμενα συστατικά; Μπορείτε να ορίσετε μια λίστα με τα συστατικά καλλυντικών που θέλετε να αποφύγετε, απευθείας από την εφαρμογή!",
+  "guide_open_beauty_facts_tips_title": "Συμβουλές για να τραβάτε υπέροχες φωτογραφίες",
+  "guide_open_beauty_facts_tips_arg1_title": "Τι δεν πρέπει να κάνετε",
+  "guide_open_beauty_facts_tips_arg1_text1": "Αποφύγετε τις σκιές και την αντανάκλαση.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Δεν υπάρχει θολό ή εκτός εστίασης κείμενο.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Μην περικόπτετε τμήματα του κειμένου.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Αποφύγετε τα πολυάσχολα φόντα.",
+  "guide_open_beauty_facts_tips_arg2_title": "Τι πρέπει να κάνετε",
+  "guide_open_beauty_facts_tips_arg2_text1": "Χρησιμοποιήστε καλό, ομοιόμορφο φωτισμό.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Βεβαιωθείτε ότι το κείμενο είναι ευκρινές και ευανάγνωστο.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Καταγράψτε ολόκληρη τη λίστα συστατικών.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Τραβήξτε όσες φωτογραφίες χρειάζεστε αν το μπουκάλι είναι κυρτό.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Μπορεί να χρειαστεί να ξεκολλήσετε την ετικέτα για να δείτε τη λίστα των συστατικών.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Κρατήστε το προϊόν σε επίπεδη επιφάνεια.",
+  "guide_open_beauty_facts_scores_title": "Μια σημείωση για τη βαθμολογία",
+  "guide_open_beauty_facts_scores_paragraph1": "Σε αντίθεση με τα τρόφιμα, ο κόσμος των καλλυντικών **δεν διαθέτει ένα παγκοσμίως αναγνωρισμένο, κυβερνητικά υποστηριζόμενο σύστημα βαθμολόγησης όπως το Nutri-Score**. Οι επιδράσεις των συστατικών μπορεί να είναι ιδιαίτερα προσωπικές και να εξαρτώνται από τον τύπο δέρματος, τις αλλεργίες και τις ατομικές ανησυχίες.",
+  "guide_open_beauty_facts_share_link": "https://world-el.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Welcome to Open Prices!",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Το Open Prices είναι ένα έργο για τη **συλλογή και κοινοποίηση τιμών προϊόντων σε όλο τον κόσμο**. Είναι ένα δημόσια διαθέσιμο σύνολο δεδομένων που μπορεί να χρησιμοποιηθεί για έρευνα, ανάλυση και πολλά άλλα. Το Open Prices αναπτύσσεται και συντηρείται από το Open Food Facts.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "Υπάρχουν επί του παρόντος λίγες εταιρείες που διαθέτουν μεγάλες βάσεις δεδομένων τιμών προϊόντων σε επίπεδο γραμμωτού κώδικα. Αυτές οι τιμές δεν είναι ελεύθερα διαθέσιμες, αλλά πωλούνται σε υψηλές τιμές σε ιδιώτες φορείς, ερευνητές και άλλους οργανισμούς που μπορούν να τις αντέξουν οικονομικά.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_paragraph1": "**Αναζητούμε ένα σύνολο δεδομένων τιμών ανοιχτού κώδικα από το crowdsourcing**. Οι χρήστες μπορούν να προσθέσουν τιμές μέσω αυτής της διαδικτυακής εφαρμογής ή μέσω της επίσημης εφαρμογής Open Food Facts για κινητά. Οι λιανοπωλητές ή οι εφαρμογές τρίτων μπορούν επίσης να συνεισφέρουν χρησιμοποιώντας το API μας.",
+  "guide_open_prices_how_arg1_title": "Συλλέξτε φωτογραφίες από τις ετικέτες τιμών στους διαδρόμους",
+  "guide_open_prices_how_arg2_title": "Συλλέξτε φωτογραφίες αποδείξεων",
+  "guide_open_prices_why_title": "Γιατί το κάνει αυτό το Open Food Facts;",
+  "guide_open_prices_why_paragraph1": "Οι πληροφορίες για τις τιμές είναι ύψιστης σημασίας για την κατανόηση των συστημάτων τροφίμων. Αποτελούν βασικό παράγοντα για την κατανόηση του κόστους των τροφίμων και την προώθηση πιο υγιεινών διατροφών. Τα δεδομένα τιμών είναι ένας τρόπος για να διευκολυνθούν οι ερευνητές, οι δημοσιογράφοι και οι πολίτες να **κατανοήσουν καλύτερα τον τρόπο με τον οποίο οι τιμές των τροφίμων ποικίλλουν γεωγραφικά και χρονικά**.",
+  "guide_open_prices_why_arg1_title": "Παρακολουθήστε την εξέλιξη των τιμών με την πάροδο του χρόνου",
+  "guide_open_prices_why_arg1_text": "Δείτε την **εξέλιξη των τιμών**: συρρικνούμενος πληθωρισμός, φθηνός πληθωρισμός, μπορούμε να τα παρακολουθήσουμε μαζί!",
+  "guide_open_prices_why_arg2_title": "Συγκρίνετε τιμές κοντά σας",
+  "guide_open_prices_why_arg2_text": "Καθώς θα έχουμε περισσότερες τιμές, μπορείτε να εντοπίσετε **τα φθηνότερα καταστήματα γύρω σας**.",
+  "guide_open_prices_scrapping_title": "Σκεφτήκατε να αντλήσετε τιμές από τους ιστότοπους των λιανοπωλητών;",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph2": "Η συλλογή τιμών είναι μια επιλογή που εξετάζεται σε μια μελλοντική έκδοση του Open Prices, αλλά θα γίνεται από το ίδιο το Open Prices, ώστε να μπορούμε να έχουμε μια απόδειξη της τιμής με βάση τη σελίδα HTML.",
+  "guide_open_prices_retailers_title": "Είμαι λιανοπωλητής και θέλω να συνεισφέρω στις τιμές. Πώς μπορώ να το κάνω αυτό;",
+  "guide_open_prices_retailers_paragraph1": "Μπορείτε να συνεισφέρετε τιμές χρησιμοποιώντας το API μας.\nΕάν θέλετε να συνεισφέρετε τιμές σε κλίμακα, επικοινωνήστε μαζί μας στη διεύθυνση prices@openfoodfacts.org.",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_products_facts_title": "Καλώς ορίσατε στο Open Products Facts!",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "Τι είναι τα Ανοιχτά Γεγονότα για τα Προϊόντα;",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Το Open Products Facts είναι μια τεράστια, ανοιχτή βάση δεδομένων για **οποιοδήποτε προϊόν με γραμμωτό κώδικα, το οποίο δεν είναι τρόφιμο, καλλυντικό ή τροφή για κατοικίδια**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Από **ηλεκτρονικά** μέχρι **παιχνίδια** και από **ρούχα** μέχρι **προϊόντα καθαρισμού**, αν υπάρχει γραμμωτός κώδικας, μπορεί να προστεθεί. Αυτό το έργο στοχεύει στη δημιουργία ενός «Διαδικτύου των Πραγμάτων» για καθημερινά αντικείμενα, καθιστώντας τις πληροφορίες σχετικά με αυτά παγκοσμίως προσβάσιμες.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Χαρακτηριστικά των Ανοικτών Προϊόντων Γεγονότα",
+  "guide_open_products_facts_features_text": "Το Open Products Facts στοχεύει να παρέχει στους καταναλωτές τη δυνατότητα **να παρατείνουν τη διάρκεια ζωής των αντικειμένων** παρέχοντας κυκλικές λύσεις για τη συντήρηση, την **επισκευή**, την **ανακύκλωση** των αντικειμένων τους ή την παραχώρηση ενός νέου ιδιοκτήτη.",
+  "guide_open_products_facts_features_arg1_title": "Αποτύπωμα άνθρακα για ορισμένα προϊόντα",
+  "guide_open_products_facts_features_arg1_text": "Η **Επιπτώσεις CO2** από την Γαλλική Αρχή Περιβάλλοντος ADEME παρέχει τις **επιπτώσεις άνθρακα** πολλών κατηγοριών, φροντίστε να κατηγοριοποιήσετε τα προϊόντα με ακρίβεια.",
+  "guide_open_products_facts_features_arg2_title": "Δείκτης επισκευής για πολλά προϊόντα",
+  "guide_open_products_facts_features_arg2_text": "Όποτε είναι διαθέσιμος ένας δείκτης επανορθωσιμότητας στα γαλλικά, θα τον εμφανίζουμε. Επιπλέον, **μπορείτε να ξεκινήσετε τη συλλογή των μεταβλητών χρησιμοποιώντας τη Μηχανή Folksonomy**, ώστε να μπορούμε να τον υπολογίσουμε ξανά οι ίδιοι στο μέλλον, ακόμα και σε χώρες όπου δεν είναι διαθέσιμος.",
+  "guide_open_products_facts_features_arg3_title": "Βρείτε τρόπους για να δωρίσετε/μεταπωλήσετε το προϊόν σας",
+  "guide_open_products_facts_features_arg3_text": "Παρέχουμε συνδέσμους προς **υπηρεσίες τρίτων μερών φιλικές προς την κυκλική αγορά** που σας βοηθούν να αποκτήσετε το είδος του προϊόντος που αναζητάτε, ως μεταχειρισμένο προϊόν, που να είναι πιο φιλικό προς τους πλανητικούς πόρους.\nΣημειώστε ότι δεν πληρωνόμαστε για να το κάνουμε αυτό και ότι το σύστημα λειτουργεί μόνο ως παράδειγμα για δύο ιστότοπους στη Γαλλία. Μπορείτε να βοηθήσετε στην επέκταση αυτού του συστήματος τεκμηριώνοντας περισσότερους ιστότοπους στο wiki.",
+  "guide_open_products_facts_information_title": "Ποιες πληροφορίες είναι χρήσιμες;",
+  "guide_open_products_facts_information_text": "Για ένα τόσο ευρύ φάσμα στοιχείων, **τα δεδομένα που συλλέγουμε είναι ευέλικτα**. Για να το πετύχουμε αυτό, **δημιουργήσαμε τη Μηχανή Folksonomy**.",
+  "guide_open_products_facts_folksonomy_title": "Η Μηχανή Λαϊκής Προσωπικότητας",
+  "guide_open_products_facts_folksonomy_paragraph1": "Η Μηχανή Folksonomy είναι ένα εργαλείο που σας βοηθά να ολοκληρώνετε προϊόντα με σχετικές ιδιότητες. Αυτό βοηθά στη βελτίωση της αναζήτησης και της ανακάλυψης, αλλά και στον υπολογισμό και την εμφάνιση ενδιαφερόντων στοιχείων στο μέλλον.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Μπορείτε να προσθέσετε οποιαδήποτε κλειδιά και τιμές όπως: **συμβατότητα_με_5G_κινητό_δίκτυο: ναι**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Θα λάβετε αυτόματη πρόταση πιθανών ιδιοτήτων και είστε ευπρόσδεκτοι να προσθέσετε και να καταγράψετε νέες στα αγαπημένα σας είδη προϊόντων.",
+  "guide_open_products_facts_share_link": "https://world-el.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Ανοιχτές προτιμήσεις φαγητού",
+  "guide_coming_soon_button_title": "Σύντομα διαθέσιμο",
+  "guide_learn_more_subtitle": "Πατήστε για να μάθετε περισσότερα",
   "preview_badge": "Προεπισκόπηση",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4020,7 +4432,7 @@
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
-  "carousel_unknown_product_title": "Συγχαρητήρια!\nΒρήκες __το σπάνιο στολίδι!__",
+  "carousel_unknown_product_title": "Συγχαρητήρια!\nΒρήκες __ένα σπάνιο στολίδι!__",
   "@carousel_unknown_product_title": {
     "description": "Please keep the __ syntax to underline the text"
   },
@@ -4057,7 +4469,7 @@
   "photo_field_front": "Φωτογραφία προϊόντος",
   "photo_field_ingredients": "Φωτογραφία συστατικών",
   "photo_field_nutrition": "Φωτογραφία διατροφής",
-  "photo_field_packaging": "Φωτογραφία πληροφοριών συσκευασίας",
+  "photo_field_packaging": "Φωτογραφία οδηγιών ανακύκλωσης",
   "photo_already_exists": "Αυτή η φωτογραφία υπάρχει ήδη",
   "photo_missing": "Αυτή η φωτογραφία λείπει",
   "date": "Ημερομηνία",
@@ -4139,6 +4551,38 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
+  "product_page_tab_for_me": "Για μένα",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_tab_website": "Ιστοσελίδα",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Τιμές",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "prices_explanation_card_title": "Γιατί τιμές;",
+  "prices_explanation_card_line1": "Το **Open Prices** είναι ένα έργο για τη συλλογή και κοινοποίηση τιμών προϊόντων σε όλο τον κόσμο 🌍. Το Open Prices αναπτύσσεται και συντηρείται από το Open Food Facts.",
+  "explanation_card_learn_more_button": "Μάθετε περισσότερα",
+  "product_page_tab_folksonomy": "Λαογραφική",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
+  "folksonomy_explanation_card_title": "Ποια είναι τα χαρακτηριστικά της Λαϊκής Προσωπικότητας;",
+  "folksonomy_explanation_card_line1": "Τα χαρακτηριστικά βασίζονται **σε κλειδί-τιμή**.",
+  "folksonomy_explanation_card_line2": "Αυτές οι ιδιότητες δημιουργούνται και καταχωρούνται από τους συνεισφέροντες για κάθε είδους χρήση.",
+  "folksonomy_action_external_link_title": "Άνοιγμα εξωτερικού συνδέσμου",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "Οι εξωτερικοί σύνδεσμοι ενδέχεται να μην είναι ασφαλείς. Θέλετε πραγματικά να το επισκεφθείτε;",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
+  },
+  "prices_products_empty_title": "Δεν υπάρχει διαθέσιμη τιμή",
+  "prices_products_empty_explanation": "Γίνετε ο πρώτος που θα συνεισφέρει!",
   "prices_products_list_length_many_pages": "Κορυφαία {pageSize} προϊόντα (σύνολο: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4191,23 +4635,27 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Επιτυχής εξαγωγή",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "Εξαγωγή σε εξέλιξη…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "Η εξαγωγή ήταν επιτυχής",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Αποτυχία εξαγωγής θρεπτικών συστατικών από την εικόνα",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "Discount",
+  "prices_discount": "Έκπτωση",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "Στατιστικά",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "Στατιστικά Τιμών",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4219,7 +4667,7 @@
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "Locations",
+  "prices_stats_locations_section": "Τοποθεσίες",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
@@ -4227,7 +4675,7 @@
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
-  "prices_stats_contributors_section": "Χρηστες",
+  "prices_stats_contributors_section": "Συνεισφέροντες",
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
@@ -4263,7 +4711,7 @@
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
-  "prices_stats_with_price": "With a price",
+  "prices_stats_with_price": "Με τιμή",
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
@@ -4347,21 +4795,602 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Τελευταία ενημέρωση στις",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Παρουσιάστηκε σφάλμα κατά τη φόρτωση των στατιστικών.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Η ερώτηση απαντήθηκε!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
   "product_edit_robotoff_proof": "Επαλήθευση",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
+  },
+  "preferences_card_general": "Γενικά",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Τιμές",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Διαχειριστείτε τις προτιμήσεις τιμών σας",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Το έργο Open Food Facts",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Συμβάλλετε",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_my_contributions_title": "Οι Συνεισφορές μου",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "Τα στατιστικά μου",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
+  "preferences_contribute_subtitle": "Μεταφράστε, βελτιώστε τα εργαλεία μας…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Συνδέω",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Επικοινωνήστε μαζί μας ή ακολουθήστε μας στα μέσα κοινωνικής δικτύωσης",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Κάντε μια δωρεά",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Βοηθήστε μας να ενημερώσουμε εκατομμύρια καταναλωτές σε όλο τον κόσμο",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Βοήθεια και Υποστήριξη",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "Συχνές ερωτήσεις",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Λάβετε απαντήσεις στις ερωτήσεις σας",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Αποσυνδέθηκα",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Σας ευχαριστούμε που είστε ένα από τα μέλη μας!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Προϊόντα που επεξεργάστηκαν",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Δείτε όλα τα στατιστικά στοιχεία",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Αναζήτηση {provider} για \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Αναζήτηση ρύθμισης (π.χ. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Προσβασιμότητα: Εμφάνιση emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Προσβασιμότητα: Αφαίρεση χρωμάτων",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Προϊόντα",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Σχετικά",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Νομικές πληροφορίες",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Όροι χρήσης, πολιτική απορρήτου και άλλα",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Όροι χρήσης",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Νομικές αναφορές",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_legal_header": "Το Open Food Facts είναι μια βάση δεδομένων τροφίμων **που δημιουργήθηκε από όλους, για όλους**.\nΜπορείτε να τη χρησιμοποιήσετε για να κάνετε καλύτερες επιλογές τροφίμων και, καθώς πρόκειται για **ανοιχτά δεδομένα**, ο καθένας μπορεί να την **επαναχρησιμοποιήσει για οποιονδήποτε σκοπό**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
+  "preferences_privacy_policy": "Πολιτική απορρήτου",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Άδειες",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Σχετικά με την εφαρμογή",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Τεχνικές πληροφορίες, πληροφορίες για προγραμματιστές και άλλα",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Πληροφορίες",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Αριθμός έκδοσης",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Ερευνητής",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Κατάστημα εφαρμογών",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Ρυθμίσεις συστήματος",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Πρόσβαση στον πηγαίο κώδικα",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Και αρχίστε να έχετε αντίκτυπο σε εκατομμύρια ανθρώπους",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Ολοκληρωμένα προϊόντα",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Συμβουλές",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Ανακαλύψτε το νέο Nutri-Score",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Στον ιστότοπο Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Διαχείριση του λογαριασμού μου",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "Διαχείριση του λογαριασμού σας",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
+  },
+  "preferences_change_password_title": "Αλλαγή κωδικού πρόσβασης",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Ζώνη κινδύνου",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Όλες οι συνεισφορές σας θα χαθούν",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Συνεισφορές",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Ρυθμίσεις εφαρμογής",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Πολύ πειραματικός τρόπος σάρωσης προϊόντων εκτός σύνδεσης",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Ανανέωση όλων των προϊόντων από τον διακομιστή",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Παρακαλώ αποφύγετε να το κάνετε αυτό εκτός αν είναι απολύτως απαραίτητο",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Λειτουργία επίδειξης",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Προσθήκη καρτών στον σαρωτή",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Προσθέτει 3 δείγματα προϊόντων στον σαρωτή",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Παρουσιαστής Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Κεντρικός υπολογιστής: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Πειράματα προσβασιμότητας",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Επιλογή πολλαπλών προϊόντων για τιμές",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Πίνακες γνώσεων με ταξινόμηση χρήστη",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Προσωρινή πρόσβαση στην αναζήτηση τοποθεσίας",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Σύγκριση μεταξύ 2 ή 3 προϊόντων",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Εισαγωγή λίστας προϊόντων",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Βαθμολογίες & μεθοδολογίες",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Ανακαλύψτε πώς υπολογίζεται το Nutri-Score",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Ανακαλύψτε τις κύριες αλλαγές στη μεθοδολογία",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Ανακαλύψτε το έργο",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Ανακαλύψτε Ανοιχτά Γεγονότα για τα Τρόφιμα",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_discover_obf_title": "Ανακαλύψτε Ανοιχτά Γεγονότα Ομορφιάς",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Ανακαλύψτε πληροφορίες για τις τροφές για κατοικίδια στο διαδίκτυο",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Ανακαλύψτε πληροφορίες για τα ανοιχτά προϊόντα",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
+  },
+  "preferences_faq_faq_title": "Συχνές ερωτήσεις - Συχνές ερωτήσεις",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Η ΜΚΟ Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Πληροφορίες",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Λάβετε ενημερώσεις κοινότητας",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Μείνετε ενημερωμένοι για τα νέα της εφαρμογής και της κοινότητας",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Εγγραφείτε στο ημερολόγιο της κοινότητάς μας",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Συμμετέχετε συμμετέχοντας σε μία από τις εικονικές μας εκδηλώσεις",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_blog_title": "Το ιστολόγιο Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Λάβετε τα τελευταία νέα, τη στιγμή που συμβαίνουν",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Λάβετε βοήθεια από την κοινότητα",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Βοηθήστε μας να βελτιώσουμε την εφαρμογή",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Στείλτε μας πληροφορίες εντοπισμού σφαλμάτων",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Στείλτε μας ένα email με λεπτομερείς πληροφορίες για τον εντοπισμό σφαλμάτων",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Στείλτε μας σχόλια σχετικά με την εφαρμογή",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Βοηθήστε στη διαμόρφωση του μέλλοντος της εφαρμογής",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Συμμετέχετε στην έρευνα της εφαρμογής",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Βοηθήστε μας να καταλάβουμε τι πρέπει να κατασκευάσουμε στη συνέχεια",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Επαγγελματίες",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Εντελώς δωρεάν, εξασφαλίζει ακριβή δεδομένα για 500 εφαρμογές και εκατομμύρια καταναλωτές. Αυτοεξυπηρέτηση, συμβατό με το PIM ή τα υπολογιστικά φύλλα σας (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Επικοινωνήστε μαζί μας για να ξεκινήσετε",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Τύπος",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Αποκτήστε όλο το υλικό που χρειάζεστε για την αναφορά σας",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Επικοινωνήστε μαζί μας για ερωτήσεις τύπου ή για να μας ενημερώσετε για την έκθεσή σας",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Γίνε ενεργός εθελοντής",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Ανάπτυξη, Επικοινωνία, Σχεδιασμός… Κάθε είδους εθελοντισμός ή εμπειρογνωμοσύνη είναι ευπρόσδεκτη!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Ανακαλύψτε μερικούς από τους πολλούς τρόπους με τους οποίους μπορείτε να συνεισφέρετε",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Ανάπτυξη εφαρμογών για κινητά",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Μάθετε πώς να συμβάλλετε στην ανάπτυξη λογισμικού",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Καθημερινές ασταθείς κατασκευές, ολοκαίνουργια χαρακτηριστικά",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Αναπτύξτε την τοπική σας κοινότητα",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Βοήθεια με μεταφράσεις λογισμικού, περιεχομένου, ανάλυσης συστατικών",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Έχουμε ετοιμάσει ένα μικρό πρότυπο για να σας βοηθήσουμε :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Απλά βήματα για την αύξηση της διαφάνειας των τροφίμων στη χώρα σας",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Ποιότητα δεδομένων",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Γίνετε μέλος της ομάδας ποιότητας δεδομένων",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Συμμετέχετε στην προσπάθειά μας να διασφαλίσουμε ότι η βάση δεδομένων είναι πλήρης και ακριβής",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_products_added_title": "Προστέθηκαν προϊόντα",
+  "@preferences_contributions_products_added_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Νέα προϊόντα που πρόσθεσα στο Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added subtile"
+  },
+  "preferences_contributions_to_be_completed_title": "Προϊόντα που πρέπει να ολοκληρώσω",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Όλα τα ημιτελή προϊόντα",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Τιμές",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "Οι τιμές μου",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "Οι τιμές μου, οι αποδείξεις μου…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Προϊόντα που μπορείτε να βοηθήσετε στην ολοκλήρωση",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Βοηθήστε στον υπολογισμό του Nutri-Score και του Green-Score στη χώρα σας",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Τιμές που συνεισφέρω",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Τιμές και αποδείξεις",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Τραβήξτε φωτογραφίες των αποδείξεών σας και σαρώστε τους σχετικούς γραμμωτούς κώδικες",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Βγάλτε φωτογραφίες των τιμών σε ένα κατάστημα",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Νεότερες τιμές",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Οι πιο πρόσφατες τιμές που προστέθηκαν από την κοινότητα Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Συνεργάτες με τις περισσότερες τιμές",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Μετρήσεις τιμής ανοίγματος",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Παρακολουθήστε την εξέλιξη του έργου",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Τρόποι συνεισφοράς",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Επιβεβαιώστε τιμές που προστέθηκαν από εσάς ή άλλους, με τη βοήθεια της Τεχνητής Νοημοσύνης",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Προσθέστε γρήγορα πολλές αποδείξεις ή φωτογραφίες από ράφια από το ρολό της κάμεράς σας",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Μηνιαίες προκλήσεις",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Συμμετέχετε σε μηνιαίες θεματικές αποστολές για τη συλλογή τιμών",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Ανακτήστε τα δεδομένα πιστότητας",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Μάθετε πώς να ζητήσετε τα δεδομένα σας",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Προσαρμόστε την εφαρμογή",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Συνεισφέρετε στο έργο",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Απλοί τρόποι για να βοηθήσετε το Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Μεθοδολογίες βαθμολόγησης, βοήθεια και πολλά άλλα σχετικά με το έργο",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
   },
   "product_edit_robotoff_positive_button": "Αποδοχή πρότασης",
   "@product_edit_robotoff_positive_button": {
@@ -4378,6 +5407,10 @@
   "product_edit_robotoff_expand_proof": "Επέκταση απόδειξης",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
+  },
+  "product_page_tab_raw_data": "Ακατέργαστα δεδομένα",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "Σελίδα {current} / {total}",
   "@page_indicator_with_total": {
@@ -4417,12 +5450,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{count} από {total} στοιχεία",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} στοιχεία",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} στοιχεία",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -4438,5 +5495,136 @@
   "prices_proof_error": "Η πιστοποίηση απέτυχε, δεν είναι δυνατή η ανάκτηση αποδείξεων",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
-  }
+  },
+  "proofs_count_with_total": "{count} από {total} αποδείξεις",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} από {total} συνεισφέροντες",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributors",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} από {total} τοποθεσίες",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} τοποθεσίες",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
+  "restart_to_apply_message": "Επανεκκινήστε την εφαρμογή για να εφαρμοστούν οι αλλαγές.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Γραφική διεπαφή",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Μέσα ενημέρωσης",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Ανάπτυξη",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Ανοιχτά Εργαστήρια Γεγονότων για τα Τρόφιμα",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Λογαριασμός",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Φέρτε τα Ανοιχτά Γεγονότα για τα Τρόφιμα στη γλώσσα σας",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Εγγραφείτε στην έκδοση alpha της εφαρμογής",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Συνεισφορές και δεδομένα προϊόντων",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Να μην εμφανίζεται η Λαϊκή Προσωπικότητα",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Λογαριασμός",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "Προστέθηκε στις {created}",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
+  },
+  "location_map_details_title": "Λεπτομέρειες τοποθεσίας",
+  "location_map_details_name": "Όνομα",
+  "location_map_details_street": "Δρόμος",
+  "location_map_details_city": "Πόλη",
+  "location_map_details_postcode": "Ταχυδρομικός τομέας",
+  "location_map_details_country": "Χώρα",
+  "location_map_details_coordinates": "Συντεταγμένες",
+  "location_map_details_osm_id": "Αναγνωριστικό OSM"
 }

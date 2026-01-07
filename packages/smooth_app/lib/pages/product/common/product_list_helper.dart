@@ -31,22 +31,25 @@ class ProductListHelper {
 
     addLine('Barcode', 'Name', 'Brand');
 
-    final List<String> validBarcodes = list.barcodes.where(
-      (String barcode) {
-        return isBarcodeValid(barcode);
-      },
-    ).toList();
+    final List<String> validBarcodes = list.barcodes.where((String barcode) {
+      return isBarcodeValid(barcode);
+    }).toList();
 
-    final Map<String, Product> products =
-        await DaoProduct(localDatabase).getAll(validBarcodes);
+    final Map<String, Product> products = await DaoProduct(
+      localDatabase,
+    ).getAll(validBarcodes);
 
     for (final MapEntry<String, Product> entry in products.entries) {
       final String barcode = entry.key;
       final Product product = entry.value;
-      final String name =
-          (product.productName ?? '').replaceAll(EXPORT_SEPARATOR, '');
-      final String brand =
-          (product.brands ?? '').replaceAll(EXPORT_SEPARATOR, '');
+      final String name = (product.productName ?? '').replaceAll(
+        EXPORT_SEPARATOR,
+        '',
+      );
+      final String brand = (product.brands ?? '').replaceAll(
+        EXPORT_SEPARATOR,
+        '',
+      );
       addLine(barcode, name, brand);
     }
 
@@ -62,17 +65,15 @@ class ProductListHelper {
     // TODOhow should we handle different product types?
     final List<String> existingBarcodes =
         await ProductRefresher().silentFetchAndRefreshList(
-              barcodes: barcodes,
-              localDatabase: localDatabase,
-              productType: ProductType.food,
-            ) ??
-            <String>[];
+          barcodes: barcodes,
+          localDatabase: localDatabase,
+          productType: ProductType.food,
+        ) ??
+        <String>[];
 
-    await DaoProductList(localDatabase).bulkSet(
-      list,
-      existingBarcodes,
-      include: true,
-    );
+    await DaoProductList(
+      localDatabase,
+    ).bulkSet(list, existingBarcodes, include: true);
     return existingBarcodes;
   }
 

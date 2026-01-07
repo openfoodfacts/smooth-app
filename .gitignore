@@ -238,6 +238,7 @@ android_keys.zip
 .fvm/
 
 # Unsupported locales
+packages/smooth_app/lib/l10n/intl_en.arb
 packages/smooth_app/lib/l10n/app_ach.arb
 packages/smooth_app/lib/l10n/app_ast.arb
 packages/smooth_app/lib/l10n/app_ber.arb
@@ -272,3 +273,5 @@ packages/smooth_app/ios/Runner/val.lproj/InfoPlist.strings
 packages/smooth_app/ios/Runner/vec.lproj/InfoPlist.strings
 packages/smooth_app/ios/Runner/vls.lproj/InfoPlist.strings
 packages/smooth_app/ios/Runner/zea.lproj/InfoPlist.strings
+*.pyc
+__pycache__/

@@ -8,10 +8,7 @@ import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
-  ProductPreferences(
-    super.productPreferencesSelection, {
-    this.daoString,
-  });
+  ProductPreferences(super.productPreferencesSelection, {this.daoString});
 
   final DaoString? daoString;
 
@@ -36,11 +33,13 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   static String _getImportanceAssetPath(final String languageCode) =>
       AppHelper.getAssetPath(
-          'assets/metadata/init_preferences_$languageCode.json');
+        'assets/metadata/init_preferences_$languageCode.json',
+      );
 
   static String _getAttributeAssetPath(final String languageCode) =>
       AppHelper.getAssetPath(
-          'assets/metadata/init_attribute_groups_$languageCode.json');
+        'assets/metadata/init_attribute_groups_$languageCode.json',
+      );
 
   /// Inits with the best available not-network references.
   ///
@@ -48,8 +47,9 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   Future<void> init(final AssetBundle assetBundle) async {
     // trying the local database with the latest download language...
     if (daoString != null) {
-      final String? latestLanguage =
-          await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
+      final String? latestLanguage = await daoString!.get(
+        _DAO_STRING_KEY_LANGUAGE,
+      );
       if (latestLanguage != null) {
         final bool successful = await _loadFromDatabase(latestLanguage);
         if (successful) {
@@ -65,8 +65,9 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   Future<void> refresh() async {
     final String lc = ProductQuery.getLanguage().code;
     if (daoString != null) {
-      final String? latestLanguage =
-          await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
+      final String? latestLanguage = await daoString!.get(
+        _DAO_STRING_KEY_LANGUAGE,
+      );
       if (latestLanguage == null || latestLanguage != lc) {
         // we restart from scratch
         // typical use-case: language change
@@ -97,12 +98,15 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     try {
       const String languageCode = _DEFAULT_LANGUAGE_CODE;
       final String importanceAssetPath = _getImportanceAssetPath(languageCode);
-      final String attributeGroupAssetPath =
-          _getAttributeAssetPath(languageCode);
-      final String preferenceImportancesString =
-          await assetBundle.loadString(importanceAssetPath);
-      final String attributeGroupsString =
-          await assetBundle.loadString(attributeGroupAssetPath);
+      final String attributeGroupAssetPath = _getAttributeAssetPath(
+        languageCode,
+      );
+      final String preferenceImportancesString = await assetBundle.loadString(
+        importanceAssetPath,
+      );
+      final String attributeGroupsString = await assetBundle.loadString(
+        attributeGroupAssetPath,
+      );
       _loadFromStrings(
         languageCode,
         preferenceImportancesString,
@@ -121,21 +125,28 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     try {
       final bool differentLanguages;
       if (daoString != null) {
-        final String? latestLanguage =
-            await daoString!.get(_DAO_STRING_KEY_LANGUAGE);
+        final String? latestLanguage = await daoString!.get(
+          _DAO_STRING_KEY_LANGUAGE,
+        );
         differentLanguages = latestLanguage != languageCode;
       } else {
         differentLanguages = true;
       }
-      final String importanceUrl =
-          AvailablePreferenceImportances.getUrl(languageCode);
-      final String attributeGroupUrl =
-          AvailableAttributeGroups.getUrl(languageCode);
-      final DownloadableString downloadableImportance =
-          DownloadableString(Uri.parse(importanceUrl), dao: daoString);
+      final String importanceUrl = AvailablePreferenceImportances.getUrl(
+        languageCode,
+      );
+      final String attributeGroupUrl = AvailableAttributeGroups.getUrl(
+        languageCode,
+      );
+      final DownloadableString downloadableImportance = DownloadableString(
+        Uri.parse(importanceUrl),
+        dao: daoString,
+      );
       final bool differentImportance = await downloadableImportance.download();
-      final DownloadableString downloadableAttributes =
-          DownloadableString(Uri.parse(attributeGroupUrl), dao: daoString);
+      final DownloadableString downloadableAttributes = DownloadableString(
+        Uri.parse(attributeGroupUrl),
+        dao: daoString,
+      );
       final bool differentAttributes = await downloadableAttributes.download();
       if (!(differentImportance || differentAttributes || differentLanguages)) {
         return false;
@@ -159,14 +170,18 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       return false;
     }
     try {
-      final String importanceUrl =
-          AvailablePreferenceImportances.getUrl(languageCode);
-      final String attributeGroupUrl =
-          AvailableAttributeGroups.getUrl(languageCode);
-      final String? preferenceImportancesString =
-          await daoString!.get(importanceUrl);
-      final String? attributeGroupsString =
-          await daoString!.get(attributeGroupUrl);
+      final String importanceUrl = AvailablePreferenceImportances.getUrl(
+        languageCode,
+      );
+      final String attributeGroupUrl = AvailableAttributeGroups.getUrl(
+        languageCode,
+      );
+      final String? preferenceImportancesString = await daoString!.get(
+        importanceUrl,
+      );
+      final String? attributeGroupsString = await daoString!.get(
+        attributeGroupUrl,
+      );
       if (preferenceImportancesString == null &&
           attributeGroupsString == null) {
         return false;
@@ -192,9 +207,9 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   ) {
     final AvailableProductPreferences myAvailableProductPreferences =
         AvailableProductPreferences.loadFromJSONStrings(
-      preferenceImportancesString: preferenceImportancesString,
-      attributeGroupsString: attributeGroupsString,
-    );
+          preferenceImportancesString: preferenceImportancesString,
+          attributeGroupsString: attributeGroupsString,
+        );
     availableProductPreferences = myAvailableProductPreferences;
   }
 

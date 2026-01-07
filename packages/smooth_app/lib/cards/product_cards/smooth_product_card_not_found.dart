@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/product_cards/smooth_product_base_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 class ScanProductCardNotFound extends StatelessWidget {
   ScanProductCardNotFound({
@@ -24,8 +24,8 @@ class ScanProductCardNotFound extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
     final bool dense = context.read<ScanCardDensity>() == ScanCardDensity.DENSE;
 
     return ScanProductBaseCard(
@@ -63,9 +63,7 @@ class ScanProductCardNotFound extends StatelessWidget {
                 text: TextWithBubbleParts(
                   text: appLocalizations.carousel_unknown_product_text,
                   backgroundColor: theme.primarySemiDark,
-                  textStyle: const TextStyle(
-                    fontSize: 14.5,
-                  ),
+                  textStyle: const TextStyle(fontSize: 14.5),
                   bubbleTextStyle: const TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
@@ -94,10 +92,7 @@ class ScanProductCardNotFound extends StatelessWidget {
 
           if (dense) {
             return SingleChildScrollView(
-              child: InkWell(
-                onTap: () => _onTap(context),
-                child: child,
-              ),
+              child: InkWell(onTap: () => _onTap(context), child: child),
             );
           } else {
             return child;
@@ -108,9 +103,7 @@ class ScanProductCardNotFound extends StatelessWidget {
   }
 
   Future<void> _onTap(BuildContext context) async {
-    await AppNavigator.of(context).push(
-      AppRoutes.PRODUCT_CREATOR(barcode),
-    );
+    await AppNavigator.of(context).push(AppRoutes.PRODUCT_CREATOR(barcode));
     await onAddProduct?.call();
   }
 }

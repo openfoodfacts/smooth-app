@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
@@ -16,26 +16,35 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 class PriceModel with ChangeNotifier {
   PriceModel({
     required final ProofType proofType,
-    required final List<OsmLocation>? locations,
     required final Currency currency,
-    final PriceMetaProduct? initialProduct,
     required this.multipleProducts,
-  })  : _proof = null,
-        existingPrices = null,
-        _proofType = proofType,
-        _date = DateTime.now(),
-        _currency = currency,
-        _locations = locations,
-        _priceAmountModels = <PriceAmountModel>[
-          if (initialProduct != null) PriceAmountModel(product: initialProduct),
-        ];
+    final PriceMetaProduct? initialProduct,
+    final bool readyForPriceTagValidation = false,
+  }) : _proof = null,
+       existingPrices = null,
+       _proofType = proofType,
+       _date = DateTime.now(),
+       _currency = currency,
+       _readyForPriceTagValidation = readyForPriceTagValidation,
+       _priceAmountModels = <PriceAmountModel>[
+         if (initialProduct != null) PriceAmountModel(product: initialProduct),
+       ];
 
-  PriceModel.proof({
-    required Proof proof,
-    this.existingPrices,
-  })  : multipleProducts = true,
-        _priceAmountModels = <PriceAmountModel>[] {
+  PriceModel.proof({required Proof proof, this.existingPrices})
+    : multipleProducts = true,
+      _readyForPriceTagValidation = false,
+      _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
+  }
+
+  late bool _readyForPriceTagValidation;
+
+  bool get readyForPriceTagValidation => _readyForPriceTagValidation;
+
+  set readyForPriceTagValidation(final bool value) {
+    _hasChanged = true;
+    _readyForPriceTagValidation = value;
+    notifyListeners();
   }
 
   bool _hasChanged = false;
@@ -63,7 +72,6 @@ class PriceModel with ChangeNotifier {
     _cropParameters = null;
     _proofType = proof.type!;
     _date = proof.date!;
-    _locations = null;
     _currency = proof.currency!;
     if (!init) {
       notifyListeners();
@@ -152,19 +160,17 @@ class PriceModel with ChangeNotifier {
   final DateTime today = DateTime.now();
   final DateTime firstDate = DateTime.utc(2020, 1, 1);
 
-  List<OsmLocation>? _locations;
+  OsmLocation? _location;
 
-  List<OsmLocation>? get locations => _locations;
-
-  set locations(final List<OsmLocation>? locations) {
+  set location(final OsmLocation location) {
     _hasChanged = true;
-    _locations = locations;
+    _location = location;
     notifyListeners();
   }
 
   OsmLocation? get location => proof?.location?.osmId != null
       ? OsmLocation.fromPrice(proof!.location!)
-      : _locations!.firstOrNull;
+      : _location;
 
   late Currency _currency;
 
@@ -206,7 +212,10 @@ class PriceModel with ChangeNotifier {
   }
 
   /// Adds the related background task.
-  Future<void> addTask(final BuildContext context) async {
+  Future<void> addTask(
+    final BuildContext context, {
+    required final bool displaySnackbar,
+  }) async {
     final List<String> barcodes = <String>[];
     final List<String> categories = <String>[];
     final List<List<String>> origins = <List<String>>[];
@@ -265,6 +274,8 @@ class PriceModel with ChangeNotifier {
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      displaySnackbar: displaySnackbar,
+      readyForPriceTagValidation: readyForPriceTagValidation,
     );
   }
 }

@@ -1,4 +1,6 @@
 name: 🤳🥫 Open Food Facts mobile app Pre-Submit Tests
+permissions:
+  contents: read
 
 on:
   pull_request:
@@ -18,7 +20,7 @@ jobs:
 
     steps:
       - name: 📂 Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       # Get the Flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
@@ -36,7 +38,7 @@ jobs:
 
       # Get dependencies
       - name: 📦 Get dependencies
-        run: ci/pub_upgrade.sh
+        run: ci/pub_get.sh
 
       # Check for formatting issues
       - name: 🧹 Check for formatting issues (run "dart format . ")

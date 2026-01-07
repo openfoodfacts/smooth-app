@@ -1,5 +1,5 @@
 {
-  "@Utils": {},
+  "app_name": "Open Food Facts",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Bantu tingkatkan Open Food Facts di negara Anda",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -202,6 +202,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Lupa kata sandi?",
   "view_profile": "Lihat profil",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -267,10 +268,6 @@
   "sign_up_page_terms_text": "syarat penggunaan dan kontribusi",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://world.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://donate.openfoodfacts.org/",
   "@donate_url": {
@@ -370,8 +367,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Berdonasi ke OpenFoodFacts",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Daftarkan diri Anda dalam versi alpha internal",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Harap diketahui bahwa dengan versi alpha internal, kehilangan data sepenuhnya mungkin terjadi, dan aplikasi dapat menjadi tidak dapat digunakan sewaktu-waktu!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Produk - produk yang perlu dilengkapi",
@@ -407,7 +402,7 @@
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
-  "contribute_prices_gdpr": "Contribute prices by requesting a GDPR export of your loyalty cards data",
+  "contribute_prices_gdpr": "Berikan harga dengan meminta ekspor GDPR data kartu loyalitas Anda",
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
@@ -477,7 +472,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Profil",
+  "profile_navbar_label": "Komunitas",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -498,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Semua",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(pencarian kategori)",
@@ -518,18 +513,39 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Cari produk,\nmerek atau kode batang",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Filter pencarian",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Riwayat pencarian",
   "search_store": "Cari toko",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Petunjuk: tambahkan kota atau negara",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Ketuk untuk lihat info selengkapnya…",
   "@Product": {},
   "product": "Produk",
   "@product": {},
   "unknownBrand": "Merek tidak dikenal",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Jumlah yang tidak diketahui",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nama produk tidak dikenal",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Muat ulang",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -578,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informasi kemasan",
+  "packaging_information": "Petunjuk daur ulang",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto informasi kemasan",
+  "packaging_information_photo": "Foto instruksi daur ulang",
   "@packaging_information_photo": {},
   "missing_product": "Anda menemukan produk baru!",
   "@missing_product": {},
@@ -680,7 +696,7 @@
   "front_packaging_photo_title": "Foto Kemasan Depan",
   "ingredients_photo_title": "Foto Komposisi",
   "nutritional_facts_photo_title": "Foto Informasi Nilai Gizi",
-  "recycling_photo_title": "Foto daur ulang",
+  "recycling_photo_title": "Petunjuk daur ulang Foto",
   "take_photo_title": "Ambil gambar",
   "take_more_photo_title": "Ambil lebih banyak foto",
   "front_photo_uploaded": "Foto depan diunggah",
@@ -774,8 +790,9 @@
   "score_add_missing_ingredients": "Tambahkan bahan yang kurang",
   "score_add_missing_packaging_image": "Tambahkan foto kemasan yang kurang",
   "score_add_missing_nutrition_facts": "Tambahkan informasi nilai gizi yang kurang",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "Tambahkan jejak produk yang hilang",
   "score_add_missing_product_category": "Tambahkan kategori produk yang kurang",
+  "score_add_missing_precise_product_category": "Pilih kategori yang lebih tepat",
   "score_add_missing_product_countries": "Tambahkan negara asal produk yang kurang",
   "score_add_missing_product_emb": "Tambahkan kode ketertelusuran produk yang kurang",
   "score_add_missing_product_labels": "Tambahkan label produk yang kurang",
@@ -789,11 +806,11 @@
   "nutrition_page_nutritional_info_value_positive": "Ya",
   "nutrition_page_nutritional_info_value_negative": "Tidak",
   "nutrition_page_nutritional_info_open_photo": "Buka foto",
-  "nutrition_page_nutritional_info_explanation_title": "Good practices: Nutritional information",
+  "nutrition_page_nutritional_info_explanation_title": "Praktik baik: Informasi gizi",
   "@nutrition_page_nutritional_info_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_nutritional_info_explanation_info1": "Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.",
+  "nutrition_page_nutritional_info_explanation_info1": "Terkadang informasi nutrisi tidak tercantum pada kemasan atau pada dokumen yang disertakan bersama produk. Dalam hal ini, dan hanya dalam hal ini, Anda dapat menetapkan nilainya menjadi **TIDAK**.",
   "@nutrition_page_nutritional_info_explanation_info1": {
     "description": "Text explaining when to set the nutritional information to NO"
   },
@@ -807,27 +824,27 @@
   "nutrition_page_add_nutrient": "Tambahkan nutrisi",
   "nutrition_page_serving_size": "Takaran saji",
   "nutrition_page_serving_size_hint": "Tambahkan ukuran porsi (contoh: 100g)",
-  "nutrition_page_serving_size_explanation_title": "Good practices: Serving size",
+  "nutrition_page_serving_size_explanation_title": "Praktik baik: Ukuran porsi",
   "@nutrition_page_serving_size_explanation_title": {
     "description": "Title for the help section about Nutritional information"
   },
-  "nutrition_page_serving_size_explanation_info1": "This value helps to **make a proportional calculation of each nutrient per serving size**.",
+  "nutrition_page_serving_size_explanation_info1": "Nilai ini membantu untuk **melakukan perhitungan proporsional setiap nutrisi per porsi**.",
   "@nutrition_page_serving_size_explanation_info1": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_info2": "**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
+  "nutrition_page_serving_size_explanation_info2": "**Satuan yang diizinkan** adalah: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.",
   "@nutrition_page_serving_size_explanation_info2": {
     "description": "Text explaining why the serving size is important"
   },
-  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g** or **60 G** (prefer the first one)",
+  "nutrition_page_serving_size_explanation_good_example1": "**60 g**, **60g**, atau **60 G** (disarankan yang pertama)",
   "@nutrition_page_serving_size_explanation_good_example1": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** or **1L**",
+  "nutrition_page_serving_size_explanation_good_example2": "**1000 ml** atau **1L**",
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Invalid unit",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Satuan tidak valid",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -835,15 +852,15 @@
   "@nutrition_page_serving_size_explanation_bad_example1_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Invalid units",
+  "nutrition_page_serving_size_explanation_bad_example2_explanation": "Satuan tidak valid",
   "@nutrition_page_serving_size_explanation_bad_example2_explanation": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **candies** and 2 **biscuits**",
+  "nutrition_page_serving_size_explanation_bad_example2_example": "9 **permen** dan 2 **biskuit**",
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Missing unit",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Unit hilang",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -1015,15 +1032,19 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Tidak ada properti",
+  "product_tags_explanation": "Dengan menambahkan properti (kunci/nilai) ke suatu produk, Anda membantu memperkayanya.",
   "add_tag": "Tambahkan properti",
   "add_tags": "Tambah properti",
   "add_edit_tags": "Tambah atau sunting properti",
   "edit_tag": "Sunting properti",
   "remove_tag": "Hapus properti",
   "tag_key": "Properti",
+  "tag_keys": "Properti",
   "tag_key_uneditable": "Properti (tidak dapat disunting)",
   "tag_key_input_hint": "Masukkan properti",
   "tag_value": "Nilai",
+  "tag_values": "Nilai",
   "tag_value_input_hint": "Masukkan nilai",
   "tag_key_item": "Properti:",
   "tag_value_item": "Nilai:",
@@ -1043,7 +1064,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Bandingkan dengan Kategori",
+  "product_search_same_category": "Temukan alternatif",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1237,15 +1258,15 @@
   },
   "retry_button_label": "Coba lagi",
   "connect_with_us": "Terhubung dengan kami",
-  "tiktok": "Follow us on TikTok",
+  "tiktok": "Ikuti kami di TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
   "instagram": "Ikuti kami di Instagram",
   "instagram_link": "https://instagram.com/open.food.facts",
   "twitter": "Ikuti kami di X (sebelumnya Twitter)",
   "twitter_link": "https://www.twitter.com/openfoodfacts",
-  "mastodon": "Follow us on Mastodon",
+  "mastodon": "Ikuti kami di Mastodon",
   "mastodon_link": "https://mastodon.social/@openfoodfacts",
-  "bsky": "Follow us on BlueSky",
+  "bsky": "Ikuti kami di BlueSky",
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
   "faq": "FAQ",
@@ -1372,6 +1393,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Maaf, ini contoh produk kami, Anda tidak dapat mengeditnya :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Peringkat Anda",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1402,6 +1427,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Bandingkan berdampingan",
   "loading_dialog_default_title": "Mengunduh data",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1414,8 +1440,8 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Hapus akun saya",
-  "@account_deletion_subject": {
+  "account_delete_title": "Hapus akun saya",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Akun",
@@ -1552,7 +1578,7 @@
   "@edit_product_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
-  "edit_product_pending_operations_banner_short_message": "Your edits are being **sent in the background** (or later in case of error).",
+  "edit_product_pending_operations_banner_short_message": "Susunan suntingan Anda sedang **dikirim di balik layar** (atau nanti jika terjadi kesalahan).",
   "@edit_product_pending_operations_banner_short_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page. Please keep the ** syntax to make the text bold."
   },
@@ -1605,11 +1631,11 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "Tambahkan jejak baru",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
-  "edit_product_form_item_add_suggestion": "Add suggestion",
+  "edit_product_form_item_add_suggestion": "Tambahkan saran",
   "@edit_product_form_item_add_suggestion": {
     "description": "Tooltip to show when the user long presses the (+) button on a suggestion"
   },
@@ -1657,11 +1683,11 @@
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
-  "edit_product_form_item_labels_explanation_title": "Good practices: Labels",
+  "edit_product_form_item_labels_explanation_title": "Praktik baik: Label",
   "@edit_product_form_item_labels_explanation_title": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_info1": "Any characteristic of the product **which is factual** and different from the other fields.",
+  "edit_product_form_item_labels_explanation_info1": "Setiap karakteristik produk **yang bersifat faktual** dan berbeda dari bidang-bidang lainnya.",
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1669,7 +1695,7 @@
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_2": "Made in Belgium, produced in Brittany…",
+  "edit_product_form_item_labels_explanation_good_examples_2": "Dibuat di Belgia, diproduksi di Brittany…",
   "@edit_product_form_item_labels_explanation_good_examples_2": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1677,11 +1703,11 @@
   "@edit_product_form_item_labels_explanation_good_examples_3": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_4": "Rich in fiber, source of iron…",
+  "edit_product_form_item_labels_explanation_good_examples_4": "Kaya serat, sumber zat besi…",
   "@edit_product_form_item_labels_explanation_good_examples_4": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_5": "Fair trade, Max Havelaar…",
+  "edit_product_form_item_labels_explanation_good_examples_5": "Praktik Dagany yang Adil, Max Havelaar…",
   "@edit_product_form_item_labels_explanation_good_examples_5": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1697,11 +1723,11 @@
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
-  "edit_product_form_item_stores_explanation_title": "Good practices: Stores",
+  "edit_product_form_item_stores_explanation_title": "Praktik baik: Toko",
   "@edit_product_form_item_stores_explanation_title": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_info1": "Input the store where you bought the product.",
+  "edit_product_form_item_stores_explanation_info1": "Masukkan toko tempat Anda membeli produk tersebut.",
   "@edit_product_form_item_stores_explanation_info1": {
     "description": "Product edition - Stores - Explanation"
   },
@@ -1729,19 +1755,19 @@
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
-  "edit_product_form_item_origins_explanation_title": "Good practices: Origins",
+  "edit_product_form_item_origins_explanation_title": "Praktik baik: Asal-usul",
   "@edit_product_form_item_origins_explanation_title": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_info1": "Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.",
+  "edit_product_form_item_origins_explanation_info1": "Tambahkan **segala informasi asal-usul yang dapat Anda temukan pada kemasan**.\nAnda tidak perlu khawatir tentang informasi asal-usul yang tercantum langsung dalam daftar bahan.",
   "@edit_product_form_item_origins_explanation_info1": {
     "description": "Product edition - Origins - input explainer, part 1"
   },
-  "edit_product_form_item_origins_explanation_good_examples_1": "Beef from Argentina",
+  "edit_product_form_item_origins_explanation_good_examples_1": "Daging sapi dari Argentina",
   "@edit_product_form_item_origins_explanation_good_examples_1": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_origins_explanation_good_examples_2": "The soy does not come from the European Union",
+  "edit_product_form_item_origins_explanation_good_examples_2": "Kedelai tidak berasal dari Uni Eropa",
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
@@ -1757,11 +1783,11 @@
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
-  "edit_product_form_item_countries_explanations_title": "Good practices: Countries",
+  "edit_product_form_item_countries_explanations_title": "Praktik baik: Negara",
   "@edit_product_form_item_countries_explanations_title": {
     "description": "Product edition - Countries - explanations"
   },
-  "edit_product_form_item_countries_explanations_info1": "**Countries where the product is widely available** (not including stores specialising in foreign products).",
+  "edit_product_form_item_countries_explanations_info1": "**Negara-negara di mana produk ini tersedia secara luas** (tidak termasuk toko-toko yang khusus menjual produk impor).",
   "@edit_product_form_item_countries_explanations_info1": {
     "description": "Product edition - Countries - explanations"
   },
@@ -1777,19 +1803,19 @@
   "@edit_product_form_item_emb_codes_type": {
     "description": "Product edition - Traceability Codes - input textfield type"
   },
-  "edit_product_form_item_emb_help_title": "Good practices: Traceability codes",
+  "edit_product_form_item_emb_help_title": "Praktik baik: Kode pelacakan",
   "@edit_product_form_item_emb_help_title": {
     "description": "Title for the help section about traceability codes"
   },
-  "edit_product_form_item_emb_help_info1": "In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.",
+  "edit_product_form_item_emb_help_info1": "Pada bagian ini, Anda dapat memasukkan kode yang terkait dengan **tanda kemasan**, **tanda identifikasi**, atau **tanda kesehatan**.",
   "@edit_product_form_item_emb_help_info1": {
     "description": "Text explaining how to write a traceability code"
   },
-  "edit_product_form_item_emb_help_info2_title": "Examples of traceability codes",
+  "edit_product_form_item_emb_help_info2_title": "Contoh kode pelacakan",
   "@edit_product_form_item_emb_help_info2_title": {
     "description": "Explanation about EMB/EC… codes"
   },
-  "edit_product_form_item_emb_help_info2_item1_text": "**EC codes** used in the European Community to identify food producers or packagers:",
+  "edit_product_form_item_emb_help_info2_item1_text": "**Kode EC** yang digunakan di Komunitas Eropa untuk mengidentifikasi produsen atau pengemas makanan:",
   "@edit_product_form_item_emb_help_info2_item1_text": {
     "description": "Explanation about EC codes"
   },
@@ -1797,11 +1823,11 @@
   "@edit_product_form_item_emb_help_info2_item1_example": {
     "description": "Example of an EC code (you can change with a valid code in another european country)"
   },
-  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community",
+  "edit_product_form_item_emb_help_info2_item1_explanation": "**FR**: kode negara **Prancis**\n**72.264.002**: data geografis\n**CE**: Komunitas Eropa",
   "@edit_product_form_item_emb_help_info2_item1_explanation": {
     "description": "Example of an EC code (shouldn't be translated)"
   },
-  "edit_product_form_item_emb_help_info2_item2_text": "**EMB codes** used in France:",
+  "edit_product_form_item_emb_help_info2_item2_text": "**Kode EMB** yang digunakan di Prancis:",
   "@edit_product_form_item_emb_help_info2_item2_text": {
     "description": "Explanation about EMB codes"
   },
@@ -1817,7 +1843,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Masukkan penelusuran (misalnya: Kedelai)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -1833,27 +1859,27 @@
   "@edit_product_form_item_categories_type": {
     "description": "Product edition - Categories - input textfield type"
   },
-  "edit_product_form_item_categories_explanation_title": "Good practices: Categories",
+  "edit_product_form_item_categories_explanation_title": "Praktik yang baik: Kategori",
   "@edit_product_form_item_categories_explanation_title": {
     "description": "Product edition - Categories - input explainer, title"
   },
-  "edit_product_form_item_categories_explanation_info1": "Indicate **only the most specific category**.\nParent categories will be automatically added.",
+  "edit_product_form_item_categories_explanation_info1": "Pilih **hanya kategori yang paling spesifik**.\nKategori induk akan ditambahkan secara otomatis.",
   "@edit_product_form_item_categories_explanation_info1": {
     "description": "Product edition - Categories - input explainer, part 1"
   },
-  "edit_product_form_item_categories_explanation_info2_title": "Missing category?",
+  "edit_product_form_item_categories_explanation_info2_title": "Kategori tidak ada?",
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.",
+  "edit_product_form_item_categories_explanation_info2_content": "Jika suatu kategori **tidak tersedia di autocomplete**, silakan tambahkan saja.\nHal ini akan membantu kami memperbaiki Open Food Facts di negara Anda.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_good_examples_1": "Sardines in olive oil",
+  "edit_product_form_item_categories_explanation_good_examples_1": "Ikan sarden dalam minyak zaitun",
   "@edit_product_form_item_categories_explanation_good_examples_1": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
-  "edit_product_form_item_categories_explanation_good_examples_2": "Orange juice from concentrate",
+  "edit_product_form_item_categories_explanation_good_examples_2": "Jus jeruk dari konsentrat",
   "@edit_product_form_item_categories_explanation_good_examples_2": {
     "description": "Product edition - Categories - input explainer, part 3"
   },
@@ -1900,15 +1926,15 @@
   "@edit_product_form_item_nutrition_facts_subtitle": {
     "description": "Product edition - Nutrition facts - SubTitle"
   },
-  "edit_product_form_item_nutrition_facts_explanation_title": "Good practices: Nutrition facts",
+  "edit_product_form_item_nutrition_facts_explanation_title": "Praktik yang baik: Informasi gizi",
   "@edit_product_form_item_nutrition_facts_explanation_title": {
     "description": "Title for the help section about Nutritional facts"
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nutritional values",
+  "edit_product_form_item_nutrition_facts_explanation_info1_title": "Nilai gizi",
   "@edit_product_form_item_nutrition_facts_explanation_info1_title": {
     "description": "Text explaining the selector of nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info1_content": "First, select if the **values are provided**:",
+  "edit_product_form_item_nutrition_facts_explanation_info1_content": "Pertama, pilih apakah **nilai-nilai tersebut disediakan**:",
   "@edit_product_form_item_nutrition_facts_explanation_info1_content": {
     "description": "Text explaining the selector of nutritional values."
   },
@@ -1916,15 +1942,15 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Kemudian, masukkan nilai gizi **seperti yang tertera pada kemasan**. Jika tidak ada nilai, Anda dapat mengklik ikon “Mata”.",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Missing field?",
+  "edit_product_form_item_nutrition_facts_explanation_info3_title": "Kolom tidak ada?",
   "@edit_product_form_item_nutrition_facts_explanation_info3_title": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info3_content": "If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).",
+  "edit_product_form_item_nutrition_facts_explanation_info3_content": "Jika ada entri yang hilang, Anda dapat **mengklik ikon “Plus”** untuk menambahkannya (misalnya: vitamin D, magnesium…).",
   "@edit_product_form_item_nutrition_facts_explanation_info3_content": {
     "description": "Text explaining what to input when a nutritional value is missing."
   },
@@ -2148,6 +2174,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Akses fitur eksperimental dan alat pengembangan",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Mulai ulang orientasi",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2286,10 +2316,51 @@
   },
   "prices_app_dev_mode_flag": "Pintasan ke aplikasi Harga di halaman produk",
   "prices_app_button": "Buka aplikasi Harga",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_website_button": "Buka di situs web Open Prices",
+  "prices_bulk_proof_upload_select": "Tambahkan label harga langsung dari galeri",
+  "prices_bulk_proof_upload_warning": "Setelah Anda memilih gambar, Anda tidak akan dapat menyuntingnya!",
+  "prices_bulk_proof_upload_warning_ai": "AI akan menganalisis bukti-bukti Anda untuk mengekstrak harga.",
+  "prices_bulk_proof_upload_community_switch": "Memungkinkan komunitas untuk memvalidasi harga yang diekstraksi oleh AI.",
+  "prices_bulk_proof_upload_subtitle": "Label Harga Duplikat",
+  "prices_bulk_proof_upload_title": "Unggah Bukti dalam Jumlah Besar",
+  "prices_bulk_proof_upload_step_selecting": "Memilih file",
+  "prices_bulk_proof_upload_step_starting": "Memulai pengunggahan",
+  "prices_bulk_proof_upload_step_copying": "Menyalin file secara lokal #{index}/{count}",
+  "@prices_bulk_proof_upload_step_copying": {
+    "description": "A message stating the current copy step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_preparing": "Mempersiapkan unggahan #{index}/{count}",
+  "@prices_bulk_proof_upload_step_preparing": {
+    "description": "A message stating the current upload step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_error": "Gagal pada gambar #{index}/{count}",
+  "@prices_bulk_proof_upload_step_error": {
+    "description": "A message stating the current error step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "prices_generic_title": "Harga",
   "prices_add_n_prices": "{count,plural, =1{Tambahkan harga} other{Tambahkan {count} harga}}",
   "prices_send_n_prices": "{count,plural, =1{Kirim harga} other{Kirim {count} harga}}",
@@ -2318,8 +2389,54 @@
     }
   },
   "prices_barcode_enter": "Masukkan Barcode",
+  "prices_category_enter": "Barang tanpa kode batang",
+  "prices_per_kilogram": "Harga per kilogram",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Harga per unit",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / satuan",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_mandatory": "Wajib",
+  "prices_category_optional": "Opsional",
+  "prices_category_error_mandatory": "Kategori wajib diisi",
   "prices_barcode_reader_action": "Pembaca barcode",
   "prices_view_prices": "Lihat harga",
+  "prices_list_title": "Daftar harga",
+  "prices_list_count": "Jumlah\nharga",
+  "@prices_list_count": {
+    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+  },
+  "prices_list_add_new_price": "Tambahkan harga baru\n",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_list_empty_title": "Belum ada harga!",
+  "prices_list_empty_subtitle": "Jadilah orang pertama yang menambahkannya:\nDengan memindai **kwitansi** atau **label harga**!",
+  "prices_entry_shop_not_found": "Toko tidak dikenal",
+  "prices_entry_menu_title": "Harga entri dari \"{user}\"",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_product_prices": "Lihat semua harga untuk produk ini",
+  "prices_entry_menu_open_proof": "Lihat bukti",
+  "prices_entry_menu_my_prices": "Lihat harga saya yang lain",
+  "prices_entry_menu_author_prices": "Lihat harga lain dari penulis",
+  "prices_entry_menu_shop_prices": "Lihat harga lain dari toko",
   "prices_product_accessibility_summary": "{count,plural, =1{1 harga} other{{count} harga}} untuk {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2405,6 +2522,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Belum ada kontributor!",
+  "prices_users_empty_explanation": "Jadilah yang pertama menambahkan harga!",
   "prices_users_list_length_many_pages": "{pageSize} kontributor teratas (total: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2417,6 +2536,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Belum ada toko!",
+  "prices_locations_empty_explanation": "Jadilah yang pertama menambahkan harga!",
   "prices_locations_list_length_many_pages": "{pageSize} lokasi teratas (total: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2465,6 +2586,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Harga sudah ditambahkan sebelumnya",
   "prices_amount_subtitle": "Jumlah",
   "prices_amount_is_discounted": "Apakah didiskon?",
   "prices_amount_price_normal": "Harga",
@@ -2480,7 +2602,10 @@
   "prices_location_mandatory": "Anda harus memilih toko!",
   "prices_location_search_broader": "Tidak dapat menemukan apa yang Anda cari? Coba pencarian yang lebih luas!",
   "prices_proof_subtitle": "Bukti",
+  "prices_proof_empty_title": "Belum ada bukti!",
+  "prices_proof_empty_explanation": "Mulailah dengan menambahkan foto **kwitansi** atau **label harga**!",
   "prices_proof_find": "Pilih bukti",
+  "prices_proof_change": "Bukti perubahan",
   "prices_proof_receipt": "Resi",
   "prices_proof_price_tag": "Label harga",
   "prices_proof_mandatory": "Anda harus memilih bukti!",
@@ -2527,6 +2652,10 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
+  "prices_menu_know_more": "Know more about Open Prices",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
+  },
   "dev_preferences_import_history_result_success": "Selesai",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2535,12 +2664,7 @@
   "dev_mode_section_news": "Konfigurasi penyedia berita",
   "dev_mode_section_product_page": "Halaman produk",
   "dev_mode_section_ui": "Antarmuka Pengguna",
-  "dev_mode_section_data": "Data",
   "dev_mode_section_experimental_features": "Fitur eksperimental",
-  "dev_preferences_show_folksonomy_title": "Kecualikan Folksonomi",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Kecualikan GreenScore",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -2553,9 +2677,25 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
+  "dev_mode_reset_app_language_title": "Setel ulang bahasa aplikasi",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Tambahkan kartu",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Beralih antara prices.openfoodfacts.org (PROD) dan uji lingkungan",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
+  },
   "search_history_item_edit_tooltip": "Gunakan kembali dan sunting pencarian ini",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Hapus",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "Anda telah mengunduh semua produk {totalSize}.",
   "@product_search_no_more_results": {
@@ -2616,9 +2756,23 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Harga kontributor",
+  "search_proof_title": "Bukti dari \"{user}\"",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "user_any_search_prices_title": "Harga kontributor: {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Harga terbaru ditambahkan",
   "@all_search_prices_latest_title": {
@@ -2632,7 +2786,7 @@
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
-  "prices_contribution_assistant": "Price Contribution Assistant",
+  "prices_contribution_assistant": "Asisten Kontribusi Harga",
   "prices_validation_assistant": "Asisten Validasi Harga",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
@@ -2641,7 +2795,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Tambahkan Beberapa Bukti",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2749,23 +2903,23 @@
   },
   "basic_details": "Informasi Dasar",
   "product_name": "Nama Produk",
-  "product_names": "Product Names",
+  "product_names": "Nama Produk",
   "@product_names": {
     "description": "Title for the section to edit the product name (in multiple languages)"
   },
-  "add_basic_details_product_name_add_translation": "Add a new translation",
+  "add_basic_details_product_name_add_translation": "Tambahkan terjemahan baru",
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Sebelum memvalidasi, pastikan Anda hanya menambahkan terjemahan **jika bahasa tersebut tercantum pada kemasan**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
-  "add_basic_details_product_name_open_photo": "View front photo",
+  "add_basic_details_product_name_open_photo": "Lihat foto tampak depan",
   "@add_basic_details_product_name_open_photo": {
     "description": "Button to view the front photo of the product (on top of the screen)"
   },
-  "add_basic_details_product_name_take_photo": "Take front photo",
+  "add_basic_details_product_name_take_photo": "Ambil foto tampak depan",
   "@add_basic_details_product_name_take_photo": {
     "description": "Button to take a photo of the front of the product (when there is no photo yet)"
   },
@@ -2773,23 +2927,36 @@
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
-  "explanation_section_good_examples": "Good examples",
+  "add_basic_details_product_name_change_main_language_title": "Ubah bahasa default?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Apakah Anda ingin bahasa default produk ditetapkan ke '{language}'?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
+  },
+  "explanation_section_good_examples": "Contoh yang baik",
   "@explanation_section_good_examples": {
     "description": "Title for the section with good examples"
   },
-  "explanation_section_bad_examples": "Bad examples",
+  "explanation_section_bad_examples": "Contoh yang buruk",
   "@explanation_section_bad_examples": {
     "description": "Title for the section with bad examples"
   },
-  "add_basic_details_product_name_help_title": "Good practices: Product name",
+  "add_basic_details_product_name_help_title": "Praktik yang baik: Nama produk",
   "@add_basic_details_product_name_help_title": {
     "description": "Title for the help section about the product name"
   },
-  "add_basic_details_product_name_help_info1": "The product name is the **main name printed on the packaging**. It can be a registered trademark.",
+  "add_basic_details_product_name_help_info1": "Nama produk adalah **nama utama yang tercetak pada kemasan**. Nama tersebut dapat merupakan merek dagang terdaftar.",
   "@add_basic_details_product_name_help_info1": {
     "description": "Text explaining how to write the product name"
   },
-  "add_basic_details_product_name_help_info2": "**Note:** Please don't add a translation **if the language is not present on the packaging**.",
+  "add_basic_details_product_name_help_info2": "**Catatan:** Jangan menambahkan terjemahan **jika bahasa tersebut tidak tercantum pada kemasan**.",
   "@add_basic_details_product_name_help_info2": {
     "description": "Text explaining how to write the product name"
   },
@@ -2797,19 +2964,19 @@
   "@add_basic_details_product_name_help_good_examples_1": {
     "description": "A 1st good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_good_examples_2": "Tomato Ketchup",
+  "add_basic_details_product_name_help_good_examples_2": "Saus Tomat",
   "@add_basic_details_product_name_help_good_examples_2": {
     "description": "A 2nd good example for the product name (you can change it if necessary)"
   },
-  "add_basic_details_product_name_help_bad_examples_1_explanation": "Don't include the brand in the name",
+  "add_basic_details_product_name_help_bad_examples_1_explanation": "Jangan sertakan merek dalam nama produk",
   "@add_basic_details_product_name_help_bad_examples_1_explanation": {
     "description": "Explanation for the first bad example"
   },
-  "add_basic_details_product_name_help_bad_examples_1_example": "Tomato Ketchup **by Heinz**",
+  "add_basic_details_product_name_help_bad_examples_1_example": "Saus Tomat **oleh Heinz**",
   "@add_basic_details_product_name_help_bad_examples_1_example": {
     "description": "First bad example for the product name"
   },
-  "add_basic_details_product_name_help_bad_examples_2_explanation": "Don't use symbols ®, ™, © or similar",
+  "add_basic_details_product_name_help_bad_examples_2_explanation": "Jangan gunakan simbol ®, ™, ©, atau sejenisnya",
   "@add_basic_details_product_name_help_bad_examples_2_explanation": {
     "description": "Explanation for the second bad example"
   },
@@ -2817,7 +2984,7 @@
   "@add_basic_details_product_name_help_bad_examples_2_example": {
     "description": "Second bad example for the product name"
   },
-  "add_basic_details_product_name_other_translations": "{count,plural, one{{count} other translation} other{{count} other translations}}",
+  "add_basic_details_product_name_other_translations": "{count,plural, other{{count} terjemahan lainnya}}",
   "@add_basic_details_product_name_other_translations": {
     "description": "The number of other translations for a product name (count is always >= 1)",
     "placeholders": {
@@ -2830,39 +2997,39 @@
   "brand_names": "Nama merek",
   "add_basic_details_brand_name_error": "Harap masukkan nama merek",
   "add_basic_details_brand_names_hint": "Masukkan merek (mis: Ferrero)",
-  "add_basic_details_product_brand_help_title": "Good practices: Brands",
+  "add_basic_details_product_brand_help_title": "Praktik yang baik: Merek",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
   },
-  "add_basic_details_product_brand_help_info1": "Input **all the brands of the product**.",
+  "add_basic_details_product_brand_help_info1": "Masukkan **semua merek produk**.",
   "@add_basic_details_product_brand_help_info1": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_title": "Main brand",
+  "add_basic_details_product_brand_help_info2_title": "Merek utama",
   "@add_basic_details_product_brand_help_info2_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info2_content": "The **main brand**, generally clearly displayed on the front pack, should be **entered first**.",
+  "add_basic_details_product_brand_help_info2_content": "**Merek utama**, yang umumnya ditampilkan dengan jelas di bagian depan kemasan, harus **dimasukkan terlebih dahulu**.",
   "@add_basic_details_product_brand_help_info2_content": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_title": "Other brands",
+  "add_basic_details_product_brand_help_info3_title": "Merk lainnya",
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "Ketika dijual **oleh perusahaan besar**:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** is sold by **Danone**",
+  "add_basic_details_product_brand_help_info3_item1_explanation": "**Actimel** dijual oleh **Danone**",
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+  "add_basic_details_product_brand_help_info3_item2_text": "Ketika dijual dengan mereknya **yang diterjemahkan ke dalam beberapa bahasa**:",
   "@add_basic_details_product_brand_help_info3_item2_text": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** is sometimes written **Val Nature**",
+  "add_basic_details_product_brand_help_info3_item2_explanation": "**Nature Valley** terkadang ditulis sebagai **Val Nature**",
   "@add_basic_details_product_brand_help_info3_item2_explanation": {
     "description": "Text explaining how to write brands"
   },
@@ -2876,23 +3043,23 @@
   },
   "quantity": "Kuantitas dan berat",
   "add_basic_details_quantity_hint": "Masukkan berat dan jika diperlukan jumlahnya (misalnya: 4x100g)",
-  "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
+  "add_basic_details_product_quantity_help_title": "Praktik yang baik: Kuantitas",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
   },
-  "add_basic_details_product_quantity_help_info1": "Copy the value indicated on the product and **don't forget the units**.",
+  "add_basic_details_product_quantity_help_info1": "Salin nilai yang tertera pada produk dan **jangan lupa satuan**.",
   "@add_basic_details_product_quantity_help_info1": {
     "description": "Text explaining how to write quantity"
   },
-  "add_basic_details_product_quantity_help_good_examples_1": "**230g** or **230 g**",
+  "add_basic_details_product_quantity_help_good_examples_1": "**230g** atau **230 g**",
   "@add_basic_details_product_quantity_help_good_examples_1": {
     "description": "A 1st good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_2": "**6** (for 6 eggs)",
+  "add_basic_details_product_quantity_help_good_examples_2": "**6** (untuk 6 telur)",
   "@add_basic_details_product_quantity_help_good_examples_2": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(for a product with 3 boxes, each of 150g)",
+  "add_basic_details_product_quantity_help_good_examples_3": "**3 x 150g**\n(untuk produk dengan 3 kotak, masing-masing 150g)",
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
@@ -3105,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Mulai melakukan tindakan server untuk pembaruan folksonomi yang disimpan secara lokal",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Memulai pengunduhan produk paling populer",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3119,11 +3290,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Pertahankan panel bahan yang diperluas",
-  "search_product_filter_visibility_title": "Tampilkan filter dalam pencarian",
-  "search_product_filter_visibility_subtitle": "Pilih situs pencarian: Open Food Facts, Open Beauty Facts, Open Pet Food Facts, atau Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Tidak ada sambungan Internet",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3643,11 +3809,11 @@
   "@language_selector_title": {
     "description": "Label written as the title of the dialog to select the user language"
   },
-  "language_selector_section_selected": "Selected languages",
+  "language_selector_section_selected": "Bahasa yang dipilih",
   "@language_selector_section_selected": {
     "description": "Label to highlight the selected languages"
   },
-  "language_selector_section_frequently_used": "Frequently used",
+  "language_selector_section_frequently_used": "Sering digunakan",
   "@language_selector_section_frequently_used": {
     "description": "Label to highlight the frequently used languages"
   },
@@ -3687,15 +3853,15 @@
   "nutriscore_unknown_new_formula": "Nutri-Score tidak diketahui (Perhitungan baru)",
   "nutriscore_not_applicable": "Nutri-Score tidak dapat diterapkan",
   "nutriscore_not_applicable_new_formula": "Nutri-Score tidak bisa diterapkan (Perhitungan baru)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Green Score tidak diketahui",
-  "environmental_score_not_applicable": "Green Score tidak berlaku",
-  "nova_group_generic": "Pemrosesan ultra - grup NOVA",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Skor Hijau A",
+  "environmental_score_b_new": "Skor Hijau B",
+  "environmental_score_c_new": "Skor Hijau C",
+  "environmental_score_d_new": "Skor Hijau D",
+  "environmental_score_e_new": "Skor Hijau E",
+  "environmental_score_unknown_new": "Skor Hijau Tidak Diketahui",
+  "environmental_score_not_applicable_new": "Skor Hijau tidak berlaku",
+  "nova_group_generic_new": "Makanan ultra-olahan - Grup NOVA",
   "nova_group_1": "NOVA Kelompok 1",
   "nova_group_2": "NOVA Kelompok 2",
   "nova_group_3": "NOVA Kelompok 3",
@@ -3713,7 +3879,7 @@
   "contact_title_press_page": "Halaman Pers",
   "contact_title_press_email": "Kontak Pers",
   "contact_title_newsletter": "Berlangganan buletin kami",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Berlangganan ke kalender komunitas kami",
   "hunger_games_loading_line1": "Tolong beri kami waktu beberapa detik…",
   "hunger_games_loading_line2": "Kami mengunduh pertanyaannya!",
   "hunger_games_error_label": "Argh! Terjadi kesalahan… dan kami tidak bisa memuat pertanyaan.",
@@ -3752,10 +3918,6 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Bagikan",
-  "guide_nutriscore_v2_enabled": "benar",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
   "guide_nutriscore_v2_title": "Nutri-Score terus berkembang: penjelasan!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3786,17 +3948,267 @@
   "guide_nutriscore_v2_new_logo_text": "Mulai saat ini, logo dapat menampilkan penyebutan \"**Perhitungan baru**\" untuk memperjelas bahwa ini merupakan perhitungan baru.",
   "guide_nutriscore_v2_new_logo_image_caption": "Logo baru Nutri-Score",
   "guide_nutriscore_v2_where_title": "Di mana saya dapat menemukan penghitungan Nutri-Score yang baru?",
-  "guide_nutriscore_v2_where_paragraph1": "The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.",
-  "guide_nutriscore_v2_where_paragraph2": "Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score diterapkan di 7 negara: Prancis, Jerman, Belgia, Spanyol, Luksemburg, Belanda, dan Swiss.",
+  "guide_nutriscore_v2_where_paragraph2": "Pihak manufaktur memiliki waktu paling lama **2 tahun** setelah penandatanganan keputusan untuk mengganti perhitungan lama dengan yang baru.",
   "guide_nutriscore_v2_where_paragraph3": "Tanpa perlu menunggu, Anda **akan langsung menemukan di dalam aplikasi OpenFoodFacts**, perhitungan baru, termasuk jika produsen belum memperbarui skor.",
   "guide_nutriscore_v2_unchanged_title": "Apa yang tidak berubah",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score merupakan skor yang dirancang untuk **mengukur kualitas nutrisi**. Ini **melengkapi klasifikasi grup NOVA** untuk **makanan ultra proses** (yang juga ada di dalam aplikasi).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Bagi produsen, tampilan Nutri-Score **tetap opsional**.",
-  "guide_nutriscore_v2_share_link": "https://world.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Apa itu Skor Hijau?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score adalah logo yang bertujuan untuk memberi tahu Anda tentang **dampak lingkungan dari makanan**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "Kode warna bervariasi dari hijau tua (**A+**) untuk produk **yang paling tidak berdampak** hingga merah tua (**F**) untuk produk **yang paling berdampak**.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "Logo Skor Hijau",
+  "guide_greenscore_lca_title": "Inti: Penilaian siklus hidup (LCA)",
+  "guide_greenscore_lca_arg1_title": "Evaluasi ilmiah terhadap kategori makanan",
+  "guide_greenscore_lca_arg1_text1": "Untuk setiap kategori produk, skor **patokan** ditetapkan menggunakan data dari basis data lingkungan Agribalyse (dirancang oleh ADEME dan INRAE).",
+  "guide_greenscore_lca_arg1_text2": "**Analisis siklus hidup** adalah metode penilaian standar untuk melaksanakan penilaian lingkungan multi-tahap dan multi-kriteria.",
+  "guide_greenscore_lca_arg1_text3": "**Pengukurannya:**",
+  "guide_greenscore_lca_arg2_title": "6 langkah produksi",
+  "guide_greenscore_lca_arg2_agriculture": "Pertanian",
+  "guide_greenscore_lca_arg2_processing": "Memproses",
+  "guide_greenscore_lca_arg2_packaging": "Kemasan",
+  "guide_greenscore_lca_arg2_transportation": "Transportasi",
+  "guide_greenscore_lca_arg2_distribution": "Distribusi",
+  "guide_greenscore_lca_arg2_consumption": "Konsumsi",
+  "guide_greenscore_lca_arg3_title": "14 indikator dampak lingkungan",
+  "guide_greenscore_lca_arg3_text1": "Perubahan iklim/jejak karbon",
+  "guide_greenscore_lca_arg3_text2": "Penipisan lapisan ozon",
+  "guide_greenscore_lca_arg3_text3": "Radiasi pengion",
+  "guide_greenscore_lca_arg3_text4": "Tanah",
+  "guide_greenscore_lca_arg3_text5": "Penggunaan air & energi",
+  "guide_greenscore_lca_arg3_text6": "Polusi udara",
+  "guide_greenscore_lca_arg3_text7": "Air laut & air tawar (partikel, pengasaman, eutrofikasi)",
+  "guide_greenscore_lca_arg3_text8": "Penipisan sumber daya.",
+  "guide_greenscore_bonuses_penalties_title": "Bonus dan penalti",
+  "guide_greenscore_bonuses_penalties_intro": "Untuk memberi penghargaan kepada produk yang lebih baik dalam suatu kategori, kami kemudian menerapkan **bonus & penalti berdasarkan beberapa kriteria**:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode produksi",
+  "guide_greenscore_bonuses_penalties_arg1_text": "**Bonus** diberikan kepada produk yang memiliki **label resmi, label atau sertifikasi yang menjamin manfaat lingkungan** (organik, perdagangan adil, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Asal usul bahan",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Bonus diberikan berdasarkan asal bahan-bahan. Bonus ini memperhitungkan dampak transportasi dan juga kebijakan lingkungan dari negara produsen masing-masing.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Spesies yang terancam punah",
+  "guide_greenscore_bonuses_penalties_arg3_text": "**Sanksi** diberikan kepada produk yang mengandung bahan-bahan yang memiliki **dampak negatif yang signifikan terhadap keanekaragaman hayati dan ekosistem**, seperti minyak sawit, yang produksinya bertanggung jawab atas deforestasi besar-besaran.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Kemasan",
+  "guide_greenscore_bonuses_penalties_arg4_text": "**Denda** dihitung dengan mempertimbangkan **sirkularitas kemasan** (penggunaan bahan baku daur ulang dan kemampuan daur ulang) dan pengemasan berlebihan.",
+  "guide_greenscore_transparency_title": "Meningkatnya kebutuhan akan transparansi untuk mengukur dan mengurangi dampak lingkungan dengan lebih baik",
+  "guide_greenscore_transparency_intro1": "Untuk menghitung Green-Score secara akurat, diperlukan **informasi yang tidak selalu tercantum pada kemasan** (seperti asal dan persentase pasti dari setiap bahan) atau yang jarang tersedia dalam bentuk yang mudah digunakan (seperti daftar semua komponen kemasan dengan jenis plastik yang digunakan secara tepat).",
+  "guide_greenscore_transparency_intro2": "**Nilai rata-rata digunakan ketika informasi ini belum tersedia**, tetapi kami sekarang mengajak semua orang untuk membantu kami mengumpulkan informasi ini yang akan sangat berguna untuk Green-Score tetapi juga untuk banyak kegunaan lainnya.",
+  "guide_greenscore_transparency_arg1_title": "Bagaimana warga dapat membantu?",
+  "guide_greenscore_transparency_arg1_text": "Seluruh warga dapat membantu kami mengumpulkan dan menyusun informasi yang terdapat pada produk atau yang dapat disimpulkan dari produk tersebut, seperti informasi tentang **kemasan**: \"Mission Emballages\": inventarisasi kemasan skala besar yang dilakukan secara kolaboratif untuk semua produk makanan (dalam bahasa Prancis).",
+  "guide_greenscore_transparency_arg2_title": "Bagaimana produsen dapat membantu",
+  "guide_greenscore_transparency_arg2_text": "Produsen dapat mengirimkan informasi mereka langsung kepada kami melalui platform gratis kami untuk produsen.",
+  "guide_greenscore_better_product_title": "Produk mana yang lebih baik untuk planet ini?",
+  "guide_greenscore_better_product_arg1_title": "Sulit untuk mengatakannya",
+  "guide_greenscore_better_product_arg1_text": "Memilih makanan berkelanjutan adalah salah satu hal paling hebat yang dapat kita lakukan untuk iklim, karena **sistem pangan global kita bertanggung jawab atas lebih dari seperempat dari seluruh emisi gas rumah kaca**.\n(Sumber: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "Anda punya kekuatan!",
+  "guide_greenscore_better_product_arg2_text": "Kabar baiknya adalah ini memberi kita cara ampuh untuk menciptakan perubahan.\n**Kita masing-masing makan sekitar 1.000 kali setiap tahun**. Itu berarti 1.000 kesempatan untuk **memilih masa depan yang lebih baik bagi planet ini**!",
+  "guide_greenscore_better_product_arg3_title": "Membantu untuk bertanggung jawab dan memutuskan",
+  "guide_greenscore_better_product_arg3_text": "Memilih makanan berkelanjutan bisa terasa rumit. Labelnya membingungkan dan informasinya seringkali hilang. Green-Score diciptakan untuk menyederhanakannya, memberikan Anda peringkat lingkungan yang **jelas**, **berbasis sains**, dan **transparan** untuk produk makanan, tepat di tempat yang Anda butuhkan: saat Anda berbelanja.",
+  "guide_greenscore_better_product_arg4_title": "Transparansi",
+  "guide_greenscore_better_product_arg4_text": "Tidak seperti label hak milik, perhitungan Green-Score **sepenuhnya terbuka** dan dapat **diverifikasi oleh siapa saja**.",
+  "guide_nova_title": "Makanan ultraproses",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Apa itu ultra-processing?",
+  "guide_nova_what_is_nova_paragraph1": "Kelompok NOVA memberi tahu Anda tentang tingkat pengolahan makanan.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "Klasifikasi NOVA memungkinkan pengkategorian makanan menjadi **4 kelompok** berdasarkan **derajat pemrosesan industrinya** (makanan yang diproses minimal atau tidak diproses, bahan kuliner, makanan olahan, makanan ultra-olahan).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "Logo NOVA",
+  "guide_nova_groups_title": "4 grup NOVA",
+  "guide_nova_groups_intro": "Ada 4 kelompok NOVA, yang bermasalah adalah Kelompok 4 - Makanan ultra-olahan.",
+  "guide_nova_groups_arg1_title": "Makanan yang diproses minimal atau tidak diproses",
+  "guide_nova_groups_arg1_text": "Makanan yang tidak diolah (atau alami) adalah **bagian tanaman yang dapat dimakan** (biji, buah, daun, batang, akar) **atau hewan** (otot, jeroan, telur, susu), serta jamur, alga, dan air, setelah dipisahkan dari alam.",
+  "guide_nova_groups_arg2_title": "Bahan - bahan kuliner olahan",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
+  "guide_nova_groups_arg3_title": "Makanan olahan",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances From Group 2 to Group 1** Foods. processes include various preservation or cooking methods, and in the case of breads and Cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified Versions of Group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
+  "guide_nova_groups_arg4_title": "Makanan ultraproses",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in These formulations Usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain Other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted From foods, such as casein, lactose, whey, and gluten.",
+  "guide_nova_explanations_title": "Masalah dengan ultra-processing",
+  "guide_nova_explanations_arg1_title": "Pemrosesan bahan makanan secara ekstrem",
+  "guide_nova_explanations_arg1_text": "Banyak di antaranya **berasal dari pengolahan lebih lanjut komponen makanan**, seperti minyak terhidrogenasi atau teresterifikasi, protein terhidrolisis, isolat protein kedelai, maltodekstrin, gula invert, dan sirup jagung fruktosa tinggi.",
+  "guide_nova_explanations_arg2_title": "Aditif yang melampaui keamanan pangan murni",
+  "guide_nova_explanations_arg2_text": "Zat aditif dalam makanan ultra-olahan mencakup beberapa zat yang juga digunakan dalam makanan olahan, seperti pengawet, antioksidan, dan penstabil. Kelas zat aditif yang hanya ditemukan dalam produk ultra-olahan meliputi zat yang digunakan **untuk meniru atau meningkatkan kualitas sensorik makanan atau untuk menyamarkan aspek yang tidak enak dari produk akhir**. Zat aditif ini meliputi pewarna dan warna lainnya, penstabil warna; perisa, penguat rasa, pemanis non-gula; dan bahan pembantu pengolahan seperti zat karbonasi, pengental, pengembang dan anti-pengembang, penghilang busa, anti-penggumpalan dan pelapis, pengemulsi, pengikat, dan humektan.",
+  "guide_nova_explanations_arg3_title": "Pemrosesan yang tidak dapat Anda lakukan di rumah",
+  "guide_nova_explanations_arg3_text": "**Banyak sekali rangkaian proses yang digunakan** untuk menggabungkan berbagai bahan yang biasanya banyak dan menciptakan produk akhir (karena itu disebut 'ultra-proses'). Proses-proses tersebut mencakup beberapa proses **yang tidak memiliki padanan di dalam negeri**, seperti hidrogenasi dan hidrolisis, ekstrusi dan pencetakan, serta pra-pemrosesan untuk penggorengan.",
+  "guide_nova_explanations_arg4_title": "Aspek predator dan finansial dari ultra-processing",
+  "guide_nova_explanations_arg4_text": "**Tujuan utama dari pengolahan ultra adalah untuk menciptakan produk makanan bermerek**, **praktis** (tahan lama, siap dikonsumsi), **menarik** (sangat lezat), dan **sangat menguntungkan** (bahan-bahan berbiaya rendah) yang dirancang untuk menggantikan semua kelompok makanan lainnya. Produk makanan ultra-olahan biasanya dikemas secara menarik dan dipasarkan secara intensif.**",
+  "guide_nova_explanations_arg5_title": "Bahaya bagi kesehatan",
+  "guide_nova_explanations_arg5_text": "Sejak 2018, dengan NutriNet-Santé, hubungan pertama antara **konsumsi makanan ultra-olahan dan peningkatan risiko kanker, penyakit kardiovaskular, dan diabetes telah disoroti**. Saat ini, lebih dari 90 studi di seluruh dunia mengkonfirmasi temuan ini.\nHubungan terkuat berkaitan dengan **obesitas, kematian akibat penyakit kardiovaskular, dan gejala depresi**. Pada anak-anak, efeknya terutama diamati pada berat badan dan ketidakseimbangan lipid.",
+  "guide_nova_explanations_arg6_title": "Negara-negara merekomendasikan untuk membatasinya.",
+  "guide_nova_explanations_arg6_text": "Beberapa negara menggunakan kelompok NOVA untuk pedoman atau tujuan diet mereka, misalnya:\n\n- Pedoman diet **🇧🇷 Brasil** merekomendasikan untuk membatasi konsumsi makanan olahan dan menghindari makanan ultra-olahan.\n\n- Tujuan kebijakan gizi kesehatan masyarakat **🇫🇷 Prancis** untuk tahun 2018-2022 bertujuan untuk **mengurangi konsumsi makanan ultra-olahan kelompok 4 sebesar 20%**.",
+  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Selamat datang di Open Food Facts!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "Apa itu Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts adalah basis data produk makanan dari seluruh dunia yang **kolaboratif**, **gratis**, dan **terbuka**.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Kami percaya bahwa setiap orang harus memiliki akses ke informasi tentang apa yang mereka makan. Dengan mengumpulkan data tentang bahan-bahan, alergen, fakta nutrisi, dan banyak lagi, **kami memberdayakan konsumen untuk membuat pilihan yang tepat** dan mendorong industri makanan **menuju transparansi yang lebih besar**.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Fitur-fitur dari Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan",
+  "guide_open_food_facts_tips_title": "Tips untuk mengambil foto yang bagus",
+  "guide_open_food_facts_tips_arg1_title": "Larangan",
+  "guide_open_food_facts_tips_arg1_text1": "Hindari bayangan dan pantulan cahaya.",
+  "guide_open_food_facts_tips_arg1_text2": "Tidak ada teks yang buram atau tidak fokus.",
+  "guide_open_food_facts_tips_arg1_text3": "Jangan memotong bagian-bagian teks.",
+  "guide_open_food_facts_tips_arg1_text4": "Hindari latar belakang yang ramai.",
+  "guide_open_food_facts_tips_arg2_title": "Hal yang harus dilakukan",
+  "guide_open_food_facts_tips_arg2_text1": "Gunakan pencahayaan yang baik dan merata.",
+  "guide_open_food_facts_tips_arg2_text2": "Pastikan teks tajam dan mudah dibaca.",
+  "guide_open_food_facts_tips_arg2_text3": "Catat seluruh daftar bahan-bahannya.",
+  "guide_open_food_facts_tips_arg2_text4": "Letakkan produk di permukaan yang datar.",
+  "guide_open_food_facts_scores_title": "Bantu kami membangun \"Wikipedia Makanan\"",
+  "guide_open_food_facts_scores_arg1_title": "Skor kualitas nutrisi",
+  "guide_open_food_facts_scores_arg2_title": "Skor untuk menghindari makanan ultra-olahan",
+  "guide_open_food_facts_scores_arg3_title": "Sebuah skor untuk planet ini",
+  "guide_open_food_facts_share_link": "https://world-id.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Selamat datang di Open Pet Food Facts!",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Apa itu Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts memperluas misi kami kepada teman-teman berbulu kami! Ini adalah **basis data produk makanan hewan peliharaan untuk kucing, anjing, dan hewan peliharaan lainnya**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Kami mengumpulkan informasi tentang **bahan-bahan**, **analisis nutrisi**, dan panduan pemberian makan untuk membantu pemilik hewan peliharaan memilih makanan terbaik sesuai kebutuhan hewan mereka.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Fitur-fitur dari Informasi Fakta Makanan Hewan Peliharaan yang Terbuka",
+  "guide_open_pet_food_facts_features_arg1_title": "Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Apakah hewan peliharaan Anda alergi terhadap bahan-bahan tertentu? Anda dapat mengatur daftar bahan kosmetik yang harus dihindari, langsung di aplikasi!",
+  "guide_open_pet_food_facts_tips_title": "Tips untuk mengambil foto yang bagus",
+  "guide_open_pet_food_facts_tips_arg1_title": "Larangan",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Hindari bayangan dan pantulan cahaya.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Tidak ada teks yang buram atau tidak fokus.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Jangan memotong bagian-bagian teks.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Hindari latar belakang yang ramai.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Hal yang harus dilakukan",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Gunakan pencahayaan yang baik dan merata.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Pastikan teks tajam dan mudah dibaca.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Catat seluruh daftar bahan-bahannya.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Letakkan produk di permukaan yang datar.",
+  "guide_open_pet_food_facts_scores_title": "Catatan tentang penilaian",
+  "guide_open_pet_food_facts_scores_paragraph1": "Mengembangkan sistem penilaian untuk makanan hewan peliharaan **bukan prioritas saat ini**. Metodologinya akan kompleks, karena kebutuhan nutrisi sangat bervariasi menurut spesies, usia, dan kondisi kesehatan. Kami belum menemukan tim ilmiah independen yang mampu mengembangkan skor tersebut.",
+  "guide_open_pet_food_facts_share_link": "https://world-id.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Selamat datang di Open Beauty Facts!",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Apa itu Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts adalah basis data kolaboratif untuk **produk kosmetik**.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Tujuan kami adalah untuk menguraikan daftar bahan agar Anda dapat **memahami apa yang terkandung dalam produk perawatan pribadi Anda**. Mulai dari pelembap hingga riasan, kami mengumpulkan data tentang bahan-bahan, alergen, dan kemasan untuk mendorong transparansi dalam industri kosmetik.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Fitur-fitur dari Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Apakah Anda alergi terhadap bahan tertentu? Ingin menghindari zat komedogen? Ingin menjauhi komponen yang kontroversial? Anda dapat mengatur daftar bahan kosmetik yang ingin dihindari, langsung di aplikasi!",
+  "guide_open_beauty_facts_tips_title": "Tips untuk mengambil foto yang bagus",
+  "guide_open_beauty_facts_tips_arg1_title": "Larangan",
+  "guide_open_beauty_facts_tips_arg1_text1": "Hindari bayangan dan pantulan cahaya.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Tidak ada teks yang buram atau tidak fokus.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Jangan memotong bagian-bagian teks.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Hindari latar belakang yang ramai.",
+  "guide_open_beauty_facts_tips_arg2_title": "Hal yang harus dilakukan",
+  "guide_open_beauty_facts_tips_arg2_text1": "Gunakan pencahayaan yang baik dan merata.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Pastikan teks tajam dan mudah dibaca.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Catat seluruh daftar bahan-bahannya.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Ambil foto sebanyak yang diperlukan jika botolnya melengkung.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Anda mungkin perlu mengupas labelnya untuk melihat daftar bahan-bahannya.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Letakkan produk di permukaan yang datar.",
+  "guide_open_beauty_facts_scores_title": "Catatan tentang penilaian",
+  "guide_open_beauty_facts_scores_paragraph1": "Tidak seperti produk makanan, dunia kosmetik **tidak memiliki sistem penilaian yang diakui secara universal dan didukung pemerintah seperti Nutri-Score**. Efek bahan-bahan tertentu sangat personal dan bergantung pada jenis kulit, alergi, dan masalah individu.",
+  "guide_open_beauty_facts_share_link": "https://world-id.openbeautyfacts.org/temukan",
+  "guide_open_prices_title": "Selamat datang di Open Prices!",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices adalah sebuah proyek untuk **mengumpulkan dan membagikan harga produk di seluruh dunia**. Ini adalah kumpulan data yang tersedia untuk umum yang dapat digunakan untuk penelitian, analisis, dan banyak lagi. Open Prices dikembangkan dan dikelola oleh Open Food Facts.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "Saat ini hanya ada sedikit perusahaan yang memiliki database besar harga produk pada tingkat barcode. Harga-harga ini tidak tersedia secara gratis, tetapi dijual dengan harga tinggi kepada pihak swasta, peneliti, dan organisasi lain yang mampu membelinya.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_paragraph1": "**Kami sedang mengumpulkan data harga sumber terbuka melalui crowdsourcing.** Harga dapat ditambahkan oleh pengguna melalui aplikasi web ini, atau melalui aplikasi seluler resmi Open Food Facts. Peritel atau aplikasi pihak ketiga juga dapat berkontribusi dengan menggunakan API kami.",
+  "guide_open_prices_how_arg1_title": "Kumpulkan foto label harga di lorong-lorong toko.",
+  "guide_open_prices_how_arg2_title": "Kumpulkan foto-foto struk pembelian.",
+  "guide_open_prices_why_title": "Mengapa Open Food Facts melakukan ini?",
+  "guide_open_prices_why_paragraph1": "Informasi harga sangat penting untuk memahami sistem pangan. Ini merupakan faktor kunci dalam memahami biaya pangan dan untuk mempromosikan pola makan yang lebih sehat. Membuka data harga adalah cara untuk mempermudah peneliti, jurnalis, dan warga untuk **memiliki pemahaman yang lebih baik tentang bagaimana harga pangan bervariasi secara geografis dan dari waktu ke waktu**.",
+  "guide_open_prices_why_arg1_title": "Lacak perkembangan harga dari waktu ke waktu.",
+  "guide_open_prices_why_arg1_text": "Saksikan **evolusi harga**: shrinkflation, cheapflation, kita bisa melacaknya bersama!",
+  "guide_open_prices_why_arg2_title": "Bandingkan harga di dekat Anda",
+  "guide_open_prices_why_arg2_text": "Dengan semakin banyaknya harga yang kami dapatkan, Anda dapat menemukan **toko-toko termurah di sekitar Anda**.",
+  "guide_open_prices_scrapping_title": "Apakah Anda mempertimbangkan untuk mengambil data harga dari situs web pengecer?",
+  "guide_open_prices_scrapping_paragraph1": "Karena alasan hukum dan teknis, **kami tidak menganggap pengambilan data harga dari situs web pengecer sebagai cara yang sah untuk berkontribusi pada Open Prices**. Kami ingin memastikan bahwa harga yang kami kumpulkan akurat dan terkini, dan menerima data harga yang diambil dari kontributor tidak memungkinkan kami untuk melakukan hal tersebut.",
+  "guide_open_prices_scrapping_paragraph2": "Pengambilan data harga (price scraping) merupakan opsi yang dipertimbangkan dalam versi Open Prices mendatang, tetapi hal itu akan dilakukan oleh Open Prices sendiri sehingga kita dapat memiliki bukti harga berdasarkan halaman HTML.",
+  "guide_open_prices_retailers_title": "Saya seorang pengecer dan saya ingin memberikan kontribusi harga. Bagaimana saya bisa melakukan itu?",
+  "guide_open_prices_retailers_paragraph1": "Anda dapat berkontribusi dalam hal harga dengan menggunakan API kami.\nJika Anda ingin berkontribusi dalam hal harga dalam skala besar, silakan hubungi kami di prices@openfoodfacts.org.",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_products_facts_title": "Selamat datang di Open Products Facts!",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "Apa itu Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts adalah basis data terbuka yang sangat besar untuk **produk apa pun yang memiliki kode batang, yang bukan makanan, kosmetik, atau makanan hewan peliharaan**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Mulai dari **elektronik** hingga **mainan**, dan **pakaian** hingga **perlengkapan kebersihan**, jika memiliki barcode, maka dapat ditambahkan. Proyek ini bertujuan untuk menciptakan \"Internet of Things\" untuk objek sehari-hari, sehingga informasi tentang objek tersebut dapat diakses secara universal.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Fitur-fitur Produk Terbuka (Fakta-fakta)",
+  "guide_open_products_facts_features_text": "Open Products Facts bertujuan untuk memberikan solusi sirkular kepada konsumen agar dapat **memperpanjang umur barang**, dengan memelihara, **memperbaiki**, **mendaur ulang** barang mereka, atau memberikannya kepada pemilik baru.",
+  "guide_open_products_facts_features_arg1_title": "Jejak karbon untuk beberapa produk",
+  "guide_open_products_facts_features_arg1_text": "**Dampak CO2** dari Otoritas Lingkungan Prancis ADEME memberikan **dampak karbon** dari berbagai kategori, pastikan untuk mengkategorikan produk dengan tepat.",
+  "guide_open_products_facts_features_arg2_title": "Indeks kemampuan perbaikan untuk banyak produk",
+  "guide_open_products_facts_features_arg2_text": "Setiap kali indeks kemampuan perbaikan Prancis tersedia, kami akan menampilkannya. Selain itu, **Anda dapat mulai mengumpulkan variabel menggunakan Folksonomy Engine**; sehingga kami dapat menghitung ulang sendiri di masa mendatang, bahkan di negara-negara yang belum memiliki indeks tersebut.",
+  "guide_open_products_facts_features_arg3_title": "Temukan cara untuk menyumbangkan/menjual kembali produk Anda.",
+  "guide_open_products_facts_features_arg3_text": "Kami menyediakan tautan ke **layanan pihak ketiga yang ramah terhadap ekonomi sirkular** yang membantu Anda mendapatkan jenis produk yang Anda cari, sebagai produk bekas, agar lebih ramah terhadap sumber daya planet.\nPerlu dicatat bahwa kami tidak dibayar untuk melakukan hal itu, dan sistem ini hanya berfungsi sebagai contoh untuk dua situs web di Prancis. Anda dapat membantu memperluas sistem ini dengan mendokumentasikan lebih banyak situs di wiki.",
+  "guide_open_products_facts_information_title": "Informasi apa yang bermanfaat?",
+  "guide_open_products_facts_information_text": "Untuk berbagai macam barang seperti itu, **data yang kami kumpulkan bersifat fleksibel**. Untuk itu, **kami menciptakan Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "Mesin Folksonomi",
+  "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine adalah alat yang membantu Anda melengkapi produk dengan properti yang relevan. Ini membantu meningkatkan pencarian dan kemudahan penemuan, serta menghitung dan menampilkan hal-hal menarik di masa mendatang.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Anda dapat menambahkan kunci dan nilai apa pun seperti: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Anda akan mendapatkan saran otomatis mengenai properti yang mungkin, dan Anda dipersilakan untuk menambahkan dan mendokumentasikan properti baru pada jenis produk favorit Anda.",
+  "guide_open_products_facts_share_link": "https://world-id.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Terbuka terhadap preferensi makanan",
+  "guide_coming_soon_button_title": "Segera hadir",
+  "guide_learn_more_subtitle": "Ketuk untuk mempelajari lebih lanjut",
   "preview_badge": "Pratinjau",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -3817,7 +4229,7 @@
   "@photo_viewer_action_use_picture_as": {
     "description": "An action to use the current picture to be used as front/ingredients…"
   },
-  "photo_viewer_use_picture_as_tooltip": "Use this picture as…",
+  "photo_viewer_use_picture_as_tooltip": "Gunakan gambar ini sebagai…",
   "@photo_viewer_use_picture_as_tooltip": {
     "description": "Message explaining what the three dots (…) button on \"More interesting photos\" does"
   },
@@ -4057,7 +4469,7 @@
   "photo_field_front": "Foto produk",
   "photo_field_ingredients": "Foto kandungan bahan",
   "photo_field_nutrition": "Foto nutrisi",
-  "photo_field_packaging": "Foto informasi kemasan",
+  "photo_field_packaging": "Foto instruksi daur ulang",
   "photo_already_exists": "Foto ini sudah ada",
   "photo_missing": "Foto ini hilang",
   "date": "Tanggal",
@@ -4107,15 +4519,15 @@
       }
     }
   },
-  "product_list_export": "Export",
+  "product_list_export": "Ekspor",
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "Impor",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
-  "product_footer_action_barcode": "View barcode",
+  "product_footer_action_barcode": "Lihat Barcode",
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
@@ -4123,11 +4535,11 @@
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
-  "product_footer_action_open_website": "Open website",
+  "product_footer_action_open_website": "Buka situs web",
   "@product_footer_action_open_website": {
     "description": "Action to see to open the OxF website of the given product"
   },
-  "product_footer_action_report": "Report",
+  "product_footer_action_report": "Laporkan",
   "@product_footer_action_report": {
     "description": "Action to see to report a product"
   },
@@ -4135,11 +4547,43 @@
   "@product_footer_action_contributor_guide": {
     "description": "Action to open the contributor's guide. If you are in a non-English language, please translate this sentence instead: \"Help (EN)\""
   },
-  "product_footer_action_data_quality_tags": "Data quality",
+  "product_footer_action_data_quality_tags": "Kualitas data",
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
-  "prices_products_list_length_many_pages": "Top {pageSize} products (total: {total})",
+  "product_page_tab_for_me": "Untuk saya",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_tab_website": "Situs Web",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Harga",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "prices_explanation_card_title": "Mengapa harga?",
+  "prices_explanation_card_line1": "**Open Prices** adalah proyek untuk mengumpulkan dan berbagi harga produk di seluruh dunia 🌍. Open Prices dikembangkan dan dikelola oleh Open Food Facts.",
+  "explanation_card_learn_more_button": "Pelajari lebih lanjut",
+  "product_page_tab_folksonomy": "Folksonomy",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
+  "folksonomy_explanation_card_title": "Apa saja atribut Folksonomi?",
+  "folksonomy_explanation_card_line1": "Atribut didasarkan pada **kunci-nilai**.",
+  "folksonomy_explanation_card_line2": "Properti ini dibuat dan diarsipkan oleh kontributor untuk segala jenis penggunaan.",
+  "folksonomy_action_external_link_title": "Buka tautan eksternal",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "Tautan eksternal mungkin tidak aman. Apakah Anda benar-benar ingin mengunjunginya?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
+  },
+  "prices_products_empty_title": "Tidak ada harga yang tersedia",
+  "prices_products_empty_explanation": "Jadilah yang pertama berkontribusi!",
+  "prices_products_list_length_many_pages": "{pageSize} produk teratas (total: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
     "placeholders": {
@@ -4151,31 +4595,31 @@
       }
     }
   },
-  "app_review_title": "Are you enjoying this app?",
+  "app_review_title": "Apakah Anda menyukai aplikasi ini?",
   "@app_review_title": {
     "description": "Title for the app review card in the tagline"
   },
-  "app_review_low": "Could do better",
+  "app_review_low": "Bisa lebih ditingkatkan lagi",
   "@app_review_low": {
     "description": "Item in the app review card with the lowest rating"
   },
-  "app_review_medium": "Not bad",
+  "app_review_medium": "Cukup baik",
   "@app_review_medium": {
     "description": "Item in the app review card with an average rating"
   },
-  "app_review_high": "I love it!",
+  "app_review_high": "Saya sangat menyukainya!",
   "@app_review_high": {
     "description": "Item in the app review card with the highest rating"
   },
-  "app_review_feedback_modal_title": "Help us improve our application",
+  "app_review_feedback_modal_title": "Bantu kami meningkatkan aplikasi kami",
   "@app_review_feedback_modal_title": {
     "description": "Title of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_content": "If you have a few minutes, could you answer this form so that **we can improve in future updates**:",
+  "app_review_feedback_modal_content": "Jika Anda memiliki beberapa menit, bisakah Anda mengisi formulir ini agar **kami dapat memperbaiki di pembaruan mendatang**:",
   "@app_review_feedback_modal_content": {
     "description": "Content of the modal sheet displayed when the user has not selected the highest value"
   },
-  "app_review_feedback_modal_open_form": "Answer the form",
+  "app_review_feedback_modal_open_form": "Isi formulir",
   "@app_review_feedback_modal_open_form": {
     "description": "Answer the form button"
   },
@@ -4183,19 +4627,23 @@
   "@app_review_feedback_modal_later": {
     "description": "Ask me later button"
   },
-  "nutrition_facts_extract_new": "NEW: You can automatically extract the nutrients from the picture!",
+  "nutrition_facts_extract_new": "BARU: Anda dapat secara otomatis mengekstrak nutrisi dari gambar!",
   "@nutrition_facts_extract_new": {
     "description": "Message to indicate that user can now extract of nutrients from a picture"
   },
-  "nutrition_facts_extract_button_text": "Extract now",
+  "nutrition_facts_extract_button_text": "Ekstrak sekarang",
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "Extraction succesful",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "Ekstraksi sedang berlangsung…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
   },
-  "nutrition_facts_extract_failed": "Failed to extract nutrients from picture",
+  "nutrition_facts_extract_successful": "Ekstraksi berhasil",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
+  },
+  "nutrition_facts_extract_failed": "Gagal mengekstrak nutrisi dari gambar",
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
@@ -4203,11 +4651,11 @@
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
-  "prices_stats_statistics": "Statistics",
+  "prices_stats_statistics": "Statistik",
   "@prices_stats_statistics": {
     "description": "Label for statistics section"
   },
-  "prices_stats_title": "Prices Statistics",
+  "prices_stats_title": "Statistik Harga",
   "@prices_stats_title": {
     "description": "Title for the prices statistics page"
   },
@@ -4251,7 +4699,7 @@
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Dengan diskon",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
@@ -4315,19 +4763,19 @@
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Harga yang tercantum pada label harga",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Mata uang",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Tahun",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Harga dan bukti per sumber",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4335,7 +4783,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Aplikasi seluler",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4347,21 +4795,602 @@
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
-  "prices_stats_last_updated": "Last updated on",
+  "prices_stats_last_updated": "Terakhir diperbarui pada",
   "@prices_stats_last_updated": {
     "description": "Label for last updated timestamp"
   },
-  "prices_stats_error": "An error occurred while loading statistics.",
+  "prices_stats_error": "Terjadi kesalahan saat memuat statistik.",
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Pertanyaan telah terjawab!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
   "product_edit_robotoff_proof": "Bukti",
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
+  },
+  "preferences_card_general": "Umum",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Harga",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Kelola preferensi harga Anda",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Proyek Fakta Makanan Terbuka",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Berkontribusi",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_my_contributions_title": "Kontribusi saya",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "Statistik saya",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
+  "preferences_contribute_subtitle": "Terjemahkan, tingkatkan alat kami…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Menghubungkan",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Hubungi kami, atau Ikuti kami di media sosial",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Berikan donasi",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Bantu kami memberi informasi kepada jutaan konsumen di seluruh dunia",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Bantuan & Dukungan",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "FAQ",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Dapatkan jawaban atas pertanyaan Anda",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Keluar",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Terima kasih telah menjadi salah satu anggota kami!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Produk - produk yang dimodifikasi",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Harga ditambahkan",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Lihat semua statistik",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Cari {provider} untuk \"{keyword}\"",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Cari pengaturan (misalnya Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Aksesibilitas: Tampilkan emoji",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Aksesibilitas: Hapus warna",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Produk - produk",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Tentang",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Informasi hukum",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Ketentuan penggunaan, kebijakan privasi, dan lainnya",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Syarat Penggunaan",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Penyebutan hukum",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_legal_header": "Open Food Facts adalah basis data produk makanan **yang dibuat oleh semua orang, untuk semua orang**.\nAnda dapat menggunakannya untuk membuat pilihan makanan yang lebih baik, dan karena ini adalah **data terbuka**, siapa pun dapat **menggunakannya kembali untuk tujuan apa pun**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
+  "preferences_privacy_policy": "Kebijakan privasi",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Lisensi",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Tentang aplikasi",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Informasi teknis, informasi pengembang, dan lainnya",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Informasi",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Nomor versi",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Pemindai",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Toko aplikasi",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Pengaturan sistem",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Akses kode sumber",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "Dan mulailah membuat dampak bagi jutaan orang",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Tambahkan harga",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Produk-produk lengkap",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Kiat",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Temukan Nutri-Score yang baru",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Di situs web Open Food Facts",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Kelola akun saya",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "Kelola akun Anda",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
+  },
+  "preferences_change_password_title": "Ubah kata sandi saya",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Zona bahaya",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Semua kontribusi Anda akan hilang",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Kontribusi",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Pengaturan aplikasi",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Cara yang sangat eksperimental untuk memindai produk secara offline",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Segarkan semua produk dari server",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Harap hindari melakukan hal itu kecuali benar-benar diperlukan",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Mode demo",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Tambahkan kartu ke pemindai",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "Menambahkan 3 produk sampel ke pemindai",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Pembawa acara Folksonomy",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Tuan rumah: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Eksperimen aksesibilitas",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Pilihan multi-produk untuk harga",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Panel pengetahuan yang dipesan pengguna",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Akses sementara ke pencarian lokasi",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "Perbandingan berdampingan untuk 2 atau 3 produk",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Impor daftar produk",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Skor & metodologi",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Temukan bagaimana Nutri-Score dihitung",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Temukan perubahan utama pada metodologi",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Temukan proyeknya",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Temukan Open Food Facts",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_discover_obf_title": "Temukan Fakta Kecantikan Terbuka",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Temukan Fakta Makanan Hewan Peliharaan Terbuka",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Temukan Fakta Produk Terbuka",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
+  },
+  "preferences_faq_faq_title": "FAQ - Pertanyaan yang Sering Diajukan",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "LSM Open Food Facts",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Informasi",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Dapatkan pembaruan komunitas",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Tetap ikuti perkembangan berita aplikasi dan komunitas",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Berlangganan ke kalender komunitas kami",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Berpartisipasilah dengan menghadiri salah satu acara virtual kami",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_blog_title": "Blog Open Food Facts",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Dapatkan berita terbaru, saat itu terjadi",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Dapatkan bantuan dari komunitas",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Bantu kami meningkatkan aplikasi",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Kirimkan kami informasi debug",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Kirimkan kami email dengan informasi debugging terperinci",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Kirimkan masukan kepada kami tentang aplikasi ini",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Bantu membentuk masa depan aplikasi",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Ikuti survei aplikasi",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Bantu kami memahami apa yang harus kami bangun selanjutnya",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Profesional",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Sepenuhnya gratis, memastikan data akurat untuk 500 aplikasi & jutaan konsumen. Layanan mandiri, kompatibel dengan PIM atau spreadsheet Anda (XLSX).",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Hubungi kami untuk memulai",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Pers",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Dapatkan semua materi yang Anda butuhkan untuk laporan Anda",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Hubungi kami untuk pertanyaan pers atau untuk memberi tahu kami tentang laporan Anda",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Menjadi relawan aktif",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Pengembangan, Komunikasi, Desain… segala jenis kesukarelaan atau keahlian diterima!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Temukan beberapa cara Anda dapat berkontribusi",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Pengembangan aplikasi seluler",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Pelajari cara berkontribusi pada pengembangan perangkat lunak",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Build tidak stabil harian, fitur baru",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Kembangkan komunitas lokal Anda",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Bantuan dengan perangkat lunak, konten, terjemahan analisis bahan",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Kami telah menyiapkan templat kecil untuk membantu Anda :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Langkah sederhana untuk menumbuhkan transparansi pangan di negara Anda",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Kualitas data",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Bergabunglah dengan tim kualitas data",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Bergabunglah dengan upaya kami untuk memastikan database lengkap dan akurat",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_products_added_title": "Produk tambahan",
+  "@preferences_contributions_products_added_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Produk baru yang saya tambahkan ke Open Food Facts",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added subtile"
+  },
+  "preferences_contributions_to_be_completed_title": "Produk yang perlu saya selesaikan",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Semua produk tidak lengkap",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Harga",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "Harga saya",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "Harga saya, bukti saya…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Produk yang dapat Anda bantu selesaikan",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Bantu hitung Nutri-Score & Green-Score di negara Anda",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Harga yang saya kontribusikan",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Label harga dan tanda terima",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Ambil foto tanda terima Anda dan pindai kode batang terkait",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Ambil foto harga di toko",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Harga terbaru",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "Harga terbaru yang ditambahkan oleh komunitas Open Prices",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "Kontributor dengan harga terbanyak",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Metrik Harga Terbuka",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Ikuti perkembangan proyek",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Cara berkontribusi",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Konfirmasikan harga yang ditambahkan oleh Anda sendiri atau orang lain, dengan bantuan AI",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Tambahkan banyak tanda terima atau foto rak dari rol kamera Anda dengan cepat",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Tantangan bulanan",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Berpartisipasilah dalam misi tematik bulanan untuk mengumpulkan hadiah",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Dapatkan kembali data loyalitas Anda",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Pelajari cara meminta data Anda",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Sesuaikan aplikasi",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Berkontribusi pada proyek",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Cara sederhana untuk membantu Open Food Facts",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Metodologi skor, bantuan, dan informasi lebih lanjut tentang proyek ini",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
   },
   "product_edit_robotoff_positive_button": "Terima saran",
   "@product_edit_robotoff_positive_button": {
@@ -4378,6 +5407,10 @@
   "product_edit_robotoff_expand_proof": "Perluas bukti",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
+  },
+  "product_page_tab_raw_data": "Data mentah",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
   },
   "page_indicator_with_total": "Halaman {current} / {total}",
   "@page_indicator_with_total": {
@@ -4417,12 +5450,36 @@
       }
     }
   },
+  "item_count_with_total_string": "{count} dari {total} item",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
+        "description": "Total number of items available"
+      }
+    }
+  },
   "item_count": "{count} item",
   "@item_count": {
     "description": "Item count showing only current number of items when total is unknown",
     "placeholders": {
       "count": {
         "type": "int",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
+  "item_count_string": "{count} item",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
         "description": "Current number of items loaded"
       }
     }
@@ -4438,5 +5495,136 @@
   "prices_proof_error": "Otentikasi gagal, tidak dapat mengambil bukti",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
-  }
+  },
+  "proofs_count_with_total": "{count} dari {total} bukti",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} bukti",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} dari {total} kontributor",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} kontributor",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} dari {total} lokasi",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} lokasi",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
+  "restart_to_apply_message": "Silakan mulai ulang aplikasi untuk menerapkan perubahan.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Antarmuka grafis",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Media",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Pengembangan",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Laboratorium Open Food Facts",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Akun",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Hadirkan Open Food Facts ke bahasa Anda",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Daftar di versi alfa aplikasi",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Kontribusi & Data Produk",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Jangan tampilkan Folksonomy",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Akun",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "Ditambahkan pada {created}",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
+  },
+  "location_map_details_title": "Detail lokasi",
+  "location_map_details_name": "Nama",
+  "location_map_details_street": "Jalan",
+  "location_map_details_city": "Kota",
+  "location_map_details_postcode": "Kode Pos",
+  "location_map_details_country": "Negara",
+  "location_map_details_coordinates": "Koordinat",
+  "location_map_details_osm_id": "ID OSM"
 }

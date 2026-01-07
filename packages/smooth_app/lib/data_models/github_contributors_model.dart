@@ -6,9 +6,9 @@ class ContributorsModel {
   });
 
   ContributorsModel.fromJson(Map<String, dynamic> json)
-      : profilePath = json['html_url'].toString(),
-        login = json['login'].toString(),
-        avatarUrl = json['avatar_url'].toString();
+    : profilePath = json['html_url'].toString(),
+      login = json['login'].toString(),
+      avatarUrl = json['avatar_url'].toString();
 
   final String avatarUrl;
   final String profilePath;

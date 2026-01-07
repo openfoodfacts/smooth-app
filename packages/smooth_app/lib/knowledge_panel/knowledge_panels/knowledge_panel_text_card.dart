@@ -1,29 +1,26 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/extension_on_text_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/constant_icons.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 /// Card that displays a Knowledge Panel _Text_ element.
 class KnowledgePanelTextCard extends StatelessWidget {
-  const KnowledgePanelTextCard({
-    required this.textElement,
-  });
+  const KnowledgePanelTextCard({required this.textElement});
 
   final KnowledgePanelTextElement textElement;
 
   @override
   Widget build(BuildContext context) {
-    final String warningLabel =
-        AppLocalizations.of(context).knowledge_panel_warning_text;
+    final String warningLabel = AppLocalizations.of(
+      context,
+    ).knowledge_panel_warning_text;
     final RegExp regExp = RegExp('$warningLabel\\s?:\\s?');
 
     final Widget text;
@@ -43,10 +40,7 @@ class KnowledgePanelTextCard extends StatelessWidget {
         child: MergeSemantics(
           child: SmoothHtmlWidget(
             textElement.html,
-            textStyle:
-                WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED.copyWith(
-              fontSize: 15.5,
-            ),
+            textStyle: const TextStyle(height: 1.9, fontSize: 15.5),
           ),
         ),
       );
@@ -66,13 +60,21 @@ class KnowledgePanelTextCard extends StatelessWidget {
         // TODO(g123k): Would it be difficult to remove the Icon directly?
         // Remove Icon
         IconTheme.merge(
-          data: const IconThemeData(
-            size: 0.0,
-          ),
+          data: const IconThemeData(size: 0.0),
           child: addPanelButton(
-            appLocalizations
-                .knowledge_panel_text_source(textElement.sourceText!),
-            trailingIcon: Icon(ConstantIcons.forwardIcon),
+            appLocalizations.knowledge_panel_text_source(
+              textElement.sourceText!,
+            ),
+            trailingIcon: DecoratedBox(
+              decoration: const BoxDecoration(
+                shape: BoxShape.circle,
+                color: Colors.black12,
+              ),
+              child: Padding(
+                padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
+                child: icons.Chevron.horizontalDirectional(context, size: 15.0),
+              ),
+            ),
             onPressed: () async => LaunchUrlHelper.launchURLInWebViewOrBrowser(
               context,
               textElement.sourceUrl!,
@@ -122,10 +124,7 @@ class _KnowledgePanelWarningTextCard extends StatelessWidget {
           contentBackgroundColor: const Color(0xFFF3F3F3),
           borderRadius: BorderRadius.circular(14.0),
           leading: const Padding(
-            padding: EdgeInsetsDirectional.only(
-              bottom: 1.0,
-              end: 1.0,
-            ),
+            padding: EdgeInsetsDirectional.only(bottom: 1.0, end: 1.0),
             child: icons.Warning(size: 15.0),
           ),
           contentPadding: const EdgeInsetsDirectional.symmetric(
@@ -134,10 +133,7 @@ class _KnowledgePanelWarningTextCard extends StatelessWidget {
           ),
           child: Text(
             text.firstLetterInUppercase(),
-            style: const TextStyle(
-              color: Colors.black,
-              height: 1.5,
-            ),
+            style: const TextStyle(color: Colors.black, height: 1.5),
           ),
         ),
       ),

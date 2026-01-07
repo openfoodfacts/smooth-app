@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/world_map_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_indicator_icon.dart';
@@ -30,8 +30,12 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
       markers.add(
         Marker(
           point: latLng,
-          child: const Icon(Icons.pin_drop, color: Colors.lightBlue),
-          alignment: Alignment.topCenter,
+          child: const icons.Location(
+            color: Colors.black,
+            size: markerSize,
+            shadow: Shadow(color: Colors.black26, blurRadius: 4.0),
+          ),
+          alignment: const Alignment(0.0, -0.9),
           width: markerSize,
           height: markerSize,
         ),
@@ -64,8 +68,9 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsetsDirectional.only(bottom: MEDIUM_SPACE),
       child: Semantics(
-        label: AppLocalizations.of(context)
-            .knowledge_panel_world_map_accessibility_label(kpTitle ?? '?'),
+        label: AppLocalizations.of(
+          context,
+        ).knowledge_panel_world_map_accessibility_label(kpTitle ?? '?'),
         image: true,
         button: true,
         child: SizedBox(
@@ -80,10 +85,7 @@ class KnowledgePanelWorldMapCard extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(6.0)),
                     child: FlutterMap(
                       options: mapOptions,
-                      children: <Widget>[
-                        ...children,
-                        const _ExpandMapIcon(),
-                      ],
+                      children: <Widget>[...children, const _ExpandMapIcon()],
                     ),
                   ),
                 ),
@@ -182,7 +184,7 @@ class _ExpandMapIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Align(
       alignment: AlignmentDirectional.bottomEnd,
-      child: SmoothIndicatorIcon(icon: icons.Expand()),
+      child: SmoothIndicatorIcon(icon: icons.Zoom()),
     );
   }
 }

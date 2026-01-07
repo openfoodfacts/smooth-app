@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:async/async.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,18 +10,20 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
+import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/congrats.dart';
 import 'package:smooth_app/pages/hunger_games/question_answers_options.dart';
 import 'package:smooth_app/pages/hunger_games/question_card.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/query/questions_query.dart';
 import 'package:smooth_app/query/random_questions_query.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class QuestionsPage extends StatefulWidget {
-  const QuestionsPage({
-    this.product,
-    this.questions,
-  });
+  const QuestionsPage({this.product, this.questions});
 
   final Product? product;
   final List<RobotoffQuestion>? questions;
@@ -60,9 +61,7 @@ class _QuestionsPageState extends State<QuestionsPage>
     _loadQuestions();
   }
 
-  Future<void> _loadQuestions({
-    Future<List<RobotoffQuestion>>? request,
-  }) async {
+  Future<void> _loadQuestions({Future<List<RobotoffQuestion>>? request}) async {
     _updateState(const _RobotoffQuestionLoadingState());
 
     final List<RobotoffQuestion>? widgetQuestions = widget.questions;
@@ -73,10 +72,10 @@ class _QuestionsPageState extends State<QuestionsPage>
         request ??
             switch (widgetQuestions) {
               null => _questionsQuery.getQuestions(
-                  _localDatabase,
-                  _numberQuestionsInit,
-                ),
-              _ => Future<List<RobotoffQuestion>>.value(widgetQuestions)
+                _localDatabase,
+                _numberQuestionsInit,
+              ),
+              _ => Future<List<RobotoffQuestion>>.value(widgetQuestions),
             },
       );
 
@@ -89,9 +88,7 @@ class _QuestionsPageState extends State<QuestionsPage>
   }
 
   void _updateState(_RobotoffQuestionState state) {
-    WidgetsBinding.instance.addPostFrameCallback(
-      (_) => setState(() => _state = state),
-    );
+    onNextFrame(() => setState(() => _state = state));
   }
 
   void _loadNextQuestions() {
@@ -101,12 +98,14 @@ class _QuestionsPageState extends State<QuestionsPage>
           _state = const _RobotoffQuestionLoadingState();
         });
       }
-      unawaited(_loadQuestions(
-        request: _questionsQuery.getQuestions(
-          _localDatabase,
-          _numberQuestionsNext,
+      unawaited(
+        _loadQuestions(
+          request: _questionsQuery.getQuestions(
+            _localDatabase,
+            _numberQuestionsNext,
+          ),
         ),
-      ));
+      );
       _currentQuestionIndex = 0;
     } catch (e) {
       _updateState(_RobotoffQuestionErrorState(Exception(e.toString())));
@@ -116,58 +115,58 @@ class _QuestionsPageState extends State<QuestionsPage>
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<_QuestionsAnsweredNotifier>(
-        create: (BuildContext context) => _QuestionsAnsweredNotifier(),
-        child: Scaffold(
-          appBar: AppBar(
-            title: const Text('Hunger Games'),
-            leading: IconButton(
-              icon: const Icon(Icons.close),
-              onPressed: () => Navigator.of(context).pop(_questionsAnswered),
-            ),
+      create: (BuildContext context) => _QuestionsAnsweredNotifier(),
+      child: SmoothScaffold(
+        appBar: SmoothAppBar(
+          title: const Text('Hunger Games'),
+          leading: SmoothBackButton(
+            backButtonType: BackButtonType.minimize,
+            onPressed: () => Navigator.of(context).pop(_questionsAnswered),
           ),
-          body: SafeArea(
-            child: Center(
-              child: AnimatedSwitcher(
-                duration: SmoothAnimationsDuration.medium,
-                transitionBuilder: (Widget child, Animation<double> animation) {
-                  final Offset animationStartOffset =
-                      _getAnimationStartOffset();
-                  final Animation<Offset> inAnimation = Tween<Offset>(
-                    begin: animationStartOffset,
-                    end: Offset.zero,
-                  ).animate(animation);
-                  final Animation<Offset> outAnimation = Tween<Offset>(
-                    begin: animationStartOffset.scale(-1, -1),
-                    end: Offset.zero,
-                  ).animate(animation);
+        ),
+        body: SafeArea(
+          child: Center(
+            child: AnimatedSwitcher(
+              duration: SmoothAnimationsDuration.medium,
+              transitionBuilder: (Widget child, Animation<double> animation) {
+                final Offset animationStartOffset = _getAnimationStartOffset();
+                final Animation<Offset> inAnimation = Tween<Offset>(
+                  begin: animationStartOffset,
+                  end: Offset.zero,
+                ).animate(animation);
+                final Animation<Offset> outAnimation = Tween<Offset>(
+                  begin: animationStartOffset.scale(-1, -1),
+                  end: Offset.zero,
+                ).animate(animation);
 
-                  return ClipRect(
-                    child: SlideTransition(
-                      position:
-                          child.key == ValueKey<int>(_currentQuestionIndex)
-                              ? inAnimation
-                              : outAnimation,
-                      child: Padding(
-                        padding: const EdgeInsets.all(SMALL_SPACE),
-                        child: child,
-                      ),
+                return ClipRect(
+                  child: SlideTransition(
+                    position: child.key == ValueKey<int>(_currentQuestionIndex)
+                        ? inAnimation
+                        : outAnimation,
+                    child: Padding(
+                      padding: const EdgeInsets.all(SMALL_SPACE),
+                      child: child,
                     ),
-                  );
+                  ),
+                );
+              },
+              child: KeyedSubtree(
+                key: ValueKey<int>(_currentQuestionIndex),
+                child: switch (_state) {
+                  _RobotoffQuestionLoadingState _ =>
+                    const _LoadingQuestionsView(),
+                  _RobotoffQuestionSuccessState _ => _buildQuestionsWidget(),
+                  _RobotoffQuestionErrorState _ => _ErrorLoadingView(
+                    onRetry: _loadQuestions,
+                  ),
                 },
-                child: KeyedSubtree(
-                  key: ValueKey<int>(_currentQuestionIndex),
-                  child: switch (_state) {
-                    _RobotoffQuestionLoadingState _ =>
-                      const _LoadingQuestionsView(),
-                    _RobotoffQuestionSuccessState _ => _buildQuestionsWidget(),
-                    _RobotoffQuestionErrorState _ =>
-                      _ErrorLoadingView(onRetry: _loadQuestions),
-                  },
-                ),
               ),
             ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   Widget _buildQuestionsWidget() {
@@ -287,18 +286,19 @@ class _LoadingQuestionsView extends StatelessWidget {
                       Text(
                         appLocalizations.hunger_games_loading_line1,
                         style: theme.textTheme.titleMedium?.copyWith(
-                            fontWeight: FontWeight.bold, fontSize: 19.0),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 19.0,
+                        ),
                       ),
                       SizedBox(height: screenHeight * 0.05),
-                      LinearProgressIndicator(
-                        color: colorScheme.primary,
-                      ),
+                      LinearProgressIndicator(color: colorScheme.primary),
                       SizedBox(height: screenHeight * 0.10),
                       Text(
                         appLocalizations.hunger_games_loading_line2,
                         textAlign: TextAlign.center,
-                        style:
-                            theme.textTheme.bodyLarge?.copyWith(fontSize: 17.0),
+                        style: theme.textTheme.bodyLarge?.copyWith(
+                          fontSize: 17.0,
+                        ),
                       ),
                     ],
                   ),
@@ -328,16 +328,8 @@ class _QuestionView extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.max,
       children: <Widget>[
-        Expanded(
-          child: QuestionCard(
-            question,
-            initialProduct: initialProduct,
-          ),
-        ),
-        QuestionAnswersOptions(
-          question,
-          onAnswer: onAnswer,
-        ),
+        Expanded(child: QuestionCard(question, initialProduct: initialProduct)),
+        QuestionAnswersOptions(question, onAnswer: onAnswer),
       ],
     );
   }
@@ -357,7 +349,8 @@ class _QuestionsSuccessView extends StatelessWidget {
     return CongratsWidget(
       continueButtonLabel: onContinue != null
           ? AppLocalizations.of(context).robotoff_next_n_questions(
-              _QuestionsPageState._numberQuestionsNext)
+              _QuestionsPageState._numberQuestionsNext,
+            )
           : null,
       anonymousAnnotationList: anonymousAnnotationList,
       onContinue: onContinue,
@@ -367,9 +360,7 @@ class _QuestionsSuccessView extends StatelessWidget {
 }
 
 class _ErrorLoadingView extends StatelessWidget {
-  const _ErrorLoadingView({
-    required this.onRetry,
-  });
+  const _ErrorLoadingView({required this.onRetry});
 
   final VoidCallback onRetry;
 
@@ -383,7 +374,8 @@ class _ErrorLoadingView extends StatelessWidget {
     return Center(
       child: DefaultTextStyle(
         textAlign: TextAlign.center,
-        style: textTheme.bodyLarge?.copyWith(
+        style:
+            textTheme.bodyLarge?.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 20.0,
               color: colorScheme.onSurface,
@@ -404,10 +396,7 @@ class _ErrorLoadingView extends StatelessWidget {
               const SizedBox(height: VERY_LARGE_SPACE),
               SmoothLargeButtonWithIcon(
                 text: appLocalizations.hunger_games_error_retry_button,
-                leadingIcon: Icon(
-                  Icons.refresh,
-                  color: colorScheme.onPrimary,
-                ),
+                leadingIcon: Icon(Icons.refresh, color: colorScheme.onPrimary),
                 onPressed: onRetry,
                 textStyle: textTheme.labelLarge?.copyWith(
                   fontSize: 18.0,
@@ -431,7 +420,8 @@ class _QuestionsAnsweredNotifier extends ValueNotifier<int> {
     value++;
   }
 
-  static _QuestionsAnsweredNotifier of(BuildContext context,
-          {bool listen = true}) =>
-      Provider.of<_QuestionsAnsweredNotifier>(context, listen: listen);
+  static _QuestionsAnsweredNotifier of(
+    BuildContext context, {
+    bool listen = true,
+  }) => Provider.of<_QuestionsAnsweredNotifier>(context, listen: listen);
 }

@@ -1,18 +1,14 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/svg_icon_chip.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_animations.dart';
 
 /// Tracks (only the first time) when a [check] is true.
 class AnalyticsProductTracker {
@@ -42,23 +38,20 @@ class AnalyticsProductTracker {
 
 /// Card title for "Add new product" page.
 class AddNewProductTitle extends StatelessWidget {
-  const AddNewProductTitle(
-    this.label, {
-    this.maxLines,
-  });
+  const AddNewProductTitle(this.label, {this.maxLines});
 
   final String label;
   final int? maxLines;
 
   @override
   Widget build(BuildContext context) => Text(
-        label,
-        style: Theme.of(context).textTheme.displaySmall?.copyWith(
-              fontSize: 18.0,
-              fontWeight: FontWeight.bold,
-            ),
-        maxLines: maxLines,
-      );
+    label,
+    style: Theme.of(context).textTheme.displaySmall?.copyWith(
+      fontSize: 18.0,
+      fontWeight: FontWeight.bold,
+    ),
+    maxLines: maxLines,
+  );
 }
 
 /// Card subtitle for "Add new product" page.
@@ -107,13 +100,13 @@ class AddNewProductButton extends StatelessWidget {
         backgroundColor: onPressed == null
             ? (dark ? darkGrey : lightGrey)
             : done
-                ? Colors.green[700]
-                : themeData.colorScheme.secondary,
+            ? Colors.green[700]
+            : themeData.colorScheme.secondary,
         foregroundColor: onPressed == null
             ? (dark ? lightGrey : darkGrey)
             : done
-                ? Colors.white
-                : themeData.colorScheme.onSecondary,
+            ? Colors.white
+            : themeData.colorScheme.onSecondary,
       ),
     );
   }
@@ -124,9 +117,9 @@ class AddNewProductEditorButton extends StatelessWidget {
   const AddNewProductEditorButton(
     this.product,
     this.editor, {
+    required this.isLoggedInMandatory,
     this.forceIconData,
     this.disabled = false,
-    required this.isLoggedInMandatory,
   });
 
   final Product product;
@@ -147,10 +140,10 @@ class AddNewProductEditorButton extends StatelessWidget {
       disabled
           ? null
           : () async => editor.edit(
-                context: context,
-                product: product,
-                isLoggedInMandatory: isLoggedInMandatory,
-              ),
+              context: context,
+              product: product,
+              isLoggedInMandatory: isLoggedInMandatory,
+            ),
       done: done,
     );
   }
@@ -167,55 +160,8 @@ class AddNewProductScoreIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String url = iconUrl ?? defaultIconUrl;
-    final String fileName = Uri.parse(url).pathSegments.last;
     final double height = MediaQuery.sizeOf(context).height * .2;
-
-    if (fileName.startsWith('nutriscore')) {
-      return _AddNewProductNutriScoreIcon(
-        fileName: fileName,
-        height: height,
-      );
-    } else {
-      return SvgIconChip(
-        iconUrl ?? defaultIconUrl,
-        height: height,
-      );
-    }
-  }
-}
-
-class _AddNewProductNutriScoreIcon extends StatelessWidget {
-  _AddNewProductNutriScoreIcon({
-    required String fileName,
-    required this.height,
-  }) : nutriScore = extractValue(fileName);
-
-  final NutriScoreValue nutriScore;
-  final double height;
-
-  static NutriScoreValue extractValue(String fileName) {
-    if (fileName.startsWith('nutriscore-a')) {
-      return NutriScoreValue.a;
-    } else if (fileName.startsWith('nutriscore-b')) {
-      return NutriScoreValue.b;
-    } else if (fileName.startsWith('nutriscore-c')) {
-      return NutriScoreValue.c;
-    } else if (fileName.startsWith('nutriscore-d')) {
-      return NutriScoreValue.d;
-    } else if (fileName.startsWith('nutriscore-e')) {
-      return NutriScoreValue.e;
-    } else {
-      return NutriScoreValue.unknown;
-    }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return NutriScoreAnimation(
-      value: nutriScore,
-      size: Size.fromHeight(math.min(height, 200.0)),
-    );
+    return SvgIconChip(iconUrl ?? defaultIconUrl, height: height);
   }
 }
 
@@ -225,10 +171,7 @@ class AddNewProductHelper {
     final ProductImageData productImageData,
     final Product product,
   ) =>
-      getProductImageLanguages(
-        product,
-        productImageData.imageField,
-      ).isNotEmpty;
+      getProductImageLanguages(product, productImageData.imageField).isNotEmpty;
 
   bool isOneMainImagePopulated(final Product product) {
     final List<ProductImageData> productImagesData = getProductMainImagesData(
@@ -251,5 +194,5 @@ enum EditProductAction {
   leaveEmpty,
   ingredients,
   category,
-  nutritionFacts;
+  nutritionFacts,
 }

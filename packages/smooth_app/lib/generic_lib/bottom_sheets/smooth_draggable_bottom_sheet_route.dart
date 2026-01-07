@@ -102,10 +102,7 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
       ),
     );
 
-    return Theme(
-      data: Theme.of(context),
-      child: bottomSheet,
-    );
+    return Theme(data: Theme.of(context), child: bottomSheet);
   }
 
   @override
@@ -118,10 +115,10 @@ class _FlexibleBottomSheetRoute<T> extends PopupRoute<T> {
     const Offset begin = Offset(0.0, 1.0);
     const Offset end = Offset.zero;
     const Cubic curve = Curves.ease;
-    final Animatable<Offset> tween =
-        Tween<Offset>(begin: begin, end: end).chain(
-      CurveTween(curve: curve),
-    );
+    final Animatable<Offset> tween = Tween<Offset>(
+      begin: begin,
+      end: end,
+    ).chain(CurveTween(curve: curve));
 
     return SlideTransition(
       position: animation.drive(tween),

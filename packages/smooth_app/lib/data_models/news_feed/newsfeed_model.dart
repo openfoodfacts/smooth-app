@@ -1,10 +1,7 @@
 import 'dart:ui';
 
 class AppNews {
-  const AppNews({
-    required this.news,
-    required this.feed,
-  });
+  const AppNews({required this.news, required this.feed});
 
   final AppNewsList news;
   final AppNewsFeed feed;
@@ -88,14 +85,14 @@ class AppNewsStyle {
     String? buttonBackground,
     String? buttonTextColor,
     String? contentBackgroundColor,
-  })  : titleBackground = _parseColor(titleBackground),
-        titleTextColor = _parseColor(titleTextColor),
-        titleIndicatorColor = _parseColor(titleIndicatorColor),
-        messageBackground = _parseColor(messageBackground),
-        messageTextColor = _parseColor(messageTextColor),
-        buttonBackground = _parseColor(buttonBackground),
-        buttonTextColor = _parseColor(buttonTextColor),
-        contentBackgroundColor = _parseColor(contentBackgroundColor);
+  }) : titleBackground = _parseColor(titleBackground),
+       titleTextColor = _parseColor(titleTextColor),
+       titleIndicatorColor = _parseColor(titleIndicatorColor),
+       messageBackground = _parseColor(messageBackground),
+       messageTextColor = _parseColor(messageTextColor),
+       buttonBackground = _parseColor(buttonBackground),
+       buttonTextColor = _parseColor(buttonTextColor),
+       contentBackgroundColor = _parseColor(contentBackgroundColor);
 
   final Color? titleBackground;
   final Color? titleTextColor;
@@ -120,11 +117,7 @@ class AppNewsStyle {
 }
 
 class AppNewsImage {
-  const AppNewsImage({
-    required this.src,
-    this.width,
-    this.alt,
-  });
+  const AppNewsImage({required this.src, this.width, this.alt});
 
   final String? src;
   final double? width;
@@ -154,8 +147,8 @@ class AppNewsFeedItem {
     required this.news,
     DateTime? startDate,
     DateTime? endDate,
-  })  : _startDate = startDate,
-        _endDate = endDate;
+  }) : _startDate = startDate,
+       _endDate = endDate;
 
   final AppNewsItem news;
   final DateTime? _startDate;

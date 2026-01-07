@@ -20,9 +20,9 @@ class SmoothFloatingMessage {
     required this.message,
     this.type = SmoothFloatingMessageType.success,
   }) : header = const Padding(
-          padding: EdgeInsetsDirectional.only(top: SMALL_SPACE),
-          child: CloudUploadAnimation(size: 50.0),
-        );
+         padding: EdgeInsetsDirectional.only(top: SMALL_SPACE),
+         child: CloudUploadAnimation(size: 50.0),
+       );
 
   final String message;
   final Widget? header;
@@ -44,21 +44,23 @@ class SmoothFloatingMessage {
         ? (Scaffold.of(context).appBarMaxHeight ?? kToolbarHeight)
         : MediaQuery.paddingOf(context).top;
 
-    _entry = OverlayEntry(builder: (BuildContext context) {
-      return _SmoothFloatingMessageView(
-        message: message,
-        header: header,
-        type: type,
-        onTap: hide,
-        alignment: alignment,
-        margin: EdgeInsetsDirectional.only(
-          top: appBarHeight,
-          start: SMALL_SPACE,
-          end: SMALL_SPACE,
-          bottom: SMALL_SPACE,
-        ),
-      );
-    });
+    _entry = OverlayEntry(
+      builder: (BuildContext context) {
+        return _SmoothFloatingMessageView(
+          message: message,
+          header: header,
+          type: type,
+          onTap: hide,
+          alignment: alignment,
+          margin: EdgeInsetsDirectional.only(
+            top: appBarHeight,
+            start: SMALL_SPACE,
+            end: SMALL_SPACE,
+            bottom: SMALL_SPACE,
+          ),
+        );
+      },
+    );
 
     Overlay.of(context).insert(_entry!);
     _autoDismissMessage = Timer(duration ?? const Duration(seconds: 5), () {
@@ -115,8 +117,8 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final SnackBarThemeData snackBarTheme = Theme.of(context).snackBarTheme;
 
@@ -170,14 +172,10 @@ class _SmoothFloatingMessageViewState extends State<_SmoothFloatingMessageView>
   }
 
   Color _getColor(SmoothColorsThemeExtension theme) => switch (widget.type) {
-        SmoothFloatingMessageType.success => theme.success,
-        SmoothFloatingMessageType.error => theme.error,
-        SmoothFloatingMessageType.warning => theme.warning,
-      };
+    SmoothFloatingMessageType.success => theme.success,
+    SmoothFloatingMessageType.error => theme.error,
+    SmoothFloatingMessageType.warning => theme.warning,
+  };
 }
 
-enum SmoothFloatingMessageType {
-  success,
-  error,
-  warning,
-}
+enum SmoothFloatingMessageType { success, error, warning }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class WorldMapPage extends StatelessWidget {
@@ -19,14 +20,7 @@ class WorldMapPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SmoothScaffold(
-      appBar: AppBar(
-        title: Text(
-          title ?? '',
-          maxLines: 2,
-        ),
-        backgroundColor:
-            AppBarTheme.of(context).backgroundColor?.withValues(alpha: 0.8),
-      ),
+      appBar: SmoothAppBar(title: Text(title ?? '', maxLines: 2)),
       extendBodyBehindAppBar: true,
       body: FlutterMap(
         options: mapOptions,
@@ -41,8 +35,9 @@ class WorldMapPage extends StatelessWidget {
               showFlutterMapAttribution: false,
               attributions: <SourceAttribution>[
                 TextSourceAttribution(
-                  AppLocalizations.of(context)
-                      .open_street_map_contributor_attribution,
+                  AppLocalizations.of(
+                    context,
+                  ).open_street_map_contributor_attribution,
                   onTap: () => LaunchUrlHelper.launchURL(
                     'https://www.openstreetmap.org/copyright',
                   ),

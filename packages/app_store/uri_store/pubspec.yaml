@@ -4,7 +4,7 @@ version: 0.0.1
 publish_to: "none"
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.10.4
 
 dependencies:
   flutter:
@@ -13,11 +13,11 @@ dependencies:
   app_store_shared:
     path: ../shared
 
-  url_launcher: 6.3.1
+  url_launcher: 6.3.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: 4.0.0
+  flutter_lints: 6.0.0
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git

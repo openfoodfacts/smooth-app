@@ -17,6 +17,8 @@ import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// "Knowledge Panel" builder
 class KnowledgePanelsBuilder {
@@ -29,11 +31,17 @@ class KnowledgePanelsBuilder {
     required bool onboardingMode,
   }) {
     final String? panelId = panelElement.panelElement?.panelId;
-    final KnowledgePanel? rootPanel =
-        panelId == null ? null : getKnowledgePanel(product, panelId);
+    final KnowledgePanel? rootPanel = panelId == null
+        ? null
+        : getKnowledgePanel(product, panelId);
     final List<Widget> children = <Widget>[];
     if (rootPanel != null) {
-      children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
+      children.add(
+        KnowledgePanelTitle(
+          title: rootPanel.titleElement!.title ?? '',
+          topics: rootPanel.topics,
+        ),
+      );
       if (rootPanel.elements != null) {
         for (int i = 0; i < rootPanel.elements!.length; i++) {
           final KnowledgePanelElement element = rootPanel.elements![i];
@@ -53,8 +61,10 @@ class KnowledgePanelsBuilder {
     }
     if (!onboardingMode) {
       if (panelId == 'health_card') {
-        final bool nutritionAddOrUpdate = product.statesTags?.contains(
-                ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag) ??
+        final bool nutritionAddOrUpdate =
+            product.statesTags?.contains(
+              ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag,
+            ) ??
             false;
         if (nutritionAddOrUpdate) {
           if (AddNutritionButton.acceptsNutritionFacts(product)) {
@@ -62,10 +72,10 @@ class KnowledgePanelsBuilder {
           }
         }
 
-        final bool needEditIngredients = context
-                .read<UserPreferences>()
-                .getFlag(UserPreferencesDevMode
-                    .userPreferencesFlagEditIngredients) ??
+        final bool needEditIngredients =
+            context.read<UserPreferences>().getFlag(
+              UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+            ) ??
             false;
         if ((product.ingredientsText == null ||
                 product.ingredientsText!.isEmpty) &&
@@ -83,7 +93,8 @@ class KnowledgePanelsBuilder {
     }
     if (children.isEmpty) {
       Logs.e(
-          'Unexpected empty panel data for product "${product.barcode}" and panelId "$panelId"');
+        'Unexpected empty panel data for product "${product.barcode}" and panelId "$panelId"',
+      );
     }
     return children;
   }
@@ -125,8 +136,7 @@ class KnowledgePanelsBuilder {
   static KnowledgePanel? getKnowledgePanel(
     final Product product,
     final String panelId,
-  ) =>
-      product.knowledgePanels?.panelIdToPanelMap[panelId];
+  ) => product.knowledgePanels?.panelIdToPanelMap[panelId];
 
   /// Returns the unique "root" panel element that matches [panelId], or `null`.
   static KnowledgePanelElement? getRootPanelElement(
@@ -148,8 +158,10 @@ class KnowledgePanelsBuilder {
     final Product product,
     final String panelId,
   ) {
-    final KnowledgePanel panel =
-        KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
+    final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
+      product,
+      panelId,
+    )!;
     if (panel.elements == null) {
       return false;
     }
@@ -188,14 +200,15 @@ class KnowledgePanelsBuilder {
       return result;
     }
 
-    if (result is KnowledgePanelTextCard) {
+    if (result is KnowledgePanelTextCard ||
+        knowledgePanelElement.elementType == KnowledgePanelElementType.TABLE) {
       return result;
-    } else {
-      return Padding(
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
-        child: result,
-      );
     }
+
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+      child: result,
+    );
   }
 
   /// Returns the widget that displays the KP element, or rarely null.
@@ -211,14 +224,10 @@ class KnowledgePanelsBuilder {
   }) {
     switch (element.elementType) {
       case KnowledgePanelElementType.TEXT:
-        return KnowledgePanelTextCard(
-          textElement: element.textElement!,
-        );
+        return KnowledgePanelTextCard(textElement: element.textElement!);
 
       case KnowledgePanelElementType.IMAGE:
-        return KnowledgePanelImageCard(
-          imageElement: element.imageElement!,
-        );
+        return KnowledgePanelImageCard(imageElement: element.imageElement!);
 
       case KnowledgePanelElementType.PANEL:
         final String panelId = element.panelElement!.panelId;
@@ -230,9 +239,7 @@ class KnowledgePanelsBuilder {
               (product.productType ?? ProductType.food) != ProductType.food) {
             // just ignore
           } else {
-            Logs.w(
-              'unknown panel "$panelId" for barcode "${product.barcode}"',
-            );
+            Logs.w('unknown panel "$panelId" for barcode "${product.barcode}"');
           }
           return null;
         }
@@ -265,10 +272,7 @@ class KnowledgePanelsBuilder {
         return null;
 
       case KnowledgePanelElementType.ACTION:
-        return KnowledgePanelActionCard(
-          element.actionElement!,
-          product,
-        );
+        return KnowledgePanelActionCard(element.actionElement!, product);
     }
   }
 
@@ -303,6 +307,8 @@ class KnowledgePanelsBuilder {
   static Widget? getPanelSummaryWidget(
     final KnowledgePanel knowledgePanel, {
     required final bool isClickable,
+    final bool ignoreEvaluation = false,
+    final TextStyle? textStyleOverride,
     final EdgeInsetsGeometry? margin,
     final EdgeInsetsGeometry? padding,
   }) {
@@ -319,14 +325,17 @@ class KnowledgePanelsBuilder {
         );
 
       case null:
+      case TitleElementType.PERCENTAGE:
       case TitleElementType.UNKNOWN:
         return Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: SMALL_SPACE,
+          padding: const EdgeInsetsDirectional.only(
+            start: SMALL_SPACE,
+            end: BALANCED_SPACE,
           ).add(padding ?? EdgeInsets.zero),
           child: KnowledgePanelTitleCard(
             knowledgePanelTitleElement: knowledgePanel.titleElement!,
-            evaluation: knowledgePanel.evaluation,
+            evaluation: ignoreEvaluation ? null : knowledgePanel.evaluation,
+            textStyleOverride: textStyleOverride,
             isClickable: isClickable,
           ),
         );
@@ -339,15 +348,28 @@ class KnowledgePanelsBuilder {
         throw UnimplementedError();
     }
   }
+
+  static Color? getColorFromEvaluation(
+    BuildContext context,
+    Evaluation? evaluation,
+  ) {
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+
+    return switch (evaluation) {
+      Evaluation.BAD => theme.error,
+      Evaluation.GOOD => theme.success,
+      Evaluation.AVERAGE => theme.warning,
+      _ => null,
+    };
+  }
 }
 
 class KnowledgePanelTitle extends StatelessWidget {
-  const KnowledgePanelTitle({
-    required this.title,
-    super.key,
-  });
+  const KnowledgePanelTitle({required this.title, this.topics, super.key});
 
   final String title;
+  final List<String>? topics;
 
   @override
   Widget build(BuildContext context) {
@@ -355,10 +377,7 @@ class KnowledgePanelTitle extends StatelessWidget {
       padding: const EdgeInsetsDirectional.symmetric(
         vertical: VERY_SMALL_SPACE,
       ),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.displaySmall,
-      ),
+      child: Text(title, style: Theme.of(context).textTheme.displaySmall),
     );
   }
 }

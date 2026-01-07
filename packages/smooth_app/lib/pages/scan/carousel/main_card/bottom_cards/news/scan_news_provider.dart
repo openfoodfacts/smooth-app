@@ -11,9 +11,9 @@ import 'package:smooth_app/helpers/provider_helper.dart';
 /// randomly sorted by unread, then displayed and clicked news.
 class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
   ScanNewsFeedProvider(BuildContext context)
-      : _newsFeedProvider = context.read<AppNewsProvider>(),
-        _userPreferences = context.read<UserPreferences>(),
-        super(const ScanTagLineStateLoading()) {
+    : _newsFeedProvider = context.read<AppNewsProvider>(),
+      _userPreferences = context.read<UserPreferences>(),
+      super(const ScanTagLineStateLoading()) {
     _newsFeedProvider.addListener(_onNewsFeedStateChanged);
     // Refresh with the current state
     _onNewsFeedStateChanged();
@@ -30,7 +30,8 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
         emit(const ScanTagLineStateNoContent());
       case AppNewsStateLoaded():
         _onTagLineContentAvailable(
-            (_newsFeedProvider.state as AppNewsStateLoaded).content);
+          (_newsFeedProvider.state as AppNewsStateLoaded).content,
+        );
     }
   }
 
@@ -60,13 +61,11 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
     }
 
     emit(
-      ScanTagLineStateLoaded(
-        <AppNewsItem>[
-          ...unreadNews..shuffle(),
-          ...displayedNews..shuffle(),
-          ...clickedNews..shuffle(),
-        ],
-      ),
+      ScanTagLineStateLoaded(<AppNewsItem>[
+        ...unreadNews..shuffle(),
+        ...displayedNews..shuffle(),
+        ...clickedNews..shuffle(),
+      ]),
     );
   }
 

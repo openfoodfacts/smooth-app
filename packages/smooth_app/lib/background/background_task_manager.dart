@@ -8,8 +8,10 @@ import 'package:smooth_app/background/background_task_refresh_later.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
+import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
@@ -44,6 +46,10 @@ class BackgroundTaskManager {
   static String taskIdToErrorDaoInstantStringKey(final String taskId) =>
       'taskError:$taskId';
 
+  /// Returns [DaoInt] key for count of task failures.
+  static String taskIdToCountDaoIntKey(final String taskId) =>
+      'taskCount:$taskId';
+
   /// Runs all background task queues.
   static void runAgain(
     final LocalDatabase localDatabase, {
@@ -53,19 +59,16 @@ class BackgroundTaskManager {
       getInstance(
         localDatabase,
         queue: queue,
-      )._run(
-        forceNowIfPossible: forceNowIfPossible,
-      );
+      )._run(forceNowIfPossible: forceNowIfPossible);
     }
   }
 
   /// Adds a task to the pending task list.
   Future<void> add(final BackgroundTask task) async {
     final String taskId = task.uniqueId;
-    await DaoInstantString(localDatabase).put(
-      _taskIdToDaoInstantStringKey(taskId),
-      jsonEncode(task.toJson()),
-    );
+    await DaoInstantString(
+      localDatabase,
+    ).put(_taskIdToDaoInstantStringKey(taskId), jsonEncode(task.toJson()));
     await DaoStringList(localDatabase).add(queue.tagTaskQueue, taskId);
     await task.preExecute(localDatabase);
     _run(forceNowIfPossible: true);
@@ -87,18 +90,22 @@ class BackgroundTaskManager {
       await task.postExecute(localDatabase, success);
     }
     await DaoStringList(localDatabase).remove(queue.tagTaskQueue, taskId);
-    await DaoInstantString(localDatabase)
-        .put(_taskIdToDaoInstantStringKey(taskId), null);
-    await DaoInstantString(localDatabase)
-        .put(taskIdToErrorDaoInstantStringKey(taskId), null);
+    await DaoInstantString(
+      localDatabase,
+    ).put(_taskIdToDaoInstantStringKey(taskId), null);
+    await DaoInstantString(
+      localDatabase,
+    ).put(taskIdToErrorDaoInstantStringKey(taskId), null);
+    await DaoInt(localDatabase).put(taskIdToCountDaoIntKey(taskId), null);
     localDatabase.notifyListeners();
   }
 
   /// Returns the related task, or null but that is unexpected.
   BackgroundTask? _get(final String taskId) {
     try {
-      final String? json = DaoInstantString(localDatabase)
-          .get(_taskIdToDaoInstantStringKey(taskId));
+      final String? json = DaoInstantString(
+        localDatabase,
+      ).get(_taskIdToDaoInstantStringKey(taskId));
       if (json == null) {
         // unexpected
         return null;
@@ -124,10 +131,12 @@ class BackgroundTaskManager {
   /// of running now or at least just after the current running block.
   int? _canStartNow(final bool forceNowIfPossible) {
     final int now = LocalDatabase.nowInMillis();
-    final int? latestRunStart =
-        localDatabase.daoIntGet(queue.tagLastStartTimestamp);
-    final int? latestRunStop =
-        localDatabase.daoIntGet(queue.tagLastStopTimestamp);
+    final int? latestRunStart = localDatabase.daoIntGet(
+      queue.tagLastStartTimestamp,
+    );
+    final int? latestRunStop = localDatabase.daoIntGet(
+      queue.tagLastStopTimestamp,
+    );
     if (_running) {
       // if pretending to be running but started a very very long time ago
       if (latestRunStart != null &&
@@ -250,6 +259,12 @@ class BackgroundTaskManager {
       return;
     }
     await DaoInstantString(localDatabase).put(key, status);
+    if (status != taskStatusStarted && status != taskStatusNoInternet) {
+      await getNextSequenceNumber(
+        DaoInt(localDatabase),
+        taskIdToCountDaoIntKey(taskId),
+      );
+    }
     localDatabase.notifyListeners();
   }
 
@@ -258,8 +273,9 @@ class BackgroundTaskManager {
   /// Returns true if managed to remove the task immediately.
   /// Returns false if the task will be removed next time it's possible.
   Future<bool> removeTaskAsap(final String taskId) async {
-    final String? status = DaoInstantString(localDatabase)
-        .get(taskIdToErrorDaoInstantStringKey(taskId));
+    final String? status = DaoInstantString(
+      localDatabase,
+    ).get(taskIdToErrorDaoInstantStringKey(taskId));
     if (status == taskStatusStarted) {
       // that value will be detected later
       await _setTaskErrorStatus(taskId, taskStatusStopAsap);
@@ -291,9 +307,7 @@ class BackgroundTaskManager {
   Future<List<BackgroundTask>> _getAllTasks() async {
     _debugPrint('get all tasks/0');
     final List<BackgroundTask> result = <BackgroundTask>[];
-    final List<String> list = localDatabase.getAllTaskIds(
-      queue.tagTaskQueue,
-    );
+    final List<String> list = localDatabase.getAllTaskIds(queue.tagTaskQueue);
     final List<String> removeTaskIds = <String>[];
     if (list.isEmpty) {
       return result;

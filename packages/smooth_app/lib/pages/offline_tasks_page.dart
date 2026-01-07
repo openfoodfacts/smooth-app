@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_manager.dart';
@@ -8,9 +7,12 @@ import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/background/work_type.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
+import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class OfflineTaskPage extends StatefulWidget {
   const OfflineTaskPage();
@@ -25,24 +27,20 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.watch<LocalDatabase>();
     final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
+    final DaoInt daoInt = DaoInt(localDatabase);
     final Map<String, BackgroundTaskQueue> queues =
         <String, BackgroundTaskQueue>{};
     final List<String> taskIds = <String>[];
     for (final BackgroundTaskQueue queue in BackgroundTaskQueue.values) {
-      final List<String> list = localDatabase.getAllTaskIds(
-        queue.tagTaskQueue,
-      );
+      final List<String> list = localDatabase.getAllTaskIds(queue.tagTaskQueue);
       taskIds.addAll(list);
       for (final String taskId in list) {
         queues[taskId] = queue;
       }
     }
-    return Scaffold(
+    return SmoothScaffold(
       appBar: SmoothAppBar(
-        title: Text(
-          appLocalizations.background_task_title,
-          maxLines: 2,
-        ),
+        title: Text(appLocalizations.background_task_title, maxLines: 2),
         actions: <Widget>[
           IconButton(
             onPressed: () => BackgroundTaskManager.runAgain(
@@ -54,9 +52,7 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         ],
       ),
       body: taskIds.isEmpty
-          ? Center(
-              child: Text(appLocalizations.background_task_list_empty),
-            )
+          ? Center(child: Text(appLocalizations.background_task_list_empty))
           : ListView.builder(
               itemCount: taskIds.length,
               itemBuilder: (final BuildContext context, final int index) {
@@ -65,6 +61,9 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                   BackgroundTaskManager.taskIdToErrorDaoInstantStringKey(
                     taskId,
                   ),
+                );
+                final int? failureCount = daoInt.get(
+                  BackgroundTaskManager.taskIdToCountDaoIntKey(taskId),
                 );
                 final String barcode = OperationType.getBarcode(taskId);
                 final int? totalSize = OperationType.getTotalSize(taskId);
@@ -80,8 +79,9 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                   info = '';
                 }
                 final BackgroundTaskQueue queue = queues[taskId]!;
-                final String? productType =
-                    OperationType.getProductType(taskId);
+                final String? productType = OperationType.getProductType(
+                  taskId,
+                );
                 return ListTile(
                   leading: Icon(queue.iconData),
                   onTap: () async {
@@ -89,17 +89,18 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                       context: context,
                       builder: (final BuildContext context) =>
                           SmoothAlertDialog(
-                        body: Text(
-                            appLocalizations.background_task_question_stop),
-                        negativeAction: SmoothActionButton(
-                          text: appLocalizations.no,
-                          onPressed: () => Navigator.of(context).pop(false),
-                        ),
-                        positiveAction: SmoothActionButton(
-                          text: appLocalizations.yes,
-                          onPressed: () => Navigator.of(context).pop(true),
-                        ),
-                      ),
+                            body: Text(
+                              appLocalizations.background_task_question_stop,
+                            ),
+                            negativeAction: SmoothActionButton(
+                              text: appLocalizations.no,
+                              onPressed: () => Navigator.of(context).pop(false),
+                            ),
+                            positiveAction: SmoothActionButton(
+                              text: appLocalizations.yes,
+                              onPressed: () => Navigator.of(context).pop(true),
+                            ),
+                          ),
                     );
                     if (stopTask == true) {
                       await BackgroundTaskManager.getInstance(
@@ -108,12 +109,15 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                       ).removeTaskAsap(taskId);
                     }
                   },
-                  title: Text(
-                    '$info'
-                    '(${OperationType.getOperationType(taskId)?.getLabel(
-                          appLocalizations,
-                        ) ?? appLocalizations.background_task_operation_unknown})'
-                    '${productType == null ? '' : ' ($productType)'}',
+                  title: Badge(
+                    backgroundColor: Colors.red,
+                    textColor: Colors.white,
+                    label: failureCount == null ? null : Text('$failureCount'),
+                    child: Text(
+                      '$info'
+                      '(${OperationType.getOperationType(taskId)?.getLabel(appLocalizations) ?? appLocalizations.background_task_operation_unknown})'
+                      '${productType == null ? '' : ' ($productType)'}',
+                    ),
                   ),
                   subtitle: Text(_getMessage(status, appLocalizations)),
                   trailing: const Icon(Icons.clear),
@@ -139,7 +143,8 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     }
     // "startsWith" because there's some kind of "chr(13)" at the end.
     if (status.startsWith(
-        'Exception: JSON expected, html found: <head><title>504 Gateway Time-out</title></head>')) {
+      'Exception: JSON expected, html found: <head><title>504 Gateway Time-out</title></head>',
+    )) {
       return appLocalizations.background_task_error_server_time_out;
     }
     return status;
@@ -150,8 +155,9 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
     if (work == null || work.isEmpty) {
       return null;
     }
-    final (WorkType workType, ProductType productType)? item =
-        WorkType.extract(work);
+    final (WorkType workType, ProductType productType)? item = WorkType.extract(
+      work,
+    );
     if (item != null) {
       return '${item.$1.englishLabel} (${item.$2.offTag})';
     }
