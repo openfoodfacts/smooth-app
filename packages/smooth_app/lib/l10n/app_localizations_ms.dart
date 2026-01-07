@@ -2554,7 +2554,7 @@ class AppLocalizationsMs extends AppLocalizations {
   String get product_type_label_unknown => 'Unknown';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Jenis produk';
 
   @override
   String get product_type_selection_subtitle => 'Pilih jenis produk ini';
@@ -5394,7 +5394,7 @@ class AppLocalizationsMs extends AppLocalizations {
       'Unknown matches';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Laman Web';
 
   @override
   String get product_page_tab_prices => 'Harga';

@@ -2560,7 +2560,7 @@ class AppLocalizationsBe extends AppLocalizations {
   String get product_type_label_unknown => 'Unknown';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Тып прадукту';
 
   @override
   String get product_type_selection_subtitle => 'Выберыце тып гэтага прадукту';
