@@ -146,6 +146,7 @@ class ProductPageState extends State<ProductPage>
                   heroTag: widget.heroTag,
                   isFullVersion: true,
                   borderRadius: ROUNDED_BORDER_RADIUS,
+                  attributeGroupsVisible: false,
                 ),
               ),
             ),

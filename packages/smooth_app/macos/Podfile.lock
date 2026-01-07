@@ -125,7 +125,7 @@ SPEC CHECKSUMS:
   flutter_image_compress_macos: e68daf54bb4bf2144c580fd4d151c949cbf492f0
   flutter_secure_storage_macos: 7f45e30f838cf2659862a4e4e3ee1c347c2b3b54
   FlutterMacOS: d0db08ddef1a9af05a5ec4b724367152bb0500b1
-  in_app_review: 0599bccaed5e02f6bed2b0d30d16f86b63ed8638
+  in_app_review: 66e7680752b632d83f4f0e88b34d52ed303fbff4
   mobile_scanner: 0e365ed56cad24f28c0fd858ca04edefb40dfac3
   package_info_plus: f0052d280d17aa382b932f399edf32507174e870
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564

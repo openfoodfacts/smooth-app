@@ -1804,7 +1804,7 @@ packages:
     source: hosted
     version: "1.0.2"
   torch_light:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: torch_light
       sha256: a1397443a375c6991151547cb77361085df6cf8aa59999292e683db7385a0d15

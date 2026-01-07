@@ -169,12 +169,13 @@ extension AttributeExtensions on Attribute {
     };
   }
 
-  Widget? getCircledIcon({
+  Widget getCircledIcon({
     required Color backgroundColor,
     required double size,
     Color? foregroundColor,
     Shadow? shadow,
     String? semanticLabel,
+    Widget? placeholder,
   }) {
     try {
       return AttributeIcon(
@@ -184,7 +185,7 @@ extension AttributeExtensions on Attribute {
         size: size,
       );
     } catch (e) {
-      return SizedBox.square(dimension: size);
+      return placeholder ?? SizedBox.square(dimension: size);
     }
   }
 }
