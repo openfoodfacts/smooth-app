@@ -1702,8 +1702,6 @@ packages:
     source: hosted
     version: "0.7.7"
   timing:
-<<<<<<< HEAD
-=======
     dependency: transitive
     description:
       name: timing
@@ -1712,8 +1710,7 @@ packages:
     source: hosted
     version: "1.0.2"
   torch_light:
->>>>>>> d5e4747f82 (chore(deps): bump device_info_plus in /packages/smooth_app (#7267))
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: timing
       sha256: "62ee18aca144e4a9f29d212f5a4c6a053be252b895ab14b5821996cff4ed90fe"
