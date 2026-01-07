@@ -1605,6 +1605,16 @@ class Incomplete extends AppIcon {
   }) : super._(_IconsFont.incomplete);
 }
 
+class Indicator extends AppIcon {
+  const Indicator.horizontalBar({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.horizontal_bar_indicator);
+}
+
 class Ingredients extends AppIcon {
   const Ingredients({
     super.color,

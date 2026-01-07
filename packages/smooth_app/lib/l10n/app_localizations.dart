@@ -4632,6 +4632,12 @@ abstract class AppLocalizations {
   /// **'Other'**
   String get product_type_label_product;
 
+  /// No description provided for @product_type_label_unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get product_type_label_unknown;
+
   /// No description provided for @product_type_selection_title.
   ///
   /// In en, this message translates to:
@@ -9127,6 +9133,68 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'For me'**
   String get product_page_tab_for_me;
+
+  /// Title for the compatibility score
+  ///
+  /// In en, this message translates to:
+  /// **'My compatibility'**
+  String get product_page_for_me_compatibility_score_title;
+
+  /// Compatibility score value in the For me tab on the product page
+  ///
+  /// In en, this message translates to:
+  /// **'{value}% compatible'**
+  String product_page_for_me_compatibility_score_value(int value);
+
+  /// Message displayed when there is not enough data to compute a compatibility score for a product
+  ///
+  /// In en, this message translates to:
+  /// **'Insufficient data to compute a compatibility score.'**
+  String get product_page_for_me_compatibility_score_uncomputable;
+
+  /// Message displayed when a compatibility score can't be computed for a product
+  ///
+  /// In en, this message translates to:
+  /// **'A score can\'t be computed for a product of type \"{productType}\".'**
+  String product_page_for_me_compatibility_score_unsupported(
+    String productType,
+  );
+
+  /// Button to order the attributes by importance in the For me tab on the product page
+  ///
+  /// In en, this message translates to:
+  /// **'Importance'**
+  String get product_page_for_me_attributes_order_importance;
+
+  /// Button to order the attributes by evaluation score in the For me tab on the product page
+  ///
+  /// In en, this message translates to:
+  /// **'Matches'**
+  String get product_page_for_me_attributes_order_evaluation;
+
+  /// Title for the group of attributes that are good matches for the user
+  ///
+  /// In en, this message translates to:
+  /// **'Good matches'**
+  String get product_page_for_me_attributes_group_good_matches;
+
+  /// Title for the group of attributes that are average matches for the user
+  ///
+  /// In en, this message translates to:
+  /// **'Average matches'**
+  String get product_page_for_me_attributes_group_average_matches;
+
+  /// Title for the group of attributes that are bad matches for the user
+  ///
+  /// In en, this message translates to:
+  /// **'Bad matches'**
+  String get product_page_for_me_attributes_group_bad_matches;
+
+  /// Title for the group of attributes that are unknown matches for the user
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown matches'**
+  String get product_page_for_me_attributes_group_unknown_matches;
 
   /// Label of the website tab on the product page
   ///

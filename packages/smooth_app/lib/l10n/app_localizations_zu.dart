@@ -2573,7 +2573,10 @@ class AppLocalizationsZu extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_selection_title => 'Uhlobo lomkhiqizo';
+  String get product_type_label_unknown => 'Unknown';
+
+  @override
+  String get product_type_selection_title => 'Product type';
 
   @override
   String get product_type_selection_subtitle => 'Khetha uhlobo lwalo mkhiqizo';
@@ -5402,7 +5405,48 @@ class AppLocalizationsZu extends AppLocalizations {
   String get product_page_tab_for_me => 'Kwami';
 
   @override
-  String get product_page_tab_website => 'Iwebhusayithi';
+  String get product_page_for_me_compatibility_score_title =>
+      'My compatibility';
+
+  @override
+  String product_page_for_me_compatibility_score_value(int value) {
+    return '$value% compatible';
+  }
+
+  @override
+  String get product_page_for_me_compatibility_score_uncomputable =>
+      'Insufficient data to compute a compatibility score.';
+
+  @override
+  String product_page_for_me_compatibility_score_unsupported(
+    String productType,
+  ) {
+    return 'A score can\'t be computed for a product of type \"$productType\".';
+  }
+
+  @override
+  String get product_page_for_me_attributes_order_importance => 'Importance';
+
+  @override
+  String get product_page_for_me_attributes_order_evaluation => 'Matches';
+
+  @override
+  String get product_page_for_me_attributes_group_good_matches =>
+      'Good matches';
+
+  @override
+  String get product_page_for_me_attributes_group_average_matches =>
+      'Average matches';
+
+  @override
+  String get product_page_for_me_attributes_group_bad_matches => 'Bad matches';
+
+  @override
+  String get product_page_for_me_attributes_group_unknown_matches =>
+      'Unknown matches';
+
+  @override
+  String get product_page_tab_website => 'Website';
 
   @override
   String get product_page_tab_prices => 'Amanani';
