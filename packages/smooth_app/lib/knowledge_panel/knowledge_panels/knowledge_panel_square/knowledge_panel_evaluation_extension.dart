@@ -4,10 +4,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 extension EvaluationExtension on Evaluation? {
   Color indicatorColor(SmoothColorsThemeExtension theme) {
-    if (this == null) {
-      return Colors.grey;
-    }
-    return switch (this!) {
+    return switch (this) {
       Evaluation.GOOD => theme.success,
       Evaluation.BAD => theme.error,
       Evaluation.AVERAGE => theme.warning,
