@@ -19,8 +19,6 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page_loading_indicator.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -72,9 +70,6 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
     return Provider<Product>.value(
       value: upToDateProduct,
       child: SmoothScaffold(
-        backgroundColor: context.lightTheme()
-            ? context.extension<SmoothColorsThemeExtension>().primaryLight
-            : null,
         appBar: SmoothAppBar(
           title: Semantics(
             label: _getTitleForAccessibility(appLocalizations, title),
@@ -92,28 +87,16 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
           child: Scrollbar(
             child: ListView(
               physics: const AlwaysScrollableScrollPhysics(),
-              padding: EdgeInsetsDirectional.only(
-                top: SMALL_SPACE,
-                start: VERY_SMALL_SPACE,
-                end: VERY_SMALL_SPACE,
-                bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
-              ),
               children: <Widget>[
-                SmoothCard(
-                  padding: const EdgeInsetsDirectional.only(
-                    bottom: LARGE_SPACE,
-                  ),
-                  borderRadius: ANGULAR_BORDER_RADIUS,
-                  elevation: 4.0,
-                  child: DefaultTextStyle.merge(
-                    style: const TextStyle(fontSize: 15.0, height: 1.5),
-                    child: KnowledgePanelExpandedCard(
-                      panelId: widget.panelId,
-                      product: upToDateProduct,
-                      isInitiallyExpanded: true,
-                      isClickable: true,
-                      roundedIcons: false,
-                    ),
+                DefaultTextStyle.merge(
+                  style: const TextStyle(fontSize: 15.0, height: 1.5),
+                  child: KnowledgePanelExpandedCard(
+                    panelId: widget.panelId,
+                    product: upToDateProduct,
+                    isInitiallyExpanded: true,
+                    isClickable: true,
+                    roundedIcons: false,
+                    simplified: false,
                   ),
                 ),
                 if (PortionCalculator.isVisible(widget.panelId))

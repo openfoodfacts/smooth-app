@@ -14,6 +14,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_header.dart';
@@ -65,6 +67,9 @@ class ProductPageState extends State<ProductPage>
     DaoProductLastAccess(localDatabase).put(barcode);
 
     onNextFrame(() {
+      if (!KnowledgePanelsBuilder.hasSimplifiedPanels(widget.product)) {
+        ProductRefresher().fetchAndRefresh(barcode: barcode, context: context);
+      }
       _updateLocalDatabaseWithProductHistory(context);
     });
   }
@@ -123,45 +128,48 @@ class ProductPageState extends State<ProductPage>
       spaceBehindStatusBar: false,
       changeStatusBarBrightness: false,
       statusBarBackgroundColor: Colors.transparent,
-      body: NestedScrollView(
-        controller: _scrollController,
-        headerSliverBuilder: (BuildContext context, bool value) {
-          return <Widget>[
-            SliverPersistentHeader(
-              delegate: ProductHeaderDelegate(
-                statusBarHeight: MediaQuery.viewPaddingOf(context).top,
-                backButtonType: widget.backButton,
+      body: tabs.isNotEmpty
+          ? NestedScrollView(
+              controller: _scrollController,
+              headerSliverBuilder: (BuildContext context, bool value) {
+                return <Widget>[
+                  SliverPersistentHeader(
+                    delegate: ProductHeaderDelegate(
+                      statusBarHeight: MediaQuery.viewPaddingOf(context).top,
+                      backButtonType: widget.backButton,
+                    ),
+                    pinned: true,
+                    floating: false,
+                  ),
+                  SliverToBoxAdapter(
+                    child: HeroMode(
+                      enabled:
+                          widget.withHeroAnimation &&
+                          widget.heroTag?.isNotEmpty == true,
+                      child: SummaryCard(
+                        upToDateProduct,
+                        _productPreferences,
+                        heroTag: widget.heroTag,
+                        isFullVersion: true,
+                        borderRadius: ROUNDED_BORDER_RADIUS,
+                        attributeGroupsVisible: false,
+                      ),
+                    ),
+                  ),
+                  ProductPageTabBar(tabController: tabController, tabs: tabs),
+                ];
+              },
+              body: TabBarView(
+                controller: tabController,
+                children: tabs
+                    .map(
+                      (ProductPageTab tab) =>
+                          tab.builder(context, upToDateProduct),
+                    )
+                    .toList(growable: false),
               ),
-              pinned: true,
-              floating: false,
-            ),
-            SliverToBoxAdapter(
-              child: HeroMode(
-                enabled:
-                    widget.withHeroAnimation &&
-                    widget.heroTag?.isNotEmpty == true,
-                child: SummaryCard(
-                  upToDateProduct,
-                  _productPreferences,
-                  heroTag: widget.heroTag,
-                  isFullVersion: true,
-                  borderRadius: ROUNDED_BORDER_RADIUS,
-                  attributeGroupsVisible: false,
-                ),
-              ),
-            ),
-            ProductPageTabBar(tabController: tabController, tabs: tabs),
-          ];
-        },
-        body: TabBarView(
-          controller: tabController,
-          children: tabs
-              .map(
-                (ProductPageTab tab) => tab.builder(context, upToDateProduct),
-              )
-              .toList(growable: false),
-        ),
-      ),
+            )
+          : const Center(child: CircularProgressIndicator()),
       bottomNavigationBar: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[

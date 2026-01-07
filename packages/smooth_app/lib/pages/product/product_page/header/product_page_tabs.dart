@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/score_card_helper.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
@@ -107,7 +108,8 @@ class ProductPageTabsGenerator {
     final List<ProductPageTab> tabs = <ProductPageTab>[];
 
     final List<KnowledgePanelElement> roots =
-        KnowledgePanelsBuilder.getRootPanelElements(product);
+        KnowledgePanelsBuilder.getRootPanelElements(product, simplified: true);
+
     for (final KnowledgePanelElement root in roots) {
       final String? id = root.panelElement?.panelId;
       if (id == null) {
@@ -119,11 +121,26 @@ class ProductPageTabsGenerator {
         panelElement: root,
         product: product,
         onboardingMode: false,
+        simplified: true,
       );
 
       if (children.isEmpty) {
         continue;
       }
+
+      children.add(
+        TextButton(
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => KnowledgePanelPage(
+                panelId: id.replaceAll('simplified_', ''),
+                product: product,
+              ),
+            ),
+          ),
+          child: Text(AppLocalizations.of(context).learnMore),
+        ),
+      );
 
       final KnowledgePanelTitle knowledgePanelTitle =
           children.first as KnowledgePanelTitle;

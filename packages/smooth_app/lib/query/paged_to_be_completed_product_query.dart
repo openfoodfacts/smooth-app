@@ -22,6 +22,7 @@ class PagedToBeCompletedProductQuery extends PagedProductQuery {
           const SortBy(option: SortOption.EDIT),
         ],
         version: ProductQuery.productQueryVersion,
+        activateKnowledgePanelsSimplified: true,
       );
 
   @override
