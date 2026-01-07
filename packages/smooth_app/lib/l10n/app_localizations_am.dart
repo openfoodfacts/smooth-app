@@ -2469,7 +2469,7 @@ class AppLocalizationsAm extends AppLocalizations {
   String get product_type_label_unknown => 'Unknown';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'የምርት አይነት';
 
   @override
   String get product_type_selection_subtitle => 'የዚህን ምርት አይነት ይምረጡ';
@@ -5217,7 +5217,7 @@ class AppLocalizationsAm extends AppLocalizations {
       'Unknown matches';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'ድህረገፅ';
 
   @override
   String get product_page_tab_prices => 'ዋጋዎች';

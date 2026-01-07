@@ -2551,7 +2551,7 @@ class AppLocalizationsIs extends AppLocalizations {
   String get product_type_label_unknown => 'Unknown';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Tegund vöru';
 
   @override
   String get product_type_selection_subtitle => 'Veldu gerð þessarar vöru';
@@ -5384,7 +5384,7 @@ class AppLocalizationsIs extends AppLocalizations {
       'Unknown matches';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Vefsíða';
 
   @override
   String get product_page_tab_prices => 'Verð';
