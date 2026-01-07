@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 class PricesUserProfile extends StatelessWidget {
   const PricesUserProfile({super.key, required this.profile});
@@ -18,9 +18,7 @@ class PricesUserProfile extends StatelessWidget {
             leading: const Icon(Icons.person),
             title: Text(
               profile.userId,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           Wrap(
@@ -49,7 +47,7 @@ class PricesUserProfile extends StatelessWidget {
                 profile.proofCount ?? 0,
                 appLocalizations.prices_proof_subtitle,
                 context,
-              )
+              ),
             ],
           ),
         ],
@@ -58,8 +56,12 @@ class PricesUserProfile extends StatelessWidget {
   }
 
   Widget _profileStatsButton(
-      IconData icon, int count, String label, BuildContext context,
-      {Color? color}) {
+    IconData icon,
+    int count,
+    String label,
+    BuildContext context, {
+    Color? color,
+  }) {
     return SmoothCard(
       // color: Theme.of(context).colorScheme.onSurface.withAlpha(24),
       child: Container(
@@ -73,15 +75,16 @@ class PricesUserProfile extends StatelessWidget {
               children: <Widget>[
                 Icon(icon, color: color, size: DEFAULT_ICON_SIZE),
                 const SizedBox(width: VERY_SMALL_SPACE),
-                Text(count.toString(),
-                    style: const TextStyle(fontWeight: FontWeight.bold)),
+                Text(
+                  count.toString(),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
               ],
             ),
-            Text(label,
-                style: const TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                )),
+            Text(
+              label,
+              style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+            ),
           ],
         ),
       ),

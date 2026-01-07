@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/prices_dashboard_widget.dart';
 import 'package:smooth_app/pages/prices/prices_user_profile.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -13,8 +14,10 @@ class PricesDashboardPage extends StatelessWidget {
   PricesDashboardPage();
 
   late final Future<MaybeError<PriceUser>> _userProfile =
-      OpenPricesAPIClient.getUser(OpenFoodAPIConfiguration.globalUser!.userId,
-          uriHelper: ProductQuery.uriPricesHelper);
+      OpenPricesAPIClient.getUser(
+        OpenFoodAPIConfiguration.globalUser!.userId,
+        uriHelper: ProductQuery.uriPricesHelper,
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -36,29 +39,39 @@ class PricesDashboardPage extends StatelessWidget {
         ],
       ),
       body: FutureBuilder<MaybeError<PriceUser>>(
-          future: _userProfile,
-          builder: (BuildContext context,
-              AsyncSnapshot<MaybeError<PriceUser>> snapshot) {
-            if (snapshot.connectionState == ConnectionState.waiting) {
-              return const Center(child: CircularProgressIndicator());
-            }
-            if (snapshot.connectionState != ConnectionState.done) {
-              return const Center(child: CircularProgressIndicator.adaptive());
-            }
-            if (snapshot.hasError) {
-              return Text(snapshot.error!.toString());
-            }
-            final PriceUser userProfile = snapshot.data!.value;
-            return SingleChildScrollView(
-              child: Column(
-                children: <Widget>[
-                  PricesUserProfile(profile: userProfile),
-                  PricesDashboardWidget(userProfile: userProfile),
-                  const SizedBox(height: VERY_LARGE_SPACE),
-                ],
-              ),
-            );
-          }),
+        future: _userProfile,
+        builder:
+            (
+              BuildContext context,
+              AsyncSnapshot<MaybeError<PriceUser>> snapshot,
+            ) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.connectionState != ConnectionState.done) {
+                return const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                );
+              }
+              if (snapshot.hasError) {
+                return Text(snapshot.error!.toString());
+              }
+              final MaybeError<PriceUser> result = snapshot.data!;
+              if (result.isError) {
+                return Center(child: Text(result.error ?? 'Unknown error'));
+              }
+              final PriceUser userProfile = result.value;
+              return SingleChildScrollView(
+                child: Column(
+                  children: <Widget>[
+                    PricesUserProfile(profile: userProfile),
+                    PricesDashboardWidget(userProfile: userProfile),
+                    const SizedBox(height: VERY_LARGE_SPACE),
+                  ],
+                ),
+              );
+            },
+      ),
     );
   }
 }
