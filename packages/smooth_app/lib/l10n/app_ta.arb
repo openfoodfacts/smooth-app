@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "திறந்த விலைகள்",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "தனிப்பட்ட பராமரிப்பு",
   "product_type_label_pet_food": "செல்லப்பிராணி உணவு",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "தெரியவில்லை",
   "product_type_selection_title": "தயாரிப்பு வகை",
   "product_type_selection_subtitle": "இந்த தயாரிப்பின் வகையைத் தேர்ந்தெடுக்கவும்.",
   "product_type_selection_empty": "நீங்கள் முதலில் ஒரு தயாரிப்பு வகையைத் தேர்ந்தெடுக்க வேண்டும்!",
@@ -4555,6 +4557,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "எனது இணக்கத்தன்மை",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% இணக்கமானது",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "பொருந்தக்கூடிய மதிப்பெண்ணைக் கணக்கிட போதுமான தரவு இல்லை.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" வகையின் பெருக்கலுக்கு மதிப்பெண்ணைக் கணக்கிட முடியாது.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "முக்கியத்துவம்",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "போட்டிகள்",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "நல்ல பொருத்தங்கள்",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "சராசரி பொருத்தங்கள்",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "மோசமான பொருத்தங்கள்",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "தெரியாத பொருத்தங்கள்",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "வலைத்தளம்",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -5626,5 +5678,50 @@
   "location_map_details_postcode": "அஞ்சல் குறியீடு",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "ஆயத்தொலைவுகள்",
-  "location_map_details_osm_id": "OSM ஐடி"
+  "location_map_details_osm_id": "OSM ஐடி",
+  "homepage_scanner_back_to_home_button": "வீட்டிற்குத் திரும்பு",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "கேமராவை நிலைமாற்று",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "பார்கோடு ஸ்கேனரைக் காட்டு",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "**பார்கோடை**\nஸ்கேன் செய்ய தட்டவும், அது **உங்களுக்கு நல்லதா** என்பதைக் கண்டறியவும்!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "டார்ச்சை மாற்று",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "ஒரு தயாரிப்பின் பார்கோடை அணுகி ஸ்கேன் செய்யவும்.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "பின்வரும் பார்கோடை நாங்கள் கண்டறிந்துள்ளோம்: {barcode}, ஆனால் அது தவறானதாகத் தெரிகிறது.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "மேலும் காண்க…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "கடைசியாக ஸ்கேன் செய்யப்பட்ட தயாரிப்புகள்",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  }
 }
