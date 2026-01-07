@@ -619,6 +619,28 @@ class Chevron extends AppIcon {
 }
 
 class CircledArrow extends AppIcon {
+  const CircledArrow._base({
+    required this.turns,
+    CircledArrowType? type,
+    this.circleColor,
+    super.color,
+    super.size,
+    this.padding,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : assert(
+         (circleColor == null &&
+                 (type == null || type == CircledArrowType.thin)) ||
+             (circleColor != null && type == CircledArrowType.normal),
+         'circleColor is only supported and must be provided when type = CircledArrowType.normal',
+       ),
+       type = type ?? CircledArrowType.thin,
+       super._(
+         type == CircledArrowType.thin
+             ? _IconsFont.circled_arrow
+             : _IconsFont.arrow_right,
+       );
   const CircledArrow.right({
     CircledArrowType? type,
     Color? circleColor,
@@ -703,28 +725,40 @@ class CircledArrow extends AppIcon {
          key: key,
        );
 
-  const CircledArrow._base({
-    required this.turns,
+  static CircledArrow horizontalDirectional(
+    BuildContext context, {
     CircledArrowType? type,
-    this.circleColor,
-    super.color,
-    super.size,
-    this.padding,
-    super.shadow,
-    super.semanticLabel,
-    super.key,
-  }) : assert(
-         (circleColor == null &&
-                 (type == null || type == CircledArrowType.thin)) ||
-             (circleColor != null && type == CircledArrowType.normal),
-         'circleColor is only supported and must be provided when type = CircledArrowType.normal',
-       ),
-       type = type ?? CircledArrowType.thin,
-       super._(
-         type == CircledArrowType.thin
-             ? _IconsFont.circled_arrow
-             : _IconsFont.arrow_right,
-       );
+    Color? circleColor,
+    Color? color,
+    double? size,
+    EdgeInsetsGeometry? padding,
+    Shadow? shadow,
+    String? semanticLabel,
+    Key? key,
+  }) {
+    return switch (Directionality.of(context)) {
+      TextDirection.ltr => CircledArrow.right(
+        type: type,
+        circleColor: circleColor,
+        color: color,
+        size: size,
+        padding: padding,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+      TextDirection.rtl => CircledArrow.left(
+        type: type,
+        circleColor: circleColor,
+        color: color,
+        size: size,
+        padding: padding,
+        shadow: shadow,
+        semanticLabel: semanticLabel,
+        key: key,
+      ),
+    };
+  }
 
   final int turns;
   final CircledArrowType type;

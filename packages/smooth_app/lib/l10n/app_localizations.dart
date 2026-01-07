@@ -354,6 +354,12 @@ abstract class AppLocalizations {
   /// **'Open Food Facts'**
   String get app_name;
 
+  /// No description provided for @open_prices.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Prices'**
+  String get open_prices;
+
   /// Separator just before a colon (':'). Probably only populated in French and empty in other languages.
   ///
   /// In en, this message translates to:
@@ -10695,6 +10701,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'OSM ID'**
   String get location_map_details_osm_id;
+
+  /// Button to go back to home from the scanner page
+  ///
+  /// In en, this message translates to:
+  /// **'Back to home'**
+  String get homepage_scanner_back_to_home_button;
+
+  /// Tooltip for the button to toggle the camera on the scanner page
+  ///
+  /// In en, this message translates to:
+  /// **'Toggle camera'**
+  String get homepage_scanner_toggle_camera_tooltip;
+
+  /// Tooltip for the button to open the barcode scanner from the homepage
+  ///
+  /// In en, this message translates to:
+  /// **'Show the barcode scanner'**
+  String get homepage_header_barcode_tooltip;
+
+  /// Message visible above the camera.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to scan a **barcode**\nand discover if it\'s **good for you**!'**
+  String get homepage_scanner_overlay_message;
+
+  /// Tooltip for the button to toggle the torch on the scanner page
+  ///
+  /// In en, this message translates to:
+  /// **'Toggle torch'**
+  String get homepage_scanner_toggle_torch_tooltip;
+
+  /// Banner text shown on the scanner page to prompt user to start scanning a product
+  ///
+  /// In en, this message translates to:
+  /// **'Scan a product by approaching its barcode'**
+  String get homepage_scanner_banner_start_scanning;
+
+  /// Banner text shown on the scanner page when an invalid barcode is detected
+  ///
+  /// In en, this message translates to:
+  /// **'We have detected the following barcode: {barcode}, but it seems to be invalid.'**
+  String homepage_scanner_banner_invalid_barcode(String barcode);
+
+  /// Button to see all items in a horizontal list on the homepage
+  ///
+  /// In en, this message translates to:
+  /// **'View more…'**
+  String get homepage_horizontal_list_view_more_button;
+
+  /// Title for the most scanned products horizontal list on the homepage
+  ///
+  /// In en, this message translates to:
+  /// **'Most scanned products'**
+  String get homepage_list_most_scanned_title;
+
+  /// Title for the last scanned products horizontal list on the homepage
+  ///
+  /// In en, this message translates to:
+  /// **'Last scanned products'**
+  String get homepage_list_last_scanned_title;
 }
 
 class _AppLocalizationsDelegate

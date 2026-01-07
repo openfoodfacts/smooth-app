@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
+
 import 'package:flutter/rendering.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/abstract_sql_dao.dart';
@@ -10,6 +11,7 @@ import 'package:smooth_app/database/bulk_deletable.dart';
 import 'package:smooth_app/database/bulk_manager.dart';
 import 'package:smooth_app/database/dao_product_last_access.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/helpers/iterable_helper.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DaoProduct extends AbstractSqlDao implements BulkDeletable {
@@ -77,7 +79,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
   }
 
   /// Returns the [Product]s that match the [barcodes].
-  Future<Map<String, Product>> getAll(final List<String> barcodes) async {
+  Future<Map<String, Product>> getAll(final Iterable<String> barcodes) async {
     final Map<String, Product> result = <String, Product>{};
     if (barcodes.isEmpty) {
       return result;
@@ -97,7 +99,9 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
             _TABLE_PRODUCT,
             columns: _columns,
             where: '$_TABLE_PRODUCT_COLUMN_BARCODE in(? ${',?' * (size - 1)})',
-            whereArgs: barcodes.sublist(start, start + size),
+            whereArgs: barcodes
+                .subList(start, start + size)
+                .toList(growable: true),
           );
       for (final Map<String, dynamic> row in queryResults) {
         result[row[_TABLE_PRODUCT_COLUMN_BARCODE] as String] =

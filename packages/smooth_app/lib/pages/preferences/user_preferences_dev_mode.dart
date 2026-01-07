@@ -18,5 +18,6 @@ class UserPreferencesDevMode {
   static const String userPreferencesFlagSpellCheckerOnOcr =
       '__spellcheckerOcr';
   static const String userPreferencesFlagBulkProofUpload = '__bulkProofUpload';
+  static const String userPreferencesFlagHomePageV2 = '__homePageV2';
   static const String userPreferencesCustomNewsJSONURI = '__newsJsonURI';
 }

@@ -12,6 +12,9 @@ class AppLocalizationsJv extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
+  String get open_prices => 'Open Prices';
+
+  @override
   String get sep => '';
 
   @override
@@ -6219,4 +6222,38 @@ class AppLocalizationsJv extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
+
+  @override
+  String get homepage_scanner_back_to_home_button => 'Back to home';
+
+  @override
+  String get homepage_scanner_toggle_camera_tooltip => 'Toggle camera';
+
+  @override
+  String get homepage_header_barcode_tooltip => 'Show the barcode scanner';
+
+  @override
+  String get homepage_scanner_overlay_message =>
+      'Tap to scan a **barcode**\nand discover if it\'s **good for you**!';
+
+  @override
+  String get homepage_scanner_toggle_torch_tooltip => 'Toggle torch';
+
+  @override
+  String get homepage_scanner_banner_start_scanning =>
+      'Scan a product by approaching its barcode';
+
+  @override
+  String homepage_scanner_banner_invalid_barcode(String barcode) {
+    return 'We have detected the following barcode: $barcode, but it seems to be invalid.';
+  }
+
+  @override
+  String get homepage_horizontal_list_view_more_button => 'View more…';
+
+  @override
+  String get homepage_list_most_scanned_title => 'Most scanned products';
+
+  @override
+  String get homepage_list_last_scanned_title => 'Last scanned products';
 }
