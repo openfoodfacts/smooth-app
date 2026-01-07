@@ -2521,7 +2521,7 @@ class AppLocalizationsTh extends AppLocalizations {
   String get product_type_label_unknown => 'Unknown';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'ประเภทผลิตภัณฑ์';
 
   @override
   String get product_type_selection_subtitle => 'เลือกประเภทของผลิตภัณฑ์นี้';
@@ -5340,7 +5340,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'Unknown matches';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'เว็บไซต์';
 
   @override
   String get product_page_tab_prices => 'ราคา';

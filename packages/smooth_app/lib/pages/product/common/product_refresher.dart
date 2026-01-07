@@ -196,7 +196,7 @@ class ProductRefresher {
         return FetchedProduct.found(result.product!);
       }
       return const FetchedProduct.internetNotFound();
-    } catch (e, s) {
+    } catch (e) {
       Logs.e('Refresh from server error', ex: e);
       final List<ConnectivityResult> connectivityResult = await Connectivity()
           .checkConnectivity();

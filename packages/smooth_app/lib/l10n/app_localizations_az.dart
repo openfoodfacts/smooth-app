@@ -2558,7 +2558,7 @@ class AppLocalizationsAz extends AppLocalizations {
   String get product_type_label_unknown => 'Unknown';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Məhsul növü';
 
   @override
   String get product_type_selection_subtitle => 'Bu məhsulun növünü seçin';
@@ -5403,7 +5403,7 @@ class AppLocalizationsAz extends AppLocalizations {
       'Unknown matches';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Veb sayt';
 
   @override
   String get product_page_tab_prices => 'Qiymətlər';

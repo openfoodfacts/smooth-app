@@ -2579,7 +2579,7 @@ class AppLocalizationsZu extends AppLocalizations {
   String get product_type_label_unknown => 'Unknown';
 
   @override
-  String get product_type_selection_title => 'Product type';
+  String get product_type_selection_title => 'Uhlobo lomkhiqizo';
 
   @override
   String get product_type_selection_subtitle => 'Khetha uhlobo lwalo mkhiqizo';
@@ -5449,7 +5449,7 @@ class AppLocalizationsZu extends AppLocalizations {
       'Unknown matches';
 
   @override
-  String get product_page_tab_website => 'Website';
+  String get product_page_tab_website => 'Iwebhusayithi';
 
   @override
   String get product_page_tab_prices => 'Amanani';

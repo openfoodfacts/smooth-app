@@ -82,23 +82,26 @@ class KnowledgePanelSquareCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: SMALL_SPACE),
-            Row(
-              spacing: MEDIUM_SPACE,
-              children: <Widget>[
-                KnowledgePanelIndicator(
-                  evaluation: panel.evaluation,
-                  themeExtension: themeExtension,
-                ),
-                Flexible(
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: panel.evaluation.indicatorColor(themeExtension),
+            Expanded(
+              child: Row(
+                spacing: MEDIUM_SPACE,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  KnowledgePanelIndicator(
+                    evaluation: panel.evaluation,
+                    themeExtension: themeExtension,
+                  ),
+                  Flexible(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: panel.evaluation.indicatorColor(themeExtension),
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ],
         ),
