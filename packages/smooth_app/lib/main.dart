@@ -90,9 +90,7 @@ Future<void> launchSmoothApp({
   _enableEdgeToEdgeMode();
 
   if (kReleaseMode) {
-    await AnalyticsHelper.initSentry(
-      appRunner: () => _runAppWithHttpTracing(),
-    );
+    await AnalyticsHelper.initSentry(appRunner: () => _runAppWithHttpTracing());
   } else {
     runApp(const SmoothApp());
   }
