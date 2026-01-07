@@ -426,7 +426,7 @@ class KnowledgePanelsBuilder {
     switch (knowledgePanel.titleElement!.type) {
       case TitleElementType.GRADE:
         return simplified
-            ? NewKnowledgePanelTitleCard(
+            ? SimplifiedKnowledgePanelTitleCard(
                 title: knowledgePanel.titleElement?.title ?? '',
                 subtitle: knowledgePanel.titleElement!.subtitle,
                 iconUrl: knowledgePanel.titleElement!.iconUrl,
@@ -459,7 +459,7 @@ class KnowledgePanelsBuilder {
         }
 
         return simplified && knowledgePanel.titleElement!.iconUrl != null
-            ? NewKnowledgePanelTitleCard(
+            ? SimplifiedKnowledgePanelTitleCard(
                 title: knowledgePanel.titleElement?.title ?? '',
                 subtitle: knowledgePanel.titleElement!.subtitle,
                 iconUrl: knowledgePanel.titleElement!.iconUrl,

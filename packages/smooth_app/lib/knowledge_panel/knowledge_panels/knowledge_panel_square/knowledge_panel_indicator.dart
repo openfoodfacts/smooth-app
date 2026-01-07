@@ -15,9 +15,8 @@ class KnowledgePanelIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 20.0,
-      height: 20.0,
+    return SizedBox.square(
+      dimension: 20.0,
       child: DecoratedBox(
         decoration: BoxDecoration(
           shape: BoxShape.circle,

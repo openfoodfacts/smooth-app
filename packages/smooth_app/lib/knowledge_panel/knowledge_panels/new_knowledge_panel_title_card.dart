@@ -4,8 +4,8 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-class NewKnowledgePanelTitleCard extends StatelessWidget {
-  const NewKnowledgePanelTitleCard({
+class SimplifiedKnowledgePanelTitleCard extends StatelessWidget {
+  const SimplifiedKnowledgePanelTitleCard({
     required this.title,
     required this.subtitle,
     required this.iconUrl,
