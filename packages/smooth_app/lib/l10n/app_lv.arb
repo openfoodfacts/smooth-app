@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorijas meklēšana)",
@@ -535,9 +535,17 @@
   "product": "Produkts",
   "@product": {},
   "unknownBrand": "Nezināms zīmols",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Nezināms daudzums",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nezināms produkta nosaukums",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informācija par iepakojumu",
+  "packaging_information": "Pārstrādes instrukcijas",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Iepakojuma informācijas fotoattēls",
+  "packaging_information_photo": "Pārstrādes instrukciju fotoattēls",
   "@packaging_information_photo": {},
   "missing_product": "Jūs atradāt jaunu produktu!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Priekšējā iepakojuma fotoattēls",
   "ingredients_photo_title": "Sastāvdaļu foto",
   "nutritional_facts_photo_title": "Uzturvērtības fakti Foto",
-  "recycling_photo_title": "Pārstrādes foto",
+  "recycling_photo_title": "Pārstrādes instrukcijas Fotoattēls",
   "take_photo_title": "Fotografēt",
   "take_more_photo_title": "Uzņemt papildus fotogrāfijas",
   "front_photo_uploaded": "Augšupielādēts priekšējais fotoattēls",
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Uzziniet vairāk par atvērtajām cenām",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4141,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Piezīme par punktu skaitīšanu",
   "guide_open_beauty_facts_scores_paragraph1": "Atšķirībā no pārtikas produktiem, kosmētikas pasaulē **nav vispārēji atzītas, valdības atbalstītas vērtēšanas sistēmas kā Nutri-Score**. Sastāvdaļu ietekme var būt ļoti individuāla un atkarīga no ādas tipa, alerģijām un individuālām bažām.",
   "guide_open_beauty_facts_share_link": "https://world-lv.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Laipni lūdzam Atvērtajās cenās!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Kas ir atvērtās cenas?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "“Open Prices” ir projekts, kura mērķis ir **apkopot un kopīgot produktu cenas visā pasaulē**. Tas ir publiski pieejams datu kopums, ko var izmantot pētniecībai, analīzei un citiem mērķiem. “Open Prices” izstrādā un uztur “Open Food Facts”.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Kā darbojas Atvērtās cenas?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Mēs izmantojam atvērtā pirmkoda cenu datu kopas pūļa resursus**. Cenas var pievienot lietotāji, izmantojot šo tīmekļa lietotni vai oficiālo Open Food Facts mobilo lietotni. Arī mazumtirgotāji vai trešo pušu lietotnes var sniegt savu ieguldījumu, izmantojot mūsu API.",
   "guide_open_prices_how_arg1_title": "Savāciet cenu zīmju fotoattēlus ejās",
   "guide_open_prices_how_arg2_title": "Savāciet čeku fotoattēlus",
@@ -4165,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Salīdziniet cenas jūsu tuvumā",
   "guide_open_prices_why_arg2_text": "Kad mēs iegūsim vairāk cenu, jūs varēsiet atrast **lētākos veikalus savā apkārtnē**.",
   "guide_open_prices_scrapping_title": "Vai apsvērāt cenu iegūšanu mazumtirgotāju tīmekļa vietnēs?",
-  "guide_open_prices_scrapping_paragraph1": "Juridisku un tehnisku iemeslu dēļ **cenu iegūšanu no mazumtirgotāju tīmekļa vietnēm mēs neuzskatām par derīgu veidu, kā piedalīties atvērto cenu apkopošanā**. Mēs vēlamies pārliecināties, ka mūsu apkopotās cenas ir precīzas un aktuālas, un iegūto cenu saņemšana no līdzstrādniekiem mums to neļauj.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "Cenu nokasīšana (Cenu skrāpēšana) ir apsvērta iespēja nākotnes Open Prices versijā, taču to veiktu pats Open Prices, lai mēs varētu iegūt cenas pierādījumu, pamatojoties uz HTML lapu.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Jūs varat sniegt savu ieguldījumu cenu noteikšanā, izmantojot mūsu API.\nJa vēlaties sniegt savu ieguldījumu cenu noteikšanā plašā mērogā, lūdzu, sazinieties ar mums pa e-pastu prices@openfoodfacts.org.",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Produkta fotoattēls",
   "photo_field_ingredients": "Sastāvdaļu foto",
   "photo_field_nutrition": "Uztura foto",
-  "photo_field_packaging": "Iepakojuma informācijas fotoattēls",
+  "photo_field_packaging": "Pārstrādes instrukciju fotoattēls",
   "photo_already_exists": "Šī fotogrāfija jau pastāv",
   "photo_missing": "Šī fotoattēla trūkst",
   "date": "Datums",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Atklājiet atklātos faktus par pārtiku",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Atklājiet atklātus skaistumkopšanas faktus",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Atklājiet faktus par mājdzīvnieku barību",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Atklājiet atklātos produktu faktus",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Atvērtās pārtikas faktu laboratorijas",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

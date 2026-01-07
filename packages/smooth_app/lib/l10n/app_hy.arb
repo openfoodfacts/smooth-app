@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Լիցենզիաներ",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
@@ -535,9 +535,17 @@
   "product": "Product",
   "@product": {},
   "unknownBrand": "Unknown brand",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Անհայտ քանակ",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Unknown product name",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Packaging information",
+  "packaging_information": "Վերամշակման հրահանգներ",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Packaging information photo",
+  "packaging_information_photo": "Recycling instructions photo",
   "@packaging_information_photo": {},
   "missing_product": "You found a new product!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Front Packaging Photo",
   "ingredients_photo_title": "Ingredients Photo",
   "nutritional_facts_photo_title": "Nutrition Facts Photo",
-  "recycling_photo_title": "Recycling Photo",
+  "recycling_photo_title": "Վերամշակման հրահանգներ Լուսանկար",
   "take_photo_title": "Take a picture",
   "take_more_photo_title": "Take more photos",
   "front_photo_uploaded": "Front photo uploaded",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Product photo",
   "photo_field_ingredients": "Ingredients photo",
   "photo_field_nutrition": "Nutrition photo",
-  "photo_field_packaging": "Packaging information photo",
+  "photo_field_packaging": "Recycling instructions photo",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
@@ -5104,7 +5112,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Բացահայտեք բաց սննդի մասին փաստեր",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Բաց սննդի փաստերի լաբորատորիաներ",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

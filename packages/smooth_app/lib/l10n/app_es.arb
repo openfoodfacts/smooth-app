@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Todo",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(búsqueda de categorías)",
@@ -535,9 +535,17 @@
   "product": "Producto",
   "@product": {},
   "unknownBrand": "Marca desconocida",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Cantidad desconocida",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nombre de producto desconocido",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Actualizar",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Información sobre el envase",
+  "packaging_information": "Instrucciones de reciclaje",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto de la información del envase",
+  "packaging_information_photo": "Foto sobre instrucciones de reciclaje",
   "@packaging_information_photo": {},
   "missing_product": "¡Has encontrado un nuevo producto!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Foto frontal del envase",
   "ingredients_photo_title": "Foto de los ingredientes",
   "nutritional_facts_photo_title": "Foto de la información nutricional",
-  "recycling_photo_title": "Foto sobre el reciclaje",
+  "recycling_photo_title": "Instrucciones de reciclaje Foto",
   "take_photo_title": "Saca una foto",
   "take_more_photo_title": "Haz más fotos",
   "front_photo_uploaded": "Foto frontal subida",
@@ -1080,7 +1088,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "No se ha podido calcular la Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.",
+  "product_improvement_categories_but_no_nutriscore": "No se ha podido calcular la puntuación Nutri-Score para este producto. Esto puede deberse a que, por ejemplo, una categoría no es estándar. Si crees que es un error, por favor, ponte en contacto con nosotros.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -3846,11 +3854,11 @@
   "nutriscore_not_applicable": "No es posible aplicar el Nutri-Score",
   "nutriscore_not_applicable_new_formula": "El Nutri-Score no es aplicable (Nuevo cálculo)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "Puntuación verde A",
+  "environmental_score_b_new": "Puntuación verde B",
+  "environmental_score_c_new": "Puntuación verde C",
+  "environmental_score_d_new": "Puntuación verde D",
+  "environmental_score_e_new": "Puntuación verde E",
   "environmental_score_unknown_new": "Green-Score desconocida",
   "environmental_score_not_applicable_new": "El Green-Score no es aplicable",
   "nova_group_generic_new": "Alimentos ultraprocesados - Grupos NOVA",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Foto del producto",
   "photo_field_ingredients": "Foto de los ingredientes",
   "photo_field_nutrition": "Foto de nutrición",
-  "photo_field_packaging": "Foto de la información del envase",
+  "photo_field_packaging": "Foto sobre instrucciones de reciclaje",
   "photo_already_exists": "Esta foto ya existe",
   "photo_missing": "Falta esta foto.",
   "date": "Fecha",
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratorios abiertos de datos alimentarios",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

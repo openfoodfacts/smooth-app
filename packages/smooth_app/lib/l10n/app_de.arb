@@ -395,7 +395,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu OpenFoodFacts bei. Treten Sie dem Kompetenzpool bei!",
+  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu Open Food Facts bei. Treten Sie dem Kompetenzpool bei!",
   "contribute_share_header": "Teilen Sie Open Food Facts mit Ihren Freunden",
   "@contribute_share_header": {},
   "contribute_share_content": "Ich möchte Ihnen die App OpenFoodFacts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app",
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Alle",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(Kategoriesuche)",
@@ -535,9 +535,17 @@
   "product": "Produkt",
   "@product": {},
   "unknownBrand": "Unbekannte Marke",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Unbekannte Menge",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Unbekannter Produktname",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Aktualisieren",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Angaben zur Verpackung",
+  "packaging_information": "Recyclinghinweise",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto der Verpackungsinformation",
+  "packaging_information_photo": "Foto der Recycling-Anweisungen",
   "@packaging_information_photo": {},
   "missing_product": "Sie haben eine neues Produkt gefunden!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Foto der Vorderseite der Verpackung",
   "ingredients_photo_title": "Foto der Zutatenliste",
   "nutritional_facts_photo_title": "Foto der Nährwertangaben",
-  "recycling_photo_title": "Foto der Recycling-Informationen",
+  "recycling_photo_title": "Recyclinghinweise (Foto)",
   "take_photo_title": "Foto aufnehmen",
   "take_more_photo_title": "Weitere Fotos aufnehmen",
   "front_photo_uploaded": "Foto der Vorderseite der Verpackung hochgeladen",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Produktfoto",
   "photo_field_ingredients": "Foto der Zutatenliste",
   "photo_field_nutrition": "Foto der Nährwertangaben",
-  "photo_field_packaging": "Foto der Verpackungsinformation",
+  "photo_field_packaging": "Foto der Recycling-Anweisungen",
   "photo_already_exists": "Dieses Foto bereits vorhanden",
   "photo_missing": "Dieses Foto fehlt",
   "date": "Datum",
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Offene Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

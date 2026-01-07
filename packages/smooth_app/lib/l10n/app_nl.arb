@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Alle",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(categorie zoeken)",
@@ -535,9 +535,17 @@
   "product": "Product",
   "@product": {},
   "unknownBrand": "Onbekend merk",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Onbekende hoeveelheid",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Onbekende productnaam",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Herladen",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Verpakkingsinformatie",
+  "packaging_information": "Recyclinginstructies",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto van verpakkingsinformatie",
+  "packaging_information_photo": "Recycling instructies foto",
   "@packaging_information_photo": {},
   "missing_product": "Je hebt een nieuw product gevonden!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Foto van voorkant verpakking",
   "ingredients_photo_title": "Foto van de ingrediëntenlijst",
   "nutritional_facts_photo_title": "Foto van voedingswaarden",
-  "recycling_photo_title": "Recycling afbeelding",
+  "recycling_photo_title": "Recyclinginstructies Foto",
   "take_photo_title": "Maak een foto",
   "take_more_photo_title": "Maak meer foto's",
   "front_photo_uploaded": "Foto voorkant geüpload",
@@ -4169,7 +4177,7 @@
   "guide_open_prices_scrapping_paragraph2": "Prijsscraping is een optie die wordt overwogen voor een toekomstige versie van Open Prices, maar dit zou door Open Prices zelf worden gedaan, zodat we een bewijs van de prijs op basis van de HTML-pagina kunnen hebben.",
   "guide_open_prices_retailers_title": "Ik ben een retailer en ik wil prijzen bijdragen. Hoe kan ik dat doen?",
   "guide_open_prices_retailers_paragraph1": "U kunt prijzen aanleveren via onze API. Als u op grote schaal prijzen wilt aanleveren, neem dan contact met ons op via prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://prijzen.openfoodfacts.org/over",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Welkom bij Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Productfoto",
   "photo_field_ingredients": "Foto van de ingrediëntenlijst",
   "photo_field_nutrition": "Voedingswaarde foto",
-  "photo_field_packaging": "Foto van verpakkingsinformatie",
+  "photo_field_packaging": "Recycling instructies foto",
   "photo_already_exists": "Deze foto bestaat al",
   "photo_missing": "Deze foto ontbreekt",
   "date": "Datum",

@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Licencijos",
   "@licenses": {},
   "looking_for": "Ieškoti",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Visi",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorijų paieška)",
@@ -535,9 +535,17 @@
   "product": "Produktas",
   "@product": {},
   "unknownBrand": "Nežinomas prekės ženklas",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Nežinomas kiekis",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nežinomas produkto pavadinimas",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Atnaujinti",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informacija apie pakuotę",
+  "packaging_information": "Perdirbimo instrukcijos",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Informacijos apie pakuotę nuotrauka",
+  "packaging_information_photo": "Perdirbimo instrukcijos nuotrauka",
   "@packaging_information_photo": {},
   "missing_product": "Radote naują produktą!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Priekinės pakuotės nuotrauka",
   "ingredients_photo_title": "Sudėties Nuotrauka",
   "nutritional_facts_photo_title": "Maistingumo duomenų nuotrauka",
-  "recycling_photo_title": "Perdirbimo Nuotrauka",
+  "recycling_photo_title": "Perdirbimo instrukcijos Nuotrauka",
   "take_photo_title": "Fotografuoti",
   "take_more_photo_title": "Nufotografuokite daugiau",
   "front_photo_uploaded": "Priekinė nuotrauka įkelta",
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Sužinokite daugiau apie atviras kainas",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3841,7 +3849,7 @@
     }
   },
   "nutriscore_new_formula_title": "„Nutri-Score“ (naujas skaičiavimas)",
-  "nutriscore_unknown": "Nežinomas maistingumo balas",
+  "nutriscore_unknown": "Unknown Nutri-Score",
   "nutriscore_unknown_new_formula": "Nežinomas „Nutri-Score“ (naujas skaičiavimas)",
   "nutriscore_not_applicable": "„Nutri-Score“ netaikomas",
   "nutriscore_not_applicable_new_formula": "„Nutri-Score“ netaikomas (naujas skaičiavimas)",
@@ -4141,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Pastaba apie taškų skaičiavimą",
   "guide_open_beauty_facts_scores_paragraph1": "Kitaip nei maisto produktų atveju, kosmetikos pasaulyje **nėra visuotinai pripažintos, vyriausybės remiamos vertinimo sistemos, tokios kaip „Nutri-Score“**. Ingredientų poveikis gali būti labai asmeniškas ir priklausyti nuo odos tipo, alergijų ir individualių poreikių.",
   "guide_open_beauty_facts_share_link": "https://world-lt.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Sveiki atvykę į atvirų kainų atidarymo programą!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Kas yra atviros kainos?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "„Open Prices“ yra projektas, skirtas **rinkti ir dalytis produktų kainomis visame pasaulyje**. Tai viešai prieinamas duomenų rinkinys, kurį galima naudoti tyrimams, analizei ir kt. „Open Prices“ kuria ir prižiūri „Open Food Facts“.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Kaip veikia atviros kainos?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Mes renkame atvirojo kodo kainų duomenų rinkinį**. Kainas gali pridėti vartotojai per šią žiniatinklio programėlę arba per oficialią mobiliąją programėlę „Open Food Facts“. Mažmenininkai arba trečiųjų šalių programėlės taip pat gali prisidėti naudodami mūsų API.",
   "guide_open_prices_how_arg1_title": "Surinkite kainų etikečių nuotraukas praėjimuose",
   "guide_open_prices_how_arg2_title": "Surinkite kvitų nuotraukas",
@@ -4165,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Palyginkite kainas šalia jūsų",
   "guide_open_prices_why_arg2_text": "Kai gausime daugiau kainų, galėsite rasti **pigiausias parduotuves aplink jus**.",
   "guide_open_prices_scrapping_title": "Ar svarstėte galimybę nuskaityti kainas iš mažmenininkų svetainių?",
-  "guide_open_prices_scrapping_paragraph1": "Dėl teisinių ir techninių priežasčių **nelaikome kainų nuskaitymo iš mažmenininkų svetainių tinkamu būdu prisidėti prie atvirų kainų**. Norime įsitikinti, kad mūsų renkamos kainos yra tikslios ir atnaujintos, o nuskaitytų kainų gavimas iš bendraautorių neleidžia mums to daryti.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "Kainų nuskaitymas yra svarstoma galimybė būsimoje „Open Prices“ versijoje, tačiau tai atliktų pati „Open Prices“, kad galėtume turėti kainos įrodymą pagal HTML puslapį.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Kainas galite skelbti naudodami mūsų API.\nJei norite prisidėti prie kainų nustatymo dideliu mastu, susisiekite su mumis adresu prices@openfoodfacts.org.",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Produkto nuotrauka",
   "photo_field_ingredients": "Sudėties nuotrauka",
   "photo_field_nutrition": "Mitybos nuotrauka",
-  "photo_field_packaging": "Informacijos apie pakuotę nuotrauka",
+  "photo_field_packaging": "Perdirbimo instrukcijos nuotrauka",
   "photo_already_exists": "Ši nuotrauka jau yra",
   "photo_missing": "Šios nuotraukos trūksta",
   "date": "Data",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Atraskite atvirus faktus apie maistą",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Atraskite atvirus grožio faktus",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Atraskite atvirus faktus apie naminių gyvūnėlių ėdalą",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Atraskite atvirus produktų faktus",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Atviros maisto faktų laboratorijos",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

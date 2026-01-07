@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "모두",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(카테고리 검색)",
@@ -535,9 +535,17 @@
   "product": "생성물",
   "@product": {},
   "unknownBrand": "알 수 없는 상표",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "알 수 없는 양",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "알 수 없는 상품명",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "새로고침",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "포장 정보",
+  "packaging_information": "재활용 지침",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "포장 정보 사진",
+  "packaging_information_photo": "재활용 지침 사진",
   "@packaging_information_photo": {},
   "missing_product": "새 상품을 찾았습니다!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "전면 포장 사진",
   "ingredients_photo_title": "재료 사진",
   "nutritional_facts_photo_title": "영양 성분 사진",
-  "recycling_photo_title": "재활용 사진",
+  "recycling_photo_title": "재활용 지침 사진",
   "take_photo_title": "사진을 촬영",
   "take_more_photo_title": "더 많은 사진을 찍어보세요",
   "front_photo_uploaded": "전면 사진 갱신됨",
@@ -1072,11 +1080,11 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "영양 성분을 추가하여 영양 점수 계산",
+  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "영양 성분을 추가하여 영양 점수 계산",
+  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -3826,11 +3834,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "뉴트리스코어 A",
-  "nutriscore_b": "뉴트리스코어 B",
-  "nutriscore_c": "뉴트리스코어 C",
-  "nutriscore_d": "뉴트리스코어 D",
-  "nutriscore_e": "뉴트리스코어 E",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (새로운 계산)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3841,7 +3849,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score(새로운 계산)",
-  "nutriscore_unknown": "알 수 없는 영양 점수",
+  "nutriscore_unknown": "Unknown Nutri-Score",
   "nutriscore_unknown_new_formula": "알 수 없는 Nutri-Score(새로운 계산)",
   "nutriscore_not_applicable": "Nutri-Score가 적용되지 않습니다",
   "nutriscore_not_applicable_new_formula": "Nutri-Score가 적용되지 않습니다. (새로운 계산)",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "제품 사진",
   "photo_field_ingredients": "재료 사진",
   "photo_field_nutrition": "영양 사진",
-  "photo_field_packaging": "포장 정보 사진",
+  "photo_field_packaging": "재활용 지침 사진",
   "photo_already_exists": "이 사진은 이미 존재합니다",
   "photo_missing": "이 사진이 없습니다",
   "date": "날짜",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "공개 식품 정보를 알아보세요",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "공개된 뷰티 정보를 확인하세요",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "공개된 반려동물 사료 정보를 확인하세요",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "오픈 제품 정보를 확인하세요",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5324,7 +5332,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Open Price 커뮤니티에서 추가한 최신 가격",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "오픈 푸드 팩츠 랩스",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

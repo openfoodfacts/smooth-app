@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Leseni",
   "@licenses": {},
   "looking_for": "Kutafuta",
   "@looking_for": {
@@ -185,7 +185,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Saidia kuboresha Ukweli wa Chakula Huria katika nchi yako",
+  "help_improve_country": "Help improve Open Food Facts in your country",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -395,7 +395,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Tafsiri ni moja wapo ya kazi kuu za mradi",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Changia ujuzi wako kwa Fungua Ukweli wa Chakula. Jiunge na bwawa la ujuzi!",
+  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
   "contribute_share_header": "Shiriki Ukweli wa Chakula cha Open na marafiki zako",
   "@contribute_share_header": {},
   "contribute_share_content": "Nilitaka kukujulisha kuhusu programu ambayo nimekuwa nikitumia, Ukweli wa Chakula cha Open, ambayo hukuruhusu kupata athari za kiafya na mazingira za chakula chako, kwa njia iliyobinafsishwa. Inafanya kazi kwa kuchanganua misimbopau kwenye kifurushi. Hatimaye ni bure, hauhitaji usajili, na unaweza hata kusaidia kuongeza idadi ya bidhaa decyphered. Hiki hapa ni kiungo cha kuipata kwa simu yako: https://openfoodfacts.app",
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(tafuta kategoria)",
@@ -535,9 +535,17 @@
   "product": "Product",
   "@product": {},
   "unknownBrand": "Chapa isiyojulikana",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Kiasi kisichojulikana",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Jina la bidhaa lisilojulikana",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Maelezo ya ufungaji",
+  "packaging_information": "Maagizo ya kuchakata tena",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Picha ya habari ya ufungaji",
+  "packaging_information_photo": "Maagizo ya kuchakata picha",
   "@packaging_information_photo": {},
   "missing_product": "Umepata bidhaa mpya!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Picha ya Ufungaji wa Mbele",
   "ingredients_photo_title": "Picha ya viungo",
   "nutritional_facts_photo_title": "Picha ya Ukweli wa Lishe",
-  "recycling_photo_title": "Usafishaji Picha",
+  "recycling_photo_title": "Maagizo ya kuchakata tena Picha",
   "take_photo_title": "Piga picha",
   "take_more_photo_title": "Piga picha zaidi",
   "front_photo_uploaded": "Picha ya mbele imepakiwa",
@@ -703,7 +711,7 @@
   "nutritional_facts_input_button_label": "Jaza ukweli wa lishe",
   "nutritional_facts_added": "Ukweli wa lishe umeongezwa",
   "categories_added": "Kategoria zimeongezwa",
-  "new_product_title_nutriscore": "Kuhesabu Nutri-Alama",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "Tusaidie kwa kujaza angalau kategoria na maadili ya lishe",
   "new_product_title_environmental_score": "Kuhesabu Alama ya Kijani",
   "new_product_subtitle_environmental_score": "Ipate kwa kujaza angalau kategoria",
@@ -1068,7 +1076,7 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Ongeza kategoria ili kukokotoa Nutri-Alama.",
+  "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
@@ -1076,7 +1084,7 @@
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Ongeza ukweli wa lishe na kategoria ili kukokotoa Alama ya Nutri.",
+  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -1280,7 +1288,7 @@
   "@permissions_page_body2": {
     "description": "second paragraph for the camera permission's page (onboarding)"
   },
-  "contact_form_body_android": "OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}",
+  "contact_form_body_android": "Mfumo wa Uendeshaji: Android (SDK Int: {sdkInt} / Toleo: {release})\nMfano: {model}\nBidhaa: {product}\nKifaa: {device}\nChapa:{brand}",
   "@contact_form_body_android": {
     "description": "Contact form content for Android devices",
     "placeholders": {
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Jua zaidi kuhusu Bei Huria",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3826,12 +3834,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Alama A",
-  "nutriscore_b": "Nutri-Alama B",
-  "nutriscore_c": "Nutri-Alama C",
-  "nutriscore_d": "Nutri-Alama D",
-  "nutriscore_e": "Nutri-Alama E",
-  "nutriscore_new_formula": "Nutri-Alama {letter} (Hesabu mpya)",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3840,11 +3848,11 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Nutri-Alama (Hesabu Mpya)",
-  "nutriscore_unknown": "Alama ya Nutri isiyojulikana",
-  "nutriscore_unknown_new_formula": "Nutri-Alama Isiyojulikana (Hesabu Mpya)",
-  "nutriscore_not_applicable": "Nutri-Alama haitumiki",
-  "nutriscore_not_applicable_new_formula": "Nutri-Alama haitumiki (Hesabu mpya)",
+  "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
+  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_not_applicable": "Nutri-Score is not applicable",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Alama ya Kijani A",
   "environmental_score_b_new": "Alama ya Kijani B",
@@ -4141,12 +4149,12 @@
   "guide_open_beauty_facts_scores_title": "Ujumbe juu ya kufunga bao",
   "guide_open_beauty_facts_scores_paragraph1": "Tofauti na bidhaa za vyakula, ulimwengu wa vipodozi **hauna mfumo wa alama unaotambulika ulimwenguni kote, unaoungwa mkono na serikali kama Nutri-Alama**. Madhara ya viungo yanaweza kuwa ya kibinafsi sana na yanategemea aina ya ngozi, mizio, na wasiwasi wa mtu binafsi.",
   "guide_open_beauty_facts_share_link": "https://world-sw.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Karibu kwa Fungua Bei!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Bei Zilizofunguliwa ni nini?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Fungua Bei ni mradi wa **kukusanya na kushiriki bei za bidhaa kote ulimwenguni**. Ni mkusanyiko wa data unaopatikana kwa umma ambao unaweza kutumika kwa utafiti, uchanganuzi na zaidi. Bei Huzi hutengenezwa na kudumishwa na Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Je, Bei za Open hufanya kazi vipi?",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Tunatafuta mkusanyiko wa data wa chanzo huria wa bei**. Bei zinaweza kuongezwa na watumiaji kupitia programu hii ya wavuti, au kupitia programu rasmi ya Open Food Facts ya simu ya mkononi. Wauzaji wa reja reja au programu za wahusika wengine wanaweza kuchangia pia kwa kutumia API yetu.",
   "guide_open_prices_how_arg1_title": "Kusanya picha za lebo za bei kwenye njia",
   "guide_open_prices_how_arg2_title": "Kusanya picha za risiti",
@@ -4165,8 +4173,8 @@
   "guide_open_prices_why_arg2_title": "Linganisha bei zilizo karibu nawe",
   "guide_open_prices_why_arg2_text": "Tunapopata bei zaidi, unaweza kuona **maduka nafuu yaliyo karibu nawe**.",
   "guide_open_prices_scrapping_title": "Je, ulizingatia kuondoa bei kutoka kwa tovuti za wauzaji reja reja?",
-  "guide_open_prices_scrapping_paragraph1": "Kwa sababu za kisheria na kiufundi, **hatuzingatii kuondoa bei kwenye tovuti za wauzaji reja reja kama njia halali ya kuchangia Bei Huria**. Tunataka kuhakikisha kuwa bei tunazokusanya ni sahihi na zimesasishwa, na kupokea bei zilizoondolewa kutoka kwa wachangiaji hakuturuhusu kufanya hivyo.",
-  "guide_open_prices_scrapping_paragraph2": "Kuondoa bei ni chaguo linalozingatiwa katika toleo la baadaye la Bei Huria, lakini itafanywa na Bei Huria yenyewe ili tuweze kuwa na uthibitisho wa bei kulingana na ukurasa wa HTML.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Unaweza kuchangia bei kwa kutumia API yetu.\nIwapo ungependa kuchangia bei kwa kiwango kikubwa, tafadhali wasiliana nasi kwa prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Picha ya bidhaa",
   "photo_field_ingredients": "Picha ya viungo",
   "photo_field_nutrition": "Picha ya lishe",
-  "photo_field_packaging": "Picha ya habari ya ufungaji",
+  "photo_field_packaging": "Maagizo ya kuchakata picha",
   "photo_already_exists": "Picha hii tayari ipo",
   "photo_missing": "Picha hii haipo",
   "date": "Tarehe",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Gundua Ukweli wa Chakula cha Wazi",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Gundua Ukweli Wazi wa Urembo",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Gundua Ukweli Wazi wa Chakula Kipenzi",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Gundua Ukweli wa Bidhaa Huria",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5324,7 +5332,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Bei za hivi punde zilizoongezwa na jumuiya ya Bei Huria",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5376,7 +5384,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Njia rahisi za kusaidia Fungua Ukweli wa Chakula",
+  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Fungua Maabara ya Ukweli wa Chakula",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

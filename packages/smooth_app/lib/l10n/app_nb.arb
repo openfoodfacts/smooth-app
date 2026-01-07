@@ -261,7 +261,7 @@
   "sign_up_page_confirm_password_hint": "Bekreft passord",
   "sign_up_page_confirm_password_error_empty": "Vennligst bekreft passordet ditt",
   "sign_up_page_confirm_password_error_invalid": "Passordene er ikke like",
-  "sign_up_page_agree_text": "Jeg godtar de åpne matfaktaene",
+  "sign_up_page_agree_text": "Jeg godtar Open Food Facts",
   "@sign_up_page_agree_text": {
     "description": "I agree to the Open Food Facts is followed by sign_up_page_terms_text"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Alle",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorisøk)",
@@ -535,9 +535,17 @@
   "product": "Produkt",
   "@product": {},
   "unknownBrand": "Ukjent merke",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Ukjent antall",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Ukjent produktnavn",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Oppdater",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Emballasjeinformasjon",
+  "packaging_information": "Instrukser for resirkulering",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Emballasjeinformasjonsbilde",
+  "packaging_information_photo": "Instruksjoner for resirkulering, bilde",
   "@packaging_information_photo": {},
   "missing_product": "Du har funnet et nytt produkt!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Bilde av framsiden på emballasjen",
   "ingredients_photo_title": "Bilde av ingredienser",
   "nutritional_facts_photo_title": "Bilde av ernæringsfakta",
-  "recycling_photo_title": "Bilde av resirkuleringsinformasjon",
+  "recycling_photo_title": "Instruksjoner for resirkulering foto",
   "take_photo_title": "Ta et bilde",
   "take_more_photo_title": "Ta flere bilder",
   "front_photo_uploaded": "Framsidebilde lastet opp",
@@ -703,7 +711,7 @@
   "nutritional_facts_input_button_label": "Fyll inn næringsinnhold",
   "nutritional_facts_added": "Ernæringsfakta lagt til",
   "categories_added": "Kategorier lagt til",
-  "new_product_title_nutriscore": "Beregn ernæringspoengsummen",
+  "new_product_title_nutriscore": "Compute the Nutri-Score",
   "new_product_subtitle_nutriscore": "Hjelp oss ved å fylle ut minst én kategori og næringsverdier",
   "new_product_title_environmental_score": "Beregn den grønne poengsummen",
   "new_product_subtitle_environmental_score": "Få det ved å fylle ut minst én kategori",
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Lær mer om åpne priser",
+  "prices_menu_know_more": "Lær mer om Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2819,7 +2827,7 @@
   "@edit_product_action_confirm": {
     "description": "Product edition - FAB actions - confirm"
   },
-  "signup_page_terms_of_use_line1": "Jeg godtar de åpne matfaktaene ",
+  "signup_page_terms_of_use_line1": "Jeg godtar Open Food Facts ",
   "@signup_page_terms_of_use_line1": {
     "description": "User consent for terms of use (line 1)"
   },
@@ -3826,11 +3834,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Næringsscore A",
-  "nutriscore_b": "Næringsscore B",
-  "nutriscore_c": "Næringsscore C",
-  "nutriscore_d": "Næringsscore D",
-  "nutriscore_e": "Næringsscore E",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Ny beregning)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3841,8 +3849,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ny beregning)",
-  "nutriscore_unknown": "Ukjent ernæringspoengsum",
-  "nutriscore_unknown_new_formula": "Ukjent ernæringspoengsum (ny beregning)",
+  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score er ikke aktuelt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke aktuelt (ny beregning)",
   "environmental_score_generic_new": "Green-Score",
@@ -4052,7 +4060,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Hva er åpne matfakta?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Hva er Open Food Facts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts er en **samarbeidsbasert**, **gratis** og **åpen** database med matvarer fra hele verden.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4061,7 +4069,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Funksjoner ved åpne matfakta",
+  "guide_open_food_facts_features_title": "Funksjoner ved Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "Få varsler om uønskede ingredienser",
   "guide_open_food_facts_tips_title": "Tips for å ta flotte bilder",
   "guide_open_food_facts_tips_arg1_title": "Ikke gjør",
@@ -4141,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "En merknad om poengberegning",
   "guide_open_beauty_facts_scores_paragraph1": "I motsetning til matvarer har ikke kosmetikkverdenen et universelt anerkjent, myndighetsstøttet poengsystem som Nutri-Score. Ingrediensenes effekt kan være svært personlig og avhenge av hudtype, allergier og individuelle bekymringer.",
   "guide_open_beauty_facts_share_link": "https://world-nb.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Velkommen til Åpne priser!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Hva er åpningspriser?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices er et prosjekt for å **samle inn og dele priser på produkter over hele verden**. Det er et offentlig tilgjengelig datasett som kan brukes til forskning, analyse og mer. Open Prices er utviklet og vedlikeholdt av Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Hvordan fungerer åpne priser?",
+  "guide_open_prices_how_title": "Hvordan fungerer Open Prices?",
   "guide_open_prices_how_paragraph1": "**Vi bruker crowdsourcing til å finne et åpen kildekode-datasett med priser.** Priser kan legges til av brukere via denne nettappen eller via den offisielle Open Food Facts-mobilappen. Forhandlere eller tredjepartsapper kan også bidra ved å bruke API-et vårt.",
   "guide_open_prices_how_arg1_title": "Samle bilder av prislapper i gangene",
   "guide_open_prices_how_arg2_title": "Samle bilder av kvitteringer",
@@ -4165,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Sammenlign priser i nærheten av deg",
   "guide_open_prices_why_arg2_text": "Etter hvert som vi får flere priser, kan du finne **de billigste butikkene i nærheten**.",
   "guide_open_prices_scrapping_title": "Har du vurdert å hente priser fra forhandlernes nettsider?",
-  "guide_open_prices_scrapping_paragraph1": "Av juridiske og tekniske årsaker **anser vi ikke det å hente priser fra forhandlernes nettsteder som en gyldig måte å bidra til åpne priser**. Vi ønsker å sørge for at prisene vi samler inn er nøyaktige og oppdaterte, og det å motta hentede priser fra bidragsytere tillater oss ikke å gjøre det.",
+  "guide_open_prices_scrapping_paragraph1": "Av juridiske og tekniske årsaker **anser vi ikke det å hente priser fra forhandlernes nettsteder som en gyldig måte å bidra til Open Prices**. Vi ønsker å sørge for at prisene vi samler inn er nøyaktige og oppdaterte, og det å motta hentede priser fra bidragsytere tillater oss ikke å gjøre det.",
   "guide_open_prices_scrapping_paragraph2": "Prisskraping er et vurdert alternativ i en fremtidig versjon av Open Prices, men det vil bli gjort av Open Prices selv, slik at vi kan ha et bevis på prisen basert på HTML-siden.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Du kan bidra med priser ved å bruke API-et vårt.\nHvis du ønsker å bidra med priser i stor skala, kan du ta kontakt med oss på prices@openfoodfacts.org.",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Produktbilde",
   "photo_field_ingredients": "Ingredienser bilde",
   "photo_field_nutrition": "Næringsinnholdsbilde",
-  "photo_field_packaging": "Emballasjeinformasjonsbilde",
+  "photo_field_packaging": "Instruksjoner for resirkulering, bilde",
   "photo_already_exists": "Dette bildet finnes allerede",
   "photo_missing": "Dette bildet mangler",
   "date": "Dato",
@@ -5108,19 +5116,19 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Oppdag Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Oppdag Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Oppdag Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Oppdag fakta om åpne produkter",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },

@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Ακρίβεια, πληρότητα και περιεκτικότητα των πληροφοριών και δεδομένων",
+  "licenses": "Άδειες",
   "@licenses": {},
   "looking_for": "Ψάχνουμε για",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Όλα",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(αναζήτηση κατηγορίας)",
@@ -535,9 +535,17 @@
   "product": "Προϊόν",
   "@product": {},
   "unknownBrand": "Άγνωστη μάρκα",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Άγνωστη ποσότητα",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Άγνωστο όνομα προϊόντος",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Ανανέωση",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Πληροφορίες συσκευασίας",
+  "packaging_information": "Οδηγίες ανακύκλωσης",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Φωτογραφία πληροφοριών συσκευασίας",
+  "packaging_information_photo": "Φωτογραφία οδηγιών ανακύκλωσης",
   "@packaging_information_photo": {},
   "missing_product": "Βρήκατε ένα νέο προϊόν!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Φωτογραφία Μπροστινής Συσκευασίας",
   "ingredients_photo_title": "Φωτογραφία Συστατικών",
   "nutritional_facts_photo_title": "Φωτογραφία Διατροφικών Στοιχείων",
-  "recycling_photo_title": "Φωτογραφία Ανακύκλωσης",
+  "recycling_photo_title": "Οδηγίες ανακύκλωσης Φωτογραφία",
   "take_photo_title": "Τραβήξτε μια φωτογραφία",
   "take_more_photo_title": "Τραβήξτε περισσότερες φωτογραφίες",
   "front_photo_uploaded": "Η μπροστινή φωτογραφία μεταφορτώθηκε",
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Μάθετε περισσότερα για τις τιμές ανοίγματος",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4141,11 +4149,11 @@
   "guide_open_beauty_facts_scores_title": "Μια σημείωση για τη βαθμολογία",
   "guide_open_beauty_facts_scores_paragraph1": "Σε αντίθεση με τα τρόφιμα, ο κόσμος των καλλυντικών **δεν διαθέτει ένα παγκοσμίως αναγνωρισμένο, κυβερνητικά υποστηριζόμενο σύστημα βαθμολόγησης όπως το Nutri-Score**. Οι επιδράσεις των συστατικών μπορεί να είναι ιδιαίτερα προσωπικές και να εξαρτώνται από τον τύπο δέρματος, τις αλλεργίες και τις ατομικές ανησυχίες.",
   "guide_open_beauty_facts_share_link": "https://world-el.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Καλώς ορίσατε στις Ανοιχτές Τιμές!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Τι είναι οι τιμές ανοίγματος;",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Το Open Prices είναι ένα έργο για τη **συλλογή και κοινοποίηση τιμών προϊόντων σε όλο τον κόσμο**. Είναι ένα δημόσια διαθέσιμο σύνολο δεδομένων που μπορεί να χρησιμοποιηθεί για έρευνα, ανάλυση και πολλά άλλα. Το Open Prices αναπτύσσεται και συντηρείται από το Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4154,7 +4162,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Πώς λειτουργούν οι Ανοιχτές Τιμές;",
+  "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**Αναζητούμε ένα σύνολο δεδομένων τιμών ανοιχτού κώδικα από το crowdsourcing**. Οι χρήστες μπορούν να προσθέσουν τιμές μέσω αυτής της διαδικτυακής εφαρμογής ή μέσω της επίσημης εφαρμογής Open Food Facts για κινητά. Οι λιανοπωλητές ή οι εφαρμογές τρίτων μπορούν επίσης να συνεισφέρουν χρησιμοποιώντας το API μας.",
   "guide_open_prices_how_arg1_title": "Συλλέξτε φωτογραφίες από τις ετικέτες τιμών στους διαδρόμους",
   "guide_open_prices_how_arg2_title": "Συλλέξτε φωτογραφίες αποδείξεων",
@@ -4165,7 +4173,7 @@
   "guide_open_prices_why_arg2_title": "Συγκρίνετε τιμές κοντά σας",
   "guide_open_prices_why_arg2_text": "Καθώς θα έχουμε περισσότερες τιμές, μπορείτε να εντοπίσετε **τα φθηνότερα καταστήματα γύρω σας**.",
   "guide_open_prices_scrapping_title": "Σκεφτήκατε να αντλήσετε τιμές από τους ιστότοπους των λιανοπωλητών;",
-  "guide_open_prices_scrapping_paragraph1": "Για νομικούς και τεχνικούς λόγους, **δεν θεωρούμε την συλλογή τιμών από τους ιστότοπους των λιανοπωλητών ως έγκυρο τρόπο συμβολής στις Ανοιχτές Τιμές**. Θέλουμε να διασφαλίσουμε ότι οι τιμές που συλλέγουμε είναι ακριβείς και ενημερωμένες και η λήψη συλλεγμένων τιμών από τους συνεισφέροντες δεν μας επιτρέπει να το κάνουμε αυτό.",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "Η συλλογή τιμών είναι μια επιλογή που εξετάζεται σε μια μελλοντική έκδοση του Open Prices, αλλά θα γίνεται από το ίδιο το Open Prices, ώστε να μπορούμε να έχουμε μια απόδειξη της τιμής με βάση τη σελίδα HTML.",
   "guide_open_prices_retailers_title": "Είμαι λιανοπωλητής και θέλω να συνεισφέρω στις τιμές. Πώς μπορώ να το κάνω αυτό;",
   "guide_open_prices_retailers_paragraph1": "Μπορείτε να συνεισφέρετε τιμές χρησιμοποιώντας το API μας.\nΕάν θέλετε να συνεισφέρετε τιμές σε κλίμακα, επικοινωνήστε μαζί μας στη διεύθυνση prices@openfoodfacts.org.",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "Φωτογραφία προϊόντος",
   "photo_field_ingredients": "Φωτογραφία συστατικών",
   "photo_field_nutrition": "Φωτογραφία διατροφής",
-  "photo_field_packaging": "Φωτογραφία πληροφοριών συσκευασίας",
+  "photo_field_packaging": "Φωτογραφία οδηγιών ανακύκλωσης",
   "photo_already_exists": "Αυτή η φωτογραφία υπάρχει ήδη",
   "photo_missing": "Αυτή η φωτογραφία λείπει",
   "date": "Ημερομηνία",
@@ -5104,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Ανακαλύψτε Ανοιχτά Γεγονότα για τα Τρόφιμα",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Ανακαλύψτε Ανοιχτά Γεγονότα Ομορφιάς",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Ανακαλύψτε πληροφορίες για τις τροφές για κατοικίδια στο διαδίκτυο",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Ανακαλύψτε πληροφορίες για τα ανοιχτά προϊόντα",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Ανοιχτά Εργαστήρια Γεγονότων για τα Τρόφιμα",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "全部",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(类别搜索)",
@@ -535,9 +535,17 @@
   "product": "产品",
   "@product": {},
   "unknownBrand": "未知品牌",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "未知数量",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "未知产品名称",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "刷新",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "包装信息",
+  "packaging_information": "回收说明",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "包装信息照片",
+  "packaging_information_photo": "回收说明照片",
   "@packaging_information_photo": {},
   "missing_product": "你发现了一件新产品！",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "正面包装照片",
   "ingredients_photo_title": "配料表照片",
   "nutritional_facts_photo_title": "营养成分表照片",
-  "recycling_photo_title": "“循环利用标记”的照片",
+  "recycling_photo_title": "回收说明 图片",
   "take_photo_title": "请拍照",
   "take_more_photo_title": "拍摄更多照片",
   "front_photo_uploaded": "已上传正面照片",
@@ -4461,7 +4469,7 @@
   "photo_field_front": "产品照片",
   "photo_field_ingredients": "原料的照片",
   "photo_field_nutrition": "营养成分的照片",
-  "photo_field_packaging": "包装信息照片",
+  "photo_field_packaging": "回收说明照片",
   "photo_already_exists": "这张照片已经存在",
   "photo_missing": "这张照片不见了",
   "date": "日期",
@@ -5120,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "了解开放产品信息",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts实验室",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
