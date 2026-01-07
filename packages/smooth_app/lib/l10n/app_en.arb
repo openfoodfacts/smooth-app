@@ -4584,13 +4584,13 @@
     }
   },
   "product_page_for_me_attributes_order_importance": "Importance",
-    "@product_page_for_me_attributes_order_importance": {
+  "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
-    },
-    "product_page_for_me_attributes_order_evaluation": "Matches",
-    "@product_page_for_me_attributes_order_evaluation": {
+  },
+  "product_page_for_me_attributes_order_evaluation": "Matches",
+  "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
-    },
+  },
   "product_page_for_me_attributes_group_good_matches": "Good matches",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
@@ -5698,8 +5698,7 @@
   "prices_dashboard_price_labels": "Price labels",
   "@prices_dashboard_price_labels": {
     "description": "Title for the price labels tile in the prices dashboard"
-  }
-}
+  },
   "homepage_scanner_back_to_home_button": "Back to home",
   "@homepage_scanner_back_to_home_button": {
     "description": "Button to go back to home from the scanner page"
