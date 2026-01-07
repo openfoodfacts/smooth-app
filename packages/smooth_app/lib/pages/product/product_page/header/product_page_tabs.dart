@@ -121,6 +121,7 @@ class ProductPageTabsGenerator {
         panelElement: root,
         product: product,
         onboardingMode: false,
+        simplified: true,
       );
 
       if (children.isEmpty) {

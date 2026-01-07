@@ -46,7 +46,6 @@ PODS:
     - Flutter
   - Flutter (1.0.0)
   - flutter_custom_tabs_ios (2.4.1):
-  - flutter_custom_tabs_ios (2.4.1):
     - Flutter
   - flutter_email_sender (0.0.1):
     - Flutter
@@ -144,9 +143,9 @@ PODS:
     - MTBBarcodeScanner
   - rive_native (0.0.1):
     - Flutter
-  - SDWebImage (5.21.5):
-    - SDWebImage/Core (= 5.21.5)
-  - SDWebImage/Core (5.21.5)
+  - SDWebImage (5.21.4):
+    - SDWebImage/Core (= 5.21.4)
+  - SDWebImage/Core (5.21.4)
   - SDWebImageWebPCoder (0.15.0):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.17)
@@ -307,7 +306,7 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: d1a2cbf009c453f4d6ded37c105e2f67a32206d8
   GoogleUtilities: 00c88b9a86066ef77f0da2fab05f65d7768ed8e1
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
-  image_picker_ios: 7fe1ff8e34c1790d6fff70a32484959f563a928a
+  image_picker_ios: e0ece4aa2a75771a7de3fa735d26d90817041326
   in_app_review: 7dd1ea365263f834b8464673f9df72c80c17c937
   integration_test: 4a889634ef21a45d28d50d622cf412dc6d9f586e
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
@@ -325,7 +324,7 @@ SPEC CHECKSUMS:
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   qr_code_scanner: d77f94ecc9abf96d9b9b8fc04ef13f611e5a147a
   rive_native: fcea2a63d25e1a6417716ac1380e9667cf52ad74
-  SDWebImage: e9c98383c7572d713c1a0d7dd2783b10599b9838
+  SDWebImage: d0184764be51240d49c761c37f53dd017e1ccaaf
   SDWebImageWebPCoder: 0e06e365080397465cc73a7a9b472d8a3bd0f377
   Sentry: b53951377b78e21a734f5dc8318e333dbfc682d7
   sentry_flutter: 580133c878f86698e23bb5dd7217a3387c4b79b5
