@@ -619,7 +619,6 @@ class Chevron extends AppIcon {
 }
 
 class CircledArrow extends AppIcon {
-
   const CircledArrow._base({
     required this.turns,
     CircledArrowType? type,
