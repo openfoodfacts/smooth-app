@@ -4,7 +4,6 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class SimpleInputListItem extends StatefulWidget {

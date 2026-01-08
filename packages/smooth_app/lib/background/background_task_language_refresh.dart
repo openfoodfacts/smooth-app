@@ -138,6 +138,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
             language: language,
             country: ProductQuery.getCountry(),
             version: ProductQuery.productQueryVersion,
+            activateKnowledgePanelsSimplified: true,
           ),
           uriHelper: _uriProductHelper,
           type: SearchProductsType.background,

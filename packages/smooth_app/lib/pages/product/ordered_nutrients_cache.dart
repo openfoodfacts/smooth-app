@@ -10,9 +10,11 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Helper class about getting and caching the back-end ordered nutrients.
 class OrderedNutrientsCache {
-  OrderedNutrientsCache._();
+  OrderedNutrientsCache._(this._productType);
 
   OrderedNutrients? _orderedNutrients;
+
+  final ProductType? _productType;
 
   OrderedNutrients get orderedNutrients => _orderedNutrients!;
 
@@ -23,8 +25,9 @@ class OrderedNutrientsCache {
   /// Returns an app-local/downloaded cache, or null if it failed.
   static Future<OrderedNutrientsCache?> getCache(
     final BuildContext context,
+    final ProductType? productType,
   ) async {
-    final OrderedNutrientsCache cache = OrderedNutrientsCache._();
+    final OrderedNutrientsCache cache = OrderedNutrientsCache._(productType);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     // quickest
     cache._orderedNutrients = await cache._getStaticVersion();
@@ -90,8 +93,9 @@ class OrderedNutrientsCache {
     return null;
   }
 
-  UriProductHelper get _uriProductHelper =>
-      ProductQuery.getUriProductHelper(productType: ProductType.food);
+  UriProductHelper get _uriProductHelper => ProductQuery.getUriProductHelper(
+    productType: _productType ?? ProductType.food,
+  );
 
   /// Downloads the ordered nutrients and caches them in the database.
   Future<OrderedNutrients> _download(final LocalDatabase localDatabase) async {

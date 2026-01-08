@@ -84,7 +84,7 @@
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "Laba spēle",
+  "match_good": "Laba atbilstība",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
@@ -108,7 +108,7 @@
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "Laba spēle",
+  "match_short_good": "Laba atbilstība",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorijas meklēšana)",
@@ -535,9 +535,17 @@
   "product": "Produkts",
   "@product": {},
   "unknownBrand": "Nezināms zīmols",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Nezināms daudzums",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nezināms produkta nosaukums",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informācija par iepakojumu",
+  "packaging_information": "Pārstrādes instrukcijas",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Iepakojuma informācijas fotoattēls",
+  "packaging_information_photo": "Pārstrādes instrukciju fotoattēls",
   "@packaging_information_photo": {},
   "missing_product": "Jūs atradāt jaunu produktu!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Priekšējā iepakojuma fotoattēls",
   "ingredients_photo_title": "Sastāvdaļu foto",
   "nutritional_facts_photo_title": "Uzturvērtības fakti Foto",
-  "recycling_photo_title": "Pārstrādes foto",
+  "recycling_photo_title": "Pārstrādes instrukcijas Fotoattēls",
   "take_photo_title": "Fotografēt",
   "take_more_photo_title": "Uzņemt papildus fotogrāfijas",
   "front_photo_uploaded": "Augšupielādēts priekšējais fotoattēls",
@@ -3264,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Servera darbību veikšanas sākšana lokāli saglabātajiem folksonomy atjauninājumiem",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Sākam populārāko produktu lejupielādi",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3857,7 +3869,7 @@
   "nova_group_unknown": "Nezināma NOVA grupa",
   "nutrition_facts": "Uzturvielu līmeņi",
   "faq_title_partners": "NVO partneri un patroni",
-  "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
+  "faq_title_vision": "Atvērto pārtikas faktu vīzija, misija, vērtības un programmas",
   "faq_title_install_beauty": "Instalējiet Open Beauty Facts, lai izveidotu kosmētikas datubāzi",
   "faq_title_install_pet": "Instalējiet Open Pet Food Facts, lai izveidotu mājdzīvnieku barības datubāzi",
   "faq_title_install_product": "Instalējiet Open Products Facts, lai izveidotu produktu datubāzi objektu kalpošanas laika pagarināšanai.",
@@ -4048,7 +4060,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Kas ir Atklātie pārtikas fakti?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "“Open Food Facts” ir **sadarbības**, **bezmaksas** un **atvērta** pārtikas produktu datubāze no visas pasaules.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4057,7 +4069,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
+  "guide_open_food_facts_features_title": "Atvērto pārtikas faktu iezīmes",
   "guide_open_food_facts_features_arg1_title": "Saņemiet brīdinājumus par nevēlamām sastāvdaļām",
   "guide_open_food_facts_tips_title": "Padomi lielisku fotoattēlu uzņemšanai",
   "guide_open_food_facts_tips_arg1_title": "Ko nedarīt",
@@ -4079,7 +4091,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Kas ir atklātie mājdzīvnieku barības fakti?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "“Open Pet Food Facts” paplašina mūsu misiju, iekļaujot mūsu pūkainos draugus! Tā ir **mājdzīvnieku barības produktu datubāze kaķiem, suņiem un citiem mājdzīvniekiem**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4088,7 +4100,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "Atvērtā mājdzīvnieku barības faktu sadaļas iezīmes",
   "guide_open_pet_food_facts_features_arg1_title": "Saņemiet brīdinājumus par nevēlamām sastāvdaļām",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Vai jūsu mājdzīvniekam ir alerģija pret kādu no sastāvdaļām? Lietotnē varat iestatīt to kosmētikas sastāvdaļu sarakstu, no kurām jāizvairās!",
   "guide_open_pet_food_facts_tips_title": "Padomi lielisku fotoattēlu uzņemšanai",
@@ -4109,7 +4121,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Kas ir Atklātie skaistumkopšanas fakti?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "“Open Beauty Facts” ir **kosmētikas līdzekļu** sadarbības datubāze.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4118,7 +4130,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_title": "Atvērto skaistumkopšanas faktu iezīmes",
   "guide_open_beauty_facts_features_arg1_title": "Saņemiet brīdinājumus par nevēlamām sastāvdaļām",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Vai jums ir alerģija pret kādām sastāvdaļām? Vai vēlaties izvairīties no komedogēnām vielām? Vai vēlaties izvairīties no pretrunīgi vērtētām sastāvdaļām? Lietotnē varat iestatīt sarakstu ar kosmētikas sastāvdaļām, no kurām jāizvairās!",
   "guide_open_beauty_facts_tips_title": "Padomi lielisku fotoattēlu uzņemšanai",
@@ -4170,7 +4182,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Kas ir atklātie produktu fakti?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "“Open Products Facts” ir milzīga, atvērta datubāze **jebkuram produktam ar svītrkodu, kas nav pārtika, kosmētika vai mājdzīvnieku barība**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4191,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Atvērto produktu faktu iezīmes",
   "guide_open_products_facts_features_text": "“Open Products Facts” mērķis ir sniegt patērētājiem iespēju **pagarināt priekšmetu kalpošanas laiku**, piedāvājot aprites ekonomikas risinājumus priekšmetu uzturēšanai, **remontam**, **pārstrādei** vai jaunu īpašnieku piešķiršanai.",
   "guide_open_products_facts_features_arg1_title": "Dažu produktu oglekļa pēdas nospiedums",
   "guide_open_products_facts_features_arg1_text": "Francijas Vides pārvaldes ADEME **ietekmes uz CO2** dati sniedz daudzu kategoriju **oglekļa ietekmi**, tāpēc pārliecinieties, ka produkti ir precīzi kategorizēti.",
@@ -4457,7 +4469,7 @@
   "photo_field_front": "Produkta fotoattēls",
   "photo_field_ingredients": "Sastāvdaļu foto",
   "photo_field_nutrition": "Uztura foto",
-  "photo_field_packaging": "Iepakojuma informācijas fotoattēls",
+  "photo_field_packaging": "Pārstrādes instrukciju fotoattēls",
   "photo_already_exists": "Šī fotogrāfija jau pastāv",
   "photo_missing": "Šī fotoattēla trūkst",
   "date": "Datums",
@@ -4991,7 +5003,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
+  "preferences_on_off_website_subtitle": "Atvērto pārtikas faktu tīmekļa vietnē",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5100,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Atklājiet atklātos faktus par pārtiku",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Atklājiet atklātus skaistumkopšanas faktus",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Atklājiet faktus par mājdzīvnieku barību",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5116,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Atklājiet atklātos produktu faktus",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5148,7 +5160,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Atvērto pārtikas faktu emuārs",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5572,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Atvērtās pārtikas faktu laboratorijas",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5580,7 +5592,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Atvērtie pārtikas fakti jūsu valodā",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

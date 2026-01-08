@@ -186,8 +186,7 @@ import 'app_localizations_zu.dart';
 /// be consistent with the languages listed in the AppLocalizations.supportedLocales
 /// property.
 abstract class AppLocalizations {
-  AppLocalizations(String locale)
-    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  AppLocalizations(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -195,8 +194,7 @@ abstract class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
-  static const LocalizationsDelegate<AppLocalizations> delegate =
-      _AppLocalizationsDelegate();
+  static const LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   /// A list of this localizations delegate along with the default localizations
   /// delegates.
@@ -208,13 +206,12 @@ abstract class AppLocalizations {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
-      <LocalizationsDelegate<dynamic>>[
-        delegate,
-        GlobalMaterialLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
+    delegate,
+    GlobalMaterialLocalizations.delegate,
+    GlobalCupertinoLocalizations.delegate,
+    GlobalWidgetsLocalizations.delegate,
+  ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
@@ -345,7 +342,7 @@ abstract class AppLocalizations {
     Locale('yo'),
     Locale('zh'),
     Locale('zh', 'CN'),
-    Locale('zu'),
+    Locale('zu')
   ];
 
   /// No description provided for @app_name.
@@ -353,6 +350,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Open Food Facts'**
   String get app_name;
+
+  /// No description provided for @open_prices.
+  ///
+  /// In en, this message translates to:
+  /// **'Open Prices'**
+  String get open_prices;
 
   /// Separator just before a colon (':'). Probably only populated in French and empty in other languages.
   ///
@@ -615,7 +618,7 @@ abstract class AppLocalizations {
   /// No description provided for @licenses.
   ///
   /// In en, this message translates to:
-  /// **'Licences'**
+  /// **'Licenses'**
   String get licenses;
 
   /// Looking for: BARCODE
@@ -885,7 +888,7 @@ abstract class AppLocalizations {
   /// No description provided for @sign_up_page_username_description.
   ///
   /// In en, this message translates to:
-  /// **'Username cannot contains spaces, caps or special characters.'**
+  /// **'Username cannot contain spaces, caps or special characters.'**
   String get sign_up_page_username_description;
 
   /// No description provided for @sign_up_page_username_length_invalid.
@@ -1239,7 +1242,7 @@ abstract class AppLocalizations {
   /// Content that will be shared, don't forget to include the URL
   ///
   /// In en, this message translates to:
-  /// **'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products decyphered. Here\'s the link to get it for your phone: https://openfoodfacts.app'**
+  /// **'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products deciphered. Here\'s the link to get it for your phone: https://openfoodfacts.app'**
   String get contribute_share_content;
 
   /// Label for option to contribute prices using GDPR export from loyalty cards
@@ -1446,7 +1449,7 @@ abstract class AppLocalizations {
   /// **'Filter by category'**
   String get category;
 
-  /// No description provided for @category_all.
+  /// Top meta-entry on a category filter
   ///
   /// In en, this message translates to:
   /// **'All'**
@@ -1524,13 +1527,19 @@ abstract class AppLocalizations {
   /// **'Product'**
   String get product;
 
-  /// No description provided for @unknownBrand.
+  /// Message when the brand is not available
   ///
   /// In en, this message translates to:
   /// **'Unknown brand'**
   String get unknownBrand;
 
-  /// No description provided for @unknownProductName.
+  /// Message when the quantity is not available
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown quantity'**
+  String get unknownQuantity;
+
+  /// Message when the product name is not available
   ///
   /// In en, this message translates to:
   /// **'Unknown product name'**
@@ -1653,13 +1662,13 @@ abstract class AppLocalizations {
   /// Button label: For adding a picture of the packaging of a product
   ///
   /// In en, this message translates to:
-  /// **'Packaging information'**
+  /// **'Recycling instructions'**
   String get packaging_information;
 
   /// No description provided for @packaging_information_photo.
   ///
   /// In en, this message translates to:
-  /// **'Packaging information photo'**
+  /// **'Recycling instructions photo'**
   String get packaging_information_photo;
 
   /// No description provided for @missing_product.
@@ -1804,12 +1813,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'The minimum size in pixels for picture upload is {expectedMinWidth}x{expectedMinHeight}. The current picture is {actualWidth}x{actualHeight}.'**
-  String crop_page_too_small_image_message(
-    int expectedMinWidth,
-    int expectedMinHeight,
-    int actualWidth,
-    int actualHeight,
-  );
+  String crop_page_too_small_image_message(int expectedMinWidth, int expectedMinHeight, int actualWidth, int actualHeight);
 
   /// Action being performed on the crop page
   ///
@@ -1838,7 +1842,7 @@ abstract class AppLocalizations {
   /// No description provided for @recycling_photo_title.
   ///
   /// In en, this message translates to:
-  /// **'Recycling Photo'**
+  /// **'Recycling instructions Photo'**
   String get recycling_photo_title;
 
   /// No description provided for @take_photo_title.
@@ -2811,10 +2815,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Do you want to change the currency from {previousCurrency} to {possibleCurrency}?'**
-  String currency_auto_change_message(
-    String previousCurrency,
-    String possibleCurrency,
-  );
+  String currency_auto_change_message(String previousCurrency, String possibleCurrency);
 
   /// The label shown above a selector where the user can select their country (in the onboarding)
   ///
@@ -3114,35 +3115,19 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'OS: Android (SDK Int: {sdkInt} / Release: {release})\nModel: {model}\nProduct: {product}\nDevice: {device}\nBrand:{brand}'**
-  String contact_form_body_android(
-    int? sdkInt,
-    String? release,
-    String? model,
-    String? product,
-    String? device,
-    String? brand,
-  );
+  String contact_form_body_android(int? sdkInt, String? release, String? model, String? product, String? device, String? brand);
 
   /// Contact form content for iOS devices
   ///
   /// In en, this message translates to:
   /// **'OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}'**
-  String contact_form_body_ios(
-    String? version,
-    String? model,
-    String? localizedModel,
-  );
+  String contact_form_body_ios(String? version, String? model, String? localizedModel);
 
   /// Contact form content
   ///
   /// In en, this message translates to:
   /// **'{osContent}\nApp version:{appVersion}\nApp build number:{appBuildNumber}\nApp package name:{appPackageName}'**
-  String contact_form_body(
-    String osContent,
-    String appVersion,
-    String appBuildNumber,
-    String appPackageName,
-  );
+  String contact_form_body(String osContent, String appVersion, String appBuildNumber, String appPackageName);
 
   /// No description provided for @authorize_button_label.
   ///
@@ -4626,6 +4611,12 @@ abstract class AppLocalizations {
   /// **'Other'**
   String get product_type_label_product;
 
+  /// No description provided for @product_type_label_unknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown'**
+  String get product_type_label_unknown;
+
   /// No description provided for @product_type_selection_title.
   ///
   /// In en, this message translates to:
@@ -4960,12 +4951,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Price: {price} / Store: \"{location}\" / Published on {date} by \"{user}\"'**
-  String prices_entry_accessibility_label(
-    String price,
-    String location,
-    String date,
-    String user,
-  );
+  String prices_entry_accessibility_label(String price, String location, String date, String user);
 
   /// Button to open the proofs of a user
   ///
@@ -5253,10 +5239,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Your current currency is **{currency}**. Would you like to change it to **{newCurrency}**?'**
-  String prices_currency_change_proposal_message(
-    String currency,
-    String newCurrency,
-  );
+  String prices_currency_change_proposal_message(String currency, String newCurrency);
 
   /// Button to approve the currency change
   ///
@@ -5370,11 +5353,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Download {count} more products\nAlready downloaded {downloaded} out of {totalSize}.'**
-  String product_search_button_download_more(
-    int count,
-    int downloaded,
-    int totalSize,
-  );
+  String product_search_button_download_more(int count, int downloaded, int totalSize);
 
   /// This message will be displayed when a search is in progress.
   ///
@@ -5674,9 +5653,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Do you want the product\'s default language to be set to ‘{language}’?'**
-  String add_basic_details_product_name_change_main_language_text(
-    String language,
-  );
+  String add_basic_details_product_name_change_main_language_text(String language);
 
   /// Title for the section with good examples
   ///
@@ -8975,7 +8952,7 @@ abstract class AppLocalizations {
   /// No description provided for @photo_field_packaging.
   ///
   /// In en, this message translates to:
-  /// **'Packaging information photo'**
+  /// **'Recycling instructions photo'**
   String get photo_field_packaging;
 
   /// No description provided for @photo_already_exists.
@@ -9121,6 +9098,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'For me'**
   String get product_page_tab_for_me;
+
+  /// Title for the compatibility score
+  ///
+  /// In en, this message translates to:
+  /// **'My compatibility'**
+  String get product_page_for_me_compatibility_score_title;
+
+  /// Compatibility score value in the For me tab on the product page
+  ///
+  /// In en, this message translates to:
+  /// **'{value}% compatible'**
+  String product_page_for_me_compatibility_score_value(int value);
+
+  /// Message displayed when there is not enough data to compute a compatibility score for a product
+  ///
+  /// In en, this message translates to:
+  /// **'Insufficient data to compute a compatibility score.'**
+  String get product_page_for_me_compatibility_score_uncomputable;
+
+  /// Message displayed when a compatibility score can't be computed for a product
+  ///
+  /// In en, this message translates to:
+  /// **'A score can\'t be computed for a product of type \"{productType}\".'**
+  String product_page_for_me_compatibility_score_unsupported(String productType);
+
+  /// Button to order the attributes by importance in the For me tab on the product page
+  ///
+  /// In en, this message translates to:
+  /// **'Importance'**
+  String get product_page_for_me_attributes_order_importance;
+
+  /// Button to order the attributes by evaluation score in the For me tab on the product page
+  ///
+  /// In en, this message translates to:
+  /// **'Matches'**
+  String get product_page_for_me_attributes_order_evaluation;
+
+  /// Title for the group of attributes that are good matches for the user
+  ///
+  /// In en, this message translates to:
+  /// **'Good matches'**
+  String get product_page_for_me_attributes_group_good_matches;
+
+  /// Title for the group of attributes that are average matches for the user
+  ///
+  /// In en, this message translates to:
+  /// **'Average matches'**
+  String get product_page_for_me_attributes_group_average_matches;
+
+  /// Title for the group of attributes that are bad matches for the user
+  ///
+  /// In en, this message translates to:
+  /// **'Bad matches'**
+  String get product_page_for_me_attributes_group_bad_matches;
+
+  /// Title for the group of attributes that are unknown matches for the user
+  ///
+  /// In en, this message translates to:
+  /// **'Unknown matches'**
+  String get product_page_for_me_attributes_group_unknown_matches;
 
   /// Label of the website tab on the product page
   ///
@@ -10621,10 +10658,69 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'OSM ID'**
   String get location_map_details_osm_id;
+
+  /// Button to go back to home from the scanner page
+  ///
+  /// In en, this message translates to:
+  /// **'Back to home'**
+  String get homepage_scanner_back_to_home_button;
+
+  /// Tooltip for the button to toggle the camera on the scanner page
+  ///
+  /// In en, this message translates to:
+  /// **'Toggle camera'**
+  String get homepage_scanner_toggle_camera_tooltip;
+
+  /// Tooltip for the button to open the barcode scanner from the homepage
+  ///
+  /// In en, this message translates to:
+  /// **'Show the barcode scanner'**
+  String get homepage_header_barcode_tooltip;
+
+  /// Message visible above the camera.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to scan a **barcode**\nand discover if it\'s **good for you**!'**
+  String get homepage_scanner_overlay_message;
+
+  /// Tooltip for the button to toggle the torch on the scanner page
+  ///
+  /// In en, this message translates to:
+  /// **'Toggle torch'**
+  String get homepage_scanner_toggle_torch_tooltip;
+
+  /// Banner text shown on the scanner page to prompt user to start scanning a product
+  ///
+  /// In en, this message translates to:
+  /// **'Scan a product by approaching its barcode'**
+  String get homepage_scanner_banner_start_scanning;
+
+  /// Banner text shown on the scanner page when an invalid barcode is detected
+  ///
+  /// In en, this message translates to:
+  /// **'We have detected the following barcode: {barcode}, but it seems to be invalid.'**
+  String homepage_scanner_banner_invalid_barcode(String barcode);
+
+  /// Button to see all items in a horizontal list on the homepage
+  ///
+  /// In en, this message translates to:
+  /// **'View more…'**
+  String get homepage_horizontal_list_view_more_button;
+
+  /// Title for the most scanned products horizontal list on the homepage
+  ///
+  /// In en, this message translates to:
+  /// **'Most scanned products'**
+  String get homepage_list_most_scanned_title;
+
+  /// Title for the last scanned products horizontal list on the homepage
+  ///
+  /// In en, this message translates to:
+  /// **'Last scanned products'**
+  String get homepage_list_last_scanned_title;
 }
 
-class _AppLocalizationsDelegate
-    extends LocalizationsDelegate<AppLocalizations> {
+class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const _AppLocalizationsDelegate();
 
   @override
@@ -10633,420 +10729,164 @@ class _AppLocalizationsDelegate
   }
 
   @override
-  bool isSupported(Locale locale) => <String>[
-    'aa',
-    'af',
-    'ak',
-    'am',
-    'ar',
-    'as',
-    'az',
-    'be',
-    'bg',
-    'bm',
-    'bn',
-    'bo',
-    'br',
-    'bs',
-    'ca',
-    'ce',
-    'co',
-    'cs',
-    'cv',
-    'cy',
-    'da',
-    'de',
-    'el',
-    'en',
-    'eo',
-    'es',
-    'et',
-    'eu',
-    'fa',
-    'fi',
-    'fo',
-    'fr',
-    'ga',
-    'gd',
-    'gl',
-    'gu',
-    'ha',
-    'he',
-    'hi',
-    'hr',
-    'ht',
-    'hu',
-    'hy',
-    'id',
-    'ii',
-    'is',
-    'it',
-    'iu',
-    'ja',
-    'jv',
-    'ka',
-    'kk',
-    'km',
-    'kn',
-    'ko',
-    'ku',
-    'kw',
-    'ky',
-    'la',
-    'lb',
-    'lo',
-    'lt',
-    'lv',
-    'mg',
-    'mi',
-    'ml',
-    'mn',
-    'mr',
-    'ms',
-    'mt',
-    'my',
-    'nb',
-    'ne',
-    'nl',
-    'nn',
-    'no',
-    'nr',
-    'oc',
-    'or',
-    'pa',
-    'pl',
-    'pt',
-    'qu',
-    'rm',
-    'ro',
-    'ru',
-    'sa',
-    'sc',
-    'sd',
-    'sg',
-    'si',
-    'sk',
-    'sl',
-    'sn',
-    'so',
-    'sq',
-    'sr',
-    'ss',
-    'st',
-    'sv',
-    'sw',
-    'ta',
-    'te',
-    'tg',
-    'th',
-    'ti',
-    'tl',
-    'tn',
-    'tr',
-    'ts',
-    'tt',
-    'tw',
-    'ty',
-    'ug',
-    'uk',
-    'ur',
-    'uz',
-    've',
-    'vi',
-    'wa',
-    'wo',
-    'xh',
-    'yi',
-    'yo',
-    'zh',
-    'zu',
-  ].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['aa', 'af', 'ak', 'am', 'ar', 'as', 'az', 'be', 'bg', 'bm', 'bn', 'bo', 'br', 'bs', 'ca', 'ce', 'co', 'cs', 'cv', 'cy', 'da', 'de', 'el', 'en', 'eo', 'es', 'et', 'eu', 'fa', 'fi', 'fo', 'fr', 'ga', 'gd', 'gl', 'gu', 'ha', 'he', 'hi', 'hr', 'ht', 'hu', 'hy', 'id', 'ii', 'is', 'it', 'iu', 'ja', 'jv', 'ka', 'kk', 'km', 'kn', 'ko', 'ku', 'kw', 'ky', 'la', 'lb', 'lo', 'lt', 'lv', 'mg', 'mi', 'ml', 'mn', 'mr', 'ms', 'mt', 'my', 'nb', 'ne', 'nl', 'nn', 'no', 'nr', 'oc', 'or', 'pa', 'pl', 'pt', 'qu', 'rm', 'ro', 'ru', 'sa', 'sc', 'sd', 'sg', 'si', 'sk', 'sl', 'sn', 'so', 'sq', 'sr', 'ss', 'st', 'sv', 'sw', 'ta', 'te', 'tg', 'th', 'ti', 'tl', 'tn', 'tr', 'ts', 'tt', 'tw', 'ty', 'ug', 'uk', 'ur', 'uz', 've', 'vi', 'wa', 'wo', 'xh', 'yi', 'yo', 'zh', 'zu'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_AppLocalizationsDelegate old) => false;
 }
 
 AppLocalizations lookupAppLocalizations(Locale locale) {
+
   // Lookup logic when language+country codes are specified.
   switch (locale.languageCode) {
-    case 'pt':
-      {
-        switch (locale.countryCode) {
-          case 'BR':
-            return AppLocalizationsPtBr();
-        }
-        break;
-      }
-    case 'zh':
-      {
-        switch (locale.countryCode) {
-          case 'CN':
-            return AppLocalizationsZhCn();
-        }
-        break;
-      }
+    case 'pt': {
+  switch (locale.countryCode) {
+    case 'BR': return AppLocalizationsPtBr();
+   }
+  break;
+   }
+    case 'zh': {
+  switch (locale.countryCode) {
+    case 'CN': return AppLocalizationsZhCn();
+   }
+  break;
+   }
   }
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'aa':
-      return AppLocalizationsAa();
-    case 'af':
-      return AppLocalizationsAf();
-    case 'ak':
-      return AppLocalizationsAk();
-    case 'am':
-      return AppLocalizationsAm();
-    case 'ar':
-      return AppLocalizationsAr();
-    case 'as':
-      return AppLocalizationsAs();
-    case 'az':
-      return AppLocalizationsAz();
-    case 'be':
-      return AppLocalizationsBe();
-    case 'bg':
-      return AppLocalizationsBg();
-    case 'bm':
-      return AppLocalizationsBm();
-    case 'bn':
-      return AppLocalizationsBn();
-    case 'bo':
-      return AppLocalizationsBo();
-    case 'br':
-      return AppLocalizationsBr();
-    case 'bs':
-      return AppLocalizationsBs();
-    case 'ca':
-      return AppLocalizationsCa();
-    case 'ce':
-      return AppLocalizationsCe();
-    case 'co':
-      return AppLocalizationsCo();
-    case 'cs':
-      return AppLocalizationsCs();
-    case 'cv':
-      return AppLocalizationsCv();
-    case 'cy':
-      return AppLocalizationsCy();
-    case 'da':
-      return AppLocalizationsDa();
-    case 'de':
-      return AppLocalizationsDe();
-    case 'el':
-      return AppLocalizationsEl();
-    case 'en':
-      return AppLocalizationsEn();
-    case 'eo':
-      return AppLocalizationsEo();
-    case 'es':
-      return AppLocalizationsEs();
-    case 'et':
-      return AppLocalizationsEt();
-    case 'eu':
-      return AppLocalizationsEu();
-    case 'fa':
-      return AppLocalizationsFa();
-    case 'fi':
-      return AppLocalizationsFi();
-    case 'fo':
-      return AppLocalizationsFo();
-    case 'fr':
-      return AppLocalizationsFr();
-    case 'ga':
-      return AppLocalizationsGa();
-    case 'gd':
-      return AppLocalizationsGd();
-    case 'gl':
-      return AppLocalizationsGl();
-    case 'gu':
-      return AppLocalizationsGu();
-    case 'ha':
-      return AppLocalizationsHa();
-    case 'he':
-      return AppLocalizationsHe();
-    case 'hi':
-      return AppLocalizationsHi();
-    case 'hr':
-      return AppLocalizationsHr();
-    case 'ht':
-      return AppLocalizationsHt();
-    case 'hu':
-      return AppLocalizationsHu();
-    case 'hy':
-      return AppLocalizationsHy();
-    case 'id':
-      return AppLocalizationsId();
-    case 'ii':
-      return AppLocalizationsIi();
-    case 'is':
-      return AppLocalizationsIs();
-    case 'it':
-      return AppLocalizationsIt();
-    case 'iu':
-      return AppLocalizationsIu();
-    case 'ja':
-      return AppLocalizationsJa();
-    case 'jv':
-      return AppLocalizationsJv();
-    case 'ka':
-      return AppLocalizationsKa();
-    case 'kk':
-      return AppLocalizationsKk();
-    case 'km':
-      return AppLocalizationsKm();
-    case 'kn':
-      return AppLocalizationsKn();
-    case 'ko':
-      return AppLocalizationsKo();
-    case 'ku':
-      return AppLocalizationsKu();
-    case 'kw':
-      return AppLocalizationsKw();
-    case 'ky':
-      return AppLocalizationsKy();
-    case 'la':
-      return AppLocalizationsLa();
-    case 'lb':
-      return AppLocalizationsLb();
-    case 'lo':
-      return AppLocalizationsLo();
-    case 'lt':
-      return AppLocalizationsLt();
-    case 'lv':
-      return AppLocalizationsLv();
-    case 'mg':
-      return AppLocalizationsMg();
-    case 'mi':
-      return AppLocalizationsMi();
-    case 'ml':
-      return AppLocalizationsMl();
-    case 'mn':
-      return AppLocalizationsMn();
-    case 'mr':
-      return AppLocalizationsMr();
-    case 'ms':
-      return AppLocalizationsMs();
-    case 'mt':
-      return AppLocalizationsMt();
-    case 'my':
-      return AppLocalizationsMy();
-    case 'nb':
-      return AppLocalizationsNb();
-    case 'ne':
-      return AppLocalizationsNe();
-    case 'nl':
-      return AppLocalizationsNl();
-    case 'nn':
-      return AppLocalizationsNn();
-    case 'no':
-      return AppLocalizationsNo();
-    case 'nr':
-      return AppLocalizationsNr();
-    case 'oc':
-      return AppLocalizationsOc();
-    case 'or':
-      return AppLocalizationsOr();
-    case 'pa':
-      return AppLocalizationsPa();
-    case 'pl':
-      return AppLocalizationsPl();
-    case 'pt':
-      return AppLocalizationsPt();
-    case 'qu':
-      return AppLocalizationsQu();
-    case 'rm':
-      return AppLocalizationsRm();
-    case 'ro':
-      return AppLocalizationsRo();
-    case 'ru':
-      return AppLocalizationsRu();
-    case 'sa':
-      return AppLocalizationsSa();
-    case 'sc':
-      return AppLocalizationsSc();
-    case 'sd':
-      return AppLocalizationsSd();
-    case 'sg':
-      return AppLocalizationsSg();
-    case 'si':
-      return AppLocalizationsSi();
-    case 'sk':
-      return AppLocalizationsSk();
-    case 'sl':
-      return AppLocalizationsSl();
-    case 'sn':
-      return AppLocalizationsSn();
-    case 'so':
-      return AppLocalizationsSo();
-    case 'sq':
-      return AppLocalizationsSq();
-    case 'sr':
-      return AppLocalizationsSr();
-    case 'ss':
-      return AppLocalizationsSs();
-    case 'st':
-      return AppLocalizationsSt();
-    case 'sv':
-      return AppLocalizationsSv();
-    case 'sw':
-      return AppLocalizationsSw();
-    case 'ta':
-      return AppLocalizationsTa();
-    case 'te':
-      return AppLocalizationsTe();
-    case 'tg':
-      return AppLocalizationsTg();
-    case 'th':
-      return AppLocalizationsTh();
-    case 'ti':
-      return AppLocalizationsTi();
-    case 'tl':
-      return AppLocalizationsTl();
-    case 'tn':
-      return AppLocalizationsTn();
-    case 'tr':
-      return AppLocalizationsTr();
-    case 'ts':
-      return AppLocalizationsTs();
-    case 'tt':
-      return AppLocalizationsTt();
-    case 'tw':
-      return AppLocalizationsTw();
-    case 'ty':
-      return AppLocalizationsTy();
-    case 'ug':
-      return AppLocalizationsUg();
-    case 'uk':
-      return AppLocalizationsUk();
-    case 'ur':
-      return AppLocalizationsUr();
-    case 'uz':
-      return AppLocalizationsUz();
-    case 've':
-      return AppLocalizationsVe();
-    case 'vi':
-      return AppLocalizationsVi();
-    case 'wa':
-      return AppLocalizationsWa();
-    case 'wo':
-      return AppLocalizationsWo();
-    case 'xh':
-      return AppLocalizationsXh();
-    case 'yi':
-      return AppLocalizationsYi();
-    case 'yo':
-      return AppLocalizationsYo();
-    case 'zh':
-      return AppLocalizationsZh();
-    case 'zu':
-      return AppLocalizationsZu();
+    case 'aa': return AppLocalizationsAa();
+    case 'af': return AppLocalizationsAf();
+    case 'ak': return AppLocalizationsAk();
+    case 'am': return AppLocalizationsAm();
+    case 'ar': return AppLocalizationsAr();
+    case 'as': return AppLocalizationsAs();
+    case 'az': return AppLocalizationsAz();
+    case 'be': return AppLocalizationsBe();
+    case 'bg': return AppLocalizationsBg();
+    case 'bm': return AppLocalizationsBm();
+    case 'bn': return AppLocalizationsBn();
+    case 'bo': return AppLocalizationsBo();
+    case 'br': return AppLocalizationsBr();
+    case 'bs': return AppLocalizationsBs();
+    case 'ca': return AppLocalizationsCa();
+    case 'ce': return AppLocalizationsCe();
+    case 'co': return AppLocalizationsCo();
+    case 'cs': return AppLocalizationsCs();
+    case 'cv': return AppLocalizationsCv();
+    case 'cy': return AppLocalizationsCy();
+    case 'da': return AppLocalizationsDa();
+    case 'de': return AppLocalizationsDe();
+    case 'el': return AppLocalizationsEl();
+    case 'en': return AppLocalizationsEn();
+    case 'eo': return AppLocalizationsEo();
+    case 'es': return AppLocalizationsEs();
+    case 'et': return AppLocalizationsEt();
+    case 'eu': return AppLocalizationsEu();
+    case 'fa': return AppLocalizationsFa();
+    case 'fi': return AppLocalizationsFi();
+    case 'fo': return AppLocalizationsFo();
+    case 'fr': return AppLocalizationsFr();
+    case 'ga': return AppLocalizationsGa();
+    case 'gd': return AppLocalizationsGd();
+    case 'gl': return AppLocalizationsGl();
+    case 'gu': return AppLocalizationsGu();
+    case 'ha': return AppLocalizationsHa();
+    case 'he': return AppLocalizationsHe();
+    case 'hi': return AppLocalizationsHi();
+    case 'hr': return AppLocalizationsHr();
+    case 'ht': return AppLocalizationsHt();
+    case 'hu': return AppLocalizationsHu();
+    case 'hy': return AppLocalizationsHy();
+    case 'id': return AppLocalizationsId();
+    case 'ii': return AppLocalizationsIi();
+    case 'is': return AppLocalizationsIs();
+    case 'it': return AppLocalizationsIt();
+    case 'iu': return AppLocalizationsIu();
+    case 'ja': return AppLocalizationsJa();
+    case 'jv': return AppLocalizationsJv();
+    case 'ka': return AppLocalizationsKa();
+    case 'kk': return AppLocalizationsKk();
+    case 'km': return AppLocalizationsKm();
+    case 'kn': return AppLocalizationsKn();
+    case 'ko': return AppLocalizationsKo();
+    case 'ku': return AppLocalizationsKu();
+    case 'kw': return AppLocalizationsKw();
+    case 'ky': return AppLocalizationsKy();
+    case 'la': return AppLocalizationsLa();
+    case 'lb': return AppLocalizationsLb();
+    case 'lo': return AppLocalizationsLo();
+    case 'lt': return AppLocalizationsLt();
+    case 'lv': return AppLocalizationsLv();
+    case 'mg': return AppLocalizationsMg();
+    case 'mi': return AppLocalizationsMi();
+    case 'ml': return AppLocalizationsMl();
+    case 'mn': return AppLocalizationsMn();
+    case 'mr': return AppLocalizationsMr();
+    case 'ms': return AppLocalizationsMs();
+    case 'mt': return AppLocalizationsMt();
+    case 'my': return AppLocalizationsMy();
+    case 'nb': return AppLocalizationsNb();
+    case 'ne': return AppLocalizationsNe();
+    case 'nl': return AppLocalizationsNl();
+    case 'nn': return AppLocalizationsNn();
+    case 'no': return AppLocalizationsNo();
+    case 'nr': return AppLocalizationsNr();
+    case 'oc': return AppLocalizationsOc();
+    case 'or': return AppLocalizationsOr();
+    case 'pa': return AppLocalizationsPa();
+    case 'pl': return AppLocalizationsPl();
+    case 'pt': return AppLocalizationsPt();
+    case 'qu': return AppLocalizationsQu();
+    case 'rm': return AppLocalizationsRm();
+    case 'ro': return AppLocalizationsRo();
+    case 'ru': return AppLocalizationsRu();
+    case 'sa': return AppLocalizationsSa();
+    case 'sc': return AppLocalizationsSc();
+    case 'sd': return AppLocalizationsSd();
+    case 'sg': return AppLocalizationsSg();
+    case 'si': return AppLocalizationsSi();
+    case 'sk': return AppLocalizationsSk();
+    case 'sl': return AppLocalizationsSl();
+    case 'sn': return AppLocalizationsSn();
+    case 'so': return AppLocalizationsSo();
+    case 'sq': return AppLocalizationsSq();
+    case 'sr': return AppLocalizationsSr();
+    case 'ss': return AppLocalizationsSs();
+    case 'st': return AppLocalizationsSt();
+    case 'sv': return AppLocalizationsSv();
+    case 'sw': return AppLocalizationsSw();
+    case 'ta': return AppLocalizationsTa();
+    case 'te': return AppLocalizationsTe();
+    case 'tg': return AppLocalizationsTg();
+    case 'th': return AppLocalizationsTh();
+    case 'ti': return AppLocalizationsTi();
+    case 'tl': return AppLocalizationsTl();
+    case 'tn': return AppLocalizationsTn();
+    case 'tr': return AppLocalizationsTr();
+    case 'ts': return AppLocalizationsTs();
+    case 'tt': return AppLocalizationsTt();
+    case 'tw': return AppLocalizationsTw();
+    case 'ty': return AppLocalizationsTy();
+    case 'ug': return AppLocalizationsUg();
+    case 'uk': return AppLocalizationsUk();
+    case 'ur': return AppLocalizationsUr();
+    case 'uz': return AppLocalizationsUz();
+    case 've': return AppLocalizationsVe();
+    case 'vi': return AppLocalizationsVi();
+    case 'wa': return AppLocalizationsWa();
+    case 'wo': return AppLocalizationsWo();
+    case 'xh': return AppLocalizationsXh();
+    case 'yi': return AppLocalizationsYi();
+    case 'yo': return AppLocalizationsYo();
+    case 'zh': return AppLocalizationsZh();
+    case 'zu': return AppLocalizationsZu();
   }
 
   throw FlutterError(
     'AppLocalizations.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.',
+    'that was used.'
   );
 }

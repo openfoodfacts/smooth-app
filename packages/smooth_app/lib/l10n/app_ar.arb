@@ -472,7 +472,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "مجتمع",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "الكل",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(بحث عن فئة)",
@@ -535,9 +535,17 @@
   "product": "نتاج",
   "@product": {},
   "unknownBrand": "علامة تجارية مجهولة",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "كمية غير معروفة",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "إسم منتج غير معروف",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "تحديث",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "معلومات التعبِئة",
+  "packaging_information": "تعليمات إعادة التدوير",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "صورة معلومات التعبِئة",
+  "packaging_information_photo": "صورة تعليمات إعادة التدوير",
   "@packaging_information_photo": {},
   "missing_product": "لقد وجدت منتجا جديدا!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "صورة التغليف الأمامية",
   "ingredients_photo_title": "صورة المكونات",
   "nutritional_facts_photo_title": "صورة الحقائق الغذائية",
-  "recycling_photo_title": "إعادة تدوير الصور",
+  "recycling_photo_title": "تعليمات إعادة التدوير (صورة)",
   "take_photo_title": "التقاط صورة",
   "take_more_photo_title": "التقط المزيد من الصور",
   "front_photo_uploaded": "تم تحميل الصورة الأمامية",
@@ -1683,7 +1691,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "نيوتري سكور، نوفا…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2311,7 +2319,7 @@
   "prices_website_button": "افتح على موقع الأسعار المفتوحة",
   "prices_bulk_proof_upload_select": "أضف علامات الأسعار مباشرة من المعرض",
   "prices_bulk_proof_upload_warning": "بمجرد تحديد الصور، لن تتمكن من تحريرها!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "سيقوم الذكاء الاصطناعي بتشغيل بياناتك لاستخراج الأسعار.",
   "prices_bulk_proof_upload_community_switch": "السماح للمجتمع بالتحقق من الأسعار المستخرجة بواسطة الذكاء الاصطناعي.",
   "prices_bulk_proof_upload_subtitle": "علامات أسعار متعددة",
   "prices_bulk_proof_upload_title": "تحميل الدليل الشامل",
@@ -2369,7 +2377,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "لم يُعثر على المنتج",
   "prices_barcode_search_none_yet": "لا يوجد منتج حتى الآن",
   "prices_barcode_search_running": "أبحث عن {barcode}",
   "@prices_barcode_search_running": {
@@ -2386,7 +2394,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "Price per unit",
+  "prices_per_unit": "سعر الوحدة",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
@@ -2779,11 +2787,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "مساعد مساهمة الأسعار",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "مساعد التحقق من الأسعار",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "التحديات",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3263,6 +3271,10 @@
   "background_task_title_full_refresh": "بدء تحديث جميع المنتجات المخزنة محليًا",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
+  },
+  "background_task_title_folksonomy": "البدء في تنفيذ إجراءات الخادم لتحديثات folksonomy المخزنة محليًا",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
   },
   "background_task_title_top_n": "بدء تنزيل المنتجات الأكثر شعبية",
   "@background_task_title_top_n": {
@@ -3906,12 +3918,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "مشاركة",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "الدرجة الغذائية في تطور: تفسيرات!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "الدرجة الغذائية هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4048,7 +4060,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "ما هي حقائق الغذاء المفتوحة؟",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts عبارة عن قاعدة بيانات **تعاونية** و**مجانية** و**مفتوحة** للمنتجات الغذائية من جميع أنحاء العالم.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4079,8 +4091,8 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "ما هي حقائق طعام الحيوانات الأليفة المفتوحة؟",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "حقائق طعام الحيوانات الأليفة المفتوحة تُوسّع نطاق مهمتها لتشمل حيواناتنا الأليفة! إنها **قاعدة بيانات لمنتجات طعام الحيوانات الأليفة للقطط والكلاب وغيرها من الحيوانات الأليفة**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4088,7 +4100,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "مميزات حقائق طعام الحيوانات الأليفة المفتوحة",
   "guide_open_pet_food_facts_features_arg1_title": "احصل على تنبيهات بشأن المكونات غير المرغوب فيها",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "هل يعاني حيوانك الأليف من حساسية تجاه أي من مكونات مستحضرات التجميل؟ يمكنك تحديد قائمة بالمكونات التي يجب تجنبها مباشرةً من التطبيق!",
   "guide_open_pet_food_facts_tips_title": "نصائح لالتقاط صور رائعة",
@@ -4109,7 +4121,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "ما هي حقائق الجمال المفتوحة؟",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts عبارة عن قاعدة بيانات تعاونية لمنتجات التجميل.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4146,7 +4158,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "يوجد حاليًا عدد قليل من الشركات التي تمتلك قواعد بيانات ضخمة لأسعار المنتجات على مستوى الباركود. هذه الأسعار ليست متاحة مجانًا، بل تُباع بأسعار مرتفعة لجهات خاصة وباحثين ومنظمات أخرى قادرة على تحمل تكلفتها.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4163,15 +4175,15 @@
   "guide_open_prices_scrapping_title": "هل فكرت في استخراج الأسعار من مواقع الويب الخاصة بالمتاجر؟",
   "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "يعد استخراج الأسعار خيارًا مدروسًا في الإصدار المستقبلي من Open Prices، ولكن سيتم ذلك بواسطة Open Prices نفسها حتى نتمكن من الحصول على دليل على السعر استنادًا إلى صفحة HTML.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "أنا بائع تجزئة وأرغب في المساهمة في تحديد الأسعار. كيف يمكنني فعل ذلك؟",
   "guide_open_prices_retailers_paragraph1": "يمكنك المساهمة في الأسعار باستخدام واجهة برمجة التطبيقات الخاصة بنا.\nإذا كنت ترغب في المساهمة في الأسعار على نطاق واسع، فيرجى التواصل معنا على prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "مرحباً بكم في حقائق المنتجات المفتوحة!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "ما هي حقائق المنتجات المفتوحة؟",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "حقائق المنتجات المفتوحة عبارة عن قاعدة بيانات ضخمة مفتوحة لأي منتج يحمل رمزًا شريطيًا، وهو ليس طعامًا أو مستحضر تجميل أو طعامًا للحيوانات الأليفة.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4179,7 +4191,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "مميزات حقائق المنتجات المفتوحة",
   "guide_open_products_facts_features_text": "تهدف Open Products Facts إلى تمكين المستهلكين من **إطالة عمر الأشياء** من خلال توفير الحلول الدائرية للحفاظ على أشيائهم وإصلاحها وإعادة تدويرها أو منحها مالكًا جديدًا.",
   "guide_open_products_facts_features_arg1_title": "البصمة الكربونية لبعض المنتجات",
   "guide_open_products_facts_features_arg1_text": "يوفر تقرير **تأثير ثاني أكسيد الكربون** الصادر عن هيئة البيئة الفرنسية ADEME **تأثير الكربون** للعديد من الفئات، تأكد من تصنيف المنتجات بدقة.",
@@ -4457,7 +4469,7 @@
   "photo_field_front": "صورة المنتج",
   "photo_field_ingredients": "صورة المكونات",
   "photo_field_nutrition": "صورة التغذية",
-  "photo_field_packaging": "صورة معلومات التعبِئة",
+  "photo_field_packaging": "صورة تعليمات إعادة التدوير",
   "photo_already_exists": "هذه الصورة موجودة بالفعل",
   "photo_missing": "هذه الصورة مفقودة",
   "date": "تاريخ",
@@ -4552,7 +4564,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "لماذا الاسعار؟",
-  "prices_explanation_card_line1": "**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.",
+  "prices_explanation_card_line1": "**الأسعار المفتوحة** مشروع لجمع ومشاركة أسعار المنتجات حول العالم 🌍. تم تطوير \"الأسعار المفتوحة\" وصيانتها بواسطة Open Food Facts.",
   "explanation_card_learn_more_button": "لمعرفة المزيد",
   "product_page_tab_folksonomy": "علم اللغة الشعبية",
   "@product_page_tab_folksonomy": {
@@ -4635,7 +4647,7 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "Discount",
+  "prices_discount": "تخفيض",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
@@ -4655,11 +4667,11 @@
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "Locations",
+  "prices_stats_locations_section": "المواقع",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "البراهين",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4667,7 +4679,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "التجارب",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4679,19 +4691,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "مع رمز شريطي",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "مع فئة",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "مع خصم",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "مجتمع",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4699,7 +4711,7 @@
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
-  "prices_stats_with_price": "With a price",
+  "prices_stats_with_price": "بثمن",
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
@@ -4723,7 +4735,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Online",
+  "prices_stats_online": "متصل",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4739,31 +4751,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR request",
+  "prices_stats_gdpr_request": "طلب بموجب اللائحة العامة لحماية البيانات",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "متجر الاستيراد",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "التحديات",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "الأسعار مرتبطة ببطاقة السعر",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "العملات",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "سنين",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "الأسعار والإثباتات لكل مصدر",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4771,7 +4783,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "تطبيق الهاتف المحمول",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4871,7 +4883,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "تمت إضافة الأسعار",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -4975,7 +4987,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "أضف الأسعار",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5104,11 +5116,11 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "اكتشف حقائق الجمال المفتوحة",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "اكتشف حقائق طعام الحيوانات الأليفة المفتوحة",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5116,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "اكتشف حقائق المنتجات المفتوحة",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5124,7 +5136,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "منظمة حقائق الغذاء المفتوحة غير الحكومية",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5160,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "مدونة حقائق الغذاء المفتوحة",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5498,7 +5510,7 @@
       }
     }
   },
-  "proof_count": "{count} proofs",
+  "proof_count": "{count} إثباتات",
   "@proof_count": {
     "description": "Number of proofs (when we don't know the total)",
     "placeholders": {
@@ -5522,7 +5534,7 @@
       }
     }
   },
-  "contributors_count": "{count} contributors",
+  "contributors_count": "{count} المساهمون",
   "@contributors_count": {
     "description": "Number of contributors (when we don't know the total)",
     "placeholders": {
@@ -5572,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "مختبرات حقائق الغذاء المفتوحة",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

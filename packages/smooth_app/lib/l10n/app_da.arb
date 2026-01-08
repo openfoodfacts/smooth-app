@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Alle",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorisøgning)",
@@ -535,9 +535,17 @@
   "product": "Produkt",
   "@product": {},
   "unknownBrand": "Ukendt brand",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Ukendt mængde",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Ukendt produktnavn",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Opfrisk",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Emballageoplysning",
+  "packaging_information": "Genbrugsinstruktioner",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Emballageoplysningsfoto",
+  "packaging_information_photo": "Genbrugsvejledningsfoto",
   "@packaging_information_photo": {},
   "missing_product": "Nyt produkt blev fundet!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Emballageforsidefoto",
   "ingredients_photo_title": "Ingrediensfoto",
   "nutritional_facts_photo_title": "Næringsfaktafoto",
-  "recycling_photo_title": "Genbrugsfoto",
+  "recycling_photo_title": "Genbrugsinstruktioner Foto",
   "take_photo_title": "Tag et billede",
   "take_more_photo_title": "Tag flere billeder",
   "front_photo_uploaded": "Forsidefoto uploadet",
@@ -2597,7 +2605,7 @@
   "prices_proof_empty_title": "Intet bevis endnu!",
   "prices_proof_empty_explanation": "Start med at tilføje et billede af en **kvittering** eller et **prisskilt**!",
   "prices_proof_find": "Vælg et bevis",
-  "prices_proof_change": "Change proof",
+  "prices_proof_change": "Skift bevis",
   "prices_proof_receipt": "Kvittering",
   "prices_proof_price_tag": "Prisskilt",
   "prices_proof_mandatory": "Du skal vælge et bevis!",
@@ -2644,7 +2652,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Læs mere om Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2748,7 +2756,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Proof from \"{user}\"",
+  "search_proof_title": "Bevis fra \"{user}\"",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -3263,6 +3271,10 @@
   "background_task_title_full_refresh": "Starter opdateringen af alle de lokalt lagrede produkter",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
+  },
+  "background_task_title_folksonomy": "Begynder at udføre serverhandlinger for folksonomy-opdateringer, der er gemt lokalt",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
   },
   "background_task_title_top_n": "Starter download af de mest populære produkter",
   "@background_task_title_top_n": {
@@ -3978,18 +3990,18 @@
   "guide_greenscore_lca_arg3_text7": "Hav- og ferskvand (partikler, forsuring, eutrofiering)",
   "guide_greenscore_lca_arg3_text8": "Udtømning af ressourcer.",
   "guide_greenscore_bonuses_penalties_title": "Bonusser og sanktioner",
-  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
+  "guide_greenscore_bonuses_penalties_intro": "For at belønne bedre produkter inden for en kategori, anvender vi derefter **bonusser og sanktioner baseret på flere kriterier**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Produktionsmåde",
-  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "En bonus tildeles produkter, som har et officielt mærke, et mærke eller en certificering, der garanterer miljømæssige fordele (organisk, fairtrade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Oprindelse af ingredienser",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Der tildeles en **bonus** baseret på ingrediensernes oprindelse. Denne bonus tager højde for **påvirkningen på transport** og også den **miljøpolitik**, der gælder i hver producents land.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Truede arter",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Der gives en **straf** til produkter, der indeholder ingredienser, der har betydelig **negativ indvirkning på biodiversiteten og økosystemerne**, såsom palmeolie, hvis produktion er ansvarlig for massiv skovrydning.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Emballage",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "En **straf** beregnes for at tage højde for emballagens **cirkularitet** (brug af genbrugsråmateriale og genanvendelighed) og overemballage.",
   "guide_greenscore_transparency_title": "Et øget behov for gennemsigtighed for bedre at kunne måle og reducere miljøpåvirkninger",
-  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
-  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
+  "guide_greenscore_transparency_intro1": "For at beregne Green-Score præcist er det nødvendigt at have **oplysninger, som ikke nødvendigvis er specificeret på emballagen** (såsom oprindelsen og den nøjagtige procentdel af hver ingrediens), eller som sjældent er tilgængelige i brugbar form (såsom en liste over alle emballagens komponenter med de præcise typer plast, der er anvendt).",
+  "guide_greenscore_transparency_intro2": "**Gennemsnitsværdier bruges, når disse oplysninger endnu ikke er tilgængelige**, men vi opfordrer nu alle til at hjælpe os med at indsamle disse oplysninger, som vil være meget nyttige for Green-Score, men også til mange andre formål.",
   "guide_greenscore_transparency_arg1_title": "Hvordan kan vi hver især hjælpe?",
   "guide_greenscore_transparency_arg1_text": "Alle mennesker kan hjælpe med at indsamle og strukturere information, der til stede på produkter eller som kan trækkes ud af dem. Det kunne være information om **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
   "guide_greenscore_transparency_arg2_title": "Hvordan producenter kan hjælpe",
@@ -4020,7 +4032,7 @@
   "guide_nova_groups_title": "De 4 NOVA-grupper",
   "guide_nova_groups_intro": "Der er 4 NOVA-grupper, hvor den problematiske er Gruppe 4 - Ultraforarbejdede fødevarer.",
   "guide_nova_groups_arg1_title": "Minimalt forarbejdede eller uforarbejdede fødevarer",
-  "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
+  "guide_nova_groups_arg1_text": "Uforarbejdede (eller naturlige) fødevarer er de **spiselige dele af planter** (frø, frugter, blade, stængler, rødder) **eller dyr** (muskler, slagteaffald, æg, mælk), samt svampe, alger og vand, efter at være blevet adskilt fra naturen.",
   "guide_nova_groups_arg2_title": "Forarbejdede kulinariske ingredienser",
   "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Forarbejdede fødevarer",
@@ -4029,17 +4041,17 @@
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to No intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically Used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Problemerne med ultraprocessering",
   "guide_nova_explanations_arg1_title": "Ekstrem forarbejdning af fødevareingredienser",
-  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
+  "guide_nova_explanations_arg1_text": "Mange er **udvundet fra yderligere forarbejdning af fødevarebestanddele**, såsom hydrogenerede eller interesterificerede olier, hydrolyserede proteiner, sojaproteinisolat, maltodextrin, invertsukker og majssirup med højt fruktoseindhold.",
   "guide_nova_explanations_arg2_title": "Tilsætningsstoffer, der går ud over ren fødevaresikkerhed",
-  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
+  "guide_nova_explanations_arg2_text": "Tilsætningsstoffer i ultraforarbejdede fødevarer omfatter nogle, der også anvendes i forarbejdede fødevarer, såsom konserveringsmidler, antioxidanter og stabilisatorer. Klasser af tilsætningsstoffer, der kun findes i ultraforarbejdede produkter, omfatter dem, der anvendes **til at efterligne eller forbedre fødevarers sensoriske egenskaber eller til at skjule ubehagelige aspekter af det færdige produkt**. Disse tilsætningsstoffer omfatter farvestoffer og andre farver, farvestabilisatorer; smagsstoffer, smagsforstærkere, ikke-sukkerholdige sødestoffer; og proceshjælpemidler såsom kulsyreholdige, fastgørende, fyldegivende og anti-fyldemidler, skumdæmpende, antiklumpningsmidler og glaseringsmidler, emulgatorer, sekvestreringsmidler og fugtighedsbevarende midler.",
   "guide_nova_explanations_arg3_title": "Bearbejdning, du ikke kan gøre derhjemme",
-  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
+  "guide_nova_explanations_arg3_text": "**En lang række processekvenser anvendes** til at kombinere de normalt mange ingredienser og skabe det endelige produkt (deraf 'ultraforarbejdet'). Processerne omfatter adskillige **uden indenlandske ækvivalenter**, såsom hydrogenering og hydrolysering, ekstrudering og støbning samt forbehandling til stegning.",
   "guide_nova_explanations_arg4_title": "De aggressive og økonomiske aspekter af ultraforarbejdning",
-  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
-  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
-  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
+  "guide_nova_explanations_arg4_text": "**Det overordnede formål med ultraforarbejdning er at skabe mærkevareprodukter,** der er **bekvemme** (holdbare, klar til forbrug), **attraktive** (hypervelsmagende) og **yderst rentable** (lavprisingredienser), og som er designet til at erstatte alle andre fødevaregrupper. Ultraforarbejdede fødevarer er normalt pakket attraktivt og markedsføres intensivt.**",
+  "guide_nova_explanations_arg5_title": "En sundhedsfare",
+  "guide_nova_explanations_arg5_text": "Siden 2018 er de første sammenhænge mellem **forbrug af ultraforarbejdede fødevarer og øget risiko for kræft, hjerte-kar-sygdomme og diabetes blevet fremhævet** med NutriNet-Santé. I dag bekræfter mere end 90 undersøgelser verden over disse fund.\nDe stærkeste sammenhænge relaterer sig til **fedme, hjerte-kar-dødelighed og depressive symptomer**. Hos børn observeres virkningerne primært på vægt og lipidubalancer.",
+  "guide_nova_explanations_arg6_title": "Lande anbefaler at begrænse dem",
+  "guide_nova_explanations_arg6_text": "Nogle lande bruger NOVA-grupperne til deres kostvejledninger eller -mål, for eksempel:\n\n- **🇧🇷 Brasiliens** kostvejledninger **anbefaler at begrænse forbruget** af forarbejdede fødevarer og undgå ultraforarbejdede fødevarer.\n\n- **🇫🇷 Frankrigs** ernæringspolitiske mål for folkesundhed for 2018-2022 sigter mod at **reducere forbruget af ultraforarbejdede fødevarer i gruppe 4 med 20%**.",
   "guide_nova_share_link": "https://world-da.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
@@ -4049,100 +4061,100 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_food_facts_what_is_open_food_facts_title": "Hvad er Open Food Facts?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts er en **samarbejdsbaseret**, **fri** og **åben** database over fødevarer fra hele verden.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Vi mener, at alle skal have adgang til information om, hvad de spiser. Ved at indsamle data om ingredienser, allergener, næringsindhold og mere, **giver vi forbrugerne mulighed for at træffe informerede valg** og driver fødevareindustrien **mod større gennemsigtighed**.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
-  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
-  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
-  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
-  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
+  "guide_open_food_facts_features_title": "Funktioner i Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Få advarsler om dine uønskede ingredienser",
+  "guide_open_food_facts_tips_title": "Tips til at tage fantastiske billeder",
+  "guide_open_food_facts_tips_arg1_title": "Undgå",
+  "guide_open_food_facts_tips_arg1_text1": "Undgå skygger og genskin.",
+  "guide_open_food_facts_tips_arg1_text2": "Ingen sløret eller uskarp tekst.",
+  "guide_open_food_facts_tips_arg1_text3": "Beskær ikke dele af teksten væk.",
+  "guide_open_food_facts_tips_arg1_text4": "Undgå forstyrrende baggrunde.",
+  "guide_open_food_facts_tips_arg2_title": "Anbefales",
+  "guide_open_food_facts_tips_arg2_text1": "Brug god, jævn belysning.",
+  "guide_open_food_facts_tips_arg2_text2": "Sørg for, at teksten er skarp og læsbar.",
+  "guide_open_food_facts_tips_arg2_text3": "Optag hele ingredienslisten.",
+  "guide_open_food_facts_tips_arg2_text4": "Opbevar produktet på en plan overflade.",
+  "guide_open_food_facts_scores_title": "Hjælp os med at opbygge \"Madens Wikipedia\"",
+  "guide_open_food_facts_scores_arg1_title": "En score på næringskvaliteten",
+  "guide_open_food_facts_scores_arg2_title": "En score for at undgå ultraforarbejdede fødevarer",
+  "guide_open_food_facts_scores_arg3_title": "En score for planeten",
   "guide_open_food_facts_share_link": "https://world-da.openfoodfacts.org/discover",
-  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
+  "guide_open_pet_food_facts_title": "Velkommen til Åbne Fakta om kæledyrsfoder!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Hvad er Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts udvider vores mission til også at omfatte vores pelsede venner! Det er en **database med kæledyrsfoderprodukter til katte, hunde og andre kæledyrskammerater**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Vi indsamler information om **ingredienser**, **ernæringsanalyser** og fodringsretningslinjer for at hjælpe kæledyrsejere med at vælge det bedste foder til deres dyrs behov.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
-  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
-  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
-  "guide_open_pet_food_facts_scores_title": "A note on scoring",
-  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_pet_food_facts_features_title": "Funktioner ved åbne kæledyrsfoderfakta",
+  "guide_open_pet_food_facts_features_arg1_title": "Få advarsler om dine uønskede ingredienser",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Er dit kæledyr allergisk over for nogen ingredienser? Du kan oprette en liste over kosmetiske ingredienser, du skal undgå, direkte i appen!",
+  "guide_open_pet_food_facts_tips_title": "Tips til at tage fantastiske billeder",
+  "guide_open_pet_food_facts_tips_arg1_title": "Undgå",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Undgå skygger og genskin.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Ingen sløret eller uskarp tekst.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Beskær ikke dele af teksten væk.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Undgå forstyrrende baggrunde.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Anbefales",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Brug god, jævn belysning.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Sørg for, at teksten er skarp og læsbar.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Optag hele ingredienslisten.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Opbevar produktet på en plan overflade.",
+  "guide_open_pet_food_facts_scores_title": "En bemærkning om pointgivning",
+  "guide_open_pet_food_facts_scores_paragraph1": "Udvikling af et pointsystem til kæledyrsfoder **er ikke en prioritet lige nu**. Metoden ville være kompleks, da ernæringsbehovene varierer meget afhængigt af art, alder og helbredstilstand. Vi har endnu ikke fundet et uafhængigt videnskabeligt team, der er i stand til at udvikle en sådan score.",
   "guide_open_pet_food_facts_share_link": "https://world-da.openpetfoodfacts.org/discover",
-  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
+  "guide_open_beauty_facts_title": "Velkommen til Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Hvad er Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts er en samarbejdsdatabase over **kosmetiske produkter**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Vores mål er at tyde ingredienslister for at hjælpe dig med at **forstå, hvad der er i dine personlige plejeprodukter**. Fra fugtighedscremer til makeup indsamler vi data om ingredienser, allergener og emballage for at fremme gennemsigtighed i kosmetikindustrien.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
-  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
-  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
-  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
-  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
-  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
-  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
-  "guide_open_beauty_facts_scores_title": "A note on scoring",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_features_title": "Funktioner i Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Få advarsler om dine uønskede ingredienser",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Er du allergisk over for nogen af ingredienserne? Vil du undgå komedogene stoffer? Vil du undgå kontroversielle komponenter? Du kan oprette en liste over kosmetiske ingredienser, du skal undgå, direkte i appen!",
+  "guide_open_beauty_facts_tips_title": "Tips til at tage fantastiske billeder",
+  "guide_open_beauty_facts_tips_arg1_title": "Undgå",
+  "guide_open_beauty_facts_tips_arg1_text1": "Undgå skygger og genskin.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Ingen sløret eller uskarp tekst.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Beskær ikke dele af teksten væk.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Undgå forstyrrende baggrunde.",
+  "guide_open_beauty_facts_tips_arg2_title": "Anbefales",
+  "guide_open_beauty_facts_tips_arg2_text1": "Brug god, jævn belysning.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Sørg for, at teksten er skarp og læsbar.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Optag hele ingredienslisten.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Tag så mange billeder som nødvendigt, hvis flasken er buet.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Du skal muligvis fjerne etiketten for at se ingredienslisten.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Opbevar produktet på en plan overflade.",
+  "guide_open_beauty_facts_scores_title": "En bemærkning om pointgivning",
+  "guide_open_beauty_facts_scores_paragraph1": "I modsætning til fødevarer har kosmetikverdenen **ikke et universelt anerkendt, statsstøttet scoringssystem som Nutri-Score**. Ingrediensernes virkninger kan være meget individuelle og afhænge af hudtype, allergier og personlige bekymringer.",
   "guide_open_beauty_facts_share_link": "https://world-da.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Velkommen til Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "Hvad er Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices er et projekt, der har til formål at **indsamle og dele priser på produkter fra hele verden**. Det er et offentligt tilgængeligt datasæt, der kan bruges til forskning, analyse og mere. Open Prices er udviklet og vedligeholdt af Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4150,53 +4162,53 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_how_title": "Hvordan fungerer Open Prices?",
+  "guide_open_prices_how_paragraph1": "**Vi crowdsourcer et open source-datasæt med priser**. Priser kan tilføjes af brugere via denne webapp eller via den officielle Open Food Facts-mobilapp. Detailhandlere eller tredjepartsapps kan også bidrage ved hjælp af vores API.",
+  "guide_open_prices_how_arg1_title": "Saml billeder af prisskilte i butikken",
+  "guide_open_prices_how_arg2_title": "Saml billeder af kvitteringer",
+  "guide_open_prices_why_title": "Hvor indsamler Open Food Facts priser?",
+  "guide_open_prices_why_paragraph1": "Prisinformation er af afgørende betydning for at forstå fødevaresystemer. Det er en nøglefaktor i at forstå prisen på fødevarer og fremme sundere kostvaner. Åbning af prisdata er en måde at gøre det lettere for forskere, journalister og borgere at **få en bedre forståelse af, hvordan fødevarepriser varierer geografisk og over tid**.",
+  "guide_open_prices_why_arg1_title": "Spor prisudviklingen over tid",
+  "guide_open_prices_why_arg1_text": "Se **prisudviklingen**: krympe-inflation, billig-inflation, vi kan spore dem sammen!",
+  "guide_open_prices_why_arg2_title": "Sammenlign priser i nærheden af dig",
+  "guide_open_prices_why_arg2_text": "Efterhånden som vi får flere priser, kan du finde **de billigste butikker i nærheden af dig**.",
+  "guide_open_prices_scrapping_title": "Har du overvejet at scrape priser fra forhandlernes hjemmesider?",
+  "guide_open_prices_scrapping_paragraph1": "Af juridiske og tekniske årsager **anser vi ikke det at indsamle priser fra detailhandleres hjemmesider som en gyldig måde at bidrage til Open Prices**. Vi ønsker at sikre os, at de priser, vi indsamler, er nøjagtige og opdaterede, og det er ikke muligt at modtage indsamlede priser fra bidragydere.",
+  "guide_open_prices_scrapping_paragraph2": "Prisscraping er en overvejet mulighed i en fremtidig version af Open Prices, men det vil blive gjort af Open Prices selv, så vi kan have et bevis på prisen baseret på HTML-siden.",
   "guide_open_prices_retailers_title": "Jeg er forhandler, og jeg vil gerne bidrage med priser. Hvordan kan jeg gøre det?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "Du kan bidrage med priser ved hjælp af vores API.\nHvis du ønsker at bidrage med priser i stor skala, bedes du kontakte os på prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Velkommen til Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Hvad er Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts er en massiv, åben database for **ethvert produkt med en stregkode, som ikke er fødevarer, kosmetik eller kæledyrsfoder**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Fra **elektronik** til **legetøj** og **tøj** til **rengøringsartikler**, kan det tilføjes, hvis det har en stregkode. Dette projekt har til formål at skabe et \"tingenes internet\" for hverdagsgenstande og gøre information om dem universelt tilgængelig.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
-  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
-  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
-  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
-  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
-  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
-  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
-  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
-  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
-  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
+  "guide_open_products_facts_features_title": "Funktioner i Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts har til formål at give forbrugerne mulighed for at **forlænge levetiden på deres genstande** ved at tilbyde cirkulære løsninger til at vedligeholde, **reparere**, **genbruge** deres genstande eller give dem en ny ejer.",
+  "guide_open_products_facts_features_arg1_title": "CO2-aftryk for nogle produkter",
+  "guide_open_products_facts_features_arg1_text": "**CO2-påvirkning** fra den franske miljømyndighed ADEME leverer **CO2-påvirkningen** for mange kategorier. Sørg for at kategorisere produkterne præcist.",
+  "guide_open_products_facts_features_arg2_title": "Reparationsindeks for mange produkter",
+  "guide_open_products_facts_features_arg2_text": "Når et fransk reparerbarhedsindeks er tilgængeligt, viser vi det. Derudover **kan du begynde at indsamle variablerne ved hjælp af Folksonomy Engine**, så vi selv kan genberegne det i fremtiden, selv i lande hvor det ikke er tilgængeligt.",
+  "guide_open_products_facts_features_arg3_title": "Find måder at donere/videresælge dit produkt",
+  "guide_open_products_facts_features_arg3_text": "Vi leverer links til **tredjeparts cirkulærvenlige tjenester**, der hjælper dig med at finde den type produkt, du leder efter, som et brugt produkt, for at være mere skånsom mod planetens ressourcer.\nBemærk, at vi ikke bliver betalt for at gøre det, og at systemet kun fungerer som et eksempel for to websteder i Frankrig. Du kan hjælpe med at udvide dette system ved at dokumentere flere websteder på wikien.",
+  "guide_open_products_facts_information_title": "Hvilke oplysninger er nyttige?",
+  "guide_open_products_facts_information_text": "For så bred en vifte af elementer **er de data, vi indsamler, fleksible**. For at gøre det **har vi skabt Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "Folksonomy-motoren",
+  "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine er et værktøj, der hjælper dig med at færdiggøre produkter med relevante egenskaber. Dette hjælper med at forbedre søgning og synlighed, men også med at beregne og vise interessante ting i fremtiden.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Du kan tilføje alle nøgler og værdier som f.eks.: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Du får automatiske forslag til mulige egenskaber, og du er meget velkommen til at tilføje og dokumentere nye på dine yndlingsprodukter.",
   "guide_open_products_facts_share_link": "https://world-da.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_open_preferences_button_title": "Åbn madpræferencer",
+  "guide_coming_soon_button_title": "Kommer snart",
+  "guide_learn_more_subtitle": "Tryk for at lære mere",
   "preview_badge": "Forhåndsvisning",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4457,7 +4469,7 @@
   "photo_field_front": "Produktfoto",
   "photo_field_ingredients": "Ingrediensfoto",
   "photo_field_nutrition": "Ernæringsfoto",
-  "photo_field_packaging": "Emballageoplysningsfoto",
+  "photo_field_packaging": "Genbrugsvejledningsfoto",
   "photo_already_exists": "Dette billede findes allerede",
   "photo_missing": "Dette billede mangler",
   "date": "Dato",
@@ -4561,11 +4573,11 @@
   "folksonomy_explanation_card_title": "Hvad er Folksonomys attributter?",
   "folksonomy_explanation_card_line1": "Attributter er **nøgleværdibaserede**.",
   "folksonomy_explanation_card_line2": "Disse egenskaber oprettes og arkiveres af bidragydere til enhver form for anvendelse.",
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_action_external_link_title": "Åbn eksternt link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "Eksterne links kan være usikre. Vil du virkelig besøge dem?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -5100,23 +5112,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Opdag åbne fødevarefakta",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Opdag Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Opdag Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Opdag Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Opdag Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5572,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Åbne fødevarefakta-laboratorier",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5580,7 +5592,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Få åbne fødevarefakta på dit sprog",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5607,12 +5619,12 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "Placeringsoplysninger",
   "location_map_details_name": "Navn",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "Gade",
+  "location_map_details_city": "By",
+  "location_map_details_postcode": "Postnummer",
   "location_map_details_country": "Land",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_coordinates": "Koordinater",
+  "location_map_details_osm_id": "OSM-ID"
 }

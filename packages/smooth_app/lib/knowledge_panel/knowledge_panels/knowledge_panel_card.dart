@@ -14,11 +14,13 @@ class KnowledgePanelCard extends StatelessWidget {
     required this.panelId,
     required this.product,
     required this.isClickable,
+    this.simplified = false,
   });
 
   final String panelId;
   final Product product;
   final bool isClickable;
+  final bool simplified;
 
   static const String PANEL_NUTRITION_TABLE_ID = 'nutrition_facts_table';
   static const String PANEL_INGREDIENTS_ID = 'ingredients';
@@ -45,6 +47,7 @@ class KnowledgePanelCard extends StatelessWidget {
         isClickable: isClickable,
         roundedIcons: true,
         overrideStyle: false,
+        simplified: simplified,
       );
     }
 
@@ -54,6 +57,7 @@ class KnowledgePanelCard extends StatelessWidget {
         isClickable &&
         KnowledgePanelsBuilder.hasSomethingToDisplay(product, panelId);
     return InkWell(
+      borderRadius: ANGULAR_BORDER_RADIUS,
       onTap: !improvedIsClickable
           ? null
           : () async => Navigator.push<Widget>(
@@ -68,8 +72,10 @@ class KnowledgePanelCard extends StatelessWidget {
       child:
           KnowledgePanelsBuilder.getPanelSummaryWidget(
             panel,
+            product,
             isClickable: improvedIsClickable,
             margin: EdgeInsetsDirectional.zero,
+            simplified: simplified,
           ) ??
           EMPTY_WIDGET,
     );

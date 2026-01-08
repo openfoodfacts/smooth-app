@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(iskanje po kategorijah)",
@@ -535,9 +535,17 @@
   "product": "Izdelek",
   "@product": {},
   "unknownBrand": "Neznana znamka",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Neznana količina",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Neznano ime izdelka",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Osveži",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informacije o embalaži",
+  "packaging_information": "Navodila za recikliranje",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Slika informacij o embalaži",
+  "packaging_information_photo": "Fotografija navodil za recikliranje",
   "@packaging_information_photo": {},
   "missing_product": "Našli ste nov izdelek!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Fotografija sprednje embalaže",
   "ingredients_photo_title": "Slika sestavin",
   "nutritional_facts_photo_title": "Fotografija hranilnih vrednosti",
-  "recycling_photo_title": "Fotografija recikliranja",
+  "recycling_photo_title": "Navodila za recikliranje Fotografija",
   "take_photo_title": "Posnemi fotografijo",
   "take_more_photo_title": "Naredite več slik",
   "front_photo_uploaded": "Sprednja fotografija je naložena",
@@ -3264,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Začetek izvajanja dejanj strežnika za lokalno shranjene posodobitve folksonomy",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Začetek prenosa najbolj priljubljenih izdelkov",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3857,7 +3869,7 @@
   "nova_group_unknown": "Neznana skupina NOVA",
   "nutrition_facts": "Ravni hranil",
   "faq_title_partners": "Partnerji in pokrovitelji nevladne organizacije",
-  "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
+  "faq_title_vision": "Vizija, poslanstvo, vrednote in programi Odprtega programa za živila",
   "faq_title_install_beauty": "Namestite Open Beauty Facts za ustvarjanje kozmetične baze podatkov",
   "faq_title_install_pet": "Namestite Open Pet Food Facts, da ustvarite bazo podatkov o hrani za hišne ljubljenčke",
   "faq_title_install_product": "Namestite Open Products Facts, da ustvarite podatkovno zbirko izdelkov in podaljšate življenjsko dobo predmetov.",
@@ -4048,7 +4060,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Kaj so odprta dejstva o hrani?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts je **sodelovalna**, **brezplačna** in **odprta** baza podatkov o živilih z vsega sveta.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4057,7 +4069,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
+  "guide_open_food_facts_features_title": "Značilnosti odprtih dejstev o hrani",
   "guide_open_food_facts_features_arg1_title": "Prejemajte opozorila o neželenih sestavinah",
   "guide_open_food_facts_tips_title": "Nasveti za odlične fotografije",
   "guide_open_food_facts_tips_arg1_title": "Česa ne smete storiti",
@@ -4088,7 +4100,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "Značilnosti odprtih dejstev o hrani za hišne ljubljenčke",
   "guide_open_pet_food_facts_features_arg1_title": "Prejemajte opozorila o neželenih sestavinah",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Je vaš ljubljenček alergičen na katero od sestavin? Seznam kozmetičnih sestavin, ki se jim je treba izogniti, lahko nastavite kar v aplikaciji!",
   "guide_open_pet_food_facts_tips_title": "Nasveti za odlične fotografije",
@@ -4109,7 +4121,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Kaj so odprta dejstva o lepoti?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts je skupna baza podatkov o **kozmetičnih izdelkih**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4170,7 +4182,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Kaj so dejstva o odprtih izdelkih?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts je obsežna, odprta baza podatkov za **vse izdelke s črtno kodo, ki niso hrana, kozmetika ali hrana za hišne ljubljenčke**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4191,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Značilnosti odprtih izdelkov Dejstva",
   "guide_open_products_facts_features_text": "Cilj Open Products Facts je potrošnikom omogočiti **podaljšanje življenjske dobe predmetov** z zagotavljanjem krožnih rešitev za vzdrževanje, **popravilo**, **recikliranje** njihovih predmetov ali pa jim dati novega lastnika.",
   "guide_open_products_facts_features_arg1_title": "Ogljični odtis nekaterih izdelkov",
   "guide_open_products_facts_features_arg1_text": "**Vpliv CO2**, ki ga je pripravil francoski organ za okolje ADEME, zagotavlja **ogljični vpliv** za številne kategorije, zato poskrbite, da boste izdelke natančno kategorizirali.",
@@ -4457,7 +4469,7 @@
   "photo_field_front": "Fotografija izdelka",
   "photo_field_ingredients": "Slike sestavin",
   "photo_field_nutrition": "Fotografija prehrane",
-  "photo_field_packaging": "Slika informacij o embalaži",
+  "photo_field_packaging": "Fotografija navodil za recikliranje",
   "photo_already_exists": "Ta fotografija že obstaja",
   "photo_missing": "Ta fotografija manjka",
   "date": "Datum",
@@ -5100,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Odkrijte dejstva o odprti hrani",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Odkrijte odprta dejstva o lepoti",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Odkrijte dejstva o hrani za hišne ljubljenčke na Open",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5116,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Odkrijte dejstva o odprtih izdelkih",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5572,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Odprti laboratoriji za dejstva o hrani",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5580,7 +5592,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Prinesite odprta dejstva o hrani v svoj jezik",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

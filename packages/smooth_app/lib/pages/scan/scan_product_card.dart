@@ -53,7 +53,6 @@ class ScanProductCardFound extends StatelessWidget {
           product,
           productPreferences,
           heroTag: _heroTag,
-          attributeGroupsClickable: false,
           margin: EdgeInsetsDirectional.zero,
           contentPadding: const EdgeInsets.symmetric(
             horizontal: LARGE_SPACE,

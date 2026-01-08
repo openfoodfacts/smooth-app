@@ -12,6 +12,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
+  String get open_prices => 'Open Prices';
+
+  @override
   String get sep => '';
 
   @override
@@ -143,7 +146,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get match_short_unknown => 'Độ phù hợp không xác định';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Giấy phép';
 
   @override
   String get looking_for => 'Đang tìm';
@@ -659,6 +662,9 @@ class AppLocalizationsVi extends AppLocalizations {
   String get unknownBrand => 'Thương hiệu không xác định';
 
   @override
+  String get unknownQuantity => 'Số lượng không xác định';
+
+  @override
   String get unknownProductName => 'Tên sản phẩm không xác định';
 
   @override
@@ -724,10 +730,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Chỉnh sửa thông tin dinh dưỡng';
 
   @override
-  String get packaging_information => 'Thông tin bao bì';
+  String get packaging_information => 'Hướng dẫn tái chế';
 
   @override
-  String get packaging_information_photo => 'Ảnh chụp thông tin bao bì';
+  String get packaging_information_photo => 'Ảnh hướng dẫn tái chế';
 
   @override
   String get missing_product => 'Bạn đã tìm thấy một sản phẩm mới!';
@@ -830,7 +836,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Ảnh chụp thông tin dinh dưỡng';
 
   @override
-  String get recycling_photo_title => 'Ảnh quy định tái chế';
+  String get recycling_photo_title => 'Hướng dẫn tái chế (Ảnh)';
 
   @override
   String get take_photo_title => 'Chụp ảnh';
@@ -1966,7 +1972,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Nutri-Score, NOVA…';
+      'Điểm số dinh dưỡng, NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
@@ -2540,6 +2546,9 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get product_type_label_product => 'Khác';
+
+  @override
+  String get product_type_label_unknown => 'Unknown';
 
   @override
   String get product_type_selection_title => 'Loại sản phẩm';
@@ -3550,7 +3559,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Bắt đầu thực hiện các hành động máy chủ cho các bản cập nhật folksonomy được lưu trữ cục bộ';
 
   @override
   String get background_task_title_top_n =>
@@ -4725,7 +4734,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Đặc điểm của Thực phẩm cho thú cưng mở';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4971,7 +4980,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Tính năng của Sản phẩm Mở Sự kiện';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5262,7 +5271,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get photo_field_nutrition => 'Ảnh dinh dưỡng';
 
   @override
-  String get photo_field_packaging => 'Ảnh chụp thông tin bao bì';
+  String get photo_field_packaging => 'Ảnh hướng dẫn tái chế';
 
   @override
   String get photo_already_exists => 'Bức ảnh này đã tồn tại';
@@ -5344,6 +5353,47 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Đối với tôi';
+
+  @override
+  String get product_page_for_me_compatibility_score_title =>
+      'My compatibility';
+
+  @override
+  String product_page_for_me_compatibility_score_value(int value) {
+    return '$value% compatible';
+  }
+
+  @override
+  String get product_page_for_me_compatibility_score_uncomputable =>
+      'Insufficient data to compute a compatibility score.';
+
+  @override
+  String product_page_for_me_compatibility_score_unsupported(
+    String productType,
+  ) {
+    return 'A score can\'t be computed for a product of type \"$productType\".';
+  }
+
+  @override
+  String get product_page_for_me_attributes_order_importance => 'Importance';
+
+  @override
+  String get product_page_for_me_attributes_order_evaluation => 'Matches';
+
+  @override
+  String get product_page_for_me_attributes_group_good_matches =>
+      'Good matches';
+
+  @override
+  String get product_page_for_me_attributes_group_average_matches =>
+      'Average matches';
+
+  @override
+  String get product_page_for_me_attributes_group_bad_matches => 'Bad matches';
+
+  @override
+  String get product_page_for_me_attributes_group_unknown_matches =>
+      'Unknown matches';
 
   @override
   String get product_page_tab_website => 'Trang web';
@@ -5811,21 +5861,23 @@ class AppLocalizationsVi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Khám phá những dự án';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Khám phá sự thật về thực phẩm mở';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Khám phá sự thật về vẻ đẹp mở';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Khám phá sự thật về thức ăn cho thú cưng';
 
   @override
   String get preferences_faq_discover_op_title => 'Khám phá Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Khám phá sự thật về sản phẩm mở';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Những câu hỏi thường gặp';
@@ -5854,7 +5906,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Tham gia bằng cách tham dự một trong các sự kiện trực tuyến của chúng tôi';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'Blog Sự thật về Thực phẩm Mở';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6170,14 +6222,14 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Phòng thí nghiệm thông tin thực phẩm mở';
 
   @override
   String get preferences_root_account_title => 'Tài khoản';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Mang Thông tin Thực phẩm Mở sang ngôn ngữ của bạn';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6221,4 +6273,38 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'Mã OSM';
+
+  @override
+  String get homepage_scanner_back_to_home_button => 'Back to home';
+
+  @override
+  String get homepage_scanner_toggle_camera_tooltip => 'Toggle camera';
+
+  @override
+  String get homepage_header_barcode_tooltip => 'Show the barcode scanner';
+
+  @override
+  String get homepage_scanner_overlay_message =>
+      'Tap to scan a **barcode**\nand discover if it\'s **good for you**!';
+
+  @override
+  String get homepage_scanner_toggle_torch_tooltip => 'Toggle torch';
+
+  @override
+  String get homepage_scanner_banner_start_scanning =>
+      'Scan a product by approaching its barcode';
+
+  @override
+  String homepage_scanner_banner_invalid_barcode(String barcode) {
+    return 'We have detected the following barcode: $barcode, but it seems to be invalid.';
+  }
+
+  @override
+  String get homepage_horizontal_list_view_more_button => 'View more…';
+
+  @override
+  String get homepage_list_most_scanned_title => 'Most scanned products';
+
+  @override
+  String get homepage_list_last_scanned_title => 'Last scanned products';
 }

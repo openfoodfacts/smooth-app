@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "ライセンス",
   "@licenses": {},
   "looking_for": "検索中",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "全て",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(カテゴリ検索)",
@@ -535,9 +535,17 @@
   "product": "製品",
   "@product": {},
   "unknownBrand": "不明なブランド",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "不明な数量",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "不明な製品名",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "再読み込み",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "パッケージ情報",
+  "packaging_information": "リサイクル手順",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "パッケージ情報の画像",
+  "packaging_information_photo": "リサイクル手順の画像",
   "@packaging_information_photo": {},
   "missing_product": "新しい製品を見つけました！",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "パッケージの正面の画像",
   "ingredients_photo_title": "原材料の画像",
   "nutritional_facts_photo_title": "栄養成分表の画像",
-  "recycling_photo_title": "リサイクル情報の画像",
+  "recycling_photo_title": "リサイクル手順写真",
   "take_photo_title": "画像を撮る",
   "take_more_photo_title": "もっと写真を撮ります",
   "front_photo_uploaded": "正面の画像をアップロードしました",
@@ -3264,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "ローカルに保存されたフォークソノミーの更新に対するサーバーアクションの実行を開始します",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "最も人気のある製品のダウンロードを開始します",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -4088,7 +4100,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "オープンペットフードファクトの特徴",
   "guide_open_pet_food_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "ペットにアレルギーのある成分はありますか？避けるべき化粧品成分のリストをアプリ内で設定できます。",
   "guide_open_pet_food_facts_tips_title": "素晴らしい写真を撮るためのヒント",
@@ -4118,7 +4130,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_title": "オープンビューティーファクトの特徴",
   "guide_open_beauty_facts_features_arg1_title": "不要な食材に関するアラートを受け取る",
   "guide_open_beauty_facts_features_arg1_paragraph1": "成分にアレルギーがありますか？コメドゲン物質を避けたいですか？物議を醸す成分を避けたいですか？アプリ内で、避けたい化粧品成分のリストを設定できます！",
   "guide_open_beauty_facts_tips_title": "素晴らしい写真を撮るためのヒント",
@@ -4179,7 +4191,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "オープンプロダクトの特徴",
   "guide_open_products_facts_features_text": "Open Products Facts は、物品を維持、**修理**、**リサイクル**したり、新しい所有者に譲渡したりするための循環型ソリューションを提供することで、消費者に**物品の寿命を延ばす**ことを目指しています。",
   "guide_open_products_facts_features_arg1_title": "一部の製品のカーボンフットプリント",
   "guide_open_products_facts_features_arg1_text": "フランス環境庁 ADEME による **Impact CO2** では、多くのカテゴリーの **炭素影響** が示されています。製品を正確に分類するようにしてください。",
@@ -4457,7 +4469,7 @@
   "photo_field_front": "製品写真",
   "photo_field_ingredients": "原材料の画像",
   "photo_field_nutrition": "栄養写真",
-  "photo_field_packaging": "パッケージ情報の画像",
+  "photo_field_packaging": "リサイクル手順の画像",
   "photo_already_exists": "この写真は既に存在します",
   "photo_missing": "この写真がありません",
   "date": "日付",
@@ -5104,11 +5116,11 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "オープンビューティーファクトを発見",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "オープンペットフードの事実を知る",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5116,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "オープンプロダクトの詳細を見る",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },

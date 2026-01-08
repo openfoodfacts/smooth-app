@@ -55,12 +55,19 @@ class CloudUploadAnimation extends StatelessWidget {
 }
 
 class DoubleChevronAnimation extends StatefulWidget {
-  const DoubleChevronAnimation.animate({this.size, super.key})
-    : animated = true;
+  const DoubleChevronAnimation.animate({
+    required this.color,
+    this.size,
+    super.key,
+  }) : animated = true;
 
-  const DoubleChevronAnimation.stopped({this.size, super.key})
-    : animated = false;
+  const DoubleChevronAnimation.stopped({
+    required this.color,
+    this.size,
+    super.key,
+  }) : animated = false;
 
+  final Color color;
   final double? size;
   final bool animated;
 
@@ -75,7 +82,7 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
   @override
   void didUpdateWidget(covariant DoubleChevronAnimation oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _changeAnimation(widget.animated);
+    _changeVMValues();
   }
 
   @override
@@ -88,14 +95,16 @@ class _DoubleChevronAnimationState extends State<DoubleChevronAnimation> {
         artboard: 'Double chevron',
         onDataBindAvailable: (ViewModelInstance vmi) {
           _vmi = vmi;
-          _changeAnimation(widget.animated);
+          _changeVMValues();
         },
       ),
     );
   }
 
-  void _changeAnimation(bool animated) {
-    _vmi?.boolean('Loop')?.value = animated;
+  void _changeVMValues() {
+    _vmi
+      ?..boolean('Loop')?.value = widget.animated
+      ..color('Color')?.value = widget.color;
   }
 }
 
@@ -200,11 +209,14 @@ class SunAnimation extends StatelessWidget {
 enum SunAnimationType { loop, fullAnimation }
 
 class TorchAnimation extends StatefulWidget {
-  const TorchAnimation.on({this.size, super.key}) : isOn = true;
+  const TorchAnimation.on({required this.color, this.size, super.key})
+    : isOn = true;
 
-  const TorchAnimation.off({this.size, super.key}) : isOn = false;
+  const TorchAnimation.off({required this.color, this.size, super.key})
+    : isOn = false;
 
   final bool isOn;
+  final Color color;
   final double? size;
 
   @override
@@ -217,11 +229,7 @@ class _TorchAnimationState extends State<TorchAnimation> {
   @override
   void didUpdateWidget(covariant TorchAnimation oldWidget) {
     super.didUpdateWidget(oldWidget);
-    _changeTorchValue(widget.isOn);
-  }
-
-  void _changeTorchValue(bool isOn) {
-    _vmi?.boolean('Enable')?.value = isOn;
+    _changeVMValues();
   }
 
   @override
@@ -235,10 +243,16 @@ class _TorchAnimationState extends State<TorchAnimation> {
         fit: Fit.cover,
         onDataBindAvailable: (ViewModelInstance vmi) {
           _vmi = vmi;
-          _changeTorchValue(widget.isOn);
+          _changeVMValues();
         },
       ),
     );
+  }
+
+  void _changeVMValues() {
+    _vmi
+      ?..boolean('Enable')?.value = widget.isOn
+      ..color('Color')?.value = widget.color;
   }
 }
 

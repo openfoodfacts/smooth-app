@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "הכול",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(חיפוש לפי קטגוריות)",
@@ -535,9 +535,17 @@
   "product": "מוצר",
   "@product": {},
   "unknownBrand": "מותג לא ידוע",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "כמות לא ידועה",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "שם המוצר אינו ידוע",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "רענון",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "פרטי אריזה",
+  "packaging_information": "הוראות מיחזור",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "תמונת פרטי אריזה",
+  "packaging_information_photo": "תמונת הנחיות מיחזור",
   "@packaging_information_photo": {},
   "missing_product": "מצאת מוצר חדש!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "תמונת חזית האריזה",
   "ingredients_photo_title": "תמונת רכיבים",
   "nutritional_facts_photo_title": "תמונת פירוט תזונתי",
-  "recycling_photo_title": "תמונת מיחזור",
+  "recycling_photo_title": "תמונת הוראות מיחזור",
   "take_photo_title": "צילום תמונה",
   "take_more_photo_title": "צילום תמונות נוספות",
   "front_photo_uploaded": "תמונת החזית נשלחה",
@@ -3264,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "מתחיל לבצע את פעולות השרת עבור עדכוני פולקסונומיה המאוחסנים באופן מקומי",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "מתחילה הורדת המוצרים הנפוצים ביותר",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -4457,7 +4469,7 @@
   "photo_field_front": "תמונת המוצר",
   "photo_field_ingredients": "תמונת רכיבים",
   "photo_field_nutrition": "תמונת מפרט תזונתי",
-  "photo_field_packaging": "תמונת פרטי אריזה",
+  "photo_field_packaging": "תמונת הנחיות מיחזור",
   "photo_already_exists": "התמונה הזאת כבר קיימת",
   "photo_missing": "התמונה הזאת חסרה",
   "date": "תאריך",
@@ -4552,7 +4564,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "למה מחירים?",
-  "prices_explanation_card_line1": "**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.",
+  "prices_explanation_card_line1": "**Prices פתוחים** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Prices פתוחים פותח ומתוחזק על ידי Open Food Facts.",
   "explanation_card_learn_more_button": "מידע נוסף",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5100,7 +5112,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "גלה עובדות על אוכל פתוח",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5124,7 +5136,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "עמותת \"עובדות על אוכל פתוח\"",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5160,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "הבלוג של עובדות המזון הפתוחות",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5580,7 +5592,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "הביאו עובדות פתוחות על מזון לשפה שלכם",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

@@ -12,6 +12,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
+  String get open_prices => 'Open Prices';
+
+  @override
   String get sep => '';
 
   @override
@@ -143,7 +146,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get match_short_unknown => 'अज्ञात मिलान';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'लाइसेंस';
 
   @override
   String get looking_for => 'ढूंढ रहे हैं';
@@ -658,6 +661,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get unknownBrand => 'अज्ञात ब्रांड';
 
   @override
+  String get unknownQuantity => 'अज्ञात मात्रा';
+
+  @override
   String get unknownProductName => 'अज्ञात उत्पाद का नाम';
 
   @override
@@ -724,10 +730,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nutrition_facts_editing_title => 'पोषण तथ्य संपादित करें';
 
   @override
-  String get packaging_information => 'पैकेजिंग जानकारी';
+  String get packaging_information => 'पुनर्चक्रण निर्देश';
 
   @override
-  String get packaging_information_photo => 'पैकेजिंग जानकारी फोटो';
+  String get packaging_information_photo => 'रीसाइक्लिंग निर्देश फोटो';
 
   @override
   String get missing_product => 'आपको एक नया उत्पाद मिला!';
@@ -769,7 +775,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get new_product_dialog_illustration_description =>
-      'An illustration with unknown Nutri-Score and Green Score';
+      'अज्ञात न्यूट्री-स्कोर और ग्रीन स्कोर के साथ एक चित्रण';
 
   @override
   String get front_packaging_photo_button_label =>
@@ -831,7 +837,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get nutritional_facts_photo_title => 'पोषण तथ्य फोटो';
 
   @override
-  String get recycling_photo_title => 'रीसाइक्लिंग फोटो';
+  String get recycling_photo_title => 'पुनर्चक्रण संबंधी निर्देश (फोटो)';
 
   @override
   String get take_photo_title => 'एक तस्वीर ले लो';
@@ -917,7 +923,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get hey_incomplete_product_message =>
-      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
+      'न्यूट्री-स्कोर, ग्रीन स्कोर और अल्ट्रा-प्रोसेसिंग (नोवा) की गणना करने के लिए अभी 3 प्रश्नों के उत्तर देने के लिए टैप करें!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
@@ -1370,7 +1376,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
+      'इस उत्पाद के लिए न्यूट्री-स्कोर की गणना नहीं की जा सकती, जो कि गैर-मानक श्रेणी के कारण हो सकता है। अगर इसे त्रुटि माना जाता है, तो कृपया हमसे संपर्क करें।';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -1953,7 +1959,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Nutri-Score, NOVA…';
+      'न्यूट्री-स्कोर, नोवा…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
@@ -2528,6 +2534,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
+  String get product_type_label_unknown => 'Unknown';
+
+  @override
   String get product_type_selection_title => 'उत्पाद का प्रकार';
 
   @override
@@ -2937,7 +2946,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
+      'कीमतें **सार्वजनिक होंगी**, साथ ही वे जिस स्टोर का उल्लेख करती हैं उसकी जानकारी भी।\n\nइससे आपके ओपन फ़ूड फैक्ट्स छद्म नाम के बारे में जानने वाले लोगों को यह करने में मदद मिल सकती है:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
@@ -2949,7 +2958,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
+      'यदि आप इससे असहज हैं, तो कृपया अपना छद्म नाम बदलें, या एक नया ओपन फूड फैक्ट्स अकाउंट बनाएं और उसके साथ ऐप में लॉग इन करें।';
 
   @override
   String get i_refuse => 'मैंने मना कर दिया';
@@ -3532,7 +3541,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'स्थानीय रूप से संग्रहीत फोल्क्सोनॉमी अपडेट के लिए सर्वर क्रियाएँ निष्पादित करना प्रारंभ करना';
 
   @override
   String get background_task_title_top_n =>
@@ -4125,27 +4134,27 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get faq_title_vision =>
-      'The Open Food Facts Vision, Mission, Values and Programs';
+      'ओपन फ़ूड फैक्ट्स विजन, मिशन, मूल्य और कार्यक्रम';
 
   @override
   String get faq_title_install_beauty =>
-      'Install Open Beauty Facts to create a cosmetic database';
+      'कॉस्मेटिक डेटाबेस बनाने के लिए ओपन ब्यूटी फैक्ट्स इंस्टॉल करें';
 
   @override
   String get faq_title_install_pet =>
-      'Install Open Pet Food Facts to create a pet food database';
+      'पालतू पशुओं के भोजन का डेटाबेस बनाने के लिए ओपन पेट फ़ूड फैक्ट्स इंस्टॉल करें';
 
   @override
   String get faq_title_install_product =>
-      'Install Open Products Facts to create a products database to extend the life of objects';
+      'वस्तुओं का जीवन बढ़ाने के लिए उत्पाद डेटाबेस बनाने हेतु ओपन प्रोडक्ट्स फैक्ट्स स्थापित करें';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'New calculation of the Nutri-Score: what\'s new?';
+      'न्यूट्री-स्कोर की नई गणना: क्या नया है?';
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Import your products in Open Food Facts';
+      'प्रो? अपने उत्पादों को ओपन फ़ूड फैक्ट्स में आयात करें';
 
   @override
   String get contact_title_pro_email => 'निर्माता संपर्क';
@@ -4278,11 +4287,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Where to find the new Nutri-Score calculation?';
+      'नया न्यूट्री-स्कोर गणना कहां मिलेगी?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
+      'न्यूट्री-स्कोर 7 देशों में लागू किया जाता है: फ्रांस, जर्मनी, बेल्जियम, स्पेन, लक्जमबर्ग, नीदरलैंड और स्विट्जरलैंड।';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
@@ -4602,19 +4611,18 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'ओपन फूड फैक्ट्स क्या है?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      'ओपन फूड फैक्ट्स दुनिया भर के खाद्य उत्पादों का एक सहयोगात्मक, निःशुल्क और खुला डेटाबेस है।';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
       'हमारा मानना है कि हर किसी को अपने खाने की जानकारी होनी चाहिए। सामग्री, एलर्जी, पोषण संबंधी तथ्यों और अन्य चीज़ों पर डेटा इकट्ठा करके, **हम उपभोक्ताओं को सूचित विकल्प चुनने में सक्षम बनाते हैं** और खाद्य उद्योग को **अधिक पारदर्शिता** की ओर ले जाते हैं।';
 
   @override
-  String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+  String get guide_open_food_facts_features_title => 'खुले भोजन की विशेषताएं';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4687,11 +4695,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'ओपन पेट फ़ूड तथ्य क्या है?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
+      'ओपन पेट फ़ूड फैक्ट्स हमारे मिशन को हमारे प्यारे दोस्तों तक बढ़ाता है! यह बिल्लियों, कुत्तों और अन्य पालतू जानवरों के लिए पालतू भोजन उत्पादों का एक डेटाबेस है।';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
@@ -4699,7 +4707,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'खुले पालतू भोजन के तथ्य की विशेषताएं';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4768,11 +4776,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'ओपन ब्यूटी फैक्ट्स क्या है?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      'ओपन ब्यूटी फैक्ट्स कॉस्मेटिक उत्पादों का एक सहयोगी डेटाबेस है।';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
@@ -4780,7 +4788,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'ओपन ब्यूटी फैक्ट्स की विशेषताएं';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4845,7 +4853,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
+      'खाद्य उत्पादों के विपरीत, सौंदर्य प्रसाधनों की दुनिया में **न्यूट्री-स्कोर** जैसी कोई सार्वभौमिक रूप से मान्यता प्राप्त, सरकार समर्थित स्कोरिंग प्रणाली नहीं है। अवयवों का प्रभाव अत्यधिक व्यक्तिगत हो सकता है और त्वचा के प्रकार, एलर्जी और व्यक्तिगत चिंताओं पर निर्भर करता है।';
 
   @override
   String get guide_open_beauty_facts_share_link =>
@@ -4871,7 +4879,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
+      '**हम कीमतों का एक ओपन-सोर्स डेटासेट क्राउडसोर्स कर रहे हैं**। उपयोगकर्ता इस वेब ऐप या आधिकारिक ओपन फ़ूड फ़ैक्ट्स मोबाइल ऐप के ज़रिए कीमतें जोड़ सकते हैं। खुदरा विक्रेता या तृतीय-पक्ष ऐप भी हमारे एपीआई का उपयोग करके योगदान दे सकते हैं।';
 
   @override
   String get guide_open_prices_how_arg1_title =>
@@ -4883,7 +4891,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_prices_why_title =>
-      'Why is Open Food Facts doing this ?';
+      'ओपन फ़ूड फैक्ट्स ऐसा क्यों कर रहा है?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
@@ -4935,11 +4943,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'ओपन प्रोडक्ट्स तथ्य क्या है?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      'ओपन प्रोडक्ट्स फैक्ट्स **बारकोड वाले किसी भी उत्पाद के लिए एक विशाल, खुला डेटाबेस है, जो खाद्य, कॉस्मेटिक या पालतू भोजन नहीं है**।';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
@@ -4947,11 +4955,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'खुले उत्पादों की विशेषताएं और तथ्य';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      'ओपन प्रोडक्ट्स फैक्ट्स का उद्देश्य उपभोक्ताओं को उनकी वस्तुओं के रखरखाव, मरम्मत, पुनर्चक्रण या उन्हें नया मालिक देने के लिए परिपत्र समाधान प्रदान करके वस्तुओं का जीवन बढ़ाना है।';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
@@ -5234,7 +5242,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get photo_field_nutrition => 'पोषण फोटो';
 
   @override
-  String get photo_field_packaging => 'पैकेजिंग जानकारी फोटो';
+  String get photo_field_packaging => 'रीसाइक्लिंग निर्देश फोटो';
 
   @override
   String get photo_already_exists => 'यह फ़ोटो पहले से मौजूद है';
@@ -5271,11 +5279,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Why is this Nutri-Score different from the one on the package?';
+      'यह न्यूट्री-स्कोर पैकेज पर दिए गए न्यूट्री-स्कोर से अलग क्यों है?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
+      'इसके दो संभावित कारण हैं:\nसामग्री की सूची और/या पोषण संबंधी तथ्य अद्यतित नहीं हैं।\n\nहम न्यूट्री-स्कोर (या V2) की \"नई गणना\" प्रदान करते हैं। कृपया जाँच लें कि पैकेज पर \"नई गणना\" का बैनर लगा है।';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
@@ -5319,6 +5327,47 @@ class AppLocalizationsHi extends AppLocalizations {
   String get product_page_tab_for_me => 'मेरे लिए';
 
   @override
+  String get product_page_for_me_compatibility_score_title =>
+      'My compatibility';
+
+  @override
+  String product_page_for_me_compatibility_score_value(int value) {
+    return '$value% compatible';
+  }
+
+  @override
+  String get product_page_for_me_compatibility_score_uncomputable =>
+      'Insufficient data to compute a compatibility score.';
+
+  @override
+  String product_page_for_me_compatibility_score_unsupported(
+    String productType,
+  ) {
+    return 'A score can\'t be computed for a product of type \"$productType\".';
+  }
+
+  @override
+  String get product_page_for_me_attributes_order_importance => 'Importance';
+
+  @override
+  String get product_page_for_me_attributes_order_evaluation => 'Matches';
+
+  @override
+  String get product_page_for_me_attributes_group_good_matches =>
+      'Good matches';
+
+  @override
+  String get product_page_for_me_attributes_group_average_matches =>
+      'Average matches';
+
+  @override
+  String get product_page_for_me_attributes_group_bad_matches => 'Bad matches';
+
+  @override
+  String get product_page_for_me_attributes_group_unknown_matches =>
+      'Unknown matches';
+
+  @override
   String get product_page_tab_website => 'वेबसाइट';
 
   @override
@@ -5329,7 +5378,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices** दुनिया भर के उत्पादों की कीमतें एकत्रित करने और उन्हें साझा करने का एक प्रोजेक्ट है। Open Prices का विकास और रखरखाव ओपन फ़ूड फ़ैक्ट्स द्वारा किया जाता है।';
 
   @override
   String get explanation_card_learn_more_button => 'और अधिक जानें';
@@ -5606,7 +5655,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'Search for a setting (e.g. Nutri-Score)';
+      'किसी सेटिंग की खोज करें (जैसे न्यूट्री-स्कोर)';
 
   @override
   String get preferences_accessibility_show_emoji => 'पहुँच: इमोजी दिखाएँ';
@@ -5682,11 +5731,11 @@ class AppLocalizationsHi extends AppLocalizations {
   String get preferences_tips => 'सुझावों';
 
   @override
-  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
+  String get tips_discover_nutriscore => 'नए न्यूट्री-स्कोर की खोज करें';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'ओपन फ़ूड फैक्ट्स वेबसाइट पर';
 
   @override
   String get preferences_manage_account_title => 'मेरा खाता प्रबंधित करें';
@@ -5770,7 +5819,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Discover how the Nutri-Score is computed';
+      'जानें कि न्यूट्री-स्कोर की गणना कैसे की जाती है';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5781,27 +5830,29 @@ class AppLocalizationsHi extends AppLocalizations {
       'परियोजना के बारे में जानें';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'खुले भोजन के बारे में तथ्य जानें';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'खुले सौंदर्य तथ्यों की खोज करें';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'खुले पालतू भोजन के बारे में तथ्य जानें';
 
   @override
   String get preferences_faq_discover_op_title => 'Open Prices खोजें';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'ओपन प्रोडक्ट्स के तथ्य जानें';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - अक्सर पूछे जाने वाले प्रश्न';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'ओपन फ़ूड फैक्ट्स एनजीओ';
 
   @override
   String get preferences_about_information_title => 'जानकारी';
@@ -5823,7 +5874,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'हमारे किसी वर्चुअल कार्यक्रम में शामिल होकर इसमें शामिल हों';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => 'ओपन फ़ूड फैक्ट्स ब्लॉग';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5938,7 +5989,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'ओपन फ़ूड फैक्ट्स में मेरे द्वारा जोड़े गए नए उत्पाद';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -5964,7 +6015,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Help compute the Nutri-Score & Green-Score in your country';
+      'अपने देश में न्यूट्री-स्कोर और ग्रीन-स्कोर की गणना में सहायता करें';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6141,14 +6192,14 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'ओपन फ़ूड फैक्ट्स लैब्स';
 
   @override
   String get preferences_root_account_title => 'खाता';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'खुले भोजन के तथ्यों को अपनी भाषा में लाएँ';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6192,4 +6243,38 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'ओएसएम आईडी';
+
+  @override
+  String get homepage_scanner_back_to_home_button => 'Back to home';
+
+  @override
+  String get homepage_scanner_toggle_camera_tooltip => 'Toggle camera';
+
+  @override
+  String get homepage_header_barcode_tooltip => 'Show the barcode scanner';
+
+  @override
+  String get homepage_scanner_overlay_message =>
+      'Tap to scan a **barcode**\nand discover if it\'s **good for you**!';
+
+  @override
+  String get homepage_scanner_toggle_torch_tooltip => 'Toggle torch';
+
+  @override
+  String get homepage_scanner_banner_start_scanning =>
+      'Scan a product by approaching its barcode';
+
+  @override
+  String homepage_scanner_banner_invalid_barcode(String barcode) {
+    return 'We have detected the following barcode: $barcode, but it seems to be invalid.';
+  }
+
+  @override
+  String get homepage_horizontal_list_view_more_button => 'View more…';
+
+  @override
+  String get homepage_list_most_scanned_title => 'Most scanned products';
+
+  @override
+  String get homepage_list_last_scanned_title => 'Last scanned products';
 }

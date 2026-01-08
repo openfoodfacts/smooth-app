@@ -12,6 +12,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
+  String get open_prices => 'Open Prices';
+
+  @override
   String get sep => '';
 
   @override
@@ -143,7 +146,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get match_short_unknown => 'Nežinomas atitikmuo';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Licencijos';
 
   @override
   String get looking_for => 'Ieškoti';
@@ -526,8 +529,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get saving_answer => 'Išsaugomas jūsų atsakymas';
 
   @override
-  String get contribute_to_get_rewards =>
-      'Become an actor of food transparency';
+  String get contribute_to_get_rewards => 'Tapkite maisto skaidrumo veikėju';
 
   @override
   String get question_sign_in_text =>
@@ -666,6 +668,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get unknownBrand => 'Nežinomas prekės ženklas';
 
   @override
+  String get unknownQuantity => 'Nežinomas kiekis';
+
+  @override
   String get unknownProductName => 'Nežinomas produkto pavadinimas';
 
   @override
@@ -732,11 +737,10 @@ class AppLocalizationsLt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Redaguoti maistinę vertę';
 
   @override
-  String get packaging_information => 'Informacija apie pakuotę';
+  String get packaging_information => 'Perdirbimo instrukcijos';
 
   @override
-  String get packaging_information_photo =>
-      'Informacijos apie pakuotę nuotrauka';
+  String get packaging_information_photo => 'Perdirbimo instrukcijos nuotrauka';
 
   @override
   String get missing_product => 'Radote naują produktą!';
@@ -840,7 +844,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Maistingumo duomenų nuotrauka';
 
   @override
-  String get recycling_photo_title => 'Perdirbimo Nuotrauka';
+  String get recycling_photo_title => 'Perdirbimo instrukcijos Nuotrauka';
 
   @override
   String get take_photo_title => 'Fotografuoti';
@@ -2562,6 +2566,9 @@ class AppLocalizationsLt extends AppLocalizations {
   String get product_type_label_product => 'Kita';
 
   @override
+  String get product_type_label_unknown => 'Unknown';
+
+  @override
   String get product_type_selection_title => 'Produkto tipas';
 
   @override
@@ -3576,7 +3583,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Pradedami vykdyti serverio veiksmai su lokaliai saugomais „folksonomy“ atnaujinimais';
 
   @override
   String get background_task_title_top_n =>
@@ -4656,7 +4663,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      'Kas yra atviri faktai apie maistą?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4668,7 +4675,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+      'Atvirų maisto faktų ypatybės';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4740,7 +4747,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      'Kas yra atviri naminių gyvūnėlių ėdalo faktai?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4752,7 +4759,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+      'Atviro naminių gyvūnėlių ėdalo faktų ypatybės';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4822,7 +4829,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      'Kas yra atviri grožio faktai?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4834,7 +4841,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+      'Atvirų grožio faktų ypatybės';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4987,7 +4994,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      'Kas yra atviri produktų faktai?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4999,7 +5006,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+      'Atvirų produktų faktų ypatybės';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5292,7 +5299,7 @@ class AppLocalizationsLt extends AppLocalizations {
   String get photo_field_nutrition => 'Mitybos nuotrauka';
 
   @override
-  String get photo_field_packaging => 'Informacijos apie pakuotę nuotrauka';
+  String get photo_field_packaging => 'Perdirbimo instrukcijos nuotrauka';
 
   @override
   String get photo_already_exists => 'Ši nuotrauka jau yra';
@@ -5375,6 +5382,47 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Man';
+
+  @override
+  String get product_page_for_me_compatibility_score_title =>
+      'My compatibility';
+
+  @override
+  String product_page_for_me_compatibility_score_value(int value) {
+    return '$value% compatible';
+  }
+
+  @override
+  String get product_page_for_me_compatibility_score_uncomputable =>
+      'Insufficient data to compute a compatibility score.';
+
+  @override
+  String product_page_for_me_compatibility_score_unsupported(
+    String productType,
+  ) {
+    return 'A score can\'t be computed for a product of type \"$productType\".';
+  }
+
+  @override
+  String get product_page_for_me_attributes_order_importance => 'Importance';
+
+  @override
+  String get product_page_for_me_attributes_order_evaluation => 'Matches';
+
+  @override
+  String get product_page_for_me_attributes_group_good_matches =>
+      'Good matches';
+
+  @override
+  String get product_page_for_me_attributes_group_average_matches =>
+      'Average matches';
+
+  @override
+  String get product_page_for_me_attributes_group_bad_matches => 'Bad matches';
+
+  @override
+  String get product_page_for_me_attributes_group_unknown_matches =>
+      'Unknown matches';
 
   @override
   String get product_page_tab_website => 'Interneto svetainė';
@@ -5748,7 +5796,7 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'On the Open Food Facts website';
+      'Atvirų maisto faktų svetainėje';
 
   @override
   String get preferences_manage_account_title => 'Tvarkyti mano paskyrą';
@@ -5845,27 +5893,30 @@ class AppLocalizationsLt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Apie projektą';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title =>
+      'Atraskite atvirus faktus apie maistą';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title =>
+      'Atraskite atvirus grožio faktus';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+      'Atraskite atvirus faktus apie naminių gyvūnėlių ėdalą';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+      'Atraskite atvirus produktų faktus';
 
   @override
   String get preferences_faq_faq_title => 'DUK – Dažnai užduodami klausimai';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title =>
+      'Atvirų maisto faktų nevyriausybinė organizacija';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -6207,14 +6258,14 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Atviros maisto faktų laboratorijos';
 
   @override
   String get preferences_root_account_title => 'Paskyra';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Atviri maisto faktai jūsų kalba';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6258,4 +6309,38 @@ class AppLocalizationsLt extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
+
+  @override
+  String get homepage_scanner_back_to_home_button => 'Back to home';
+
+  @override
+  String get homepage_scanner_toggle_camera_tooltip => 'Toggle camera';
+
+  @override
+  String get homepage_header_barcode_tooltip => 'Show the barcode scanner';
+
+  @override
+  String get homepage_scanner_overlay_message =>
+      'Tap to scan a **barcode**\nand discover if it\'s **good for you**!';
+
+  @override
+  String get homepage_scanner_toggle_torch_tooltip => 'Toggle torch';
+
+  @override
+  String get homepage_scanner_banner_start_scanning =>
+      'Scan a product by approaching its barcode';
+
+  @override
+  String homepage_scanner_banner_invalid_barcode(String barcode) {
+    return 'We have detected the following barcode: $barcode, but it seems to be invalid.';
+  }
+
+  @override
+  String get homepage_horizontal_list_view_more_button => 'View more…';
+
+  @override
+  String get homepage_list_most_scanned_title => 'Most scanned products';
+
+  @override
+  String get homepage_list_last_scanned_title => 'Last scanned products';
 }

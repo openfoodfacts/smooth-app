@@ -12,6 +12,9 @@ class AppLocalizationsSn extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
+  String get open_prices => 'Open Prices';
+
+  @override
   String get sep => '';
 
   @override
@@ -143,7 +146,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licences';
+  String get licenses => 'Marezenisi';
 
   @override
   String get looking_for => 'Looking for';
@@ -653,6 +656,9 @@ class AppLocalizationsSn extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
+  String get unknownQuantity => 'Huwandu husingazivikanwe';
+
+  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -719,10 +725,10 @@ class AppLocalizationsSn extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Packaging information';
+  String get packaging_information => 'Mirayiridzo yekudzokorodza';
 
   @override
-  String get packaging_information_photo => 'Packaging information photo';
+  String get packaging_information_photo => 'Recycling instructions photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -825,7 +831,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recycling Photo';
+  String get recycling_photo_title => 'Mirayiridzo yekudzokorodza Mufananidzo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -2518,6 +2524,9 @@ class AppLocalizationsSn extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
+  String get product_type_label_unknown => 'Unknown';
+
+  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -3518,7 +3527,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      'Kutanga kuita sevha zviito zvefolksonomy updates zvakachengetwa munharaunda';
 
   @override
   String get background_task_title_top_n =>
@@ -5214,7 +5223,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Packaging information photo';
+  String get photo_field_packaging => 'Recycling instructions photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5298,6 +5307,47 @@ class AppLocalizationsSn extends AppLocalizations {
   String get product_page_tab_for_me => 'Zvangu';
 
   @override
+  String get product_page_for_me_compatibility_score_title =>
+      'My compatibility';
+
+  @override
+  String product_page_for_me_compatibility_score_value(int value) {
+    return '$value% compatible';
+  }
+
+  @override
+  String get product_page_for_me_compatibility_score_uncomputable =>
+      'Insufficient data to compute a compatibility score.';
+
+  @override
+  String product_page_for_me_compatibility_score_unsupported(
+    String productType,
+  ) {
+    return 'A score can\'t be computed for a product of type \"$productType\".';
+  }
+
+  @override
+  String get product_page_for_me_attributes_order_importance => 'Importance';
+
+  @override
+  String get product_page_for_me_attributes_order_evaluation => 'Matches';
+
+  @override
+  String get product_page_for_me_attributes_group_good_matches =>
+      'Good matches';
+
+  @override
+  String get product_page_for_me_attributes_group_average_matches =>
+      'Average matches';
+
+  @override
+  String get product_page_for_me_attributes_group_bad_matches => 'Bad matches';
+
+  @override
+  String get product_page_for_me_attributes_group_unknown_matches =>
+      'Unknown matches';
+
+  @override
   String get product_page_tab_website => 'Website';
 
   @override
@@ -5308,7 +5358,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Vhura Mitengo** ipurojekiti yekuunganidza nekugovana mitengo yezvigadzirwa pasi rese 🌍. Mitengo yakavhurika inogadzirwa uye inochengetwa neOpen Food Chokwadi.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5614,7 +5664,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      'Vhura Chikafu Chokwadi idura rezvigadzirwa zvekudya ** rakagadzirwa nemunhu wese, kune wese **.\nUnogona kuishandisa kuita sarudzo dzekudya zviri nani, uye sezvazviri ** yakavhurika data **, chero munhu anogona ** kuishandisa zvakare kune chero chinangwa **.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5760,7 +5810,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Ziva Open Food Chokwadi';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5780,7 +5830,7 @@ class AppLocalizationsSn extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Mibvunzo Inowanzo bvunzwa';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => 'Iyo Open Food Chokwadi NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5915,7 +5965,7 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'New products I added to Open Food Facts';
+      'Zvigadzirwa zvitsva zvandakawedzera kune Open Food Chokwadi';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6119,14 +6169,14 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+      'Vhura Chikafu Chokwadi Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      'Hunza Zvakavhurika Zvekudya Chokwadi kumutauro wako';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6170,4 +6220,38 @@ class AppLocalizationsSn extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
+
+  @override
+  String get homepage_scanner_back_to_home_button => 'Back to home';
+
+  @override
+  String get homepage_scanner_toggle_camera_tooltip => 'Toggle camera';
+
+  @override
+  String get homepage_header_barcode_tooltip => 'Show the barcode scanner';
+
+  @override
+  String get homepage_scanner_overlay_message =>
+      'Tap to scan a **barcode**\nand discover if it\'s **good for you**!';
+
+  @override
+  String get homepage_scanner_toggle_torch_tooltip => 'Toggle torch';
+
+  @override
+  String get homepage_scanner_banner_start_scanning =>
+      'Scan a product by approaching its barcode';
+
+  @override
+  String homepage_scanner_banner_invalid_barcode(String barcode) {
+    return 'We have detected the following barcode: $barcode, but it seems to be invalid.';
+  }
+
+  @override
+  String get homepage_horizontal_list_view_more_button => 'View more…';
+
+  @override
+  String get homepage_list_most_scanned_title => 'Most scanned products';
+
+  @override
+  String get homepage_list_last_scanned_title => 'Last scanned products';
 }

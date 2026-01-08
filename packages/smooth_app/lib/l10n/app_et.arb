@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Litsentsid",
   "@licenses": {},
   "looking_for": "Otsin",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Kõik",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategooria otsing)",
@@ -535,9 +535,17 @@
   "product": "Toode",
   "@product": {},
   "unknownBrand": "Tundmatu kaubamärk",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Tundmatu kogus",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Tundmatu tootenimi",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Värskenda",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Pakendiinfo",
+  "packaging_information": "Taaskasutusjuhised",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Pakendiinfo foto",
+  "packaging_information_photo": "Foto ringlussevõtu juhistest",
   "@packaging_information_photo": {},
   "missing_product": "Oled leidnud uue toote!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Esikülje pakendi foto",
   "ingredients_photo_title": "Koostisosade foto",
   "nutritional_facts_photo_title": "Toitumisalane teave Foto",
-  "recycling_photo_title": "Foto ringlussevõtt",
+  "recycling_photo_title": "Taaskasutusjuhised Foto",
   "take_photo_title": "Tehke foto",
   "take_more_photo_title": "Take more photos",
   "front_photo_uploaded": "Esikülgne foto üles laaditud",
@@ -3264,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Serveri toimingute teostamise alustamine lokaalselt salvestatud folksonomy värskenduste jaoks",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Kõige populaarsemate toodete allalaadimise alustamine",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3857,7 +3869,7 @@
   "nova_group_unknown": "Tundmatu NOVA grupp",
   "nutrition_facts": "Toitainete tasemed",
   "faq_title_partners": "MTÜ partnerid ja patroonid",
-  "faq_title_vision": "The Open Food Facts Vision, Mission, Values and Programs",
+  "faq_title_vision": "Avatud toidufaktide visioon, missioon, väärtused ja programmid",
   "faq_title_install_beauty": "Kosmeetikatoodete andmebaasi loomiseks installige Open Beauty Facts",
   "faq_title_install_pet": "Lemmikloomatoitude andmebaasi loomiseks installige Open Pet Food Facts",
   "faq_title_install_product": "Objektide eluea pikendamiseks toodete andmebaasi loomiseks installige Open Products Facts",
@@ -4048,7 +4060,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Mis on avatud toidufaktid?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts on **koostööl põhinev**, **tasuta** ja **avatud** andmebaas toiduainetest üle kogu maailma.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4057,7 +4069,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Features of Open Food Facts",
+  "guide_open_food_facts_features_title": "Avatud toidufaktide omadused",
   "guide_open_food_facts_features_arg1_title": "Saate märguandeid soovimatute koostisosade kohta",
   "guide_open_food_facts_tips_title": "Näpunäited suurepäraste fotode tegemiseks",
   "guide_open_food_facts_tips_arg1_title": "Keeldused",
@@ -4079,7 +4091,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Mis on avatud lemmikloomatoidu faktid?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts laiendab meie missiooni meie karvastele sõpradele! See on **lemmikloomatoidu andmebaas kassidele, koertele ja teistele kaaslastele**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4088,7 +4100,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "Avatud lemmikloomatoidu faktide omadused",
   "guide_open_pet_food_facts_features_arg1_title": "Saate märguandeid soovimatute koostisosade kohta",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Kas teie lemmikloom on mõne koostisosa suhtes allergiline? Saate otse rakenduses koostada nimekirja kosmeetikatoodete koostisosadest, mida vältida!",
   "guide_open_pet_food_facts_tips_title": "Näpunäited suurepäraste fotode tegemiseks",
@@ -4109,7 +4121,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Mis on avatud ilufaktid?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts on **kosmeetikatoodete** koostööl põhinev andmebaas.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4118,7 +4130,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_title": "Avatud ilufaktide omadused",
   "guide_open_beauty_facts_features_arg1_title": "Saate märguandeid soovimatute koostisosade kohta",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Kas sul on allergia mõne koostisosa suhtes? Kas soovid vältida komedoone tekitavaid aineid? Kas soovid hoiduda vastuolulistest komponentidest? Saad otse rakenduses koostada nimekirja kosmeetikatoodete koostisosadest, mida vältida!",
   "guide_open_beauty_facts_tips_title": "Näpunäited suurepäraste fotode tegemiseks",
@@ -4170,7 +4182,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Mis on avatud tootefaktid?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts on tohutu avatud andmebaas **kõigile vöötkoodiga toodetele, mis ei ole toit, kosmeetika ega lemmikloomatoit**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4191,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Avatud toodete faktide omadused",
   "guide_open_products_facts_features_text": "Open Products Factsi eesmärk on pakkuda tarbijatele võimalust **pikendada esemete eluiga**, pakkudes ringmajanduse lahendusi oma esemete hooldamiseks, **parandamiseks**, **ringlussevõtuks** või neile uue omaniku andmiseks.",
   "guide_open_products_facts_features_arg1_title": "Mõnede toodete süsiniku jalajälg",
   "guide_open_products_facts_features_arg1_text": "Prantsuse Keskkonnaameti ADEME **CO2 mõju** pakub paljude kategooriate **süsiniku mõju**, veenduge, et kategoriseeriksite tooted täpselt.",
@@ -4457,7 +4469,7 @@
   "photo_field_front": "Toote foto",
   "photo_field_ingredients": "Koostisosade foto",
   "photo_field_nutrition": "Toitumisfoto",
-  "photo_field_packaging": "Pakendiinfo foto",
+  "photo_field_packaging": "Foto ringlussevõtu juhistest",
   "photo_already_exists": "See foto on juba olemas",
   "photo_missing": "See foto puudub",
   "date": "Kuupäev",
@@ -4991,7 +5003,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
+  "preferences_on_off_website_subtitle": "Avatud toidufaktide veebisaidil",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5100,15 +5112,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Avastage avatud toidufaktid",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Avastage avatud ilufaktid",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Avastage lemmikloomatoitude fakte",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5116,7 +5128,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Avastage avatud toodete fakte",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5124,7 +5136,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "Avatud toidufaktide vabaühendus",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5160,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Avatud toidufaktide ajaveeb",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5572,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Avatud toidufaktide laborid",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

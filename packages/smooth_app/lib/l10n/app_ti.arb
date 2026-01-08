@@ -128,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "ፍቓድ ምሃብ",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -493,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
@@ -535,9 +535,17 @@
   "product": "Product",
   "@product": {},
   "unknownBrand": "Unknown brand",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "ብዝሒ ዘይፍለጥ",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Unknown product name",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +594,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Packaging information",
+  "packaging_information": "መምርሒታት ዳግመ-ምጥቃም",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Packaging information photo",
+  "packaging_information_photo": "Recycling instructions photo",
   "@packaging_information_photo": {},
   "missing_product": "You found a new product!",
   "@missing_product": {},
@@ -688,7 +696,7 @@
   "front_packaging_photo_title": "Front Packaging Photo",
   "ingredients_photo_title": "Ingredients Photo",
   "nutritional_facts_photo_title": "Nutrition Facts Photo",
-  "recycling_photo_title": "Recycling Photo",
+  "recycling_photo_title": "መምርሒ ዳግመ-ምጥቃም ስእሊ",
   "take_photo_title": "Take a picture",
   "take_more_photo_title": "Take more pictures",
   "front_photo_uploaded": "Front photo uploaded",
@@ -3264,6 +3272,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "ኣብ ውሽጢ ዓዲ ንዝተዓቀቡ ፎልሶኖሚ ምዕባለታት ናይ ሰርቨር ተግባራት ምፍጻም ምጅማር",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -4016,9 +4028,9 @@
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_logos_caption": "The NOVA logos",
-  "guide_nova_groups_title": "The 4 NOVA groups",
-  "guide_nova_groups_intro": "There are 4 NOVA groups, the problematic one being Group 4 - Ultra-processed foods.",
+  "guide_nova_logos_caption": "እቶም ናይ ኖቫ ኣርማታት",
+  "guide_nova_groups_title": "እተን 4 ጉጅለታት ኖቫ",
+  "guide_nova_groups_intro": "4 ጉጅለታት ኖቫ ኣለዋ፡ እቲ ጸገም ዘለዎ ጉጅለ 4 - Ultra-processed foods እዩ።",
   "guide_nova_groups_arg1_title": "ብውሑድ ደረጃ ዝተመስርሑ ወይ ዘይተመስርሑ መግብታት",
   "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "Processed culinary ingredients",
@@ -4457,7 +4469,7 @@
   "photo_field_front": "Product photo",
   "photo_field_ingredients": "Ingredients photo",
   "photo_field_nutrition": "Nutrition photo",
-  "photo_field_packaging": "Packaging information photo",
+  "photo_field_packaging": "Recycling instructions photo",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
@@ -4891,7 +4903,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "Search for a setting (e.g. Nutri-Score)",
+  "preferences_app_bar_search_hint": "ንሓደ ቅጥዒ ድለዩ (ንኣብነት ኒውትሪ-ስኮር)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -4987,11 +4999,11 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "Discover the new Nutri-Score",
+  "tips_discover_nutriscore": "ሓድሽ ኒውትሪ-ስኮር ርኸብዎ።",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
+  "preferences_on_off_website_subtitle": "ኣብ መርበብ ሓበሬታ ክፉት ሓቅታት መግቢ",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5088,7 +5100,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "Discover how the Nutri-Score is computed",
+  "preferences_faq_nutriscore_subtitle": "ኒውትሪ-ስኮር ብኸመይ ከም ዝስላዕ ርኸቡ።",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5100,7 +5112,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "ክፉት ሓቅታት መግቢ ርኸቡ።",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5124,7 +5136,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
+  "preferences_faq_off_ngo_title": "እቲ ክፉት ሓቅታት መግቢ ዘይመንግስታዊ ትካል",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5148,7 +5160,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "ብሎግ ክፉት ሓቅታት መግቢ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5572,7 +5584,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "ክፉት ናይ መግቢ ሓቅታት ቤተ ፈተነታት",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5580,7 +5592,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "ክፉት ሓቅታት መግቢ ናብ ቋንቋኹም ኣምጽኡ",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

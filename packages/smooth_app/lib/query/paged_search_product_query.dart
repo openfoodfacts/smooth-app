@@ -20,5 +20,6 @@ abstract class PagedSearchProductQuery extends PagedProductQuery {
         language: language,
         country: country,
         version: ProductQuery.productQueryVersion,
+        activateKnowledgePanelsSimplified: true,
       );
 }

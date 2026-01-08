@@ -12,6 +12,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
+  String get open_prices => 'Open Prices';
+
+  @override
   String get sep => '';
 
   @override
@@ -630,6 +633,9 @@ class AppLocalizationsKo extends AppLocalizations {
   String get unknownBrand => '알 수 없는 상표';
 
   @override
+  String get unknownQuantity => '알 수 없는 양';
+
+  @override
   String get unknownProductName => '알 수 없는 상품명';
 
   @override
@@ -694,10 +700,10 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nutrition_facts_editing_title => '영양 정보 편집';
 
   @override
-  String get packaging_information => '포장 정보';
+  String get packaging_information => '재활용 지침';
 
   @override
-  String get packaging_information_photo => '포장 정보 사진';
+  String get packaging_information_photo => '재활용 지침 사진';
 
   @override
   String get missing_product => '새 상품을 찾았습니다!';
@@ -798,7 +804,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get nutritional_facts_photo_title => '영양 성분 사진';
 
   @override
-  String get recycling_photo_title => '재활용 사진';
+  String get recycling_photo_title => '재활용 지침 사진';
 
   @override
   String get take_photo_title => '사진을 촬영';
@@ -1875,7 +1881,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Nutri-Score, NOVA…';
+      '뉴트리스코어, NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
@@ -2418,6 +2424,9 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get product_type_label_product => '기타';
+
+  @override
+  String get product_type_label_unknown => 'Unknown';
 
   @override
   String get product_type_selection_title => '제품 유형';
@@ -3382,7 +3391,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Starting to perform the server actions for folksonomy updates stored locally';
+      '로컬에 저장된 folksonomy 업데이트에 대한 서버 작업을 시작합니다.';
 
   @override
   String get background_task_title_top_n => '가장 인기 있는 상품 다운로드 시작';
@@ -4410,19 +4419,18 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'What is Open Food Facts?';
+      '오픈푸드팩트란 무엇인가요?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
+      '오픈 푸드 팩츠는 전 세계 식품 제품에 대한 **협업적**, **무료**, **개방형** 데이터베이스입니다.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
       '저희는 모든 사람이 자신이 먹는 음식에 대한 정보에 접근할 수 있어야 한다고 믿습니다. 재료, 알레르기 유발 물질, 영양 정보 등에 대한 데이터를 수집함으로써 **소비자가 정보에 기반한 선택을 할 수 있도록 지원**하고 식품 산업의 **투명성을 더욱 강화**합니다.';
 
   @override
-  String get guide_open_food_facts_features_title =>
-      'Features of Open Food Facts';
+  String get guide_open_food_facts_features_title => '오픈푸드팩트의 특징';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4484,7 +4492,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'What is Open Pet Food Facts?';
+      '오픈 펫 푸드 팩트란 무엇인가요?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4495,8 +4503,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '우리는 애완동물 주인이 자신의 애완동물에게 가장 적합한 사료를 선택할 수 있도록 돕기 위해 **성분**, **영양 분석** 및 급여 지침에 대한 정보를 수집합니다.';
 
   @override
-  String get guide_open_pet_food_facts_features_title =>
-      'Features of Open Pet Food Facts';
+  String get guide_open_pet_food_facts_features_title => '오픈 펫푸드 팩트의 특징';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4557,19 +4564,18 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'What is Open Beauty Facts?';
+      '오픈 뷰티 팩트란 무엇인가요?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
+      '오픈 뷰티 팩츠는 **화장품**에 대한 협업 데이터베이스입니다.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
       '저희의 목표는 **개인 관리 용품에 무엇이 들어 있는지** 이해하기 쉽도록 성분 목록을 분석하는 것입니다. 보습제부터 화장품까지, 저희는 화장품 업계의 투명성을 높이기 위해 성분, 알레르기 유발 물질, 포장에 대한 데이터를 수집합니다.';
 
   @override
-  String get guide_open_beauty_facts_features_title =>
-      'Features of Open Beauty Facts';
+  String get guide_open_beauty_facts_features_title => '오픈 뷰티 팩트의 특징';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4712,23 +4718,22 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'What is Open Products Facts?';
+      '오픈 프로덕츠 팩트란 무엇인가요?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
+      '오픈 프로덕츠 팩츠는 **식품, 화장품, 애완동물 사료가 아닌 바코드가 있는 모든 제품**을 위한 대규모 오픈 데이터베이스입니다.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
       '**전자제품**부터 **장난감**, **옷**부터 **청소용품**까지, 바코드가 있으면 추가할 수 있습니다. 이 프로젝트는 일상 사물에 대한 \"사물 인터넷\"을 구축하여 누구나 해당 사물에 대한 정보를 접근할 수 있도록 하는 것을 목표로 합니다.';
 
   @override
-  String get guide_open_products_facts_features_title =>
-      'Features of Open Products Facts';
+  String get guide_open_products_facts_features_title => '오픈 제품 정보의 특징';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
+      '오픈 프로덕츠 팩츠는 소비자에게 물건을 유지 관리, **수리**, **재활용**하거나 새로운 소유자에게 돌려주는 순환 솔루션을 제공함으로써 **사물의 수명을 연장**하는 것을 목표로 합니다.';
 
   @override
   String get guide_open_products_facts_features_arg1_title => '일부 제품의 탄소 발자국';
@@ -4998,7 +5003,7 @@ class AppLocalizationsKo extends AppLocalizations {
   String get photo_field_nutrition => '영양 사진';
 
   @override
-  String get photo_field_packaging => '포장 정보 사진';
+  String get photo_field_packaging => '재활용 지침 사진';
 
   @override
   String get photo_already_exists => '이 사진은 이미 존재합니다';
@@ -5081,6 +5086,47 @@ class AppLocalizationsKo extends AppLocalizations {
   String get product_page_tab_for_me => '나를 위한';
 
   @override
+  String get product_page_for_me_compatibility_score_title =>
+      'My compatibility';
+
+  @override
+  String product_page_for_me_compatibility_score_value(int value) {
+    return '$value% compatible';
+  }
+
+  @override
+  String get product_page_for_me_compatibility_score_uncomputable =>
+      'Insufficient data to compute a compatibility score.';
+
+  @override
+  String product_page_for_me_compatibility_score_unsupported(
+    String productType,
+  ) {
+    return 'A score can\'t be computed for a product of type \"$productType\".';
+  }
+
+  @override
+  String get product_page_for_me_attributes_order_importance => 'Importance';
+
+  @override
+  String get product_page_for_me_attributes_order_evaluation => 'Matches';
+
+  @override
+  String get product_page_for_me_attributes_group_good_matches =>
+      'Good matches';
+
+  @override
+  String get product_page_for_me_attributes_group_average_matches =>
+      'Average matches';
+
+  @override
+  String get product_page_for_me_attributes_group_bad_matches => 'Bad matches';
+
+  @override
+  String get product_page_for_me_attributes_group_unknown_matches =>
+      'Unknown matches';
+
+  @override
   String get product_page_tab_website => '웹사이트';
 
   @override
@@ -5091,7 +5137,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
+      '**Open Prices**는 전 세계 제품 가격을 수집하고 공유하는 프로젝트입니다. 🌍 Open Prices는 오픈 푸드 팩츠에서 개발 및 관리합니다.';
 
   @override
   String get explanation_card_learn_more_button => '더보기';
@@ -5386,7 +5432,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
+      '오픈 푸드 팩츠는 **모든 사람이 만들고, 모든 사람을 위해** 만든 식품 데이터베이스입니다.\n더 나은 식품 선택을 하는 데 활용할 수 있으며, **오픈 데이터**이므로 누구나 **어떤 목적으로든 재사용**할 수 있습니다.';
 
   @override
   String get preferences_privacy_policy => '개인정보 보호정책';
@@ -5519,27 +5565,25 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_faq_discover_project_title => '프로젝트보세요';
 
   @override
-  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
+  String get preferences_faq_discover_off_title => '공개 식품 정보를 알아보세요';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => '공개된 뷰티 정보를 확인하세요';
 
   @override
-  String get preferences_faq_discover_opff_title =>
-      'Discover Open Pet Food Facts';
+  String get preferences_faq_discover_opff_title => '공개된 반려동물 사료 정보를 확인하세요';
 
   @override
   String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
-  String get preferences_faq_discover_opf_title =>
-      'Discover Open Products Facts';
+  String get preferences_faq_discover_opf_title => '오픈 제품 정보를 확인하세요';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - 자주 묻는 질문';
 
   @override
-  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
+  String get preferences_faq_off_ngo_title => '오픈 푸드 팩츠 NGO';
 
   @override
   String get preferences_about_information_title => '정보';
@@ -5559,7 +5603,7 @@ class AppLocalizationsKo extends AppLocalizations {
       '당사의 가상 이벤트 중 하나에 참석하여 참여하세요.';
 
   @override
-  String get preferences_connect_blog_title => 'The Open Food Facts blog';
+  String get preferences_connect_blog_title => '오픈 푸드 팩츠 블로그';
 
   @override
   String get preferences_connect_blog_subtitle => '최신 뉴스를 실시간으로 받아보세요';
@@ -5850,15 +5894,14 @@ class AppLocalizationsKo extends AppLocalizations {
   String get preferences_about_app_development_title => '개발';
 
   @override
-  String get preferences_page_open_food_facts_labs_title =>
-      'Open Food Facts Labs';
+  String get preferences_page_open_food_facts_labs_title => '오픈 푸드 팩츠 랩스';
 
   @override
   String get preferences_root_account_title => '계정';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Bring Open Food Facts to your language';
+      '공개 식품 정보를 귀하의 언어로 제공하세요';
 
   @override
   String get preferences_contribute_enroll_alpha => '앱의 알파 버전에 등록하세요';
@@ -5901,4 +5944,38 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
+
+  @override
+  String get homepage_scanner_back_to_home_button => 'Back to home';
+
+  @override
+  String get homepage_scanner_toggle_camera_tooltip => 'Toggle camera';
+
+  @override
+  String get homepage_header_barcode_tooltip => 'Show the barcode scanner';
+
+  @override
+  String get homepage_scanner_overlay_message =>
+      'Tap to scan a **barcode**\nand discover if it\'s **good for you**!';
+
+  @override
+  String get homepage_scanner_toggle_torch_tooltip => 'Toggle torch';
+
+  @override
+  String get homepage_scanner_banner_start_scanning =>
+      'Scan a product by approaching its barcode';
+
+  @override
+  String homepage_scanner_banner_invalid_barcode(String barcode) {
+    return 'We have detected the following barcode: $barcode, but it seems to be invalid.';
+  }
+
+  @override
+  String get homepage_horizontal_list_view_more_button => 'View more…';
+
+  @override
+  String get homepage_list_most_scanned_title => 'Most scanned products';
+
+  @override
+  String get homepage_list_last_scanned_title => 'Last scanned products';
 }
