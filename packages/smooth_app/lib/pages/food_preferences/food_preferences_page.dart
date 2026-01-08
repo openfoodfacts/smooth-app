@@ -61,10 +61,12 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
 
   @override
   void dispose() {
-    _controller.removeListener(_onControllerChanged);
-    _controller.dispose();
-    _pendingPreferences.removeListener(_onPendingPreferencesChanged);
-    _pendingPreferences.dispose();
+    if (_isInitialized) {
+      _controller.removeListener(_onControllerChanged);
+      _controller.dispose();
+      _pendingPreferences.removeListener(_onPendingPreferencesChanged);
+      _pendingPreferences.dispose();
+    }
     super.dispose();
   }
 
