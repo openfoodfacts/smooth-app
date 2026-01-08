@@ -345,7 +345,7 @@
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
-  "about_this_app": "Selle rakenduse kohta",
+  "about_this_app": "Selle rakenduse teave",
   "@about_this_app": {
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
@@ -399,7 +399,7 @@
   "contribute_join_skill_pool": "Jaga oma oskusi Open Food Factsi lehel. Liitu oskustepagasiga!",
   "contribute_share_header": "Jaga Open Food Factsi oma sõpradega",
   "@contribute_share_header": {},
-  "contribute_share_content": "Tahtsin teile rääkida rakendusest Open Food Facts, mida olen kasutanud ja mis võimaldab teil saada teavet oma toidu tervise- ja keskkonnamõjude kohta personaalsel viisil. See töötab pakendil olevate vöötkoodide skannimise teel. Lõpuks on see tasuta, ei vaja registreerimist ja saate isegi aidata suurendada dešifreeritud toodete arvu. Siin on link selle oma telefoni allalaadimiseks: https://openfoodfacts.app",
+  "contribute_share_content": "Tahtsin sulle kirjutada rakendusest Open Food Facts, mida olen kasutanud ja mis võimaldab sul saada teavet oma toidu tervise- ja keskkonnamõjude kohta personaalsel viisil. See toimib pakendil olevate vöötkoodide skaneerimise alusel. Lisaks on ta vaba ja tasuta, ei vaja registreerimist ja saad ka iseg aidata suurendada tuvastatud toodete arvu. Siin on link selle allalaadimiseks oma telefoni: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -473,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Kogukond",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -1410,7 +1410,7 @@
   "@product_list_empty_title": {
     "description": "When the history list is empty, title of the message explaining to start scanning"
   },
-  "product_list_empty_message": "Skannitud tooted kuvatakse siin ja saate nende kohta üksikasjalikku teavet vaadata.",
+  "product_list_empty_message": "Skaneeritud tooted kuvatakse siin ja saad nende kohta üksikasjalikku teavet vaadata",
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
@@ -1538,7 +1538,7 @@
     "description": "When the camera/photo permission failed to be acquired (!= denied)"
   },
   "permission_photo_denied_title": "Luba kaameral vöötkoodide skannimine",
-  "permission_photo_denied_message": "Parema kogemuse saamiseks lubage {appName} -l oma kaamerale ligi pääseda. Saate otse triipkoode skannida.",
+  "permission_photo_denied_message": "Parema kogemuse saamiseks luba {appName} rakendusel oma kaamerat kasutada. Saad triipkoode mugavalt skaneerida.",
   "@permission_photo_denied_message": {
     "description": "When the camera/photo permission is denied by user",
     "placeholders": {
@@ -4219,7 +4219,7 @@
   "@prices_feedback_form": {
     "description": "A button to send feedback about the prices feature"
   },
-  "menu_button_list_actions": "Valige toiming",
+  "menu_button_list_actions": "Vali tegevus",
   "@menu_button_list_actions": {
     "description": "Button to select an action in a list (eg: Share, Delete, …)"
   },
@@ -4755,7 +4755,7 @@
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Kogukond",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4903,7 +4903,7 @@
   "@preferences_connect_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_support_title": "Make a donation",
+  "preferences_support_title": "Toeta rahaliselt",
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
@@ -4955,7 +4955,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "Otsi seadet (nt Nutri-Score)",
+  "preferences_app_bar_search_hint": "Otsi seadistust (nt Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -5003,7 +5003,7 @@
   "@preferences_licenses": {
     "description": "Title for the preferences licenses tile"
   },
-  "preferences_about_app_title": "Rakenduse kohta",
+  "preferences_about_app_title": "Rakenduse teave",
   "@preferences_about_app_title": {
     "description": "Title for the preferences about app card"
   },
@@ -5035,11 +5035,11 @@
   "@preferences_source_code": {
     "description": "Title for the preferences source code tile"
   },
-  "preferences_source_code_subtitle": "Ja hakake miljonite inimeste heaks mõju avaldama",
+  "preferences_source_code_subtitle": "Ja hakkad tegutsema miljonite inimeste heaks",
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "Lisa hindu",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5236,7 +5236,7 @@
   "@preferences_connect_debug_info_subtitle": {
     "description": "Subtitle for debug information tile"
   },
-  "preferences_connect_feedback_title": "Saatke meile rakenduse kohta tagasisidet",
+  "preferences_connect_feedback_title": "Saada meile rakenduse kohta tagasisidet",
   "@preferences_connect_feedback_title": {
     "description": "Title for feedback tile"
   },
@@ -5632,7 +5632,7 @@
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
-  "preferences_about_app_development_title": "Development",
+  "preferences_about_app_development_title": "Arendus",
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
