@@ -142,7 +142,7 @@
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
-  "productDataUtility": "Vaadake oma eelistustega seotud toiduandmeid.",
+  "productDataUtility": "Vaata oma eelistustega seotud toiduandmeid.",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
@@ -154,7 +154,7 @@
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "Server ei vasta! Võite probleemi avada järgmise lingi abil.",
+  "server_error_open_new_issue": "Server ei vasta! Võid koostada veateate alljärgnevast lingist.",
   "@user_management": {},
   "sign_in_text": "Oma panuse salvestamiseks logige sisse oma Open Food Factsi kontole",
   "incorrect_credentials": "Vale kasutajanimi või salasõna.",
@@ -360,7 +360,7 @@
   },
   "contribute_develop_text": "Kõigi Open Food Factsi toodete kood on saadaval GitHubis. Olete teretulnud koodi taaskasutama (see on avatud lähtekoodiga) ja aitama meil seda kõigi jaoks kogu planeedil paremaks muuta.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "Küsimuste esitamiseks võite liituda Open Food Factsi Slacki vestlusruumiga.",
+  "contribute_develop_text_2": "Küsimuste esitamiseks võid liituda Open Food Factsi Slacki vestlusruumiga.",
   "@contribute_develop_text_2": {},
   "contribute_develop_dev_mode_title": "Arendajarežiim?",
   "contribute_develop_dev_mode_subtitle": "Aktiveeri DEV-režiim",
@@ -845,7 +845,7 @@
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Sobimatu ühik",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Vigane ühik",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -861,7 +861,7 @@
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Puuduv üksus",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Puuduv ühik",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -916,7 +916,7 @@
   },
   "product_image_outdated": "See pilt võib olla aegunud",
   "product_image_outdated_explanations_title": "See pilt võib olla aegunud",
-  "product_image_outdated_explanations_content": "See pilt on tehtud rohkem kui aasta tagasi.\n**Palun kontrollige, kas see on ikka ajakohane**.\n\nSee on **lihtsalt hoiatus**. Kui sisu on ikka sama, võite seda teadet ignoreerida.",
+  "product_image_outdated_explanations_content": "See pilt on tehtud rohkem kui aasta tagasi.\n**Palun kontrolli, kas ta on ikka ajakohane**.\n\nSee on **lihtsalt hoiatus**. Kui sisu on ikka sama, võid seda teadet ignoreerida.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1273,7 +1273,7 @@
   "faq": "KKK",
   "discover": "Avasta",
   "how_to_contribute": "Kuidas saad osaleda",
-  "hint_knowledge_panel_message": "Lisateabe saamiseks võite puudutada kaardi mis tahes osa. Proovige kohe!",
+  "hint_knowledge_panel_message": "Lisateabe saamiseks võid puudutada kaardi mis tahes osa. Proovi kohe!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
   },
@@ -1359,7 +1359,7 @@
       }
     }
   },
-  "authorize_button_label": "Authorise",
+  "authorize_button_label": "Luba",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
@@ -1872,7 +1872,7 @@
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "Kui kategooria **automaatselt täidetavas valikus pole saadaval**, võite selle ikkagi lisada.\nSee aitab meil teie riigis Open Food Factsi täiustada.",
+  "edit_product_form_item_categories_explanation_info2_content": "Kui kategooria **automaatselt täidetavas valikus pole saadaval**, võid selle ikkagi lisada.\nSee aitab meil sinu riigis Open Food Factsi täiustada.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
@@ -1943,7 +1943,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Seejärel sisesta toiteväärtused **nagu pakendil näidatud**. Kui väärtust pole, võite klõpsata ikoonil „Silma“.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Seejärel sisesta toiteväärtused **nagu pakendil näidatud**. Kui väärtust pole, võid klõpsata „Silma“ ikoonil.",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1963,7 +1963,7 @@
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_ingredients_list_title": "List of ingredients",
+  "edit_product_ingredients_list_title": "Koostisosade loend",
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -3978,7 +3978,7 @@
   "guide_greenscore_lca_arg2_title": "6 tootmisetappi",
   "guide_greenscore_lca_arg2_agriculture": "Agriculture",
   "guide_greenscore_lca_arg2_processing": "Processing",
-  "guide_greenscore_lca_arg2_packaging": "Packaging",
+  "guide_greenscore_lca_arg2_packaging": "Pakend",
   "guide_greenscore_lca_arg2_transportation": "Transportation",
   "guide_greenscore_lca_arg2_distribution": "Distribution",
   "guide_greenscore_lca_arg2_consumption": "Consumption",
@@ -3999,7 +3999,7 @@
   "guide_greenscore_bonuses_penalties_arg2_text": "Koostisosade päritolu alusel antakse **boonust**. See boonus võtab arvesse **mõju transpordile** ja iga tootja riigi **keskkonnapoliitikat**.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
   "guide_greenscore_bonuses_penalties_arg3_text": "**Karistust** määratakse toodetele, mis sisaldavad koostisosi, millel on märkimisväärne **negatiivne mõju bioloogilisele mitmekesisusele ja ökosüsteemidele**, näiteks palmiõli, mille tootmine põhjustab massilist metsade hävitamist.",
-  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Pakend",
   "guide_greenscore_bonuses_penalties_arg4_text": "**Trahvi** arvutamisel võetakse arvesse pakendi ringluspõhimõtteid (taaskasutatud tooraine kasutamine ja taaskasutatavus) ja ülepakendamist.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
   "guide_greenscore_transparency_intro1": "Rohelise skoori täpseks arvutamiseks on vaja teavet, mis ei ole pakendil tingimata märgitud (näiteks iga koostisosa päritolu ja täpne protsent) või mis on harva kättesaadav kasutataval kujul (näiteks pakendi kõigi komponentide loetelu koos kasutatud plastide täpsete tüüpidega).",
@@ -4037,7 +4037,7 @@
   "guide_nova_groups_arg1_text": "Töötlemata (ehk looduslikud) toiduained on **taimede** (seemned, viljad, lehed, varred, juured)**või loomade** (lihased, rups, munad, piim) söödavad osad, aga ka seened, vetikad ja vesi pärast loodusest eraldamist.",
   "guide_nova_groups_arg2_title": "Töödeldud kulinaarsed koostisosad",
   "guide_nova_groups_arg2_text": "Töödeldud kulinaarsed koostisosad, näiteks **õlid, või, suhkur ja sool**, on ained, mis on saadud 1. rühma toiduainetest või loodusest selliste protsesside abil, mis hõlmavad pressimist, rafineerimist, jahvatamist, jahvatamist ja kuivatamist.",
-  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_title": "Töödeldud toidud",
   "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and In the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three Ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with Little to no intact group 1 food. ingredients in these formulations usually include those also found in Processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain Other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
@@ -4198,7 +4198,7 @@
   "guide_open_products_facts_features_arg1_title": "Mõnede toodete süsiniku jalajälg",
   "guide_open_products_facts_features_arg1_text": "Prantsuse Keskkonnaameti ADEME **CO2 mõju** pakub paljude kategooriate **süsiniku mõju**, veenduge, et kategoriseeriksite tooted täpselt.",
   "guide_open_products_facts_features_arg2_title": "Paljude toodete remonditavusindeks",
-  "guide_open_products_facts_features_arg2_text": "Alati, kui prantsusekeelne parandatavuse indeks on saadaval, kuvame selle. Lisaks **võite hakata muutujaid koguma Folksonomy mootori abil**, et saaksime selle tulevikus ise uuesti arvutada, isegi riikides, kus see pole saadaval.",
+  "guide_open_products_facts_features_arg2_text": "Alati, kui prantsusekeelne parandatavuse indeks on saadaval, kuvame selle. Lisaks **võid hakata muutujaid koguma Folksonomy mootori abil**, et saaksime selle tulevikus ise uuesti arvutada, isegi riikides, kus see pole saadaval.",
   "guide_open_products_facts_features_arg3_title": "Leidke võimalusi oma toote annetamiseks/edasimüügiks",
   "guide_open_products_facts_features_arg3_text": "Pakume linke **kolmandate osapoolte ringlussõbralikele teenustele**, mis aitavad teil saada just sellist toodet, mida otsite, kasutatud tootena, et olla planeedi ressursside suhtes õrnem.\nPange tähele, et meile selle eest ei maksta ja süsteem töötab ainult näitena kahele Prantsusmaa veebisaidile. Saate aidata seda süsteemi laiendada, dokumenteerides vikis rohkem saite.",
   "guide_open_products_facts_information_title": "Milline teave on kasulik?",
