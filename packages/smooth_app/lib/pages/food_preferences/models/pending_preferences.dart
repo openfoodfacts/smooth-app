@@ -74,9 +74,12 @@ class PendingPreferences extends ChangeNotifier {
   }
 
   Future<void> saveAll() async {
-    for (final MapEntry<String, String> entry in _pendingImportances.entries) {
-      await _productPreferences.setImportance(entry.key, entry.value);
-    }
+    await Future.wait(
+      _pendingImportances.entries.map(
+        (MapEntry<String, String> entry) =>
+            _productPreferences.setImportance(entry.key, entry.value),
+      ),
+    );
   }
 
   List<AttributeGroup> get attributeGroups => _attributeGroups;
