@@ -66,17 +66,6 @@
   "@reset": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "food_preferences_page_title_introduction": "Personnalisez l'application",
-  "food_preferences_page_title_diets": "Régimes alimentaires",
-  "food_preferences_page_title_allergies": "Allergies",
-  "food_preferences_page_title_unwanted_foods": "Ce que je ne mange pas",
-  "food_preferences_page_title_foods_to_avoid": "Ce que je préfère éviter",
-  "food_preferences_page_title_environment": "Préférences en matière d'environnement",
-  "food_preferences_page_description_diets": "Choisissez les régimes alimentaires que vous suivez pour personnaliser vos recommandations.",
-  "food_preferences_page_description_allergies": "Sélectionnez les allergènes que vous devez éviter pour votre sécurité alimentaire.",
-  "food_preferences_page_description_unwanted_foods": "Indiquez les aliments ou ingrédients que vous ne consommez pas.",
-  "food_preferences_page_description_foods_to_avoid": "Sélectionnez les aliments que vous préférez éviter sans que ce soit une interdiction stricte.",
-  "food_preferences_page_description_environment": "Indiquez vos préférences environnementales pour des recommandations plus durables.",
   "error": "Une erreur s'est produite",
   "@error": {},
   "error_occurred": "Une erreur s’est produite",
