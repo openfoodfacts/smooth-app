@@ -1,53 +1,87 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/pages/food_preferences/pages/allergies_page.dart';
-import 'package:smooth_app/pages/food_preferences/pages/diets_page.dart';
-import 'package:smooth_app/pages/food_preferences/pages/environment_preferences_page.dart';
-import 'package:smooth_app/pages/food_preferences/pages/foods_to_avoid_page.dart';
-import 'package:smooth_app/pages/food_preferences/pages/introduction_page.dart';
-import 'package:smooth_app/pages/food_preferences/pages/unwanted_foods_page.dart';
-
-enum FoodPreferencesPageType {
-  introduction,
-  diets,
-  allergies,
-  unwantedFoods,
-  foodsToAvoid,
-  environment,
-}
+import 'package:openfoodfacts/openfoodfacts.dart';
 
 class FoodPreferencesController extends ChangeNotifier {
-  FoodPreferencesController() {
+  FoodPreferencesController({
+    required List<AttributeGroup> attributeGroups,
+    this.showIntroduction = true,
+    this.showSummary = true,
+  }) : _attributeGroups = attributeGroups {
     _pageController = PageController();
   }
 
   late final PageController _pageController;
+  final List<AttributeGroup> _attributeGroups;
+  final bool showIntroduction;
+  final bool showSummary;
 
   int _currentPageIndex = 0;
 
   PageController get pageController => _pageController;
 
   int get currentPageIndex => _currentPageIndex;
-  int get pageCount => pages.length;
+
+  List<AttributeGroup> get attributeGroups => _attributeGroups;
+
+  int get pageCount {
+    int count = _attributeGroups.length;
+    if (showIntroduction) {
+      count++;
+    }
+    if (showSummary) {
+      count++;
+    }
+    return count;
+  }
 
   bool get isFirstPage => _currentPageIndex == 0;
   bool get isLastPage => _currentPageIndex == pageCount - 1;
-  double get progress => (currentPageIndex + 1) / pageCount;
+  double get progress => pageCount > 0 ? (currentPageIndex + 1) / pageCount : 0;
 
-  static final Map<FoodPreferencesPageType, Widget> pages =
-      <FoodPreferencesPageType, Widget>{
-        FoodPreferencesPageType.introduction: const IntroductionPage(),
-        FoodPreferencesPageType.diets: const DietsPage(),
-        FoodPreferencesPageType.allergies: const AllergiesPage(),
-        FoodPreferencesPageType.unwantedFoods: const UnwantedFoodsPage(),
-        FoodPreferencesPageType.foodsToAvoid: const FoodsToAvoidPage(),
-        FoodPreferencesPageType.environment: const EnvironmentPreferencesPage(),
-      };
+  bool get isIntroductionPage => showIntroduction && _currentPageIndex == 0;
 
-  List<FoodPreferencesPageType> get pageTypes => pages.keys.toList();
+  bool get isSummaryPage => showSummary && _currentPageIndex == pageCount - 1;
 
-  List<Widget> get pageWidgets => pages.values.toList();
+  AttributeGroup? get currentAttributeGroup {
+    final int? groupIndex = _getAttributeGroupIndexForPage(_currentPageIndex);
+    if (groupIndex == null) {
+      return null;
+    }
+    return _attributeGroups[groupIndex];
+  }
 
-  FoodPreferencesPageType get currentPageType => pageTypes[_currentPageIndex];
+  int? _getAttributeGroupIndexForPage(int pageIndex) {
+    int adjustedIndex = pageIndex;
+    if (showIntroduction) {
+      if (pageIndex == 0) {
+        return null; // Introduction page
+      }
+      adjustedIndex--;
+    }
+    if (showSummary && pageIndex == pageCount - 1) {
+      return null; // Summary page
+    }
+    if (adjustedIndex >= 0 && adjustedIndex < _attributeGroups.length) {
+      return adjustedIndex;
+    }
+    return null;
+  }
+
+  int getPageIndexForGroupIndex(int groupIndex) {
+    int pageIndex = groupIndex;
+    if (showIntroduction) {
+      pageIndex++;
+    }
+    return pageIndex;
+  }
+
+  AttributeGroup? getAttributeGroupAtIndex(int index) {
+    final int? groupIndex = _getAttributeGroupIndexForPage(index);
+    if (groupIndex == null) {
+      return null;
+    }
+    return _attributeGroups[groupIndex];
+  }
 
   Future<void> nextPage() async {
     if (!isLastPage) {

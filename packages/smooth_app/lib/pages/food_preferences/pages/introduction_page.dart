@@ -1,38 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 class IntroductionPage extends StatelessWidget {
-  const IntroductionPage({super.key});
+  const IntroductionPage({required this.attributeGroups, super.key});
+
+  final List<AttributeGroup> attributeGroups;
 
   static const double stepIndicatorSize = 20.0;
 
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final List<String> steps = <String>[
-      'Régimes alimentaires',
-      'Allergies',
-      'Ce que je ne mange pas',
-      'Ce que je préfère éviter',
-      "Préférences en matière d'environnement",
-    ];
+    // Get step names from attribute groups
+    final List<String> steps = attributeGroups
+        .map((AttributeGroup group) => group.name ?? group.id ?? '')
+        .where((String name) => name.isNotEmpty)
+        .toList();
 
     return Padding(
-      padding: const EdgeInsets.symmetric(
+      padding: const EdgeInsetsDirectional.symmetric(
         horizontal: VERY_LARGE_SPACE,
         vertical: VERY_LARGE_SPACE * 2,
       ),
       child: Column(
         children: <Widget>[
-          Text(
-            'Dans les prochaines étapes, vous pourrez personnaliser l\'application en indiquant vos:',
-          ),
+          Text(appLocalizations.food_preferences_introduction_description),
           const SizedBox(height: LARGE_SPACE),
           ListView.separated(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsets.all(MEDIUM_SPACE),
+            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
             itemCount: steps.length,
             itemBuilder: (BuildContext context, int index) =>
                 _buildTimelineStep(index, steps[index], theme),

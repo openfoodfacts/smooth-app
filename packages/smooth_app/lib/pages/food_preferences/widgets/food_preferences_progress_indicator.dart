@@ -9,11 +9,13 @@ class FoodPreferencesProgressIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
 
+    final bool complete = progress >= 1.0;
+
     return Container(
       height: 10.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(30),
-        color: Colors.white,
+        color: complete ? Colors.transparent : Colors.white,
       ),
       child: LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
@@ -26,7 +28,7 @@ class FoodPreferencesProgressIndicator extends StatelessWidget {
                 height: 10.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: theme.primaryColor,
+                  color: complete ? Colors.black54 : theme.primaryColor,
                 ),
               ),
             ],

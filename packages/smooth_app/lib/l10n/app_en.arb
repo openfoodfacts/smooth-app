@@ -8,6 +8,10 @@
   "@yes": {},
   "add": "Add",
   "@add": {},
+  "edit": "Edit",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
   "@account_delete_message": {},
   "reason": "Reason",
@@ -90,6 +94,36 @@
   "food_preferences_page_title_environment": "Environmental preferences",
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No preferences available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can personalize the app by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard"
   },
   "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
   "@food_preferences_page_description_diets": {

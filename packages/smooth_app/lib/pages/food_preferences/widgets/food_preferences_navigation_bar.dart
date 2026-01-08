@@ -10,11 +10,13 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
     required this.onPrevious,
     required this.onNext,
     required this.onFinish,
+    this.isSummaryPage = false,
     super.key,
   });
 
   final bool isFirstPage;
   final bool isLastPage;
+  final bool isSummaryPage;
 
   final VoidCallback onPrevious;
   final VoidCallback onNext;
@@ -25,8 +27,26 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
+    final String nextButtonText;
+    final Color nextButtonColor;
+    final Color nextButtonTextColor;
+
+    if (isSummaryPage) {
+      nextButtonText = appLocalizations.validate;
+      nextButtonColor = Colors.green;
+      nextButtonTextColor = Colors.white;
+    } else if (isLastPage) {
+      nextButtonText = appLocalizations.finish;
+      nextButtonColor = theme.primaryColor;
+      nextButtonTextColor = theme.colorScheme.onPrimary;
+    } else {
+      nextButtonText = appLocalizations.continue_label;
+      nextButtonColor = theme.primaryColor;
+      nextButtonTextColor = theme.colorScheme.onPrimary;
+    }
+
     return Container(
-      padding: const EdgeInsets.symmetric(
+      padding: const EdgeInsetsDirectional.symmetric(
         horizontal: VERY_LARGE_SPACE,
         vertical: LARGE_SPACE,
       ),
@@ -45,7 +65,7 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Expanded(
-              child: isFirstPage
+              child: isFirstPage || isSummaryPage
                   ? const SizedBox.shrink()
                   : SmoothSimpleButton(
                       onPressed: onPrevious,
@@ -59,13 +79,13 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
             const SizedBox(width: MEDIUM_SPACE),
             Expanded(
               child: SmoothSimpleButton(
-                onPressed: isLastPage ? onFinish : onNext,
-                buttonColor: theme.primaryColor,
+                onPressed: isSummaryPage
+                    ? onFinish
+                    : (isLastPage ? onFinish : onNext),
+                buttonColor: nextButtonColor,
                 child: Text(
-                  isLastPage
-                      ? appLocalizations.finish
-                      : appLocalizations.continue_label,
-                  style: TextStyle(color: theme.colorScheme.onPrimary),
+                  nextButtonText,
+                  style: TextStyle(color: nextButtonTextColor),
                 ),
               ),
             ),
