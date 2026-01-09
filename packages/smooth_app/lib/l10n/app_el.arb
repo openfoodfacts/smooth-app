@@ -384,7 +384,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "Ποιότητα Δεδομένων",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -473,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Κοινότητα",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -2321,7 +2321,7 @@
   "prices_website_button": "Ανοιχτό στον ιστότοπο Open Prices",
   "prices_bulk_proof_upload_select": "Προσθήκη ετικετών τιμών απευθείας από τη συλλογή",
   "prices_bulk_proof_upload_warning": "Μόλις επιλέξετε εικόνες, δεν θα μπορείτε να τις επεξεργαστείτε!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "Η Τεχνητή Νοημοσύνη θα εκτελεί τις δοκιμές σας για να εξάγει τιμές.",
   "prices_bulk_proof_upload_community_switch": "Επιτρέψτε στην κοινότητα να επικυρώσει τις τιμές που εξάγονται από την Τεχνητή Νοημοσύνη.",
   "prices_bulk_proof_upload_subtitle": "Πολλαπλές Ετικέτες Τιμής",
   "prices_bulk_proof_upload_title": "Μεταφόρτωση Μαζικής Απόδειξης",
@@ -2789,11 +2789,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Βοηθός Συνεισφοράς Τιμής",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Βοηθός Επικύρωσης Τιμών",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Προκλήσεις",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4723,7 +4723,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Αποδείξεις",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4731,7 +4731,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Πειράματα",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4743,19 +4743,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "Με γραμμωτό κώδικα (barcode)",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "Με μια κατηγορία",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Με έκπτωση",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Κοινότητα",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4787,7 +4787,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Online",
+  "prices_stats_online": "Διαδικτυακά",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4803,31 +4803,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR request",
+  "prices_stats_gdpr_request": "Αίτημα ΓΚΠΔ",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "Εισαγωγή καταστήματος",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Προκλήσεις",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Τιμές που συνδέονται με μια ετικέτα τιμής",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Νομίσματα",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Χρόνια",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Τιμές και αποδείξεις ανά πηγή",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4835,7 +4835,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Εφαρμογή για κινητά",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4935,7 +4935,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "Προστέθηκαν τιμές",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5039,7 +5039,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "Προσθήκη τιμών",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5562,7 +5562,7 @@
       }
     }
   },
-  "proof_count": "{count} proofs",
+  "proof_count": "{count} αποδείξεις",
   "@proof_count": {
     "description": "Number of proofs (when we don't know the total)",
     "placeholders": {
@@ -5586,7 +5586,7 @@
       }
     }
   },
-  "contributors_count": "{count} contributors",
+  "contributors_count": "{count} συνεισφέροντες",
   "@contributors_count": {
     "description": "Number of contributors (when we don't know the total)",
     "placeholders": {
