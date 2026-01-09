@@ -104,9 +104,9 @@ dependencies:
     path: ../scanner/zxing
 
 
-  openfoodfacts: 3.29.0
-  # openfoodfacts:
-  #   path: ../../../openfoodfacts-dart
+  # openfoodfacts: 3.29.0
+  openfoodfacts:
+    path: ../../../openfoodfacts-dart
 
 dev_dependencies:
   integration_test:

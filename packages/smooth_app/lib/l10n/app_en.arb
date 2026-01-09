@@ -126,6 +126,18 @@
   "@food_preferences_introduction_description": {
     "description": "Description shown on the introduction page of the food preferences wizard"
   },
+  "food_preferences_introduction_description_prefix": "In the following steps, you can ",
+  "@food_preferences_introduction_description_prefix": {
+    "description": "First part of introduction description before bold text"
+  },
+  "food_preferences_introduction_description_bold": "personalize the app",
+  "@food_preferences_introduction_description_bold": {
+    "description": "Bold part of introduction description"
+  },
+  "food_preferences_introduction_description_suffix": " by indicating your preferences:",
+  "@food_preferences_introduction_description_suffix": {
+    "description": "Last part of introduction description after bold text"
+  },
   "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
   "@food_preferences_page_description_diets": {
     "description": "Description for the diets page of the food preferences wizard"
@@ -4663,13 +4675,13 @@
     }
   },
   "product_page_for_me_attributes_order_importance": "Importance",
-    "@product_page_for_me_attributes_order_importance": {
+  "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
-    },
-    "product_page_for_me_attributes_order_evaluation": "Matches",
-    "@product_page_for_me_attributes_order_evaluation": {
+  },
+  "product_page_for_me_attributes_order_evaluation": "Matches",
+  "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
-    },
+  },
   "product_page_for_me_attributes_group_good_matches": "Good matches",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"

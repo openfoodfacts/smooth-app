@@ -28,7 +28,25 @@ class IntroductionPage extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          Text(appLocalizations.food_preferences_introduction_description),
+          Text.rich(
+            TextSpan(
+              children: <TextSpan>[
+                TextSpan(
+                  text: appLocalizations
+                      .food_preferences_introduction_description_prefix,
+                ),
+                TextSpan(
+                  text: appLocalizations
+                      .food_preferences_introduction_description_bold,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
+                TextSpan(
+                  text: appLocalizations
+                      .food_preferences_introduction_description_suffix,
+                ),
+              ],
+            ),
+          ),
           const SizedBox(height: LARGE_SPACE),
           ListView.separated(
             shrinkWrap: true,
@@ -61,11 +79,19 @@ class IntroductionPage extends StatelessWidget {
           backgroundColor: theme.colorScheme.secondary,
           child: Text(
             '${index + 1}',
-            style: TextStyle(color: theme.colorScheme.onSecondary),
+            style: TextStyle(
+              color: theme.colorScheme.onSecondary,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ),
         const SizedBox(width: MEDIUM_SPACE),
-        Expanded(child: Text(text)),
+        Expanded(
+          child: Text(
+            text,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
       ],
     );
   }

@@ -216,6 +216,7 @@ class PreferencesPage extends StatelessWidget {
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
       target: const FoodPreferencesPage(),
+      fullScreen: true,
     );
   }
 

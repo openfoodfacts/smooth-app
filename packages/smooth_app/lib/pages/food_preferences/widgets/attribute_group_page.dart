@@ -7,6 +7,7 @@ import 'package:smooth_app/pages/food_preferences/models/pending_preferences.dar
 import 'package:smooth_app/pages/food_preferences/widgets/food_preference_attribute_row.dart';
 import 'package:smooth_app/pages/food_preferences/widgets/food_preferences_search_bar.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/smooth_banner.dart';
 
 class AttributeGroupPage extends StatefulWidget {
   const AttributeGroupPage({
@@ -74,55 +75,12 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
   }
 
   Widget _buildWarningBanner(BuildContext context, String warning) {
-    final ThemeData theme = Theme.of(context);
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: theme.colorScheme.tertiaryContainer,
-        borderRadius: const BorderRadius.only(
-          topLeft: ROUNDED_RADIUS,
-          topRight: ROUNDED_RADIUS,
-        ),
-      ),
-      child: IntrinsicHeight(
-        child: Row(
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
-                    padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-                    decoration: BoxDecoration(
-                      color: theme.colorScheme.primaryContainer,
-                      borderRadius: const BorderRadius.only(
-                        topLeft: ROUNDED_RADIUS,
-                      ),
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        icons.Info(
-                          size: DEFAULT_ICON_SIZE,
-                          color: theme.colorScheme.onPrimaryContainer,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-                child: Text(
-                  warning,
-                  style: TextStyle(
-                    color: theme.colorScheme.onTertiaryContainer,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+    return SmoothBanner(
+      icon: const icons.Info(size: DEFAULT_ICON_SIZE),
+      content: warning,
+      borderRadius: const BorderRadius.only(
+        topLeft: ROUNDED_RADIUS,
+        topRight: ROUNDED_RADIUS,
       ),
     );
   }

@@ -10,6 +10,7 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
     required this.onPrevious,
     required this.onNext,
     required this.onFinish,
+    required this.onLater,
     this.isSummaryPage = false,
     super.key,
   });
@@ -21,6 +22,7 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
   final VoidCallback onPrevious;
   final VoidCallback onNext;
   final VoidCallback onFinish;
+  final VoidCallback onLater;
 
   @override
   Widget build(BuildContext context) {
@@ -65,8 +67,17 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
         child: Row(
           children: <Widget>[
             Expanded(
-              child: isFirstPage || isSummaryPage
+              child: isSummaryPage
                   ? const SizedBox.shrink()
+                  : isFirstPage
+                  ? SmoothSimpleButton(
+                      onPressed: onLater,
+                      buttonColor: theme.colorScheme.secondary,
+                      child: Text(
+                        appLocalizations.ask_me_later_button_label,
+                        style: TextStyle(color: theme.colorScheme.onSecondary),
+                      ),
+                    )
                   : SmoothSimpleButton(
                       onPressed: onPrevious,
                       buttonColor: theme.colorScheme.secondary,

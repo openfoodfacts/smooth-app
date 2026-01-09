@@ -24,12 +24,23 @@ class FoodPreferenceAttributeRow extends StatelessWidget {
     final ThemeData theme = Theme.of(context);
     final String title = attribute.settingName ?? attribute.name ?? '';
 
-    final bool isEnabled = pendingPreferences.isAttributeEnabled(attributeId);
+    final List<String>? values = attribute.values?.toList();
+    final String offImportanceId =
+        values?.elementAtOrNull(0) ?? PreferenceImportance.ID_NOT_IMPORTANT;
+    final String onImportanceId =
+        values?.elementAtOrNull(1) ?? PreferenceImportance.ID_MANDATORY;
+
+    final String currentImportanceId = pendingPreferences
+        .getImportanceIdForAttributeId(attributeId);
+    final bool isEnabled = currentImportanceId == onImportanceId;
 
     return InkWell(
       borderRadius: ROUNDED_BORDER_RADIUS,
       onTap: () {
-        pendingPreferences.toggleAttribute(attributeId);
+        pendingPreferences.setImportance(
+          attributeId,
+          isEnabled ? offImportanceId : onImportanceId,
+        );
       },
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(
@@ -51,7 +62,10 @@ class FoodPreferenceAttributeRow extends StatelessWidget {
             SmoothSwitch(
               value: isEnabled,
               onChanged: (bool value) {
-                pendingPreferences.toggleAttribute(attributeId);
+                pendingPreferences.setImportance(
+                  attributeId,
+                  value ? onImportanceId : offImportanceId,
+                );
               },
               size: const Size(42.0, 26.0),
             ),
