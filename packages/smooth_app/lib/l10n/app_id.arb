@@ -42,7 +42,7 @@
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
   "go_back_to_top": "Kembali ke atas",
-  "save": "menyimpan ",
+  "save": "Simpan",
   "save_confirmation": "Apa Anda yakin ingin menyimpan?",
   "skip": "Lewati",
   "cancel": "Batalkan",
