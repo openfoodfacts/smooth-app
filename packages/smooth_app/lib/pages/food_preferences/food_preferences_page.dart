@@ -157,6 +157,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
           forceMultiLines: true,
           backgroundColor: headerColor,
           foregroundColor: Colors.black,
+          elevationOnScroll: false,
           topWidget: PreferredSize(
             preferredSize: const Size(
               double.infinity,
