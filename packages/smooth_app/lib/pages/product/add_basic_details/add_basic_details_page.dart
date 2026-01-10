@@ -21,6 +21,7 @@ import 'package:smooth_app/pages/product/simple_input/simple_input_widget.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
@@ -41,6 +42,7 @@ class AddBasicDetailsPage extends StatefulWidget {
 
 class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   late final TextEditingController _brandsController;
+  late final TextEditingController _genericNameController;
   late final TextEditingControllerWithHistory _weightController;
   late final WillPopScope2Controller _willPopScope2Controller;
 
@@ -62,6 +64,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     _brandsHelper = SimpleInputPageBrandsHelper()..addListener(_onValueChanged);
     _brandsController = TextEditingController()..addListener(_onValueChanged);
+
+    _genericNameController = TextEditingController(
+      text: _product.genericName ?? '',
+    )..addListener(_onValueChanged);
+
     _productNameEditorProvider.addListener(_onValueChanged);
     _weightController = TextEditingControllerWithHistory(
       text: MultilingualHelper.getCleanText(_product.quantity ?? ''),
@@ -117,6 +124,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   void dispose() {
     _brandsController.dispose();
     _weightController.dispose();
+    _genericNameController.dispose();
     _willPopScope2Controller.dispose();
     super.dispose();
   }
@@ -151,6 +159,17 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                           _imageLanguagePreview = language;
                         }),
                   ),
+                  
+                  Padding(
+                    padding: EdgeInsets.symmetric(vertical: _heightSpace),
+                    child: SmoothTextFormField(
+                      controller: _genericNameController,
+                      type: TextFieldTypes.PLAIN_TEXT,
+                      hintText: 'Common Name',
+                      prefixIcon: const Icon(Icons.info_outline),
+                    ),
+                  ),  
+                  
                   SizedBox(height: _heightSpace),
                   _ProductBrandsInputWidget(
                     textController: _brandsController,
@@ -241,15 +260,16 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
       _weightController.isDifferentFromInitialValue ||
       _brandsController.text.isNotEmpty ||
       _brandsHelper.hasChanged() ||
-      _productNameEditorProvider.hasChanged();
+      _productNameEditorProvider.hasChanged() ||
+      _genericNameController.text != (_product.genericName ?? '');
 
   /// Returns a [Product] with the values from the text fields.
   Product? _getMinimalistProduct() {
     final Product result = Product(barcode: _product.barcode);
     bool hasChanged = false;
 
-    if (_weightController.isDifferentFromInitialValue) {
-      result.quantity = _weightController.text;
+    if (_genericNameController.text != (_product.genericName ?? '')) {
+      result.genericName = _genericNameController.text;
       hasChanged = true;
     }
 
