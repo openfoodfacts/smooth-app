@@ -21,7 +21,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class PricesDashboardWidget extends StatefulWidget {
-  const PricesDashboardWidget({super.key, required this.userProfile});
+  const PricesDashboardWidget({required this.userProfile, super.key});
   final PriceUser userProfile;
   @override
   State<PricesDashboardWidget> createState() => _PricesDashboardWidgetState();

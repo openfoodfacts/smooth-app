@@ -7,7 +7,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class PricesUserProfile extends StatelessWidget {
-  const PricesUserProfile({super.key, required this.profile});
+  const PricesUserProfile({required this.profile, super.key});
   final PriceUser profile;
 
   @override
