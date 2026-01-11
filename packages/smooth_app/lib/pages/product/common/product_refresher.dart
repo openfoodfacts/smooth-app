@@ -85,6 +85,7 @@ class ProductRefresher {
     country: ProductQuery.getCountry(),
     version: ProductQuery.productQueryVersion,
     productTypeFilter: ProductTypeFilter.all,
+    activateKnowledgePanelsSimplified: true,
   );
 
   /// Returns the standard configuration for several barcodes product query.
@@ -100,6 +101,7 @@ class ProductRefresher {
       PageSize(size: barcodes.length),
     ],
     version: ProductQuery.productQueryVersion,
+    activateKnowledgePanelsSimplified: true,
   );
 
   /// Fetches the products from the server and refreshes the local database.
@@ -189,12 +191,7 @@ class ProductRefresher {
         ).put(result.product!, language, productType: productType);
         localDatabase.upToDate.setLatestDownloadedProduct(result.product!);
 
-        unawaited(
-          _failSafeFolksonomyRefresh(
-            result.product!.barcode ?? barcode,
-            localDatabase,
-          ),
-        );
+        unawaited(_failSafeFolksonomyRefresh(barcode, localDatabase));
 
         return FetchedProduct.found(result.product!);
       }

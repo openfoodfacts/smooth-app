@@ -6,8 +6,6 @@ import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class KnowledgePanelExpandedCard extends StatelessWidget {
   const KnowledgePanelExpandedCard({
@@ -17,6 +15,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     required this.isClickable,
     this.roundedIcons = true,
     this.overrideStyle = true,
+    this.simplified = false,
   });
 
   final Product product;
@@ -25,6 +24,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   final bool isClickable;
   final bool roundedIcons;
   final bool overrideStyle;
+  final bool simplified;
 
   @override
   Widget build(BuildContext context) {
@@ -55,14 +55,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
           elementWidgets.add(
             Provider<KnowledgePanelTitleConfig>.value(
               value: KnowledgePanelTitleConfig(roundedIcon: roundedIcons),
-              child: Padding(
-                padding: EdgeInsetsDirectional.only(
-                  top: VERY_SMALL_SPACE,
-                  start: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
-                  end: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
-                ),
-                child: elementWidget,
-              ),
+              child: elementWidget,
             ),
           );
         }
@@ -81,6 +74,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   List<Widget>? _getSummary(KnowledgePanel panel) {
     final Widget? summary = KnowledgePanelsBuilder.getPanelSummaryWidget(
       panel,
+      product,
       ignoreEvaluation: true,
       textStyleOverride: overrideStyle && _hasValidEvaluation(panel.evaluation)
           ? const TextStyle(
@@ -90,6 +84,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
             )
           : null,
       isClickable: false,
+      simplified: simplified,
     );
 
     if (summary != null) {
@@ -102,14 +97,6 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
               ),
               child: summary,
             ),
-          ];
-        } else {
-          return <Widget>[
-            _KnowledgePanelSummaryCardTitle(
-              evaluation: panel.evaluation,
-              child: summary,
-            ),
-            const SizedBox(height: SMALL_SPACE),
           ];
         }
       } else {
@@ -134,45 +121,5 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
       DiagnosticsProperty<bool>('initiallyExpanded', isInitiallyExpanded),
     );
     properties.add(DiagnosticsProperty<bool>('clickable', isClickable));
-  }
-}
-
-/// Force a background around a summary Widget
-class _KnowledgePanelSummaryCardTitle extends StatelessWidget {
-  const _KnowledgePanelSummaryCardTitle({required this.child, this.evaluation});
-
-  final Widget child;
-  final Evaluation? evaluation;
-
-  @override
-  Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
-    final Color? backgroundColor =
-        KnowledgePanelsBuilder.getColorFromEvaluation(context, evaluation);
-
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color:
-            backgroundColor ??
-            (context.lightTheme()
-                ? extension.primaryMedium
-                : extension.primaryUltraBlack),
-        borderRadius: const BorderRadius.vertical(top: ANGULAR_RADIUS),
-      ),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.symmetric(
-          vertical: SMALL_SPACE,
-          horizontal: MEDIUM_SPACE,
-        ),
-        child: DefaultTextStyle.merge(
-          child: child,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
   }
 }
