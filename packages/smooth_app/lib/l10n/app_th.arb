@@ -37,7 +37,7 @@
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Previous",
+  "previous_label": "ก่อนหน้า",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
@@ -1840,7 +1840,7 @@
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
-  "edit_product_form_item_traces_hint": "trace",
+  "edit_product_form_item_traces_hint": "ติดตาม",
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
@@ -2283,7 +2283,7 @@
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
-  "dev_preferences_news_provider_status_title": "Status",
+  "dev_preferences_news_provider_status_title": "สถานะ",
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
@@ -2299,7 +2299,7 @@
   "product_type_label_food": "อาหาร",
   "product_type_label_beauty": "การดูแลส่วนบุคคล",
   "product_type_label_pet_food": "อาหารสัตว์เลี้ยง",
-  "product_type_label_product": "Other",
+  "product_type_label_product": "อื่น",
   "product_type_label_unknown": "ไม่ทราบ",
   "product_type_selection_title": "ประเภทผลิตภัณฑ์",
   "product_type_selection_subtitle": "เลือกประเภทของผลิตภัณฑ์นี้",
@@ -2379,7 +2379,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "ไม่พบสินค้า",
   "prices_barcode_search_none_yet": "ยังไม่มีสินค้า",
   "prices_barcode_search_running": "กำลังมองหา {barcode}",
   "@prices_barcode_search_running": {
@@ -2408,7 +2408,7 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
-  "prices_category_mandatory": "Mandatory",
+  "prices_category_mandatory": "บังคับ",
   "prices_category_optional": "ไม่จำเป็น",
   "prices_category_error_mandatory": "หมวดหมู่นี้จำเป็นต้องกรอก",
   "prices_barcode_reader_action": "เครื่องอ่านบาร์โค้ด",
@@ -3835,7 +3835,7 @@
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
-  "nutriscore_generic": "Nutri-Score",
+  "nutriscore_generic": "คะแนนโภชนาการ",
   "nutriscore_a": "คะแนนโภชนาการ A",
   "nutriscore_b": "นูทริ-สกอร์ บี",
   "nutriscore_c": "นูทริ-สกอร์ ซี",
@@ -3855,7 +3855,7 @@
   "nutriscore_unknown_new_formula": "ค่าโภชนาการที่ไม่ทราบค่า (การคำนวณใหม่)",
   "nutriscore_not_applicable": "ไม่สามารถใช้ Nutri-Score ได้",
   "nutriscore_not_applicable_new_formula": "ไม่สามารถใช้ Nutri-Score ได้ (การคำนวณใหม่)",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "คะแนนสีเขียว",
   "environmental_score_a_new": "Green-Score เอ",
   "environmental_score_b_new": "Green-Score บี",
   "environmental_score_c_new": "Green-Score ซี",
@@ -3880,7 +3880,7 @@
   "contact_title_pro_email": "ติดต่อผู้ผลิต",
   "contact_title_press_page": "หน้าข่าวประชาสัมพันธ์",
   "contact_title_press_email": "ติดต่อสื่อมวลชน",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "สมัครรับจดหมายข่าวของเรา",
   "contact_title_calendar": "สมัครรับข้อมูลปฏิทินกิจกรรมชุมชนของเรา",
   "hunger_games_loading_line1": "โปรดรอสักครู่…",
   "hunger_games_loading_line2": "เรากำลังดาวน์โหลดคำถามอยู่!",
@@ -3956,7 +3956,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "คะแนนสีเขียว",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -3976,12 +3976,12 @@
   "guide_greenscore_lca_arg1_text2": "**การวิเคราะห์วงจรชีวิต** เป็นวิธีการประเมินมาตรฐานสำหรับการดำเนินการประเมินสิ่งแวดล้อมแบบหลายขั้นตอนและหลายเกณฑ์",
   "guide_greenscore_lca_arg1_text3": "**วัดได้ :**",
   "guide_greenscore_lca_arg2_title": "6 ขั้นตอนการผลิต",
-  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
-  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_agriculture": "เกษตรกรรม",
+  "guide_greenscore_lca_arg2_processing": "กำลังประมวลผล",
   "guide_greenscore_lca_arg2_packaging": "บรรจุภัณฑ์",
-  "guide_greenscore_lca_arg2_transportation": "Transportation",
-  "guide_greenscore_lca_arg2_distribution": "Distribution",
-  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg2_transportation": "การขนส่ง",
+  "guide_greenscore_lca_arg2_distribution": "การกระจาย",
+  "guide_greenscore_lca_arg2_consumption": "การบริโภค",
   "guide_greenscore_lca_arg3_title": "ตัวชี้วัดผลกระทบสิ่งแวดล้อม 14 รายการ",
   "guide_greenscore_lca_arg3_text1": "การเปลี่ยนแปลงสภาพภูมิอากาศ/ปริมาณการปล่อยคาร์บอน",
   "guide_greenscore_lca_arg3_text2": "การทำลายชั้นโอโซน",
@@ -4739,7 +4739,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "ทั้งหมด",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4759,7 +4759,7 @@
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "Consumption",
+  "prices_stats_consumption": "การบริโภค",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
@@ -4771,7 +4771,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "ความงาม",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4843,7 +4843,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "Other",
+  "prices_stats_other": "อื่น",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -4931,7 +4931,7 @@
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
-  "preferences_app_bar_products_modified": "Products modified",
+  "preferences_app_bar_products_modified": "ผลิตภัณฑ์ที่ได้รับการดัดแปลง",
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
@@ -5716,7 +5716,7 @@
   "@homepage_horizontal_list_view_more_button": {
     "description": "Button to see all items in a horizontal list on the homepage"
   },
-  "homepage_list_most_scanned_title": "Most scanned products",
+  "homepage_list_most_scanned_title": "สินค้าที่ถูกสแกนมากที่สุด",
   "@homepage_list_most_scanned_title": {
     "description": "Title for the most scanned products horizontal list on the homepage"
   },
