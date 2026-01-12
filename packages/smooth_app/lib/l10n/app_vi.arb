@@ -3924,7 +3924,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score là gì?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4739,7 +4739,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "Tổng cộng",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4771,7 +4771,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Sắc đẹp",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
