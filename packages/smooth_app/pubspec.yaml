@@ -115,7 +115,7 @@ dev_dependencies:
     sdk: flutter
   flutter_test:
     sdk: flutter
-  mockito: 5.6.1
+  mockito: 5.6.3
   path_provider_platform_interface: 2.1.2
   plugin_platform_interface: 2.1.8
   flutter_lints: 6.0.0
