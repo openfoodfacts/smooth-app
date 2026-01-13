@@ -77,6 +77,12 @@ Widget build(BuildContext context) =&gt; SmoothScaffold(
       maxLines: 2,
     ),
   ),
+  floatingActionButton: FloatingActionButton(
+    child: const Icon(Icons.zoom_in),
+    onPressed: () async =&gt; LaunchUrlHelper.launchURL(
+      _getBetterUrl(question.imageUrl!) ?? question.imageUrl!,
+    ),
+  ),
   body: ConstrainedBox(
     constraints: const BoxConstraints.expand(),
     child: InteractiveViewer(
