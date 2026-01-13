@@ -1405,18 +1405,18 @@ packages:
     dependency: "direct main"
     description:
       name: rive
-      sha256: "4e555e212e28d6502eba37bab08213faa798de79c5cf21c950f122b50a5e33ba"
+      sha256: d3901d82850e17395a149d05c8b446a16eca42b328bac6ca9bd9ed760016f20c
       url: "https://pub.dev"
     source: hosted
-    version: "0.14.0"
+    version: "0.14.1"
   rive_native:
     dependency: transitive
     description:
       name: rive_native
-      sha256: "4e72aab284fe875e4b7da4b445117e8882f777fcc0358d4416b5850334246fb7"
+      sha256: "955e7820b7cd508f4885aa6f25d6240791c932756291c400326ab8b1f3c57c7d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   rxdart:
     dependency: transitive
     description:
