@@ -2321,7 +2321,7 @@
   "prices_website_button": "Otevřít na webu Open Prices",
   "prices_bulk_proof_upload_select": "Přidejte cenovky přímo z galerie",
   "prices_bulk_proof_upload_warning": "Jakmile vyberete obrázky, nebudete je moci upravovat!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "Umělá inteligence poběží na základě vašich dokladů, aby extrahovala ceny.",
   "prices_bulk_proof_upload_community_switch": "Umožněte komunitě ověřovat ceny získané umělou inteligencí.",
   "prices_bulk_proof_upload_subtitle": "Více cenových štítků",
   "prices_bulk_proof_upload_title": "Hromadné nahrání dokladů",
