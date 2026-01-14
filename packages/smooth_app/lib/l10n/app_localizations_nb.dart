@@ -2736,6 +2736,9 @@ class AppLocalizationsNb extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'Vis alle priser for dette produktet';
 

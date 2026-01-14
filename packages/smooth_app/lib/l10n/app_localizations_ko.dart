@@ -2603,6 +2603,9 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices => '이 제품의 모든 가격 보기';
 
   @override

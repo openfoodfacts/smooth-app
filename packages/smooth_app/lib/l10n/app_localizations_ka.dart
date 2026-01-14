@@ -2707,6 +2707,9 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'იხილეთ ამ პროდუქტის ყველა ფასი';
 

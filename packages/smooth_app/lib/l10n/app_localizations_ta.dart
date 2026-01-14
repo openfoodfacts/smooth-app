@@ -2784,6 +2784,9 @@ class AppLocalizationsTa extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'இந்த தயாரிப்புக்கான அனைத்து விலைகளையும் காண்க';
 

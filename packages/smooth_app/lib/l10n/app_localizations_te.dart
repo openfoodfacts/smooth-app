@@ -2709,6 +2709,9 @@ class AppLocalizationsTe extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'ఈ ఉత్పత్తి యొక్క అన్ని ధరలను చూడండి';
 

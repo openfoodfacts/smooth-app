@@ -2711,6 +2711,9 @@ class AppLocalizationsSi extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'මෙම නිෂ්පාදනය සඳහා සියලු මිල ගණන් බලන්න.';
 

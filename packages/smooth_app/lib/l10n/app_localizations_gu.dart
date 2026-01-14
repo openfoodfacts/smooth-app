@@ -2708,6 +2708,9 @@ class AppLocalizationsGu extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'આ ઉત્પાદનની બધી કિંમતો જુઓ';
 

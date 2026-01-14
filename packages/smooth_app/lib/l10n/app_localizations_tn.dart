@@ -2708,6 +2708,9 @@ class AppLocalizationsTn extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'Leba ditlhwatlhwa tsotlhe tsa sedirisiwa seno';
 

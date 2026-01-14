@@ -2710,6 +2710,9 @@ class AppLocalizationsGd extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'Seall a h-uile prìs airson an toraidh seo';
 

@@ -2708,6 +2708,9 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'Ushbu mahsulot uchun barcha narxlarni ko\'ring';
 

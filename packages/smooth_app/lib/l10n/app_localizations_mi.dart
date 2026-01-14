@@ -2711,6 +2711,9 @@ class AppLocalizationsMi extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'Tirohia nga utu katoa mo tenei hua';
 

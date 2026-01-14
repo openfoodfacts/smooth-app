@@ -2709,6 +2709,9 @@ class AppLocalizationsMl extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'ഈ ഉൽപ്പന്നത്തിന്റെ എല്ലാ വിലകളും കാണുക';
 

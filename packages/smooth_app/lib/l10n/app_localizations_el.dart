@@ -2769,6 +2769,9 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'Δείτε όλες τις τιμές για αυτό το προϊόν';
 

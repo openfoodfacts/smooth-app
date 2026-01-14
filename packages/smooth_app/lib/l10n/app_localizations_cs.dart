@@ -2729,6 +2729,9 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'Zobrazit všechny ceny tohoto produktu';
 

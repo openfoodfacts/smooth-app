@@ -2712,6 +2712,9 @@ class AppLocalizationsOr extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'ଏହି ଉତ୍ପାଦ ପାଇଁ ସମସ୍ତ ମୂଲ୍ୟ ଦେଖନ୍ତୁ';
 

@@ -2710,6 +2710,9 @@ class AppLocalizationsKn extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'ಈ ಉತ್ಪನ್ನದ ಎಲ್ಲಾ ಬೆಲೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ';
 

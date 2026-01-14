@@ -2581,6 +2581,9 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices => '查看該產品的所有價格';
 
   @override

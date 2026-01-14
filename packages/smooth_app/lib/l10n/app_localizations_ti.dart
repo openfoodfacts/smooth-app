@@ -2706,6 +2706,9 @@ class AppLocalizationsTi extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices => 'ኩሉ ዋጋታት ናይዚ ፍርያት ርአ';
 
   @override

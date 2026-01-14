@@ -2739,6 +2739,9 @@ class AppLocalizationsHu extends AppLocalizations {
   }
 
   @override
+  String get prices_entry_menu_open_product => 'View product details';
+
+  @override
   String get prices_entry_menu_open_product_prices =>
       'Tekintse meg a termék összes árát';
 
