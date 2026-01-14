@@ -1,7 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:http/http.dart' as http;
-import 'package:http/io_client.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 
@@ -32,33 +32,24 @@ class SentryHttpClientHelper {
   ///
   /// This is used by HttpOverrides to intercept ALL HTTP requests in the app,
   /// including NetworkImage requests and any direct dart:io HttpClient usage.
-  ///
-  /// Since Sentry doesn't directly support dart:io HttpClient, we wrap it
-  /// in an IOClient, then wrap that with SentryHttpClient, and extract the
-  /// inner HttpClient for use.
   static HttpClient wrapHttpClient(HttpClient client) {
     if (AnalyticsHelper.isTracingEnabled) {
-      // Wrap with IOClient then SentryHttpClient to get tracing
-      final IOClient ioClient = IOClient(client);
-      final http.Client sentryClient = SentryHttpClient(client: ioClient);
-
-      // Return a custom wrapper that uses the Sentry-wrapped client
-      return _SentryWrappedHttpClient(client, sentryClient);
+      // Return a custom wrapper that adds Sentry tracing
+      return _SentryWrappedHttpClient(client);
     } else {
       return client;
     }
   }
 }
 
-/// A custom HttpClient that delegates HTTP calls through a Sentry-wrapped http.Client.
+/// A custom HttpClient that delegates HTTP calls through Sentry tracing.
 ///
 /// This allows us to intercept dart:io HttpClient calls (used by NetworkImage, etc.)
-/// and route them through Sentry's tracing infrastructure.
+/// and add Sentry tracing infrastructure.
 class _SentryWrappedHttpClient implements HttpClient {
-  _SentryWrappedHttpClient(this._innerClient, this._sentryClient);
+  _SentryWrappedHttpClient(this._innerClient);
 
   final HttpClient _innerClient;
-  final http.Client _sentryClient;
 
   @override
   Future<HttpClientRequest> getUrl(Uri url) =>
@@ -87,6 +78,38 @@ class _SentryWrappedHttpClient implements HttpClient {
   @override
   Future<HttpClientRequest> openUrl(String method, Uri url) =>
       _wrapRequest(() => _innerClient.openUrl(method, url), url, method);
+
+  @override
+  Future<HttpClientRequest> get(String host, int port, String path) =>
+      getUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+
+  @override
+  Future<HttpClientRequest> post(String host, int port, String path) =>
+      postUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+
+  @override
+  Future<HttpClientRequest> put(String host, int port, String path) =>
+      putUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+
+  @override
+  Future<HttpClientRequest> delete(String host, int port, String path) =>
+      deleteUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+
+  @override
+  Future<HttpClientRequest> head(String host, int port, String path) =>
+      headUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+
+  @override
+  Future<HttpClientRequest> patch(String host, int port, String path) =>
+      patchUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+
+  @override
+  Future<HttpClientRequest> open(
+    String method,
+    String host,
+    int port,
+    String path,
+  ) => openUrl(method, Uri(scheme: 'http', host: host, port: port, path: path));
 
   Future<HttpClientRequest> _wrapRequest(
     Future<HttpClientRequest> Function() requestFactory,
@@ -218,6 +241,13 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
     }
   }
 
+  @override
+  void abort([Object? exception, StackTrace? stackTrace]) {
+    _span?.status = const SpanStatus.aborted();
+    _span?.finish();
+    _request.abort(exception, stackTrace);
+  }
+
   // Delegate all other methods and properties
   @override
   bool get bufferOutput => _request.bufferOutput;
@@ -278,7 +308,8 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
       _request.addError(error, stackTrace);
 
   @override
-  Future addStream(Stream<List<int>> stream) => _request.addStream(stream);
+  Future<Object> addStream(Stream<List<int>> stream) =>
+      _request.addStream(stream);
 
   @override
   Future<HttpClientResponse> get done async {
@@ -296,13 +327,13 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
   }
 
   @override
-  Future flush() => _request.flush();
+  Future<Object> flush() => _request.flush();
 
   @override
   void write(Object? object) => _request.write(object);
 
   @override
-  void writeAll(Iterable objects, [String separator = '']) =>
+  void writeAll(Iterable<Object?> objects, [String separator = '']) =>
       _request.writeAll(objects, separator);
 
   @override

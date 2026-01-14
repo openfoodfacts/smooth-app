@@ -2,10 +2,8 @@ import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart' deferred as dip;
 import 'package:flutter/services.dart';
-import 'package:http/io_client.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
 import 'package:smooth_app/helpers/sentry_http_client_helper.dart';
 import 'package:uuid/uuid.dart';
