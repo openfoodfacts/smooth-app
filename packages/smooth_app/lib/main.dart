@@ -90,23 +90,12 @@ Future<void> launchSmoothApp({
   _enableEdgeToEdgeMode();
 
   if (kReleaseMode) {
-    await AnalyticsHelper.initSentry(appRunner: () => _runAppWithHttpTracing());
+    await AnalyticsHelper.initSentry(
+      appRunner: () => runApp(const SmoothApp()),
+    );
   } else {
     runApp(const SmoothApp());
   }
-}
-
-/// Runs the app with HTTP tracing enabled via runWithClient.
-///
-/// This wraps the entire app in a custom HTTP client zone, where all HTTP
-/// requests made by the app (including those from the openfoodfacts package)
-/// will use a client that conditionally enables Sentry tracing based on
-/// user consent.
-void _runAppWithHttpTracing() {
-  http.runWithClient(
-    () => runApp(const SmoothApp()),
-    SentryHttpClientHelper.createClient,
-  );
 }
 
 void _enableEdgeToEdgeMode() {
