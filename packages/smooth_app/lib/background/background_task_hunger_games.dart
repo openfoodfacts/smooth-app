@@ -112,7 +112,6 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
   @override
   bool get refreshAfterException => false;
 
-  /// Unselects the product image.
   @override
   Future<void> upload(final LocalDatabase localDatabase) async {
     final InsightAnnotation? annotation = InsightAnnotation.fromInt(
