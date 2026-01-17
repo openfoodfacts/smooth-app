@@ -2434,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "View product details",
   "prices_entry_menu_open_product_prices": "View all prices for this product",
   "prices_entry_menu_open_proof": "View proof",
   "prices_entry_menu_my_prices": "View my other prices",
