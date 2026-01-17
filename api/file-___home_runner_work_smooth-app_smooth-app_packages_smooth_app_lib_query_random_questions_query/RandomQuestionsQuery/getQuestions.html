@@ -75,15 +75,24 @@ Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
   final LocalDatabase localDatabase,
   final int count,
 ) async {
+  randomQuestionsManager.setRequest(count);
+  if (randomQuestionsManager.isExhausted) {
+    return &lt;RobotoffQuestion&gt;[];
+  }
+
   final RobotoffQuestionResult result = await RobotoffAPIClient.getQuestions(
-    ProductQuery.getLanguage(),
-    user: ProductQuery.getReadUser(),
-    countries: &lt;OpenFoodFactsCountry&gt;[ProductQuery.getCountry()],
-    count: count,
+    randomQuestionsManager.language,
+    user: randomQuestionsManager.user,
+    countries: &lt;OpenFoodFactsCountry&gt;[randomQuestionsManager.country],
+    count: randomQuestionsManager.count,
+    page: randomQuestionsManager.page,
     questionOrder: RobotoffQuestionOrder.popularity,
+    serverType: ServerType.openFoodFacts,
   );
 
-  if (result.questions?.isNotEmpty != true) {
+  final int resultCount = result.questions?.length ?? 0;
+  randomQuestionsManager.setResultCount(resultCount);
+  if (resultCount == 0) {
     return &lt;RobotoffQuestion&gt;[];
   }
   final List&lt;String&gt; barcodes = &lt;String&gt;[];
@@ -92,12 +101,14 @@ Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
       barcodes.add(question.barcode!);
     }
   }
-  await ProductRefresher().silentFetchAndRefreshList(
-    barcodes: barcodes,
-    localDatabase: localDatabase,
-    productType: ProductType.food,
-  );
-  return result.questions ?? &lt;RobotoffQuestion&gt;[];
+  if (barcodes.isNotEmpty) {
+    await ProductRefresher().silentFetchAndRefreshList(
+      barcodes: barcodes,
+      localDatabase: localDatabase,
+      productType: ProductType.food,
+    );
+  }
+  return result.questions!;
 }</code></pre>
 </section>
 
