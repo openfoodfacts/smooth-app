@@ -10767,6 +10767,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Last scanned products'**
   String get homepage_list_last_scanned_title;
+
+  /// A percentage value (you may insert a space before the % sign if needed)
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}%'**
+  String percent_value(String percent);
 }
 
 class _AppLocalizationsDelegate

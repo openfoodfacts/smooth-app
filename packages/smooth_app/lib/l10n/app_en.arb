@@ -4585,13 +4585,13 @@
     }
   },
   "product_page_for_me_attributes_order_importance": "Importance",
-    "@product_page_for_me_attributes_order_importance": {
+  "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
-    },
-    "product_page_for_me_attributes_order_evaluation": "Matches",
-    "@product_page_for_me_attributes_order_evaluation": {
+  },
+  "product_page_for_me_attributes_order_evaluation": "Matches",
+  "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
-    },
+  },
   "product_page_for_me_attributes_group_good_matches": "Good matches",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
@@ -5724,5 +5724,14 @@
   "homepage_list_last_scanned_title": "Last scanned products",
   "@homepage_list_last_scanned_title": {
     "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
   }
 }
