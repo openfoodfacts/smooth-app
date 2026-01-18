@@ -40,6 +40,7 @@ import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_view_padding.dart';
 
 void main() {
   debugPrint('--------');
@@ -276,26 +277,28 @@ class _SmoothAppState extends State<SmoothApp> {
       (UserPreferences up) => up.appLanguageCode,
     );
 
-    return SentryScreenshotWidget(
-      child: MaterialApp.router(
-        locale: languageCode != null ? Locale(languageCode) : null,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
-        theme: SmoothTheme.getThemeData(
-          Brightness.light,
-          themeProvider,
-          () => context.watch<ColorProvider>(),
-          () => context.watch<TextContrastProvider>(),
+    return SmoothViewPadding(
+      child: SentryScreenshotWidget(
+        child: MaterialApp.router(
+          locale: languageCode != null ? Locale(languageCode) : null,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
+          theme: SmoothTheme.getThemeData(
+            Brightness.light,
+            themeProvider,
+            () => context.watch<ColorProvider>(),
+            () => context.watch<TextContrastProvider>(),
+          ),
+          darkTheme: SmoothTheme.getThemeData(
+            Brightness.dark,
+            themeProvider,
+            () => context.watch<ColorProvider>(),
+            () => context.watch<TextContrastProvider>(),
+          ),
+          themeMode: themeProvider.currentThemeMode,
+          routerConfig: AppNavigator.of(context).router,
         ),
-        darkTheme: SmoothTheme.getThemeData(
-          Brightness.dark,
-          themeProvider,
-          () => context.watch<ColorProvider>(),
-          () => context.watch<TextContrastProvider>(),
-        ),
-        themeMode: themeProvider.currentThemeMode,
-        routerConfig: AppNavigator.of(context).router,
       ),
     );
   }

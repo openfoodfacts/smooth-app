@@ -735,17 +735,22 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
 
 class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
     implements SizeWidget {
-  const SmoothModalSheetHeaderPrefixIndicator({this.color, super.key});
+  const SmoothModalSheetHeaderPrefixIndicator({
+    this.color,
+    super.key,
+    this.size,
+  });
 
   final Color? color;
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
       child: SizedBox(
-        width: 10.0,
-        height: 10.0,
+        width: size?.width ?? 10.0,
+        height: size?.height ?? 10.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: color ?? Colors.white,
@@ -760,7 +765,7 @@ class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
   bool get requiresPadding => false;
 
   @override
-  double widgetHeight(BuildContext context) => 10.0;
+  double widgetHeight(BuildContext context) => size?.height ?? 10.0;
 }
 
 abstract class SizeWidget implements Widget {
