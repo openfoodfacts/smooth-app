@@ -5724,5 +5724,14 @@
   "homepage_list_last_scanned_title": "അവസാനം സ്കാൻ ചെയ്ത ഉൽപ്പന്നങ്ങൾ",
   "@homepage_list_last_scanned_title": {
     "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
   }
 }
