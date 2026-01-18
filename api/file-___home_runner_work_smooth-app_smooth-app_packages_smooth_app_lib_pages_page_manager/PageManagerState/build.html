@@ -75,6 +75,9 @@ Widget build(BuildContext context) {
     context.watch&lt;UserPreferences&gt;(),
   );
 
+  &#47;&#47;&#47; Temp fix
+  _generateTabsIfNecessary(showNewHomePage);
+
   _currentPage ??= showNewHomePage
       ? BottomNavigationTab.HomePage
       : BottomNavigationTab.Scan;
@@ -163,7 +166,7 @@ Widget build(BuildContext context) {
     child: Scaffold(
       body: Provider&lt;BottomNavigationTab&gt;.value(
         value: _currentPage!,
-        child: IndexedStack(index: _currentPage!.index, children: tabs),
+        child: IndexedStack(index: _currentPage!.index, children: _tabs),
       ),
       bottomNavigationBar: ConsumerFilter&lt;UserPreferences&gt;(
         buildWhen:
@@ -229,8 +232,6 @@ Widget build(BuildContext context) {
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>
 
 
-        <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_page_manager/PageManagerState-class.html#static-properties">Static properties</a></li>
-          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_page_manager/PageManagerState/tabs.html">tabs</a></li>
 
 
 </ol>
