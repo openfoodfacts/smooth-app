@@ -71,16 +71,10 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final SmoothColorsThemeExtension theme = context
-      .extension&lt;SmoothColorsThemeExtension&gt;();
   final int rowCount = (panels.length + 1) ~&#47; 2;
 
-  return ListView.builder(
-    shrinkWrap: true,
-    physics: const NeverScrollableScrollPhysics(),
-    itemCount: rowCount,
-    padding: EdgeInsetsDirectional.zero,
-    itemBuilder: (BuildContext context, int index) {
+  return Column(
+    children: List&lt;Widget&gt;.generate(rowCount, (int index) {
       final int firstIndex = index * 2;
       final int secondIndex = firstIndex + 1;
       return Column(
@@ -91,13 +85,13 @@ Widget build(BuildContext context) {
               children: &lt;Widget&gt;[
                 KnowledgePanelSquareItem(
                   panel: panels[firstIndex],
-                  theme: theme,
+                  panelId: panelsIds?[firstIndex],
                 ),
                 const VerticalDivider(thickness: 1.0),
                 if (secondIndex &lt; panels.length)
                   KnowledgePanelSquareItem(
                     panel: panels[secondIndex],
-                    theme: theme,
+                    panelId: panelsIds?[secondIndex],
                   )
                 else
                   const Spacer(),
@@ -106,7 +100,7 @@ Widget build(BuildContext context) {
           ),
         ],
       );
-    },
+    }),
   );
 }</code></pre>
 </section>
@@ -141,6 +135,7 @@ Widget build(BuildContext context) {
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_square_knowledge_panel_square_card/KnowledgePanelSquareCard/panels.html">panels</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_square_knowledge_panel_square_card/KnowledgePanelSquareCard/panelsIds.html">panelsIds</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_square_knowledge_panel_square_card/KnowledgePanelSquareCard/product.html">product</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 

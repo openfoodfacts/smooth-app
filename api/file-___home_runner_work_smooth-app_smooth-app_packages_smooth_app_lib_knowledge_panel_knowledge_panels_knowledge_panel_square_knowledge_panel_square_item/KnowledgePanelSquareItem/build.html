@@ -71,60 +71,86 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  final String title =
-      panel.titleElement?.valueString ??
-      panel.titleElement?.value?.toString() ??
-      &#39;&#39;;
+  final SmoothColorsThemeExtension theme = context
+      .extension&lt;SmoothColorsThemeExtension&gt;();
+
+  final String title = panel.titleElement?.name ?? &#39;&#39;;
+  final Color indicatorColor = panel.evaluation.indicatorColor(theme);
+
+  final String value = _reformatValue(
+    AppLocalizations.of(context),
+    panel.titleElement?.valueString ??
+        panel.titleElement?.value?.toString() ??
+        &#39;&#39;,
+  );
 
   return Expanded(
-    child: Padding(
-      padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: VERY_LARGE_SPACE,
-        vertical: MEDIUM_SPACE,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: &lt;Widget&gt;[
-          Row(
-            spacing: SMALL_SPACE,
-            children: &lt;Widget&gt;[
-              Flexible(
-                child: Text(
-                  panel.titleElement?.name ?? &#39;&#39;,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-              ),
-              icons.Chevron.horizontalDirectional(
+    child: InkWell(
+      onTap: panelId != null
+          ? () {
+              showKnowledgePanelSquareModalSheet(
                 context,
-                size: 12.0,
-                color: theme.greyDark,
-              ),
-            ],
-          ),
-          const SizedBox(height: SMALL_SPACE),
-          Expanded(
-            child: Row(
-              spacing: MEDIUM_SPACE,
-              crossAxisAlignment: CrossAxisAlignment.center,
+                title: title,
+                value: value,
+                panelId: panelId!,
+                product: context.read&lt;Product&gt;(),
+                valueColor: indicatorColor,
+              );
+            }
+          : null,
+      child: Padding(
+        padding: const EdgeInsetsDirectional.symmetric(
+          horizontal: VERY_LARGE_SPACE,
+          vertical: MEDIUM_SPACE,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: &lt;Widget&gt;[
+            Row(
+              spacing: SMALL_SPACE,
               children: &lt;Widget&gt;[
-                KnowledgePanelIndicator(
-                  evaluation: panel.evaluation,
-                  themeExtension: theme,
-                ),
                 Flexible(
-                  child: Text(
-                    title,
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: panel.evaluation.indicatorColor(theme),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 3.0),
+                    child: Text(
+                      title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15.0,
+                      ),
                     ),
                   ),
                 ),
+                icons.Chevron.horizontalDirectional(
+                  context,
+                  size: 12.0,
+                  color: theme.greyMedium,
+                ),
               ],
             ),
-          ),
-        ],
+            const SizedBox(height: SMALL_SPACE),
+            Expanded(
+              child: Row(
+                spacing: MEDIUM_SPACE,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: &lt;Widget&gt;[
+                  KnowledgePanelIndicator(evaluation: panel.evaluation),
+                  Flexible(
+                    child: Text(
+                      value,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.5,
+                        color: indicatorColor,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     ),
   );
@@ -161,8 +187,8 @@ Widget build(BuildContext context) {
     </li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_square_knowledge_panel_square_item/KnowledgePanelSquareItem/panel.html">panel</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_square_knowledge_panel_square_item/KnowledgePanelSquareItem/panelId.html">panelId</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_square_knowledge_panel_square_item/KnowledgePanelSquareItem/theme.html">theme</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_square_knowledge_panel_square_item/KnowledgePanelSquareItem-class.html#instance-methods">Methods</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_knowledge_panel_square_knowledge_panel_square_item/KnowledgePanelSquareItem/build.html">build</a></li>
