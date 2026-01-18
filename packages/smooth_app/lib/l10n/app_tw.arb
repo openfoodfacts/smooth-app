@@ -5724,5 +5724,14 @@
   "homepage_list_last_scanned_title": "Nneɛma a wɔayɛ no scan a etwa to",
   "@homepage_list_last_scanned_title": {
     "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}% 10 .",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
   }
 }
