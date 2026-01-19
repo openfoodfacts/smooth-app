@@ -5393,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metriche del prezzo aperto",
+  "preferences_prices_metrics_title": "Metriche dei prezzi aperti",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
