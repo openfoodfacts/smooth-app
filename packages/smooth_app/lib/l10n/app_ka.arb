@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "გახსნის ფასები",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -4167,15 +4167,15 @@
   },
   "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_how_arg1_title": "შეაგროვეთ ფასების ეტიკეტების ფოტოები დერეფნებში",
+  "guide_open_prices_how_arg2_title": "შეაგროვეთ ქვითრების ფოტოები",
+  "guide_open_prices_why_title": "რატომ აკეთებს ამას Open Food Facts?",
   "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
+  "guide_open_prices_why_arg1_title": "ფასების ევოლუციის თვალყურის დევნება დროთა განმავლობაში",
+  "guide_open_prices_why_arg1_text": "ნახეთ **ფასების ევოლუცია**: შემცირებული ინფლაცია, იაფფასიანი ინფლაცია, ჩვენ შეგვიძლია მათი ერთად თვალყურის დევნება!",
+  "guide_open_prices_why_arg2_title": "შეადარეთ ფასები თქვენს მახლობლად",
+  "guide_open_prices_why_arg2_text": "როდესაც მეტ ფასებს მივიღებთ, თქვენ შეძლებთ აღმოაჩინოთ **თქვენს გარშემო ყველაზე იაფი მაღაზიები**.",
+  "guide_open_prices_scrapping_title": "განიხილეთ ფასების აღება საცალო ვაჭრობის ვებსაიტებიდან?",
   "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
   "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
@@ -5393,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ღია ფასის მეტრიკა",
+  "preferences_prices_metrics_title": "ღია ფასების მეტრიკა",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
