@@ -5,7 +5,7 @@ import 'dart:math' as math;
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
-/// A widget similar to the [Text], except that it scales down
+/// A widget similar to a [Text] Widget, except that it scales down
 /// the font size if there's not enough space.
 ///
 /// It can be grouped with other [AutoSizeText] widgets using
