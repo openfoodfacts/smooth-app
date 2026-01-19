@@ -60,12 +60,6 @@ class _AutoSizeTextState extends State<AutoSizeText> {
     }
   }
 
-  @override
-  void dispose() {
-    widget.group?._remove(this);
-    super.dispose();
-  }
-
   void _notifySync() {
     if (mounted) {
       setState(() {});
@@ -95,6 +89,12 @@ class _AutoSizeTextState extends State<AutoSizeText> {
       groupFontSize: effectiveGroupFontSize,
       onFontSizeCalculated: _onFontSizeCalculated,
     );
+  }
+
+  @override
+  void dispose() {
+    widget.group?._remove(this);
+    super.dispose();
   }
 
   @override
