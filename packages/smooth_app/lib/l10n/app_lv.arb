@@ -5393,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Atvērt cenu metriku",
+  "preferences_prices_metrics_title": "Atvērto cenu metrika",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
