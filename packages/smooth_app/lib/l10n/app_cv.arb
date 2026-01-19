@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Уҫӑ хаксем",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2318,7 +2318,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
-  "prices_website_button": "Уҫӑ хаксен сайтӗнче уҫӑр",
+  "prices_website_button": "Open on the Open Prices website",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -4617,7 +4617,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Мӗншӗн хаксем?",
-  "prices_explanation_card_line1": "**Уҫӑ хаксем** — тӗнчери продукци хакӗсене пухса пайламалли проект 🌍. Open Prices компанине Open Food Facts компани хатӗрлет тата тытса тӑрать.",
+  "prices_explanation_card_line1": "**Open Prices** — тӗнчери продукци хакӗсене пухса пайламалли проект 🌍. Open Prices компанине Open Food Facts компани хатӗрлет тата тытса тӑрать.",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
