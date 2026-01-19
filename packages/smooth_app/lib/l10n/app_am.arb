@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "ክፍት ዋጋዎች",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2655,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "ስለ ክፍት ዋጋዎች የበለጠ ይወቁ",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4152,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "ስለ ውጤት ማስቆጠር ማስታወሻ",
   "guide_open_beauty_facts_scores_paragraph1": "ከምግብ ምርቶች በተለየ መልኩ የመዋቢያዎች ዓለም **እንደ Nutri-Score** ያለ በዓለም አቀፍ ደረጃ የታወቀ፣ በመንግስት የሚደገፍ የውጤት አሰጣጥ ስርዓት የለውም። የንጥረ ነገሮች ተፅእኖዎች በጣም ግላዊ ሊሆኑ እና በቆዳ አይነት፣ በአለርጂዎች እና በግለሰብ ጉዳዮች ላይ የተመሰረቱ ሊሆኑ ይችላሉ።",
   "guide_open_beauty_facts_share_link": "https://world-am.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "ወደ ክፍት ዋጋዎች እንኳን በደህና መጡ!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ክፍት ዋጋዎች ምንድን ናቸው?",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "ክፍት ዋጋዎች **በዓለም ዙሪያ የምርት ዋጋዎችን ለመሰብሰብ እና ለማጋራት የሚያስችል ፕሮጀክት ነው**። ለምርምር፣ ለመተንተን እና ለሌሎችም ጥቅም ላይ ሊውል የሚችል በይፋ የሚገኝ የውሂብ ስብስብ ነው። ክፍት ዋጋዎች የሚዘጋጁት በክፍት የምግብ እውነታዎች ነው።",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4784,7 +4784,7 @@
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
-  "prices_stats_osm": "ኦፕን ስትሪት ካርታ",
+  "prices_stats_osm": "OpenStreetMap",
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
