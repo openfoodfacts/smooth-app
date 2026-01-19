@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Preus oberts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2318,7 +2318,7 @@
   },
   "prices_app_dev_mode_flag": "Drecera a l'aplicació Preus a la pàgina del producte",
   "prices_app_button": "Ves a l'aplicació Preus",
-  "prices_website_button": "Obre al lloc web de Preus Oberts",
+  "prices_website_button": "Obre al lloc web de Open Prices",
   "prices_bulk_proof_upload_select": "Afegeix etiquetes de preu directament des de la galeria",
   "prices_bulk_proof_upload_warning": "Un cop hagis seleccionat les imatges, no les podràs editar!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -2500,7 +2500,7 @@
       }
     }
   },
-  "prices_open_proof": "Prova de preu obert",
+  "prices_open_proof": "Prova de Open Prices",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
@@ -4152,7 +4152,7 @@
   "guide_open_beauty_facts_scores_title": "Una nota sobre la puntuació",
   "guide_open_beauty_facts_scores_paragraph1": "A diferència dels productes alimentaris, el món dels cosmètics **no té un sistema de puntuació universalment reconegut i avalat pel govern com el Nutri-Score**. Els efectes dels ingredients poden ser molt personals i depenen del tipus de pell, les al·lèrgies i les preocupacions individuals.",
   "guide_open_beauty_facts_share_link": "https://world-ca.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Benvinguts a Preus Oberts!",
+  "guide_open_prices_title": "Benvinguts a Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -5177,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Descobreix els preus oberts",
+  "preferences_faq_discover_op_title": "Descobreix Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
