@@ -2379,7 +2379,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "제품을 찾을 수 없습니다",
   "prices_barcode_search_none_yet": "아직 상품이 없습니다",
   "prices_barcode_search_running": "{barcode}을(를) 찾고 있습니다",
   "@prices_barcode_search_running": {
@@ -3881,7 +3881,7 @@
   "contact_title_pro_email": "프로듀서 연락처",
   "contact_title_press_page": "보도 페이지",
   "contact_title_press_email": "언론 연락처",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "뉴스레터를 구독하세요",
   "contact_title_calendar": "커뮤니티 캘린더 구독하기",
   "hunger_games_loading_line1": "몇 초만 기다려주세요…",
   "hunger_games_loading_line2": "질문을 다운로드 중입니다!",
@@ -3925,7 +3925,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "뉴트리스코어란 무엇인가요?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score는 **식품의 영양적 품질**에 대한 정보를 제공하는 하는 로고입니다.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4740,7 +4740,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "총",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4772,7 +4772,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "아름다움",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
