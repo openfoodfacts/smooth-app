@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "أسعار مفتوحة",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -4784,7 +4784,7 @@
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
-  "prices_stats_osm": "خريطة الشارع المفتوحة",
+  "prices_stats_osm": "OpenStreetMap",
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
@@ -5177,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "اكتشف الأسعار المفتوحة",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
