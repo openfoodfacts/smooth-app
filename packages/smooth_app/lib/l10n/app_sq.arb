@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Çmimet e Hapura",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2318,7 +2318,7 @@
   },
   "prices_app_dev_mode_flag": "Shortcut to Prices app on product page",
   "prices_app_button": "Go to Prices app",
-  "prices_website_button": "Hapur në faqen e internetit të Çmimeve të Hapura",
+  "prices_website_button": "Open on the Open Prices website",
   "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
   "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -5385,7 +5385,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Çmimet më të fundit të shtuara nga komuniteti i Çmimeve të Hapura",
+  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5393,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrikat e Çmimit të Hapur",
+  "preferences_prices_metrics_title": "Open Price metrics",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
