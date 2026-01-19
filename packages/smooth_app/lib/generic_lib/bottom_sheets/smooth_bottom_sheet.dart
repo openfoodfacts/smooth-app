@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_autosize_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
@@ -163,9 +164,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
             : (addEndArrowToItems
                   ? const _SmoothListOfChoicesEndArrow()
                   : null)),
-        onTap: () {
-          Navigator.of(context).pop(values.elementAt(i));
-        },
+        onTap: () => Navigator.of(context).pop(values.elementAt(i)),
       ),
     );
 
@@ -210,20 +209,19 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     items.add(SizedBox(height: bottomPadding));
   }
 
-  return showSmoothModalSheet<T>(
+  return showSmoothAutoSizeModalSheet<T>(
     context: context,
-    useRootNavigator: useRootNavigator,
-    builder: (BuildContext context) => SmoothModalSheet(
+    useRootNavigator: useRootNavigator ?? false,
+    useSafeArea: false,
+    header: SmoothModalSheetHeader(
       title: title,
-      type: type,
-      prefixIndicator: true,
-      prefixIndicatorColor: prefixIndicatorColor,
-      headerBackgroundColor: headerBackgroundColor,
-      bodyPadding: EdgeInsets.zero,
-      body: IntrinsicHeight(
-        child: Column(mainAxisSize: MainAxisSize.min, children: items),
+      prefix: SmoothModalSheetHeaderPrefixIndicator(
+        color: prefixIndicatorColor,
       ),
+      backgroundColor: headerBackgroundColor,
+      type: type,
     ),
+    bodyBuilder: (_) => Column(mainAxisSize: MainAxisSize.min, children: items),
   );
 }
 

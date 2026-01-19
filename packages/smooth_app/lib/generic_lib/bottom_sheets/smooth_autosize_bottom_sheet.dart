@@ -12,6 +12,7 @@ Future<T?> showSmoothAutoSizeModalSheet<T>({
   required WidgetBuilder bodyBuilder,
   double? maxHeightRatio,
   bool? useRootNavigator,
+  bool useSafeArea = true,
 }) async {
   return showModalBottomSheet<T>(
     context: context,
@@ -30,6 +31,7 @@ Future<T?> showSmoothAutoSizeModalSheet<T>({
         ),
         bodyBuilder: (BuildContext context) => bodyBuilder(context),
         maxHeightRatio: maxHeightRatio ?? 1.0,
+        useSafeArea: useSafeArea,
       );
     },
   );
@@ -40,11 +42,13 @@ class _SmoothAutoSizeModalContent<T> extends StatefulWidget {
     required this.headerBuilder,
     required this.bodyBuilder,
     required this.maxHeightRatio,
+    required this.useSafeArea,
   });
 
   final WidgetBuilder headerBuilder;
   final WidgetBuilder bodyBuilder;
   final double maxHeightRatio;
+  final bool useSafeArea;
 
   @override
   State<_SmoothAutoSizeModalContent<T>> createState() =>
@@ -53,12 +57,13 @@ class _SmoothAutoSizeModalContent<T> extends StatefulWidget {
 
 class _SmoothAutoSizeModalContentState<T>
     extends State<_SmoothAutoSizeModalContent<T>> {
+  late double _availableHeight;
+
   double? _headerHeight;
   double? _bodyHeight;
 
   @override
   Widget build(BuildContext context) {
-    final double screenHeight = MediaQuery.heightOf(context);
     final Widget header = KeyedSubtree(
       key: const Key('autosize_header'),
       child: widget.headerBuilder(context),
@@ -70,36 +75,44 @@ class _SmoothAutoSizeModalContentState<T>
 
     if (_headerHeight == null || _bodyHeight == null) {
       return Offstage(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            MeasureSize(
-              onChange: (Size size) =>
-                  setState(() => _headerHeight = size.height),
-              child: header,
-            ),
-            MeasureSize(
-              onChange: (Size size) =>
-                  setState(() => _bodyHeight = size.height),
-              child: body,
-            ),
-          ],
+        child: LayoutBuilder(
+          builder: (_, BoxConstraints constraints) {
+            _availableHeight = constraints.maxHeight;
+
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                MeasureSize(
+                  onChange: (Size size) =>
+                      setState(() => _headerHeight = size.height),
+                  child: header,
+                ),
+                MeasureSize(
+                  onChange: (Size size) =>
+                      setState(() => _bodyHeight = size.height),
+                  child: body,
+                ),
+              ],
+            );
+          },
         ),
       );
     }
 
     final EdgeInsets screenPadding = SmoothViewPadding.of(context);
     final double maxHeight =
-        (screenHeight - screenPadding.vertical) * widget.maxHeightRatio;
+        (_availableHeight - screenPadding.vertical) * widget.maxHeightRatio;
     final double realHeight =
-        _headerHeight! + _bodyHeight! + screenPadding.bottom;
+        _headerHeight! +
+        _bodyHeight! +
+        (widget.useSafeArea ? screenPadding.bottom : 0.0);
     final bool needsScroll = realHeight > maxHeight;
 
     final double contentDisplayHeight = needsScroll ? maxHeight : realHeight;
 
-    final double initialRatio = contentDisplayHeight / screenHeight;
+    final double initialRatio = contentDisplayHeight / _availableHeight;
     final double maxRatio = math.min(
-      1.0 - (screenPadding.top / MediaQuery.sizeOf(context).height),
+      1.0 - (screenPadding.top / _availableHeight),
       widget.maxHeightRatio,
     );
 
@@ -113,15 +126,20 @@ class _SmoothAutoSizeModalContentState<T>
       snap: true,
       snapSizes: const <double>[0.0],
       builder: (BuildContext context, ScrollController scrollController) {
-        Widget bodyContent = Padding(
-          padding: EdgeInsetsDirectional.only(bottom: screenPadding.bottom),
-          child: body,
-        );
+        Widget bodyContent = body;
 
         if (needsScroll) {
           bodyContent = SingleChildScrollView(
+            padding: widget.useSafeArea
+                ? EdgeInsetsDirectional.only(bottom: screenPadding.bottom)
+                : EdgeInsetsDirectional.zero,
             controller: scrollController,
-            child: SizedBox(height: _bodyHeight, child: body),
+            child: SizedBox(height: _bodyHeight, child: bodyContent),
+          );
+        } else if (widget.useSafeArea) {
+          bodyContent = Padding(
+            padding: EdgeInsetsDirectional.only(bottom: screenPadding.bottom),
+            child: bodyContent,
           );
         }
 

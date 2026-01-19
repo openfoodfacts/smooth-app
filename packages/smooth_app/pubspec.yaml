@@ -50,7 +50,6 @@ dependencies:
   flutter_email_sender: 8.0.0
   flutter_native_splash: 2.4.7
   image: 4.7.2
-  auto_size_text: 3.0.0
   crop_image: 1.0.17
   shared_preferences: 2.5.4
   intl: 0.20.2
