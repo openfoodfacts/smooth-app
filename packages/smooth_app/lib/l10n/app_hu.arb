@@ -5393,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Nyílt ár mutatók",
+  "preferences_prices_metrics_title": "Nyitott árak mutatói",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
