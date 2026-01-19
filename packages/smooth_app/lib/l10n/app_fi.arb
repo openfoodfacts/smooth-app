@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Avoimet hinnat",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -5393,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Avaa hintamittarit",
+  "preferences_prices_metrics_title": "Avaushintojen mittarit",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
