@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Prix ouverts",
+  "open_prices": "Open Prices",
   "sep": " ",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
