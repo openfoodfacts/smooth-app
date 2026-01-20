@@ -56,7 +56,8 @@
 <li><span class="parameter" id="showSmoothAutoSizeModalSheet-param-header"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">header</span>, </span></li>
 <li><span class="parameter" id="showSmoothAutoSizeModalSheet-param-bodyBuilder"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">bodyBuilder</span>, </span></li>
 <li><span class="parameter" id="showSmoothAutoSizeModalSheet-param-maxHeightRatio"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">maxHeightRatio</span>, </span></li>
-<li><span class="parameter" id="showSmoothAutoSizeModalSheet-param-useRootNavigator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">useRootNavigator</span>}</span></li>
+<li><span class="parameter" id="showSmoothAutoSizeModalSheet-param-useRootNavigator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">useRootNavigator</span>, </span></li>
+<li><span class="parameter" id="showSmoothAutoSizeModalSheet-param-useSafeArea"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">useSafeArea</span> = <span class="default-value">true</span>}</span></li>
 </ol>)
 
     </section>
@@ -72,6 +73,7 @@
   required WidgetBuilder bodyBuilder,
   double? maxHeightRatio,
   bool? useRootNavigator,
+  bool useSafeArea = true,
 }) async {
   return showModalBottomSheet&lt;T&gt;(
     context: context,
@@ -90,6 +92,7 @@
         ),
         bodyBuilder: (BuildContext context) =&gt; bodyBuilder(context),
         maxHeightRatio: maxHeightRatio ?? 1.0,
+        useSafeArea: useSafeArea,
       );
     },
   );

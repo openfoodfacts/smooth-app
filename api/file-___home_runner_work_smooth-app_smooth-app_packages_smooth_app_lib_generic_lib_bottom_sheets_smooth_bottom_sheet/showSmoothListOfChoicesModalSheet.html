@@ -158,9 +158,7 @@
             : (addEndArrowToItems
                   ? const _SmoothListOfChoicesEndArrow()
                   : null)),
-        onTap: () {
-          Navigator.of(context).pop(values.elementAt(i));
-        },
+        onTap: () =&gt; Navigator.of(context).pop(values.elementAt(i)),
       ),
     );
 
@@ -205,20 +203,19 @@
     items.add(SizedBox(height: bottomPadding));
   }
 
-  return showSmoothModalSheet&lt;T&gt;(
+  return showSmoothAutoSizeModalSheet&lt;T&gt;(
     context: context,
-    useRootNavigator: useRootNavigator,
-    builder: (BuildContext context) =&gt; SmoothModalSheet(
+    useRootNavigator: useRootNavigator ?? false,
+    useSafeArea: false,
+    header: SmoothModalSheetHeader(
       title: title,
-      type: type,
-      prefixIndicator: true,
-      prefixIndicatorColor: prefixIndicatorColor,
-      headerBackgroundColor: headerBackgroundColor,
-      bodyPadding: EdgeInsets.zero,
-      body: IntrinsicHeight(
-        child: Column(mainAxisSize: MainAxisSize.min, children: items),
+      prefix: SmoothModalSheetHeaderPrefixIndicator(
+        color: prefixIndicatorColor,
       ),
+      backgroundColor: headerBackgroundColor,
+      type: type,
     ),
+    bodyBuilder: (_) =&gt; Column(mainAxisSize: MainAxisSize.min, children: items),
   );
 }</code></pre>
 </section>
