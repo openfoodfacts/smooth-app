@@ -24,6 +24,8 @@ class SummaryPage extends StatelessWidget {
           ) {
             final List<AttributeGroup> attributeGroups =
                 pendingPreferences.attributeGroups;
+            final List<String> unwantedIngredients =
+                pendingPreferences.unwantedIngredients;
 
             return ListView.builder(
               padding: const EdgeInsetsDirectional.symmetric(
@@ -59,6 +61,7 @@ class SummaryPage extends StatelessWidget {
                 return SummarySection(
                   group: group,
                   selectedAttributes: selectedAttributes,
+                  unwantedIngredients: unwantedIngredients,
                   onEdit: () => onEditGroup(index),
                 );
               },

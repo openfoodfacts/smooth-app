@@ -9,12 +9,14 @@ class SummarySection extends StatelessWidget {
     required this.group,
     required this.selectedAttributes,
     required this.onEdit,
+    this.unwantedIngredients = const <String>[],
     super.key,
   });
 
   final AttributeGroup group;
   final List<Attribute> selectedAttributes;
   final VoidCallback onEdit;
+  final List<String> unwantedIngredients;
 
   @override
   Widget build(BuildContext context) {
@@ -67,27 +69,53 @@ class SummarySection extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: selectedAttributes.map((Attribute attribute) {
+              children: selectedAttributes.expand((Attribute attribute) {
                 final String name =
                     attribute.settingName ?? attribute.name ?? '';
-                return Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    vertical: SMALL_SPACE,
+                final bool isUnwantedIngredients =
+                    attribute.id == Attribute.ATTRIBUTE_UNWANTED_INGREDIENTS;
+
+                return <Widget>[
+                  Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      vertical: SMALL_SPACE,
+                    ),
+                    child: Row(
+                      children: <Widget>[
+                        Icon(
+                          Icons.arrow_circle_right_rounded,
+                          size: 28.0,
+                          color: theme.colorScheme.primary,
+                        ),
+                        const SizedBox(width: SMALL_SPACE),
+                        Expanded(
+                          child: Text(name, style: theme.textTheme.bodyMedium),
+                        ),
+                      ],
+                    ),
                   ),
-                  child: Row(
-                    children: <Widget>[
-                      Icon(
-                        Icons.arrow_circle_right_rounded,
-                        size: 28.0,
-                        color: theme.colorScheme.primary,
+                  if (isUnwantedIngredients && unwantedIngredients.isNotEmpty)
+                    Padding(
+                      padding: const EdgeInsetsDirectional.only(
+                        start: 36.0,
+                        bottom: SMALL_SPACE,
                       ),
-                      const SizedBox(width: SMALL_SPACE),
-                      Expanded(
-                        child: Text(name, style: theme.textTheme.bodyMedium),
+                      child: Wrap(
+                        spacing: SMALL_SPACE,
+                        runSpacing: SMALL_SPACE,
+                        children: unwantedIngredients.map((String ingredient) {
+                          return Chip(
+                            label: Text(ingredient),
+                            backgroundColor:
+                                theme.colorScheme.surfaceContainerHighest,
+                            materialTapTargetSize:
+                                MaterialTapTargetSize.shrinkWrap,
+                            visualDensity: VisualDensity.compact,
+                          );
+                        }).toList(),
                       ),
-                    ],
-                  ),
-                );
+                    ),
+                ];
               }).toList(),
             ),
           ),

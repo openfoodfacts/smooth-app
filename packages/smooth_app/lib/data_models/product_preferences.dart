@@ -153,6 +153,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       }
       final String preferenceImportancesString = downloadableImportance.value!;
       final String attributeGroupsString = downloadableAttributes.value!;
+
       _loadFromStrings(
         languageCode,
         preferenceImportancesString,

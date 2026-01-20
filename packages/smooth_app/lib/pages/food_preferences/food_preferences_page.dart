@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
@@ -39,6 +40,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
   void _initializeController() {
     final ProductPreferences productPreferences = context
         .watch<ProductPreferences>();
+    final UserPreferences userPreferences = context.read<UserPreferences>();
     final List<AttributeGroup>? attributeGroups =
         productPreferences.attributeGroups;
 
@@ -55,6 +57,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
 
     _pendingPreferences = PendingPreferences(
       productPreferences: productPreferences,
+      userPreferences: userPreferences,
       attributeGroups: attributeGroups,
     );
     _pendingPreferences.addListener(_onPendingPreferencesChanged);
@@ -148,6 +151,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
     final Color headerColor = isSummaryPage
         ? Colors.green
         : theme.colorScheme.secondary;
+    final Color foregroundColor = isSummaryPage ? Colors.white : Colors.black;
 
     return ChangeNotifierProvider<PendingPreferences>.value(
       value: _pendingPreferences,
@@ -156,7 +160,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
           title: _getPageTitle(appLocalizations),
           forceMultiLines: true,
           backgroundColor: headerColor,
-          foregroundColor: Colors.black,
+          foregroundColor: foregroundColor,
           elevationOnScroll: false,
           topWidget: PreferredSize(
             preferredSize: const Size(
@@ -172,10 +176,14 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
               ),
               child: FAProgressBar(
                 animatedDuration: SmoothAnimationsDuration.short,
-                progressColor: lightTheme
+                progressColor: isSummaryPage
+                    ? Colors.white
+                    : lightTheme
                     ? extension.primaryDark
                     : extension.primaryNormal,
-                backgroundColor: lightTheme
+                backgroundColor: isSummaryPage
+                    ? Colors.white.withValues(alpha: 0.3)
+                    : lightTheme
                     ? extension.primaryLight
                     : extension.primarySemiDark,
                 currentValue: _controller.progress,
