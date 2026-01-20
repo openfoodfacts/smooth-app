@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_autosize_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
@@ -163,9 +164,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
             : (addEndArrowToItems
                   ? const _SmoothListOfChoicesEndArrow()
                   : null)),
-        onTap: () {
-          Navigator.of(context).pop(values.elementAt(i));
-        },
+        onTap: () => Navigator.of(context).pop(values.elementAt(i)),
       ),
     );
 
@@ -210,20 +209,19 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     items.add(SizedBox(height: bottomPadding));
   }
 
-  return showSmoothModalSheet<T>(
+  return showSmoothAutoSizeModalSheet<T>(
     context: context,
-    useRootNavigator: useRootNavigator,
-    builder: (BuildContext context) => SmoothModalSheet(
+    useRootNavigator: useRootNavigator ?? false,
+    useSafeArea: false,
+    header: SmoothModalSheetHeader(
       title: title,
-      type: type,
-      prefixIndicator: true,
-      prefixIndicatorColor: prefixIndicatorColor,
-      headerBackgroundColor: headerBackgroundColor,
-      bodyPadding: EdgeInsets.zero,
-      body: IntrinsicHeight(
-        child: Column(mainAxisSize: MainAxisSize.min, children: items),
+      prefix: SmoothModalSheetHeaderPrefixIndicator(
+        color: prefixIndicatorColor,
       ),
+      backgroundColor: headerBackgroundColor,
+      type: type,
     ),
+    bodyBuilder: (_) => Column(mainAxisSize: MainAxisSize.min, children: items),
   );
 }
 
@@ -735,17 +733,22 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
 
 class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
     implements SizeWidget {
-  const SmoothModalSheetHeaderPrefixIndicator({this.color, super.key});
+  const SmoothModalSheetHeaderPrefixIndicator({
+    this.color,
+    super.key,
+    this.size,
+  });
 
   final Color? color;
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
       child: SizedBox(
-        width: 10.0,
-        height: 10.0,
+        width: size?.width ?? 10.0,
+        height: size?.height ?? 10.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: color ?? Colors.white,
@@ -760,7 +763,7 @@ class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
   bool get requiresPadding => false;
 
   @override
-  double widgetHeight(BuildContext context) => 10.0;
+  double widgetHeight(BuildContext context) => size?.height ?? 10.0;
 }
 
 abstract class SizeWidget implements Widget {

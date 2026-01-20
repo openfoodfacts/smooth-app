@@ -147,7 +147,7 @@ class _InfiniteScrollProofManager extends InfiniteScrollManager<Proof> {
         start: 8.0,
         end: 8.0,
       ),
-      padding: EdgeInsets.zero,
+      padding: EdgeInsetsDirectional.zero,
       color: lightTheme ? null : extension.primaryUltraBlack,
       child: InkWell(
         borderRadius: ROUNDED_BORDER_RADIUS,

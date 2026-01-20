@@ -2525,6 +2525,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "View product details",
   "prices_entry_menu_open_product_prices": "View all prices for this product",
   "prices_entry_menu_open_proof": "View proof",
   "prices_entry_menu_my_prices": "View my other prices",
@@ -5483,7 +5484,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Open Price metrics",
+  "preferences_prices_metrics_title": "Open Prices metrics",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5814,5 +5815,14 @@
   "homepage_list_last_scanned_title": "Last scanned products",
   "@homepage_list_last_scanned_title": {
     "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
   }
 }
