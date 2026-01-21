@@ -4772,7 +4772,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "جمال",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
