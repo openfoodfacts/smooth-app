@@ -104,7 +104,13 @@ enum OnboardingPage {
     BuildContext context,
     Widget widget,
   ) => WillPopScope2(
-    onWillPop: () async => (false, null),
+    onWillPop: () async {
+      if (OnboardingFlowNavigator._historyOnboardingNav.length > 1) {
+        OnboardingFlowNavigator._historyOnboardingNav.removeLast();
+        return (true, null);
+      }
+      return (false, null);
+    },
     // wrap the widget in [Builder] to allow navigation on the [context].
     child: Builder(
       builder: (BuildContext context) => SmoothBrightnessOverride(
