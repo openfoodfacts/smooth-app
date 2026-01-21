@@ -2379,7 +2379,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "商品が見つかりません",
   "prices_barcode_search_none_yet": "まだ製品はありません",
   "prices_barcode_search_running": "{barcode}を探しています",
   "@prices_barcode_search_running": {
@@ -3856,7 +3856,7 @@
   "nutriscore_unknown_new_formula": "未知の栄養スコア（新しい計算）",
   "nutriscore_not_applicable": "Nutri-Scoreは適用されません",
   "nutriscore_not_applicable_new_formula": "Nutri-Scoreは適用されません（新しい計算）",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "グリーンスコア",
   "environmental_score_a_new": "グリーンスコアA",
   "environmental_score_b_new": "グリーンスコアB",
   "environmental_score_c_new": "グリーンスコアC",
@@ -3881,7 +3881,7 @@
   "contact_title_pro_email": "プロデューサー連絡先",
   "contact_title_press_page": "プレスページ",
   "contact_title_press_email": "報道関係者向けのお問い合わせ先",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "ニュースレターを購読する",
   "contact_title_calendar": "コミュニティカレンダーを購読する",
   "hunger_games_loading_line1": "数秒お待ちください…",
   "hunger_games_loading_line2": "質問をダウンロード中です！",
@@ -3925,7 +3925,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Scoreとは何ですか?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3957,7 +3957,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "グリーンスコア",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4772,7 +4772,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "美しさ",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
