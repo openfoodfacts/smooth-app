@@ -108,19 +108,20 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
       body: PageView.builder(
         onPageChanged: (int index) => _currentImageDataIndex.value = index,
         controller: _controller,
+        physics: NeverScrollableScrollPhysics(), // <- ADD THIS LINE
         itemCount: _imageFields.length,
         itemBuilder: (BuildContext context, int index) => ProductImageViewer(
-          product: upToDateProduct,
-          imageField: _imageFields[index],
-          isInitialImageViewed: widget.initialImageIndex == index,
-          language: _currentLanguage,
-          setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
-            if (newLanguage == null || newLanguage == _currentLanguage) {
-              return;
-            }
-            setState(() => _currentLanguage = newLanguage);
-          },
-          isLoggedInMandatory: widget.isLoggedInMandatory,
+        product: upToDateProduct,
+        imageField: _imageFields[index],
+        isInitialImageViewed: widget.initialImageIndex == index,
+        language: _currentLanguage,
+        setLanguage: (final OpenFoodFactsLanguage? newLanguage) async {
+          if (newLanguage == null || newLanguage == _currentLanguage) {
+            return;
+          }
+          setState(() => _currentLanguage = newLanguage);
+        },
+        isLoggedInMandatory: widget.isLoggedInMandatory,
         ),
       ),
     );
