@@ -15,7 +15,7 @@
   "@reason": {},
   "okay": "U redu",
   "@okay": {},
-  "validate": "Validate",
+  "validate": "Potvrdi",
   "@validate": {
     "description": "Button label: Validate the input"
   },
@@ -25,7 +25,7 @@
   },
   "applyButtonText": "Primijenite",
   "@applyButtonText": {},
-  "next_label": "Next",
+  "next_label": "Sljedeće",
   "@next_label": {
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
@@ -42,7 +42,7 @@
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
   "go_back_to_top": "Povratak na vrh",
-  "save": "Save",
+  "save": "Sačuvaj",
   "save_confirmation": "Jeste li sigurni da želite sačuvati?",
   "skip": "Preskočite",
   "cancel": "Otkaži",
@@ -51,7 +51,7 @@
   "@ignore": {
     "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
   },
-  "close": "Close",
+  "close": "Zatvori",
   "@close": {},
   "no": "Ne",
   "@no": {},
@@ -1772,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Država",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -4505,7 +4505,7 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "Warning",
+  "knowledge_panel_warning_text": "Upozorenje",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
@@ -5677,7 +5677,7 @@
   "location_map_details_street": "Street",
   "location_map_details_city": "City",
   "location_map_details_postcode": "Postcode",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Država",
   "location_map_details_coordinates": "Coordinates",
   "location_map_details_osm_id": "OSM ID",
   "homepage_scanner_back_to_home_button": "Nazad kući",
