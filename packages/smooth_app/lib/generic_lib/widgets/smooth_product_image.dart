@@ -40,7 +40,7 @@ class SmoothMainProductImage extends StatelessWidget {
 
     return ProductPicture.fromImageProvider(
       size: Size(width, height),
-      imageProvider: imageProvider!,
+      imageProvider: imageProvider,
       borderRadius: ROUNDED_BORDER_RADIUS,
     );
   }
