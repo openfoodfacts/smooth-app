@@ -473,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Yhteisö",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -2790,7 +2790,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Hintavaikutusavustaja",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Hintavahvistusavustaja",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
@@ -4161,7 +4161,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Tällä hetkellä on vain vähän yrityksiä, joilla on laajoja viivakooditason tuotehintatietokantoja. Nämä hinnat eivät ole vapaasti saatavilla, vaan niitä myydään korkeaan hintaan yksityisille toimijoille, tutkijoille ja muille organisaatioille, joilla on niihin varaa.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4178,7 +4178,7 @@
   "guide_open_prices_scrapping_title": "Oletko harkinnut hintojen kopioimista jälleenmyyjien verkkosivuilta?",
   "guide_open_prices_scrapping_paragraph1": "Juridisista ja teknisistä syistä **emme pidä hintojen keräämistä jälleenmyyjien verkkosivustoilta pätevänä tapana osallistua avoimien hintojen keräämiseen**. Haluamme varmistaa, että keräämämme hinnat ovat tarkkoja ja ajantasaisia, emmekä voi tehdä sitä, koska saamme keräämiämme hintoja osallistujilta.",
   "guide_open_prices_scrapping_paragraph2": "Hintakaapumista harkitaan tulevassa Open Prices -versiossa, mutta Open Prices tekisi sen itse, jotta meillä olisi HTML-sivun perusteella todiste hinnasta.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Olen jälleenmyyjä ja haluan osallistua hintoihin. Miten voin tehdä sen?",
   "guide_open_prices_retailers_paragraph1": "Voit osallistua hintojen kehittämiseen API:mme kautta.\nJos haluat osallistua hintojen kehittämiseen suuremmassa mittakaavassa, ota meihin yhteyttä osoitteessa prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Tervetuloa Open Products Facts -sivustolle!",
@@ -4724,7 +4724,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Todisteet",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4732,7 +4732,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Kokeet",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4752,11 +4752,11 @@
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Alennuksella",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Yhteisö",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4816,7 +4816,7 @@
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Hintalappuun sidotut hinnat",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
