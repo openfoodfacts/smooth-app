@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class ProductCompatibilityHelper {
@@ -78,6 +77,8 @@ class ProductCompatibilityHelper {
 
     return NumberFormat('00').format(_score.toInt());
   }
+
+  double? get score => _score;
 }
 
 extension MatchedScoreV2Extension on MatchedScoreV2 {

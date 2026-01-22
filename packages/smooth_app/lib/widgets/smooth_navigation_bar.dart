@@ -4,8 +4,8 @@ import 'dart:math' as math;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
@@ -19,7 +19,7 @@ class SmoothNavigationBar extends StatefulWidget {
   }) : assert(selectedIndex >= 0 && selectedIndex < destinations.length);
 
   final int selectedIndex;
-  final List<SmoothNavigationDestination> destinations;
+  final Iterable<SmoothNavigationDestination> destinations;
   final ValueChanged<int> onDestinationSelected;
 
   @override
@@ -55,6 +55,10 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar> {
                     int position,
                     SmoothNavigationDestination destination,
                   ) {
+                    if (!destination.visible) {
+                      return EMPTY_WIDGET;
+                    }
+
                     final int index = widget.destinations.indexOf(destination);
                     return Expanded(
                       child: Material(
@@ -340,8 +344,13 @@ class _SmoothNavigationBarIconPainter extends CustomPainter {
 }
 
 class SmoothNavigationDestination {
-  const SmoothNavigationDestination({required this.icon, required this.label});
+  const SmoothNavigationDestination({
+    required this.icon,
+    required this.label,
+    this.visible = true,
+  });
 
   final Widget icon;
   final String label;
+  final bool visible;
 }

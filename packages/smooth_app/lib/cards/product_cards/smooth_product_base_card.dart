@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
@@ -7,9 +6,9 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_barcode_widget.dart';
 import 'package:smooth_app/widgets/smooth_close_button.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
