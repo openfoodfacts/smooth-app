@@ -384,7 +384,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "คุณภาพข้อมูล",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -423,7 +423,7 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Become an actor of food transparency",
+  "contribute_to_get_rewards": "ร่วมเป็นผู้ขับเคลื่อนความโปร่งใสในอุตสาหกรรมอาหาร",
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
@@ -607,7 +607,7 @@
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "กรุณาถ่ายรูปไว้ก่อน คุณสามารถทำผลิตภัณฑ์ให้เสร็จสมบูรณ์ในภายหลังได้เสมอ",
   "@add_product_take_photos_descriptive": {},
-  "add_product_information_button_label": "Add product information",
+  "add_product_information_button_label": "เพิ่มข้อมูลผลิตภัณฑ์",
   "@add_product_information_button_label": {},
   "new_product": "สินค้าใหม่",
   "@new_product": {},
@@ -619,7 +619,7 @@
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "new_product_found_button": "Add this product",
+  "new_product_found_button": "เพิ่มผลิตภัณฑ์นี้",
   "new_product_leave_title": "ออกจากหน้านี้?",
   "@new_product_leave_title": {
     "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -1249,7 +1249,7 @@
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
-  "compare_products_appbar_title": "Compare products",
+  "compare_products_appbar_title": "เปรียบเทียบผลิตภัณฑ์",
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
@@ -1994,7 +1994,7 @@
   "@edit_ingredients_extract_ingredients_btn_text": {
     "description": "Ingredients edition - Extract ingredients"
   },
-  "edit_ingredients_extract_ingredients_btn_text_short": "Extract ingredients",
+  "edit_ingredients_extract_ingredients_btn_text_short": "สกัดส่วนผสม",
   "@edit_ingredients_extract_ingredients_btn_text_short": {
     "description": "Ingredients edition - Extract ingredients (short label)"
   },
@@ -2321,7 +2321,7 @@
   "prices_website_button": "เปิดบนเว็บไซต์ราคาเปิด",
   "prices_bulk_proof_upload_select": "เพิ่มป้ายราคาโดยตรงจากแกลเลอรี่",
   "prices_bulk_proof_upload_warning": "เมื่อคุณเลือกรูปภาพแล้ว คุณจะไม่สามารถแก้ไขรูปภาพเหล่านั้นได้อีก!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "AI จะประมวลผลหลักฐานของคุณเพื่อดึงราคาออกมา",
   "prices_bulk_proof_upload_community_switch": "อนุญาตให้ชุมชนตรวจสอบราคาที่สกัดออกมาโดย AI",
   "prices_bulk_proof_upload_subtitle": "ป้ายราคาหลายแบบ",
   "prices_bulk_proof_upload_title": "การอัปโหลดหลักฐานจำนวนมาก",
@@ -2396,7 +2396,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "Price per unit",
+  "prices_per_unit": "ราคาต่อหน่วย",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
@@ -3926,28 +3926,28 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "อธิบายเพิ่มเติมเกี่ยวกับ Nutri-Score",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score เป็นโลโก้ที่มุ่งเน้นให้ข้อมูลเกี่ยวกับ **คุณภาพทางโภชนาการของอาหาร**",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "รหัสสีจะแตกต่างกันไป ตั้งแต่สีเขียวเข้ม (**A**) สำหรับผลิตภัณฑ์ที่ **ดีต่อสุขภาพที่สุด** ไปจนถึงสีแดงเข้ม (**E**) สำหรับผลิตภัณฑ์ที่ **ดีต่อสุขภาพน้อยกว่า**",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
+  "guide_nutriscore_v2_nutriscore_a_caption": "โลโก้ Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "เหตุใด Nutri-Score จึงมีการพัฒนาอย่างต่อเนื่อง?",
+  "guide_nutriscore_v2_why_v2_intro": "สูตรคำนวณ Nutri-Score **กำลังได้รับการพัฒนา** เพื่อให้คำแนะนำที่ดีขึ้น:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "ควรประเมินเครื่องดื่มทุกชนิดให้ดียิ่งขึ้น",
+  "guide_nutriscore_v2_why_v2_arg1_text": "อัลกอริทึมใหม่สามารถแยกแยะความแตกต่างระหว่าง **นม**, **เครื่องดื่มนม** ที่เติมน้ำตาล และ **เครื่องดื่มผัก** ได้ดียิ่งขึ้น",
+  "guide_nutriscore_v2_why_v2_arg2_title": "การจัดอันดับเครื่องดื่มที่ดีขึ้น",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
   "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
+  "guide_nutriscore_v2_why_v2_arg4_title": "ลำดับชั้นภายในน้ำมันและปลา",
+  "guide_nutriscore_v2_why_v2_arg4_text": "คะแนนความน่าเชื่อถือของ **ปลาที่มีไขมันสูง** บางชนิด และ **น้ำมันที่มีไขมันดีสูง** จะดีขึ้น",
+  "guide_nutriscore_v2_why_v2_arg5_title": "ลดการบริโภคเนื้อแดง",
+  "guide_nutriscore_v2_why_v2_arg5_text": "ควรจำกัดการบริโภคเนื้อแดง นี่จึงเป็นเหตุผลว่าทำไมเนื้อสัตว์ปีกจึงได้รับการจัดอันดับที่ดีกว่าเมื่อเปรียบเทียบกัน",
+  "guide_nutriscore_v2_new_logo_title": "จะแยกความแตกต่างระหว่างค่า Nutri-Score แบบเก่ากับการคำนวณแบบใหม่ได้อย่างไร?",
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
   "guide_nutriscore_v2_where_title": "ประเทศที่มีการนำ Nutri-Score แบบใหม่ไปใช้",
@@ -4836,7 +4836,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "แอปมือถือ",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
