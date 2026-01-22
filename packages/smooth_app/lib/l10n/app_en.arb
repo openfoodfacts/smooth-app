@@ -2607,6 +2607,8 @@
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "No proof yet!",
   "prices_proof_empty_explanation": "Start by adding a photo of a **receipt** or a **price tag**!",

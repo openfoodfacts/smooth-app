@@ -33,6 +33,8 @@ class SmoothMainProductImage extends StatelessWidget {
       final String? url = product.imageFrontUrl;
       if (url != null) {
         imageProvider = NetworkImage(url);
+      } else {
+        return EMPTY_WIDGET;
       }
     }
 

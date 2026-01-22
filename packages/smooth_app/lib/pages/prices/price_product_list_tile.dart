@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Displays a meta product with an action button, as a ListTile.
 class PriceProductListTile extends StatelessWidget {
@@ -42,7 +42,7 @@ class PriceProductListTile extends StatelessWidget {
                   child: Row(
                     spacing: SMALL_SPACE,
                     children: <Widget>[
-                      const Barcode.withCorners(),
+                      const icons.Barcode.withCorners(),
                       Expanded(child: Text(product.barcode)),
                     ],
                   ),

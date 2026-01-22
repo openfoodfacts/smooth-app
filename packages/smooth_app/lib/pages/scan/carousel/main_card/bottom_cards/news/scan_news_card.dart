@@ -10,7 +10,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
@@ -267,8 +267,8 @@ class _TagLineContentButton extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: MEDIUM_SPACE),
-                CircledArrow.right(
-                  type: CircledArrowType.normal,
+                icons.CircledArrow.right(
+                  type: icons.CircledArrowType.normal,
                   size: 18.0 * context.textScaler(),
                   color: backgroundColor ?? theme.primaryBlack,
                   padding: EdgeInsets.all(4.0 * context.textScaler()),

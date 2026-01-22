@@ -10,6 +10,7 @@ import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_view_padding.dart';
 
 Future<T?> showSmoothModalSheet<T>({
   required BuildContext context,
@@ -182,7 +183,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   double bottomPadding = MediaQuery.paddingOf(context).bottom;
 
   if (safeArea && bottomPadding == 0.0) {
-    bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
+    bottomPadding = SmoothViewPadding.of(context).bottom;
   }
 
   if (footer != null) {

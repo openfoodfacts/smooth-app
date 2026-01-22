@@ -150,7 +150,7 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.17)
   - Sentry/HybridSDK (8.56.2)
-  - sentry_flutter (9.9.1):
+  - sentry_flutter (9.10.0):
     - Flutter
     - FlutterMacOS
     - Sentry/HybridSDK (= 8.56.2)
@@ -323,11 +323,11 @@ SPEC CHECKSUMS:
   permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   qr_code_scanner: d77f94ecc9abf96d9b9b8fc04ef13f611e5a147a
-  rive_native: fcea2a63d25e1a6417716ac1380e9667cf52ad74
+  rive_native: 777d743a0b4e4e1cdbdafd80035a44d44771a5fc
   SDWebImage: d0184764be51240d49c761c37f53dd017e1ccaaf
   SDWebImageWebPCoder: 0e06e365080397465cc73a7a9b472d8a3bd0f377
   Sentry: b53951377b78e21a734f5dc8318e333dbfc682d7
-  sentry_flutter: 580133c878f86698e23bb5dd7217a3387c4b79b5
+  sentry_flutter: da39d10e3f2f3e060eebc9d7ecea027d34443d66
   share_plus: 50da8cb520a8f0f65671c6c6a99b3617ed10a58a
   shared_preferences_foundation: 7036424c3d8ec98dfe75ff1667cb0cd531ec82bb
   sqflite_darwin: 20b2a3a3b70e43edae938624ce550a3cbf66a3d0

@@ -5183,6 +5183,18 @@ abstract class AppLocalizations {
   /// **'Couldn\'t find what you were looking for? Let\'s try a broader search!'**
   String get prices_location_search_broader;
 
+  /// No description provided for @prices_location_open_map.
+  ///
+  /// In en, this message translates to:
+  /// **'View the shop on the map'**
+  String get prices_location_open_map;
+
+  /// No description provided for @prices_location_edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Select another shop'**
+  String get prices_location_edit;
+
   /// No description provided for @prices_proof_subtitle.
   ///
   /// In en, this message translates to:
@@ -10411,7 +10423,7 @@ abstract class AppLocalizations {
   /// Title for price metrics tile
   ///
   /// In en, this message translates to:
-  /// **'Open Price metrics'**
+  /// **'Open Prices metrics'**
   String get preferences_prices_metrics_title;
 
   /// Subtitle for price metrics tile
