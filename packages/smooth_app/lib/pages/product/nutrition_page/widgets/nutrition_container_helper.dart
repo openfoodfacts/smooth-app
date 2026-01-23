@@ -32,12 +32,6 @@ class NutritionContainerHelper extends ChangeNotifier {
     return orderedNutrient.nutrient;
   }
 
-  static const Map<Unit, Unit> _nextWeightUnits = <Unit, Unit>{
-    Unit.G: Unit.MILLI_G,
-    Unit.MILLI_G: Unit.MICRO_G,
-    Unit.MICRO_G: Unit.G,
-  };
-
   /// All the nutrients (country-related) that do match [Nutrient]s.
   final List<OrderedNutrient> _nutrients = <OrderedNutrient>[];
 
@@ -69,6 +63,7 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   late PerSize _perSize;
   late PerSize _initialPerSize;
+
   PerSize get perSize => _perSize;
 
   set perSize(final PerSize value) {
@@ -204,24 +199,37 @@ class NutritionContainerHelper extends ChangeNotifier {
   void setServingText(final String? text) =>
       servingSize = text?.trim().isNotEmpty == true ? text! : '';
 
-  /// Typical use-case: should we make the [Unit] button clickable?
-  bool isEditableWeight(final Unit unit) => _nextWeightUnits[unit] != null;
-
   /// Typical use-case: [Unit] button action.
-  void setNextWeightUnit(final OrderedNutrient orderedNutrient) {
+  bool setUnit(final OrderedNutrient orderedNutrient, final Unit unit) {
     final Nutrient nutrient = orderedNutrient.nutrient!;
-    final Unit unit = getUnit(nutrient);
-    _setUnit(nutrient, _nextWeightUnits[unit] ?? unit, init: false);
+    final Unit currentUnit = getUnit(nutrient);
+    if (currentUnit == unit) {
+      return false;
+    }
+    _setUnit(nutrient, unit, init: false);
+    return true;
   }
 
   List<Unit> getUnits(final Nutrient nutrient) {
-    final List<Unit> units = <Unit>[Unit.G, Unit.MILLI_G, Unit.MICRO_G];
-
-    if (units.contains(getUnit(nutrient))) {
-      return units;
-    } else {
-      return <Unit>[];
+    final List<Unit> result = <Unit>[];
+    if (nutrient.acceptsWeight) {
+      result.addAll(<Unit>[Unit.G, Unit.MILLI_G, Unit.MICRO_G]);
+      if (nutrient.acceptsPercentDV) {
+        result.add(Unit.PERCENT_DV);
+      }
+      if (nutrient.acceptsIU) {
+        result.add(Unit.IU);
+      }
     }
+    Unit unit = getUnit(nutrient);
+    if (!result.contains(unit)) {
+      result.add(unit);
+    }
+    unit = nutrient.typicalUnit;
+    if (!result.contains(unit)) {
+      result.add(unit);
+    }
+    return result;
   }
 
   /// Returns the nutrient [Unit].

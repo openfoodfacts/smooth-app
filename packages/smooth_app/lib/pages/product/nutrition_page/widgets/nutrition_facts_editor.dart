@@ -414,10 +414,6 @@ class _NutrientUnitCellState extends State<_NutrientUnitCell> {
         builder: (_, TextEditingControllerWithHistory controller) {
           final List<Unit> units = widget.nutritionContainer.getUnits(nutrient);
 
-          if (units.isEmpty) {
-            units.add(unit);
-          }
-
           return SmoothDropdownButton<Unit>(
             value: unit,
             textAlignment: AlignmentDirectional.center,
@@ -434,11 +430,12 @@ class _NutrientUnitCellState extends State<_NutrientUnitCell> {
                     if (value == null) {
                       return;
                     }
-                    setState(
-                      () => widget.nutritionContainer.setNextWeightUnit(
-                        widget.orderedNutrient,
-                      ),
-                    );
+                    if (widget.nutritionContainer.setUnit(
+                      widget.orderedNutrient,
+                      value,
+                    )) {
+                      setState(() {});
+                    }
                   }
                 : null,
           );
