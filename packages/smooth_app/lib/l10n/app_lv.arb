@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Atvērtās cenas",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personīgā aprūpe",
   "product_type_label_pet_food": "Mājdzīvnieku barība",
   "product_type_label_product": "Citi",
+  "product_type_label_unknown": "Nezināms",
   "product_type_selection_title": "Produkta veids",
   "product_type_selection_subtitle": "Izvēlieties šī produkta veidu",
   "product_type_selection_empty": "Vispirms jāizvēlas produkta veids!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Skatīt produkta informāciju",
   "prices_entry_menu_open_product_prices": "Skatīt visas šī produkta cenas",
   "prices_entry_menu_open_proof": "Skatīt pierādījumu",
   "prices_entry_menu_my_prices": "Skatīt manas citas cenas",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Uzziniet vairāk par atvērtajām cenām",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Piezīme par punktu skaitīšanu",
   "guide_open_beauty_facts_scores_paragraph1": "Atšķirībā no pārtikas produktiem, kosmētikas pasaulē **nav vispārēji atzītas, valdības atbalstītas vērtēšanas sistēmas kā Nutri-Score**. Sastāvdaļu ietekme var būt ļoti individuāla un atkarīga no ādas tipa, alerģijām un individuālām bažām.",
   "guide_open_beauty_facts_share_link": "https://world-lv.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Laipni lūdzam Atvērtajās cenās!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Kas ir atvērtās cenas?",
   "guide_open_prices_what_is_open_prices_paragraph1": "“Open Prices” ir projekts, kura mērķis ir **apkopot un kopīgot produktu cenas visā pasaulē**. Tas ir publiski pieejams datu kopums, ko var izmantot pētniecībai, analīzei un citiem mērķiem. “Open Prices” izstrādā un uztur “Open Food Facts”.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Kā darbojas Atvērtās cenas?",
   "guide_open_prices_how_paragraph1": "**Mēs izmantojam atvērtā pirmkoda cenu datu kopas pūļa resursus**. Cenas var pievienot lietotāji, izmantojot šo tīmekļa lietotni vai oficiālo Open Food Facts mobilo lietotni. Arī mazumtirgotāji vai trešo pušu lietotnes var sniegt savu ieguldījumu, izmantojot mūsu API.",
   "guide_open_prices_how_arg1_title": "Savāciet cenu zīmju fotoattēlus ejās",
   "guide_open_prices_how_arg2_title": "Savāciet čeku fotoattēlus",
@@ -4173,7 +4176,7 @@
   "guide_open_prices_why_arg2_title": "Salīdziniet cenas jūsu tuvumā",
   "guide_open_prices_why_arg2_text": "Kad mēs iegūsim vairāk cenu, jūs varēsiet atrast **lētākos veikalus savā apkārtnē**.",
   "guide_open_prices_scrapping_title": "Vai apsvērāt cenu iegūšanu mazumtirgotāju tīmekļa vietnēs?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Juridisku un tehnisku iemeslu dēļ **cenu iegūšanu no mazumtirgotāju tīmekļa vietnēm mēs neuzskatām par derīgu veidu, kā piedalīties atvērto cenu apkopošanā**. Mēs vēlamies pārliecināties, ka mūsu apkopotās cenas ir precīzas un aktuālas, un iegūto cenu saņemšana no līdzstrādniekiem mums to neļauj.",
   "guide_open_prices_scrapping_paragraph2": "Cenu nokasīšana (Cenu skrāpēšana) ir apsvērta iespēja nākotnes Open Prices versijā, taču to veiktu pats Open Prices, lai mēs varētu iegūt cenas pierādījumu, pamatojoties uz HTML lapu.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Jūs varat sniegt savu ieguldījumu cenu noteikšanā, izmantojot mūsu API.\nJa vēlaties sniegt savu ieguldījumu cenu noteikšanā plašā mērogā, lūdzu, sazinieties ar mums pa e-pastu prices@openfoodfacts.org.",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Man",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Mana saderība",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}Saderīgs %",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Nepietiek datu, lai aprēķinātu saderības rādītāju.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Rezultātu nevar aprēķināt produktam, kura tips ir \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Svarīgums",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Spēles",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Labas spēles",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Vidējais spēļu skaits",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Sliktas spēles",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Nezināmas atbilstības",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Tīmekļa vietne",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Atklājiet atvērtās cenas",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Atvērt cenu metriku",
+  "preferences_prices_metrics_title": "Atvērto cenu metrika",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Pasta indekss",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Koordinātas",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "Atpakaļ mājās",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Pārslēgt kameru",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Rādīt svītrkoda skeneri",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Pieskarieties, lai skenētu **svītrkodu**\nun uzzinātu, vai tas **jums ir labs**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Pārslēgt lukturīti",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skenējiet produktu, tuvojoties tā svītrkodam",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Esam noteikuši šādu svītrkodu: {barcode}, taču tas šķiet nederīgs.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Skatīt vairāk…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Visvairāk skenētie produkti",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Pēdējie skenētie produkti",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

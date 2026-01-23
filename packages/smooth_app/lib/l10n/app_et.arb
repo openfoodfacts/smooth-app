@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -141,7 +142,7 @@
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
-  "productDataUtility": "Vaadake oma eelistustega seotud toiduandmeid.",
+  "productDataUtility": "Vaata oma eelistustega seotud toiduandmeid.",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
@@ -153,7 +154,7 @@
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "Server ei vasta! Võite probleemi avada järgmise lingi abil.",
+  "server_error_open_new_issue": "Server ei vasta! Võid koostada veateate alljärgnevast lingist.",
   "@user_management": {},
   "sign_in_text": "Oma panuse salvestamiseks logige sisse oma Open Food Factsi kontole",
   "incorrect_credentials": "Vale kasutajanimi või salasõna.",
@@ -344,7 +345,7 @@
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
-  "about_this_app": "Selle rakenduse kohta",
+  "about_this_app": "Selle rakenduse teave",
   "@about_this_app": {
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
@@ -359,7 +360,7 @@
   },
   "contribute_develop_text": "Kõigi Open Food Factsi toodete kood on saadaval GitHubis. Olete teretulnud koodi taaskasutama (see on avatud lähtekoodiga) ja aitama meil seda kõigi jaoks kogu planeedil paremaks muuta.",
   "@contribute_develop_text": {},
-  "contribute_develop_text_2": "Küsimuste esitamiseks võite liituda Open Food Factsi Slacki vestlusruumiga.",
+  "contribute_develop_text_2": "Küsimuste esitamiseks võid liituda Open Food Factsi Slacki vestlusruumiga.",
   "@contribute_develop_text_2": {},
   "contribute_develop_dev_mode_title": "Arendajarežiim?",
   "contribute_develop_dev_mode_subtitle": "Aktiveeri DEV-režiim",
@@ -398,7 +399,7 @@
   "contribute_join_skill_pool": "Jaga oma oskusi Open Food Factsi lehel. Liitu oskustepagasiga!",
   "contribute_share_header": "Jaga Open Food Factsi oma sõpradega",
   "@contribute_share_header": {},
-  "contribute_share_content": "Tahtsin teile rääkida rakendusest Open Food Facts, mida olen kasutanud ja mis võimaldab teil saada teavet oma toidu tervise- ja keskkonnamõjude kohta personaalsel viisil. See töötab pakendil olevate vöötkoodide skannimise teel. Lõpuks on see tasuta, ei vaja registreerimist ja saate isegi aidata suurendada dešifreeritud toodete arvu. Siin on link selle oma telefoni allalaadimiseks: https://openfoodfacts.app",
+  "contribute_share_content": "Tahtsin sulle kirjutada rakendusest Open Food Facts, mida olen kasutanud ja mis võimaldab sul saada teavet oma toidu tervise- ja keskkonnamõjude kohta personaalsel viisil. See toimib pakendil olevate vöötkoodide skaneerimise alusel. Lisaks on ta vaba ja tasuta, ei vaja registreerimist ja saad ka iseg aidata suurendada tuvastatud toodete arvu. Siin on link selle allalaadimiseks oma telefoni: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -472,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Kogukond",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -844,7 +845,7 @@
   "@nutrition_page_serving_size_explanation_good_example2": {
     "description": "Example of a correct serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Sobimatu ühik",
+  "nutrition_page_serving_size_explanation_bad_example1_explanation": "Vigane ühik",
   "@nutrition_page_serving_size_explanation_bad_example1_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -860,7 +861,7 @@
   "@nutrition_page_serving_size_explanation_bad_example2_example": {
     "description": "Example of an incorrect serving size"
   },
-  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Puuduv üksus",
+  "nutrition_page_serving_size_explanation_bad_example3_explanation": "Puuduv ühik",
   "@nutrition_page_serving_size_explanation_bad_example3_explanation": {
     "description": "Example of an incorrect serving size"
   },
@@ -915,7 +916,7 @@
   },
   "product_image_outdated": "See pilt võib olla aegunud",
   "product_image_outdated_explanations_title": "See pilt võib olla aegunud",
-  "product_image_outdated_explanations_content": "See pilt on tehtud rohkem kui aasta tagasi.\n**Palun kontrollige, kas see on ikka ajakohane**.\n\nSee on **lihtsalt hoiatus**. Kui sisu on ikka sama, võite seda teadet ignoreerida.",
+  "product_image_outdated_explanations_content": "See pilt on tehtud rohkem kui aasta tagasi.\n**Palun kontrolli, kas ta on ikka ajakohane**.\n\nSee on **lihtsalt hoiatus**. Kui sisu on ikka sama, võid seda teadet ignoreerida.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1272,7 +1273,7 @@
   "faq": "KKK",
   "discover": "Avasta",
   "how_to_contribute": "Kuidas saad osaleda",
-  "hint_knowledge_panel_message": "Lisateabe saamiseks võite puudutada kaardi mis tahes osa. Proovige kohe!",
+  "hint_knowledge_panel_message": "Lisateabe saamiseks võid puudutada kaardi mis tahes osa. Proovi kohe!",
   "@hint_knowledge_panel_message": {
     "description": "Hint popup indicating the card is clickable during onboarding"
   },
@@ -1358,7 +1359,7 @@
       }
     }
   },
-  "authorize_button_label": "Authorise",
+  "authorize_button_label": "Luba",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
@@ -1409,7 +1410,7 @@
   "@product_list_empty_title": {
     "description": "When the history list is empty, title of the message explaining to start scanning"
   },
-  "product_list_empty_message": "Skannitud tooted kuvatakse siin ja saate nende kohta üksikasjalikku teavet vaadata.",
+  "product_list_empty_message": "Skaneeritud tooted kuvatakse siin ja saad nende kohta üksikasjalikku teavet vaadata",
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
@@ -1537,7 +1538,7 @@
     "description": "When the camera/photo permission failed to be acquired (!= denied)"
   },
   "permission_photo_denied_title": "Luba kaameral vöötkoodide skannimine",
-  "permission_photo_denied_message": "Parema kogemuse saamiseks lubage {appName} -l oma kaamerale ligi pääseda. Saate otse triipkoode skannida.",
+  "permission_photo_denied_message": "Parema kogemuse saamiseks luba {appName} rakendusel oma kaamerat kasutada. Saad triipkoode mugavalt skaneerida.",
   "@permission_photo_denied_message": {
     "description": "When the camera/photo permission is denied by user",
     "placeholders": {
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Riik",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -1871,7 +1872,7 @@
   "@edit_product_form_item_categories_explanation_info2_title": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
-  "edit_product_form_item_categories_explanation_info2_content": "Kui kategooria **automaatselt täidetavas valikus pole saadaval**, võite selle ikkagi lisada.\nSee aitab meil teie riigis Open Food Factsi täiustada.",
+  "edit_product_form_item_categories_explanation_info2_content": "Kui kategooria **automaatselt täidetavas valikus pole saadaval**, võid selle ikkagi lisada.\nSee aitab meil sinu riigis Open Food Factsi täiustada.",
   "@edit_product_form_item_categories_explanation_info2_content": {
     "description": "Product edition - Categories - input explainer, part 2"
   },
@@ -1942,7 +1943,7 @@
   "@edit_product_form_item_nutrition_facts_explanation_info2_title": {
     "description": "Text explaining how to input nutritional values."
   },
-  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Seejärel sisesta toiteväärtused **nagu pakendil näidatud**. Kui väärtust pole, võite klõpsata ikoonil „Silma“.",
+  "edit_product_form_item_nutrition_facts_explanation_info2_content": "Seejärel sisesta toiteväärtused **nagu pakendil näidatud**. Kui väärtust pole, võid klõpsata „Silma“ ikoonil.",
   "@edit_product_form_item_nutrition_facts_explanation_info2_content": {
     "description": "Text explaining how to input nutritional values."
   },
@@ -1962,7 +1963,7 @@
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_ingredients_list_title": "List of ingredients",
+  "edit_product_ingredients_list_title": "Koostisosade loend",
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Isiklik hooldus",
   "product_type_label_pet_food": "Lemmikloomatoit",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Tundmatu",
   "product_type_selection_title": "Toote tüüp",
   "product_type_selection_subtitle": "Valige selle toote tüüp",
   "product_type_selection_empty": "Esmalt tuleb valida toote tüüp!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Vaata toote üksikasju",
   "prices_entry_menu_open_product_prices": "Kuva kõik selle toote hinnad",
   "prices_entry_menu_open_proof": "Vaata tõendit",
   "prices_entry_menu_my_prices": "Vaata minu teisi hindu",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Lisateave avatud hindade kohta",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3835,7 +3838,7 @@
   },
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_b": "Nutri-skoor B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
@@ -3849,7 +3852,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (uus arvutus)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown": "Tundmatu toiteväärtus",
   "nutriscore_unknown_new_formula": "Tundmatu Nutri-Score (uus arvutus)",
   "nutriscore_not_applicable": "Nutri-Score ei ole kohaldatav",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ei ole kohaldatav (uus arvutus)",
@@ -3976,7 +3979,7 @@
   "guide_greenscore_lca_arg2_title": "6 tootmisetappi",
   "guide_greenscore_lca_arg2_agriculture": "Agriculture",
   "guide_greenscore_lca_arg2_processing": "Processing",
-  "guide_greenscore_lca_arg2_packaging": "Packaging",
+  "guide_greenscore_lca_arg2_packaging": "Pakend",
   "guide_greenscore_lca_arg2_transportation": "Transportation",
   "guide_greenscore_lca_arg2_distribution": "Distribution",
   "guide_greenscore_lca_arg2_consumption": "Consumption",
@@ -3997,7 +4000,7 @@
   "guide_greenscore_bonuses_penalties_arg2_text": "Koostisosade päritolu alusel antakse **boonust**. See boonus võtab arvesse **mõju transpordile** ja iga tootja riigi **keskkonnapoliitikat**.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
   "guide_greenscore_bonuses_penalties_arg3_text": "**Karistust** määratakse toodetele, mis sisaldavad koostisosi, millel on märkimisväärne **negatiivne mõju bioloogilisele mitmekesisusele ja ökosüsteemidele**, näiteks palmiõli, mille tootmine põhjustab massilist metsade hävitamist.",
-  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Pakend",
   "guide_greenscore_bonuses_penalties_arg4_text": "**Trahvi** arvutamisel võetakse arvesse pakendi ringluspõhimõtteid (taaskasutatud tooraine kasutamine ja taaskasutatavus) ja ülepakendamist.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
   "guide_greenscore_transparency_intro1": "Rohelise skoori täpseks arvutamiseks on vaja teavet, mis ei ole pakendil tingimata märgitud (näiteks iga koostisosa päritolu ja täpne protsent) või mis on harva kättesaadav kasutataval kujul (näiteks pakendi kõigi komponentide loetelu koos kasutatud plastide täpsete tüüpidega).",
@@ -4035,7 +4038,7 @@
   "guide_nova_groups_arg1_text": "Töötlemata (ehk looduslikud) toiduained on **taimede** (seemned, viljad, lehed, varred, juured)**või loomade** (lihased, rups, munad, piim) söödavad osad, aga ka seened, vetikad ja vesi pärast loodusest eraldamist.",
   "guide_nova_groups_arg2_title": "Töödeldud kulinaarsed koostisosad",
   "guide_nova_groups_arg2_text": "Töödeldud kulinaarsed koostisosad, näiteks **õlid, või, suhkur ja sool**, on ained, mis on saadud 1. rühma toiduainetest või loodusest selliste protsesside abil, mis hõlmavad pressimist, rafineerimist, jahvatamist, jahvatamist ja kuivatamist.",
-  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_title": "Töödeldud toidud",
   "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and In the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three Ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Ultra-processed foods",
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with Little to no intact group 1 food. ingredients in these formulations usually include those also found in Processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain Other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Märkus punktiarvestuse kohta",
   "guide_open_beauty_facts_scores_paragraph1": "Erinevalt toiduainetest puudub kosmeetikamaailmas **üldiselt tunnustatud, valitsuse toetatud hindamissüsteem nagu Nutri-Score**. Koostisosade mõju võib olla väga individuaalne ja sõltuda nahatüübist, allergiatest ja individuaalsetest eelistustest.",
   "guide_open_beauty_facts_share_link": "https://world-et.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Tere tulemast avatud hindadesse!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Mis on avatud hinnad?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices on projekt, mille eesmärk on **koguda ja jagada toodete hindu üle maailma**. See on avalikult kättesaadav andmestik, mida saab kasutada uuringuteks, analüüsiks ja muuks. Open Pricesi arendab ja haldab Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Kuidas avatud hinnad toimivad?",
   "guide_open_prices_how_paragraph1": "**Me kogume avatud lähtekoodiga hinnaandmestikku rahvahulga abil**. Kasutajad saavad hindu lisada selle veebirakenduse või ametliku Open Food Factsi mobiilirakenduse kaudu. Jaemüüjad või kolmandate osapoolte rakendused saavad samuti meie API abil panustada.",
   "guide_open_prices_how_arg1_title": "Koguge vahekäikudes olevate hinnasiltide fotosid",
   "guide_open_prices_how_arg2_title": "Koguge kviitungite fotosid",
@@ -4173,7 +4176,7 @@
   "guide_open_prices_why_arg2_title": "Võrdle hindu enda lähedal",
   "guide_open_prices_why_arg2_text": "Mida rohkem hindu saame, seda paremini saate märgata **odavamaid poode enda ümber**.",
   "guide_open_prices_scrapping_title": "Kas kaalusite hindade kopeerimist jaemüüjate veebisaitidelt?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Juriidilistel ja tehnilistel põhjustel **ei pea me jaemüüjate veebisaitidelt hindade kopeerimist kehtivaks viisiks avatud hindade avaldamiseks**. Soovime veenduda, et meie kogutud hinnad on täpsed ja ajakohased ning kaastööliste käest kopeeritud hindade saamine ei võimalda meil seda teha.",
   "guide_open_prices_scrapping_paragraph2": "Hinna kraapimist kaalutakse Open Prices'i tulevases versioonis, kuid seda teeks Open Prices ise, et meil oleks HTML-lehel põhinev hinna tõend.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Hindade avaldamiseks saate kasutada meie API-t.\nKui soovite hindu laiemalt avaldada, võtke meiega ühendust aadressil prices@openfoodfacts.org.",
@@ -4196,7 +4199,7 @@
   "guide_open_products_facts_features_arg1_title": "Mõnede toodete süsiniku jalajälg",
   "guide_open_products_facts_features_arg1_text": "Prantsuse Keskkonnaameti ADEME **CO2 mõju** pakub paljude kategooriate **süsiniku mõju**, veenduge, et kategoriseeriksite tooted täpselt.",
   "guide_open_products_facts_features_arg2_title": "Paljude toodete remonditavusindeks",
-  "guide_open_products_facts_features_arg2_text": "Alati, kui prantsusekeelne parandatavuse indeks on saadaval, kuvame selle. Lisaks **võite hakata muutujaid koguma Folksonomy mootori abil**, et saaksime selle tulevikus ise uuesti arvutada, isegi riikides, kus see pole saadaval.",
+  "guide_open_products_facts_features_arg2_text": "Alati, kui prantsusekeelne parandatavuse indeks on saadaval, kuvame selle. Lisaks **võid hakata muutujaid koguma Folksonomy mootori abil**, et saaksime selle tulevikus ise uuesti arvutada, isegi riikides, kus see pole saadaval.",
   "guide_open_products_facts_features_arg3_title": "Leidke võimalusi oma toote annetamiseks/edasimüügiks",
   "guide_open_products_facts_features_arg3_text": "Pakume linke **kolmandate osapoolte ringlussõbralikele teenustele**, mis aitavad teil saada just sellist toodet, mida otsite, kasutatud tootena, et olla planeedi ressursside suhtes õrnem.\nPange tähele, et meile selle eest ei maksta ja süsteem töötab ainult näitena kahele Prantsusmaa veebisaidile. Saate aidata seda süsteemi laiendada, dokumenteerides vikis rohkem saite.",
   "guide_open_products_facts_information_title": "Milline teave on kasulik?",
@@ -4217,7 +4220,7 @@
   "@prices_feedback_form": {
     "description": "A button to send feedback about the prices feature"
   },
-  "menu_button_list_actions": "Valige toiming",
+  "menu_button_list_actions": "Vali tegevus",
   "@menu_button_list_actions": {
     "description": "Button to select an action in a list (eg: Share, Delete, …)"
   },
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Minu ühilduvus",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}Ühilduvuse %",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Ühilduvusskoori arvutamiseks pole piisavalt andmeid.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Tüübi \"{productType}\" korral ei saa skoori arvutada.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Tähtsus",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Matšid",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Head matšid",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Keskmine vastete arv",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Halvad vasted",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Tundmatud vasted",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Veebisait",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4703,7 +4756,7 @@
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Kogukond",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4851,7 +4904,7 @@
   "@preferences_connect_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_support_title": "Make a donation",
+  "preferences_support_title": "Toeta rahaliselt",
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
@@ -4903,7 +4956,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "Otsi seadet (nt Nutri-Score)",
+  "preferences_app_bar_search_hint": "Otsi seadistust (nt Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -4951,7 +5004,7 @@
   "@preferences_licenses": {
     "description": "Title for the preferences licenses tile"
   },
-  "preferences_about_app_title": "Rakenduse kohta",
+  "preferences_about_app_title": "Rakenduse teave",
   "@preferences_about_app_title": {
     "description": "Title for the preferences about app card"
   },
@@ -4983,11 +5036,11 @@
   "@preferences_source_code": {
     "description": "Title for the preferences source code tile"
   },
-  "preferences_source_code_subtitle": "Ja hakake miljonite inimeste heaks mõju avaldama",
+  "preferences_source_code_subtitle": "Ja hakkad tegutsema miljonite inimeste heaks",
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "Lisa hindu",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Avasta avatud hinnad",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5184,7 +5237,7 @@
   "@preferences_connect_debug_info_subtitle": {
     "description": "Subtitle for debug information tile"
   },
-  "preferences_connect_feedback_title": "Saatke meile rakenduse kohta tagasisidet",
+  "preferences_connect_feedback_title": "Saada meile rakenduse kohta tagasisidet",
   "@preferences_connect_feedback_title": {
     "description": "Title for feedback tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Avatud hinna mõõdikud",
+  "preferences_prices_metrics_title": "Avatud hindade mõõdikud",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5580,7 +5633,7 @@
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
-  "preferences_about_app_development_title": "Development",
+  "preferences_about_app_development_title": "Arendus",
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Tänav",
   "location_map_details_city": "Linn",
   "location_map_details_postcode": "Postiindeks",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Riik",
   "location_map_details_coordinates": "Koordinaadid",
-  "location_map_details_osm_id": "OSM-i ID"
+  "location_map_details_osm_id": "OSM-i ID",
+  "homepage_scanner_back_to_home_button": "Tagasi koju",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kaamera sisse/välja lülitamine",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Näita vöötkoodiskannerit",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Puuduta, et skannida **vöötkoodi**\nja vaadata, kas see **sobib sulle**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Lülitus-/taskulamp",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skannige toodet, lähenedes selle vöötkoodile",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Tuvastasime järgmise vöötkoodi: {barcode}, kuid see tundub olevat kehtetu.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Vaata lähemalt…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Enim skeeritud tooted",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Viimati skannitud tooted",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

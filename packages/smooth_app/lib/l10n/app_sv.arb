@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Öppna priser",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personlig vård",
   "product_type_label_pet_food": "Djurmat",
   "product_type_label_product": "Övrigt",
+  "product_type_label_unknown": "Okänd",
   "product_type_selection_title": "Produkttyp",
   "product_type_selection_subtitle": "Välj typ av denna produkt",
   "product_type_selection_empty": "Du måste först välja en produkttyp!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Visa produktinformation",
   "prices_entry_menu_open_product_prices": "Se alla priser för den här produkten",
   "prices_entry_menu_open_proof": "Se bevis",
   "prices_entry_menu_my_prices": "Se mina andra priser",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Läs mer om öppna priser",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "En anmärkning om poängsättning",
   "guide_open_beauty_facts_scores_paragraph1": "Till skillnad från livsmedelsprodukter har kosmetikaindustrin **inte ett universellt erkänt, statligt stödt poängsystem som Nutri-Score**. Ingrediensernas effekter kan vara mycket personliga och bero på hudtyp, allergier och individuella behov.",
   "guide_open_beauty_facts_share_link": "https://world-sv.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Välkommen till Öppna Priser!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Vad är öppningspriser?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices är ett projekt för att **samla in och dela priser på produkter runt om i världen**. Det är en offentligt tillgänglig datauppsättning som kan användas för forskning, analys och mer. Open Prices utvecklas och underhålls av Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Hur fungerar öppna priser?",
   "guide_open_prices_how_paragraph1": "**Vi crowdsourcar en öppen källkodsdatauppsättning med priser**. Priser kan läggas till av användare via den här webbappen eller via den officiella mobilappen Open Food Facts. Återförsäljare eller tredjepartsappar kan också bidra genom att använda vårt API.",
   "guide_open_prices_how_arg1_title": "Samla foton på prislappar i gångarna",
   "guide_open_prices_how_arg2_title": "Samla foton på kvitton",
@@ -4173,7 +4176,7 @@
   "guide_open_prices_why_arg2_title": "Jämför priser nära dig",
   "guide_open_prices_why_arg2_text": "Allt eftersom vi får fler priser kan du hitta **de billigaste butikerna i närheten**.",
   "guide_open_prices_scrapping_title": "Har du funderat på att hämta priser från återförsäljarnas webbplatser?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Av juridiska och tekniska skäl **anser vi inte att det är ett giltigt sätt att bidra till öppna priser att hämta priser från återförsäljares webbplatser.** Vi vill se till att de priser vi samlar in är korrekta och aktuella, och att ta emot hämtade priser från bidragsgivare tillåter oss inte att göra det.",
   "guide_open_prices_scrapping_paragraph2": "Prisskrapning är ett övervägt alternativ i en framtida version av Open Prices, men det skulle göras av Open Prices själva så att vi kan ha ett bevis på priset baserat på HTML-sidan.",
   "guide_open_prices_retailers_title": "Jag är en återförsäljare och jag vill bidra med priser. Hur kan jag göra det?",
   "guide_open_prices_retailers_paragraph1": "Du kan bidra med priser genom att använda vårt API.\nOm du vill bidra med priser i stor skala, vänligen kontakta oss på prices@openfoodfacts.org.",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "För mig",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Min kompatibilitet",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Otillräckliga data för att beräkna en kompatibilitetspoäng.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "En poäng kan inte beräknas för en produkt av typen \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Betydelse",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Tändstickor",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Bra matcher",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Genomsnittliga matchningar",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Dåliga matchningar",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Okända träffar",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Webbplats",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Upptäck öppna priser",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Postnummer",
   "location_map_details_country": "Land",
   "location_map_details_coordinates": "Koordinater",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Tillbaka hem",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Växla kamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Visa streckkodsläsaren",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Tryck för att skanna en **streckkod**\noch upptäck om den är **bra för dig**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Växla ficklampa",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skanna en produkt genom att närma sig dess streckkod",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Vi har upptäckt följande streckkod: {barcode}, men den verkar vara ogiltig.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Visa mer…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Mest skannade produkter",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Senast skannade produkter",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

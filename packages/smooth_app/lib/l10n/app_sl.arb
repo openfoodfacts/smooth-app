@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Odpri cene",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Osebna nega",
   "product_type_label_pet_food": "Hrana za hišne ljubljenčke",
   "product_type_label_product": "Drugo",
+  "product_type_label_unknown": "Neznano",
   "product_type_selection_title": "Vrsta izdelka",
   "product_type_selection_subtitle": "Izberite vrsto tega izdelka",
   "product_type_selection_empty": "Najprej morate izbrati vrsto izdelka!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Ogled podrobnosti o izdelku",
   "prices_entry_menu_open_product_prices": "Oglejte si vse cene za ta izdelek",
   "prices_entry_menu_open_proof": "Ogled dokazila",
   "prices_entry_menu_my_prices": "Oglejte si moje druge cene",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Več o odprtih cenah",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3834,7 +3837,7 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_a": "Nutri-ocena A",
   "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
@@ -3849,8 +3852,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (nov izračun)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "Neznana hranilna vrednost",
+  "nutriscore_unknown_new_formula": "Neznan nutri-rezultat (nov izračun)",
   "nutriscore_not_applicable": "Nutri-Score se ne uporablja.",
   "nutriscore_not_applicable_new_formula": "Nutri-Score se ne uporablja (nov izračun)",
   "environmental_score_generic_new": "Green-Score",
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Opomba o točkovanju",
   "guide_open_beauty_facts_scores_paragraph1": "Za razliko od živilskih izdelkov svet kozmetike **nima splošno priznanega, vladno podprtega sistema ocenjevanja, kot je Nutri-Score**. Učinki sestavin so lahko zelo osebni in odvisni od tipa kože, alergij in individualnih težav.",
   "guide_open_beauty_facts_share_link": "https://world-sl.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Dobrodošli na Odprtih cenah!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Kaj so odprte cene?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt za **zbiranje in deljenje cen izdelkov po vsem svetu**. Gre za javno dostopen nabor podatkov, ki ga je mogoče uporabiti za raziskave, analize in drugo. Open Prices razvija in vzdržuje Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Kako delujejo odprte cene?",
   "guide_open_prices_how_paragraph1": "**Zbiramo odprtokodne podatke o cenah prek množičnega financiranja.** Cene lahko uporabniki dodajo prek te spletne aplikacije ali prek uradne mobilne aplikacije Open Food Facts. Prispevajo lahko tudi trgovci na drobno ali aplikacije tretjih oseb z uporabo našega API-ja.",
   "guide_open_prices_how_arg1_title": "Zbirajte fotografije cenovnih etiket v hodnikih",
   "guide_open_prices_how_arg2_title": "Zberite fotografije računov",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Zame",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Moja združljivost",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% združljivosti",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Premalo podatkov za izračun ocene združljivosti.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Za izdelek tipa »{productType}« ni mogoče izračunati rezultata.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Pomen",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Tekme",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Dobre tekme",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Povprečne tekme",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Slabe tekme",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Neznane tekme",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Spletna stran",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Odkrijte odprte cene",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrike odprte cene",
+  "preferences_prices_metrics_title": "Metrike odprtih cen",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Poštna številka",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Koordinate",
-  "location_map_details_osm_id": "ID OSM-a"
+  "location_map_details_osm_id": "ID OSM-a",
+  "homepage_scanner_back_to_home_button": "Nazaj domov",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Preklopi kamero",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Prikaži skener črtne kode",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Dotaknite se za skeniranje **črtne kode**\nin ugotovite, ali je **dobra za vas**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Preklopi svetilko",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skenirajte izdelek tako, da se približate njegovi črtni kodi",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Zaznali smo naslednjo črtno kodo: {barcode}, vendar se zdi, da ni veljavna.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Oglejte si več…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Najbolj skenirani izdelki",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Zadnji skenirani izdelki",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Offene Preise",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -395,7 +396,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu Open Food Facts bei. Treten Sie dem Kompetenzpool bei!",
+  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu OpenFoodFacts bei. Treten Sie dem Kompetenzpool bei!",
   "contribute_share_header": "Teilen Sie Open Food Facts mit Ihren Freunden",
   "@contribute_share_header": {},
   "contribute_share_content": "Ich möchte Ihnen die App OpenFoodFacts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app",
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Land",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Körperpflege",
   "product_type_label_pet_food": "Haustierfutter",
   "product_type_label_product": "Weitere",
+  "product_type_label_unknown": "Unbekannt",
   "product_type_selection_title": "Produkttyp",
   "product_type_selection_subtitle": "Wählen Sie die Art dieses Produkts",
   "product_type_selection_empty": "Sie müssen zuerst einen Produkttyp auswählen!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Produktdetails ansehen",
   "prices_entry_menu_open_product_prices": "Alle Preise für dieses Produkt anzeigen",
   "prices_entry_menu_open_proof": "Proof ansehen",
   "prices_entry_menu_my_prices": "Meine anderen Preise ansehen",
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Meine Kompatibilität",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Unzureichende Daten zur Berechnung eines Kompatibilitätswertes.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Für ein Produkt vom Typ \"{productType}\" kann keine Punktzahl berechnet werden.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Bedeutung",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Spiele",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Gute Übereinstimmungen",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Durchschnittliche Spiele",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Ungünstige Spiele",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Unbekannte Übereinstimmungen",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Open Price-Kennzahlen",
+  "preferences_prices_metrics_title": "Kennzahlen für offene Preise",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Straße",
   "location_map_details_city": "Stadt",
   "location_map_details_postcode": "Postleitzahl",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Land",
   "location_map_details_coordinates": "Koordinaten",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Zurück zur Startseite",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kamera umschalten",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Zeigen Sie den Barcode-Scanner.",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Tippen Sie, um einen **Barcode**\nzu scannen und herauszufinden, ob er **gut für Sie ist**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Taschenlampe ein-/ausschalten",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scannen Sie ein Produkt, indem Sie sich seinem Barcode nähern.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Wir haben folgenden Barcode erkannt: {barcode}, aber er scheint ungültig zu sein.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Mehr anzeigen…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Meistgescannte Produkte",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Zuletzt gescannte Produkte",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

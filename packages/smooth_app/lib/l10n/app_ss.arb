@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Intsengo levulekile",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Buka imininingwane yemkhicito",
   "prices_entry_menu_open_product_prices": "Buka onkhe emanani alomkhicito",
   "prices_entry_menu_open_proof": "Buka bufakazi",
   "prices_entry_menu_my_prices": "Buka lamanye emanani ami",
@@ -2685,7 +2688,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
+  "dev_mode_openprices_switch_env_title": "Shintja emkhatsini wemanani.vula emaciniso ekudla.org (PROD) kanye nekuhlola env",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Kuhambisana kwami",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kuyahambisana",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Idatha lengakeneli yekubala emaphuzu ekuhambisana.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Emaphuzu angeke abalwe ngemkhicito weluhlobo \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Kubaluleka",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Imidlalo",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Imidlalo lemihle",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Imidlalo lesemkhatsini",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Imidlalo lemibi",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Tintfo letingatiwa",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -5384,7 +5437,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Tindlela letilula tekusita Vula Emaciniso Ekudla .",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Postcode",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "Kubuyela ekhaya",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Gucula ikhamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Khombisa sikena sebhakhodi",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Thepha kuze uskene **ibhakhodi**\nbese utfola kutsi **kulungele yini**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Gucula lithoshi",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skena umkhicito ngekusondzela kubhakhodi yawo",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Sitfole lebhakhodi lelandzelako: {barcode}, kepha kubonakala shengatsi ayisebenti.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Buka lokunyenti…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Imikhicito yekugcina leskeniwe",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

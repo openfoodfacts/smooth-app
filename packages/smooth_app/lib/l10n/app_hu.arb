@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Nyitott árak",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -383,7 +384,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "Adatminőség",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -472,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Közösség",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -720,7 +721,7 @@
   "new_product_subtitle_nova": "Az élelmiszerkategória és az összetevők kitöltésével megtudhatja",
   "new_product_desc_nova_unknown": "Az élelmiszer-feldolgozottság szintje ismeretlen",
   "new_product_title_pictures": "Új termék",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!",
   "new_product_title_misc": "És pár alapvető adat…",
   "new_product_done_msg": "Köszönjük a közreműködését, {username}!",
   "@new_product_done_msg": {
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Ország",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Testápolás",
   "product_type_label_pet_food": "Állateledel",
   "product_type_label_product": "Egyéb",
+  "product_type_label_unknown": "Ismeretlen",
   "product_type_selection_title": "Terméktípus",
   "product_type_selection_subtitle": "Válassza ki a termék típusát",
   "product_type_selection_empty": "Először ki kell választania a termék típusát!",
@@ -2319,7 +2321,7 @@
   "prices_website_button": "Nyitva az Open Prices weboldalon",
   "prices_bulk_proof_upload_select": "Árcédulák hozzáadása a galériából",
   "prices_bulk_proof_upload_warning": "Miután kiválasztotta a képeket, nem fogja tudni szerkeszteni őket!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "A mesterséges intelligencia a bizonyításaidon fog futni az árak kinyeréséhez.",
   "prices_bulk_proof_upload_community_switch": "Lehetővé teszi a közösség számára a mesterséges intelligencia által kinyert árak validálását.",
   "prices_bulk_proof_upload_subtitle": "Több árcédula",
   "prices_bulk_proof_upload_title": "Tömeges bizonylatfeltöltés",
@@ -2394,7 +2396,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "Price per unit",
+  "prices_per_unit": "Egységár",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Termékadatok megtekintése",
   "prices_entry_menu_open_product_prices": "Tekintse meg a termék összes árát",
   "prices_entry_menu_open_proof": "Nézetbizonyítás",
   "prices_entry_menu_my_prices": "Tekintse meg további áraimat",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Tudjon meg többet a nyitott árakról",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2787,11 +2790,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Árhozzájárulási asszisztens",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Árérvényesítési asszisztens",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Kihívások",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3918,42 +3921,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Megosztás",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "A Nutri-Score folyamatosan fejlődik: magyarázatok!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Mi az a Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "A Nutri-Score egy logó, amelynek célja, hogy tájékoztasson az **élelmiszerek tápértékéről**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "A színkód a sötétzöldtől (**A**) a **legegészségesebb** termékekhez a sötétvörösig (**E**) a **kevésbé egészséges** termékekhez tartozik.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "A Nutri-Score A logó",
+  "guide_nutriscore_v2_why_v2_title": "Miért fejlődik a Nutri-Score?",
+  "guide_nutriscore_v2_why_v2_intro": "A Nutri-Score képlet **fejlődik**, hogy jobb ajánlásokat nyújthasson:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Jobban értékelje az összes italt",
+  "guide_nutriscore_v2_why_v2_arg1_text": "A **tej**, a **hozzáadott cukrot tartalmazó tejitalok** és a **zöldség** italok összehasonlító jegyei jobban megkülönböztethetők voltak az új algoritmusban.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Az italok jobb rangsorolása",
+  "guide_nutriscore_v2_why_v2_arg2_text": "A **cukortartalmat** jobban figyelembe veszik, és az **alacsony cukortartalmú** italokat részesítik előnyben.\\n**Az édesítőszereket is büntetni fogják**: a diétás üdítők B besorolásról C és E közé kerülnek. A víz továbbra is az ajánlott ital.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Büntetik a sót és a cukrot",
+  "guide_nutriscore_v2_why_v2_arg3_text": "A **túl édes** vagy **túl sós** termékek **további besorolást** kapnak.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchia az olajokon és halakon belül",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Bizonyos **zsíros halak** és **jó zsírokban gazdag olajok** értékelése javulni fog.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Korlátozza a vörös húsok fogyasztását",
+  "guide_nutriscore_v2_why_v2_arg5_text": "A **vörös hús fogyasztását korlátozni kell**. Ezért a **baromfi viszonylag előrébb fog szerepelni**.",
+  "guide_nutriscore_v2_new_logo_title": "Hogyan lehet megkülönböztetni a régi és az új Nutri-Score számítást?",
+  "guide_nutriscore_v2_new_logo_text": "Mostantól a logó megjelenítheti az „**Új számítás**” megjegyzést, hogy egyértelművé tegye, hogy valóban az új számításról van szó.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Az új Nutri-Score logója",
   "guide_nutriscore_v2_where_title": "Hol található meg az új Nutri-Score számítás?",
   "guide_nutriscore_v2_where_paragraph1": "A Nutri-Score-t hét országban használják: Franciaországban, Németországban, Belgiumban, Spanyolországban, Luxemburgban, Hollandiában és Svájcban.",
   "guide_nutriscore_v2_where_paragraph2": "A gyártóknak a rendelet aláírásától számítva legfeljebb **két év** áll rendelkezésükre, hogy a régi számítást az újra cseréljék.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Várakozás nélkül, **az OpenFoodFacts alkalmazásban** már megtalálod az új számítást, beleértve azt is, ha a gyártók nem frissítették a pontszámot.",
+  "guide_nutriscore_v2_unchanged_title": "Ami nem változik",
+  "guide_nutriscore_v2_unchanged_paragraph1": "A Nutri-Score egy olyan pontszám, amely a **tápanyagminőség mérésére** szolgál. **Kiegészíti a NOVA csoport** adatait az **ultra feldolgozott élelmiszerekről** (szintén szerepel az alkalmazásban).**.",
+  "guide_nutriscore_v2_unchanged_paragraph2": "A gyártók számára a Nutri-Score megjelenítése **továbbra is opcionális**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3991,15 +3994,15 @@
   "guide_greenscore_lca_arg3_text8": "Erőforrások kimerülése.",
   "guide_greenscore_bonuses_penalties_title": "Bónuszok és büntetések",
   "guide_greenscore_bonuses_penalties_intro": "A kategórián belüli jobb termékek jutalmazása érdekében **bónuszokat és büntetéseket alkalmazunk számos kritérium alapján**:",
-  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Termelési mód",
   "guide_greenscore_bonuses_penalties_arg1_text": "**Bónuszt** azok a termékek kapnak, amelyek **hivatalos címkével, környezeti előnyöket garantáló címkével vagy tanúsítvánnyal** rendelkeznek (bio, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Összetevők eredete",
   "guide_greenscore_bonuses_penalties_arg2_text": "A **bónuszt** az összetevők származása alapján ítélik oda. Ez a bónusz figyelembe veszi a **szállításra gyakorolt hatást**, valamint az egyes termelők országának **környezetvédelmi politikáját** is.",
-  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Veszélyeztetett fajok",
   "guide_greenscore_bonuses_penalties_arg3_text": "**Büntetést** szabnak ki azokra a termékekre, amelyek olyan összetevőket tartalmaznak, amelyek jelentős **negatív hatással vannak a biológiai sokféleségre és az ökoszisztémákra**, például a pálmaolajat, amelynek termelése tömeges erdőirtásért felelős.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Csomagolás",
   "guide_greenscore_bonuses_penalties_arg4_text": "A **büntetés** kiszámításakor figyelembe vesszük a **csomagolás körforgását** (újrahasznosított alapanyagok használata és újrahasznosíthatósága), valamint a túlcsomagolást.",
-  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_title": "Fokozott igény az átláthatóságra a környezeti hatások jobb mérése és csökkentése érdekében",
   "guide_greenscore_transparency_intro1": "A Green-Score pontos kiszámításához olyan információkra van szükség, **amelyek nem feltétlenül szerepelnek a csomagoláson** (például az egyes összetevők eredete és pontos százalékos aránya), vagy amelyek ritkán állnak rendelkezésre használható formában (például a csomagolás összes összetevőjének listája a felhasznált műanyagok pontos típusaival).",
   "guide_greenscore_transparency_intro2": "**Átlagos értékeket használunk, ha ez az információ még nem áll rendelkezésre**, de most mindenkit arra kérünk, hogy segítsen nekünk összegyűjteni ezeket az információkat, amelyek nagyon hasznosak lesznek a Green-Score, de sok más célra is.",
   "guide_greenscore_transparency_arg1_title": "Hogyan segíthetnek a polgárok?",
@@ -4149,20 +4152,20 @@
   "guide_open_beauty_facts_scores_title": "Megjegyzés a pontozásról",
   "guide_open_beauty_facts_scores_paragraph1": "Az élelmiszerekkel ellentétben a kozmetikumok világában **nincs egyetemesen elismert, kormány által támogatott pontozási rendszer, mint a Nutri-Score**. Az összetevők hatásai nagyon személyesek lehetnek, és függhetnek a bőrtípustól, az allergiáktól és az egyéni aggályoktól.",
   "guide_open_beauty_facts_share_link": "https://world-hu.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Üdvözöljük a Nyílt Árak oldalán!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Mit jelent a Nyitott Ár?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Az Open Prices egy olyan projekt, amelynek célja a **világ minden tájáról származó termékek árainak gyűjtése és megosztása**. Ez egy nyilvánosan elérhető adathalmaz, amely kutatásra, elemzésre és egyebekre felhasználható. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Jelenleg kevés olyan vállalat van, amely vonalkód szintű termékárakat tartalmazó nagy adatbázissal rendelkezik. Ezek az árak nem szabadon elérhetők, hanem magas áron értékesítik azokat magánszereplőknek, kutatóknak és más szervezeteknek, amelyek megengedhetik maguknak.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Hogyan működnek a Nyílt Árak?",
   "guide_open_prices_how_paragraph1": "**Nyílt forráskódú áradatbázist gyűjtünk közösségi finanszírozásból**. Az árakat a felhasználók ezen a webes alkalmazáson vagy a hivatalos Open Food Facts mobilalkalmazáson keresztül adhatják meg. Kiskereskedők vagy harmadik féltől származó alkalmazások is hozzájárulhatnak az API-nk használatával.",
   "guide_open_prices_how_arg1_title": "Gyűjtsön fotókat az árcédulákról a folyosókon",
   "guide_open_prices_how_arg2_title": "Gyűjtsd össze a nyugták fotóit",
@@ -4173,9 +4176,9 @@
   "guide_open_prices_why_arg2_title": "Hasonlítsa össze az árakat a közelben",
   "guide_open_prices_why_arg2_text": "Ahogy egyre több árat kapunk, megtalálhatod **a környékeden a legolcsóbb üzleteket**.",
   "guide_open_prices_scrapping_title": "Fontolóra vetted már, hogy lemásolod az árakat a kiskereskedők weboldalairól?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Jogi és technikai okokból **nem tekintjük érvényes módnak az árak kiskereskedők weboldalairól történő lekérdezését a Nyílt Árakhoz való hozzájárulásra**. Biztosak akarunk lenni abban, hogy az általunk gyűjtött árak pontosak és naprakészek, és a közreműködőktől lemásolt árak fogadása ezt nem teszi lehetővé számunkra.",
   "guide_open_prices_scrapping_paragraph2": "Az árlekaparás egy fontolóra vett lehetőség az Open Prices jövőbeli verzióiban, de ezt maga az Open Prices végezné el, hogy a HTML oldal alapján bizonyítékot kaphassunk az árról.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Kiskereskedő vagyok, és szeretnék hozzájárulni az árakhoz. Hogyan tehetem ezt meg?",
   "guide_open_prices_retailers_paragraph1": "Az árakhoz az API-nkon keresztül is hozzájárulhatsz.\nHa nagyobb mennyiségben szeretnél árakat megadni, kérjük, vedd fel velünk a kapcsolatot a prices@openfoodfacts.org címen.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Üdvözöljük az Open Products Facts oldalán!",
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "A kompatibilitásom",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}%-ban kompatibilis",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Nincs elegendő adat a kompatibilitási pontszám kiszámításához.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" típusú szorzatra nem számítható ki pontszám.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Fontosság",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Mérkőzések",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Jó meccsek",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Átlagos mérkőzések",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Rossz meccsek",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Ismeretlen találatok",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Weboldal",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4679,7 +4732,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Kísérletek",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Fedezze fel a nyitott árakat",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Nyílt ár mutatók",
+  "preferences_prices_metrics_title": "Nyitott árak mutatói",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Utca",
   "location_map_details_city": "Város",
   "location_map_details_postcode": "Irányítószám",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Ország",
   "location_map_details_coordinates": "Koordináták",
-  "location_map_details_osm_id": "OSM-azonosító"
+  "location_map_details_osm_id": "OSM-azonosító",
+  "homepage_scanner_back_to_home_button": "Vissza az otthonba",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kamera be-/kikapcsolása",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Mutassa meg a vonalkódolvasót",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Koppints a **vonalkód**\nbeolvasásához, és derítsd ki, hogy **jó-e neked**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Zseblámpa be- és kikapcsolása",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Szkenneljen be egy terméket a vonalkódjához közeledve",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "A következő vonalkódot észleltük: {barcode}, de úgy tűnik, érvénytelen.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Továbbiak megtekintése…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Legtöbbször leolvasott termékek",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Utoljára beolvasott termékek",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

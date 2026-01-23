@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "खुल्या किमती",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "उत्पादन तपशील पहा",
   "prices_entry_menu_open_product_prices": "या उत्पादनाच्या सर्व किमती पहा",
   "prices_entry_menu_open_proof": "पुरावा पहा",
   "prices_entry_menu_my_prices": "माझ्या इतर किमती पहा",
@@ -3861,7 +3864,7 @@
   "environmental_score_e_new": "ग्रीन-स्कोअर ई",
   "environmental_score_unknown_new": "अज्ञात हिरवा-स्कोअर",
   "environmental_score_not_applicable_new": "ग्रीन-स्कोअर लागू नाही.",
-  "nova_group_generic_new": "Ultra-processed foods - NOVA groups",
+  "nova_group_generic_new": "अल्ट्रा-प्रक्रिया केलेले अन्न - नोव्हा गट",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
   "nova_group_3": "NOVA Group 3",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "माझ्यासाठी",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "माझी सुसंगतता",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% सुसंगत",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "सुसंगतता स्कोअर मोजण्यासाठी पुरेसा डेटा नाही.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" प्रकारच्या उत्पादनासाठी गुणांची गणना करता येत नाही.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "महत्त्व",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "सामने",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "चांगले जुळणारे",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "सरासरी सामने",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "वाईट जुळण्या",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "अज्ञात जुळण्या",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ओपन किंमत मेट्रिक्स",
+  "preferences_prices_metrics_title": "खुल्या किंमतींचे मेट्रिक्स",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5384,7 +5437,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "अन्न तथ्ये उघडण्यास मदत करण्याचे सोपे मार्ग",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Postcode",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "घरी परत",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "कॅमेरा टॉगल करा",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "बारकोड स्कॅनर दाखवा",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "**बारकोड**\nस्कॅन करण्यासाठी टॅप करा आणि तो **तुमच्यासाठी चांगला आहे** का ते शोधा!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "टॉर्च टॉगल करा",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "उत्पादनाचा बारकोड वापरून स्कॅन करा",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "आम्हाला खालील बारकोड आढळला आहे: {barcode}, परंतु तो अवैध असल्याचे दिसते.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "अधिक पहा…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "शेवटचे स्कॅन केलेले उत्पादने",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

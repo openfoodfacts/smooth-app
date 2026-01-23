@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -14,7 +15,7 @@
   "@reason": {},
   "okay": "U redu",
   "@okay": {},
-  "validate": "Validate",
+  "validate": "Potvrdi",
   "@validate": {
     "description": "Button label: Validate the input"
   },
@@ -24,7 +25,7 @@
   },
   "applyButtonText": "Primijenite",
   "@applyButtonText": {},
-  "next_label": "Next",
+  "next_label": "Sljedeće",
   "@next_label": {
     "description": "A label on a button that says 'Next', pressing the button takes the user to the next screen."
   },
@@ -41,7 +42,7 @@
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
   "go_back_to_top": "Povratak na vrh",
-  "save": "Save",
+  "save": "Sačuvaj",
   "save_confirmation": "Jeste li sigurni da želite sačuvati?",
   "skip": "Preskočite",
   "cancel": "Otkaži",
@@ -50,7 +51,7 @@
   "@ignore": {
     "description": "'Ignore' button. Typical use case in combination with 'OK' and 'Cancel' buttons."
   },
-  "close": "Close",
+  "close": "Zatvori",
   "@close": {},
   "no": "Ne",
   "@no": {},
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Država",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Pogledajte detalje o proizvodu",
   "prices_entry_menu_open_product_prices": "Pogledajte sve cijene za ovaj proizvod",
   "prices_entry_menu_open_proof": "Pogledajte dokaz",
   "prices_entry_menu_my_prices": "Pogledajte moje ostale cijene",
@@ -4502,7 +4505,7 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "Warning",
+  "knowledge_panel_warning_text": "Upozorenje",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Za mene",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Moja kompatibilnost",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibilnosti",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Nedovoljno podataka za izračunavanje ocjene kompatibilnosti.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Rezultat se ne može izračunati za proizvod tipa \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Važnost",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Utakmice",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Dobre utakmice",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Prosječna podudaranja",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Loše podudarnosti",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Nepoznata podudaranja",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrike cijene otvaranja",
+  "preferences_prices_metrics_title": "Metrike otvorenih cijena",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Street",
   "location_map_details_city": "City",
   "location_map_details_postcode": "Postcode",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Država",
   "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "Nazad kući",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Uključi/isključi kameru",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Prikaži skener barkodova",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Dodirnite da skenirate **barkod**\ni otkrijte da li je **dobar za vas**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Uključi/isključi svjetiljku",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skenirajte proizvod približavanjem njegovom barkodu",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Detektovao/la smo sljedeći barkod: {barcode}, ali izgleda da nije važeći.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Pogledajte više…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Posljednji skenirani proizvodi",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

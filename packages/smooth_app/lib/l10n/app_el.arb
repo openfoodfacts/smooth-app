@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Ανοιχτές τιμές",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -383,7 +384,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "Ποιότητα Δεδομένων",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -472,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Κοινότητα",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Προσωπική φροντίδα",
   "product_type_label_pet_food": "Τροφή κατοικιδίων",
   "product_type_label_product": "Άλλο",
+  "product_type_label_unknown": "Άγνωστο",
   "product_type_selection_title": "Τύπος προϊόντος",
   "product_type_selection_subtitle": "Επιλέξτε τον τύπο αυτού του προϊόντος",
   "product_type_selection_empty": "Πρέπει πρώτα να επιλέξετε έναν τύπο προϊόντος!",
@@ -2319,7 +2321,7 @@
   "prices_website_button": "Ανοιχτό στον ιστότοπο Open Prices",
   "prices_bulk_proof_upload_select": "Προσθήκη ετικετών τιμών απευθείας από τη συλλογή",
   "prices_bulk_proof_upload_warning": "Μόλις επιλέξετε εικόνες, δεν θα μπορείτε να τις επεξεργαστείτε!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "Η Τεχνητή Νοημοσύνη θα εκτελεί τις δοκιμές σας για να εξάγει τιμές.",
   "prices_bulk_proof_upload_community_switch": "Επιτρέψτε στην κοινότητα να επικυρώσει τις τιμές που εξάγονται από την Τεχνητή Νοημοσύνη.",
   "prices_bulk_proof_upload_subtitle": "Πολλαπλές Ετικέτες Τιμής",
   "prices_bulk_proof_upload_title": "Μεταφόρτωση Μαζικής Απόδειξης",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Δείτε λεπτομέρειες προϊόντος",
   "prices_entry_menu_open_product_prices": "Δείτε όλες τις τιμές για αυτό το προϊόν",
   "prices_entry_menu_open_proof": "Δείτε την απόδειξη",
   "prices_entry_menu_my_prices": "Δείτε τις υπόλοιπες τιμές μου",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Μάθετε περισσότερα για τις τιμές ανοίγματος",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2787,11 +2790,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Βοηθός Συνεισφοράς Τιμής",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Βοηθός Επικύρωσης Τιμών",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Προκλήσεις",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Μια σημείωση για τη βαθμολογία",
   "guide_open_beauty_facts_scores_paragraph1": "Σε αντίθεση με τα τρόφιμα, ο κόσμος των καλλυντικών **δεν διαθέτει ένα παγκοσμίως αναγνωρισμένο, κυβερνητικά υποστηριζόμενο σύστημα βαθμολόγησης όπως το Nutri-Score**. Οι επιδράσεις των συστατικών μπορεί να είναι ιδιαίτερα προσωπικές και να εξαρτώνται από τον τύπο δέρματος, τις αλλεργίες και τις ατομικές ανησυχίες.",
   "guide_open_beauty_facts_share_link": "https://world-el.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Καλώς ορίσατε στις Ανοιχτές Τιμές!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Τι είναι οι τιμές ανοίγματος;",
   "guide_open_prices_what_is_open_prices_paragraph1": "Το Open Prices είναι ένα έργο για τη **συλλογή και κοινοποίηση τιμών προϊόντων σε όλο τον κόσμο**. Είναι ένα δημόσια διαθέσιμο σύνολο δεδομένων που μπορεί να χρησιμοποιηθεί για έρευνα, ανάλυση και πολλά άλλα. Το Open Prices αναπτύσσεται και συντηρείται από το Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Πώς λειτουργούν οι Ανοιχτές Τιμές;",
   "guide_open_prices_how_paragraph1": "**Αναζητούμε ένα σύνολο δεδομένων τιμών ανοιχτού κώδικα από το crowdsourcing**. Οι χρήστες μπορούν να προσθέσουν τιμές μέσω αυτής της διαδικτυακής εφαρμογής ή μέσω της επίσημης εφαρμογής Open Food Facts για κινητά. Οι λιανοπωλητές ή οι εφαρμογές τρίτων μπορούν επίσης να συνεισφέρουν χρησιμοποιώντας το API μας.",
   "guide_open_prices_how_arg1_title": "Συλλέξτε φωτογραφίες από τις ετικέτες τιμών στους διαδρόμους",
   "guide_open_prices_how_arg2_title": "Συλλέξτε φωτογραφίες αποδείξεων",
@@ -4173,7 +4176,7 @@
   "guide_open_prices_why_arg2_title": "Συγκρίνετε τιμές κοντά σας",
   "guide_open_prices_why_arg2_text": "Καθώς θα έχουμε περισσότερες τιμές, μπορείτε να εντοπίσετε **τα φθηνότερα καταστήματα γύρω σας**.",
   "guide_open_prices_scrapping_title": "Σκεφτήκατε να αντλήσετε τιμές από τους ιστότοπους των λιανοπωλητών;",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Για νομικούς και τεχνικούς λόγους, **δεν θεωρούμε την συλλογή τιμών από τους ιστότοπους των λιανοπωλητών ως έγκυρο τρόπο συμβολής στις Ανοιχτές Τιμές**. Θέλουμε να διασφαλίσουμε ότι οι τιμές που συλλέγουμε είναι ακριβείς και ενημερωμένες και η λήψη συλλεγμένων τιμών από τους συνεισφέροντες δεν μας επιτρέπει να το κάνουμε αυτό.",
   "guide_open_prices_scrapping_paragraph2": "Η συλλογή τιμών είναι μια επιλογή που εξετάζεται σε μια μελλοντική έκδοση του Open Prices, αλλά θα γίνεται από το ίδιο το Open Prices, ώστε να μπορούμε να έχουμε μια απόδειξη της τιμής με βάση τη σελίδα HTML.",
   "guide_open_prices_retailers_title": "Είμαι λιανοπωλητής και θέλω να συνεισφέρω στις τιμές. Πώς μπορώ να το κάνω αυτό;",
   "guide_open_prices_retailers_paragraph1": "Μπορείτε να συνεισφέρετε τιμές χρησιμοποιώντας το API μας.\nΕάν θέλετε να συνεισφέρετε τιμές σε κλίμακα, επικοινωνήστε μαζί μας στη διεύθυνση prices@openfoodfacts.org.",
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Η συμβατότητά μου",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% συμβατότητας",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Δεν υπάρχουν επαρκή δεδομένα για τον υπολογισμό μιας βαθμολογίας συμβατότητας.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Δεν μπορεί να υπολογιστεί βαθμολογία για ένα προϊόν τύπου \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Σπουδαιότητα",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Αγώνες",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Καλοί αγώνες",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Μέσος όρος αγώνων",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Κακές αντιστοιχίες",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Άγνωστες αντιστοιχίσεις",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Ιστοσελίδα",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4671,7 +4724,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Αποδείξεις",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4679,7 +4732,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Πειράματα",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4691,19 +4744,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "Με γραμμωτό κώδικα (barcode)",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "Με μια κατηγορία",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Με έκπτωση",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Κοινότητα",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4735,7 +4788,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Online",
+  "prices_stats_online": "Διαδικτυακά",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4751,31 +4804,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR request",
+  "prices_stats_gdpr_request": "Αίτημα ΓΚΠΔ",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "Εισαγωγή καταστήματος",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Προκλήσεις",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Τιμές που συνδέονται με μια ετικέτα τιμής",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Νομίσματα",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Χρόνια",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Τιμές και αποδείξεις ανά πηγή",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4783,7 +4836,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Εφαρμογή για κινητά",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4883,7 +4936,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "Προστέθηκαν τιμές",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -4987,7 +5040,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "Προσθήκη τιμών",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Ανακαλύψτε τις τιμές ανοίγματος",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Μετρήσεις τιμής ανοίγματος",
+  "preferences_prices_metrics_title": "Μετρήσεις τιμών ανοίγματος",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5510,7 +5563,7 @@
       }
     }
   },
-  "proof_count": "{count} proofs",
+  "proof_count": "{count} αποδείξεις",
   "@proof_count": {
     "description": "Number of proofs (when we don't know the total)",
     "placeholders": {
@@ -5534,7 +5587,7 @@
       }
     }
   },
-  "contributors_count": "{count} contributors",
+  "contributors_count": "{count} συνεισφέροντες",
   "@contributors_count": {
     "description": "Number of contributors (when we don't know the total)",
     "placeholders": {
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Ταχυδρομικός τομέας",
   "location_map_details_country": "Χώρα",
   "location_map_details_coordinates": "Συντεταγμένες",
-  "location_map_details_osm_id": "Αναγνωριστικό OSM"
+  "location_map_details_osm_id": "Αναγνωριστικό OSM",
+  "homepage_scanner_back_to_home_button": "Πίσω στο σπίτι",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Εναλλαγή κάμερας",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Εμφάνιση του σαρωτή γραμμωτού κώδικα",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Πατήστε για να σαρώσετε έναν **γραμμωτό κώδικα**\nκαι ανακαλύψτε αν είναι **καλός για εσάς**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Εναλλαγή φακού",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Σαρώστε ένα προϊόν προσεγγίζοντας τον γραμμωτό κώδικα του.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Εντοπίσαμε τον ακόλουθο γραμμωτό κώδικα: {barcode}, αλλά φαίνεται να μην είναι έγκυρος.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Δείτε περισσότερα…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Τα περισσότερα σαρωμένα προϊόντα",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Τελευταία σαρωμένα προϊόντα",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

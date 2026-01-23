@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Atidarytos kainos",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Šalis",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Asmens higiena",
   "product_type_label_pet_food": "Naminių gyvūnėlių ėdalas",
   "product_type_label_product": "Kita",
+  "product_type_label_unknown": "Nežinoma",
   "product_type_selection_title": "Produkto tipas",
   "product_type_selection_subtitle": "Pasirinkite šio produkto tipą",
   "product_type_selection_empty": "Pirmiausia turite pasirinkti produkto tipą!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Peržiūrėti produkto informaciją",
   "prices_entry_menu_open_product_prices": "Peržiūrėti visas šio produkto kainas",
   "prices_entry_menu_open_proof": "Peržiūrėti įrodymą",
   "prices_entry_menu_my_prices": "Peržiūrėti kitas mano kainas",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Sužinokite daugiau apie atviras kainas",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3849,7 +3852,7 @@
     }
   },
   "nutriscore_new_formula_title": "„Nutri-Score“ (naujas skaičiavimas)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown": "Nežinomas maistingumo balas",
   "nutriscore_unknown_new_formula": "Nežinomas „Nutri-Score“ (naujas skaičiavimas)",
   "nutriscore_not_applicable": "„Nutri-Score“ netaikomas",
   "nutriscore_not_applicable_new_formula": "„Nutri-Score“ netaikomas (naujas skaičiavimas)",
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Pastaba apie taškų skaičiavimą",
   "guide_open_beauty_facts_scores_paragraph1": "Kitaip nei maisto produktų atveju, kosmetikos pasaulyje **nėra visuotinai pripažintos, vyriausybės remiamos vertinimo sistemos, tokios kaip „Nutri-Score“**. Ingredientų poveikis gali būti labai asmeniškas ir priklausyti nuo odos tipo, alergijų ir individualių poreikių.",
   "guide_open_beauty_facts_share_link": "https://world-lt.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Sveiki atvykę į atvirų kainų atidarymo programą!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Kas yra atviros kainos?",
   "guide_open_prices_what_is_open_prices_paragraph1": "„Open Prices“ yra projektas, skirtas **rinkti ir dalytis produktų kainomis visame pasaulyje**. Tai viešai prieinamas duomenų rinkinys, kurį galima naudoti tyrimams, analizei ir kt. „Open Prices“ kuria ir prižiūri „Open Food Facts“.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Kaip veikia atviros kainos?",
   "guide_open_prices_how_paragraph1": "**Mes renkame atvirojo kodo kainų duomenų rinkinį**. Kainas gali pridėti vartotojai per šią žiniatinklio programėlę arba per oficialią mobiliąją programėlę „Open Food Facts“. Mažmenininkai arba trečiųjų šalių programėlės taip pat gali prisidėti naudodami mūsų API.",
   "guide_open_prices_how_arg1_title": "Surinkite kainų etikečių nuotraukas praėjimuose",
   "guide_open_prices_how_arg2_title": "Surinkite kvitų nuotraukas",
@@ -4173,7 +4176,7 @@
   "guide_open_prices_why_arg2_title": "Palyginkite kainas šalia jūsų",
   "guide_open_prices_why_arg2_text": "Kai gausime daugiau kainų, galėsite rasti **pigiausias parduotuves aplink jus**.",
   "guide_open_prices_scrapping_title": "Ar svarstėte galimybę nuskaityti kainas iš mažmenininkų svetainių?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Dėl teisinių ir techninių priežasčių **nelaikome kainų nuskaitymo iš mažmenininkų svetainių tinkamu būdu prisidėti prie atvirų kainų**. Norime įsitikinti, kad mūsų renkamos kainos yra tikslios ir atnaujintos, o nuskaitytų kainų gavimas iš bendraautorių neleidžia mums to daryti.",
   "guide_open_prices_scrapping_paragraph2": "Kainų nuskaitymas yra svarstoma galimybė būsimoje „Open Prices“ versijoje, tačiau tai atliktų pati „Open Prices“, kad galėtume turėti kainos įrodymą pagal HTML puslapį.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Kainas galite skelbti naudodami mūsų API.\nJei norite prisidėti prie kainų nustatymo dideliu mastu, susisiekite su mumis adresu prices@openfoodfacts.org.",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Man",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Mano suderinamumas",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}Suderinamumo %",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Nepakanka duomenų suderinamumo balui apskaičiuoti.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Rezultatas negali būti apskaičiuotas „{productType}“ tipo produktui.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Svarba",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Rungtynės",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Geros rungtynės",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Vidutinis atitikmenų skaičius",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Blogos rungtynės",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Nežinomos atitiktys",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Interneto svetainė",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Atraskite atviras kainas",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Atidaryti kainos metriką",
+  "preferences_prices_metrics_title": "Atidarymo kainų metrika",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Gatvė",
   "location_map_details_city": "Miestas",
   "location_map_details_postcode": "Pašto kodas",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Šalis",
   "location_map_details_coordinates": "Koordinatės",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "Grįžimas į namus",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Perjungti kamerą",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Rodyti brūkšninių kodų skaitytuvą",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Palieskite, kad nuskaitytumėte **brūkšninį kodą**\nir sužinotumėte, ar jis **jums tinka**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Įjungti žibintuvėlį",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Nuskaitykite produktą artėdami prie jo brūkšninio kodo",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Aptikome šį brūkšninį kodą: {barcode}, bet jis atrodo negaliojantis.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Žiūrėti daugiau…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Dauguma nuskaitytų produktų",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Paskutiniai nuskaityti produktai",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

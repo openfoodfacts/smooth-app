@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "国",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "パーソナルケア",
   "product_type_label_pet_food": "ペットフード",
   "product_type_label_product": "その他",
+  "product_type_label_unknown": "不明",
   "product_type_selection_title": "製品タイプ",
   "product_type_selection_subtitle": "この製品の種類を選択してください",
   "product_type_selection_empty": "まず製品タイプを選択する必要があります。",
@@ -2377,7 +2379,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "商品が見つかりません",
   "prices_barcode_search_none_yet": "まだ製品はありません",
   "prices_barcode_search_running": "{barcode}を探しています",
   "@prices_barcode_search_running": {
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "製品の詳細を見る",
   "prices_entry_menu_open_product_prices": "この商品のすべての価格を見る",
   "prices_entry_menu_open_proof": "証拠を見る",
   "prices_entry_menu_my_prices": "他の価格を見る",
@@ -3849,11 +3852,11 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (新しい計算)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "不明な栄養スコア",
+  "nutriscore_unknown_new_formula": "未知の栄養スコア（新しい計算）",
   "nutriscore_not_applicable": "Nutri-Scoreは適用されません",
   "nutriscore_not_applicable_new_formula": "Nutri-Scoreは適用されません（新しい計算）",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "グリーンスコア",
   "environmental_score_a_new": "グリーンスコアA",
   "environmental_score_b_new": "グリーンスコアB",
   "environmental_score_c_new": "グリーンスコアC",
@@ -3878,7 +3881,7 @@
   "contact_title_pro_email": "プロデューサー連絡先",
   "contact_title_press_page": "プレスページ",
   "contact_title_press_email": "報道関係者向けのお問い合わせ先",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "ニュースレターを購読する",
   "contact_title_calendar": "コミュニティカレンダーを購読する",
   "hunger_games_loading_line1": "数秒お待ちください…",
   "hunger_games_loading_line2": "質問をダウンロード中です！",
@@ -3922,7 +3925,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Scoreとは何ですか?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3954,7 +3957,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "グリーンスコア",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "私の相性",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% 互換性あり",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "互換性スコアを計算するにはデータが不十分です。",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "タイプ \"{productType}\" の製品のスコアを計算できません。",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "重要性",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "マッチ",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "良い試合",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "平均マッチ",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "悪い一致",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "不明な一致",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "ウェブサイト",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4719,7 +4772,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "美しさ",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "通り",
   "location_map_details_city": "市",
   "location_map_details_postcode": "郵便番号",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "国",
   "location_map_details_coordinates": "座標",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "家に戻る",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "カメラを切り替える",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "バーコードスキャナーを表示する",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "タップして**バーコード**をスキャンし\n、それが**あなたにとって良い**かどうか調べてください！",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "トーチを切り替える",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "商品のバーコードに近づいてスキャンする",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "次のバーコードが検出されました: {barcode}、無効のようです。",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "もっと見る…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "最もスキャンされた製品",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "最後にスキャンした製品",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }
