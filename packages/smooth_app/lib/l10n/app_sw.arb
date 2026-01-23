@@ -712,7 +712,7 @@
   "nutritional_facts_input_button_label": "Jaza ukweli wa lishe",
   "nutritional_facts_added": "Ukweli wa lishe umeongezwa",
   "categories_added": "Kategoria zimeongezwa",
-  "new_product_title_nutriscore": "Kuhesabu Nutri-Alama",
+  "new_product_title_nutriscore": "Kuhesabu Nutri-Score",
   "new_product_subtitle_nutriscore": "Tusaidie kwa kujaza angalau kategoria na maadili ya lishe",
   "new_product_title_environmental_score": "Kuhesabu Alama ya Kijani",
   "new_product_subtitle_environmental_score": "Ipate kwa kujaza angalau kategoria",
@@ -3851,7 +3851,7 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Nutri-Alama (Hesabu Mpya)",
+  "nutriscore_new_formula_title": "Nutri-Score (Hesabu Mpya)",
   "nutriscore_unknown": "Alama ya Nutri isiyojulikana",
   "nutriscore_unknown_new_formula": "Nutri-Alama Isiyojulikana (Hesabu Mpya)",
   "nutriscore_not_applicable": "Nutri-Alama haitumiki",
