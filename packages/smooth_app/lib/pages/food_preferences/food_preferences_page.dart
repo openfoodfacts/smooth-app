@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
+import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -13,20 +14,21 @@ import 'package:smooth_app/pages/food_preferences/pages/introduction_page.dart';
 import 'package:smooth_app/pages/food_preferences/pages/summary_page.dart';
 import 'package:smooth_app/pages/food_preferences/widgets/attribute_group_page.dart';
 import 'package:smooth_app/pages/food_preferences/widgets/food_preferences_navigation_bar.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
 enum PreferencesPageProjects {
-  foods,
+  food,
   products,
   beauty,
   pets;
 
   UriProductHelper getUriProductHelper() {
     switch (this) {
-      case PreferencesPageProjects.foods:
+      case PreferencesPageProjects.food:
         return uriHelperFoodProd;
       case PreferencesPageProjects.products:
         return uriHelperProductsProd;
@@ -36,12 +38,34 @@ enum PreferencesPageProjects {
         return uriHelperPetFoodProd;
     }
   }
+
+  Future<List<AttributeGroup>?> fetchAttributeGroups() async {
+    try {
+      final String languageCode = ProductQuery.getLanguage().code;
+      final Uri uri = AvailableAttributeGroups.getUri(
+        languageCode,
+        uriHelper: getUriProductHelper(),
+      );
+
+      final http.Response response = await http.get(uri);
+      if (response.statusCode != 200) {
+        return null;
+      }
+
+      final AvailableAttributeGroups availableAttributeGroups =
+          AvailableAttributeGroups.loadFromJSONString(response.body);
+      return availableAttributeGroups.attributeGroups;
+    } catch (e) {
+      debugPrint('Error fetching attribute groups for $name: $e');
+      return null;
+    }
+  }
 }
 
 class FoodPreferencesPage extends StatefulWidget {
   const FoodPreferencesPage({
     super.key,
-    this.project = PreferencesPageProjects.foods,
+    this.project = PreferencesPageProjects.products,
   });
 
   final PreferencesPageProjects project;
@@ -54,34 +78,62 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
   late final FoodPreferencesController _controller;
   late final PendingPreferences _pendingPreferences;
 
+  List<AttributeGroup>? _attributeGroups;
   bool _isInitialized = false;
+  bool _isLoading = true;
 
   @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    _initializeController();
+  void initState() {
+    super.initState();
+    _loadAttributeGroups();
+  }
+
+  Future<void> _loadAttributeGroups() async {
+    setState(() {
+      _isLoading = true;
+    });
+
+    // Try to fetch attribute groups for the specific project
+    final List<AttributeGroup>? fetchedGroups = await widget.project
+        .fetchAttributeGroups();
+
+    if (fetchedGroups != null && fetchedGroups.isNotEmpty) {
+      _attributeGroups = fetchedGroups;
+    } else if (widget.project == PreferencesPageProjects.food) {
+      // Fallback to ProductPreferences for foods project
+      if (mounted) {
+        final ProductPreferences productPreferences = context
+            .read<ProductPreferences>();
+        _attributeGroups = productPreferences.attributeGroups;
+      }
+    }
+
+    if (mounted) {
+      setState(() {
+        _isLoading = false;
+      });
+      _initializeController();
+    }
   }
 
   void _initializeController() {
-    final ProductPreferences productPreferences = context
-        .watch<ProductPreferences>();
     final UserPreferences userPreferences = context.read<UserPreferences>();
-    final List<AttributeGroup>? attributeGroups =
-        productPreferences.attributeGroups;
 
-    if (attributeGroups == null || attributeGroups.isEmpty || _isInitialized) {
+    if (_attributeGroups == null ||
+        _attributeGroups!.isEmpty ||
+        _isInitialized) {
       return;
     }
 
     _controller = FoodPreferencesController(
-      attributeGroups: attributeGroups,
+      attributeGroups: _attributeGroups!,
       showIntroduction: true,
       showSummary: true,
     )..addListener(_onControllerChanged);
 
     _pendingPreferences = PendingPreferences(
       userPreferences: userPreferences,
-      attributeGroups: attributeGroups,
+      attributeGroups: _attributeGroups!,
       project: widget.project,
     )..addListener(_onPendingPreferencesChanged);
 
@@ -157,13 +209,38 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    // Show loading state while waiting for attribute groups
-    if (!_isInitialized) {
+    // Show loading state while fetching attribute groups
+    if (_isLoading) {
       return SmoothScaffold(
         appBar: SmoothTopBar2(
           title: appLocalizations.food_preferences_page_title_introduction,
         ),
         body: const Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    // Show error state if attribute groups failed to load
+    if (!_isInitialized) {
+      return SmoothScaffold(
+        appBar: SmoothTopBar2(
+          title: appLocalizations.food_preferences_page_title_introduction,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                appLocalizations.food_preferences_error_loading,
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: MEDIUM_SPACE),
+              ElevatedButton(
+                onPressed: _loadAttributeGroups,
+                child: Text(appLocalizations.retry_button_label),
+              ),
+            ],
+          ),
+        ),
       );
     }
 
