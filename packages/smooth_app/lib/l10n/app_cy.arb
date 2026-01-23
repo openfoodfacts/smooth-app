@@ -3852,8 +3852,8 @@
     }
   },
   "nutriscore_new_formula_title": "Sgôr Maeth (Cyfrifiad newydd)",
-  "nutriscore_unknown": "Sgôr Maeth Anhysbys",
-  "nutriscore_unknown_new_formula": "Sgôr Maeth Anhysbys (Cyfrifiad newydd)",
+  "nutriscore_unknown": "Nutri-Score Anhysbys",
+  "nutriscore_unknown_new_formula": "Nutri-Score Anhysbys (Cyfrifiad newydd)",
   "nutriscore_not_applicable": "Nid yw Sgôr Maeth yn berthnasol",
   "nutriscore_not_applicable_new_formula": "Nid yw Sgôr Maeth yn berthnasol (Cyfrifiad newydd)",
   "environmental_score_generic_new": "Green-Score",
@@ -3921,25 +3921,25 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Rhannu",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Mae'r Nutri-Score yn esblygu: esboniadau!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Beth yw'r Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Mae'r Nutri-Score yn logo sy'n ceisio rhoi gwybod i chi am **ansawdd maethol bwydydd**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Mae'r cod lliw yn amrywio o wyrdd tywyll (**A**) ar gyfer y cynhyrchion **mwyaf iach** i goch tywyll (**E**) ar gyfer y rhai **llai iach**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Logo Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "Pam mae Nutri-Score yn esblygu?",
   "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Gwerthuso pob diod yn well",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Roedd y nodiadau cymharol ar gyfer **llaeth**, **diodydd llaeth** gyda siwgr ychwanegol a diodydd **llysiau** wedi'u gwahaniaethu'n well yn yr algorithm newydd.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Gwell graddio diodydd",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
   "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
