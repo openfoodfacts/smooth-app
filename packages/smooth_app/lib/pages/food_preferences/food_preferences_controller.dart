@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/duration_constants.dart';
 
 class FoodPreferencesController extends ChangeNotifier {
   FoodPreferencesController({
@@ -105,7 +106,7 @@ class FoodPreferencesController extends ChangeNotifier {
     if (index >= 0 && index < pageCount) {
       _pageController.animateToPage(
         index,
-        duration: const Duration(milliseconds: 300),
+        duration: SmoothAnimationsDuration.medium,
         curve: Curves.easeInOut,
       );
     }

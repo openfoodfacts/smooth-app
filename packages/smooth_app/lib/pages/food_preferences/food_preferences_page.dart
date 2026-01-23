@@ -18,8 +18,33 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
+enum PreferencesPageProjects {
+  foods,
+  products,
+  beauty,
+  pets;
+
+  UriProductHelper getUriProductHelper() {
+    switch (this) {
+      case PreferencesPageProjects.foods:
+        return uriHelperFoodProd;
+      case PreferencesPageProjects.products:
+        return uriHelperProductsProd;
+      case PreferencesPageProjects.beauty:
+        return uriHelperBeautyProd;
+      case PreferencesPageProjects.pets:
+        return uriHelperPetFoodProd;
+    }
+  }
+}
+
 class FoodPreferencesPage extends StatefulWidget {
-  const FoodPreferencesPage({super.key});
+  const FoodPreferencesPage({
+    super.key,
+    this.project = PreferencesPageProjects.foods,
+  });
+
+  final PreferencesPageProjects project;
 
   @override
   State<FoodPreferencesPage> createState() => _FoodPreferencesPageState();
@@ -52,15 +77,13 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
       attributeGroups: attributeGroups,
       showIntroduction: true,
       showSummary: true,
-    );
-    _controller.addListener(_onControllerChanged);
+    )..addListener(_onControllerChanged);
 
     _pendingPreferences = PendingPreferences(
-      productPreferences: productPreferences,
       userPreferences: userPreferences,
       attributeGroups: attributeGroups,
-    );
-    _pendingPreferences.addListener(_onPendingPreferencesChanged);
+      project: widget.project,
+    )..addListener(_onPendingPreferencesChanged);
 
     _isInitialized = true;
   }
@@ -68,10 +91,12 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
   @override
   void dispose() {
     if (_isInitialized) {
-      _controller.removeListener(_onControllerChanged);
-      _controller.dispose();
-      _pendingPreferences.removeListener(_onPendingPreferencesChanged);
-      _pendingPreferences.dispose();
+      _controller
+        ..removeListener(_onControllerChanged)
+        ..dispose();
+      _pendingPreferences
+        ..removeListener(_onPendingPreferencesChanged)
+        ..dispose();
     }
     super.dispose();
   }
@@ -149,7 +174,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
 
     final bool isSummaryPage = _controller.isSummaryPage;
     final Color headerColor = isSummaryPage
-        ? Colors.green
+        ? extension.success
         : theme.colorScheme.secondary;
     final Color foregroundColor = isSummaryPage ? Colors.white : Colors.black;
 

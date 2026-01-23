@@ -2,24 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/food_preferences/widgets/timeline_step.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 class IntroductionPage extends StatelessWidget {
   const IntroductionPage({required this.attributeGroups, super.key});
 
   final List<AttributeGroup> attributeGroups;
 
-  static const double stepIndicatorSize = 20.0;
-
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
     // Get step names from attribute groups
     final List<String> steps = attributeGroups
         .map((AttributeGroup group) => group.name ?? group.id ?? '')
         .where((String name) => name.isNotEmpty)
-        .toList();
+        .toList(growable: false);
 
     return Padding(
       padding: const EdgeInsetsDirectional.symmetric(
@@ -28,71 +27,32 @@ class IntroductionPage extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          Text.rich(
-            TextSpan(
-              children: <TextSpan>[
-                TextSpan(
-                  text: appLocalizations
-                      .food_preferences_introduction_description_prefix,
-                ),
-                TextSpan(
-                  text: appLocalizations
-                      .food_preferences_introduction_description_bold,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                ),
-                TextSpan(
-                  text: appLocalizations
-                      .food_preferences_introduction_description_suffix,
-                ),
-              ],
-            ),
+          TextWithBoldParts(
+            text: appLocalizations.food_preferences_introduction_description,
           ),
           const SizedBox(height: LARGE_SPACE),
-          ListView.separated(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-            itemCount: steps.length,
-            itemBuilder: (BuildContext context, int index) =>
-                _buildTimelineStep(index, steps[index], theme),
-            separatorBuilder: (BuildContext context, int index) =>
-                const SizedBox(
-                  height: VERY_LARGE_SPACE,
-                  child: Row(
-                    children: <Widget>[
-                      SizedBox(width: stepIndicatorSize),
-                      VerticalDivider(thickness: 1, color: Colors.grey),
-                    ],
+          Expanded(
+            child: ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+              itemCount: steps.length,
+              itemBuilder: (BuildContext context, int index) =>
+                  TimelineStep(index: index, text: steps[index]),
+              separatorBuilder: (BuildContext context, int index) =>
+                  const SizedBox(
+                    height: VERY_LARGE_SPACE,
+                    child: Row(
+                      children: <Widget>[
+                        SizedBox(width: TimelineStep.stepIndicatorSize),
+                        VerticalDivider(thickness: 1, color: Color(0xFF979797)),
+                      ],
+                    ),
                   ),
-                ),
+            ),
           ),
         ],
       ),
-    );
-  }
-
-  Widget _buildTimelineStep(int index, String text, ThemeData theme) {
-    return Row(
-      children: <Widget>[
-        CircleAvatar(
-          radius: stepIndicatorSize,
-          backgroundColor: theme.colorScheme.secondary,
-          child: Text(
-            '${index + 1}',
-            style: TextStyle(
-              color: theme.colorScheme.onSecondary,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        const SizedBox(width: MEDIUM_SPACE),
-        Expanded(
-          child: Text(
-            text,
-            style: const TextStyle(fontWeight: FontWeight.bold),
-          ),
-        ),
-      ],
     );
   }
 }

@@ -19,7 +19,7 @@ class FoodPreferenceAttributeRow extends StatelessWidget {
   Widget build(BuildContext context) {
     final String? attributeId = attribute.id;
     if (attributeId == null) {
-      return const SizedBox.shrink();
+      return EMPTY_WIDGET;
     }
 
     final ThemeData theme = Theme.of(context);

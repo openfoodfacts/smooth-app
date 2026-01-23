@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 
 class FoodPreferencesNavigationBar extends StatelessWidget {
   const FoodPreferencesNavigationBar({
@@ -26,83 +25,48 @@ class FoodPreferencesNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    final String nextButtonText;
-    final Color nextButtonColor;
-    final Color nextButtonTextColor;
-
-    if (isSummaryPage) {
-      nextButtonText = appLocalizations.validate;
-      nextButtonColor = Colors.green;
-      nextButtonTextColor = Colors.white;
-    } else if (isLastPage) {
-      nextButtonText = appLocalizations.finish;
-      nextButtonColor = theme.primaryColor;
-      nextButtonTextColor = theme.colorScheme.onPrimary;
-    } else {
-      nextButtonText = appLocalizations.continue_label;
-      nextButtonColor = theme.primaryColor;
-      nextButtonTextColor = theme.colorScheme.onPrimary;
-    }
-
-    return Container(
-      padding: const EdgeInsetsDirectional.symmetric(
-        horizontal: VERY_LARGE_SPACE,
-        vertical: LARGE_SPACE,
+    return SmoothButtonsBar2(
+      positiveButton: SmoothActionButton2(
+        text: _getPositiveButtonText(appLocalizations),
+        onPressed: _getPositiveButtonAction(),
       ),
-      decoration: BoxDecoration(
-        color: theme.scaffoldBackgroundColor,
-        boxShadow: <BoxShadow>[
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.1),
-            blurRadius: 8,
-            offset: const Offset(0, -2),
-          ),
-        ],
-      ),
-      child: SafeArea(
-        top: false,
-        child: Row(
-          children: <Widget>[
-            Expanded(
-              child: isSummaryPage
-                  ? const SizedBox.shrink()
-                  : isFirstPage
-                  ? SmoothSimpleButton(
-                      onPressed: onLater,
-                      buttonColor: theme.colorScheme.secondary,
-                      child: Text(
-                        appLocalizations.ask_me_later_button_label,
-                        style: TextStyle(color: theme.colorScheme.onSecondary),
-                      ),
-                    )
-                  : SmoothSimpleButton(
-                      onPressed: onPrevious,
-                      buttonColor: theme.colorScheme.secondary,
-                      child: Text(
-                        appLocalizations.previous_label,
-                        style: TextStyle(color: theme.colorScheme.onSecondary),
-                      ),
-                    ),
-            ),
-            const SizedBox(width: MEDIUM_SPACE),
-            Expanded(
-              child: SmoothSimpleButton(
-                onPressed: isSummaryPage
-                    ? onFinish
-                    : (isLastPage ? onFinish : onNext),
-                buttonColor: nextButtonColor,
-                child: Text(
-                  nextButtonText,
-                  style: TextStyle(color: nextButtonTextColor),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
+      negativeButton: _getNegativeButton(appLocalizations),
     );
+  }
+
+  String _getPositiveButtonText(AppLocalizations appLocalizations) {
+    if (isSummaryPage) {
+      return appLocalizations.validate;
+    } else if (isLastPage) {
+      return appLocalizations.finish;
+    } else {
+      return appLocalizations.continue_label;
+    }
+  }
+
+  VoidCallback _getPositiveButtonAction() {
+    if (isSummaryPage || isLastPage) {
+      return onFinish;
+    } else {
+      return onNext;
+    }
+  }
+
+  SmoothActionButton2? _getNegativeButton(AppLocalizations appLocalizations) {
+    if (isSummaryPage) {
+      return null;
+    } else if (isFirstPage) {
+      return SmoothActionButton2(
+        text: appLocalizations.ask_me_later_button_label,
+        onPressed: onLater,
+      );
+    } else {
+      return SmoothActionButton2(
+        text: appLocalizations.previous_label,
+        onPressed: onPrevious,
+      );
+    }
   }
 }

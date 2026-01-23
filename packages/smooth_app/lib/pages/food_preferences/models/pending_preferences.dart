@@ -1,40 +1,56 @@
 import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
+/// Manages pending (unsaved) food preference changes during the preferences wizard.
+///
+/// This class acts as a temporary buffer between the UI and [UserPreferences],
+/// allowing users to make multiple preference changes before committing them.
+/// Changes are stored in memory and only persisted when [saveAll] is called.
+///
+/// Key responsibilities:
+/// - Tracks pending attribute importance changes (e.g., nutrition, allergens)
+/// - Manages the list of unwanted ingredients
+/// - Supports project-specific preferences (foods, beauty, pets, etc.)
+/// - Provides methods to query and modify pending preferences
+///
+/// Use [saveAll] to persist all pending changes to [UserPreferences].
 class PendingPreferences extends ChangeNotifier {
   PendingPreferences({
-    required ProductPreferences productPreferences,
     required UserPreferences userPreferences,
     required List<AttributeGroup> attributeGroups,
-  }) : _productPreferences = productPreferences,
-       _userPreferences = userPreferences,
-       _attributeGroups = attributeGroups {
+    required PreferencesPageProjects project,
+  }) : _userPreferences = userPreferences,
+       _attributeGroups = attributeGroups,
+       _project = project {
     _initializeFromCurrentPreferences();
   }
 
-  final ProductPreferences _productPreferences;
+  bool _unwantedIngredientsInitialized = false;
+
+  static const String enabledImportanceId = PreferenceImportance.ID_MANDATORY;
+
   final UserPreferences _userPreferences;
   final List<AttributeGroup> _attributeGroups;
+  final PreferencesPageProjects _project;
+
+  String get _projectKey => _project.name;
 
   final Map<String, String> _pendingImportances = <String, String>{};
 
   List<String> _pendingUnwantedIngredients = <String>[];
-  bool _unwantedIngredientsInitialized = false;
-
-  static const String enabledImportanceId = PreferenceImportance.ID_MANDATORY;
   static const String disabledImportanceId =
       PreferenceImportance.ID_NOT_IMPORTANT;
 
-  void _initializeFromCurrentPreferences() {
+  Future<void> _initializeFromCurrentPreferences() async {
     for (final AttributeGroup group in _attributeGroups) {
       for (final Attribute attribute in group.attributes ?? <Attribute>[]) {
         final String? attributeId = attribute.id;
         if (attributeId != null) {
-          _pendingImportances[attributeId] = _productPreferences
-              .getImportanceIdForAttributeId(attributeId);
+          _pendingImportances[attributeId] = _userPreferences
+              .getImportanceForProject(attributeId, _projectKey);
         }
       }
     }
@@ -43,7 +59,8 @@ class PendingPreferences extends ChangeNotifier {
 
   Future<void> _loadExcludedIngredients() async {
     // Load user-facing names from preferences
-    _pendingUnwantedIngredients = _userPreferences.getUnwantedIngredients();
+    _pendingUnwantedIngredients = _userPreferences
+        .getUnwantedIngredientsForProject(_projectKey);
     _unwantedIngredientsInitialized = true;
     notifyListeners();
   }
@@ -115,8 +132,8 @@ class PendingPreferences extends ChangeNotifier {
   Future<void> saveAll() async {
     await Future.wait(
       _pendingImportances.entries.map(
-        (MapEntry<String, String> entry) =>
-            _productPreferences.setImportance(entry.key, entry.value),
+        (MapEntry<String, String> entry) => _userPreferences
+            .setImportanceForProject(entry.key, entry.value, _projectKey),
       ),
     );
 
@@ -125,7 +142,10 @@ class PendingPreferences extends ChangeNotifier {
 
   Future<void> _saveUnwantedIngredients() async {
     if (_pendingUnwantedIngredients.isEmpty) {
-      await _userPreferences.setUnwantedIngredients(<String, String>{});
+      await _userPreferences.setUnwantedIngredientsForProject(
+        <String, String>{},
+        _projectKey,
+      );
       return;
     }
 
@@ -134,9 +154,7 @@ class PendingPreferences extends ChangeNotifier {
           TagType.INGREDIENTS,
           localizedNames: _pendingUnwantedIngredients,
           language: ProductQuery.getLanguage(),
-          uriHelper: ProductQuery.getUriProductHelper(
-            productType: ProductType.food,
-          ),
+          uriHelper: _project.getUriProductHelper(),
         );
 
     final Map<String, String> ingredientsMap = <String, String>{};
@@ -147,8 +165,13 @@ class PendingPreferences extends ChangeNotifier {
       }
     }
 
-    await _userPreferences.setUnwantedIngredients(ingredientsMap);
+    await _userPreferences.setUnwantedIngredientsForProject(
+      ingredientsMap,
+      _projectKey,
+    );
   }
 
   List<AttributeGroup> get attributeGroups => _attributeGroups;
+
+  PreferencesPageProjects get project => _project;
 }

@@ -28,12 +28,6 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
   String _searchQuery = '';
 
   @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Consumer<PendingPreferences>(
       builder:
@@ -78,10 +72,7 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
     return SmoothBanner(
       icon: const icons.Info(size: DEFAULT_ICON_SIZE),
       content: warning,
-      borderRadius: const BorderRadius.only(
-        topLeft: ROUNDED_RADIUS,
-        topRight: ROUNDED_RADIUS,
-      ),
+      borderRadius: const BorderRadiusDirectional.vertical(top: ROUNDED_RADIUS),
     );
   }
 
@@ -108,17 +99,21 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
       return attributes;
     }
 
-    return attributes.where((Attribute attribute) {
-      final String name = (attribute.name ?? '').toLowerCase();
-      final String settingName = (attribute.settingName ?? '').toLowerCase();
-      final String settingNote = (attribute.settingNote ?? '').toLowerCase();
-      final String id = (attribute.id ?? '').toLowerCase();
+    return attributes
+        .where((Attribute attribute) {
+          final String name = (attribute.name ?? '').toLowerCase();
+          final String settingName = (attribute.settingName ?? '')
+              .toLowerCase();
+          final String settingNote = (attribute.settingNote ?? '')
+              .toLowerCase();
+          final String id = (attribute.id ?? '').toLowerCase();
 
-      return name.contains(query) ||
-          settingName.contains(query) ||
-          settingNote.contains(query) ||
-          id.contains(query);
-    }).toList();
+          return name.contains(query) ||
+              settingName.contains(query) ||
+              settingNote.contains(query) ||
+              id.contains(query);
+        })
+        .toList(growable: false);
   }
 
   Widget _buildEmptyState() {
@@ -140,9 +135,9 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
         padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
+          spacing: MEDIUM_SPACE,
           children: <Widget>[
             const icons.Search(size: 48.0, color: Colors.grey),
-            const SizedBox(height: MEDIUM_SPACE),
             Text(
               appLocalizations.no_product_found,
               style: Theme.of(
@@ -175,5 +170,11 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
         );
       },
     );
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
   }
 }

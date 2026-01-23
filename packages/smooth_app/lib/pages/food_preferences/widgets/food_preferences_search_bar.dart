@@ -24,9 +24,7 @@ class FoodPreferencesSearchHelper extends SearchHelper {
     BuildContext context,
     String query, {
     required SearchQueryCallback searchQueryCallback,
-  }) {
-    onSearchChanged?.call(query);
-  }
+  }) => onSearchChanged?.call(query);
 }
 
 class FoodPreferencesSearchBar extends StatefulWidget {
