@@ -321,10 +321,6 @@ class _AutoSizeTextRenderBox extends RenderBox {
     size = constraints.constrain(
       Size(_textPainter!.width, _textPainter!.height),
     );
-
-    print(
-      'AutoSizeText: "$_text" fitted at font size $effectiveFontSize $maxLines',
-    );
   }
 
   double _computeOptimalFontSize(BoxConstraints constraints) {

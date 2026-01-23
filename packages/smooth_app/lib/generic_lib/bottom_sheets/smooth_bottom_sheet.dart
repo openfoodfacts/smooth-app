@@ -98,6 +98,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   required String title,
   required Iterable<String> labels,
   required Iterable<T> values,
+  // If the size may change once the modal is shown
+  bool dynamicSize = false,
   Iterable<String>? subtitles,
   bool addEndArrowToItems = false,
   Widget? header,
@@ -207,6 +209,27 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     items.add(footerChild);
   } else {
     items.add(SizedBox(height: bottomPadding));
+  }
+
+  if (dynamicSize) {
+    return showSmoothModalSheet<T>(
+      context: context,
+      useRootNavigator: useRootNavigator ?? false,
+      builder: (_) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          SmoothModalSheetHeader(
+            title: title,
+            prefix: SmoothModalSheetHeaderPrefixIndicator(
+              color: prefixIndicatorColor,
+            ),
+            backgroundColor: headerBackgroundColor,
+            type: type,
+          ),
+          ...items,
+        ],
+      ),
+    );
   }
 
   return showSmoothAutoSizeModalSheet<T>(
