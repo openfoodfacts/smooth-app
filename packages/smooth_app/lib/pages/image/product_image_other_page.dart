@@ -184,24 +184,9 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
                 builder: (_, int index) {
                   final ProductImage image = widget.images[index];
 
-                  return PhotoViewGalleryPageOptions(
-                    imageProvider: NetworkImage(
-                      image.getUrl(
-                        widget.product.barcode!,
-                        uriHelper: ProductQuery.getUriProductHelper(
-                          productType: widget.product.productType,
-                        ),
-                      ),
-                    ),
-                    heroAttributes:
-                        widget.currentImage == image && widget.heroTag != null
-                        ? PhotoViewHeroAttributes(tag: widget.heroTag!)
-                        : null,
-                    minScale: PhotoViewComputedScale.contained,
-                    maxScale: PhotoViewComputedScale.covered * 3,
-                  );
+                  return _buildProductImageViewer(image, index);
                 },
-                loadingBuilder: (_, __) =>
+                loadingBuilder: (_, _) =>
                     const Center(child: CircularProgressIndicator.adaptive()),
               ),
             ),
@@ -245,6 +230,36 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
     );
   }
 
+  PhotoViewGalleryPageOptions _buildProductImageViewer(
+    ProductImage image,
+    int index,
+  ) {
+    return PhotoViewGalleryPageOptions(
+      imageProvider: NetworkImage(
+        image.getUrl(
+          widget.product.barcode!,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: widget.product.productType,
+          ),
+        ),
+      ),
+
+      heroAttributes: widget.currentImage == image && widget.heroTag != null
+          ? PhotoViewHeroAttributes(tag: widget.heroTag ?? '')
+          : null,
+      minScale: PhotoViewComputedScale.contained,
+      maxScale: PhotoViewComputedScale.covered * 3,
+      errorBuilder: (_, _, _) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const icons.Warning(size: 48.0, color: Colors.red),
+          const SizedBox(height: SMALL_SPACE),
+          Text(AppLocalizations.of(context).error_loading_photo),
+        ],
+      ),
+    );
+  }
+
   Future<void> _usePhotoAs() async {
     final ProductImagePageResult? res = await ProductImageOtherPage.usePhotoAs(
       context: context,
@@ -256,93 +271,6 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
     if (mounted && res != null) {
       Navigator.of(context).pop<ProductImagePageResult>(res);
     }
-  }
-}
-
-class _ProductImageViewer extends StatelessWidget {
-  const _ProductImageViewer({
-    required this.image,
-    required this.barcode,
-    required this.language,
-    required this.productType,
-    this.heroTag,
-  });
-
-  final ProductImage image;
-  final String barcode;
-  final OpenFoodFactsLanguage language;
-  final String? heroTag;
-  final ProductType? productType;
-
-  @override
-  Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
-
-    return Stack(
-      children: <Widget>[
-        Positioned.fill(
-          child: HeroMode(
-            enabled: heroTag?.isNotEmpty == true,
-            child: Hero(
-              tag: heroTag ?? '',
-              child: Image(
-                image: NetworkImage(
-                  image.getUrl(
-                    barcode,
-                    uriHelper: ProductQuery.getUriProductHelper(
-                      productType: productType,
-                    ),
-                  ),
-                ),
-                fit: BoxFit.contain,
-                loadingBuilder:
-                    (
-                      _,
-                      final Widget child,
-                      final ImageChunkEvent? loadingProgress,
-                    ) {
-                      if (loadingProgress != null) {
-                        return const Center(
-                          child: CircularProgressIndicator.adaptive(),
-                        );
-                      } else {
-                        return child;
-                      }
-                    },
-                errorBuilder: (_, _, _) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const icons.Warning(size: 48.0, color: Colors.red),
-                    const SizedBox(height: SMALL_SPACE),
-                    Text(AppLocalizations.of(context).error_loading_photo),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
-          left: SMALL_SPACE,
-          right: SMALL_SPACE,
-          child: IntrinsicHeight(
-            child: Row(
-              children: <Widget>[
-                _ProductImageDetailsButton(
-                  image: image,
-                  barcode: barcode,
-                  productType: productType,
-                ),
-                const Spacer(),
-                if (image.expired) _ProductImageOutdatedLabel(colors: colors),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
   }
 }
 
