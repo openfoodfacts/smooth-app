@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Açık Fiyatlar",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Kişisel bakım",
   "product_type_label_pet_food": "Evcil hayvan maması",
   "product_type_label_product": "Diğer",
+  "product_type_label_unknown": "Bilinmeyen",
   "product_type_selection_title": "Ürün tipi",
   "product_type_selection_subtitle": "Bu ürünün türünü seçin",
   "product_type_selection_empty": "Öncelikle bir ürün türü seçmeniz gerekiyor!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Ürün detaylarını görüntüle",
   "prices_entry_menu_open_product_prices": "Bu ürünün tüm fiyatlarını görüntüle",
   "prices_entry_menu_open_proof": "Kanıtı görüntüle",
   "prices_entry_menu_my_prices": "Diğer fiyatlarımı görüntüle",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Açık Fiyatlar hakkında daha fazla bilgi edinin.",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Puanlama hakkında bir not",
   "guide_open_beauty_facts_scores_paragraph1": "Gıda ürünlerinin aksine, kozmetik dünyasında **Nutri-Score gibi evrensel olarak kabul görmüş, devlet destekli bir puanlama sistemi** bulunmamaktadır. İçeriklerin etkileri kişiden kişiye büyük ölçüde değişebilir ve cilt tipine, alerjilere ve bireysel endişelere bağlıdır.",
   "guide_open_beauty_facts_share_link": "https://world-tr.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Açık Fiyatlar'a hoş geldiniz!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Açık Fiyatlar nedir?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices, **dünya genelindeki ürünlerin fiyatlarını toplamak ve paylaşmak** amacıyla oluşturulmuş bir projedir. Araştırma, analiz ve daha birçok amaç için kullanılabilen, herkese açık bir veri setidir. Open Prices, Open Food Facts tarafından geliştirilmekte ve sürdürülmektedir.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Açık Fiyatlandırma sistemi nasıl çalışır?",
   "guide_open_prices_how_paragraph1": "**Açık kaynaklı bir fiyat veri seti oluşturmak için kitle kaynak yöntemini kullanıyoruz.** Kullanıcılar bu web uygulaması veya resmi Open Food Facts mobil uygulaması aracılığıyla fiyat ekleyebilirler. Perakendeciler veya üçüncü taraf uygulamalar da API'mizi kullanarak katkıda bulunabilirler.",
   "guide_open_prices_how_arg1_title": "Koridorlardaki fiyat etiketlerinin fotoğraflarını toplayın.",
   "guide_open_prices_how_arg2_title": "Fişlerin fotoğraflarını toplayın.",
@@ -4173,7 +4176,7 @@
   "guide_open_prices_why_arg2_title": "Yakınınızdaki fiyatları karşılaştırın",
   "guide_open_prices_why_arg2_text": "Daha fazla fiyat bilgisi edindikçe, **çevrenizdeki en ucuz mağazaları** tespit edebileceksiniz.",
   "guide_open_prices_scrapping_title": "Perakendecilerin web sitelerinden fiyatları kazımayı düşündünüz mü?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Yasal ve teknik nedenlerden dolayı, **perakendecilerin web sitelerinden fiyat verilerini çekmeyi Açık Fiyatlar'a katkıda bulunmanın geçerli bir yolu olarak görmüyoruz**. Topladığımız fiyatların doğru ve güncel olduğundan emin olmak istiyoruz ve katkıda bulunanlardan çekilen fiyatları almak bunu yapmamıza olanak sağlamıyor.",
   "guide_open_prices_scrapping_paragraph2": "Fiyat kazıma işlemi, Open Prices'ın gelecekteki bir sürümünde düşünülen bir seçenektir, ancak bu işlem Open Prices tarafından yapılacaktır, böylece HTML sayfasına dayalı olarak fiyatın kanıtını elde edebiliriz.",
   "guide_open_prices_retailers_title": "Ben bir perakendeciyim ve fiyatlara katkıda bulunmak istiyorum. Bunu nasıl yapabilirim?",
   "guide_open_prices_retailers_paragraph1": "API'mizi kullanarak fiyat katkısında bulunabilirsiniz.\nBüyük ölçekte fiyat katkısında bulunmak istiyorsanız lütfen prices@openfoodfacts.org adresinden bizimle iletişime geçin.",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Benim için",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Uyumluluğum",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% uyumlu",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Uyumluluk puanı hesaplamak için yeterli veri yok.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" türündeki bir ürün için puan hesaplanamaz.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Önem",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Maçlar",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "İyi eşleşmeler",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Ortalama maçlar",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Kötü eşleşmeler",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Bilinmeyen eşleşmeler",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Web sitesi",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Açık Fiyatları Keşfedin",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Açık Fiyat metrikleri",
+  "preferences_prices_metrics_title": "Açılış Fiyatları metrikleri",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Posta kodu",
   "location_map_details_country": "Ülke",
   "location_map_details_coordinates": "Koordinatlar",
-  "location_map_details_osm_id": "OSM Kimliği"
+  "location_map_details_osm_id": "OSM Kimliği",
+  "homepage_scanner_back_to_home_button": "Ana sayfaya geri dön",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kamerayı aç/kapat",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Barkod okuyucuyu gösterin",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Bir **barkodu** taramak için dokunun\nve **sizin için uygun olup olmadığını** öğrenin!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "El fenerini açıp kapatın.",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Ürünün barkoduna yaklaşarak ürünü tarayın.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Şu barkodu tespit ettik: {barcode}, ancak geçersiz görünüyor.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Daha fazlasını görüntüle…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "En çok taranan ürünler",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Son taranan ürünler",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

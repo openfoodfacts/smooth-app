@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -185,7 +186,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Ajudeu a millorar Open Food Informations al vostre país",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "País",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Cura personal",
   "product_type_label_pet_food": "Menjar per a mascotes",
   "product_type_label_product": "Altres",
+  "product_type_label_unknown": "Desconegut",
   "product_type_selection_title": "Tipus de producte",
   "product_type_selection_subtitle": "Seleccioneu el tipus d'aquest producte",
   "product_type_selection_empty": "Primer has de seleccionar un tipus de producte!",
@@ -2316,7 +2318,7 @@
   },
   "prices_app_dev_mode_flag": "Drecera a l'aplicació Preus a la pàgina del producte",
   "prices_app_button": "Ves a l'aplicació Preus",
-  "prices_website_button": "Obre al lloc web de Preus Oberts",
+  "prices_website_button": "Obre al lloc web de Open Prices",
   "prices_bulk_proof_upload_select": "Afegeix etiquetes de preu directament des de la galeria",
   "prices_bulk_proof_upload_warning": "Un cop hagis seleccionat les imatges, no les podràs editar!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Veure detalls del producte",
   "prices_entry_menu_open_product_prices": "Veure tots els preus d'aquest producte",
   "prices_entry_menu_open_proof": "Veure prova",
   "prices_entry_menu_my_prices": "Veure els meus altres preus",
@@ -2497,7 +2500,7 @@
       }
     }
   },
-  "prices_open_proof": "Prova de preu obert",
+  "prices_open_proof": "Prova de Open Prices",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Més informació sobre els preus oberts",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Una nota sobre la puntuació",
   "guide_open_beauty_facts_scores_paragraph1": "A diferència dels productes alimentaris, el món dels cosmètics **no té un sistema de puntuació universalment reconegut i avalat pel govern com el Nutri-Score**. Els efectes dels ingredients poden ser molt personals i depenen del tipus de pell, les al·lèrgies i les preocupacions individuals.",
   "guide_open_beauty_facts_share_link": "https://world-ca.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Benvinguts a Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Què són els preus oberts?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices és un projecte per **recopilar i compartir preus de productes a tot el món**. És un conjunt de dades disponible públicament que es pot utilitzar per a la recerca, l'anàlisi i més. Open Prices està desenvolupat i mantingut per Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Per a mi",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "La meva compatibilitat",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatible",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Dades insuficients per calcular una puntuació de compatibilitat.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "No es pot calcular una puntuació per a un producte del tipus \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Importància",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Partits",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Bons partits",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Partides mitjanes",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Males coincidències",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Coincidències desconegudes",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Lloc web",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Descobreix Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Mètriques de preu d'obertura",
+  "preferences_prices_metrics_title": "Mètriques de preus d'obertura",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Carrer",
   "location_map_details_city": "Ciutat",
   "location_map_details_postcode": "Codi postal",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "País",
   "location_map_details_coordinates": "Coordenades",
-  "location_map_details_osm_id": "ID d'OSM"
+  "location_map_details_osm_id": "ID d'OSM",
+  "homepage_scanner_back_to_home_button": "Tornada a casa",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Activa/desactiva la càmera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Mostra l'escàner de codis de barres",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Toca per escanejar un **codi de barres**\ni descobrir si és **bo per a tu**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Torxa d'activació/desactivació",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Escaneja un producte acostant-te al seu codi de barres",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Hem detectat el següent codi de barres: {barcode}, però sembla que no és vàlid.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Veure més…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Productes més escanejats",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Productes escanejats per última vegada",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

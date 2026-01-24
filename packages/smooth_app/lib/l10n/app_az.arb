@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -185,7 +186,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Ölkənizdə Açıq Qida Faktlarını təkmilləşdirməyə kömək edin",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -395,7 +396,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Tərcümələr layihənin əsas vəzifələrindən biridir",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+  "contribute_join_skill_pool": "Bacarıqlarınızı Açıq Qida Faktlarına töhfə verin. Bacarıq hovuzuna qoşulun!",
   "contribute_share_header": "Açıq Qida Faktlarını Dostlarınızla Paylaşın",
   "@contribute_share_header": {},
   "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -711,7 +712,7 @@
   "nutritional_facts_input_button_label": "Qidalanma faktlarını doldurun",
   "nutritional_facts_added": "Qidalanma faktları əlavə edildi",
   "categories_added": "Kateqoriyalar əlavə edildi",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "Nutri-Skorunu Hesablayın",
   "new_product_subtitle_nutriscore": "Ən azı bir kateqoriya və qida dəyərlərini dolduraraq bizə kömək edin",
   "new_product_title_environmental_score": "Yaşıl Hesabı Hesablayın",
   "new_product_subtitle_environmental_score": "Ən azı bir kateqoriya dolduraraq əldə edin",
@@ -1076,15 +1077,15 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+  "product_improvement_add_category": "Nutri-Balı hesablamaq üçün bir kateqoriya əlavə edin.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Nutri-Balı hesablamaq üçün qidalanma faktlarını əlavə edin.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "Nutri-Balı hesablamaq üçün qidalanma faktları və kateqoriya əlavə edin.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Şəxsi qulluq",
   "product_type_label_pet_food": "Ev heyvanları üçün yem",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Naməlum",
   "product_type_selection_title": "Məhsul növü",
   "product_type_selection_subtitle": "Bu məhsulun növünü seçin",
   "product_type_selection_empty": "Əvvəlcə məhsul növünü seçməlisiniz!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Məhsul detallarına baxın",
   "prices_entry_menu_open_product_prices": "Bu məhsulun bütün qiymətlərinə baxın",
   "prices_entry_menu_open_proof": "sübuta baxın",
   "prices_entry_menu_my_prices": "Digər qiymətlərimə baxın",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Açıq Qiymətlər haqqında daha çox məlumat əldə edin",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3849,8 +3852,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Yeni hesablama)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "Naməlum Nutri-Balı",
+  "nutriscore_unknown_new_formula": "Naməlum Nutri-Balı (Yeni hesablama)",
   "nutriscore_not_applicable": "Nutri-Score tətbiq olunmur",
   "nutriscore_not_applicable_new_formula": "Nutri-Score tətbiq olunmur (Yeni hesablama)",
   "environmental_score_generic_new": "Green-Score",
@@ -4149,12 +4152,12 @@
   "guide_open_beauty_facts_scores_title": "Qol vurmaqla bağlı qeyd",
   "guide_open_beauty_facts_scores_paragraph1": "Qida məhsullarından fərqli olaraq, kosmetika dünyasında **Nutri-Score** kimi universal olaraq qəbul edilmiş, hökumət tərəfindən dəstəklənən qiymətləndirmə sistemi yoxdur. Tərkib hissələrinin təsiri olduqca fərdi ola bilər və dəri tipindən, allergiyadan və fərdi narahatlıqlardan asılıdır.",
   "guide_open_beauty_facts_share_link": "https://world-az.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Açıq Qiymətlərə Xoş Gəlmisiniz!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "Açıq Qiymətlər nədir?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Açıq Qiymətlər, **dünya üzrə məhsulların qiymətlərini toplamaq və paylaşmaq** üçün bir layihədir. Bu, tədqiqat, təhlil və daha çox məqsəd üçün istifadə edilə bilən ictimaiyyətə açıq məlumat dəstidir. Açıq Qiymətlər Open Food Facts tərəfindən hazırlanır və saxlanılır.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Açıq Qiymətlər necə işləyir?",
   "guide_open_prices_how_paragraph1": "**Biz açıq mənbəli qiymətlər məlumat dəstini kütləvi mənbələrdən əldə edirik**. Qiymətlər istifadəçilər tərəfindən bu veb tətbiq və ya rəsmi Open Food Facts mobil tətbiqi vasitəsilə əlavə edilə bilər. Pərakəndə satıcılar və ya üçüncü tərəf tətbiqləri də API-mizdən istifadə edərək töhfə verə bilərlər.",
   "guide_open_prices_how_arg1_title": "Dəhlizlərdə qiymət etiketlərinin şəkillərini toplayın",
   "guide_open_prices_how_arg2_title": "Qəbzlərin şəkillərini toplayın",
@@ -4173,8 +4176,8 @@
   "guide_open_prices_why_arg2_title": "Yaxınlığınızdakı qiymətləri müqayisə edin",
   "guide_open_prices_why_arg2_text": "Daha çox qiymət əldə etdikcə, ətrafınızdakı **ən ucuz mağazaları** görə bilərsiniz.",
   "guide_open_prices_scrapping_title": "Pərakəndə satış saytlarından qiymətləri silməyi düşündünüzmü?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_scrapping_paragraph1": "Hüquqi və texniki səbəblərə görə, **pərakəndə satış şirkətlərinin veb saytlarından qiymətlərin götürülməsini Açıq Qiymətlərə töhfə vermək üçün etibarlı bir yol hesab etmirik**. Topladığımız qiymətlərin dəqiq və yenilənmiş olduğundan əmin olmaq istəyirik və töhfə verənlərdən qiymətlərin götürülməsi bizə bunu etməyə imkan vermir.",
+  "guide_open_prices_scrapping_paragraph2": "Açıq Qiymətlərin gələcək versiyasında qiymətlərin hesablanması nəzərdən keçirilən bir seçimdir, lakin HTML səhifəsinə əsaslanan qiymətin sübutuna sahib ola bilməyimiz üçün bu, Açıq Qiymətlərin özü tərəfindən ediləcək.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "API-mizdən istifadə edərək qiymətlər təklif edə bilərsiniz.\nƏgər miqyaslı qiymətlər təklif etmək istəyirsinizsə, zəhmət olmasa, prices@openfoodfacts.org ünvanı vasitəsilə bizimlə əlaqə saxlayın.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "mənim üçün",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Uyğunluğum",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% uyğun",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Uyğunluq balını hesablamaq üçün kifayət qədər məlumat yoxdur.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" tipli hasil üçün bal hesablana bilməz.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Əhəmiyyət",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Matçlar",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Yaxşı uyğunluqlar",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Orta uyğunluqlar",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Pis uyğunluqlar",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Naməlum uyğunluqlar",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Veb sayt",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Açıq Qiymətləri Kəşf Edin",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Açıq Qiymət ölçüləri",
+  "preferences_prices_metrics_title": "Açıq Qiymətlər Metrikaları",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Poçt kodu",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Koordinatlar",
-  "location_map_details_osm_id": "OSM ID-si"
+  "location_map_details_osm_id": "OSM ID-si",
+  "homepage_scanner_back_to_home_button": "Evə qayıt",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kameranı aç/bağla",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Barkod skanerini göstər",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "**Barkod**\nskan etmək və onun sizin üçün **yaxşı** olub olmadığını öyrənmək üçün toxunun!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Fənəri aç/bağla",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Məhsulu barkoduna yaxınlaşdıraraq skan edin",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Aşağıdakı barkod aşkar etdik: {barcode}, amma görünür, etibarsızdır.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Daha çoxuna baxın…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Son skan edilmiş məhsullar",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

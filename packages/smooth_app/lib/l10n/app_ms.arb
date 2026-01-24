@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Harga Terbuka",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -185,7 +186,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Bantu tingkatkan Fakta Makanan Terbuka di negara anda",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -711,7 +712,7 @@
   "nutritional_facts_input_button_label": "Isi fakta pemakanan",
   "nutritional_facts_added": "Fakta pemakanan ditambah",
   "categories_added": "Kategori ditambah",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "Kira Skor Nutri",
   "new_product_subtitle_nutriscore": "Bantu kami dengan mengisi sekurang-kurangnya satu kategori dan nilai pemakanan",
   "new_product_title_environmental_score": "Kira Skor Hijau",
   "new_product_subtitle_environmental_score": "Dapatkannya dengan mengisi sekurang-kurangnya satu kategori",
@@ -720,7 +721,7 @@
   "new_product_subtitle_nova": "Dapatkannya dengan mengisi kategori makanan dan bahan-bahan",
   "new_product_desc_nova_unknown": "Tahap pemprosesan makanan tidak diketahui",
   "new_product_title_pictures": "Produk baharu",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "Sila ambil gambar berikut dan enjin Fakta Makanan Terbuka boleh mengira selebihnya!",
   "new_product_title_misc": "Dan beberapa data asas…",
   "new_product_done_msg": "Terima kasih atas sumbangan anda \"{username}\"!",
   "@new_product_done_msg": {
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Penjagaan diri",
   "product_type_label_pet_food": "Makanan haiwan peliharaan",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Tidak diketahui",
   "product_type_selection_title": "Jenis produk",
   "product_type_selection_subtitle": "Pilih jenis produk ini",
   "product_type_selection_empty": "Anda perlu memilih jenis produk terlebih dahulu!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Lihat butiran produk",
   "prices_entry_menu_open_product_prices": "Lihat semua harga untuk produk ini",
   "prices_entry_menu_open_proof": "Lihat bukti",
   "prices_entry_menu_my_prices": "Lihat harga saya yang lain",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Ketahui lebih lanjut tentang Harga Terbuka",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3834,12 +3837,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
-  "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
-  "nutriscore_e": "Nutri-Score E",
-  "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+  "nutriscore_a": "Skor Nutri A",
+  "nutriscore_b": "Skor Nutri B",
+  "nutriscore_c": "Skor Nutri C",
+  "nutriscore_d": "Skor Nutri D",
+  "nutriscore_e": "Skor Nutri E",
+  "nutriscore_new_formula": "Skor Nutri {letter} (Pengiraan baharu)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3848,10 +3851,10 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
-  "nutriscore_not_applicable": "Nutri-Score is not applicable",
+  "nutriscore_new_formula_title": "Skor Nutri (Pengiraan baharu)",
+  "nutriscore_unknown": "Skor Nutri Tidak Diketahui",
+  "nutriscore_unknown_new_formula": "Skor Nutri Tidak Diketahui (Pengiraan baharu)",
+  "nutriscore_not_applicable": "Skor Nutri tidak berkenaan",
   "nutriscore_not_applicable_new_formula": "Nutri-Score tidak berkenaan (Pengiraan baharu)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Skor Hijau A",
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Nota tentang pemarkahan",
   "guide_open_beauty_facts_scores_paragraph1": "Tidak seperti produk makanan, dunia kosmetik **tidak mempunyai sistem pemarkahan yang diiktiraf secara universal dan disokong oleh kerajaan seperti Nutri-Score**. Kesan ramuan boleh menjadi sangat peribadi dan bergantung pada jenis kulit, alahan dan masalah individu.",
   "guide_open_beauty_facts_share_link": "https://world-ms.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Selamat datang ke Harga Terbuka!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Apakah Harga Terbuka?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices ialah projek untuk **mengumpul dan berkongsi harga produk di seluruh dunia**. Ia merupakan set data yang tersedia secara umum yang boleh digunakan untuk penyelidikan, analisis dan banyak lagi. Open Prices dibangunkan dan diselenggara oleh Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Bagaimanakah Harga Terbuka berfungsi?",
   "guide_open_prices_how_paragraph1": "**Kami sedang mengumpul dataset harga sumber terbuka**. Harga boleh ditambah oleh pengguna melalui aplikasi web ini atau melalui aplikasi mudah alih rasmi Open Food Facts. Peruncit atau aplikasi pihak ketiga juga boleh menyumbang dengan menggunakan API kami.",
   "guide_open_prices_how_arg1_title": "Kumpulkan gambar tanda harga di lorong",
   "guide_open_prices_how_arg2_title": "Kumpulkan gambar resit",
@@ -4173,8 +4176,8 @@
   "guide_open_prices_why_arg2_title": "Bandingkan harga berhampiran anda",
   "guide_open_prices_why_arg2_text": "Apabila kami mendapat lebih banyak harga, anda boleh melihat **kedai termurah di sekitar anda**.",
   "guide_open_prices_scrapping_title": "Adakah anda mempertimbangkan untuk mendapatkan harga daripada laman web peruncit?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_scrapping_paragraph1": "Atas sebab-sebab perundangan dan teknikal, **kami tidak menganggap pengambilan harga daripada laman web peruncit sebagai cara yang sah untuk menyumbang kepada Harga Terbuka**. Kami ingin memastikan bahawa harga yang kami kumpulkan adalah tepat dan terkini, dan menerima pengambilan harga daripada penyumbang tidak membenarkan kami berbuat demikian.",
+  "guide_open_prices_scrapping_paragraph2": "Pengikisan harga merupakan pilihan yang dipertimbangkan dalam versi Harga Terbuka yang akan datang, tetapi ia akan dilakukan oleh Harga Terbuka itu sendiri supaya kita boleh mendapatkan bukti harga berdasarkan halaman HTML.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Anda boleh menyumbang harga dengan menggunakan API kami.\nJika anda ingin menyumbang harga secara berskala, sila hubungi kami di prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Bagi saya",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Keserasian saya",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% serasi",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Data tidak mencukupi untuk mengira skor keserasian.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Skor tidak boleh dikira untuk hasil darab jenis \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Kepentingan",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Perlawanan",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Padanan yang baik",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Padanan purata",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Perlawanan buruk",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Padanan tidak diketahui",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Laman Web",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Temui Harga Terbuka",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Poskod",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Koordinat",
-  "location_map_details_osm_id": "ID OSM"
+  "location_map_details_osm_id": "ID OSM",
+  "homepage_scanner_back_to_home_button": "Kembali ke rumah",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Togol kamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Tunjukkan pengimbas kod bar",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Ketik untuk mengimbas **kod bar**\ndan ketahui sama ada ia **sesuai untuk anda**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Togol obor",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Imbas produk dengan menghampiri kod barnya",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Kami telah mengesan kod bar berikut: {barcode}, tetapi nampaknya ia tidak sah.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Lihat lebih banyak lagi…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Produk yang diimbas terakhir",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

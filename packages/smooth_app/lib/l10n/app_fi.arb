@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -472,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Yhteisö",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Maa",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Henkilökohtainen hoito",
   "product_type_label_pet_food": "Lemmikin ruoka",
   "product_type_label_product": "Muu",
+  "product_type_label_unknown": "Tuntematon",
   "product_type_selection_title": "Tuotetyyppi",
   "product_type_selection_subtitle": "Valitse tuotteen tyyppi",
   "product_type_selection_empty": "Tuotteen tyyppi on valittava ensin!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Näytä tuotteen tiedot",
   "prices_entry_menu_open_product_prices": "Näytä kaikki tämän tuotteen hinnat",
   "prices_entry_menu_open_proof": "Näytä todiste",
   "prices_entry_menu_my_prices": "Katso muut hintani",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Lue lisää avoimista hinnoista",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2787,7 +2790,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Hintavaikutusavustaja",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Hintavahvistusavustaja",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
@@ -4149,20 +4152,20 @@
   "guide_open_beauty_facts_scores_title": "Huomautus pisteytyksestä",
   "guide_open_beauty_facts_scores_paragraph1": "Toisin kuin elintarvikkeilla, kosmetiikkamaailmassa **ei ole yleisesti tunnustettua, hallituksen tukemaa pisteytysjärjestelmää, kuten Nutri-Score**. Ainesosien vaikutukset voivat olla hyvin henkilökohtaisia ja riippua ihotyypistä, allergioista ja yksilöllisistä huolenaiheista.",
   "guide_open_beauty_facts_share_link": "https://world-fi.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Tervetuloa avoimiin hintoihin!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Mitä ovat avoimet hinnat?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices on projekti, jonka tarkoituksena on **kerätä ja jakaa tuotteiden hintoja ympäri maailmaa**. Se on julkisesti saatavilla oleva tietojoukko, jota voidaan käyttää tutkimukseen, analyysiin ja muuhun. Open Pricesin on kehittänyt ja ylläpitää Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Tällä hetkellä on vain vähän yrityksiä, joilla on laajoja viivakooditason tuotehintatietokantoja. Nämä hinnat eivät ole vapaasti saatavilla, vaan niitä myydään korkeaan hintaan yksityisille toimijoille, tutkijoille ja muille organisaatioille, joilla on niihin varaa.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Miten avoimet hinnat toimivat?",
   "guide_open_prices_how_paragraph1": "**Joukkoistamme avoimen lähdekoodin hintatietoaineistoa**. Käyttäjät voivat lisätä hintoja tämän verkkosovelluksen tai virallisen Open Food Facts -mobiilisovelluksen kautta. Jälleenmyyjät tai kolmannen osapuolen sovellukset voivat myös osallistua käyttämällä API-rajapintaamme.",
   "guide_open_prices_how_arg1_title": "Kerää kuvia hintalapuista käytävillä",
   "guide_open_prices_how_arg2_title": "Kerää kuvia kuiteista",
@@ -4173,9 +4176,9 @@
   "guide_open_prices_why_arg2_title": "Vertaile hintoja lähelläsi",
   "guide_open_prices_why_arg2_text": "Kun saamme lisää hintoja, voit paikantaa **halvimmat kaupat lähistöltä**.",
   "guide_open_prices_scrapping_title": "Oletko harkinnut hintojen kopioimista jälleenmyyjien verkkosivuilta?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Juridisista ja teknisistä syistä **emme pidä hintojen keräämistä jälleenmyyjien verkkosivustoilta pätevänä tapana osallistua avoimien hintojen keräämiseen**. Haluamme varmistaa, että keräämämme hinnat ovat tarkkoja ja ajantasaisia, emmekä voi tehdä sitä, koska saamme keräämiämme hintoja osallistujilta.",
   "guide_open_prices_scrapping_paragraph2": "Hintakaapumista harkitaan tulevassa Open Prices -versiossa, mutta Open Prices tekisi sen itse, jotta meillä olisi HTML-sivun perusteella todiste hinnasta.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Olen jälleenmyyjä ja haluan osallistua hintoihin. Miten voin tehdä sen?",
   "guide_open_prices_retailers_paragraph1": "Voit osallistua hintojen kehittämiseen API:mme kautta.\nJos haluat osallistua hintojen kehittämiseen suuremmassa mittakaavassa, ota meihin yhteyttä osoitteessa prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Tervetuloa Open Products Facts -sivustolle!",
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Yhteensopivuuteni",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}Yhteensopiva %",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Riittämättömät tiedot yhteensopivuuspistemäärän laskemiseksi.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Pisteitä ei voida laskea tyypille \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Merkitys",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Ottelut",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Hyvät ottelut",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Keskimääräiset ottelut",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Huonot ottelut",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Tuntemattomat osumat",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Nettisivusto",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4671,7 +4724,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Todisteet",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4679,7 +4732,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Kokeet",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4699,11 +4752,11 @@
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Alennuksella",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Yhteisö",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4763,7 +4816,7 @@
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Hintalappuun sidotut hinnat",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Tutustu avoimiin hintoihin",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Avaa hintamittarit",
+  "preferences_prices_metrics_title": "Avaushintojen mittarit",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Katu",
   "location_map_details_city": "Kaupunki",
   "location_map_details_postcode": "Postinumero",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Maa",
   "location_map_details_coordinates": "Koordinaatit",
-  "location_map_details_osm_id": "OSM-tunnus"
+  "location_map_details_osm_id": "OSM-tunnus",
+  "homepage_scanner_back_to_home_button": "Takaisin kotiin",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kamera päälle/pois",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Näytä viivakoodinlukija",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Napauta skannataksesi **viivakoodin**\nja selvitä, onko se **hyvä sinulle**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Toggle-to-one-taskulamppu",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skannaa tuote lähestymällä sen viivakoodia",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Olemme havainneet seuraavan viivakoodin: {barcode}, mutta se näyttää olevan virheellinen.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Näytä lisää…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Luetuimmat tuotteet",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Viimeksi skannatut tuotteet",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

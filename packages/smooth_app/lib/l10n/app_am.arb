@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -185,7 +186,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "በአገርዎ ውስጥ ክፍት የምግብ እውነታዎችን ለማሻሻል ያግዙ",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -711,7 +712,7 @@
   "nutritional_facts_input_button_label": "የአመጋገብ እውነታዎችን ይሙሉ",
   "nutritional_facts_added": "የአመጋገብ እውነታዎች ተጨምረዋል",
   "categories_added": "ምድቦች ታክለዋል",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "የኑትሪ-ነጥብ ስሌት",
   "new_product_subtitle_nutriscore": "ቢያንስ አንድ ምድብ እና የአመጋገብ እሴቶችን በመሙላት ያግዙን",
   "new_product_title_environmental_score": "አረንጓዴውን ውጤት አስላ",
   "new_product_subtitle_environmental_score": "ቢያንስ አንድ ምድብ በመሙላት ያግኙት",
@@ -720,7 +721,7 @@
   "new_product_subtitle_nova": "የምግብ ምድቡን እና ግብዓቶቹን በመሙላት ያግኙት",
   "new_product_desc_nova_unknown": "የምግብ ማቀነባበሪያ ደረጃ አይታወቅም",
   "new_product_title_pictures": "አዲስ ምርት",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "እባክዎን የሚከተሉትን ፎቶዎች ያንሱ እና የክፍት ምግብ እውነታዎች ሞተር የቀረውን ማወቅ ይችላል!",
   "new_product_title_misc": "እና አንዳንድ መሰረታዊ መረጃዎች…",
   "new_product_done_msg": "\"{username}\" ላበረከቱት አስተዋጽኦ እናመሰግናለን!",
   "@new_product_done_msg": {
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "ሀገር",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "የግል እንክብካቤ",
   "product_type_label_pet_food": "የቤት እንስሳት ምግብ",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "ያልታወቀ",
   "product_type_selection_title": "የምርት አይነት",
   "product_type_selection_subtitle": "የዚህን ምርት አይነት ይምረጡ",
   "product_type_selection_empty": "መጀመሪያ የምርት አይነት መምረጥ ያስፈልግዎታል!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "የምርት ዝርዝሮችን ይመልከቱ",
   "prices_entry_menu_open_product_prices": "የዚህን ምርት ሁሉንም ዋጋዎች ይመልከቱ",
   "prices_entry_menu_open_proof": "ማስረጃ ይመልከቱ",
   "prices_entry_menu_my_prices": "የእኔን ሌሎች ዋጋ ይመልከቱ",
@@ -3835,9 +3838,9 @@
   },
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
-  "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_b": "የኑትሪ-ውጤት ቢ",
+  "nutriscore_c": "የኑትሪ-ስኬር ሲ",
+  "nutriscore_d": "የኑትሪ-ውጤት ዲ",
   "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (አዲስ ስሌት)",
   "@nutriscore_new_formula": {
@@ -3849,8 +3852,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (አዲስ ስሌት)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "ያልታወቀ የኑትሪ-ስኬር",
+  "nutriscore_unknown_new_formula": "ያልታወቀ የኑትሪ-ነጥብ (አዲስ ስሌት)",
   "nutriscore_not_applicable": "Nutri-Score ተፈጻሚ አይሆንም",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ተፈጻሚ አይሆንም (አዲስ ስሌት)",
   "environmental_score_generic_new": "Green-Score",
@@ -3862,11 +3865,11 @@
   "environmental_score_unknown_new": "ያልታወቀ አረንጓዴ-ውጤት",
   "environmental_score_not_applicable_new": "አረንጓዴ-ውጤት ተፈጻሚ አይሆንም",
   "nova_group_generic_new": "እጅግ በጣም የተቀነባበሩ ምግቦች - NOVA ቡድኖች",
-  "nova_group_1": "NOVA Group 1",
-  "nova_group_2": "NOVA Group 2",
-  "nova_group_3": "NOVA Group 3",
-  "nova_group_4": "NOVA Group 4",
-  "nova_group_unknown": "Unknown NOVA Group",
+  "nova_group_1": "የኖቫ ቡድን 1",
+  "nova_group_2": "ኖቫ ግሩፕ 2",
+  "nova_group_3": "የኖቫ ቡድን 3",
+  "nova_group_4": "ኖቫ ግሩፕ 4",
+  "nova_group_unknown": "ያልታወቀ የኖቫ ቡድን",
   "nutrition_facts": "የአመጋገብ ደረጃዎች",
   "faq_title_partners": "የመንግስታዊ ያልሆነ ድርጅት አጋሮች እና ደጋፊዎች",
   "faq_title_vision": "ክፍት የምግብ እውነታዎች ራዕይ፣ ተልዕኮ፣ እሴቶች እና ፕሮግራሞች",
@@ -4154,7 +4157,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "ክፍት ዋጋዎች **በዓለም ዙሪያ የምርት ዋጋዎችን ለመሰብሰብ እና ለማጋራት የሚያስችል ፕሮጀክት ነው**። ለምርምር፣ ለመተንተን እና ለሌሎችም ጥቅም ላይ ሊውል የሚችል በይፋ የሚገኝ የውሂብ ስብስብ ነው። ክፍት ዋጋዎች የሚዘጋጁት በክፍት የምግብ እውነታዎች ነው።",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "ክፍት ዋጋዎች እንዴት ይሰራሉ?",
   "guide_open_prices_how_paragraph1": "**ዋጋዎችን ክፍት ምንጭ የውሂብ ስብስብ እያሰባሰብን ነው**። ዋጋዎች በተጠቃሚዎች በዚህ የድር መተግበሪያ ወይም በይፋዊው የክፍት ምግብ እውነታዎች የሞባይል መተግበሪያ በኩል ሊታከሉ ይችላሉ። ቸርቻሪዎች ወይም የሶስተኛ ወገን መተግበሪያዎች የእኛን ኤፒአይ በመጠቀምም አስተዋጽዖ ማድረግ ይችላሉ።",
   "guide_open_prices_how_arg1_title": "የዋጋ መለያዎችን ፎቶዎች በመተላለፊያዎች ውስጥ ይሰብስቡ",
   "guide_open_prices_how_arg2_title": "የደረሰኞችን ፎቶዎች ይሰብስቡ",
@@ -4173,7 +4176,7 @@
   "guide_open_prices_why_arg2_title": "በአቅራቢያዎ ያሉ ዋጋዎችን ያወዳድሩ",
   "guide_open_prices_why_arg2_text": "ተጨማሪ ዋጋዎችን ስናገኝ፣ **በዙሪያዎ በጣም ርካሹን መደብሮች** ማግኘት ይችላሉ።",
   "guide_open_prices_scrapping_title": "ከቸርቻሪዎች ድረ-ገጾች ላይ የዋጋ ቅነሳዎችን አስበዋል?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "በሕግ እና በቴክኒካል ምክንያቶች፣ **ከቸርቻሪዎች ድረ-ገጾች የሚወጡ ዋጋዎችን መገልበጥ ለክፍት ዋጋዎች አስተዋጽኦ ለማድረግ እንደ ትክክለኛ መንገድ አድርገን አንቆጥረውም። የምንሰበስበው ዋጋ ትክክለኛ እና ወቅታዊ መሆኑን ማረጋገጥ እንፈልጋለን፣ እና ከአስተዋጽዖ አበርካቾች የተጣሉ ዋጋዎችን መቀበል ያንን እንድናደርግ አይፈቅድልንም።",
   "guide_open_prices_scrapping_paragraph2": "የዋጋ ቅየራ (Preces scraping) ወደፊት በሚካሄደው የOpen Prices ስሪት ውስጥ እንደ አማራጭ የሚወሰድ ቢሆንም፣ በHTML ገጹ ላይ ተመስርቶ የዋጋውን ማረጋገጫ ማግኘት እንድንችል በክፍት Prices ራሱ ይከናወናል።",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "የእኛን ኤፒአይ በመጠቀም ዋጋዎችን ማበርከት ይችላሉ።\nዋጋዎችን በስፋት ማበርከት ከፈለጉ፣ እባክዎን በprices@openfoodfacts.org ያግኙን።",
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "የእኔ ተኳኋኝነት",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% ተኳሃኝ",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "የተኳሃኝነት ነጥብ ለማስላት በቂ ያልሆነ መረጃ።",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "አንድ ነጥብ ለ \"{productType}\" አይነት ምርት ሊሰላ አይችልም።",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "አስፈላጊነት",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "ግጥሚያዎች",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "ጥሩ ግጥሚያዎች",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "አማካይ ግጥሚያዎች",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "መጥፎ ግጥሚያዎች",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "የማይታወቁ ተዛማጆች",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "ድህረገፅ",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4731,7 +4784,7 @@
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
-  "prices_stats_osm": "ኦፕን ስትሪት ካርታ",
+  "prices_stats_osm": "OpenStreetMap",
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "ክፍት ዋጋዎችን ያግኙ",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "የዋጋ መለኪያዎችን ይክፈቱ",
+  "preferences_prices_metrics_title": "የዋጋዎች መለኪያዎችን ይክፈቱ",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "ጎዳና",
   "location_map_details_city": "ከተማ",
   "location_map_details_postcode": "የፖስታ ኮድ",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "ሀገር",
   "location_map_details_coordinates": "መጋጠሚያዎች",
-  "location_map_details_osm_id": "የOSM መታወቂያ"
+  "location_map_details_osm_id": "የOSM መታወቂያ",
+  "homepage_scanner_back_to_home_button": "ወደ ቤት ተመለስ",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "ካሜራውን ቀያይር",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "የባርኮድ ስካነሩን አሳይ",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "**ባርኮድ**\nለመቃኘት መታ ያድርጉ እና **ለእርስዎ ጥሩ መሆኑን** ያግኙ!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "ችቦውን ቀያይር",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "አንድን ምርት ባርኮዱን በመቅረብ ይቃኙ",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "የሚከተለውን ባርኮድ አግኝተናል፦ {barcode}፣ ግን ልክ ያልሆነ ይመስላል።",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "ተጨማሪ ይመልከቱ…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "የመጨረሻዎቹ የተቃኙ ምርቶች",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

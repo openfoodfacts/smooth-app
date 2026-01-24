@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -185,7 +186,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Siza ukuthuthukisa amaqiniso okudla avulekile ezweni lakini",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Ukunakekelwa komuntu siqu",
   "product_type_label_pet_food": "Ukudla kwezilwane ezifuywayo",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Akwaziwa",
   "product_type_selection_title": "Uhlobo lomkhiqizo",
   "product_type_selection_subtitle": "Khetha uhlobo lwalo mkhiqizo",
   "product_type_selection_empty": "Udinga ukukhetha uhlobo lomkhiqizo kuqala!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Buka imininingwane yomkhiqizo",
   "prices_entry_menu_open_product_prices": "Buka zonke izintengo zalo mkhiqizo",
   "prices_entry_menu_open_proof": "Buka ubufakazi",
   "prices_entry_menu_my_prices": "Buka ezinye izintengo zami",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Yazi kabanzi ngamanani avulekile",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "Inothi mayelana nokushaya amagoli",
   "guide_open_beauty_facts_scores_paragraph1": "Ngokungafani nemikhiqizo yokudla, umhlaba wezimonyo **awunalo uhlelo lokuthola amaphuzu oluqashelwa emhlabeni wonke, olusekelwa uhulumeni njenge-Nutri-Score**. Imiphumela yezithako ingaba ngeyomuntu siqu kakhulu futhi incike ohlotsheni lwesikhumba, ukungezwani komzimba, kanye nokukhathazeka komuntu ngamunye.",
   "guide_open_beauty_facts_share_link": "https://world-zu.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Siyakwamukela kumanani avulekile!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Ayini Amanani Avulekile?",
   "guide_open_prices_what_is_open_prices_paragraph1": "I-Open Prices iphrojekthi yokuqoqa nokwabelana ngamanani emikhiqizo emhlabeni wonke**. Isethi yedatha etholakala emphakathini engasetshenziswa ocwaningweni, ekuhlaziyeni, nokuningi. I-Open Prices ithuthukiswa futhi igcinwe yi-Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Asebenza kanjani Amanani Avulekile?",
   "guide_open_prices_how_paragraph1": "**Sisebenzisa idatha yamanani evulekile**. Amanani angangezwa abasebenzisi ngalolu hlelo lokusebenza lwewebhu, noma ngohlelo lokusebenza lweselula olusemthethweni lwe-Open Food Facts. Abathengisi noma izinhlelo zokusebenza zezinkampani zangaphandle nazo zinganikela ngokusebenzisa i-API yethu.",
   "guide_open_prices_how_arg1_title": "Qoqa izithombe zamathegi entengo ezindleleni",
   "guide_open_prices_how_arg2_title": "Qoqa izithombe zamarisidi",
@@ -4173,7 +4176,7 @@
   "guide_open_prices_why_arg2_title": "Qhathanisa amanani aseduze nawe",
   "guide_open_prices_why_arg2_text": "Njengoba sithola amanani engeziwe, ungabona izitolo ezishibhile eziseduze nawe**.",
   "guide_open_prices_scrapping_title": "Uke wacabanga yini ukususa amanani kumawebhusayithi abathengisi?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "Ngenxa yezizathu zomthetho nezobuchwepheshe, **asikubheki ukukhipha amanani kumawebhusayithi abathengisi njengendlela evumelekile yokufaka isandla kumanani avulekile**. Sifuna ukuqinisekisa ukuthi amanani esiwaqoqayo anembile futhi asesikhathini, futhi ukuthola amanani asusiwe kubanikeli akusivumeli ukwenza lokho.",
   "guide_open_prices_scrapping_paragraph2": "Ukuklwebha amanani kuyindlela ecatshangelwayo enguqulweni yesikhathi esizayo ye-Open Prices, kodwa kuzokwenziwa yi-Open Prices uqobo ukuze sibe nobufakazi bentengo ngokusekelwe ekhasini le-HTML.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Unganikela ngamanani ngokusebenzisa i-API yethu.\nUma ufuna ukufaka amanani ngezinga elithile, sicela uxhumane nathi ku-prices@openfoodfacts.org.",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Kwami",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Ukuhambisana kwami",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% iyahambisana",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Idatha enganele yokubala amaphuzu okuhambisana.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Isikolo asikwazi ukubalwa somkhiqizo wohlobo \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Ukubaluleka",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Ukufana",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Ukufana okuhle",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Ukufana okumaphakathi",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Ukufana okubi",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Ukufana okungaziwa",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Iwebhusayithi",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Thola Amanani Avulekile",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Vula amamethrikhi Entengo",
+  "preferences_prices_metrics_title": "Izilinganiso zamanani avulekile",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Ikhodi yeposi",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Ama-Coordinates",
-  "location_map_details_osm_id": "I-ID ye-OSM"
+  "location_map_details_osm_id": "I-ID ye-OSM",
+  "homepage_scanner_back_to_home_button": "Ukubuyela ekhaya",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Guqula ikhamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Bonisa iskena sebhakhodi",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Thepha ukuze uskene i-**barcode**\nbese uthola ukuthi i-**ikulungele yini**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Shintsha ithoshi",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skena umkhiqizo ngokusondela kubhakhodi yawo",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Sithole ibhakhodi elandelayo: {barcode}, kodwa kubonakala sengathi ayivumelekile.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Buka okwengeziwe…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Imikhiqizo yokugcina iskeniwe",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

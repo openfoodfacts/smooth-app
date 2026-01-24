@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "திறந்த விலைகள்",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -395,7 +396,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "மொழிபெயர்ப்புகள் திட்டத்தின் முக்கிய பணிகளில் ஒன்றாகும்.",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+  "contribute_join_skill_pool": "திறந்த உணவு உண்மைகளுக்கு உங்கள் திறமைகளைப் பங்களிக்கவும். திறன் குழுவில் சேருங்கள்!",
   "contribute_share_header": "உணவு பற்றிய திறந்த உண்மைகளை உங்கள் நண்பர்களுடன் பகிர்ந்து கொள்ளுங்கள்.",
   "@contribute_share_header": {},
   "contribute_share_content": "நான் பயன்படுத்தி வரும் Open Food Facts என்ற செயலியைப் பற்றி உங்களுக்குத் தெரிவிக்க விரும்பினேன். இது உங்கள் உணவின் ஆரோக்கியம் மற்றும் சுற்றுச்சூழல் பாதிப்புகளை தனிப்பயனாக்கப்பட்ட முறையில் பெற உங்களை அனுமதிக்கிறது. இது பேக்கேஜிங்கில் உள்ள பார்கோடுகளை ஸ்கேன் செய்வதன் மூலம் செயல்படுகிறது. இறுதியாக இது இலவசம், பதிவு தேவையில்லை, மேலும் டிசைஃபர் செய்யப்பட்ட பொருட்களின் எண்ணிக்கையை அதிகரிக்கவும் நீங்கள் உதவலாம். உங்கள் தொலைபேசியில் இதைப் பெறுவதற்கான இணைப்பு இங்கே: https://openfoodfacts.app",
@@ -711,7 +712,7 @@
   "nutritional_facts_input_button_label": "ஊட்டச்சத்து உண்மைகளை நிரப்பவும்.",
   "nutritional_facts_added": "ஊட்டச்சத்து உண்மைகள் சேர்க்கப்பட்டன",
   "categories_added": "வகைகள் சேர்க்கப்பட்டன",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "நியூட்ரி-ஸ்கோரைக் கணக்கிடுங்கள்",
   "new_product_subtitle_nutriscore": "உணவு வகை மற்றும் ஊட்டச்சத்து மதிப்புகளை நிரப்புவதன் மூலம் அதைப் பெறுங்கள்",
   "new_product_title_environmental_score": "பச்சை மதிப்பெண்ணைக் கணக்கிடுங்கள்",
   "new_product_subtitle_environmental_score": "குறைந்தபட்சம் ஒரு வகையையாவது நிரப்புவதன் மூலம் அதைப் பெறுங்கள்.",
@@ -720,7 +721,7 @@
   "new_product_subtitle_nova": "உணவு வகை மற்றும் பொருட்களை நிரப்புவதன் மூலம் அதைப் பெறுங்கள்.",
   "new_product_desc_nova_unknown": "உணவு பதப்படுத்தும் நிலை தெரியவில்லை",
   "new_product_title_pictures": "புதிய தயாரிப்பு",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "பின்வரும் புகைப்படங்களை எடுங்கள், மீதமுள்ளவற்றை ஓபன் ஃபுட் ஃபேக்ட்ஸ் எஞ்சின் சரிசெய்யும்!",
   "new_product_title_misc": "மேலும் சில அடிப்படைத் தரவு…",
   "new_product_done_msg": "உங்கள் பங்களிப்புக்கு நன்றி “{username}”!",
   "@new_product_done_msg": {
@@ -1076,15 +1077,15 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+  "product_improvement_add_category": "நியூட்ரி-ஸ்கோரைக் கணக்கிட ஒரு வகையைச் சேர்க்கவும்.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "நியூட்ரி-ஸ்கோரைக் கணக்கிட ஊட்டச்சத்து உண்மைகளைச் சேர்க்கவும்.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "ஊட்டச்சத்து மதிப்பெண்ணைக் கணக்கிட ஊட்டச்சத்து உண்மைகளையும் ஒரு வகையையும் சேர்க்கவும்.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "தனிப்பட்ட பராமரிப்பு",
   "product_type_label_pet_food": "செல்லப்பிராணி உணவு",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "தெரியவில்லை",
   "product_type_selection_title": "தயாரிப்பு வகை",
   "product_type_selection_subtitle": "இந்த தயாரிப்பின் வகையைத் தேர்ந்தெடுக்கவும்.",
   "product_type_selection_empty": "நீங்கள் முதலில் ஒரு தயாரிப்பு வகையைத் தேர்ந்தெடுக்க வேண்டும்!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "தயாரிப்பு விவரங்களைக் காண்க",
   "prices_entry_menu_open_product_prices": "இந்த தயாரிப்புக்கான அனைத்து விலைகளையும் காண்க",
   "prices_entry_menu_open_proof": "ஆதாரத்தைக் காண்க",
   "prices_entry_menu_my_prices": "எனது பிற விலைகளைப் பார்க்கவும்",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "திறந்த விலைகள் பற்றி மேலும் அறிக",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3834,12 +3837,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
-  "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
-  "nutriscore_e": "Nutri-Score E",
-  "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+  "nutriscore_a": "நியூட்ரி-ஸ்கோர் ஏ",
+  "nutriscore_b": "நியூட்ரி-ஸ்கோர் பி",
+  "nutriscore_c": "நியூட்ரி-ஸ்கோர் சி",
+  "nutriscore_d": "நியூட்ரி-ஸ்கோர் டி",
+  "nutriscore_e": "நியூட்ரி-ஸ்கோர் E",
+  "nutriscore_new_formula": "நியூட்ரி-ஸ்கோர் {letter} (புதிய கணக்கீடு)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3848,10 +3851,10 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_new_formula_title": "நியூட்ரி-ஸ்கோர் (புதிய கணக்கீடு)",
+  "nutriscore_unknown": "தெரியாத நியூட்ரி-ஸ்கோர்",
   "nutriscore_unknown_new_formula": "தெரியாத Nutri-Score (புதிய கணக்கீடு)",
-  "nutriscore_not_applicable": "Nutri-Score is not applicable",
+  "nutriscore_not_applicable": "நியூட்ரி-ஸ்கோர் பொருந்தாது.",
   "nutriscore_not_applicable_new_formula": "Nutri-Score பொருந்தாது (புதிய கணக்கீடு)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
@@ -4149,12 +4152,12 @@
   "guide_open_beauty_facts_scores_title": "மதிப்பெண் பற்றிய குறிப்பு",
   "guide_open_beauty_facts_scores_paragraph1": "உணவுப் பொருட்களைப் போலன்றி, அழகுசாதனப் பொருட்களின் உலகில் **நியூட்ரி-ஸ்கோர்** போன்ற உலகளாவிய அங்கீகாரம் பெற்ற, அரசாங்கத்தால் ஆதரிக்கப்படும் மதிப்பெண் முறை இல்லை. மூலப்பொருள் விளைவுகள் மிகவும் தனிப்பட்டவை மற்றும் தோல் வகை, ஒவ்வாமை மற்றும் தனிப்பட்ட கவலைகளைப் பொறுத்தது.",
   "guide_open_beauty_facts_share_link": "https://world-ta.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "திறந்த விலைகளுக்கு வருக!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "திறந்த விலைகள் என்றால் என்ன?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "திறந்த விலைகள் என்பது **உலகம் முழுவதும் உள்ள பொருட்களின் விலைகளைச் சேகரித்துப் பகிர்ந்து கொள்ளும்** ஒரு திட்டமாகும். இது ஆராய்ச்சி, பகுப்பாய்வு மற்றும் பலவற்றிற்குப் பயன்படுத்தக்கூடிய பொதுவில் கிடைக்கும் தரவுத்தொகுப்பாகும். திறந்த விலைகள் திறந்த உணவு உண்மைகளால் உருவாக்கப்பட்டு பராமரிக்கப்படுகின்றன.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "ஓப்பன் பிரைசஸ் எப்படி வேலை செய்கிறது?",
   "guide_open_prices_how_paragraph1": "**நாங்கள் விலைகளின் திறந்த மூல தரவுத்தொகுப்பை க்ரவுட் சோர்சிங் செய்கிறோம்**. இந்த வலை பயன்பாடு அல்லது அதிகாரப்பூர்வ ஓப்பன் ஃபுட் ஃபேக்ட்ஸ் மொபைல் பயன்பாடு வழியாக பயனர்கள் விலைகளைச் சேர்க்கலாம். சில்லறை விற்பனையாளர்கள் அல்லது மூன்றாம் தரப்பு பயன்பாடுகளும் எங்கள் API ஐப் பயன்படுத்தி பங்களிக்கலாம்.",
   "guide_open_prices_how_arg1_title": "வரிசைகளில் விலைக் குறிச்சொற்களின் புகைப்படங்களைச் சேகரிக்கவும்.",
   "guide_open_prices_how_arg2_title": "ரசீதுகளின் புகைப்படங்களைச் சேகரிக்கவும்",
@@ -4173,8 +4176,8 @@
   "guide_open_prices_why_arg2_title": "உங்களுக்கு அருகிலுள்ள விலைகளை ஒப்பிடுக",
   "guide_open_prices_why_arg2_text": "நாங்கள் அதிக விலைகளைப் பெறும்போது, **உங்களைச் சுற்றியுள்ள மலிவான கடைகளை** நீங்கள் காணலாம்.",
   "guide_open_prices_scrapping_title": "சில்லறை விற்பனையாளர்களின் வலைத்தளங்களிலிருந்து விலைகளைக் குறைப்பது பற்றி நீங்கள் யோசித்தீர்களா?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_scrapping_paragraph1": "சட்ட மற்றும் தொழில்நுட்ப காரணங்களுக்காக, **சில்லறை விற்பனையாளர்களின் வலைத்தளங்களில் இருந்து விலைகளைக் குறைப்பதை திறந்த விலைகளுக்கு பங்களிப்பதற்கான ஒரு செல்லுபடியாகும் வழியாக நாங்கள் கருதுவதில்லை**. நாங்கள் சேகரிக்கும் விலைகள் துல்லியமாகவும் புதுப்பித்ததாகவும் இருப்பதை உறுதிசெய்ய விரும்புகிறோம், மேலும் பங்களிப்பாளர்களிடமிருந்து விலைகளைக் குறைப்பது எங்களை அவ்வாறு செய்ய அனுமதிக்காது.",
+  "guide_open_prices_scrapping_paragraph2": "ஓப்பன் பிரைஸ்களின் எதிர்கால பதிப்பில் விலை ஸ்க்ராப்பிங் ஒரு கருதப்படும் விருப்பமாகும், ஆனால் இது ஓப்பன் பிரைஸ்களால் செய்யப்படும், இதனால் HTML பக்கத்தின் அடிப்படையில் விலைக்கான ஆதாரத்தை நாம் பெற முடியும்.",
   "guide_open_prices_retailers_title": "நான் ஒரு சில்லறை விற்பனையாளர், விலைகளைப் பங்களிக்க விரும்புகிறேன். அதை நான் எப்படி செய்வது?",
   "guide_open_prices_retailers_paragraph1": "எங்கள் API ஐப் பயன்படுத்தி நீங்கள் விலைகளைப் பங்களிக்கலாம்.\nநீங்கள் அளவில் விலைகளைப் பங்களிக்க விரும்பினால், தயவுசெய்து prices@openfoodfacts.org என்ற மின்னஞ்சல் முகவரியில் எங்களைத் தொடர்பு கொள்ளவும்.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about பற்றி",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "எனக்காக",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "எனது இணக்கத்தன்மை",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% இணக்கமானது",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "பொருந்தக்கூடிய மதிப்பெண்ணைக் கணக்கிட போதுமான தரவு இல்லை.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" வகையின் பெருக்கலுக்கு மதிப்பெண்ணைக் கணக்கிட முடியாது.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "முக்கியத்துவம்",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "போட்டிகள்",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "நல்ல பொருத்தங்கள்",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "சராசரி பொருத்தங்கள்",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "மோசமான பொருத்தங்கள்",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "தெரியாத பொருத்தங்கள்",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "வலைத்தளம்",
   "@product_page_tab_website": {
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "திறந்த விலைகளைக் கண்டறியவும்",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "அஞ்சல் குறியீடு",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "ஆயத்தொலைவுகள்",
-  "location_map_details_osm_id": "OSM ஐடி"
+  "location_map_details_osm_id": "OSM ஐடி",
+  "homepage_scanner_back_to_home_button": "வீட்டிற்குத் திரும்பு",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "கேமராவை நிலைமாற்று",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "பார்கோடு ஸ்கேனரைக் காட்டு",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "**பார்கோடை**\nஸ்கேன் செய்ய தட்டவும், அது **உங்களுக்கு நல்லதா** என்பதைக் கண்டறியவும்!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "டார்ச்சை மாற்று",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "ஒரு தயாரிப்பின் பார்கோடை அணுகி ஸ்கேன் செய்யவும்.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "பின்வரும் பார்கோடை நாங்கள் கண்டறிந்துள்ளோம்: {barcode}, ஆனால் அது தவறானதாகத் தெரிகிறது.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "மேலும் காண்க…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "கடைசியாக ஸ்கேன் செய்யப்பட்ட தயாரிப்புகள்",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

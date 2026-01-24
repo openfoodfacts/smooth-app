@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_sliver_list.dart';
@@ -150,6 +151,7 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
 
   Future<void> _showOptionsMenu(BuildContext context, Price price) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool hasProduct = price.product != null;
     final bool hasProof = price.proof?.filePath != null;
     final bool hasCountButton = model.enableCountButton;
 
@@ -157,6 +159,7 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
       context: context,
       title: appLocalizations.prices_entry_menu_title(price.owner),
       labels: <String>[
+        if (hasProduct) appLocalizations.prices_entry_menu_open_product,
         if (hasCountButton)
           appLocalizations.prices_entry_menu_open_product_prices,
         if (hasProof) appLocalizations.prices_entry_menu_open_proof,
@@ -167,16 +170,18 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
         appLocalizations.prices_entry_menu_shop_prices,
       ],
       prefixIcons: <Widget>[
+        if (hasProduct) const icons.Milk.happy(),
         if (hasCountButton) const icons.PriceTag(),
         if (hasProof) const icons.PriceReceipt(),
         const icons.Profile(),
         const icons.Shop(),
       ],
       values: <ProductPriceAction>[
-        if (hasCountButton) ProductPriceAction.VIEW_PRODUCT_PRICES,
-        if (hasProof) ProductPriceAction.VIEW_PROOF,
-        ProductPriceAction.VIEW_AUTHOR_PRICES,
-        ProductPriceAction.VIEW_LOCATION_PRICES,
+        if (hasProduct) .VIEW_PRODUCT,
+        if (hasCountButton) .VIEW_PRODUCT_PRICES,
+        if (hasProof) .VIEW_PROOF,
+        .VIEW_AUTHOR_PRICES,
+        .VIEW_LOCATION_PRICES,
       ],
       addEndArrowToItems: true,
     );
@@ -186,6 +191,10 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
     }
 
     switch (res) {
+      case ProductPriceAction.VIEW_PRODUCT:
+        AppNavigator.of(
+          context,
+        ).push(AppRoutes.PRODUCT_LOADER(price.product!.code));
       case ProductPriceAction.VIEW_PROOF:
         Navigator.of(context).push(
           MaterialPageRoute<void>(
@@ -237,6 +246,7 @@ class _InfiniteScrollPriceManager extends InfiniteScrollManager<Price> {
 }
 
 enum ProductPriceAction {
+  VIEW_PRODUCT,
   VIEW_PRODUCT_PRICES,
   VIEW_PROOF,
   VIEW_AUTHOR_PRICES,

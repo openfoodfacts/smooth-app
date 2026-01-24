@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "खुली कीमतें",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -185,7 +186,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "अपने देश में ओपन फ़ूड फैक्ट्स को बेहतर बनाने में मदद करें",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -395,7 +396,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "अनुवाद इस परियोजना के प्रमुख कार्यों में से एक है",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+  "contribute_join_skill_pool": "ओपन फ़ूड फ़ैक्ट्स में अपने कौशल का योगदान दें। कौशल पूल में शामिल हों!",
   "contribute_share_header": "अपने दोस्तों के साथ खुले भोजन के तथ्य साझा करें",
   "@contribute_share_header": {},
   "contribute_share_content": "मैं आपको उस ऐप के बारे में बताना चाहता हूँ जिसका मैं इस्तेमाल करता हूँ, \"ओपन फ़ूड फैक्ट्स\", जो आपको अपने खाने के स्वास्थ्य और पर्यावरण पर पड़ने वाले प्रभावों को व्यक्तिगत रूप से जानने की सुविधा देता है। यह पैकेजिंग पर दिए गए बारकोड को स्कैन करके काम करता है। यह मुफ़्त है, इसके लिए पंजीकरण की आवश्यकता नहीं है, और आप डिक्रिप्ट किए गए उत्पादों की संख्या बढ़ाने में भी मदद कर सकते हैं। इसे अपने फ़ोन पर डाउनलोड करने के लिए यह लिंक है: https://openfoodfacts.app",
@@ -711,7 +712,7 @@
   "nutritional_facts_input_button_label": "पोषण संबंधी तथ्य भरें",
   "nutritional_facts_added": "पोषण संबंधी तथ्य जोड़े गए",
   "categories_added": "श्रेणियाँ जोड़ी गईं",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "न्यूट्री-स्कोर की गणना करें",
   "new_product_subtitle_nutriscore": "कम से कम एक श्रेणी और पोषण संबंधी मान भरकर हमारी सहायता करें",
   "new_product_title_environmental_score": "ग्रीन स्कोर की गणना करें",
   "new_product_subtitle_environmental_score": "कम से कम एक श्रेणी भरकर इसे प्राप्त करें",
@@ -720,7 +721,7 @@
   "new_product_subtitle_nova": "खाद्य श्रेणी और सामग्री भरकर इसे प्राप्त करें",
   "new_product_desc_nova_unknown": "खाद्य प्रसंस्करण स्तर अज्ञात",
   "new_product_title_pictures": "नए उत्पाद",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "कृपया निम्नलिखित तस्वीरें लें और ओपन फूड फैक्ट्स इंजन बाकी का पता लगा लेगा!",
   "new_product_title_misc": "और कुछ बुनियादी डेटा…",
   "new_product_done_msg": "आपके योगदान के लिए धन्यवाद “{username}”!",
   "@new_product_done_msg": {
@@ -1076,15 +1077,15 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+  "product_improvement_add_category": "न्यूट्री-स्कोर की गणना करने के लिए एक श्रेणी जोड़ें।",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "न्यूट्री-स्कोर की गणना करने के लिए पोषण संबंधी तथ्य जोड़ें।",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "न्यूट्री-स्कोर की गणना करने के लिए पोषण संबंधी तथ्य और एक श्रेणी जोड़ें।",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "व्यक्तिगत देखभाल",
   "product_type_label_pet_food": "पालतू भोजन",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "अज्ञात",
   "product_type_selection_title": "उत्पाद का प्रकार",
   "product_type_selection_subtitle": "इस उत्पाद का प्रकार चुनें",
   "product_type_selection_empty": "आपको पहले एक उत्पाद प्रकार का चयन करना होगा!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "उत्पाद विवरण देखें",
   "prices_entry_menu_open_product_prices": "इस उत्पाद के सभी मूल्य देखें",
   "prices_entry_menu_open_proof": "प्रमाण देखें",
   "prices_entry_menu_my_prices": "मेरी अन्य कीमतें देखें",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "खुली कीमतों के बारे में अधिक जानें",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3849,10 +3852,10 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (नई गणना)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
-  "nutriscore_not_applicable": "Nutri-Score is not applicable",
-  "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
+  "nutriscore_unknown": "अज्ञात न्यूट्री-स्कोर",
+  "nutriscore_unknown_new_formula": "अज्ञात न्यूट्री-स्कोर (नई गणना)",
+  "nutriscore_not_applicable": "न्यूट्री-स्कोर लागू नहीं है",
+  "nutriscore_not_applicable_new_formula": "न्यूट्री-स्कोर लागू नहीं है (नई गणना)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
@@ -4149,12 +4152,12 @@
   "guide_open_beauty_facts_scores_title": "स्कोरिंग पर एक नोट",
   "guide_open_beauty_facts_scores_paragraph1": "खाद्य उत्पादों के विपरीत, सौंदर्य प्रसाधनों की दुनिया में **न्यूट्री-स्कोर** जैसी कोई सार्वभौमिक रूप से मान्यता प्राप्त, सरकार समर्थित स्कोरिंग प्रणाली नहीं है। अवयवों का प्रभाव अत्यधिक व्यक्तिगत हो सकता है और त्वचा के प्रकार, एलर्जी और व्यक्तिगत चिंताओं पर निर्भर करता है।",
   "guide_open_beauty_facts_share_link": "https://world-hi.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "ओपन प्राइसेस में आपका स्वागत है!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "Open Prices क्या है?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "ओपन प्राइसेज़ दुनिया भर के उत्पादों की कीमतें एकत्रित करने और साझा करने की एक परियोजना है। यह एक सार्वजनिक रूप से उपलब्ध डेटासेट है जिसका उपयोग शोध, विश्लेषण आदि के लिए किया जा सकता है। ओपन प्राइसेज़ का विकास और रखरखाव ओपन फ़ूड फ़ैक्ट्स द्वारा किया जाता है।",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "ओपन प्राइस कैसे काम करता है?",
   "guide_open_prices_how_paragraph1": "**हम कीमतों का एक ओपन-सोर्स डेटासेट क्राउडसोर्स कर रहे हैं**। उपयोगकर्ता इस वेब ऐप या आधिकारिक ओपन फ़ूड फ़ैक्ट्स मोबाइल ऐप के ज़रिए कीमतें जोड़ सकते हैं। खुदरा विक्रेता या तृतीय-पक्ष ऐप भी हमारे एपीआई का उपयोग करके योगदान दे सकते हैं।",
   "guide_open_prices_how_arg1_title": "गलियारों में लगे मूल्य टैग की तस्वीरें एकत्र करें",
   "guide_open_prices_how_arg2_title": "रसीदों की तस्वीरें एकत्र करें",
@@ -4173,8 +4176,8 @@
   "guide_open_prices_why_arg2_title": "अपने आस-पास की कीमतों की तुलना करें",
   "guide_open_prices_why_arg2_text": "जैसे-जैसे हमें और अधिक कीमतें मिलेंगी, आप अपने आस-पास सबसे सस्ती दुकानें ढूंढ सकेंगे।",
   "guide_open_prices_scrapping_title": "क्या आपने खुदरा विक्रेताओं की वेबसाइटों से कीमतें हटाने पर विचार किया?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_scrapping_paragraph1": "कानूनी और तकनीकी कारणों से, **हम खुदरा विक्रेताओं की वेबसाइटों से कीमतें स्क्रैप करना ओपन प्राइसेज़ में योगदान करने का एक वैध तरीका नहीं मानते**। हम यह सुनिश्चित करना चाहते हैं कि हमारे द्वारा एकत्रित की गई कीमतें सटीक और अद्यतित हों, और योगदानकर्ताओं से स्क्रैप की गई कीमतें प्राप्त करने से हमें ऐसा करने की अनुमति नहीं मिलती।",
+  "guide_open_prices_scrapping_paragraph2": "ओपन प्राइस के भावी संस्करण में मूल्य स्क्रैपिंग एक विचारणीय विकल्प है, लेकिन यह ओपन प्राइस द्वारा ही किया जाएगा, ताकि हमें HTML पृष्ठ के आधार पर मूल्य का प्रमाण मिल सके।",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "आप हमारे API का उपयोग करके कीमतों में योगदान कर सकते हैं।\nयदि आप बड़े पैमाने पर कीमतों में योगदान करना चाहते हैं, तो कृपया prices@openfoodfacts.org पर हमसे संपर्क करें।",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "मेरे लिए",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "मेरी अनुकूलता",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% संगत",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "संगतता स्कोर की गणना करने के लिए अपर्याप्त डेटा उपलब्ध है।",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" प्रकार के उत्पाद के लिए स्कोर की गणना नहीं की जा सकती है।",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "महत्त्व",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "माचिस",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "अच्छे मैच",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "औसत मैच",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "खराब मैच",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "अज्ञात मिलान",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "वेबसाइट",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "खुले मूल्य मेट्रिक्स",
+  "preferences_prices_metrics_title": "ओपन प्राइस मेट्रिक्स",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "पोस्टकोड",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "COORDINATES",
-  "location_map_details_osm_id": "ओएसएम आईडी"
+  "location_map_details_osm_id": "ओएसएम आईडी",
+  "homepage_scanner_back_to_home_button": "घर वापिस जा रहा हूँ",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "कैमरा टॉगल करें",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "बारकोड स्कैनर दिखाएँ",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "बारकोड स्कैन करने के लिए टैप करें\nऔर पता लगाएं कि यह आपके लिए अच्छा है या नहीं!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "टॉर्च चालू/बंद करें",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "उत्पाद के बारकोड के पास जाकर उसे स्कैन करें।",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "हमने निम्नलिखित बारकोड का पता लगाया है: {barcode}, लेकिन यह अमान्य प्रतीत होता है।",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "और देखें…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "अंतिम स्कैन किए गए उत्पाद",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

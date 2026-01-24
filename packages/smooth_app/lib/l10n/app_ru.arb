@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Открытые цены",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -715,7 +716,7 @@
   "new_product_subtitle_nutriscore": "Для этого заполните категорию продукта и данные пищевой ценности",
   "new_product_title_environmental_score": "Рассчитать Green Score",
   "new_product_subtitle_environmental_score": "Для этого укажите хотя бы одну категорию",
-  "new_product_additional_environmental_score": "Сделайте вычисления Grren Score более точными, указав происхождение, упаковку и другие параметры",
+  "new_product_additional_environmental_score": "Сделайте вычисления Green Score более точными, указав происхождение, упаковку и другие параметры",
   "new_product_title_nova": "Вычислить уровень обработки пищевых продуктов (NOVA)",
   "new_product_subtitle_nova": "Для этого заполните категорию и состав продукта",
   "new_product_desc_nova_unknown": "Степень обработки продуктов неизвестна",
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Личная гигиена",
   "product_type_label_pet_food": "Корм",
   "product_type_label_product": "Прочее",
+  "product_type_label_unknown": "Неизвестный",
   "product_type_selection_title": "Тип изделия",
   "product_type_selection_subtitle": "Выберите тип этого продукта",
   "product_type_selection_empty": "Сначала вам необходимо выбрать тип продукта!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Просмотреть подробную информацию о товаре",
   "prices_entry_menu_open_product_prices": "Посмотреть все цены на этот продукт",
   "prices_entry_menu_open_proof": "Посмотреть доказательство",
   "prices_entry_menu_my_prices": "Посмотреть мои другие цены",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Узнайте больше об открытых ценах",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2685,7 +2688,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Switch between prices.openfoodfacts.org (PROD) and test env",
+  "dev_mode_openprices_switch_env_title": "Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -3918,42 +3921,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Поделиться",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Система Nutri-Score развивается: пояснения!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Что такое Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score — это логотип, который информирует вас о **питательной ценности продуктов**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Цветовая маркировка варьируется от тёмно-зелёного (**A**) для **самых полезных** продуктов до тёмно-красного (**E**) для **менее полезных**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Логотип Nutri-Score",
+  "guide_nutriscore_v2_why_v2_title": "Почему система Nutri-Score развивается?",
+  "guide_nutriscore_v2_why_v2_intro": "Формула Nutri-Score **дорабатывается**, чтобы давать лучшие рекомендации:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Лучшая оценка всех напитков",
+  "guide_nutriscore_v2_why_v2_arg1_text": "В новом алгоритме лучше различаются сравнительные характеристики **молока**, **молочных напитков** с добавлением сахара и **растительных** напитков.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Лучший рейтинг напитков",
+  "guide_nutriscore_v2_why_v2_arg2_text": "**Содержание сахара** в напитках должно быть минимальным. \\n**Подсластители также будут наказываться**: диетические газированные напитки будут переведены из категории B в категорию от C до E. Вода по-прежнему остаётся рекомендуемым напитком.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Соль и сахар понижены",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Продукты, которые **слишком сладкие** или **слишком солёные**, получат **ещё более низкий рейтинг**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Иерархия среди масел и рыб",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Рейтинг некоторых видов **жирной рыбы** и **масел, богатых полезными жирами**, повысится.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Ограничить красное мяса",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Потребление **красного мяса следует ограничить**. Поэтому **птица будет предпочтительнее**.",
+  "guide_nutriscore_v2_new_logo_title": "Как отличить старый расчёт Nutri-Score от нового?",
+  "guide_nutriscore_v2_new_logo_text": "С этого момента в логотипе может отображаться пометка \"**Новый расчёт**\", чтобы было понятно, что это действительно новый расчёт.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Логотип новой системы Nutri-Score",
   "guide_nutriscore_v2_where_title": "Где найти новый расчет Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score применяется в 7 странах: Франции, Германии, Бельгии, Испании, Люксембурге, Нидерландах и Швейцарии.",
   "guide_nutriscore_v2_where_paragraph2": "У производителей есть максимум **2 года** после подписания указа, чтобы **заменить** старый расчет новым.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Не дожидаясь, вы **уже сейчас сможете найти в приложении OpenFoodFacts** новый расчёт, в том числе если производители не обновили данные.",
+  "guide_nutriscore_v2_unchanged_title": "Что не меняется",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score — это шкала, разработанная для **оценки питательной ценности**. Она **дополняет шкалу NOVA** для **продуктов глубокой переработки** (также представленную в приложении).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Для производителей отображение рейтинга Nutri-Score **не является обязательным**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4162,7 +4165,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Как работают цены открытия?",
   "guide_open_prices_how_paragraph1": "**Мы собираем данные о ценах из открытого источника**. Пользователи могут добавлять цены через это веб-приложение или через официальное мобильное приложение Open Food Facts. Розничные продавцы и сторонние приложения также могут вносить свой вклад, используя наш API.",
   "guide_open_prices_how_arg1_title": "Собирайте фотографии ценников в проходах.",
   "guide_open_prices_how_arg2_title": "Собирайте фотографии квитанций",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Для меня",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Моя совместимость",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% совместимо",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Недостаточно данных для вычисления показателя совместимости.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Для произведения типа \"{productType}\" невозможно вычислить оценку.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Важность",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Матчи",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Хорошие матчи",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Среднее количество матчей",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Неудачные матчи",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Неизвестные совпадения",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Веб-сайт",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Метрики цены открытия",
+  "preferences_prices_metrics_title": "Показатели цен открытия",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Почтовый индекс",
   "location_map_details_country": "Страна",
   "location_map_details_coordinates": "Координаты",
-  "location_map_details_osm_id": "Идентификатор OSM"
+  "location_map_details_osm_id": "Идентификатор OSM",
+  "homepage_scanner_back_to_home_button": "Вернуться на главную",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Переключить камеру",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Покажите сканер штрих-кодов",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Нажмите, чтобы отсканировать **штрихкод**\nи узнать, подходит ли он вам **нам**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Переключить фонарик",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Отсканируйте товар, поднеся к его штрихкоду.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Мы обнаружили следующий штрихкод: {barcode}, но он, по всей видимости, недействителен.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Посмотреть больше…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Самые просматриваемые товары",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Последние отсканированные товары",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

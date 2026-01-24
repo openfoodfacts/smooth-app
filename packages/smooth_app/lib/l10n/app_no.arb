@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Åpne priser",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -711,7 +712,7 @@
   "nutritional_facts_input_button_label": "Fyll inn næringsinnhold",
   "nutritional_facts_added": "Næringsinnhold lagt til",
   "categories_added": "Kategorier lagt til",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "Beregn ernæringspoengsummen",
   "new_product_subtitle_nutriscore": "Hjelp oss ved å fylle ut minst én kategori og næringsverdier",
   "new_product_title_environmental_score": "Beregn den grønne poengsummen",
   "new_product_subtitle_environmental_score": "Få det ved å fylle ut minst én kategori",
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personlig pleie",
   "product_type_label_pet_food": "Kjæledyrfôr",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Ukjent",
   "product_type_selection_title": "Produkttype",
   "product_type_selection_subtitle": "Velg typen av dette produktet",
   "product_type_selection_empty": "Du må velge en produkttype først!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Se produktdetaljer",
   "prices_entry_menu_open_product_prices": "Se alle priser for dette produktet",
   "prices_entry_menu_open_proof": "Se bevis",
   "prices_entry_menu_my_prices": "Se mine andre priser",
@@ -3834,11 +3837,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
-  "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
-  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_a": "Næringsscore A",
+  "nutriscore_b": "Næringsscore B",
+  "nutriscore_c": "Næringsscore C",
+  "nutriscore_d": "Næringsscore D",
+  "nutriscore_e": "Næringsscore E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Ny beregning)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3849,8 +3852,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ny beregning)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "Ukjent ernæringspoengsum",
+  "nutriscore_unknown_new_formula": "Ukjent ernæringspoengsum (ny beregning)",
   "nutriscore_not_applicable": "Nutri-Score er ikke aktuelt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke aktuelt (ny beregning)",
   "environmental_score_generic_new": "Green-Score",
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "En merknad om poengberegning",
   "guide_open_beauty_facts_scores_paragraph1": "I motsetning til matvarer har ikke kosmetikkverdenen et universelt anerkjent, myndighetsstøttet poengsystem som Nutri-Score. Ingrediensenes effekt kan være svært personlig og avhenge av hudtype, allergier og individuelle bekymringer.",
   "guide_open_beauty_facts_share_link": "https://world-no.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Velkommen til Åpne priser!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Hva er åpningspriser?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices er et prosjekt for å **samle inn og dele priser på produkter over hele verden**. Det er et offentlig tilgjengelig datasett som kan brukes til forskning, analyse og mer. Open Prices er utviklet og vedlikeholdt av Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "For meg",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Min kompatibilitet",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Utilstrekkelige data til å beregne en kompatibilitetspoengsum.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "En poengsum kan ikke beregnes for et produkt av typen «{productType}».",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Betydning",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Kamper",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Gode kamper",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Gjennomsnittlige treff",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Dårlige treff",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Ukjente treff",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Nettsted",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Åpen prisberegning",
+  "preferences_prices_metrics_title": "Åpningspriser-beregninger",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Postnummer",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Koordinater",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Tilbake til hjemmet",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Veksle kamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Vis strekkodeskanneren",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Trykk for å skanne en **strekkode**\nog finn ut om den er **bra for deg**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Slå av/på lommelykt",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skann et produkt ved å nærme seg strekkoden",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Vi har oppdaget følgende strekkode: {barcode}, men den ser ut til å være ugyldig.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Vis mer…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Sist skannede produkter",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }
