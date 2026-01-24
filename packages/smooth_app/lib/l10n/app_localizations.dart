@@ -10393,7 +10393,7 @@ abstract class AppLocalizations {
   /// Title for price metrics tile
   ///
   /// In en, this message translates to:
-  /// **'Open Price metrics'**
+  /// **'Open Prices metrics'**
   String get preferences_prices_metrics_title;
 
   /// Subtitle for price metrics tile

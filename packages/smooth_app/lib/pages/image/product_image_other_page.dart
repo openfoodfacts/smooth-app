@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -130,14 +132,25 @@ class ProductImageOtherPage extends StatefulWidget {
 }
 
 class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
-  late PageController _pageController;
+  late final PageController _pageController;
+  late final ValueNotifier<int> _pageIndex;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(
-      initialPage: widget.images.indexOf(widget.currentImage),
-    );
+    final int initialIndex = widget.images
+        .indexOf(widget.currentImage)
+        .clamp(0, widget.images.length - 1);
+
+    _pageController = PageController(initialPage: initialIndex);
+    _pageIndex = ValueNotifier<int>(initialIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    _pageIndex.dispose();
+    super.dispose();
   }
 
   @override
@@ -163,26 +176,68 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
           alignment: Alignment.bottomCenter,
           children: <Widget>[
             Positioned.fill(
-              child: PageView(
-                controller: _pageController,
-                children: widget.images
-                    .map((final ProductImage image) {
-                      return _ProductImageViewer(
-                        image: image,
-                        barcode: widget.product.barcode!,
-                        language: widget.language,
-                        heroTag: widget.currentImage == image
-                            ? widget.heroTag
-                            : null,
-                        productType: widget.product.productType,
-                      );
-                    })
-                    .toList(growable: false),
+              child: PhotoViewGallery.builder(
+                backgroundDecoration: const .new(color: Colors.transparent),
+                itemCount: widget.images.length,
+                pageController: _pageController,
+                onPageChanged: (int index) => _pageIndex.value = index,
+                builder: (_, int index) {
+                  final ProductImage image = widget.images[index];
+
+                  return PhotoViewGalleryPageOptions(
+                    imageProvider: NetworkImage(
+                      image.getUrl(
+                        widget.product.barcode!,
+                        uriHelper: ProductQuery.getUriProductHelper(
+                          productType: widget.product.productType,
+                        ),
+                      ),
+                    ),
+                    heroAttributes:
+                        widget.currentImage == image && widget.heroTag != null
+                        ? PhotoViewHeroAttributes(tag: widget.heroTag!)
+                        : null,
+                    minScale: PhotoViewComputedScale.contained,
+                    maxScale: PhotoViewComputedScale.covered * 3,
+                  );
+                },
+                loadingBuilder: (_, __) =>
+                    const Center(child: CircularProgressIndicator.adaptive()),
               ),
             ),
+
             Positioned(
               top: SMALL_SPACE,
               child: _ProductImagePageIndicator(items: widget.images.length),
+            ),
+            Positioned(
+              bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+              left: SMALL_SPACE,
+              right: SMALL_SPACE,
+              child: ValueListenableBuilder<int>(
+                valueListenable: _pageIndex,
+                builder: (_, int index, _) {
+                  final ProductImage image = widget.images[index];
+                  final SmoothColorsThemeExtension colors = Theme.of(
+                    context,
+                  ).extension<SmoothColorsThemeExtension>()!;
+
+                  return IntrinsicHeight(
+                    child: Row(
+                      children: <Widget>[
+                        _ProductImageDetailsButton(
+                          image: image,
+                          barcode: widget.product.barcode!,
+                          productType: widget.product.productType,
+                        ),
+                        const Spacer(),
+                        if (image.expired)
+                          _ProductImageOutdatedLabel(colors: colors),
+                      ],
+                    ),
+                  );
+                },
+              ),
             ),
           ],
         ),
