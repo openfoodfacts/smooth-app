@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "هیچ محصولی یافت نشد",
   "@no_product_found": {},
+  "no_product_found_explanation": "جستجوی شما برای\n**\"{search}\"**\nهیچ نتیجه‌ای نداشت.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "آیا می‌خواهید همین جستجو را در **پایگاه داده جهانی ما** انجام دهید؟",
   "no_location_found": "No location found",
   "not_found": "یافت نشد:",
   "refreshing_product": "Refreshing product",
