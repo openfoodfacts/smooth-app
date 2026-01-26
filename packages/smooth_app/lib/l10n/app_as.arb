@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
+  "no_product_found_explanation": "আপোনাৰ অনুসন্ধান\n**\"{search}\"**\nৰ বাবে কোনো ফলাফল পোৱা নগ'ল।",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "আপুনি ইয়াৰ পৰিবৰ্তে **আমাৰ গ্লোবেল ডাটাবেছ** ত এই একেটা সন্ধান চলাব বিচাৰেনে?",
   "no_location_found": "No location found",
   "not_found": "not found:",
   "refreshing_product": "Refreshing product",
