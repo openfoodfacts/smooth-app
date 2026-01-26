@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "製品が見つかりません",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nの検索に一致する結果が見つかりませんでした。",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "代わりに**グローバル データベース**で同じ検索を実行しますか?",
   "no_location_found": "場所が見つかりません",
   "not_found": "見つかりません:",
   "refreshing_product": "製品を更新中",
