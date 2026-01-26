@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Nav atrasts neviens produkts",
   "@no_product_found": {},
+  "no_product_found_explanation": "Jūsu meklēšanai vaicājumam\n**\"{search}\"**\nnetika atrasts neviens rezultāts.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vai vēlaties veikt šo pašu meklēšanu **mūsu globālajā datubāzē**?",
   "no_location_found": "Nav atrasta neviena atrašanās vieta",
   "not_found": "nav atrasts:",
   "refreshing_product": "Atsvaidzinošs produkts",
