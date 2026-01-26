@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Akukho mkhiqizo otholiwe",
   "@no_product_found": {},
+  "no_product_found_explanation": "Usesho lwakho lwe-\n**\"{search}\"**\naluzange lufane nanoma yimiphi imiphumela.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ingabe ufuna ukusebenzisa lolu kusesha olufanayo ku-**database yethu yomhlaba wonke** esikhundleni salokho?",
   "no_location_found": "Akukho ndawo etholakele",
   "not_found": "akutholakalanga:",
   "refreshing_product": "Umkhiqizo ovuselelayo",
