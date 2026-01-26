@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Hakuna bidhaa iliyopatikana",
   "@no_product_found": {},
+  "no_product_found_explanation": "Utafutaji wako wa\n**\"{search}\"**\nhaukulingana na matokeo yoyote.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Je, unataka kuendesha utafutaji huu huu katika **hifadhidata yetu ya kimataifa** badala yake?",
   "no_location_found": "Hakuna eneo lililopatikana",
   "not_found": "haijapatikana:",
   "refreshing_product": "Bidhaa ya kuburudisha",
