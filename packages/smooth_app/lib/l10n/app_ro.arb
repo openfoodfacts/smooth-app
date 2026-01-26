@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Nu a fost găsit niciun produs",
   "@no_product_found": {},
+  "no_product_found_explanation": "Căutarea dvs. pentru\n**\"{search}\"**\nnu a returnat niciun rezultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Doriți să rulați aceeași căutare în **baza noastră de date globală**?",
   "no_location_found": "Nu a fost găsită nicio locație",
   "not_found": "nu a fost găsit:",
   "refreshing_product": "Reîmprospătare produs",
