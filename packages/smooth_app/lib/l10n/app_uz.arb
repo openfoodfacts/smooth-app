@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Hech qanday mahsulot topilmadi",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nbo'yicha qidiruvingiz hech qanday natija bermadi.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Buning o'rniga xuddi shu qidiruvni **bizning global ma'lumotlar bazamizda** ishga tushirmoqchimisiz?",
   "no_location_found": "Hech qanday joylashuv topilmadi",
   "not_found": "topilmadi:",
   "refreshing_product": "Tetiklantiruvchi mahsulot",
