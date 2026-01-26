@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Không tìm thấy sản phẩm",
   "@no_product_found": {},
+  "no_product_found_explanation": "Tìm kiếm của bạn cho\n**\"{search}\"**\nkhông khớp với bất kỳ kết quả nào.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Bạn có muốn thực hiện tìm kiếm tương tự trong **cơ sở dữ liệu toàn cầu của chúng tôi** không?",
   "no_location_found": "Không tìm thấy vị trí",
   "not_found": "không tìm thấy:",
   "refreshing_product": "Làm mới sản phẩm",
