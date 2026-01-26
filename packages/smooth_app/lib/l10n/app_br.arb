@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "N'eus bet kavet produ ebet",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ho klask evit\n**\"{search}\"**\nn'eus disoc'h ebet.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ha fellout a ra deoc'h ober ar memes enklask-mañ e **hon diaz roadennoù hollek** kentoc'h ?",
   "no_location_found": "N'eus bet kavet lec'hiadur ebet",
   "not_found": "n'eo ket bet kavet :",
   "refreshing_product": "Produ freskaat",
