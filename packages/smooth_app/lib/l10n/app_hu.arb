@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Nem található termék",
   "@no_product_found": {},
+  "no_product_found_explanation": "A(z)\n**\"{search}\"**\nkifejezésre keresve nem talált találatot.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Szeretné ugyanezt a keresést a **globális adatbázisunkban** futtatni?",
   "no_location_found": "Hely nem található",
   "not_found": "nem található:",
   "refreshing_product": "Termék frissítése",
