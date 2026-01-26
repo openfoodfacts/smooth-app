@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Nuk u gjet asnje produkt",
   "@no_product_found": {},
+  "no_product_found_explanation": "Kërkimi juaj për\n**\"{search}\"**\nnuk përputhet me asnjë rezultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "A doni ta kryeni të njëjtin kërkim në **bazën tonë globale të të dhënave**?",
   "no_location_found": "Nuk u gjet asnjë vendndodhje",
   "not_found": "Nuk u gjet, nuk rezultoi ",
   "refreshing_product": "Produkt freskues",
