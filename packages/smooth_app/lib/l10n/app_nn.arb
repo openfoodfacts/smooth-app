@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ingen produkt funnet",
   "@no_product_found": {},
+  "no_product_found_explanation": "Søket ditt etter\n**\"{search}\"**\nga ingen resultater.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vil du kjøre det samme søket i **vår globale database** i stedet?",
   "no_location_found": "Ingen plassering funnet",
   "not_found": "ikke funnet:",
   "refreshing_product": "Forfriskende produkt",
