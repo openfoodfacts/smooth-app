@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "कोई उत्पाद नहीं मिला",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nके लिए आपकी खोज किसी भी परिणाम से मेल नहीं खाती है।",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "क्या आप यही खोज हमारे वैश्विक डेटाबेस में चलाना चाहते हैं?",
   "no_location_found": "कोई स्थान नहीं मिला",
   "not_found": "नहीं मिला:",
   "refreshing_product": "ताज़ा उत्पाद",
