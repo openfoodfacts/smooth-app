@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "រកមិនឃើញផលិតផលទេ",
   "@no_product_found": {},
+  "no_product_found_explanation": "ការស្វែងរករបស់អ្នកសម្រាប់\n**\"{search}\"**\nមិនត្រូវគ្នានឹងលទ្ធផលណាមួយឡើយ។",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "តើអ្នកចង់ដំណើរការការស្វែងរកដូចគ្នានេះនៅក្នុង **មូលដ្ឋានទិន្នន័យសកលរបស់យើង** ជំនួសវិញទេ?",
   "no_location_found": "រកមិនឃើញទីតាំងទេ",
   "not_found": "រកមិនឃើញ៖",
   "refreshing_product": "ផលិតផលធ្វើឱ្យស្រស់ថ្លា",
