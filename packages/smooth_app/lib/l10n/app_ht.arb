@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
+  "no_product_found_explanation": "Rechèch ou a pou\n**\"{search}\"**\npa koresponn ak okenn rezilta.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Èske ou vle fè menm rechèch sa a nan **baz done mondyal nou an** pito?",
   "no_location_found": "No location found",
   "not_found": "not found:",
   "refreshing_product": "Refreshing product",
