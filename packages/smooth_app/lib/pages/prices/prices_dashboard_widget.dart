@@ -7,6 +7,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_data_widget.dart';
 import 'package:smooth_app/pages/prices/price_location_widget.dart';
@@ -83,7 +84,6 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
                     uriHelper: ProductQuery.uriPricesHelper,
                   ),
                 );
-
                 return Column(
                   children: prices.map((Price item) {
                     final PriceProduct? priceProduct = item.product;
@@ -159,6 +159,10 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
     }
 
     switch (res) {
+      case ProductPriceAction.VIEW_PRODUCT:
+        AppNavigator.of(
+          context,
+        ).push(AppRoutes.PRODUCT_LOADER(price.product!.code));
       case ProductPriceAction.VIEW_PROOF:
         Navigator.of(context).push(
           MaterialPageRoute<void>(
