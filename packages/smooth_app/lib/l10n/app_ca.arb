@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Cap producte trobat",
   "@no_product_found": {},
+  "no_product_found_explanation": "La cerca de\n**\"{search}\"**\nno ha trobat cap resultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Voleu executar aquesta mateixa cerca a la **nostra base de dades global**?",
   "no_location_found": "No s'ha trobat cap ubicació",
   "not_found": "no trobat:",
   "refreshing_product": "Producte refrescant",
