@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "எந்த தயாரிப்பும் கிடைக்கவில்லை.",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nக்கான உங்கள் தேடல் எந்த முடிவுகளுடனும் பொருந்தவில்லை.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "இதற்குப் பதிலாக **எங்கள் உலகளாவிய தரவுத்தளத்தில்** இதே தேடலை இயக்க விரும்புகிறீர்களா?",
   "no_location_found": "எந்த இடமும் கிடைக்கவில்லை.",
   "not_found": "கிடைக்கவில்லை:",
   "refreshing_product": "புத்துணர்ச்சியூட்டும் தயாரிப்பு",
