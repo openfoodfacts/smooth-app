@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Toodet ei leitud",
   "@no_product_found": {},
+  "no_product_found_explanation": "Sinu otsingule\n**\"{search}\"**\nei leitud vasteid.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Kas soovite sama otsingu hoopis **meie globaalses andmebaasis** käivitada?",
   "no_location_found": "Asukohta ei leitud",
   "not_found": "ei leitud:",
   "refreshing_product": "Värskendav toode",
