@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "상품 없음",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\n검색 결과가 없습니다.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "이 검색을 **당사의 글로벌 데이터베이스**에서 실행하시겠습니까?",
   "no_location_found": "위치를 찾을 수 없습니다",
   "not_found": "찾을 수 없음:",
   "refreshing_product": "상품 새로고치는 중...",
