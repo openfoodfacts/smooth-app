@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ni chanfuwyd unrhyw gynnyrch",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ni wnaeth eich chwiliad am\n**\"{search}\"**\ngyd-fynd ag unrhyw ganlyniadau.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ydych chi eisiau rhedeg yr un chwiliad yn **ein cronfa ddata fyd-eang** yn lle hynny?",
   "no_location_found": "Ni chanfuwyd lleoliad",
   "not_found": "heb ei ganfod:",
   "refreshing_product": "Cynnyrch adfywiol",
