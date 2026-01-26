@@ -56,6 +56,7 @@
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-title"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-labels"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">labels</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-values"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">values</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-dynamicSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">dynamicSize</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-subtitles"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">subtitles</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-addEndArrowToItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addEndArrowToItems</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-header"><span class="type-annotation">dynamic</span> <span class="parameter-name">header</span>, </span></li>
@@ -92,6 +93,8 @@
   required String title,
   required Iterable&lt;String&gt; labels,
   required Iterable&lt;T&gt; values,
+  &#47;&#47; If the size may change once the modal is shown
+  bool dynamicSize = false,
   Iterable&lt;String&gt;? subtitles,
   bool addEndArrowToItems = false,
   Widget? header,
@@ -201,6 +204,27 @@
     items.add(footerChild);
   } else {
     items.add(SizedBox(height: bottomPadding));
+  }
+
+  if (dynamicSize) {
+    return showSmoothModalSheet&lt;T&gt;(
+      context: context,
+      useRootNavigator: useRootNavigator ?? false,
+      builder: (_) =&gt; Column(
+        mainAxisSize: MainAxisSize.min,
+        children: &lt;Widget&gt;[
+          SmoothModalSheetHeader(
+            title: title,
+            prefix: SmoothModalSheetHeaderPrefixIndicator(
+              color: prefixIndicatorColor,
+            ),
+            backgroundColor: headerBackgroundColor,
+            type: type,
+          ),
+          ...items,
+        ],
+      ),
+    );
   }
 
   return showSmoothAutoSizeModalSheet&lt;T&gt;(
