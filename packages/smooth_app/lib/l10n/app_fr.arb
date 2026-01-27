@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": " ",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Hygiène personnelle",
   "product_type_label_pet_food": "Nourriture pour animaux de compagnie",
   "product_type_label_product": "Autre",
+  "product_type_label_unknown": "Inconnu",
   "product_type_selection_title": "Type de produit",
   "product_type_selection_subtitle": "Sélectionnez le type de ce produit",
   "product_type_selection_empty": "Vous devez d'abord sélectionner un type de produit !",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Voir les détails du produit",
   "prices_entry_menu_open_product_prices": "Voir tous les prix du produit",
   "prices_entry_menu_open_proof": "Voir la preuve",
   "prices_entry_menu_my_prices": "Voir mes autres prix",
@@ -4199,8 +4202,8 @@
   "guide_open_products_facts_features_arg2_text": "Dès qu'un indice de réparabilité français sera disponible, nous l'afficherons. De plus, **vous pouvez commencer à collecter les variables à l'aide du moteur de folksonomie** ; ainsi, nous pourrons le recalculer nous-mêmes ultérieurement, même dans les pays où il n'est pas disponible.",
   "guide_open_products_facts_features_arg3_title": "Trouvez des moyens de donner/revendre votre produit",
   "guide_open_products_facts_features_arg3_text": "Nous vous proposons des liens vers des **services tiers éco-responsables** qui vous permettent de trouver le produit que vous recherchez d'occasion, afin de préserver les ressources de la planète.\nVeuillez noter que ce service est entièrement gratuit et que le système n'est présenté qu'à titre d'exemple pour deux sites web en France. Vous pouvez contribuer à son développement en répertoriant d'autres sites sur le wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
-  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
+  "guide_open_products_facts_information_title": "Quelles informations sont utiles ?",
+  "guide_open_products_facts_information_text": "Pour une telle variété d'articles, **les données que nous collectons sont flexibles**. Pour cela **nous avons créé le Folksonomy Engine**.",
   "guide_open_products_facts_folksonomy_title": "Le moteur de folksonomie",
   "guide_open_products_facts_folksonomy_paragraph1": "Le moteur de folksonomie est un outil qui vous aide à compléter vos produits avec des propriétés pertinentes. Cela permet d'améliorer la recherche et la visibilité, mais aussi de calculer et d'afficher des informations intéressantes à l'avenir.",
   "guide_open_products_facts_folksonomy_paragraph2": "Vous pouvez ajouter des clés et des valeurs comme : **compatibilité_avec_réseau_mobile_5G : oui** (veuillez les rentrer en anglais, le système n'est pas multilingue)",
@@ -4469,7 +4472,7 @@
   "photo_field_front": "Photo du produit",
   "photo_field_ingredients": "Photo des ingrédients",
   "photo_field_nutrition": "Informations nutritionnelles",
-  "photo_field_packaging": "Photo des consignes de tri/recyclage",
+  "photo_field_packaging": "Photo des informations de recyclage",
   "photo_already_exists": "Cette photo existe déjà",
   "photo_missing": "Cette photo est manquante",
   "date": "Date",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Pour moi",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Ma compatibilité",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatible",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Données insuffisantes pour calculer un score de compatibilité.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Il est impossible de calculer un score pour un produit de type \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Importance",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Allumettes",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Bonnes correspondances",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Matchs moyens",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Mauvaises correspondances",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Correspondances inconnues",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Site Web",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Métriques Open Prices",
+  "preferences_prices_metrics_title": "Métriques des prix d'ouverture",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Code postal",
   "location_map_details_country": "Pays",
   "location_map_details_coordinates": "Coordonnées",
-  "location_map_details_osm_id": "ID OSM"
+  "location_map_details_osm_id": "ID OSM",
+  "homepage_scanner_back_to_home_button": "Retour à l'accueil",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Activer/désactiver la caméra",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Afficher le lecteur de codes-barres",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Appuyez pour scanner un **code-barres**\net découvrez si c'est **bon pour vous** !",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Lampe torche",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scannez un produit en vous approchant de son code-barres",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Nous avons détecté le code-barres suivant : {barcode}, mais il semble être invalide.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Voir plus…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Produits les plus scannés",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Derniers produits scannés",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Vede i dettagli di u pruduttu",
   "prices_entry_menu_open_product_prices": "Vede tutti i prezzi per questu pruduttu",
   "prices_entry_menu_open_proof": "Vede a prova",
   "prices_entry_menu_my_prices": "Vede i mo altri prezzi",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Sapè ne di più nantu à Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4149,7 +4152,7 @@
   "guide_open_beauty_facts_scores_title": "A note on scoring",
   "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
   "guide_open_beauty_facts_share_link": "https://world-co.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Benvenuti à Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4166,15 +4169,15 @@
   "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
   "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
   "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_why_title": "Perchè Open Food Facts face questu?",
   "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
+  "guide_open_prices_why_arg1_title": "Segui l'evoluzione di i prezzi in u tempu",
   "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_why_arg2_title": "Paragunate i prezzi vicinu à voi",
+  "guide_open_prices_why_arg2_text": "Mentre avemu più prezzi, pudete individuà **i magazini più economici intornu à voi**.",
+  "guide_open_prices_scrapping_title": "Avete cunsideratu di caccià i prezzi da i siti web di i rivenditori?",
+  "guide_open_prices_scrapping_paragraph1": "Per ragioni ghjuridiche è tecniche, **ùn cunsideremu micca u scraping di i prezzi da i siti web di i dettaglianti cum'è un modu validu per cuntribuisce à Open Prices**. Vulemu assicurà chì i prezzi chì raccogliemu sianu precisi è aggiornati, è riceve prezzi scrapati da i cuntributori ùn ci permette micca di fà què.",
+  "guide_open_prices_scrapping_paragraph2": "U scraping di i prezzi hè una opzione cunsiderata in una versione futura di Open Prices, ma seria fatta da Open Prices stessa in modu da pudè avè una prova di u prezzu basata annantu à a pagina HTML.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Per mè",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "A mo cumpatibilità",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% cumpatibile",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Dati insufficienti per calculà un puntuatu di cumpatibilità.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Un puntuatu ùn pò esse calculatu per un pruduttu di tipu \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Impurtanza",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Partite",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Boni partiti",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Partite medie",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Cattivi partiti",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Corrispondenza scunnisciuta",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metriche di u prezzu d'apertura",
+  "preferences_prices_metrics_title": "Metriche di i prezzi d'apertura",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Postcode",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "Ritornu à casa",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Attivà/disattivà a camera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Mostra u scanner di codici à barre",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Toccate per scansà un **codice à barre**\nè scopre s'ellu hè **bonu per voi**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Attivà/disattivà a torcia",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scansione di un pruduttu avvicinendu si à u so codice à barre",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Avemu rilevatu u codice à barre seguente: {barcode}, ma pare esse invalidu.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Vede di più…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Ultimi prudutti scansionati",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

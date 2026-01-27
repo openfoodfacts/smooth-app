@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -790,7 +791,7 @@
   "score_add_missing_ingredients": "Přidejte chybějící přísady",
   "score_add_missing_packaging_image": "Přidat chybějící obrázek obalu",
   "score_add_missing_nutrition_facts": "Přidejte chybějící výživová fakta",
-  "score_add_missing_product_traces": "Add missing product traces",
+  "score_add_missing_product_traces": "Přidat chybějící stopy produktu",
   "score_add_missing_product_category": "Přidejte chybějící kategorii produktu",
   "score_add_missing_precise_product_category": "Vyberte přesnější kategorii",
   "score_add_missing_product_countries": "Přidat chybějící země produktu",
@@ -1631,7 +1632,7 @@
   "@edit_product_form_item_add_action_category": {
     "description": "Tooltip to show when the user long presses the (+) button on a category"
   },
-  "edit_product_form_item_add_action_trace": "Add a new trace",
+  "edit_product_form_item_add_action_trace": "Přidat novou stopu",
   "@edit_product_form_item_add_action_trace": {
     "description": "Tooltip to show when the user long presses the (+) button on a trace"
   },
@@ -1843,7 +1844,7 @@
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
-  "edit_product_form_item_traces_type": "Input a trace (eg: Soy beans)",
+  "edit_product_form_item_traces_type": "Zadejte stopu (např.: sójové boby)",
   "@edit_product_form_item_traces_type": {
     "description": "Product edition - Traces - input textfield type"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Osobní péče",
   "product_type_label_pet_food": "Zvířecí krmivo",
   "product_type_label_product": "Ostatní",
+  "product_type_label_unknown": "Neznámo",
   "product_type_selection_title": "Typ produktu",
   "product_type_selection_subtitle": "Vyberte typ tohoto produktu",
   "product_type_selection_empty": "Nejprve musíte vybrat typ produktu!",
@@ -2317,12 +2319,12 @@
   "prices_app_dev_mode_flag": "Zástupce pro aplikaci Ceny na produktové stránce",
   "prices_app_button": "Přejít do aplikace Ceny",
   "prices_website_button": "Otevřít na webu Open Prices",
-  "prices_bulk_proof_upload_select": "Add price tags directly from gallery",
-  "prices_bulk_proof_upload_warning": "Once you've selected images, you won't be able to edit them!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_select": "Přidejte cenovky přímo z galerie",
+  "prices_bulk_proof_upload_warning": "Jakmile vyberete obrázky, nebudete je moci upravovat!",
+  "prices_bulk_proof_upload_warning_ai": "Umělá inteligence poběží na základě vašich dokladů, aby extrahovala ceny.",
   "prices_bulk_proof_upload_community_switch": "Umožněte komunitě ověřovat ceny získané umělou inteligencí.",
-  "prices_bulk_proof_upload_subtitle": "Multiple Price Tags",
-  "prices_bulk_proof_upload_title": "Bulk Proof Upload",
+  "prices_bulk_proof_upload_subtitle": "Více cenových štítků",
+  "prices_bulk_proof_upload_title": "Hromadné nahrání dokladů",
   "prices_bulk_proof_upload_step_selecting": "Výběr souborů",
   "prices_bulk_proof_upload_step_starting": "Zahájení nahrávání",
   "prices_bulk_proof_upload_step_copying": "Lokální kopírování souboru #{index}/{count}",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Zobrazit podrobnosti o produktu",
   "prices_entry_menu_open_product_prices": "Zobrazit všechny ceny tohoto produktu",
   "prices_entry_menu_open_proof": "Zobrazit důkaz",
   "prices_entry_menu_my_prices": "Zobrazit mé další ceny",
@@ -2605,7 +2608,7 @@
   "prices_proof_empty_title": "Zatím žádný důkaz!",
   "prices_proof_empty_explanation": "Začněte přidáním fotografie **účtenky** nebo **cenovky**!",
   "prices_proof_find": "Vybrat doklad",
-  "prices_proof_change": "Change proof",
+  "prices_proof_change": "Změnit doklad",
   "prices_proof_receipt": "Účtenka",
   "prices_proof_price_tag": "Cenovka",
   "prices_proof_mandatory": "Musíte vybrat doklad!",
@@ -2652,7 +2655,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Zjistěte více o otevřených cenách",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2756,7 +2759,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Proof from \"{user}\"",
+  "search_proof_title": "Doklad od „{user}“",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -2795,7 +2798,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Add Multiple Proofs",
+  "prices_multiple_proof_addition_system": "Přidat více dokladů",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -2911,7 +2914,7 @@
   "@add_basic_details_product_name_add_translation": {
     "description": "Button to add a new translation for the product name"
   },
-  "add_basic_details_product_name_warning_translations": "Before validating, please ensure you only add a translation **if the language is present on the packaging**",
+  "add_basic_details_product_name_warning_translations": "Před ověřením se prosím ujistěte, že přidáváte překlad pouze v případě, **že je daný jazyk uveden na obalu**",
   "@add_basic_details_product_name_warning_translations": {
     "description": "Warning message displayed on top of new translations for the product name"
   },
@@ -3017,7 +3020,7 @@
   "@add_basic_details_product_brand_help_info3_title": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item1_text": "When sold **by a big company**:",
+  "add_basic_details_product_brand_help_info3_item1_text": "Při prodeji **velkou společností**:",
   "@add_basic_details_product_brand_help_info3_item1_text": {
     "description": "Text explaining how to write brands"
   },
@@ -3025,7 +3028,7 @@
   "@add_basic_details_product_brand_help_info3_item1_explanation": {
     "description": "Text explaining how to write brands"
   },
-  "add_basic_details_product_brand_help_info3_item2_text": "When sold with its brand **translated in multiple languages**:",
+  "add_basic_details_product_brand_help_info3_item2_text": "Při prodeji se svou značkou **přeloženou do několika jazyků**:",
   "@add_basic_details_product_brand_help_info3_item2_text": {
     "description": "Text explaining how to write brands"
   },
@@ -3879,7 +3882,7 @@
   "contact_title_press_page": "Pro média",
   "contact_title_press_email": "Kontakt pro novináře",
   "contact_title_newsletter": "Přihlaste se k odběru našeho zpravodaje",
-  "contact_title_calendar": "Subscribe to our community calendar",
+  "contact_title_calendar": "Přihlaste se k odběru našeho komunitního kalendáře",
   "hunger_games_loading_line1": "Dejte nám prosím pár sekund…",
   "hunger_games_loading_line2": "Stahujeme otázky!",
   "hunger_games_error_label": "Argh! Něco se pokazilo… a otázky se nepodařilo načíst.",
@@ -3994,14 +3997,14 @@
   "guide_greenscore_bonuses_penalties_arg1_title": "Způsob výroby",
   "guide_greenscore_bonuses_penalties_arg1_text": "**Bonus** se uděluje výrobkům, které mají **oficiální etiketu, označení nebo certifikace, která zaručuje přínos pro životní prostředí** (organický obchod, spravedlivý obchod, HVE, označení Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Původ přísad",
-  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Na základě původu surovin se uděluje **bonus**. Tento bonus zohledňuje **dopad na dopravu** a také **environmentální politiku** země každého producenta.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Ohrožené druhy",
-  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "**Pokuta** se uděluje produktům, které obsahují složky s významným **negativním dopadem na biodiverzitu a ekosystémy**, jako je například palmový olej, jehož produkce je zodpovědná za masivní odlesňování.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Obal",
-  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Výše pokuty se vypočítává s ohledem na oběhový charakter obalů (použití recyklovaných surovin a recyklovatelnost) a nadměrné balení.",
   "guide_greenscore_transparency_title": "Zvýšená potřeba transparentnosti pro lepší měření a snižování dopadů na životní prostředí",
-  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
-  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
+  "guide_greenscore_transparency_intro1": "Pro přesný výpočet Green-Score je nutné mít **informace, které nemusí být nutně uvedeny na obalu** (jako je původ a přesné procento každé složky) nebo které jsou zřídka dostupné v použitelné formě (jako je seznam všech součástí obalu s přesným uvedením použitých typů plastů).",
+  "guide_greenscore_transparency_intro2": "**Průměrné hodnoty se používají, pokud tyto informace ještě nejsou k dispozici**, ale nyní vyzýváme všechny, aby nám pomohli tyto informace shromáždit, protože budou velmi užitečné pro Green-Score, ale i pro mnoho dalších použití.",
   "guide_greenscore_transparency_arg1_title": "Jak mohou občané pomoci?",
   "guide_greenscore_transparency_arg1_text": "Všichni občané nám mohou pomoci shromáždit a strukturovat informace, které jsou na produktech uvedeny nebo z nich lze odvodit, například informace o **obalech**: „Mission Emballages“: rozsáhlý společný inventář obalů pro všechny potravinářské výrobky (ve francouzštině).",
   "guide_greenscore_transparency_arg2_title": "Jak mohou výrobci pomoci",
@@ -4032,7 +4035,7 @@
   "guide_nova_groups_title": "4 skupiny NOVA",
   "guide_nova_groups_intro": "Existují 4 skupiny NOVA, problematická je skupina 4 – Ultrazpracované potraviny.",
   "guide_nova_groups_arg1_title": "Minimálně zpracované nebo nezpracované potraviny",
-  "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
+  "guide_nova_groups_arg1_text": "Nezpracované (nebo přírodní) potraviny jsou **jedlé části rostlin** (semena, plody, listy, stonky, kořeny) **nebo zvířat** (svalovina, droby, vejce, mléko), jakož i houby, řasy a voda po oddělení od přírody.",
   "guide_nova_groups_arg2_title": "Běžně zpracované kuchyňské přísady",
   "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Běžně zpracované potraviny",
@@ -4041,17 +4044,17 @@
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 Food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, Ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Problémy s ultraprocessingem",
   "guide_nova_explanations_arg1_title": "Extrémní zpracování potravinářských surovin",
-  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
+  "guide_nova_explanations_arg1_text": "Mnohé z nich pocházejí z **dalšího zpracování složek potravin**, jako jsou hydrogenované nebo interesterifikované oleje, hydrolyzované bílkoviny, izolát sójových bílkovin, maltodextrin, invertní cukr a kukuřičný sirup s vysokým obsahem fruktózy.",
   "guide_nova_explanations_arg2_title": "Přísady, které jdou nad rámec čisté bezpečnosti potravin",
-  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
+  "guide_nova_explanations_arg2_text": "Mezi přísady v ultrazpracovaných potravinách patří některé, které se používají i ve zpracovaných potravinách, jako jsou konzervanty, antioxidanty a stabilizátory. Mezi třídy přísad, které se nacházejí pouze v ultrazpracovaných produktech, patří ty, které se používají **k napodobení nebo vylepšení senzorických vlastností potravin nebo k zakrytí nechutných aspektů konečného produktu**. Mezi tyto přísady patří pigmenty a jiná barviva, stabilizátory barev; aromata, zvýrazňovače chuti, necukerná sladidla; a pomocné látky při zpracování, jako jsou syticí, zpevňující, objemové a protiplísňové látky, odpěňovací, protispékavé a lešticí látky, emulgátory, sekvestranty a zvlhčovadla.",
   "guide_nova_explanations_arg3_title": "Zpracování, které doma nezvládnete",
-  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
+  "guide_nova_explanations_arg3_text": "**Ke smíchání obvykle mnoha ingrediencí a vytvoření konečného produktu (odtud „ultra zpracovaný“) se používá **množství sekvencí procesů**. Mezi tyto procesy patří několik **kterých v domácím prostředí neexistují ekvivalenty**, jako je hydrogenace a hydrolýza, extruze a lisování a předzpracování pro smažení.",
   "guide_nova_explanations_arg4_title": "Predátorské a finanční aspekty ultraprocessingu",
-  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
+  "guide_nova_explanations_arg4_text": "Celkovým účelem ultrazpracování je vytvořit značkové, pohodlné (trvanlivé, připravené ke konzumaci), atraktivní (hyperchutné) a vysoce ziskové (s levnými ingrediencemi) potraviny určené k nahrazení všech ostatních skupin potravin. Ultrazpracované potraviny jsou obvykle atraktivně baleny a intenzivně uváděny na trh.",
   "guide_nova_explanations_arg5_title": "Zdravotní riziko",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
-  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
-  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
+  "guide_nova_explanations_arg5_text": "Od roku 2018 byly díky projektu NutriNet-Santé zdůrazněny první souvislosti mezi **konzumací ultrazpracovaných potravin a zvýšeným rizikem rakoviny, kardiovaskulárních onemocnění a cukrovky**. Dnes tato zjištění potvrzuje více než 90 studií po celém světě.\nNejsilnější souvislosti se týkají **obezity, kardiovaskulární úmrtnosti a depresivních symptomů**. U dětí jsou účinky pozorovány především na hmotnosti a lipidové nerovnováze.",
+  "guide_nova_explanations_arg6_title": "Země doporučují jejich omezení",
+  "guide_nova_explanations_arg6_text": "Některé země používají skupiny NOVA pro svá stravovací doporučení nebo cíle, například:\n\n- **🇧🇷 Brazílie** – stravovací doporučení **doporučuje omezit** konzumaci zpracovaných potravin a vyhýbat se ultrazpracovaným potravinám.\n\n- **🇫🇷 Francie** – cíle politiky veřejného zdraví v oblasti výživy na období 2018–2022 si kladou za cíl **snížit spotřebu ultrazpracovaných potravin skupiny 4 o 20 %**.",
   "guide_nova_share_link": "https://world-cs.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
@@ -4071,7 +4074,7 @@
   },
   "guide_open_food_facts_features_title": "Vlastnosti Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "Získejte upozornění na nežádoucí přísady",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_food_facts_tips_title": "Tipy pro pořizování skvělých fotografií",
   "guide_open_food_facts_tips_arg1_title": "Co nedělat",
   "guide_open_food_facts_tips_arg1_text1": "Vyhněte se stínům a přesvícení.",
   "guide_open_food_facts_tips_arg1_text2": "Žádný rozmazaný nebo nezaostřený text.",
@@ -4103,7 +4106,7 @@
   "guide_open_pet_food_facts_features_title": "Vlastnosti Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Získejte upozornění na nežádoucí přísady",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Je váš mazlíček alergický na nějaké složky? Seznam kosmetických složek, kterým se chcete vyhnout, si můžete nastavit přímo v aplikaci!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_pet_food_facts_tips_title": "Tipy pro pořizování skvělých fotografií",
   "guide_open_pet_food_facts_tips_arg1_title": "Co nedělat",
   "guide_open_pet_food_facts_tips_arg1_text1": "Vyhněte se stínům a přesvícení.",
   "guide_open_pet_food_facts_tips_arg1_text2": "Žádný rozmazaný nebo nezaostřený text.",
@@ -4115,13 +4118,13 @@
   "guide_open_pet_food_facts_tips_arg2_text3": "Zaznamenejte si celý seznam ingrediencí.",
   "guide_open_pet_food_facts_tips_arg2_text4": "Dejte výrobek na rovný povrch.",
   "guide_open_pet_food_facts_scores_title": "Poznámka k bodování",
-  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
+  "guide_open_pet_food_facts_scores_paragraph1": "Vývoj systému hodnocení krmiv pro domácí mazlíčky **není v současné době prioritou**. Metodika by byla složitá, protože nutriční potřeby se značně liší podle druhu, věku a zdravotního stavu. Zatím jsme nenašli žádný nezávislý vědecký tým, který by byl schopen takové hodnocení vyvinout.",
   "guide_open_pet_food_facts_share_link": "https://world-cs.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Vítejte na Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Co je to Open Beauty Facts?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts je kooperativní databáze **kosmetických produktů**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4130,10 +4133,10 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_title": "Funkce Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "Získejte upozornění na nežádoucí přísady",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Jste alergičtí na nějaké složky? Chcete se vyhnout komedogenním látkám? Chcete se vyhnout kontroverzním složkám? Seznam kosmetických složek, kterým se chcete vyhnout, si můžete nastavit přímo v aplikaci!",
+  "guide_open_beauty_facts_tips_title": "Tipy pro pořizování skvělých fotografií",
   "guide_open_beauty_facts_tips_arg1_title": "Co nedělat",
   "guide_open_beauty_facts_tips_arg1_text1": "Vyhněte se stínům a přesvícení.",
   "guide_open_beauty_facts_tips_arg1_text2": "Žádný rozmazaný nebo nezaostřený text.",
@@ -4143,18 +4146,18 @@
   "guide_open_beauty_facts_tips_arg2_text1": "Používejte dobré, rovnoměrné osvětlení.",
   "guide_open_beauty_facts_tips_arg2_text2": "Ujistěte se, že text je ostrý a čitelný.",
   "guide_open_beauty_facts_tips_arg2_text3": "Zaznamenejte si celý seznam ingrediencí.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
-  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Pokud je láhev zakřivená, pořiďte tolik fotografií, kolik je potřeba.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Možná budete muset odloupnout štítek, abyste viděli seznam složek.",
   "guide_open_beauty_facts_tips_arg2_text6": "Dejte výrobek na rovný povrch.",
   "guide_open_beauty_facts_scores_title": "Poznámka k bodování",
-  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
+  "guide_open_beauty_facts_scores_paragraph1": "Na rozdíl od potravinářských výrobků nemá svět kosmetiky **všeobecně uznávaný, vládou podporovaný systém hodnocení, jako je Nutri-Score**. Účinky složek mohou být velmi individuální a záviset na typu pleti, alergiích a individuálních problémech.",
   "guide_open_beauty_facts_share_link": "https://world-cs.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Vítejte v Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "Co jsou to Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt, jehož cílem je **shromažďovat a sdílet ceny produktů z celého světa**. Jedná se o veřejně dostupnou datovou sadu, kterou lze použít pro výzkum, analýzy a další účely. Open Prices je vyvíjen a spravován společností Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,53 +4165,53 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_how_title": "Jak fungují Open Prices?",
+  "guide_open_prices_how_paragraph1": "**Provádíme crowdsourcing s open-source datovou sadou cen.** Ceny mohou uživatelé přidávat prostřednictvím této webové aplikace nebo oficiální mobilní aplikace Open Food Facts. Prostřednictvím našeho API mohou přispět i maloobchodníci nebo aplikace třetích stran.",
+  "guide_open_prices_how_arg1_title": "Sbírejte fotografie cenovek v uličkách",
+  "guide_open_prices_how_arg2_title": "Sbírejte fotografie účtenek",
+  "guide_open_prices_why_title": "Proč to Open Food Facts dělá?",
+  "guide_open_prices_why_paragraph1": "Informace o cenách jsou pro pochopení potravinových systémů zásadní. Jsou klíčovým faktorem pro pochopení nákladů na potraviny a pro podporu zdravějšího stravování. Uvolnění cenových dat je způsobem, jak usnadnit výzkumníkům, novinářům a občanům **lepší pochopení toho, jak se ceny potravin mění geograficky a v čase**.",
+  "guide_open_prices_why_arg1_title": "Sledujte vývoj cen v čase",
+  "guide_open_prices_why_arg1_text": "Podívejte se na **vývoj cen**: smrskflace, cheapflace, můžeme je sledovat společně!",
+  "guide_open_prices_why_arg2_title": "Porovnejte ceny ve vašem okolí",
+  "guide_open_prices_why_arg2_text": "Jak budeme dostávat více cen, můžete najít **nejlevnější obchody ve vašem okolí**.",
+  "guide_open_prices_scrapping_title": "Zvažovali jste možnost sesbírat ceny z webových stránek maloobchodníků?",
+  "guide_open_prices_scrapping_paragraph1": "Z právních a technických důvodů **nepovažujeme scraping cen z webových stránek maloobchodníků za platný způsob, jak přispívat do Open Prices**. Chceme se ujistit, že ceny, které shromažďujeme, jsou přesné a aktuální, a získávání scrapingových cen od přispěvatelů nám to neumožňuje.",
+  "guide_open_prices_scrapping_paragraph2": "Sběr dat o cenách je v budoucí verzi Open Prices zvažovanou možností, ale prováděl by ji samotný Open Prices, abychom měli důkaz o ceně na základě HTML stránky.",
   "guide_open_prices_retailers_title": "Jsem maloobchodník a chci přispět cenami. Jak to mohu udělat?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "Ceny můžete zadávat pomocí našeho API.\nPokud chcete zadávat ceny ve velkém měřítku, kontaktujte nás prosím na adrese prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "Vítejte na Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Co je to Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts je rozsáhlá otevřená databáze pro **jakýkoli produkt s čárovým kódem, který není potravinou, kosmetickým přípravkem ani krmivem pro domácí zvířata**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Od **elektroniky** po **hračky** a od **oblečení** po **čisticí prostředky**, pokud má něco čárový kód, lze jej přidat. Cílem tohoto projektu je vytvořit „internet věcí“ pro předměty denní potřeby a zpřístupnit o nich informace univerzálně.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
-  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
-  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
-  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
-  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
-  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
-  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
-  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
-  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
-  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
+  "guide_open_products_facts_features_title": "Vlastnosti Open Products Facts",
+  "guide_open_products_facts_features_text": "Cílem Open Products Facts je poskytnout spotřebitelům možnost **prodloužit životnost předmětů** tím, že jim poskytne cirkulární řešení pro údržbu, **opravy**, **recyklaci** jejich předmětů nebo jim dát nového majitele.",
+  "guide_open_products_facts_features_arg1_title": "Uhlíková stopa některých produktů",
+  "guide_open_products_facts_features_arg1_text": "**Dopad CO2** od francouzského úřadu pro životní prostředí ADEME uvádí **dopad uhlíku** v mnoha kategoriích, proto dbejte na přesné kategorie produktů.",
+  "guide_open_products_facts_features_arg2_title": "Index opravitelnosti pro mnoho produktů",
+  "guide_open_products_facts_features_arg2_text": "Kdykoli bude k dispozici francouzský index opravitelnosti, zobrazíme ho. Navíc **můžete začít shromažďovat proměnné pomocí nástroje Folksonomy Engine**, abychom jej mohli v budoucnu sami přepočítat, a to i v zemích, kde není k dispozici.",
+  "guide_open_products_facts_features_arg3_title": "Najděte způsoby, jak darovat/znovu prodat váš produkt",
+  "guide_open_products_facts_features_arg3_text": "Poskytujeme odkazy na **služby třetích stran zaměřené na oběhové hospodářství**, které vám pomohou získat produkt, který hledáte, ať už z druhé ruky, a zároveň šetrněji k planetárním zdrojům.\nUpozorňujeme, že za to nejsme placeni a že systém funguje pouze jako příklad pro dva webové stránky ve Francii. Můžete pomoci rozšířit tento systém zdokumentováním dalších stránek na wiki.",
+  "guide_open_products_facts_information_title": "Jaké informace jsou užitečné?",
+  "guide_open_products_facts_information_text": "Pro tak širokou škálu položek jsou **data, která shromažďujeme, flexibilní**. Za tímto účelem jsme **vytvořili Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "Folksonomy Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "Folksonomy Engine je nástroj, který vám pomůže doplnit produkty relevantními vlastnostmi. To pomáhá zlepšit vyhledávání a objevitelnost, ale také vypočítávat a zobrazovat zajímavé informace v budoucnu.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Můžete přidat libovolné klíče a hodnoty, například: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Získáte automatické návrhy možných vlastností a budete vítáni, když budete přidávat a dokumentovat nové vlastnosti pro vaše oblíbené druhy produktů.",
   "guide_open_products_facts_share_link": "https://world-cs.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food preferences",
+  "guide_open_preferences_button_title": "Otevřít předvolby jídla",
   "guide_coming_soon_button_title": "Již brzy",
-  "guide_learn_more_subtitle": "Tap to learn more",
+  "guide_learn_more_subtitle": "Klepnutím se dozvíte více",
   "preview_badge": "Náhled",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Moje kompatibilita",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibilní",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Nedostatek dat pro výpočet skóre kompatibility.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Pro produkt typu „{productType}“ nelze vypočítat skóre.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Význam",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Zápasy",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Dobré zápasy",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Průměrné shody",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Špatné zápasy",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Neznámé shody",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Webová stránka",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4573,11 +4626,11 @@
   "folksonomy_explanation_card_title": "Jaké jsou atributy folksonomie?",
   "folksonomy_explanation_card_line1": "Atributy jsou založeny na **klíč-hodnota**.",
   "folksonomy_explanation_card_line2": "Tyto vlastnosti jsou vytvářeny a archivovány přispěvateli pro jakékoli použití.",
-  "folksonomy_action_external_link_title": "Open external link",
+  "folksonomy_action_external_link_title": "Otevřít externí odkaz",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
+  "folksonomy_action_external_link_warning": "Externí odkazy mohou být nebezpečné. Opravdu je chcete navštívit?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -4803,7 +4856,7 @@
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "Otázka zodpovězena!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
@@ -5116,7 +5169,7 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Objevte Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
@@ -5152,7 +5205,7 @@
   "@preferences_connect_newsletter_subtitle": {
     "description": "Subtitle for newsletter tile"
   },
-  "preferences_connect_community_calendar_title": "Subscribe to our community calendar",
+  "preferences_connect_community_calendar_title": "Přihlaste se k odběru našeho komunitního kalendáře",
   "@preferences_connect_community_calendar_title": {
     "description": "Title for community calendar tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metriky otevírací ceny",
+  "preferences_prices_metrics_title": "Metriky otevíracích cen",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "PSČ",
   "location_map_details_country": "Země",
   "location_map_details_coordinates": "Souřadnice",
-  "location_map_details_osm_id": "ID OSM"
+  "location_map_details_osm_id": "ID OSM",
+  "homepage_scanner_back_to_home_button": "Zpátky domů",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Přepnout kameru",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Zobrazit skener čárových kódů",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Klepnutím naskenujete **čárový kód**\na zjistíte, jestli je to **pro vás** dobré!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Přepnout/zapnout svítilnu",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Naskenujte produkt přiblížením se k jeho čárovému kódu",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Detekovali jsme následující čárový kód: {barcode}, ale zdá se, že je neplatný.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Zobrazit více…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Nejčastěji skenované produkty",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Poslední naskenované produkty",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

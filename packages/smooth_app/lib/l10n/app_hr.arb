@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Zemlja",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
   "product_type_label_product": "Ostalo",
+  "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Pogledajte detalje o proizvodu",
   "prices_entry_menu_open_product_prices": "Pogledajte sve cijene za ovaj proizvod",
   "prices_entry_menu_open_proof": "Pogledajte dokaz",
   "prices_entry_menu_my_prices": "Pogledajte moje ostale cijene",
@@ -2488,7 +2491,7 @@
       }
     }
   },
-  "prices_open_user_proofs": "Open proofs of \"{user}\"",
+  "prices_open_user_proofs": "Otvoreni dokazi za \"{user}\"",
   "@prices_open_user_proofs": {
     "description": "Button to open the proofs of a user",
     "placeholders": {
@@ -3853,7 +3856,7 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic_new": "Zeleni rezultat",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Zelena ocjena A",
   "environmental_score_b_new": "Zelena ocjena B",
   "environmental_score_c_new": "Zeleni rezultat C",
@@ -3954,7 +3957,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Zeleni rezultat",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "A note on scoring",
   "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
   "guide_open_beauty_facts_share_link": "https://world-hr.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Dobrodošli na Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Što su Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4168,9 +4171,9 @@
   "guide_open_prices_how_arg2_title": "Collect photos of receipts",
   "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
   "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
-  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
-  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
+  "guide_open_prices_why_arg1_title": "Pratite razvoj cijena tijekom vremena",
+  "guide_open_prices_why_arg1_text": "Pogledajte **evoluciju cijena**: smanjenje inflacije, jeftina inflacija, možemo ih pratiti zajedno!",
+  "guide_open_prices_why_arg2_title": "Usporedite cijene u vašoj blizini",
   "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
   "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
   "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "Za mene",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Moja kompatibilnost",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibilnosti",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Nedovoljno podataka za izračun ocjene kompatibilnosti.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Rezultat se ne može izračunati za proizvod tipa \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Važnost",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Utakmice",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Dobre utakmice",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Prosječne utakmice",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Loše podudarnosti",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Nepoznata podudaranja",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Mjerni podaci o otvorenoj cijeni",
+  "preferences_prices_metrics_title": "Mjerni podaci o otvorenim cijenama",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Street",
   "location_map_details_city": "City",
   "location_map_details_postcode": "Postcode",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Zemlja",
   "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "Natrag kući",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Uključi/isključi kameru",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Prikaži skener barkodova",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Dodirnite za skeniranje **barkoda**\ni otkrijte je li **dobar za vas**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Uključi/isključi svjetiljku",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skenirajte proizvod približavanjem njegovom barkodu",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Otkrili smo sljedeći barkod: {barcode}, ali čini se da nije važeći.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Prikaži više…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Najskeniraniji proizvodi",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Posljednji skenirani proizvodi",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

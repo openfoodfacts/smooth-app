@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Åpne priser",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -711,7 +712,7 @@
   "nutritional_facts_input_button_label": "Fyll inn næringsinnhold",
   "nutritional_facts_added": "Ernæringsfakta lagt til",
   "categories_added": "Kategorier lagt til",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "Beregn ernæringspoengsummen",
   "new_product_subtitle_nutriscore": "Hjelp oss ved å fylle ut minst én kategori og næringsverdier",
   "new_product_title_environmental_score": "Beregn den grønne poengsummen",
   "new_product_subtitle_environmental_score": "Få det ved å fylle ut minst én kategori",
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Land",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Personlig pleie",
   "product_type_label_pet_food": "Kjæledyrfôr",
   "product_type_label_product": "Andre",
+  "product_type_label_unknown": "Ukjent",
   "product_type_selection_title": "Produkttype",
   "product_type_selection_subtitle": "Velg typen av dette produktet",
   "product_type_selection_empty": "Du må velge en produkttype først!",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Vis produktdetaljer",
   "prices_entry_menu_open_product_prices": "Vis alle priser for dette produktet",
   "prices_entry_menu_open_proof": "Vis bevis",
   "prices_entry_menu_my_prices": "Vis mine andre priser",
@@ -3849,8 +3852,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ny beregning)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "Ukjent Nutri-Score",
+  "nutriscore_unknown_new_formula": "Ukjent Nutri-Score (Ny beregning)",
   "nutriscore_not_applicable": "Nutri-Score er ikke aktuelt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke aktuelt (ny beregning)",
   "environmental_score_generic_new": "Green-Score",
@@ -3918,12 +3921,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Del",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score er i utvikling: forklaringer!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Hva er Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score er en logo som har som mål å informere deg om **næringsmessig kvalitet på matvarer**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3931,9 +3934,9 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A-logoen",
+  "guide_nutriscore_v2_why_v2_title": "Hvorfor er Nutri-Score i utvikling?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score-formelen **utvikles** for å gi bedre anbefalinger:",
   "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
   "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
   "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
@@ -3944,16 +3947,16 @@
   "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
   "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
   "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
+  "guide_nutriscore_v2_new_logo_title": "Hvordan skille mellom gammel Nutri-Score og ny beregning?",
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_new_logo_image_caption": "Logoen til den nye Nutri-Score",
   "guide_nutriscore_v2_where_title": "Hvor finner jeg den nye Nutri-Score-beregningen?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score brukes i 7 land: Frankrike, Tyskland, Belgia, Spania, Luxembourg, Nederland og Sveits.",
   "guide_nutriscore_v2_where_paragraph2": "Produsentene har maksimalt **2 år** etter at dekretet er undertegnet **til å erstatte** den gamle beregningen med den nye.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en skåre som er utformet for å **måle næringskvalitet**. Den er **komplementær til NOVA-gruppen** på **ultraprosessert mat** (også tilgjengelig i applikasjonen).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "For produsenter er visning av Nutri-Score **valgfritt**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4149,11 +4152,11 @@
   "guide_open_beauty_facts_scores_title": "En merknad om poengberegning",
   "guide_open_beauty_facts_scores_paragraph1": "I motsetning til matvarer har ikke kosmetikkverdenen et universelt anerkjent, myndighetsstøttet poengsystem som Nutri-Score. Ingrediensenes effekt kan være svært personlig og avhenge av hudtype, allergier og individuelle bekymringer.",
   "guide_open_beauty_facts_share_link": "https://world-nb.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Velkommen til Åpne priser!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Hva er åpningspriser?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices er et prosjekt for å **samle inn og dele priser på produkter over hele verden**. Det er et offentlig tilgjengelig datasett som kan brukes til forskning, analyse og mer. Open Prices er utviklet og vedlikeholdt av Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "For meg",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Min kompatibilitet",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Utilstrekkelig data for å beregne et kompatibilitetsskår.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "En score kan ikke beregnes for et produkt av type \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Viktighet:",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Treff",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Gode partnerforslag",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Gjennomsnittlig treff",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Dårlig treff",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Ukjente treff",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Nettsted",
   "@product_page_tab_website": {
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Åpne prismålere",
+  "preferences_prices_metrics_title": "Åpne prismåltall",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "Gate",
   "location_map_details_city": "By",
   "location_map_details_postcode": "Postnummer",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Land",
   "location_map_details_coordinates": "Koordinater",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Tilbake til hjem",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Veksle kamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Vis strekkodeleser",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Trykk for å skanne en **strekkode**\nog oppdag hvis det er **bra for deg**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Slå av/på lommelykt",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skann et produkt ved å nærme strekkoden",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Vi har funnet følgende strekkode: {barcode}, men det ser ut til å være ugyldig.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Vis mer…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Mest skannede produkter",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Siste skannede produkter",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

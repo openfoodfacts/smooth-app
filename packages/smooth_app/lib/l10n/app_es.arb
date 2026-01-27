@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Precios abiertos",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -472,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Comunidad",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "Cuidado personal",
   "product_type_label_pet_food": "Alimento para mascotas",
   "product_type_label_product": "Otro",
+  "product_type_label_unknown": "Desconocido",
   "product_type_selection_title": "Tipo de producto",
   "product_type_selection_subtitle": "Seleccione el tipo de este producto",
   "product_type_selection_empty": "¡Primero debes seleccionar un tipo de producto!",
@@ -2319,7 +2321,7 @@
   "prices_website_button": "Abierto en el sitio web de Open Prices",
   "prices_bulk_proof_upload_select": "Añade etiquetas de precio directamente desde la galería",
   "prices_bulk_proof_upload_warning": "Una vez que hayas seleccionado las imágenes, ¡no podrás editarlas!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "La IA se ejecutará en sus pruebas para extraer precios.",
   "prices_bulk_proof_upload_community_switch": "Permitir que la comunidad valide los precios extraídos por IA.",
   "prices_bulk_proof_upload_subtitle": "Varias etiquetas de precio",
   "prices_bulk_proof_upload_title": "Carga masiva de pruebas",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Ver detalles del producto",
   "prices_entry_menu_open_product_prices": "Ver todos los precios de este producto",
   "prices_entry_menu_open_proof": "Ver prueba",
   "prices_entry_menu_my_prices": "Ver mis otros precios",
@@ -2787,7 +2790,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Asistente de contribución de precios",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Asistente de validación de precios",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
@@ -3913,47 +3916,47 @@
       }
     }
   },
-  "guide_title": "Guide",
+  "guide_title": "Guía",
   "@guide_title": {
     "description": "A title for a guide"
   },
   "guide_share_label": "Compartir",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "El Nutri-Score está evolucionando: ¡explicaciones!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "¿Qué es el Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score es un logotipo que tiene como objetivo informarle sobre la **calidad nutricional de los alimentos**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "El código de color varía desde el verde oscuro (**A**) para los productos **más saludables** hasta el rojo oscuro (**E**) para los **menos saludables**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "El logotipo de Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "¿Por qué está evolucionando Nutri-Score?",
+  "guide_nutriscore_v2_why_v2_intro": "La fórmula Nutri-Score **está evolucionando** para ofrecer mejores recomendaciones:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Evalúa mejor todas las bebidas",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Las notas comparativas de **leche**, **bebidas lácteas** con azúcar añadido y bebidas **vegetales** se diferenciaron mejor en el nuevo algoritmo.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Mejor ranking de bebidas",
+  "guide_nutriscore_v2_why_v2_arg2_text": "El **contenido de azúcar** se tiene mejor en cuenta y favorece a las bebidas **poco endulzadas**.\\n**Los edulcorantes también serán penalizados**: los refrescos light pasarán de una calificación B a una entre C y E. El agua seguirá siendo la bebida recomendada.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Sal y azúcar penalizados",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Los productos **demasiado dulces** o **demasiado salados** verán su **calificación rebajada aún más**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Jerarquía dentro de los aceites y pescados",
+  "guide_nutriscore_v2_why_v2_arg4_text": "La calificación de ciertos **pescados grasos** y **aceites ricos en grasas buenas** mejorará.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Limite la carne roja",
+  "guide_nutriscore_v2_why_v2_arg5_text": "El consumo de **carne roja debe limitarse**. Por eso, las **aves de corral tendrán una mejor clasificación**.",
+  "guide_nutriscore_v2_new_logo_title": "¿Cómo diferenciar el antiguo Nutri-Score del nuevo cálculo?",
+  "guide_nutriscore_v2_new_logo_text": "A partir de ahora, el logotipo puede mostrar una mención \"**Nuevo cálculo**\" para aclarar que efectivamente se trata del nuevo cálculo.",
+  "guide_nutriscore_v2_new_logo_image_caption": "El logotipo del nuevo Nutri-Score",
   "guide_nutriscore_v2_where_title": "¿Dónde encontrar el nuevo cálculo Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "El Nutri-Score se aplica en 7 países: Francia, Alemania, Bélgica, España, Luxemburgo, Países Bajos y Suiza.",
   "guide_nutriscore_v2_where_paragraph2": "Los fabricantes tienen como máximo **2 años** después de la firma del decreto **para reemplazar** el cálculo antiguo por el nuevo.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Sin esperar, **ya encontraréis en la aplicación OpenFoodFacts** el nuevo cálculo, incluso si los fabricantes no han actualizado la puntuación.",
+  "guide_nutriscore_v2_unchanged_title": "Lo que no cambia",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score es una puntuación diseñada para **medir la calidad nutricional**. Es **complementaria al grupo NOVA** sobre **alimentos ultraprocesados** (también presente en la aplicación).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Para los fabricantes, la visualización del Nutri-Score **sigue siendo opcional**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4049,7 +4052,7 @@
   "guide_nova_explanations_arg4_title": "Los aspectos depredadores y financieros del ultraprocesamiento",
   "guide_nova_explanations_arg4_text": "El objetivo principal del ultraprocesamiento es crear alimentos de marca, prácticos (duraderos y listos para consumir), atractivos (hiperpalatables) y altamente rentables (con ingredientes de bajo costo), diseñados para desplazar a todos los demás grupos de alimentos. Los alimentos ultraprocesados suelen tener envases atractivos y se comercializan de forma intensiva.",
   "guide_nova_explanations_arg5_title": "Un riesgo para la salud",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
+  "guide_nova_explanations_arg5_text": "Desde 2018, con NutriNet-Santé, se han identificado los primeros vínculos entre **el consumo de alimentos ultraprocesados y un mayor riesgo de cáncer, enfermedades cardiovasculares y diabetes**. Hoy en día, más de 90 estudios en todo el mundo confirman estos hallazgos.\nLas asociaciones más sólidas se relacionan con **la obesidad, la mortalidad cardiovascular y los síntomas depresivos**. En los niños, los efectos se observan principalmente en el peso y los desequilibrios lipídicos.",
   "guide_nova_explanations_arg6_title": "Los países recomiendan limitarlos.",
   "guide_nova_explanations_arg6_text": "Algunos países utilizan los grupos NOVA para sus guías o metas dietéticas; por ejemplo:\n\n- Las guías dietéticas de **🇧🇷 Brasil** recomiendan limitar el consumo de alimentos procesados y evitar los ultraprocesados.\n\n- Los objetivos de la política nutricional de salud pública de **🇫🇷 Francia** para el período 2018-2022 buscan reducir el consumo de alimentos ultraprocesados del grupo 4 en un 20 %.",
   "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Mi compatibilidad",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatible",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "No hay datos suficientes para calcular una puntuación de compatibilidad.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "No se puede calcular una puntuación para un producto de tipo \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Importancia",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Coincidencias",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Buenos partidos",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Coincidencias promedio",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Malas coincidencias",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Coincidencias desconocidas",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Sitio web",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4671,7 +4724,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Pruebas",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4679,7 +4732,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Experimentos",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4691,11 +4744,11 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "Con un código de barras",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "Con una categoría",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
@@ -4703,7 +4756,7 @@
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Comunidad",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4735,7 +4788,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Online",
+  "prices_stats_online": "En línea",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4755,7 +4808,7 @@
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "Importación de tiendas",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
@@ -4763,19 +4816,19 @@
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Precios vinculados a una etiqueta de precio",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Monedas",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Años",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Precios y pruebas por fuente",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4783,7 +4836,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Aplicación móvil",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4987,7 +5040,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "Añadir precios",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5340,7 +5393,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Métricas de precio abierto",
+  "preferences_prices_metrics_title": "Métricas de precios abiertos",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Código postal",
   "location_map_details_country": "País",
   "location_map_details_coordinates": "Coordenadas",
-  "location_map_details_osm_id": "ID de OSM"
+  "location_map_details_osm_id": "ID de OSM",
+  "homepage_scanner_back_to_home_button": "Volver al inicio",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Activar o desactivar la cámara",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Mostrar el escáner de código de barras",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "¡Toca para escanear un **código de barras**\ny descubre si es **bueno para ti**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Activar o desactivar la antorcha",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Escanee un producto acercándose a su código de barras",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Hemos detectado el siguiente código de barras: {barcode}, pero parece ser inválido.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Ver más…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Productos más escaneados",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Últimos productos escaneados",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

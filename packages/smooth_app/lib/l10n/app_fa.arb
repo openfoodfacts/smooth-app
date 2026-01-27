@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "قیمت‌های باز",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -36,7 +37,7 @@
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Previous",
+  "previous_label": "قبلی",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
@@ -1839,7 +1840,7 @@
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
-  "edit_product_form_item_traces_hint": "trace",
+  "edit_product_form_item_traces_hint": "ردیابی",
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
@@ -2282,7 +2283,7 @@
   "@dev_preferences_news_custom_url_empty_value": {
     "description": "Message to show when the custom news URL is not set"
   },
-  "dev_preferences_news_provider_status_title": "Status",
+  "dev_preferences_news_provider_status_title": "وضعیت",
   "@dev_preferences_news_provider_status_title": {
     "description": "News dev preferences - Status - Title"
   },
@@ -2298,7 +2299,8 @@
   "product_type_label_food": "Food",
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
-  "product_type_label_product": "Other",
+  "product_type_label_product": "دیگر",
+  "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2377,7 +2379,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "محصول یافت نشد",
   "prices_barcode_search_none_yet": "No product yet",
   "prices_barcode_search_running": "Looking for {barcode}",
   "@prices_barcode_search_running": {
@@ -2406,7 +2408,7 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
-  "prices_category_mandatory": "Mandatory",
+  "prices_category_mandatory": "اجباری",
   "prices_category_optional": "اختیاری",
   "prices_category_error_mandatory": "دسته بندی اجباری است",
   "prices_barcode_reader_action": "Barcode reader",
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "مشاهده جزئیات محصول",
   "prices_entry_menu_open_product_prices": "مشاهده تمام قیمت‌های این محصول",
   "prices_entry_menu_open_proof": "اثبات را مشاهده کنید",
   "prices_entry_menu_my_prices": "مشاهده سایر قیمت‌های من",
@@ -3833,7 +3836,7 @@
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
-  "nutriscore_generic": "Nutri-Score",
+  "nutriscore_generic": "امتیاز تغذیه‌ای",
   "nutriscore_a": "Nutri-Score A",
   "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
@@ -3853,7 +3856,7 @@
   "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "امتیاز سبز",
   "environmental_score_a_new": "امتیاز سبز A",
   "environmental_score_b_new": "گرین-امتیاز B",
   "environmental_score_c_new": "گرین-اسکور C",
@@ -3878,7 +3881,7 @@
   "contact_title_pro_email": "Producer Contact",
   "contact_title_press_page": "Press Page",
   "contact_title_press_email": "Press Contact",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "در خبرنامه ما مشترک شوید",
   "contact_title_calendar": "Subscribe to our community calendar",
   "hunger_games_loading_line1": "Please give us a few seconds…",
   "hunger_games_loading_line2": "We're downloading the questions!",
@@ -3922,7 +3925,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "امتیاز تغذیه‌ای چیست؟",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3954,7 +3957,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "امتیاز سبز",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -3974,12 +3977,12 @@
   "guide_greenscore_lca_arg1_text2": "**تحلیل چرخه حیات** یک روش ارزیابی استاندارد برای انجام ارزیابی زیست‌محیطی چند مرحله‌ای و چند معیاره است.",
   "guide_greenscore_lca_arg1_text3": "**اندازه‌گیری می‌کند:**",
   "guide_greenscore_lca_arg2_title": "۶ مرحله تولید",
-  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
-  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_agriculture": "کشاورزی",
+  "guide_greenscore_lca_arg2_processing": "پردازش",
   "guide_greenscore_lca_arg2_packaging": "Packaging",
-  "guide_greenscore_lca_arg2_transportation": "Transportation",
-  "guide_greenscore_lca_arg2_distribution": "Distribution",
-  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg2_transportation": "حمل و نقل",
+  "guide_greenscore_lca_arg2_distribution": "توزیع",
+  "guide_greenscore_lca_arg2_consumption": "مصرف",
   "guide_greenscore_lca_arg3_title": "۱۴ شاخص تأثیر زیست‌محیطی",
   "guide_greenscore_lca_arg3_text1": "تغییرات اقلیمی/ردپای کربن",
   "guide_greenscore_lca_arg3_text2": "تخریب لایه اوزون",
@@ -4299,11 +4302,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Front picture",
+  "product_image_front_accessibility_label": "تصویر جلویی",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Ingredients picture",
+  "product_image_ingredients_accessibility_label": "تصویر مواد تشکیل دهنده",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -4473,11 +4476,11 @@
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
-  "photo_rotate_left": "Rotate left",
+  "photo_rotate_left": "چرخش به چپ",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Rotate right",
+  "photo_rotate_right": "چرخش به راست",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4554,6 +4557,56 @@
   "product_page_tab_for_me": "برای من",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "سازگاری من",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% سازگار",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "داده‌های کافی برای محاسبه امتیاز سازگاری وجود ندارد.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "برای محصولی از نوع \"{productType}\" نمی‌توان امتیازی محاسبه کرد.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "اهمیت",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "مسابقات",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "تطابق‌های خوب",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "میانگین تطابق‌ها",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "تطابق‌های بد",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "مسابقات ناشناخته",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
@@ -4687,7 +4740,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "مجموع",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4707,7 +4760,7 @@
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "Consumption",
+  "prices_stats_consumption": "مصرف",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
@@ -4719,7 +4772,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "زیبایی",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4791,7 +4844,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "Other",
+  "prices_stats_other": "دیگر",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -4879,7 +4932,7 @@
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
-  "preferences_app_bar_products_modified": "Products modified",
+  "preferences_app_bar_products_modified": "محصولات اصلاح شده",
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
@@ -5626,5 +5679,59 @@
   "location_map_details_postcode": "Postcode",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "بازگشت به خانه",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "دوربین را تغییر دهید",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "نمایش اسکنر بارکد",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "برای اسکن یک **بارکد**\nو فهمیدن اینکه آیا برای شما **خوب** است یا نه، ضربه بزنید!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "مشعل را تغییر دهید",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "با نزدیک شدن به بارکد یک محصول، آن را اسکن کنید",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "ما بارکد زیر را شناسایی کرده‌ایم: {barcode}، اما به نظر می‌رسد نامعتبر است.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "مشاهده بیشتر…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "بیشترین محصولات اسکن شده",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "آخرین محصولات اسکن شده",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

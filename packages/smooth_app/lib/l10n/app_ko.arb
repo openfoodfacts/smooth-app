@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "공개 가격",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -1080,11 +1081,11 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "영양 성분을 추가하여 영양 점수 계산",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "영양 성분을 추가하여 영양 점수 계산",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -1771,7 +1772,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "국가",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2300,7 @@
   "product_type_label_beauty": "개인 관리",
   "product_type_label_pet_food": "반려동물 사료",
   "product_type_label_product": "기타",
+  "product_type_label_unknown": "알 수 없음",
   "product_type_selection_title": "제품 유형",
   "product_type_selection_subtitle": "이 제품의 유형을 선택하세요",
   "product_type_selection_empty": "먼저 제품 유형을 선택해야 합니다!",
@@ -2377,7 +2379,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "제품을 찾을 수 없습니다",
   "prices_barcode_search_none_yet": "아직 상품이 없습니다",
   "prices_barcode_search_running": "{barcode}을(를) 찾고 있습니다",
   "@prices_barcode_search_running": {
@@ -2432,6 +2434,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "제품 상세 정보 보기",
   "prices_entry_menu_open_product_prices": "이 제품의 모든 가격 보기",
   "prices_entry_menu_open_proof": "증거 보기",
   "prices_entry_menu_my_prices": "다른 가격 보기",
@@ -3834,11 +3837,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
-  "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
-  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_a": "뉴트리스코어 A",
+  "nutriscore_b": "뉴트리스코어 B",
+  "nutriscore_c": "뉴트리스코어 C",
+  "nutriscore_d": "뉴트리스코어 D",
+  "nutriscore_e": "뉴트리스코어 E",
   "nutriscore_new_formula": "Nutri-Score {letter} (새로운 계산)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3849,7 +3852,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score(새로운 계산)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown": "알 수 없는 영양 점수",
   "nutriscore_unknown_new_formula": "알 수 없는 Nutri-Score(새로운 계산)",
   "nutriscore_not_applicable": "Nutri-Score가 적용되지 않습니다",
   "nutriscore_not_applicable_new_formula": "Nutri-Score가 적용되지 않습니다. (새로운 계산)",
@@ -3878,7 +3881,7 @@
   "contact_title_pro_email": "프로듀서 연락처",
   "contact_title_press_page": "보도 페이지",
   "contact_title_press_email": "언론 연락처",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "뉴스레터를 구독하세요",
   "contact_title_calendar": "커뮤니티 캘린더 구독하기",
   "hunger_games_loading_line1": "몇 초만 기다려주세요…",
   "hunger_games_loading_line2": "질문을 다운로드 중입니다!",
@@ -3922,7 +3925,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "뉴트리스코어란 무엇인가요?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score는 **식품의 영양적 품질**에 대한 정보를 제공하는 하는 로고입니다.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4555,6 +4558,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "내 호환성",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% 호환 가능",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "호환성 점수를 계산하기에 데이터가 부족합니다.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" 유형의 제품에 대해서는 점수를 계산할 수 없습니다.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "중요성",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "성냥",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "좋은 매치",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "평균 일치",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "잘못된 매치",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "알 수 없는 일치 항목",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "웹사이트",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4687,7 +4740,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "총",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4719,7 +4772,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "아름다움",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -5124,7 +5177,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "공개 가격 알아보기",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5332,7 +5385,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
+  "preferences_prices_newest_subtitle": "Open Price 커뮤니티에서 추가한 최신 가격",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5624,7 +5677,61 @@
   "location_map_details_street": "거리",
   "location_map_details_city": "도시",
   "location_map_details_postcode": "우편번호",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "국가",
   "location_map_details_coordinates": "좌표",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "홈으로 돌아가기",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "카메라 전환",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "바코드 스캐너를 보여주세요",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "탭하여 **바코드**\n를 스캔하고 **본인에게 적합한지** 확인해 보세요!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "토치 토글",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "제품의 바코드에 가까이 다가가 스캔하세요.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "다음과 같은 바코드 {barcode}가 감지되었지만, 유효하지 않은 것으로 보입니다.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "더 보기…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "가장 많이 본 상품",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "최근 스캔한 제품",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

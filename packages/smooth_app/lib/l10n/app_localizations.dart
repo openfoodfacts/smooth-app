@@ -2513,6 +2513,18 @@ abstract class AppLocalizations {
   /// **'No product found'**
   String get no_product_found;
 
+  /// Explanation shown when no product is found for a search
+  ///
+  /// In en, this message translates to:
+  /// **'Your search for\n**\"{search}\"**\ndid not match any results.'**
+  String no_product_found_explanation(String search);
+
+  /// No description provided for @no_product_found_try_world_results.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to run this same search in **our global database** instead?'**
+  String get no_product_found_try_world_results;
+
   /// No description provided for @no_location_found.
   ///
   /// In en, this message translates to:
