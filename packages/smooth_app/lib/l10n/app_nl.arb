@@ -1045,7 +1045,7 @@
     "description": "Message to show if there are no product properties found"
   },
   "product_tags_empty": "Geen eigenschappen",
-  "product_tags_explanation": "Door eigenschappen (sleutel/waarde) aan een product toe te voegen, draagt u bij aan de verrijking ervan.",
+  "product_tags_explanation": "By adding properties (key/value) to a product, you help enrich it.",
   "add_tag": "Voeg een eigenschap toe",
   "add_tags": "Eigenschappen toevoegen",
   "add_edit_tags": "Eigenschappen toevoegen of bewerken",
@@ -2536,7 +2536,7 @@
       }
     }
   },
-  "prices_users_empty_title": "Nog geen bijdragers!",
+  "prices_users_empty_title": "",
   "prices_users_empty_explanation": "Wees de eerste om een prijs toe te voegen!",
   "prices_users_list_length_many_pages": "Top {pageSize} bijdragers (totaal: {total})",
   "@prices_users_list_length_many_pages": {
@@ -2550,7 +2550,7 @@
       }
     }
   },
-  "prices_locations_empty_title": "Nog geen winkel!",
+  "prices_locations_empty_title": "",
   "prices_locations_empty_explanation": "Wees de eerste om een prijs toe te voegen!",
   "prices_locations_list_length_many_pages": "Top {pageSize} locaties (totaal: {total})",
   "@prices_locations_list_length_many_pages": {
@@ -4012,7 +4012,7 @@
   "guide_greenscore_bonuses_penalties_arg3_title": "Bedreigde soorten",
   "guide_greenscore_bonuses_penalties_arg3_text": "Er wordt een **strafpunt** toegekend aan producten die ingrediënten bevatten die een aanzienlijke **negatieve impact hebben op de biodiversiteit en ecosystemen**, zoals palmolie, waarvan de productie verantwoordelijk is voor grootschalige ontbossing.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Verpakking",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Er wordt een **boete** berekend om rekening te houden met de **circulariteit van verpakkingen** (gebruik van gerecycleerde grondstoffen en recycleerbaarheid) en oververpakking.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "",
   "guide_greenscore_transparency_title": "Een grotere behoefte aan transparantie om de milieu-impact beter te meten en te verminderen",
   "guide_greenscore_transparency_intro1": "Om de Green-Score nauwkeurig te kunnen berekenen, is het noodzakelijk om te beschikken over **informatie die niet noodzakelijkerwijs op de verpakking staat vermeld** (zoals de herkomst en het exacte percentage van elk ingrediënt) of die zelden in bruikbare vorm beschikbaar is (zoals een lijst van alle componenten van de verpakking met de precieze soorten kunststoffen die zijn gebruikt).",
   "guide_greenscore_transparency_intro2": "**Er worden gemiddelde waarden gebruikt wanneer deze informatie nog niet beschikbaar is**, maar we roepen nu iedereen op om ons te helpen deze informatie te verzamelen, die zeer nuttig zal zijn voor de Green-Score, maar ook voor vele andere doeleinden.",
@@ -4079,7 +4079,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Wij vinden dat iedereen toegang moet hebben tot informatie over wat hij of zij eet. Door gegevens te verzamelen over ingrediënten, allergenen, voedingsfeiten en meer, **stellen we consumenten in staat om weloverwogen keuzes te maken** en stimuleren we de voedingsindustrie **tot meer transparantie**.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4146,7 +4146,7 @@
   },
   "guide_open_beauty_facts_features_title": "Kenmerken van Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "Ontvang meldingen voor uw ongewenste ingrediënten",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Ben je allergisch voor bepaalde ingrediënten? Wil je comedogene stoffen vermijden? Wil je controversiële ingrediënten vermijden? Je kunt een lijst met cosmetische ingrediënten die je wilt vermijden rechtstreeks in de app instellen!",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Ben je allergisch voor bepaalde ingrediënten? Wil je comedogeen stoffen voorkomen? Wil je ze wegsturen van controversiële onderdelen? Je kunt een lijst van cosmetische ingrediënten instellen om te vermijden, direct in de app!",
   "guide_open_beauty_facts_tips_title": "Tips voor het maken van geweldige foto's",
   "guide_open_beauty_facts_tips_arg1_title": "Wat je niet moet doen",
   "guide_open_beauty_facts_tips_arg1_text1": "Vermijd schaduwen en schittering.",
@@ -4157,7 +4157,7 @@
   "guide_open_beauty_facts_tips_arg2_text1": "Zorg voor goede, gelijkmatige verlichting.",
   "guide_open_beauty_facts_tips_arg2_text2": "Zorg ervoor dat de tekst scherp en leesbaar is.",
   "guide_open_beauty_facts_tips_arg2_text3": "Leg de gehele ingrediëntenlijst vast.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Maak zoveel foto's als nodig is als de fles gebogen is.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Neem zoveel foto als nodig is als de fles gebogen is.",
   "guide_open_beauty_facts_tips_arg2_text5": "Het kan zijn dat u het etiket moet verwijderen om de lijst met ingrediënten te kunnen zien.",
   "guide_open_beauty_facts_tips_arg2_text6": "Plaats het product op een vlakke ondergrond.",
   "guide_open_beauty_facts_scores_title": "Een opmerking over het scoren",
@@ -4205,7 +4205,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Kenmerken van Open Products Facts",
+  "guide_open_products_facts_features_title": "",
   "guide_open_products_facts_features_text": "Open Products Facts wil consumenten helpen **de levensduur van voorwerpen te verlengen** door circulaire oplossingen aan te bieden voor het onderhoud, **de reparatie** en **de recycling** van hun voorwerpen, of door ze aan een nieuwe eigenaar te geven.",
   "guide_open_products_facts_features_arg1_title": "Koolstofvoetafdrukken voor sommige producten",
   "guide_open_products_facts_features_arg1_text": "**Impact CO2** van de Franse milieuautoriteit ADEME geeft de **koolstofimpact** van vele categorieën weer. Zorg ervoor dat u producten nauwkeurig categoriseert.",
@@ -4220,7 +4220,7 @@
   "guide_open_products_facts_folksonomy_paragraph2": "U kunt alle gewenste sleutels en waarden toevoegen, zoals: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "U krijgt automatische suggesties voor mogelijke eigenschappen en u bent van harte welkom om nieuwe eigenschappen toe te voegen en te documenteren voor uw favoriete soorten producten.",
   "guide_open_products_facts_share_link": "https://world-en.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food voorkeuren",
+  "guide_open_preferences_button_title": "",
   "guide_coming_soon_button_title": "Binnenkort beschikbaar",
   "guide_learn_more_subtitle": "Tik om meer te weten te komen",
   "preview_badge": "Voorbeeld",
@@ -4599,19 +4599,19 @@
   "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_order_evaluation": "Wedstrijden",
+  "product_page_for_me_attributes_order_evaluation": "Overeenkomsten",
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_group_good_matches": "Goede wedstrijden",
+  "product_page_for_me_attributes_group_good_matches": "Goede overeenkomsten",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
   },
-  "product_page_for_me_attributes_group_average_matches": "Gemiddelde wedstrijden",
+  "product_page_for_me_attributes_group_average_matches": "Gemiddelde overeenkomsten",
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
-  "product_page_for_me_attributes_group_bad_matches": "Slechte matches",
+  "product_page_for_me_attributes_group_bad_matches": "Slechte overeenkomsten",
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
@@ -5127,7 +5127,7 @@
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
-  "preferences_dev_mode_folksonomy_host_subtitle": "Gastheer: {host}",
+  "preferences_dev_mode_folksonomy_host_subtitle": "",
   "@preferences_dev_mode_folksonomy_host_subtitle": {
     "description": "Subtitle for folksonomy host setting",
     "placeholders": {
@@ -5404,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Open Prices-statistieken",
+  "preferences_prices_metrics_title": "Open Prices metrics",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5695,11 +5695,11 @@
   "@homepage_scanner_back_to_home_button": {
     "description": "Button to go back to home from the scanner page"
   },
-  "homepage_scanner_toggle_camera_tooltip": "Camera in-/uitschakelen",
+  "homepage_scanner_toggle_camera_tooltip": "Camera aan/uit",
   "@homepage_scanner_toggle_camera_tooltip": {
     "description": "Tooltip for the button to toggle the camera on the scanner page"
   },
-  "homepage_header_barcode_tooltip": "Toon de barcodescanner",
+  "homepage_header_barcode_tooltip": "Laat de barcodescanner zien",
   "@homepage_header_barcode_tooltip": {
     "description": "Tooltip for the button to open the barcode scanner from the homepage"
   },
@@ -5711,7 +5711,7 @@
   "@homepage_scanner_toggle_torch_tooltip": {
     "description": "Tooltip for the button to toggle the torch on the scanner page"
   },
-  "homepage_scanner_banner_start_scanning": "Scan een product door de barcode te naderen.",
+  "homepage_scanner_banner_start_scanning": "Scan een product door de barcode te benaderen",
   "@homepage_scanner_banner_start_scanning": {
     "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
   },
