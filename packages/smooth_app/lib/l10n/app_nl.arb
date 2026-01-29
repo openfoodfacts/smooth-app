@@ -1045,7 +1045,7 @@
     "description": "Message to show if there are no product properties found"
   },
   "product_tags_empty": "Geen eigenschappen",
-  "product_tags_explanation": "By adding properties (key/value) to a product, you help enrich it.",
+  "product_tags_explanation": "Door eigenschappen (sleutel/waarde) aan een product toe te voegen, help je het te verrijken.",
   "add_tag": "Voeg een eigenschap toe",
   "add_tags": "Eigenschappen toevoegen",
   "add_edit_tags": "Eigenschappen toevoegen of bewerken",
@@ -4057,9 +4057,9 @@
   "guide_nova_explanations_arg1_title": "Extreme bewerking van voedselingrediënten",
   "guide_nova_explanations_arg1_text": "Veel daarvan zijn **afgeleid van verdere verwerking van voedingsbestanddelen**, zoals gehydrogeneerde of geïnteresterificeerde oliën, gehydrolyseerde eiwitten, soja-eiwitisolaat, maltodextrine, invertsuiker en fructoserijke glucosestroop.",
   "guide_nova_explanations_arg2_title": "Additieven die verder gaan dan pure voedselveiligheid",
-  "guide_nova_explanations_arg2_text": "Additieven in ultraverwerkte voedingsmiddelen omvatten sommige die ook in verwerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultraverwerkte producten voorkomen, zijn onder meer additieven die worden gebruikt **om de sensorische eigenschappen van voedingsmiddelen na te bootsen of te verbeteren of om onaangename aspecten van het eindproduct te maskeren**. Deze additieven omvatten kleurstoffen en andere kleurmiddelen, kleurstabilisatoren, smaakstoffen, smaakversterkers, niet-suikerhoudende zoetstoffen en technische hulpstoffen zoals koolzuur, verstevigingsmiddelen, vulstoffen en antiklontermiddelen, ontschuimers, antiklontermiddelen en glansmiddelen, emulgatoren, sekwestranten en bevochtigingsmiddelen.",
+  "guide_nova_explanations_arg2_text": "Additieven in ultraverwerkte voedingsmiddelen omvatten sommige die ook in verwerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultraverwerkte producten voorkomen, zijn onder meer additieven die worden gebruikt **om de sensorische eigenschappen van voedingsmiddelen na te bootsen of te verbeteren of om onaangename aspecten van het eindproduct te maskeren**. Deze additieven omvatten kleurstoffen en andere kleurmiddelen, kleurstabilisatoren, smaakstoffen, smaakversterkers, niet-suikerhoudende zoetstoffen en technische hulpstoffen zoals koolzuur, verstevigingsmiddelen, vulstoffen en antiklontermiddelen, ontschuimers, glansmiddelen, emulgatoren, sekwestranten en bevochtigingsmiddelen.",
   "guide_nova_explanations_arg3_title": "Bewerking die je niet thuis kan uitvoeren",
-  "guide_nova_explanations_arg3_text": "**Er wordt een veelheid aan processtappen gebruikt** om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar 'ultraverwerkt'). De processen omvatten verschillende **stappen die geen huishoudelijke equivalenten hebben**, zoals hydrogenering en hydrolyse, extrusie en vormgeving, en voorbewerking voor frituren.",
+  "guide_nova_explanations_arg3_text": "**Er wordt een veelheid aan processtappen gebruikt** om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar 'ultraverwerkt'). De processen omvatten verschillende **stappen die geen huishoudelijke equivalenten hebben**, zoals hydrogenering en hydrolyse, extrusie en vormgeving en voorbewerking voor frituren.",
   "guide_nova_explanations_arg4_title": "De roofzuchtige en financiële aspecten van ultra-bewerking",
   "guide_nova_explanations_arg4_text": "**Het algemene doel van ultraverwerking is het creëren van merkproducten**, **gemakkelijke** (houdbaar, klaar voor consumptie), **aantrekkelijke** (zeer smakelijk) en **zeer winstgevende** (goedkope ingrediënten) voedingsmiddelen die zijn ontworpen om alle andere voedingsmiddelen te verdringen. Ultraverwerkte voedingsmiddelen worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.",
   "guide_nova_explanations_arg5_title": "Een gezondheidsrisico",
@@ -4183,7 +4183,7 @@
   "guide_open_prices_why_title": "Waarom doet Open Food Facts dit?",
   "guide_open_prices_why_paragraph1": "Prijsinformatie is van cruciaal belang om voedselsystemen te begrijpen. Het is een belangrijke factor om inzicht te krijgen in de kosten van voedsel en om gezondere voedingspatronen te bevorderen. Het openbaar maken van prijsgegevens is een manier om het voor onderzoekers, journalisten en burgers gemakkelijker te maken om **een beter inzicht te krijgen in hoe voedselprijzen geografisch en in de tijd variëren**.",
   "guide_open_prices_why_arg1_title": "Volg de evolutie van de prijzen in de loop van de tijd",
-  "guide_open_prices_why_arg1_text": "Bekijk de **evolutie van de prijzen**: krimpende inflatie, goedkope inflatie, we kunnen ze samen volgen!",
+  "guide_open_prices_why_arg1_text": "Bekijk de **evolutie van de prijzen**: shrinkflation, cheapflation, we kunnen ze samen volgen!",
   "guide_open_prices_why_arg2_title": "Vergelijk prijzen bij u in de buurt",
   "guide_open_prices_why_arg2_text": "Naarmate we meer prijzen verzamelen, kun je **de goedkoopste winkels in je omgeving** vinden.",
   "guide_open_prices_scrapping_title": "Heb je overwogen om prijzen van websites van retailers te scrapen?",
@@ -5404,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Open Prices metrics",
+  "preferences_prices_metrics_title": "Open Prices-statistieken",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
