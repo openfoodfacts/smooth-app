@@ -56,21 +56,34 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
                 if (snapshot.hasError) {
                   return Center(child: Text(snapshot.error.toString()));
                 }
+                if (snapshot.data == null) {
+                  return Center(
+                    child: Text(
+                      appLocalizations.prices_not_found,
+                      style: const TextStyle(fontSize: 14),
+                    ),
+                  );
+                }
 
-                if (snapshot.data?.value == null ||
-                    snapshot.data?.value!.items == null ||
-                    snapshot.data!.value!.items!.isEmpty) {
-                  return const Center(
+                final MaybeError<GetPricesResult?> result = snapshot.data!;
+                if (result.isError) {
+                  return Center(
                     child: Padding(
-                      padding: EdgeInsets.all(LARGE_SPACE),
+                      padding: const EdgeInsets.all(LARGE_SPACE),
                       child: Text(
-                        'No prices found',
-                        style: TextStyle(fontSize: 14),
+                        result.error ?? appLocalizations.error_occurred,
+                        style: const TextStyle(fontSize: 14),
                       ),
                     ),
                   );
                 }
-                final List<Price> prices = snapshot.data!.value!.items!;
+
+                final GetPricesResult? pricesResult = result.value;
+                if (pricesResult?.items == null ||
+                    pricesResult!.items!.isEmpty) {
+                  return Center(child: Text(appLocalizations.prices_not_found));
+                }
+                final List<Price> prices = pricesResult.items!;
 
                 final GetPricesModel model = GetPricesModel(
                   title: appLocalizations.prices_generic_title,
@@ -131,6 +144,7 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
       context: context,
       title: appLocalizations.prices_entry_menu_title(price.owner),
       labels: <String>[
+        if (hasProduct) appLocalizations.prices_entry_menu_open_product,
         if (hasProduct) appLocalizations.prices_entry_menu_open_product_prices,
         if (hasProof) appLocalizations.prices_entry_menu_open_proof,
         if (ProductQuery.getWriteUser().userId == price.owner)
@@ -140,16 +154,18 @@ class _PricesDashboardWidgetState extends State<PricesDashboardWidget> {
         appLocalizations.prices_entry_menu_shop_prices,
       ],
       prefixIcons: <Widget>[
+        if (hasProduct) const icons.Milk.happy(),
         if (hasProduct) const icons.PriceTag(),
         if (hasProof) const icons.PriceReceipt(),
         const icons.Profile(),
         const icons.Shop(),
       ],
       values: <ProductPriceAction>[
-        if (hasProduct) ProductPriceAction.VIEW_PRODUCT_PRICES,
-        if (hasProof) ProductPriceAction.VIEW_PROOF,
-        ProductPriceAction.VIEW_AUTHOR_PRICES,
-        ProductPriceAction.VIEW_LOCATION_PRICES,
+        if (hasProduct) .VIEW_PRODUCT,
+        if (hasProduct) .VIEW_PRODUCT_PRICES,
+        if (hasProof) .VIEW_PROOF,
+        .VIEW_AUTHOR_PRICES,
+        .VIEW_LOCATION_PRICES,
       ],
       addEndArrowToItems: true,
     );

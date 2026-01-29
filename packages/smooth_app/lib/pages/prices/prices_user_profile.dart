@@ -43,7 +43,7 @@ class PricesUserProfile extends StatelessWidget {
                       child: _profileStatsButton(
                         Icons.location_on,
                         profile.locationCount ?? 0,
-                        'locations',
+                        appLocalizations.prices_stats_locations_section,
                         context,
                       ),
                     ),

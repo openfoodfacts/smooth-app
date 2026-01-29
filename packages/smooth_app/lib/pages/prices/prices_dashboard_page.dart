@@ -54,11 +54,13 @@ class PricesDashboardPage extends StatelessWidget {
                 );
               }
               if (snapshot.hasError) {
-                return Text(snapshot.error!.toString());
+                return Center(child: Text(snapshot.error!.toString()));
               }
               final MaybeError<PriceUser> result = snapshot.data!;
               if (result.isError) {
-                return Center(child: Text(result.error ?? 'Unknown error'));
+                return Center(
+                  child: Text(result.error ?? appLocalizations.error_occurred),
+                );
               }
               final PriceUser userProfile = result.value;
               return SingleChildScrollView(

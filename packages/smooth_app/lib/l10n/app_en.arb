@@ -5692,6 +5692,10 @@
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
   "location_map_details_osm_id": "OSM ID",
+  "prices_not_found": "No prices found.",
+  "@prices_not_found": {
+    "description": "Message shown when there are no prices available to display"
+  },
   "prices_dashboard_title": "My dashboard",
   "@prices_dashboard_title": {
     "description": "Title for the prices dashboard page"

@@ -10720,6 +10720,12 @@ abstract class AppLocalizations {
   /// **'OSM ID'**
   String get location_map_details_osm_id;
 
+  /// Message shown when there are no prices available to display
+  ///
+  /// In en, this message translates to:
+  /// **'No prices found.'**
+  String get prices_not_found;
+
   /// Title for the prices dashboard page
   ///
   /// In en, this message translates to:
