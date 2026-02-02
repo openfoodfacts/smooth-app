@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class SummarySection extends StatelessWidget {
   const SummarySection({
@@ -20,7 +21,9 @@ class SummarySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String groupName = group.name ?? group.id ?? '';
 
@@ -31,15 +34,13 @@ class SummarySection extends StatelessWidget {
           padding: const EdgeInsetsDirectional.symmetric(
             horizontal: LARGE_SPACE,
           ),
-          color: theme.colorScheme.tertiaryContainer,
+          color: theme.primaryMedium,
           child: Row(
             children: <Widget>[
               Expanded(
                 child: Text(
                   groupName,
-                  style: theme.textTheme.titleMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: const TextStyle(fontWeight: FontWeight.bold),
                 ),
               ),
               IconButton(
@@ -55,8 +56,8 @@ class SummarySection extends StatelessWidget {
             padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
             child: Text(
               appLocalizations.food_preferences_no_selection,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: theme.hintColor,
+              style: TextStyle(
+                color: theme.greyMedium,
                 fontStyle: FontStyle.italic,
               ),
             ),
@@ -85,11 +86,14 @@ class SummarySection extends StatelessWidget {
                         Icon(
                           Icons.arrow_circle_right_rounded,
                           size: 28.0,
-                          color: theme.colorScheme.primary,
+                          color: theme.primaryAccent,
                         ),
                         const SizedBox(width: SMALL_SPACE),
                         Expanded(
-                          child: Text(name, style: theme.textTheme.bodyMedium),
+                          child: Text(
+                            name,
+                            style: const TextStyle(fontSize: 16.0),
+                          ),
                         ),
                       ],
                     ),
@@ -106,8 +110,7 @@ class SummarySection extends StatelessWidget {
                         children: unwantedIngredients.map((String ingredient) {
                           return Chip(
                             label: Text(ingredient),
-                            backgroundColor:
-                                theme.colorScheme.surfaceContainerHighest,
+                            backgroundColor: theme.primaryMedium,
                             materialTapTargetSize:
                                 MaterialTapTargetSize.shrinkWrap,
                             visualDensity: VisualDensity.compact,

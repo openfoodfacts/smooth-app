@@ -112,8 +112,6 @@ class SearchProductHelper extends SearchHelper {
         (await UserPreferences.getUserPreferences())
             .getUnwantedIngredientTags();
 
-    print('Unwanted ingredients: $unwantedIngredients');
-
     if (!context.mounted) {
       return;
     }

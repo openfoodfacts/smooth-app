@@ -59,6 +59,9 @@ class PreferencesPage extends StatelessWidget {
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
               _buildFoodPreferencesTile(appLocalizations),
+              _buildBeautyPreferencesTile(appLocalizations),
+              _buildProductPreferencesTile(appLocalizations),
+              _buildPetFoodPreferencesTile(appLocalizations),
               _buildAppSettingsTile(appLocalizations),
             ],
           ),
@@ -215,7 +218,47 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.HappyToast(),
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
-      target: const FoodPreferencesPage(),
+      target: const FoodPreferencesPage(project: PreferencesPageProjects.food),
+      fullScreen: true,
+    );
+  }
+
+  NavigationPreferenceTile _buildBeautyPreferencesTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return NavigationPreferenceTile(
+      leading: const icons.HappyToast(),
+      title: appLocalizations.myPreferences_beauty_title,
+      subtitleText: appLocalizations.myPreferences_beauty_subtitle,
+      target: const FoodPreferencesPage(
+        project: PreferencesPageProjects.beauty,
+      ),
+      fullScreen: true,
+    );
+  }
+
+  NavigationPreferenceTile _buildProductPreferencesTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return NavigationPreferenceTile(
+      leading: const icons.HappyToast(),
+      title: appLocalizations.myPreferences_product_title,
+      subtitleText: appLocalizations.myPreferences_product_subtitle,
+      target: const FoodPreferencesPage(
+        project: PreferencesPageProjects.products,
+      ),
+      fullScreen: true,
+    );
+  }
+
+  NavigationPreferenceTile _buildPetFoodPreferencesTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return NavigationPreferenceTile(
+      leading: const icons.HappyToast(),
+      title: appLocalizations.myPreferences_pet_food_title,
+      subtitleText: appLocalizations.myPreferences_pet_food_subtitle,
+      target: const FoodPreferencesPage(project: PreferencesPageProjects.pets),
       fullScreen: true,
     );
   }

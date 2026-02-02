@@ -21,8 +21,6 @@ class FoodPreferenceAttributeRow extends StatelessWidget {
     if (attributeId == null) {
       return EMPTY_WIDGET;
     }
-
-    final ThemeData theme = Theme.of(context);
     final String title = attribute.settingName ?? attribute.name ?? '';
 
     final List<String>? values = attribute.values?.toList();
@@ -61,7 +59,8 @@ class FoodPreferenceAttributeRow extends StatelessWidget {
                 Expanded(
                   child: Text(
                     title,
-                    style: theme.textTheme.bodyLarge?.copyWith(
+                    style: const TextStyle(
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
                   ),

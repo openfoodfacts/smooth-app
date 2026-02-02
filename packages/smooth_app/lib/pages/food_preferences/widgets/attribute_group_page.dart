@@ -140,9 +140,11 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
             const icons.Search(size: 48.0, color: Colors.grey),
             Text(
               appLocalizations.no_product_found,
-              style: Theme.of(
-                context,
-              ).textTheme.bodyLarge?.copyWith(color: Colors.grey),
+              style: const TextStyle(
+                fontSize: 20.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.grey,
+              ),
               textAlign: TextAlign.center,
             ),
           ],

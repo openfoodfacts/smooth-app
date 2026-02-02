@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class FoodPreferencesSearchHelper extends SearchHelper {
   FoodPreferencesSearchHelper({this.onSearchChanged});
@@ -56,7 +57,8 @@ class _FoodPreferencesSearchBarState extends State<FoodPreferencesSearchBar> {
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return ChangeNotifierProvider<TextEditingController>.value(
       value: widget.controller,
@@ -64,8 +66,8 @@ class _FoodPreferencesSearchBarState extends State<FoodPreferencesSearchBar> {
         searchHelper: _searchHelper,
         showClearButton: true,
         searchOnChange: true,
-        backgroundColor: theme.colorScheme.tertiary,
-        borderColor: theme.colorScheme.primary,
+        backgroundColor: theme.primaryMedium,
+        borderColor: theme.primaryDark,
       ),
     );
   }

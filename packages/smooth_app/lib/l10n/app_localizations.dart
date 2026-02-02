@@ -1500,6 +1500,42 @@ abstract class AppLocalizations {
   /// **'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.'**
   String get myPreferences_food_comment;
 
+  /// No description provided for @myPreferences_beauty_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Beauty Preferences'**
+  String get myPreferences_beauty_title;
+
+  /// No description provided for @myPreferences_beauty_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what information about beauty products matters most to you.'**
+  String get myPreferences_beauty_subtitle;
+
+  /// No description provided for @myPreferences_product_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Product Preferences'**
+  String get myPreferences_product_title;
+
+  /// No description provided for @myPreferences_product_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what information about products matters most to you.'**
+  String get myPreferences_product_subtitle;
+
+  /// No description provided for @myPreferences_pet_food_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Pet Food Preferences'**
+  String get myPreferences_pet_food_title;
+
+  /// No description provided for @myPreferences_pet_food_subtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose what information about pet food matters most to you.'**
+  String get myPreferences_pet_food_subtitle;
+
   /// Pop up title: Reassuring if the food preferences should really be reset
   ///
   /// In en, this message translates to:

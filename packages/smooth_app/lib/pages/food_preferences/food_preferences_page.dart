@@ -65,7 +65,7 @@ enum PreferencesPageProjects {
 class FoodPreferencesPage extends StatefulWidget {
   const FoodPreferencesPage({
     super.key,
-    this.project = PreferencesPageProjects.products,
+    this.project = PreferencesPageProjects.food,
   });
 
   final PreferencesPageProjects project;
@@ -247,12 +247,11 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
-    final ThemeData theme = Theme.of(context);
 
     final bool isSummaryPage = _controller.isSummaryPage;
     final Color headerColor = isSummaryPage
         ? extension.success
-        : theme.colorScheme.secondary;
+        : extension.primaryMedium;
     final Color foregroundColor = isSummaryPage ? Colors.white : Colors.black;
 
     return ChangeNotifierProvider<PendingPreferences>.value(
