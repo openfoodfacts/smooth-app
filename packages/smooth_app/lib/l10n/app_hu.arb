@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Nyitott árak",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -71,7 +71,7 @@
   "@error": {},
   "error_occurred": "Hiba történt",
   "@error_occurred": {},
-  "featureInProgress": "Még dolgozunk ezen a funkción, maradjon velünk",
+  "featureInProgress": "Még dolgozunk ezen a funkción, nézzen vissza később",
   "@featureInProgress": {},
   "label_web": "Megtekintés az interneten",
   "@label_web": {},
@@ -146,7 +146,7 @@
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "Válasszon olyan élelmiszereket, amelyek jók Önnek.",
+  "healthCardUtility": "Válasszon olyan élelmiszereket, amelyek jót tesznek Önnek.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
@@ -203,7 +203,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
-  "forgot_password_question": "Elfelejtett jelszó?",
+  "forgot_password_question": "Elfelejtette a jelszavát?",
   "view_profile": "Profil megtekintése",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -212,7 +212,7 @@
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "Elfelejtett jelszó esetén adja meg felhasználónevét vagy e-mail címét, hogy megkapja a jelszó visszaállítására vonatkozó utasításokat. Ne felejtse el ellenőrizni a Spam mappát is.",
+  "reset_password_explanation_text": "Elfelejtett jelszó esetén adja meg felhasználónevét vagy e-mail címét, hogy megkapja a jelszó visszaállítására vonatkozó utasításokat. Ne felejtse el ellenőrizni a Spam mappát sem.",
   "username_or_email": "Felhasználónév vagy e-mail cím",
   "@username_or_email": {
     "description": "Text field hint for password reset"
@@ -242,8 +242,8 @@
   "sign_up_page_display_name_hint": "Név",
   "sign_up_page_display_name_error_empty": "Kérjük, adja meg felhasználónevét",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail szükséges",
-  "sign_up_page_email_error_invalid": "Érvénytelen e-mail",
+  "sign_up_page_email_error_empty": "E-mail cím megadása kötelező",
+  "sign_up_page_email_error_invalid": "Érvénytelen e-mail cím",
   "sign_up_page_username_hint": "Felhasználónév: Nyilvánosan látható",
   "sign_up_page_username_error_empty": "Adjon meg egy felhasználónevet",
   "sign_up_page_username_error_invalid": "Adjon meg egy érvényes felhasználónevet",
@@ -433,7 +433,7 @@
   "question_skip_button_accessibility_value": "Kérdés kihagyása",
   "tap_to_edit_search": "Koppintson a keresés szerkesztéséhez",
   "@Personal preferences": {},
-  "myPreferences": "Saját beállítások",
+  "myPreferences": "Beállításaim",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
@@ -527,7 +527,7 @@
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "search_store_help": "Tipp: add meg a várost vagy az országot",
+  "search_store_help": "Tipp: adja meg a várost vagy az országot",
   "@search_store_help": {
     "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
@@ -886,7 +886,7 @@
   "@view_more_photo_button": {},
   "no_product_found": "Nem található termék",
   "@no_product_found": {},
-  "no_product_found_explanation": "A(z)\n**\"{search}\"**\nkifejezésre keresve nem talált találatot.",
+  "no_product_found_explanation": "A(z)\n**\"{search}\"**\nkifejezésre keresve nincsen találat.",
   "@no_product_found_explanation": {
     "description": "Explanation shown when no product is found for a search",
     "placeholders": {
@@ -896,7 +896,7 @@
       }
     }
   },
-  "no_product_found_try_world_results": "Szeretné ugyanezt a keresést a **globális adatbázisunkban** futtatni?",
+  "no_product_found_try_world_results": "Szeretné ugyanezt a keresést inkább a **globális adatbázisunkban** futtatni?",
   "no_location_found": "Hely nem található",
   "not_found": "nem található:",
   "refreshing_product": "Termék frissítése",
@@ -1044,7 +1044,7 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
-  "product_tags_empty": "Nincsenek ingatlanok",
+  "product_tags_empty": "Nincsenek tulajdonságok",
   "product_tags_explanation": "Tulajdonságok (kulcs/érték) hozzáadásával egy termékhez gazdagíthatod azt.",
   "add_tag": "Tulajdonság hozzáadása",
   "add_tags": "Tulajdonságok hozzáadása",
@@ -3995,7 +3995,7 @@
   "guide_greenscore_lca_arg2_distribution": "Elosztás",
   "guide_greenscore_lca_arg2_consumption": "Fogyasztás",
   "guide_greenscore_lca_arg3_title": "14 környezeti hatásmutató",
-  "guide_greenscore_lca_arg3_text1": "Klímaváltozás/szénlábnyom",
+  "guide_greenscore_lca_arg3_text1": "Klímaváltozás/karbonlábnyom",
   "guide_greenscore_lca_arg3_text2": "Az ózonréteg elvékonyodása",
   "guide_greenscore_lca_arg3_text3": "Ionizáló sugárzás",
   "guide_greenscore_lca_arg3_text4": "Föld",
@@ -4131,16 +4131,16 @@
   "guide_open_pet_food_facts_scores_title": "Megjegyzés a pontozásról",
   "guide_open_pet_food_facts_scores_paragraph1": "Egy állateledel pontozási rendszerének kidolgozása **jelenleg nem prioritás**. A módszertan összetett lenne, mivel a táplálkozási igények fajonként, koronként és egészségi állapotonként nagymértékben eltérnek. Még nem találtunk független tudományos csapatot, amely képes lenne ilyen pontozást kidolgozni.",
   "guide_open_pet_food_facts_share_link": "https://world-hu.openpetfoodfacts.org/discover",
-  "guide_open_beauty_facts_title": "Üdvözlünk az Open Beauty Facts oldalán!",
+  "guide_open_beauty_facts_title": "Üdvözli Önt az Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Mi az a Nyílt Szépség Tények?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Az Open Beauty Facts egy közösen létrehozott adatbázis, amely **kozmetikai termékeket** tartalmaz.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Az Open Beauty Facts **kozmetikai termékek** kollaboratív adatbázisa.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Célunk az összetevők listájának megfejtése, hogy segítsünk megérteni, **mi van a testápolási termékeidben**. A hidratálókrémektől a sminktermékekig adatokat gyűjtünk az összetevőkről, allergénekről és a csomagolásról, hogy elősegítsük az átláthatóságot a kozmetikai iparban.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Célunk az összetevők listájának megfejtése, hogy segítsünk megérteni, **mi van a testápolási termékekben**. A hidratálókrémektől a sminkekig adatokat gyűjtünk az összetevőkről, allergénekről és a csomagolásról, hogy elősegítsük az átláthatóságot a kozmetikai iparban.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4163,7 +4163,7 @@
   "guide_open_beauty_facts_scores_title": "Megjegyzés a pontozásról",
   "guide_open_beauty_facts_scores_paragraph1": "Az élelmiszerekkel ellentétben a kozmetikumok világában **nincs egyetemesen elismert, kormány által támogatott pontozási rendszer, mint a Nutri-Score**. Az összetevők hatásai nagyon személyesek lehetnek, és függhetnek a bőrtípustól, az allergiáktól és az egyéni aggályoktól.",
   "guide_open_beauty_facts_share_link": "https://world-hu.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Üdvözöljük a Nyílt Árak oldalán!",
+  "guide_open_prices_title": "Üdvözöljük a Open Pricesban!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4176,28 +4176,28 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Hogyan működnek a Nyílt Árak?",
-  "guide_open_prices_how_paragraph1": "**Nyílt forráskódú áradatbázist gyűjtünk közösségi finanszírozásból**. Az árakat a felhasználók ezen a webes alkalmazáson vagy a hivatalos Open Food Facts mobilalkalmazáson keresztül adhatják meg. Kiskereskedők vagy harmadik féltől származó alkalmazások is hozzájárulhatnak az API-nk használatával.",
+  "guide_open_prices_how_title": "Hogyan működnek az Open Prices?",
+  "guide_open_prices_how_paragraph1": "**Nyílt forráskódú közösségi áradatbázist gyűjtünk**. Az árakat a felhasználók ezen a webes alkalmazáson vagy a hivatalos Open Food Facts mobilalkalmazáson keresztül adhatják meg. Kiskereskedők vagy harmadik féltől származó alkalmazások is hozzájárulhatnak az API-nk használatával.",
   "guide_open_prices_how_arg1_title": "Gyűjtsön fotókat az árcédulákról a folyosókon",
   "guide_open_prices_how_arg2_title": "Gyűjtsd össze a nyugták fotóit",
   "guide_open_prices_why_title": "Miért csinálja ezt az Open Food Facts?",
-  "guide_open_prices_why_paragraph1": "Az árinformációk kiemelkedően fontosak az élelmiszerrendszerek megértéséhez. Kulcsfontosságú tényezők az élelmiszerek költségeinek megértésében és az egészségesebb étrend előmozdításában. A nyitó áradatok megkönnyítik a kutatók, újságírók és polgárok számára, hogy **jobban megértsék az élelmiszerárak földrajzi és időbeli változását**.",
+  "guide_open_prices_why_paragraph1": "Az árinformációk kiemelkedően fontosak az élelmiszerrendszerek megértéséhez. Kulcsfontosságú tényezők az élelmiszerek költségeinek megértésében és az egészségesebb étrend előmozdításában. Az áradatok megnyitása megkönnyíti a kutatók, újságírók és polgárok számára, hogy **jobban megértsék az élelmiszerárak földrajzi és időbeli változását**.",
   "guide_open_prices_why_arg1_title": "Az árak időbeli alakulásának nyomon követése",
-  "guide_open_prices_why_arg1_text": "Nézd az **árak alakulását**: zsugorodási infláció, olcsónflació, együtt nyomon követhetjük őket!",
+  "guide_open_prices_why_arg1_text": "Nézze meg az **árak alakulását**: zsugorodási infláció, olcsósítási infláció, együtt nyomon követhetjük őket!",
   "guide_open_prices_why_arg2_title": "Hasonlítsa össze az árakat a közelben",
-  "guide_open_prices_why_arg2_text": "Ahogy egyre több árat kapunk, megtalálhatod **a környékeden a legolcsóbb üzleteket**.",
+  "guide_open_prices_why_arg2_text": "Ahogy egyre több árat kapunk, megtalálhatja **a környékén a legolcsóbb üzleteket**.",
   "guide_open_prices_scrapping_title": "Fontolóra vetted már, hogy lemásolod az árakat a kiskereskedők weboldalairól?",
-  "guide_open_prices_scrapping_paragraph1": "Jogi és technikai okokból **nem tekintjük érvényes módnak az árak kiskereskedők weboldalairól történő lekérdezését a Nyílt Árakhoz való hozzájárulásra**. Biztosak akarunk lenni abban, hogy az általunk gyűjtött árak pontosak és naprakészek, és a közreműködőktől lemásolt árak fogadása ezt nem teszi lehetővé számunkra.",
-  "guide_open_prices_scrapping_paragraph2": "Az árlekaparás egy fontolóra vett lehetőség az Open Prices jövőbeli verzióiban, de ezt maga az Open Prices végezné el, hogy a HTML oldal alapján bizonyítékot kaphassunk az árról.",
+  "guide_open_prices_scrapping_paragraph1": "Jogi és technikai okokból **nem tekintjük érvényes módnak az árak kiskereskedők weboldalairól történő lekérdezését az Open Priceshoz való hozzájárulásra**. Biztosak akarunk lenni abban, hogy az általunk gyűjtött árak pontosak és naprakészek, és a közreműködőktől lemásolt árak fogadása ezt nem teszi lehetővé számunkra.",
+  "guide_open_prices_scrapping_paragraph2": "Az árak kinyerése a weboldalakról egy fontolóra vett lehetőség az Open Prices jövőbeli verzióiban, de ezt maga az Open Prices végezné el, hogy a HTML oldal alapján bizonyítékot kaphassunk az árról.",
   "guide_open_prices_retailers_title": "Kiskereskedő vagyok, és szeretnék hozzájárulni az árakhoz. Hogyan tehetem ezt meg?",
-  "guide_open_prices_retailers_paragraph1": "Az árakhoz az API-nkon keresztül is hozzájárulhatsz.\nHa nagyobb mennyiségben szeretnél árakat megadni, kérjük, vedd fel velünk a kapcsolatot a prices@openfoodfacts.org címen.",
+  "guide_open_prices_retailers_paragraph1": "Az árakhoz az API-nkon keresztül is hozzájárulhat.\nHa nagyobb mennyiségben szeretne árakat megadni, kérjük, vegye fel velünk a kapcsolatot a prices@openfoodfacts.org címen.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Üdvözöljük az Open Products Facts oldalán!",
+  "guide_open_products_facts_title": "Üdvözöljük az Open Products Factsben!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_products_facts_what_is_open_products_facts_title": "Mi az a Nyílt Terméktények?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Az Open Products Facts egy hatalmas, nyílt adatbázis, amely **vonalkóddal ellátott termékekre vonatkozik, amelyek nem élelmiszerek, kozmetikumok vagy állateledel**.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Az Open Products Facts egy hatalmas, nyílt adatbázis, amely olyan **vonalkóddal ellátott termékekre vonatkozik, amelyek nem élelmiszerek, kozmetikumok vagy állateledelek**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4207,17 +4207,17 @@
   },
   "guide_open_products_facts_features_title": "A nyílt termékek jellemzői Tények",
   "guide_open_products_facts_features_text": "Az Open Products Facts célja, hogy a fogyasztók számára **meghosszabbítsák tárgyaik élettartamát** körforgásos megoldások biztosításával, amelyekkel karbantarthatják, **javíthatják**, **újrahasznosíthatják** tárgyaikat, vagy új tulajdonoshoz juthatnak.",
-  "guide_open_products_facts_features_arg1_title": "Egyes termékek szénlábnyoma",
+  "guide_open_products_facts_features_arg1_title": "Egyes termékek karbonlábnyoma",
   "guide_open_products_facts_features_arg1_text": "A Francia Környezetvédelmi Hatóság (ADEME) által készített **CO2 hatás** adatai számos kategóriára kiterjednek, ezért ügyeljen a termékek pontos kategorizálására.",
   "guide_open_products_facts_features_arg2_title": "Javíthatósági index számos termék esetében",
   "guide_open_products_facts_features_arg2_text": "Amikor elérhetővé válik egy francia javíthatósági index, megjelenítjük. Ezenkívül **elkezdheti a változók gyűjtését a Folksonomy Engine segítségével**; így a jövőben mi magunk is újra tudjuk számolni, még azokban az országokban is, ahol nem érhető el.",
-  "guide_open_products_facts_features_arg3_title": "Találj módokat a terméked adományozására/viszonteladására",
-  "guide_open_products_facts_features_arg3_text": "Linkeket biztosítunk **harmadik féltől származó, körforgásbarát szolgáltatásokhoz**, amelyek segítenek abban, hogy a keresett terméket használt termékként szerezd be, hogy kíméletesebb legyél a bolygó erőforrásaival.\nFontos megjegyezni, hogy ezért nem fizetnek nekünk, és a rendszer csak példaként működik két franciaországi weboldal esetében. A rendszer bővítésében segíthetsz, ha további oldalakat dokumentálsz a wikin.",
+  "guide_open_products_facts_features_arg3_title": "Találjon módokat termékének adományozására/újraértékesítésére",
+  "guide_open_products_facts_features_arg3_text": "Linkeket biztosítunk **harmadik féltől származó, körforgásbarát szolgáltatásokhoz**, amelyek segítenek abban, hogy a keresett terméket használtként szerezze be, hogy kíméletesebb legyen a bolygó erőforrásaival.\nFontos megjegyezni, hogy ezért nem fizetnek nekünk, és a rendszer csak példaként működik két franciaországi weboldal esetében. A rendszer bővítésében Ön is segíthet, ha további oldalakat dokumentál a wikin.",
   "guide_open_products_facts_information_title": "Milyen információk hasznosak?",
-  "guide_open_products_facts_information_text": "Ilyen széles termékkör esetén **rugalmasan gyűjtjük az adatokat**. Ennek érdekében **hoztuk létre a Folksonomy Engine-t**.",
+  "guide_open_products_facts_information_text": "Az ennyire széles termékválaszték miatt **az általunk gyűjtött adatok rugalmasak**. Ehhez **létrehoztuk a Folksonomy Engine-t**.",
   "guide_open_products_facts_folksonomy_title": "A Folksonomy Engine",
   "guide_open_products_facts_folksonomy_paragraph1": "A Folksonomy Engine egy olyan eszköz, amely segít releváns tulajdonságokkal rendelkező termékeket létrehozni. Ez segít javítani a keresést és a felfedezhetőséget, valamint a jövőben érdekes dolgok kiszámítását és megjelenítését is lehetővé teszi.",
-  "guide_open_products_facts_folksonomy_paragraph2": "Bármilyen kulcsot és értéket hozzáadhatsz, például: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph2": "Bármilyen kulcsot és értéket hozzáadhat, például: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "Automatikus javaslatokat kapsz a lehetséges tulajdonságokra, és szívesen látunk, ha újakat adsz hozzá és dokumentálsz a kedvenc termékeidhez.",
   "guide_open_products_facts_share_link": "https://world-hu.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Ételbeállítások megnyitása",
@@ -4586,7 +4586,7 @@
   "@product_page_for_me_compatibility_score_uncomputable": {
     "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
   },
-  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" típusú szorzatra nem számítható ki pontszám.",
+  "product_page_for_me_compatibility_score_unsupported": "„{productType}” típusú termékhez nem számítható ki pontszám.",
   "@product_page_for_me_compatibility_score_unsupported": {
     "description": "Message displayed when a compatibility score can't be computed for a product",
     "placeholders": {
@@ -4599,23 +4599,23 @@
   "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_order_evaluation": "Mérkőzések",
+  "product_page_for_me_attributes_order_evaluation": "Egyezések",
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_group_good_matches": "Jó meccsek",
+  "product_page_for_me_attributes_group_good_matches": "Jó egyezés",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
   },
-  "product_page_for_me_attributes_group_average_matches": "Átlagos mérkőzések",
+  "product_page_for_me_attributes_group_average_matches": "Átlagos egyezés",
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
-  "product_page_for_me_attributes_group_bad_matches": "Rossz meccsek",
+  "product_page_for_me_attributes_group_bad_matches": "Rossz egyezés",
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
-  "product_page_for_me_attributes_group_unknown_matches": "Ismeretlen találatok",
+  "product_page_for_me_attributes_group_unknown_matches": "Ismeretlen egyezés",
   "@product_page_for_me_attributes_group_unknown_matches": {
     "description": "Title for the group of attributes that are unknown matches for the user"
   },
@@ -4641,7 +4641,7 @@
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "A külső linkek nem biztonságosak lehetnek. Biztosan meg szeretnéd látogatni őket?",
+  "folksonomy_action_external_link_warning": "A külső linkek nem feltétlenül biztonságosak. Biztosan meg szeretné nyitni?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -5404,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Nyitott árak mutatói",
+  "preferences_prices_metrics_title": "Open Prices mutatói",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5691,19 +5691,19 @@
   "location_map_details_country": "Ország",
   "location_map_details_coordinates": "Koordináták",
   "location_map_details_osm_id": "OSM-azonosító",
-  "homepage_scanner_back_to_home_button": "Vissza az otthonba",
+  "homepage_scanner_back_to_home_button": "Vissza a kezdőlapra",
   "@homepage_scanner_back_to_home_button": {
     "description": "Button to go back to home from the scanner page"
   },
-  "homepage_scanner_toggle_camera_tooltip": "Kamera be-/kikapcsolása",
+  "homepage_scanner_toggle_camera_tooltip": "Kamera be- és kikapcsolása",
   "@homepage_scanner_toggle_camera_tooltip": {
     "description": "Tooltip for the button to toggle the camera on the scanner page"
   },
-  "homepage_header_barcode_tooltip": "Mutassa meg a vonalkódolvasót",
+  "homepage_header_barcode_tooltip": "Vonalkódolvasó megjelenítése",
   "@homepage_header_barcode_tooltip": {
     "description": "Tooltip for the button to open the barcode scanner from the homepage"
   },
-  "homepage_scanner_overlay_message": "Koppints a **vonalkód**\nbeolvasásához, és derítsd ki, hogy **jó-e neked**!",
+  "homepage_scanner_overlay_message": "Koppintson a **vonalkód**\nbeolvasásához, és derítse ki, hogy **jó-e Önnek**!",
   "@homepage_scanner_overlay_message": {
     "description": "Message visible above the camera."
   },
@@ -5711,11 +5711,11 @@
   "@homepage_scanner_toggle_torch_tooltip": {
     "description": "Tooltip for the button to toggle the torch on the scanner page"
   },
-  "homepage_scanner_banner_start_scanning": "Szkenneljen be egy terméket a vonalkódjához közeledve",
+  "homepage_scanner_banner_start_scanning": "Szkenneljen be egy terméket a vonalkódjához közelítve",
   "@homepage_scanner_banner_start_scanning": {
     "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
   },
-  "homepage_scanner_banner_invalid_barcode": "A következő vonalkódot észleltük: {barcode}, de úgy tűnik, érvénytelen.",
+  "homepage_scanner_banner_invalid_barcode": "A következő vonalkódot észleltük: {barcode}, de úgy tűnik, ez érvénytelen.",
   "@homepage_scanner_banner_invalid_barcode": {
     "description": "Banner text shown on the scanner page when an invalid barcode is detected",
     "placeholders": {
@@ -5732,7 +5732,7 @@
   "@homepage_list_most_scanned_title": {
     "description": "Title for the most scanned products horizontal list on the homepage"
   },
-  "homepage_list_last_scanned_title": "Utoljára beolvasott termékek",
+  "homepage_list_last_scanned_title": "Utoljára leolvasott termékek",
   "@homepage_list_last_scanned_title": {
     "description": "Title for the last scanned products horizontal list on the homepage"
   },
