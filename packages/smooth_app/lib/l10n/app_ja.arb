@@ -4005,15 +4005,15 @@
   "guide_greenscore_lca_arg3_text8": "資源の枯渇。",
   "guide_greenscore_bonuses_penalties_title": "ボーナスとペナルティ",
   "guide_greenscore_bonuses_penalties_intro": "カテゴリー内でより優れた製品に報酬を与えるために、**いくつかの基準に基づいてボーナスとペナルティを適用します**。",
-  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_title": "生産様式",
   "guide_greenscore_bonuses_penalties_arg1_text": "**公式ラベル、環境上の利点を保証するラベルまたは認証** (オーガニック、フェアトレード、HVE、Label Rouge、Bleu Blanc Cœur、MSC/ASC) が付いた製品には、**ボーナス** が付与されます。",
   "guide_greenscore_bonuses_penalties_arg2_title": "成分の起源",
   "guide_greenscore_bonuses_penalties_arg2_text": "原材料の原産地に基づいて**ボーナス**が付与されます。このボーナスは、**輸送への影響**と、各生産国の**環境政策**を考慮に入れています。",
-  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_title": "絶滅危惧種",
   "guide_greenscore_bonuses_penalties_arg3_text": "パーム油などの、大規模な森林破壊の原因となっている生産など、**生物多様性と生態系に重大な悪影響を与える**成分を含む製品には、**罰則**が科せられます。",
   "guide_greenscore_bonuses_penalties_arg4_title": "パッケージング",
   "guide_greenscore_bonuses_penalties_arg4_text": "**ペナルティ**は、**包装の循環性**（リサイクル原材料の使用とリサイクル性）と過剰梱包を考慮して計算されます。",
-  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_title": "環境への影響をより適切に測定し、削減するために透明性が求められる",
   "guide_greenscore_transparency_intro1": "グリーンスコアを正確に計算するには、**パッケージに必ずしも明記されていない情報** (原産地や各成分の正確な割合など)、または使用可能な形式で入手できることがほとんどない情報 (パッケージのすべてのコンポーネントのリストと、使用されているプラスチックの正確な種類など) が必要です。",
   "guide_greenscore_transparency_intro2": "**この情報がまだ入手できない場合は平均値が使用されます**が、現在、私たちはこの情報を収集するために皆様の協力を呼びかけています。この情報は、グリーンスコアだけでなく、他の多くの用途にも非常に役立ちます。",
   "guide_greenscore_transparency_arg1_title": "国民はどのように支援できるでしょうか?",
@@ -4915,7 +4915,7 @@
   "@preferences_connect_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_support_title": "Make a donation",
+  "preferences_support_title": "寄付をする",
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
