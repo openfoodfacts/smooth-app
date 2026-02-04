@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "ราคาเปิด",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -2329,7 +2329,7 @@
   },
   "prices_app_dev_mode_flag": "ทางลัดไปยังแอปแสดงราคาบนหน้าสินค้า",
   "prices_app_button": "ไปที่แอปราคา",
-  "prices_website_button": "เปิดบนเว็บไซต์ราคาเปิด",
+  "prices_website_button": "เปิดดูข้อมูลได้ที่เว็บไซต์ Open Prices",
   "prices_bulk_proof_upload_select": "เพิ่มป้ายราคาโดยตรงจากแกลเลอรี่",
   "prices_bulk_proof_upload_warning": "เมื่อคุณเลือกรูปภาพแล้ว คุณจะไม่สามารถแก้ไขรูปภาพเหล่านั้นได้อีก!",
   "prices_bulk_proof_upload_warning_ai": "AI จะประมวลผลหลักฐานของคุณเพื่อดึงราคาออกมา",
@@ -4167,7 +4167,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ราคาเปิดคืออะไร?",
+  "guide_open_prices_what_is_open_prices_title": "Open Prices คืออะไร?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices คือโครงการที่ **รวบรวมและแบ่งปันราคาสินค้าทั่วโลก** เป็นชุดข้อมูลสาธารณะที่สามารถนำไปใช้ในการวิจัย วิเคราะห์ และอื่นๆ ได้ Open Prices พัฒนาและดูแลโดย Open Food Facts",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4176,7 +4176,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "ราคาเปิดทำงานอย่างไร?",
+  "guide_open_prices_how_title": "Open Prices ทำงานอย่างไร?",
   "guide_open_prices_how_paragraph1": "**เรากำลังรวบรวมชุดข้อมูลราคาแบบโอเพนซอร์สจากผู้ใช้งาน** ผู้ใช้สามารถเพิ่มราคาได้ผ่านเว็บแอปพลิเคชันนี้ หรือผ่านแอปพลิเคชันมือถือ Open Food Facts อย่างเป็นทางการ นอกจากนี้ ผู้ค้าปลีกหรือแอปพลิเคชันจากบุคคลที่สามก็สามารถร่วมให้ข้อมูลได้โดยใช้ API ของเรา",
   "guide_open_prices_how_arg1_title": "รวบรวมภาพถ่ายป้ายราคาตามชั้นวางสินค้า",
   "guide_open_prices_how_arg2_title": "รวบรวมรูปถ่ายใบเสร็จรับเงิน",
