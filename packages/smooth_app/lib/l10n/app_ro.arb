@@ -3867,7 +3867,7 @@
   "nutriscore_unknown_new_formula": "Nutri-Score necunoscut (calcul nou)",
   "nutriscore_not_applicable": "Scorul nutrițional nu se aplică",
   "nutriscore_not_applicable_new_formula": "Scorul Nutri nu este aplicabil (calcul nou)",
-  "environmental_score_generic_new": "Scor Ecologic",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
@@ -3968,7 +3968,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Scor Ecologic",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
