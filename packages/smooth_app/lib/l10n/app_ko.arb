@@ -2805,7 +2805,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "도전 과제",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4172,7 +4172,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "현재 바코드 수준의 제품 가격 데이터베이스를 보유한 기업은 소수에 불과합니다. 이러한 가격 정보는 자유롭게 이용할 수 없고, 구매 여력이 있는 민간 기업, 연구 기관 및 기타 단체에 고가로 판매되고 있습니다.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4189,7 +4189,7 @@
   "guide_open_prices_scrapping_title": "소매업체 웹사이트에서 가격을 스크래핑하는 것을 고려해 보셨나요?",
   "guide_open_prices_scrapping_paragraph1": "법적 및 기술적 이유로, **소매업체 웹사이트에서 가격을 스크래핑하는 것은 Open Prices에 기여하는 유효한 방법으로 간주하지 않습니다**. 수집하는 가격이 정확하고 최신인지 확인해야 하며, 기여자들로부터 스크래핑된 가격을 받는 것만으로는 이를 보장할 수 없습니다.",
   "guide_open_prices_scrapping_paragraph2": "Open Prices의 향후 버전에서는 가격 스크래핑을 고려한 옵션이지만, HTML 페이지를 기반으로 가격 증명을 얻을 수 있도록 Open Prices에서 직접 수행할 것입니다.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "저는 소매업자인데 가격 정보를 제공하고 싶습니다. 어떻게 하면 될까요?",
   "guide_open_prices_retailers_paragraph1": "API를 사용하여 가격을 제공할 수 있습니다.\n대규모로 가격을 제공하고 싶으시다면 prices@openfoodfacts.org로 연락해 주세요.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "오픈 프로덕츠 팩트에 오신 것을 환영합니다!",
@@ -4795,7 +4795,7 @@
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
-  "prices_stats_osm": "오픈스트리트맵",
+  "prices_stats_osm": "OpenStreetMap",
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
