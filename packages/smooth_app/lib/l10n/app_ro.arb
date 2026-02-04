@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Prețuri deschise",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -3866,15 +3866,15 @@
   "nutriscore_unknown": "Nutri-Score necunoscut",
   "nutriscore_unknown_new_formula": "Nutri-Score necunoscut (calcul nou)",
   "nutriscore_not_applicable": "Scorul nutrițional nu se aplică",
-  "nutriscore_not_applicable_new_formula": "Scorul Nutri nu este aplicabil (calcul nou)",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score nu este aplicabil (calcul nou)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Scor verde necunoscut",
-  "environmental_score_not_applicable_new": "Scorul verde nu este aplicabil",
+  "environmental_score_unknown_new": "Scor de Green-Score necunoscut",
+  "environmental_score_not_applicable_new": "Green-Score nu este aplicabil",
   "nova_group_generic_new": "Alimente ultraprocesate - grupuri NOVA",
   "nova_group_1": "Grupa 1 NOVA",
   "nova_group_2": "Grupa 2 NOVA",
@@ -3932,12 +3932,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Distribuiți",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score-ul este în evoluție: explicații!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Ce este Nutri-Score-ul?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score este un logo care își propune să vă informeze despre **calitatea nutrițională a alimentelor**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3945,9 +3945,9 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Sigla Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "De ce evoluează Nutri-Score?",
+  "guide_nutriscore_v2_why_v2_intro": "Formula Nutri-Score **este în continuă evoluție** pentru a oferi recomandări mai bune:",
   "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
   "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
   "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
@@ -3958,16 +3958,16 @@
   "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
   "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
   "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
+  "guide_nutriscore_v2_new_logo_title": "Cum se diferențiază vechiul Nutri-Score de noul calcul?",
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_new_logo_image_caption": "Logo-ul noului Nutri-Score",
   "guide_nutriscore_v2_where_title": "Unde găsesc noul calcul Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score este aplicat în 7 țări: Franța, Germania, Belgia, Spania, Luxemburg, Olanda și Elveția.",
   "guide_nutriscore_v2_where_paragraph2": "Producătorii au la dispoziție cel mult **2 ani** de la semnarea decretului **pentru a înlocui** vechiul calcul cu cel nou.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score este un scor conceput pentru a **măsura calitatea nutrițională**. Este **complementar grupului NOVA** privind **alimentele ultra-procesate** (prezent și în aplicație).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Pentru producători, afișarea Nutri-Score **rămâne opțională**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
