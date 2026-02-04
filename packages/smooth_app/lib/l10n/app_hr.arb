@@ -2511,7 +2511,7 @@
       }
     }
   },
-  "prices_open_proof": "Open price proof",
+  "prices_open_proof": "Dokaz o otvorenoj cijeni",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
@@ -2626,10 +2626,10 @@
   "prices_add_validation_error": "Validation error",
   "prices_privacy_warning_title": "Privacy warning",
   "prices_unknown_product": "Unknown product",
-  "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+  "prices_privacy_warning_main_message": "Cijene **bit će javne**, zajedno s trgovinom na koju se odnose.\n\nTo bi moglo omogućiti ljudima koji znaju za vaš pseudonim Open Food Facts da:\n",
   "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
   "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-  "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+  "prices_privacy_warning_sub_message": "Ako vam to ne odgovara, promijenite pseudonim ili stvorite novi Open Food Facts račun i prijavite se u aplikaciju s njim.",
   "i_refuse": "I refuse",
   "i_accept": "I accept",
   "prices_currency_change_proposal_title": "Change the currency?",
@@ -2666,7 +2666,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Saznajte više o otvorenim cijenama",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2805,7 +2805,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Izazovi",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4168,29 +4168,29 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "Što su Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt za **prikupljanje i dijeljenje cijena proizvoda diljem svijeta**. To je javno dostupan skup podataka koji se može koristiti za istraživanje, analizu i još mnogo toga. Open Prices razvija i održava Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Trenutno postoji malo tvrtki koje posjeduju velike baze podataka cijena proizvoda na razini barkoda. Te cijene nisu slobodno dostupne, već se prodaju po visokoj cijeni privatnim akterima, istraživačima i drugim organizacijama koje si ih mogu priuštiti.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
+  "guide_open_prices_how_title": "Kako funkcioniraju cijene otvaranja?",
+  "guide_open_prices_how_paragraph1": "**Prikupljamo skup podataka o cijenama otvorenog koda putem crowdsourcinga**. Cijene mogu dodati korisnici putem ove web aplikacije ili putem službene mobilne aplikacije Open Food Facts. Trgovci ili aplikacije trećih strana također mogu doprinijeti korištenjem našeg API-ja.",
+  "guide_open_prices_how_arg1_title": "Skupljajte fotografije cijena u prolazima",
+  "guide_open_prices_how_arg2_title": "Prikupite fotografije računa",
+  "guide_open_prices_why_title": "Zašto Open Food Facts to radi?",
+  "guide_open_prices_why_paragraph1": "Informacije o cijenama od najveće su važnosti za razumijevanje prehrambenih sustava. To je ključni čimbenik u razumijevanju troškova hrane i promicanju zdravije prehrane. Podaci o početnim cijenama način su da se istraživačima, novinarima i građanima olakša **bolje razumijevanje kako se cijene hrane razlikuju geografski i vremenski**.",
   "guide_open_prices_why_arg1_title": "Pratite razvoj cijena tijekom vremena",
   "guide_open_prices_why_arg1_text": "Pogledajte **evoluciju cijena**: smanjenje inflacije, jeftina inflacija, možemo ih pratiti zajedno!",
   "guide_open_prices_why_arg2_title": "Usporedite cijene u vašoj blizini",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_why_arg2_text": "Kako dobivamo više cijena, možete uočiti **najjeftinije trgovine oko sebe**.",
+  "guide_open_prices_scrapping_title": "Jeste li razmišljali o preuzimanju cijena s web stranica trgovaca?",
+  "guide_open_prices_scrapping_paragraph1": "Iz pravnih i tehničkih razloga, **ne smatramo preuzimanje cijena s web stranica trgovaca valjanim načinom doprinosa Open Pricesu**. Želimo biti sigurni da su cijene koje prikupljamo točne i ažurne, a primanje prikupljenih cijena od suradnika nam to ne dopušta.",
+  "guide_open_prices_scrapping_paragraph2": "Skupljanje podataka o cijenama razmatrana je opcija u budućoj verziji Open Pricesa, ali bi to radio sam Open Prices kako bismo mogli imati dokaz o cijeni na temelju HTML stranice.",
+  "guide_open_prices_retailers_title": "Ja sam trgovac i želim doprinijeti cijenama. Kako to mogu učiniti?",
+  "guide_open_prices_retailers_paragraph1": "Možete doprinijeti cijenama putem našeg API-ja.\nAko želite doprinijeti cijenama u većem obimu, kontaktirajte nas na prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
@@ -5188,7 +5188,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Otkrijte otvorene cijene",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5360,7 +5360,7 @@
   "@preferences_my_contributions_prices_title": {
     "description": "Title for a container linking to user prices"
   },
-  "preferences_my_contributions_my_prices_title": "My prices",
+  "preferences_my_contributions_my_prices_title": "Moje cijene",
   "@preferences_my_contributions_my_prices_title": {
     "description": "Title for opening prices stats"
   },
