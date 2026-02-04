@@ -2805,7 +2805,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Utfordringer",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4172,7 +4172,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Det er for tiden få selskaper som eier store databaser med produktpriser på strekkodenivå. Disse prisene er ikke fritt tilgjengelige, men selges til en høy pris til private aktører, forskere og andre organisasjoner som har råd til dem.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4189,7 +4189,7 @@
   "guide_open_prices_scrapping_title": "Har du vurdert å hente priser fra forhandlernes nettsider?",
   "guide_open_prices_scrapping_paragraph1": "Av juridiske og tekniske årsaker **anser vi ikke det å hente priser fra forhandlernes nettsteder som en gyldig måte å bidra til Open Prices**. Vi ønsker å sørge for at prisene vi samler inn er nøyaktige og oppdaterte, og det å motta hentede priser fra bidragsytere tillater oss ikke å gjøre det.",
   "guide_open_prices_scrapping_paragraph2": "Prisskraping er et vurdert alternativ i en fremtidig versjon av Open Prices, men det vil bli gjort av Open Prices selv, slik at vi kan ha et bevis på prisen basert på HTML-siden.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Jeg er en forhandler og ønsker å bidra med priser. Hvordan kan jeg gjøre det?",
   "guide_open_prices_retailers_paragraph1": "Du kan bidra med priser ved å bruke API-et vårt.\nHvis du ønsker å bidra med priser i stor skala, kan du ta kontakt med oss på prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Velkommen til fakta om åpne produkter!",
