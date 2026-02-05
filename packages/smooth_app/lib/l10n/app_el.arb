@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Δεν βρέθηκε προϊόν",
   "@no_product_found": {},
+  "no_product_found_explanation": "Η αναζήτησή σας για\n**\"{search}\"**\nδεν βρήκε κανένα αποτέλεσμα.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Θέλετε να εκτελέσετε την ίδια αναζήτηση στην **παγκόσμια βάση δεδομένων μας**;",
   "no_location_found": "Δεν βρέθηκε τοποθεσία",
   "not_found": "δεν βρέθηκε:",
   "refreshing_product": "Ανανέωση προϊόντος",

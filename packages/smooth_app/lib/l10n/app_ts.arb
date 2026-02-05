@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ku lavisisa ka wena ka\n**\"{search}\"**\na ku fambelani na mbuyelo wihi na wihi.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Xana u lava ku fambisa ku lavisisa loku fanaka eka **dathabeyisi ya hina ya misava hinkwayo** ematshan'wini ya sweswo?",
   "no_location_found": "No location found",
   "not_found": "not found:",
   "refreshing_product": "Refreshing product",

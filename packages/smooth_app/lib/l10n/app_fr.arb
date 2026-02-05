@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Aucun produit trouvé",
   "@no_product_found": {},
+  "no_product_found_explanation": "Votre recherche pour\n**\"{search}\"**\nn'a donné aucun résultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Souhaitez-vous plutôt effectuer cette même recherche dans **notre base de données mondiale** ?",
   "no_location_found": "Aucun magasin trouvé",
   "not_found": "non trouvé :",
   "refreshing_product": "Actualisation du produit",
@@ -4588,7 +4599,7 @@
   "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_order_evaluation": "Allumettes",
+  "product_page_for_me_attributes_order_evaluation": "Correspond",
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },

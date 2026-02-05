@@ -33,7 +33,7 @@
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
-  "exit_label": "Exit",
+  "exit_label": "出口",
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
@@ -384,7 +384,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "データ品質",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -423,7 +423,7 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Become an actor of food transparency",
+  "contribute_to_get_rewards": "食品の透明性の担い手になる",
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
@@ -473,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "コミュニティ",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -607,7 +607,7 @@
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "最初に何枚か画像を撮ってください。後でいつでも製品を完成させることができます。",
   "@add_product_take_photos_descriptive": {},
-  "add_product_information_button_label": "Add product information",
+  "add_product_information_button_label": "製品情報を追加する",
   "@add_product_information_button_label": {},
   "new_product": "新しい製品",
   "@new_product": {},
@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "製品が見つかりません",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nの検索に一致する結果が見つかりませんでした。",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "代わりに**グローバル データベース**で同じ検索を実行しますか?",
   "no_location_found": "場所が見つかりません",
   "not_found": "見つかりません:",
   "refreshing_product": "製品を更新中",
@@ -1045,7 +1056,7 @@
   "tag_key_uneditable": "プロパティ（編集不可）",
   "tag_key_input_hint": "プロパティを入力する",
   "tag_value": "値：",
-  "tag_values": "Values",
+  "tag_values": "価値観",
   "tag_value_input_hint": "値を入力してください",
   "tag_key_item": "財産：",
   "tag_value_item": "価値：",
@@ -1069,7 +1080,7 @@
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
-  "product_search_same_category_short": "Compare",
+  "product_search_same_category_short": "比較する",
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1249,7 +1260,7 @@
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
-  "compare_products_appbar_title": "Compare products",
+  "compare_products_appbar_title": "製品を比較する",
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
@@ -2321,7 +2332,7 @@
   "prices_website_button": "Open Pricesウェブサイトで開く",
   "prices_bulk_proof_upload_select": "ギャラリーから直接値札を追加",
   "prices_bulk_proof_upload_warning": "画像を選択すると、編集できなくなります。",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "AI はあなたの証明に基づいて価格を抽出します。",
   "prices_bulk_proof_upload_community_switch": "AI によって抽出された価格をコミュニティが検証できるようにします。",
   "prices_bulk_proof_upload_subtitle": "複数の値札",
   "prices_bulk_proof_upload_title": "一括校正アップロード",
@@ -2790,11 +2801,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "価格貢献アシスタント",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "価格検証アシスタント",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "課題",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3916,47 +3927,47 @@
       }
     }
   },
-  "guide_title": "Guide",
+  "guide_title": "ガイド",
   "@guide_title": {
     "description": "A title for a guide"
   },
   "guide_share_label": "共有",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score は進化しています: 説明!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Scoreとは何ですか?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score は、**食品の栄養価** についてお知らせすることを目的としたロゴです。",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "色分けは、**最も健康的な** 製品を表す濃い緑 (**A**) から、**あまり健康的ではない** 製品を表す濃い赤 (**E**) まで異なります。",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "ニュートリスコアAロゴ",
+  "guide_nutriscore_v2_why_v2_title": "Nutri-Score はなぜ進化しているのでしょうか?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score の計算式は、より優れた推奨事項を提供するために**進化しています**。",
+  "guide_nutriscore_v2_why_v2_arg1_title": "すべての飲み物をより良く評価する",
+  "guide_nutriscore_v2_why_v2_arg1_text": "新しいアルゴリズムでは、**牛乳**、砂糖を加えた**乳製品飲料**、**野菜**飲料の比較ノートがより明確に区別されるようになりました。",
+  "guide_nutriscore_v2_why_v2_arg2_title": "飲み物のランキング向上",
+  "guide_nutriscore_v2_why_v2_arg2_text": "**砂糖含有量** をより適切に考慮し、**甘さ控えめ** の飲み物を推奨します。\\n**甘味料もペナルティの対象となります**: ダイエットソーダは B 評価から C と E の間に格下げされます。推奨される飲み物は引き続き水です。",
+  "guide_nutriscore_v2_why_v2_arg3_title": "塩と砂糖は罰せられる",
+  "guide_nutriscore_v2_why_v2_arg3_text": "**甘すぎる** または **塩辛すぎる** 製品は、**評価がさらに下がります**。",
+  "guide_nutriscore_v2_why_v2_arg4_title": "油と魚の階層",
+  "guide_nutriscore_v2_why_v2_arg4_text": "特定の**脂肪分の多い魚**と**良質な脂肪を豊富に含む油**の評価が向上します。",
+  "guide_nutriscore_v2_why_v2_arg5_title": "赤身の肉を制限する",
+  "guide_nutriscore_v2_why_v2_arg5_text": "**赤身肉の摂取は制限すべき**です。そのため、**鶏肉は比較的良いランクにランク付けされます**。",
+  "guide_nutriscore_v2_new_logo_title": "古い Nutri-Score と新しい計算を区別するにはどうすればよいですか?",
+  "guide_nutriscore_v2_new_logo_text": "今後は、これが新しい計算であることを明確にするために、ロゴに「**新しい計算**」という表記が表示されるようになります。",
+  "guide_nutriscore_v2_new_logo_image_caption": "新しいNutri-Scoreのロゴ",
   "guide_nutriscore_v2_where_title": "新しい Nutri-Score 計算はどこにありますか?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score は、フランス、ドイツ、ベルギー、スペイン、ルクセンブルク、オランダ、スイスの 7 か国で適用されています。",
   "guide_nutriscore_v2_where_paragraph2": "製造業者は、法令の署名後、遅くとも **2 年** 以内に古い計算を新しい計算に置き換える必要があります**。",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "メーカーがスコアを更新していない場合でも、待つことなく、**OpenFoodFacts アプリケーションで**、新しい計算を見つけることができます。",
+  "guide_nutriscore_v2_unchanged_title": "変わらないもの",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Scoreは、**栄養価を測定**するために設計されたスコアです。**超加工食品**に関するNOVAグループ**（アプリ内にも掲載）を補完するものです。",
+  "guide_nutriscore_v2_unchanged_paragraph2": "メーカーにとって、Nutri-Score の表示は **オプション** のままです。",
   "guide_greenscore_title": "グリーンスコア",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3994,15 +4005,15 @@
   "guide_greenscore_lca_arg3_text8": "資源の枯渇。",
   "guide_greenscore_bonuses_penalties_title": "ボーナスとペナルティ",
   "guide_greenscore_bonuses_penalties_intro": "カテゴリー内でより優れた製品に報酬を与えるために、**いくつかの基準に基づいてボーナスとペナルティを適用します**。",
-  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_title": "生産様式",
   "guide_greenscore_bonuses_penalties_arg1_text": "**公式ラベル、環境上の利点を保証するラベルまたは認証** (オーガニック、フェアトレード、HVE、Label Rouge、Bleu Blanc Cœur、MSC/ASC) が付いた製品には、**ボーナス** が付与されます。",
   "guide_greenscore_bonuses_penalties_arg2_title": "成分の起源",
   "guide_greenscore_bonuses_penalties_arg2_text": "原材料の原産地に基づいて**ボーナス**が付与されます。このボーナスは、**輸送への影響**と、各生産国の**環境政策**を考慮に入れています。",
-  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_title": "絶滅危惧種",
   "guide_greenscore_bonuses_penalties_arg3_text": "パーム油などの、大規模な森林破壊の原因となっている生産など、**生物多様性と生態系に重大な悪影響を与える**成分を含む製品には、**罰則**が科せられます。",
   "guide_greenscore_bonuses_penalties_arg4_title": "パッケージング",
   "guide_greenscore_bonuses_penalties_arg4_text": "**ペナルティ**は、**包装の循環性**（リサイクル原材料の使用とリサイクル性）と過剰梱包を考慮して計算されます。",
-  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_title": "環境への影響をより適切に測定し、削減するために透明性が求められる",
   "guide_greenscore_transparency_intro1": "グリーンスコアを正確に計算するには、**パッケージに必ずしも明記されていない情報** (原産地や各成分の正確な割合など)、または使用可能な形式で入手できることがほとんどない情報 (パッケージのすべてのコンポーネントのリストと、使用されているプラスチックの正確な種類など) が必要です。",
   "guide_greenscore_transparency_intro2": "**この情報がまだ入手できない場合は平均値が使用されます**が、現在、私たちはこの情報を収集するために皆様の協力を呼びかけています。この情報は、グリーンスコアだけでなく、他の多くの用途にも非常に役立ちます。",
   "guide_greenscore_transparency_arg1_title": "国民はどのように支援できるでしょうか?",
@@ -4018,7 +4029,7 @@
   "guide_greenscore_better_product_arg3_text": "持続可能な食品を選ぶのは、複雑に感じることがあります。ラベルは分かりにくく、情報が不足していることも少なくありません。グリーンスコアは、この状況をシンプルにするために開発されました。食品の**明確**で**科学に基づいた**、**透明性のある**環境評価を、必要な時に、つまり買い物中に提供します。",
   "guide_greenscore_better_product_arg4_title": "透明性",
   "guide_greenscore_better_product_arg4_text": "独自のラベルとは異なり、グリーン スコアの計算は **完全にオープン** であり、**誰でも検証できます**。",
-  "guide_nova_title": "Ultra-processed foods",
+  "guide_nova_title": "超加工食品",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4040,7 +4051,7 @@
   "guide_nova_groups_arg2_text": "processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "加工食品",
   "guide_nova_groups_arg3_text": "processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_title": "超加工食品",
   "guide_nova_groups_arg4_text": "ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "超処理の問題点",
   "guide_nova_explanations_arg1_title": "食品原料の極端な加工",
@@ -4161,7 +4172,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "現在、バーコードレベルの商品価格に関する大規模なデータベースを保有している企業はほとんどありません。これらの価格は自由に利用できるわけではなく、民間企業、研究者、その他の購入可能な組織に高額で販売されています。",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4178,7 +4189,7 @@
   "guide_open_prices_scrapping_title": "小売業者のウェブサイトから価格をスクレイピングすることを検討しましたか?",
   "guide_open_prices_scrapping_paragraph1": "法的および技術的な理由により、**小売業者のウェブサイトから価格をスクレイピングすることは、Open Pricesへの貢献方法としては有効とは考えていません**。収集する価格が正確かつ最新のものであることを保証したいと考えており、貢献者からスクレイピングされた価格を受け取ることで、それが可能になるわけではありません。",
   "guide_open_prices_scrapping_paragraph2": "価格スクレイピングは、Open Prices の将来のバージョンでは検討中のオプションですが、HTML ページに基づいて価格を証明できるように、Open Prices 自体によって実行される予定です。",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "私は小売業者です。価格設定に貢献したいのですが、どうすればよいですか？",
   "guide_open_prices_retailers_paragraph1": "当社の API を使用して価格を提供できます。\n大規模な価格を提供したい場合は、prices@openfoodfacts.org までご連絡ください。",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Open Products Facts へようこそ!",
@@ -4724,7 +4735,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "証明",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4732,7 +4743,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "実験",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4744,19 +4755,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "バーコード付き",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "カテゴリー付き",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "割引あり",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "コミュニティ",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4788,7 +4799,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Online",
+  "prices_stats_online": "オンライン",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4808,27 +4819,27 @@
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "ショップインポート",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "課題",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "値札にリンクされた価格",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "通貨",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "年",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "ソースごとの価格と証明",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4836,7 +4847,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "モバイルアプリ",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4884,7 +4895,7 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
-  "preferences_my_contributions_title": "My contributions",
+  "preferences_my_contributions_title": "私の貢献",
   "@preferences_my_contributions_title": {
     "description": "Title for my contributions preferences tile"
   },
@@ -4904,7 +4915,7 @@
   "@preferences_connect_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_support_title": "Make a donation",
+  "preferences_support_title": "寄付をする",
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
@@ -4936,7 +4947,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "価格が追加されました",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -4988,7 +4999,7 @@
   "@preferences_terms_of_use": {
     "description": "Title for the terms of use tile "
   },
-  "preferences_legal_mentions": "Legal mentions",
+  "preferences_legal_mentions": "法的言及",
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
@@ -5040,7 +5051,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "価格を追加する",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5633,7 +5644,7 @@
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
-  "preferences_about_app_development_title": "Development",
+  "preferences_about_app_development_title": "発達",
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },

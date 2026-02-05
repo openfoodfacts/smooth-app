@@ -712,7 +712,7 @@
   "nutritional_facts_input_button_label": "Leuniañ titouroù diwar-benn ar boued",
   "nutritional_facts_added": "Fedoù boued ouzhpennet",
   "categories_added": "Rummadoù ouzhpennet",
-  "new_product_title_nutriscore": "Jediñ ar skor Nutri",
+  "new_product_title_nutriscore": "Jediñ ar Nutri-Score",
   "new_product_subtitle_nutriscore": "Sikourit ac'hanomp en ur leuniañ ur rummad da nebeutañ ha talvoudoù boued",
   "new_product_title_environmental_score": "Jediñ ar skor glas",
   "new_product_subtitle_environmental_score": "Kaout anezhañ en ur leuniañ ur rummad da nebeutañ",
@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "N'eus bet kavet produ ebet",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ho klask evit\n**\"{search}\"**\nn'eus disoc'h ebet.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ha fellout a ra deoc'h ober ar memes enklask-mañ e **hon diaz roadennoù hollek** kentoc'h ?",
   "no_location_found": "N'eus bet kavet lec'hiadur ebet",
   "not_found": "n'eo ket bet kavet :",
   "refreshing_product": "Produ freskaat",
@@ -3852,7 +3863,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Jikladur nevez)",
-  "nutriscore_unknown": "Skor boued dianav",
+  "nutriscore_unknown": "Nutri-Score dianav",
   "nutriscore_unknown_new_formula": "Nutri-Score dianav (ur jedadenn nevez)",
   "nutriscore_not_applicable": "N'eo ket arveret Nutri-Score",
   "nutriscore_not_applicable_new_formula": "N'eo ket arveret Nutri-Score (Jalkuladur nevez)",
@@ -3921,42 +3932,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Rannañ",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Emañ an Nutri-Score o vont war-raok : displegadennoù !",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Petra eo ar Nutri-Score ?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Ur logo eo ar Nutri-Score hag a glask kelaouiñ ac'hanoc'h diwar-benn **kalite bouedus**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Kemmañ a ra ar c'hod liv eus glas teñval (**A**) evit ar produioù **yac'hañ** betek ruz teñval (**E**) evit ar re **nebeutoc'h yac'h**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Al logo Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "Perak emañ Nutri-Score o vont war-raok ?",
   "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Priziañ gwelloc'h an holl evajoù",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Gwelloc'h e oa bet diforc'het notennoù keñveriañ **laezh**, **evajoù laezh** gant sukr ouzhpennet hag evajoù **legumaj** en algoritm nevez.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Renkadur gwelloc'h an evajoù",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Gwelloc'h eo kemer e kont ar **danvez sukr** ha plijout a ra d'an evajoù **sukret nebeut**.\\n**Kastizet e vo an dousterioù ivez** : digreskiñ a raio ar sodaoù dietegel eus ur feur B da etre C hag E. Chom a ra an dour an evaj erbedet.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Kastizet eo an holen hag ar sukr",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Ar produioù **re dous** pe **re sall** a vo **digresket c'hoazh o feur**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarkiezh e-barzh an eoul hag ar pesked",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Gwellaat a raio ar feur evit **pesked druz** ha **eoul pinvidik e lard mat**.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Bevenniñ ar c'hig ruz",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Bevennet e ranker debriñ **kig ruz**. Setu perak e vo renket gwelloc'h **ar poultr**.",
+  "guide_nutriscore_v2_new_logo_title": "Penaos diforc'hañ ar Nutri-Score kozh hag ar jediñ nevez ?",
+  "guide_nutriscore_v2_new_logo_text": "Adalek bremañ e c'hallo al logo diskouez ur meneg \"**Kentadur nevez**\" evit sklaeraat ez eo ar jedadenn nevez e gwirionez.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Logo ar Nutri-Score nevez",
   "guide_nutriscore_v2_where_title": "Pelec'h kavout ar jediñ Nutri-Score nevez ?",
   "guide_nutriscore_v2_where_paragraph1": "Implijet e vez ar Nutri-Score e 7 bro : Bro-C'hall, Alamagn, Belgia, Spagn, Luksembourg, an Izelvroioù ha Suis.",
   "guide_nutriscore_v2_where_paragraph2": "Ar c'henderc'herien o deus **2 vloaz** d'an nebeutañ goude sinadur an dekred **da erlec'hiañ** ar jediñ kozh gant an hini nevez.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Hep gortoz, **kavout a reot dija en arload OpenFoodFacts**, ar jediñ nevez, en o zouez ma n'eo ket bet hizivaet ar skor gant ar c'henderc'herien.",
+  "guide_nutriscore_v2_unchanged_title": "Petra ne cheñch ket",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Ur skor savet evit **muzuliañ kalite ar boued** eo ar Nutri-Score. **Kemplezh d'ar strollad NOVA** eo war **bouedoù dreist-treuzfurmet** (kavet e vez ivez en arload).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Evit ar c'henderc'herien e chom diskouezadur an Nutri-Score **dibar**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"

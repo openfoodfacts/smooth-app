@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ingen produkt hittades",
   "@no_product_found": {},
+  "no_product_found_explanation": "Din sökning efter\n**\"{search}\"**\nmatchade inga resultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vill du köra samma sökning i **vår globala databas** istället?",
   "no_location_found": "Ingen plats hittades",
   "not_found": "hittades inte:",
   "refreshing_product": "Uppdaterar produkt",

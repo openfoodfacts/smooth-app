@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "לא נמצאו מוצרים",
   "@no_product_found": {},
+  "no_product_found_explanation": "החיפוש שלך עבור\n**\"{search}\"**\nלא תאם אף תוצאה.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "האם ברצונך להריץ את אותו החיפוש ב **מסד הנתונים הגלובלי שלנו** במקום זאת?",
   "no_location_found": "לא נמצא מקום",
   "not_found": "לא נמצאו:",
   "refreshing_product": "המוצר מתרענן",

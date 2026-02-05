@@ -712,7 +712,7 @@
   "nutritional_facts_input_button_label": "Líon isteach fíricí cothaithe",
   "nutritional_facts_added": "Fíricí cothaithe curtha leis",
   "categories_added": "Catagóirí curtha leis",
-  "new_product_title_nutriscore": "Ríomh an Scór Cothaithe",
+  "new_product_title_nutriscore": "Ríomh an Nutri-Score",
   "new_product_subtitle_nutriscore": "Cabhraigh linn trí chatagóir amháin agus luachanna cothaitheacha ar a laghad a líonadh isteach",
   "new_product_title_environmental_score": "Ríomh an Scór Glas",
   "new_product_subtitle_environmental_score": "Faigh é trí chatagóir amháin ar a laghad a líonadh",
@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Níor aimsíodh aon táirge",
   "@no_product_found": {},
+  "no_product_found_explanation": "Níor aimsíodh aon torthaí le do chuardach ar\n**\"{search}\"**\n.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ar mhaith leat an cuardach céanna a dhéanamh inár mbunachar sonraí domhanda ina ionad?",
   "no_location_found": "Níor aimsíodh aon suíomh",
   "not_found": "níor aimsíodh:",
   "refreshing_product": "Táirge athnuachana",
@@ -1081,11 +1092,11 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Cuir fíricí cothaithe leis chun an Scór Cothaithe a ríomh.",
+  "product_improvement_add_nutrition_facts": "Cuir fíricí cothaithe leis chun an Nutri-Score a ríomh.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Cuir fíricí cothaithe agus catagóir leis chun an Scór Cothaithe a ríomh.",
+  "product_improvement_add_nutrition_facts_and_category": "Cuir fíricí cothaithe agus catagóir leis chun an Nutri-Score a ríomh.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -3837,12 +3848,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Scór Cothaitheach A",
-  "nutriscore_b": "Scór Cothaitheach B",
-  "nutriscore_c": "Scór Cothaitheach C",
-  "nutriscore_d": "Scór Cothaitheach D",
-  "nutriscore_e": "Scór Cothaitheach E",
-  "nutriscore_new_formula": "Scór Cothaitheach {letter} (Ríomh nua)",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_new_formula": "Nutri-Score {letter} (Ríomh nua)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3851,11 +3862,11 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Scór Cothaitheach (Ríomh nua)",
-  "nutriscore_unknown": "Scór Cothaithe Anaithnid",
-  "nutriscore_unknown_new_formula": "Scór Cothaitheach Anaithnid (Ríomh nua)",
-  "nutriscore_not_applicable": "Ní bhaineann an Scór Cothaithe leis an",
-  "nutriscore_not_applicable_new_formula": "Níl an Scór Cothaithe infheidhme (Ríomh nua)",
+  "nutriscore_new_formula_title": "Nutri-Score (Ríomh nua)",
+  "nutriscore_unknown": "Nutri-Score Anaithnid",
+  "nutriscore_unknown_new_formula": "Nutri-Score Anaithnid (Ríomh nua)",
+  "nutriscore_not_applicable": "Ní bhaineann an Nutri-Score leis an",
+  "nutriscore_not_applicable_new_formula": "Níl an Nutri-Score infheidhme (Ríomh nua)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Scór Glas A",
   "environmental_score_b_new": "Scór Glas B",
@@ -3921,42 +3932,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Comhroinn",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Tá an Nutri-Score ag teacht chun cinn: mínithe!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Cad é an Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Is lógó é an Nutri-Score a bhfuil sé mar aidhm aige tú a chur ar an eolas faoi **cháilíocht chothaitheach bianna**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Athraíonn an cód datha ó ghlas dorcha (**A**) do na táirgí **is sláintiúla** go dearg dorcha (**E**) do na cinn **nach bhfuil chomh sláintiúil**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Lógó Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "Cén fáth a bhfuil an Nutri-Score ag athrú?",
+  "guide_nutriscore_v2_why_v2_intro": "Tá foirmle an Nutri-Score **ag athrú** chun moltaí níos fearr a sholáthar:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Meastóireacht níos fearr a dhéanamh ar gach deoch",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Rinneadh idirdhealú níos fearr idir nótaí comparáideacha **bainne**, **deochanna déiríochta** le siúcra breise agus deochanna **glasraí** san algartam nua.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Rangú níos fearr ar dheochanna",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Is fearr an **cion siúcra** a chur san áireamh agus is fearr deochanna **le beagán milsithe** iad.\\n**Gearrfar pionós ar mhilseoirí freisin**: laghdófar grádú sóide aiste bia ó rátáil B go rátáil idir C agus E. Is é uisce an deoch a mholtar fós.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Pionós curtha ar shalann agus siúcra",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Laghdófar rátáil táirgí atá **ró-mhils** nó **ró-shalann** tuilleadh.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Ordlathas laistigh d'olaí agus d'iasc",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Feabhsóidh rátáil **éisc shailleacha** áirithe agus **olaí atá saibhir i saillte maithe**.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Teorainn a chur le feoil dhearg",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Ba chóir tomhaltas **feola deirge** a theorannú. Sin é an fáth go mbeidh **éanlaith chlóis rangaithe níos fearr**.",
+  "guide_nutriscore_v2_new_logo_title": "Conas idirdhealú a dhéanamh idir an sean-Nutri-Score agus an ríomh nua?",
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-  "guide_nutriscore_v2_where_title": "Cá bhfaighidh mé an ríomh nua ar an Scór Cothaithe?",
+  "guide_nutriscore_v2_where_title": "Cá bhfaighidh mé an ríomh nua ar an Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Cuirtear an Nutri-Score i bhfeidhm i 7 dtír: an Fhrainc, an Ghearmáin, an Bheilg, an Spáinn, Lucsamburg, an Ísiltír agus an Eilvéis.",
   "guide_nutriscore_v2_where_paragraph2": "Tá **2 bhliain** ar a mhéad ag monaróirí ar a dhéanaí tar éis shíniú an fhoraithne chun an seanríomh a athsholáthar leis an gceann nua.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Gan fanacht, **gheobhaidh tú an ríomh nua cheana féin san fheidhmchlár OpenFoodFacts**, lena n-áirítear mura bhfuil an scór nuashonraithe ag na monaróirí.",
+  "guide_nutriscore_v2_unchanged_title": "Cad nach n-athraíonn",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Is scór é an Nutri-Score atá deartha chun **cáilíocht chothaitheach** a thomhas. Tá sé **comhlánach don ghrúpa NOVA** ar **bhianna ultraphróiseáilte** (atá i láthair san fheidhmchlár freisin).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "I gcás monaróirí, tá taispeáint an Nutri-Score **roghnach fós**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4505,11 +4516,11 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "Warning",
+  "knowledge_panel_warning_text": "Rabhadh",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Cén fáth go bhfuil an Scór Cothaithe seo difriúil ón gceann atá ar an bpacáiste?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Cén fáth go bhfuil an Nutri-Score seo difriúil ón gceann atá ar an bpacáiste?",
   "knowledge_panel_nutriscore_banner_incorrect_score_message": "Tá dhá mhíniú féideartha ann:\nNíl an liosta comhábhar agus/nó na fíricí cothaithe cothrom le dáta.\n\nSoláthraímid an \"Ríomh nua\" den Nutri-Score (nó V2). Seiceáil le do thoil go bhfuil an meirge \"Ríomh nua\" ar an bpacáiste.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Seiceáil comhábhair",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Seiceáil fíricí cothaithe",
@@ -5052,7 +5063,7 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "Faigh amach an Scór Cothaithe nua",
+  "tips_discover_nutriscore": "Faigh amach an Nutri-Score nua",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },

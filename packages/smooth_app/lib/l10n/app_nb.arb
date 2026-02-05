@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ingen produkt funnet",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ditt søk etter\n**\"{search}\"**\nsamsvarte ikke med noen resultater.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vil du kjøre dette samme søket i **vår globale database** i stedet?",
   "no_location_found": "Ingen plassering funnet",
   "not_found": "ikke funnet:",
   "refreshing_product": "Forfriskende produkt",
@@ -3930,14 +3941,14 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Fargekoden varierer fra mørkegrønn (**A**) for de **sunneste** produktene til mørkerød (**E**) for de **mindre sunne**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A-logoen",
   "guide_nutriscore_v2_why_v2_title": "Hvorfor er Nutri-Score i utvikling?",
   "guide_nutriscore_v2_why_v2_intro": "Nutri-Score-formelen **utvikles** for å gi bedre anbefalinger:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Vurder alle drinker bedre",
   "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
   "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
@@ -3954,7 +3965,7 @@
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score brukes i 7 land: Frankrike, Tyskland, Belgia, Spania, Luxembourg, Nederland og Sveits.",
   "guide_nutriscore_v2_where_paragraph2": "Produsentene har maksimalt **2 år** etter at dekretet er undertegnet **til å erstatte** den gamle beregningen med den nye.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
+  "guide_nutriscore_v2_unchanged_title": "Det som ikke endrer seg",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en skåre som er utformet for å **måle næringskvalitet**. Den er **komplementær til NOVA-gruppen** på **ultraprosessert mat** (også tilgjengelig i applikasjonen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For produsenter er visning av Nutri-Score **valgfritt**.",
   "guide_greenscore_title": "Green-Score",

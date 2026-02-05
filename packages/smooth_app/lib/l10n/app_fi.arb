@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Tuotetta ei löytynyt",
   "@no_product_found": {},
+  "no_product_found_explanation": "Haullasi\n**\"{search}\"**\nei löytynyt tuloksia.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Haluatko suorittaa saman haun **globaalissa tietokannassamme** sen sijaan?",
   "no_location_found": "Sijaintia ei löytynyt",
   "not_found": "ei löytynyt:",
   "refreshing_product": "Päivitetään tuotetta",

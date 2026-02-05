@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "لم يتم العثور على أي منتج",
   "@no_product_found": {},
+  "no_product_found_explanation": "لم تتطابق نتائج بحثك عن\n**\"{search}\"**\nمع أي نتائج.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "هل تريد تشغيل نفس البحث في **قاعدة بياناتنا العالمية** بدلاً من ذلك؟",
   "no_location_found": "لم يتم العثور على الموقع",
   "not_found": "لم يتم العثور على نتائج:",
   "refreshing_product": "تحديث المنتج",

@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ingen produkt funnet",
   "@no_product_found": {},
+  "no_product_found_explanation": "Søket ditt etter\n**\"{search}\"**\nga ingen resultater.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vil du kjøre det samme søket i **vår globale database** i stedet?",
   "no_location_found": "Ingen plassering funnet",
   "not_found": "ikke funnet:",
   "refreshing_product": "Forfriskende produkt",
@@ -3837,11 +3848,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Næringsscore A",
-  "nutriscore_b": "Næringsscore B",
-  "nutriscore_c": "Næringsscore C",
-  "nutriscore_d": "Næringsscore D",
-  "nutriscore_e": "Næringsscore E",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Ny beregning)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3852,8 +3863,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ny beregning)",
-  "nutriscore_unknown": "Ukjent ernæringspoengsum",
-  "nutriscore_unknown_new_formula": "Ukjent ernæringspoengsum (ny beregning)",
+  "nutriscore_unknown": "Ukjent Nutri-Score",
+  "nutriscore_unknown_new_formula": "Ukjent Nutri-Score (Ny beregning)",
   "nutriscore_not_applicable": "Nutri-Score er ikke aktuelt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke aktuelt (ny beregning)",
   "environmental_score_generic_new": "Green-Score",
@@ -3921,23 +3932,23 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Del",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score er i utvikling: forklaringer!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Hva er Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score er en logo som har som mål å informere deg om **næringsmessig kvalitet på matvarer**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Fargekoden varierer fra mørkegrønn (**A**) for de **sunneste** produktene til mørkerød (**E**) for de **mindre sunne**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A-logoen",
+  "guide_nutriscore_v2_why_v2_title": "Hvorfor er Nutri-Score i utvikling?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score-formelen **utvikles** for å gi bedre anbefalinger:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Vurder alle drinker bedre",
   "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
   "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
@@ -3954,8 +3965,8 @@
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score brukes i 7 land: Frankrike, Tyskland, Belgia, Spania, Luxembourg, Nederland og Sveits.",
   "guide_nutriscore_v2_where_paragraph2": "Produsentene har maksimalt **2 år** etter at dekretet er undertegnet **til å erstatte** den gamle beregningen med den nye.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
+  "guide_nutriscore_v2_unchanged_title": "Det som ikke endrer seg",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en skåre som er utformet for å **måle næringskvalitet**. Den er **komplementær til NOVA-gruppen** på **ultraprosessert mat** (også tilgjengelig i applikasjonen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {

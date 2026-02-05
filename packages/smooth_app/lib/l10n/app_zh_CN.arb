@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "没有找到的产品",
   "@no_product_found": {},
+  "no_product_found_explanation": "您搜索“\n**\"{search}\"**\n” 未找到任何结果。",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "您是否想在我们的全球数据库中运行相同的搜索？",
   "no_location_found": "未找到位置",
   "not_found": "未找到:",
   "refreshing_product": "产品更新中",

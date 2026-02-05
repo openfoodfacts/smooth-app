@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Toodet ei leitud",
   "@no_product_found": {},
+  "no_product_found_explanation": "Sinu otsingule\n**\"{search}\"**\nei leitud vasteid.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Kas soovite sama otsingu hoopis **meie globaalses andmebaasis** käivitada?",
   "no_location_found": "Asukohta ei leitud",
   "not_found": "ei leitud:",
   "refreshing_product": "Värskendav toode",
@@ -3838,7 +3849,7 @@
   },
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-skoor B",
+  "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
@@ -3852,7 +3863,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (uus arvutus)",
-  "nutriscore_unknown": "Tundmatu toiteväärtus",
+  "nutriscore_unknown": "Tundmatu Nutri-Score",
   "nutriscore_unknown_new_formula": "Tundmatu Nutri-Score (uus arvutus)",
   "nutriscore_not_applicable": "Nutri-Score ei ole kohaldatav",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ei ole kohaldatav (uus arvutus)",
@@ -3921,42 +3932,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Jaga",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score areneb: selgitused!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Mis on Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score on logo, mille eesmärk on teavitada teid **toidu toiteväärtusest**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Värvikood varieerub tumerohelisest (**A**) kõige tervislikumate toodete puhul kuni tumepunaseni (**E**) kõige vähem tervislike toodete puhul.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A logo",
+  "guide_nutriscore_v2_why_v2_title": "Miks Nutri-Score areneb?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score'i valem **areneb**, et pakkuda paremaid soovitusi:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Hinnake kõiki jooke paremini",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Uues algoritmis eristusid **piima**, **suhkruga **piimajookide** ja **köögiviljajookide** võrdlusnootid paremini.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Jookide parem edetabel",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Suhkrusisaldust võetakse rohkem arvesse ja eelistatakse madala suhkrusisaldusega jooke.\\n**Ka magusaineid karistatakse**: dieetlimonaadid alandatakse B-klassist C ja E vahele. Soovitatavaks joogiks jääb vesi.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Soola ja suhkru eest karistatakse",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Liiga magusate või liiga soolaste toodete **hinnang langeb veelgi**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Õlide ja kalade hierarhia",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Teatud **rasvaste kalade** ja **heade rasvade poolest rikaste õlide** hinnang paraneb.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Piira punast liha",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Punase liha tarbimist **tuleks piirata**. Seetõttu on **linnuliha suhteliselt kõrgemal kohal**.",
+  "guide_nutriscore_v2_new_logo_title": "Kuidas eristada vana ja uut Nutri-Score'i arvutust?",
+  "guide_nutriscore_v2_new_logo_text": "Edaspidi saab logol kuvada märget \"**Uus arvutus**\", et selgitada, et tegemist on tõepoolest uue arvutusega.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Uue Nutri-Score'i logo",
   "guide_nutriscore_v2_where_title": "Kust leida uus Nutri-Score'i arvutus?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score'i kasutatakse seitsmes riigis: Prantsusmaal, Saksamaal, Belgias, Hispaanias, Luksemburgis, Hollandis ja Šveitsis.",
   "guide_nutriscore_v2_where_paragraph2": "Tootjatel on pärast määruse allkirjastamist aega hiljemalt **2 aastat**, et asendada** vana arvutus uuega.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Ootamata leiad **juba OpenFoodFactsi rakendusest** uue arvutuse, sealhulgas juhul, kui tootjad pole skoori uuendanud.",
+  "guide_nutriscore_v2_unchanged_title": "Mis ei muutu",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score on **toiteväärtuse mõõtmiseks** loodud punktisumma. See täiendab NOVA rühma** ultratöödeldud toitude** punktisummat (mis on samuti rakenduses olemas).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Tootjate jaoks on Nutri-Score'i kuvamine **jääb valikuliseks**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4505,7 +4516,7 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "Warning",
+  "knowledge_panel_warning_text": "Hoiatus",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },

@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ez da produkturik aurkitu",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ez duzu emaitzarik aurkitu\n**\"{search}\"**\nbilaketan.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Bilaketa bera gure **datu-base globalean** exekutatu nahi duzu?",
   "no_location_found": "No location found",
   "not_found": "ez da aurkitu:",
   "refreshing_product": "Refreshing product",

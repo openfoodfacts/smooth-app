@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "কোন পণ্য পাওয়া যায়নি",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nএর জন্য আপনার অনুসন্ধান কোনও ফলাফলের সাথে মেলেনি।",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "আপনি কি **আমাদের বিশ্বব্যাপী ডাটাবেস** তে একই অনুসন্ধান চালাতে চান?",
   "no_location_found": "কোনও অবস্থান পাওয়া যায়নি",
   "not_found": "পাওয়া যায়নি:",
   "refreshing_product": "রিফ্রেশিং পণ্য",

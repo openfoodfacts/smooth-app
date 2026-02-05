@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Продукт не знайдено",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ваш пошуковий запит\n**\"{search}\"**\nне відповідає жодному результату.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ви хочете виконати цей самий пошук у **нашій глобальній базі даних**?",
   "no_location_found": "Локацію не знайдено",
   "not_found": "не знайдено:",
   "refreshing_product": "Освіжаючий товар",
