@@ -4029,7 +4029,7 @@
   "guide_greenscore_better_product_arg3_text": "A fenntartható élelmiszerek kiválasztása bonyolultnak tűnhet. A címkék zavarosak lehetnek, és gyakran hiányoznak bizonyos információk. A Green-Score rendszer azért jött létre, hogy ezt egyszerűbbé, és **egyértelmű**, **tudományosan megalapozott** és **átlátható** környezetvédelmi besorolást adjon az élelmiszeripari termékeknek, pont ott, ahol szüksége van rá: vásárlás közben.",
   "guide_greenscore_better_product_arg4_title": "Átláthatóság",
   "guide_greenscore_better_product_arg4_text": "A zárt, céghez kötődő címkékkel ellentétben a Green-Score számítás **teljesen nyílt**, és **bárki által ellenőrizhető**.",
-  "guide_nova_title": "Többszörösen feldolgozott élelmiszerek",
+  "guide_nova_title": "Ultrafeldolgozott élelmiszerek",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4047,11 +4047,11 @@
   "guide_nova_groups_intro": "4 NOVA-csoport létezik. A problémás a 4. csoport, az ultrafeldolgozott élelmiszereké.",
   "guide_nova_groups_arg1_title": "Minimálisan feldolgozott vagy feldolgozatlan élelmiszerek",
   "guide_nova_groups_arg1_text": "A feldolgozatlan (vagy természetes) élelmiszerek a **növények** (magvak, gyümölcsök, levelek, szárak, gyökerek) **vagy állatok ehető részei** (izom, belsőségek, tojás, tej), valamint gombák, algák és víz, miután elválasztották őket a természetből.",
-  "guide_nova_groups_arg2_title": "Feldolgozott összetevők",
+  "guide_nova_groups_arg2_title": "Feldolgozott konyhai alapanyagok",
   "guide_nova_groups_arg2_text": "A feldolgozott konyhai összetevők, mint például az **olaj, vaj, cukor és só** olyan, az 1. csoportba tartozó élelmiszerekből vagy a természetből származó anyagok, amelyeket préseléssel, finomítással, őrléssel, darálással, szárítással állítanak elő.",
   "guide_nova_groups_arg3_title": "Feldolgozott élelmiszerek",
   "guide_nova_groups_arg3_text": "PROCESSED foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have TWO or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten On their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "Többszörösen feldolgozott élelmiszerek",
+  "guide_nova_groups_arg4_title": "Ultrafeldolgozott élelmiszerek",
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used In culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Az ultrafeldolgozással kapcsolatos problémák",
   "guide_nova_explanations_arg1_title": "Az élelmiszer-összetevők extrém feldolgozása",
