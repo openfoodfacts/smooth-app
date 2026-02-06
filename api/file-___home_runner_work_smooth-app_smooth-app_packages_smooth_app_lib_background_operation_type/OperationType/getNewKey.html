@@ -77,10 +77,9 @@
   final String? work,
   final ProductType? productType,
 }) async {
-  final int sequentialId = await getNextSequenceNumber(
-    DaoInt(localDatabase),
-    _uniqueSequenceKey,
-  );
+  final int sequentialId = await DaoInt(
+    localDatabase,
+  ).getNextSequenceNumber(_uniqueSequenceKey);
   return &#39;$header&#39;
       &#39;$_transientHeaderSeparator$sequentialId&#39;
       &#39;$_transientHeaderSeparator$barcode&#39;
