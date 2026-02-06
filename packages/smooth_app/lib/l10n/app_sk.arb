@@ -1851,7 +1851,7 @@
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
-  "edit_product_form_item_traces_hint": "trace",
+  "edit_product_form_item_traces_hint": "stopy",
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
