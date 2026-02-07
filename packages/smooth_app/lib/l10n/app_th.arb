@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "ไม่พบผลิตภัณฑ์",
   "@no_product_found": {},
+  "no_product_found_explanation": "การค้นหาของคุณสำหรับ\n**\"{search}\"**\nไม่ตรงกับผลลัพธ์ใดๆ",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "คุณต้องการเรียกใช้การค้นหาเดียวกันนี้ใน **ฐานข้อมูลทั่วโลกของเรา** แทนหรือไม่?",
   "no_location_found": "ไม่พบตำแหน่งที่ตั้ง",
   "not_found": "ไม่พบ",
   "refreshing_product": "กำลังโหลดผลิตภัณฑ์ใหม่",

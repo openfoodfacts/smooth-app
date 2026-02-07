@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ni chanfuwyd unrhyw gynnyrch",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ni wnaeth eich chwiliad am\n**\"{search}\"**\ngyd-fynd ag unrhyw ganlyniadau.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ydych chi eisiau rhedeg yr un chwiliad yn **ein cronfa ddata fyd-eang** yn lle hynny?",
   "no_location_found": "Ni chanfuwyd lleoliad",
   "not_found": "heb ei ganfod:",
   "refreshing_product": "Cynnyrch adfywiol",
@@ -3837,12 +3848,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Sgôr Maeth A",
-  "nutriscore_b": "Sgôr Maeth B",
-  "nutriscore_c": "Sgôr Maeth C",
-  "nutriscore_d": "Sgôr Maeth D",
-  "nutriscore_e": "Sgôr Maeth E",
-  "nutriscore_new_formula": "Sgôr Maeth {letter} (Cyfrifiad newydd)",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_new_formula": "Nutri-Score {letter} (Cyfrifiad newydd)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3851,7 +3862,7 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Sgôr Maeth (Cyfrifiad newydd)",
+  "nutriscore_new_formula_title": "Nutri-Score (Cyfrifiad newydd)",
   "nutriscore_unknown": "Nutri-Score Anhysbys",
   "nutriscore_unknown_new_formula": "Nutri-Score Anhysbys (Cyfrifiad newydd)",
   "nutriscore_not_applicable": "Nid yw Sgôr Maeth yn berthnasol",
@@ -3950,13 +3961,13 @@
   "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-  "guide_nutriscore_v2_where_title": "Ble i ddod o hyd i'r cyfrifiad Sgôr Maeth newydd?",
+  "guide_nutriscore_v2_where_title": "Ble i ddod o hyd i'r cyfrifiad Nutri-Score newydd?",
   "guide_nutriscore_v2_where_paragraph1": "Mae'r Nutri-Score yn cael ei gymhwyso mewn 7 gwlad: Ffrainc, yr Almaen, Gwlad Belg, Sbaen, Lwcsembwrg, yr Iseldiroedd a'r Swistir.",
   "guide_nutriscore_v2_where_paragraph2": "Mae gan weithgynhyrchwyr uchafswm o **2 flynedd** fan bellaf ar ôl llofnodi'r dyfarniad **i ddisodli** yr hen gyfrifiad gyda'r un newydd.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Heb aros, **fe welwch chi eisoes yn y rhaglen OpenFoodFacts** y cyfrifiad newydd, gan gynnwys os nad yw'r gweithgynhyrchwyr wedi diweddaru'r sgôr.",
+  "guide_nutriscore_v2_unchanged_title": "Beth sydd ddim yn newid",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Mae'r Nutri-Score yn sgôr a gynlluniwyd i **fesur ansawdd maethol**. Mae'n **gyflenwol i'r grŵp NOVA** ar **fwydydd wedi'u prosesu'n uwch** (sydd hefyd yn bresennol yn y rhaglen).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "I weithgynhyrchwyr, mae arddangos y Nutri-Score **yn parhau i fod yn ddewisol**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4505,11 +4516,11 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "Warning",
+  "knowledge_panel_warning_text": "Rhybudd",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Pam mae'r Sgôr Maeth hwn yn wahanol i'r un ar y pecyn?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Pam mae'r Nutri-Score hwn yn wahanol i'r un ar y pecyn?",
   "knowledge_panel_nutriscore_banner_incorrect_score_message": "Mae dau esboniad posibl:\nNid yw'r rhestr o gynhwysion a/neu ffeithiau maeth yn gyfredol.\n\nRydym yn darparu'r \"Cyfrifiad newydd\" o'r Nutri-Score (neu V2). Gwiriwch fod y faner \"Cyfrifiad newydd\" ar y pecyn.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Gwiriwch y cynhwysion",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Gwiriwch ffeithiau maeth",
@@ -5052,7 +5063,7 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "Darganfyddwch y Sgôr Maeth newydd",
+  "tips_discover_nutriscore": "Darganfyddwch y Nutri-Score newydd",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },

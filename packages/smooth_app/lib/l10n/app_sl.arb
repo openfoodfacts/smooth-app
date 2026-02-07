@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ni zadetkov",
   "@no_product_found": {},
+  "no_product_found_explanation": "Vaše iskanje za\n**\"{search}\"**\nni dalo nobenih rezultatov.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ali želite namesto tega izvesti isto iskanje v **naši globalni bazi podatkov**?",
   "no_location_found": "Ni najdene lokacije",
   "not_found": "ni zadetkov:",
   "refreshing_product": "Osvežitev izdelkov",

@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Nessun prodotto trovato",
   "@no_product_found": {},
+  "no_product_found_explanation": "La tua ricerca per\n**\"{search}\"**\nnon ha prodotto risultati.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Desideri invece effettuare la stessa ricerca nel **nostro database globale**?",
   "no_location_found": "Nessuna posizione individuata",
   "not_found": "non trovato:",
   "refreshing_product": "Aggiornamento prodotto",

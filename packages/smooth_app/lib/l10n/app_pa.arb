@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "ਕੋਈ ਉਤਪਾਦ ਨਹੀਂ ਮਿਲਿਆ",
   "@no_product_found": {},
+  "no_product_found_explanation": "ਤੁਹਾਡੀ\n**\"{search}\"**\nਲਈ ਖੋਜ ਕਿਸੇ ਵੀ ਨਤੀਜੇ ਨਾਲ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀ।",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "ਕੀ ਤੁਸੀਂ ਇਸ ਖੋਜ ਨੂੰ **ਸਾਡੇ ਗਲੋਬਲ ਡੇਟਾਬੇਸ** ਵਿੱਚ ਚਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
   "no_location_found": "ਕੋਈ ਟਿਕਾਣਾ ਨਹੀਂ ਮਿਲਿਆ",
   "not_found": "ਨਹੀਂ ਲਭਿਆ:",
   "refreshing_product": "ਤਾਜ਼ਗੀ ਭਰਪੂਰ ਉਤਪਾਦ",

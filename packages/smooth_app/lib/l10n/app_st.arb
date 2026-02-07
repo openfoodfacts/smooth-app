@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
+  "no_product_found_explanation": "Patlo ea hau ea\n**\"{search}\"**\nha ea ka ea lumellana le liphetho life kapa life.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Na u batla ho etsa patlo e tšoanang ho **database ea rona ea lefats'e ka bophara** ho e-na le hoo?",
   "no_location_found": "No location found",
   "not_found": "not found:",
   "refreshing_product": "Refreshing product",

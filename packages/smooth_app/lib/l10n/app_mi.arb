@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
+  "no_product_found_explanation": "Kāore i kitea he hua i roto i tāu rapunga mō\n**\"{search}\"**\n.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Kei te hiahia koe ki te whakahaere i tēnei rapunga anō i roto i **tā mātou pātengi raraunga ā-ao**?",
   "no_location_found": "No location found",
   "not_found": "not found:",
   "refreshing_product": "Refreshing product",

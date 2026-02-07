@@ -712,7 +712,7 @@
   "nutritional_facts_input_button_label": "Oziqlanish faktlarini to'ldiring",
   "nutritional_facts_added": "Oziqlanish haqida ma'lumot qo'shildi",
   "categories_added": "Kategoriyalar qo'shildi",
-  "new_product_title_nutriscore": "Nutri-ballni hisoblang",
+  "new_product_title_nutriscore": "Nutri-Score hisoblang",
   "new_product_subtitle_nutriscore": "Hech bo'lmaganda bitta kategoriya va ozuqaviy qiymatlarni to'ldirish orqali bizga yordam bering",
   "new_product_title_environmental_score": "Yashil ballni hisoblang",
   "new_product_subtitle_environmental_score": "Hech bo'lmaganda bitta kategoriyani to'ldirish orqali oling",
@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Hech qanday mahsulot topilmadi",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nbo'yicha qidiruvingiz hech qanday natija bermadi.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Buning o'rniga xuddi shu qidiruvni **bizning global ma'lumotlar bazamizda** ishga tushirmoqchimisiz?",
   "no_location_found": "Hech qanday joylashuv topilmadi",
   "not_found": "topilmadi:",
   "refreshing_product": "Tetiklantiruvchi mahsulot",
@@ -3837,8 +3848,8 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-ball A",
-  "nutriscore_b": "Nutri-ball B",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
@@ -3921,42 +3932,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Ulashish",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score rivojlanmoqda: tushuntirishlar!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score nima?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score - bu sizni **oziq-ovqat mahsulotlarining ozuqaviy sifati** haqida xabardor qilishga qaratilgan logotip.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Rang kodi eng foydali mahsulotlar uchun to'q yashil (**A**) dan **uncha foydali bo'lmagan mahsulotlar uchun to'q qizil (**E**) gacha o'zgaradi.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A logotipi",
+  "guide_nutriscore_v2_why_v2_title": "Nima uchun Nutri-Score rivojlanmoqda?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score formulasi **yaxshiroq tavsiyalar berish uchun** rivojlanmoqda:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Barcha ichimliklarni yaxshiroq baholang",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Yangi algoritmda **sut**, **shakar qo'shilgan sutli ichimliklar** va **sabzavotli** ichimliklarning qiyosiy notalari yaxshiroq farqlandi.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Ichimliklarning yaxshiroq reytingi",
+  "guide_nutriscore_v2_why_v2_arg2_text": "**Shakar miqdori** hisobga olinishi va **kam shirin** ichimliklar afzal ko'rilishi kerak.\\n**Shirinlashtiruvchilar ham jarimaga tortiladi**: parhezli gazlangan ichimliklar B reytingidan C va E oralig'iga tushiriladi. Suv tavsiya etilgan ichimlik bo'lib qolmoqda.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Tuz va shakar jarimaga tortiladi",
+  "guide_nutriscore_v2_why_v2_arg3_text": "**Juda shirin** yoki **juda sho'r** mahsulotlarning **reytingi yanada pasayadi**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Yog'lar va baliqlar ichidagi ierarxiya",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Ba'zi **yog'li baliqlar** va **foydali yog'larga boy yog'lar** reytingi yaxshilanadi.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Qizil go'shtni cheklang",
+  "guide_nutriscore_v2_why_v2_arg5_text": "**Qizil go'sht iste'moli cheklangan bo'lishi kerak**. Shuning uchun **parranda go'shti nisbatan yuqori reytingga ega bo'ladi**.",
+  "guide_nutriscore_v2_new_logo_title": "Eski Nutri-Score va yangi hisoblashni qanday farqlash mumkin?",
+  "guide_nutriscore_v2_new_logo_text": "Bundan buyon logotipda bu haqiqatan ham yangi hisoblash ekanligini aniqlashtirish uchun \"**Yangi hisoblash**\" yozuvi paydo bo'lishi mumkin.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Yangi Nutri-Score logotipi",
   "guide_nutriscore_v2_where_title": "Yangi Nutri-Score hisob-kitobini qayerdan topsam bo'ladi?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score 7 ta mamlakatda qo'llaniladi: Fransiya, Germaniya, Belgiya, Ispaniya, Lyuksemburg, Niderlandiya va Shveytsariya.",
   "guide_nutriscore_v2_where_paragraph2": "Ishlab chiqaruvchilar eski hisob-kitobni yangisi bilan almashtirish uchun farmon **imzolanganidan keyin eng ko'pi bilan **2 yil** vaqtga ega.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Kutmasdan, siz **OpenFoodFacts ilovasida** yangi hisoblashni topasiz, shu jumladan ishlab chiqaruvchilar ballarni yangilamagan bo'lsa ham.",
+  "guide_nutriscore_v2_unchanged_title": "Nima o'zgarmaydi",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score - bu **ozuqaviy sifatni** o'lchash uchun mo'ljallangan ball. U **o'ta qayta ishlangan oziq-ovqatlar** bo'yicha NOVA guruhiga** **qo'shimcha hisoblanadi (ilovada ham mavjud).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Ishlab chiqaruvchilar uchun Nutri-Score displeyi **ixtiyoriy** bo'lib qoladi.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4505,7 +4516,7 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "Warning",
+  "knowledge_panel_warning_text": "Ogohlantirish",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },

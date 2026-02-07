@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Prekės nerasta",
   "@no_product_found": {},
+  "no_product_found_explanation": "Jūsų paieška pagal\n**\"{search}\"**\nnerado jokių rezultatų.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ar norite atlikti tą pačią paiešką **mūsų pasaulinėje duomenų bazėje**?",
   "no_location_found": "Nerasta jokių vietų",
   "not_found": "nerastas:",
   "refreshing_product": "Produktas atnaujinamas",
