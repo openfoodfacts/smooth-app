@@ -9,7 +9,7 @@
   "@yes": {},
   "add": "Lisää",
   "@add": {},
-  "account_delete_message": "Oletko varma, että haluat poistaa tilisi?\nKerro meille, jos tilinpoistolle on erityinen syy",
+  "account_delete_message": "Haluatko varmasti poistaa tilisi?\nKerro meille, jos tilin poistolle on erityinen syy",
   "@account_delete_message": {},
   "reason": "Syy",
   "@reason": {},
