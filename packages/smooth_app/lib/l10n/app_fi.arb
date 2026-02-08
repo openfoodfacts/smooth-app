@@ -75,7 +75,7 @@
   "@featureInProgress": {},
   "label_web": "Tarkastele verkossa",
   "@label_web": {},
-  "learnMore": "Opi lisää",
+  "learnMore": "Lue lisää",
   "@learnMore": {},
   "unknown": "Tuntematon",
   "@unknown": {
@@ -142,24 +142,24 @@
   "@whatIsOff": {
     "description": "Description of Open Food Facts organization."
   },
-  "productDataUtility": "Katso valintoihisi liittyvät ruokatietosi.",
+  "productDataUtility": "Näe mieltymyksiisi sopivien elintarvikkeiden tietoja.",
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "Valitse ruoat, jotka tekevät itsellesi hyvää.",
+  "healthCardUtility": "Valitse ruoat, jotka ovat hyväksi sinulle.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
-  "ecoCardUtility": "Valitse ruoat, jotka tekevät planeetalle hyvää.",
+  "ecoCardUtility": "Valitse ruoat, jotka ovat hyväksi planeetalle.",
   "@ecoCardUtility": {
     "description": "Description of what a user can use the Eco data in a product for."
   },
-  "server_error_open_new_issue": "Ei vastausta palvelimelta! Voit luoda ongelmailmoituksen seuraavan linkin avulla.",
+  "server_error_open_new_issue": "Palvelimelta ei saatu vastausta! Voit luoda ongelmailmoituksen seuraavan linkin avulla.",
   "@user_management": {},
-  "sign_in_text": "Kirjaudu sisään Open Food Facts -tilillesi tallentaaksesi avustuksesi",
+  "sign_in_text": "Kirjaudu Open Food Facts -tilillesi tallentaaksesi tekemäsi muutokset",
   "incorrect_credentials": "Virheellinen käyttäjätunnus tai salasana.",
   "password_lost_incorrect_credentials": "Tätä sähköpostiosoitetta tai käyttäjätunnusta ei ole olemassa. Tarkista kirjautumistietosi.",
-  "password_lost_server_unavailable": "Palvelimellamme on tällä hetkellä hidastuksia, pahoittelut. Yritä uudelleen myöhemmin.",
+  "password_lost_server_unavailable": "Pahoittelut, palvelimemme  toimivat tällä hetkellä tavallista hitaammin. Yritä myöhemmin uudelleen.",
   "login": "Kirjaudu",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
@@ -168,7 +168,7 @@
   "@login_result_type_server_unreachable": {
     "description": "Error message when trying to log in without network"
   },
-  "login_result_type_server_issue": "Ongelma palvelimella. Ole hyvä ja yritä myöhemmin.",
+  "login_result_type_server_issue": "Ongelma palvelimella. Yritä myöhemmin uudelleen.",
   "@login_result_type_server_issue": {
     "description": "Error message when trying to log in and the server does not answer correctly"
   },
@@ -186,7 +186,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Auta parantamaan Open Food Facts -sivustoa maassasi",
+  "help_improve_country": "Auta parantamaan maasi Open Food Factsia",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -4629,7 +4629,7 @@
   },
   "prices_explanation_card_title": "Miksi hinnat?",
   "prices_explanation_card_line1": "**Open Prices** on projekti, jonka tarkoituksena on kerätä ja jakaa tuotteiden hintoja ympäri maailmaa 🌍. Open Pricesin on kehittänyt ja ylläpitää Open Food Facts.",
-  "explanation_card_learn_more_button": "Opi lisää",
+  "explanation_card_learn_more_button": "Lue lisää",
   "product_page_tab_folksonomy": "Folksonomia",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
