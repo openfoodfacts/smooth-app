@@ -77,7 +77,7 @@
   "@label_web": {},
   "learnMore": "Lue lisää",
   "@learnMore": {},
-  "unknown": "Tuntematon",
+  "unknown": "Ei tiedossa",
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
@@ -93,15 +93,15 @@
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "Ei ehkä vastaa",
+  "match_may_not": "Ei ehkä vastaa mieltymyksiäsi\n",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
-  "match_does_not": "Ei vastaa",
+  "match_does_not": "Ei vastaa mieltymyksiäsi",
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "Tuntematon vastaavuus",
+  "match_unknown": "Vastaavuus ei tiedossa",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
@@ -117,15 +117,15 @@
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "Ei ehkä vastaa",
+  "match_short_may_not": "Ei ehkä vastaa mieltymyksiäsi\n",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
-  "match_short_does_not": "Ei vastaa",
+  "match_short_does_not": "Ei vastaa mieltymyksiäsi",
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "Tuntematon vastaavuus",
+  "match_short_unknown": "Vastaavuus ei tiedossa",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
@@ -157,8 +157,8 @@
   "server_error_open_new_issue": "Palvelimelta ei saatu vastausta! Voit luoda ongelmailmoituksen seuraavan linkin avulla.",
   "@user_management": {},
   "sign_in_text": "Kirjaudu Open Food Facts -tilillesi tallentaaksesi muokkauksesi",
-  "incorrect_credentials": "Virheellinen käyttäjätunnus tai salasana.",
-  "password_lost_incorrect_credentials": "Tätä sähköpostiosoitetta tai käyttäjätunnusta ei ole olemassa. Tarkista kirjautumistietosi.",
+  "incorrect_credentials": "Virheellinen käyttäjänimi tai salasana.",
+  "password_lost_incorrect_credentials": "Tätä sähköpostiosoitetta tai käyttäjätiliä ei ole olemassa. Tarkista kirjautumistietosi.",
   "password_lost_server_unavailable": "Pahoittelut, palvelimemme  toimivat tällä hetkellä tavallista hitaammin. Yritä myöhemmin uudelleen.",
   "login": "Kirjaudu",
   "@login": {
@@ -212,7 +212,7 @@
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "Mikäli unohdit salasanasi, syötä käyttäjätunnuksesi tai sähköpostiosoitteesi saadaksesi ohjeet salasanan vaihtoon. Muista tarkistaa myös roskapostikansio.",
+  "reset_password_explanation_text": "Mikäli unohdit salasanasi, syötä käyttäjänimesi tai sähköpostiosoitteesi saadaksesi ohjeet salasanan vaihtoon. Muista tarkistaa myös roskapostikansio.",
   "username_or_email": "Käyttäjätunnus tai sähköpostiosoite",
   "@username_or_email": {
     "description": "Text field hint for password reset"
@@ -247,7 +247,7 @@
   "sign_up_page_username_hint": "Käyttäjänimi: julkinen",
   "sign_up_page_username_error_empty": "Syötä käyttäjänimi",
   "sign_up_page_username_error_invalid": "Syötä kelvollinen käyttäjänimi",
-  "sign_up_page_username_description": "Käyttäjänimi ei voi sisältää välilyöntejä, suuraakkosia tai erikoismerkkejä.",
+  "sign_up_page_username_description": "Käyttäjänimessä ei saa olla välilyöntejä, suuraakkosia tai erikoismerkkejä.",
   "sign_up_page_username_length_invalid": "Käyttäjänimi ei voi olla yli {value} merkkiä pitkä",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -463,7 +463,7 @@
   "ranking_tab_all": "Kaikki",
   "ranking_subtitle_match_yes": "Hyvä osuma sinulle",
   "ranking_subtitle_match_no": "Heikko osuma",
-  "ranking_subtitle_match_maybe": "Tuntematon vastaavuus",
+  "ranking_subtitle_match_maybe": "Vastaavuus ei tiedossa",
   "refresh_with_new_preferences": "Päivitä lista uusilla ruokamieltymyksilläsi",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
@@ -987,7 +987,7 @@
   "@product_image_details_date": {
     "description": "Text to indicate the date of the image"
   },
-  "product_image_details_date_unknown": "Tuntematon",
+  "product_image_details_date_unknown": "Ei tiedossa",
   "@product_image_details_date_unknown": {
     "description": "Text to indicate the date of the image is unknown"
   },
@@ -2311,7 +2311,7 @@
   "product_type_label_beauty": "Henkilökohtainen hoito",
   "product_type_label_pet_food": "Lemmikin ruoka",
   "product_type_label_product": "Muu",
-  "product_type_label_unknown": "Tuntematon",
+  "product_type_label_unknown": "Ei tiedossa",
   "product_type_selection_title": "Tuotetyyppi",
   "product_type_selection_subtitle": "Valitse tuotteen tyyppi",
   "product_type_selection_empty": "Tuotteen tyyppi on valittava ensin!",
