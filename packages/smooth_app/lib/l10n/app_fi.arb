@@ -3868,13 +3868,13 @@
   "nutriscore_not_applicable": "Nutri-Score ei sovellu",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ei ole sovellettavissa (Uusi laskukaava)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Vihreä pistemäärä A",
-  "environmental_score_b_new": "Vihreä pistemäärä B",
-  "environmental_score_c_new": "Vihreän pistemäärän C",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Vihreä pistemäärä D",
-  "environmental_score_e_new": "Vihreä pistemäärä E",
-  "environmental_score_unknown_new": "Tuntematon vihreä pisteytys",
-  "environmental_score_not_applicable_new": "Green-Score ei ole sovellettavissa",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score ei tiedossa",
+  "environmental_score_not_applicable_new": "Green-Scorea ei voida laskea",
   "nova_group_generic_new": "Erittäin prosessoidut elintarvikkeet - NOVA-ryhmät",
   "nova_group_1": "NOVA Ryhmä 1",
   "nova_group_2": "NOVA Ryhmä 2",
@@ -3973,7 +3973,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "Mikä on vihreä pisteytys?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score on logo, jonka tarkoituksena on tiedottaa sinulle **ruoan ympäristövaikutuksista**.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score on luokitus, joka kertoo **ruoan ympäristövaikutuksista**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3981,7 +3981,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Green-Score-logot",
+  "guide_greenscore_logos_caption": "Green-Score-luokitukset",
   "guide_greenscore_lca_title": "Ydin: Elinkaariarviointi (LCA)",
   "guide_greenscore_lca_arg1_title": "Elintarvikekategorioiden tieteellinen arviointi",
   "guide_greenscore_lca_arg1_text1": "Kullekin tuotekategorialle määritetään **vertailuarvo** Agribalyse-ympäristötietokannan (ADEME:n ja INRAE:n suunnittelema) tietojen perusteella.",
