@@ -248,7 +248,7 @@
   "sign_up_page_username_error_empty": "Syötä käyttäjänimi",
   "sign_up_page_username_error_invalid": "Syötä kelvollinen käyttäjänimi",
   "sign_up_page_username_description": "Käyttäjänimessä ei saa olla välilyöntejä, suuraakkosia tai erikoismerkkejä.",
-  "sign_up_page_username_length_invalid": "Käyttäjänimi ei voi olla yli {value} merkkiä pitkä",
+  "sign_up_page_username_length_invalid": "Käyttäjänimi ei saa olla yli {value} merkkiä pitkä",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
       "value": {
@@ -282,7 +282,7 @@
   "sign_up_page_producer_hint": "Tuottaja/tuotemerkki",
   "sign_up_page_producer_error_empty": "Syötä tuottaja tai tuotemerkki",
   "sign_up_page_subscribe_checkbox": "Haluan tilata Open Food Facts -uutiskirjeen (Voit peruuttaa sen tilauksen milloin tahansa)",
-  "sign_up_page_user_name_already_used": "Käyttäjänimi on varattu, valitse toinen käyttäjänimi.",
+  "sign_up_page_user_name_already_used": "Käyttäjänimi on varattu. Valitse toinen käyttäjänimi.",
   "sign_up_page_email_already_exists": "on jo käytössä, kirjaudu tai kokeile toisella sähköpostiosoitteella.",
   "sign_up_page_provide_valid_email": "Anna käypä sähköpostiosoite.",
   "sign_up_page_server_busy": "Olemme syvästi pahoillamme, mutta meillä on teknisiä vaikeuksia tilisi luomisessa. Yritä uudelleen myöhemmin.",
@@ -723,7 +723,7 @@
   "new_product_title_pictures": "Otetaan muutamia kuvia!",
   "new_product_title_pictures_details": "Ota seuraavat kuvat, niin Open Food Facts -moottori ratkaisee loput!",
   "new_product_title_misc": "Ja joitakin perustietoja…",
-  "new_product_done_msg": "Kiitos panoksestasi \"{username}\"!",
+  "new_product_done_msg": "Kiitos lisäyksestäsi \"{username}\"!",
   "@new_product_done_msg": {
     "description": "Thank you message on the end of new product page, after finish adding a new product.",
     "placeholders": {
@@ -1735,11 +1735,11 @@
   "@edit_product_form_item_stores_type": {
     "description": "Product edition - Stores - input textfield type"
   },
-  "edit_product_form_item_stores_explanation_title": "Hyvät käytännöt: Kaupat",
+  "edit_product_form_item_stores_explanation_title": "Hyvät käytännöt: Myymälät",
   "@edit_product_form_item_stores_explanation_title": {
     "description": "Product edition - Stores - Explanation"
   },
-  "edit_product_form_item_stores_explanation_info1": "Syötä kauppa, josta ostit tuotteen.",
+  "edit_product_form_item_stores_explanation_info1": "Syötä myymälä, josta ostit tuotteen.",
   "@edit_product_form_item_stores_explanation_info1": {
     "description": "Product edition - Stores - Explanation"
   },
@@ -2424,8 +2424,8 @@
   "prices_category_error_mandatory": "Luokka on pakollinen",
   "prices_barcode_reader_action": "Viivakoodinlukija",
   "prices_view_prices": "Katso hinnat",
-  "prices_list_title": "Hinnasto",
-  "prices_list_count": "Hintahaarukka\n",
+  "prices_list_title": "Hinnat",
+  "prices_list_count": "Hintojen määrä",
   "@prices_list_count": {
     "description": "Label for the number of prices in the list (please inject the line break at the middle)"
   },
@@ -2433,9 +2433,9 @@
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
-  "prices_list_empty_title": "Ei vielä hintaa!",
-  "prices_list_empty_subtitle": "Lisää ensimmäinen:\nSkannaamalla **kuitin** tai **hintalapun**!",
-  "prices_entry_shop_not_found": "Tuntematon kauppa",
+  "prices_list_empty_title": "Hintoja ei ole vielä lisätty!",
+  "prices_list_empty_subtitle": "Lisää ensimmäinen:\nOta kuva **kuitista** tai **hintalapusta**!",
+  "prices_entry_shop_not_found": "Myymälä ei tiedossa",
   "prices_entry_menu_title": "Hintasyöttö alkaen \"{user}\"",
   "@prices_entry_menu_title": {
     "description": "Title of the menu for a price entry",
@@ -2463,7 +2463,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, =0{Ei hintaa vielä} =1{Vain yksi hinta} other{Kaikki {count} hintaa}}",
+  "prices_list_length_one_page": "{count,plural, =0{Ei hintoja} =1{Vain yksi hinta} other{Kaikki {count} hintaa}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2472,7 +2472,7 @@
       }
     }
   },
-  "prices_list_length_many_pages": "Viimeisimmät {pageSize} hinnat (yhteensä: {total})",
+  "prices_list_length_many_pages": "Viimeisimmät {pageSize} hintaa (yhteensä: {total})",
   "@prices_list_length_many_pages": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2515,7 +2515,7 @@
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, =0{Ei vielä todisteita} =1{Vain yksi todiste} other{Kaikki {count} todistetta}}",
+  "prices_proofs_list_length_one_page": "{count,plural, =0{Ei todisteita} =1{Vain yksi todiste} other{Kaikki {count} todistetta}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2524,7 +2524,7 @@
       }
     }
   },
-  "prices_proofs_list_length_many_pages": "Viimeisimmät {pageSize} todisteet (yhteensä: {total})",
+  "prices_proofs_list_length_many_pages": "Viimeisimmät {pageSize} todistetta (yhteensä: {total})",
   "@prices_proofs_list_length_many_pages": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2538,7 +2538,7 @@
   },
   "prices_users_empty_title": "Ei vielä osallistujaa!",
   "prices_users_empty_explanation": "Ole ensimmäinen, joka lisää hinnan!",
-  "prices_users_list_length_many_pages": "Parhaat {pageSize} avustajat (yhteensä: {total})",
+  "prices_users_list_length_many_pages": "{pageSize} ahkerinta avustajaa (yhteensä: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
     "placeholders": {
@@ -2552,7 +2552,7 @@
   },
   "prices_locations_empty_title": "Ei vielä kauppaa!",
   "prices_locations_empty_explanation": "Ole ensimmäinen, joka lisää hinnan!",
-  "prices_locations_list_length_many_pages": "Näytetään {pageSize} kohdetta (yhteensä: {total})",
+  "prices_locations_list_length_many_pages": "{pageSize} sijaintia, joilla kaikkein eniten hintoja (yhteensä: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
     "placeholders": {
@@ -2758,7 +2758,7 @@
   "@user_search_to_be_completed_title": {
     "description": "User search (to be completed): list tile title"
   },
-  "user_search_prices_title": "Minun hinnat",
+  "user_search_prices_title": "Lisäämäni hinnat",
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
@@ -2779,7 +2779,7 @@
       }
     }
   },
-  "user_any_search_prices_title": "Avustajien hinnat: {user}",
+  "user_any_search_prices_title": "Käyttäjän {user} lisäämät hinnat",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
     "placeholders": {
@@ -2788,11 +2788,11 @@
       }
     }
   },
-  "all_search_prices_latest_title": "Viimeisimmät hinnat lisätty",
+  "all_search_prices_latest_title": "Viimeksi lisätyt hinnat",
   "@all_search_prices_latest_title": {
     "description": "Latest prices: list tile title"
   },
-  "all_search_prices_top_user_title": "Hintojen huippuavustajat",
+  "all_search_prices_top_user_title": "Eniten hintoja lisänneet avustajat",
   "@all_search_prices_top_user_title": {
     "description": "Top price users: list tile title"
   },
@@ -5087,7 +5087,7 @@
   "@preferences_danger_zone": {
     "description": "Title for the preferences danger zone tile"
   },
-  "preferences_account_deletion_subtitle": "Kaikki panoksesi menetetään",
+  "preferences_account_deletion_subtitle": "Kaikki muokkauksesi poistetaan",
   "@preferences_account_deletion_subtitle": {
     "description": "Subtitle for the preferences account deletion tile"
   },
@@ -5360,7 +5360,7 @@
   "@preferences_my_contributions_prices_title": {
     "description": "Title for a container linking to user prices"
   },
-  "preferences_my_contributions_my_prices_title": "Minun hinnat",
+  "preferences_my_contributions_my_prices_title": "Lisäämäni hinnat",
   "@preferences_my_contributions_my_prices_title": {
     "description": "Title for opening prices stats"
   },
