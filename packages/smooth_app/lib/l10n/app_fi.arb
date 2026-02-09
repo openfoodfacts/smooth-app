@@ -4014,8 +4014,8 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "Pakkaus",
   "guide_greenscore_bonuses_penalties_arg4_text": "**Sakko** lasketaan ottaen huomioon **pakkauksen kiertotalous** (kierrätetyn raaka-aineen käyttö ja kierrätettävyys) ja ylipakkaaminen.",
   "guide_greenscore_transparency_title": "Lisääntynyt avoimuuden tarve parantamaan ympäristövaikutusten mittaamista ja vähentämistä",
-  "guide_greenscore_transparency_intro1": "Vihreän pistemäärän tarkka laskeminen edellyttää **tietoja, joita ei välttämättä ole eritelty pakkauksessa** (kuten kunkin ainesosan alkuperä ja tarkka prosenttiosuus) tai joita on harvoin saatavilla käyttökelpoisessa muodossa (kuten luettelo kaikista pakkauksen osista ja käytetyistä muovityypeistä).",
-  "guide_greenscore_transparency_intro2": "**Keskiarvoja käytetään, kun näitä tietoja ei ole vielä saatavilla**, mutta pyydämme nyt kaikkia auttamaan meitä keräämään näitä tietoja, jotka ovat erittäin hyödyllisiä Green-Scoren lisäksi myös moniin muihin käyttötarkoituksiin.",
+  "guide_greenscore_transparency_intro1": "Green-Scoren tarkkaan laskemiseen tarvitaan **tietoja, joita välttämättä ole eritelty pakkauksessa** (kuten kunkin ainesosan alkuperä ja tarkka prosenssiosuus) tai joita on harvoin saatavilla käyttökelpoisessa muodossa (kuten luettelo kaikista pakkauksen osista ja niihin käytetyistä muovityypeistä).",
+  "guide_greenscore_transparency_intro2": "**Laskentaan käytetään keskiarvoja, kun tarkkoja tietoja ei ole saatavilla**, mutta pyydämme kuitenkin kaikkia autttamaan näiden tietojen keräämisessä. Green-Scoren laskemisen lisäksi niitä voidaan hyödyntää monissa muissakin asioissa.",
   "guide_greenscore_transparency_arg1_title": "Miten kansalaiset voivat auttaa?",
   "guide_greenscore_transparency_arg1_text": "Kaikki kansalaiset voivat auttaa meitä keräämään ja jäsentämään tuotteissa olevia tai niistä johdettavia tietoja, kuten **pakkaustietoja**: \"Mission Emballages\": laaja yhteistyönä tehty pakkauskartoitus kaikille elintarvikkeille (ranskaksi).",
   "guide_greenscore_transparency_arg2_title": "Miten valmistajat voivat auttaa",
@@ -4026,9 +4026,9 @@
   "guide_greenscore_better_product_arg2_title": "Sinulla on valta!",
   "guide_greenscore_better_product_arg2_text": "Hyvä uutinen on, että tämä antaa meille tehokkaan tavan luoda muutosta.\n**Jokainen meistä syö noin 1 000 ateriaa vuodessa**. Se on 1 000 mahdollisuutta **valita parempi tulevaisuus planeetalle**!",
   "guide_greenscore_better_product_arg3_title": "Auttaa olemaan vastuullinen ja tekemään päätöksiä",
-  "guide_greenscore_better_product_arg3_text": "Kestävän ruoan valitseminen voi tuntua monimutkaiselta. Etiketit ovat hämmentäviä ja tiedot usein puuttuvat. Green-Score luotiin yksinkertaistamaan valintaa, antaen sinulle **selkeän**, **tieteeseen perustuvan** ja **läpinäkyvän** ympäristöluokituksen elintarvikkeille juuri siellä missä sitä tarvitset: ostoksilla ollessasi.",
+  "guide_greenscore_better_product_arg3_text": "Kestävän ruoan valitseminen voi tuntua monimutkaiselta. Etiketit ovat hämmentäviä, ja monesti niistä puuttuu joitain tietoja. Tätä valintaa helpottamaan luotiin Green-Score. Se on **selkeä**, **tieteeseen perustuva** ja **läpinäkyvä** elintarvikkeiden ympäristöluokitus, jonka saat tietoosi juuri kun sitä tarvitset: ostoksia tehdessäsi.",
   "guide_greenscore_better_product_arg4_title": "Läpinäkyvyys",
-  "guide_greenscore_better_product_arg4_text": "Toisin kuin omat merkinnät, Green-Score-laskenta on **täysin avoin** ja **kuka tahansa voi tarkistaa sen**.",
+  "guide_greenscore_better_product_arg4_text": "Toisin kuin valmistajien omat merkinnät, Green-Score-laskenta on **täysin avoin** ja **kuka tahansa voi tarkistaa sen oikeellisuuden**.",
   "guide_nova_title": "Ultrajalostetut ruoat",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5372,7 +5372,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "Auta laskemaan Nutri-Score- ja Green-Score-pisteet maassasi",
+  "preferences_contributions_categorize_subtitle": "Auta laskemaan Nutri-Score- ja Green-Score-luokitukset maassasi",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
