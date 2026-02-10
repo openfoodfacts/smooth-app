@@ -615,7 +615,7 @@
   "@new_product_found_title": {
     "description": "Title of a dialog that informs the user that a barcode doesn't exist in the database"
   },
-  "new_product_found_text": "Yhteistyössämme luomamme tietokanta sisältää yli **3 miljoonaa tuotetta**, mutta tätä viivakoodia ei ole olemassa: ",
+  "new_product_found_text": "Yhteisömme tietokannassa on yli **3 miljoonaa tuotetta**, mutta tämän tuotteen viivakoodia ei vielä löydy: ",
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -4446,11 +4446,11 @@
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
   },
-  "carousel_unknown_product_title": "Onnittelut!\nOlet löytänyt __harvinaisen jalokiven!__",
+  "carousel_unknown_product_title": "Onnittelut!\nOlet löytänyt __oikean harvinaisuuden__!",
   "@carousel_unknown_product_title": {
     "description": "Please keep the __ syntax to underline the text"
   },
-  "carousel_unknown_product_text": "Yhteistyössämme luomamme tietokanta sisältää yli **3 miljoonaa tuotetta**, mutta tätä viivakoodia ei ole olemassa: ",
+  "carousel_unknown_product_text": "Yhteisömme tietokannassa on yli **3 miljoonaa tuotetta**, mutta tämän tuotteen viivakoodia ei vielä löydy: ",
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
