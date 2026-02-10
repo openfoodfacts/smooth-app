@@ -2762,7 +2762,7 @@
   "@user_search_prices_title": {
     "description": "User prices: list tile title"
   },
-  "user_search_proofs_title": "Minun todisteeni",
+  "user_search_proofs_title": "Lisäämäni todisteet",
   "@user_search_proofs_title": {
     "description": "User proofs: list tile title"
   },
@@ -2796,7 +2796,7 @@
   "@all_search_prices_top_user_title": {
     "description": "Top price users: list tile title"
   },
-  "all_search_prices_top_location_title": "Kaupat, joilla on eniten hintoja",
+  "all_search_prices_top_location_title": "Myymälät, joilla on eniten hintoja",
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
@@ -2809,7 +2809,7 @@
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
-  "prices_multiple_proof_addition_system": "Lisää useita todistuksia",
+  "prices_multiple_proof_addition_system": "Lisää monta todistetta kerralla",
   "@prices_multiple_proof_addition_system": {
     "description": "Upload multiple proofs"
   },
@@ -5348,7 +5348,7 @@
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
-  "preferences_contributions_to_be_completed_title": "Tuotteet, jotka minun on saatava valmiiksi",
+  "preferences_contributions_to_be_completed_title": "Keskeneräiset tuotteet, joissa voin auttaa",
   "@preferences_contributions_to_be_completed_title": {
     "description": "Title for products to be completed tile"
   },
@@ -5364,7 +5364,7 @@
   "@preferences_my_contributions_my_prices_title": {
     "description": "Title for opening prices stats"
   },
-  "preferences_my_contributions_my_prices_subtitle": "Hintani, todisteeni…",
+  "preferences_my_contributions_my_prices_subtitle": "Lisäämäni hinnat, lisäämäni todisteet…",
   "@preferences_my_contributions_my_prices_subtitle": {
     "description": "Subtitle for opening prices stats"
   },
@@ -5400,7 +5400,7 @@
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
-  "preferences_prices_top_contributors_title": "Eniten hintoja saaneet avustajat",
+  "preferences_prices_top_contributors_title": "Eniten hintoja lisänneet avustajat",
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
@@ -5412,7 +5412,7 @@
   "@preferences_prices_metrics_subtitle": {
     "description": "Subtitle for price metrics tile"
   },
-  "preferences_prices_ways_contribute_title": "Tapoja osallistua",
+  "preferences_prices_ways_contribute_title": "Osallistumistapoja",
   "@preferences_prices_ways_contribute_title": {
     "description": "Title for ways to contribute card"
   },
@@ -5432,7 +5432,7 @@
   "@preferences_prices_challenges_subtitle": {
     "description": "Subtitle for monthly challenges tile"
   },
-  "preferences_prices_loyalty_data_title": "Palauta kanta-asiakastietosi",
+  "preferences_prices_loyalty_data_title": "Pyydä kanta-asiakastietojasi",
   "@preferences_prices_loyalty_data_title": {
     "description": "Title for loyalty data card"
   },
