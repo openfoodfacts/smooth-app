@@ -2746,11 +2746,11 @@
   "@user_search_contributor_title": {
     "description": "User search (contributor): list tile title"
   },
-  "user_search_informer_title": "Tuotteita muokattu",
+  "user_search_informer_title": "Muokkaamani tuotteet",
   "@user_search_informer_title": {
     "description": "User search (informer): list tile title"
   },
-  "user_search_photographer_title": "Tuotteita kuvattu",
+  "user_search_photographer_title": "Kuvaamani tuotteet",
   "@user_search_photographer_title": {
     "description": "User search (photographer): list tile title"
   },
@@ -4935,7 +4935,7 @@
   "@preferences_faq_subtitle": {
     "description": "Subtitle for the faq preferences tile"
   },
-  "logged_out": "Kirjauduttu ulos",
+  "logged_out": "Et ole kirjautuneena sisään",
   "@logged_out": {
     "description": "Text to show when the user is logged out"
   },
@@ -4947,7 +4947,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "Lisätyt hinnat",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5340,7 +5340,7 @@
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
-  "preferences_contributions_products_added_title": "Lisätyt tuotteet",
+  "preferences_contributions_products_added_title": "Lisäämäni tuotteet",
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
