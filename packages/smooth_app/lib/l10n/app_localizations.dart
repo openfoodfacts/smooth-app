@@ -5312,6 +5312,12 @@ abstract class AppLocalizations {
   /// **'Know more about Open Prices'**
   String get prices_menu_know_more;
 
+  /// No description provided for @prices_discount_type.
+  ///
+  /// In en, this message translates to:
+  /// **'Discount type'**
+  String get prices_discount_type;
+
   /// User dev preferences - Import history - Result successful
   ///
   /// In en, this message translates to:

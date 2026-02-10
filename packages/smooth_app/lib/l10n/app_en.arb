@@ -2670,6 +2670,7 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
   "dev_preferences_import_history_result_success": "Done",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
