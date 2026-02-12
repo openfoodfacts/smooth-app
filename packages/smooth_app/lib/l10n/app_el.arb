@@ -4183,12 +4183,12 @@
   "guide_open_prices_why_title": "Γιατί το κάνει αυτό το Open Food Facts;",
   "guide_open_prices_why_paragraph1": "Οι πληροφορίες για τις τιμές είναι ύψιστης σημασίας για την κατανόηση των συστημάτων τροφίμων. Αποτελούν βασικό παράγοντα για την κατανόηση του κόστους των τροφίμων και την προώθηση πιο υγιεινών διατροφών. Τα δεδομένα τιμών είναι ένας τρόπος για να διευκολυνθούν οι ερευνητές, οι δημοσιογράφοι και οι πολίτες να **κατανοήσουν καλύτερα τον τρόπο με τον οποίο οι τιμές των τροφίμων ποικίλλουν γεωγραφικά και χρονικά**.",
   "guide_open_prices_why_arg1_title": "Παρακολουθήστε την εξέλιξη των τιμών με την πάροδο του χρόνου",
-  "guide_open_prices_why_arg1_text": "Δείτε την **εξέλιξη των τιμών**: συρρικνούμενος πληθωρισμός, φθηνός πληθωρισμός, μπορούμε να τα παρακολουθήσουμε μαζί!",
+  "guide_open_prices_why_arg1_text": "Δείτε την **εξέλιξη των τιμών**: shrinkflation, cheapflation, μπορούμε να τα παρακολουθήσουμε μαζί!",
   "guide_open_prices_why_arg2_title": "Συγκρίνετε τιμές κοντά σας",
   "guide_open_prices_why_arg2_text": "Καθώς θα έχουμε περισσότερες τιμές, μπορείτε να εντοπίσετε **τα φθηνότερα καταστήματα γύρω σας**.",
   "guide_open_prices_scrapping_title": "Σκεφτήκατε να αντλήσετε τιμές από τους ιστότοπους των λιανοπωλητών;",
-  "guide_open_prices_scrapping_paragraph1": "Για νομικούς και τεχνικούς λόγους, **δεν θεωρούμε την συλλογή τιμών από τους ιστότοπους των λιανοπωλητών ως έγκυρο τρόπο συμβολής στις Ανοιχτές Τιμές**. Θέλουμε να διασφαλίσουμε ότι οι τιμές που συλλέγουμε είναι ακριβείς και ενημερωμένες και η λήψη συλλεγμένων τιμών από τους συνεισφέροντες δεν μας επιτρέπει να το κάνουμε αυτό.",
-  "guide_open_prices_scrapping_paragraph2": "Η συλλογή τιμών είναι μια επιλογή που εξετάζεται σε μια μελλοντική έκδοση του Open Prices, αλλά θα γίνεται από το ίδιο το Open Prices, ώστε να μπορούμε να έχουμε μια απόδειξη της τιμής με βάση τη σελίδα HTML.",
+  "guide_open_prices_scrapping_paragraph1": "Για νομικούς και τεχνικούς λόγους, **δεν θεωρούμε την συλλογή τιμών από τους ιστότοπους των λιανοπωλητών ως έγκυρο τρόπο συμβολής στο Open Prices**. Θέλουμε να διασφαλίσουμε ότι οι τιμές που συλλέγουμε είναι ακριβείς και ενημερωμένες και η λήψη συλλεγμένων τιμών από τους συνεισφέροντες δεν μας επιτρέπει να το κάνουμε αυτό.",
+  "guide_open_prices_scrapping_paragraph2": "Η εξαγωγή τιμών είναι μια επιλογή που εξετάζεται σε μια μελλοντική έκδοση του Open Prices, αλλά θα γίνεται από το ίδιο το Open Prices, ώστε να μπορούμε να έχουμε μια απόδειξη της τιμής με βάση τη σελίδα HTML.",
   "guide_open_prices_retailers_title": "Είμαι λιανοπωλητής και θέλω να συνεισφέρω στις τιμές. Πώς μπορώ να το κάνω αυτό;",
   "guide_open_prices_retailers_paragraph1": "Μπορείτε να συνεισφέρετε τιμές χρησιμοποιώντας το API μας.\nΕάν θέλετε να συνεισφέρετε τιμές σε κλίμακα, επικοινωνήστε μαζί μας στη διεύθυνση prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4196,7 +4196,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "Τι είναι τα Ανοιχτά Γεγονότα για τα Προϊόντα;",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Τι είναι το Open Products Facts;",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Το Open Products Facts είναι μια τεράστια, ανοιχτή βάση δεδομένων για **οποιοδήποτε προϊόν με γραμμωτό κώδικα, το οποίο δεν είναι τρόφιμο, καλλυντικό ή τροφή για κατοικίδια**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4205,7 +4205,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Χαρακτηριστικά των Ανοικτών Προϊόντων Γεγονότα",
+  "guide_open_products_facts_features_title": "Χαρακτηριστικά του Open Products Facts",
   "guide_open_products_facts_features_text": "Το Open Products Facts στοχεύει να παρέχει στους καταναλωτές τη δυνατότητα **να παρατείνουν τη διάρκεια ζωής των αντικειμένων** παρέχοντας κυκλικές λύσεις για τη συντήρηση, την **επισκευή**, την **ανακύκλωση** των αντικειμένων τους ή την παραχώρηση ενός νέου ιδιοκτήτη.",
   "guide_open_products_facts_features_arg1_title": "Αποτύπωμα άνθρακα για ορισμένα προϊόντα",
   "guide_open_products_facts_features_arg1_text": "Η **Επιπτώσεις CO2** από την Γαλλική Αρχή Περιβάλλοντος ADEME παρέχει τις **επιπτώσεις άνθρακα** πολλών κατηγοριών, φροντίστε να κατηγοριοποιήσετε τα προϊόντα με ακρίβεια.",
@@ -4215,7 +4215,7 @@
   "guide_open_products_facts_features_arg3_text": "Παρέχουμε συνδέσμους προς **υπηρεσίες τρίτων μερών φιλικές προς την κυκλική αγορά** που σας βοηθούν να αποκτήσετε το είδος του προϊόντος που αναζητάτε, ως μεταχειρισμένο προϊόν, που να είναι πιο φιλικό προς τους πλανητικούς πόρους.\nΣημειώστε ότι δεν πληρωνόμαστε για να το κάνουμε αυτό και ότι το σύστημα λειτουργεί μόνο ως παράδειγμα για δύο ιστότοπους στη Γαλλία. Μπορείτε να βοηθήσετε στην επέκταση αυτού του συστήματος τεκμηριώνοντας περισσότερους ιστότοπους στο wiki.",
   "guide_open_products_facts_information_title": "Ποιες πληροφορίες είναι χρήσιμες;",
   "guide_open_products_facts_information_text": "Για ένα τόσο ευρύ φάσμα στοιχείων, **τα δεδομένα που συλλέγουμε είναι ευέλικτα**. Για να το πετύχουμε αυτό, **δημιουργήσαμε τη Μηχανή Folksonomy**.",
-  "guide_open_products_facts_folksonomy_title": "Η Μηχανή Λαϊκής Προσωπικότητας",
+  "guide_open_products_facts_folksonomy_title": "Η Μηχανή Folksonomy",
   "guide_open_products_facts_folksonomy_paragraph1": "Η Μηχανή Folksonomy είναι ένα εργαλείο που σας βοηθά να ολοκληρώνετε προϊόντα με σχετικές ιδιότητες. Αυτό βοηθά στη βελτίωση της αναζήτησης και της ανακάλυψης, αλλά και στον υπολογισμό και την εμφάνιση ενδιαφερόντων στοιχείων στο μέλλον.",
   "guide_open_products_facts_folksonomy_paragraph2": "Μπορείτε να προσθέσετε οποιαδήποτε κλειδιά και τιμές όπως: **συμβατότητα_με_5G_κινητό_δίκτυο: ναι**",
   "guide_open_products_facts_folksonomy_paragraph3": "Θα λάβετε αυτόματη πρόταση πιθανών ιδιοτήτων και είστε ευπρόσδεκτοι να προσθέσετε και να καταγράψετε νέες στα αγαπημένα σας είδη προϊόντων.",
@@ -4573,7 +4573,7 @@
   "@product_page_for_me_compatibility_score_title": {
     "description": "Title for the compatibility score"
   },
-  "product_page_for_me_compatibility_score_value": "{value}% συμβατότητας",
+  "product_page_for_me_compatibility_score_value": "{value}% συμβατό",
   "@product_page_for_me_compatibility_score_value": {
     "description": "Compatibility score value in the For me tab on the product page",
     "placeholders": {
@@ -4599,15 +4599,15 @@
   "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_order_evaluation": "Αγώνες",
+  "product_page_for_me_attributes_order_evaluation": "Αντιστοιχίες",
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_group_good_matches": "Καλοί αγώνες",
+  "product_page_for_me_attributes_group_good_matches": "Καλές αντιστοιχίες",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
   },
-  "product_page_for_me_attributes_group_average_matches": "Μέσος όρος αγώνων",
+  "product_page_for_me_attributes_group_average_matches": "Μέτριες αντιστοιχίες",
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
@@ -4615,7 +4615,7 @@
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
-  "product_page_for_me_attributes_group_unknown_matches": "Άγνωστες αντιστοιχίσεις",
+  "product_page_for_me_attributes_group_unknown_matches": "Άγνωστες αντιστοιχίες",
   "@product_page_for_me_attributes_group_unknown_matches": {
     "description": "Title for the group of attributes that are unknown matches for the user"
   },
@@ -4630,12 +4630,12 @@
   "prices_explanation_card_title": "Γιατί τιμές;",
   "prices_explanation_card_line1": "Το **Open Prices** είναι ένα έργο για τη συλλογή και κοινοποίηση τιμών προϊόντων σε όλο τον κόσμο 🌍. Το Open Prices αναπτύσσεται και συντηρείται από το Open Food Facts.",
   "explanation_card_learn_more_button": "Μάθετε περισσότερα",
-  "product_page_tab_folksonomy": "Λαογραφική",
+  "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
-  "folksonomy_explanation_card_title": "Ποια είναι τα χαρακτηριστικά της Λαϊκής Προσωπικότητας;",
-  "folksonomy_explanation_card_line1": "Τα χαρακτηριστικά βασίζονται **σε κλειδί-τιμή**.",
+  "folksonomy_explanation_card_title": "Ποια είναι τα γνωρίσματα του Folksonomy;",
+  "folksonomy_explanation_card_line1": "Τα γνωρίσματα είναι τύπου **κλειδί-τιμή**.",
   "folksonomy_explanation_card_line2": "Αυτές οι ιδιότητες δημιουργούνται και καταχωρούνται από τους συνεισφέροντες για κάθε είδους χρήση.",
   "folksonomy_action_external_link_title": "Άνοιγμα εξωτερικού συνδέσμου",
   "@folksonomy_action_external_link_title": {
@@ -4935,7 +4935,7 @@
   "@preferences_faq_subtitle": {
     "description": "Subtitle for the faq preferences tile"
   },
-  "logged_out": "Αποσυνδέθηκα",
+  "logged_out": "Αποσυνδεθήκατε",
   "@logged_out": {
     "description": "Text to show when the user is logged out"
   },
@@ -4951,7 +4951,7 @@
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
-  "preferences_app_bar_see_all_stats": "Δείτε όλα τα στατιστικά στοιχεία",
+  "preferences_app_bar_see_all_stats": "Δείτε όλα τα στατιστικά",
   "@preferences_app_bar_see_all_stats": {
     "description": "Preferences app bar see all stats button"
   },
@@ -5031,7 +5031,7 @@
   "@preferences_version_number_title": {
     "description": "Title for the preferences version number tile"
   },
-  "preferences_scanner_title": "Ερευνητής",
+  "preferences_scanner_title": "Σαρωτής",
   "@preferences_scanner_title": {
     "description": "Title for the preferences scanner tile"
   },
@@ -5043,7 +5043,7 @@
   "@preferences_app_system_settings": {
     "description": "Title for the preferences app system settings tile"
   },
-  "preferences_source_code": "Πρόσβαση στον πηγαίο κώδικα",
+  "preferences_source_code": "Δείτε τον πηγαίο κώδικα",
   "@preferences_source_code": {
     "description": "Title for the preferences source code tile"
   },
@@ -5083,7 +5083,7 @@
   "@preferences_change_password_title": {
     "description": "Title for the preferences change password tile"
   },
-  "preferences_danger_zone": "Ζώνη κινδύνου",
+  "preferences_danger_zone": "Επικίνδυνη Ζώνη",
   "@preferences_danger_zone": {
     "description": "Title for the preferences danger zone tile"
   },
@@ -5123,11 +5123,11 @@
   "@preferences_dev_mode_add_cards_subtitle": {
     "description": "Subtitle for adding cards to scanner in demo mode"
   },
-  "preferences_dev_mode_folksonomy_host_title": "Παρουσιαστής Folksonomy",
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy host",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
-  "preferences_dev_mode_folksonomy_host_subtitle": "Κεντρικός υπολογιστής: {host}",
+  "preferences_dev_mode_folksonomy_host_subtitle": "Host: {host}",
   "@preferences_dev_mode_folksonomy_host_subtitle": {
     "description": "Subtitle for folksonomy host setting",
     "placeholders": {
@@ -5176,15 +5176,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Ανακαλύψτε Ανοιχτά Γεγονότα για τα Τρόφιμα",
+  "preferences_faq_discover_off_title": "Ανακαλύψτε το Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Ανακαλύψτε Ανοιχτά Γεγονότα Ομορφιάς",
+  "preferences_faq_discover_obf_title": "Ανακαλύψτε το Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Ανακαλύψτε πληροφορίες για τις τροφές για κατοικίδια στο διαδίκτυο",
+  "preferences_faq_discover_opff_title": "Ανακαλύψτε το Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5260,7 +5260,7 @@
   "@preferences_connect_survey_title": {
     "description": "Title for survey tile"
   },
-  "preferences_connect_survey_subtitle": "Βοηθήστε μας να καταλάβουμε τι πρέπει να κατασκευάσουμε στη συνέχεια",
+  "preferences_connect_survey_subtitle": "Βοηθήστε μας να καταλάβουμε τι πρέπει να φτιάξουμε στη συνέχεια",
   "@preferences_connect_survey_subtitle": {
     "description": "Subtitle for survey tile"
   },
@@ -5288,7 +5288,7 @@
   "@preferences_connect_press_email_subtitle": {
     "description": "Subtitle for press email tile"
   },
-  "preferences_contribute_active_volunteer_title": "Γίνε ενεργός εθελοντής",
+  "preferences_contribute_active_volunteer_title": "Γίνετε ενεργός εθελοντής",
   "@preferences_contribute_active_volunteer_title": {
     "description": "Title for active volunteer card"
   },
@@ -5308,7 +5308,7 @@
   "@preferences_contribute_sw_dev_subtitle": {
     "description": "Subtitle for software development tile"
   },
-  "preferences_contribute_alpha_subtitle": "Καθημερινές ασταθείς κατασκευές, ολοκαίνουργια χαρακτηριστικά",
+  "preferences_contribute_alpha_subtitle": "Καθημερινές ασταθείς δομές, ολοκαίνουργια χαρακτηριστικά",
   "@preferences_contribute_alpha_subtitle": {
     "description": "Subtitle for alpha enrollment tile"
   },
@@ -5364,7 +5364,7 @@
   "@preferences_my_contributions_my_prices_title": {
     "description": "Title for opening prices stats"
   },
-  "preferences_my_contributions_my_prices_subtitle": "Οι τιμές μου, οι αποδείξεις μου…",
+  "preferences_my_contributions_my_prices_subtitle": "Οι τιμές μου, τα πειστήριά μου…",
   "@preferences_my_contributions_my_prices_subtitle": {
     "description": "Subtitle for opening prices stats"
   },
@@ -5376,11 +5376,11 @@
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
-  "preferences_prices_user_prices_subtitle": "Τιμές που συνεισφέρω",
+  "preferences_prices_user_prices_subtitle": "Τιμές όπου συνέβαλα",
   "@preferences_prices_user_prices_subtitle": {
     "description": "Subtitle for user prices tile"
   },
-  "preferences_prices_proofs_subtitle": "Τιμές και αποδείξεις",
+  "preferences_prices_proofs_subtitle": "Ετικέτες τιμών και αποδείξεις",
   "@preferences_prices_proofs_subtitle": {
     "description": "Subtitle for proofs tile"
   },
@@ -5404,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Μετρήσεις τιμών ανοίγματος",
+  "preferences_prices_metrics_title": "Μετρήσεις Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5416,11 +5416,11 @@
   "@preferences_prices_ways_contribute_title": {
     "description": "Title for ways to contribute card"
   },
-  "preferences_prices_validation_assistant_subtitle": "Επιβεβαιώστε τιμές που προστέθηκαν από εσάς ή άλλους, με τη βοήθεια της Τεχνητής Νοημοσύνης",
+  "preferences_prices_validation_assistant_subtitle": "Επιβεβαιώστε τιμές που προστέθηκαν από εσάς ή άλλους, με τη βοήθεια της ΤΝ",
   "@preferences_prices_validation_assistant_subtitle": {
     "description": "Subtitle for validation assistant tile"
   },
-  "preferences_prices_multiple_proof_subtitle": "Προσθέστε γρήγορα πολλές αποδείξεις ή φωτογραφίες από ράφια από το ρολό της κάμεράς σας",
+  "preferences_prices_multiple_proof_subtitle": "Προσθέστε γρήγορα πολλές αποδείξεις ή φωτογραφίες από ράφια από τη συλλογή της κάμεράς σας",
   "@preferences_prices_multiple_proof_subtitle": {
     "description": "Subtitle for multiple proof addition tile"
   },
@@ -5552,15 +5552,15 @@
   "@prices_no_result": {
     "description": "Message shown when there are no price statistics available to display"
   },
-  "prices_error_loading_more_items": "Σφάλμα κατά τη φόρτωση περισσότερων στοιχείων κατά τη φόρτωση περισσότερων στοιχείων",
+  "prices_error_loading_more_items": "Σφάλμα κατά τη φόρτωση περισσότερων στοιχείων",
   "@prices_error_loading_more_items": {
     "description": "Error message shown when additional items fail to load"
   },
-  "prices_proof_error": "Η πιστοποίηση απέτυχε, δεν είναι δυνατή η ανάκτηση αποδείξεων",
+  "prices_proof_error": "Η ταυτοποίηση απέτυχε, δεν είναι δυνατή η ανάκτηση πειστηρίων",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
-  "proofs_count_with_total": "{count} από {total} αποδείξεις",
+  "proofs_count_with_total": "{count} από {total} πειστήρια",
   "@proofs_count_with_total": {
     "description": "Number of proofs",
     "placeholders": {
@@ -5640,7 +5640,7 @@
   "@preferences_app_settings_graphical_interface_title": {
     "description": "Title for the graphical interface preferences card in app settings"
   },
-  "preferences_app_settings_media_title": "Μέσα ενημέρωσης",
+  "preferences_app_settings_media_title": "Πολυμέσα",
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
@@ -5648,7 +5648,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Ανοιχτά Εργαστήρια Γεγονότων για τα Τρόφιμα",
+  "preferences_page_open_food_facts_labs_title": "Εργαστήρια Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5656,17 +5656,17 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Φέρτε τα Ανοιχτά Γεγονότα για τα Τρόφιμα στη γλώσσα σας",
+  "preferences_contribute_translate_header": "Φέρτε το Open Food Facts στη γλώσσα σας",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
   "preferences_contribute_enroll_alpha": "Εγγραφείτε στην έκδοση alpha της εφαρμογής",
   "@preferences_contribute_enroll_alpha": {},
-  "preferences_dev_mode_section_data": "Συνεισφορές και δεδομένα προϊόντων",
+  "preferences_dev_mode_section_data": "Συνεισφορές & Δεδομένα προϊόντος",
   "@preferences_dev_mode_section_data": {
     "description": "Title for the contributions and product data preferences card in dev mode"
   },
-  "preferences_dev_preferences_show_folksonomy_title": "Να μην εμφανίζεται η Λαϊκή Προσωπικότητα",
+  "preferences_dev_preferences_show_folksonomy_title": "Να μην εμφανίζεται το Folksonomy",
   "@preferences_dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
@@ -5685,13 +5685,13 @@
   },
   "location_map_details_title": "Λεπτομέρειες τοποθεσίας",
   "location_map_details_name": "Όνομα",
-  "location_map_details_street": "Δρόμος",
+  "location_map_details_street": "Οδός",
   "location_map_details_city": "Πόλη",
-  "location_map_details_postcode": "Ταχυδρομικός τομέας",
+  "location_map_details_postcode": "Ταχυδρομικός κώδικας",
   "location_map_details_country": "Χώρα",
   "location_map_details_coordinates": "Συντεταγμένες",
-  "location_map_details_osm_id": "Αναγνωριστικό OSM",
-  "homepage_scanner_back_to_home_button": "Πίσω στο σπίτι",
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "Πίσω στην αρχική",
   "@homepage_scanner_back_to_home_button": {
     "description": "Button to go back to home from the scanner page"
   },
@@ -5703,7 +5703,7 @@
   "@homepage_header_barcode_tooltip": {
     "description": "Tooltip for the button to open the barcode scanner from the homepage"
   },
-  "homepage_scanner_overlay_message": "Πατήστε για να σαρώσετε έναν **γραμμωτό κώδικα**\nκαι ανακαλύψτε αν είναι **καλός για εσάς**!",
+  "homepage_scanner_overlay_message": "Πατήστε για να σαρώσετε έναν **γραμμωτό κώδικα**\nκαι ανακαλύψτε αν είναι **καλό για εσάς**!",
   "@homepage_scanner_overlay_message": {
     "description": "Message visible above the camera."
   },
