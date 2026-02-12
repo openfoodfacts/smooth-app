@@ -73,7 +73,7 @@
   "@error_occurred": {},
   "featureInProgress": "Εξακολουθούμε να εργαζόμαστε σε αυτήν τη λειτουργία, μείνετε συντονισμένοι",
   "@featureInProgress": {},
-  "label_web": "Προβολή στον Ιστό",
+  "label_web": "Προβολή στον ιστό",
   "@label_web": {},
   "learnMore": "Μάθετε περισσότερα",
   "@learnMore": {},
@@ -298,7 +298,7 @@
   "@darkmode_dark": {
     "description": "Indicator inside the darkmode switch (dark)"
   },
-  "darkmode_light": "Ανοιχτόχρωμο",
+  "darkmode_light": "Φωτεινό",
   "@darkmode_light": {
     "description": "Indicator inside the darkmode switch (light)"
   },
@@ -333,7 +333,7 @@
   "support_join_slack": "Ζητήστε βοήθεια στο κανάλι μας στο Slack",
   "support_via_forum": "Ζητήστε βοήθεια στο φόρουμ μας",
   "support_via_email": "Στείλτε μας e-mail",
-  "support_via_email_include_logs_dialog_title": "Αποστολή αρχείων καταγραφής εφαρμογής;",
+  "support_via_email_include_logs_dialog_title": "Αποστολή αρχείων καταγραφής;",
   "support_via_email_include_logs_dialog_body": "Θέλετε να συμπεριλάβετε τα αρχεία καταγραφής της εφαρμογής σαν συνημμένο στο email;",
   "termsOfUse": "Όροι χρήσης",
   "@termsOfUse": {},
@@ -345,7 +345,7 @@
   "@privacy_policy": {
     "description": "A link to open the privacy policy on the website"
   },
-  "about_this_app": "Σχετικά με αυτή την εφαρμογή",
+  "about_this_app": "Σχετικά με την εφαρμογή",
   "@about_this_app": {
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
@@ -370,7 +370,7 @@
   "@contribute_donate_header": {},
   "contribute_enroll_alpha_warning": "Παρακαλούμε κατανοήστε ότι με την εσωτερική έκδοση alpha, η πλήρης απώλεια δεδομένων είναι πιθανή και η εφαρμογή μπορεί να γίνει άχρηστη ανά πάσα στιγμή!",
   "@contribute_enroll_alpha_warning": {},
-  "contribute_improve_ProductsToBeCompleted": "Προϊόντα προς συμπλήρωση",
+  "contribute_improve_ProductsToBeCompleted": "Προϊόντα προς ολοκλήρωση",
   "@contribute_improve_ProductsToBeCompleted": {
     "description": "Button label: Shows a list of products which aren't completed"
   },
@@ -388,7 +388,7 @@
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
-  "contribute_translate_link_text": "Ξεκινήστε τη μετάφραση",
+  "contribute_translate_link_text": "Ξεκινήστε τη Μετάφραση",
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
@@ -574,7 +574,7 @@
   "ingredients": "Συστατικά",
   "@ingredients": {},
   "ingredients_editing_instructions": "Διατηρήστε την αρχική σειρά. Αναφέρετε το ποσοστό όταν καθορίζεται. Διαχωρίστε με κόμμα ή παύλα και χρησιμοποιήστε παρενθέσεις για τα συστατικά ενός συστατικού.",
-  "ingredients_editing_error": "Απέτυχε η αποθήκευση του συστατικού.",
+  "ingredients_editing_error": "Απέτυχε η αποθήκευση των συστατικών.",
   "ingredients_editing_image_error": "Αποτυχία λήψης νέας εικόνας συστατικών.",
   "ingredients_editing_title": "Επεξεργασία Συστατικών",
   "ingredients_photo": "Φωτογραφία συστατικών",
@@ -638,7 +638,7 @@
   },
   "front_packaging_photo_button_label": "Μπροστινή φωτογραφία προϊόντος",
   "@front_packaging_photo_button_label": {},
-  "confirm_front_packaging_photo_button_label": "Επιβεβαίωση μεταφόρτωσης μπροστινής φωτογραφίας προϊόντος",
+  "confirm_front_packaging_photo_button_label": "Επιβεβαίωση μεταφόρτωσης Μπροστινής φωτογραφίας συσκευασίας",
   "@confirm_front_packaging_photo_button_label": {
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
@@ -697,7 +697,7 @@
   "front_packaging_photo_title": "Φωτογραφία Μπροστινής Συσκευασίας",
   "ingredients_photo_title": "Φωτογραφία Συστατικών",
   "nutritional_facts_photo_title": "Φωτογραφία Διατροφικών Στοιχείων",
-  "recycling_photo_title": "Οδηγίες ανακύκλωσης Φωτογραφία",
+  "recycling_photo_title": "Φωτογραφία οδηγιών ανακύκλωσης",
   "take_photo_title": "Τραβήξτε μια φωτογραφία",
   "take_more_photo_title": "Τραβήξτε περισσότερες φωτογραφίες",
   "front_photo_uploaded": "Η μπροστινή φωτογραφία μεταφορτώθηκε",
@@ -884,9 +884,9 @@
   "@more_photos": {},
   "view_more_photo_button": "Δείτε όλες τις υπάρχουσες φωτογραφίες για αυτό το προϊόν",
   "@view_more_photo_button": {},
-  "no_product_found": "Δεν βρέθηκε προϊόν",
+  "no_product_found": "Δε βρέθηκε προϊόν",
   "@no_product_found": {},
-  "no_product_found_explanation": "Η αναζήτησή σας για\n**\"{search}\"**\nδεν βρήκε κανένα αποτέλεσμα.",
+  "no_product_found_explanation": "Η αναζήτησή σας για\n**\"{search}\"**\nδε βρήκε κανένα αποτέλεσμα.",
   "@no_product_found_explanation": {
     "description": "Explanation shown when no product is found for a search",
     "placeholders": {
@@ -896,10 +896,10 @@
       }
     }
   },
-  "no_product_found_try_world_results": "Θέλετε να εκτελέσετε την ίδια αναζήτηση στην **παγκόσμια βάση δεδομένων μας**;",
+  "no_product_found_try_world_results": "Θέλετε να εκτελέσετε την ίδια αναζήτηση στην **παγκόσμια βάση δεδομένων μας** αντ' αυτού;",
   "no_location_found": "Δεν βρέθηκε τοποθεσία",
-  "not_found": "δεν βρέθηκε:",
-  "refreshing_product": "Ανανέωση προϊόντος",
+  "not_found": "δε βρέθηκε:",
+  "refreshing_product": "Ανανεώνεται το προϊόν",
   "@refreshing_product": {
     "description": "Confirmation, that the product data of a cached product is queried again"
   },
@@ -1044,7 +1044,7 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
-  "product_tags_empty": "Δεν υπάρχουν ακίνητα",
+  "product_tags_empty": "Δεν υπάρχουν ιδιότητες",
   "product_tags_explanation": "Προσθέτοντας ιδιότητες (κλειδί/τιμή) σε ένα προϊόν, βοηθάτε στον εμπλουτισμό του.",
   "add_tag": "Προσθήκη ιδιότητας",
   "add_tags": "Προσθήκη ιδιοτήτων",
@@ -1052,7 +1052,7 @@
   "edit_tag": "Επεξεργασία ιδιότητας",
   "remove_tag": "Αφαίρεση ιδιότητας",
   "tag_key": "Ιδιότητα",
-  "tag_keys": "Σκηνικά θέατρου",
+  "tag_keys": "Ιδιότητες",
   "tag_key_uneditable": "Ιδιότητα (μη επεξεργάσιμο)",
   "tag_key_input_hint": "Εισαγάγετε μια ιδιότητα",
   "tag_value": "Τιμή",
@@ -1076,7 +1076,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Βρείτε εναλλακτικές λύσεις",
+  "product_search_same_category": "Βρείτε εναλλακτικές",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1146,7 +1146,7 @@
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "Ορισμένα περιβαλλοντικά χαρακτηριστικά εξαρτώνται από την τοποθεσία σας",
+  "country_selection_explanation": "Ορισμένα περιβαλλοντικά χαρακτηριστικά εξαρτώνται από την τοποθεσία",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
@@ -1268,7 +1268,7 @@
   "@compare_products_appbar_subtitle": {
     "description": "AppBar subtitle when in comparison mode"
   },
-  "retry_button_label": "Προσπαθήστε ξανά",
+  "retry_button_label": "Επανάληψη",
   "connect_with_us": "Συνδεθείτε μαζί μας",
   "tiktok": "Ακολουθήστε μας στο TikTok",
   "tiktok_link": "https://www.tiktok.com/@openfoodfacts",
@@ -1348,7 +1348,7 @@
       }
     }
   },
-  "contact_form_body": "{osContent}\nΈκδοση εφαρμογής:{appVersion}\nΑριθμός έκδοσης εφαρμογής:{appBuildNumber}\nΌνομα πακέτου εφαρμογής:{appPackageName}",
+  "contact_form_body": "{osContent}\nΈκδοση εφαρμογής:{appVersion}\nΑριθμός δομής εφαρμογής:{appBuildNumber}\nΌνομα πακέτου εφαρμογής:{appPackageName}",
   "@contact_form_body": {
     "description": "Contact form content",
     "placeholders": {
@@ -1508,7 +1508,7 @@
   "@camera_play_sound_title": {
     "description": "Title for the Camera play sound toggle"
   },
-  "camera_play_sound_subtitle": "Ένας ήχος θα αναπαράγεται σε κάθε επιτυχημένη σάρωση",
+  "camera_play_sound_subtitle": "Θα ηχήσει μπιπ σε κάθε επιτυχημένη σάρωση",
   "@camera_play_sound_subtitle": {
     "description": "SubTitle for the Camera play sound toggle"
   },
@@ -1540,7 +1540,7 @@
   "@send_anonymous_toggle_subtitle": {
     "description": "SubTitle for the Send anonymous data toggle"
   },
-  "product_edit_photo_title": "Επεξεργασία Φωτογραφίας",
+  "product_edit_photo_title": "Επεξεργασία Φωτό",
   "@product_edit_photo_title": {
     "description": "Toolbar Title while editing a photo (Android only)"
   },
@@ -1558,13 +1558,13 @@
       }
     }
   },
-  "permission_photo_denied_button": "Να επιτρέπεται",
+  "permission_photo_denied_button": "Αποδοχή",
   "@permission_photo_denied_button": {
     "description": "When the camera/photo permission is denied by user"
   },
-  "permission_photo_denied_dialog_settings_title": "Άρνηση πρόσβασης",
+  "permission_photo_denied_dialog_settings_title": "Η άδεια απορρίφθηκε",
   "permission_photo_denied_dialog_settings_message": "Καθώς έχετε αρνηθεί στο παρελθόν την άδεια της κάμερας, πρέπει να την επιτρέψετε χειροκίνητα από τις Ρυθμίσεις.",
-  "permission_photo_denied_dialog_settings_button_open": "Ανοίξτε τις ρυθμίσεις",
+  "permission_photo_denied_dialog_settings_button_open": "Άνοιγμα ρυθμίσεων",
   "permission_photo_denied_dialog_settings_button_cancel": "Ακύρωση",
   "permission_photo_none_found": "Δεν εντοπίστηκε κάμερα",
   "@permission_photo_none_found": {
@@ -1759,7 +1759,7 @@
   "@edit_product_form_item_origins_title": {
     "description": "Product edition - Origins - Title"
   },
-  "edit_product_form_item_origins_hint": "Εισαγάγετε μια προέλευση (πχ: βόειο κρέας από την Αργεντινή)",
+  "edit_product_form_item_origins_hint": "Εισαγάγετε μια προέλευση (πχ: Γερμανία)",
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
@@ -2402,7 +2402,7 @@
     }
   },
   "prices_barcode_enter": "Εισαγάγετε τον Γραμμωτό κώδικα",
-  "prices_category_enter": "Προϊόν χωρίς γραμμωτό κώδικα (barcode)",
+  "prices_category_enter": "Προϊόν χωρίς γραμμωτό κώδικα",
   "prices_per_kilogram": "Τιμή ανά κιλό",
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
@@ -2411,7 +2411,7 @@
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
-  "prices_per_kilogram_short": " / κιλό",
+  "prices_per_kilogram_short": " / kg",
   "@prices_per_kilogram_short": {
     "description": "Short title for PricePer.kilogram"
   },
@@ -2420,23 +2420,23 @@
     "description": "Short title for PricePer.unit"
   },
   "prices_category_mandatory": "Υποχρεωτικό",
-  "prices_category_optional": "Προαιρετικός",
+  "prices_category_optional": "Προαιρετικό",
   "prices_category_error_mandatory": "Η κατηγορία είναι υποχρεωτική",
   "prices_barcode_reader_action": "Αναγνώστης γραμμωτού κώδικα",
   "prices_view_prices": "Δείτε τις τιμές",
-  "prices_list_title": "Τιμοκατάλογος",
-  "prices_list_count": "Αριθμός\nτιμών",
+  "prices_list_title": "Λίστα τιμών",
+  "prices_list_count": "Πλήθος\nτιμών",
   "@prices_list_count": {
     "description": "Label for the number of prices in the list (please inject the line break at the middle)"
   },
-  "prices_list_add_new_price": "Προσθήκη νέας τιμής\n",
+  "prices_list_add_new_price": "Προσθήκη μια \nνέα τιμή",
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
   "prices_list_empty_title": "Δεν υπάρχει ακόμη τιμή!",
-  "prices_list_empty_subtitle": "Γίνετε ο πρώτος που θα προσθέσει ένα:\nΣαρώνοντας μια **απόδειξη** ή μια **τιμή**!",
+  "prices_list_empty_subtitle": "Προσθέστε πρώτοι μία:\nΣαρώνοντας μια **απόδειξη** ή μια **ετικέτα τιμής**!",
   "prices_entry_shop_not_found": "Άγνωστο κατάστημα",
-  "prices_entry_menu_title": "Εισαγωγή τιμής από \"{user}\"",
+  "prices_entry_menu_title": "Καταχώρηση τιμής από \"{user}\"",
   "@prices_entry_menu_title": {
     "description": "Title of the menu for a price entry",
     "placeholders": {
@@ -2447,9 +2447,9 @@
   },
   "prices_entry_menu_open_product": "Δείτε λεπτομέρειες προϊόντος",
   "prices_entry_menu_open_product_prices": "Δείτε όλες τις τιμές για αυτό το προϊόν",
-  "prices_entry_menu_open_proof": "Δείτε την απόδειξη",
+  "prices_entry_menu_open_proof": "Δείτε το πειστήριο",
   "prices_entry_menu_my_prices": "Δείτε τις υπόλοιπες τιμές μου",
-  "prices_entry_menu_author_prices": "Δείτε άλλες τιμές από τον συγγραφέα",
+  "prices_entry_menu_author_prices": "Δείτε άλλες τιμές από τον συντάκτη",
   "prices_entry_menu_shop_prices": "Δείτε άλλες τιμές από το κατάστημα",
   "prices_product_accessibility_summary": "{count,plural, =1{1 τιμή} other{{count} τιμές}} για {product}",
   "@prices_product_accessibility_summary": {
@@ -2537,7 +2537,7 @@
     }
   },
   "prices_users_empty_title": "Δεν υπάρχει ακόμη συνεργάτης!",
-  "prices_users_empty_explanation": "Γίνετε ο πρώτος που θα προσθέσει μια τιμή!",
+  "prices_users_empty_explanation": "Προσθέστε πρώτα εσείς μια τιμή!",
   "prices_users_list_length_many_pages": "Κορυφαίοι {pageSize} συνεισφέροντες (σύνολο: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2550,8 +2550,8 @@
       }
     }
   },
-  "prices_locations_empty_title": "Δεν υπάρχει ακόμα κατάστημα!",
-  "prices_locations_empty_explanation": "Γίνετε ο πρώτος που θα προσθέσει μια τιμή!",
+  "prices_locations_empty_title": "Κανένα κατάστημα ακόμα!",
+  "prices_locations_empty_explanation": "Προσθέστε πρώτα εσείς μια τιμή!",
   "prices_locations_list_length_many_pages": "Κορυφαίες {pageSize} τοποθεσίες (σύνολο: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2616,10 +2616,10 @@
   "prices_location_mandatory": "Πρέπει να επιλέξετε ένα κατάστημα!",
   "prices_location_search_broader": "Δεν βρήκατε αυτό που ψάχνατε; Ας δοκιμάσουμε μια ευρύτερη αναζήτηση!",
   "prices_proof_subtitle": "Επαλήθευση",
-  "prices_proof_empty_title": "Δεν υπάρχει ακόμη απόδειξη!",
+  "prices_proof_empty_title": "Κανένα πειστήριο ακόμα!",
   "prices_proof_empty_explanation": "Ξεκινήστε προσθέτοντας μια φωτογραφία μιας **απόδειξης** ή μιας **ετικέτας τιμής**!",
   "prices_proof_find": "Επιλέξτε μια απόδειξη",
-  "prices_proof_change": "Απόδειξη αλλαγής",
+  "prices_proof_change": "Αλλαγή πειστηρίου",
   "prices_proof_receipt": "Απόδειξη",
   "prices_proof_price_tag": "Ετικέτα τιμής",
   "prices_proof_mandatory": "Πρέπει να επιλέξετε μια απόδειξη!",
@@ -2666,7 +2666,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Μάθετε περισσότερα για τις τιμές ανοίγματος",
+  "prices_menu_know_more": "Μάθετε περισσότερα για το Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2770,7 +2770,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Απόδειξη από \"{user}\"",
+  "search_proof_title": "Πειστήριο από \"{user}\"",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -3007,9 +3007,9 @@
       }
     }
   },
-  "brand_name": "Μάρκα",
+  "brand_name": "Επωνυμία",
   "brand_names": "Επωνυμίες",
-  "add_basic_details_brand_name_error": "Παρακαλώ εισάγετε το όνομα της μάρκας",
+  "add_basic_details_brand_name_error": "Παρακαλώ εισάγετε την επωνυμία",
   "add_basic_details_brand_names_hint": "Εισάγετε επωνυμίες (πχ: Ferrero)",
   "add_basic_details_product_brand_help_title": "Καλές πρακτικές: Μάρκες",
   "@add_basic_details_product_brand_help_title": {
@@ -3872,8 +3872,8 @@
   "environmental_score_b_new": "Πράσινο-Βαθμολογία Β",
   "environmental_score_c_new": "Πράσινη βαθμολογία C",
   "environmental_score_d_new": "Πράσινο-Βαθμολογία D",
-  "environmental_score_e_new": "Πράσινο-Σκορ E",
-  "environmental_score_unknown_new": "Άγνωστο Πράσινο Σκορ",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Άγνωστο Green-Score",
   "environmental_score_not_applicable_new": "Το Green-Score δεν ισχύει",
   "nova_group_generic_new": "Υπερεπεξεργασμένα τρόφιμα - ομάδες NOVA",
   "nova_group_1": "Ομάδα 1 NOVA",
@@ -3972,12 +3972,12 @@
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_greenscore_what_is_greenscore_title": "Τι είναι η Πράσινη Βαθμολογία;",
+  "guide_greenscore_what_is_greenscore_title": "Τι είναι το Green Score;",
   "guide_greenscore_what_is_greenscore_paragraph1": "Το Green-Score είναι ένα λογότυπο που στοχεύει να σας ενημερώσει σχετικά με τις **περιβαλλοντικές επιπτώσεις των τροφίμων**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_what_is_greenscore_paragraph2": "Ο χρωματικός κώδικας ποικίλλει από σκούρο πράσινο (**A+**) για τα **λιγότερο εντυπωσιακά** προϊόντα έως σκούρο κόκκινο (**F**) για τα **περισσότερο εντυπωσιακά** προϊόντα.",
+  "guide_greenscore_what_is_greenscore_paragraph2": "Ο χρωματικός κώδικας ποικίλλει από σκούρο πράσινο (**A+**) για τα προϊόντα με τον **λιγότερο αντίκτυπο** έως σκούρο κόκκινο (**F**) για τα προϊόντα με τον **περισσότερο αντίκτυπο**.",
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3997,20 +3997,20 @@
   "guide_greenscore_lca_arg3_title": "14 δείκτες περιβαλλοντικών επιπτώσεων",
   "guide_greenscore_lca_arg3_text1": "Κλιματική αλλαγή/αποτύπωμα άνθρακα",
   "guide_greenscore_lca_arg3_text2": "Καταστροφή της στιβάδας του όζοντος",
-  "guide_greenscore_lca_arg3_text3": "Ιονίζουσα ακτινοβολία",
-  "guide_greenscore_lca_arg3_text4": "Γη",
-  "guide_greenscore_lca_arg3_text5": "Χρήση νερού και ενέργειας",
+  "guide_greenscore_lca_arg3_text3": "Ιοντίζουσα ακτινοβολία",
+  "guide_greenscore_lca_arg3_text4": "Έδαφος",
+  "guide_greenscore_lca_arg3_text5": "Χρήση νερού & ενέργειας",
   "guide_greenscore_lca_arg3_text6": "Ρύπανση του αέρα",
   "guide_greenscore_lca_arg3_text7": "Θαλάσσιο και γλυκό νερό (σωματίδια, οξίνιση, ευτροφισμός)",
   "guide_greenscore_lca_arg3_text8": "Εξάντληση πόρων.",
-  "guide_greenscore_bonuses_penalties_title": "Μπόνους και κυρώσεις",
-  "guide_greenscore_bonuses_penalties_intro": "Για να ανταμείψουμε καλύτερα προϊόντα σε μια κατηγορία, εφαρμόζουμε **μπόνους και κυρώσεις με βάση διάφορα κριτήρια**:",
+  "guide_greenscore_bonuses_penalties_title": "Μπόνους & κυρώσεις",
+  "guide_greenscore_bonuses_penalties_intro": "Για να ανταμείψουμε καλύτερα προϊόντα σε μια κατηγορία, εφαρμόζουμε **μπόνους & κυρώσεις με βάση διάφορα κριτήρια**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Τρόπος παραγωγής",
   "guide_greenscore_bonuses_penalties_arg1_text": "Ένα **μπόνους** απονέμεται σε προϊόντα που διαθέτουν **επίσημη ετικέτα, ετικέτα ή πιστοποίηση που εγγυάται περιβαλλοντικά οφέλη** (βιολογικά, δίκαιου εμπορίου, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Προέλευση των συστατικών",
   "guide_greenscore_bonuses_penalties_arg2_text": "Απονέμεται ένα **μπόνους** με βάση την προέλευση των συστατικών. Αυτό το μπόνους λαμβάνει υπόψη τον **επιπτώσεις στις μεταφορές** καθώς και την **περιβαλλοντική πολιτική** της χώρας κάθε παραγωγού.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Είδη υπό εξαφάνιση",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Επιβάλλεται **ποινή** σε προϊόντα που περιέχουν συστατικά που έχουν σημαντικές **αρνητικές επιπτώσεις στη βιοποικιλότητα και τα οικοσυστήματα**, όπως το φοινικέλαιο, η παραγωγή του οποίου ευθύνεται για την μαζική αποψίλωση των δασών.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Επιβάλλεται **ποινή** σε προϊόντα που περιέχουν συστατικά που έχουν σημαντικές **αρνητικές επιπτώσεις στη βιοποικιλότητα και τα οικοσυστήματα**, όπως το φοινικέλαιο, η παραγωγή του οποίου ευθύνεται για τη μαζική αποψίλωση των δασών.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Συσκευασία",
   "guide_greenscore_bonuses_penalties_arg4_text": "Υπολογίζεται **ποινή** λαμβάνοντας υπόψη την **κυκλικότητα της συσκευασίας** (χρήση ανακυκλωμένων πρώτων υλών και ανακυκλωσιμότητα) και την υπερβολική συσκευασία.",
   "guide_greenscore_transparency_title": "Αυξημένη ανάγκη για διαφάνεια για την καλύτερη μέτρηση και τη μείωση των περιβαλλοντικών επιπτώσεων",
@@ -4059,14 +4059,14 @@
   "guide_nova_explanations_arg2_title": "Πρόσθετα που ξεπερνούν την απλή ασφάλεια των τροφίμων",
   "guide_nova_explanations_arg2_text": "Τα πρόσθετα στα υπερεπεξεργασμένα τρόφιμα περιλαμβάνουν ορισμένα που χρησιμοποιούνται επίσης σε επεξεργασμένα τρόφιμα, όπως συντηρητικά, αντιοξειδωτικά και σταθεροποιητές. Κατηγορίες προσθέτων που βρίσκονται μόνο σε υπερεπεξεργασμένα προϊόντα περιλαμβάνουν εκείνα που χρησιμοποιούνται **για να μιμηθούν ή να ενισχύσουν τις οργανοληπτικές ιδιότητες των τροφίμων ή για να συγκαλύψουν δυσάρεστες πτυχές του τελικού προϊόντος**. Αυτά τα πρόσθετα περιλαμβάνουν χρωστικές και άλλα χρώματα, σταθεροποιητές χρώματος, αρώματα, ενισχυτικά γεύσης, γλυκαντικά χωρίς ζάχαρη, και βοηθητικά επεξεργασίας όπως παράγοντες ενανθράκωσης, σύσφιξης, διόγκωσης και αντιδιογκωτικοί παράγοντες, παράγοντες αποαφρισμού, αντισυσσωματικούς και γλασαρίσματος, γαλακτωματοποιητές, απομονωτικά και υγραντικά.",
   "guide_nova_explanations_arg3_title": "Επεξεργασία που δεν μπορείτε να κάνετε στο σπίτι",
-  "guide_nova_explanations_arg3_text": "**Χρησιμοποιείται πληθώρα αλληλουχιών διεργασιών** για τον συνδυασμό των συνήθως πολλών συστατικών και τη δημιουργία του τελικού προϊόντος (εξ ου και «υπερεπεξεργασμένο»). Οι διεργασίες περιλαμβάνουν αρκετές **χωρίς εγχώρια ισοδύναμα**, όπως υδρογόνωση και υδρόλυση, εξώθηση και χύτευση, και προεπεξεργασία για τηγάνισμα.",
+  "guide_nova_explanations_arg3_text": "**Χρησιμοποιείται πληθώρα αλληλουχιών διεργασιών** για τον συνδυασμό των συνήθως πολλών συστατικών και τη δημιουργία του τελικού προϊόντος (εξ ου και «υπερεπεξεργασμένο»). Οι διεργασίες περιλαμβάνουν αρκετές **χωρίς οικιακά ισοδύναμα**, όπως υδρογόνωση και υδρόλυση, εξώθηση και χύτευση, και προεπεξεργασία για τηγάνισμα.",
   "guide_nova_explanations_arg4_title": "Οι επιθετικές και οικονομικές πτυχές της υπερεπεξεργασίας",
   "guide_nova_explanations_arg4_text": "Ο γενικός σκοπός της υπερεπεξεργασίας είναι η δημιουργία επώνυμων**, **βολικών** (ανθεκτικών, έτοιμων προς κατανάλωση), **ελκυστικών** (υπερεύγευστων) και **εξαιρετικά κερδοφόρων** (χαμηλού κόστους συστατικά) τροφίμων, σχεδιασμένων να εκτοπίσουν όλες τις άλλες ομάδες τροφίμων. Τα υπερεπεξεργασμένα τρόφιμα συνήθως συσκευάζονται ελκυστικά και διατίθενται στην αγορά εντατικά.",
   "guide_nova_explanations_arg5_title": "Ένας κίνδυνος για την υγεία",
   "guide_nova_explanations_arg5_text": "Από το 2018, με το NutriNet-Santé, έχουν επισημανθεί οι πρώτες συνδέσεις μεταξύ **της κατανάλωσης υπερεπεξεργασμένων τροφίμων και του αυξημένου κινδύνου καρκίνου, καρδιαγγειακών παθήσεων και διαβήτη**. Σήμερα, περισσότερες από 90 μελέτες παγκοσμίως επιβεβαιώνουν αυτά τα ευρήματα.\nΟι ισχυρότερες συσχετίσεις σχετίζονται με την **παχυσαρκία, την καρδιαγγειακή θνησιμότητα και τα συμπτώματα κατάθλιψης**. Στα παιδιά, οι επιπτώσεις παρατηρούνται κυρίως στο βάρος και στις λιπιδαιμικές ανισορροπίες.",
   "guide_nova_explanations_arg6_title": "Οι χώρες συνιστούν τον περιορισμό τους",
-  "guide_nova_explanations_arg6_text": "Ορισμένες χώρες χρησιμοποιούν τις ομάδες NOVA για τις διατροφικές τους οδηγίες ή στόχους, για παράδειγμα:\n\n- **🇧🇷 Οι διατροφικές οδηγίες της Βραζιλίας** **συνιστούν τον περιορισμό της κατανάλωσης** επεξεργασμένων τροφίμων και την αποφυγή των υπερεπεξεργασμένων τροφίμων.\n\n- **🇫🇷 Οι στόχοι της διατροφικής πολιτικής δημόσιας υγείας της Γαλλίας** για την περίοδο 2018-2022 αποσκοπούν στη **μείωση της κατανάλωσης υπερεπεξεργασμένων τροφίμων της ομάδας 4 κατά 20%**.",
-  "guide_nova_share_link": "https://world-el.openfoodfacts.org/nova",
+  "guide_nova_explanations_arg6_text": "Ορισμένες χώρες χρησιμοποιούν τις ομάδες NOVA για τις διατροφικές τους οδηγίες ή στόχους, για παράδειγμα:\n\n- Οι διατροφικές οδηγίες της **🇧🇷 Βραζιλίας συνιστούν τον περιορισμό της κατανάλωσης** επεξεργασμένων τροφίμων και την αποφυγή των υπερεπεξεργασμένων τροφίμων.\n\n- Οι στόχοι της διατροφικής πολιτικής δημόσιας υγείας της **🇫🇷 Γαλλίας** για την περίοδο 2018-2022 αποσκοπούν στη **μείωση της κατανάλωσης υπερεπεξεργασμένων τροφίμων της ομάδας 4 κατά 20%**.",
+  "guide_nova_share_link": "https://gr.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4088,7 +4088,7 @@
   "guide_open_food_facts_tips_title": "Συμβουλές για να τραβάτε υπέροχες φωτογραφίες",
   "guide_open_food_facts_tips_arg1_title": "Τι δεν πρέπει να κάνετε",
   "guide_open_food_facts_tips_arg1_text1": "Αποφύγετε τις σκιές και την αντανάκλαση.",
-  "guide_open_food_facts_tips_arg1_text2": "Δεν υπάρχει θολό ή εκτός εστίασης κείμενο.",
+  "guide_open_food_facts_tips_arg1_text2": "Όχι θολό ή εκτός εστίασης κείμενο.",
   "guide_open_food_facts_tips_arg1_text3": "Μην περικόπτετε τμήματα του κειμένου.",
   "guide_open_food_facts_tips_arg1_text4": "Αποφύγετε τα πολυάσχολα φόντα.",
   "guide_open_food_facts_tips_arg2_title": "Τι πρέπει να κάνετε",
@@ -4099,7 +4099,7 @@
   "guide_open_food_facts_scores_title": "Βοηθήστε μας να δημιουργήσουμε τη «Βικιπαίδεια του Φαγητού»",
   "guide_open_food_facts_scores_arg1_title": "Βαθμολογία για τη διατροφική ποιότητα",
   "guide_open_food_facts_scores_arg2_title": "Μια βαθμολογία για την αποφυγή υπερεπεξεργασμένων τροφίμων",
-  "guide_open_food_facts_scores_arg3_title": "Ένα σκορ για τον πλανήτη",
+  "guide_open_food_facts_scores_arg3_title": "Βαθμολογία για τον πλανήτη",
   "guide_open_food_facts_share_link": "https://world-el.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Καλώς ορίσατε στο Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
@@ -4114,13 +4114,13 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Χαρακτηριστικά των πληροφοριών για την ανοιχτή τροφή για κατοικίδια",
+  "guide_open_pet_food_facts_features_title": "Χαρακτηριστικά του Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Λάβετε ειδοποιήσεις για τα ανεπιθύμητα συστατικά σας",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Είναι το κατοικίδιό σας αλλεργικό σε κάποιο συστατικό; Μπορείτε να ορίσετε μια λίστα με τα συστατικά καλλυντικών που πρέπει να αποφεύγετε, απευθείας από την εφαρμογή!",
   "guide_open_pet_food_facts_tips_title": "Συμβουλές για να τραβάτε υπέροχες φωτογραφίες",
   "guide_open_pet_food_facts_tips_arg1_title": "Τι δεν πρέπει να κάνετε",
   "guide_open_pet_food_facts_tips_arg1_text1": "Αποφύγετε τις σκιές και την αντανάκλαση.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "Δεν υπάρχει θολό ή εκτός εστίασης κείμενο.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Όχι θολό ή εκτός εστίασης κείμενο.",
   "guide_open_pet_food_facts_tips_arg1_text3": "Μην περικόπτετε τμήματα του κειμένου.",
   "guide_open_pet_food_facts_tips_arg1_text4": "Αποφύγετε τα πολυάσχολα φόντα.",
   "guide_open_pet_food_facts_tips_arg2_title": "Τι πρέπει να κάνετε",
@@ -4150,7 +4150,7 @@
   "guide_open_beauty_facts_tips_title": "Συμβουλές για να τραβάτε υπέροχες φωτογραφίες",
   "guide_open_beauty_facts_tips_arg1_title": "Τι δεν πρέπει να κάνετε",
   "guide_open_beauty_facts_tips_arg1_text1": "Αποφύγετε τις σκιές και την αντανάκλαση.",
-  "guide_open_beauty_facts_tips_arg1_text2": "Δεν υπάρχει θολό ή εκτός εστίασης κείμενο.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Όχι θολό ή εκτός εστίασης κείμενο.",
   "guide_open_beauty_facts_tips_arg1_text3": "Μην περικόπτετε τμήματα του κειμένου.",
   "guide_open_beauty_facts_tips_arg1_text4": "Αποφύγετε τα πολυάσχολα φόντα.",
   "guide_open_beauty_facts_tips_arg2_title": "Τι πρέπει να κάνετε",
@@ -4441,7 +4441,7 @@
   "@carousel_error_text_2": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_error_button": "Προσπαθήστε ξανά",
+  "carousel_error_button": "Επανάληψη",
   "carousel_unknown_product_header": "Άγνωστο προϊόν",
   "@carousel_unknown_product_header": {
     "description": "A label on top of the carousel card when the product is not in the database (= it needs to be created)"
