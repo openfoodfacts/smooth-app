@@ -15,7 +15,7 @@
   "@reason": {},
   "okay": "Labi",
   "@okay": {},
-  "validate": "Validate",
+  "validate": "Validēt",
   "@validate": {
     "description": "Button label: Validate the input"
   },
@@ -23,7 +23,7 @@
   "@create": {
     "description": "An action to create"
   },
-  "applyButtonText": "Apply",
+  "applyButtonText": "Pieteikties",
   "@applyButtonText": {},
   "next_label": "Nākamais",
   "@next_label": {
@@ -44,8 +44,8 @@
   "go_back_to_top": "Atgriezties augšpusē",
   "save": "Saglabāt",
   "save_confirmation": "Vai tiešām vēlaties saglabāt?",
-  "skip": "Skip",
-  "cancel": "Cancel",
+  "skip": "Izlaist",
+  "cancel": "Atcelt",
   "@cancel": {},
   "ignore": "Ignorēt",
   "@ignore": {
@@ -160,7 +160,7 @@
   "incorrect_credentials": "Nepareizs lietotājvārds vai parole.",
   "password_lost_incorrect_credentials": "Šis e-pasts vai lietotājvārds neeksistē. Lūdzu, pārbaudiet savus akreditācijas datus.",
   "password_lost_server_unavailable": "Atvainojamies par to, ka mūsu serveros pašlaik ir palēnināšanās. Lūdzu, mēģiniet vēlreiz vēlāk.",
-  "login": "Login",
+  "login": "Pieteikšanās",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -384,7 +384,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "Datu kvalitāte",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -423,7 +423,7 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Become an actor of food transparency",
+  "contribute_to_get_rewards": "Kļūsti par pārtikas pārredzamības dalībnieku",
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
@@ -460,7 +460,7 @@
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
-  "ranking_tab_all": "All",
+  "ranking_tab_all": "Visi",
   "ranking_subtitle_match_yes": "Lielisks variants tev",
   "ranking_subtitle_match_no": "Ļoti slikta spēle",
   "ranking_subtitle_match_maybe": "Nezināma atbilstība",
@@ -473,7 +473,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Kopiena",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -493,7 +493,7 @@
   "@category": {
     "description": "From a product list, there's a category filter: this is its title"
   },
-  "category_all": "All",
+  "category_all": "Visi",
   "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
@@ -547,7 +547,7 @@
   "@unknownProductName": {
     "description": "Message when the product name is not available"
   },
-  "label_refresh": "Refresh",
+  "label_refresh": "Atsvaidzināt",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Nav atrasts neviens produkts",
   "@no_product_found": {},
+  "no_product_found_explanation": "Jūsu meklēšanai vaicājumam\n**\"{search}\"**\nnetika atrasts neviens rezultāts.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vai vēlaties veikt šo pašu meklēšanu **mūsu globālajā datubāzē**?",
   "no_location_found": "Nav atrasta neviena atrašanās vieta",
   "not_found": "nav atrasts:",
   "refreshing_product": "Atsvaidzinošs produkts",
@@ -1044,8 +1055,8 @@
   "tag_keys": "Īpašumi",
   "tag_key_uneditable": "Īpašums (nerediģējams)",
   "tag_key_input_hint": "Ievadiet īpašību",
-  "tag_value": "Value",
-  "tag_values": "Values",
+  "tag_value": "Vērtība",
+  "tag_values": "Vērtības",
   "tag_value_input_hint": "Ievadiet vērtību",
   "tag_key_item": "Īpašums:",
   "tag_value_item": "Vērtība:",
@@ -1554,7 +1565,7 @@
   "permission_photo_denied_dialog_settings_title": "Atļauja liegta",
   "permission_photo_denied_dialog_settings_message": "Tā kā iepriekš liedzāt kameras atļauju, tā ir jāatļauj manuāli iestatījumos.",
   "permission_photo_denied_dialog_settings_button_open": "Atvērt iestatījumus",
-  "permission_photo_denied_dialog_settings_button_cancel": "Cancel",
+  "permission_photo_denied_dialog_settings_button_cancel": "Atcelt",
   "permission_photo_none_found": "Nav atrasta neviena kamera",
   "@permission_photo_none_found": {
     "description": "Message for the user when no camera was detected, replacing the barcode scanner"
@@ -1772,7 +1783,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Valsts",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -1836,7 +1847,7 @@
   "@edit_product_form_item_emb_help_info2_item2_explanation": {
     "description": "Example of an EMB code"
   },
-  "edit_product_form_item_traces_title": "Traces",
+  "edit_product_form_item_traces_title": "Pēdas",
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
@@ -1963,7 +1974,7 @@
   "@edit_product_ingredients_photo_title": {
     "description": "Product edition - Ingredients - Title"
   },
-  "edit_product_ingredients_list_title": "List of ingredients",
+  "edit_product_ingredients_list_title": "Sastāvdaļu saraksts",
   "@edit_product_ingredients_list_title": {
     "description": "Product edition - Ingredients - Title"
   },
@@ -2248,7 +2259,7 @@
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
-  "dev_preferences_button_negative": "Cancel",
+  "dev_preferences_button_negative": "Atcelt",
   "@dev_preferences_button_negative": {
     "description": "User dev preferences - Negative button label"
   },
@@ -2321,7 +2332,7 @@
   "prices_website_button": "Atvērt vietnē Open Prices",
   "prices_bulk_proof_upload_select": "Pievienojiet cenu zīmes tieši no galerijas",
   "prices_bulk_proof_upload_warning": "Kad attēli būs atlasīti, tos vairs nevarēs rediģēt!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "Mākslīgais intelekts (AI) darbosies ar jūsu pierādījumiem, lai iegūtu cenas.",
   "prices_bulk_proof_upload_community_switch": "Ļaut kopienai validēt mākslīgā intelekta iegūtās cenas.",
   "prices_bulk_proof_upload_subtitle": "Vairākas cenu zīmes",
   "prices_bulk_proof_upload_title": "Lielapjoma pierādījumu augšupielāde",
@@ -2396,7 +2407,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "Price per unit",
+  "prices_per_unit": "Cena par vienību",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
@@ -2790,11 +2801,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Cenu ietekmes asistents",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Cenu validācijas asistents",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Izaicinājumi",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3916,47 +3927,47 @@
       }
     }
   },
-  "guide_title": "Guide",
+  "guide_title": "Ceļvedis",
   "@guide_title": {
     "description": "A title for a guide"
   },
   "guide_share_label": "Dalīties",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score attīstās: skaidrojumi!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Kas ir Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score ir logotips, kura mērķis ir informēt jūs par **pārtikas produktu uzturvērtību**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Krāsu kods atšķiras no tumši zaļas (**A**) **veselīgākajiem** produktiem līdz tumši sarkanai (**E**) **mazāk veselīgajiem** produktiem.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A logotips",
+  "guide_nutriscore_v2_why_v2_title": "Kāpēc Nutri-Score attīstās?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score formula **tiek attīstīta**, lai sniegtu labākus ieteikumus:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Labāk izvērtējiet visus dzērienus",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Jaunajā algoritmā bija labāk diferencētas **piena**, **piena dzērienu** ar pievienotu cukuru un **dārzeņu** dzērienu salīdzinošās notis.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Labāks dzērienu vērtējums",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Labāk tiek ņemts vērā **cukura saturs**, un tas dod priekšroku dzērieniem ar **zemu saldinājuma saturu**.\\n**Arī saldinātāji tiks sodīti**: diētisko gāzēto dzērienu vērtējums tiks pazemināts no B uz C un E. Ūdens joprojām ir ieteicamais dzēriens.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Sāls un cukurs sodīti",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Produktiem, kas **ir pārāk saldi** vai **pārāk sāļi**, **vērtējums tiks vēl vairāk pazemināts**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarhija eļļu un zivju starpā",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Uzlabosies noteiktu **treknu zivju** un **ar labajiem taukiem bagātu eļļu** vērtējums.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Ierobežojiet sarkanās gaļas patēriņu",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Sarkanās gaļas patēriņš **vajadzētu ierobežot**. Tāpēc **mājputnu gaļa būs salīdzinoši augstāk novērtēta**.",
+  "guide_nutriscore_v2_new_logo_title": "Kā atšķirt veco Nutri-Score aprēķinu no jaunā?",
+  "guide_nutriscore_v2_new_logo_text": "Turpmāk logotipā var tikt parādīts norāde \"**Jauns aprēķins**\", lai precizētu, ka šis patiešām ir jaunais aprēķins.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Jaunā Nutri-Score logotips",
   "guide_nutriscore_v2_where_title": "Kur atrast jauno Nutri-Score aprēķinu?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score tiek piemērots 7 valstīs: Francijā, Vācijā, Beļģijā, Spānijā, Luksemburgā, Nīderlandē un Šveicē.",
   "guide_nutriscore_v2_where_paragraph2": "Ražotājiem ir ne vairāk kā **2 gadi** pēc dekrēta parakstīšanas, **lai aizstātu** veco aprēķinu ar jauno.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Negaidot, jūs **jau atradīsiet OpenFoodFacts lietojumprogrammā** jauno aprēķinu, tostarp, ja ražotāji nav atjauninājuši rezultātu.",
+  "guide_nutriscore_v2_unchanged_title": "Kas nemainās",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score ir rādītājs, kas paredzēts **uzturvērtības mērīšanai**. Tas **papildina NOVA grupas** rādītājus par **ultraapstrādātiem pārtikas produktiem** (kas arī ir iekļauti pieteikumā).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Ražotājiem Nutri-Score attēlošana **joprojām ir neobligāta**.",
   "guide_greenscore_title": "Zaļais rādītājs",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3994,15 +4005,15 @@
   "guide_greenscore_lca_arg3_text8": "Resursu izsīkums.",
   "guide_greenscore_bonuses_penalties_title": "Bonusi un sodi",
   "guide_greenscore_bonuses_penalties_intro": "Lai apbalvotu labākus produktus noteiktā kategorijā, mēs piemērojam **bonusus un sodus, pamatojoties uz vairākiem kritērijiem**:",
-  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Ražošanas veids",
   "guide_greenscore_bonuses_penalties_arg1_text": "**Bonuss** tiek piešķirts produktiem, kuriem ir **oficiāla etiķete, marķējums vai sertifikāts, kas garantē ieguvumus videi** (bioloģisks, godīgas tirdzniecības, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Sastāvdaļu izcelsme",
   "guide_greenscore_bonuses_penalties_arg2_text": "**Bonuss** tiek piešķirts, pamatojoties uz sastāvdaļu izcelsmi. Šis bonuss ņem vērā **ietekmi uz transportēšanu**, kā arī katra ražotāja valsts **vides politiku**.",
-  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Apdraudētās sugas",
   "guide_greenscore_bonuses_penalties_arg3_text": "**Sods** tiek piemērots produktiem, kas satur sastāvdaļas, kurām ir būtiska **negatīva ietekme uz bioloģisko daudzveidību un ekosistēmām**, piemēram, palmu eļļa, kuras ražošana ir atbildīga par masveida mežu izciršanu.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Iepakojums",
   "guide_greenscore_bonuses_penalties_arg4_text": "**Sods** tiek aprēķināts, ņemot vērā **iepakojuma aprites principu** (pārstrādātu izejvielu izmantošanu un pārstrādājamību) un pārmērīgu iepakošanu.",
-  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_title": "Paaugstināta nepieciešamība pēc pārredzamības, lai labāk novērtētu un samazinātu ietekmi uz vidi",
   "guide_greenscore_transparency_intro1": "Lai precīzi aprēķinātu Zaļo rādītāju, ir nepieciešama **informācija, kas ne vienmēr ir norādīta uz iepakojuma** (piemēram, katras sastāvdaļas izcelsme un precīzs procentuālais daudzums) vai kas reti ir pieejama izmantojamā formā (piemēram, visu iepakojuma sastāvdaļu saraksts ar precīziem izmantotās plastmasas veidiem).",
   "guide_greenscore_transparency_intro2": "**Ja šī informācija vēl nav pieejama, tiek izmantotas vidējās vērtības**, taču tagad mēs aicinām ikvienu palīdzēt mums apkopot šo informāciju, kas būs ļoti noderīga gan Green-Score aprēķinā, gan daudzos citos nolūkos.",
   "guide_greenscore_transparency_arg1_title": "Kā iedzīvotāji var palīdzēt?",
@@ -4018,7 +4029,7 @@
   "guide_greenscore_better_product_arg3_text": "Ilgtspējīgas pārtikas izvēle var šķist sarežģīta. Etiķetes ir mulsinošas, un bieži vien trūkst informācijas. Green-Score sistēma tika izveidota, lai vienkāršotu šo procesu, sniedzot jums **skaidru**, **zinātniski pamatotu** un **caurspīdīgu** pārtikas produktu vides novērtējumu tieši tur, kur jums tas nepieciešams: iepirkšanās laikā.",
   "guide_greenscore_better_product_arg4_title": "Caurspīdīgums",
   "guide_greenscore_better_product_arg4_text": "Atšķirībā no patentētām etiķetēm, Green-Score aprēķins ir **pilnīgi atvērts** un to var **pārbaudīt jebkurš**.",
-  "guide_nova_title": "Ultra-processed foods",
+  "guide_nova_title": "Īpaši pārstrādāti pārtikas produkti",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4036,11 +4047,11 @@
   "guide_nova_groups_intro": "Ir 4 NOVA grupas, no kurām problemātiskākā ir 4. grupa — īpaši pārstrādāti pārtikas produkti.",
   "guide_nova_groups_arg1_title": "Minimāli apstrādāti vai neapstrādāti pārtikas produkti",
   "guide_nova_groups_arg1_text": "Neapstrādāti (jeb dabīgi) pārtikas produkti ir **augu** (sēklas, augļi, lapas, stublāji, saknes)**vai dzīvnieku** (muskuļi, subprodukti, olas, piens), kā arī sēnīšu, aļģu un ūdens ēdamās daļas pēc atdalīšanas no dabas.",
-  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_title": "Pārstrādātas kulinārijas sastāvdaļas",
   "guide_nova_groups_arg2_text": "Apstrādātas kulinārijas sastāvdaļas, piemēram, **eļļas, sviests, cukurs un sāls**, ir vielas, kas iegūtas no 1. grupas pārtikas produktiem vai no dabas, izmantojot procesus, kas ietver presēšanu, rafinēšanu, malšanu, malšanu un žāvēšanu.",
-  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_title": "Pārstrādāti pārtikas produkti",
   "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various preservation or cooking methods, and in the case Of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions Of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_title": "Īpaši pārstrādāti pārtikas produkti",
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those Also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain Other sources of energy and nutrients not typically used in culinary preparations. some of these are Directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Problēmas ar ultraapstrādi",
   "guide_nova_explanations_arg1_title": "Pārtikas sastāvdaļu ekstremāla apstrāde",
@@ -4161,7 +4172,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Pašlaik ir maz uzņēmumu, kuriem pieder lielas produktu cenu datubāzes svītrkodu līmenī. Šīs cenas nav brīvi pieejamas, bet gan tiek pārdotas par augstu cenu privātiem dalībniekiem, pētniekiem un citām organizācijām, kas tās var atļauties.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4178,7 +4189,7 @@
   "guide_open_prices_scrapping_title": "Vai apsvērāt cenu iegūšanu mazumtirgotāju tīmekļa vietnēs?",
   "guide_open_prices_scrapping_paragraph1": "Juridisku un tehnisku iemeslu dēļ **cenu iegūšanu no mazumtirgotāju tīmekļa vietnēm mēs neuzskatām par derīgu veidu, kā piedalīties atvērto cenu apkopošanā**. Mēs vēlamies pārliecināties, ka mūsu apkopotās cenas ir precīzas un aktuālas, un iegūto cenu saņemšana no līdzstrādniekiem mums to neļauj.",
   "guide_open_prices_scrapping_paragraph2": "Cenu nokasīšana (Cenu skrāpēšana) ir apsvērta iespēja nākotnes Open Prices versijā, taču to veiktu pats Open Prices, lai mēs varētu iegūt cenas pierādījumu, pamatojoties uz HTML lapu.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Esmu mazumtirgotājs un vēlos sniegt ieguldījumu cenu veidošanā. Kā es to varu izdarīt?",
   "guide_open_prices_retailers_paragraph1": "Jūs varat sniegt savu ieguldījumu cenu noteikšanā, izmantojot mūsu API.\nJa vēlaties sniegt savu ieguldījumu cenu noteikšanā plašā mērogā, lūdzu, sazinieties ar mums pa e-pastu prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Laipni lūdzam Open Products Facts vietnē!",
@@ -4700,7 +4711,7 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "Discount",
+  "prices_discount": "Atlaide",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
@@ -4720,11 +4731,11 @@
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "Locations",
+  "prices_stats_locations_section": "Atrašanās vietas",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Pierādījumi",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4732,7 +4743,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Eksperimenti",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4744,19 +4755,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "Ar svītrkodu",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "Ar kategoriju",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Ar atlaidi",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Kopiena",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4764,7 +4775,7 @@
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
-  "prices_stats_with_price": "With a price",
+  "prices_stats_with_price": "Ar cenu",
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
@@ -4788,11 +4799,11 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Online",
+  "prices_stats_online": "Tiešsaistē",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
-  "prices_stats_countries": "Countries",
+  "prices_stats_countries": "Valstis",
   "@prices_stats_countries": {
     "description": "Label for countries count"
   },
@@ -4804,31 +4815,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR request",
+  "prices_stats_gdpr_request": "GDPR pieprasījums",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "Veikala imports",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Izaicinājumi",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Cenas, kas saistītas ar cenu zīmi",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Valūtas",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Gadi",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Cenas un pierādījumi katram avotam",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4836,7 +4847,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Mobilā lietotne",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4904,7 +4915,7 @@
   "@preferences_connect_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_support_title": "Make a donation",
+  "preferences_support_title": "Ziedot",
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
@@ -4936,7 +4947,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "Cenas pievienotas",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5040,7 +5051,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "Pievienot cenas",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5563,7 +5574,7 @@
       }
     }
   },
-  "proof_count": "{count} proofs",
+  "proof_count": "{count} pierādījumi",
   "@proof_count": {
     "description": "Number of proofs (when we don't know the total)",
     "placeholders": {
@@ -5587,7 +5598,7 @@
       }
     }
   },
-  "contributors_count": "{count} contributors",
+  "contributors_count": "{count} līdzstrādnieki",
   "@contributors_count": {
     "description": "Number of contributors (when we don't know the total)",
     "placeholders": {
@@ -5677,7 +5688,7 @@
   "location_map_details_street": "Iela",
   "location_map_details_city": "Pilsēta",
   "location_map_details_postcode": "Pasta indekss",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Valsts",
   "location_map_details_coordinates": "Koordinātas",
   "location_map_details_osm_id": "OSM ID",
   "homepage_scanner_back_to_home_button": "Atpakaļ mājās",

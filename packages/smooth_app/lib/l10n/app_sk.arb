@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Neboli nájdené žiadne výrobky",
   "@no_product_found": {},
+  "no_product_found_explanation": "Vaše vyhľadávanie výrazu\n**\"{search}\"**\nneprinieslo žiadne výsledky.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Chcete namiesto toho spustiť rovnaké vyhľadávanie v **našej globálnej databáze**?",
   "no_location_found": "Neboli nájdené žiadne polohy",
   "not_found": "nenájdené:",
   "refreshing_product": "Obnovuje sa produkt",

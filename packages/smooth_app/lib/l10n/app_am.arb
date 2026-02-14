@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "ምንም ምርት አልተገኘም",
   "@no_product_found": {},
+  "no_product_found_explanation": "የ\n**\"{search}\"**\nፍለጋዎ ምንም አይነት ውጤት አላመጣም።",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "በምትኩ ይህንኑ ፍለጋ በ **ዓለም አቀፍ የውሂብ ጎታችን** ውስጥ ማስኬድ ይፈልጋሉ?",
   "no_location_found": "ምንም ቦታ አልተገኘም",
   "not_found": "አልተገኘም፦",
   "refreshing_product": "ምርትን የሚያድስ",

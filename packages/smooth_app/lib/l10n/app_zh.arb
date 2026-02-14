@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "未發現產品",
   "@no_product_found": {},
+  "no_product_found_explanation": "Your search for\n**\"{search}\"**\ndid not match any results.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Do you want to run this same search in **our global database** instead?",
   "no_location_found": "未找到位置",
   "not_found": "無法查明：",
   "refreshing_product": "食品重新整理中",

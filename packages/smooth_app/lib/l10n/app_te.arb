@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "ఏ ఉత్పత్తి కనుగొనబడలేదు",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nకోసం మీ శోధన ఏ ఫలితాలతోనూ సరిపోలలేదు.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "బదులుగా మీరు ఇదే శోధనను **మా గ్లోబల్ డేటాబేస్**లో అమలు చేయాలనుకుంటున్నారా?",
   "no_location_found": "స్థానం కనుగొనబడలేదు",
   "not_found": "దొరకలేదు:",
   "refreshing_product": "ఉత్పత్తిని రిఫ్రెష్ చేస్తోంది",

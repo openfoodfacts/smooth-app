@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "எந்த தயாரிப்பும் கிடைக்கவில்லை.",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nக்கான உங்கள் தேடல் எந்த முடிவுகளுடனும் பொருந்தவில்லை.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "இதற்குப் பதிலாக **எங்கள் உலகளாவிய தரவுத்தளத்தில்** இதே தேடலை இயக்க விரும்புகிறீர்களா?",
   "no_location_found": "எந்த இடமும் கிடைக்கவில்லை.",
   "not_found": "கிடைக்கவில்லை:",
   "refreshing_product": "புத்துணர்ச்சியூட்டும் தயாரிப்பு",
@@ -2321,7 +2332,7 @@
   "prices_website_button": "திறந்த விலைகள் வலைத்தளத்தில் திறக்கவும்",
   "prices_bulk_proof_upload_select": "கேலரியில் இருந்து நேரடியாக விலைக் குறிச்சொற்களைச் சேர்க்கவும்.",
   "prices_bulk_proof_upload_warning": "படங்களைத் தேர்ந்தெடுத்த பிறகு, அவற்றைத் திருத்த முடியாது!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "விலைகளைப் பிரித்தெடுக்க AI உங்கள் ஆதாரங்களில் இயங்கும்.",
   "prices_bulk_proof_upload_community_switch": "AI ஆல் பிரித்தெடுக்கப்பட்ட விலைகளை சமூகம் சரிபார்க்க அனுமதிக்கவும்.",
   "prices_bulk_proof_upload_subtitle": "பல விலை குறிச்சொற்கள்",
   "prices_bulk_proof_upload_title": "மொத்தமாகச் சரிபார்க்கக்கூடிய பதிவேற்றம்",
@@ -2790,7 +2801,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "விலை பங்களிப்பு உதவியாளர்",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "விலை சரிபார்ப்பு உதவியாளர்",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
@@ -3837,12 +3848,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "நியூட்ரி-ஸ்கோர் ஏ",
-  "nutriscore_b": "நியூட்ரி-ஸ்கோர் பி",
-  "nutriscore_c": "நியூட்ரி-ஸ்கோர் சி",
-  "nutriscore_d": "நியூட்ரி-ஸ்கோர் டி",
-  "nutriscore_e": "நியூட்ரி-ஸ்கோர் E",
-  "nutriscore_new_formula": "நியூட்ரி-ஸ்கோர் {letter} (புதிய கணக்கீடு)",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_new_formula": "Nutri-Score {letter} (புதிய கணக்கீடு)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3851,7 +3862,7 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "நியூட்ரி-ஸ்கோர் (புதிய கணக்கீடு)",
+  "nutriscore_new_formula_title": "Nutri-Score (புதிய கணக்கீடு)",
   "nutriscore_unknown": "தெரியாத நியூட்ரி-ஸ்கோர்",
   "nutriscore_unknown_new_formula": "தெரியாத Nutri-Score (புதிய கணக்கீடு)",
   "nutriscore_not_applicable": "நியூட்ரி-ஸ்கோர் பொருந்தாது.",
@@ -3881,7 +3892,7 @@
   "contact_title_pro_email": "தயாரிப்பாளர் தொடர்பு",
   "contact_title_press_page": "பக்கத்தை அழுத்தவும்",
   "contact_title_press_email": "தொடர்பு என்பதை அழுத்தவும்",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "எங்கள் செய்திமடலுக்கு குழுசேரவும்",
   "contact_title_calendar": "எங்கள் சமூக நாட்காட்டியில் குழுசேரவும்",
   "hunger_games_loading_line1": "தயவுசெய்து எங்களுக்கு சில வினாடிகள் கொடுங்கள்…",
   "hunger_games_loading_line2": "நாங்கள் கேள்விகளைப் பதிவிறக்குகிறோம்!",
@@ -3921,42 +3932,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "பகிர்க",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "நியூட்ரி-ஸ்கோர் உருவாகி வருகிறது: விளக்கங்கள்!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "அது என்ன நியூட்ரி-ஸ்கோர்?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "நியூட்ரி-ஸ்கோர் என்பது **உணவுகளின் ஊட்டச்சத்து தரம்** பற்றி உங்களுக்குத் தெரிவிப்பதை நோக்கமாகக் கொண்ட ஒரு லோகோ ஆகும்.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "**ஆரோக்கியமான** பொருட்களுக்கு அடர் பச்சை (**A**) முதல் **குறைவான** பொருட்களுக்கு அடர் சிவப்பு (**E**) வரை வண்ணக் குறியீடு மாறுபடும்.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "நியூட்ரி-ஸ்கோர் ஏ லோகோ",
+  "guide_nutriscore_v2_why_v2_title": "நியூட்ரி-ஸ்கோர் ஏன் உருவாகி வருகிறது?",
+  "guide_nutriscore_v2_why_v2_intro": "சிறந்த பரிந்துரைகளை வழங்க நியூட்ரி-ஸ்கோர் சூத்திரம் **வளர்ந்து வருகிறது**:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "எல்லா பானங்களையும் சிறப்பாக மதிப்பிடுங்கள்",
+  "guide_nutriscore_v2_why_v2_arg1_text": "**பால்**, **பால் பானங்கள்** மற்றும் சர்க்கரை சேர்த்தல் மற்றும் **காய்கறி** பானங்கள் ஆகியவற்றின் ஒப்பீட்டு குறிப்புகள் புதிய வழிமுறையில் சிறப்பாக வேறுபடுத்தப்பட்டன.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "பானங்களின் சிறந்த தரவரிசை",
+  "guide_nutriscore_v2_why_v2_arg2_text": "**சர்க்கரை உள்ளடக்கம்** சிறப்பாகக் கணக்கில் எடுத்துக்கொள்ளப்பட்டு **குறைந்த இனிப்பு** பானங்களை விரும்புகிறது.\\n**இனிப்பு கொடுப்பவர்களுக்கும் அபராதம் விதிக்கப்படும்**: டயட் சோடாக்கள் B மதிப்பீட்டிலிருந்து C மற்றும் E க்கு இடையில் தரமிறக்கப்படும். தண்ணீர் பரிந்துரைக்கப்பட்ட பானமாகவே உள்ளது.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "உப்பு மற்றும் சர்க்கரைக்கு அபராதம் விதிக்கப்பட்டது",
+  "guide_nutriscore_v2_why_v2_arg3_text": "**மிகவும் இனிப்பு** அல்லது **அதிக உப்பு** உள்ள தயாரிப்புகளின் **மதிப்பீடு மேலும் குறைக்கப்படும்**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "எண்ணெய்கள் மற்றும் மீன்களுக்குள் படிநிலை",
+  "guide_nutriscore_v2_why_v2_arg4_text": "சில **கொழுப்புள்ள மீன்** மற்றும் **நல்ல கொழுப்புகள் நிறைந்த எண்ணெய்கள்** ஆகியவற்றின் மதிப்பீடு மேம்படும்.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "சிவப்பு இறைச்சியை வரம்பிடவும்",
+  "guide_nutriscore_v2_why_v2_arg5_text": "**சிவப்பு இறைச்சியின் நுகர்வு குறைவாக இருக்க வேண்டும்**. இதனால்தான் **கோழி ஒப்பீட்டளவில் சிறந்த தரவரிசையில்** இருக்கும்.",
+  "guide_nutriscore_v2_new_logo_title": "பழைய நியூட்ரி-ஸ்கோரையும் புதிய கணக்கீட்டையும் எவ்வாறு வேறுபடுத்துவது?",
+  "guide_nutriscore_v2_new_logo_text": "இனிமேல், இது உண்மையில் புதிய கணக்கீடு என்பதை தெளிவுபடுத்த லோகோவில் \"**புதிய கணக்கீடு**\" என்ற குறிப்பு காட்டப்படும்.",
+  "guide_nutriscore_v2_new_logo_image_caption": "புதிய நியூட்ரி-ஸ்கோரின் லோகோ",
   "guide_nutriscore_v2_where_title": "புதிய நியூட்ரி-ஸ்கோர் கணக்கீட்டை எங்கே கண்டுபிடிப்பது?",
   "guide_nutriscore_v2_where_paragraph1": "நியூட்ரி-ஸ்கோர் பிரான்ஸ், ஜெர்மனி, பெல்ஜியம், ஸ்பெயின், லக்சம்பர்க், நெதர்லாந்து மற்றும் சுவிட்சர்லாந்து ஆகிய 7 நாடுகளில் பயன்படுத்தப்படுகிறது.",
   "guide_nutriscore_v2_where_paragraph2": "ஆணையில் கையொப்பமிட்ட பிறகு, பழைய கணக்கீட்டை புதிய கணக்கீட்டால் மாற்றுவதற்கு உற்பத்தியாளர்கள் அதிகபட்சம் **2 ஆண்டுகள்** அவகாசம் அளிக்கின்றனர்.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "காத்திருக்காமல், உற்பத்தியாளர்கள் மதிப்பெண்ணைப் புதுப்பிக்கவில்லை என்றால், புதிய கணக்கீட்டை OpenFoodFacts பயன்பாட்டில் ** ஏற்கனவே காணலாம்.",
+  "guide_nutriscore_v2_unchanged_title": "எது மாறாது",
+  "guide_nutriscore_v2_unchanged_paragraph1": "நியூட்ரி-ஸ்கோர் என்பது **ஊட்டச்சத்து தரத்தை அளவிட** வடிவமைக்கப்பட்ட ஒரு மதிப்பெண் ஆகும். இது **அதிக பதப்படுத்தப்பட்ட உணவுகள்** (பயன்பாட்டிலும் உள்ளது) மீதான NOVA குழுவிற்கு** துணைபுரிகிறது.",
+  "guide_nutriscore_v2_unchanged_paragraph2": "உற்பத்தியாளர்களுக்கு, நியூட்ரி-ஸ்கோர் ** காட்சிப்படுத்தல் விருப்பத்தேர்வாகவே உள்ளது**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -3977,7 +3988,7 @@
   "guide_greenscore_lca_arg1_text2": "**வாழ்க்கைச் சுழற்சி பகுப்பாய்வு** என்பது பல-நிலை மற்றும் பல-அளவுகோல்களைக் கொண்ட சுற்றுச்சூழல் மதிப்பீட்டை மேற்கொள்வதற்கான ஒரு தரப்படுத்தப்பட்ட மதிப்பீட்டு முறையாகும்.",
   "guide_greenscore_lca_arg1_text3": "**இது அளவிடுகிறது:**",
   "guide_greenscore_lca_arg2_title": "6 உற்பத்தி படிகள்",
-  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_agriculture": "விவசாயம்",
   "guide_greenscore_lca_arg2_processing": "Processing",
   "guide_greenscore_lca_arg2_packaging": "Packaging",
   "guide_greenscore_lca_arg2_transportation": "Transportation",
@@ -4002,7 +4013,7 @@
   "guide_greenscore_bonuses_penalties_arg3_text": "பல்லுயிர் பெருக்கம் மற்றும் சுற்றுச்சூழல் அமைப்புகளில் குறிப்பிடத்தக்க **எதிர்மறை தாக்கங்களை ஏற்படுத்தும்** பொருட்களைக் கொண்ட தயாரிப்புகளுக்கு **அபராதம்** வழங்கப்படுகிறது, எடுத்துக்காட்டாக பாமாயில் உற்பத்தி, அதன் உற்பத்தியே பாரிய காடழிப்புக்கு காரணமாகிறது.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
   "guide_greenscore_bonuses_penalties_arg4_text": "**பேக்கேஜிங்கின் **சுற்றளவு** (மறுசுழற்சி செய்யப்பட்ட மூலப்பொருட்களின் பயன்பாடு மற்றும் மறுசுழற்சி செய்யும் திறன்) மற்றும் அதிகப்படியான பேக்கிங் ஆகியவற்றைக் கணக்கில் எடுத்துக்கொண்டு **அபராதம்** கணக்கிடப்படுகிறது.",
-  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
+  "guide_greenscore_transparency_title": "சுற்றுச்சூழல் பாதிப்புகளை சிறப்பாக அளவிடுவதற்கும் குறைப்பதற்கும் வெளிப்படைத்தன்மைக்கான அதிகரித்த தேவை",
   "guide_greenscore_transparency_intro1": "கிரீன்-ஸ்கோரை துல்லியமாகக் கணக்கிட, **பேக்கேஜிங்கில் அவசியம் குறிப்பிடப்படாத தகவல்கள்** (ஒவ்வொரு மூலப்பொருளின் தோற்றம் மற்றும் சரியான சதவீதம் போன்றவை) அல்லது பயன்படுத்தக்கூடிய வடிவத்தில் அரிதாகவே கிடைக்கும் தகவல்கள் (பயன்படுத்தப்படும் துல்லியமான பிளாஸ்டிக் வகைகளுடன் பேக்கேஜிங்கின் அனைத்து கூறுகளின் பட்டியல் போன்றவை) இருப்பது அவசியம்.",
   "guide_greenscore_transparency_intro2": "**இந்தத் தகவல் இன்னும் கிடைக்காதபோது சராசரி மதிப்புகள் பயன்படுத்தப்படுகின்றன**, ஆனால் இந்தத் தகவலைச் சேகரிக்க அனைவரும் உதவுமாறு நாங்கள் இப்போது அழைக்கிறோம், இது கிரீன்-ஸ்கோருக்கு மட்டுமல்ல, பல பயன்பாடுகளுக்கும் மிகவும் பயனுள்ளதாக இருக்கும்.",
   "guide_greenscore_transparency_arg1_title": "குடிமக்கள் எவ்வாறு உதவ முடியும்?",
@@ -4018,7 +4029,7 @@
   "guide_greenscore_better_product_arg3_text": "நிலையான உணவைத் தேர்ந்தெடுப்பது சிக்கலானதாகத் தோன்றலாம். லேபிள்கள் குழப்பமானவை, மேலும் தகவல்கள் பெரும்பாலும் காணாமல் போகின்றன. Green-Score அதை எளிமையாக்க உருவாக்கப்பட்டது, உங்களுக்குத் தேவையான இடத்தில்: நீங்கள் ஷாப்பிங் செய்யும் போது உணவுப் பொருட்களுக்கு **தெளிவான**, **அறிவியல் அடிப்படையிலான** மற்றும் **வெளிப்படையான** சுற்றுச்சூழல் மதிப்பீட்டை வழங்குகிறது.",
   "guide_greenscore_better_product_arg4_title": "வெளிப்படைத்தன்மை",
   "guide_greenscore_better_product_arg4_text": "தனியுரிம லேபிள்களைப் போலன்றி, Green-Score கணக்கீடு **முற்றிலும் திறந்திருக்கும்** மற்றும் **எவராலும் சரிபார்க்கப்படலாம்**.",
-  "guide_nova_title": "Ultra-processed foods",
+  "guide_nova_title": "மிகவும் பதப்படுத்தப்பட்ட உணவுகள்",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4302,11 +4313,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Front picture",
+  "product_image_front_accessibility_label": "முன்பக்கப் படம்",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Ingredients picture",
+  "product_image_ingredients_accessibility_label": "பொருட்கள் படம்",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -4443,7 +4454,7 @@
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_unknown_product_button": "Add this product",
+  "carousel_unknown_product_button": "இந்த தயாரிப்பைச் சேர்க்கவும்",
   "carousel_loading_header": "தகவலை ஏற்றுகிறது...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
@@ -4476,11 +4487,11 @@
   "photo_already_exists": "இந்தப் புகைப்படம் ஏற்கனவே உள்ளது.",
   "photo_missing": "இந்தப் புகைப்படம் இல்லை.",
   "date": "தேதி",
-  "photo_rotate_left": "Rotate left",
+  "photo_rotate_left": "இடதுபுறமாகச் சுழற்று",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Rotate right",
+  "photo_rotate_right": "வலதுபுறம் சுழற்று",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4505,7 +4516,7 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "Warning",
+  "knowledge_panel_warning_text": "எச்சரிக்கை",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
@@ -4884,7 +4895,7 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
-  "preferences_my_contributions_title": "My contributions",
+  "preferences_my_contributions_title": "எனது பங்களிப்புகள்",
   "@preferences_my_contributions_title": {
     "description": "Title for my contributions preferences tile"
   },
@@ -4904,7 +4915,7 @@
   "@preferences_connect_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_support_title": "Make a donation",
+  "preferences_support_title": "நன்கொடை அளியுங்கள்",
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
@@ -5161,7 +5172,7 @@
   "@preferences_faq_nutriscore_v2_subtitle": {
     "description": "Subtitle for Nutri-Score V2 in FAQ"
   },
-  "preferences_faq_discover_project_title": "Discover the project",
+  "preferences_faq_discover_project_title": "திட்டத்தைக் கண்டறியவும்",
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
@@ -5265,7 +5276,7 @@
   "@preferences_connect_pro_email_subtitle": {
     "description": "Subtitle for professional email tile"
   },
-  "preferences_connect_press_title": "Press",
+  "preferences_connect_press_title": "பிரஸ்",
   "@preferences_connect_press_title": {
     "description": "Title for press card"
   },

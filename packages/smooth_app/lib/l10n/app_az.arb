@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Heç bir məhsul tapılmadı",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nüçün axtarışınız heç bir nəticə vermədi.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Bunun əvəzinə eyni axtarışı **qlobal verilənlər bazamızda** işlətmək istəyirsiniz?",
   "no_location_found": "Yer tapılmadı",
   "not_found": "tapılmadı:",
   "refreshing_product": "Təravətləndirici məhsul",

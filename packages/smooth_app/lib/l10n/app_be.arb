@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Прадукт не знойдзены",
   "@no_product_found": {},
+  "no_product_found_explanation": "Па запыце\n**\"{search}\"**\nнічога не знойдзена.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Вы хочаце замест гэтага выканаць гэты ж пошук у **нашай глабальнай базе дадзеных**?",
   "no_location_found": "Месцазнаходжанне не знойдзена",
   "not_found": "не знойдзена:",
   "refreshing_product": "Абнаўленне прадукту",

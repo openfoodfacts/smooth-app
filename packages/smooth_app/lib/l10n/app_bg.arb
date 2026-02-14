@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Няма намерен продукт",
   "@no_product_found": {},
+  "no_product_found_explanation": "Търсенето ви за\n**\"{search}\"**\nне намери резултати.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Искате ли да извършите същото търсене в **нашата глобална база данни** вместо това?",
   "no_location_found": "Не е намерено местоположение",
   "not_found": "не е намерено:",
   "refreshing_product": "Актуализация на продукта",

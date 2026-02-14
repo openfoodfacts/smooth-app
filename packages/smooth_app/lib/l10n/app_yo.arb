@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "A ko ri ọja kankan",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ìwákiri rẹ fún\n**\"{search}\"**\nkò bá àwọn èsì mu.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ṣé o fẹ́ ṣe ìwádìí kan náà yìí nínú **àkójọ ìpamọ́ àgbáyé wa** dípò?",
   "no_location_found": "A ko ri ipo kankan",
   "not_found": "ko ri:",
   "refreshing_product": "Ọjà tuntun",

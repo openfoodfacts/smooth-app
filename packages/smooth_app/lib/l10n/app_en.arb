@@ -896,7 +896,6 @@
       }
     }
   },
-
   "no_product_found_try_world_results": "Do you want to run this same search in **our global database** instead?",
   "no_location_found": "No location found",
   "not_found": "not found:",

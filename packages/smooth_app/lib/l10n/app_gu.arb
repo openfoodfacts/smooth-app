@@ -886,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "કોઈ ઉત્પાદન મળ્યું નથી.",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nમાટે તમારી શોધ કોઈપણ પરિણામો સાથે મેળ ખાતી નથી.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "શું તમે આ જ શોધ **આપણા વૈશ્વિક ડેટાબેઝ** માં ચલાવવા માંગો છો?",
   "no_location_found": "કોઈ સ્થાન મળ્યું નથી",
   "not_found": "મળ્યું નથી:",
   "refreshing_product": "તાજગી આપતી પ્રોડક્ટ",
@@ -3837,12 +3848,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "ન્યુટ્રી-સ્કોર એ",
-  "nutriscore_b": "ન્યુટ્રી-સ્કોર બી",
-  "nutriscore_c": "ન્યુટ્રી-સ્કોર સી",
-  "nutriscore_d": "ન્યુટ્રી-સ્કોર ડી",
-  "nutriscore_e": "ન્યુટ્રી-સ્કોર ઇ",
-  "nutriscore_new_formula": "ન્યુટ્રી-સ્કોર {letter} (નવી ગણતરી)",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_new_formula": "Nutri-Score {letter} (નવી ગણતરી)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3851,7 +3862,7 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "ન્યુટ્રી-સ્કોર (નવી ગણતરી)",
+  "nutriscore_new_formula_title": "Nutri-Score (નવી ગણતરી)",
   "nutriscore_unknown": "અજ્ઞાત ન્યુટ્રી-સ્કોર",
   "nutriscore_unknown_new_formula": "અજ્ઞાત ન્યુટ્રી-સ્કોર (નવી ગણતરી)",
   "nutriscore_not_applicable": "ન્યુટ્રી-સ્કોર લાગુ પડતો નથી",
@@ -3921,42 +3932,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "શેર કરો",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "ન્યુટ્રી-સ્કોર વિકસિત થઈ રહ્યો છે: સમજૂતીઓ!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "ન્યુટ્રી-સ્કોર શું છે?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "ન્યુટ્રી-સ્કોર એ એક લોગો છે જેનો ઉદ્દેશ્ય તમને **ખોરાકની પોષક ગુણવત્તા** વિશે માહિતી આપવાનો છે.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "**સૌથી સ્વસ્થ** ઉત્પાદનો માટે રંગ કોડ ઘેરા લીલા (**A**) થી **ઓછા સ્વસ્થ** ઉત્પાદનો માટે ઘેરા લાલ (**E**) સુધી બદલાય છે.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "ન્યુટ્રી-સ્કોર A લોગો",
+  "guide_nutriscore_v2_why_v2_title": "ન્યુટ્રી-સ્કોર શા માટે વિકસિત થઈ રહ્યો છે?",
+  "guide_nutriscore_v2_why_v2_intro": "ન્યુટ્રી-સ્કોર ફોર્મ્યુલા **બહેતર ભલામણો પૂરી પાડવા માટે** વિકસિત થઈ રહ્યું છે:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "બધા પીણાંનું વધુ સારું મૂલ્યાંકન કરો",
+  "guide_nutriscore_v2_why_v2_arg1_text": "નવા અલ્ગોરિધમમાં **દૂધ**, **ડેરી પીણાં**, ખાંડ ઉમેરેલા અને **વનસ્પતિ** પીણાંની તુલનાત્મક નોંધો વધુ સારી રીતે અલગ પાડવામાં આવી હતી.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "પીણાંનું વધુ સારું રેન્કિંગ",
+  "guide_nutriscore_v2_why_v2_arg2_text": "**ખાંડનું પ્રમાણ** વધુ સારી રીતે ધ્યાનમાં લેવામાં આવે છે અને **ઓછી મીઠાશવાળા** પીણાંની તરફેણ કરે છે.\\n**મીઠાશવાળા પીણાં પર પણ દંડ લાદવામાં આવશે**: ડાયેટ સોડાને B રેટિંગથી ઘટાડીને C અને E વચ્ચે રાખવામાં આવશે. પાણી હજુ પણ ભલામણ કરાયેલ પીણું છે.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "મીઠું અને ખાંડ દંડિત",
+  "guide_nutriscore_v2_why_v2_arg3_text": "**ખૂબ મીઠા** અથવા **ખૂબ ખારા** ઉત્પાદનોનું **રેટિંગ વધુ ડાઉનગ્રેડ** કરવામાં આવશે.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "તેલ અને માછલીઓમાં વંશવેલો",
+  "guide_nutriscore_v2_why_v2_arg4_text": "ચોક્કસ **ફેટી માછલી** અને **સારી ચરબીથી ભરપૂર તેલ** નું રેટિંગ સુધરશે.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "લાલ માંસ મર્યાદિત કરો",
+  "guide_nutriscore_v2_why_v2_arg5_text": "**લાલ માંસનો વપરાશ મર્યાદિત** હોવો જોઈએ. આ જ કારણ છે કે **મરઘાં તુલનાત્મક રીતે વધુ સારા ક્રમે** રહેશે.",
+  "guide_nutriscore_v2_new_logo_title": "જૂના ન્યુટ્રી-સ્કોર અને નવી ગણતરીને કેવી રીતે અલગ પાડવી?",
+  "guide_nutriscore_v2_new_logo_text": "હવેથી, લોગો \"**નવી ગણતરી**\" નો ઉલ્લેખ પ્રદર્શિત કરી શકે છે જેથી સ્પષ્ટ થાય કે આ ખરેખર નવી ગણતરી છે.",
+  "guide_nutriscore_v2_new_logo_image_caption": "નવા ન્યુટ્રી-સ્કોરનો લોગો",
   "guide_nutriscore_v2_where_title": "નવી ન્યુટ્રી-સ્કોર ગણતરી ક્યાંથી મળશે?",
   "guide_nutriscore_v2_where_paragraph1": "ન્યુટ્રી-સ્કોર 7 દેશોમાં લાગુ પડે છે: ફ્રાન્સ, જર્મની, બેલ્જિયમ, સ્પેન, લક્ઝમબર્ગ, નેધરલેન્ડ અને સ્વિટ્ઝર્લૅન્ડ.",
   "guide_nutriscore_v2_where_paragraph2": "હુકમનામા પર હસ્તાક્ષર થયા પછી ઉત્પાદકો પાસે જૂની ગણતરીને નવી ગણતરી સાથે બદલવા માટે વધુમાં વધુ **2 વર્ષ** છે.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "રાહ જોયા વિના, તમને **OpenFoodFacts એપ્લિકેશન** માં નવી ગણતરી મળી જશે, જેમાં ઉત્પાદકોએ સ્કોર અપડેટ ન કર્યો હોય તો તે પણ શામેલ છે.",
+  "guide_nutriscore_v2_unchanged_title": "શું બદલાતું નથી",
+  "guide_nutriscore_v2_unchanged_paragraph1": "ન્યુટ્રી-સ્કોર એ એક સ્કોર છે જે **પોષણની ગુણવત્તા** માપવા માટે રચાયેલ છે. તે **અલ્ટ્રા-પ્રોસેસ્ડ ફૂડ્સ** (એપ્લિકેશનમાં પણ હાજર) પર NOVA ગ્રુપ** માટે **પૂરક** છે.",
+  "guide_nutriscore_v2_unchanged_paragraph2": "ઉત્પાદકો માટે, ન્યુટ્રી-સ્કોરનું પ્રદર્શન **વૈકલ્પિક** રહે છે.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4505,7 +4516,7 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "Warning",
+  "knowledge_panel_warning_text": "ચેતવણી",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
