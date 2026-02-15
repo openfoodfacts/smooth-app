@@ -11,6 +11,7 @@ import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/user_management/login_page.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 
 typedef AnonymousAnnotationList = Map<String, InsightAnnotation>;
@@ -152,6 +153,7 @@ class CongratsWidget extends StatelessWidget {
         annotation.key,
         annotation.value,
         deviceId: OpenFoodAPIConfiguration.uuid,
+        user: ProductQuery.getReadUser(),
       );
 
       results.add(status.status == 1);
