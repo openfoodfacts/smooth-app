@@ -63,9 +63,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
 
   /// Refreshes the references with network data.
   Future<void> refresh() async {
-    final String lc = ProductQuery
-        .getLanguage()
-        .code;
+    final String lc = ProductQuery.getLanguage().code;
     if (daoString != null) {
       final String? latestLanguage = await daoString!.get(
         _DAO_STRING_KEY_LANGUAGE,
@@ -202,14 +200,16 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
   /// Loads the references of importance and attribute groups from strings.
   ///
   /// May throw an exception.
-  void _loadFromStrings(final String languageCode,
-      final String preferenceImportancesString,
-      final String attributeGroupsString,) {
+  void _loadFromStrings(
+    final String languageCode,
+    final String preferenceImportancesString,
+    final String attributeGroupsString,
+  ) {
     final AvailableProductPreferences myAvailableProductPreferences =
-    AvailableProductPreferences.loadFromJSONStrings(
-      preferenceImportancesString: preferenceImportancesString,
-      attributeGroupsString: attributeGroupsString,
-    );
+        AvailableProductPreferences.loadFromJSONStrings(
+          preferenceImportancesString: preferenceImportancesString,
+          attributeGroupsString: attributeGroupsString,
+        );
     availableProductPreferences = myAvailableProductPreferences;
   }
 
