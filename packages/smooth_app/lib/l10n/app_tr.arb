@@ -160,7 +160,7 @@
   "incorrect_credentials": "Hatalı kullanıcı adı veya parola.",
   "password_lost_incorrect_credentials": "Bu e-posta veya kullanıcı adı mevcut değil. Lütfen kimlik bilgilerinizi kontrol edin.",
   "password_lost_server_unavailable": "Şu anda sunucularımızda yavaşlamalar yaşıyoruz ve bunun için özür dileriz. Lütfen daha sonra tekrar deneyiniz.",
-  "login": "Oturumu Başlat",
+  "login": "Giriş yap",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -350,7 +350,7 @@
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "Destekleyebilirsiniz",
+  "contribute": "Katkıda bulunun",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
@@ -1282,7 +1282,7 @@
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
   "faq": "SSS",
-  "discover": "Keşfet",
+  "discover": "Keşfedin",
   "how_to_contribute": "Nasıl Katkıda Bulunulur",
   "hint_knowledge_panel_message": "Gördüğünüz şey hakkında daha fazla ayrıntı almak için kartın herhangi bir yerine dokunabilirsiniz. Şimdi dene!",
   "@hint_knowledge_panel_message": {
@@ -4891,7 +4891,7 @@
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
-  "preferences_contribute_title": "Destekleyebilirsiniz",
+  "preferences_contribute_title": "Katkıda bulunun",
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
