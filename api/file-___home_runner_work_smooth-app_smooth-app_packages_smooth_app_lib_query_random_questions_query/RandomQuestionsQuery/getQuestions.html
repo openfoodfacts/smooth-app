@@ -75,24 +75,17 @@ Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
   final LocalDatabase localDatabase,
   final int count,
 ) async {
-  randomQuestionsManager.setRequest(count);
-  if (randomQuestionsManager.isExhausted) {
-    return &lt;RobotoffQuestion&gt;[];
-  }
-
   final RobotoffQuestionResult result = await RobotoffAPIClient.getQuestions(
-    randomQuestionsManager.language,
-    user: randomQuestionsManager.user,
-    countries: &lt;OpenFoodFactsCountry&gt;[randomQuestionsManager.country],
-    count: randomQuestionsManager.count,
-    page: randomQuestionsManager.page,
+    ProductQuery.getLanguage(),
+    deviceId: OpenFoodAPIConfiguration.uuid,
+    user: ProductQuery.getReadUser(),
+    countries: &lt;OpenFoodFactsCountry&gt;[ProductQuery.getCountry()],
+    count: count,
     questionOrder: RobotoffQuestionOrder.popularity,
     serverType: ServerType.openFoodFacts,
   );
 
-  final int resultCount = result.questions?.length ?? 0;
-  randomQuestionsManager.setResultCount(resultCount);
-  if (resultCount == 0) {
+  if (result.questions?.isNotEmpty != true) {
     return &lt;RobotoffQuestion&gt;[];
   }
   final List&lt;String&gt; barcodes = &lt;String&gt;[];
