@@ -12,7 +12,6 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
@@ -133,8 +132,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
       index = 0;
       for (final XFile xFile in xFiles) {
         index++;
-        final int sequenceNumber = await getNextSequenceNumber(
-          daoInt,
+        final int sequenceNumber = await daoInt.getNextSequenceNumber(
           BULK_PROOF_IMAGE_SEQUENCE_KEY,
         );
         final String path = xFile.path;
