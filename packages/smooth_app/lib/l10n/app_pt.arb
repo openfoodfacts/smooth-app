@@ -514,7 +514,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_product_help": "Search a product,\na brand or a barcode",
+  "search_product_help": "Procure um produto,\nmarca ou código de barras",
   "@search_product_help": {
     "description": "Help text of a search text input field. Please respect the line break."
   },
