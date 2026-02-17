@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -300,8 +299,5 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   @override
   bool isDeduplicable() => false;
 
-  double _fixPriceDecimals(final double price) {
-    final num power10 = pow(10, currency.decimalNumbers);
-    return (price * power10).toInt() / power10;
-  }
+  double _fixPriceDecimals(final double price) => currency.fixDecimals(price);
 }
