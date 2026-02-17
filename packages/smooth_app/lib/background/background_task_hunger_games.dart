@@ -127,6 +127,7 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
       annotation,
       deviceId: OpenFoodAPIConfiguration.uuid,
       user: ProductQuery.getReadUser(),
+      uriHelper: ProductQuery.uriRobotoffHelper,
     );
   }
 }
