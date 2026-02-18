@@ -13,6 +13,9 @@ class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
   static const String _COOKIE = 'user_cookie';
+  static const String USER_NAME = 'user_name';
+
+  static UserDetails? globalUserDetails;
 
   /// Checks credentials and conditionally saves them.
   Future<LoginResult> login(
@@ -26,7 +29,8 @@ class UserManagementProvider with ChangeNotifier {
     if (loginResult.type != LoginResultType.successful) {
       return loginResult;
     }
-    await putUser(loginResult.user!);
+    await putUser(loginResult.user!, name: loginResult.userDetails?.name);
+    globalUserDetails = loginResult.userDetails;
     await credentialsInStorage();
     return loginResult;
   }
@@ -34,9 +38,11 @@ class UserManagementProvider with ChangeNotifier {
   /// Deletes saved credentials from storage
   Future<bool> logout() async {
     OpenFoodAPIConfiguration.globalUser = null;
+    globalUserDetails = null;
     DaoSecuredString.remove(key: _USER_ID);
     DaoSecuredString.remove(key: _PASSWORD);
     DaoSecuredString.remove(key: _COOKIE);
+    DaoSecuredString.remove(key: USER_NAME);
     notifyListeners();
     final bool contains = await credentialsInStorage();
     return !contains;
@@ -63,6 +69,7 @@ class UserManagementProvider with ChangeNotifier {
       DaoSecuredString.remove(key: _USER_ID);
       DaoSecuredString.remove(key: _PASSWORD);
       DaoSecuredString.remove(key: _COOKIE);
+      DaoSecuredString.remove(key: USER_NAME);
       Logs.e('Credentials query failed, you have been logged out');
     }
 
@@ -87,10 +94,11 @@ class UserManagementProvider with ChangeNotifier {
   }
 
   /// Saves user to storage
-  Future<void> putUser(User user) async {
+  Future<void> putUser(User user, {String? name}) async {
     OpenFoodAPIConfiguration.globalUser = user;
     await DaoSecuredString.put(key: _USER_ID, value: user.userId);
     await DaoSecuredString.put(key: _PASSWORD, value: user.password);
+    await DaoSecuredString.put(key: USER_NAME, value: name ?? '');
     if (user.cookie != null) {
       await DaoSecuredString.put(key: _COOKIE, value: user.cookie!);
     } else {
@@ -119,7 +127,7 @@ class UserManagementProvider with ChangeNotifier {
 
     /// Save the cookie if necessary
     if (user.cookie == null && loginResult.user?.cookie != null) {
-      putUser(loginResult.user!);
+      putUser(loginResult.user!, name: loginResult.userDetails?.name);
     }
   }
 }

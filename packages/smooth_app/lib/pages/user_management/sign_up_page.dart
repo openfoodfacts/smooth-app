@@ -418,7 +418,10 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     if (!mounted) {
       return;
     }
-    await context.read<UserManagementProvider>().putUser(user);
+    await context.read<UserManagementProvider>().putUser(
+      user,
+      name: _displayNameController.trimmedText,
+    );
     if (!mounted) {
       return;
     }
