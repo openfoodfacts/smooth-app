@@ -208,11 +208,11 @@ abstract class ProductQuery {
     );
     uriRobotoffHelper =
         userPreferences.getFlag(
-                  UserPreferencesDevMode.userPreferencesFlagProd,
-                ) ??
-                true
-            ? uriHelperRobotoffProd
-            : uriHelperRobotoffTest;
+              UserPreferencesDevMode.userPreferencesFlagProd,
+            ) ??
+            true
+        ? uriHelperRobotoffProd
+        : uriHelperRobotoffTest;
   }
 
   /// Returns the standard test env, or the custom test env if relevant.
