@@ -5744,5 +5744,9 @@
         "type": "String"
       }
     }
-  }
+  },
+  "greet_good_morning": "Good morning",
+  "greet_good_afternoon": "Good afternoon",
+  "greet_good_evening": "Good evening",
+  "greet_good_night": "Good night"
 }

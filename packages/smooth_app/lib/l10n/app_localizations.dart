@@ -10785,6 +10785,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{percent}%'**
   String percent_value(String percent);
+
+  /// No description provided for @greet_good_morning.
+  ///
+  /// In en, this message translates to:
+  /// **'Good morning'**
+  String get greet_good_morning;
+
+  /// No description provided for @greet_good_afternoon.
+  ///
+  /// In en, this message translates to:
+  /// **'Good afternoon'**
+  String get greet_good_afternoon;
+
+  /// No description provided for @greet_good_evening.
+  ///
+  /// In en, this message translates to:
+  /// **'Good evening'**
+  String get greet_good_evening;
+
+  /// No description provided for @greet_good_night.
+  ///
+  /// In en, this message translates to:
+  /// **'Good night'**
+  String get greet_good_night;
 }
 
 class _AppLocalizationsDelegate

@@ -18,16 +18,16 @@ class LoggedInAppBarHeader extends StatelessWidget {
 
   final String userId;
 
-  String _getGreeting() {
+  String _getGreeting(AppLocalizations appLocalizations) {
     final int hour = DateTime.now().hour;
     if (hour < 12) {
-      return 'Good morning';
+      return appLocalizations.greet_good_morning;
     } else if (hour < 17) {
-      return 'Good afternoon';
+      return appLocalizations.greet_good_afternoon;
     } else if (hour < 21) {
-      return 'Good evening';
+      return appLocalizations.greet_good_evening;
     } else {
-      return 'Good night';
+      return appLocalizations.greet_good_night;
     }
   }
 
@@ -52,7 +52,7 @@ class LoggedInAppBarHeader extends StatelessWidget {
               spacing: VERY_SMALL_SPACE,
               children: <Widget>[
                 AutoSizeText(
-                  '${_getGreeting()} $name',
+                  '${_getGreeting(appLocalizations)} $name',
                   style: TextStyle(
                     color: themeExtension.secondaryNormal,
                     fontSize: 18.0,
