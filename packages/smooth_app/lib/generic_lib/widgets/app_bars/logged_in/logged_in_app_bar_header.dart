@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
-import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -38,13 +37,9 @@ class LoggedInAppBarHeader extends StatelessWidget {
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
 
-    // OpenFoodAPIConfiguration.globalUser;
     final UserDetails? userDetails = UserManagementProvider.globalUserDetails;
-    final String? name = userDetails?.name;
-    // late name = DaoSecuredString.get(UserManagementProvider.USER_NAME); // This returns Future<String>
-    // print(userDetails);
+    final String name = userDetails?.name ?? userId;
 
-    final String displayName = name?.isNotEmpty == true ? name! : userId;
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: PROFILE_PICTURE_SIZE),
       child: Row(
@@ -57,7 +52,7 @@ class LoggedInAppBarHeader extends StatelessWidget {
               spacing: VERY_SMALL_SPACE,
               children: <Widget>[
                 AutoSizeText(
-                  '${_getGreeting()} $displayName',
+                  '${_getGreeting()} $name',
                   style: TextStyle(
                     color: themeExtension.secondaryNormal,
                     fontSize: 18.0,

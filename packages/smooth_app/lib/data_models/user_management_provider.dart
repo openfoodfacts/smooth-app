@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,7 +14,7 @@ class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
   static const String _COOKIE = 'user_cookie';
-  static const String USER_NAME = 'user_name';
+  static const String _USER_DETAILS = 'user_details';
 
   static UserDetails? globalUserDetails;
 
@@ -29,10 +30,22 @@ class UserManagementProvider with ChangeNotifier {
     if (loginResult.type != LoginResultType.successful) {
       return loginResult;
     }
-    await putUser(loginResult.user!, name: loginResult.userDetails?.name);
-    globalUserDetails = loginResult.userDetails;
+    await putUser(loginResult.user!);
+    await _saveUserDetails(loginResult.userDetails);
     await credentialsInStorage();
     return loginResult;
+  }
+
+  /// Saves user details to storage
+  Future<void> _saveUserDetails(UserDetails? userDetails) async {
+    globalUserDetails = userDetails;
+    if (userDetails != null) {
+      final String jsonString = jsonEncode(userDetails.toJson());
+      await DaoSecuredString.put(key: _USER_DETAILS, value: jsonString);
+    } else {
+      DaoSecuredString.remove(key: _USER_DETAILS);
+    }
+    notifyListeners();
   }
 
   /// Deletes saved credentials from storage
@@ -42,7 +55,7 @@ class UserManagementProvider with ChangeNotifier {
     DaoSecuredString.remove(key: _USER_ID);
     DaoSecuredString.remove(key: _PASSWORD);
     DaoSecuredString.remove(key: _COOKIE);
-    DaoSecuredString.remove(key: USER_NAME);
+    DaoSecuredString.remove(key: _USER_DETAILS);
     notifyListeners();
     final bool contains = await credentialsInStorage();
     return !contains;
@@ -58,18 +71,20 @@ class UserManagementProvider with ChangeNotifier {
     String? effectiveUserId;
     String? effectivePassword;
     String? effectiveCookie;
+    String? userDetailsJson;
 
     try {
       effectiveUserId = userId ?? await DaoSecuredString.get(_USER_ID);
       effectivePassword = password ?? await DaoSecuredString.get(_PASSWORD);
       effectiveCookie = await DaoSecuredString.get(_COOKIE);
+      userDetailsJson = await DaoSecuredString.get(_USER_DETAILS);
     } on PlatformException {
       /// Decrypting the values can go wrong if, for example, the app was
       /// manually overwritten from an external apk.
       DaoSecuredString.remove(key: _USER_ID);
       DaoSecuredString.remove(key: _PASSWORD);
       DaoSecuredString.remove(key: _COOKIE);
-      DaoSecuredString.remove(key: USER_NAME);
+      DaoSecuredString.remove(key: _USER_DETAILS);
       Logs.e('Credentials query failed, you have been logged out');
     }
 
@@ -83,6 +98,17 @@ class UserManagementProvider with ChangeNotifier {
       cookie: effectiveCookie,
     );
     OpenFoodAPIConfiguration.globalUser = user;
+
+    // Restore complete UserDetails from JSON
+    if (userDetailsJson != null && userDetailsJson.isNotEmpty) {
+      try {
+        final Map<String, dynamic> json = jsonDecode(userDetailsJson);
+        globalUserDetails = UserDetails.fromJson(json);
+      } catch (e) {
+        Logs.e('Failed to parse UserDetails: $e');
+        DaoSecuredString.remove(key: _USER_DETAILS);
+      }
+    }
   }
 
   /// Checks if any credentials exist in storage
@@ -94,11 +120,10 @@ class UserManagementProvider with ChangeNotifier {
   }
 
   /// Saves user to storage
-  Future<void> putUser(User user, {String? name}) async {
+  Future<void> putUser(User user) async {
     OpenFoodAPIConfiguration.globalUser = user;
     await DaoSecuredString.put(key: _USER_ID, value: user.userId);
     await DaoSecuredString.put(key: _PASSWORD, value: user.password);
-    await DaoSecuredString.put(key: USER_NAME, value: name ?? '');
     if (user.cookie != null) {
       await DaoSecuredString.put(key: _COOKIE, value: user.cookie!);
     } else {
@@ -125,9 +150,10 @@ class UserManagementProvider with ChangeNotifier {
       return;
     }
 
-    /// Save the cookie if necessary
+    /// Save the cookie and user details if necessary
     if (user.cookie == null && loginResult.user?.cookie != null) {
-      putUser(loginResult.user!, name: loginResult.userDetails?.name);
+      await putUser(loginResult.user!);
+      await _saveUserDetails(loginResult.userDetails);
     }
   }
 }
