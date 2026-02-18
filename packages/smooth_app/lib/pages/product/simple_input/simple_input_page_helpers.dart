@@ -347,6 +347,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
             product.barcode!,
             getLanguage(),
             insightTypes: <InsightType>[type],
+            uriHelper: ProductQuery.uriRobotoffHelper,
           )).questions ??
           <RobotoffQuestion>[];
 

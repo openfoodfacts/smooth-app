@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Nutrition data, for nutrient order and conversions.
 class NutritionContainerHelper extends ChangeNotifier {
@@ -96,7 +97,10 @@ class NutritionContainerHelper extends ChangeNotifier {
     notifyListeners();
 
     final RobotoffNutrientExtractionResult extractionResult =
-        await RobotoffAPIClient.getNutrientExtraction(product.barcode!);
+        await RobotoffAPIClient.getNutrientExtraction(
+          product.barcode!,
+          uriHelper: ProductQuery.uriRobotoffHelper,
+        );
 
     final bool extractionSuccessful = extractionResult.status == 'found';
 
