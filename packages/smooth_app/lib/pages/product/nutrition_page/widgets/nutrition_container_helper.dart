@@ -97,10 +97,10 @@ class NutritionContainerHelper extends ChangeNotifier {
     notifyListeners();
 
     final RobotoffNutrientExtractionResult extractionResult =
-        await RobotoffAPIClient.getNutrientExtraction( 
-      product.barcode!,
-      uriHelper: ProductQuery.uriRobotoffHelper,
-    );
+        await RobotoffAPIClient.getNutrientExtraction(
+          product.barcode!,
+          uriHelper: ProductQuery.uriRobotoffHelper,
+        );
 
     final bool extractionSuccessful = extractionResult.status == 'found';
 
