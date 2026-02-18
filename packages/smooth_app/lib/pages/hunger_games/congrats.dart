@@ -154,6 +154,7 @@ class CongratsWidget extends StatelessWidget {
         annotation.value,
         deviceId: OpenFoodAPIConfiguration.uuid,
         user: ProductQuery.getReadUser(),
+        uriHelper: ProductQuery.uriRobotoffHelper,
       );
 
       results.add(status.status == 1);

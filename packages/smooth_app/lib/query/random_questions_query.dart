@@ -19,6 +19,7 @@ class RandomQuestionsQuery extends QuestionsQuery {
       count: count,
       questionOrder: RobotoffQuestionOrder.popularity,
       serverType: ServerType.openFoodFacts,
+      uriHelper: ProductQuery.uriRobotoffHelper,
     );
 
     if (result.questions?.isNotEmpty != true) {
