@@ -80,6 +80,7 @@ Future&lt;List&lt;RobotoffQuestion&gt;&gt; getQuestions(
         barcode,
         ProductQuery.getLanguage(),
         count: count,
+        uriHelper: ProductQuery.uriRobotoffHelper,
       );
   if (result.questions?.isNotEmpty != true) {
     return &lt;RobotoffQuestion&gt;[];

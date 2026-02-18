@@ -83,6 +83,7 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
     annotation,
     deviceId: OpenFoodAPIConfiguration.uuid,
     user: ProductQuery.getReadUser(),
+    uriHelper: ProductQuery.uriRobotoffHelper,
   );
 }</code></pre>
 </section>
