@@ -3,8 +3,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/prices/price_discount_type_widget.dart';
 import 'package:smooth_app/pages/prices/price_existing_amount_field.dart';
+import 'package:smooth_app/pages/prices/price_existing_discount_type_field.dart';
 import 'package:smooth_app/pages/prices/price_l10n_helper.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_product_list_tile.dart';
@@ -66,12 +66,7 @@ class _PriceExistingAmountCardState extends State<PriceExistingAmountCard> {
               subtitle: subtitle.isEmpty ? null : Text(subtitle.join(', ')),
             ),
           if (isDiscounted)
-            PriceDiscountTypeDropdown(
-              value: widget.price.discountType,
-              onChanged: (final DiscountType? value) {
-                setState(() => widget.price.discountType = value);
-              },
-            ),
+            PriceExistingDiscountTypeField(value: widget.price.discountType),
           SwitchListTile(
             value: isDiscounted,
             onChanged: null,

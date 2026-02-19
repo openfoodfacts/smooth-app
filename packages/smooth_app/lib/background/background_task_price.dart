@@ -58,9 +58,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
       pricesWithoutDiscount = json.containsKey(_jsonTagPriceWithoutDiscount)
           ? <double?>[json[_jsonTagPriceWithoutDiscount] as double?]
           : _fromJsonListNullableDouble(json[_jsonTagPricesWithoutDiscount])!,
-      discountTypes =
-          _fromJsonListNullableString(json[_jsonTagDiscountTypes]) ??
-          <String?>[],
+      discountTypes = _normalizeDiscountTypes(
+        json[_jsonTagDiscountTypes],
+        (json[_jsonTagBarcodes] as List<String>).length,
+      ),
       super.fromJson();
 
   static const String _jsonTagDate = 'date';
@@ -148,15 +149,16 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
     return result;
   }
 
-  static List<String?>? _fromJsonListNullableString(
-    final List<dynamic>? input,
+  /// Normalizes discount types list to match the expected length (barcodes)
+  static List<String> _normalizeDiscountTypes(
+    final List<String?>? input,
+    final int expectedLength,
   ) {
-    if (input == null) {
-      return null;
-    }
-    final List<String?> result = <String?>[];
-    for (final dynamic item in input) {
-      result.add(item as String?);
+    final List<String> result = List<String>.filled(expectedLength, '');
+    if (input != null) {
+      for (int i = 0; i < input.length && i < expectedLength; i++) {
+        result[i] = input[i] ?? '';
+      }
     }
     return result;
   }
@@ -175,7 +177,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
   final List<bool> pricesAreDiscounted;
   final List<double> prices;
   final List<double?> pricesWithoutDiscount;
-  final List<String?> discountTypes;
+  final List<String> discountTypes;
 
   @override
   Map<String, dynamic> toJson() {
@@ -259,9 +261,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
           pricesAreDiscounted: <bool>[pricesAreDiscounted[i]],
           prices: <double>[prices[i]],
           pricesWithoutDiscount: <double?>[pricesWithoutDiscount[i]],
-          discountTypes: <String?>[
-            if (discountTypes.length > i) discountTypes[i] else null,
-          ],
+          discountTypes: <String>[discountTypes[i]],
         );
       }
       return;
@@ -273,6 +273,10 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
       final bool priceIsDiscounted = pricesAreDiscounted[i];
       double price = prices[i];
       double? priceWithoutDiscount = pricesWithoutDiscount[i];
+      final DiscountType? discountType =
+          priceIsDiscounted && discountTypes[i].isNotEmpty
+          ? DiscountType.fromOffTag(discountTypes[i])
+          : null;
       if (priceIsDiscounted) {
         if (priceWithoutDiscount != null) {
           if (price > priceWithoutDiscount) {
@@ -298,9 +302,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
         ..type = isProduct ? PriceType.product : PriceType.category
         ..priceIsDiscounted = priceIsDiscounted
         ..price = _fixPriceDecimals(price)
-        ..discountType = priceIsDiscounted && discountTypes.length > i
-            ? DiscountType.fromOffTag(discountTypes[i])
-            : null
+        ..discountType = discountType
         ..priceWithoutDiscount = priceWithoutDiscount == null
             ? null
             : _fixPriceDecimals(priceWithoutDiscount);

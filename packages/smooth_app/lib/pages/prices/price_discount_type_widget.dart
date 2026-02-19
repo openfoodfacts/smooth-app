@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/helpers/string_extension.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/prices/discount_type_extension.dart';
 import 'package:smooth_app/widgets/smooth_dropdown.dart';
 
 class PriceDiscountTypeDropdown extends StatelessWidget {
@@ -32,10 +32,7 @@ class PriceDiscountTypeDropdown extends StatelessWidget {
             (final DiscountType discountType) =>
                 SmoothDropdownItem<DiscountType?>(
                   value: discountType,
-                  label: discountType.offTag
-                      .toLowerCase()
-                      .replaceAll('_', ' ')
-                      .capitalize(),
+                  label: discountType.getTitle(appLocalizations),
                 ),
           ),
         ],

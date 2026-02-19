@@ -128,7 +128,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<double?> pricesWithoutDiscount,
     required final bool displaySnackbar,
     required final bool readyForPriceTagValidation,
-    required final List<String?> discountTypes,
+    required final List<String> discountTypes,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -181,7 +181,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<double?> pricesWithoutDiscount,
     required final bool displaySnackbar,
     required final bool readyForPriceTagValidation,
-    required final List<String?> discountTypes,
+    required final List<String> discountTypes,
   }) => BackgroundTaskAddPrice._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
