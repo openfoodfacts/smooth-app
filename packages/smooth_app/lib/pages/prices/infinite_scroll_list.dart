@@ -83,9 +83,9 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
       return;
     }
     setState(() => _isLoadingMore = false);
-     WidgetsBinding.instance.addPostFrameCallback((_) {
-    if (mounted) _scrollListener();
-  });
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) _scrollListener();
+    });
   }
 
   String _getItemCount(BuildContext context) =>
