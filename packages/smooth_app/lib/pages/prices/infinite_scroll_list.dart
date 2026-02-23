@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
-
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/product/query_results_banner.dart';
@@ -26,6 +25,7 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   Object? _error;
   bool _isInitialLoading = false;
   bool _isLoadingMore = false;
+
   @override
   void initState() {
     super.initState();
@@ -84,8 +84,9 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
     }
     setState(() => _isLoadingMore = false);
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (mounted) 
-       _scrollListener();
+      if (mounted) {
+        _scrollListener();
+      }
     });
   }
 
