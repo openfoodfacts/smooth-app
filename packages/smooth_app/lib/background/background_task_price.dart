@@ -60,7 +60,9 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
           : _fromJsonListNullableDouble(json[_jsonTagPricesWithoutDiscount])!,
       discountTypes = _normalizeDiscountTypes(
         json[_jsonTagDiscountTypes],
-        (json[_jsonTagBarcodes] as List<String>).length,
+        json.containsKey(_jsonTagBarcode)
+            ? 1
+            : (json[_jsonTagBarcodes] as List<String>).length,
       ),
       super.fromJson();
 
@@ -273,8 +275,8 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
       final bool priceIsDiscounted = pricesAreDiscounted[i];
       double price = prices[i];
       double? priceWithoutDiscount = pricesWithoutDiscount[i];
-      final DiscountType? discountType =
-          priceIsDiscounted ? DiscountType.fromOffTag(discountTypes[i])
+      final DiscountType? discountType = priceIsDiscounted
+          ? DiscountType.fromOffTag(discountTypes[i])
           : null;
       if (priceIsDiscounted) {
         if (priceWithoutDiscount != null) {
