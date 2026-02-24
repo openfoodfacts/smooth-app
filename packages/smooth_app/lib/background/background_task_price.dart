@@ -274,8 +274,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
       double price = prices[i];
       double? priceWithoutDiscount = pricesWithoutDiscount[i];
       final DiscountType? discountType =
-          priceIsDiscounted && discountTypes[i].isNotEmpty
-          ? DiscountType.fromOffTag(discountTypes[i])
+          priceIsDiscounted ? DiscountType.fromOffTag(discountTypes[i])
           : null;
       if (priceIsDiscounted) {
         if (priceWithoutDiscount != null) {
