@@ -2796,12 +2796,12 @@
   "@all_search_prices_top_user_title": {
     "description": "Top price users: list tile title"
   },
-  "all_search_prices_top_location_title": "Магазин с наибольшими ценами",
+  "all_search_prices_top_location_title": "Магазины с наибольшим количеством цен",
   "@all_search_prices_top_location_title": {
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Помощник по ценам",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Помощник по проверке цен",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
@@ -2817,7 +2817,7 @@
   "@all_search_prices_top_location_single_title": {
     "description": "Top price locations: list tile title"
   },
-  "all_search_prices_top_product_title": "Продукты с самыми высокими ценами",
+  "all_search_prices_top_product_title": "Продукты с наибольшим количеством цен",
   "@all_search_prices_top_product_title": {
     "description": "Top price products: list tile title"
   },
@@ -5400,7 +5400,7 @@
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
-  "preferences_prices_top_contributors_title": "Авторы с наибольшим количеством цен",
+  "preferences_prices_top_contributors_title": "Участники с наибольшим количеством цен",
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
