@@ -80,6 +80,7 @@
   final List&lt;bool&gt; pricesAreDiscounted = &lt;bool&gt;[];
   final List&lt;double&gt; prices = &lt;double&gt;[];
   final List&lt;double?&gt; pricesWithoutDiscount = &lt;double?&gt;[];
+  final List&lt;String&gt; discountTypes = &lt;String&gt;[];
   for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
     barcodes.add(priceAmountModel.product.barcode);
     categories.add(priceAmountModel.product.categoryTag);
@@ -90,6 +91,7 @@
     pricesAreDiscounted.add(priceAmountModel.promo);
     prices.add(priceAmountModel.checkedPaidPrice);
     pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
+    discountTypes.add(priceAmountModel.discountType?.offTag ?? &#39;&#39;);
   }
   if (proof != null) {
     return BackgroundTaskAddOtherPrice.addTask(
@@ -109,6 +111,7 @@
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      discountTypes: discountTypes,
     );
   }
   return BackgroundTaskAddPrice.addTask(
@@ -132,6 +135,7 @@
     pricesWithoutDiscount: pricesWithoutDiscount,
     displaySnackbar: displaySnackbar,
     readyForPriceTagValidation: readyForPriceTagValidation,
+    discountTypes: discountTypes,
   );
 }</code></pre>
 </section>

@@ -99,6 +99,7 @@ Future&lt;void&gt; addPrices({
         pricesAreDiscounted: &lt;bool&gt;[pricesAreDiscounted[i]],
         prices: &lt;double&gt;[prices[i]],
         pricesWithoutDiscount: &lt;double?&gt;[pricesWithoutDiscount[i]],
+        discountTypes: &lt;String&gt;[discountTypes[i]],
       );
     }
     return;
@@ -110,6 +111,9 @@ Future&lt;void&gt; addPrices({
     final bool priceIsDiscounted = pricesAreDiscounted[i];
     double price = prices[i];
     double? priceWithoutDiscount = pricesWithoutDiscount[i];
+    final DiscountType? discountType = priceIsDiscounted
+        ? DiscountType.fromOffTag(discountTypes[i])
+        : null;
     if (priceIsDiscounted) {
       if (priceWithoutDiscount != null) {
         if (price &gt; priceWithoutDiscount) {
@@ -135,6 +139,7 @@ Future&lt;void&gt; addPrices({
       ..type = isProduct ? PriceType.product : PriceType.category
       ..priceIsDiscounted = priceIsDiscounted
       ..price = _fixPriceDecimals(price)
+      ..discountType = discountType
       ..priceWithoutDiscount = priceWithoutDiscount == null
           ? null
           : _fixPriceDecimals(priceWithoutDiscount);
@@ -190,6 +195,7 @@ Future&lt;void&gt; addPrices({
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/categories.html">categories</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/currency.html">currency</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/date.html">date</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/discountTypes.html">discountTypes</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/labels.html">labels</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_background_background_task_price/BackgroundTaskPrice/locationOSMId.html">locationOSMId</a></li>
