@@ -7,13 +7,13 @@ This is a comprehensive Flutter mobile application for Open Food Facts, supporti
 ## Essential Setup and Environment
 
 ### Flutter Version Management
-- **CRITICAL**: This app requires Flutter version **3.35.1** exactly (as specified in `flutter-version.txt`)
+- **CRITICAL**: This app requires Flutter version **3.38.5** exactly (as specified in `flutter-version.txt`)
 - **ALWAYS** use FVM (Flutter Version Management) for consistent Flutter versions:
   ```bash
   # Install FVM first: https://fvm.app/documentation/getting-started/installation
-  fvm install 3.35.1
-  fvm use 3.35.1
-  fvm flutter --version  # Should show Flutter 3.35.1
+  fvm install 3.38.5
+  fvm use 3.38.5
+  fvm flutter --version  # Should show Flutter 3.38.5
   ```
 - Export Flutter to PATH: `export PATH="$(fvm flutter sdk-path)/bin:$PATH"`
 
@@ -149,7 +149,7 @@ If you encounter build issues:
 - `.github/workflows/` - GitHub Actions CI/CD pipeline
 
 ### Important Files
-- `flutter-version.txt` - Specifies required Flutter version (3.35.1)
+- `flutter-version.txt` - Specifies required Flutter version (3.38.5)
 - `packages/smooth_app/pubspec.yaml` - Main app dependencies
 - `packages/smooth_app/lib/entrypoints/` - Platform-specific entry points
 - `packages/smooth_app/integration_test/` - End-to-end test scenarios
