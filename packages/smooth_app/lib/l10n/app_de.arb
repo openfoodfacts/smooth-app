@@ -2670,6 +2670,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Rabattart",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Angebot",
+  "prices_discount_type_seasonal": "Saisonbedingt",
+  "prices_discount_type_loyalty_program": "Treueprogramm",
+  "prices_discount_type_expires_soon": "Läuft demnächst ab",
+  "prices_discount_type_pick_it_yourself": "Selbst aussuchen",
+  "prices_discount_type_second_hand": "Aus zweiter Hand",
+  "prices_discount_type_other": "Weitere",
   "dev_preferences_import_history_result_success": "Fertig",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
