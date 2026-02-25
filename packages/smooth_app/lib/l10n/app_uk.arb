@@ -2670,6 +2670,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Тип знижки",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Розпродаж",
+  "prices_discount_type_seasonal": "Сезонний",
+  "prices_discount_type_loyalty_program": "Програма лояльності",
+  "prices_discount_type_expires_soon": "Спливає незабаром",
+  "prices_discount_type_pick_it_yourself": "Вибери сам",
+  "prices_discount_type_second_hand": "Секонд-хенд",
+  "prices_discount_type_other": "Інше",
   "dev_preferences_import_history_result_success": "Виконано",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
