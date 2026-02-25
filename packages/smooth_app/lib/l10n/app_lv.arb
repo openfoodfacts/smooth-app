@@ -2670,6 +2670,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Atlaides veids",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Izpārdošana",
+  "prices_discount_type_seasonal": "Sezonāls",
+  "prices_discount_type_loyalty_program": "Lojalitātes programma",
+  "prices_discount_type_expires_soon": "Drīz beigsies derīguma termiņš",
+  "prices_discount_type_pick_it_yourself": "Izvēlies pats",
+  "prices_discount_type_second_hand": "Lietots",
+  "prices_discount_type_other": "Citi",
   "dev_preferences_import_history_result_success": "Pabeigts",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
