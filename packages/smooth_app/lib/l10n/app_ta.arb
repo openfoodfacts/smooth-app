@@ -2670,6 +2670,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "தள்ளுபடி வகை",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "விற்பனை",
+  "prices_discount_type_seasonal": "பருவகால",
+  "prices_discount_type_loyalty_program": "விசுவாசத் திட்டம்",
+  "prices_discount_type_expires_soon": "விரைவில் காலாவதியாகிவிடும்",
+  "prices_discount_type_pick_it_yourself": "நீங்களே தேர்ந்தெடுங்கள்",
+  "prices_discount_type_second_hand": "பயன்படுத்தியது",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "முடிந்தது",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
