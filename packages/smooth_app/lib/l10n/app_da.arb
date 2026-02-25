@@ -2670,6 +2670,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Rabattype",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Udsalg",
+  "prices_discount_type_seasonal": "Sæson",
+  "prices_discount_type_loyalty_program": "Loyalitetsprogram",
+  "prices_discount_type_expires_soon": "Udløber snart",
+  "prices_discount_type_pick_it_yourself": "Vælg det selv",
+  "prices_discount_type_second_hand": "Brugt",
+  "prices_discount_type_other": "Andet",
   "dev_preferences_import_history_result_success": "Færdiggjort",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
