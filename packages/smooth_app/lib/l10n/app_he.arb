@@ -2671,7 +2671,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "סוג הנחה",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "הנחת כמות",
   "prices_discount_type_sale": "מכירת חיסול",
   "prices_discount_type_seasonal": "עונתית",
   "prices_discount_type_loyalty_program": "תוכנית מנויים",
