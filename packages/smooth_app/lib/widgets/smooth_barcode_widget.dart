@@ -31,7 +31,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color contentColor =
         color ?? (context.lightTheme() ? Colors.black : Colors.white);
-     if (!_hasValidChecksum) {
+    if (!_hasValidChecksum) {
       onInvalidBarcode?.call();
       Logs.e('Invalid barcode checksum: $barcode');
       if (errorBuilder != null) return errorBuilder!(context);
@@ -61,9 +61,9 @@ class SmoothBarcodeWidget extends StatelessWidget {
         child: ColoredBox(
           color: backgroundColor ?? Colors.transparent,
           child: BarcodeWidget(
-               padding: EdgeInsets.zero,
-               data: barcode,
-               barcode: _barcodeType,
+            padding: EdgeInsets.zero,
+            data: barcode,
+            barcode: _barcodeType,
             color: color ?? Colors.black,
             style: TextStyle(color: contentColor),
             errorBuilder: (final BuildContext context, String? error) {
@@ -115,7 +115,8 @@ class SmoothBarcodeWidget extends StatelessWidget {
         return Barcode.code128();
     }
   }
-bool get _hasValidChecksum {
+
+  bool get _hasValidChecksum {
     if (barcode.length != 8 && barcode.length != 13) return true;
     if (!RegExp(r'^\d+$').hasMatch(barcode)) return false;
     int sum = 0;
