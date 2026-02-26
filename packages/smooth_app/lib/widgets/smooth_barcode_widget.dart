@@ -34,7 +34,9 @@ class SmoothBarcodeWidget extends StatelessWidget {
     if (!_hasValidChecksum) {
       onInvalidBarcode?.call();
       Logs.e('Invalid barcode checksum: $barcode');
-      if (errorBuilder != null) return errorBuilder!(context);
+      if (errorBuilder != null) {
+        return errorBuilder!(context);
+      }
       return Center(
         child: Container(
           padding: const EdgeInsets.symmetric(
@@ -123,9 +125,9 @@ class SmoothBarcodeWidget extends StatelessWidget {
     for (int i = 0; i < barcode.length - 1; i++) {
       final int digit = int.parse(barcode[i]);
       if (barcode.length == 8) {
-        sum += (i % 2 == 0) ? digit * 3 : digit;
+        sum += i.isEven ? digit * 3 : digit;
       } else {
-        sum += (i % 2 == 0) ? digit : digit * 3;
+        sum += i.isEven ? digit : digit * 3;
       }
     }
     final int expected = (10 - (sum % 10)) % 10;
