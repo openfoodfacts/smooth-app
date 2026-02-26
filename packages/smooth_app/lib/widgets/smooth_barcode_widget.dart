@@ -30,29 +30,6 @@ class SmoothBarcodeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color contentColor =
         color ?? (context.lightTheme() ? Colors.black : Colors.white);
-    if (!_hasValidChecksum) {
-      onInvalidBarcode?.call();
-      if (errorBuilder != null) {
-        return errorBuilder!(context);
-      }
-      return Center(
-        child: Container(
-          padding: const EdgeInsets.symmetric(
-            horizontal: SMALL_SPACE,
-            vertical: SMALL_SPACE,
-          ),
-          color: Colors.grey.withValues(alpha: 0.2),
-          child: Text(
-            '<$barcode>',
-            style: TextStyle(
-              letterSpacing: 6.0,
-              fontFeatures: const <FontFeature>[FontFeature.tabularFigures()],
-              color: contentColor,
-            ),
-          ),
-        ),
-      );
-    }
     return Semantics(
       label: AppLocalizations.of(context).barcode_accessibility_label(barcode),
       excludeSemantics: true,
@@ -112,25 +89,5 @@ class SmoothBarcodeWidget extends StatelessWidget {
       default:
         return Barcode.code128();
     }
-  }
-
-  bool get _hasValidChecksum {
-    if (barcode.length != 8 && barcode.length != 13) {
-      return true;
-    }
-    if (!RegExp(r'^\d+$').hasMatch(barcode)) {
-      return false;
-    }
-    int sum = 0;
-    for (int i = 0; i < barcode.length - 1; i++) {
-      final int digit = int.parse(barcode[i]);
-      if (barcode.length == 8) {
-        sum += i.isEven ? digit * 3 : digit;
-      } else {
-        sum += i.isEven ? digit : digit * 3;
-      }
-    }
-    final int expected = (10 - (sum % 10)) % 10;
-    return expected == int.parse(barcode[barcode.length - 1]);
   }
 }
