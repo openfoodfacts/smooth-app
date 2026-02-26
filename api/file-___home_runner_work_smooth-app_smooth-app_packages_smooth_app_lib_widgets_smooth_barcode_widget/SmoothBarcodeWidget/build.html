@@ -73,7 +73,6 @@
 Widget build(BuildContext context) {
   final Color contentColor =
       color ?? (context.lightTheme() ? Colors.black : Colors.white);
-
   return Semantics(
     label: AppLocalizations.of(context).barcode_accessibility_label(barcode),
     excludeSemantics: true,
@@ -89,8 +88,6 @@ Widget build(BuildContext context) {
           style: TextStyle(color: contentColor),
           errorBuilder: (final BuildContext context, String? error) {
             onInvalidBarcode?.call();
-
-            Logs.e(&#39;Error with barcode: $barcode&#39;, ex: error);
 
             if (errorBuilder != null) {
               return errorBuilder!(context);
