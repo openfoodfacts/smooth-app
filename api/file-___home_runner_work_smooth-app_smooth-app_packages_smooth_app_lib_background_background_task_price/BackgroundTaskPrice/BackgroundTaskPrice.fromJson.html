@@ -88,7 +88,7 @@
       json[_jsonTagDiscountTypes],
       json.containsKey(_jsonTagBarcode)
           ? 1
-          : (json[_jsonTagBarcodes] as List&lt;String&gt;).length,
+          : (json[_jsonTagBarcodes] as List&lt;dynamic&gt;).length,
     ),
     super.fromJson();</code></pre>
 </section>
