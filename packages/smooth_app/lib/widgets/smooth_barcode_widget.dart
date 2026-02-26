@@ -119,8 +119,12 @@ class SmoothBarcodeWidget extends StatelessWidget {
   }
 
   bool get _hasValidChecksum {
-    if (barcode.length != 8 && barcode.length != 13) return true;
-    if (!RegExp(r'^\d+$').hasMatch(barcode)) return false;
+    if (barcode.length != 8 && barcode.length != 13) {
+      return true;
+    }
+    if (!RegExp(r'^\d+$').hasMatch(barcode)) {
+      return false;
+    }
     int sum = 0;
     for (int i = 0; i < barcode.length - 1; i++) {
       final int digit = int.parse(barcode[i]);
