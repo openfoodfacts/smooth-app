@@ -62,7 +62,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
         json[_jsonTagDiscountTypes],
         json.containsKey(_jsonTagBarcode)
             ? 1
-            : (json[_jsonTagBarcodes] as List<String>).length,
+            : (json[_jsonTagBarcodes] as List<dynamic>).length,
       ),
       super.fromJson();
 
@@ -153,7 +153,7 @@ abstract class BackgroundTaskPrice extends BackgroundTask {
 
   /// Normalizes discount types list to match the expected length (barcodes)
   static List<String> _normalizeDiscountTypes(
-    final List<String?>? input,
+    final List<dynamic>? input,
     final int expectedLength,
   ) {
     final List<String> result = List<String>.filled(expectedLength, '');
