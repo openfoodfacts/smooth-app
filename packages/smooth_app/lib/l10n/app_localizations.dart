@@ -10840,29 +10840,29 @@ abstract class AppLocalizations {
   /// **'{percent}%'**
   String percent_value(String percent);
 
-  /// No description provided for @greet_good_morning.
+  /// Short greeting shown in the app during the morning (for example, roughly 05:00–11:59).
   ///
   /// In en, this message translates to:
-  /// **'Good morning'**
-  String get greet_good_morning;
+  /// **'Good morning, {name}'**
+  String greet_good_morning(String name);
 
-  /// No description provided for @greet_good_afternoon.
+  /// Short greeting shown in the app during the afternoon (for example, roughly 12:00–17:59).
   ///
   /// In en, this message translates to:
-  /// **'Good afternoon'**
-  String get greet_good_afternoon;
+  /// **'Good afternoon, {name}'**
+  String greet_good_afternoon(String name);
 
-  /// No description provided for @greet_good_evening.
+  /// Short greeting shown in the app during the evening (for example, roughly 18:00–21:59.)
   ///
   /// In en, this message translates to:
-  /// **'Good evening'**
-  String get greet_good_evening;
+  /// **'Good evening, {name}'**
+  String greet_good_evening(String name);
 
-  /// No description provided for @greet_good_night.
+  /// Short greeting shown in the app late at night or before going to sleep.
   ///
   /// In en, this message translates to:
-  /// **'Good night'**
-  String get greet_good_night;
+  /// **'Good night, {name}'**
+  String greet_good_night(String name);
 }
 
 class _AppLocalizationsDelegate
