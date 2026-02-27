@@ -2,7 +2,6 @@ import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// A widget showing a barcode on screen
@@ -31,7 +30,6 @@ class SmoothBarcodeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final Color contentColor =
         color ?? (context.lightTheme() ? Colors.black : Colors.white);
-
     return Semantics(
       label: AppLocalizations.of(context).barcode_accessibility_label(barcode),
       excludeSemantics: true,
@@ -47,8 +45,6 @@ class SmoothBarcodeWidget extends StatelessWidget {
             style: TextStyle(color: contentColor),
             errorBuilder: (final BuildContext context, String? error) {
               onInvalidBarcode?.call();
-
-              Logs.e('Error with barcode: $barcode', ex: error);
 
               if (errorBuilder != null) {
                 return errorBuilder!(context);
