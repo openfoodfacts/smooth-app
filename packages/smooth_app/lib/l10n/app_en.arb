@@ -5746,7 +5746,19 @@
     }
   },
   "greet_good_morning": "Good morning",
+  "@greet_good_morning": {
+    "description": "Short greeting shown in the app during the morning (for example, roughly 05:00–11:59). No placeholders."
+  },
   "greet_good_afternoon": "Good afternoon",
+  "@greet_good_afternoon": {
+    "description": "Short greeting shown in the app during the afternoon (for example, roughly 12:00–17:59). No placeholders."
+  },
   "greet_good_evening": "Good evening",
-  "greet_good_night": "Good night"
+  "@greet_good_evening": {
+    "description": "Short greeting shown in the app during the evening (for example, roughly 18:00–21:59). No placeholders."
+  },
+  "greet_good_night": "Good night",
+  "@greet_good_night": {
+    "description": "Short greeting shown in the app late at night or before going to sleep. No placeholders."
+  }
 }
