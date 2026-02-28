@@ -4038,7 +4038,7 @@
   "guide_greenscore_better_product_arg3_text": "टिकाऊ खाद्य पदार्थों का चुनाव करना जटिल लग सकता है। लेबल भ्रामक होते हैं और अक्सर जानकारी गायब होती है। ग्रीन-स्कोर इसे आसान बनाने के लिए बनाया गया है, जो आपको खाद्य उत्पादों के लिए एक **स्पष्ट**, **विज्ञान-आधारित** और **पारदर्शी** पर्यावरणीय रेटिंग देता है, ठीक वहीं जहाँ आपको इसकी ज़रूरत है: खरीदारी करते समय।",
   "guide_greenscore_better_product_arg4_title": "पारदर्शिता",
   "guide_greenscore_better_product_arg4_text": "स्वामित्व लेबल के विपरीत, ग्रीन-स्कोर गणना **पूरी तरह से खुली** है और इसे **किसी के द्वारा भी सत्यापित किया जा सकता है**।",
-  "guide_nova_title": "अल्ट्रा-प्रसंस्कृत खाद्य पदार्थ",
+  "guide_nova_title": "अति-संसाधित खाद्य पदार्थ",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4056,11 +4056,11 @@
   "guide_nova_groups_intro": "NOVA के चार समूह हैं, जिनमें से समस्याग्रस्त समूह 4 है - अति-प्रसंस्कृत खाद्य पदार्थ।",
   "guide_nova_groups_arg1_title": "न्यूनतम प्रसंस्कृत या असंसाधित खाद्य पदार्थ",
   "guide_nova_groups_arg1_text": "unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
-  "guide_nova_groups_arg2_title": "Processed culinary ingredients",
+  "guide_nova_groups_arg2_title": "संसाधित पाक सामग्री",
   "guide_nova_groups_arg2_text": "processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
-  "guide_nova_groups_arg3_title": "Processed foods",
+  "guide_nova_groups_arg3_title": "संसाधित खाद्य पदार्थ",
   "guide_nova_groups_arg3_text": "processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "अल्ट्रा-प्रसंस्कृत खाद्य पदार्थ",
+  "guide_nova_groups_arg4_title": "अति-संसाधित खाद्य पदार्थ",
   "guide_nova_groups_arg4_text": "ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "अल्ट्रा-प्रोसेसिंग से जुड़ी समस्याएं",
   "guide_nova_explanations_arg1_title": "खाद्य सामग्री का अत्यधिक प्रसंस्करण",
