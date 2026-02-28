@@ -2671,7 +2671,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Typ slevy",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Množstevní sleva",
   "prices_discount_type_sale": "Výprodej",
   "prices_discount_type_seasonal": "Sezónní",
   "prices_discount_type_loyalty_program": "Věrnostní program",
