@@ -405,19 +405,48 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
         imageUri: Uri.parse(path),
       );
 
-      final Status status = await OpenFoodAPIClient.addProductImage(
+      Status status = await OpenFoodAPIClient.addProductImage(
         user,
         image,
         uriHelper: uriProductHelper,
       );
       if (status.status == 'status ok') {
-        // successfully uploaded a new picture and set it as field+language
         return;
+      }
+
+      if (status.error?.contains('413') == true ||
+          status.error?.contains('Request Entity Too Large') == true) {
+        final BackgroundCropResult compressedResult = await cropIfNeeded(
+          fullPath: fullPath,
+          rotationDegrees: rotationDegrees,
+          cropX1: cropX1,
+          cropY1: cropY1,
+          cropX2: cropX2,
+          cropY2: cropY2,
+          compressQuality: 80, // was 100
+          forceCompression: true, // forces re-crop even if no crop needed
+          eraserCoordinates: eraserCoordinates,
+        );
+        final String? compressedPath = compressedResult.filePath;
+        if (compressedPath != null) {
+          image = SendImage(
+            lang: language,
+            barcode: barcode,
+            imageField: imageField,
+            imageUri: Uri.parse(compressedPath),
+          );
+          status = await OpenFoodAPIClient.addProductImage(
+            user,
+            image,
+            uriHelper: uriProductHelper,
+          );
+          if (status.status == 'status ok') {
+            return;
+          }
+        }
       }
       final int? imageId = status.imageId;
       if (status.status == 'status not ok' && imageId != null) {
-        // The very same image was already uploaded and therefore was rejected.
-        // We just have to select this image, with no angle.
         final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
           barcode: barcode,
           imageField: imageField,
