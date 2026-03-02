@@ -354,12 +354,6 @@ abstract class AppLocalizations {
   /// **'Open Food Facts'**
   String get app_name;
 
-  /// No description provided for @open_prices.
-  ///
-  /// In en, this message translates to:
-  /// **'Open Prices'**
-  String get open_prices;
-
   /// Separator just before a colon (':'). Probably only populated in French and empty in other languages.
   ///
   /// In en, this message translates to:
@@ -621,7 +615,7 @@ abstract class AppLocalizations {
   /// No description provided for @licenses.
   ///
   /// In en, this message translates to:
-  /// **'Licenses'**
+  /// **'Licences'**
   String get licenses;
 
   /// Looking for: BARCODE
@@ -891,7 +885,7 @@ abstract class AppLocalizations {
   /// No description provided for @sign_up_page_username_description.
   ///
   /// In en, this message translates to:
-  /// **'Username cannot contain spaces, caps or special characters.'**
+  /// **'Username cannot contains spaces, caps or special characters.'**
   String get sign_up_page_username_description;
 
   /// No description provided for @sign_up_page_username_length_invalid.
@@ -1245,7 +1239,7 @@ abstract class AppLocalizations {
   /// Content that will be shared, don't forget to include the URL
   ///
   /// In en, this message translates to:
-  /// **'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products deciphered. Here\'s the link to get it for your phone: https://openfoodfacts.app'**
+  /// **'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products decyphered. Here\'s the link to get it for your phone: https://openfoodfacts.app'**
   String get contribute_share_content;
 
   /// Label for option to contribute prices using GDPR export from loyalty cards
@@ -1452,7 +1446,7 @@ abstract class AppLocalizations {
   /// **'Filter by category'**
   String get category;
 
-  /// Top meta-entry on a category filter
+  /// No description provided for @category_all.
   ///
   /// In en, this message translates to:
   /// **'All'**
@@ -1530,19 +1524,13 @@ abstract class AppLocalizations {
   /// **'Product'**
   String get product;
 
-  /// Message when the brand is not available
+  /// No description provided for @unknownBrand.
   ///
   /// In en, this message translates to:
   /// **'Unknown brand'**
   String get unknownBrand;
 
-  /// Message when the quantity is not available
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown quantity'**
-  String get unknownQuantity;
-
-  /// Message when the product name is not available
+  /// No description provided for @unknownProductName.
   ///
   /// In en, this message translates to:
   /// **'Unknown product name'**
@@ -1665,13 +1653,13 @@ abstract class AppLocalizations {
   /// Button label: For adding a picture of the packaging of a product
   ///
   /// In en, this message translates to:
-  /// **'Recycling instructions'**
+  /// **'Packaging information'**
   String get packaging_information;
 
   /// No description provided for @packaging_information_photo.
   ///
   /// In en, this message translates to:
-  /// **'Recycling instructions photo'**
+  /// **'Packaging information photo'**
   String get packaging_information_photo;
 
   /// No description provided for @missing_product.
@@ -1850,7 +1838,7 @@ abstract class AppLocalizations {
   /// No description provided for @recycling_photo_title.
   ///
   /// In en, this message translates to:
-  /// **'Recycling instructions Photo'**
+  /// **'Recycling Photo'**
   String get recycling_photo_title;
 
   /// No description provided for @take_photo_title.
@@ -2386,18 +2374,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'No product found'**
   String get no_product_found;
-
-  /// Explanation shown when no product is found for a search
-  ///
-  /// In en, this message translates to:
-  /// **'Your search for\n**\"{search}\"**\ndid not match any results.'**
-  String no_product_found_explanation(String search);
-
-  /// No description provided for @no_product_found_try_world_results.
-  ///
-  /// In en, this message translates to:
-  /// **'Do you want to run this same search in **our global database** instead?'**
-  String get no_product_found_try_world_results;
 
   /// No description provided for @no_location_found.
   ///
@@ -4650,12 +4626,6 @@ abstract class AppLocalizations {
   /// **'Other'**
   String get product_type_label_product;
 
-  /// No description provided for @product_type_label_unknown.
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown'**
-  String get product_type_label_unknown;
-
   /// No description provided for @product_type_selection_title.
   ///
   /// In en, this message translates to:
@@ -4937,12 +4907,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Price entry from \"{user}\"'**
   String prices_entry_menu_title(String user);
-
-  /// No description provided for @prices_entry_menu_open_product.
-  ///
-  /// In en, this message translates to:
-  /// **'View product details'**
-  String get prices_entry_menu_open_product;
 
   /// No description provided for @prices_entry_menu_open_product_prices.
   ///
@@ -5311,60 +5275,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Know more about Open Prices'**
   String get prices_menu_know_more;
-
-  /// No description provided for @prices_discount_type.
-  ///
-  /// In en, this message translates to:
-  /// **'Discount type'**
-  String get prices_discount_type;
-
-  /// No description provided for @prices_discount_type_quantity.
-  ///
-  /// In en, this message translates to:
-  /// **'Quantity discount'**
-  String get prices_discount_type_quantity;
-
-  /// No description provided for @prices_discount_type_sale.
-  ///
-  /// In en, this message translates to:
-  /// **'Sale'**
-  String get prices_discount_type_sale;
-
-  /// No description provided for @prices_discount_type_seasonal.
-  ///
-  /// In en, this message translates to:
-  /// **'Seasonal'**
-  String get prices_discount_type_seasonal;
-
-  /// No description provided for @prices_discount_type_loyalty_program.
-  ///
-  /// In en, this message translates to:
-  /// **'Loyalty program'**
-  String get prices_discount_type_loyalty_program;
-
-  /// No description provided for @prices_discount_type_expires_soon.
-  ///
-  /// In en, this message translates to:
-  /// **'Expires soon'**
-  String get prices_discount_type_expires_soon;
-
-  /// No description provided for @prices_discount_type_pick_it_yourself.
-  ///
-  /// In en, this message translates to:
-  /// **'Pick it yourself'**
-  String get prices_discount_type_pick_it_yourself;
-
-  /// No description provided for @prices_discount_type_second_hand.
-  ///
-  /// In en, this message translates to:
-  /// **'Second hand'**
-  String get prices_discount_type_second_hand;
-
-  /// No description provided for @prices_discount_type_other.
-  ///
-  /// In en, this message translates to:
-  /// **'Other'**
-  String get prices_discount_type_other;
 
   /// User dev preferences - Import history - Result successful
   ///
@@ -9065,7 +8975,7 @@ abstract class AppLocalizations {
   /// No description provided for @photo_field_packaging.
   ///
   /// In en, this message translates to:
-  /// **'Recycling instructions photo'**
+  /// **'Packaging information photo'**
   String get photo_field_packaging;
 
   /// No description provided for @photo_already_exists.
@@ -9211,68 +9121,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'For me'**
   String get product_page_tab_for_me;
-
-  /// Title for the compatibility score
-  ///
-  /// In en, this message translates to:
-  /// **'My compatibility'**
-  String get product_page_for_me_compatibility_score_title;
-
-  /// Compatibility score value in the For me tab on the product page
-  ///
-  /// In en, this message translates to:
-  /// **'{value}% compatible'**
-  String product_page_for_me_compatibility_score_value(int value);
-
-  /// Message displayed when there is not enough data to compute a compatibility score for a product
-  ///
-  /// In en, this message translates to:
-  /// **'Insufficient data to compute a compatibility score.'**
-  String get product_page_for_me_compatibility_score_uncomputable;
-
-  /// Message displayed when a compatibility score can't be computed for a product
-  ///
-  /// In en, this message translates to:
-  /// **'A score can\'t be computed for a product of type \"{productType}\".'**
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  );
-
-  /// Button to order the attributes by importance in the For me tab on the product page
-  ///
-  /// In en, this message translates to:
-  /// **'Importance'**
-  String get product_page_for_me_attributes_order_importance;
-
-  /// Button to order the attributes by evaluation score in the For me tab on the product page
-  ///
-  /// In en, this message translates to:
-  /// **'Matches'**
-  String get product_page_for_me_attributes_order_evaluation;
-
-  /// Title for the group of attributes that are good matches for the user
-  ///
-  /// In en, this message translates to:
-  /// **'Good matches'**
-  String get product_page_for_me_attributes_group_good_matches;
-
-  /// Title for the group of attributes that are average matches for the user
-  ///
-  /// In en, this message translates to:
-  /// **'Average matches'**
-  String get product_page_for_me_attributes_group_average_matches;
-
-  /// Title for the group of attributes that are bad matches for the user
-  ///
-  /// In en, this message translates to:
-  /// **'Bad matches'**
-  String get product_page_for_me_attributes_group_bad_matches;
-
-  /// Title for the group of attributes that are unknown matches for the user
-  ///
-  /// In en, this message translates to:
-  /// **'Unknown matches'**
-  String get product_page_for_me_attributes_group_unknown_matches;
 
   /// Label of the website tab on the product page
   ///
@@ -10459,7 +10307,7 @@ abstract class AppLocalizations {
   /// Title for price metrics tile
   ///
   /// In en, this message translates to:
-  /// **'Open Prices metrics'**
+  /// **'Open Price metrics'**
   String get preferences_prices_metrics_title;
 
   /// Subtitle for price metrics tile
@@ -10773,72 +10621,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'OSM ID'**
   String get location_map_details_osm_id;
-
-  /// Button to go back to home from the scanner page
-  ///
-  /// In en, this message translates to:
-  /// **'Back to home'**
-  String get homepage_scanner_back_to_home_button;
-
-  /// Tooltip for the button to toggle the camera on the scanner page
-  ///
-  /// In en, this message translates to:
-  /// **'Toggle camera'**
-  String get homepage_scanner_toggle_camera_tooltip;
-
-  /// Tooltip for the button to open the barcode scanner from the homepage
-  ///
-  /// In en, this message translates to:
-  /// **'Show the barcode scanner'**
-  String get homepage_header_barcode_tooltip;
-
-  /// Message visible above the camera.
-  ///
-  /// In en, this message translates to:
-  /// **'Tap to scan a **barcode**\nand discover if it\'s **good for you**!'**
-  String get homepage_scanner_overlay_message;
-
-  /// Tooltip for the button to toggle the torch on the scanner page
-  ///
-  /// In en, this message translates to:
-  /// **'Toggle torch'**
-  String get homepage_scanner_toggle_torch_tooltip;
-
-  /// Banner text shown on the scanner page to prompt user to start scanning a product
-  ///
-  /// In en, this message translates to:
-  /// **'Scan a product by approaching its barcode'**
-  String get homepage_scanner_banner_start_scanning;
-
-  /// Banner text shown on the scanner page when an invalid barcode is detected
-  ///
-  /// In en, this message translates to:
-  /// **'We have detected the following barcode: {barcode}, but it seems to be invalid.'**
-  String homepage_scanner_banner_invalid_barcode(String barcode);
-
-  /// Button to see all items in a horizontal list on the homepage
-  ///
-  /// In en, this message translates to:
-  /// **'View more…'**
-  String get homepage_horizontal_list_view_more_button;
-
-  /// Title for the most scanned products horizontal list on the homepage
-  ///
-  /// In en, this message translates to:
-  /// **'Most scanned products'**
-  String get homepage_list_most_scanned_title;
-
-  /// Title for the last scanned products horizontal list on the homepage
-  ///
-  /// In en, this message translates to:
-  /// **'Last scanned products'**
-  String get homepage_list_last_scanned_title;
-
-  /// A percentage value (you may insert a space before the % sign if needed)
-  ///
-  /// In en, this message translates to:
-  /// **'{percent}%'**
-  String percent_value(String percent);
 }
 
 class _AppLocalizationsDelegate

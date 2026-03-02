@@ -12,23 +12,20 @@ class AppLocalizationsKa extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
   String get yes => 'დიახ';
 
   @override
-  String get add => 'დამატება';
+  String get add => 'Add';
 
   @override
   String get account_delete_message =>
-      'დარწმუნებული ხართ, რომ გსურთ თქვენი ანგარიშის წაშლა?\nთუ არსებობს კონკრეტული მიზეზი, გთხოვთ, გაგვიზიაროთ ქვემოთ';
+      'Are you sure you want to delete your account?\nIf there is a specific reason, please share below';
 
   @override
-  String get reason => 'მიზეზი';
+  String get reason => 'Reason';
 
   @override
   String get okay => 'კარგი';
@@ -37,7 +34,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get validate => 'Validate';
 
   @override
-  String get create => 'შექმნა';
+  String get create => 'Create';
 
   @override
   String get applyButtonText => 'Apply';
@@ -46,22 +43,22 @@ class AppLocalizationsKa extends AppLocalizations {
   String get next_label => 'შემდეგი';
 
   @override
-  String get continue_label => 'გაგრძელება';
+  String get continue_label => 'Continue';
 
   @override
   String get exit_label => 'Exit';
 
   @override
-  String get previous_label => 'წინა';
+  String get previous_label => 'Previous';
 
   @override
-  String get go_back_to_top => 'დაბრუნება ზევით';
+  String get go_back_to_top => 'Go back to top';
 
   @override
   String get save => 'შენახვა';
 
   @override
-  String get save_confirmation => 'დარწმუნებული ხარ, რომ შენახვა გინდა?';
+  String get save_confirmation => 'Are you sure you want to save?';
 
   @override
   String get skip => 'Skip';
@@ -70,7 +67,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
-  String get ignore => 'იგნორირება';
+  String get ignore => 'Ignore';
 
   @override
   String get close => 'Close';
@@ -79,225 +76,219 @@ class AppLocalizationsKa extends AppLocalizations {
   String get no => 'No';
 
   @override
-  String get stop => 'გაჩერება';
+  String get stop => 'Stop';
 
   @override
-  String get finish => 'დასრულება';
+  String get finish => 'Finish';
 
   @override
-  String get calculate => 'გამოთვლა';
+  String get calculate => 'Calculate';
 
   @override
-  String get reset_food_prefs => 'საკვების პარამეტრების გადაყენება';
+  String get reset_food_prefs => 'Reset food preferences';
 
   @override
-  String get error => 'რაღაც არასწორად მოხდა';
+  String get error => 'Something went wrong';
 
   @override
-  String get error_occurred => 'შეცდომა მოხდა';
+  String get error_occurred => 'An error occurred';
 
   @override
   String get featureInProgress =>
-      'ჩვენ ჯერ კიდევ ვმუშაობთ ამ ფუნქციაზე, თვალყური ადევნეთ სიახლეებს';
+      'We\'re still working on this feature, stay tuned';
 
   @override
-  String get label_web => 'ნახვა ვებგვერდზე';
+  String get label_web => 'View on the web';
 
   @override
-  String get learnMore => 'შეიტყვეთ მეტი';
+  String get learnMore => 'Learn more';
 
   @override
-  String get unknown => 'უცნობი';
+  String get unknown => 'Unknown';
 
   @override
-  String get match_very_good => 'ძალიან კარგი მატჩი';
+  String get match_very_good => 'Very good match';
 
   @override
-  String get match_good => 'კარგი მატჩი';
+  String get match_good => 'Good match';
 
   @override
-  String get match_poor => 'ცუდი მატჩი';
+  String get match_poor => 'Poor match';
 
   @override
   String get match_may_not => 'May not match';
 
   @override
-  String get match_does_not => 'არ ემთხვევა';
+  String get match_does_not => 'Does not match';
 
   @override
   String get match_unknown => 'Ვერ ვნახულობ';
 
   @override
-  String get match_short_very_good => 'ძალიან კარგი მატჩი';
+  String get match_short_very_good => 'Very good match';
 
   @override
-  String get match_short_good => 'კარგი მატჩი';
+  String get match_short_good => 'Good match';
 
   @override
-  String get match_short_poor => 'ცუდი მატჩი';
+  String get match_short_poor => 'Poor match';
 
   @override
   String get match_short_may_not => 'May not match';
 
   @override
-  String get match_short_does_not => 'არ ემთხვევა';
+  String get match_short_does_not => 'Does not match';
 
   @override
   String get match_short_unknown => 'Ვერ ვნახულობ';
 
   @override
-  String get licenses => 'ლიცენზიები';
+  String get licenses => 'Licences';
 
   @override
-  String get looking_for => 'ვეძებ';
+  String get looking_for => 'Looking for';
 
   @override
-  String get welcomeToOpenFoodFacts =>
-      'კეთილი იყოს თქვენი მობრძანება Open Food Facts-ში';
+  String get welcomeToOpenFoodFacts => 'Welcome to Open Food Facts';
 
   @override
   String get whatIsOff =>
-      'Open Food Facts არის გლობალური არაკომერციული ორგანიზაცია, რომელსაც ადგილობრივი თემები აფინანსებენ.';
+      'Open Food Facts is a global non-profit powered by local communities.';
 
   @override
   String get productDataUtility =>
-      'იხილეთ თქვენი პრეფერენციების შესაბამისი საკვების მონაცემები.';
+      'See the food data relevant to your preferences.';
 
   @override
-  String get healthCardUtility => 'აირჩიეთ საკვები, რომელიც თქვენთვის კარგია.';
+  String get healthCardUtility => 'Choose foods that are good for you.';
 
   @override
-  String get ecoCardUtility =>
-      'აირჩიეთ საკვები, რომელიც პლანეტისთვის სასარგებლოა.';
+  String get ecoCardUtility => 'Choose foods that are good for the planet.';
 
   @override
   String get server_error_open_new_issue =>
-      'სერვერის პასუხი არ არის! შესაძლოა, პრობლემა შემდეგი ბმულით გახსნათ.';
+      'No server response! You may open an issue with the following link.';
 
   @override
   String get sign_in_text =>
-      'შედით თქვენს Open Food Facts ანგარიშზე თქვენი წვლილის შესანახად';
+      'Sign in to your Open Food Facts account to save your contributions';
 
   @override
-  String get incorrect_credentials => 'არასწორი მომხმარებლის სახელი ან პაროლი.';
+  String get incorrect_credentials => 'Incorrect username or password.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'ეს ელ. ფოსტა ან მომხმარებლის სახელი არ არსებობს. გთხოვთ, შეამოწმოთ თქვენი ავტორიზაციის მონაცემები.';
+      'This email or username doesn\'t exist. Please check your credentials.';
 
   @override
   String get password_lost_server_unavailable =>
-      'ამჟამად ჩვენს სერვერებზე შენელებაა და ბოდიშს გიხდით ამის გამო. გთხოვთ, სცადოთ მოგვიანებით.';
+      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
   String get login => 'Login';
 
   @override
-  String get login_result_type_server_unreachable => 'ქსელი მიუწვდომელია';
+  String get login_result_type_server_unreachable => 'Network is unreachable';
 
   @override
   String get login_result_type_server_issue =>
-      'პრობლემა სერვერზეა. გთხოვთ, სცადოთ მოგვიანებით.';
+      'Problem on the server. Please try later.';
 
   @override
-  String get login_page_username_or_email =>
-      'გთხოვთ, შეიყვანოთ მომხმარებლის სახელი ან ელ. ფოსტა';
+  String get login_page_username_or_email => 'Please enter username or e-mail';
 
   @override
-  String get login_page_password_error_empty => 'გთხოვთ, შეიყვანოთ პაროლი';
+  String get login_page_password_error_empty => 'Please enter a password';
 
   @override
-  String get create_account => 'ანგარიშის შექმნა';
+  String get create_account => 'Create account';
 
   @override
-  String get sign_in => 'შესვლა';
+  String get sign_in => 'Sign in';
 
   @override
-  String get sign_in_mandatory =>
-      'ამ ფუნქციის გამოსაყენებლად საჭიროა თქვენი შესვლა.';
+  String get sign_in_mandatory => 'For that feature we need you to sign in.';
 
   @override
   String get help_improve_country =>
-      'დაგვეხმარეთ თქვენს ქვეყანაში ღია საკვების ფაქტების გაუმჯობესებაში';
+      'Help improve Open Food Facts in your country';
 
   @override
-  String get sign_out => 'გასვლა';
+  String get sign_out => 'Sign out';
 
   @override
-  String get sign_out_confirmation => 'დარწმუნებული ხართ, რომ გსურთ გასვლა?';
+  String get sign_out_confirmation => 'Are you sure you want to sign out?';
 
   @override
-  String get password => 'პაროლი';
+  String get password => 'Password';
 
   @override
-  String get forgot_password => 'პაროლის აღდგენა';
+  String get forgot_password => 'Forgot password';
 
   @override
   String get forgot_password_question => 'პაროლი დაგავიწყდათ?';
 
   @override
-  String get view_profile => 'პროფილის ნახვა';
+  String get view_profile => 'View profile';
 
   @override
-  String get reset_password => 'პაროლის გადაყენება';
+  String get reset_password => 'Reset password';
 
   @override
   String get reset_password_explanation_text =>
-      'პაროლის დავიწყების შემთხვევაში, პაროლის აღდგენის ინსტრუქციების მისაღებად, შეიყვანეთ თქვენი მომხმარებლის სახელი ან ელექტრონული ფოსტის მისამართი. ასევე, არ დაგავიწყდეთ სპამის საქაღალდის შემოწმება.';
+      'In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.';
 
   @override
-  String get username_or_email => 'მომხმარებლის სახელი ან ელ. ფოსტა';
+  String get username_or_email => 'Username or e-mail';
 
   @override
   String get reset_password_done =>
-      'თქვენს ანგარიშთან დაკავშირებულ ელექტრონულ ფოსტაზე გაიგზავნა ელ.წერილი, რომელიც შეიცავს თქვენი პაროლის გადატვირთვის ბმულს. ასევე, შეამოწმეთ თქვენი სპამი.';
+      'An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam';
 
   @override
-  String get send_reset_password_mail => 'პაროლის შეცვლა';
+  String get send_reset_password_mail => 'Change password';
 
   @override
-  String get enter_some_text => 'გთხოვთ, შეიყვანოთ ტექსტი';
+  String get enter_some_text => 'Please enter some text';
 
   @override
-  String get sign_up_page_title => 'რეგისტრაცია';
+  String get sign_up_page_title => 'Sign Up';
 
   @override
-  String get sign_up_page_action_button => 'რეგისტრაცია';
+  String get sign_up_page_action_button => 'Sign Up';
 
   @override
-  String get sign_up_page_action_doing_it => 'რეგისტრაცია…';
+  String get sign_up_page_action_doing_it => 'Signing up…';
 
   @override
   String get sign_up_page_action_ok =>
-      'გილოცავთ! თქვენი ანგარიში ახლახან შეიქმნა.';
+      'Congratulations! Your account has just been created.';
 
   @override
   String get sign_up_page_display_name_hint => 'სახელი';
 
   @override
   String get sign_up_page_display_name_error_empty =>
-      'გთხოვთ, შეიყვანოთ საჩვენებელი სახელი, რომლის გამოყენებაც გსურთ';
+      'Please enter the display name you want to use';
 
   @override
-  String get sign_up_page_email_hint => 'ელ. ფოსტა';
+  String get sign_up_page_email_hint => 'E-mail';
 
   @override
-  String get sign_up_page_email_error_empty => 'ელ. ფოსტა აუცილებელია';
+  String get sign_up_page_email_error_empty => 'E-mail is required';
 
   @override
-  String get sign_up_page_email_error_invalid => 'არასწორი ელ. ფოსტა';
+  String get sign_up_page_email_error_invalid => 'Invalid e-mail';
 
   @override
-  String get sign_up_page_username_hint =>
-      'მომხმარებლის სახელი: საჯაროდ ხილული';
+  String get sign_up_page_username_hint => 'Username: Publicly visible';
 
   @override
-  String get sign_up_page_username_error_empty =>
-      'გთხოვთ, შეიყვანოთ მომხმარებლის სახელი';
+  String get sign_up_page_username_error_empty => 'Please enter a username';
 
   @override
   String get sign_up_page_username_error_invalid =>
-      'გთხოვთ, შეიყვანოთ სწორი მომხმარებლის სახელი';
+      'Please enter a valid username';
 
   @override
   String get sign_up_page_username_description =>
@@ -305,203 +296,202 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'მომხმარებლის სახელი არ უნდა აღემატებოდეს $value სიმბოლოს.';
+    return 'Username cannot exceed $value characters';
   }
 
   @override
-  String get sign_up_page_password_hint => 'პაროლი';
+  String get sign_up_page_password_hint => 'Password';
 
   @override
-  String get sign_up_page_password_error_empty => 'გთხოვთ, შეიყვანოთ პაროლი';
+  String get sign_up_page_password_error_empty => 'Please enter a password';
 
   @override
   String get sign_up_page_password_error_invalid =>
-      'გთხოვთ, შეიყვანოთ სწორი პაროლი (მინიმუმ 6 სიმბოლო)';
+      'Please enter a valid password (at least 6 characters)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'პაროლის დადასტურება';
+  String get sign_up_page_confirm_password_hint => 'Confirm Password';
 
   @override
   String get sign_up_page_confirm_password_error_empty =>
-      'გთხოვთ, დაადასტუროთ პაროლი';
+      'Please confirm the password';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
-      'პაროლები არ ემთხვევა';
+      'Passwords don\'t match';
 
   @override
-  String get sign_up_page_agree_text => 'ვეთანხმები ღია კვების ფაქტებს';
+  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
 
   @override
-  String get sign_up_page_terms_text => 'გამოყენების პირობები და წვლილი';
+  String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
   String get sign_up_page_agree_error_invalid =>
-      'ანგარიშის შექმნისას, გამოყენების პირობებზე დათანხმება სავალდებულოა, თუმცა, ანონიმური შენატანების გაკეთება აპლიკაციის საშუალებით მაინც შესაძლებელია.';
+      'When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app';
 
   @override
-  String get sign_up_page_producer_checkbox => 'მე საკვების მწარმოებელი ვარ';
+  String get sign_up_page_producer_checkbox => 'I am a food producer';
 
   @override
-  String get sign_up_page_producer_hint => 'მწარმოებელი/ბრენდი';
+  String get sign_up_page_producer_hint => 'Producer/brand';
 
   @override
   String get sign_up_page_producer_error_empty =>
-      'გთხოვთ, შეიყვანოთ მწარმოებელი ან ბრენდის სახელი';
+      'Please enter a producer or a brand name';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'მსურს გამოვიწერო Open Food Facts-ის საინფორმაციო ბიულეტენი (შეგიძლიათ ნებისმიერ დროს გააუქმოთ გამოწერა)';
+      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'მომხმარებლის სახელი უკვე არსებობს, გთხოვთ, აირჩიოთ სხვა მომხმარებლის სახელი.';
+      'The user name already exists, please choose another username.';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'უკვე არსებობს, შედით ანგარიშზე ან სცადეთ სხვა ელ. ფოსტით.';
+      'already exists, login to the account or try with another email.';
 
   @override
   String get sign_up_page_provide_valid_email =>
-      'გთხოვთ, მიუთითოთ მოქმედი ელექტრონული ფოსტის მისამართი.';
+      'Please provide a valid email address.';
 
   @override
   String get sign_up_page_server_busy =>
-      'ძალიან ვწუხვართ, თქვენი ანგარიშის შექმნისას ტექნიკური სირთულეები შეგვხვდა. გთხოვთ, სცადოთ მოგვიანებით.';
+      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
 
   @override
   String get settingsTitle => 'Settings';
 
   @override
-  String get darkmode => 'თემა';
+  String get darkmode => 'Theme';
 
   @override
-  String get darkmode_dark => 'მუქი';
+  String get darkmode_dark => 'Dark';
 
   @override
-  String get darkmode_light => 'სინათლე';
+  String get darkmode_light => 'Light';
 
   @override
-  String get darkmode_system_default => 'სისტემის ნაგულისხმევი';
+  String get darkmode_system_default => 'System default';
 
   @override
-  String get thanks_for_contributing => 'გმადლობთ წვლილისთვის!';
+  String get thanks_for_contributing => 'Thanks for contributing!';
 
   @override
-  String get contributors_label => 'ისინი აპლიკაციას ქმნიან';
+  String get contributors_label => 'They are building the app';
 
   @override
   String get contributors_dialog_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'კონტრიბუტორი: $name';
+    return 'Contributor: $name';
   }
 
   @override
   String get contributors_description =>
-      'ამ აპლიკაციის ყველა კონტრიბუტორის სია';
+      'A list of all contributors of this app';
 
   @override
-  String get support => 'მხარდაჭერა';
+  String get support => 'Support';
 
   @override
-  String get support_join_slack => 'დახმარებისთვის მიმართეთ ჩვენს Slack არხზე';
+  String get support_join_slack => 'Ask for help in our Slack channel';
 
   @override
-  String get support_via_forum => 'დახმარება ითხოვეთ ჩვენს ფორუმზე';
+  String get support_via_forum => 'Ask for help on our forum';
 
   @override
-  String get support_via_email => 'გამოგვიგზავნეთ ელ.წერილი';
+  String get support_via_email => 'Send us an e-mail';
 
   @override
-  String get support_via_email_include_logs_dialog_title =>
-      'გსურთ აპლიკაციის ჟურნალების გაგზავნა?';
+  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'გსურთ, რომ აპლიკაციის ჟურნალები თქვენს ელფოსტას დანართში დაურთოთ?';
+      'Do you wish to include application logs in attachment to your email?';
 
   @override
-  String get termsOfUse => 'გამოყენების პირობები';
+  String get termsOfUse => 'Terms of use';
 
   @override
-  String get legalNotices => 'იურიდიული შეტყობინებები';
+  String get legalNotices => 'Legal notices';
 
   @override
-  String get privacy_policy => 'კონფიდენციალურობის პოლიტიკა';
+  String get privacy_policy => 'Privacy policy';
 
   @override
-  String get about_this_app => 'ამ აპლიკაციის შესახებ';
+  String get about_this_app => 'About this app';
 
   @override
   String get contribute => 'Contribute';
 
   @override
-  String get contribute_sw_development => 'პროგრამული უზრუნველყოფის შემუშავება';
+  String get contribute_sw_development => 'Software development';
 
   @override
   String get contribute_develop_text =>
-      'ყველა Open Food Facts პროდუქტის კოდი ხელმისაწვდომია GitHub-ზე. თქვენ შეგიძლიათ ხელახლა გამოიყენოთ კოდი (ეს ღია კოდია) და დაგვეხმაროთ მის გაუმჯობესებაში ყველასთვის, მთელი პლანეტის მასშტაბით.';
+      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
 
   @override
   String get contribute_develop_text_2 =>
-      'შეგიძლიათ შეუერთდეთ Open Food Facts Slack-ის ჩატ ოთახს, რომელიც კითხვების დასმის სასურველი გზაა.';
+      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
 
   @override
-  String get contribute_develop_dev_mode_title => 'DEV რეჟიმი?';
+  String get contribute_develop_dev_mode_title => 'DEV Mode?';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => 'გააქტიურეთ DEV რეჟიმი';
+  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
 
   @override
   String get contribute_donate_title => 'Donate';
 
   @override
-  String get contribute_donate_header => 'შემოწირულობა Open Food Facts-ისთვის';
+  String get contribute_donate_header => 'Donate to Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'გთხოვთ, გაითვალისწინოთ, რომ შიდა ალფა ვერსიით შესაძლებელია მონაცემების სრული დაკარგვა და აპლიკაცია ნებისმიერ დროს გამოუსადეგარი გახდეს!';
+      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'დასასრულებელი პროდუქტები';
+      'Products to be completed';
 
   @override
-  String get contribute_improve_header => 'გაუმჯობესება';
+  String get contribute_improve_header => 'Improving';
 
   @override
   String get contribute_improve_text =>
-      'მონაცემთა ბაზა პროექტის ბირთვს წარმოადგენს. მისი დახმარებით დახმარება ძალიან მარტივი და სწრაფია. შეგიძლიათ ჩამოტვირთოთ მობილური აპლიკაცია თქვენი ტელეფონისთვის და დაიწყოთ პროდუქტების დამატება ან გაუმჯობესება.\n\nმეორეს მხრივ, Open Food Facts-ის ვებსაიტი წვლილის შეტანის მრავალ გზას გთავაზობთ: ';
+      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
 
   @override
-  String get contribute_translate_header => 'თარგმნა';
+  String get contribute_translate_header => 'Translate';
 
   @override
   String get contribute_data_quality => 'Data Quality';
 
   @override
-  String get contribute_translate_link_text => 'თარგმნის დაწყება';
+  String get contribute_translate_link_text => 'Start Translating';
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts გლობალური პროექტია, რომელიც 160-ზე მეტი ქვეყნის პროდუქტებს შეიცავს. Open Food Facts ათობით ენაზეა ნათარგმნი და მუდმივად ცვალებადი შინაარსი აქვს.';
+      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
 
   @override
   String get contribute_translate_text_2 =>
-      'თარგმანები პროექტის ერთ-ერთი მთავარი ამოცანაა';
+      'Translations is one of the key tasks of the project';
 
   @override
   String get contribute_join_skill_pool =>
-      'შეიტანეთ თქვენი უნარები Open Food Facts-ში. შემოუერთდით უნარების ჯგუფს!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
-      'გაუზიარეთ ღია კვების ფაქტები თქვენს მეგობრებს';
+      'Share Open Food Facts with your friends';
 
   @override
   String get contribute_share_content =>
@@ -509,21 +499,21 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'შეიტანეთ ფასები თქვენი ლოიალობის ბარათების მონაცემების GDPR ექსპორტის მოთხოვნით';
+      'Contribute prices by requesting a GDPR export of your loyalty cards data';
 
   @override
-  String get tap_to_answer => 'შეეხეთ აქ კითხვებზე პასუხის გასაცემად';
+  String get tap_to_answer => 'Tap here to answer questions';
 
   @override
   String get tap_to_answer_hint =>
-      'შეეხეთ აქ, რომ უპასუხოთ ამ პროდუქტის შესახებ კითხვებს';
+      'Tap here to answer questions about this product';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'გთხოვთ, დაელოდოთ, სანამ ამ პროდუქტთან დაკავშირებული კითხვები ჩაიტვირთება';
+      'Please wait while questions about this product are loaded';
 
   @override
-  String get saving_answer => 'თქვენი პასუხის შენახვა';
+  String get saving_answer => 'Saving your answer';
 
   @override
   String get contribute_to_get_rewards =>
@@ -531,80 +521,79 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'შედით თქვენს Open Food Facts ანგარიშზე, რათა მიიღოთ თქვენი წვლილის კრედიტი';
+      'Sign in to your Open Food Facts account to get credit for your contributions';
 
   @override
-  String get question_yes_button_accessibility_value => 'უპასუხეთ კი-თი';
+  String get question_yes_button_accessibility_value => 'Answer with yes';
 
   @override
-  String get question_no_button_accessibility_value => 'პასუხი არა-თი';
+  String get question_no_button_accessibility_value => 'Answer with no';
 
   @override
-  String get question_skip_button_accessibility_value => 'გამოტოვეთ ეს კითხვა';
+  String get question_skip_button_accessibility_value => 'Skip this question';
 
   @override
-  String get tap_to_edit_search => 'შეეხეთ ძიების რედაქტირებისთვის';
+  String get tap_to_edit_search => 'Tap to edit search';
 
   @override
-  String get myPreferences => 'ჩემი პრეფერენციები';
+  String get myPreferences => 'My preferences';
 
   @override
   String get account_create_message =>
-      'შექმენით თქვენი ანგარიში და შემოუერთდით Open Food Facts-ის საზოგადოებას, რათა დაეხმაროთ საკვების შესახებ ცოდნის გაღრმავებას მთელ მსოფლიოში!';
+      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
 
   @override
-  String get join_us => 'შემოგვიერთდით';
+  String get join_us => 'Join us';
 
   @override
-  String get myPreferences_profile_title => 'თქვენი პროფილი';
+  String get myPreferences_profile_title => 'Your Profile';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'მართეთ თქვენი Open Food Facts-ის კონტრიბუტორის ანგარიში.';
+      'Manage your Open Food Facts contributor account.';
 
   @override
-  String get myPreferences_settings_title => 'აპლიკაციის პარამეტრები';
+  String get myPreferences_settings_title => 'App Settings';
 
   @override
-  String get myPreferences_settings_subtitle => 'ბნელი რეჟიმი, ენები…';
+  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
 
   @override
-  String get myPreferences_food_title => 'საკვების პრეფერენციები';
+  String get myPreferences_food_title => 'Food Preferences';
 
   @override
   String get myPreferences_food_subtitle =>
-      'აირჩიეთ, საკვებთან დაკავშირებული რომელი ინფორმაციაა თქვენთვის ყველაზე მნიშვნელოვანი.';
+      'Choose what information about food matters most to you.';
 
   @override
   String get myPreferences_food_comment =>
-      'აირჩიეთ თქვენთვის ყველაზე მნიშვნელოვანი ინფორმაცია საკვებთან დაკავშირებით, რათა დაახარისხოთ საკვები თქვენი პრეფერენციების მიხედვით, პირველ რიგში ნახოთ თქვენთვის საინტერესო ინფორმაცია და მიიღოთ თავსებადობის შეჯამება. ეს საკვების პრეფერენციები თქვენს მოწყობილობაზე რჩება და არ არის დაკავშირებული თქვენს Open Food Facts-ის კონტრიბუტორის ანგარიშთან, თუ ასეთი გაქვთ.';
+      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
 
   @override
-  String get confirmResetPreferences =>
-      'გსურთ თქვენი საკვების პარამეტრების გადაყენება?';
+  String get confirmResetPreferences => 'Reset your food preferences?';
 
   @override
-  String get myPersonalizedRanking => 'ჩემი პერსონალიზებული რეიტინგი';
+  String get myPersonalizedRanking => 'My personalized ranking';
 
   @override
   String get ranking_tab_all => 'All';
 
   @override
-  String get ranking_subtitle_match_yes => 'შესანიშნავი მატჩი თქვენთვის';
+  String get ranking_subtitle_match_yes => 'A great match for you';
 
   @override
-  String get ranking_subtitle_match_no => 'ძალიან ცუდი მატჩი';
+  String get ranking_subtitle_match_no => 'Very poor match';
 
   @override
   String get ranking_subtitle_match_maybe => 'Ვერ ვნახულობ';
 
   @override
   String get refresh_with_new_preferences =>
-      'განაახლეთ სია თქვენი ახალი პარამეტრებით';
+      'Refresh the list with your new preferences';
 
   @override
   String get reloaded_with_new_preferences =>
-      'თქვენი ახალი პარამეტრებით გადატვირთულია';
+      'Reloaded with your new preferences';
 
   @override
   String get profile_navbar_label => 'Community';
@@ -613,28 +602,28 @@ class AppLocalizationsKa extends AppLocalizations {
   String get scan_navbar_label => 'სკანირება';
 
   @override
-  String get history_navbar_label => 'ისტორია';
+  String get history_navbar_label => 'History';
 
   @override
-  String get list_navbar_label => 'სიები';
+  String get list_navbar_label => 'Lists';
 
   @override
-  String get category => 'კატეგორიის მიხედვით გაფილტვრა';
+  String get category => 'Filter by category';
 
   @override
   String get category_all => 'All';
 
   @override
-  String get category_search => '(კატეგორიის ძიება)';
+  String get category_search => '(category search)';
 
   @override
-  String get filter => 'ფილტრი';
+  String get filter => 'Filter';
 
   @override
-  String get scan => 'პროდუქტები სკანირების ეკრანიდან';
+  String get scan => 'Products from the Scan screen';
 
   @override
-  String get scan_history => 'სკანირების ისტორია';
+  String get scan_history => 'Scan history';
 
   @override
   String get search => 'ძებნა';
@@ -649,175 +638,169 @@ class AppLocalizationsKa extends AppLocalizations {
   String get search_history => 'ძიების ისტორია';
 
   @override
-  String get search_store => 'მაღაზიის ძიება';
+  String get search_store => 'Search for a store';
 
   @override
   String get search_store_help => 'მინიშნება: დაამატეთ ქალაქი ან ქვეყანა';
 
   @override
-  String get tap_for_more => 'შეეხეთ მეტი ინფორმაციის სანახავად…';
+  String get tap_for_more => 'Tap to see more info…';
 
   @override
   String get product => 'Product';
 
   @override
-  String get unknownBrand => 'უცნობი ბრენდი';
+  String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'უცნობი რაოდენობა';
-
-  @override
-  String get unknownProductName => 'უცნობი პროდუქტის სახელი';
+  String get unknownProductName => 'Unknown product name';
 
   @override
   String get label_refresh => 'Refresh';
 
   @override
-  String get label_reload => 'გადატვირთვა';
+  String get label_reload => 'Reload';
 
   @override
-  String get image => 'სურათი';
+  String get image => 'Image';
 
   @override
-  String get front_photo => 'წინა ფოტო';
+  String get front_photo => 'Front photo';
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (შესაძლოა, ეს სურათი მოძველებული იყოს)';
+    return '$imageType (this image may be outdated)';
   }
 
   @override
-  String get outdated_image_short_label => 'შეიძლება მოძველებული იყოს';
+  String get outdated_image_short_label => 'may be outdated';
 
   @override
   String get ingredients => 'Ingredients';
 
   @override
   String get ingredients_editing_instructions =>
-      'შეინახეთ თავდაპირველი თანმიმდევრობა. მიუთითეთ პროცენტული მაჩვენებელი, თუ მითითებულია. გამოყავით მძიმით ან დეფისით და გამოიყენეთ ფრჩხილები ინგრედიენტის ინგრედიენტებისთვის.';
+      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
 
   @override
-  String get ingredients_editing_error =>
-      'ინგრედიენტების შენახვა ვერ მოხერხდა.';
+  String get ingredients_editing_error => 'Failed to save the ingredients.';
 
   @override
   String get ingredients_editing_image_error =>
-      'ინგრედიენტების ახალი სურათის მიღება ვერ მოხერხდა.';
+      'Failed to get a new ingredients image.';
 
   @override
-  String get ingredients_editing_title => 'ინგრედიენტების რედაქტირება';
+  String get ingredients_editing_title => 'Edit Ingredients';
 
   @override
-  String get ingredients_photo => 'ინგრედიენტების ფოტო';
+  String get ingredients_photo => 'Ingredients photo';
 
   @override
   String get packaging_editing_instructions =>
-      'ჩამოთვალეთ შეფუთვის ყველა ნაწილი, გამოყოფილი მძიმით ან ხაზით, მათი რაოდენობის (მაგ. 1 ან 6), ტიპის (მაგ. ბოთლი, ყუთი, ქილა), მასალის (მაგ. პლასტმასი, ლითონი, ალუმინი) და, თუ შესაძლებელია, ზომის (მაგ. 33cl) და გადამუშავების ინსტრუქციის მითითებით.\nმაგალითი: 1 შუშის ბოთლი გადასამუშავებლად, 1 პლასტმასის საცობი გადასაგდებად';
+      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
 
   @override
-  String get packaging_editing_error => 'შეფუთვის შენახვა ვერ მოხერხდა.';
+  String get packaging_editing_error => 'Failed to save the packaging.';
 
   @override
   String get packaging_editing_image_error =>
-      'ახალი შეფუთვის სურათის მიღება ვერ მოხერხდა.';
+      'Failed to get a new packaging image.';
 
   @override
-  String get packaging_editing_title => 'შეფუთვის რედაქტირება';
+  String get packaging_editing_title => 'Edit Packaging';
 
   @override
-  String get nutrition => 'კვება';
+  String get nutrition => 'Nutrition';
 
   @override
-  String get nutrition_facts_photo =>
-      'კვებითი ღირებულების შესახებ ინფორმაციის ფოტო';
+  String get nutrition_facts_photo => 'Nutrition facts photo';
 
   @override
-  String get nutrition_facts_editing_title =>
-      'კვებითი ღირებულების შესახებ ინფორმაციის რედაქტირება';
+  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'გადამუშავების ინსტრუქციები';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'გადამუშავების ინსტრუქციის ფოტო';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
-  String get missing_product => 'თქვენ ახალი პროდუქტი იპოვეთ!';
+  String get missing_product => 'You found a new product!';
 
   @override
   String get add_product_take_photos =>
-      'ამ პროდუქტის Open Food Facts-ში დასამატებლად გადაუღეთ ფოტოები შეფუთვას';
+      'Take photos of the packaging to add this product to Open Food Facts';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'გთხოვთ, ჯერ რამდენიმე ფოტო გადაიღოთ. პროდუქტის დასრულება ყოველთვის შეგიძლიათ მოგვიანებით.';
+      'Please take some photos first. You may always complete the product at a later time.';
 
   @override
   String get add_product_information_button_label => 'Add product information';
 
   @override
-  String get new_product => 'ახალი პროდუქტი';
+  String get new_product => 'New Product';
 
   @override
-  String get new_product_found_title => 'ახალი პროდუქტი ნაპოვნია!';
+  String get new_product_found_title => 'New product found!';
 
   @override
   String get new_product_found_text =>
-      'ჩვენი ერთობლივი მონაცემთა ბაზა შეიცავს **3 მილიონზე მეტ პროდუქტს**, მაგრამ ეს შტრიხკოდი არ არსებობს: ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get new_product_found_button => 'Add this product';
 
   @override
-  String get new_product_leave_title => 'გსურთ ამ გვერდის დატოვება?';
+  String get new_product_leave_title => 'Leave this page?';
 
   @override
   String get new_product_leave_message =>
-      'როგორც ჩანს, არაფერი შეგიყვანიათ. ნამდვილად გსურთ ამ გვერდის დატოვება?';
+      'It looks like you didn\'t input anything. Do you really want to leave this page?';
 
   @override
   String get new_product_dialog_description =>
-      'გთხოვთ, გადაუღოთ შეფუთვის ფოტოები, რათა ეს პროდუქტი ჩვენს საერთო მონაცემთა ბაზაში დაემატოს.';
+      'Please take photos of the packaging to add this product to our common database';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'ილუსტრაცია უცნობი Nutri-Score-ით და Green Score-ით';
+      'An illustration with unknown Nutri-Score and Green Score';
 
   @override
-  String get front_packaging_photo_button_label => 'წინა შეფუთვის ფოტო';
+  String get front_packaging_photo_button_label => 'Front packaging photo';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'წინა შეფუთვის ფოტოს ატვირთვის დადასტურება';
+      'Confirm upload of Front packaging photo';
 
   @override
-  String get confirm_button_label => 'დადასტურება';
+  String get confirm_button_label => 'Confirm';
 
   @override
-  String get send_image_button_label => 'სურათის გაგზავნა';
+  String get send_image_button_label => 'Send image';
 
   @override
-  String get crop_page_action_saving => 'სურათის შენახვა…';
+  String get crop_page_action_saving => 'Saving the image…';
 
   @override
-  String get crop_page_action_cropping => 'სურათის ჩამოჭრა…';
+  String get crop_page_action_cropping => 'Cropping the image…';
 
   @override
-  String get crop_page_action_local => 'ლოკალური ვერსიის შენახვა…';
+  String get crop_page_action_local => 'Saving a local version…';
 
   @override
   String get crop_page_action_local_failed_title =>
-      'უი… შენს ფოტოსთან დაკავშირებით რაღაცაა!';
+      'Oops… there\'s something with your photo!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'ჩვენ ვერ ვახერხებთ სურათის ლოკალურად დამუშავებას, სანამ ის ჩვენს სერვერზე გაიგზავნება. გთხოვთ, სცადოთ მოგვიანებით ან დაგვიკავშირდეთ, თუ პრობლემა კვლავ არ მოგვარდება.';
+      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
 
   @override
-  String get crop_page_action_retake => 'ხელახლა გადაიღე ფოტო';
+  String get crop_page_action_retake => 'Retake a photo';
 
   @override
-  String get crop_page_too_small_image_title => 'სურათი ძალიან პატარაა!';
+  String get crop_page_too_small_image_title => 'The image is too small!';
 
   @override
   String crop_page_too_small_image_message(
@@ -826,193 +809,184 @@ class AppLocalizationsKa extends AppLocalizations {
     int actualWidth,
     int actualHeight,
   ) {
-    return 'სურათის ატვირთვის მინიმალური ზომა პიქსელებში არის ${expectedMinWidth}x$expectedMinHeight. მიმდინარე სურათია ${actualWidth}x$actualHeight.';
+    return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
   }
 
   @override
-  String get crop_page_action_server => 'სერვერზე ზარის მომზადება…';
+  String get crop_page_action_server => 'Preparing a call to the server…';
 
   @override
-  String get front_packaging_photo_title => 'წინა შეფუთვის ფოტო';
+  String get front_packaging_photo_title => 'Front Packaging Photo';
 
   @override
-  String get ingredients_photo_title => 'ინგრედიენტების ფოტო';
+  String get ingredients_photo_title => 'Ingredients Photo';
 
   @override
-  String get nutritional_facts_photo_title =>
-      'კვებითი ღირებულების შესახებ ინფორმაცია ფოტოზე';
+  String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'გადამუშავების ინსტრუქციები ფოტო';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
-  String get take_photo_title => 'სურათის გადაღება';
+  String get take_photo_title => 'Take a picture';
 
   @override
   String get take_more_photo_title => 'Take more photos';
 
   @override
-  String get front_photo_uploaded => 'წინა ფოტო ატვირთულია';
+  String get front_photo_uploaded => 'Front photo uploaded';
 
   @override
-  String get ingredients_photo_button_label => 'ინგრედიენტების ფოტო';
+  String get ingredients_photo_button_label => 'Ingredients photo';
 
   @override
-  String get ingredients_photo_uploaded => 'ინგრედიენტების ფოტო ატვირთულია';
+  String get ingredients_photo_uploaded => 'Ingredients photo uploaded';
 
   @override
   String get nutrition_cache_loading_error =>
-      'საკვები ნივთიერებების ქეშიდან ჩატვირთვა შეუძლებელია';
+      'Unable to load nutrients from cache';
 
   @override
-  String get nutritional_facts_photo_button_label =>
-      'კვებითი ღირებულების შესახებ ინფორმაციის ფოტო';
+  String get nutritional_facts_photo_button_label => 'Nutrition facts photo';
 
   @override
-  String get nutritional_facts_input_button_label =>
-      'შეავსეთ კვებითი ღირებულების შესახებ ინფორმაცია';
+  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
 
   @override
-  String get nutritional_facts_added =>
-      'დამატებულია კვებითი ღირებულების ფაქტები';
+  String get nutritional_facts_added => 'Nutrition facts added';
 
   @override
-  String get categories_added => 'დამატებულია კატეგორიები';
+  String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'გამოთვალეთ Nutri-Score';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'დაგვეხმარეთ, სულ მცირე, ერთი კატეგორიის და კვებითი ღირებულების შევსებით';
+      'Help us by filling at least a category and nutritional values';
 
   @override
-  String get new_product_title_environmental_score => 'გამოთვალეთ მწვანე ქულა';
+  String get new_product_title_environmental_score => 'Compute the Green Score';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'მიიღეთ ის მინიმუმ ერთი კატეგორიის შევსებით';
+      'Get it by filling at least a category';
 
   @override
   String get new_product_additional_environmental_score =>
-      'გახადეთ მწვანე ქულის გამოთვლა უფრო ზუსტი წარმოშობის, შეფუთვის და სხვა ფუნქციების გამოყენებით';
+      'Make Green Score computation more precise with origins, packaging & more';
 
   @override
   String get new_product_title_nova =>
-      'გამოთვალეთ საკვების გადამუშავების დონე (NOVA)';
+      'Compute the food processing level (NOVA)';
 
   @override
   String get new_product_subtitle_nova =>
-      'მიიღეთ ის საკვების კატეგორიისა და ინგრედიენტების შევსებით';
+      'Get it by filling the food category and ingredients';
 
   @override
-  String get new_product_desc_nova_unknown =>
-      'საკვების გადამუშავების დონე უცნობია';
+  String get new_product_desc_nova_unknown => 'Food processing level unknown';
 
   @override
-  String get new_product_title_pictures => 'ახალი პროდუქტი';
+  String get new_product_title_pictures => 'New product';
 
   @override
   String get new_product_title_pictures_details =>
-      'გთხოვთ, გადაიღოთ შემდეგი ფოტოები და Open Food Facts-ის სისტემა დანარჩენს თავად დაადგენს!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'და რამდენიმე ძირითადი მონაცემი…';
+  String get new_product_title_misc => 'And some basic data…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'გმადლობთ თქვენი წვლილისთვის „$username“!';
+    return 'Thanks for your contribution “$username”!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'მადლობა თქვენი წვლილისთვის!';
+  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
 
   @override
-  String get new_product_done_button_label => 'გაეცანით დასრულებულ პროდუქტს';
+  String get new_product_done_button_label => 'Discover the completed product';
 
   @override
   String get hey_incomplete_product_message =>
-      'შეეხეთ, რომ უპასუხოთ 3 კითხვას ახლავე, რათა გამოთვალოთ Nutri-Score, Green Score და Ultra-processing (NOVA)!';
+      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'შეეხეთ ახლავე, რომ უპასუხოთ 2 კითხვას ამ კოსმეტიკური საშუალების ანალიზისთვის!';
+      'Tap now to answer 2 questions to help analyze this cosmetic!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'შეეხეთ ახლავე, რომ უპასუხოთ 3 კითხვას, რაც დაგეხმარებათ ამ შინაური ცხოველების საკვების პროდუქტის ანალიზში!';
+      'Tap now to answer 3 questions to help analyze this pet food product!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'შეეხეთ ახლავე, რომ დაეხმაროთ ამ პროდუქტის დასრულებაში!';
+      'Tap now to help complete this product!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
-      'კვებითი ღირებულების შესახებ ფოტო ატვირთულია';
+      'Nutrition facts photo uploaded';
 
   @override
-  String get recycling_photo_button_label => 'გადამუშავების ფოტო';
+  String get recycling_photo_button_label => 'Recycling photo';
 
   @override
-  String get recycling_photo_uploaded => 'გადამუშავების ფოტო აიტვირთა';
+  String get recycling_photo_uploaded => 'Recycling photo uploaded';
 
   @override
   String get take_more_photo_button_label => 'Take more photos';
 
   @override
-  String get other_photo_uploaded => 'სხვადასხვა ფოტო აიტვირთა';
+  String get other_photo_uploaded => 'Miscellaneous photo uploaded';
 
   @override
-  String get retake_photo_button_label => 'ხელახლა გადაღება';
+  String get retake_photo_button_label => 'Retake';
 
   @override
-  String get selecting_photo => 'ფოტოს შერჩევა';
+  String get selecting_photo => 'Selecting photo';
 
   @override
-  String get uploading_image => 'ფოტოს სერვერზე ატვირთვა';
+  String get uploading_image => 'Uploading photo to the server';
 
   @override
   String get uploading_image_type_front =>
-      'წინა სურათი იტვირთება Open Food Facts-ზე';
+      'Uploading front image to Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'ინგრედიენტების სურათი იტვირთება Open Food Facts-ზე';
+      'Uploading ingredients image to Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'კვებითი ღირებულების სურათი იტვირთება Open Food Facts-ზე';
+      'Uploading nutrition image to Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'შეფუთვის სურათი იტვირთება Open Food Facts-ზე';
+      'Uploading packaging image to Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'სხვა სურათის ატვირთვა Open Food Facts-ზე';
+      'Uploading other image to Open Food Facts';
 
   @override
   String get uploading_image_type_generic =>
-      'სურათი იტვირთება Open Food Facts-ზე';
+      'Uploading image to Open Food Facts';
 
   @override
-  String get score_add_missing_ingredients =>
-      'დაამატეთ დაკარგული ინგრედიენტები';
+  String get score_add_missing_ingredients => 'Add missing ingredients';
 
   @override
-  String get score_add_missing_packaging_image =>
-      'დაამატეთ დაკარგული შეფუთვის სურათი';
+  String get score_add_missing_packaging_image => 'Add missing packaging image';
 
   @override
-  String get score_add_missing_nutrition_facts =>
-      'დაამატეთ დაკარგული კვებითი ღირებულების ფაქტები';
+  String get score_add_missing_nutrition_facts => 'Add missing nutrition facts';
 
   @override
-  String get score_add_missing_product_traces =>
-      'დაკარგული პროდუქტის კვალის დამატება';
+  String get score_add_missing_product_traces => 'Add missing product traces';
 
   @override
-  String get score_add_missing_product_category => 'აირჩიეთ კატეგორია';
+  String get score_add_missing_product_category => 'Select a category';
 
   @override
   String get score_add_missing_precise_product_category =>
@@ -1020,41 +994,36 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get score_add_missing_product_countries =>
-      'დაამატეთ გამოტოვებული პროდუქტის ქვეყნები';
+      'Add missing product countries';
 
   @override
   String get score_add_missing_product_emb =>
-      'დაამატეთ დაკარგული პროდუქტის მიკვლევადობის კოდები';
+      'Add missing product traceability codes';
 
   @override
-  String get score_add_missing_product_labels =>
-      'დაამატეთ დაკარგული პროდუქტის ეტიკეტები';
+  String get score_add_missing_product_labels => 'Add missing product labels';
 
   @override
-  String get score_add_missing_product_origins =>
-      'დაამატეთ დაკარგული პროდუქტის წყაროები';
+  String get score_add_missing_product_origins => 'Add missing product origins';
 
   @override
-  String get score_add_missing_product_stores =>
-      'დაამატეთ გამოტოვებული პროდუქტის მაღაზიები';
+  String get score_add_missing_product_stores => 'Add missing product stores';
 
   @override
-  String get score_add_missing_product_brands =>
-      'დაამატეთ გამოტოვებული პროდუქტის ბრენდები';
+  String get score_add_missing_product_brands => 'Add missing product brands';
 
   @override
-  String get score_update_nutrition_facts =>
-      'განაახლეთ კვებითი ღირებულების შესახებ ინფორმაცია';
+  String get score_update_nutrition_facts => 'Update nutrition facts';
 
   @override
-  String get nutrition_page_title => 'კვებითი ღირებულება';
+  String get nutrition_page_title => 'Nutrition Facts';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'კვებითი ინფორმაცია';
+  String get nutrition_page_nutritional_info_title => 'Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'პროდუქტზე მითითებული მნიშვნელობები:';
+      'Values specified on the product:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'დიახ';
@@ -1063,253 +1032,245 @@ class AppLocalizationsKa extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'No';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'გახსენით ფოტო';
+  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'კარგი პრაქტიკა: კვებითი ღირებულების შესახებ ინფორმაცია';
+      'Good practices: Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'ზოგჯერ კვებითი ღირებულება **არ არის მითითებული შეფუთვაზე** ან პროდუქტთან ერთად მოწოდებულ დოკუმენტზე. ამ შემთხვევაში და მხოლოდ ამ შემთხვევაში შეგიძლიათ დააყენოთ მნიშვნელობა **არა**-ზე.';
+      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'კვებითი ღირებულებები:';
+  String get nutrition_page_serving_type_label => 'Nutritional values:';
 
   @override
-  String get nutrition_page_per_100g => '100 გრამზე';
+  String get nutrition_page_per_100g => 'per 100g';
 
   @override
-  String get nutrition_page_per_100g_100ml => '100 გ/მლ-ზე';
+  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
 
   @override
-  String get nutrition_page_per_serving => 'თითო პორციაზე';
+  String get nutrition_page_per_serving => 'per serving';
 
   @override
-  String get nutrition_page_add_nutrient => 'დაამატეთ საკვები ნივთიერება';
+  String get nutrition_page_add_nutrient => 'Add a nutrient';
 
   @override
-  String get nutrition_page_serving_size => 'პორციის ზომა';
+  String get nutrition_page_serving_size => 'Serving size';
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'შეიყვანეთ პორციის ზომა (მაგ.: 100 გ)';
+      'Input a serving size (eg: 100g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'კარგი პრაქტიკა: პორციის ზომა';
+      'Good practices: Serving size';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'ეს მნიშვნელობა ხელს უწყობს **თითოეული საკვები ნივთიერების პროპორციული გაანგარიშებას პორციის ზომაზე**.';
+      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**დაშვებული ერთეულები** არის: კგ, გ, მგ, μg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公公.';
+      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 გ**, **60 გ** ან **60 გ** (უმჯობესია პირველი)';
+      '**60 g**, **60g** or **60 G** (prefer the first one)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 მლ** ან **1 ლ**';
+      '**1000 ml** or **1L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'არასწორი ერთეული';
+      'Invalid unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
-      '30 **გ**';
+      '30 **gr**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'არასწორი ერთეულები';
+      'Invalid units';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **კანფეტი** და 2 **ორცხობილა**';
+      '9 **candies** and 2 **biscuits**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'ერთეული აკლია';
+      'Missing unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => 'არასწორი ნომერი';
+  String get nutrition_page_invalid_number => 'Invalid number';
 
   @override
-  String get nutrition_page_update_running => 'პროდუქტის განახლება სერვერზე…';
+  String get nutrition_page_update_running =>
+      'Updating the product on the server…';
 
   @override
-  String get nutrition_page_update_done => 'პროდუქტი განახლებულია!';
+  String get nutrition_page_update_done => 'Product updated!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'პორციის ზომად გამოიყენეთ პროდუქტის რაოდენობა';
+      'Use the product quantity as serving size';
 
   @override
-  String get nutrition_page_photo_error => 'ფოტოს ჩატვირთვა შეუძლებელია';
+  String get nutrition_page_photo_error => 'Unable to load the photo';
 
   @override
-  String get more_photos => 'უფრო საინტერესო ფოტოები';
+  String get more_photos => 'More interesting photos';
 
   @override
   String get view_more_photo_button =>
-      'იხილეთ ამ პროდუქტის ყველა არსებული ფოტო';
+      'View all existing photos for this product';
 
   @override
-  String get no_product_found => 'პროდუქტი ვერ მოიძებნა';
+  String get no_product_found => 'No product found';
 
   @override
-  String no_product_found_explanation(String search) {
-    return 'თქვენი ძიება\n**\"$search\"**\nვერცერთი შედეგი ვერ მოიძებნა.';
-  }
+  String get no_location_found => 'No location found';
 
   @override
-  String get no_product_found_try_world_results =>
-      'გსურთ იგივე ძიების ჩატარება **ჩვენს გლობალურ მონაცემთა ბაზაში**?';
+  String get not_found => 'not found:';
 
   @override
-  String get no_location_found => 'მდებარეობა ვერ მოიძებნა';
+  String get refreshing_product => 'Refreshing product';
 
   @override
-  String get not_found => 'ვერ მოიძებნა:';
-
-  @override
-  String get refreshing_product => 'გამაგრილებელი პროდუქტი';
-
-  @override
-  String get product_refreshed => 'პროდუქტი განახლდა';
+  String get product_refreshed => 'Product refreshed';
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'სურათი გადაღებულია $date-ზე';
+    return 'Image taken on $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'სურათი გადაღებულია $date-ზე. შესაძლოა, ეს სურათი მოძველებულია';
+    return 'Image taken on $date. This image may be outdated';
   }
 
   @override
-  String get product_image_outdated => 'ეს სურათი შესაძლოა მოძველებული იყოს';
+  String get product_image_outdated => 'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'ეს სურათი შესაძლოა მოძველებული იყოს';
+      'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'ეს სურათი ერთ წელზე მეტი ხნის წინ არის გადაღებული.\n**გთხოვთ, შეამოწმოთ, რომ ის კვლავ განახლებულია**.\n\nეს **უბრალოდ გაფრთხილებაა**. თუ შინაარსი იგივეა, შეგიძლიათ უგულებელყოთ ეს შეტყობინება.';
+      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'ფოტოს ჩანაცვლება ($type)';
+    return 'Replace photo ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'დაამატეთ ფოტო ($type)';
+    return 'Add a photo ($type)';
   }
 
   @override
   String get product_image_action_take_new_picture => 'Capture New';
 
   @override
-  String get product_image_action_take_picture => 'სურათის გადაღება';
+  String get product_image_action_take_picture => 'Take a picture';
 
   @override
   String get product_image_action_from_gallery =>
-      'აირჩიეთ თქვენი ტელეფონის გალერეიდან';
+      'Select from your phone\'s gallery';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'აირჩიეთ პროდუქტის ფოტოებიდან';
+      'Select from the product photos';
 
   @override
-  String get product_image_details_label => 'ინფორმაცია ფოტოს შესახებ';
+  String get product_image_details_label => 'Information about the photo';
 
   @override
-  String get product_image_details_from_producer => 'პროდიუსერისგან';
+  String get product_image_details_from_producer => 'From the producer';
 
   @override
   String get product_image_details_contributor => 'Contributor';
 
   @override
   String get product_image_details_contributor_producer =>
-      'კონტრიბუტორი (პროდიუსერი)';
+      'Contributor (producer)';
 
   @override
-  String get product_image_details_date => 'თარიღი';
+  String get product_image_details_date => 'Date';
 
   @override
-  String get product_image_details_date_unknown => 'უცნობი';
+  String get product_image_details_date_unknown => 'Unknown';
 
   @override
   String get homepage_main_card_logo_description =>
-      'კეთილი იყოს თქვენი მობრძანება Open Food Facts-ში';
+      'Welcome to Open Food Facts';
 
   @override
   String get homepage_main_card_subheading =>
-      '**შტრიხკოდის სკანირება** ან\n**პროდუქტის ძიება**';
+      '**Scan** a barcode or\n**search** for a product';
 
   @override
-  String get homepage_main_card_search_field_hint => 'პროდუქტის ძიება';
+  String get homepage_main_card_search_field_hint => 'Search for a product';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'ძიების დაწყება';
+  String get homepage_main_card_search_field_tooltip => 'Start search';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'უახლესი ამბები: $news_title';
+    return 'Latest news: $news_title';
   }
 
   @override
-  String get tagline_app_review => 'მოგწონთ აპლიკაცია?';
+  String get tagline_app_review => 'Do you like the app?';
 
   @override
-  String get tagline_app_review_button_positive => 'მიყვარს! 😍';
+  String get tagline_app_review_button_positive => 'I love it! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'არა ნამდვილად…';
+  String get tagline_app_review_button_negative => 'Not really…';
 
   @override
-  String get tagline_app_review_button_later => 'მკითხე მოგვიანებით';
+  String get tagline_app_review_button_later => 'Ask me later';
 
   @override
-  String get tagline_feed_news_button => 'მეტის გაგება';
+  String get tagline_feed_news_button => 'Know more';
 
   @override
-  String get app_review_negative_modal_title => 'არ მოგწონთ ჩვენი აპლიკაცია?';
+  String get app_review_negative_modal_title => 'You don\'t like our app?';
 
   @override
   String get app_review_negative_modal_text =>
-      'შეგიძლიათ რამდენიმე წამით გვითხრათ, რატომ?';
+      'Could you take a few seconds to tell us why?';
 
   @override
-  String get app_review_negative_modal_positive_button => 'კი, აბსოლუტურად!';
+  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
 
   @override
   String get app_review_negative_modal_negative_button => 'No';
 
   @override
-  String get could_not_refresh => 'პროდუქტის განახლება ვერ მოხერხდა';
+  String get could_not_refresh => 'Could not refresh product';
 
   @override
-  String get product_internet_error_modal_title => 'შეცდომა მოხდა!';
+  String get product_internet_error_modal_title => 'An error has occurred!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'ქსელის შეცდომის გამო ამ პროდუქტის შესახებ ინფორმაციის მოძიება შეუძლებელია. გთხოვთ, შეამოწმოთ თქვენი ინტერნეტ კავშირი და ხელახლა სცადოთ.\n\nშიდა შეცდომა:\n$error';
+    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
   }
 
   @override
-  String get product_tags_title => 'პროდუქტის თვისებები';
+  String get product_tags_title => 'Product properties';
 
   @override
   String get no_product_tags_found_message =>
@@ -1326,28 +1287,28 @@ class AppLocalizationsKa extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'თვისებების დამატება';
+  String get add_tags => 'Add properties';
 
   @override
-  String get add_edit_tags => 'თვისებების დამატება ან რედაქტირება';
+  String get add_edit_tags => 'Add or edit properties';
 
   @override
-  String get edit_tag => 'თვისების რედაქტირება';
+  String get edit_tag => 'Edit property';
 
   @override
-  String get remove_tag => 'ქონების წაშლა';
+  String get remove_tag => 'Remove property';
 
   @override
-  String get tag_key => 'ქონება';
+  String get tag_key => 'Property';
 
   @override
   String get tag_keys => 'თვისებები';
 
   @override
-  String get tag_key_uneditable => 'თვისება (რედაქტირებადი არ არის)';
+  String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
-  String get tag_key_input_hint => 'შეიყვანეთ თვისება';
+  String get tag_key_input_hint => 'Input a property';
 
   @override
   String get tag_value => 'Value';
@@ -1356,29 +1317,29 @@ class AppLocalizationsKa extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'შეიყვანეთ მნიშვნელობა';
+  String get tag_value_input_hint => 'Input a value';
 
   @override
-  String get tag_key_item => 'ქონება:';
+  String get tag_key_item => 'Property:';
 
   @override
-  String get tag_value_item => 'ღირებულება:';
+  String get tag_value_item => 'Value:';
 
   @override
   String get tag_key_explanations =>
-      'გასაღები უნდა იყოს პატარა ასოებით და სივრცეების გარეშე.';
+      'A key must be lowercase and without any spaces.';
 
   @override
   String tag_key_already_exists(String property) {
-    return '$property თვისების მქონე თეგი უკვე არსებობს!';
+    return 'A tag with a property $property already exists!';
   }
 
   @override
   String get product_internet_error =>
-      'ქსელის შეცდომის გამო ამ პროდუქტის შესახებ ინფორმაციის მოძიება შეუძლებელია.';
+      'Impossible to fetch information about this product due to a network error.';
 
   @override
-  String get cached_results_from => 'შედეგების ჩვენება:';
+  String get cached_results_from => 'Show results from:';
 
   @override
   String get product_search_same_category => 'ალტერნატივების პოვნა';
@@ -1388,99 +1349,99 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'ეს ფუნქცია შეიძლება გამოყენებულ იქნას მხოლოდ კატეგორიის მქონე პროდუქტებისთვის.\n\nკატეგორიის დასამატებლად, გთხოვთ, შეცვალოთ პროდუქტი.';
+      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
 
   @override
   String get product_improvement_add_category =>
-      'დაამატეთ კატეგორია Nutri-Score-ის გამოსათვლელად.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Nutri-Score-ის გამოსათვლელად დაამატეთ კვებითი ღირებულება.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Nutri-Score-ის გამოსათვლელად დაამატეთ კვებითი ღირებულების ფაქტები და კატეგორია.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'ამ პროდუქტის Nutri-Score-ის გამოთვლა შეუძლებელია, რაც შეიძლება გამოწვეული იყოს, მაგალითად, არასტანდარტული კატეგორიით. თუ ეს შეცდომად ჩაითვლება, გთხოვთ, დაგვიკავშირდეთ.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'კვების სურათი მოძველებულია: გთხოვთ, განაახლოთ იგი.';
+      'The nutrition image is obsolete: please refresh it.';
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'მწვანე ქულა ინგრედიენტების წარმომავლობას ითვალისწინებს. გთხოვთ, ინგრედიენტების სიას და/ან ნებისმიერ გეოგრაფიულ პრეტენზიას ფოტო გადაუღოთ ან პროდუქტი შეცვალოთ, რათა ისინი გათვალისწინებულ იქნას.';
+      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
 
   @override
-  String get country_chooser_label => 'გთხოვთ, აირჩიოთ ქვეყანა';
+  String get country_chooser_label => 'Please choose a country';
 
   @override
-  String get currency_chooser_label => 'გთხოვთ, აირჩიოთ ვალუტა';
+  String get currency_chooser_label => 'Please choose a currency';
 
   @override
-  String get country_change_message => 'თქვენ ახლახან შეიცვალეთ ქვეყანა.';
+  String get country_change_message => 'You have just changed countries.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'გსურთ ვალუტის შეცვლა $previousCurrency -დან $possibleCurrency-ზე?';
+    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'გთხოვთ, აირჩიოთ ქვეყანა:';
+  String get onboarding_country_chooser_label => 'Please choose a country:';
 
   @override
-  String get country_chooser_label_from_settings => 'თქვენი ქვეყანა';
+  String get country_chooser_label_from_settings => 'Your country';
 
   @override
   String get country_selection_explanation =>
-      'ზოგიერთი გარემოსდაცვითი მახასიათებელი ადგილმდებარეობისთვისაა დამახასიათებელი';
+      'Some environmental features are location-specific';
 
   @override
-  String get product_removed_comparison => 'პროდუქტი ამოღებულია შედარებიდან';
+  String get product_removed_comparison => 'Product removed from comparison';
 
   @override
-  String get native_app_settings => 'მშობლიური აპლიკაციის პარამეტრები';
+  String get native_app_settings => 'Native App Settings';
 
   @override
   String get native_app_description =>
-      'ღია სისტემების პარამეტრები Open Food Facts-ისთვის';
+      'Open systems settings for Open Food Facts';
 
   @override
-  String get product_removed_history => 'პროდუქტი ისტორიიდან წაიშალა';
+  String get product_removed_history => 'Product removed from history';
 
   @override
-  String get product_removed_list => 'პროდუქტი ამოღებულია სიიდან';
+  String get product_removed_list => 'Product removed from list';
 
   @override
-  String get product_could_not_remove => 'პროდუქტის წაშლა ვერ მოხერხდა';
+  String get product_could_not_remove => 'Could not remove product';
 
   @override
-  String get no_prodcut_in_list => 'ამ სიაში პროდუქტი არ არის';
+  String get no_prodcut_in_list => 'There is no product in this list';
 
   @override
-  String get no_product_in_section => 'ამ განყოფილებაში პროდუქტი არ არის';
+  String get no_product_in_section => 'There is no product in this section';
 
   @override
-  String get recently_seen_products => 'ყველა ნანახი პროდუქტი';
+  String get recently_seen_products => 'All viewed products';
 
   @override
-  String get clear => 'გასუფთავება';
+  String get clear => 'Clear';
 
   @override
-  String get clear_long => 'სიის დაცარიელება';
+  String get clear_long => 'Empty the list';
 
   @override
-  String get really_clear => 'ნამდვილად გსურთ ამ სიის წაშლა?';
+  String get really_clear => 'Do you really want to delete this list?';
 
   @override
   String pct_match(Object percent) {
-    return '$percent% შესაბამისობა';
+    return '$percent% match';
   }
 
   @override
@@ -1488,8 +1449,8 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count დღის წინ',
-      one: 'ერთი დღის წინ',
+      other: '$count days ago',
+      one: 'one day ago',
     );
     return '$_temp0';
   }
@@ -1499,8 +1460,8 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count საათის წინ',
-      one: 'ერთი საათის წინ',
+      other: '$count hours ago',
+      one: 'one hour ago',
     );
     return '$_temp0';
   }
@@ -1510,9 +1471,9 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count წუთის წინ',
-      one: 'ერთი წუთის წინ',
-      zero: 'ერთ წუთზე ნაკლები ხნის წინ',
+      other: '$count minutes ago',
+      one: 'one minute ago',
+      zero: 'less than a minute ago',
     );
     return '$_temp0';
   }
@@ -1522,8 +1483,8 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count თვის წინ',
-      one: 'ერთი თვის წინ',
+      other: '$count months ago',
+      one: 'one month ago',
     );
     return '$_temp0';
   }
@@ -1533,8 +1494,8 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count კვირის წინ',
-      one: 'ერთი კვირის წინ',
+      other: '$count weeks ago',
+      one: 'one week ago',
     );
     return '$_temp0';
   }
@@ -1544,8 +1505,8 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'შეადარეთ $count პროდუქტები',
-      one: 'შეადარეთ ერთი პროდუქტი',
+      other: 'Compare $count Products',
+      one: 'Compare one Product',
     );
     return '$_temp0';
   }
@@ -1555,86 +1516,86 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count არჩეული პროდუქტები',
-      one: 'ერთი არჩეული პროდუქტი',
-      zero: 'პროდუქტი არ არის არჩეული',
+      other: '$count selected products',
+      one: 'One selected product',
+      zero: 'No selected product',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'შეადარეთ შერჩეული პროდუქტები';
+  String get compare_products_mode => 'Compare selected products';
 
   @override
-  String get delete_products_mode => 'არჩეული პროდუქტების წაშლა';
+  String get delete_products_mode => 'Delete selected products';
 
   @override
-  String get select_all_products_mode => 'აირჩიეთ ყველა პროდუქტი';
+  String get select_all_products_mode => 'Select all products';
 
   @override
-  String get select_none_products_mode => 'არცერთის არჩევა';
+  String get select_none_products_mode => 'Select none';
 
   @override
   String get compare_products_appbar_title => 'Compare products';
 
   @override
   String get compare_products_appbar_subtitle =>
-      'გთხოვთ, აირჩიოთ მინიმუმ ორი პროდუქტი';
+      'Please select at least two products';
 
   @override
-  String get retry_button_label => 'ხელახლა ცდა';
+  String get retry_button_label => 'Retry';
 
   @override
-  String get connect_with_us => 'დაგვიკავშირდით';
+  String get connect_with_us => 'Connect with us';
 
   @override
-  String get tiktok => 'გამოგვყევით TikTok-ზე';
+  String get tiktok => 'Follow us on TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'გამოგვყევით ინსტაგრამზე';
+  String get instagram => 'Follow us on Instagram';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'გამოგვყევით X-ზე (ყოფილი Twitter)';
+  String get twitter => 'Follow us on X (formerly Twitter)';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'გამოგვყევით Mastodon-ზე';
+  String get mastodon => 'Follow us on Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'გამოგვყევით BlueSky-ზე';
+  String get bsky => 'Follow us on BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
 
   @override
-  String get blog => 'ბლოგი';
+  String get blog => 'Blog';
 
   @override
-  String get faq => 'ხშირად დასმული კითხვები';
+  String get faq => 'FAQ';
 
   @override
   String get discover => 'Discover';
 
   @override
-  String get how_to_contribute => 'როგორ შევიტანოთ წვლილი';
+  String get how_to_contribute => 'How to Contribute';
 
   @override
   String get hint_knowledge_panel_message =>
-      'ბარათის ნებისმიერ ნაწილზე შეხებით შეგიძლიათ მიიღოთ მეტი დეტალი იმის შესახებ, რასაც ხედავთ. სცადეთ ახლავე!';
+      'Your can tap on any part of the card to get more details about what you see. Try it now!';
 
   @override
-  String get permissions_page_title => 'კამერაზე წვდომა';
+  String get permissions_page_title => 'Camera access';
 
   @override
   String get permissions_page_body1 =>
@@ -1642,7 +1603,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get permissions_page_body2 =>
-      'თუ გადაიფიქრებთ, ამ პარამეტრის ჩართვა და გამორთვა ნებისმიერ დროს შეგიძლიათ პარამეტრებიდან.';
+      'If you change your mind, this option can be enabled and disabled at any time from the settings.';
 
   @override
   String contact_form_body_android(
@@ -1653,7 +1614,7 @@ class AppLocalizationsKa extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'ოპერაციული სისტემა: Android (SDK Int: $sdkInt / გამოშვება: $release)\nმოდელი: $model\nპროდუქტი: $product\nმოწყობილობა: $device\nბრენდი:$brand';
+    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
   }
 
   @override
@@ -1662,7 +1623,7 @@ class AppLocalizationsKa extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'ოპერაციული სისტემა: iOS ($version)\nმოდელი: $model\nლოკალიზებული მოდელი: $localizedModel';
+    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
   }
 
   @override
@@ -1672,67 +1633,67 @@ class AppLocalizationsKa extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nაპლიკაციის ვერსია:$appVersion\nაპლიკაციის აწყობის ნომერი:$appBuildNumber\nაპლიკაციის პაკეტის სახელი:$appPackageName';
+    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
   }
 
   @override
   String get authorize_button_label => 'Authorise';
 
   @override
-  String get refuse_button_label => 'ნაგავი';
+  String get refuse_button_label => 'Refuse';
 
   @override
-  String get ask_me_later_button_label => 'მოგვიანებით';
+  String get ask_me_later_button_label => 'Later';
 
   @override
-  String get are_you_sure => 'დარწმუნებული ხარ?';
+  String get are_you_sure => 'Are you sure?';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
-    return 'გააგრძელეთ $sourceName-ზე';
+    return 'Go further on $sourceName';
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'კეთილი იყოს თქვენი მობრძანება!';
+  String get onboarding_home_welcome_text1 => 'Welcome !';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'აპლიკაცია, რომელიც დაგეხმარებათ აირჩიოთ საკვები, რომელიც სასარგებლოა **თქვენთვის** და **პლანეტისთვის**!';
+      'The app that helps you choose food that is good for **you** and the **planet**!';
 
   @override
-  String get onboarding_continue_button => 'გაგრძელება';
+  String get onboarding_continue_button => 'Continue';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'თქვენი პირველი ნიმუშის პროდუქტის ჩატვირთვა';
+      'Loading your first example product';
 
   @override
   String get onboarding_welcome_warning =>
       'ბოდიშს გიხდით, ეს ჩვენი სამაგალითო პროდუქტია, მისი რედაქტირება შეუძლებელია :)';
 
   @override
-  String get product_list_your_ranking => 'თქვენი რეიტინგი';
+  String get product_list_your_ranking => 'Your ranking';
 
   @override
-  String get product_list_empty_icon_desc => 'ისტორია მიუწვდომელია';
+  String get product_list_empty_icon_desc => 'History not available';
 
   @override
-  String get product_list_empty_title => 'სკანირების დაწყება';
+  String get product_list_empty_title => 'Start scanning';
 
   @override
   String get product_list_empty_message =>
-      'სკანირებული პროდუქტები აქ გამოჩნდება და თქვენ შეგიძლიათ გაეცნოთ მათ შესახებ დეტალურ ინფორმაციას';
+      'Scanned products will appear here and you can check detailed information about them';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'პროდუქტები',
-      one: 'პროდუქტი',
-      zero: 'პროდუქტი',
+      other: 'products',
+      one: 'product',
+      zero: 'product',
     );
-    return 'განახლებადი $_temp0 თქვენს ისტორიაში';
+    return 'Refreshing $_temp0 in your history';
   }
 
   @override
@@ -1740,96 +1701,94 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'პროდუქტები',
-      one: 'პროდუქტი',
-      zero: 'პროდუქტი',
+      other: 'Products',
+      one: 'Product',
+      zero: 'Product',
     );
-    return '$_temp0 განახლება დასრულდა';
+    return '$_temp0 refresh complete';
   }
 
   @override
   String get product_list_compare_side_by_side => 'შეადარეთ გვერდიგვერდ';
 
   @override
-  String get loading_dialog_default_title => 'მონაცემების ჩამოტვირთვა';
+  String get loading_dialog_default_title => 'Downloading data';
 
   @override
-  String get loading_dialog_default_error_message =>
-      'მონაცემების ჩამოტვირთვა ვერ მოხერხდა';
+  String get loading_dialog_default_error_message => 'Could not download data';
 
   @override
-  String get account_delete => 'ანგარიშის წაშლა';
+  String get account_delete => 'Delete account';
 
   @override
   String get account_delete_title => 'ჩემი ანგარიშის წაშლა';
 
   @override
-  String get user_profile => 'ანგარიში';
+  String get user_profile => 'Account';
 
   @override
-  String get user_profile_title_guest => 'კეთილი იყოს თქვენი მობრძანება!';
+  String get user_profile_title_guest => 'Welcome!';
 
   @override
   String get user_profile_subtitle_guest =>
-      'გაიარეთ ავტორიზაცია ან დარეგისტრირდით, რათა შეუერთდეთ Open Food Facts-ის საზოგადოებას';
+      'Sign-in or sign-up to join the Open Food Facts community';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'გახსენით საკვების ფაქტები შესვლა: $email';
+    return 'Open Food Facts login: $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'კეთილი იყოს თქვენი მობრძანება $id!';
+    return 'Welcome $id!';
   }
 
   @override
-  String get email_subject_account_deletion => 'ანგარიშის წაშლა';
+  String get email_subject_account_deletion => 'Delete account';
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'გამარჯობა, გთხოვთ, წაშალოთ ჩემი Open Food Facts ანგარიში: $userId';
+    return 'Hi there, please delete my Open Food Facts account: $userId';
   }
 
   @override
-  String get settings_app_app => 'აპლიკაცია';
+  String get settings_app_app => 'Application';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'კამერა';
+  String get settings_app_camera => 'Camera';
 
   @override
-  String get settings_app_products => 'პროდუქტები';
+  String get settings_app_products => 'Products';
 
   @override
-  String get settings_app_miscellaneous => 'სხვადასხვა';
+  String get settings_app_miscellaneous => 'Miscellaneous';
 
   @override
-  String get camera_play_sound_title => 'სკანირებისას ხმის დაკვრა';
+  String get camera_play_sound_title => 'Play a sound on scan';
 
   @override
-  String get camera_play_sound_subtitle =>
-      'ყოველი წარმატებული სკანირებისას გაისმის სიგნალი';
+  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
 
   @override
   String get camera_window_accessibility_label =>
-      'შტრიხკოდის სკანირება თქვენი კამერით';
+      'Scan a barcode with your camera';
 
   @override
-  String get app_haptic_feedback_title => 'ვიბრაცია და ჰაპტიკა';
+  String get app_haptic_feedback_title => 'Vibration & Haptics';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'ვიბრაცია გარკვეული მოქმედებების შესრულების შემდეგ (შტრიხკოდი გაშიფრულია, პროდუქტი ამოღებულია…).';
+      'Vibrations after executing some actions (barcode decoded, product removed…).';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'ჩართვის შემთხვევაში, ავარიის შესახებ ანგარიშები ავტომატურად იგზავნება Open Food Facts-ის შეცდომების თვალთვალის სისტემაში, რათა შეცდომები გამოსწორდეს და ამით აპლიკაცია გაუმჯობესდეს.';
+      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1839,158 +1798,149 @@ class AppLocalizationsKa extends AppLocalizations {
       'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
 
   @override
-  String get product_edit_photo_title => 'ფოტოს რედაქტირება';
+  String get product_edit_photo_title => 'Edit Photo';
 
   @override
-  String get permission_photo_error => 'შეცდომა';
+  String get permission_photo_error => 'Error';
 
   @override
   String get permission_photo_denied_title =>
-      'შტრიხკოდების სკანირებისთვის კამერის გამოყენების დაშვება';
+      'Allow camera use to scan barcodes';
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'გაუმჯობესებული გამოცდილებისთვის, გთხოვთ, $appName -ს თქვენს კამერაზე წვდომის უფლება მისცეთ. თქვენ შეძლებთ შტრიხკოდების პირდაპირ სკანირებას.';
+    return 'For an enhanced experience, please allow $appName to access your camera. You will be able to directly scan barcodes.';
   }
 
   @override
-  String get permission_photo_denied_button => 'დაშვება';
+  String get permission_photo_denied_button => 'Allow';
 
   @override
   String get permission_photo_denied_dialog_settings_title =>
-      'ნებართვა უარყოფილია';
+      'Permission denied';
 
   @override
   String get permission_photo_denied_dialog_settings_message =>
-      'რადგან ადრე უარყავით კამერაზე წვდომის ნებართვა, ის პარამეტრებიდან ხელით უნდა დაუშვათ.';
+      'As you\'ve previously denied the camera permission, you must allow it manually from the Settings.';
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
-      'პარამეტრების გახსნა';
+      'Open settings';
 
   @override
   String get permission_photo_denied_dialog_settings_button_cancel => 'Cancel';
 
   @override
-  String get permission_photo_none_found => 'კამერა არ არის აღმოჩენილი';
+  String get permission_photo_none_found => 'No camera detected';
 
   @override
-  String get permission_photo_denied => 'კამერაზე წვდომა არ არის მინიჭებული';
+  String get permission_photo_denied => 'No camera access granted';
 
   @override
-  String get show_product_pictures => 'პროდუქტის სურათების ჩვენება';
+  String get show_product_pictures => 'Show product pictures';
 
   @override
-  String get edit_product_label => 'პროდუქტის რედაქტირება';
+  String get edit_product_label => 'Edit product';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'თქვენი რედაქტირებების ატვირთვა…';
+      'Uploading your edits…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'თქვენი რედაქტირებები **იგზავნება ფონურ რეჟიმში** (ან მოგვიანებით, შეცდომის შემთხვევაში).\nშეგიძლიათ გააგრძელოთ სხვა პროდუქტის ველების რედაქტირება.';
+      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'თქვენი რედაქტირებები **იგზავნება ფონურ რეჟიმში** (ან მოგვიანებით, შეცდომის შემთხვევაში).';
+      'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
   String get edit_product_label_short => 'Edit';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'როგორ შევიყვანოთ „$value“?';
+    return 'How to enter \"$value\"?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'გთხოვთ, შეიყვანოთ არაცარიელი მნიშვნელობა!';
+      'Please enter a non-empty value!';
 
   @override
   String get edit_product_form_item_error_existing =>
-      'ეს ღირებულება უკვე არსებობს!';
+      'This value is already there!';
 
   @override
-  String get edit_product_form_item_add_action_brand =>
-      'ახალი ბრენდის დამატება';
+  String get edit_product_form_item_add_action_brand => 'Add a new brand';
 
   @override
-  String get edit_product_form_item_add_action_label =>
-      'ახალი ლეიბლის დამატება';
+  String get edit_product_form_item_add_action_label => 'Add a new label';
 
   @override
-  String get edit_product_form_item_add_action_store =>
-      'ახალი მაღაზიის დამატება';
+  String get edit_product_form_item_add_action_store => 'Add a new store';
 
   @override
-  String get edit_product_form_item_add_action_origin =>
-      'ახალი წარმოშობის ადგილის დამატება';
+  String get edit_product_form_item_add_action_origin => 'Add a new origin';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'დაამატეთ ახალი მიკვლევადობის კოდი';
+      'Add a new traceability code';
 
   @override
-  String get edit_product_form_item_add_action_country =>
-      'ახალი ქვეყნის დამატება';
+  String get edit_product_form_item_add_action_country => 'Add a new country';
 
   @override
-  String get edit_product_form_item_add_action_category =>
-      'ახალი კატეგორიის დამატება';
+  String get edit_product_form_item_add_action_category => 'Add a new category';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'ახალი კვალის დამატება';
+  String get edit_product_form_item_add_action_trace => 'Add a new trace';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'შეთავაზების დამატება';
+  String get edit_product_form_item_add_suggestion => 'Add suggestion';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'შეთავაზების უარყოფა';
 
   @override
-  String get edit_product_form_item_details_title => 'ძირითადი დეტალები';
+  String get edit_product_form_item_details_title => 'Basic details';
 
   @override
   String get edit_product_form_item_details_subtitle =>
-      'პროდუქტის დასახელება, ბრენდი, რაოდენობა';
+      'Product name, brand, quantity';
 
   @override
-  String get edit_product_form_item_other_details_title =>
-      'დამატებითი დეტალები';
+  String get edit_product_form_item_other_details_title => 'Additional details';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'ვებსაიტი…';
+  String get edit_product_form_item_other_details_subtitle => 'Website…';
 
   @override
-  String get edit_product_form_item_photos_title => 'ფოტოები';
+  String get edit_product_form_item_photos_title => 'Photos';
 
   @override
-  String get edit_product_form_item_photos_subtitle =>
-      'ფოტოების დამატება ან განახლება';
+  String get edit_product_form_item_photos_subtitle => 'Add or refresh photos';
 
   @override
-  String get edit_product_form_item_labels_title =>
-      'ეტიკეტები და სერტიფიკატები';
+  String get edit_product_form_item_labels_title => 'Labels & Certifications';
 
   @override
   String get edit_product_form_item_labels_subtitle =>
-      'გარემოსდაცვითი, ხარისხის ეტიკეტები…';
+      'Environmental, Quality labels…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'შეიყვანეთ ეტიკეტი (მაგ.: NutriScore)';
+      'Input a label (eg: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'label';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'კარგი პრაქტიკა: ეტიკეტები';
+      'Good practices: Labels';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'პროდუქტის ნებისმიერი მახასიათებელი, **რომელიც ფაქტობრივია** და განსხვავდება სხვა სფეროებისგან.';
+      'Any characteristic of the product **which is factual** and different from the other fields.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1998,7 +1948,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'დამზადებულია ბელგიაში, წარმოებულია ბრეტანში…';
+      'Made in Belgium, produced in Brittany…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -2006,28 +1956,28 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'მდიდარია ბოჭკოვანით, რკინის წყაროა…';
+      'Rich in fiber, source of iron…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'სამართლიანი ვაჭრობა, მაქს ჰაველარი…';
+      'Fair trade, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'მაღაზიები';
 
   @override
-  String get edit_product_form_item_stores_hint => 'შეიყვანეთ მაღაზია';
+  String get edit_product_form_item_stores_hint => 'Input a store';
 
   @override
   String get edit_product_form_item_stores_type => 'მაღაზია';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'კარგი პრაქტიკა: მაღაზიები';
+      'Good practices: Stores';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'შეიყვანეთ მაღაზია, სადაც შეიძინეთ პროდუქტი.';
+      'Input the store where you bought the product.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -2035,81 +1985,81 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_2 =>
-      'კარფური';
+      'Carrefour';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_3 =>
-      'ლიდლი';
+      'Lidl';
 
   @override
-  String get edit_product_form_item_origins_title => 'წარმოშობა';
+  String get edit_product_form_item_origins_title => 'Origins';
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'შეიყვანეთ წარმოშობის ადგილი (მაგ.: გერმანია)';
+      'Input an origin (eg: Germany)';
 
   @override
   String get edit_product_form_item_origins_type => 'country';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'კარგი პრაქტიკა: წარმოშობა';
+      'Good practices: Origins';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'დაამატეთ **წარმოშობის შესახებ ნებისმიერი მითითება, რომლის ნახვაც შეფუთვაზე შეგიძლიათ**.\nარ უნდა ინერვიულოთ ინგრედიენტების სიაში პირდაპირ მითითებულ წარმოშობაზე.';
+      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'საქონლის ხორცი არგენტინიდან';
+      'Beef from Argentina';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'სოიო ევროკავშირიდან არ შემოდის';
+      'The soy does not come from the European Union';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'შეიყვანეთ ქვეყანა (მაგ.: გერმანია)';
+      'Input a country (eg: Germany)';
 
   @override
   String get edit_product_form_item_countries_type => 'country';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'კარგი პრაქტიკა: ქვეყნები';
+      'Good practices: Countries';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**ქვეყნები, სადაც პროდუქტი ფართოდ არის ხელმისაწვდომი** (უცხოური პროდუქციის სპეციალიზირებული მაღაზიების გარდა).';
+      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
 
   @override
-  String get edit_product_form_item_emb_codes_title => 'მიკვლევადობის კოდები';
+  String get edit_product_form_item_emb_codes_title => 'Traceability codes';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'შეიყვანეთ კოდი (მაგ.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
-  String get edit_product_form_item_emb_codes_type => 'მიკვლევადობის კოდი';
+  String get edit_product_form_item_emb_codes_type => 'traceability code';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'კარგი პრაქტიკა: მიკვლევადობის კოდები';
+      'Good practices: Traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'ამ განყოფილებაში შეგიძლიათ შეიყვანოთ **შეფუთვის ნიშანებთან**, **იდენტიფიკაციის ნიშანებთან** ან **ჯანმრთელობის ნიშანებთან** დაკავშირებული კოდები.';
+      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'მიკვლევადობის კოდების მაგალითები';
+      'Examples of traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**EC კოდები**, რომლებიც გამოიყენება ევროკავშირში სურსათის მწარმოებლების ან შემფუთავების იდენტიფიცირებისთვის:';
+      '**EC codes** used in the European Community to identify food producers or packagers:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2117,11 +2067,11 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: **საფრანგეთის** ქვეყნის კოდი\n**72.264.002**: გეოგრაფიული მონაცემები\n**CE**: ევროპული თანამეგობრობა';
+      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**EMB კოდები**, რომლებიც გამოიყენება საფრანგეთში:';
+      '**EMB codes** used in France:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2131,11 +2081,11 @@ class AppLocalizationsKa extends AppLocalizations {
   String get edit_product_form_item_traces_title => 'Traces';
 
   @override
-  String get edit_product_form_item_traces_hint => 'კვალი';
+  String get edit_product_form_item_traces_hint => 'trace';
 
   @override
   String get edit_product_form_item_traces_type =>
-      'შეიყვანეთ კვალი (მაგ.: სოიოს ლობიო)';
+      'Input a trace (eg: Soy beans)';
 
   @override
   String get edit_product_form_item_categories_title => 'Categories';
@@ -2145,157 +2095,154 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'შეიყვანეთ კატეგორია (მაგ.: ფორთოხლის წვენი)';
+      'Input a category (eg: Orange juice)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'კარგი პრაქტიკა: კატეგორიები';
+      'Good practices: Categories';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'მიუთითეთ **მხოლოდ ყველაზე კონკრეტული კატეგორია**.\nმშობელი კატეგორიები ავტომატურად დაემატება.';
+      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'კატეგორია აკლია?';
+      'Missing category?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'იმ შემთხვევაში, თუ კატეგორია **ავტომატური შევსების რეჟიმში არ არის ხელმისაწვდომი**, თავისუფლად შეგიძლიათ მისი დამატება.\nეს დაგვეხმარება თქვენს ქვეყანაში ღია კვების ფაქტების გაუმჯობესებაში.';
+      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'სარდინები ზეითუნის ზეთში';
+      'Sardines in olive oil';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'კონცენტრირებული ფორთოხლის წვენი';
+      'Orange juice from concentrate';
 
   @override
-  String get edit_product_form_item_exit_title =>
-      'გსურთ გასვლა შენახვის გარეშე?';
+  String get edit_product_form_item_exit_title => 'Quit without saving?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'გსურთ ცვლილებების შენახვა ამ გვერდიდან გასვლამდე?';
+      'Do you want to save your changes before leaving this page?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
-      'ცვლილებების შენახვა';
+      'Save changes';
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'ცვლილებების გაუქმება';
+      'Discard changes';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Ingredients';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'მასშტაბირება ეკრანზე თითების დაჭერით';
+      'Zoom in and out by pinching the screen';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'ფოტოს მასშტაბირება გადიდება და დაპატარავება';
+      'Zoom in and out the photo';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      '**თითებით მასშტაბირების ჟესტის** გამოყენებით, შეგიძლიათ ფოტოს მასშტაბირება გააფართოვოთ ან დააპატარავოთ:';
+      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
 
   @override
-  String get edit_product_form_item_add_valid_item_tooltip => 'დამატება';
+  String get edit_product_form_item_add_valid_item_tooltip => 'Add';
 
   @override
   String get edit_product_form_item_add_invalid_item_tooltip =>
-      'გთხოვთ, ჯერ ტექსტი შეიყვანოთ';
+      'Please enter a text first';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'წაშლა';
+  String get edit_product_form_item_remove_item_tooltip => 'Remove';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip =>
-      'შეინახეთ თქვენი რედაქტირება';
+  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'გააუქმეთ თქვენი რედაქტირება';
+      'Cancel your edit';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'გადამუშავების ინსტრუქციის ფოტო';
+      'Recycling instructions photo';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title =>
-      'კვებითი ღირებულების შესახებ ინფორმაცია';
+  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
-      'კვებითი ღირებულება, ალკოჰოლის შემცველობა…';
+      'Nutrition, alcohol content…';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'კარგი პრაქტიკა: კვებითი ღირებულება, ფაქტები';
+      'Good practices: Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'კვებითი ღირებულებები';
+      'Nutritional values';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'პირველ რიგში, აირჩიეთ, თუ **მნიშვნელობებია მოცემული**:';
+      'First, select if the **values are provided**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'კვებითი ღირებულების შესახებ ინფორმაცია';
+      'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'შემდეგ, შეიყვანეთ კვებითი ღირებულება **როგორც მითითებულია შეფუთვაზე**. თუ მნიშვნელობა არ არის, შეგიძლიათ დააწკაპუნოთ „თვალის“ ხატულაზე.';
+      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'ველი აკლია?';
+      'Missing field?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'თუ ჩანაწერი აკლია, შეგიძლიათ **დააჭიროთ „პლიუსის“ ხატულას** მის დასამატებლად (მაგ.: ვიტამინი D, მაგნიუმი…).';
+      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
   String get edit_product_form_save => 'Edit';
 
   @override
-  String get edit_product_ingredients_photo_title => 'ინგრედიენტების ფოტო';
+  String get edit_product_ingredients_photo_title => 'Ingredients photo';
 
   @override
   String get edit_product_ingredients_list_title => 'List of ingredients';
 
   @override
-  String get edit_product_packaging_photo_title => 'შეფუთვის ფოტო';
+  String get edit_product_packaging_photo_title => 'Packaging photo';
 
   @override
-  String get edit_product_packaging_list_title => 'შეფუთვის სია';
+  String get edit_product_packaging_list_title => 'Packaging list';
 
   @override
-  String get no_data_available => 'მონაცემები არ არის ხელმისაწვდომი';
+  String get no_data_available => 'No data available';
 
   @override
-  String get product_field_website_title => 'ვებსაიტი';
+  String get product_field_website_title => 'Website';
 
   @override
-  String get origins_editing_title => 'წარმოშობის რედაქტირება';
+  String get origins_editing_title => 'Edit Origins';
 
   @override
-  String get completed_basic_details_btn_text => 'სრული ძირითადი დეტალები';
+  String get completed_basic_details_btn_text => 'Complete basic details';
 
   @override
-  String get not_implemented_snackbar_text => 'ჯერ არ არის დანერგილი';
+  String get not_implemented_snackbar_text => 'Not implemented yet';
 
   @override
   String get category_picker_page_appbar_text => 'Categories';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'ინგრედიენტების ამოღება ფოტოდან';
+      'Extract ingredients from the photo';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2303,308 +2250,306 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'ინგრედიენტების ამოღება ფოტოდან\n';
+      'Extracting ingredients\nfrom the photo';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'ფოტოს ჩატვირთვა…';
+  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'რატომ ვხედავ ამ შეტყობინებას?';
+      'Why do I see this message?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      '„ინგრედიენტების ამოღების“ ფუნქციის გამოსაყენებლად, ჯერ ფოტო უნდა ატვირთოთ.\n\nგთხოვთ, დაელოდოთ რამდენიმე წამი ან ხელით შეიყვანოთ ისინი.';
+      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text => 'ფოტოს განახლება';
+  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
 
   @override
-  String get edit_packaging_extract_btn_text => 'ფოტოდან შეფუთვა\nამოიღეთ';
+  String get edit_packaging_extract_btn_text =>
+      'Extract packaging\nfrom the photo';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'ექსტრაქტის შეფუთვა';
+  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
 
   @override
-  String get edit_packaging_extracting_btn_text => 'შეფუთვის ამოღება ფოტოდან';
+  String get edit_packaging_extracting_btn_text =>
+      'Extracting packaging from the photo';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'ფოტოს ჩატვირთვა…';
+  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'რატომ ვხედავ ამ შეტყობინებას?';
+      'Why do I see this message?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      '„შეფუთვის ამოღების“ ფუნქციის გამოსაყენებლად, ჯერ ფოტო უნდა აიტვირთოს.\n\nგთხოვთ, დაელოდოთ რამდენიმე წამი ან ხელით შეიყვანოთ ისინი.';
+      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text => 'ფოტოს განახლება';
+  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
 
   @override
-  String get edit_ocr_extract_failed =>
-      'სურათში ტექსტის აღმოჩენა ვერ მოხერხდა.';
+  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'სურათი არ არის!';
+  String get edit_ocr_extract_disabled_title => 'No picture!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'ტექსტის ამოღების ფუნქციის გამოსაყენებლად, ჯერ ფოტო უნდა გადაიღოთ.';
+      'In order to use the text extraction feature, you must first take a photo.';
 
   @override
-  String get user_list_dialog_new_title => 'პროდუქტების ახალი სია';
+  String get user_list_dialog_new_title => 'New list of products';
 
   @override
-  String get user_list_dialog_rename_title => 'სიის გადარქმევა';
+  String get user_list_dialog_rename_title => 'Rename list';
 
   @override
-  String get user_list_subtitle_product => 'სიები';
+  String get user_list_subtitle_product => 'Lists';
 
   @override
   String get user_list_title => 'Your lists';
 
   @override
-  String get user_list_add_product => 'დაამატეთ პროდუქტი თქვენს სიებში';
+  String get user_list_add_product => 'Add the product to your lists';
 
   @override
-  String get user_list_button_new => 'ახალი სიის შექმნა';
+  String get user_list_button_new => 'Create a new list';
 
   @override
   String get user_list_empty_label =>
       'No list available yet, please start by creating one';
 
   @override
-  String get user_list_button_add_product => 'სიაში დამატება';
+  String get user_list_button_add_product => 'Add to list';
 
   @override
-  String get added_to_list_msg => 'დამატებულია სიაში';
+  String get added_to_list_msg => 'Added to list';
 
   @override
-  String get user_list_popup_clear => 'ისტორიის გასუფთავება';
+  String get user_list_popup_clear => 'Clear your history';
 
   @override
-  String get user_list_popup_rename => 'გადარქმევა';
+  String get user_list_popup_rename => 'Rename';
 
   @override
-  String get user_list_name_hint => 'ჩემი სია';
+  String get user_list_name_hint => 'My list';
 
   @override
-  String get user_list_name_error_empty => 'სახელი სავალდებულოა';
+  String get user_list_name_error_empty => 'Name is mandatory';
 
   @override
-  String get user_list_name_error_already => 'ეს სახელი უკვე გამოიყენება';
+  String get user_list_name_error_already => 'That name is already used';
 
   @override
-  String get user_list_name_error_same => 'ეს იგივე სახელია';
+  String get user_list_name_error_same => 'That is the same name';
 
   @override
-  String get user_list_name_input_hint => 'სიის დასახელება';
+  String get user_list_name_input_hint => 'Name of the list';
 
   @override
-  String get try_again => 'ხელახლა სცადეთ';
+  String get try_again => 'Try Again';
 
   @override
-  String get there_was_an_error => 'შეცდომა მოხდა';
+  String get there_was_an_error => 'There was an error';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return 'კატეგორია $items-სთვის ვერ მოიძებნა';
+    return 'No category found for $items';
   }
 
   @override
-  String get camera_toggle_camera => 'უკანა და წინა კამერას შორის გადართვა';
+  String get camera_toggle_camera => 'Switch between back and front camera';
 
   @override
-  String get camera_toggle_flash => 'ჩართეთ ან გამორთეთ კამერის ფლეში';
+  String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
 
   @override
-  String get camera_enable_flash => 'ფლეშის ჩართვა';
+  String get camera_enable_flash => 'Enable flash';
 
   @override
-  String get camera_disable_flash => 'ფლეშის გამორთვა';
+  String get camera_disable_flash => 'Disable flash';
 
   @override
-  String get camera_flash_error_dialog_title => 'შეცდომა მოხდა!';
+  String get camera_flash_error_dialog_title => 'An error occurred!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'თქვენი ფლეშის მდგომარეობის შეცვლისას შეცდომა მოხდა. დარწმუნდით, რომ თქვენს სმარტფონს ფანარი უკვე ჩართული არ აქვს.';
+      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
 
   @override
   String get category_picker_no_category_found_button => 'უკან';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'დააწკაპუნეთ ბრაუზერში ან აპლიკაციაში გასახსნელად (თუ დაინსტალირებულია)';
+      'Click to open in your browser or in the application (if installed)';
 
   @override
-  String get dev_preferences_screen_title => 'DEV რეჟიმი';
+  String get dev_preferences_screen_title => 'DEV Mode';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'ექსპერიმენტულ ფუნქციებსა და განვითარების ინსტრუმენტებზე წვდომა';
 
   @override
-  String get dev_preferences_reset_onboarding_title => 'ხელახლა რეგისტრაცია';
+  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'შემდეგ, მისი ხელახლა სანახავად, აპლიკაცია უნდა გადატვირთოთ.';
+      'You then have to restart the App to see it again.';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'გადართვა openfoodfacts.org (PROD)-სა და სატესტო გარემოს შორის';
+      'Switch between openfoodfacts.org (PROD) and test env';
 
   @override
   String get dev_preferences_test_environment_title =>
-      'ტესტირების გარემოს პარამეტრები';
+      'Test environment parameters';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'მიმდინარე სატესტო გარემოს საბაზისო URL: $url';
+    return 'Base URL for current test env: $url';
   }
 
   @override
   String get dev_preferences_test_environment_dialog_title =>
-      'სატესტო გარემოს მასპინძელი';
+      'Test environment host';
 
   @override
-  String get dev_preferences_ml_kit_title => 'გამოიყენეთ ML Kit';
+  String get dev_preferences_ml_kit_title => 'Use ML Kit';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'შემდეგ ეს აპლიკაცია უნდა გადატვირთოთ';
+      'then you have to restart this app';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'დამატებითი ღილაკი პროდუქტის გვერდზე';
+      'Additional button on product page';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'ინგრედიენტების რედაქტირება ცოდნის პანელის ღილაკის საშუალებით';
+      'Edit ingredients via a knowledge panel button';
 
   @override
-  String get dev_preferences_export_history_title => 'ექსპორტის ისტორია';
+  String get dev_preferences_export_history_title => 'Export History';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'გამონაკლისი';
+  String get dev_preferences_export_history_progress_error => 'exception';
 
   @override
-  String get dev_preferences_export_history_progress_found =>
-      'პროდუქტი ნაპოვნია';
+  String get dev_preferences_export_history_progress_found => 'product found';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'პროდუქტი ვერ მოიძებნა';
+      'product NOT found';
 
   @override
-  String get dev_preferences_export_history_dialog_title => 'ექსპორტის ისტორია';
+  String get dev_preferences_export_history_dialog_title => 'Export history';
 
   @override
-  String get dev_preferences_button_positive => 'კარგი';
+  String get dev_preferences_button_positive => 'OK';
 
   @override
   String get dev_preferences_button_negative => 'Cancel';
 
   @override
-  String get dev_preferences_migration_title => 'მონაცემთა მიგრაცია V1-დან';
+  String get dev_preferences_migration_title => 'Data migration from V1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
-    return 'სტატუსი: $status';
+    return 'Status: $status';
   }
 
   @override
   String get dev_preferences_migration_status_already_done =>
-      'წარმატება ან ახალი ინსტალაცია';
+      'success or fresh install';
 
   @override
-  String get dev_preferences_migration_status_success => 'წარმატება';
+  String get dev_preferences_migration_status_success => 'success';
 
   @override
-  String get dev_preferences_migration_status_error => 'შეცდომა';
+  String get dev_preferences_migration_status_error => 'error';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'მიმდინარეობს';
+  String get dev_preferences_migration_status_in_progress => 'in progress';
 
   @override
   String get dev_preferences_migration_status_required =>
-      'აუცილებელია (დასაწყებად დააწკაპუნეთ)';
+      'required (click to start)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'უცნობი';
+  String get dev_preferences_migration_status_not_started => 'unknown';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'ისტორიას გავასუფთავებ და იქ 3 პროდუქტს დავამატებ';
+      'Will clear history and put 3 products in there';
 
   @override
-  String get dev_preferences_news_custom_url_title =>
-      'სიახლეებისთვის მორგებული URL';
+  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
 
   @override
-  String get dev_preferences_news_custom_url_subtitle => 'JSON ფაილის URL:';
+  String get dev_preferences_news_custom_url_subtitle =>
+      'URL of the JSON file:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value =>
-      'არ არის დაყენებული';
+  String get dev_preferences_news_custom_url_empty_value => 'Not set';
 
   @override
-  String get dev_preferences_news_provider_status_title => 'სტატუსი';
+  String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'ბოლო განახლება: $date';
+    return 'Last refresh: $date';
   }
 
   @override
-  String get product_type_label_food => 'საკვები';
+  String get product_type_label_food => 'Food';
 
   @override
-  String get product_type_label_beauty => 'პირადი მოვლა';
+  String get product_type_label_beauty => 'Personal care';
 
   @override
-  String get product_type_label_pet_food => 'შინაური ცხოველების საკვები';
+  String get product_type_label_pet_food => 'Pet food';
 
   @override
-  String get product_type_label_product => 'სხვა';
+  String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'უცნობი';
+  String get product_type_selection_title => 'Product type';
 
   @override
-  String get product_type_selection_title => 'პროდუქტის ტიპი';
+  String get product_type_selection_subtitle =>
+      'Select the type of this product';
 
   @override
-  String get product_type_selection_subtitle => 'აირჩიეთ ამ პროდუქტის ტიპი';
-
-  @override
-  String get product_type_selection_empty => 'ჯერ პროდუქტის ტიპი უნდა აირჩიოთ!';
+  String get product_type_selection_empty =>
+      'You need to select a product type first!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'პროდუქტის ტიპის შეცვლა ($productType) შეუძლებელია!';
+    return 'You cannot change the product type ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'პროდუქტის გვერდზე ფასების აპლიკაციის მალსახმობი';
+      'Shortcut to Prices app on product page';
 
   @override
-  String get prices_app_button => 'გადადით ფასების აპლიკაციაში';
+  String get prices_app_button => 'Go to Prices app';
 
   @override
   String get prices_website_button => 'გახსენით Open Prices ვებსაიტზე';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'დაამატეთ ფასების ეტიკეტები პირდაპირ გალერეიდან';
+      'Add price tags directly from gallery';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'სურათების არჩევის შემდეგ, მათ რედაქტირებას ვეღარ შეძლებთ!';
+      'Once you\'ve selected images, you won\'t be able to edit them!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2615,11 +2560,10 @@ class AppLocalizationsKa extends AppLocalizations {
       'მიეცით საზოგადოებას საშუალება, დაადასტუროს ხელოვნური ინტელექტის მიერ მოპოვებული ფასები.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'მრავალი ფასის ტეგი';
+  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
 
   @override
-  String get prices_bulk_proof_upload_title =>
-      'მასობრივი მტკიცებულების ატვირთვა';
+  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'ფაილების შერჩევა';
@@ -2643,15 +2587,15 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'ფასები';
+  String get prices_generic_title => 'Prices';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'დაამატეთ $count ფასები',
-      one: 'დაამატეთ ფასი',
+      other: 'Add $count prices',
+      one: 'Add a price',
     );
     return '$_temp0';
   }
@@ -2668,35 +2612,35 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
-  String get prices_add_an_item => 'დაამატეთ ნივთი';
+  String get prices_add_an_item => 'Add an item';
 
   @override
-  String get prices_add_a_price => 'ფასის დამატება';
+  String get prices_add_a_price => 'Add a price';
 
   @override
-  String get prices_add_a_receipt => 'ქვითრის დამატება';
+  String get prices_add_a_receipt => 'Add a receipt';
 
   @override
-  String get prices_add_price_tags => 'დაამატეთ ფასების ეტიკეტები';
+  String get prices_add_price_tags => 'Add price tags';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'ეს შტრიხკოდი ($barcode) უკვე სიაშია!';
+    return 'This barcode ($barcode) is already in the list!';
   }
 
   @override
-  String get prices_barcode_search_not_found => 'პროდუქტი ვერ მოიძებნა';
+  String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'პროდუქტი ჯერ არ არის';
+  String get prices_barcode_search_none_yet => 'No product yet';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'ვეძებ $barcode-ს';
+    return 'Looking for $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'შეიყვანეთ შტრიხკოდი';
+  String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
   String get prices_category_enter =>
@@ -2715,7 +2659,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_per_unit_short => ' / ერთეული';
 
   @override
-  String get prices_category_mandatory => 'სავალდებულო';
+  String get prices_category_mandatory => 'Mandatory';
 
   @override
   String get prices_category_optional => 'არასავალდებულო';
@@ -2724,10 +2668,10 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_category_error_mandatory => 'კატეგორია სავალდებულოა';
 
   @override
-  String get prices_barcode_reader_action => 'შტრიხკოდების წამკითხველი';
+  String get prices_barcode_reader_action => 'Barcode reader';
 
   @override
-  String get prices_view_prices => 'ფასების ნახვა';
+  String get prices_view_prices => 'View the prices';
 
   @override
   String get prices_list_title => 'ფასების სია';
@@ -2754,9 +2698,6 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
-  String get prices_entry_menu_open_product => 'პროდუქტის დეტალების ნახვა';
-
-  @override
   String get prices_entry_menu_open_product_prices =>
       'იხილეთ ამ პროდუქტის ყველა ფასი';
 
@@ -2777,10 +2718,10 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count ფასები',
-      one: '1 ფასი',
+      other: '$count prices',
+      one: '1 price',
     );
-    return '$_temp0 $product-სთვის';
+    return '$_temp0 for $product';
   }
 
   @override
@@ -2788,16 +2729,16 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'ყველა $count ფასები',
-      one: 'მხოლოდ ერთი ფასი',
-      zero: 'ფასი ჯერ არ არის',
+      other: 'All $count prices',
+      one: 'Only one price',
+      zero: 'No price yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'უახლესი $pageSize ფასები (სულ: $total)';
+    return 'Latest $pageSize prices (total: $total)';
   }
 
   @override
@@ -2807,32 +2748,32 @@ class AppLocalizationsKa extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'ფასი: $price / მაღაზია: \"$location\" / გამოქვეყნებულია $date -ში \"$user\"-ის მიერ';
+    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return '\"$user\"-ს ღია მტკიცებულებები';
+    return 'Open proofs of \"$user\"';
   }
 
   @override
-  String get prices_open_proof => 'ღია ფასის დადასტურება';
+  String get prices_open_proof => 'Open price proof';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'ყველა $count მტკიცებულება',
-      one: 'მხოლოდ ერთი მტკიცებულება',
-      zero: 'ჯერ არ არის მტკიცებულება',
+      other: 'All $count proofs',
+      one: 'Only one proof',
+      zero: 'No proof yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'უახლესი $pageSize მტკიცებულებები (სულ: $total)';
+    return 'Latest $pageSize proofs (total: $total)';
   }
 
   @override
@@ -2844,7 +2785,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'ყველაზე პოპულარული $pageSize კონტრიბუტორები (სულ: $total)';
+    return 'Top $pageSize contributors (total: $total)';
   }
 
   @override
@@ -2856,7 +2797,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'ყველაზე პოპულარული $pageSize მდებარეობები (სულ: $total)';
+    return 'Top $pageSize locations (total: $total)';
   }
 
   @override
@@ -2864,9 +2805,9 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count მტკიცებულებები',
-      one: 'ერთი მტკიცებულება',
-      zero: 'არანაირი მტკიცებულება',
+      other: '$count proofs',
+      one: 'One proof',
+      zero: 'No proof',
     );
     return '$_temp0';
   }
@@ -2876,9 +2817,9 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count პროდუქტები',
-      one: 'ერთი პროდუქტი',
-      zero: 'პროდუქტი არ არის',
+      other: '$count products',
+      one: 'One product',
+      zero: 'No product',
     );
     return '$_temp0';
   }
@@ -2888,9 +2829,9 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count მომხმარებლები',
-      one: 'ერთი მომხმარებელი',
-      zero: 'მომხმარებელი არ არის',
+      other: '$count users',
+      one: 'One user',
+      zero: 'No user',
     );
     return '$_temp0';
   }
@@ -2900,9 +2841,9 @@ class AppLocalizationsKa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count ფასები',
-      one: 'ერთი ფასი',
-      zero: 'ფასის გარეშე',
+      other: '$count prices',
+      one: 'One price',
+      zero: 'No price',
     );
     return '$_temp0';
   }
@@ -2911,50 +2852,50 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'ფასი ადრე დამატებულია';
 
   @override
-  String get prices_amount_subtitle => 'თანხა';
+  String get prices_amount_subtitle => 'Amount';
 
   @override
-  String get prices_amount_is_discounted => 'ფასდაკლებულია?';
+  String get prices_amount_is_discounted => 'Is discounted?';
 
   @override
-  String get prices_amount_price_normal => 'ფასი';
+  String get prices_amount_price_normal => 'Price';
 
   @override
-  String get prices_amount_price_discounted => 'ფასდაკლებული ფასი';
+  String get prices_amount_price_discounted => 'Discounted price';
 
   @override
-  String get prices_amount_price_not_discounted => 'საწყისი ფასი';
+  String get prices_amount_price_not_discounted => 'Original price';
 
   @override
-  String get prices_amount_no_product => 'ერთი პროდუქტი აკლია!';
+  String get prices_amount_no_product => 'One product is missing!';
 
   @override
-  String get prices_amount_price_incorrect => 'არასწორი მნიშვნელობა';
+  String get prices_amount_price_incorrect => 'Incorrect value';
 
   @override
-  String get prices_amount_price_mandatory => 'სავალდებულო მნიშვნელობა';
+  String get prices_amount_price_mandatory => 'Mandatory value';
 
   @override
-  String get prices_currency_subtitle => 'ვალუტა';
+  String get prices_currency_subtitle => 'Currency';
 
   @override
-  String get prices_date_subtitle => 'თარიღი';
+  String get prices_date_subtitle => 'Date';
 
   @override
-  String get prices_location_subtitle => 'მაღაზია';
+  String get prices_location_subtitle => 'Shop';
 
   @override
-  String get prices_location_find => 'მაღაზიის პოვნა';
+  String get prices_location_find => 'Find a shop';
 
   @override
-  String get prices_location_mandatory => 'მაღაზია უნდა აირჩიოთ!';
+  String get prices_location_mandatory => 'You need to select a shop!';
 
   @override
   String get prices_location_search_broader =>
-      'ვერ იპოვეთ ის, რასაც ეძებდით? მოდით, უფრო ფართო ძიება ვცადოთ!';
+      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
 
   @override
-  String get prices_proof_subtitle => 'მტკიცებულება';
+  String get prices_proof_subtitle => 'Proof';
 
   @override
   String get prices_proof_empty_title => 'ჯერ არანაირი მტკიცებულება!';
@@ -2964,131 +2905,103 @@ class AppLocalizationsKa extends AppLocalizations {
       'დაიწყეთ **ჩეკის** ან **ფასის** ფოტოს დამატებით!';
 
   @override
-  String get prices_proof_find => 'აირჩიეთ მტკიცებულება';
+  String get prices_proof_find => 'Select a proof';
 
   @override
-  String get prices_proof_change => 'ცვლილების დადასტურება';
+  String get prices_proof_change => 'Change proof';
 
   @override
-  String get prices_proof_receipt => 'ქვითარი';
+  String get prices_proof_receipt => 'Receipt';
 
   @override
-  String get prices_proof_price_tag => 'ფასი';
+  String get prices_proof_price_tag => 'Price tag';
 
   @override
-  String get prices_proof_mandatory => 'თქვენ უნდა აირჩიოთ მტკიცებულება!';
+  String get prices_proof_mandatory => 'You need to select a proof!';
 
   @override
-  String get prices_add_validation_error => 'ვალიდაციის შეცდომა';
+  String get prices_add_validation_error => 'Validation error';
 
   @override
-  String get prices_privacy_warning_title => 'კონფიდენციალურობის გაფრთხილება';
+  String get prices_privacy_warning_title => 'Privacy warning';
 
   @override
-  String get prices_unknown_product => 'უცნობი პროდუქტი';
+  String get prices_unknown_product => 'Unknown product';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'ფასები **საჯარო იქნება**, მათ მიერ მითითებული მაღაზიის ჩათვლით.\n\nამან შესაძლოა საშუალება მისცეს ადამიანებს, რომლებმაც იციან თქვენი ფსევდონიმი „ღია საკვების ფაქტები“, რომ:\n';
+      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'დაასკვენი რომელ რაიონში ცხოვრობ';
+      'Infer in which area you live';
 
   @override
-  String get prices_privacy_warning_message_bullet_2 => 'იცოდეთ რას ყიდულობთ';
+  String get prices_privacy_warning_message_bullet_2 =>
+      'Know what you are buying';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'თუ ეს თქვენთვის პრობლემას წარმოადგენს, გთხოვთ, შეცვალოთ თქვენი ფსევდონიმი ან შექმნათ ახალი Open Food Facts ანგარიში და ამით შეხვიდეთ აპლიკაციაში.';
+      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
 
   @override
-  String get i_refuse => 'მე უარს ვამბობ';
+  String get i_refuse => 'I refuse';
 
   @override
-  String get i_accept => 'ვეთანხმები';
+  String get i_accept => 'I accept';
 
   @override
-  String get prices_currency_change_proposal_title => 'ვალუტის შეცვლა?';
+  String get prices_currency_change_proposal_title => 'Change the currency?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'თქვენი მიმდინარე ვალუტაა **$currency**. გსურთ მისი შეცვლა **$newCurrency**-ით?';
+    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'დიახ, გამოიყენეთ $newCurrency';
+    return 'Yes, use $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'არა, შეინარჩუნე $currency';
+    return 'No, keep $currency';
   }
 
   @override
-  String get prices_menu_know_more => 'გაიგეთ მეტი გახსნის ფასების შესახებ';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get prices_discount_type => 'Discount type';
+  String get dev_preferences_import_history_result_success => 'Done';
 
   @override
-  String get prices_discount_type_quantity => 'Quantity discount';
+  String get dev_mode_section_server => 'Server configuration';
 
   @override
-  String get prices_discount_type_sale => 'Sale';
+  String get dev_mode_section_news => 'News provider configuration';
 
   @override
-  String get prices_discount_type_seasonal => 'Seasonal';
+  String get dev_mode_section_product_page => 'Product page';
 
   @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
+  String get dev_mode_section_ui => 'User Interface';
 
   @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
+  String get dev_mode_section_experimental_features => 'Experimental features';
 
   @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
-
-  @override
-  String get dev_preferences_import_history_result_success => 'დასრულებულია';
-
-  @override
-  String get dev_mode_section_server => 'სერვერის კონფიგურაცია';
-
-  @override
-  String get dev_mode_section_news => 'ახალი ამბების პროვაიდერის კონფიგურაცია';
-
-  @override
-  String get dev_mode_section_product_page => 'პროდუქტის გვერდი';
-
-  @override
-  String get dev_mode_section_ui => 'მომხმარებლის ინტერფეისი';
-
-  @override
-  String get dev_mode_section_experimental_features =>
-      'ექსპერიმენტული ფუნქციები';
-
-  @override
-  String get dev_mode_hide_environmental_score_title =>
-      'მწვანე ქულის გამორიცხვა';
+  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'გამოიყენეთ მართლწერის შემმოწმებელი OCR ეკრანებისთვის';
+      'Use a spellchecker for OCR screens';
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(ინგრედიენტები და შეფუთვა)';
+      '(Ingredients and packaging)';
 
   @override
   String get dev_mode_reset_app_language_title => 'აპლიკაციის ენის გადაყენება';
@@ -3101,15 +3014,14 @@ class AppLocalizationsKa extends AppLocalizations {
       'გადართვა prices.openfoodfacts.org (PROD)-სა და სატესტო გარემოს შორის';
 
   @override
-  String get search_history_item_edit_tooltip =>
-      'ამ ძიების ხელახლა გამოყენება და რედაქტირება';
+  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
-  String get search_history_item_remove_tooltip => 'წაშლა';
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'თქვენ ჩამოტვირთეთ ყველა $totalSize პროდუქტი.';
+    return 'You\'ve downloaded all the $totalSize products.';
   }
 
   @override
@@ -3118,40 +3030,38 @@ class AppLocalizationsKa extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return 'ჩამოტვირთეთ $count მეტი პროდუქტი\nუკვე ჩამოტვირთულია $downloaded $totalSize-დან.';
+    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return 'თქვენი ძიება $search მიმდინარეობს.\n\nგთხოვთ, დაელოდოთ რამდენიმე წამი…';
+    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
   }
 
   @override
-  String get user_search_contributor_title => 'ჩემს მიერ დამატებული პროდუქტები';
+  String get user_search_contributor_title => 'Products I added';
 
   @override
-  String get user_search_informer_title => 'ჩემს მიერ რედაქტირებული პროდუქტები';
+  String get user_search_informer_title => 'Products I edited';
 
   @override
-  String get user_search_photographer_title =>
-      'ჩემს მიერ გადაღებული პროდუქტები';
+  String get user_search_photographer_title => 'Products I photographed';
 
   @override
-  String get user_search_to_be_completed_title =>
-      'ჩემი დასასრულებელი პროდუქტები';
+  String get user_search_to_be_completed_title => 'My to-be-completed products';
 
   @override
-  String get user_search_prices_title => 'ჩემი ფასები';
+  String get user_search_prices_title => 'My prices';
 
   @override
-  String get user_search_proofs_title => 'ჩემი მტკიცებულებები';
+  String get user_search_proofs_title => 'My proofs';
 
   @override
-  String get user_search_proof_title => 'ჩემი მტკიცებულება';
+  String get user_search_proof_title => 'My proof';
 
   @override
   String search_proof_title(String user) {
-    return 'მტკიცებულება „$user“-დან';
+    return 'Proof from \"$user\"';
   }
 
   @override
@@ -3160,18 +3070,17 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'უახლესი დამატებული ფასები';
+  String get all_search_prices_latest_title => 'Latest Prices added';
 
   @override
-  String get all_search_prices_top_user_title =>
-      'ყველაზე მაღალი ფასების კონტრიბუტორები';
+  String get all_search_prices_top_user_title => 'Top price contributors';
 
   @override
   String get all_search_prices_top_location_title =>
-      'მაღაზიები ყველაზე მაღალი ფასებით';
+      'Stores with the most prices';
 
   @override
-  String get prices_contribution_assistant => 'ფასის შეტანის ასისტენტი';
+  String get prices_contribution_assistant => 'Price Contribution Assistant';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3180,63 +3089,63 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system =>
-      'დაამატეთ მრავალი მტკიცებულება';
+  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
 
   @override
-  String get all_search_prices_top_location_single_title => 'ფასები მაღაზიაში';
+  String get all_search_prices_top_location_single_title => 'Prices in a store';
 
   @override
   String get all_search_prices_top_product_title =>
-      'პროდუქტები ყველაზე მაღალი ფასებით';
+      'Products with the most prices';
 
   @override
-  String get all_search_to_be_completed_title => 'ყველა დასასრულებელი პროდუქტი';
+  String get all_search_to_be_completed_title => 'All to-be-completed products';
 
   @override
   String get categorize_products_country_title =>
-      'დაგვეხმარეთ თქვენს ქვეყანაში პროდუქტების კატეგორიზაციაში';
+      'Help categorize products in your country';
 
   @override
-  String get edit_product_action_retake_picture => 'ხელახლა გადაიღე ფოტო';
+  String get edit_product_action_retake_picture => 'Retake photo';
 
   @override
-  String get edit_product_action_take_picture => 'ფოტოს გადაღება';
+  String get edit_product_action_take_picture => 'Take photo';
 
   @override
-  String get edit_product_action_confirm => 'დადასტურება';
+  String get edit_product_action_confirm => 'Confirm';
 
   @override
-  String get signup_page_terms_of_use_line1 => 'ვეთანხმები ღია კვების ფაქტებს ';
+  String get signup_page_terms_of_use_line1 =>
+      'I agree to the Open Food Facts ';
 
   @override
-  String get signup_page_terms_of_use_line2 => 'გამოყენების პირობები და წვლილი';
+  String get signup_page_terms_of_use_line2 => 'terms of use and contribution';
 
   @override
-  String get analytics_consent_image_semantic_label => 'ანალიტიკის ხატულა';
+  String get analytics_consent_image_semantic_label => 'Analytics icon';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'ფატალური შეცდომა: $error';
+    return 'Fatal Error: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'ფატალური შეცდომა: $error';
+    return 'Fatal Error: $error';
   }
 
   @override
-  String get summary_card_button_add_basic_details => 'სრული ძირითადი დეტალები';
+  String get summary_card_button_add_basic_details => 'Complete basic details';
 
   @override
   String get edit_photo_button_label => 'Edit';
 
   @override
-  String get edit_photo_unselect_button_label => 'ფოტოს არჩევის გაუქმება';
+  String get edit_photo_unselect_button_label => 'Unselect photo';
 
   @override
   String get edit_photo_select_existing_button_label =>
-      'არსებული სურათის არჩევა';
+      'Select an existing image';
 
   @override
   String get edit_photo_select_existing_all_label =>
@@ -3244,51 +3153,52 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'აირჩიეთ სურათი მასზე დაწკაპუნებით';
+      'Select an image by clicking on it';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'არსებული სურათების მოძიება…';
+      'Retrieving existing images…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
-      'ამ პროდუქტთან დაკავშირებული სურათები ადრე არ არის ატვირთული.';
+      'There are no images previously uploaded related to this product.';
 
   @override
-  String get edit_photo_language_not_this_one => 'ამ ენაზე სურათი ჯერ არ არის';
+  String get edit_photo_language_not_this_one =>
+      'No image in that language yet';
 
   @override
-  String get edit_photo_language_none => 'სურათი ჯერ არ არის';
+  String get edit_photo_language_none => 'No image yet';
 
   @override
   String get category_picker_screen_title => 'Categories';
 
   @override
-  String get basic_details => 'ძირითადი დეტალები';
+  String get basic_details => 'Basic Details';
 
   @override
-  String get product_name => 'პროდუქტის დასახელება';
+  String get product_name => 'Product Name';
 
   @override
-  String get product_names => 'პროდუქტის დასახელებები';
+  String get product_names => 'Product Names';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'ახალი თარგმანის დამატება';
+      'Add a new translation';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'ვალიდაციამდე, გთხოვთ, დარწმუნდეთ, რომ თარგმანს მხოლოდ იმ შემთხვევაში დაამატებთ, თუ ენა შეფუთვაზეა მითითებული.';
+      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'წინა ფოტოს ნახვა';
+  String get add_basic_details_product_name_open_photo => 'View front photo';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'წინა ფოტოს გადაღება';
+  String get add_basic_details_product_name_take_photo => 'Take front photo';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'შეიყვანეთ პროდუქტის დასახელება (მაგ.: Nutella)';
+      'Input the name of the product (eg: Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3302,472 +3212,462 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'კარგი მაგალითები';
+  String get explanation_section_good_examples => 'Good examples';
 
   @override
-  String get explanation_section_bad_examples => 'ცუდი მაგალითები';
+  String get explanation_section_bad_examples => 'Bad examples';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'კარგი პრაქტიკა: პროდუქტის დასახელება';
+      'Good practices: Product name';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'პროდუქტის დასახელება არის **ძირითადი დასახელება, რომელიც დაბეჭდილია შეფუთვაზე**. ის შეიძლება იყოს რეგისტრირებული სავაჭრო ნიშანი.';
+      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**შენიშვნა:** გთხოვთ, არ დაამატოთ თარგმანი **თუ ენა შეფუთვაზე არ არის**.';
+      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
 
   @override
-  String get add_basic_details_product_name_help_good_examples_1 => 'ნესკვიკი';
+  String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'ტომატის კეტჩუპი';
+      'Tomato Ketchup';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'ბრენდი სახელწოდებაში არ მიუთითოთ';
+      'Don\'t include the brand in the name';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'ტომატის კეტჩუპი **ჰაინცისგან**';
+      'Tomato Ketchup **by Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'არ გამოიყენოთ სიმბოლოები ®, ™, © ან მსგავსი';
+      'Don\'t use symbols ®, ™, © or similar';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
-      'ნესქვიკი**®**';
+      'Nesquik**®**';
 
   @override
   String add_basic_details_product_name_other_translations(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count სხვა თარგმანები',
-      one: '$count სხვა თარგმანი',
+      other: '$count other translations',
+      one: '$count other translation',
     );
     return '$_temp0';
   }
 
   @override
-  String get brand_name => 'ბრენდის სახელი';
+  String get brand_name => 'Brand name';
 
   @override
-  String get brand_names => 'ბრენდის სახელები';
+  String get brand_names => 'Brand names';
 
   @override
   String get add_basic_details_brand_name_error =>
-      'გთხოვთ, შეიყვანოთ ბრენდის სახელი';
+      'Please enter the brand name';
 
   @override
-  String get add_basic_details_brand_names_hint =>
-      'შეყვანის ბრენდები (მაგ.: Ferrero)';
+  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'კარგი პრაქტიკა: ბრენდები';
+      'Good practices: Brands';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'შეიყვანეთ **პროდუქტის ყველა ბრენდი**.';
+      'Input **all the brands of the product**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title =>
-      'მთავარი ბრენდი';
+  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      '**ძირითადი ბრენდი**, რომელიც, როგორც წესი, წინა შეფუთვაზე მკაფიოდ არის მითითებული, **პირველ რიგში** უნდა შეიყვანოთ.';
+      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title =>
-      'სხვა ბრენდები';
+  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'როდესაც **დიდი კომპანია** ყიდის:';
+      'When sold **by a big company**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**აქტიმელს** ყიდის **დანონი**';
+      '**Actimel** is sold by **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'როდესაც იყიდება თავისი ბრენდით **თარგმნილია რამდენიმე ენაზე**:';
+      'When sold with its brand **translated in multiple languages**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**ბუნების ველი** ზოგჯერ იწერება როგორც **ვალ ბუნება**';
+      '**Nature Valley** is sometimes written **Val Nature**';
 
   @override
-  String get add_basic_details_product_brand_help_good_examples_1 => 'ნუტელა';
+  String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_2 =>
-      'ორეო, მონდელეზი';
+      'Oreo, Mondelez';
 
   @override
-  String get quantity => 'რაოდენობა და წონა';
+  String get quantity => 'Quantity and weight';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'შეიყვანეთ წონა და საჭიროების შემთხვევაში რაოდენობა (მაგ.: 4x100 გ)';
+      'Input the weight and if needed the quantity (eg : 4x100g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'კარგი პრაქტიკა: რაოდენობა';
+      'Good practices: Quantity';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'დააკოპირეთ პროდუქტზე მითითებული მნიშვნელობა და **არ დაგავიწყდეთ ერთეულები**.';
+      'Copy the value indicated on the product and **don\'t forget the units**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230 გ** ან **230 გ**';
+      '**230g** or **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (6 კვერცხისთვის)';
+      '**6** (for 6 eggs)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150 გ**\n(3 ყუთიანი პროდუქტისთვის, თითოეული 150 გ)';
+      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
 
   @override
   String get barcode => 'Barcode';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'შტრიხკოდი: $barcode';
+    return 'Barcode: $barcode';
   }
 
   @override
-  String get barcode_invalid_error =>
-      'არასწორი შტრიხკოდია, რომელიც არასწორია. შტრიხკოდი არასწორია.';
+  String get barcode_invalid_error => 'Invalid barcode';
 
   @override
-  String get basic_details_add_success =>
-      'ძირითადი დეტალები წარმატებით დაემატა';
+  String get basic_details_add_success => 'Basic details added successfully';
 
   @override
   String get basic_details_add_error =>
-      'ძირითადი დეტალების დამატება შეუძლებელია. გთხოვთ, სცადოთ ხელახლა გარკვეული დროის შემდეგ.';
+      'Unable to add basic details. Please try again after some time';
 
   @override
-  String get clear_search => 'თქვენი ძიების გასუფთავება';
+  String get clear_search => 'Clear your search';
 
   @override
   String get confirm_clear =>
-      'თქვენ აპირებთ თქვენი მთელი ისტორიის გასუფთავებას: დარწმუნებული ხართ, რომ გსურთ გაგრძელება?';
+      'You\'re about to clear your entire history: are you sure you want to continue?';
 
   @override
   String get alert_clear_selected_user_list =>
-      'თქვენ აპირებთ თქვენი ისტორიიდან არჩეული ერთეულების გასუფთავებას';
+      'You\'re about to clear selected items in your history';
 
   @override
   String get confirm_clear_selected_user_list =>
-      'დარწმუნებული ხარ, რომ გაგრძელება გსურს?';
+      'Are you sure you want to continue?';
 
   @override
   String get alert_select_items_to_clear =>
-      'გთხოვთ, აირჩიოთ ერთი ან მეტი ერთეული გასასუფთავებლად';
+      'Please select one or more items to clear';
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'თქვენ აპირებთ ამ სიის გასუფთავებას ($name): დარწმუნებული ხართ, რომ გსურთ გაგრძელება?';
+    return 'You\'re about to clear this list ($name): are you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_title => 'წავშალო სია?';
+  String get confirm_delete_user_list_title => 'Delete the list?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'თქვენ აპირებთ სიის წაშლას „$name“.\nდარწმუნებული ხართ, რომ გსურთ გაგრძელება?';
+    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'კი, ვადასტურებ';
+  String get confirm_delete_user_list_button => 'Yes, I confirm';
 
   @override
   String importance_label(String name, String id) {
-    return '$name მნიშვნელობა: $id';
+    return '$name importance: $id';
   }
 
   @override
-  String get user_list_all_title => 'სიები';
+  String get user_list_all_title => 'Lists';
 
   @override
-  String get user_list_all_empty => 'შექმენით თქვენი პირველი სია';
+  String get user_list_all_empty => 'Create your first list';
 
   @override
-  String get product_list_select => 'აირჩიეთ სია';
+  String get product_list_select => 'Select a list';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count პროდუქტები',
-      one: 'ერთი პროდუქტი',
-      zero: 'ცარიელი სია',
+      other: '$count products',
+      one: 'One product',
+      zero: 'Empty list',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'სიის დამატება';
+  String get add_list_label => 'Add list';
 
   @override
-  String get open_food_preferences_tooltip =>
-      'შეცვალეთ თქვენი საკვების პრეფერენციები';
+  String get open_food_preferences_tooltip => 'Edit your food preferences';
 
   @override
-  String get add_photo_button_label => 'ფოტოს დამატება';
+  String get add_photo_button_label => 'Add photo';
 
   @override
   String get add_packaging_photo_button_label =>
-      'გადაუღეთ ფოტოები შეფუთვის/გადამუშავების შესახებ ნებისმიერ ინფორმაციას';
+      'Take photos of any packaging/recycling information';
 
   @override
   String get add_origin_photo_button_label =>
-      'გადაუღეთ ფოტოები ნებისმიერი წარმოშობის ინფორმაციის შესახებ';
+      'Take photos of any origin information';
 
   @override
   String get add_emb_photo_button_label =>
-      'გადაუღეთ ფოტოები ნებისმიერი მიკვლევადობის კოდის ინფორმაციას';
+      'Take photos of any traceability code information';
 
   @override
   String get add_label_photo_button_label =>
-      'გადაუღეთ ფოტოები ნებისმიერი ეტიკეტისა და სერტიფიკატის ინფორმაციას';
+      'Take photos of any labels & certifications information';
 
   @override
-  String get choose_image_source_title => 'აირჩიეთ სურათის წყარო';
+  String get choose_image_source_title => 'Choose image source';
 
   @override
-  String get choose_image_source_body => 'გთხოვთ, აირჩიოთ სურათის წყარო';
+  String get choose_image_source_body => 'Please choose a image source';
 
   @override
-  String get gallery_source_label => 'გალერეა';
+  String get gallery_source_label => 'Gallery';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'წვდომა უარყოფილია';
+  String get gallery_source_access_denied_dialog_title => 'Access denied';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'სამწუხაროდ, აპლიკაციას არ შეუძლია თქვენს გალერეაზე წვდომა, რადგან თქვენ ადრე უარი თქვით მასზე.\n\nგთხოვთ, გადახვიდეთ აპლიკაციის პარამეტრებში თქვენი ტელეფონის პარამეტრებში -> ფოტოები';
+      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
 
   @override
-  String get gallery_source_access_denied_dialog_button =>
-      'გახსენით პარამეტრები';
+  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
 
   @override
-  String get share => 'გაზიარება';
+  String get share => 'Share';
 
   @override
   String share_product_text(String url) {
-    return 'გადახედეთ ამ პროდუქტს Open Food Facts-ზე: $url';
+    return 'Have a look at this product on Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'გადახედეთ ამ პროდუქტს Open Beauty Facts-ზე: $url';
+    return 'Have a look at this product on Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'გადახედეთ ამ პროდუქტს Open PetFood Facts-ზე: $url';
+    return 'Have a look at this product on Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'გადახედეთ ამ პროდუქტს Open Products Facts-ში: $url';
+    return 'Have a look at this product on Open Products Facts: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'გადახედეთ ჩემს პროდუქტების სიას Open Food Facts-ზე: $url';
+    return 'Have a look at my list of products on Open Food Facts: $url';
   }
 
   @override
   String get capture => 'Capture New';
 
   @override
-  String get capture_new_picture => 'სურათის გადაღება';
+  String get capture_new_picture => 'Take a picture';
 
   @override
-  String get choose_from_gallery => 'გალერეიდან არჩევა';
+  String get choose_from_gallery => 'Choose from gallery';
 
   @override
   String get image_upload_queued =>
-      'სურათი რაც შეიძლება მალე აიტვირთება ფონზე.';
+      'The image will be uploaded in the background as soon as possible.';
 
   @override
-  String get add_price_queued => 'ფასი სერვერს რაც შეიძლება მალე გაეგზავნება.';
+  String get add_price_queued =>
+      'The price will be sent to the server as soon as possible.';
 
   @override
   String get background_task_title_full_refresh =>
-      'ადგილობრივად შენახული ყველა პროდუქტის განახლების დაწყება';
+      'Starting the refresh of all the products locally stored';
 
   @override
   String get background_task_title_folksonomy =>
-      'ლოკალურად შენახული folksonomy-ის განახლებებისთვის სერვერის მოქმედებების შესრულება იწყება';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
-      'ყველაზე პოპულარული პროდუქტების ჩამოტვირთვის დაწყება';
+      'Starting the download of the most popular products';
 
   @override
-  String get expand_nutrition_facts =>
-      'გაშალეთ კვებითი ღირებულების შესახებ ინფორმაციის ცხრილი';
+  String get expand_nutrition_facts => 'Expand nutrition facts table';
 
   @override
   String get expand_nutrition_facts_body =>
-      'კვებითი ღირებულების ცხრილის გაფართოებული დატოვება';
+      'Keep the nutrition facts table expanded';
 
   @override
-  String get expand_ingredients => 'ინგრედიენტების გაფართოება';
+  String get expand_ingredients => 'Expand ingredients';
 
   @override
-  String get expand_ingredients_body =>
-      'ინგრედიენტების პანელის გაფართოებული დატოვება';
+  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
 
   @override
-  String get no_internet_connection => 'ინტერნეტთან კავშირი არ არის';
+  String get no_internet_connection => 'No internet connection';
 
   @override
-  String get world_results_label => 'მთელი მსოფლიო';
+  String get world_results_label => 'Entire world';
 
   @override
-  String get world_results_action => 'გააფართოვეთ თქვენი ძიება მთელ მსოფლიოში';
+  String get world_results_action => 'Extend your search to the world';
 
   @override
-  String get copy_to_clipboard => 'კოპირება';
+  String get copy_to_clipboard => 'Copy';
 
   @override
-  String get paste_from_clipboard => 'ჩასმა ბუფერიდან';
+  String get paste_from_clipboard => 'Paste from clipboard';
 
   @override
   String get no_data_available_in_clipboard =>
-      'თქვენს ბუფერში მონაცემები მიუწვდომელია';
+      'No data available in your clipboard';
 
   @override
-  String get clipboard_barcode_copy => 'შტრიხკოდის კოპირება ბუფერში ბუფერში';
+  String get clipboard_barcode_copy => 'Copy barcode to clipboard';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'შტრიხკოდი $barcode დაკოპირდა ბუფერში!';
+    return 'Barcode $barcode copied to the clipboard!';
   }
 
   @override
-  String get open_product_website => 'გახსენით ეს პროდუქტი ვებსაიტზე';
+  String get open_product_website => 'Open this product on the website';
 
   @override
-  String get language_picker_label => 'თქვენი ენა';
+  String get language_picker_label => 'Your language';
 
   @override
-  String get country_picker_label => 'თქვენი ქვეყანა';
+  String get country_picker_label => 'Your country';
 
   @override
-  String get currency_picker_label => 'თქვენი ვალუტა';
+  String get currency_picker_label => 'Your currency';
 
   @override
-  String get help_with_openfoodfacts =>
-      'დახმარება OpenFoodFacts-თან დაკავშირებით';
+  String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
 
   @override
   String get product_task_background_schedule =>
-      'პროდუქტი რაც შეიძლება მალე განახლდება ფონზე.';
+      'The product will be updated in the background as soon as possible.';
 
   @override
-  String get no_email_client_available_dialog_title =>
-      'ელფოსტის აპლიკაციები არ არის!';
+  String get no_email_client_available_dialog_title => 'No email apps!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'გთხოვთ, ხელით გამოგვიგზავნოთ ელ.წერილი შემდეგ მისამართზე: mobile@openfoodfacts.org';
+      'Please send us manually an email to mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'ყველა სურათი';
+  String get all_images => 'All Images';
 
   @override
-  String get selected_images => 'შერჩეული სურათები';
+  String get selected_images => 'Selected Images';
 
   @override
-  String get product_card_remove_product_tooltip => 'პროდუქტის წაშლა';
+  String get product_card_remove_product_tooltip => 'Remove product';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'ახალი შტრიხკოდი დასკანირებულია: $barcode';
+    return 'New barcode scanned: $barcode';
   }
 
   @override
   String get scan_header_clear_button_tooltip =>
-      'კარუსელიდან ყველა პროდუქტის ამოღება';
+      'Remove all products from the carousel';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'გთხოვთ, შეადაროთ მინიმუმ ორი პროდუქტი';
+      'Please scan at least two products to compare them';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'დააწკაპუნეთ თქვენს მიერ სკანირებული პროდუქტების შესადარებლად';
+      'Click to compare the products you have scanned';
 
   @override
-  String get scan_product_loading => 'თქვენ დაასკანირეთ\nშტრიხკოდი:';
+  String get scan_product_loading => 'You have scanned\nthe barcode:';
 
   @override
   String get scan_product_loading_initial =>
-      'ჩვენ ვეძებთ ამ პროდუქტს!\nგთხოვთ, დაელოდოთ რამდენიმე წამი…';
+      'We\'re looking for this product!\nPlease wait a few seconds…';
 
   @override
   String get scan_product_loading_long_request =>
-      'ჩვენ ჯერ კიდევ ვეძებთ ამ პროდუქტს!\nხომ არ ფიქრობთ, რომ ჩატვირთვას დიდი დრო სჭირდება? ჩვენც…';
+      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'ჩვენ ჯერ კიდევ ვეძებთ ამ პროდუქტს.\nგსურთ ძიების ხელახლა დაწყება?';
+      'We\'re still looking for this product.\nWould you like to restart the search?';
 
   @override
-  String get scan_product_loading_restart_button => 'ძიების განახლება';
+  String get scan_product_loading_restart_button => 'Restart search';
 
   @override
   String get portion_calculator_description =>
-      'გამოთვალეთ კვებითი ღირებულება კონკრეტული რაოდენობისთვის';
+      'Calculate nutrition facts for a specific quantity';
 
   @override
-  String get portion_calculator_hint => 'რაოდენობა';
+  String get portion_calculator_hint => 'Quantity in';
 
   @override
   String get portion_calculator_accessibility =>
-      'შეიყვანეთ რაოდენობა კვებითი ღირებულების გამოსათვლელად';
+      'Input a quantity to calculate nutrition facts';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'გთხოვთ, შეიყვანოთ რაოდენობა $min -დან $max გ-მდე';
+    return 'Please enter a quantity between $min and $max g';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'მონაცემები აკლია. გამოთვლა ვერ შესრულდა.';
+      'Missing data. Calculation could not be performed.';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return 'კვებითი ღირებულება $grams გ-სთვის (ან მლ-სთვის)';
+    return 'Nutrition facts for $grams g (or ml)';
   }
 
   @override
-  String get offline_data => 'ოფლაინ მონაცემები';
+  String get offline_data => 'Offline Data';
 
   @override
   String get ocr_image_upload_instruction =>
-      'ატვირთეთ სურათი, რათა ავტომატურად ამოიღოთ მასზე არსებული ინფორმაცია.';
+      'Upload an image to automatically extract the information it contains.';
 
   @override
-  String get upload_image => 'ფოტოს ატვირთვა';
+  String get upload_image => 'Upload Photo';
 
   @override
   String get word_separator_char => ',';
@@ -3776,354 +3676,348 @@ class AppLocalizationsKa extends AppLocalizations {
   String get word_separator => ', ';
 
   @override
-  String get image_download_error => 'სურათის ჩამოტვირთვა ვერ მოხერხდა';
+  String get image_download_error => 'Failed to download image';
 
   @override
   String get image_edit_url_error =>
-      'სურათის რედაქტირება ვერ მოხერხდა, რადგან სურათის URL არ იყო დაყენებული.';
+      'Failed to edit image because the image URL was not set.';
 
   @override
-  String get user_picture_source_remember => 'დაიმახსოვრე ჩემი არჩევანი';
+  String get user_picture_source_remember => 'Remember my choice';
 
   @override
-  String get user_picture_source_ask => 'ყოველ ჯერზე იკითხეთ';
+  String get user_picture_source_ask => 'Ask each time';
 
   @override
-  String get robotoff_continue => 'გაგრძელება';
+  String get robotoff_continue => 'Continue';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count კითხვები',
-      one: 'კითხვა',
+      other: '$count questions',
+      one: 'question',
     );
-    return 'შემდეგი $_temp0';
+    return 'Next $_temp0';
   }
 
   @override
-  String get show_password => 'პაროლის ჩვენება';
+  String get show_password => 'Show Password';
 
   @override
-  String get owner_field_info_title =>
-      'პროდიუსერის მიერ მოწოდებული მნიშვნელობები';
+  String get owner_field_info_title => 'Producer provided values';
 
   @override
   String get owner_field_info_message =>
-      'ამ ლოგოთი ჩვენ გამოვყოფთ მწარმოებლის მიერ მოწოდებულ მონაცემებს და შესაძლოა, მათი რედაქტირება შეუძლებელი იყოს.';
+      'With that logo we highlight data provided by the producer, and that may not be editable.';
 
   @override
-  String get owner_field_info_close_button => 'დახურეთ ეს ინფორმაცია';
+  String get owner_field_info_close_button => 'Close this info';
 
   @override
   String get owner_field_image =>
-      'ეს სურათი მოწოდებულია პროდიუსერის მიერ. შესაძლოა, მისი რედაქტირება შეუძლებელი იყოს.';
+      'This image is provided by the producer. It may not be editable.';
 
   @override
-  String get edit_packagings_title => 'შეფუთვის კომპონენტები';
+  String get edit_packagings_title => 'Packaging components';
 
   @override
-  String get edit_packagings_element_add => 'შეფუთვის კომპონენტის დამატება';
+  String get edit_packagings_element_add => 'Add a packaging component';
 
   @override
-  String get edit_packagings_completed => 'შეფუთვა დასრულებულია';
+  String get edit_packagings_completed => 'The packaging is complete';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'შეფუთვის კომპონენტი #$index';
+    return 'Packaging component #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'ერთეულების რაოდენობა';
+  String get edit_packagings_element_field_units => 'Number of units';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'შეიყვანეთ პროდუქტში შემავალი ერთი და იგივე ფორმისა და მასალის შესაფუთი ერთეულების რაოდენობა.';
+      'Enter the number of packaging units of the same shape and material contained in the product.';
 
   @override
-  String get edit_packagings_element_field_shape => 'ფორმა';
+  String get edit_packagings_element_field_shape => 'Shape';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'შეიყვანეთ გადამუშავების ინსტრუქციებში მითითებული ფორმის სახელი, თუ ისინი ხელმისაწვდომია, ან აირჩიეთ ფორმა.';
+      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
 
   @override
-  String get edit_packagings_element_example_shape => 'ბოთლი';
+  String get edit_packagings_element_example_shape => 'Bottle';
 
   @override
-  String get edit_packagings_element_field_material => 'მასალა';
+  String get edit_packagings_element_field_material => 'Material';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'შეიყვანეთ კონკრეტული მასალა, თუ მისი დადგენა შესაძლებელია (სამკუთხედის შიგნით მასალის კოდი ხშირად შეგიძლიათ იპოვოთ შეფუთვის ნაწილებზე), ან ზოგადი მასალა (მაგალითად, პლასტმასი ან ლითონი), თუ არ ხართ დარწმუნებული.';
+      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
 
   @override
-  String get edit_packagings_element_example_material => 'მინა';
+  String get edit_packagings_element_example_material => 'Glass';
 
   @override
-  String get edit_packagings_element_field_recycling =>
-      'გადამუშავების ინსტრუქცია';
+  String get edit_packagings_element_field_recycling => 'Recycling instruction';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'გადამუშავების ინსტრუქციები შეიყვანეთ მხოლოდ იმ შემთხვევაში, თუ ისინი პროდუქტზეა ჩამოთვლილი.';
+      'Enter recycling instructions only if they are listed on the product.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'გადამუშავება';
+  String get edit_packagings_element_example_recycling => 'Recycle';
 
   @override
   String get edit_packagings_element_field_quantity =>
-      'პროდუქტის წმინდა რაოდენობა ერთეულზე';
+      'Net quantity of product per unit';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'შეიყვანეთ წმინდა წონა ან წმინდა მოცულობა და მიუთითეთ ერთეული (მაგალითად, გ ან მლ).';
+      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
 
   @override
   String get edit_packagings_element_field_weight =>
-      'ერთი ცარიელი ერთეულის წონა (გ)';
+      'Weight of one empty unit (g)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'აწონვამდე ამოიღეთ დარჩენილი საკვები და შეფუთვის ნაწილი გარეცხეთ და გააშრეთ. თუ შესაძლებელია, გამოიყენეთ სასწორი 0.1 გრამის ან 0.01 გრამის სიზუსტით.';
+      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
 
   @override
-  String get background_task_title => 'მომლოდინე წვლილი';
+  String get background_task_title => 'Pending contributions';
 
   @override
   String get background_task_subtitle =>
-      'თქვენი წვლილი ავტომატურად ინახება ჩვენს სერვერზე, მაგრამ არა ყოველთვის რეალურ დროში.';
+      'Your contributions are automatically saved to our server, but not always in real-time.';
 
   @override
-  String get background_task_list_empty =>
-      'ფონური დავალებები არ არის მომლოდინე';
+  String get background_task_list_empty => 'No Pending Background Tasks';
 
   @override
-  String get background_task_error_server_time_out => 'სერვერის ლოდინის დრო';
+  String get background_task_error_server_time_out => 'Server timeout';
 
   @override
   String get background_task_error_no_internet =>
-      'ინტერნეტ კავშირის შეცდომა. სცადეთ მოგვიანებით.';
+      'Internet connection error. Try later.';
 
   @override
-  String get background_task_operation_unknown => 'უცნობი ოპერაციის ტიპი';
+  String get background_task_operation_unknown => 'unknown operation type';
 
   @override
-  String get background_task_operation_details => 'დეტალური ცვლილებები';
+  String get background_task_operation_details => 'detailed changes';
 
   @override
-  String get background_task_operation_image => 'ფოტოს ატვირთვა';
+  String get background_task_operation_image => 'photo upload';
 
   @override
   String get background_task_operation_refresh =>
-      'განახლება დაგვიანებულია ფოტოს ატვირთვის შემდეგ';
+      'refresh delayed after photo upload';
 
   @override
-  String get background_task_run_started => 'დაიწყო';
+  String get background_task_run_started => 'started';
 
   @override
-  String get background_task_run_not_started => 'ჯერ არ დაწყებულა';
+  String get background_task_run_not_started => 'not started yet';
 
   @override
-  String get background_task_run_to_be_deleted => 'წასაშლელი';
+  String get background_task_run_to_be_deleted => 'to be deleted';
 
   @override
   String get background_task_question_stop =>
-      'გსურთ ამ ამოცანის რაც შეიძლება მალე შეჩერება?';
+      'Do you want to stop that task ASAP?';
 
   @override
-  String get feed_back => 'გამოხმაურება';
+  String get feed_back => 'Feedback';
 
   @override
-  String get undo => 'გაუქმება';
+  String get undo => 'Undo';
 
   @override
-  String get copy_email_to_clip_board => 'ელფოსტის კოპირება ბუფერში';
+  String get copy_email_to_clip_board => 'Copy email to clipboard';
 
   @override
   String get please_send_us_an_email_to =>
-      'გთხოვთ, ხელით გამოგვიგზავნოთ ელ.წერილი შემდეგ მისამართზე:';
+      'Please send us manually an email to';
 
   @override
-  String get email_copied_to_clip_board => 'ელფოსტა კოპირებულია ბუფერში!';
+  String get email_copied_to_clip_board => 'Email copied to clipboard!';
 
   @override
-  String get select_accent_color => 'აქცენტის ფერის არჩევა';
+  String get select_accent_color => 'Select Accent Color';
 
   @override
   String get theme_amoled => 'AMOLED';
 
   @override
-  String get color_blue => 'ლურჯი';
+  String get color_blue => 'Blue';
 
   @override
-  String get color_cyan => 'ციანი';
+  String get color_cyan => 'Cyan';
 
   @override
-  String get color_green => 'მწვანე';
+  String get color_green => 'Green';
 
   @override
-  String get color_light_brown => 'ნაგულისხმევი';
+  String get color_light_brown => 'Default';
 
   @override
-  String get color_magenta => 'მეწამული';
+  String get color_magenta => 'Magenta';
 
   @override
-  String get color_orange => 'ნარინჯისფერი';
+  String get color_orange => 'Orange';
 
   @override
-  String get color_pink => 'ვარდისფერი';
+  String get color_pink => 'Pink';
 
   @override
-  String get color_red => 'წითელი';
+  String get color_red => 'Red';
 
   @override
-  String get color_rust => 'ჟანგი';
+  String get color_rust => 'Rust';
 
   @override
-  String get color_teal => 'ფირუზისფერი';
+  String get color_teal => 'Teal';
 
   @override
-  String get text_contrast_mode => 'ტექსტის კონტრასტი';
+  String get text_contrast_mode => 'Text Contrast';
 
   @override
-  String get contrast_high => 'მაღალი';
+  String get contrast_high => 'High';
 
   @override
-  String get contrast_medium => 'საშუალო';
+  String get contrast_medium => 'Medium';
 
   @override
-  String get contrast_low => 'დაბალი';
+  String get contrast_low => 'Low';
 
   @override
-  String get product_refresher_internet_not_found => 'პროდუქტი ვერ მოიძებნა!';
+  String get product_refresher_internet_not_found => 'Product not found!';
 
   @override
   String get product_refresher_internet_not_connected =>
-      'თქვენ არ ხართ ინტერნეტთან დაკავშირებული!';
+      'You are not connected to internet!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'სერვერი გათიშულია ($host)';
+    return 'Server down ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'სერვერის შეცდომა ($exception)';
+    return 'Server error ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'პროდუქტი ვერ მოიძებნა!';
+  String get product_loader_not_found_title => 'Product not found!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'შემდეგი შტრიხკოდის მქონე პროდუქტი ჩვენს მონაცემთა ბაზაში არ არსებობს: $barcode';
+    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'ინტერნეტ კავშირი არ არის!';
+  String get product_loader_network_error_title => 'No internet connection!';
 
   @override
   String get product_loader_network_error_message =>
-      'გთხოვთ, შეამოწმოთ, რომ თქვენი სმარტფონი დაკავშირებულია WiFi ქსელთან ან ჩართულია მობილური ინტერნეტი';
+      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
 
   @override
-  String get page_not_found_title => 'გვერდი ვერ მოიძებნა!';
+  String get page_not_found_title => 'Page not found!';
 
   @override
-  String get page_not_found_button => 'დაბრუნება მთავარ გვერდზე';
+  String get page_not_found_button => 'Go back to the homepage';
 
   @override
-  String get download_data => 'მონაცემების ჩამოტვირთვა';
+  String get download_data => 'Download data';
 
   @override
   String get download_top_products =>
-      'ჩამოტვირთეთ თქვენს ქვეყანაში არსებული 1000 საუკეთესო პროდუქტი მყისიერი სკანირებისთვის';
+      'Download the top 1000 products in your country for instant scanning';
 
   @override
   String download_top_n_products(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count პროდუქტები',
+      other: '$count products',
     );
-    return 'ჩამოტვირთეთ თქვენს ქვეყანაში არსებული საუკეთესო $_temp0 მყისიერი სკანირებისთვის';
+    return 'Download the top $_temp0 in your country for instant scanning';
   }
 
   @override
-  String get download_in_progress =>
-      'მონაცემების ჩამოტვირთვა\nამას შეიძლება გარკვეული დრო დასჭირდეს';
+  String get download_in_progress => 'Downloading data\nThis may take a while';
 
   @override
   String downloaded_products(int num) {
-    return 'დამატებულია $num პროდუქტი';
+    return '$num products added';
   }
 
   @override
-  String get update_offline_data => 'განაახლეთ ოფლაინ პროდუქტის მონაცემები';
+  String get update_offline_data => 'Update offline product data';
 
   @override
   String get update_local_database_sub =>
-      'განაახლეთ ადგილობრივი პროდუქტების მონაცემთა ბაზა Open Food Facts-ის უახლესი მონაცემებით';
+      'Update the local product database with the latest data from Open Food Facts';
 
   @override
-  String get clear_local_database =>
-      'ხაზგარეშე პროდუქტის მონაცემების გასუფთავება';
+  String get clear_local_database => 'Clear offline product data';
 
   @override
   String get clear_local_database_sub =>
-      'სივრცის გასათავისუფლებლად, თქვენი აპლიკაციიდან წაშალეთ ყველა ადგილობრივი პროდუქტის მონაცემი';
+      'Clear all local product data from your app to free up space';
 
   @override
   String deleted_products(int num) {
-    return '$num პროდუქტი წაიშალა';
+    return '$num products deleted';
   }
 
   @override
   String get loading => 'Loading…';
 
   @override
-  String get know_more => 'მეტის გაგება';
+  String get know_more => 'Know More';
 
   @override
-  String get offline_data_desc =>
-      'დააწკაპუნეთ, რომ მეტი გაიგოთ ოფლაინ მონაცემების შესახებ';
+  String get offline_data_desc => 'Click to know more about offline data';
 
   @override
-  String get offline_product_data_title => 'ოფლაინ პროდუქტის მონაცემები';
+  String get offline_product_data_title => 'Offline product data';
 
   @override
   String available_for_download(int num) {
-    return '$num პროდუქტები ხელმისაწვდომია დაუყოვნებლივი სკანირებისთვის';
+    return '$num products available for immediate scaning';
   }
 
   @override
-  String get country_selector_title => 'აირჩიეთ თქვენი ქვეყანა:';
+  String get country_selector_title => 'Select your country:';
 
   @override
-  String get currency_selector_title => 'აირჩიეთ თქვენი ვალუტა:';
+  String get currency_selector_title => 'Select your currency:';
 
   @override
-  String get language_selector_title => 'აირჩიეთ თქვენი ენა:';
+  String get language_selector_title => 'Select your language:';
 
   @override
-  String get language_selector_section_selected => 'არჩეული ენები';
+  String get language_selector_section_selected => 'Selected languages';
 
   @override
-  String get language_selector_section_frequently_used => 'ხშირად გამოყენებული';
+  String get language_selector_section_frequently_used => 'Frequently used';
 
   @override
-  String get action_delete_list => 'წაშლა';
+  String get action_delete_list => 'Delete';
 
   @override
-  String get action_change_list => 'მიმდინარე სიის შეცვლა';
+  String get action_change_list => 'Change the current list';
 
   @override
-  String get product_list_create => 'შექმნა';
+  String get product_list_create => 'Create';
 
   @override
-  String get product_list_create_tooltip => 'ახალი სიის შექმნა';
+  String get product_list_create_tooltip => 'Create a new list';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4145,28 +4039,28 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Score $letter (ახალი გაანგარიშება)';
+    return 'Nutri-Score $letter (New calculation)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Score (ახალი გაანგარიშება)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'უცნობი კვებითი ღირებულება';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'უცნობი ნუტრი-ქულა (ახალი გაანგარიშება)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score არ გამოიყენება';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score არ გამოიყენება (ახალი გაანგარიშება)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
-  String get environmental_score_generic_new => 'მწვანე ქულა';
+  String get environmental_score_generic_new => 'Green-Score';
 
   @override
   String get environmental_score_a_new => 'მწვანე ქულა A';
@@ -4195,103 +4089,100 @@ class AppLocalizationsKa extends AppLocalizations {
       'ულტრა-დამუშავებული საკვები - NOVA ჯგუფები';
 
   @override
-  String get nova_group_1 => 'ნოვა ჯგუფი 1';
+  String get nova_group_1 => 'NOVA Group 1';
 
   @override
-  String get nova_group_2 => 'ნოვა ჯგუფი 2';
+  String get nova_group_2 => 'NOVA Group 2';
 
   @override
-  String get nova_group_3 => 'ნოვა ჯგუფი 3';
+  String get nova_group_3 => 'NOVA Group 3';
 
   @override
-  String get nova_group_4 => 'ნოვა ჯგუფი 4';
+  String get nova_group_4 => 'NOVA Group 4';
 
   @override
-  String get nova_group_unknown => 'უცნობი NOVA ჯგუფი';
+  String get nova_group_unknown => 'Unknown NOVA Group';
 
   @override
-  String get nutrition_facts => 'საკვები ნივთიერებების დონეები';
+  String get nutrition_facts => 'Nutrient Levels';
 
   @override
-  String get faq_title_partners =>
-      'არასამთავრობო ორგანიზაციის პარტნიორები და მფარველები';
+  String get faq_title_partners => 'Partners & Patrons of the NGO';
 
   @override
   String get faq_title_vision =>
-      'ღია საკვების ფაქტები ხედვა, მისია, ღირებულებები და პროგრამები';
+      'The Open Food Facts Vision, Mission, Values and Programs';
 
   @override
   String get faq_title_install_beauty =>
-      'კოსმეტიკური მონაცემთა ბაზის შესაქმნელად დააინსტალირეთ Open Beauty Facts';
+      'Install Open Beauty Facts to create a cosmetic database';
 
   @override
   String get faq_title_install_pet =>
-      'დააინსტალირეთ Open Pet Food Facts შინაური ცხოველების საკვების მონაცემთა ბაზის შესაქმნელად';
+      'Install Open Pet Food Facts to create a pet food database';
 
   @override
   String get faq_title_install_product =>
-      'დააინსტალირეთ Open Products Facts, რათა შექმნათ პროდუქტების მონაცემთა ბაზა ობიექტების სიცოცხლის გასახანგრძლივებლად.';
+      'Install Open Products Facts to create a products database to extend the life of objects';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'Nutri-Score-ის ახალი გაანგარიშება: რა არის ახალი?';
+      'New calculation of the Nutri-Score: what\'s new?';
 
   @override
   String get contact_title_pro_page =>
-      'დადებითი? იმპორტირეთ თქვენი პროდუქტები Open Food Facts-ში.';
+      'Pro? Import your products in Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'პროდიუსერის საკონტაქტო ინფორმაცია';
+  String get contact_title_pro_email => 'Producer Contact';
 
   @override
-  String get contact_title_press_page => 'პრეს გვერდი';
+  String get contact_title_press_page => 'Press Page';
 
   @override
-  String get contact_title_press_email => 'პრესის საკონტაქტო პირი';
+  String get contact_title_press_email => 'Press Contact';
 
   @override
-  String get contact_title_newsletter =>
-      'გამოიწერეთ ჩვენი საინფორმაციო ბიულეტენი';
+  String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
-  String get contact_title_calendar =>
-      'გამოიწერეთ ჩვენი საზოგადოების კალენდარი';
+  String get contact_title_calendar => 'Subscribe to our community calendar';
 
   @override
-  String get hunger_games_loading_line1 => 'გთხოვთ, რამდენიმე წამი მოგვეცით…';
+  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
 
   @override
-  String get hunger_games_loading_line2 => 'კითხვებს ვტვირთავთ!';
+  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
 
   @override
   String get hunger_games_error_label =>
-      'უჰ! რაღაც შეცდომა მოხდა… და კითხვების ჩატვირთვა ვერ მოხერხდა.';
+      'Argh! Something went wrong… and we couldn\'t load the questions.';
 
   @override
-  String get hunger_games_error_retry_button => 'ვცადოთ ხელახლა!';
+  String get hunger_games_error_retry_button => 'Let\'s retry!';
 
   @override
-  String get reorder_attribute_action => 'ატრიბუტების ხელახლა თანმიმდევრობა';
+  String get reorder_attribute_action => 'Reorder the attributes';
 
   @override
   String get link_cant_be_opened =>
-      'ეს ბმული თქვენს მოწყობილობაზე ვერ იხსნება. გთხოვთ, შეამოწმოთ, რომ ბრაუზერი გაქვთ დაინსტალირებული.';
+      'This link can\'t be opened on your device. Please check that you have a browser installed.';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'დეტალები $productName-სთვის';
+    return 'Details for $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'დეტალები $pageName -სთვის $productName-ით';
+    return 'Details for $pageName with $productName';
   }
 
   @override
   String get guide_title => 'Guide';
 
   @override
-  String get guide_share_label => 'გაზიარება';
+  String get guide_share_label => 'Share';
 
   @override
   String get guide_nutriscore_v2_title =>
@@ -4299,7 +4190,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'რა არის Nutri-Score?';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
@@ -4373,15 +4264,15 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'სად შეიძლება ახალი Nutri-Score-ის გაანგარიშების პოვნა?';
+      'Where to find the new Nutri-Score calculation?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'Nutri-Score გამოიყენება 7 ქვეყანაში: საფრანგეთში, გერმანიაში, ბელგიაში, ესპანეთში, ლუქსემბურგში, ნიდერლანდებსა და შვეიცარიაში.';
+      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'მწარმოებლებს განკარგულების ხელმოწერიდან **არაუგვიანეს 2 წლისა** აქვთ ძველი გაანგარიშების ახლით შესაცვლელად.';
+      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4399,7 +4290,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'მწვანე ქულა';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
@@ -4439,22 +4330,22 @@ class AppLocalizationsKa extends AppLocalizations {
   String get guide_greenscore_lca_arg2_title => '6 წარმოების ეტაპი';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'სოფლის მეურნეობა';
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'დამუშავება';
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
   String get guide_greenscore_lca_arg2_packaging => 'Packaging';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'ტრანსპორტირება';
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'განაწილება';
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'მოხმარება';
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
   String get guide_greenscore_lca_arg3_title =>
@@ -4491,7 +4382,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'კატეგორიაში უკეთესი პროდუქტების დასაჯილდოებლად, ჩვენ ვიყენებთ **ბონუსებსა და ჯარიმებს რამდენიმე კრიტერიუმის მიხედვით**:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4499,7 +4390,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      '**ბონუსი** ენიჭება პროდუქტებს, რომლებსაც აქვთ **ოფიციალური ეტიკეტი, ეტიკეტი ან სერტიფიკატი, რომელიც გარანტიას იძლევა გარემოსდაცვითი სარგებლის** (ორგანული, სამართლიანი ვაჭრობის, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4507,7 +4398,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'ინგრედიენტების წარმოშობის მიხედვით გაიცემა **ბონუსი**. ეს ბონუსი ითვალისწინებს **ტრანსპორტზე ზემოქმედებას** და ასევე თითოეული მწარმოებლის ქვეყნის **გარემოსდაცვით პოლიტიკას**.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4515,34 +4406,34 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      '**ჯარიმა** ენიჭებათ პროდუქტებს, რომლებიც შეიცავს ინგრედიენტებს, რომლებსაც მნიშვნელოვანი **უარყოფითი გავლენა აქვთ ბიომრავალფეროვნებასა და ეკოსისტემებზე**, როგორიცაა პალმის ზეთი, რომლის წარმოებაც ტყეების მასობრივ გაჩეხვას იწვევს.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      '**ჯარიმა** გამოითვლება შეფუთვის **წრიული ხასიათის** (გადამუშავებული ნედლეულის გამოყენება და გადამუშავებადობა) და ზედმეტად შეფუთვის გათვალისწინებით.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
-      'გამჭვირვალობის გაზრდილი საჭიროება გარემოზე ზემოქმედების უკეთ გაზომვისა და შემცირების მიზნით';
+      'An increased need for transparency to better measure and reduce environmental impacts';
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      '„მწვანე ქულის“ ზუსტად გამოსათვლელად აუცილებელია გქონდეთ **ინფორმაცია, რომელიც აუცილებლად არ არის მითითებული შეფუთვაზე** (მაგალითად, წარმომავლობა და თითოეული ინგრედიენტის ზუსტი პროცენტული მაჩვენებელი) ან რომელიც იშვიათად არის ხელმისაწვდომი გამოსაყენებელი ფორმით (მაგალითად, შეფუთვის ყველა კომპონენტის სია გამოყენებული პლასტმასის ზუსტი ტიპებით).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**საშუალო მნიშვნელობები გამოიყენება მაშინ, როდესაც ეს ინფორმაცია ჯერ არ არის ხელმისაწვდომი**, თუმცა ახლა ყველას მოვუწოდებთ, დაგვეხმარონ ამ ინფორმაციის შეგროვებაში, რაც ძალიან სასარგებლო იქნება როგორც მწვანე ქულისთვის, ასევე მრავალი სხვა გამოყენებისთვის.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'როგორ შეუძლიათ მოქალაქეებს დახმარება?';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'ყველა მოქალაქეს შეუძლია დაგვეხმაროს პროდუქტებზე არსებული ან მათგან გამომდინარე ინფორმაციის შეგროვებასა და სტრუქტურირებაში, მაგალითად, **შეფუთვის** შესახებ ინფორმაციის მოძიებაში: „Mission Emballages“: ყველა საკვები პროდუქტის შეფუთვის მასშტაბური კოლაბორაციული ინვენტარი (ფრანგულად).';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4587,7 +4478,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'საკუთრების ეტიკეტებისგან განსხვავებით, მწვანე ქულის გამოთვლა **სრულიად ღიაა** და მისი **გადამოწმება ნებისმიერს** შეუძლია.';
 
   @override
-  String get guide_nova_title => 'ულტრა-დამუშავებული საკვები';
+  String get guide_nova_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_what_is_nova_title => 'რა არის ულტრა-დამუშავება?';
@@ -4619,22 +4510,21 @@ class AppLocalizationsKa extends AppLocalizations {
       'unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
-  String get guide_nova_groups_arg2_title =>
-      'დამუშავებული კულინარიული ინგრედიენტები';
+  String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
       'processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'დამუშავებული საკვები';
+  String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
       'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
-  String get guide_nova_groups_arg4_title => 'ულტრა-დამუშავებული საკვები';
+  String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
@@ -4649,7 +4539,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'ბევრი მათგანი **მიღებულია საკვები კომპონენტების შემდგომი დამუშავებით**, როგორიცაა ჰიდროგენიზებული ან ინტერესტერიფიცირებული ზეთები, ჰიდროლიზებული ცილები, სოიოს ცილის იზოლატი, მალტოდექსტრინი, ინვერტული შაქარი და მაღალი ფრუქტოზის სიმინდის სიროფი.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4657,7 +4547,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'ულტრა-დამუშავებულ საკვებში არსებული დანამატები მოიცავს ისეთ დანამატებს, რომლებიც ასევე გამოიყენება დამუშავებულ საკვებში, როგორიცაა კონსერვანტები, ანტიოქსიდანტები და სტაბილიზატორები. მხოლოდ ულტრა-დამუშავებულ პროდუქტებში არსებული დანამატების კლასები მოიცავს ისეთებს, რომლებიც გამოიყენება **საკვების სენსორული თვისებების იმიტაციის ან გაძლიერების ან საბოლოო პროდუქტის არასასიამოვნო ასპექტების დასაფარად**. ეს დანამატები მოიცავს საღებავებს და სხვა საღებავებს, ფერის სტაბილიზატორებს; არომატიზატორებს, გემოს გამაძლიერებლებს, უშაქრო დამატკბობლებს; და გადამუშავების დამხმარე საშუალებებს, როგორიცაა კარბონატული, გამამკვრივებელი, შემავსებელი და შემავსებლის საწინააღმდეგო აგენტები, ქაფის საწინააღმდეგო, შეწებების საწინააღმდეგო და გლაზურის საწინააღმდეგო აგენტები, ემულგატორები, სეკვესტრანტები და დამატენიანებელი საშუალებები.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4665,7 +4555,7 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**ჩვეულებრივ, მრავალი ინგრედიენტის შესაერთებლად და საბოლოო პროდუქტის (აქედან გამომდინარე, „ულტრადამუშავებული“) შესაქმნელად გამოიყენება პროცესების მრავალი თანმიმდევრობა**. პროცესები მოიცავს რამდენიმე **ადგილობრივი ეკვივალენტის გარეშე**, როგორიცაა ჰიდროგენიზაცია და ჰიდროლიზება, ექსტრუზია და ჩამოსხმა, ასევე წინასწარი დამუშავება შესაწვავად.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4673,106 +4563,104 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'ულტრა-დამუშავების საერთო მიზანია ბრენდირებული**, **მოსახერხებელი** (ხანგრძლივი, მოხმარებისთვის მზა), **მიმზიდველი** (ჰიპერ-გემრიელი) და **მაღალმომგებიანი** (დაბალი ღირებულების ინგრედიენტები) საკვები პროდუქტების შექმნა, რომლებიც შექმნილია ყველა სხვა საკვები ჯგუფის ჩასანაცვლებლად. ულტრა-დამუშავებული საკვები პროდუქტები, როგორც წესი, მიმზიდველად არის შეფუთული და ინტენსიურად იყიდება ბაზარზე.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'ჯანმრთელობის საფრთხე';
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      '2018 წლიდან, NutriNet-Santé-ს მეშვეობით, გამოიკვეთა პირველი კავშირი **ულტრა-დამუშავებული საკვების მოხმარებასა და კიბოს, გულ-სისხლძარღვთა დაავადებებისა და დიაბეტის გაზრდილ რისკებს** შორის. დღესდღეობით, მსოფლიოში 90-ზე მეტი კვლევა ადასტურებს ამ დასკვნებს.\nყველაზე ძლიერი კავშირი დაკავშირებულია **სიმსუქნესთან, გულ-სისხლძარღვთა სიკვდილიანობასთან და დეპრესიულ სიმპტომებთან**. ბავშვებში, ეს ძირითადად წონასა და ლიპიდების დისბალანსზე აისახება.';
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'ქვეყნები გვირჩევენ მათ შეზღუდვას';
+      'Countries recommend limiting them';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'ზოგიერთი ქვეყანა NOVA ჯგუფებს იყენებს დიეტური მითითებების ან მიზნებისთვის, მაგალითად:\n\n- **🇧🇷 ბრაზილიის** დიეტური მითითებები **რეკომენდაციას უწევს გადამუშავებული საკვების მოხმარების შეზღუდვას** და ულტრაგადამუშავებული საკვების თავიდან აცილებას.\n\n- **🇫🇷 საფრანგეთის** საზოგადოებრივი ჯანმრთელობის კვების პოლიტიკის 2018-2022 წლების მიზნები მიზნად ისახავს **მე-4 ჯგუფის ულტრაგადამუშავებული საკვების მოხმარების 20%-ით შემცირებას**.';
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world-ka.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title =>
-      'კეთილი იყოს თქვენი მობრძანება Open Food Facts-ში!';
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'რა არის ღია საკვების ფაქტები?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts არის **თანამშრომლობითი**, **უფასო** და **ღია** მონაცემთა ბაზა მთელი მსოფლიოს საკვები პროდუქტების შესახებ.';
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'ჩვენ გვჯერა, რომ ყველას უნდა ჰქონდეს წვდომა იმაზე, თუ რას მიირთმევს. ინგრედიენტების, ალერგენების, კვებითი ღირებულების და სხვა მონაცემების შეგროვებით, **ჩვენ მომხმარებლებს ვაძლევთ საშუალებას, გააკეთონ ინფორმირებული არჩევანი** და კვების ინდუსტრიას **უფრო მეტი გამჭვირვალობისკენ** მივყავართ.';
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'ღია საკვების ფაქტების მახასიათებლები';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'მიიღეთ შეტყობინებები არასასურველი ინგრედიენტების შესახებ';
+      'Get alerts for your unwanted ingredients';
 
   @override
-  String get guide_open_food_facts_tips_title =>
-      'რჩევები შესანიშნავი ფოტოების გადასაღებად';
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'არ უნდა გააკეთოთ';
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'მოერიდეთ ჩრდილებსა და სიკაშკაშეს.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'ბუნდოვანი ან ფოკუსში არმყოფი ტექსტი არ არის.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'ტექსტიდან ნაწილები არ ამოჭრათ.';
+      'Don\'t crop out parts of the text.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 =>
-      'მოერიდეთ დატვირთულ ფონებს.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'რა უნდა გააკეთოთ';
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'გამოიყენეთ კარგი, თანაბარი განათება.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'დარწმუნდით, რომ ტექსტი მკვეთრი და იკითხება.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'ჩაიწერეთ ინგრედიენტების მთელი სია.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'შეინახეთ პროდუქტი ბრტყელ ზედაპირზე.';
+      'Keep the product on a flat surface.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'დაგვეხმარეთ „საკვების ვიკიპედიის“ შექმნაში';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'კვებითი ღირებულების ქულა';
+      'A score on the nutritional quality';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'ქულა ულტრა დამუშავებული საკვების თავიდან ასაცილებლად';
+      'A score to avoid ultra-processed foods';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title => 'ქულა პლანეტისთვის';
+  String get guide_open_food_facts_scores_arg3_title =>
+      'A score for the planet';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4780,249 +4668,244 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'კეთილი იყოს თქვენი მობრძანება ღია შინაური ცხოველების საკვების ფაქტებზე!';
+      'Welcome to Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'რა არის ღია ფაქტები შინაური ცხოველების საკვების შესახებ?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts-ი ჩვენს მისიას ჩვენს ბეწვიან მეგობრებზეც აფართოებს! ეს არის **კატების, ძაღლების და სხვა კომპანიონებისთვის განკუთვნილი შინაური ცხოველების საკვების მონაცემთა ბაზა**.';
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'ჩვენ ვაგროვებთ ინფორმაციას **ინგრედიენტების**, **კვების ანალიზისა** და კვების ინსტრუქციების შესახებ, რათა დავეხმაროთ შინაური ცხოველების პატრონებს თავიანთი ცხოველების საჭიროებებისთვის საუკეთესო საკვების შერჩევაში.';
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'ღია შინაური ცხოველების საკვების მახასიათებლები ფაქტები';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'მიიღეთ შეტყობინებები არასასურველი ინგრედიენტების შესახებ';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'თქვენს შინაურ ცხოველს აქვს ალერგია რომელიმე ინგრედიენტზე? შეგიძლიათ შექმნათ კოსმეტიკური ინგრედიენტების სია, რომელთა თავიდან აცილებაც გსურთ, პირდაპირ აპლიკაციაში!';
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'რჩევები შესანიშნავი ფოტოების გადასაღებად';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'არ უნდა გააკეთოთ';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'მოერიდეთ ჩრდილებსა და სიკაშკაშეს.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'ბუნდოვანი ან ფოკუსში არმყოფი ტექსტი არ არის.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'ტექსტიდან ნაწილები არ ამოჭრათ.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'მოერიდეთ დატვირთულ ფონებს.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'რა უნდა გააკეთოთ';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'გამოიყენეთ კარგი, თანაბარი განათება.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'დარწმუნდით, რომ ტექსტი მკვეთრი და იკითხება.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'ჩაიწერეთ ინგრედიენტების მთელი სია.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'შეინახეთ პროდუქტი ბრტყელ ზედაპირზე.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title =>
-      'შენიშვნა ქულების დაგროვების შესახებ';
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'შინაური ცხოველების საკვების შეფასების სისტემის შემუშავება **ამჟამად პრიორიტეტული არ არის**. მეთოდოლოგია რთული იქნება, რადგან კვებითი მოთხოვნილებები მნიშვნელოვნად განსხვავდება სახეობების, ასაკისა და ჯანმრთელობის მდგომარეობის მიხედვით. ჩვენ ჯერ ვერ ვიპოვეთ დამოუკიდებელი სამეცნიერო ჯგუფი, რომელსაც შეუძლია ასეთი შეფასების შემუშავება.';
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-ka.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title =>
-      'კეთილი იყოს თქვენი მობრძანება ღია სილამაზის ფაქტებში!';
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'რა არის ღია სილამაზის ფაქტები?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts არის **კოსმეტიკური პროდუქტების** კოლაბორაციული მონაცემთა ბაზა.';
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'ჩვენი მიზანია ინგრედიენტების სიის გაშიფვრა, რათა დაგეხმაროთ **თქვენი პირადი მოვლის საშუალებების შემადგენლობაში** გაგებაში. დამატენიანებელი კრემებიდან დაწყებული მაკიაჟით დამთავრებული, ჩვენ ვაგროვებთ მონაცემებს ინგრედიენტების, ალერგენებისა და შეფუთვის შესახებ, რათა ხელი შევუწყოთ კოსმეტიკის ინდუსტრიაში გამჭვირვალობას.';
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'ღია სილამაზის ფაქტების მახასიათებლები';
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'მიიღეთ შეტყობინებები არასასურველი ინგრედიენტების შესახებ';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'გაქვთ ალერგია რომელიმე ინგრედიენტზე? გსურთ თავი აარიდოთ კომედოგენურ ნივთიერებებს? გსურთ თავი აარიდოთ საკამათო კომპონენტებს? შეგიძლიათ დააყენოთ კოსმეტიკური ინგრედიენტების სია, რომელთა თავიდან აცილებაც გსურთ, პირდაპირ აპლიკაციაში!';
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'რჩევები შესანიშნავი ფოტოების გადასაღებად';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'არ უნდა გააკეთოთ';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'მოერიდეთ ჩრდილებსა და სიკაშკაშეს.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'ბუნდოვანი ან ფოკუსში არმყოფი ტექსტი არ არის.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'ტექსტიდან ნაწილები არ ამოჭრათ.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'მოერიდეთ დატვირთულ ფონებს.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'რა უნდა გააკეთოთ';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'გამოიყენეთ კარგი, თანაბარი განათება.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'დარწმუნდით, რომ ტექსტი მკვეთრი და იკითხება.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'ჩაიწერეთ ინგრედიენტების მთელი სია.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'თუ ბოთლი მოხრილია, გადაუღეთ იმდენი სურათი, რამდენიც საჭიროა.';
+      'Take as many picture as need if the bottle is curved.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'ინგრედიენტების სიის სანახავად შეიძლება დაგჭირდეთ ეტიკეტის აფცქვნა.';
+      'You might need to peel the label to see the list of ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'შეინახეთ პროდუქტი ბრტყელ ზედაპირზე.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_beauty_facts_scores_title =>
-      'შენიშვნა ქულების დაგროვების შესახებ';
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'საკვები პროდუქტებისგან განსხვავებით, კოსმეტიკის სამყაროს **არ გააჩნია უნივერსალურად აღიარებული, მთავრობის მიერ მხარდაჭერილი შეფასების სისტემა, როგორიცაა Nutri-Score**. ინგრედიენტების ეფექტი შეიძლება იყოს ძალიან პერსონალური და დამოკიდებული იყოს კანის ტიპზე, ალერგიასა და ინდივიდუალურ პრობლემებზე.';
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-ka.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title =>
-      'კეთილი იყოს თქვენი მობრძანება ღია ფასებში!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'რა არის ღია ფასები?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices არის პროექტი, რომელიც **შეაგროვებს და აზიარებს პროდუქტების ფასებს მთელ მსოფლიოში**. ეს არის საჯაროდ ხელმისაწვდომი მონაცემთა ნაკრები, რომლის გამოყენებაც შესაძლებელია კვლევის, ანალიზისა და სხვა მიზნებისთვის. Open Prices შემუშავებული და მხარდაჭერილია Open Food Facts-ის მიერ.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      'ამჟამად, ცოტა კომპანია ფლობს შტრიხკოდის დონეზე პროდუქციის ფასების დიდ მონაცემთა ბაზებს. ეს ფასები თავისუფლად ხელმისაწვდომი არ არის, მაგრამ მაღალ ფასად იყიდება კერძო პირებზე, მკვლევარებსა და სხვა ორგანიზაციებზე, რომლებსაც მათი შეძენა შეუძლიათ.';
+      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'როგორ მუშაობს ღია ფასები?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**ჩვენ ვახორციელებთ ფასების ღია წყაროდან მონაცემთა ნაკრების შეგროვებას**. მომხმარებლებს შეუძლიათ ფასების დამატება ამ ვებ აპლიკაციის ან ოფიციალური Open Food Facts მობილური აპლიკაციის საშუალებით. ჩვენი API-ს გამოყენებით, საცალო ვაჭრობის წარმომადგენლებს ან მესამე მხარის აპლიკაციებსაც შეუძლიათ წვლილის შეტანა.';
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'შეაგროვეთ ფასების ეტიკეტების ფოტოები დერეფნებში';
+      'Collect photos of price tags in aisles';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'შეაგროვეთ ქვითრების ფოტოები';
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
 
   @override
   String get guide_open_prices_why_title =>
-      'რატომ აკეთებს ამას Open Food Facts?';
+      'Why is Open Food Facts doing this ?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'ფასების შესახებ ინფორმაცია უმნიშვნელოვანესია კვების სისტემების გასაგებად. ეს საკვების ღირებულების გასაგებად და ჯანსაღი კვების ხელშეწყობის მთავარი ფაქტორია. ფასების შესახებ მონაცემების გახსნა მკვლევარებისთვის, ჟურნალისტებისა და მოქალაქეებისთვის გაუადვილებს **უკეთესად გაიგონ, თუ როგორ იცვლება საკვების ფასები გეოგრაფიულად და დროში**.';
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'ფასების ევოლუციის თვალყურის დევნება დროთა განმავლობაში';
+      'Track the evolution of prices over time';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'ნახეთ **ფასების ევოლუცია**: შემცირებული ინფლაცია, იაფფასიანი ინფლაცია, ჩვენ შეგვიძლია მათი ერთად თვალყურის დევნება!';
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
 
   @override
-  String get guide_open_prices_why_arg2_title =>
-      'შეადარეთ ფასები თქვენს მახლობლად';
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'როდესაც მეტ ფასებს მივიღებთ, თქვენ შეძლებთ აღმოაჩინოთ **თქვენს გარშემო ყველაზე იაფი მაღაზიები**.';
+      'As we get more prices, you can spot **the cheapest stores around you**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'განიხილეთ ფასების აღება საცალო ვაჭრობის ვებსაიტებიდან?';
+      'Did you consider scraping prices from retailers\' websites?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'იურიდიული და ტექნიკური მიზეზების გამო, **ჩვენ არ მივიჩნევთ ფასების ამოღებას საცალო ვაჭრობის ვებსაიტებიდან, როგორც ღია ფასებში წვლილის შეტანის ვალიდურ გზას**. ჩვენ გვსურს, რომ ჩვენს მიერ შეგროვებული ფასები იყოს ზუსტი და განახლებული და კონტრიბუტორებისგან ამოღებული ფასების მიღება ამის გაკეთების საშუალებას არ გვაძლევს.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'ფასების სკრაპინგი განხილული ვარიანტია Open Prices-ის მომავალ ვერსიაში, თუმცა მას თავად Open Prices განახორციელებს, რათა HTML გვერდის მიხედვით ფასის დადასტურება გვქონდეს.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
-      'მე საცალო მოვაჭრე ვარ და მსურს ფასებში წვლილი შევიტანო. როგორ შემიძლია ამის გაკეთება?';
+      'I\'m a retailer and I want to contribute prices. How can I do that?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'ფასების შესახებ ინფორმაციის მიწოდება ჩვენი API-ის გამოყენებით შეგიძლიათ.\nთუ გსურთ ფასების მასშტაბურად გაზიარება, გთხოვთ, დაგვიკავშირდეთ მისამართზე prices@openfoodfacts.org.';
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -5030,441 +4913,395 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'კეთილი იყოს თქვენი მობრძანება Open Products Facts-ში!';
+      'Welcome to Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'რა არის ღია პროდუქტების ფაქტები?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts არის უზარმაზარი, ღია მონაცემთა ბაზა **შტრიხკოდის მქონე ნებისმიერი პროდუქტისთვის, რომელიც არ არის საკვები, კოსმეტიკური ან შინაური ცხოველების საკვები**.';
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      '**ელექტრონიკიდან** დაწყებული **სათამაშოებით** და **ტანსაცმლით** და **საწმენდი საშუალებებით** დამთავრებული, თუ მას აქვს შტრიხკოდი, მისი დამატება შესაძლებელია. ამ პროექტის მიზანია ყოველდღიური ნივთებისთვის „ნივთების ინტერნეტის“ შექმნა, რაც მათ შესახებ ინფორმაციას უნივერსალურად ხელმისაწვდომს გახდის.';
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'ღია პროდუქტების მახასიათებლები ფაქტები';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts-ის მიზანია მომხმარებლებს შესთავაზოს **ობიექტების სიცოცხლის გახანგრძლივება** წრიული გადაწყვეტილებების შეთავაზებით მათი ნივთების მოვლა-პატრონობის, **შეკეთების**, **გადამუშავების** ან ახალი მფლობელის მინიჭების მიზნით.';
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'ნახშირბადის კვალი ზოგიერთი პროდუქტისთვის';
+      'Carbon footprints for some products';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      'საფრანგეთის გარემოს დაცვის ორგანო ADEME-ის მიერ მოწოდებული **CO2-ის ზემოქმედება** მრავალი კატეგორიის **ნახშირბადის ზემოქმედებას** ითვალისწინებს, დარწმუნდით, რომ პროდუქტები ზუსტად არის კატეგორიზებული.';
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'მრავალი პროდუქტის შეკეთების ინდექსი';
+      'Reparability index for many products';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'როდესაც ფრანგული გამოსწორების ინდექსი ხელმისაწვდომი გახდება, ჩვენ მას გამოვაჩენთ. გარდა ამისა, **თქვენ შეგიძლიათ დაიწყოთ ცვლადების შეგროვება Folksonomy Engine-ის გამოყენებით**; რათა მომავალში ჩვენ თვითონ შევძლოთ მისი ხელახლა გამოთვლა, იმ ქვეყნებშიც კი, სადაც ის ხელმისაწვდომი არ არის.';
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'იპოვეთ თქვენი პროდუქტის შემოწირულობის/გაყიდვის გზები';
+      'Find ways to donate/resell your product';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'ჩვენ გთავაზობთ ბმულებს **მესამე მხარის ცირკულარული სერვისების** შესახებ, რომლებიც დაგეხმარებათ მიიღოთ თქვენთვის სასურველი პროდუქტი მეორადი პროდუქტის სახით, რათა უფრო გონივრულად უპასუხოთ პლანეტის რესურსებს.\nგაითვალისწინეთ, რომ ამისთვის ჩვენ არ გვიხდიან ანაზღაურებას და სისტემა მხოლოდ საფრანგეთში არსებული ორი ვებსაიტის სამაგალითოდ მუშაობს. თქვენ შეგიძლიათ დაგვეხმაროთ ამ სისტემის გაფართოებაში ვიკიზე მეტი საიტის დოკუმენტირებით.';
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'რა ინფორმაციაა სასარგებლო?';
+      'What information is useful?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'ასეთი ფართო სპექტრის ნივთებისთვის, **ჩვენს მიერ შეგროვებული მონაცემები მოქნილია**. ამისათვის **ჩვენ შევქმენით Folksonomy Engine**.';
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
 
   @override
-  String get guide_open_products_facts_folksonomy_title => 'ფოლკსონომიის ძრავა';
+  String get guide_open_products_facts_folksonomy_title =>
+      'The Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'Folksonomy Engine არის ინსტრუმენტი, რომელიც დაგეხმარებათ პროდუქტების შესაბამისი თვისებებით შევსებაში. ეს ხელს უწყობს ძიებისა და აღმოჩენის გაუმჯობესებას, ასევე მომავალში საინტერესო ნივთების გამოთვლასა და ჩვენებას.';
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'შეგიძლიათ დაამატოთ ნებისმიერი გასაღები და მნიშვნელობა, მაგალითად: **compatibility_with_5G_mobile_network: კი**';
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'თქვენ მიიღებთ შესაძლო თვისებების ავტომატურ შემოთავაზებას და თავისუფლად შეძლებთ დაამატოთ და დააფიქსიროთ ახლები თქვენს საყვარელ პროდუქტებზე.';
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-ka.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title =>
-      'ღია საკვების პრეფერენციები';
+  String get guide_open_preferences_button_title => 'Open food preferences';
 
   @override
-  String get guide_coming_soon_button_title => 'მალე';
+  String get guide_coming_soon_button_title => 'Coming soon';
 
   @override
-  String get guide_learn_more_subtitle => 'შეეხეთ მეტის გასაგებად';
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
-  String get preview_badge => 'გადახედვა';
+  String get preview_badge => 'Preview';
 
   @override
   String get prices_feedback_form =>
-      'დააწკაპუნეთ აქ, რომ გამოგვიგზავნოთ თქვენი გამოხმაურება ამ ახალი ფუნქციის შესახებ!';
+      'Click here to send us your feedback about this new feature!';
 
   @override
-  String get menu_button_list_actions => 'აირჩიეთ მოქმედება';
+  String get menu_button_list_actions => 'Select an action';
 
   @override
-  String get error_loading_photo => 'ფოტოს ჩატვირთვისას შეცდომა მოხდა. ...';
+  String get error_loading_photo => 'Error loading photo';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'გამოიყენეთ როგორც…';
+  String get photo_viewer_action_use_picture_as => 'Use as…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip =>
-      'გამოიყენეთ ეს სურათი, როგორც…';
+  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'გამოიყენეთ ეს სურათი, როგორც… ($language)';
+    return 'Use this picture as… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'დეტალები';
+  String get photo_viewer_details_button => 'Details';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'ამ ფოტოს დეტალები';
+      'Details of this photo';
 
   @override
-  String get photo_viewer_details_title => 'ფოტოს დეტალები';
+  String get photo_viewer_details_title => 'Details of the photo';
 
   @override
   String get photo_viewer_details_contributor_title => 'Contributor';
 
   @override
-  String get photo_viewer_details_size_title => 'ზომა';
+  String get photo_viewer_details_size_title => 'Size';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height პიქსელი';
+    return '$width x $height pixels';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'თარიღი';
+  String get photo_viewer_details_date_title => 'Date';
 
   @override
   String get photo_viewer_details_url_title => 'URL';
 
   @override
-  String get product_page_compatibility_score => 'თავსებადი';
+  String get product_page_compatibility_score => 'Compatible';
 
   @override
-  String get user_lists_action_multi_select => 'მრავალჯერადი შერჩევა';
+  String get user_lists_action_multi_select => 'Multi-select';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'თქვენი თავსებადობის ქულა: $score%';
+    return 'Your compatibility score: $score%';
   }
 
   @override
-  String get product_image_front_accessibility_label => 'წინა სურათი';
+  String get product_image_front_accessibility_label => 'Front picture';
 
   @override
   String get product_image_ingredients_accessibility_label =>
-      'ინგრედიენტების სურათი';
+      'Ingredients picture';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'კვების სურათი';
+  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
 
   @override
-  String get product_image_packaging_accessibility_label => 'შეფუთვის სურათი';
+  String get product_image_packaging_accessibility_label => 'Packaging picture';
 
   @override
-  String get product_image_other_accessibility_label => 'სხვა სურათი';
+  String get product_image_other_accessibility_label => 'Other picture';
 
   @override
-  String get product_image_outdated_message =>
-      'ეს სურათი შეიძლება მოძველებული იყოს';
+  String get product_image_outdated_message => 'This picture may be outdated';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (შესაძლოა, ეს სურათი მოძველებული იყოს)';
+    return '$type (this image may be outdated)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (ეს სურათი შესაძლოა პროდიუსერის მიერ იყოს დაბლოკილი)';
+    return '$type (this image may be locked by the producer)';
   }
 
   @override
-  String get product_image_error => 'სურათის ჩატვირთვა შეუძლებელია!';
+  String get product_image_error => 'Unable to load the image!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return '$type -ის ჩატვირთვა შეუძლებელია (ქსელის შეცდომა?)';
+    return 'Unable to load the $type (network error?)';
   }
 
   @override
-  String get product_page_image_no_image_available => '\nსურათი არ არის!';
+  String get product_page_image_no_image_available => 'No\nimage!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'ამ პროდუქტის სურათი არ არის ხელმისაწვდომი';
+      'No picture available for this product';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'მოქმედებების გადალაგება ან დამალვა';
+      'Reorder or hide actions';
 
   @override
-  String get product_page_action_bar_setting_modal_title =>
-      'მოქმედებების რედაქტირება';
+  String get product_page_action_bar_setting_modal_title => 'Edit actions';
 
   @override
-  String get product_page_action_bar_item_move_up => 'ზემოთ გადაადგილება';
+  String get product_page_action_bar_item_move_up => 'Move up';
 
   @override
-  String get product_page_action_bar_item_move_down => 'ქვემოთ გადატანა';
+  String get product_page_action_bar_item_move_down => 'Move down';
 
   @override
-  String get product_page_action_bar_item_enable => 'მოქმედების ჩართვა';
+  String get product_page_action_bar_item_enable => 'Enable action';
 
   @override
-  String get product_page_action_bar_item_disable => 'მოქმედების გამორთვა';
+  String get product_page_action_bar_item_disable => 'Disable action';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'თქვენი რედაქტირებების ატვირთვა…';
+      'Uploading your edits…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'ამ გვერდზე ნაჩვენები მონაცემები **ჯერ არ ასახავს თქვენს მიერ შეტანილ ცვლილებებს**.\nგთხოვთ, დაელოდოთ რამდენიმე წამი…';
+      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
 
   @override
-  String get product_add_a_language => 'ენის დამატება';
+  String get product_add_a_language => 'Add a language';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'შტრიხკოდი $barcode';
+    return 'Barcode $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'ამოიღეთ ეს პროდუქტი კარუსელიდან';
+  String get carousel_close_tooltip => 'Remove this product from the carousel';
 
   @override
-  String get carousel_unsupported_header => 'შტრიხკოდი მხარდაუჭერელია!';
+  String get carousel_unsupported_header => 'Unsupported barcode!';
 
   @override
-  String get carousel_unsupported_title => 'უი!';
+  String get carousel_unsupported_title => 'Ooops!';
 
   @override
   String get carousel_unsupported_text =>
-      'სკანირებული შტრიხკოდი არ არის მხარდაჭერილი Open Food Facts-ის მიერ!';
+      'The barcode scanned is not supported by Open Food Facts!';
 
   @override
-  String get carousel_error_header => 'შეცდომა!';
+  String get carousel_error_header => 'Error!';
 
   @override
-  String get carousel_error_title => 'ეს საშინელებაა!';
+  String get carousel_error_title => 'It\'s a bummer!';
 
   @override
   String get carousel_error_text_1 =>
-      'ამ შტრიხკოდზე ინფორმაციის ჩამოტვირთვა ვერ მოხერხდა:';
+      'We couldn\'t download information on this barcode:';
 
   @override
   String get carousel_error_text_2 =>
-      'გთხოვთ, შეამოწმოთ თქვენი ინტერნეტ კავშირი ან დააწკაპუნოთ ამ ღილაკზე:';
+      'Please check your Internet connection or click this button:';
 
   @override
-  String get carousel_error_button => 'ხელახლა ცდა';
+  String get carousel_error_button => 'Retry';
 
   @override
-  String get carousel_unknown_product_header => 'უცნობი პროდუქტი';
+  String get carousel_unknown_product_header => 'Unknown product';
 
   @override
   String get carousel_unknown_product_title =>
-      'გილოცავთ!\nთქვენ იპოვეთ __იშვიათი ძვირფასი ქვა!__';
+      'Congratulations!\nYou\'ve found __the rare gem!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'ჩვენი ერთობლივი მონაცემთა ბაზა შეიცავს **3 მილიონზე მეტ პროდუქტს**, მაგრამ ეს შტრიხკოდი არ არსებობს: ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
-  String get carousel_unknown_product_button => 'დაამატეთ ეს პროდუქტი';
+  String get carousel_unknown_product_button => 'Add this product';
 
   @override
-  String get carousel_loading_header => 'ინფორმაციის ჩატვირთვა...';
+  String get carousel_loading_header => 'Loading information...';
 
   @override
   String get carousel_loading_title =>
-      'თქვენ ახლახან დაასკანირეთ პროდუქტი შემდეგი შტრიხკოდით:';
+      'You\'ve just scanned a product with the following barcode:';
 
   @override
   String get carousel_loading_text =>
-      'ჩვენ მას ჩვენს მონაცემთა ბაზაში ვეძებთ, რომელიც 3 მილიონზე მეტ პროდუქტს შეიცავს!**';
+      'We are searching for it in our database of more than **3 million products!**';
 
   @override
-  String get product_type_subtitle_food => 'ბოსტნეული, ხილი, გაყინული საკვები…';
+  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
 
   @override
-  String get product_type_subtitle_beauty =>
-      'მაკიაჟი, საპნები, კბილის პასტები…';
+  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
 
   @override
-  String get product_type_subtitle_pet_food =>
-      'საკვები ძაღლებისა და კატებისთვის…';
+  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
 
   @override
-  String get product_type_subtitle_product => 'სმარტფონები, ავეჯი…';
+  String get product_type_subtitle_product => 'Smartphones, furniture…';
 
   @override
-  String get photo_field_front => 'პროდუქტის ფოტო';
+  String get photo_field_front => 'Product photo';
 
   @override
-  String get photo_field_ingredients => 'ინგრედიენტების ფოტო';
+  String get photo_field_ingredients => 'Ingredients photo';
 
   @override
-  String get photo_field_nutrition => 'კვების ფოტო';
+  String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'გადამუშავების ინსტრუქციის ფოტო';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
-  String get photo_already_exists => 'ეს ფოტო უკვე არსებობს';
+  String get photo_already_exists => 'This photo already exists';
 
   @override
-  String get photo_missing => 'ეს ფოტო აკლია';
+  String get photo_missing => 'This photo is missing';
 
   @override
-  String get date => 'თარიღი';
+  String get date => 'Date';
 
   @override
-  String get photo_rotate_left => 'მარცხნივ შემოტრიალება';
+  String get photo_rotate_left => 'Rotate left';
 
   @override
-  String get photo_rotate_right => 'მარჯვნივ შემოტრიალება';
+  String get photo_rotate_right => 'Rotate right';
 
   @override
-  String get photo_undo_action => 'წინა მოქმედების გაუქმება';
+  String get photo_undo_action => 'Undo the previous action';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'მსოფლიო რუკა $location';
+    return 'A world map of $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'OpenStreetMap-ის კონტრიბუტორები';
+      'OpenStreetMap contributors';
 
   @override
-  String get not_applicable_short => 'არ არის ხელმისაწვდომი';
+  String get not_applicable_short => 'N/A';
 
   @override
   String get knowledge_panel_warning_text => 'Warning';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'რატომ განსხვავდება ეს Nutri-Score შეფუთვაზე მითითებულისგან?';
+      'Why is this Nutri-Score different from the one on the package?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'არსებობს ორი შესაძლო ახსნა:\nინგრედიენტების და/ან კვებითი ღირებულების სია არ არის განახლებული.\n\nჩვენ გთავაზობთ Nutri-Score-ის (ან V2) „ახალ გაანგარიშებას“. გთხოვთ, შეამოწმოთ, რომ შეფუთვაზე გაქვთ ბანერი „ახალი გაანგარიშება“.';
+      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'შეამოწმეთ ინგრედიენტები';
+      'Check ingredients';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'შეამოწმეთ კვებითი ღირებულების შესახებ ფაქტები';
+      'Check nutrition facts';
 
   @override
   String url_not_supported(String url) {
-    return 'სამწუხაროდ, ჩვენ ვერ ვხსნით URL-ს:\n$url';
+    return 'Unfortunately, we can\'t open the URL:\n$url';
   }
 
   @override
-  String get product_list_export => 'ექსპორტი';
+  String get product_list_export => 'Export';
 
   @override
-  String get product_list_import => 'იმპორტი';
+  String get product_list_import => 'Import';
 
   @override
-  String get product_footer_action_barcode => 'შტრიხკოდის ნახვა შტრიხკოდით';
+  String get product_footer_action_barcode => 'View barcode';
 
   @override
   String get product_footer_action_barcode_short => 'Barcode';
 
   @override
-  String get product_footer_action_open_website => 'ვებსაიტის გახსნა';
+  String get product_footer_action_open_website => 'Open website';
 
   @override
-  String get product_footer_action_report => 'ანგარიში';
+  String get product_footer_action_report => 'Report';
 
   @override
-  String get product_footer_action_contributor_guide => 'დახმარება';
+  String get product_footer_action_contributor_guide => 'Help';
 
   @override
-  String get product_footer_action_data_quality_tags => 'მონაცემთა ხარისხი';
+  String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
   String get product_page_tab_for_me => 'ჩემთვის';
 
   @override
-  String get product_page_for_me_compatibility_score_title =>
-      'ჩემი თავსებადობა';
+  String get product_page_tab_website => 'Website';
 
   @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% თავსებადობა';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'თავსებადობის ქულის გამოსათვლელად მონაცემები არასაკმარისია.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'ქულის გამოთვლა შეუძლებელია \"$productType\" ტიპის პროდუქტისთვის.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'მნიშვნელობა';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'მატჩები';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'კარგი მატჩები';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'საშუალო მატჩები';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'ცუდი მატჩები';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'უცნობი დამთხვევები';
-
-  @override
-  String get product_page_tab_website => 'ვებსაიტი';
-
-  @override
-  String get product_page_tab_prices => 'ფასები';
+  String get product_page_tab_prices => 'Prices';
 
   @override
   String get prices_explanation_card_title => 'რატომ ფასები?';
@@ -5474,10 +5311,10 @@ class AppLocalizationsKa extends AppLocalizations {
       '**Open Prices** არის პროექტი, რომელიც აგროვებს და აზიარებს მსოფლიოს მასშტაბით პროდუქტების ფასებს 🌍. Open Prices შემუშავებული და მხარდაჭერილია Open Food Facts-ის მიერ.';
 
   @override
-  String get explanation_card_learn_more_button => 'შეიტყვეთ მეტი';
+  String get explanation_card_learn_more_button => 'Learn more';
 
   @override
-  String get product_page_tab_folksonomy => 'ფოლკსონომია';
+  String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5492,11 +5329,11 @@ class AppLocalizationsKa extends AppLocalizations {
       'ეს თვისებები იქმნება და ინახება კონტრიბუტორების მიერ ნებისმიერი სახის გამოყენებისთვის.';
 
   @override
-  String get folksonomy_action_external_link_title => 'გარე ბმულის გახსნა';
+  String get folksonomy_action_external_link_title => 'Open external link';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'გარე ბმულები შეიძლება სახიფათო იყოს. ნამდვილად გსურთ მისი მონახულება?';
+      'External links may be unsafe. Do you really want to visit it?';
 
   @override
   String get prices_products_empty_title => 'ფასი ხელმისაწვდომი არ არის';
@@ -5507,41 +5344,41 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'ტოპ $pageSize პროდუქტები (სულ: $total)';
+    return 'Top $pageSize products (total: $total)';
   }
 
   @override
-  String get app_review_title => 'სიამოვნებთ ეს აპლიკაცია?';
+  String get app_review_title => 'Are you enjoying this app?';
 
   @override
-  String get app_review_low => 'უკეთესის გაკეთება შეიძლებოდა';
+  String get app_review_low => 'Could do better';
 
   @override
-  String get app_review_medium => 'ცუდი არ არის';
+  String get app_review_medium => 'Not bad';
 
   @override
-  String get app_review_high => 'მე მიყვარს ეს!';
+  String get app_review_high => 'I love it!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'დაგვეხმარეთ ჩვენი აპლიკაციის გაუმჯობესებაში';
+      'Help us improve our application';
 
   @override
   String get app_review_feedback_modal_content =>
-      'თუ რამდენიმე წუთი გაქვთ, შეგიძლიათ უპასუხოთ ამ ფორმას, რათა **შევძლოთ გაუმჯობესება მომავალ განახლებებში**:';
+      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'უპასუხეთ ფორმას';
+  String get app_review_feedback_modal_open_form => 'Answer the form';
 
   @override
-  String get app_review_feedback_modal_later => 'მკითხე მოგვიანებით';
+  String get app_review_feedback_modal_later => 'Ask me later';
 
   @override
   String get nutrition_facts_extract_new =>
-      'ახალი: თქვენ შეგიძლიათ ავტომატურად ამოიღოთ საკვები ნივთიერებები სურათიდან!';
+      'NEW: You can automatically extract the nutrients from the picture!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'ამოღება ახლავე';
+  String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
   String get nutrition_facts_extract_in_progress => 'ექსტრაქცია მიმდინარეობს…';
@@ -5552,22 +5389,22 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'სურათიდან საკვები ნივთიერებების ამოღება ვერ მოხერხდა';
+      'Failed to extract nutrients from picture';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'სტატისტიკა';
+  String get prices_stats_statistics => 'Statistics';
 
   @override
-  String get prices_stats_title => 'ფასების სტატისტიკა';
+  String get prices_stats_title => 'Prices Statistics';
 
   @override
-  String get prices_stats_prices_section => 'ფასები';
+  String get prices_stats_prices_section => 'Prices';
 
   @override
-  String get prices_stats_products_section => 'პროდუქტები';
+  String get prices_stats_products_section => 'Products';
 
   @override
   String get prices_stats_locations_section => 'Locations';
@@ -5582,10 +5419,10 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'სხვადასხვა';
+  String get prices_stats_misc_section => 'Miscellaneous';
 
   @override
-  String get prices_stats_total => 'სულ';
+  String get prices_stats_total => 'Total';
 
   @override
   String get prices_stats_with_barcode => 'With a barcode';
@@ -5600,22 +5437,22 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_stats_community => 'Community';
 
   @override
-  String get prices_stats_consumption => 'მოხმარება';
+  String get prices_stats_consumption => 'Consumption';
 
   @override
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'საკვები';
+  String get prices_stats_food => 'Food';
 
   @override
-  String get prices_stats_beauty => 'სილამაზე';
+  String get prices_stats_beauty => 'Beauty';
 
   @override
-  String get prices_stats_products => 'პროდუქტები';
+  String get prices_stats_products => 'Products';
 
   @override
-  String get prices_stats_pet_food => 'შინაური ცხოველების საკვები';
+  String get prices_stats_pet_food => 'Pet food';
 
   @override
   String get prices_stats_osm => 'OpenStreetMap';
@@ -5627,10 +5464,10 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_stats_countries => 'Countries';
 
   @override
-  String get prices_stats_price_tag => 'ფასი';
+  String get prices_stats_price_tag => 'Price tag';
 
   @override
-  String get prices_stats_receipt => 'ქვითარი';
+  String get prices_stats_receipt => 'Receipt';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5654,7 +5491,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'ვებსაიტი';
+  String get prices_stats_website => 'Website';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
@@ -5663,26 +5500,26 @@ class AppLocalizationsKa extends AppLocalizations {
   String get prices_stats_api => 'API';
 
   @override
-  String get prices_stats_other => 'სხვა';
+  String get prices_stats_other => 'Other';
 
   @override
-  String get prices_stats_last_updated => 'ბოლოს განახლდა';
+  String get prices_stats_last_updated => 'Last updated on';
 
   @override
-  String get prices_stats_error => 'სტატისტიკის ჩატვირთვისას შეცდომა მოხდა.';
+  String get prices_stats_error =>
+      'An error occurred while loading statistics.';
 
   @override
-  String get product_edit_robotoff_question_answered =>
-      'კითხვაზე პასუხი გაცემულია!';
+  String get product_edit_robotoff_question_answered => 'Question answered!';
 
   @override
-  String get product_edit_robotoff_proof => 'მტკიცებულება';
+  String get product_edit_robotoff_proof => 'Proof';
 
   @override
   String get preferences_card_general => 'General';
 
   @override
-  String get preferences_prices_title => 'ფასები';
+  String get preferences_prices_title => 'Prices';
 
   @override
   String get preferences_prices_subtitle => 'მართეთ თქვენი ფასების პარამეტრები';
@@ -5721,7 +5558,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_card_help => 'დახმარება და მხარდაჭერა';
 
   @override
-  String get preferences_faq_title => 'ხშირად დასმული კითხვები';
+  String get preferences_faq_title => 'FAQ';
 
   @override
   String get preferences_faq_subtitle => 'მიიღეთ პასუხები თქვენს კითხვებზე';
@@ -5733,8 +5570,7 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_app_bar_message => 'გმადლობთ, რომ ჩვენი წევრი ხართ!';
 
   @override
-  String get preferences_app_bar_products_modified =>
-      'მოდიფიცირებული პროდუქტები';
+  String get preferences_app_bar_products_modified => 'Products modified';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
@@ -5760,7 +5596,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'ხელმისაწვდომობა: ფერების წაშლა';
 
   @override
-  String get preferences_app_settings_products => 'პროდუქტები';
+  String get preferences_app_settings_products => 'Products';
 
   @override
   String get preferences_card_about => 'About';
@@ -5773,7 +5609,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'გამოყენების პირობები, კონფიდენციალურობის პოლიტიკა და სხვა';
 
   @override
-  String get preferences_terms_of_use => 'გამოყენების პირობები';
+  String get preferences_terms_of_use => 'Terms of use';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
@@ -5783,7 +5619,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'Open Food Facts არის საკვები პროდუქტების მონაცემთა ბაზა, **შექმნილი ყველასთვის და ყველასთვის**.\nმისი გამოყენება შეგიძლიათ საკვების უკეთესი არჩევანის გასაკეთებლად და რადგან ეს **ღია მონაცემებია**, ნებისმიერს შეუძლია **მისი ხელახლა გამოყენება ნებისმიერი მიზნით**.';
 
   @override
-  String get preferences_privacy_policy => 'კონფიდენციალურობის პოლიტიკა';
+  String get preferences_privacy_policy => 'Privacy policy';
 
   @override
   String get preferences_licenses => 'ლიცენზიები';
@@ -5928,23 +5764,21 @@ class AppLocalizationsKa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'აღმოაჩინეთ ღია კვების ფაქტები';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'აღმოაჩინეთ ღია სილამაზის ფაქტები';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'აღმოაჩინეთ ღია ფაქტები შინაური ცხოველების საკვების შესახებ';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'გახსნის ფასების აღმოჩენა';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'აღმოაჩინეთ ღია პროდუქტების ფაქტები';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title =>
@@ -5967,14 +5801,14 @@ class AppLocalizationsKa extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'გამოიწერეთ ჩვენი საზოგადოების კალენდარი';
+      'Subscribe to our community calendar';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'ჩაერთეთ ჩვენს ერთ-ერთ ვირტუალურ ღონისძიებაში';
 
   @override
-  String get preferences_connect_blog_title => 'ღია კვების ფაქტების ბლოგი';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6075,7 +5909,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'მარტივი ნაბიჯები თქვენს ქვეყანაში საკვების გამჭვირვალობის გასაზრდელად';
 
   @override
-  String get preferences_contribute_data_quality_title => 'მონაცემთა ხარისხი';
+  String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -6102,10 +5936,10 @@ class AppLocalizationsKa extends AppLocalizations {
       'ყველა არასრული პროდუქტი';
 
   @override
-  String get preferences_my_contributions_prices_title => 'ფასები';
+  String get preferences_my_contributions_prices_title => 'Prices';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'ჩემი ფასები';
+  String get preferences_my_contributions_my_prices_title => 'My prices';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6147,7 +5981,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'კონტრიბუტორები ყველაზე მეტი ფასით';
 
   @override
-  String get preferences_prices_metrics_title => 'ღია ფასების მეტრიკა';
+  String get preferences_prices_metrics_title => 'ღია ფასის მეტრიკა';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6300,7 +6134,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'Open Food Factsს ლაბორატორიები';
 
   @override
-  String get preferences_root_account_title => 'ანგარიში';
+  String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
@@ -6319,7 +6153,7 @@ class AppLocalizationsKa extends AppLocalizations {
       'არ აჩვენო ფოლკსონომია';
 
   @override
-  String get preferences_account_title => 'ანგარიში';
+  String get preferences_account_title => 'Account';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
@@ -6327,66 +6161,26 @@ class AppLocalizationsKa extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'მდებარეობის დეტალები';
+  String get location_map_details_title => 'Location details';
 
   @override
   String get location_map_details_name => 'სახელი';
 
   @override
-  String get location_map_details_street => 'ქუჩა';
+  String get location_map_details_street => 'Street';
 
   @override
-  String get location_map_details_city => 'ქალაქი';
+  String get location_map_details_city => 'City';
 
   @override
-  String get location_map_details_postcode => 'საფოსტო ინდექსი';
+  String get location_map_details_postcode => 'Postcode';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'კოორდინატები';
+  String get location_map_details_coordinates => 'Coordinates';
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'სახლში დაბრუნება';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'კამერის გადართვა';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'შტრიხკოდების სკანერის ჩვენება';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'შეეხეთ **შტრიხკოდის**\nსკანირებისთვის და გაარკვიეთ, **კარგია თუ არა ის თქვენთვის**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'ფანრის გადართვა';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'პროდუქტის სკანირება მისი შტრიხკოდის მიახლოებით';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'ჩვენ აღმოვაჩინეთ შემდეგი შტრიხკოდი: $barcode, მაგრამ, როგორც ჩანს, ის არასწორია.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'მეტის ნახვა…';
-
-  @override
-  String get homepage_list_most_scanned_title =>
-      'ყველაზე ხშირად დასკანირებული პროდუქტები';
-
-  @override
-  String get homepage_list_last_scanned_title => 'ბოლო სკანირებული პროდუქტები';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

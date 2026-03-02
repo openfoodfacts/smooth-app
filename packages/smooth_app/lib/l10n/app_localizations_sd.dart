@@ -12,9 +12,6 @@ class AppLocalizationsSd extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'کليل قيمتون';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'لائسنس';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsSd extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'اڻڄاتل مقدار';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsSd extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'ري سائيڪلنگ جون هدايتون';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'ري سائيڪلنگ جون هدايتون فوٽو';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1140,15 +1134,6 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'توهان جي\n**\"$search\"**\nلاءِ ڳولا ڪنهن به نتيجي سان نه ملي.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'ڇا توهان ان جي بدران **اسان جي عالمي ڊيٽابيس** ۾ ساڳي ڳولا هلائڻ چاهيو ٿا؟';
 
   @override
   String get no_location_found => 'No location found';
@@ -2533,9 +2518,6 @@ class AppLocalizationsSd extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2713,9 +2695,6 @@ class AppLocalizationsSd extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '\"$user\" کان قيمت جي داخلا';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'پراڊڪٽ جا تفصيل ڏسو';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2992,33 +2971,6 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3564,7 +3516,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'مقامي طور تي ذخيرو ٿيل فولڪ سونامي اپڊيٽس لاءِ سرور ڪارروايون ڪرڻ شروع ڪري رهيو آهي';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4130,7 +4082,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get environmental_score_not_applicable_new => 'گرين اسڪور لاڳو ناهي';
 
   @override
-  String get nova_group_generic_new => 'الٽرا پروسيس ٿيل کاڌو - نووا گروپس';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4536,7 +4488,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get guide_nova_logos_caption => 'NOVA لوگو';
 
   @override
-  String get guide_nova_groups_title => '4 نووا گروپ';
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
 
   @override
   String get guide_nova_groups_intro =>
@@ -5255,7 +5207,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5339,45 +5291,6 @@ class AppLocalizationsSd extends AppLocalizations {
   String get product_page_tab_for_me => 'منهنجي لاءِ';
 
   @override
-  String get product_page_for_me_compatibility_score_title => 'منهنجي مطابقت';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% مطابقت رکندڙ';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'مطابقت جي اسڪور کي ڳڻڻ لاءِ ڪافي ڊيٽا ناهي.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" قسم جي پراڊڪٽ لاءِ اسڪور جي حساب نه ٿو ڪري سگهجي.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'اهميت';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'ميچز';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'سٺا ميچ';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'سراسري ميچون';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'خراب ميچون';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'اڻڄاتل ميچون';
-
-  @override
   String get product_page_tab_website => 'Website';
 
   @override
@@ -5388,7 +5301,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** دنيا جي مختلف ملڪن ۾ شين جي قيمتن کي گڏ ڪرڻ ۽ شيئر ڪرڻ جو هڪ منصوبو آهي 🌍. Open Prices اوپن فوڊ فيڪٽس پاران تيار ۽ برقرار رکيا ويا آهن.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5694,7 +5607,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'اوپن فوڊ فيڪٽس هڪ کاڌي جي شين جو ڊيٽابيس آهي **هر ڪنهن پاران، هر ڪنهن لاءِ ٺاهيو ويو آهي**.\nتوهان ان کي بهتر کاڌي جي چونڊ ڪرڻ لاءِ استعمال ڪري سگهو ٿا، ۽ جيئن ته اهو **کليل ڊيٽا** آهي، ڪو به ان کي **ڪنهن به مقصد لاءِ ٻيهر استعمال ڪري سگهي ٿو**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5745,7 +5658,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'اوپن فوڊ فيڪٽس ويب سائيٽ تي';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'منهنجو اڪائونٽ منظم ڪريو';
@@ -5828,7 +5741,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'دريافت ڪريو ته نيوٽري-اسڪور ڪيئن ڳڻيو ويندو آهي';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5838,8 +5751,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'دريافت ڪريو Open Food حقيقتون';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5859,7 +5771,7 @@ class AppLocalizationsSd extends AppLocalizations {
   String get preferences_faq_faq_title => 'سوال - اڪثر پڇيا ويندڙ سوال';
 
   @override
-  String get preferences_faq_off_ngo_title => 'دي اوپن فوڊ فيڪٽس اين جي او';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5881,7 +5793,7 @@ class AppLocalizationsSd extends AppLocalizations {
       'اسان جي ورچوئل تقريب ۾ شرڪت ڪندي شامل ٿيو';
 
   @override
-  String get preferences_connect_blog_title => 'اوپن فوڊ فيڪٽس بلاگ';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5996,7 +5908,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'اوپن فوڊ فيڪٽس ۾ مون نوان پراڊڪٽس شامل ڪيا آهن.';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6022,7 +5934,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'پنهنجي ملڪ ۾ نيوٽري-اسڪور ۽ گرين-اسڪور جي ڳڻپ ۾ مدد ڪريو.';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'منهنجي ڏنل قيمتون';
@@ -6050,7 +5962,7 @@ class AppLocalizationsSd extends AppLocalizations {
       'سڀ کان وڌيڪ قيمتن سان حصو وٺندڙ';
 
   @override
-  String get preferences_prices_metrics_title => 'اوپن پرائسس ميٽرڪس';
+  String get preferences_prices_metrics_title => 'اوپن پرائس ميٽرڪس';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6090,7 +6002,7 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'کاڌي جي حقيقتن کي کولڻ ۾ مدد ڪرڻ جا آسان طريقا';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6196,14 +6108,14 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'فوڊ فيڪٽس ليبز کوليو';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'پنهنجي ٻولي ۾ کليل کاڌي جا حقيقت آڻيو';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6247,43 +6159,4 @@ class AppLocalizationsSd extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'گهر واپس';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'ڪئميرا ٽوگل ڪريو';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'بارڪوڊ اسڪينر ڏيکاريو';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**بارڪوڊ**\nاسڪين ڪرڻ لاءِ ٽيپ ڪريو ۽ ڳولهيو ته ڇا اهو **توهان لاءِ سٺو آهي**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'ٽارچ کي ٽوگل ڪريو';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'ڪنهن پراڊڪٽ کي ان جي بارڪوڊ جي ويجهو آڻي اسڪين ڪريو';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'اسان هيٺ ڏنل بارڪوڊ ڳولي لڌو آهي: $barcode، پر اهو غلط لڳي ٿو.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'وڌيڪ ڏسو…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'آخري اسڪين ڪيل شيون';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

@@ -12,9 +12,6 @@ class AppLocalizationsBr extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -25,13 +22,13 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get account_delete_message =>
-      'Ha sur oc\'h e fell deoc\'h dilemel ho kont ?\nMa \'z eus un abeg resis, rannit amañ dindan mar plij';
+      'Are you sure you want to delete your account?\nIf there is a specific reason, please share below';
 
   @override
-  String get reason => 'Abeg';
+  String get reason => 'Reason';
 
   @override
-  String get okay => 'Mat eo';
+  String get okay => 'Okay';
 
   @override
   String get validate => 'Validate';
@@ -46,7 +43,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get next_label => 'War-raok';
 
   @override
-  String get continue_label => 'Kenderc\'hel';
+  String get continue_label => 'Continue';
 
   @override
   String get exit_label => 'Exit';
@@ -55,13 +52,13 @@ class AppLocalizationsBr extends AppLocalizations {
   String get previous_label => 'A-raok';
 
   @override
-  String get go_back_to_top => 'Distreiñ d\'an nec\'h';
+  String get go_back_to_top => 'Go back to top';
 
   @override
   String get save => 'Enrollañ';
 
   @override
-  String get save_confirmation => 'Ha sur oc\'h e fell deoc\'h enrollañ ?';
+  String get save_confirmation => 'Are you sure you want to save?';
 
   @override
   String get skip => 'Skip';
@@ -70,7 +67,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get cancel => 'Nullañ';
 
   @override
-  String get ignore => 'Lezel a-gostez';
+  String get ignore => 'Ignore';
 
   @override
   String get close => 'Serriñ';
@@ -79,222 +76,219 @@ class AppLocalizationsBr extends AppLocalizations {
   String get no => 'Ket';
 
   @override
-  String get stop => 'Paouez';
+  String get stop => 'Stop';
 
   @override
-  String get finish => 'Echuiñ';
+  String get finish => 'Finish';
 
   @override
-  String get calculate => 'Jediñ';
+  String get calculate => 'Calculate';
 
   @override
-  String get reset_food_prefs => 'Adderaouekaat ar penndibaboù boued';
+  String get reset_food_prefs => 'Reset food preferences';
 
   @override
-  String get error => 'Un dra bennak a zo aet fall';
+  String get error => 'Something went wrong';
 
   @override
-  String get error_occurred => 'Degouezhet ez eus bet ur fazi';
+  String get error_occurred => 'An error occurred';
 
   @override
   String get featureInProgress =>
-      'Labourat a reomp war an elfenn-mañ c\'hoazh, chomit war evezh';
+      'We\'re still working on this feature, stay tuned';
 
   @override
-  String get label_web => 'Gwelet war ar Genrouedad';
+  String get label_web => 'View on the web';
 
   @override
-  String get learnMore => 'Gouzout hiroc\'h';
+  String get learnMore => 'Learn more';
 
   @override
   String get unknown => 'Dianav';
 
   @override
-  String get match_very_good => 'Mat-tre eo';
+  String get match_very_good => 'Very good match';
 
   @override
-  String get match_good => 'Mat eo';
+  String get match_good => 'Good match';
 
   @override
-  String get match_poor => 'Match fall';
+  String get match_poor => 'Poor match';
 
   @override
   String get match_may_not => 'May not match';
 
   @override
-  String get match_does_not => 'Ne glot ket';
+  String get match_does_not => 'Does not match';
 
   @override
-  String get match_unknown => 'Mat dianav';
+  String get match_unknown => 'Unknown match';
 
   @override
-  String get match_short_very_good => 'Mat-tre eo';
+  String get match_short_very_good => 'Very good match';
 
   @override
-  String get match_short_good => 'Mat eo';
+  String get match_short_good => 'Good match';
 
   @override
-  String get match_short_poor => 'Match fall';
+  String get match_short_poor => 'Poor match';
 
   @override
   String get match_short_may_not => 'May not match';
 
   @override
-  String get match_short_does_not => 'Ne glot ket';
+  String get match_short_does_not => 'Does not match';
 
   @override
-  String get match_short_unknown => 'Mat dianav';
+  String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Aotreoù';
+  String get licenses => 'Lañvazioù';
 
   @override
-  String get looking_for => 'O klask';
+  String get looking_for => 'Looking for';
 
   @override
-  String get welcomeToOpenFoodFacts => 'Degemer mat war Open Food Facts';
+  String get welcomeToOpenFoodFacts => 'Welcome to Open Food Facts';
 
   @override
   String get whatIsOff =>
-      'Open Food Facts zo un aozadur hep pal kenwerzhel hollek ha renet gant kumuniezhioù lec\'hel.';
+      'Open Food Facts is a global non-profit powered by local communities.';
 
   @override
   String get productDataUtility =>
-      'Gwelet ar roadennoù boued a glot gant ho penndibaboù.';
+      'See the food data relevant to your preferences.';
 
   @override
-  String get healthCardUtility => 'Dibabit bouedoù mat evidoc\'h.';
+  String get healthCardUtility => 'Choose foods that are good for you.';
 
   @override
-  String get ecoCardUtility => 'Dibab bouedoù mat evit ar blanedenn.';
+  String get ecoCardUtility => 'Choose foods that are good for the planet.';
 
   @override
   String get server_error_open_new_issue =>
-      'Respont ebet gant ar servijer ! Gallout a rit digeriñ ur gudenn gant al liamm da-heul.';
+      'No server response! You may open an issue with the following link.';
 
   @override
   String get sign_in_text =>
-      'En em lugañ ouzh ho kont Open Food Facts evit enrollañ ho skoazelloù';
+      'Sign in to your Open Food Facts account to save your contributions';
 
   @override
-  String get incorrect_credentials => 'Anv implijer pe ger-tremen direizh.';
+  String get incorrect_credentials => 'Incorrect username or password.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'N\'eus ket eus ar postel pe an anv implijer-mañ. Gwiriit ho titouroù mar plij.';
+      'This email or username doesn\'t exist. Please check your credentials.';
 
   @override
   String get password_lost_server_unavailable =>
-      'Emaomp o c\'houzañv stankadennoù war hor servijerioù evit ar mare ha digarezit ac\'hanomp evit se. Klaskit en-dro diwezhatoc\'h mar plij.';
+      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
   String get login => 'Anv arveriad';
 
   @override
-  String get login_result_type_server_unreachable =>
-      'N\'haller ket tizhout ar rouedad';
+  String get login_result_type_server_unreachable => 'Network is unreachable';
 
   @override
   String get login_result_type_server_issue =>
-      'Kudenn war ar servijer. Klaskit diwezhatoc\'h mar plij.';
+      'Problem on the server. Please try later.';
 
   @override
-  String get login_page_username_or_email =>
-      'Lakait hoc\'h anv implijer pe ho postel';
+  String get login_page_username_or_email => 'Please enter username or e-mail';
 
   @override
-  String get login_page_password_error_empty => 'Lakait ur ger-tremen mar plij';
+  String get login_page_password_error_empty => 'Please enter a password';
 
   @override
-  String get create_account => 'Krouiñ ur gont';
+  String get create_account => 'Create account';
 
   @override
   String get sign_in => 'Kevreañ';
 
   @override
-  String get sign_in_mandatory => 'Evit an elfenn-se e rankomp en em lugañ.';
+  String get sign_in_mandatory => 'For that feature we need you to sign in.';
 
   @override
   String get help_improve_country =>
-      'Sikour da wellaat an Open Food Facts en ho bro';
+      'Help improve Open Food Facts in your country';
 
   @override
-  String get sign_out => 'Dilemel';
+  String get sign_out => 'Sign out';
 
   @override
-  String get sign_out_confirmation => 'Ha sur oc\'h e fell deoc\'h mont kuit ?';
+  String get sign_out_confirmation => 'Are you sure you want to sign out?';
 
   @override
   String get password => 'Ger-tremen';
 
   @override
-  String get forgot_password => 'Ankounac\'haet ar ger-tremen';
+  String get forgot_password => 'Forgot password';
 
   @override
   String get forgot_password_question => 'Ankounac\'haet ho ker-tremen ?';
 
   @override
-  String get view_profile => 'Gwelet ar profil';
+  String get view_profile => 'View profile';
 
   @override
   String get reset_password => 'Adderaouekaat ar ger-tremen';
 
   @override
   String get reset_password_explanation_text =>
-      'Ma vez ankouaet ur ger-tremen, lakait ho anv implijer pe ho chomlec\'h postel evit resev titouroù evit adderaouekaat ar ger-tremen. Soñjit ivez gwiriañ an teuliad Spamoù.';
+      'In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.';
 
   @override
-  String get username_or_email => 'Anv implijer pe postel';
+  String get username_or_email => 'Username or e-mail';
 
   @override
   String get reset_password_done =>
-      'Kaset ez eus bet ur postel gant ul liamm evit adderaouekaat ho ker-tremen d\'ar chomlec\'h postel stag ouzh ho kont. Gwiriit ho stroboù ivez';
+      'An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam';
 
   @override
-  String get send_reset_password_mail => 'Cheñch ar ger-tremen';
+  String get send_reset_password_mail => 'Change password';
 
   @override
-  String get enter_some_text => 'Lakait un tamm testenn mar plij';
+  String get enter_some_text => 'Please enter some text';
 
   @override
-  String get sign_up_page_title => 'En em enskrivañ';
+  String get sign_up_page_title => 'Sign Up';
 
   @override
-  String get sign_up_page_action_button => 'En em enskrivañ';
+  String get sign_up_page_action_button => 'Sign Up';
 
   @override
-  String get sign_up_page_action_doing_it => 'En em enskrivañ…';
+  String get sign_up_page_action_doing_it => 'Signing up…';
 
   @override
   String get sign_up_page_action_ok =>
-      'Gourc\'hemennoù ! Nevez zo eo bet krouet ho kont.';
+      'Congratulations! Your account has just been created.';
 
   @override
   String get sign_up_page_display_name_hint => 'Anv';
 
   @override
   String get sign_up_page_display_name_error_empty =>
-      'Enankit an anv diskouez a fell deoc\'h implijout';
+      'Please enter the display name you want to use';
 
   @override
-  String get sign_up_page_email_hint => 'Postel';
+  String get sign_up_page_email_hint => 'E-mail';
 
   @override
-  String get sign_up_page_email_error_empty => 'Ret eo kas ur postel';
+  String get sign_up_page_email_error_empty => 'E-mail is required';
 
   @override
-  String get sign_up_page_email_error_invalid => 'Postel direizh';
+  String get sign_up_page_email_error_invalid => 'Invalid e-mail';
 
   @override
-  String get sign_up_page_username_hint => 'Anv implijer : gwelet gant an holl';
+  String get sign_up_page_username_hint => 'Username: Publicly visible';
 
   @override
-  String get sign_up_page_username_error_empty =>
-      'Lakait un anv implijer mar plij';
+  String get sign_up_page_username_error_empty => 'Please enter a username';
 
   @override
   String get sign_up_page_username_error_invalid =>
-      'Lakait un anv implijer reizh mar plij';
+      'Please enter a valid username';
 
   @override
   String get sign_up_page_username_description =>
@@ -302,204 +296,202 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'N\'hall ket an anv implijer bezañ brasoc\'h eget arouezennoù $value';
+    return 'Username cannot exceed $value characters';
   }
 
   @override
   String get sign_up_page_password_hint => 'Ger-tremen';
 
   @override
-  String get sign_up_page_password_error_empty =>
-      'Lakait ur ger-tremen mar plij';
+  String get sign_up_page_password_error_empty => 'Please enter a password';
 
   @override
   String get sign_up_page_password_error_invalid =>
-      'Lakait ur ger-tremen reizh (6 arouezenn da nebeutañ)';
+      'Please enter a valid password (at least 6 characters)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'Kadarnaat ar ger-tremen';
+  String get sign_up_page_confirm_password_hint => 'Confirm Password';
 
   @override
   String get sign_up_page_confirm_password_error_empty =>
-      'Kadarnait ar ger-tremen mar plij';
+      'Please confirm the password';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
-      'Ne glot ket ar gerioù-tremen';
+      'Passwords don\'t match';
 
   @override
-  String get sign_up_page_agree_text => 'Asantiñ a ran gant Open Food Facts';
+  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
 
   @override
-  String get sign_up_page_terms_text => 'termenoù implij ha kenlabour';
+  String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
   String get sign_up_page_agree_error_invalid =>
-      'Pa vez krouet ur gont eo ret asantiñ d\'an Termenoù Implijout, koulskoude e c\'haller c\'hoazh kinnig skoazelloù dizanv dre an arload';
+      'When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app';
 
   @override
-  String get sign_up_page_producer_checkbox => 'Produer boued on';
+  String get sign_up_page_producer_checkbox => 'I am a food producer';
 
   @override
-  String get sign_up_page_producer_hint => 'Produer/merk';
+  String get sign_up_page_producer_hint => 'Producer/brand';
 
   @override
   String get sign_up_page_producer_error_empty =>
-      'Lakait ur produer pe un anv merk';
+      'Please enter a producer or a brand name';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'Fellout a rafe din en em enskrivañ d\'ar c\'heleier Open Food Facts (Gallout a rit en em enskrivañ dioutañ da bep mare)';
+      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'Bez\' ez eus eus an anv implijer dija, dibabit un anv implijer all mar plij.';
+      'The user name already exists, please choose another username.';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'zo dija, kevreit ouzh ar gont pe klaskit gant ur postel all.';
+      'already exists, login to the account or try with another email.';
 
   @override
   String get sign_up_page_provide_valid_email =>
-      'Roit ur chomlec\'h postel reizh mar plij.';
+      'Please provide a valid email address.';
 
   @override
   String get sign_up_page_server_busy =>
-      'Digarezit ac\'hanomp, diaesterioù teknikel hon eus bet evit krouiñ ho kont. Klaskit en-dro diwezhatoc\'h mar plij.';
+      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
 
   @override
   String get settingsTitle => 'Arventennoù';
 
   @override
-  String get darkmode => 'Dodenn';
+  String get darkmode => 'Theme';
 
   @override
-  String get darkmode_dark => 'Teñval';
+  String get darkmode_dark => 'Dark';
 
   @override
-  String get darkmode_light => 'Skañv';
+  String get darkmode_light => 'Light';
 
   @override
-  String get darkmode_system_default => 'Dre ziouer ar reizhiad';
+  String get darkmode_system_default => 'System default';
 
   @override
-  String get thanks_for_contributing => 'Trugarez da vezañ kemeret perzh !';
+  String get thanks_for_contributing => 'Thanks for contributing!';
 
   @override
-  String get contributors_label => 'Emaint o sevel an arload';
+  String get contributors_label => 'They are building the app';
 
   @override
   String get contributors_dialog_title => 'Perzhidi';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'Kenlabourer : $name';
+    return 'Contributor: $name';
   }
 
   @override
   String get contributors_description =>
-      'Ur roll eus holl genlabourerien an arload-mañ';
+      'A list of all contributors of this app';
 
   @override
   String get support => 'Skor';
 
   @override
-  String get support_join_slack => 'Goulenn sikour en hor chadenn Slack';
+  String get support_join_slack => 'Ask for help in our Slack channel';
 
   @override
-  String get support_via_forum => 'Goulenn sikour war hor forom';
+  String get support_via_forum => 'Ask for help on our forum';
 
   @override
-  String get support_via_email => 'Kasit ur postel deomp';
+  String get support_via_email => 'Send us an e-mail';
 
   @override
-  String get support_via_email_include_logs_dialog_title =>
-      'Kas marilhoù an arloadoù ?';
+  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'Ha fellout a ra deoc\'h lakaat marilhoù an arloadoù stag ouzh ho postel ?';
+      'Do you wish to include application logs in attachment to your email?';
 
   @override
   String get termsOfUse => 'Termenoù Implij';
 
   @override
-  String get legalNotices => 'Kemennadennoù lezennel';
+  String get legalNotices => 'Legal notices';
 
   @override
-  String get privacy_policy => 'Politikerezh prevezded';
+  String get privacy_policy => 'Privacy policy';
 
   @override
-  String get about_this_app => 'Diwar-benn an arload-mañ';
+  String get about_this_app => 'About this app';
 
   @override
   String get contribute => 'Kenoberiañ';
 
   @override
-  String get contribute_sw_development => 'Diorren meziantoù';
+  String get contribute_sw_development => 'Software development';
 
   @override
   String get contribute_develop_text =>
-      'Ar c\'hod evit pep produ Open Food Facts a c\'haller kaout war GitHub. Degemeret oc\'h da adimplijout ar c\'hod (digor eo) ha sikour ac\'hanomp da wellaat anezhañ, evit an holl, war ar blanedenn a-bezh.';
+      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
 
   @override
   String get contribute_develop_text_2 =>
-      'Gallout a rit mont e-barzh ar sal flapañ Open Food Facts Slack, ar pezh a zo an doare gwellañ da sevel goulennoù.';
+      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
 
   @override
-  String get contribute_develop_dev_mode_title => 'Mod DEV ?';
+  String get contribute_develop_dev_mode_title => 'DEV Mode?';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => 'Gweredekaat ar mod DEV';
+  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
 
   @override
   String get contribute_donate_title => 'Donate';
 
   @override
-  String get contribute_donate_header => 'Roit arc\'hant da Open Food Facts';
+  String get contribute_donate_header => 'Donate to Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Anavezit mat e c\'hall ar stumm alfa diabarzh koll roadennoù penn-da-benn, ha gallout a ra an arload dont da vezañ didalvoud da bep mare !';
+      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'Produioù da gas da benn';
+      'Products to be completed';
 
   @override
-  String get contribute_improve_header => 'Gwellaat';
+  String get contribute_improve_header => 'Improving';
 
   @override
   String get contribute_improve_text =>
-      'An diaz roadennoù eo diazez ar raktres. Aes ha buan-tre eo sikour. Gallout a rit pellgargañ an arload hezoug evit ho pellgomzer, ha kregiñ da ouzhpennañ pe da wellaat produioù.\n\nWar un dro e kinnig lec\'hienn Open Food Facts meur a zoare da ginnig : ';
+      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
 
   @override
-  String get contribute_translate_header => 'Treiñ';
+  String get contribute_translate_header => 'Translate';
 
   @override
   String get contribute_data_quality => 'Data Quality';
 
   @override
-  String get contribute_translate_link_text => 'Kregiñ da dreiñ';
+  String get contribute_translate_link_text => 'Start Translating';
 
   @override
   String get contribute_translate_text =>
-      'Ur raktres hollek eo Open Food Facts, ennañ produioù eus ouzhpenn 160 bro. Troet eo Open Food Facts e meur a yezh, gant endalc\'hadoù o cheñch bepred.';
+      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
 
   @override
   String get contribute_translate_text_2 =>
-      'An troidigezhioù zo unan eus palioù pennañ ar raktres';
+      'Translations is one of the key tasks of the project';
 
   @override
   String get contribute_join_skill_pool =>
-      'Kinnig ho skiant-prenet da Open Food Facts. Kemerit perzh er strollad barregezhioù !';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
-      'Rannit titouroù digor war ar boued gant ho mignoned';
+      'Share Open Food Facts with your friends';
 
   @override
   String get contribute_share_content =>
@@ -507,21 +499,21 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Kinnig prizioù en ur c\'houlenn un ezporzhiadur GDPR eus ho roadennoù kartennoù fealded';
+      'Contribute prices by requesting a GDPR export of your loyalty cards data';
 
   @override
-  String get tap_to_answer => 'Pouezit amañ evit respont d\'ar goulennoù';
+  String get tap_to_answer => 'Tap here to answer questions';
 
   @override
   String get tap_to_answer_hint =>
-      'Klikit amañ evit respont da c\'houlennoù diwar-benn ar produ-mañ';
+      'Tap here to answer questions about this product';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'Gortozit e-keit ma vo karget ar goulennoù diwar-benn ar produ-mañ';
+      'Please wait while questions about this product are loaded';
 
   @override
-  String get saving_answer => 'Enrollañ ho respont';
+  String get saving_answer => 'Saving your answer';
 
   @override
   String get contribute_to_get_rewards =>
@@ -529,80 +521,79 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'En em lugañ ouzh ho kont Open Food Facts evit kaout kred evit ho skoazelloù';
+      'Sign in to your Open Food Facts account to get credit for your contributions';
 
   @override
-  String get question_yes_button_accessibility_value => 'Respont gant ya';
+  String get question_yes_button_accessibility_value => 'Answer with yes';
 
   @override
-  String get question_no_button_accessibility_value => 'Respont gant nann';
+  String get question_no_button_accessibility_value => 'Answer with no';
 
   @override
-  String get question_skip_button_accessibility_value =>
-      'Dilezel ar goulenn-mañ';
+  String get question_skip_button_accessibility_value => 'Skip this question';
 
   @override
-  String get tap_to_edit_search => 'Klikit evit kemmañ ar c\'hlask';
+  String get tap_to_edit_search => 'Tap to edit search';
 
   @override
-  String get myPreferences => 'Ma dibaboù';
+  String get myPreferences => 'My preferences';
 
   @override
   String get account_create_message =>
-      'Krouit ho kont ha kemerit perzh e kumuniezh Open Food Facts evit sikour da sevel anaoudegezh war ar boued dre ar bed a-bezh !';
+      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
 
   @override
-  String get join_us => 'Deuit ganeomp';
+  String get join_us => 'Join us';
 
   @override
-  String get myPreferences_profile_title => 'Ho profil';
+  String get myPreferences_profile_title => 'Your Profile';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Merañ ho kont kenlabourerien Open Food Facts.';
+      'Manage your Open Food Facts contributor account.';
 
   @override
-  String get myPreferences_settings_title => 'Arventennoù an arload';
+  String get myPreferences_settings_title => 'App Settings';
 
   @override
-  String get myPreferences_settings_subtitle => 'Mod teñval, Yezhoù…';
+  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
 
   @override
-  String get myPreferences_food_title => 'Gwellvezioù boued';
+  String get myPreferences_food_title => 'Food Preferences';
 
   @override
   String get myPreferences_food_subtitle =>
-      'Dibabit peseurt titouroù diwar-benn ar boued a zo pouezusañ evidoc\'h.';
+      'Choose what information about food matters most to you.';
 
   @override
   String get myPreferences_food_comment =>
-      'Dibabit peseurt titouroù diwar-benn ar boued a zo pouezusañ evidoc\'h, evit renkañ ar boued hervez ho c\'hoantoù, gwelit an titouroù a blij deoc\'h da gentañ, ha kaout un diverrañ eus ar c\'hevredigezh. Chom a ra an dibaboù boued-se war ho trevnad, ha n\'int ket liammet ouzh ho kont kenlabourer Open Food Facts ma\'z eus unan ganeoc\'h.';
+      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
 
   @override
-  String get confirmResetPreferences => 'Adderaouekaat ho penndibaboù boued ?';
+  String get confirmResetPreferences => 'Reset your food preferences?';
 
   @override
-  String get myPersonalizedRanking => 'Ma renkadur personelaet';
+  String get myPersonalizedRanking => 'My personalized ranking';
 
   @override
   String get ranking_tab_all => 'All';
 
   @override
-  String get ranking_subtitle_match_yes => 'Ur match brav evidoc\'h';
+  String get ranking_subtitle_match_yes => 'A great match for you';
 
   @override
-  String get ranking_subtitle_match_no => 'Match fall-tre';
+  String get ranking_subtitle_match_no => 'Very poor match';
 
   @override
-  String get ranking_subtitle_match_maybe => 'Mat dianav';
+  String get ranking_subtitle_match_maybe => 'Unknown match';
 
   @override
   String get refresh_with_new_preferences =>
-      'Freskaat ar roll gant ho penndibaboù nevez';
+      'Refresh the list with your new preferences';
 
   @override
   String get reloaded_with_new_preferences =>
-      'Adkarget gant ho penndibaboù nevez';
+      'Reloaded with your new preferences';
 
   @override
   String get profile_navbar_label => 'Community';
@@ -611,28 +602,28 @@ class AppLocalizationsBr extends AppLocalizations {
   String get scan_navbar_label => 'Skanañ';
 
   @override
-  String get history_navbar_label => 'Istor';
+  String get history_navbar_label => 'History';
 
   @override
-  String get list_navbar_label => 'Rolloù';
+  String get list_navbar_label => 'Lists';
 
   @override
-  String get category => 'Silañ dre rummad';
+  String get category => 'Filter by category';
 
   @override
   String get category_all => 'All';
 
   @override
-  String get category_search => '(klask rummadoù)';
+  String get category_search => '(category search)';
 
   @override
-  String get filter => 'Sil';
+  String get filter => 'Filter';
 
   @override
-  String get scan => 'Produioù diwar ar skramm Skannañ';
+  String get scan => 'Products from the Scan screen';
 
   @override
-  String get scan_history => 'Istor ar skaniñ';
+  String get scan_history => 'Scan history';
 
   @override
   String get search => 'Klask';
@@ -648,176 +639,170 @@ class AppLocalizationsBr extends AppLocalizations {
   String get search_history => 'Istor ar c\'hlask';
 
   @override
-  String get search_store => 'Klask ur stal';
+  String get search_store => 'Search for a store';
 
   @override
   String get search_store_help => 'Ali : ouzhpennit ar gêr pe ar vro';
 
   @override
-  String get tap_for_more => 'Klikit evit gwelet muioc\'h a ditouroù…';
+  String get tap_for_more => 'Tap to see more info…';
 
   @override
   String get product => 'Produ';
 
   @override
-  String get unknownBrand => 'Merk dianav';
+  String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Kementad dianav';
-
-  @override
-  String get unknownProductName => 'Anv ar produ dianav';
+  String get unknownProductName => 'Unknown product name';
 
   @override
   String get label_refresh => 'Refresh';
 
   @override
-  String get label_reload => 'Adkargañ';
+  String get label_reload => 'Reload';
 
   @override
-  String get image => 'Skeudenn';
+  String get image => 'Image';
 
   @override
-  String get front_photo => 'Skeudenn a-raok';
+  String get front_photo => 'Front photo';
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (marteze eo diamzeret ar skeudenn-mañ)';
+    return '$imageType (this image may be outdated)';
   }
 
   @override
-  String get outdated_image_short_label => 'marteze eo diamzeret';
+  String get outdated_image_short_label => 'may be outdated';
 
   @override
   String get ingredients => 'Aozennoù';
 
   @override
   String get ingredients_editing_instructions =>
-      'Mirout an urzh orin. Merkañ ar c\'hresk dregantad pa vez spisaet. Dispartiañ gant ur virgulenn pe ur skritell hag implijout krommelloù evit elfennoù un elfenn.';
+      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
 
   @override
-  String get ingredients_editing_error =>
-      'C\'hwitet eo enrollañ ar c\'hementadoù.';
+  String get ingredients_editing_error => 'Failed to save the ingredients.';
 
   @override
   String get ingredients_editing_image_error =>
-      'C\'hwitet eo bet kaout ur skeudenn elfennoù nevez.';
+      'Failed to get a new ingredients image.';
 
   @override
-  String get ingredients_editing_title => 'Kemmañ elfennoù';
+  String get ingredients_editing_title => 'Edit Ingredients';
 
   @override
-  String get ingredients_photo => 'Skeudenn ar c\'hementadoù';
+  String get ingredients_photo => 'Ingredients photo';
 
   @override
   String get packaging_editing_instructions =>
-      'Roll an holl lodennoù pakañ dispartiet gant ur virgulenn pe ur linenn, gant o c\'hementad (da sk. 1 pe 6) doare (da sk. boutailh, voest, kan), danvez (da sk. plastik, metal, aluminiom) ha ma vez kavet o ment (da sk. 33cl) hag o titouroù evit an adkempenn.\nSkouer : 1 voutailhad gwer da adkempenn, 1 gorread plastik da deurel kuit';
+      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
 
   @override
-  String get packaging_editing_error => 'C\'hwitet war enrollañ ar pakad.';
+  String get packaging_editing_error => 'Failed to save the packaging.';
 
   @override
   String get packaging_editing_image_error =>
-      'C\'hwitet eo bet kaout ur skeudenn pakad nevez.';
+      'Failed to get a new packaging image.';
 
   @override
-  String get packaging_editing_title => 'Kemmañ ar pakadoù';
+  String get packaging_editing_title => 'Edit Packaging';
 
   @override
-  String get nutrition => 'Magadurezh';
+  String get nutrition => 'Nutrition';
 
   @override
-  String get nutrition_facts_photo => 'Skeudenn fedoù boued';
+  String get nutrition_facts_photo => 'Nutrition facts photo';
 
   @override
-  String get nutrition_facts_editing_title =>
-      'Kemmañ ar fedoù diwar-benn ar boued';
+  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Titouroù evit adkempenn';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Skeudenn titouroù evit adkempenn';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
-  String get missing_product => 'Kavet hoc\'h eus ur produ nevez !';
+  String get missing_product => 'You found a new product!';
 
   @override
   String get add_product_take_photos =>
-      'Tennañ luc\'hskeudennoù eus ar pakad evit ouzhpennañ ar produ-mañ da Open Food Facts';
+      'Take photos of the packaging to add this product to Open Food Facts';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'Tennit fotoioù da gentañ mar plij. Gallout a rit bepred echuiñ ar produ diwezhatoc\'h.';
+      'Please take some photos first. You may always complete the product at a later time.';
 
   @override
   String get add_product_information_button_label =>
       'Ouzhpennañ titouroù ar produ';
 
   @override
-  String get new_product => 'Produ nevez';
+  String get new_product => 'New Product';
 
   @override
-  String get new_product_found_title => 'Produ nevez kavet !';
+  String get new_product_found_title => 'New product found!';
 
   @override
   String get new_product_found_text =>
-      'Ouzhpenn **3 milion a broduioù** a zo en hor diaz roadennoù kenlabour, met n\'eus ket eus ar c\'hod barrennoù-mañ : ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get new_product_found_button => 'Ouzhpennañ ar produ-mañ';
 
   @override
-  String get new_product_leave_title => 'Kuitaat ar bajenn-mañ ?';
+  String get new_product_leave_title => 'Leave this page?';
 
   @override
   String get new_product_leave_message =>
-      'War a seblant n\'hoc\'h eus ket lakaet netra. Fellout a ra deoc\'h kuitaat ar bajenn-mañ ?';
+      'It looks like you didn\'t input anything. Do you really want to leave this page?';
 
   @override
   String get new_product_dialog_description =>
-      'Mar plij, tennit luc\'hskeudennoù eus an endalc\'had evit ouzhpennañ ar produ-mañ en hor diaz roadennoù boutin';
+      'Please take photos of the packaging to add this product to our common database';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'Ur skeudenn gant Nutri-Score ha Green Score dianav';
+      'An illustration with unknown Nutri-Score and Green Score';
 
   @override
-  String get front_packaging_photo_button_label =>
-      'Skeudenn eus an endalc\'had a-raok';
+  String get front_packaging_photo_button_label => 'Front packaging photo';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'Kadarnaat pellgargañ al luc\'hskeudenn pakad a-raok';
+      'Confirm upload of Front packaging photo';
 
   @override
-  String get confirm_button_label => 'Kadarnaat';
+  String get confirm_button_label => 'Confirm';
 
   @override
-  String get send_image_button_label => 'Kas ar skeudenn';
+  String get send_image_button_label => 'Send image';
 
   @override
-  String get crop_page_action_saving => 'Enrollañ ar skeudenn…';
+  String get crop_page_action_saving => 'Saving the image…';
 
   @override
-  String get crop_page_action_cropping => 'Troc\'hañ ar skeudenn…';
+  String get crop_page_action_cropping => 'Cropping the image…';
 
   @override
-  String get crop_page_action_local => 'Enrollañ ur stumm lec\'hel…';
+  String get crop_page_action_local => 'Saving a local version…';
 
   @override
   String get crop_page_action_local_failed_title =>
-      'Ous… ez eus un dra bennak gant ho foto !';
+      'Oops… there\'s something with your photo!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'N\'hallomp ket ober gant ar skeudenn en un doare lec\'hel, a-raok he c\'has d\'hor servijer. Klaskit en-dro diwezhatoc\'h pe kit e darempred ganeomp ma chom ar gudenn.';
+      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
 
   @override
-  String get crop_page_action_retake => 'Adtapout ul luc\'hskeudenn';
+  String get crop_page_action_retake => 'Retake a photo';
 
   @override
-  String get crop_page_too_small_image_title => 'Re vihan eo ar skeudenn !';
+  String get crop_page_too_small_image_title => 'The image is too small!';
 
   @override
   String crop_page_too_small_image_message(
@@ -826,190 +811,184 @@ class AppLocalizationsBr extends AppLocalizations {
     int actualWidth,
     int actualHeight,
   ) {
-    return '${expectedMinWidth}x${expectedMinHeight}eo ar vent vihanañ e pikseloù evit pellgargañ ar skeudennoù. ${actualWidth}x${actualHeight}eo ar skeudenn bremañ.';
+    return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
   }
 
   @override
-  String get crop_page_action_server => 'O prientiñ ur galv d\'an dafariad…';
+  String get crop_page_action_server => 'Preparing a call to the server…';
 
   @override
-  String get front_packaging_photo_title => 'Skeudenn an embannadur a-raok';
+  String get front_packaging_photo_title => 'Front Packaging Photo';
 
   @override
-  String get ingredients_photo_title => 'Skeudenn elfennoù';
+  String get ingredients_photo_title => 'Ingredients Photo';
 
   @override
-  String get nutritional_facts_photo_title => 'Skeudenn fedoù boued';
+  String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Titouroù evit adkempenn Skeudenn';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Tapout ur skeudenn';
 
   @override
-  String get take_more_photo_title => 'Tennañ muioc\'h a skeudennoù';
+  String get take_more_photo_title => 'Take more pictures';
 
   @override
-  String get front_photo_uploaded => 'Luc\'hskeudenn a-raok pellgarget';
+  String get front_photo_uploaded => 'Front photo uploaded';
 
   @override
-  String get ingredients_photo_button_label => 'Skeudenn ar c\'hementadoù';
+  String get ingredients_photo_button_label => 'Ingredients photo';
 
   @override
-  String get ingredients_photo_uploaded =>
-      'Skeudenn ar c\'hementadoù pellgarget';
+  String get ingredients_photo_uploaded => 'Ingredients photo uploaded';
 
   @override
   String get nutrition_cache_loading_error =>
-      'N\'haller ket kargañ elfennoù-boued eus ar c\'hrubuilh';
+      'Unable to load nutrients from cache';
 
   @override
-  String get nutritional_facts_photo_button_label => 'Skeudenn fedoù boued';
+  String get nutritional_facts_photo_button_label => 'Nutrition facts photo';
 
   @override
-  String get nutritional_facts_input_button_label =>
-      'Leuniañ titouroù diwar-benn ar boued';
+  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
 
   @override
-  String get nutritional_facts_added => 'Fedoù boued ouzhpennet';
+  String get nutritional_facts_added => 'Nutrition facts added';
 
   @override
-  String get categories_added => 'Rummadoù ouzhpennet';
+  String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'Jediñ ar Nutri-Score';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'Sikourit ac\'hanomp en ur leuniañ ur rummad da nebeutañ ha talvoudoù boued';
+      'Help us by filling at least a category and nutritional values';
 
   @override
-  String get new_product_title_environmental_score => 'Jediñ ar skor glas';
+  String get new_product_title_environmental_score => 'Compute the Green Score';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Kaout anezhañ en ur leuniañ ur rummad da nebeutañ';
+      'Get it by filling at least a category';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Lakaat ar jediñ Green Score da vezañ resisoc\'h gant orinoù, pakadoù ha muioc\'h c\'hoazh';
+      'Make Green Score computation more precise with origins, packaging & more';
 
   @override
-  String get new_product_title_nova => 'Jediñ al live treuzfurmiñ boued (NOVA)';
+  String get new_product_title_nova =>
+      'Compute the food processing level (NOVA)';
 
   @override
   String get new_product_subtitle_nova =>
-      'Kaout anezhañ en ur leuniañ ar rummad boued hag ar c\'hementadoù';
+      'Get it by filling the food category and ingredients';
 
   @override
-  String get new_product_desc_nova_unknown =>
-      'Dianav eo al live treuzfurmadur boued';
+  String get new_product_desc_nova_unknown => 'Food processing level unknown';
 
   @override
-  String get new_product_title_pictures => 'Produ nevez';
+  String get new_product_title_pictures => 'New product';
 
   @override
   String get new_product_title_pictures_details =>
-      'Tennit al luc\'hskeudennoù da-heul mar plij ha gallout a raio al lusker Open Food Facts ober war-dro ar peurrest !';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'Ha roadennoù diazez zo…';
+  String get new_product_title_misc => 'And some basic data…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'Trugarez evit ho skoazell “$username”!';
+    return 'Thanks for your contribution “$username”!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'Trugarez evit ho skoazell !';
+  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
 
   @override
-  String get new_product_done_button_label => 'Dizoloit ar produ echuet';
+  String get new_product_done_button_label => 'Discover the completed product';
 
   @override
   String get hey_incomplete_product_message =>
-      'Klikit evit respont da 3 goulenn BREMAÑ evit jediñ ar Skor Nutri, ar Skor Glas hag an Ultra-treuzfurmadur (NOVA) !';
+      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Klikit bremañ evit respont da 2 c\'houlenn evit sikour da zielfennañ ar c\'hosmetik-mañ !';
+      'Tap now to answer 2 questions to help analyze this cosmetic!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Klikit bremañ evit respont da 3 goulenn evit sikour da zielfennañ ar produ boued-loened-mañ !';
+      'Tap now to answer 3 questions to help analyze this pet food product!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Klikit bremañ evit sikour da echuiñ ar produ-mañ !';
+      'Tap now to help complete this product!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
-      'Luc\'hskeudenn diwar-benn ar boued pellgarget';
+      'Nutrition facts photo uploaded';
 
   @override
-  String get recycling_photo_button_label => 'Luc\'hskeudenn adkempenn';
+  String get recycling_photo_button_label => 'Recycling photo';
 
   @override
-  String get recycling_photo_uploaded => 'Skeudenn adkempenn pellgarget';
+  String get recycling_photo_uploaded => 'Recycling photo uploaded';
 
   @override
-  String get take_more_photo_button_label => 'Tennañ muioc\'h a skeudennoù';
+  String get take_more_photo_button_label => 'Take more pictures';
 
   @override
-  String get other_photo_uploaded => 'Luc\'hskeudennoù liesseurt pellgarget';
+  String get other_photo_uploaded => 'Miscellaneous photo uploaded';
 
   @override
-  String get retake_photo_button_label => 'Adkemer';
+  String get retake_photo_button_label => 'Retake';
 
   @override
-  String get selecting_photo => 'Dibab al luc\'hskeudenn';
+  String get selecting_photo => 'Selecting photo';
 
   @override
-  String get uploading_image =>
-      'O pellgargañ al luc\'hskeudenn war ar servijer';
+  String get uploading_image => 'Uploading photo to the server';
 
   @override
   String get uploading_image_type_front =>
-      'O pellgargañ ar skeudenn a-raok war Open Food Facts';
+      'Uploading front image to Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Pellgargañ skeudenn ar c\'hementadoù da Open Food Facts';
+      'Uploading ingredients image to Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'O pellgargañ ur skeudenn eus ar boued war Open Food Facts';
+      'Uploading nutrition image to Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'O pellgargañ skeudenn ar pakadoù war Open Food Facts';
+      'Uploading packaging image to Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'O pellgargañ ur skeudenn all war Open Food Facts';
+      'Uploading other image to Open Food Facts';
 
   @override
   String get uploading_image_type_generic =>
-      'Pellgargañ ar skeudenn da Open Food Facts';
+      'Uploading image to Open Food Facts';
 
   @override
-  String get score_add_missing_ingredients => 'Ouzhpennañ elfennoù a vank';
+  String get score_add_missing_ingredients => 'Add missing ingredients';
 
   @override
-  String get score_add_missing_packaging_image =>
-      'Ouzhpennañ ur skeudenn pakadoù a vank';
+  String get score_add_missing_packaging_image => 'Add missing packaging image';
 
   @override
-  String get score_add_missing_nutrition_facts =>
-      'Ouzhpennañ titouroù diwar-benn ar boued a vank';
+  String get score_add_missing_nutrition_facts => 'Add missing nutrition facts';
 
   @override
-  String get score_add_missing_product_traces =>
-      'Ouzhpennañ roudoù produ mankout';
+  String get score_add_missing_product_traces => 'Add missing product traces';
 
   @override
-  String get score_add_missing_product_category => 'Dibab ur rummad';
+  String get score_add_missing_product_category => 'Select a category';
 
   @override
   String get score_add_missing_precise_product_category =>
@@ -1017,42 +996,36 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get score_add_missing_product_countries =>
-      'Ouzhpennañ broioù ar produioù mankout';
+      'Add missing product countries';
 
   @override
   String get score_add_missing_product_emb =>
-      'Ouzhpennañ ar c\'hodoù heuliañ produioù mankout';
+      'Add missing product traceability codes';
 
   @override
-  String get score_add_missing_product_labels =>
-      'Ouzhpennañ tikedennoù produioù mankout';
+  String get score_add_missing_product_labels => 'Add missing product labels';
 
   @override
-  String get score_add_missing_product_origins =>
-      'Ouzhpennañ orinoù ar produ a vank';
+  String get score_add_missing_product_origins => 'Add missing product origins';
 
   @override
-  String get score_add_missing_product_stores =>
-      'Ouzhpennañ stalieroù produioù mankout';
+  String get score_add_missing_product_stores => 'Add missing product stores';
 
   @override
-  String get score_add_missing_product_brands =>
-      'Ouzhpennañ merkoù produioù mankout';
+  String get score_add_missing_product_brands => 'Add missing product brands';
 
   @override
-  String get score_update_nutrition_facts =>
-      'Hizivaat ar fedoù diwar-benn ar boued';
+  String get score_update_nutrition_facts => 'Update nutrition facts';
 
   @override
-  String get nutrition_page_title => 'Fedoù diwar-benn ar boued';
+  String get nutrition_page_title => 'Nutrition Facts';
 
   @override
-  String get nutrition_page_nutritional_info_title =>
-      'Titouroù diwar-benn ar boued';
+  String get nutrition_page_nutritional_info_title => 'Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Talvoudoù spisaet war ar produ :';
+      'Values specified on the product:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Ya';
@@ -1061,62 +1034,61 @@ class AppLocalizationsBr extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'Ket';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo =>
-      'Luc\'hskeudenn digor';
+  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Oberoù mat : titouroù diwar-benn ar boued';
+      'Good practices: Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'A-wechoù e vez **n\'eo ket spisaet ar fedoù war ar boued war ar pakad** pe war un teul roet gant ar produ. Er c\'has-mañ, hag er c\'has-mañ hepken, e c\'hallit lakaat ar werzh da **NANN**.';
+      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Talvoudoù bouedus :';
+  String get nutrition_page_serving_type_label => 'Nutritional values:';
 
   @override
-  String get nutrition_page_per_100g => 'dre 100g';
+  String get nutrition_page_per_100g => 'per 100g';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'dre 100g/ml';
+  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
 
   @override
-  String get nutrition_page_per_serving => 'dre lod';
+  String get nutrition_page_per_serving => 'per serving';
 
   @override
-  String get nutrition_page_add_nutrient => 'Ouzhpennañ un elfenn bouedus';
+  String get nutrition_page_add_nutrient => 'Add a nutrient';
 
   @override
-  String get nutrition_page_serving_size => 'Ment ar servij';
+  String get nutrition_page_serving_size => 'Serving size';
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Lakait ur vent (da sk. : 100g)';
+      'Input a serving size (eg: 100g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Oberoù mat : Ment ar servij';
+      'Good practices: Serving size';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'Ar werzh-mañ a sikour da **ober ur jediñ kenfeurel eus pep boued dre vent**.';
+      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**An unanennoù aotreet** eo : kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公吇, 公吇.';
+      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** pe **60 G** (gwelloc\'h eo an hini gentañ)';
+      '**60 g**, **60g** or **60 G** (prefer the first one)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** pe **1L**';
+      '**1000 ml** or **1L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Unanenn direizh';
+      'Invalid unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1124,98 +1096,88 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Unanennoù direizh';
+      'Invalid units';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **bonbons** ha 2 **koad**';
+      '9 **candies** and 2 **biscuits**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Unanenn vank';
+      'Missing unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => 'Niverenn direizh';
+  String get nutrition_page_invalid_number => 'Invalid number';
 
   @override
   String get nutrition_page_update_running =>
-      'O hizivaat ar produ war ar servijer…';
+      'Updating the product on the server…';
 
   @override
-  String get nutrition_page_update_done => 'Hizivaet eo bet ar produ !';
+  String get nutrition_page_update_done => 'Product updated!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Implijit kementad ar produ evel ment ar servij';
+      'Use the product quantity as serving size';
 
   @override
-  String get nutrition_page_photo_error =>
-      'N\'haller ket kargañ al luc\'hskeudenn';
+  String get nutrition_page_photo_error => 'Unable to load the photo';
 
   @override
-  String get more_photos => 'Luc\'hskeudennoù dedennusoc\'h';
+  String get more_photos => 'More interesting photos';
 
   @override
   String get view_more_photo_button =>
-      'Gwelet an holl luc\'hskeudennoù zo evit ar produ-mañ';
+      'View all existing photos for this product';
 
   @override
-  String get no_product_found => 'N\'eus bet kavet produ ebet';
+  String get no_product_found => 'No product found';
 
   @override
-  String no_product_found_explanation(String search) {
-    return 'Ho klask evit\n**\"$search\"**\nn\'eus disoc\'h ebet.';
-  }
+  String get no_location_found => 'No location found';
 
   @override
-  String get no_product_found_try_world_results =>
-      'Ha fellout a ra deoc\'h ober ar memes enklask-mañ e **hon diaz roadennoù hollek** kentoc\'h ?';
+  String get not_found => 'not found:';
 
   @override
-  String get no_location_found => 'N\'eus bet kavet lec\'hiadur ebet';
+  String get refreshing_product => 'Refreshing product';
 
   @override
-  String get not_found => 'n\'eo ket bet kavet :';
-
-  @override
-  String get refreshing_product => 'Produ freskaat';
-
-  @override
-  String get product_refreshed => 'Nevesaet eo bet ar produ';
+  String get product_refreshed => 'Product refreshed';
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Skeudenn tennet war $date';
+    return 'Image taken on $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Skeudenn tennet war $date. Marteze eo diamzeret ar skeudenn-mañ';
+    return 'Image taken on $date. This image may be outdated';
   }
 
   @override
-  String get product_image_outdated => 'Marteze eo diamzeret ar skeudenn-mañ';
+  String get product_image_outdated => 'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'Marteze eo diamzeret ar skeudenn-mañ';
+      'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'Ouzhpenn ur bloaz zo eo bet tennet ar skeudenn-mañ.\n**Gwiriit hag-eñ eo hizivaet c\'hoazh**.\n\n**Ur c\'hemennadenn hepken** eo. Mard eo an endalc\'had heñvel c\'hoazh e c\'hallit disoñjal ar gemennadenn-mañ.';
+      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Erlec\'hiañ al luc\'hskeudenn ($type)';
+    return 'Replace photo ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Ouzhpennañ ul luc\'hskeudenn ($type)';
+    return 'Add a photo ($type)';
   }
 
   @override
@@ -1226,94 +1188,91 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get product_image_action_from_gallery =>
-      'Dibabit e-touez palier ho pellgomzer';
+      'Select from your phone\'s gallery';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'Dibab e-touez luc\'hskeudennoù ar produ';
+      'Select from the product photos';
 
   @override
-  String get product_image_details_label =>
-      'Titouroù diwar-benn al luc\'hskeudenn';
+  String get product_image_details_label => 'Information about the photo';
 
   @override
-  String get product_image_details_from_producer => 'Digant ar produer';
+  String get product_image_details_from_producer => 'From the producer';
 
   @override
   String get product_image_details_contributor => 'Perzhiad';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Kenlabourer (produer)';
+      'Contributor (producer)';
 
   @override
-  String get product_image_details_date => 'Deiziad';
+  String get product_image_details_date => 'Date';
 
   @override
   String get product_image_details_date_unknown => 'Dianav';
 
   @override
   String get homepage_main_card_logo_description =>
-      'Degemer mat war Open Food Facts';
+      'Welcome to Open Food Facts';
 
   @override
   String get homepage_main_card_subheading =>
-      '**Skannañ** ur c\'hod barrennoù pe\n**klask** ur produ';
+      '**Scan** a barcode or\n**search** for a product';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Klask ur produ';
+  String get homepage_main_card_search_field_hint => 'Search for a product';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Kregiñ da glask';
+  String get homepage_main_card_search_field_tooltip => 'Start search';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Keleier diwezhañ : $news_title';
+    return 'Latest news: $news_title';
   }
 
   @override
-  String get tagline_app_review => 'Plijout a ra deoc\'h an arload ?';
+  String get tagline_app_review => 'Do you like the app?';
 
   @override
-  String get tagline_app_review_button_positive => 'Plijout a ra din ! 😍';
+  String get tagline_app_review_button_positive => 'I love it! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'N\'eo ket e gwirionez…';
+  String get tagline_app_review_button_negative => 'Not really…';
 
   @override
-  String get tagline_app_review_button_later => 'Goulenn diganin diwezhatoc\'h';
+  String get tagline_app_review_button_later => 'Ask me later';
 
   @override
-  String get tagline_feed_news_button => 'Gouzout hiroc\'h';
+  String get tagline_feed_news_button => 'Know more';
 
   @override
-  String get app_review_negative_modal_title =>
-      'Ne blij ket deoc\'h hon arload ?';
+  String get app_review_negative_modal_title => 'You don\'t like our app?';
 
   @override
   String get app_review_negative_modal_text =>
-      'Ha gallout a rit kemer un nebeud eilennoù evit lâret deomp perak ?';
+      'Could you take a few seconds to tell us why?';
 
   @override
-  String get app_review_negative_modal_positive_button => 'Ya, sur a-walc\'h !';
+  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
 
   @override
   String get app_review_negative_modal_negative_button => 'Ket';
 
   @override
-  String get could_not_refresh => 'N\'haller ket freskaat ar produ';
+  String get could_not_refresh => 'Could not refresh product';
 
   @override
-  String get product_internet_error_modal_title =>
-      'Degouezhet ez eus bet ur fazi !';
+  String get product_internet_error_modal_title => 'An error has occurred!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'N\'hallomp ket adtapout titouroù diwar-benn ar produ-mañ abalamour d\'ur fazi rouedad. Gwiriit ho kevreadenn internet ha klaskit en-dro.\n\nFazi diabarzh :\n$error';
+    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
   }
 
   @override
-  String get product_tags_title => 'Perzhioù ar produ';
+  String get product_tags_title => 'Product properties';
 
   @override
   String get no_product_tags_found_message =>
@@ -1330,28 +1289,28 @@ class AppLocalizationsBr extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Ouzhpennañ perzhioù';
+  String get add_tags => 'Add properties';
 
   @override
-  String get add_edit_tags => 'Ouzhpennañ pe kemmañ perzhioù';
+  String get add_edit_tags => 'Add or edit properties';
 
   @override
-  String get edit_tag => 'Kemmañ perzh';
+  String get edit_tag => 'Edit property';
 
   @override
-  String get remove_tag => 'Dilemel ar perzh';
+  String get remove_tag => 'Remove property';
 
   @override
-  String get tag_key => 'Peadra';
+  String get tag_key => 'Property';
 
   @override
   String get tag_keys => 'Perzhioù';
 
   @override
-  String get tag_key_uneditable => 'Perc\'henniezh (na c\'haller ket kemmañ)';
+  String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
-  String get tag_key_input_hint => 'Ebarzhit un elfenn';
+  String get tag_key_input_hint => 'Input a property';
 
   @override
   String get tag_value => 'Talvoudegezh';
@@ -1360,29 +1319,29 @@ class AppLocalizationsBr extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'Lakait un dalvoudenn';
+  String get tag_value_input_hint => 'Input a value';
 
   @override
-  String get tag_key_item => 'Peadra:';
+  String get tag_key_item => 'Property:';
 
   @override
-  String get tag_value_item => 'Talvoud:';
+  String get tag_value_item => 'Value:';
 
   @override
   String get tag_key_explanations =>
-      'Ret eo d\'un alc\'hwez bezañ lizherennoù bihan ha hep esaouenn ebet.';
+      'A key must be lowercase and without any spaces.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'Un dikedenn gant ur perzh $property zo dija !';
+    return 'A tag with a property $property already exists!';
   }
 
   @override
   String get product_internet_error =>
-      'Dibosupl adtapout titouroù diwar-benn ar produ-mañ abalamour d\'ur fazi rouedad.';
+      'Impossible to fetch information about this product due to a network error.';
 
   @override
-  String get cached_results_from => 'Diskouez disoc\'hoù :';
+  String get cached_results_from => 'Show results from:';
 
   @override
   String get product_search_same_category => 'Kavout doareoù all';
@@ -1392,101 +1351,99 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'N\'haller implijout an elfenn-mañ nemet evit ar produioù gant ur rummad.\n\nKemmañ ar produ evit ouzhpennañ ur rummad.';
+      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
 
   @override
   String get product_improvement_add_category =>
-      'Ouzhpennit ur rummad evit jediñ ar Nutri-Score.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Ouzhpennit titouroù diwar-benn ar boued evit jediñ ar Skor-boued.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Ouzhpennit titouroù diwar-benn ar boued hag ur rummad evit jediñ ar Skor-boued.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'N\'haller ket jediñ ar skor Nutri evit ar produ-mañ, ar pezh a c\'hellfe bezañ abalamour da skouer ur rummad direizh. Ma vez sellet ouzh an dra-se evel ur fazi, kit e darempred ganeomp.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'Diamzeret eo ar skeudenn boued : freskait anezhi mar plij.';
+      'The nutrition image is obsolete: please refresh it.';
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'Ar Skor Glas a gemer e kont orin ar c\'hementadoù. Mar plij, tennit ur foto eus roll ar c\'hementadoù ha/pe eus kement disklêriadur douaroniel pe kemmañ ar produ, evit ma c\'hellfent bezañ kemeret e kont.';
+      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
 
   @override
-  String get country_chooser_label => 'Dibabit ur vro mar plij';
+  String get country_chooser_label => 'Please choose a country';
 
   @override
-  String get currency_chooser_label => 'Dibabit ur moneiz mar plij';
+  String get currency_chooser_label => 'Please choose a currency';
 
   @override
-  String get country_change_message => 'Nevez zo hoc\'h eus cheñchet bro.';
+  String get country_change_message => 'You have just changed countries.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Fellout a ra deoc\'h cheñch ar moneiz eus $previousCurrency da $possibleCurrency?';
+    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Dibabit ur vro mar plij :';
+  String get onboarding_country_chooser_label => 'Please choose a country:';
 
   @override
-  String get country_chooser_label_from_settings => 'Ho bro';
+  String get country_chooser_label_from_settings => 'Your country';
 
   @override
   String get country_selection_explanation =>
-      'Perzhioù endro zo a zo diouzh al lec\'h';
+      'Some environmental features are location-specific';
 
   @override
-  String get product_removed_comparison =>
-      'Produ tennet diouzh ar c\'heñveriañ';
+  String get product_removed_comparison => 'Product removed from comparison';
 
   @override
-  String get native_app_settings => 'Arventennoù orin an arload';
+  String get native_app_settings => 'Native App Settings';
 
   @override
   String get native_app_description =>
-      'Digeriñ arventennoù ar reizhiad evit Open Food Facts';
+      'Open systems settings for Open Food Facts';
 
   @override
-  String get product_removed_history =>
-      'Tennet eo bet ar produ diouzh an istor';
+  String get product_removed_history => 'Product removed from history';
 
   @override
-  String get product_removed_list => 'Produ tennet diouzh ar roll';
+  String get product_removed_list => 'Product removed from list';
 
   @override
-  String get product_could_not_remove => 'N\'haller ket tennañ ar produ';
+  String get product_could_not_remove => 'Could not remove product';
 
   @override
-  String get no_prodcut_in_list => 'N\'eus produ ebet er roll-mañ';
+  String get no_prodcut_in_list => 'There is no product in this list';
 
   @override
-  String get no_product_in_section => 'N\'eus produ ebet er rann-mañ';
+  String get no_product_in_section => 'There is no product in this section';
 
   @override
-  String get recently_seen_products => 'An holl broduioù gwelet';
+  String get recently_seen_products => 'All viewed products';
 
   @override
-  String get clear => 'Sklaer';
+  String get clear => 'Clear';
 
   @override
-  String get clear_long => 'Goullonderiñ ar roll';
+  String get clear_long => 'Empty the list';
 
   @override
-  String get really_clear => 'Ha fellout a ra deoc\'h dilemel ar roll-mañ ?';
+  String get really_clear => 'Do you really want to delete this list?';
 
   @override
   String pct_match(Object percent) {
-    return '$percent% a glot';
+    return '$percent% match';
   }
 
   @override
@@ -1494,8 +1451,8 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count deiz zo',
-      one: 'un deiz zo',
+      other: '$count days ago',
+      one: 'one day ago',
     );
     return '$_temp0';
   }
@@ -1505,8 +1462,8 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count eurvezhioù zo',
-      one: 'un eurvezh zo',
+      other: '$count hours ago',
+      one: 'one hour ago',
     );
     return '$_temp0';
   }
@@ -1516,9 +1473,9 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count munutennoù zo',
-      one: 'ur vunutenn zo',
-      zero: 'nebeutoc\'h eget ur vunutenn zo',
+      other: '$count minutes ago',
+      one: 'one minute ago',
+      zero: 'less than a minute ago',
     );
     return '$_temp0';
   }
@@ -1528,8 +1485,8 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count miz zo',
-      one: 'ur miz zo',
+      other: '$count months ago',
+      one: 'one month ago',
     );
     return '$_temp0';
   }
@@ -1539,8 +1496,8 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count sizhunvezhioù zo',
-      one: 'ur sizhunvezh zo',
+      other: '$count weeks ago',
+      one: 'one week ago',
     );
     return '$_temp0';
   }
@@ -1550,8 +1507,8 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Keñveriañ $count Produioù',
-      one: 'Keñveriañ ur produ',
+      other: 'Compare $count Products',
+      one: 'Compare one Product',
     );
     return '$_temp0';
   }
@@ -1561,64 +1518,64 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count produ dibabet',
-      one: 'Ur produ dibabet',
-      zero: 'Produ dibabet ebet',
+      other: '$count selected products',
+      one: 'One selected product',
+      zero: 'No selected product',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Keñveriañ ar produioù dibabet';
+  String get compare_products_mode => 'Compare selected products';
 
   @override
-  String get delete_products_mode => 'Dilemel ar produioù dibabet';
+  String get delete_products_mode => 'Delete selected products';
 
   @override
-  String get select_all_products_mode => 'Dibabit an holl broduioù';
+  String get select_all_products_mode => 'Select all products';
 
   @override
-  String get select_none_products_mode => 'Dibabit hini ebet';
+  String get select_none_products_mode => 'Select none';
 
   @override
   String get compare_products_appbar_title => 'Compare products';
 
   @override
   String get compare_products_appbar_subtitle =>
-      'Dibabit daou brodu da nebeutañ';
+      'Please select at least two products';
 
   @override
   String get retry_button_label => 'Klask en-dro';
 
   @override
-  String get connect_with_us => 'Kit e darempred ganeomp';
+  String get connect_with_us => 'Connect with us';
 
   @override
-  String get tiktok => 'Heuliit ac\'hanomp war TikTok';
+  String get tiktok => 'Follow us on TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'Heuliit ac\'hanomp war Instagram';
+  String get instagram => 'Follow us on Instagram';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'Heuliit ac\'hanomp war X (Twitter gwechall)';
+  String get twitter => 'Follow us on X (formerly Twitter)';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Heuliit ac\'hanomp war Mastodon';
+  String get mastodon => 'Follow us on Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Heuliit ac\'hanomp war BlueSky';
+  String get bsky => 'Follow us on BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
@@ -1633,14 +1590,14 @@ class AppLocalizationsBr extends AppLocalizations {
   String get discover => 'Dizoleiñ';
 
   @override
-  String get how_to_contribute => 'Penaos kemer perzh';
+  String get how_to_contribute => 'How to Contribute';
 
   @override
   String get hint_knowledge_panel_message =>
-      'Gallout a rit pouezañ war ne vern peseurt lodenn eus ar gartenn evit kaout muioc\'h a ditouroù diwar-benn ar pezh a welit. Klaskit bremañ !';
+      'Your can tap on any part of the card to get more details about what you see. Try it now!';
 
   @override
-  String get permissions_page_title => 'Mont e-barzh ar c\'hamera';
+  String get permissions_page_title => 'Camera access';
 
   @override
   String get permissions_page_body1 =>
@@ -1648,7 +1605,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get permissions_page_body2 =>
-      'Ma cheñchit soñj e c\'hallit gweredekaat ha diweredekaat an dibarzh-mañ diouzh an arventennoù e kement mare.';
+      'If you change your mind, this option can be enabled and disabled at any time from the settings.';
 
   @override
   String contact_form_body_android(
@@ -1668,7 +1625,7 @@ class AppLocalizationsBr extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'OS: iOS ($version)\nModel: $model\nModel lec\'hiet: $localizedModel';
+    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
   }
 
   @override
@@ -1678,67 +1635,67 @@ class AppLocalizationsBr extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nStumm an arload :$appVersion\nNiverenn sevel an arload :$appBuildNumber\nAnv ar pakad arload :$appPackageName';
+    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
   }
 
   @override
   String get authorize_button_label => 'Authorise';
 
   @override
-  String get refuse_button_label => 'Nac\'hañ';
+  String get refuse_button_label => 'Refuse';
 
   @override
-  String get ask_me_later_button_label => 'Diwezhatoc\'h';
+  String get ask_me_later_button_label => 'Later';
 
   @override
-  String get are_you_sure => 'Sur oc\'h ?';
+  String get are_you_sure => 'Are you sure?';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
-    return 'Mont pelloc\'h war $sourceName';
+    return 'Go further on $sourceName';
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Degemer mat !';
+  String get onboarding_home_welcome_text1 => 'Welcome !';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'An arload a sikour ac\'hanoc\'h da zibab boued a zo mat evidoc\'h hag evit ar **planedenn** !';
+      'The app that helps you choose food that is good for **you** and the **planet**!';
 
   @override
-  String get onboarding_continue_button => 'Kenderc\'hel';
+  String get onboarding_continue_button => 'Continue';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'O kargañ ho produ skouer kentañ';
+      'Loading your first example product';
 
   @override
   String get onboarding_welcome_warning =>
       'Digarezit, hor produ skouer eo, n\'hallit ket e gemmañ :)';
 
   @override
-  String get product_list_your_ranking => 'Ho renkadur';
+  String get product_list_your_ranking => 'Your ranking';
 
   @override
-  String get product_list_empty_icon_desc => 'Istor n\'eo ket hegerz';
+  String get product_list_empty_icon_desc => 'History not available';
 
   @override
-  String get product_list_empty_title => 'Kregiñ da skaniñ';
+  String get product_list_empty_title => 'Start scanning';
 
   @override
   String get product_list_empty_message =>
-      'Ar produioù skannet a zeuio war wel amañ ha gallout a rit gwiriañ titouroù resis diwar o fenn';
+      'Scanned products will appear here and you can check detailed information about them';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'produ',
-      one: 'produ',
-      zero: 'produ',
+      other: 'products',
+      one: 'product',
+      zero: 'product',
     );
-    return 'Freskaat $_temp0 en ho istor';
+    return 'Refreshing $_temp0 in your history';
   }
 
   @override
@@ -1746,95 +1703,94 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Produ',
-      one: 'Produ',
-      zero: 'Produ',
+      other: 'Products',
+      one: 'Product',
+      zero: 'Product',
     );
-    return '$_temp0 nevesaat echu';
+    return '$_temp0 refresh complete';
   }
 
   @override
   String get product_list_compare_side_by_side => 'Keñveriañ skoaz-ouzh-skoaz';
 
   @override
-  String get loading_dialog_default_title => 'Pellgargañ roadennoù';
+  String get loading_dialog_default_title => 'Downloading data';
 
   @override
-  String get loading_dialog_default_error_message =>
-      'N\'haller ket pellgargañ roadennoù';
+  String get loading_dialog_default_error_message => 'Could not download data';
 
   @override
-  String get account_delete => 'Dilemel ar gont';
+  String get account_delete => 'Delete account';
 
   @override
   String get account_delete_title => 'Dilemel ma c\'hont';
 
   @override
-  String get user_profile => 'Kont';
+  String get user_profile => 'Account';
 
   @override
-  String get user_profile_title_guest => 'Degemer mat!';
+  String get user_profile_title_guest => 'Welcome!';
 
   @override
   String get user_profile_subtitle_guest =>
-      'En em enskrivit pe lakait hoc\'h anv evit mont e-barzh ar gumuniezh Open Food Facts';
+      'Sign-in or sign-up to join the Open Food Facts community';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Digeriñ ar fedoù boued kennaskañ : $email';
+    return 'Open Food Facts login: $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Degemer mat $id!';
+    return 'Welcome $id!';
   }
 
   @override
-  String get email_subject_account_deletion => 'Dilemel ar gont';
+  String get email_subject_account_deletion => 'Delete account';
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Demat deoc\'h, diverkit ma c\'hont Open Food Facts mar plij : $userId';
+    return 'Hi there, please delete my Open Food Facts account: $userId';
   }
 
   @override
-  String get settings_app_app => 'Arload';
+  String get settings_app_app => 'Application';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Kamera';
+  String get settings_app_camera => 'Camera';
 
   @override
   String get settings_app_products => 'Produioù';
 
   @override
-  String get settings_app_miscellaneous => 'A bep seurt';
+  String get settings_app_miscellaneous => 'Miscellaneous';
 
   @override
-  String get camera_play_sound_title => 'Seniñ ur son war ar skan';
+  String get camera_play_sound_title => 'Play a sound on scan';
 
   @override
-  String get camera_play_sound_subtitle => 'Sonañ a raio bep skan aet mat';
+  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
 
   @override
   String get camera_window_accessibility_label =>
-      'Skannañ ur c\'hod barrennoù gant ho kamera';
+      'Scan a barcode with your camera';
 
   @override
-  String get app_haptic_feedback_title => 'Vibrasion & Haptik';
+  String get app_haptic_feedback_title => 'Vibration & Haptics';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'Krenadennoù goude bezañ kaset da benn oberoù zo (digodet ar c\'hod barrennoù, tennet ar produ…).';
+      'Vibrations after executing some actions (barcode decoded, product removed…).';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'Pa vez gweredekaet e vez kaset danevelloù fazioù ent emgefre da reizhiad heuliañ fazioù Open Food Facts, evit ma c\'hallfe ar fazioù bezañ reizhet ha gwellaat an arload evel-se.';
+      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1851,23 +1807,23 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get permission_photo_denied_title =>
-      'Aotren implij ar c\'hamera evit skaniñ ar c\'hodoù barrennoù';
+      'Allow camera use to scan barcodes';
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'Evit kaout un doare gwellaet, aotreit $appName da vont e darempred gant ho kamera. Gallout a reot skaniñ ar c\'hodoù barr war-eeun.';
+    return 'For an enhanced experience, please allow $appName to access your camera. You will be able to directly scan barcodes.';
   }
 
   @override
-  String get permission_photo_denied_button => 'Aotren';
+  String get permission_photo_denied_button => 'Allow';
 
   @override
   String get permission_photo_denied_dialog_settings_title =>
-      'Nac\'het eo bet an aotre';
+      'Permission denied';
 
   @override
   String get permission_photo_denied_dialog_settings_message =>
-      'Evel m\'hoc\'h eus nac\'het aotre ar c\'hamera a-raok, e rankit he aotreañ dre zorn diwar an Arventennoù.';
+      'As you\'ve previously denied the camera permission, you must allow it manually from the Settings.';
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
@@ -1877,125 +1833,116 @@ class AppLocalizationsBr extends AppLocalizations {
   String get permission_photo_denied_dialog_settings_button_cancel => 'Nullañ';
 
   @override
-  String get permission_photo_none_found => 'N\'eus bet kavet kamera ebet';
+  String get permission_photo_none_found => 'No camera detected';
 
   @override
-  String get permission_photo_denied =>
-      'N\'eus ket bet aotreet mont e-barzh ar c\'hamera';
+  String get permission_photo_denied => 'No camera access granted';
 
   @override
-  String get show_product_pictures => 'Diskouez skeudennoù ar produ';
+  String get show_product_pictures => 'Show product pictures';
 
   @override
   String get edit_product_label => 'Aozañ ar produ';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'O pellgargañ ho kemmoù…';
+      'Uploading your edits…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Emañ ho kemmoù o vezañ **kaset en drekleur** (pe diwezhatoc\'h e-keñver fazi).\nGallout a rit kenderc\'hel da gemmañ maeziennoù produ all.';
+      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Emañ ho kemmoù o vezañ **kaset en drekleur** (pe diwezhatoc\'h e-keñver fazi).';
+      'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
   String get edit_product_label_short => 'Aozañ';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'Penaos lakaat \"$value\"?';
+    return 'How to enter \"$value\"?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Lakait ur werzh nann-goullo mar plij !';
+      'Please enter a non-empty value!';
 
   @override
   String get edit_product_form_item_error_existing =>
-      'Ar werzh-mañ a zo eno dija !';
+      'This value is already there!';
 
   @override
-  String get edit_product_form_item_add_action_brand =>
-      'Ouzhpennañ ur merk nevez';
+  String get edit_product_form_item_add_action_brand => 'Add a new brand';
 
   @override
-  String get edit_product_form_item_add_action_label =>
-      'Ouzhpennañ un dikedenn nevez';
+  String get edit_product_form_item_add_action_label => 'Add a new label';
 
   @override
-  String get edit_product_form_item_add_action_store =>
-      'Ouzhpennañ ur stal nevez';
+  String get edit_product_form_item_add_action_store => 'Add a new store';
 
   @override
-  String get edit_product_form_item_add_action_origin =>
-      'Ouzhpennañ un orin nevez';
+  String get edit_product_form_item_add_action_origin => 'Add a new origin';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Ouzhpennañ ur c\'hod heuliañ nevez';
+      'Add a new traceability code';
 
   @override
-  String get edit_product_form_item_add_action_country =>
-      'Ouzhpennañ ur vro nevez';
+  String get edit_product_form_item_add_action_country => 'Add a new country';
 
   @override
-  String get edit_product_form_item_add_action_category =>
-      'Ouzhpennañ ur rummad nevez';
+  String get edit_product_form_item_add_action_category => 'Add a new category';
 
   @override
-  String get edit_product_form_item_add_action_trace =>
-      'Ouzhpennañ un roud nevez';
+  String get edit_product_form_item_add_action_trace => 'Add a new trace';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Ouzhpennañ ur mennozh';
+  String get edit_product_form_item_add_suggestion => 'Add suggestion';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Nac\'h ar c\'hinnig';
 
   @override
-  String get edit_product_form_item_details_title => 'munudoù diazez';
+  String get edit_product_form_item_details_title => 'Basic details';
 
   @override
   String get edit_product_form_item_details_subtitle =>
-      'Anv ar produ, merk, kementad';
+      'Product name, brand, quantity';
 
   @override
-  String get edit_product_form_item_other_details_title => 'Munudoù ouzhpenn';
+  String get edit_product_form_item_other_details_title => 'Additional details';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'Lec\'hienn…';
+  String get edit_product_form_item_other_details_subtitle => 'Website…';
 
   @override
   String get edit_product_form_item_photos_title => 'Skeudennoù';
 
   @override
-  String get edit_product_form_item_photos_subtitle =>
-      'Ouzhpennañ pe nevesaat luc\'hskeudennoù';
+  String get edit_product_form_item_photos_subtitle => 'Add or refresh photos';
 
   @override
-  String get edit_product_form_item_labels_title => 'Tikedennoù ha testenioù';
+  String get edit_product_form_item_labels_title => 'Labels & Certifications';
 
   @override
   String get edit_product_form_item_labels_subtitle =>
-      'Endro, Tikedennoù kalite…';
+      'Environmental, Quality labels…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Lakait un dikedenn (da sk. : NutriScore)';
+      'Input a label (eg: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'skritellig';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Oberoù mat : Tikedennoù';
+      'Good practices: Labels';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Perzhioù ebet eus ar produ **a zo gwirion** ha disheñvel diouzh an dachennoù all.';
+      'Any characteristic of the product **which is factual** and different from the other fields.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -2003,7 +1950,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Graet e Belgia, produet e Breizh…';
+      'Made in Belgium, produced in Brittany…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -2011,28 +1958,28 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Pinvidik e gwiennoù, mammenn houarn…';
+      'Rich in fiber, source of iron…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Kenwerzh reizh, Max Havelaar…';
+      'Fair trade, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'Stalioù';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Lakaat ur stal';
+  String get edit_product_form_item_stores_hint => 'Input a store';
 
   @override
   String get edit_product_form_item_stores_type => 'stal';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Oberoù mat : Stalioù';
+      'Good practices: Stores';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Lakait ar stal m\'hoc\'h eus prenet ar produ.';
+      'Input the store where you bought the product.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -2047,74 +1994,74 @@ class AppLocalizationsBr extends AppLocalizations {
       'Lidl';
 
   @override
-  String get edit_product_form_item_origins_title => 'Orinoù';
+  String get edit_product_form_item_origins_title => 'Origins';
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Lakait un orin (da sk. : Alamagn)';
+      'Input an origin (eg: Germany)';
 
   @override
   String get edit_product_form_item_origins_type => 'bro';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Oberoù mat : orinoù';
+      'Good practices: Origins';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Ouzhpennit **an holl arouezioù orin a c\'hallit kavout war ar pakad**.\nN\'eus ket ezhomm da vezañ nec\'het gant an orinoù meneget war-eeun e roll an elfennoù.';
+      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Kig-bevin eus Arc\'hantina';
+      'Beef from Argentina';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'Ne zeu ket ar soja eus Unaniezh Europa';
+      'The soy does not come from the European Union';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Lakait ur vro (da sk. : Alamagn)';
+      'Input a country (eg: Germany)';
 
   @override
   String get edit_product_form_item_countries_type => 'bro';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Oberoù mat : Broioù';
+      'Good practices: Countries';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Broioù ma vez kavet ar produ dre vras** (hep kontañ ar stalioù arbennikaet war ar produioù estren).';
+      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
 
   @override
-  String get edit_product_form_item_emb_codes_title => 'Kodoù heuliañ';
+  String get edit_product_form_item_emb_codes_title => 'Traceability codes';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Lakait ur c\'hod (da sk. : EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
-  String get edit_product_form_item_emb_codes_type => 'kod heuliañ';
+  String get edit_product_form_item_emb_codes_type => 'traceability code';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Oberoù mat : Kodoù heuliañ';
+      'Good practices: Traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'Er rann-mañ e c\'hallit lakaat kodoù liammet ouzh **merkoù pakañ**, **merkoù anavezout** pe **merkoù yec\'hed**.';
+      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Skouerioù eus kodoù heuliañ';
+      'Examples of traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**kodoù EC** implijet e Kumuniezh Europa evit anavezout ar produerien pe ar pakadoù boued :';
+      '**EC codes** used in the European Community to identify food producers or packagers:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2122,11 +2069,11 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: kod bro **Frañs**\n**72.264.002**: roadennoù douaroniel\n**CE**: Kumuniezh Europa';
+      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**kodoù EMB** implijet e Bro-C\'hall :';
+      '**EMB codes** used in France:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2140,7 +2087,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Lakait ur roudenn (da skouer : fav soja)';
+      'Input a trace (eg: Soy beans)';
 
   @override
   String get edit_product_form_item_categories_title => 'Rummadoù';
@@ -2150,158 +2097,154 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Lakait ur rummad (da sk. : Chug orañjez)';
+      'Input a category (eg: Orange juice)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Pratikoù mat : Rummadoù';
+      'Good practices: Categories';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Merkit **ar rummad resisañ hepken**.\nOuzhpennet e vo ar rummadoù mamm ent emgefre.';
+      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Rummad mankout ?';
+      'Missing category?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'Ma n\'eo ket hegerz ur rummad en emgefre**, n\'ho peus ket da c\'houlenn ouzhpennañ anezhañ koulskoude.\nSikour a raio ac\'hanomp da wellaat an Open Food Facts en ho bro.';
+      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sardined en eoul-olivez';
+      'Sardines in olive oil';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Suk orañjez diwar ar c\'honsentradur';
+      'Orange juice from concentrate';
 
   @override
-  String get edit_product_form_item_exit_title => 'Paouez hep enrollañ ?';
+  String get edit_product_form_item_exit_title => 'Quit without saving?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Fellout a ra deoc\'h enrollañ ho kemmoù a-raok kuitaat ar bajenn-mañ ?';
+      'Do you want to save your changes before leaving this page?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
-      'Enrollañ ar c\'hemmoù';
+      'Save changes';
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'Dilemel ar c\'hemmoù';
+      'Discard changes';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Aozennoù';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zoumañ ha digreskiñ dre bouezañ war ar skramm';
+      'Zoom in and out by pinching the screen';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zoumañ ha bihanaat al luc\'hskeudenn';
+      'Zoom in and out the photo';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Gant ar jestr **Pign-da-zoom** e c\'hallit brasaat pe bihanaat al luc\'hskeudenn :';
+      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Ouzhpennañ';
 
   @override
   String get edit_product_form_item_add_invalid_item_tooltip =>
-      'Lakait un destenn da gentañ mar plij';
+      'Please enter a text first';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'Lemel kuit';
+  String get edit_product_form_item_remove_item_tooltip => 'Remove';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip =>
-      'Enrollañ ho kemmoù';
+  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Nullañ ho kemm';
+      'Cancel your edit';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'Skeudenn titouroù evit adkempenn';
+      'Recycling instructions photo';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title =>
-      'Fedoù war ar magadurezh';
+  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
-      'Boued, danvez alkool…';
+      'Nutrition, alcohol content…';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Oberoù mat : fedoù war ar boued';
+      'Good practices: Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Talvoudoù boued';
+      'Nutritional values';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'Da gentañ, diuzit hag-eñ eo pourvezet ar **talvoudoù** :';
+      'First, select if the **values are provided**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'Fedoù war ar magadurezh';
+      'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Goude-se, lakait ar gwerzhioù bouedus **evel m\'eo merket war ar pakad**. Ma n\'eus talvoud ebet e c\'hallit klikañ war an arlun \"Lagad\".';
+      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Maez mankout ?';
+      'Missing field?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'Ma vank un enankad e c\'hallit **klikañ war an arlun \"Muioc\'h\"** evit ouzhpennañ anezhañ (da skouer : vitamin D, magneziom…).';
+      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
   String get edit_product_form_save => 'Aozañ';
 
   @override
-  String get edit_product_ingredients_photo_title =>
-      'Skeudenn ar c\'hementadoù';
+  String get edit_product_ingredients_photo_title => 'Ingredients photo';
 
   @override
   String get edit_product_ingredients_list_title => 'Roll an aozennoù';
 
   @override
-  String get edit_product_packaging_photo_title => 'Skeudenn pakañ';
+  String get edit_product_packaging_photo_title => 'Packaging photo';
 
   @override
-  String get edit_product_packaging_list_title => 'Roll an endalc\'hadoù';
+  String get edit_product_packaging_list_title => 'Packaging list';
 
   @override
-  String get no_data_available => 'Roadennoù ebet';
+  String get no_data_available => 'No data available';
 
   @override
-  String get product_field_website_title => 'Lec\'hienn';
+  String get product_field_website_title => 'Website';
 
   @override
-  String get origins_editing_title => 'Kemmañ orinoù';
+  String get origins_editing_title => 'Edit Origins';
 
   @override
-  String get completed_basic_details_btn_text => 'Leuniañ ar munudoù diazez';
+  String get completed_basic_details_btn_text => 'Complete basic details';
 
   @override
-  String get not_implemented_snackbar_text =>
-      'N\'eo ket bet lakaet e pleustr c\'hoazh';
+  String get not_implemented_snackbar_text => 'Not implemented yet';
 
   @override
   String get category_picker_page_appbar_text => 'Rummadoù';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Tennañ elfennoù eus al luc\'hskeudenn';
+      'Extract ingredients from the photo';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2309,79 +2252,74 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Tennañ elfennoù\neus al luc\'hskeudenn';
+      'Extracting ingredients\nfrom the photo';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text =>
-      'O kargañ al luc\'hskeudenn…';
+  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Perak e welan ar gemennadenn-mañ ?';
+      'Why do I see this message?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'Evit implijout an arc\'hwel \"Tennañ elfennoù\" e ranker pellgargañ al luc\'hskeudenn da gentañ.\n\nGortozit un nebeud eilennoù pe lakait anezho dre zorn.';
+      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text =>
-      'Freskaat al luc\'hskeudenn';
+  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
 
   @override
   String get edit_packaging_extract_btn_text =>
-      'Tennañ ar pakad\neus al luc\'hskeudenn';
+      'Extract packaging\nfrom the photo';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Pakadur tennañ';
+  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
 
   @override
   String get edit_packaging_extracting_btn_text =>
-      'O tennañ pakadoù diouzh al luc\'hskeudenn';
+      'Extracting packaging from the photo';
 
   @override
-  String get edit_packaging_loading_photo_btn_text =>
-      'O kargañ al luc\'hskeudenn…';
+  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Perak e welan ar gemennadenn-mañ ?';
+      'Why do I see this message?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'Evit implijout an arc\'hwel \"Tennañ pakadoù\" e ranker pellgargañ al luc\'hskeudenn da gentañ.\n\nGortozit un nebeud eilennoù pe lakait anezho dre zorn.';
+      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text =>
-      'Freskaat al luc\'hskeudenn';
+  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
 
   @override
-  String get edit_ocr_extract_failed =>
-      'C\'hwitet en deus detektet an destenn er skeudenn.';
+  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'Skeudenn ebet !';
+  String get edit_ocr_extract_disabled_title => 'No picture!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'Evit implijout an arc\'hwel tennañ testennoù e rankit tennañ ur foto da gentañ.';
+      'In order to use the text extraction feature, you must first take a photo.';
 
   @override
-  String get user_list_dialog_new_title => 'Roll nevez ar produioù';
+  String get user_list_dialog_new_title => 'New list of products';
 
   @override
-  String get user_list_dialog_rename_title => 'Adlakaat anv war ar roll';
+  String get user_list_dialog_rename_title => 'Rename list';
 
   @override
-  String get user_list_subtitle_product => 'Rolloù';
+  String get user_list_subtitle_product => 'Lists';
 
   @override
   String get user_list_title => 'Ho rolloù';
 
   @override
-  String get user_list_add_product => 'Ouzhpennit ar produ d\'ho rolloù';
+  String get user_list_add_product => 'Add the product to your lists';
 
   @override
-  String get user_list_button_new => 'Krouiñ ur roll nevez';
+  String get user_list_button_new => 'Create a new list';
 
   @override
   String get user_list_empty_label =>
@@ -2391,132 +2329,127 @@ class AppLocalizationsBr extends AppLocalizations {
   String get user_list_button_add_product => 'Ouzhpennañ d\'ar roll';
 
   @override
-  String get added_to_list_msg => 'Ouzhpennet d\'ar roll';
+  String get added_to_list_msg => 'Added to list';
 
   @override
-  String get user_list_popup_clear => 'Diverkañ ho istor';
+  String get user_list_popup_clear => 'Clear your history';
 
   @override
-  String get user_list_popup_rename => 'Adlakaat anv';
+  String get user_list_popup_rename => 'Rename';
 
   @override
-  String get user_list_name_hint => 'Ma roll';
+  String get user_list_name_hint => 'My list';
 
   @override
-  String get user_list_name_error_empty => 'Ret eo an anv';
+  String get user_list_name_error_empty => 'Name is mandatory';
 
   @override
-  String get user_list_name_error_already => 'Implijet eo an anv-se dija';
+  String get user_list_name_error_already => 'That name is already used';
 
   @override
-  String get user_list_name_error_same => 'An hevelep anv eo';
+  String get user_list_name_error_same => 'That is the same name';
 
   @override
-  String get user_list_name_input_hint => 'Anv ar roll |';
+  String get user_list_name_input_hint => 'Name of the list';
 
   @override
-  String get try_again => 'Klaskit en-dro';
+  String get try_again => 'Try Again';
 
   @override
-  String get there_was_an_error => 'Ur fazi zo bet';
+  String get there_was_an_error => 'There was an error';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return 'Rummad ebet bet kavet evit $items';
+    return 'No category found for $items';
   }
 
   @override
-  String get camera_toggle_camera =>
-      'Tremen etre ar c\'hamera a-dreñv hag ar c\'hamera a-raok';
+  String get camera_toggle_camera => 'Switch between back and front camera';
 
   @override
-  String get camera_toggle_flash =>
-      'Lakaat war-sav pe lazhañ flash ar c\'hamera';
+  String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
 
   @override
-  String get camera_enable_flash => 'Gweredekaat ar flash';
+  String get camera_enable_flash => 'Enable flash';
 
   @override
-  String get camera_disable_flash => 'Diweredekaat ar flash';
+  String get camera_disable_flash => 'Disable flash';
 
   @override
-  String get camera_flash_error_dialog_title =>
-      'Degouezhet ez eus bet ur fazi !';
+  String get camera_flash_error_dialog_title => 'An error occurred!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'Degouezhet ez eus bet ur fazi e-pad ma oac\'h o cheñch stad ho flash. Gwiriit n\'eo ket bet gweredekaet an torch gant ho pellgomzer hezoug.';
+      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
 
   @override
   String get category_picker_no_category_found_button => 'Distro';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Klikit evit digeriñ en ho merdeer pe en arload (ma\'z eo staliet)';
+      'Click to open in your browser or in the application (if installed)';
 
   @override
-  String get dev_preferences_screen_title => 'Mod DEV';
+  String get dev_preferences_screen_title => 'DEV Mode';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'Mont e darempred gant arc\'hwelioù arnodel ha binvioù diorren';
 
   @override
-  String get dev_preferences_reset_onboarding_title =>
-      'Adloc\'hañ an enporzhiañ';
+  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'Ret eo deoc\'h adloc\'hañ an arload evit e welet en-dro.';
+      'You then have to restart the App to see it again.';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'Tremen etre openfoodfacts.org (PROD) ha test env';
+      'Switch between openfoodfacts.org (PROD) and test env';
 
   @override
   String get dev_preferences_test_environment_title =>
-      'Arventennoù an endro amprouiñ';
+      'Test environment parameters';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'URL diazez evit an endro test bremanel : $url';
+    return 'Base URL for current test env: $url';
   }
 
   @override
   String get dev_preferences_test_environment_dialog_title =>
-      'Ostiz an endro amprouiñ';
+      'Test environment host';
 
   @override
-  String get dev_preferences_ml_kit_title => 'Implijout ar c\'heflusker ML';
+  String get dev_preferences_ml_kit_title => 'Use ML Kit';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'neuze e rankit adloc\'hañ an arload-mañ';
+      'then you have to restart this app';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'Bouton ouzhpenn war bajenn ar produ';
+      'Additional button on product page';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'Kemmañ elfennoù dre ur bouton banell anaoudegezh';
+      'Edit ingredients via a knowledge panel button';
 
   @override
-  String get dev_preferences_export_history_title => 'Istor an ezporzhiañ';
+  String get dev_preferences_export_history_title => 'Export History';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'nemedenn';
+  String get dev_preferences_export_history_progress_error => 'exception';
 
   @override
-  String get dev_preferences_export_history_progress_found => 'produ kavet';
+  String get dev_preferences_export_history_progress_found => 'product found';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'n\'eo ket bet kavet produ';
+      'product NOT found';
 
   @override
-  String get dev_preferences_export_history_dialog_title =>
-      'Istor an ezporzhiañ';
+  String get dev_preferences_export_history_dialog_title => 'Export history';
 
   @override
   String get dev_preferences_button_positive => 'Mat eo';
@@ -2525,102 +2458,100 @@ class AppLocalizationsBr extends AppLocalizations {
   String get dev_preferences_button_negative => 'Nullañ';
 
   @override
-  String get dev_preferences_migration_title => 'Dilec\'hiañ roadennoù eus V1';
+  String get dev_preferences_migration_title => 'Data migration from V1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
-    return 'Stad : $status';
+    return 'Status: $status';
   }
 
   @override
   String get dev_preferences_migration_status_already_done =>
-      'berzh pe staliañ nevez';
+      'success or fresh install';
 
   @override
-  String get dev_preferences_migration_status_success => 'berzh';
+  String get dev_preferences_migration_status_success => 'success';
 
   @override
-  String get dev_preferences_migration_status_error => 'fazi';
+  String get dev_preferences_migration_status_error => 'error';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'o vont war-raok';
+  String get dev_preferences_migration_status_in_progress => 'in progress';
 
   @override
   String get dev_preferences_migration_status_required =>
-      'rekis (klikañ evit kregiñ)';
+      'required (click to start)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'dianv';
+  String get dev_preferences_migration_status_not_started => 'unknown';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'Diverkañ a rin an istor ha lakaat 3 produ ennañ';
+      'Will clear history and put 3 products in there';
 
   @override
-  String get dev_preferences_news_custom_url_title =>
-      'URL personelaet evit ar c\'heleier';
+  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
 
   @override
-  String get dev_preferences_news_custom_url_subtitle => 'URL ar restr JSON :';
+  String get dev_preferences_news_custom_url_subtitle =>
+      'URL of the JSON file:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'N\'eo ket lakaet';
+  String get dev_preferences_news_custom_url_empty_value => 'Not set';
 
   @override
   String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Freskaat diwezhañ : $date';
+    return 'Last refresh: $date';
   }
 
   @override
-  String get product_type_label_food => 'Boued';
+  String get product_type_label_food => 'Food';
 
   @override
-  String get product_type_label_beauty => 'Prenañ personel';
+  String get product_type_label_beauty => 'Personal care';
 
   @override
-  String get product_type_label_pet_food => 'Boued al loened-ti';
+  String get product_type_label_pet_food => 'Pet food';
 
   @override
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Dianav';
+  String get product_type_selection_title => 'Product type';
 
   @override
-  String get product_type_selection_title => 'Seurt produ';
-
-  @override
-  String get product_type_selection_subtitle => 'Dibabit seurt ar produ-mañ';
+  String get product_type_selection_subtitle =>
+      'Select the type of this product';
 
   @override
   String get product_type_selection_empty =>
-      'Ret eo deoc\'h dibab ur seurt produ da gentañ !';
+      'You need to select a product type first!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'N\'hallit ket cheñch ar seurt produ ($productType)!';
+    return 'You cannot change the product type ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Berradenn d\'an arload Prizioù war bajenn ar produ';
+      'Shortcut to Prices app on product page';
 
   @override
-  String get prices_app_button => 'Mont d\'an arload Prizioù';
+  String get prices_app_button => 'Go to Prices app';
 
   @override
   String get prices_website_button => 'Digor war lec\'hienn Open Prices';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Ouzhpennit tikedennoù prizioù war-eeun eus ar palier';
+      'Add price tags directly from gallery';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Ur wech dibabet ar skeudennoù ganeoc\'h, ne vo ket tu deoc\'h o kemmañ !';
+      'Once you\'ve selected images, you won\'t be able to edit them!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2631,10 +2562,10 @@ class AppLocalizationsBr extends AppLocalizations {
       'Aotren ar gumuniezh da wiriañ ar prizioù tennet gant an IA.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Prizioù lies';
+  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Pellgargañ dre vras';
+  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Dibab restroù';
@@ -2659,15 +2590,15 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'Prizioù';
+  String get prices_generic_title => 'Prices';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Ouzhpennañ $count prizioù',
-      one: 'Ouzhpennañ ur priz',
+      other: 'Add $count prices',
+      one: 'Add a price',
     );
     return '$_temp0';
   }
@@ -2677,42 +2608,42 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Kas $count prizioù',
-      one: 'Kas ar priz',
+      other: 'Send $count prices',
+      one: 'Send the price',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Ouzhpennañ un elfenn';
+  String get prices_add_an_item => 'Add an item';
 
   @override
-  String get prices_add_a_price => 'Ouzhpennañ ur priz';
+  String get prices_add_a_price => 'Add a price';
 
   @override
-  String get prices_add_a_receipt => 'Ouzhpennañ ur resev';
+  String get prices_add_a_receipt => 'Add a receipt';
 
   @override
-  String get prices_add_price_tags => 'Ouzhpennañ tikedennoù prizioù';
+  String get prices_add_price_tags => 'Add price tags';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'Ar c\'hod barrennoù-mañ ($barcode) a zo er roll dija !';
+    return 'This barcode ($barcode) is already in the list!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'Produ ebet c\'hoazh';
+  String get prices_barcode_search_none_yet => 'No product yet';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'O klask $barcode';
+    return 'Looking for $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Lakait ar c\'hod barrennoù';
+  String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
   String get prices_category_enter => 'Elfenn hep kod barrennoù';
@@ -2739,10 +2670,10 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_category_error_mandatory => 'Ret eo ar rummad';
 
   @override
-  String get prices_barcode_reader_action => 'Lenner kodoù barrennoù';
+  String get prices_barcode_reader_action => 'Barcode reader';
 
   @override
-  String get prices_view_prices => 'Gwelet ar prizioù';
+  String get prices_view_prices => 'View the prices';
 
   @override
   String get prices_list_title => 'Roll ar prizioù';
@@ -2769,9 +2700,6 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get prices_entry_menu_open_product => 'Gwelet munudoù ar produ';
-
-  @override
   String get prices_entry_menu_open_product_prices =>
       'Gwelet an holl brizioù evit ar produ-mañ';
 
@@ -2793,10 +2721,10 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prizioù',
-      one: '1 priz',
+      other: '$count prices',
+      one: '1 price',
     );
-    return '$_temp0 evit $product';
+    return '$_temp0 for $product';
   }
 
   @override
@@ -2804,16 +2732,16 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'An holl $count prizioù',
-      one: 'Ur priz hepken',
-      zero: 'Priz ebet c\'hoazh',
+      other: 'All $count prices',
+      one: 'Only one price',
+      zero: 'No price yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Prizioù $pageSize diwezhañ (en holl : $total)';
+    return 'Latest $pageSize prices (total: $total)';
   }
 
   @override
@@ -2823,32 +2751,32 @@ class AppLocalizationsBr extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Priz : $price / Stal : \"$location\" / Embannet war $date gant \"$user\"';
+    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Digeriñ prouennoù \"$user\"';
+    return 'Open proofs of \"$user\"';
   }
 
   @override
-  String get prices_open_proof => 'Prouenn priz digor';
+  String get prices_open_proof => 'Open price proof';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'An holl $count brouennoù',
-      one: 'Ur prouenn hepken',
-      zero: 'Prouenn ebet c\'hoazh',
+      other: 'All $count proofs',
+      one: 'Only one proof',
+      zero: 'No proof yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Prouennoù $pageSize diwezhañ (en holl : $total)';
+    return 'Latest $pageSize proofs (total: $total)';
   }
 
   @override
@@ -2860,7 +2788,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Kenlabourerien $pageSize pennañ (en holl : $total)';
+    return 'Top $pageSize contributors (total: $total)';
   }
 
   @override
@@ -2872,7 +2800,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Lec\'hiadurioù $pageSize uhelañ (en holl : $total)';
+    return 'Top $pageSize locations (total: $total)';
   }
 
   @override
@@ -2880,9 +2808,9 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prouennoù',
-      one: 'Un prouenn',
-      zero: 'Prouenn ebet',
+      other: '$count proofs',
+      one: 'One proof',
+      zero: 'No proof',
     );
     return '$_temp0';
   }
@@ -2892,9 +2820,9 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count produioù',
-      one: 'Ur produ',
-      zero: 'Produ ebet',
+      other: '$count products',
+      one: 'One product',
+      zero: 'No product',
     );
     return '$_temp0';
   }
@@ -2904,9 +2832,9 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count implijerien',
-      one: 'Un implijer',
-      zero: 'Implijer ebet',
+      other: '$count users',
+      one: 'One user',
+      zero: 'No user',
     );
     return '$_temp0';
   }
@@ -2916,9 +2844,9 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count prizioù',
-      one: 'Ur priz',
-      zero: 'Priz ebet',
+      other: '$count prices',
+      one: 'One price',
+      zero: 'No price',
     );
     return '$_temp0';
   }
@@ -2927,50 +2855,50 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'Priz ouzhpennet a-raok';
 
   @override
-  String get prices_amount_subtitle => 'Sammad';
+  String get prices_amount_subtitle => 'Amount';
 
   @override
-  String get prices_amount_is_discounted => 'Diskontet eo ?';
+  String get prices_amount_is_discounted => 'Is discounted?';
 
   @override
-  String get prices_amount_price_normal => 'Priz';
+  String get prices_amount_price_normal => 'Price';
 
   @override
-  String get prices_amount_price_discounted => 'Priz diskontet';
+  String get prices_amount_price_discounted => 'Discounted price';
 
   @override
-  String get prices_amount_price_not_discounted => 'Priz orin';
+  String get prices_amount_price_not_discounted => 'Original price';
 
   @override
-  String get prices_amount_no_product => 'Mankout a ra ur produ !';
+  String get prices_amount_no_product => 'One product is missing!';
 
   @override
-  String get prices_amount_price_incorrect => 'Talvoud direizh';
+  String get prices_amount_price_incorrect => 'Incorrect value';
 
   @override
-  String get prices_amount_price_mandatory => 'Talvoud ret';
+  String get prices_amount_price_mandatory => 'Mandatory value';
 
   @override
-  String get prices_currency_subtitle => 'Moneiz';
+  String get prices_currency_subtitle => 'Currency';
 
   @override
-  String get prices_date_subtitle => 'Deiziad';
+  String get prices_date_subtitle => 'Date';
 
   @override
-  String get prices_location_subtitle => 'Stal';
+  String get prices_location_subtitle => 'Shop';
 
   @override
-  String get prices_location_find => 'Kavout ur stal';
+  String get prices_location_find => 'Find a shop';
 
   @override
-  String get prices_location_mandatory => 'Ret eo deoc\'h dibab ur stal !';
+  String get prices_location_mandatory => 'You need to select a shop!';
 
   @override
   String get prices_location_search_broader =>
-      'N\'hoc\'h eus ket kavet ar pezh a oac\'h o klask ? Klaskomp un enklask ledanoc\'h !';
+      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
 
   @override
-  String get prices_proof_subtitle => 'Prouenn';
+  String get prices_proof_subtitle => 'Proof';
 
   @override
   String get prices_proof_empty_title => 'Prouenn ebet c\'hoazh !';
@@ -2980,130 +2908,103 @@ class AppLocalizationsBr extends AppLocalizations {
       'Kregiñ gant ouzhpennañ ul luc\'hskeudenn eus ur **resevet** pe ur **tikedenn priz** !';
 
   @override
-  String get prices_proof_find => 'Dibabit ur brouenn';
+  String get prices_proof_find => 'Select a proof';
 
   @override
-  String get prices_proof_change => 'Prouenn ar c\'hemm';
+  String get prices_proof_change => 'Change proof';
 
   @override
-  String get prices_proof_receipt => 'Notenn';
+  String get prices_proof_receipt => 'Receipt';
 
   @override
-  String get prices_proof_price_tag => 'Priz';
+  String get prices_proof_price_tag => 'Price tag';
 
   @override
-  String get prices_proof_mandatory => 'Ret eo deoc\'h dibab ur brouenn !';
+  String get prices_proof_mandatory => 'You need to select a proof!';
 
   @override
-  String get prices_add_validation_error => 'Fazi gwiriekaat';
+  String get prices_add_validation_error => 'Validation error';
 
   @override
-  String get prices_privacy_warning_title => 'Kemennadenn war ar prevezded';
+  String get prices_privacy_warning_title => 'Privacy warning';
 
   @override
-  String get prices_unknown_product => 'Produ dianav';
+  String get prices_unknown_product => 'Unknown product';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Ar prizioù **a vo foran**, asambles gant ar stal ma vez graet anv anezho.\n\nGant-se e c\'hallfe an dud a oar diwar-benn ho lesanv Open Food Facts :\n';
+      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Divizout e peseurt lec\'h emaoc\'h o chom';
+      'Infer in which area you live';
 
   @override
   String get prices_privacy_warning_message_bullet_2 =>
-      'Gouzout petra emaoc\'h o prenañ';
+      'Know what you are buying';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'Ma n\'oc\'h ket aes gant se, cheñchit ho anv-pluenn, pe krouit ur gont Open Food Facts nevez ha kevreit ouzh an arload gantañ.';
+      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
 
   @override
-  String get i_refuse => 'Nac\'hañ a ran';
+  String get i_refuse => 'I refuse';
 
   @override
-  String get i_accept => 'Degemer a ran';
+  String get i_accept => 'I accept';
 
   @override
-  String get prices_currency_change_proposal_title => 'Cheñch ar moneiz ?';
+  String get prices_currency_change_proposal_title => 'Change the currency?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return '**$currency** eo ho moneiz bremañ. Fellout a ra deoc\'h e gemmañ da **$newCurrency** ?';
+    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Ya, implijit $newCurrency';
+    return 'Yes, use $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'Nann, mirout $currency';
+    return 'No, keep $currency';
   }
 
   @override
-  String get prices_menu_know_more =>
-      'Gouzout hiroc\'h diwar-benn ar prizioù digor';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Graet';
 
   @override
-  String get dev_mode_section_server => 'Kefluniadur an dafariad';
+  String get dev_mode_section_server => 'Server configuration';
 
   @override
-  String get dev_mode_section_news => 'Kefluniadur ar pourvezer keleier';
+  String get dev_mode_section_news => 'News provider configuration';
 
   @override
-  String get dev_mode_section_product_page => 'Pajenn ar produ';
+  String get dev_mode_section_product_page => 'Product page';
 
   @override
-  String get dev_mode_section_ui => 'Etrefas implijer';
+  String get dev_mode_section_ui => 'User Interface';
 
   @override
-  String get dev_mode_section_experimental_features => 'Perzhioù arnodel';
+  String get dev_mode_section_experimental_features => 'Experimental features';
 
   @override
-  String get dev_mode_hide_environmental_score_title => 'Dilemel ar skor glas';
+  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Implijout ur gwirier reizhskrivañ evit ar skrammoù OCR';
+      'Use a spellchecker for OCR screens';
 
   @override
-  String get dev_mode_spellchecker_for_ocr_subtitle => '(Dafar ha pakadoù)';
+  String get dev_mode_spellchecker_for_ocr_subtitle =>
+      '(Ingredients and packaging)';
 
   @override
   String get dev_mode_reset_app_language_title =>
@@ -3117,15 +3018,14 @@ class AppLocalizationsBr extends AppLocalizations {
       'Tremen etre prices.openfoodfacts.org (PROD) hag env test';
 
   @override
-  String get search_history_item_edit_tooltip =>
-      'Adimplijit ha kemmañ an enklask-mañ';
+  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
-  String get search_history_item_remove_tooltip => 'Lemel kuit';
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'Pellgarget hoc\'h eus an holl broduioù $totalSize .';
+    return 'You\'ve downloaded all the $totalSize products.';
   }
 
   @override
@@ -3134,39 +3034,38 @@ class AppLocalizationsBr extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return 'Pellgargañ $count muioc\'h a broduioù\nPellgarget $downloaded diwar $totalSize.';
+    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return 'Emañ ho klask $search o vont war-raok.\n\nGortozit un nebeud eilennoù mar plij…';
+    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
   }
 
   @override
-  String get user_search_contributor_title => 'Produioù am eus ouzhpennet';
+  String get user_search_contributor_title => 'Products I added';
 
   @override
-  String get user_search_informer_title => 'Produioù am eus kemmet';
+  String get user_search_informer_title => 'Products I edited';
 
   @override
-  String get user_search_photographer_title =>
-      'Produioù am eus luc\'hskeudennet';
+  String get user_search_photographer_title => 'Products I photographed';
 
   @override
-  String get user_search_to_be_completed_title => 'Ma produioù da vezañ echuet';
+  String get user_search_to_be_completed_title => 'My to-be-completed products';
 
   @override
-  String get user_search_prices_title => 'Ma prizioù';
+  String get user_search_prices_title => 'My prices';
 
   @override
-  String get user_search_proofs_title => 'Ma prouennoù';
+  String get user_search_proofs_title => 'My proofs';
 
   @override
-  String get user_search_proof_title => 'Ma brouenn';
+  String get user_search_proof_title => 'My proof';
 
   @override
   String search_proof_title(String user) {
-    return 'Prouenn eus \"$user\"';
+    return 'Proof from \"$user\"';
   }
 
   @override
@@ -3175,17 +3074,17 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'Prizioù diwezhañ ouzhpennet';
+  String get all_search_prices_latest_title => 'Latest Prices added';
 
   @override
-  String get all_search_prices_top_user_title => 'Kenlabourerien priz uhelañ';
+  String get all_search_prices_top_user_title => 'Top price contributors';
 
   @override
   String get all_search_prices_top_location_title =>
-      'Stalioù gant ar muiañ a brizioù';
+      'Stores with the most prices';
 
   @override
-  String get prices_contribution_assistant => 'Skoazeller evit ar priz';
+  String get prices_contribution_assistant => 'Price Contribution Assistant';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3194,67 +3093,63 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system =>
-      'Ouzhpennañ meur a brouenn';
+  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
 
   @override
-  String get all_search_prices_top_location_single_title =>
-      'Prizioù en ur stal';
+  String get all_search_prices_top_location_single_title => 'Prices in a store';
 
   @override
   String get all_search_prices_top_product_title =>
-      'Produioù gant ar muiañ a brizioù';
+      'Products with the most prices';
 
   @override
-  String get all_search_to_be_completed_title => 'An holl broduioù da echuiñ';
+  String get all_search_to_be_completed_title => 'All to-be-completed products';
 
   @override
   String get categorize_products_country_title =>
-      'Sikour da rummata ar produioù en ho bro';
+      'Help categorize products in your country';
 
   @override
-  String get edit_product_action_retake_picture => 'Adtapout al luc\'hskeudenn';
+  String get edit_product_action_retake_picture => 'Retake photo';
 
   @override
-  String get edit_product_action_take_picture => 'Tennañ luc\'hskeudenn';
+  String get edit_product_action_take_picture => 'Take photo';
 
   @override
-  String get edit_product_action_confirm => 'Kadarnaat';
+  String get edit_product_action_confirm => 'Confirm';
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'Asantiñ a ran gant Open Food Facts ';
+      'I agree to the Open Food Facts ';
 
   @override
-  String get signup_page_terms_of_use_line2 => 'termenoù implij ha kenlabour';
+  String get signup_page_terms_of_use_line2 => 'terms of use and contribution';
 
   @override
-  String get analytics_consent_image_semantic_label =>
-      'Arouezenn an analizennoù';
+  String get analytics_consent_image_semantic_label => 'Analytics icon';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Fazi marvel : $error';
+    return 'Fatal Error: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Fazi marvel : $error';
+    return 'Fatal Error: $error';
   }
 
   @override
-  String get summary_card_button_add_basic_details =>
-      'Leuniañ ar munudoù diazez';
+  String get summary_card_button_add_basic_details => 'Complete basic details';
 
   @override
   String get edit_photo_button_label => 'Aozañ';
 
   @override
-  String get edit_photo_unselect_button_label => 'Diuzañ al luc\'hskeudenn';
+  String get edit_photo_unselect_button_label => 'Unselect photo';
 
   @override
   String get edit_photo_select_existing_button_label =>
-      'Dibabit ur skeudenn zo anezhi dija';
+      'Select an existing image';
 
   @override
   String get edit_photo_select_existing_all_label =>
@@ -3262,54 +3157,52 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Dibabit ur skeudenn en ur glikañ warni';
+      'Select an image by clicking on it';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'Adtapout ar skeudennoù zo dija…';
+      'Retrieving existing images…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
-      'N\'eus skeudenn ebet bet pellgarget a-raok evit liammañ ouzh ar produ-mañ.';
+      'There are no images previously uploaded related to this product.';
 
   @override
   String get edit_photo_language_not_this_one =>
-      'Skeudenn ebet er yezh-se c\'hoazh';
+      'No image in that language yet';
 
   @override
-  String get edit_photo_language_none => 'Skeudenn ebet c\'hoazh';
+  String get edit_photo_language_none => 'No image yet';
 
   @override
   String get category_picker_screen_title => 'Rummadoù';
 
   @override
-  String get basic_details => 'munudoù diazez';
+  String get basic_details => 'Basic Details';
 
   @override
-  String get product_name => 'Anv ar produ';
+  String get product_name => 'Product Name';
 
   @override
-  String get product_names => 'Anvioù produioù';
+  String get product_names => 'Product Names';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Ouzhpennañ un droidigezh nevez';
+      'Add a new translation';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'A-raok gwiriañ, gwiriit ne ouzhpennit nemet un droidigezh **ma vez kavet ar yezh war ar pakad**';
+      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
 
   @override
-  String get add_basic_details_product_name_open_photo =>
-      'Gwelet al luc\'hskeudenn a-raok';
+  String get add_basic_details_product_name_open_photo => 'View front photo';
 
   @override
-  String get add_basic_details_product_name_take_photo =>
-      'Tennañ luc\'hskeudenn a-raok';
+  String get add_basic_details_product_name_take_photo => 'Take front photo';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Lakait anv ar produ (da skouer : Nutella)';
+      'Input the name of the product (eg: Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3323,41 +3216,41 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Skouerioù mat';
+  String get explanation_section_good_examples => 'Good examples';
 
   @override
-  String get explanation_section_bad_examples => 'Skouerioù fall';
+  String get explanation_section_bad_examples => 'Bad examples';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Oberoù mat : Anv ar produ';
+      'Good practices: Product name';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'Anv ar produ eo an **anv pennañ moullet war ar pakad**. Ur merk marilhet e c\'hall bezañ.';
+      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Notenn :** Mar plij, arabat ouzhpennañ un droidigezh **ma n\'emañ ket ar yezh war ar pakad**.';
+      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Ketchup tomatez';
+      'Tomato Ketchup';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Arabat lakaat ar merk en anv';
+      'Don\'t include the brand in the name';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Ketchup tomatez **gant Heinz**';
+      'Tomato Ketchup **by Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Arabat implijout arouezioù ®, ™, © pe heñvel';
+      'Don\'t use symbols ®, ™, © or similar';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3368,59 +3261,58 @@ class AppLocalizationsBr extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count troidigezhioù all',
-      one: '$count troidigezh all',
+      other: '$count other translations',
+      one: '$count other translation',
     );
     return '$_temp0';
   }
 
   @override
-  String get brand_name => 'Anv ar merk';
+  String get brand_name => 'Brand name';
 
   @override
-  String get brand_names => 'Anvioù merkoù';
+  String get brand_names => 'Brand names';
 
   @override
   String get add_basic_details_brand_name_error =>
-      'Lakait anv ar merk mar plij';
+      'Please enter the brand name';
 
   @override
-  String get add_basic_details_brand_names_hint =>
-      'Merkoù mont e-barzh (da sk. : Ferrero)';
+  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Oberoù mat : Merkoù';
+      'Good practices: Brands';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Lakait **an holl varkoù eus ar produ**.';
+      'Input **all the brands of the product**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Merk pennañ';
+  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'Ar **merk pennañ**, diskouezet splann dre vras war ar pakad a-raok, a zlefe bezañ **lakaet da gentañ**.';
+      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Merkoù all';
+  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'Pa vez gwerzhet **gant un embregerezh bras** :';
+      'When sold **by a big company**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      'Gwerzhet e vez **Actimel** gant **Danone**';
+      '**Actimel** is sold by **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'Pa vez gwerzhet gant e merk **troet e meur a yezh**:';
+      'When sold with its brand **translated in multiple languages**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Traoñienn an Natur** a vez skrivet a-wechoù **Val Natur**';
+      '**Nature Valley** is sometimes written **Val Nature**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3430,184 +3322,181 @@ class AppLocalizationsBr extends AppLocalizations {
       'Oreo, Mondelez';
 
   @override
-  String get quantity => 'Kementad ha pouez';
+  String get quantity => 'Quantity and weight';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Lakait ar pouez ha ma vez ezhomm ar c\'hementad (da sk. : 4x100g)';
+      'Input the weight and if needed the quantity (eg : 4x100g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Oberoù mat : Kementad';
+      'Good practices: Quantity';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Eilañ ar werzh meneget war ar produ ha **na zisoñjit ket an unanennoù**.';
+      'Copy the value indicated on the product and **don\'t forget the units**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** pe **230g**';
+      '**230g** or **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (evit 6 vi)';
+      '**6** (for 6 eggs)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(evit ur produ gant 3 voest, 150g pep hini)';
+      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
 
   @override
   String get barcode => 'Kod barrennoù';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Kod barrennoù : $barcode';
+    return 'Barcode: $barcode';
   }
 
   @override
-  String get barcode_invalid_error => 'Kod barrennoù direizh';
+  String get barcode_invalid_error => 'Invalid barcode';
 
   @override
-  String get basic_details_add_success =>
-      'Ouzhpennet eo bet ar munudoù diazez gant berzh';
+  String get basic_details_add_success => 'Basic details added successfully';
 
   @override
   String get basic_details_add_error =>
-      'N\'haller ket ouzhpennañ titouroù diazez. Klaskit en-dro goude un tamm amzer mar plij';
+      'Unable to add basic details. Please try again after some time';
 
   @override
-  String get clear_search => 'Diverkañ ho klask';
+  String get clear_search => 'Clear your search';
 
   @override
   String get confirm_clear =>
-      'Emaoc\'h o paouez skarzhañ ho istor a-bezh : sur oc\'h e fell deoc\'h kenderc\'hel ?';
+      'You\'re about to clear your entire history: are you sure you want to continue?';
 
   @override
   String get alert_clear_selected_user_list =>
-      'Emaoc\'h o paouez diverkañ elfennoù diuzet en ho roll';
+      'You\'re about to clear selected items in your history';
 
   @override
   String get confirm_clear_selected_user_list =>
-      'Ha sur oc\'h e fell deoc\'h kenderc\'hel ?';
+      'Are you sure you want to continue?';
 
   @override
   String get alert_select_items_to_clear =>
-      'Dibabit unan pe meur a elfenn da ziverkañ';
+      'Please select one or more items to clear';
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'Emaoc\'h o paouez skarzhañ ar roll-mañ ($name): sur oc\'h e fell deoc\'h kenderc\'hel ?';
+    return 'You\'re about to clear this list ($name): are you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Dilemel ar roll ?';
+  String get confirm_delete_user_list_title => 'Delete the list?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'Emaoc\'h o vont da zilemel ar roll \"$name\".\nHa sur oc\'h e fell deoc\'h kenderc\'hel ?';
+    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Ya, kadarnaat a ran';
+  String get confirm_delete_user_list_button => 'Yes, I confirm';
 
   @override
   String importance_label(String name, String id) {
-    return '$name talvoudegezh : $id';
+    return '$name importance: $id';
   }
 
   @override
-  String get user_list_all_title => 'Rolloù';
+  String get user_list_all_title => 'Lists';
 
   @override
-  String get user_list_all_empty => 'Krouit ho roll kentañ';
+  String get user_list_all_empty => 'Create your first list';
 
   @override
-  String get product_list_select => 'Dibabit ur roll';
+  String get product_list_select => 'Select a list';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count produioù',
-      one: 'Ur produ',
-      zero: 'Roll goullo',
+      other: '$count products',
+      one: 'One product',
+      zero: 'Empty list',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'Ouzhpennañ ur roll';
+  String get add_list_label => 'Add list';
 
   @override
-  String get open_food_preferences_tooltip => 'Kemmañ ho penndibaboù boued';
+  String get open_food_preferences_tooltip => 'Edit your food preferences';
 
   @override
-  String get add_photo_button_label => 'Ouzhpennañ luc\'hskeudenn';
+  String get add_photo_button_label => 'Add photo';
 
   @override
   String get add_packaging_photo_button_label =>
-      'Tennañ luc\'hskeudennoù eus kement titour a denn d\'an endalc\'hañ/adkempenn';
+      'Take photos of any packaging/recycling information';
 
   @override
   String get add_origin_photo_button_label =>
-      'Tennañ luc\'hskeudennoù eus kement titour orin';
+      'Take photos of any origin information';
 
   @override
   String get add_emb_photo_button_label =>
-      'Tennañ luc\'hskeudennoù eus kement titour war ar c\'hod heuliañ';
+      'Take photos of any traceability code information';
 
   @override
   String get add_label_photo_button_label =>
-      'Tennañ luc\'hskeudennoù eus tikedennoù ha testenioù ebet';
+      'Take photos of any labels & certifications information';
 
   @override
-  String get choose_image_source_title => 'Dibab tarzh ar skeudenn';
+  String get choose_image_source_title => 'Choose image source';
 
   @override
-  String get choose_image_source_body => 'Dibabit ur vammenn skeudenn mar plij';
+  String get choose_image_source_body => 'Please choose a image source';
 
   @override
-  String get gallery_source_label => 'Palier';
+  String get gallery_source_label => 'Gallery';
 
   @override
-  String get gallery_source_access_denied_dialog_title =>
-      'Nac\'het eo bet mont e-barzh';
+  String get gallery_source_access_denied_dialog_title => 'Access denied';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Siwazh, n\'hall ket an arload mont e-barzh ho palier, rak nac\'het hoc\'h eus an aotre a-raok.\n\nKit da arventennoù an arload en ho pellgomzer Arventennoù -> Luc\'hskeudennoù';
+      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
 
   @override
-  String get gallery_source_access_denied_dialog_button =>
-      'Digeriñ an arventennoù';
+  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
 
   @override
   String get share => 'Rannañ';
 
   @override
   String share_product_text(String url) {
-    return 'Sellit ouzh ar produ-mañ war Open Food Facts : $url';
+    return 'Have a look at this product on Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Sellit ouzh ar produ-mañ war Open Beauty Facts : $url';
+    return 'Have a look at this product on Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Sellit ouzh ar produ-mañ war Open PetFood Facts : $url';
+    return 'Have a look at this product on Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Sellit ouzh ar produ-mañ war Open Products Facts : $url';
+    return 'Have a look at this product on Open Products Facts: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Sellit ouzh ma roll produioù war Open Food Facts : $url';
+    return 'Have a look at my list of products on Open Food Facts: $url';
   }
 
   @override
@@ -3617,173 +3506,172 @@ class AppLocalizationsBr extends AppLocalizations {
   String get capture_new_picture => 'Tapout ur skeudenn';
 
   @override
-  String get choose_from_gallery => 'Dibab e-touez ar palier';
+  String get choose_from_gallery => 'Choose from gallery';
 
   @override
   String get image_upload_queued =>
-      'Karget e vo ar skeudenn en drekleur ar buanañ ar gwellañ.';
+      'The image will be uploaded in the background as soon as possible.';
 
   @override
   String get add_price_queued =>
-      'Kaset e vo ar priz d\'ar servijer ar buanañ ar gwellañ.';
+      'The price will be sent to the server as soon as possible.';
 
   @override
   String get background_task_title_full_refresh =>
-      'Kregiñ gant nevesaat an holl broduioù enrollet lec\'hel';
+      'Starting the refresh of all the products locally stored';
 
   @override
   String get background_task_title_folksonomy =>
-      'Kregiñ da seveniñ oberoù an dafariad evit an hizivadennoù folksonomy enrollet lec\'hel';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
-      'Kregiñ da bellgargañ ar produioù brudetañ';
+      'Starting the download of the most popular products';
 
   @override
-  String get expand_nutrition_facts => 'Astenn an daolenn fedoù war ar boued';
+  String get expand_nutrition_facts => 'Expand nutrition facts table';
 
   @override
   String get expand_nutrition_facts_body =>
-      'Mirout an daolenn fedoù boued astennet';
+      'Keep the nutrition facts table expanded';
 
   @override
-  String get expand_ingredients => 'Astenn ar c\'hementadoù';
+  String get expand_ingredients => 'Expand ingredients';
 
   @override
-  String get expand_ingredients_body => 'Mirout ar banell elfennoù astennet';
+  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
 
   @override
-  String get no_internet_connection => 'Kennask internet ebet';
+  String get no_internet_connection => 'No internet connection';
 
   @override
-  String get world_results_label => 'Ar bed a-bezh';
+  String get world_results_label => 'Entire world';
 
   @override
-  String get world_results_action => 'Astennit ho klask d\'ar bed a-bezh';
+  String get world_results_action => 'Extend your search to the world';
 
   @override
-  String get copy_to_clipboard => 'Eilañ';
+  String get copy_to_clipboard => 'Copy';
 
   @override
-  String get paste_from_clipboard => 'Pegañ diwar ar c\'hlipbord';
+  String get paste_from_clipboard => 'Paste from clipboard';
 
   @override
-  String get no_data_available_in_clipboard => 'Roadenn ebet hegerz en ho klip';
+  String get no_data_available_in_clipboard =>
+      'No data available in your clipboard';
 
   @override
-  String get clipboard_barcode_copy =>
-      'Eilañ ar c\'hod barrennoù war ar c\'hlipbord';
+  String get clipboard_barcode_copy => 'Copy barcode to clipboard';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Kod barrennoù $barcode kopiet war ar c\'hlipbord !';
+    return 'Barcode $barcode copied to the clipboard!';
   }
 
   @override
-  String get open_product_website => 'Digeriñ ar produ-mañ war al lec\'hienn';
+  String get open_product_website => 'Open this product on the website';
 
   @override
-  String get language_picker_label => 'Ho yezh';
+  String get language_picker_label => 'Your language';
 
   @override
-  String get country_picker_label => 'Ho bro';
+  String get country_picker_label => 'Your country';
 
   @override
-  String get currency_picker_label => 'Ho moneiz';
+  String get currency_picker_label => 'Your currency';
 
   @override
-  String get help_with_openfoodfacts => 'Sikour gant OpenFoodFacts';
+  String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
 
   @override
   String get product_task_background_schedule =>
-      'Hizivaet e vo ar produ en drekleur ar buanañ ar gwellañ.';
+      'The product will be updated in the background as soon as possible.';
 
   @override
-  String get no_email_client_available_dialog_title => 'Arload postel ebet !';
+  String get no_email_client_available_dialog_title => 'No email apps!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Kasit ur postel deomp dre zorn da mobile@openfoodfacts.org';
+      'Please send us manually an email to mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'An holl skeudennoù';
+  String get all_images => 'All Images';
 
   @override
-  String get selected_images => 'Skeudennoù dibabet';
+  String get selected_images => 'Selected Images';
 
   @override
-  String get product_card_remove_product_tooltip => 'Dilemel ar produ';
+  String get product_card_remove_product_tooltip => 'Remove product';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'Kod barrennoù nevez skannet : $barcode';
+    return 'New barcode scanned: $barcode';
   }
 
   @override
   String get scan_header_clear_button_tooltip =>
-      'Tennit an holl broduioù diouzh ar c\'harr-nij';
+      'Remove all products from the carousel';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'Mar plij, skanit daou brodu da nebeutañ evit o keñveriañ';
+      'Please scan at least two products to compare them';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'Klikit evit keñveriañ ar produioù ho peus skannet';
+      'Click to compare the products you have scanned';
 
   @override
-  String get scan_product_loading =>
-      'Skannet hoc\'h eus\nar c\'hod barrennoù :';
+  String get scan_product_loading => 'You have scanned\nthe barcode:';
 
   @override
   String get scan_product_loading_initial =>
-      'Emaomp o klask ar produ-mañ !\nGortozit un nebeud eilennoù mar plij…';
+      'We\'re looking for this product!\nPlease wait a few seconds…';
 
   @override
   String get scan_product_loading_long_request =>
-      'Emaomp c\'hoazh o klask ar produ-mañ !\nKavout a rit e pad pell evit kargañ ? Evel-se emaomp…';
+      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'Emaomp c\'hoazh o klask ar produ-mañ.\nFellout a ra deoc\'h adloc\'hañ an enklask ?';
+      'We\'re still looking for this product.\nWould you like to restart the search?';
 
   @override
-  String get scan_product_loading_restart_button => 'Adloc\'hañ ar c\'hlask';
+  String get scan_product_loading_restart_button => 'Restart search';
 
   @override
   String get portion_calculator_description =>
-      'Jediñ ar fedoù boued evit ur c\'hementad resis';
+      'Calculate nutrition facts for a specific quantity';
 
   @override
-  String get portion_calculator_hint => 'Kementad e';
+  String get portion_calculator_hint => 'Quantity in';
 
   @override
   String get portion_calculator_accessibility =>
-      'Lakait ur c\'hementad evit jediñ ar fedoù boued';
+      'Input a quantity to calculate nutrition facts';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Lakait ur c\'hementad etre $min ha $max g';
+    return 'Please enter a quantity between $min and $max g';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Roadennoù mankout. N\'haller ket ober ar jediñ.';
+      'Missing data. Calculation could not be performed.';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return 'Fedoù boued evit $grams g (pe ml)';
+    return 'Nutrition facts for $grams g (or ml)';
   }
 
   @override
-  String get offline_data => 'Roadennoù ezlinenn';
+  String get offline_data => 'Offline Data';
 
   @override
   String get ocr_image_upload_instruction =>
-      'Kargañ ur skeudenn evit tennañ ent emgefre an titouroù a zo enni.';
+      'Upload an image to automatically extract the information it contains.';
 
   @override
-  String get upload_image => 'Pellgargañ al luc\'hskeudenn';
+  String get upload_image => 'Upload Photo';
 
   @override
   String get word_separator_char => ',';
@@ -3792,206 +3680,204 @@ class AppLocalizationsBr extends AppLocalizations {
   String get word_separator => ', ';
 
   @override
-  String get image_download_error => 'C\'hwitet en deus pellgargañ ar skeudenn';
+  String get image_download_error => 'Failed to download image';
 
   @override
   String get image_edit_url_error =>
-      'C\'hwitet en deus kemmañ ar skeudenn rak n\'eo ket bet arventennet URL ar skeudenn.';
+      'Failed to edit image because the image URL was not set.';
 
   @override
-  String get user_picture_source_remember => 'Derc\'hel soñj eus ma dibab';
+  String get user_picture_source_remember => 'Remember my choice';
 
   @override
-  String get user_picture_source_ask => 'Goulenn bep tro';
+  String get user_picture_source_ask => 'Ask each time';
 
   @override
-  String get robotoff_continue => 'Kenderc\'hel';
+  String get robotoff_continue => 'Continue';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count goulennoù',
-      one: 'goulenn',
+      other: '$count questions',
+      one: 'question',
     );
-    return 'Da heul $_temp0';
+    return 'Next $_temp0';
   }
 
   @override
-  String get show_password => 'Diskouez ar ger-tremen';
+  String get show_password => 'Show Password';
 
   @override
-  String get owner_field_info_title => 'Talvoudoù kinniget gant ar produer';
+  String get owner_field_info_title => 'Producer provided values';
 
   @override
   String get owner_field_info_message =>
-      'Gant al logo-se e lakaomp war wel ar roadennoù kinniget gant ar produer, ha n\'hallont ket bezañ kemmet marteze.';
+      'With that logo we highlight data provided by the producer, and that may not be editable.';
 
   @override
-  String get owner_field_info_close_button => 'Serriñ an titouroù-mañ';
+  String get owner_field_info_close_button => 'Close this info';
 
   @override
   String get owner_field_image =>
-      'Gant ar produer eo bet roet ar skeudenn-mañ. Marteze ne vo ket kemmet.';
+      'This image is provided by the producer. It may not be editable.';
 
   @override
-  String get edit_packagings_title => 'Elfennoù pakañ';
+  String get edit_packagings_title => 'Packaging components';
 
   @override
-  String get edit_packagings_element_add => 'Ouzhpennañ un elfenn pakañ';
+  String get edit_packagings_element_add => 'Add a packaging component';
 
   @override
-  String get edit_packagings_completed => 'Echu eo ar pakadoù';
+  String get edit_packagings_completed => 'The packaging is complete';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'Elfenn pakañ #$index';
+    return 'Packaging component #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Niver a unanennoù |';
+  String get edit_packagings_element_field_units => 'Number of units';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'Lakait an niver a unanennoù pakañ eus ar memes stumm hag eus ar memes danvez a gaver er produ.';
+      'Enter the number of packaging units of the same shape and material contained in the product.';
 
   @override
-  String get edit_packagings_element_field_shape => 'Stumm';
+  String get edit_packagings_element_field_shape => 'Shape';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'Lakait anv ar stumm meneget er c\'hemennadennoù adkempenn ma vezont hegerz, pe diuzit ur stumm.';
+      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
 
   @override
-  String get edit_packagings_element_example_shape => 'Boutailh';
+  String get edit_packagings_element_example_shape => 'Bottle';
 
   @override
-  String get edit_packagings_element_field_material => 'Danvez';
+  String get edit_packagings_element_field_material => 'Material';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'Lakait an danvez resis ma c\'haller termeniñ anezhañ (ur c\'hod danvez e-barzh un tric\'horn a c\'haller kavout alies war pezhioù pakañ), pe un danvez hollek (da skouer plastik pe metal) ma n\'oc\'h ket sur.';
+      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
 
   @override
-  String get edit_packagings_element_example_material => 'Gwerenn';
+  String get edit_packagings_element_example_material => 'Glass';
 
   @override
-  String get edit_packagings_element_field_recycling =>
-      'Titouroù war an adkempenn';
+  String get edit_packagings_element_field_recycling => 'Recycling instruction';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Lakait titouroù evit an adkempenn nemet ma vezont meneget war ar produ.';
+      'Enter recycling instructions only if they are listed on the product.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Adkempenn';
+  String get edit_packagings_element_example_recycling => 'Recycle';
 
   @override
   String get edit_packagings_element_field_quantity =>
-      'Kementad net ar produ dre unanenn';
+      'Net quantity of product per unit';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Lakait ar pouez net pe ar volum net ha merkit an unanenn (da skouer g pe ml).';
+      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
 
   @override
   String get edit_packagings_element_field_weight =>
-      'Pouez un unanenn goullo (g)';
+      'Weight of one empty unit (g)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'Tennit ar boued a chom ha gwalc\'hit ha sec\'hit al lodenn endalc\'had a-raok pouezañ. Mar bez posupl, implijit ur skalfad gant 0,1g pe 0,01g a resisted.';
+      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
 
   @override
-  String get background_task_title => 'Degasadennoù o c\'hortoz';
+  String get background_task_title => 'Pending contributions';
 
   @override
   String get background_task_subtitle =>
-      'Enrollet e vez ho kemennadennoù ent emgefre war hor servijer, met n\'eo ket atav en amzer gwirion.';
+      'Your contributions are automatically saved to our server, but not always in real-time.';
 
   @override
-  String get background_task_list_empty =>
-      'N\'eus ket a gefridioù da c\'hortoz';
+  String get background_task_list_empty => 'No Pending Background Tasks';
 
   @override
-  String get background_task_error_server_time_out => 'Amzer echu ar servijer';
+  String get background_task_error_server_time_out => 'Server timeout';
 
   @override
   String get background_task_error_no_internet =>
-      'Fazi kevreadenn Internet. Klaskit diwezhatoc\'h.';
+      'Internet connection error. Try later.';
 
   @override
-  String get background_task_operation_unknown => 'seurt obererezh dianav';
+  String get background_task_operation_unknown => 'unknown operation type';
 
   @override
-  String get background_task_operation_details => 'kemmoù resis';
+  String get background_task_operation_details => 'detailed changes';
 
   @override
-  String get background_task_operation_image => 'pellgargañ luc\'hskeudennoù';
+  String get background_task_operation_image => 'photo upload';
 
   @override
   String get background_task_operation_refresh =>
-      'daleet eo an nevesaat goude pellgargañ al luc\'hskeudennoù';
+      'refresh delayed after photo upload';
 
   @override
-  String get background_task_run_started => 'boulc\'het';
+  String get background_task_run_started => 'started';
 
   @override
-  String get background_task_run_not_started => 'n\'eo ket kroget c\'hoazh';
+  String get background_task_run_not_started => 'not started yet';
 
   @override
-  String get background_task_run_to_be_deleted => 'da vezañ diverket';
+  String get background_task_run_to_be_deleted => 'to be deleted';
 
   @override
   String get background_task_question_stop =>
-      'Fellout a ra deoc\'h paouez gant al labour-se ar buanañ ar gwellañ ?';
+      'Do you want to stop that task ASAP?';
 
   @override
-  String get feed_back => 'Distro';
+  String get feed_back => 'Feedback';
 
   @override
-  String get undo => 'Dizober';
+  String get undo => 'Undo';
 
   @override
-  String get copy_email_to_clip_board => 'Eilañ ar posteloù war ar c\'hlipbord';
+  String get copy_email_to_clip_board => 'Copy email to clipboard';
 
   @override
-  String get please_send_us_an_email_to => 'Kasit ur postel deomp dre zorn da';
+  String get please_send_us_an_email_to =>
+      'Please send us manually an email to';
 
   @override
-  String get email_copied_to_clip_board =>
-      'Eilet eo bet ar postel war ar c\'hlipbord !';
+  String get email_copied_to_clip_board => 'Email copied to clipboard!';
 
   @override
-  String get select_accent_color => 'Dibabit liv ar pouez-mouezh';
+  String get select_accent_color => 'Select Accent Color';
 
   @override
   String get theme_amoled => 'AMOLED';
 
   @override
-  String get color_blue => 'Glas';
+  String get color_blue => 'Blue';
 
   @override
-  String get color_cyan => 'Sian';
+  String get color_cyan => 'Cyan';
 
   @override
-  String get color_green => 'Gwer';
+  String get color_green => 'Green';
 
   @override
-  String get color_light_brown => 'Mank';
+  String get color_light_brown => 'Default';
 
   @override
   String get color_magenta => 'Magenta';
 
   @override
-  String get color_orange => 'Orañjez';
+  String get color_orange => 'Orange';
 
   @override
-  String get color_pink => 'Roz';
+  String get color_pink => 'Pink';
 
   @override
-  String get color_red => 'Ruz';
+  String get color_red => 'Red';
 
   @override
   String get color_rust => 'Rust';
@@ -4000,62 +3886,61 @@ class AppLocalizationsBr extends AppLocalizations {
   String get color_teal => 'Teal';
 
   @override
-  String get text_contrast_mode => 'Keñveriañ an destenn';
+  String get text_contrast_mode => 'Text Contrast';
 
   @override
-  String get contrast_high => 'Uhel';
+  String get contrast_high => 'High';
 
   @override
-  String get contrast_medium => 'Krenn';
+  String get contrast_medium => 'Medium';
 
   @override
-  String get contrast_low => 'Izel';
+  String get contrast_low => 'Low';
 
   @override
-  String get product_refresher_internet_not_found =>
-      'N\'eo ket bet kavet ar produ !';
+  String get product_refresher_internet_not_found => 'Product not found!';
 
   @override
   String get product_refresher_internet_not_connected =>
-      'N\'oc\'h ket kevreet ouzh internet !';
+      'You are not connected to internet!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Digoret eo an dafariad ($host)';
+    return 'Server down ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Fazi dafariad ($exception)';
+    return 'Server error ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'N\'eo ket bet kavet ar produ !';
+  String get product_loader_not_found_title => 'Product not found!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'N\'eus ket eus ur produ gant ar c\'hod barrennoù da-heul en hor diaz roadennoù : $barcode';
+    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'Kennask internet ebet !';
+  String get product_loader_network_error_title => 'No internet connection!';
 
   @override
   String get product_loader_network_error_message =>
-      'Gwiriit hag-eñ emañ ho pellgomzer hezoug war ur rouedad WiFi pe ez eus roadennoù hezoug gweredekaet';
+      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
 
   @override
-  String get page_not_found_title => 'N\'eo ket bet kavet ar bajenn !';
+  String get page_not_found_title => 'Page not found!';
 
   @override
-  String get page_not_found_button => 'Distreiñ d\'ar bajenn degemer';
+  String get page_not_found_button => 'Go back to the homepage';
 
   @override
-  String get download_data => 'Pellgargañ roadennoù';
+  String get download_data => 'Download data';
 
   @override
   String get download_top_products =>
-      'Pellgargit ar 1000 produ gwellañ en ho bro evit ar skanañ diouzhtu';
+      'Download the top 1000 products in your country for instant scanning';
 
   @override
   String download_top_n_products(int count) {
@@ -4068,77 +3953,75 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get download_in_progress =>
-      'Pellgargañ ar roadennoù\nUr pennadig amzer a c\'hallfe padout';
+  String get download_in_progress => 'Downloading data\nThis may take a while';
 
   @override
   String downloaded_products(int num) {
-    return '$num produioù ouzhpennet';
+    return '$num products added';
   }
 
   @override
-  String get update_offline_data => 'Hizivaat roadennoù ar produ ezlinenn';
+  String get update_offline_data => 'Update offline product data';
 
   @override
   String get update_local_database_sub =>
-      'Hizivaat diaz roadennoù ar produioù lec\'hel gant ar roadennoù diwezhañ eus Open Food Facts';
+      'Update the local product database with the latest data from Open Food Facts';
 
   @override
-  String get clear_local_database => 'Diverkañ roadennoù ar produ ezlinenn';
+  String get clear_local_database => 'Clear offline product data';
 
   @override
   String get clear_local_database_sub =>
-      'Diverkañ an holl roadennoù produ lec\'hel eus hoc\'h arload evit leuskel plas';
+      'Clear all local product data from your app to free up space';
 
   @override
   String deleted_products(int num) {
-    return '$num produioù diverket';
+    return '$num products deleted';
   }
 
   @override
   String get loading => 'O kargañ…';
 
   @override
-  String get know_more => 'Gouzout hiroc\'h';
+  String get know_more => 'Know More';
 
   @override
-  String get offline_data_desc =>
-      'Klikit evit gouzout hiroc\'h diwar-benn ar roadennoù ezlinenn';
+  String get offline_data_desc => 'Click to know more about offline data';
 
   @override
-  String get offline_product_data_title => 'Roadennoù produ ezlinenn';
+  String get offline_product_data_title => 'Offline product data';
 
   @override
   String available_for_download(int num) {
-    return '$num produioù a c\'haller skaniñ diouzhtu';
+    return '$num products available for immediate scaning';
   }
 
   @override
-  String get country_selector_title => 'Dibabit ho bro :';
+  String get country_selector_title => 'Select your country:';
 
   @override
-  String get currency_selector_title => 'Dibabit ho moneiz :';
+  String get currency_selector_title => 'Select your currency:';
 
   @override
-  String get language_selector_title => 'Dibabit ho yezh :';
+  String get language_selector_title => 'Select your language:';
 
   @override
-  String get language_selector_section_selected => 'Yezhoù dibabet |';
+  String get language_selector_section_selected => 'Selected languages';
 
   @override
-  String get language_selector_section_frequently_used => 'Implijet alies';
+  String get language_selector_section_frequently_used => 'Frequently used';
 
   @override
   String get action_delete_list => 'Dilemel';
 
   @override
-  String get action_change_list => 'Kemmañ ar roll bremanel';
+  String get action_change_list => 'Change the current list';
 
   @override
   String get product_list_create => 'Krouiñ';
 
   @override
-  String get product_list_create_tooltip => 'Krouiñ ur roll nevez';
+  String get product_list_create_tooltip => 'Create a new list';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4160,25 +4043,25 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Score $letter (Jikladur nevez)';
+    return 'Nutri-Score $letter (New calculation)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Score (Jikladur nevez)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'Nutri-Score dianav';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Nutri-Score dianav (ur jedadenn nevez)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'N\'eo ket arveret Nutri-Score';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'N\'eo ket arveret Nutri-Score (Jalkuladur nevez)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4210,95 +4093,93 @@ class AppLocalizationsBr extends AppLocalizations {
       'Boued dreist-treuzfurmet - strolladoù NOVA';
 
   @override
-  String get nova_group_1 => 'Strollad NOVA 1';
+  String get nova_group_1 => 'NOVA Group 1';
 
   @override
-  String get nova_group_2 => 'Strollad NOVA 2';
+  String get nova_group_2 => 'NOVA Group 2';
 
   @override
-  String get nova_group_3 => 'Strollad NOVA 3';
+  String get nova_group_3 => 'NOVA Group 3';
 
   @override
-  String get nova_group_4 => 'Strollad NOVA 4';
+  String get nova_group_4 => 'NOVA Group 4';
 
   @override
-  String get nova_group_unknown => 'Strollad NOVA dianav';
+  String get nova_group_unknown => 'Unknown NOVA Group';
 
   @override
-  String get nutrition_facts => 'Liveoù boued';
+  String get nutrition_facts => 'Nutrient Levels';
 
   @override
-  String get faq_title_partners => 'Kevelerien ha Patroned an ONG';
+  String get faq_title_partners => 'Partners & Patrons of the NGO';
 
   @override
   String get faq_title_vision =>
-      'Gweledigezh, kefridi, talvoudoù ha programmoù Open Food Facts';
+      'The Open Food Facts Vision, Mission, Values and Programs';
 
   @override
   String get faq_title_install_beauty =>
-      'Staliañ Open Beauty Facts evit krouiñ un diaz roadennoù kosmetik';
+      'Install Open Beauty Facts to create a cosmetic database';
 
   @override
   String get faq_title_install_pet =>
-      'Staliañ Open Pet Food Facts evit krouiñ un diaz roadennoù boued loened-ti';
+      'Install Open Pet Food Facts to create a pet food database';
 
   @override
   String get faq_title_install_product =>
-      'Staliañ Open Products Facts evit krouiñ un diaz roadennoù produioù evit astenn buhez an ergorennoù';
+      'Install Open Products Facts to create a products database to extend the life of objects';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'Jediñ nevez an Nutri-Score : petra nevez ?';
+      'New calculation of the Nutri-Score: what\'s new?';
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Enporzhiañ ho produioù e Open Food Facts';
+      'Pro? Import your products in Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'Darempred ar produer';
+  String get contact_title_pro_email => 'Producer Contact';
 
   @override
-  String get contact_title_press_page => 'Pouezañ war ar bajenn';
+  String get contact_title_press_page => 'Press Page';
 
   @override
-  String get contact_title_press_email => 'Darempred ar gazetennerien';
+  String get contact_title_press_email => 'Press Contact';
 
   @override
   String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
-  String get contact_title_calendar =>
-      'En em enskrivit d\'an deiziataer kevredigezhel';
+  String get contact_title_calendar => 'Subscribe to our community calendar';
 
   @override
-  String get hunger_games_loading_line1 =>
-      'Roit deomp un nebeud eilennoù mar plij…';
+  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
 
   @override
-  String get hunger_games_loading_line2 => 'Emaomp o pellgargañ ar goulennoù !';
+  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
 
   @override
   String get hunger_games_error_label =>
-      'Ah! Un dra bennak zo aet fall… ha n\'hon eus ket gallet kargañ ar goulennoù.';
+      'Argh! Something went wrong… and we couldn\'t load the questions.';
 
   @override
-  String get hunger_games_error_retry_button => 'Adklaskomp !';
+  String get hunger_games_error_retry_button => 'Let\'s retry!';
 
   @override
-  String get reorder_attribute_action => 'Adlakaat an elfennoù';
+  String get reorder_attribute_action => 'Reorder the attributes';
 
   @override
   String get link_cant_be_opened =>
-      'N\'haller ket digeriñ al liamm-mañ war ho trevnad. Gwiriit ez eus ur merdeer staliet ganeoc\'h.';
+      'This link can\'t be opened on your device. Please check that you have a browser installed.';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Titouroù evit $productName';
+    return 'Details for $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Titouroù evit $pageName gant $productName';
+    return 'Details for $pageName with $productName';
   }
 
   @override
@@ -4309,27 +4190,26 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_title =>
-      'Emañ an Nutri-Score o vont war-raok : displegadennoù !';
+      'The Nutri-Score is evolving: explanations!';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'Petra eo ar Nutri-Score ?';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'Ur logo eo ar Nutri-Score hag a glask kelaouiñ ac\'hanoc\'h diwar-benn **kalite bouedus**.';
+      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      'Kemmañ a ra ar c\'hod liv eus glas teñval (**A**) evit ar produioù **yac\'hañ** betek ruz teñval (**E**) evit ar re **nebeutoc\'h yac\'h**.';
+      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
 
   @override
   String get guide_nutriscore_v2_nutriscore_a_caption =>
-      'Al logo Nutri-Score A';
+      'The Nutri-Score A logo';
 
   @override
-  String get guide_nutriscore_v2_why_v2_title =>
-      'Perak emañ Nutri-Score o vont war-raok ?';
+  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
 
   @override
   String get guide_nutriscore_v2_why_v2_intro =>
@@ -4337,81 +4217,81 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_title =>
-      'Priziañ gwelloc\'h an holl evajoù';
+      'Better evaluate all drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_text =>
-      'Gwelloc\'h e oa bet diforc\'het notennoù keñveriañ **laezh**, **evajoù laezh** gant sukr ouzhpennet hag evajoù **legumaj** en algoritm nevez.';
+      'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_title =>
-      'Renkadur gwelloc\'h an evajoù';
+      'Better ranking of drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_text =>
-      'Gwelloc\'h eo kemer e kont ar **danvez sukr** ha plijout a ra d\'an evajoù **sukret nebeut**.\\n**Kastizet e vo an dousterioù ivez** : digreskiñ a raio ar sodaoù dietegel eus ur feur B da etre C hag E. Chom a ra an dour an evaj erbedet.';
+      'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_title =>
-      'Kastizet eo an holen hag ar sukr';
+      'Salt and sugar penalized';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      'Ar produioù **re dous** pe **re sall** a vo **digresket c\'hoazh o feur**.';
+      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_title =>
-      'Hierarkiezh e-barzh an eoul hag ar pesked';
+      'Hierarchy within oils and fishes';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_text =>
-      'Gwellaat a raio ar feur evit **pesked druz** ha **eoul pinvidik e lard mat**.';
+      'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg5_title => 'Bevenniñ ar c\'hig ruz';
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg5_text =>
-      'Bevennet e ranker debriñ **kig ruz**. Setu perak e vo renket gwelloc\'h **ar poultr**.';
+      'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
 
   @override
   String get guide_nutriscore_v2_new_logo_title =>
-      'Penaos diforc\'hañ ar Nutri-Score kozh hag ar jediñ nevez ?';
+      'How to differentiate old Nutri-Score and new calculation?';
 
   @override
   String get guide_nutriscore_v2_new_logo_text =>
-      'Adalek bremañ e c\'hallo al logo diskouez ur meneg \"**Kentadur nevez**\" evit sklaeraat ez eo ar jedadenn nevez e gwirionez.';
+      'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
 
   @override
   String get guide_nutriscore_v2_new_logo_image_caption =>
-      'Logo ar Nutri-Score nevez';
+      'The logo of the new Nutri-Score';
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Pelec\'h kavout ar jediñ Nutri-Score nevez ?';
+      'Where to find the new Nutri-Score calculation?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'Implijet e vez ar Nutri-Score e 7 bro : Bro-C\'hall, Alamagn, Belgia, Spagn, Luksembourg, an Izelvroioù ha Suis.';
+      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Ar c\'henderc\'herien o deus **2 vloaz** d\'an nebeutañ goude sinadur an dekred **da erlec\'hiañ** ar jediñ kozh gant an hini nevez.';
+      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
-      'Hep gortoz, **kavout a reot dija en arload OpenFoodFacts**, ar jediñ nevez, en o zouez ma n\'eo ket bet hizivaet ar skor gant ar c\'henderc\'herien.';
+      'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => 'Petra ne cheñch ket';
+  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
-      'Ur skor savet evit **muzuliañ kalite ar boued** eo ar Nutri-Score. **Kemplezh d\'ar strollad NOVA** eo war **bouedoù dreist-treuzfurmet** (kavet e vez ivez en arload).';
+      'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      'Evit ar c\'henderc\'herien e chom diskouezadur an Nutri-Score **dibar**.';
+      'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
   String get guide_greenscore_title => 'Green-Score';
@@ -4506,7 +4386,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Evit gounit produioù gwelloc\'h e-barzh ur rummad e lakaomp neuze **prizioù ha kastizoù diazezet war meur a dalvoudegezh** :';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4514,7 +4394,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'Roet e vez ur **bonus** d\'ar produioù o deus ur **tikedenn ofisiel, un tiked pe un testeni a warant gounidoù evit an endro** (bio, kenwerzh reizh, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4522,7 +4402,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Ur **bonus** a vez roet diouzh orin ar c\'hementadoù. Gant ar bonus-se e vez kemeret e kont **efedoù an treuzdougen** hag ivez **politikerezh an endro** bro pep produer.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4530,14 +4410,14 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Ur **kastiz** a vez roet d\'ar produioù a endalc\'h elfennoù o deus **efedoù negativel pouezus war ar vevliesseurted hag an ekoreizhiadoù**, evel an eoul-palmez, a zo karget eus e broduiñ da zistruj bras ar c\'hoadeier.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Enpakañ';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'Ur **kastiz** a vez jedet evit kemer e kont **kelc\'hiad an endalc\'hadoù** (implij danvez krai adkempennet ha barregezh da adkempenn) hag an dreist-embannañ.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4545,19 +4425,19 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Evit jediñ ar Green-Score en un doare reizh eo ret kaout **titouroù ha n\'int ket spisaet dre ret war ar pakad** (evel orin ha dregantad resis pep elfenn) pe a vez kavet ral a wech e stumm implijus (evel ur roll eus holl elfennoù ar pakad gant ar seurt plastikoù resis implijet).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Implijet e vez talvoudoù keitat pa n\'eo ket hegerz an titouroù-mañ c\'hoazh**, met goulenn a reomp bremañ digant pep hini sikour ac\'hanomp da zastum an titouroù-mañ a vo talvoudus-kenañ evit ar Green-Score met ivez evit meur a implij all.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Penaos e c\'hall ar geodedourien sikour ?';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'An holl geodedourien a c\'hell sikour ac\'hanomp da zastum ha da frammañ an titouroù a gaver war ar produioù pe a c\'heller tennañ diwarno, evel titouroù diwar-benn ar **pakañ** : \"Mission Emballages\" : ur roll kenlabour bras war an endalc\'hadoù evit an holl broduioù boued (e galleg).';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4632,7 +4512,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Ar boued nann-treuzfurmet (pe naturel) a zo **lodennoù debriñ ar plant** (hadoù, frouezh, delioù, skourroù, gwrizioù) **pe al loened** (kig, boued, vioù, laezh), hag ivez ar c\'hoñkour, an algae hag an dour, goude bezañ bet dispartiet diouzh an natur.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
@@ -4665,7 +4545,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Kalz anezho a zo **deveret diwar treuzfurmadur pelloc\'h elfennoù ar boued**, evel eouloù hidrogenet pe interesterifiet, proteinoù hidrolizet, digenvez protein soja, maltodekstrin, sukr treuzfurmet, ha sirop maiz uhel-fruktoz.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4673,7 +4553,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Ouzhpennadennoù er boued treuzfurmet a zo lod a vez implijet ivez er boued treuzfurmet, evel gwarezourien, enepoksidantoù ha stabilaerien. Ar rummadoù ouzhpennadennoù a gaver er produioù treuzfurmet hepken a zo ar re a vez implijet **evit heuliañ pe gwellaat perzhioù skiantel ar boued pe evit kuzhat perzhioù dic\'hoantaus ar produ diwezhañ**. En o zouez emañ livioù ha livioù all, stabilaerien livioù ; blaz, kreñvaerien blaz, sukr hep sukr ; ha skoazelloù evit ar c\'henderc\'hañ evel ar c\'harbonatañ, ar c\'hreñvaat, ar c\'hementad hag an enep-c\'hwezhañ, an dic\'hwezhañ, an enep-c\'hrouiñ hag ar glazur, an emulsifieroù, ar sec\'herien hag an humectantoù.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4681,7 +4561,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**Ur bern heuliadoù argerzhioù a vez implijet** evit kendeuziñ an elfennoù niverus peurliesañ ha krouiñ ar produ diwezhañ (setu \'ultra-treuzfurmet\'). En o zouez emañ meur a **hep kevatalioù diabarzh**, evel an hidrogenadur hag an hidrolizadur, an estrusiñ hag ar moullañ, hag ar rak-treuzfurmiñ evit ar fritañ.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4689,105 +4569,104 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**Pal hollek an ultra-treuzfurmiñ eo krouiñ produioù boued merket**, **aes** (padus, prest da zebriñ), **dedennus** (tre-bouezus) ha **gounidus-kenañ** (elfennoù koust izel) savet evit dilec\'hiañ an holl strolladoù boued all. Ar produioù boued dreist-treuzfurmet a vez paket en un doare dedennus ha marc\'hataet kalz peurliesañ.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'Ur riskl evit ar yec\'hed';
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Abaoe 2018, gant NutriNet-Santé, eo bet lakaet war wel al liammoù kentañ etre **debriñ boued dreist-treuzfurmet ha riskloù kresket da gaout krign-bev, kleñvedoù ar galon hag an diabetes**. Hiziv an deiz e vez kadarnaet an disoc\'hoù-se gant ouzhpenn 90 studiadenn er bed a-bezh.\nAr c\'hevredigezhioù kreñvañ a denn d\'ar **obezite, d\'ar marv kardiovaskell ha d\'ar sintomoù dic\'hortoz**. War ar vugale e vez gwelet an efedoù dreist-holl war an direizhderioù pouez ha lipidoù.';
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Aliañ a ra ar broioù bevenniñ anezho';
+      'Countries recommend limiting them';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Broioù zo a implij ar strolladoù NOVA evit o c\'hemennadennoù pe o palioù war ar boued, da skouer :\n\n- **🇧🇷 **Skoulmoù war ar boued e Brazil** a erbed bevenniñ** ar boued treuzfurmet ha chom hep debriñ boued dreist-treuzfurmet.\n\n- **🇫🇷 Palioù politikerezh boued yec\'hed foran Frañs** evit 2018-2022 a glask **digreskiñ beveziñ ar boued treuzfurmet eus ar strollad 4 eus 20%**.';
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world-br.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Degemer mat e Open Food Facts !';
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Petra eo Open Food Facts ?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts zo un diaz roadennoù **kenlabourus**, **digoust** ha **digor** a broduioù boued eus ar bed a-bezh.';
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'Krediñ a reomp e rank pep hini kaout titouroù diwar-benn ar pezh a zebr. Dre zastum roadennoù diwar-benn ar c\'hementadoù, an alergenoù, ar fedoù diwar-benn ar boued, hag all, **e roomp tu d\'ar gounezerien da ober dibaboù reizh** ha da gas ar greanterezh boued **war-du un treuzwelusoc\'h**.';
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
 
   @override
-  String get guide_open_food_facts_features_title => 'Perzhioù Open Food Facts';
+  String get guide_open_food_facts_features_title =>
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Kaout kemennadennoù evit ho elfennoù dic\'hoantaet';
+      'Get alerts for your unwanted ingredients';
 
   @override
-  String get guide_open_food_facts_tips_title =>
-      'Alioù evit tennañ luc\'hskeudennoù brav';
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Arabat';
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Evit ar skeudoù hag ar sklêrijenn.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'Testenn displann pe displann ebet.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Arabat troc\'hañ lodennoù eus an destenn.';
+      'Don\'t crop out parts of the text.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 =>
-      'Evit ar foñsoù oberiant.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Do\'s';
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Implijit ur gouloù mat ha reizh.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Gwiriit eo sklaer ha lennus an destenn.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Tapout roll an elfennoù a-bezh.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Lakaat ar produ war un dachenn plaen.';
+      'Keep the product on a flat surface.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Sikour ac\'hanomp da sevel \"Wikipedia ar boued\".';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'Ur skor war ar c\'halite boued';
+      'A score on the nutritional quality';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'Ur skor evit chom hep debriñ boued dreist-treuzfurmet';
+      'A score to avoid ultra-processed foods';
 
   @override
   String get guide_open_food_facts_scores_arg3_title =>
-      'Ur skor evit ar blanedenn';
+      'A score for the planet';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4795,242 +4674,236 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Degemer mat war Open Pet Food Facts !';
+      'Welcome to Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Petra eo Open Pet Food Facts?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts a astenn hor c\'hefridi d\'hor mignoned blevek ! Ur **diaz roadennoù boued loened-ti evit ar c\'hizhier, ar c\'hizhier hag ar c\'hizhier all** eo.';
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'Dastum a reomp titouroù diwar-benn **elfennoù**, **dielfennadur boued**, ha titouroù war ar boued evit sikour perc\'henned loened-ti da zibab ar boued gwellañ evit ezhommoù o loened.';
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Perzhioù diwar-benn boued loened-ti digor';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Kaout kemennadennoù evit ho elfennoù dic\'hoantaet';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Hag alergiek eo ho loen-ti ouzh un elfenn bennak ? Gallout a rit lakaat ur roll elfennoù kosmetek da virout outo, en arload !';
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Alioù evit tennañ luc\'hskeudennoù brav';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Arabat';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Evit ar skeudoù hag ar sklêrijenn.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'Testenn displann pe displann ebet.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Arabat troc\'hañ lodennoù eus an destenn.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Evit ar foñsoù oberiant.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Do\'s';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Implijit ur gouloù mat ha reizh.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Gwiriit eo sklaer ha lennus an destenn.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Tapout roll an elfennoù a-bezh.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Lakaat ar produ war un dachenn plaen.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title =>
-      'Un notenn diwar-benn ar poentoù';
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Sevel ur reizhiad priziañ evit boued al loened-ti **n\'eo ket ur prioritez evit ar mare**. Kemplezh e vefe an doare-ober, rak disheñvel-tre eo an ezhommoù boued hervez ar spesadoù, an oad hag ar yec\'hed. N\'hon eus ket kavet c\'hoazh skipailh skiantel dizalc\'h ebet, gouest da sevel ur skor evel-se.';
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-br.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title =>
-      'Degemer mat e Open Beauty Facts !';
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'Petra eo Open Beauty Facts ?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts zo un diaz roadennoù kenlabourus a **produioù kosmetek**.';
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Hon fal eo displegañ rolloù elfennoù evit sikour ac\'hanoc\'h da **gompren ar pezh a zo en ho traoù personel**. Adalek ar c\'hreionoù hidratañ betek ar fardañ, dastum a reomp roadennoù diwar-benn ar c\'hementadoù, an allergenoù hag an endalc\'hadoù evit brudañ an treuzwelusterezh e greanterezh ar c\'hosmetikoù.';
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Perzhioù Open Beauty Facts';
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Kaout kemennadennoù evit ho elfennoù dic\'hoantaet';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Hag allergiek oc\'h ouzh un elfenn bennak ? C\'hoant hoc\'h eus da zilezel danvezioù komedogen ? C\'hoant hoc\'h eus da zistreiñ diouzh elfennoù dispac\'hel ? Gallout a rit lakaat ur roll elfennoù kosmetek da virout outo, en arload !';
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Alioù evit tennañ luc\'hskeudennoù brav';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Arabat';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Evit ar skeudoù hag ar sklêrijenn.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'Testenn displann pe displann ebet.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Arabat troc\'hañ lodennoù eus an destenn.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Evit ar foñsoù oberiant.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Do\'s';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Implijit ur gouloù mat ha reizh.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Gwiriit eo sklaer ha lennus an destenn.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Tapout roll an elfennoù a-bezh.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Kemer kement a skeudennoù ha ma vez kromm ar voutailh.';
+      'Take as many picture as need if the bottle is curved.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'Marteze e vo ret deoc\'h tennañ an tikedenn evit gwelet roll ar c\'hementadoù.';
+      'You might need to peel the label to see the list of ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Lakaat ar produ war un dachenn plaen.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_beauty_facts_scores_title =>
-      'Un notenn diwar-benn ar poentoù';
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Er c\'hontrol d\'ar produioù boued, n\'eus ket e bed ar c\'hosmetikoù **ur reizhiad priziañ anavezet dre ar bed a-bezh, skoazellet gant ar gouarnamant, evel an Nutri-Score**. Efedoù ar c\'hementadoù a c\'hell bezañ personel-kenañ ha diouzh ar seurt kroc\'hen, an alerjioù hag ar prederioù hiniennel.';
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-br.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Degemer mat e Prizioù Digor !';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Petra eo ar prizioù digor ?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices zo ur raktres evit **dastum ha rannañ prizioù ar produioù dre ar bed**. Un dastumad roadennoù a c\'haller implijout evit an holl eo hag a c\'haller implijout evit an enklaskoù, an dielfennañ hag all. Open Prices a zo bet savet ha miret gant Open Food Facts.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title =>
-      'Penaos e labour ar prizioù digor ?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**Emaomp o c\'hrouiñ ur strollad roadennoù digor evit ar prizioù**. Ar prizioù a c\'hall bezañ ouzhpennet gant an implijerien dre an arload web-mañ, pe dre an arload hezoug ofisiel Open Food Facts. Ar gwerzherien pe an arloadoù trede-perzh a c\'hall kemer perzh ivez dre implijout hon API.';
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Dastum luc\'hskeudennoù eus tikedennoù prizioù en trepasoù';
+      'Collect photos of price tags in aisles';
 
   @override
-  String get guide_open_prices_how_arg2_title =>
-      'Dastum luc\'hskeudennoù ar resevoù';
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
 
   @override
   String get guide_open_prices_why_title =>
-      'Perak e ra Open Food Facts kement-mañ ?';
+      'Why is Open Food Facts doing this ?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'An titouroù diwar-benn ar prizioù a zo pouezus-kenañ evit kompren ar reizhiadoù boued. Un elfenn bennañ eo evit kompren koust ar boued ha brudañ diedoù yac\'hoc\'h. Digeriñ roadennoù ar prizioù zo un doare da aesaat d\'an enklaskerion, d\'ar gazetennerien ha d\'an dud **gompren gwelloc\'h penaos e cheñch prizioù ar boued hervez an douaroniezh hag an amzer**.';
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Heuliañ emdroadur ar prizioù a-hed an amzer';
+      'Track the evolution of prices over time';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'Gwelet **emdroadur ar prizioù** : enflasion digreskiñ, enflasion marc\'had-mat, gallout a reomp heuliañ anezho asambles !';
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
 
   @override
-  String get guide_open_prices_why_arg2_title =>
-      'Keñveriañ ar prizioù e-kichen ho ti';
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'Pa vez muioc\'h a brizioù ganeomp e c\'hallit gwelet **ar stalioù marc\'had-mat tro-dro deoc\'h**.';
+      'As we get more prices, you can spot **the cheapest stores around you**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Ha soñjet hoc\'h eus tennañ ar prizioù diwar lec\'hiennoù ar gwerzherien ?';
+      'Did you consider scraping prices from retailers\' websites?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Evit abegoù lezennel ha teknikel, **ne sellomp ket ouzh skarzhañ ar prizioù diwar lec\'hiennoù ar gwerzherien evel un doare reizh da gemer perzh er Prizioù Digor**. Fellout a ra deomp bezañ sur eo reizh ha hizivaet ar prizioù a zastumomp, ha resev prizioù skrapet digant ar c\'hontribuerien ne aotre ket ac\'hanomp d\'ober kement-se.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Un dibab a c\'haller sellet outañ eo ar skrapañ prizioù en ur stumm da zont eus Open Prices, met graet e vefe gant Open Prices e-unan evit ma c\'hellfemp kaout un testeni eus ar priz diazezet war ar bajenn HTML.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -5038,7 +4911,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'Gallout a rit kinnig prizioù dre implijout hon API.\nMar fell deoc\'h kinnig prizioù war ar skalfad, kit e darempred ganeomp war prices@openfoodfacts.org.';
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -5046,150 +4919,149 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Degemer mat e Open Products Facts !';
+      'Welcome to Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Petra eo Open Products Facts ?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts zo un diaz roadennoù bras ha digor evit **kement produ gant ur c\'hod barrennoù, ha n\'eo ket boued, kosmetik pe boued loened**.';
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'Eus **elektronek** da **c\'hoarielloù**, ha **dilhad** da **dafar naetaat**, ma \'z eus ur c\'hod barrennoù gantañ e c\'haller ouzhpennañ anezhañ. Ar raktres-mañ a glask krouiñ un \"Internet Traoù\" evit an traezoù pemdeziek, o lakaat titouroù diwar o fenn da vezañ aes da gaout gant an holl.';
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Perzhioù ar produioù digor, fedoù';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts a glask kinnig d\'ar gounezerien **astenn buhez an traezoù** dre ginnig an disoc\'hoù kelc\'hiek evit mirout, **dresañ**, **adkempenn** o traezoù pe reiñ dezho ur perc\'henn nevez.';
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Roudoù karbon evit produioù zo';
+      'Carbon footprints for some products';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Efedoù CO2** gant Aotrouniezh Frañs an Endro ADEME a ginnig **efedoù karbon** meur a rummad, gwiriit e vez rummataet ar produioù en un doare resis.';
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Indez reizhañ evit meur a brodu';
+      'Reparability index for many products';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Bep tro ma vo kavet un indez reizhañ gall e vo diskouezet. Ouzhpenn-se, **e c\'hallit kregiñ da zastum an argemmennoù dre implijout al lusker Folksonomy**; evit ma c\'hellfemp adkempenn anezhañ hon-unan en amzer da zont, zoken er broioù ma n\'eo ket hegerz.';
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Kavout doareoù da ginnig/adgwerzhañ ho produ';
+      'Find ways to donate/resell your product';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'Kinnig a reomp liammoù war-du **servijoù tredeog a-du gant ar c\'helc\'hiadoù** a sikour ac\'hanoc\'h da gaout ar seurt produ a glaskit, evel produ eil dorn, evit bezañ dousoc\'h ouzh ar binvioù planedennel.\nNotit n\'omp ket paeet evit en ober, ha ne dalvez ar reizhiad nemet evel skouer evit div lec\'hienn e Bro-C\'hall. Gallout a rit sikour da ledanaat ar reizhiad-mañ en ur teuliañ muioc\'h a lec\'hiennoù war ar wiki.';
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'Peseurt titouroù a zo talvoudus ?';
+      'What information is useful?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'Evit ur bern elfennoù ken ledan, **ar roadennoù a zastumomp a zo souezhus**. Evit en ober, **hon eus krouet al lusker Folksonomy**.';
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'Lusker ar folksonomiezh';
+      'The Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'Un ostilh eo al lusker Folksonomy evit sikour ac\'hanoc\'h da echuiñ produioù gant perzhioù talvoudus. Sikour a ra kement-se da wellaat an enklask hag an dizoloadenn, met ivez da jediñ ha da ziskouez traoù dedennus en amzer da zont.';
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'Gallout a rit ouzhpennañ alc\'hwezioù ha talvoudoù evel : **kevreañ_gant_rouedad_hezoug_5G : ya**';
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'Kavout a reot ur c\'hinnig emgefre eus perzhioù posupl, ha degemeret mat oc\'h da ouzhpennañ ha da enrollañ reoù nevez war ho seurt produioù karetañ.';
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-br.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Gwellvezioù boued digor';
+  String get guide_open_preferences_button_title => 'Open food preferences';
 
   @override
-  String get guide_coming_soon_button_title => 'O tont emberr';
+  String get guide_coming_soon_button_title => 'Coming soon';
 
   @override
-  String get guide_learn_more_subtitle => 'Klikit evit gouzout hiroc\'h';
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
-  String get preview_badge => 'Rakwelet';
+  String get preview_badge => 'Preview';
 
   @override
   String get prices_feedback_form =>
-      'Klikit amañ evit kas ho soñj deomp diwar-benn an elfenn nevez-mañ !';
+      'Click here to send us your feedback about this new feature!';
 
   @override
-  String get menu_button_list_actions => 'Dibab un ober';
+  String get menu_button_list_actions => 'Select an action';
 
   @override
-  String get error_loading_photo => 'Fazi o kargañ al luc\'hskeudenn';
+  String get error_loading_photo => 'Error loading photo';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Implijout evel…';
+  String get photo_viewer_action_use_picture_as => 'Use as…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip =>
-      'Implijit ar skeudenn-mañ evel…';
+  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Implijit ar skeudenn-mañ evel… ($language)';
+    return 'Use this picture as… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'Munudoù';
+  String get photo_viewer_details_button => 'Details';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Munudoù ar foto-mañ';
+      'Details of this photo';
 
   @override
-  String get photo_viewer_details_title => 'Munudoù ar foto';
+  String get photo_viewer_details_title => 'Details of the photo';
 
   @override
   String get photo_viewer_details_contributor_title => 'Perzhiad';
 
   @override
-  String get photo_viewer_details_size_title => 'Ment';
+  String get photo_viewer_details_size_title => 'Size';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height piksel';
+    return '$width x $height pixels';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Deiziad';
+  String get photo_viewer_details_date_title => 'Date';
 
   @override
   String get photo_viewer_details_url_title => 'URL';
 
   @override
-  String get product_page_compatibility_score => 'Kenglotus';
+  String get product_page_compatibility_score => 'Compatible';
 
   @override
-  String get user_lists_action_multi_select => 'Liesdibab';
+  String get user_lists_action_multi_select => 'Multi-select';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Ho skor kempoellded : $score%';
+    return 'Your compatibility score: $score%';
   }
 
   @override
@@ -5200,168 +5072,164 @@ class AppLocalizationsBr extends AppLocalizations {
       'Skeudenn an aozennoù';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Skeudenn ar boued';
+  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Skeudenn ar pakad';
+  String get product_image_packaging_accessibility_label => 'Packaging picture';
 
   @override
-  String get product_image_other_accessibility_label => 'Skeudenn all';
+  String get product_image_other_accessibility_label => 'Other picture';
 
   @override
-  String get product_image_outdated_message =>
-      'Marteze eo diamzeret ar skeudenn-mañ';
+  String get product_image_outdated_message => 'This picture may be outdated';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (marteze eo diamzeret ar skeudenn-mañ)';
+    return '$type (this image may be outdated)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (marteze e vo prennet ar skeudenn-mañ gant ar produer)';
+    return '$type (this image may be locked by the producer)';
   }
 
   @override
-  String get product_image_error => 'N\'haller ket kargañ ar skeudenn !';
+  String get product_image_error => 'Unable to load the image!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'N\'haller ket kargañ ar $type (fazi ar rouedad ?)';
+    return 'Unable to load the $type (network error?)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'Skeudenn\nebet !';
+  String get product_page_image_no_image_available => 'No\nimage!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'Skeudenn ebet evit ar produ-mañ';
+      'No picture available for this product';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Adkempenn pe kuzhat an oberoù';
+      'Reorder or hide actions';
 
   @override
-  String get product_page_action_bar_setting_modal_title => 'Kemmañ an oberoù';
+  String get product_page_action_bar_setting_modal_title => 'Edit actions';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Mont war-raok';
+  String get product_page_action_bar_item_move_up => 'Move up';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Diskenn';
+  String get product_page_action_bar_item_move_down => 'Move down';
 
   @override
-  String get product_page_action_bar_item_enable => 'Gweredekaat an ober';
+  String get product_page_action_bar_item_enable => 'Enable action';
 
   @override
-  String get product_page_action_bar_item_disable => 'Diweredekaat an ober';
+  String get product_page_action_bar_item_disable => 'Disable action';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'O pellgargañ ho kemmoù…';
+      'Uploading your edits…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'Ar roadennoù diskouezet war ar bajenn-mañ **ne ziskouezont ket c\'hoazh ho kemmoù**.\nGortozit un nebeud eilennoù mar plij…';
+      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
 
   @override
-  String get product_add_a_language => 'Ouzhpennañ ur yezh';
+  String get product_add_a_language => 'Add a language';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Kod barrennoù $barcode';
+    return 'Barcode $barcode';
   }
 
   @override
-  String get carousel_close_tooltip =>
-      'Tennit ar produ-mañ eus ar c\'harr-boutin';
+  String get carousel_close_tooltip => 'Remove this product from the carousel';
 
   @override
-  String get carousel_unsupported_header => 'Kod barrennoù dic\'houestlet !';
+  String get carousel_unsupported_header => 'Unsupported barcode!';
 
   @override
-  String get carousel_unsupported_title => 'Oups !';
+  String get carousel_unsupported_title => 'Ooops!';
 
   @override
   String get carousel_unsupported_text =>
-      'N\'eo ket skoret ar c\'hod barrennoù skannet gant Open Food Facts !';
+      'The barcode scanned is not supported by Open Food Facts!';
 
   @override
-  String get carousel_error_header => 'Fazi!';
+  String get carousel_error_header => 'Error!';
 
   @override
-  String get carousel_error_title => 'Un dra fall eo !';
+  String get carousel_error_title => 'It\'s a bummer!';
 
   @override
   String get carousel_error_text_1 =>
-      'N\'hon eus ket gallet pellgargañ titouroù diwar-benn ar c\'hod barrennoù-mañ :';
+      'We couldn\'t download information on this barcode:';
 
   @override
   String get carousel_error_text_2 =>
-      'Gwiriit ho kevreadenn Internet pe klikit war ar bouton-mañ :';
+      'Please check your Internet connection or click this button:';
 
   @override
   String get carousel_error_button => 'Klask en-dro';
 
   @override
-  String get carousel_unknown_product_header => 'Produ dianav';
+  String get carousel_unknown_product_header => 'Unknown product';
 
   @override
   String get carousel_unknown_product_title =>
-      'Gourc\'hemennoù !\nKavet hoc\'h eus __ar maen ral !__';
+      'Congratulations!\nYou\'ve found __the rare gem!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Ouzhpenn **3 milion a broduioù** a zo en hor diaz roadennoù kenlabour, met n\'eus ket eus ar c\'hod barrennoù-mañ : ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get carousel_unknown_product_button => 'Ouzhpennañ ar produ-mañ';
 
   @override
-  String get carousel_loading_header => 'O kargañ titouroù...';
+  String get carousel_loading_header => 'Loading information...';
 
   @override
   String get carousel_loading_title =>
-      'Nevez zo hoc\'h eus skannet ur produ gant ar c\'hod barrennoù da-heul :';
+      'You\'ve just scanned a product with the following barcode:';
 
   @override
   String get carousel_loading_text =>
-      'Emaomp o klask anezhañ en hor diaz roadennoù ouzhpenn **3 milion a broduioù !**';
+      'We are searching for it in our database of more than **3 million products!**';
 
   @override
-  String get product_type_subtitle_food => 'Legumaj, frouezh, boued skornet…';
+  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
 
   @override
-  String get product_type_subtitle_beauty => 'Makeup, soavonoù, pastez-dent…';
+  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Boued evit ar chas, ar chas…';
+  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
 
   @override
-  String get product_type_subtitle_product =>
-      'Pellgomzerioù hezoug, arrebeuri…';
+  String get product_type_subtitle_product => 'Smartphones, furniture…';
 
   @override
-  String get photo_field_front => 'Skeudenn ar produ';
+  String get photo_field_front => 'Product photo';
 
   @override
-  String get photo_field_ingredients => 'Skeudenn ar c\'hementadoù';
+  String get photo_field_ingredients => 'Ingredients photo';
 
   @override
-  String get photo_field_nutrition => 'Skeudenn boued';
+  String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Skeudenn titouroù evit adkempenn';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
-  String get photo_already_exists =>
-      'Bez\' ez eus eus al luc\'hskeudenn-mañ dija';
+  String get photo_already_exists => 'This photo already exists';
 
   @override
-  String get photo_missing => 'Mankout a ra ar foto-mañ';
+  String get photo_missing => 'This photo is missing';
 
   @override
-  String get date => 'Deiziad';
+  String get date => 'Date';
 
   @override
   String get photo_rotate_left => 'Rotate left';
@@ -5370,16 +5238,16 @@ class AppLocalizationsBr extends AppLocalizations {
   String get photo_rotate_right => 'Rotate right';
 
   @override
-  String get photo_undo_action => 'Distreiñ d\'an ober a-raok';
+  String get photo_undo_action => 'Undo the previous action';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'Ur gartenn bed eus $location';
+    return 'A world map of $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'Kenlabourerien OpenStreetMap';
+      'OpenStreetMap contributors';
 
   @override
   String get not_applicable_short => 'N/A';
@@ -5389,96 +5257,57 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Perak eo disheñvel an Nutri-Score-mañ diouzh an hini war ar pakad ?';
+      'Why is this Nutri-Score different from the one on the package?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'Daou zisplegadenn a c\'haller kaout :\nN\'eo ket hizivaet roll ar c\'hementadoù ha/pe titouroù diwar-benn ar boued.\n\nKinnig a reomp ar \"C\'halkuladur nevez\" eus ar Skor Nutri (pe V2). Gwiriit mar plij ez eus ar banniel \"Kalkuladur nevez\" war ar pakad.';
+      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Gwiriañ ar c\'hementadoù';
+      'Check ingredients';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Gwiriit ar fedoù diwar-benn ar boued';
+      'Check nutrition facts';
 
   @override
   String url_not_supported(String url) {
-    return 'Siwazh, n\'hellomp ket digeriñ an URL :\n$url';
+    return 'Unfortunately, we can\'t open the URL:\n$url';
   }
 
   @override
-  String get product_list_export => 'Ezporzhiañ';
+  String get product_list_export => 'Export';
 
   @override
-  String get product_list_import => 'Enporzhiañ';
+  String get product_list_import => 'Import';
 
   @override
-  String get product_footer_action_barcode => 'Gwelet ar c\'hod barrennoù';
+  String get product_footer_action_barcode => 'View barcode';
 
   @override
   String get product_footer_action_barcode_short => 'Kod barrennoù';
 
   @override
-  String get product_footer_action_open_website => 'Digeriñ al lec\'hienn';
+  String get product_footer_action_open_website => 'Open website';
 
   @override
-  String get product_footer_action_report => 'Kas keloù';
+  String get product_footer_action_report => 'Report';
 
   @override
-  String get product_footer_action_contributor_guide => 'Sikour';
+  String get product_footer_action_contributor_guide => 'Help';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Kalite ar roadennoù';
+  String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
   String get product_page_tab_for_me => 'Eviton';
 
   @override
-  String get product_page_for_me_compatibility_score_title => 'Ma c\'hevreadur';
+  String get product_page_tab_website => 'Website';
 
   @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% keverlec\'h';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'N\'eus ket a-walc\'h a roadennoù evit jediñ ur skor kempoellded.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'N\'haller ket jediñ ur skor evit ur produ eus ar seurt \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Pouez';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Matchoù';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'Matchoù mat';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Keñveriañ keitat';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'Matchoù fall';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Klotañ dianav';
-
-  @override
-  String get product_page_tab_website => 'Lec\'hienn';
-
-  @override
-  String get product_page_tab_prices => 'Prizioù';
+  String get product_page_tab_prices => 'Prices';
 
   @override
   String get prices_explanation_card_title => 'Perak ar prizioù ?';
@@ -5488,10 +5317,10 @@ class AppLocalizationsBr extends AppLocalizations {
       '**Open Prices** zo ur raktres evit dastum ha rannañ prizioù ar produioù dre ar bed 🌍. Open Prices a zo bet savet ha miret gant Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Gouzout hiroc\'h';
+  String get explanation_card_learn_more_button => 'Learn more';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomiezh';
+  String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5506,12 +5335,11 @@ class AppLocalizationsBr extends AppLocalizations {
       'Krouet ha renket eo ar perzhioù-mañ gant ar genlabourerien evit ne vern pe seurt implijoù.';
 
   @override
-  String get folksonomy_action_external_link_title =>
-      'Digeriñ ul liamm diavaez';
+  String get folksonomy_action_external_link_title => 'Open external link';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'Al liammoù diavaez a c\'hall bezañ disur. Ha fellout a ra deoc\'h mont da weladenniñ anezhañ ?';
+      'External links may be unsafe. Do you really want to visit it?';
 
   @override
   String get prices_products_empty_title => 'Priz ebet';
@@ -5522,41 +5350,41 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Produioù gwellañ $pageSize (en holl : $total)';
+    return 'Top $pageSize products (total: $total)';
   }
 
   @override
-  String get app_review_title => 'Plijet oc\'h gant an arload-mañ ?';
+  String get app_review_title => 'Are you enjoying this app?';
 
   @override
-  String get app_review_low => 'Gallout a rafe ober gwelloc\'h';
+  String get app_review_low => 'Could do better';
 
   @override
-  String get app_review_medium => 'Madik';
+  String get app_review_medium => 'Not bad';
 
   @override
-  String get app_review_high => 'Plijout a ra din !';
+  String get app_review_high => 'I love it!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Sikour ac\'hanomp da wellaat hon arload';
+      'Help us improve our application';
 
   @override
   String get app_review_feedback_modal_content =>
-      'Ma \'z eus un nebeud munutennoù ganeoc\'h, e c\'hellit respont d\'ar furmskrid-mañ evit ma c\'hellfemp gwellaat en hizivadennoù da zont** :';
+      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Respont d\'ar furmskrid';
+  String get app_review_feedback_modal_open_form => 'Answer the form';
 
   @override
-  String get app_review_feedback_modal_later => 'Goulenn diganin diwezhatoc\'h';
+  String get app_review_feedback_modal_later => 'Ask me later';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NEVEZ : Gallout a rit tennañ ar boued eus ar skeudenn ent emgefre !';
+      'NEW: You can automatically extract the nutrients from the picture!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Tennit bremañ';
+  String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
   String get nutrition_facts_extract_in_progress =>
@@ -5567,19 +5395,19 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'C\'hwitet eo bet tennañ elfennoù-boued eus ar skeudenn';
+      'Failed to extract nutrients from picture';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Stadegoù';
+  String get prices_stats_statistics => 'Statistics';
 
   @override
-  String get prices_stats_title => 'Stadegoù ar prizioù';
+  String get prices_stats_title => 'Prices Statistics';
 
   @override
-  String get prices_stats_prices_section => 'Prizioù';
+  String get prices_stats_prices_section => 'Prices';
 
   @override
   String get prices_stats_products_section => 'Produioù';
@@ -5597,7 +5425,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'A bep seurt';
+  String get prices_stats_misc_section => 'Miscellaneous';
 
   @override
   String get prices_stats_total => 'Total';
@@ -5621,7 +5449,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Boued';
+  String get prices_stats_food => 'Food';
 
   @override
   String get prices_stats_beauty => 'Beauty';
@@ -5630,7 +5458,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_stats_products => 'Produioù';
 
   @override
-  String get prices_stats_pet_food => 'Boued al loened-ti';
+  String get prices_stats_pet_food => 'Pet food';
 
   @override
   String get prices_stats_osm => 'OpenStreetMap';
@@ -5642,10 +5470,10 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_stats_countries => 'Broioù';
 
   @override
-  String get prices_stats_price_tag => 'Priz';
+  String get prices_stats_price_tag => 'Price tag';
 
   @override
-  String get prices_stats_receipt => 'Notenn';
+  String get prices_stats_receipt => 'Receipt';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5669,7 +5497,7 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Lec\'hienn';
+  String get prices_stats_website => 'Website';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
@@ -5681,24 +5509,23 @@ class AppLocalizationsBr extends AppLocalizations {
   String get prices_stats_other => 'Other';
 
   @override
-  String get prices_stats_last_updated => 'Hizivaet d\'an';
+  String get prices_stats_last_updated => 'Last updated on';
 
   @override
   String get prices_stats_error =>
-      'Degouezhet ez eus bet ur fazi e-pad ma oa o kargañ ar stadegoù.';
+      'An error occurred while loading statistics.';
 
   @override
-  String get product_edit_robotoff_question_answered =>
-      'Respontet eo bet d\'ar goulenn !';
+  String get product_edit_robotoff_question_answered => 'Question answered!';
 
   @override
-  String get product_edit_robotoff_proof => 'Prouenn';
+  String get product_edit_robotoff_proof => 'Proof';
 
   @override
   String get preferences_card_general => 'General';
 
   @override
-  String get preferences_prices_title => 'Prizioù';
+  String get preferences_prices_title => 'Prices';
 
   @override
   String get preferences_prices_subtitle => 'Merañ ho tibaboù prizioù';
@@ -5798,7 +5625,7 @@ class AppLocalizationsBr extends AppLocalizations {
       'Open Food Facts zo un diaz roadennoù produioù boued **savet gant pep hini, evit pep hini**.\nGallout a rit implijout anezhañ evit dibab boued gwelloc\'h, ha dre ma\'z eo **roadennoù digor** e c\'hall pep hini **adimplij anezhañ evit ne vern petra**.';
 
   @override
-  String get preferences_privacy_policy => 'Politikerezh prevezded';
+  String get preferences_privacy_policy => 'Privacy policy';
 
   @override
   String get preferences_licenses => 'Aotreoù';
@@ -5941,22 +5768,21 @@ class AppLocalizationsBr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Dizoleiñ ar raktres';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Dizoloit fedoù diwar-benn ar boued digor';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Dizoloit fedoù kaerder digor';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Dizoloit titouroù digor diwar-benn boued al loened-ti';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Dizoloit ar prizioù digor';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
-  String get preferences_faq_discover_opf_title => 'Dizoloit ar produioù digor';
+  String get preferences_faq_discover_opf_title =>
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Goulennoù alies';
@@ -5977,7 +5803,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'En em enskrivit d\'an deiziataer kevredigezhel';
+      'Subscribe to our community calendar';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -6085,7 +5911,7 @@ class AppLocalizationsBr extends AppLocalizations {
       'Pazennoù simpl evit kreskiñ an treuzwelusterezh boued en ho bro';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Kalite ar roadennoù';
+  String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -6112,10 +5938,10 @@ class AppLocalizationsBr extends AppLocalizations {
       'An holl broduioù diglok';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Prizioù';
+  String get preferences_my_contributions_prices_title => 'Prices';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'Ma prizioù';
+  String get preferences_my_contributions_my_prices_title => 'My prices';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6127,7 +5953,7 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Sikour da jediñ ar Skor Nutri hag ar Skor Glas en ho bro';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6157,7 +5983,7 @@ class AppLocalizationsBr extends AppLocalizations {
       'Kenlabourerien gant ar muiañ a brizioù';
 
   @override
-  String get preferences_prices_metrics_title => 'Metrennoù ar prizioù digor';
+  String get preferences_prices_metrics_title => 'Meizadoù priz digor';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6307,14 +6133,14 @@ class AppLocalizationsBr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Labouradegoù digor war ar fedoù boued';
+      'Open Food Facts Labs';
 
   @override
-  String get preferences_root_account_title => 'Kont';
+  String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Degas fedoù boued digor d\'ho yezh';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6329,7 +6155,7 @@ class AppLocalizationsBr extends AppLocalizations {
       'Arabat diskouez ar Folksonomiezh';
 
   @override
-  String get preferences_account_title => 'Kont';
+  String get preferences_account_title => 'Account';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
@@ -6337,66 +6163,26 @@ class AppLocalizationsBr extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Titouroù al lec\'hiadur';
+  String get location_map_details_title => 'Location details';
 
   @override
   String get location_map_details_name => 'Anv';
 
   @override
-  String get location_map_details_street => 'Straed';
+  String get location_map_details_street => 'Street';
 
   @override
-  String get location_map_details_city => 'Kêr';
+  String get location_map_details_city => 'City';
 
   @override
-  String get location_map_details_postcode => 'Kod-post';
+  String get location_map_details_postcode => 'Postcode';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Kenurzhiennoù';
+  String get location_map_details_coordinates => 'Coordinates';
 
   @override
-  String get location_map_details_osm_id => 'ID OSM';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Distreiñ d\'ar gêr';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Kemmañ ar c\'hamera';
-
-  @override
-  String get homepage_header_barcode_tooltip =>
-      'Diskouez ar skanner kodoù barrennoù';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Klikit evit skaniñ ur **kod barrennoù**\nha dizoloit hag-eñ eo **mat evidoc\'h** !';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Treiñ an torch';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Skannañ ur produ en ur dostaat ouzh e c\'hod barrennoù';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Kavet hon eus ar c\'hod barrennoù da heul : $barcode, met didalvoudek e seblant bezañ.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Gwelet muioc\'h…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Produioù skannet diwezhañ';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
+  String get location_map_details_osm_id => 'OSM ID';
 }

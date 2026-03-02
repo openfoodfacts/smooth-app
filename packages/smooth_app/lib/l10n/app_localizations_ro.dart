@@ -12,9 +12,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Prețuri deschise';
-
-  @override
   String get sep => '';
 
   @override
@@ -665,9 +662,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get unknownBrand => 'Marcă necunoscută';
 
   @override
-  String get unknownQuantity => 'Cantitate necunoscută';
-
-  @override
   String get unknownProductName => 'Produs cu nume necunoscut';
 
   @override
@@ -736,11 +730,10 @@ class AppLocalizationsRo extends AppLocalizations {
       'Editați informațiile nutriționale';
 
   @override
-  String get packaging_information => 'Instrucțiuni de reciclare';
+  String get packaging_information => 'Informații despre ambalaj';
 
   @override
-  String get packaging_information_photo =>
-      'Fotografie cu instrucțiuni de reciclare';
+  String get packaging_information_photo => 'Foto cu informații despre ambalaj';
 
   @override
   String get missing_product => 'Ai gasit un produs nou!';
@@ -845,7 +838,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Informații nutriționale Foto';
 
   @override
-  String get recycling_photo_title => 'Instrucțiuni de reciclare Fotografie';
+  String get recycling_photo_title => 'Imaginea cu metoda de reciclare';
 
   @override
   String get take_photo_title => 'Faceți o fotografie';
@@ -1171,15 +1164,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get no_product_found => 'Nu a fost găsit niciun produs';
 
   @override
-  String no_product_found_explanation(String search) {
-    return 'Căutarea dvs. pentru\n**\"$search\"**\nnu a returnat niciun rezultat.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Doriți să rulați aceeași căutare în **baza noastră de date globală**?';
-
-  @override
   String get no_location_found => 'Nu a fost găsită nicio locație';
 
   @override
@@ -1402,15 +1386,15 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Adăugați informații nutriționale pentru a calcula Scorul Nutrițional.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Adăugați informații nutriționale și o categorie pentru a calcula Scorul Nutrițional.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Scorul Nutritiv pentru acest produs nu poate fi calculat, ceea ce se poate datora, de exemplu, unei categorii nestandard. Dacă aceasta este considerată o eroare, vă rugăm să ne contactați.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
@@ -2080,7 +2064,7 @@ class AppLocalizationsRo extends AppLocalizations {
       'Soia nu provine din Uniunea Europeană';
 
   @override
-  String get edit_product_form_item_countries_title => 'Țară';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2589,9 +2573,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String get product_type_label_product => 'Altele';
 
   @override
-  String get product_type_label_unknown => 'Necunoscut';
-
-  @override
   String get product_type_selection_title => 'Tipul de produs';
 
   @override
@@ -2769,10 +2750,6 @@ class AppLocalizationsRo extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Introducere preț de la „$user”';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'Vizualizați detaliile produsului';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3051,33 +3028,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Aflați mai multe despre Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Terminat';
@@ -3639,7 +3589,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Începerea efectuării acțiunilor serverului pentru actualizările folksonomy stocate local';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4183,14 +4133,14 @@ class AppLocalizationsRo extends AppLocalizations {
       'Nutri-Score necunoscut (calcul nou)';
 
   @override
-  String get nutriscore_not_applicable => 'Scorul nutrițional nu se aplică';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Scorul Nutri nu este aplicabil (calcul nou)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
-  String get environmental_score_generic_new => 'Green-Score';
+  String get environmental_score_generic_new => 'Scor Ecologic';
 
   @override
   String get environmental_score_a_new => 'Green-Score A';
@@ -4321,7 +4271,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'Ce este Nutri-Score-ul?';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
@@ -4421,7 +4371,7 @@ class AppLocalizationsRo extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'Green-Score';
+  String get guide_greenscore_title => 'Scor Ecologic';
 
   @override
   String get guide_greenscore_what_is_greenscore_title =>
@@ -4807,7 +4757,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Care sunt informațiile despre hrana pentru animale de companie?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4819,7 +4769,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Caracteristicile hranei deschise pentru animale de companie';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4976,7 +4926,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Ce sunt prețurile deschise?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4987,8 +4937,7 @@ class AppLocalizationsRo extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title =>
-      'Cum funcționează Prețurile Deschise?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5056,7 +5005,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Care sunt informațiile despre produsele deschise?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -5068,7 +5017,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Caracteristici ale produselor deschise';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5360,7 +5309,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get photo_field_nutrition => 'Fotografie nutrițională';
 
   @override
-  String get photo_field_packaging => 'Fotografie cu instrucțiuni de reciclare';
+  String get photo_field_packaging => 'Foto cu informații despre ambalaj';
 
   @override
   String get photo_already_exists => 'Această fotografie există deja';
@@ -5442,48 +5391,6 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Pentru mine';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Compatibilitatea mea';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% compatibil';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Date insuficiente pentru a calcula un scor de compatibilitate.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Nu se poate calcula un scor pentru un produs de tipul „$productType”.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Importanţă';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Meciuri';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Meciuri bune';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Media meciurilor';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Potriviri proaste';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Potriviri necunoscute';
 
   @override
   String get product_page_tab_website => 'Site-ul web';
@@ -5633,7 +5540,7 @@ class AppLocalizationsRo extends AppLocalizations {
   String get prices_stats_food => 'Mâncare';
 
   @override
-  String get prices_stats_beauty => 'Frumuseţe';
+  String get prices_stats_beauty => 'Beauty';
 
   @override
   String get prices_stats_products => 'Produse';
@@ -5953,23 +5860,21 @@ class AppLocalizationsRo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Descoperiți proiectul';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descoperiți informații despre alimentele deschise';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Descoperă informații despre frumusețea deschisă';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Descoperiți informații despre hrana deschisă pentru animale de companie';
+      'Discover Open Pet Food Facts';
 
   @override
   String get preferences_faq_discover_op_title => 'Descoperiți Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Descoperiți informații despre produsele deschise';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title =>
@@ -6172,7 +6077,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get preferences_prices_metrics_title =>
-      'Metrici ale prețurilor de deschidere';
+      'Metrici ale prețului de deschidere';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6214,7 +6119,7 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Modalități simple de a ajuta la Open Food Informations';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6322,14 +6227,14 @@ class AppLocalizationsRo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratoare Deschise de Informații Alimentare';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Cont';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Adu informații despre alimentele deschise în limba ta';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6367,51 +6272,11 @@ class AppLocalizationsRo extends AppLocalizations {
   String get location_map_details_postcode => 'Cod poștal';
 
   @override
-  String get location_map_details_country => 'Țară';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Coordonate';
 
   @override
   String get location_map_details_osm_id => 'ID-ul OSM';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Înapoi acasă';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Comutare cameră';
-
-  @override
-  String get homepage_header_barcode_tooltip =>
-      'Afișați scanerul de coduri de bare';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Atingeți pentru a scana un **cod de bare**\nși a descoperi dacă este **bun pentru dumneavoastră**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Comutare lanterna';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Scanați un produs apropiindu-vă de codul de bare al acestuia';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Am detectat următorul cod de bare: $barcode, dar se pare că este invalid.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Vezi mai multe…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Cele mai scanate produse';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Ultimele produse scanate';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

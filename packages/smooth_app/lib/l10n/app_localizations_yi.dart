@@ -12,9 +12,6 @@ class AppLocalizationsYi extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'עפענע פרייזן';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'ליצענצן';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsYi extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'אומבאַקאַנטע קוואַנטיטעט';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsYi extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'ריסייקלינג אינסטרוקציעס';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'ריסייקלינג אינסטרוקציעס פאָטאָ';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1135,6 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'אייער זוכעניש פאר\n**\"$search\"**\nהאט נישט געטראפן קיין רעזולטאטן.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'ווילסטו אנשטאט דורכפירן די זעלבע זוכעניש אין **אונדזער גלאבאלער דאטנבאזע**?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2519,6 @@ class AppLocalizationsYi extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2715,9 +2697,6 @@ class AppLocalizationsYi extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'פרייז איינגאבע פון \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'זען פּראָדוקט דעטאַלן';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2995,33 +2974,6 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3568,7 +3520,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'אָנהייבן דורכפירן די סערווער אַקציעס פֿאַר פֿאָלקסאָנאָמיע דערהייַנטיקונגען וואָס זענען געהאַלטן לאָקאַל';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5265,7 +5217,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5349,48 +5301,6 @@ class AppLocalizationsYi extends AppLocalizations {
   String get product_page_tab_for_me => 'פֿאַר מיר';
 
   @override
-  String get product_page_for_me_compatibility_score_title =>
-      'מײַן קאָמפּאַטאַביליטי';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% קאָמפּאַטיבל';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'נישט גענוג דאַטן צו רעכענען אַ קאָמפּאַטאַביליטי כעזשבן.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'מען קען נישט אויסרעכענען א סקאָר פֿאַר אַ פּראָדוקט פֿון טיפּ \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'וויכטיקייט';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'שוועבעלעך';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'גוטע שוועבעלעך';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'דורכשניטלעכע שוועבעלעך';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'שלעכטע שוועבעלעך';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'אומבאַקאַנטע שידוכים';
-
-  @override
   String get product_page_tab_website => 'Website';
 
   @override
@@ -5401,7 +5311,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** איז אַ פּראָיעקט צו זאַמלען און טיילן פּרייזן פֿון פּראָדוקטן אַרום דער וועלט 🌍. Open Prices ווערט דעוועלאָפּט און אויפֿגעהאַלטן דורך אפֿענע פֿוד פֿאַקטן.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5680,7 +5590,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'זוכן אַ סעטינג (למשל נוטרי-סקאָר)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5711,7 +5621,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'אָפן פוד פאַקס איז אַ דאַטאַבאַזע פֿאַר עסן פּראָדוקטן **געמאַכט דורך אַלעמען, פֿאַר אַלעמען**.\nאיר קענט עס נוצן צו מאַכן בעסערע עסן ברירות, און וויבאַלד עס איז **אָפן דאַטן**, קען יעדער עס **ווידער נוצן פֿאַר יעדן צוועק**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5758,7 +5668,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get preferences_tips => 'עצות';
 
   @override
-  String get tips_discover_nutriscore => 'אַנטדעקן דעם נײַעם נוטרי-סקאָר';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5848,7 +5758,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'אַנטדעקן ווי דער נוטרי-סקאָר ווערט אויסגערעכנט';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5858,8 +5768,7 @@ class AppLocalizationsYi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'אַנטדעקן אָפֿענע פֿוטער פֿאַקטן';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5880,8 +5789,7 @@ class AppLocalizationsYi extends AppLocalizations {
       'אָפֿט געשטעלטע פֿראַגעס - אָפֿט געשטעלטע פֿראַגעס';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'די אָפֿענע פֿוד פֿאַקטן נישט-רעגירונגס אָרגאַניזאַציע';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5903,7 +5811,7 @@ class AppLocalizationsYi extends AppLocalizations {
       'נעמט זיך אנטייל דורך באטייליקן זיך אין איינעם פון אונדזערע ווירטועלע געשעענישן';
 
   @override
-  String get preferences_connect_blog_title => 'דער אפענער עסן פאקטן בלאג';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6045,7 +5953,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'העלפט אויסרעכענען דעם נוטרי-סקאָר און גרין-סקאָר אין אייער לאַנד';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6067,14 +5975,14 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'לעצטע פרייזן צוגעגעבן דורך די אפענע פרייזן קהילה';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
       'ביישטייערער מיט די מערסטע פרייזן';
 
   @override
-  String get preferences_prices_metrics_title => 'מעטריקס פון עפענע פרייזן';
+  String get preferences_prices_metrics_title => 'עפֿענען פּרייַז מעטריקס';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6115,7 +6023,7 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'פּשוטע וועגן צו העלפֿן עפֿענען פֿוד פֿאַקטן';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6222,14 +6130,14 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'עפֿענע עסן פאַקטן לאַבאָראַטאָריעס';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'ברענגט אפענע עסן פאקטן צו אייער שפראך';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6274,43 +6182,4 @@ class AppLocalizationsYi extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'צוריק אהיים';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'טאַגאַל קאַמעראַ';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'ווייזן דעם באַרקאָד סקאַנער';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'דריק צו סקענען א **באַרקאָד**\nאון זע אויב עס איז **גוט פֿאַר דיר**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'טאַגאַלן טאָרטש';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'סקענט א פּראָדוקט דורך צוגיין צו זיין באַרקאָד';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'מיר האָבן דעטעקטירט דעם פאלגנדן באַרקאָד: $barcode, אָבער עס שיינט צו זיין אומגילטיק.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'זעה מער…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'לעצט געסקענטע פּראָדוקטן';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

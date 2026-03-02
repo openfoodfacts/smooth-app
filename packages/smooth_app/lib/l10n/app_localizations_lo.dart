@@ -12,9 +12,6 @@ class AppLocalizationsLo extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'ລາຄາເປີດ';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'ໃບອະນຸຍາດ';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsLo extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'ຈຳນວນທີ່ບໍ່ຮູ້ຈັກ';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsLo extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'ຄຳແນະນຳກ່ຽວກັບການຣີໄຊເຄີນ';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'ຮູບພາບຄຳແນະນຳກ່ຽວກັບການຣີໄຊເຄີນ';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1140,15 +1134,6 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'ການຄົ້ນຫາຂອງທ່ານສຳລັບ\n**\"$search\"**\nບໍ່ກົງກັບຜົນໄດ້ຮັບໃດໆ.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'ທ່ານຕ້ອງການໃຊ້ການຄົ້ນຫາດຽວກັນນີ້ໃນ **ຖານຂໍ້ມູນທົ່ວໂລກຂອງພວກເຮົາ** ແທນບໍ?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2533,9 +2518,6 @@ class AppLocalizationsLo extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2713,9 +2695,6 @@ class AppLocalizationsLo extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'ລາຄາເລີ່ມຕົ້ນ \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'ເບິ່ງລາຍລະອຽດຜະລິດຕະພັນ';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2991,33 +2970,6 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3563,7 +3515,7 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'ເລີ່ມຕົ້ນປະຕິບັດການປະຕິບັດຂອງເຄື່ອງແມ່ຂ່າຍສໍາລັບການອັບເດດ folksonomy ເກັບຮັກສາໄວ້ຢູ່ໃນທ້ອງຖິ່ນ';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5257,7 +5209,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5339,48 +5291,6 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'ສໍາລັບຂ້ອຍ';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'ຄວາມເຂົ້າກັນໄດ້ຂອງຂ້ອຍ';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% ເຂົ້າກັນໄດ້';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'ຂໍ້ມູນບໍ່ພຽງພໍທີ່ຈະຄິດໄລ່ຄະແນນຄວາມເຂົ້າກັນໄດ້.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'ບໍ່ສາມາດຄິດໄລ່ຄະແນນສຳລັບຜົນຄູນປະເພດ \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'ຄວາມສຳຄັນ';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'ການແຂ່ງຂັນ';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'ການແຂ່ງຂັນທີ່ດີ';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'ການຈັບຄູ່ໂດຍສະເລ່ຍ';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'ການຈັບຄູ່ທີ່ບໍ່ດີ';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'ບໍ່ຮູ້ຈັກຂໍ້ມູນທີ່ກົງກັນ';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5847,8 +5757,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'ຄົ້ນພົບຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດ';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5868,8 +5777,7 @@ class AppLocalizationsLo extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - ຄໍາຖາມທີ່ຖາມເລື້ອຍໆ';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'ອົງການ NGO ເປີດເຜີຍຄວາມຈິງກ່ຽວກັບອາຫານ';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -6056,7 +5964,7 @@ class AppLocalizationsLo extends AppLocalizations {
       'ຜູ້ປະກອບສ່ວນທີ່ມີລາຄາຫຼາຍທີ່ສຸດ';
 
   @override
-  String get preferences_prices_metrics_title => 'ຕົວຊີ້ວັດລາຄາເປີດ';
+  String get preferences_prices_metrics_title => 'ເປີດການວັດແທກລາຄາ';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6205,14 +6113,14 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'ເປີດຫ້ອງທົດລອງຄວາມຈິງດ້ານອາຫານ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'ເອົາຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດເຜີຍໃຫ້ກັບພາສາຂອງເຈົ້າ';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6257,44 +6165,4 @@ class AppLocalizationsLo extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'ກັບໄປເຮືອນ';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'ເປີດ/ປິດກ້ອງຖ່າຍຮູບ';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'ສະແດງເຄື່ອງສະແກນບາໂຄດ';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'ແຕະເພື່ອສະແກນ **ບາໂຄດ**\nແລະຄົ້ນພົບວ່າມັນ **ດີສຳລັບທ່ານ** ຫຼືບໍ່!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'ເປີດ/ປິດໄຟສາຍ';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'ສະແກນຜະລິດຕະພັນໂດຍການເຂົ້າຫາບາໂຄດຂອງມັນ';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'ພວກເຮົາໄດ້ກວດພົບບາໂຄດຕໍ່ໄປນີ້: $barcode, ແຕ່ມັນເບິ່ງຄືວ່າບໍ່ຖືກຕ້ອງ.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'ເບິ່ງເພີ່ມເຕີມ…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'ຜະລິດຕະພັນທີ່ສະແກນຄັ້ງສຸດທ້າຍ';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

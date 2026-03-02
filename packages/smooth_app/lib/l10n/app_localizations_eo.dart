@@ -12,9 +12,6 @@ class AppLocalizationsEo extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licencoj';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsEo extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Nekonata kvanto';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsEo extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Reciklaj instrukcioj';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Reciklaj instrukcioj Foto';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1140,15 +1134,6 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Via serĉo por\n**\"$search\"**\nne trovis rezultojn.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Ĉu vi volas anstataŭe fari la saman serĉon en **nia tutmonda datumbazo**?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2533,9 +2518,6 @@ class AppLocalizationsEo extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Nekonata';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2713,9 +2695,6 @@ class AppLocalizationsEo extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Prezenigo de \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Vidi produktajn detalojn';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2995,33 +2974,6 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3567,7 +3519,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Komencante plenumi la servilajn agojn por folksonomy-ĝisdatigoj konservitaj loke';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5262,7 +5214,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5344,47 +5296,6 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Por mi';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'Mia kongrueco';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% kongrua';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Nesufiĉaj datumoj por kalkuli kongruecpoentaron.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Poentaro ne povas esti kalkulita por produkto de tipo \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Graveco';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Matĉoj';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Bonaj matĉoj';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Mezaj matĉoj';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Malbonaj matĉoj';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Nekonataj matĉoj';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5705,7 +5616,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Malfermaj Nutraĵaj Faktoj estas datumbazo pri nutraĵoj **farita de ĉiuj, por ĉiuj**.\nVi povas uzi ĝin por fari pli bonajn elektojn pri nutraĵoj, kaj ĉar ĝi estas **malfermaj datumoj**, ĉiu povas **reuzi ĝin por iu ajn celo**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5842,7 +5753,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'Malkovru kiel la Nutri-Poentaro estas kalkulata';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5852,8 +5763,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Esploru la projekton';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Malkovru Malfermajn Manĝaĵojn Faktojn';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5873,7 +5783,7 @@ class AppLocalizationsEo extends AppLocalizations {
   String get preferences_faq_faq_title => 'Oftaj Demandoj - Oftaj Demandoj';
 
   @override
-  String get preferences_faq_off_ngo_title => 'La Malferma Manĝaĵa Faktoj NRO';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -6012,7 +5922,7 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Novaj produktoj, kiujn mi aldonis al Malfermaj Manĝaĵaj Faktoj';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6067,7 +5977,7 @@ class AppLocalizationsEo extends AppLocalizations {
       'Kontribuantoj kun la plej multaj prezoj';
 
   @override
-  String get preferences_prices_metrics_title => 'Malfermaj Prezoj metrikoj';
+  String get preferences_prices_metrics_title => 'Malfermaj Prezaj metrikoj';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6215,14 +6125,14 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Malfermaj Laboratorioj pri Manĝaĵaj Faktoj';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Alportu Malfermajn Manĝaĵajn Informojn al via lingvo';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6267,43 +6177,4 @@ class AppLocalizationsEo extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Reen hejmen';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Ŝalti fotilon';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Montru la strekkodan skanilon';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Frapetu por skani **strekkodon**\nkaj malkovru ĉu ĝi **estas bona por vi**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Ŝalti torĉon';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Skanu produkton alproksimiĝante al ĝia strekstreko';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Ni detektis la jenan strekkodon: $barcode, sed ŝajnas, ke ĝi estas malvalida.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Vidi pli…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Laste skanitaj produktoj';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

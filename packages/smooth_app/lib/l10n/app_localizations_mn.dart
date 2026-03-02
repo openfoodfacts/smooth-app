@@ -12,9 +12,6 @@ class AppLocalizationsMn extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Нээлттэй үнэ';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Лицензүүд';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsMn extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Тодорхойгүй тоо хэмжээ';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsMn extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Дахин боловсруулах зааварчилгаа';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Дахин боловсруулах зааварчилгааны зураг';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1140,15 +1134,6 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Таны\n**\"$search\"**\nгэсэн хайлтад ямар ч үр дүн олдсонгүй.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Та **манай дэлхийн мэдээллийн сан** дээр энэ хайлтыг ажиллуулахыг хүсэж байна уу?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2533,9 +2518,6 @@ class AppLocalizationsMn extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2714,10 +2696,6 @@ class AppLocalizationsMn extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '\"$user\"-с үнийн оруулга';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'Бүтээгдэхүүний дэлгэрэнгүй мэдээллийг харах';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2996,33 +2974,6 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3569,7 +3520,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Орон нутагт хадгалагдсан фолксономи шинэчлэлтийн серверийн үйлдлийг хийж эхэлж байна';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5267,7 +5218,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5349,48 +5300,6 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Миний хувьд';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Миний нийцтэй байдал';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% нийцтэй';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Тохиромжтой байдлын оноог тооцоолоход хангалтгүй өгөгдөл байна.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" төрлийн үржвэрийн хувьд оноог тооцоолж чадахгүй.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance =>
-      'Чухал ач холбогдол';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Тоглолтууд';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Сайн тохирол';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Дундаж тохирол';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'Муу тохирол';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Тодорхойгүй тохирол';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5856,8 +5765,7 @@ class AppLocalizationsMn extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Нээлттэй хүнсний баримтуудыг олж мэдээрэй';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5878,7 +5786,7 @@ class AppLocalizationsMn extends AppLocalizations {
       'Түгээмэл асуултууд - Түгээмэл асуултууд';
 
   @override
-  String get preferences_faq_off_ngo_title => 'Нээлттэй хүнсний баримт ТББ';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5900,7 +5808,7 @@ class AppLocalizationsMn extends AppLocalizations {
       'Манай виртуал арга хэмжээнүүдийн аль нэгэнд оролцож, оролцоорой';
 
   @override
-  String get preferences_connect_blog_title => 'Нээлттэй хүнсний баримт блог';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6064,14 +5972,14 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Нээлттэй үнийн нийгэмлэгийн нэмсэн хамгийн сүүлийн үнэ';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
       'Хамгийн их үнэ бүхий хувь нэмэр оруулагчид';
 
   @override
-  String get preferences_prices_metrics_title => 'Нээлттэй үнийн үзүүлэлтүүд';
+  String get preferences_prices_metrics_title => 'Нээлттэй үнийн хэмжүүр';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6114,7 +6022,7 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Нээлттэй хүнсний баримтуудад туслах энгийн аргууд';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6222,14 +6130,14 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Хүнсний баримтын лабораторийг нээнэ үү';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Нээлттэй хүнсний баримтуудыг хэл дээрээ авчир';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6274,45 +6182,4 @@ class AppLocalizationsMn extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Гэртээ буцах';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Камерыг асаах/унтраах';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Бар код сканнерыг харуулах';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**Баркод**\n-г сканнердаж, энэ нь танд **сайн** эсэхийг мэдэхийн тулд товшино уу!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip =>
-      'Гар чийдэнг асаах/унтраах';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Бүтээгдэхүүний бар кодыг сканнердах';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Бид дараах бар кодыг илрүүллээ: $barcode, гэхдээ энэ нь хүчингүй бололтой.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Дэлгэрэнгүй үзэх…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Хамгийн сүүлд сканнердсан бүтээгдэхүүнүүд';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

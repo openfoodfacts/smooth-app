@@ -12,9 +12,6 @@ class AppLocalizationsGd extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Prìsean Fosgailte';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Ceadan';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsGd extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Meud neo-aithnichte';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsGd extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Stiùiridhean ath-chuairteachaidh';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Stiùireadh ath-chuairteachaidh Dealbh';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1135,6 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Cha d’ fhuair thu toradh sam bith airson do rannsachadh airson\n**\"$search\"**\n.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'A bheil thu airson an aon rannsachadh seo a ruith anns an **stòr-dàta cruinneil againn** na àite?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2519,6 @@ class AppLocalizationsGd extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2717,10 +2699,6 @@ class AppLocalizationsGd extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Cuir a-steach prìsean bho \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'Seall mion-fhiosrachadh an toraidh';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2999,33 +2977,6 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3572,7 +3523,7 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'A’ tòiseachadh air gnìomhan an fhrithealaiche a dhèanamh airson ùrachaidhean folksonomy a tha air an stòradh gu h-ionadail';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5271,7 +5222,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5353,48 +5304,6 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Dhòmh-sa';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Mo cho-chòrdalachd';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% co-chòrdail';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Dàta neo-iomchaidh airson sgòr co-chòrdalachd obrachadh a-mach.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Chan urrainnear sgòr obrachadh a-mach airson toradh den t-seòrsa \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Cudromachd';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Maidsean';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Geamannan math';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Cuibheasachd gheamannan';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Droch gheamannan';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Maidsean neo-aithnichte';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5868,8 +5777,7 @@ class AppLocalizationsGd extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Faigh a-mach Fiosrachadh mu Bhiadh Fosgailte';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5890,7 +5798,7 @@ class AppLocalizationsGd extends AppLocalizations {
       'Ceistean Bitheanta - Ceistean Bitheanta';
 
   @override
-  String get preferences_faq_off_ngo_title => 'NGO Fiosrachadh Biadh Fosgailte';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5912,8 +5820,7 @@ class AppLocalizationsGd extends AppLocalizations {
       'Gabh pàirt le bhith an làthair aig aon de na tachartasan brìgheil againn';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Am blog Fiosrachadh Biadh Fosgailte';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6086,7 +5993,7 @@ class AppLocalizationsGd extends AppLocalizations {
       'Luchd-tabhartais leis na prìsean as àirde';
 
   @override
-  String get preferences_prices_metrics_title => 'Meatairean Prìsean Fosgailte';
+  String get preferences_prices_metrics_title => 'Meatairean Prìs Fosgailte';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6236,14 +6143,14 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Obair-lannan Fiosrachaidh Bidhe Fosgailte';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Thoir Fiosrachadh Biadh Fosgailte don chànan agad';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6287,44 +6194,4 @@ class AppLocalizationsGd extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Air ais dhachaigh';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Tog camara';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Seall an sganair còd-barra';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Tap gus **còd-barra**\na sganadh agus faigh a-mach a bheil e **math dhut**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Tog an lòchran';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Sgan toradh le bhith a’ tighinn faisg air a’ chòd-barra aige';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Tha sinn air a’ chòd-barra a leanas a lorg: $barcode, ach tha coltas gu bheil e mì-dhligheach.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Seall barrachd…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Toraidhean mu dheireadh a chaidh an sganadh';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

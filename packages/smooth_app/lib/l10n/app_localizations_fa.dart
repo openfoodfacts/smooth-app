@@ -12,9 +12,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'قیمت‌های باز';
-
-  @override
   String get sep => '';
 
   @override
@@ -52,7 +49,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get exit_label => 'Exit';
 
   @override
-  String get previous_label => 'قبلی';
+  String get previous_label => 'Previous';
 
   @override
   String get go_back_to_top => 'Go back to top';
@@ -146,7 +143,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'مجوزها';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'به دنبال';
@@ -656,9 +653,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String get unknownBrand => 'مارک ناشناس';
 
   @override
-  String get unknownQuantity => 'مقدار ناشناخته';
-
-  @override
   String get unknownProductName => 'نام محصول ناشناخته است';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'دستورالعمل‌های بازیافت';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'دستورالعمل‌های بازیافت عکس';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'یک عکس بگیرید';
@@ -1140,15 +1134,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get no_product_found => 'هیچ محصولی یافت نشد';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'جستجوی شما برای\n**\"$search\"**\nهیچ نتیجه‌ای نداشت.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'آیا می‌خواهید همین جستجو را در **پایگاه داده جهانی ما** انجام دهید؟';
 
   @override
   String get no_location_found => 'No location found';
@@ -2096,7 +2081,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get edit_product_form_item_traces_title => 'Traces';
 
   @override
-  String get edit_product_form_item_traces_hint => 'ردیابی';
+  String get edit_product_form_item_traces_hint => 'trace';
 
   @override
   String get edit_product_form_item_traces_type =>
@@ -2513,7 +2498,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get dev_preferences_news_custom_url_empty_value => 'Not set';
 
   @override
-  String get dev_preferences_news_provider_status_title => 'وضعیت';
+  String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
@@ -2530,10 +2515,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get product_type_label_pet_food => 'Pet food';
 
   @override
-  String get product_type_label_product => 'دیگر';
-
-  @override
-  String get product_type_label_unknown => 'Unknown';
+  String get product_type_label_product => 'Other';
 
   @override
   String get product_type_selection_title => 'Product type';
@@ -2647,7 +2629,7 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String get prices_barcode_search_not_found => 'محصول یافت نشد';
+  String get prices_barcode_search_not_found => 'Product not found';
 
   @override
   String get prices_barcode_search_none_yet => 'No product yet';
@@ -2676,7 +2658,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get prices_per_unit_short => ' / واحد';
 
   @override
-  String get prices_category_mandatory => 'اجباری';
+  String get prices_category_mandatory => 'Mandatory';
 
   @override
   String get prices_category_optional => 'اختیاری';
@@ -2713,9 +2695,6 @@ class AppLocalizationsFa extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'ورود قیمت از \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'مشاهده جزئیات محصول';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2993,33 +2972,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3565,7 +3517,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'شروع به انجام اقدامات سرور برای به‌روزرسانی‌های folksonomy که به صورت محلی ذخیره شده‌اند، می‌کند.';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4107,7 +4059,7 @@ class AppLocalizationsFa extends AppLocalizations {
       'Nutri-Score is not applicable (New calculation)';
 
   @override
-  String get environmental_score_generic_new => 'امتیاز سبز';
+  String get environmental_score_generic_new => 'Green-Score';
 
   @override
   String get environmental_score_a_new => 'امتیاز سبز A';
@@ -4189,7 +4141,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get contact_title_press_email => 'Press Contact';
 
   @override
-  String get contact_title_newsletter => 'در خبرنامه ما مشترک شوید';
+  String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
   String get contact_title_calendar => 'Subscribe to our community calendar';
@@ -4236,7 +4188,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'امتیاز تغذیه‌ای چیست؟';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
@@ -4336,7 +4288,7 @@ class AppLocalizationsFa extends AppLocalizations {
       'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'امتیاز سبز';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title => 'امتیاز سبز چیست؟';
@@ -4374,22 +4326,22 @@ class AppLocalizationsFa extends AppLocalizations {
   String get guide_greenscore_lca_arg2_title => '۶ مرحله تولید';
 
   @override
-  String get guide_greenscore_lca_arg2_agriculture => 'کشاورزی';
+  String get guide_greenscore_lca_arg2_agriculture => 'Agriculture';
 
   @override
-  String get guide_greenscore_lca_arg2_processing => 'پردازش';
+  String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
   String get guide_greenscore_lca_arg2_packaging => 'Packaging';
 
   @override
-  String get guide_greenscore_lca_arg2_transportation => 'حمل و نقل';
+  String get guide_greenscore_lca_arg2_transportation => 'Transportation';
 
   @override
-  String get guide_greenscore_lca_arg2_distribution => 'توزیع';
+  String get guide_greenscore_lca_arg2_distribution => 'Distribution';
 
   @override
-  String get guide_greenscore_lca_arg2_consumption => 'مصرف';
+  String get guide_greenscore_lca_arg2_consumption => 'Consumption';
 
   @override
   String get guide_greenscore_lca_arg3_title => '۱۴ شاخص تأثیر زیست‌محیطی';
@@ -5099,11 +5051,11 @@ class AppLocalizationsFa extends AppLocalizations {
   }
 
   @override
-  String get product_image_front_accessibility_label => 'تصویر جلویی';
+  String get product_image_front_accessibility_label => 'Front picture';
 
   @override
   String get product_image_ingredients_accessibility_label =>
-      'تصویر مواد تشکیل دهنده';
+      'Ingredients picture';
 
   @override
   String get product_image_nutrition_accessibility_label => 'Nutrition picture';
@@ -5254,7 +5206,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5266,10 +5218,10 @@ class AppLocalizationsFa extends AppLocalizations {
   String get date => 'Date';
 
   @override
-  String get photo_rotate_left => 'چرخش به چپ';
+  String get photo_rotate_left => 'Rotate left';
 
   @override
-  String get photo_rotate_right => 'چرخش به راست';
+  String get photo_rotate_right => 'Rotate right';
 
   @override
   String get photo_undo_action => 'Undo the previous action';
@@ -5336,46 +5288,6 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'برای من';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'سازگاری من';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% سازگار';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'داده‌های کافی برای محاسبه امتیاز سازگاری وجود ندارد.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'برای محصولی از نوع \"$productType\" نمی‌توان امتیازی محاسبه کرد.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'اهمیت';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'مسابقات';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'تطابق‌های خوب';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'میانگین تطابق‌ها';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'تطابق‌های بد';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'مسابقات ناشناخته';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5500,7 +5412,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get prices_stats_misc_section => 'Miscellaneous';
 
   @override
-  String get prices_stats_total => 'مجموع';
+  String get prices_stats_total => 'Total';
 
   @override
   String get prices_stats_with_barcode => 'With a barcode';
@@ -5515,7 +5427,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get prices_stats_community => 'Community';
 
   @override
-  String get prices_stats_consumption => 'مصرف';
+  String get prices_stats_consumption => 'Consumption';
 
   @override
   String get prices_stats_with_price => 'With a price';
@@ -5524,7 +5436,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get prices_stats_food => 'Food';
 
   @override
-  String get prices_stats_beauty => 'زیبایی';
+  String get prices_stats_beauty => 'Beauty';
 
   @override
   String get prices_stats_products => 'Products';
@@ -5578,7 +5490,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get prices_stats_api => 'API';
 
   @override
-  String get prices_stats_other => 'دیگر';
+  String get prices_stats_other => 'Other';
 
   @override
   String get prices_stats_last_updated => 'Last updated on';
@@ -5649,7 +5561,7 @@ class AppLocalizationsFa extends AppLocalizations {
       'از اینکه یکی از اعضای ما هستید متشکریم!';
 
   @override
-  String get preferences_app_bar_products_modified => 'محصولات اصلاح شده';
+  String get preferences_app_bar_products_modified => 'Products modified';
 
   @override
   String get preferences_app_bar_prices_added => 'Prices added';
@@ -5695,7 +5607,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'اطلاعات عمومی غذا یک پایگاه داده محصولات غذایی است **که توسط همه و برای همه ساخته شده است**.\nشما می‌توانید از آن برای انتخاب‌های غذایی بهتر استفاده کنید و از آنجایی که **داده‌های باز** است، هر کسی می‌تواند **از آن برای هر هدفی دوباره استفاده کند**.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
   String get preferences_privacy_policy => 'Privacy policy';
@@ -5742,11 +5654,11 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_tips => 'نکات';
 
   @override
-  String get tips_discover_nutriscore => 'با نوتری-اسکور جدید آشنا شوید';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'در وب‌سایت حقایق غذایی آزاد';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'مدیریت حساب من';
@@ -5839,8 +5751,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'حقایق غذایی آزاد را کشف کنید';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5860,8 +5771,7 @@ class AppLocalizationsFa extends AppLocalizations {
   String get preferences_faq_faq_title => 'سوالات متداول - سوالات متداول';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'سازمان مردم نهاد حقایق غذایی آزاد';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'اطلاعات';
@@ -5883,7 +5793,7 @@ class AppLocalizationsFa extends AppLocalizations {
       'با شرکت در یکی از رویدادهای مجازی ما، مشارکت کنید';
 
   @override
-  String get preferences_connect_blog_title => 'وبلاگ حقایق غذای آزاد';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6024,7 +5934,7 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'به محاسبه امتیاز تغذیه‌ای و امتیاز سبز در کشور خود کمک کنید';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6201,14 +6111,14 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'آزمایشگاه‌های حقایق غذایی آزاد';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'حقایق غذایی آزاد را به زبان خود بیاورید';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6252,43 +6162,4 @@ class AppLocalizationsFa extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'بازگشت به خانه';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'دوربین را تغییر دهید';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'نمایش اسکنر بارکد';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'برای اسکن یک **بارکد**\nو فهمیدن اینکه آیا برای شما **خوب** است یا نه، ضربه بزنید!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'مشعل را تغییر دهید';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'با نزدیک شدن به بارکد یک محصول، آن را اسکن کنید';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'ما بارکد زیر را شناسایی کرده‌ایم: $barcode، اما به نظر می‌رسد نامعتبر است.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'مشاهده بیشتر…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'بیشترین محصولات اسکن شده';
-
-  @override
-  String get homepage_list_last_scanned_title => 'آخرین محصولات اسکن شده';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

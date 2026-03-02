@@ -12,9 +12,6 @@ class AppLocalizationsOr extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'ଖୋଲା ମୂଲ୍ୟ';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsOr extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'ଲାଇସେନ୍ସଗୁଡ଼ିକ';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -660,9 +657,6 @@ class AppLocalizationsOr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'ଅଜଣା ପରିମାଣ';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -729,10 +723,10 @@ class AppLocalizationsOr extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'ପୁନଃଚକ୍ରୀକରଣ ନିର୍ଦ୍ଦେଶାବଳୀ';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -835,7 +829,7 @@ class AppLocalizationsOr extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'ପୁନଃଚକ୍ରୀକରଣ ନିର୍ଦ୍ଦେଶାବଳୀ ଫଟୋ';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1144,15 +1138,6 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return '\n**\"$search\"**\nପାଇଁ ଆପଣଙ୍କର ସନ୍ଧାନ କୌଣସି ଫଳାଫଳ ସହିତ ମେଳ ଖାଉନାହିଁ।';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'ଆପଣ କ’ଣ ଏହି ସମାନ ସନ୍ଧାନକୁ **ଆମର ବିଶ୍ୱବ୍ୟାପୀ ଡାଟାବେସ୍** ରେ ଚଲାଇବାକୁ ଚାହୁଁଛନ୍ତି କି?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2538,9 +2523,6 @@ class AppLocalizationsOr extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2719,9 +2701,6 @@ class AppLocalizationsOr extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '\"$user\" ରୁ ମୂଲ୍ୟ ପ୍ରବେଶ';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'ଉତ୍ପାଦ ବିବରଣୀ ଦେଖନ୍ତୁ';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3000,33 +2979,6 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3572,7 +3524,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'ସ୍ଥାନୀୟ ଭାବରେ ସଂରକ୍ଷିତ ଲୋକସମ୍ବନ୍ଧୀୟ ଅପଡେଟ୍ ପାଇଁ ସର୍ଭର କାର୍ଯ୍ୟଗୁଡ଼ିକ କରିବା ଆରମ୍ଭ କରୁଛି';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5267,7 +5219,7 @@ class AppLocalizationsOr extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5351,45 +5303,6 @@ class AppLocalizationsOr extends AppLocalizations {
   String get product_page_tab_for_me => 'ମୋ ପାଇଁ';
 
   @override
-  String get product_page_for_me_compatibility_score_title => 'ମୋର ସୁସଙ୍ଗତତା';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% ସୁସଙ୍ଗତ';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'ଏକ ସୁସଙ୍ଗତତା ସ୍କୋର ଗଣନା କରିବା ପାଇଁ ପର୍ଯ୍ୟାପ୍ତ ତଥ୍ୟ ନାହିଁ।';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" ପ୍ରକାରର ଉତ୍ପାଦ ପାଇଁ ସ୍କୋର ଗଣନା କରାଯାଇପାରିବ ନାହିଁ।';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'ଗୁରୁତ୍ୱ';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'ମେଳଗୁଡ଼ିକ';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'ଭଲ ମେଳ';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'ହାରାହାରି ମେଳ';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'ଖରାପ ମେଳ';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'ଅଜଣା ମେଳଗୁଡ଼ିକ';
-
-  @override
   String get product_page_tab_website => 'Website';
 
   @override
@@ -5400,7 +5313,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**ଓପନ୍ ପ୍ରାଇସେସ୍** ହେଉଛି ସାରା ବିଶ୍ୱରେ ଉତ୍ପାଦଗୁଡ଼ିକର ମୂଲ୍ୟ ସଂଗ୍ରହ ଏବଂ ଅଂଶୀଦାର କରିବା ପାଇଁ ଏକ ପ୍ରକଳ୍ପ 🌍। ଓପନ୍ ପ୍ରାଇସେସ୍ Open Food Facts ଦ୍ୱାରା ବିକଶିତ ଏବଂ ରକ୍ଷଣାବେକ୍ଷଣ କରାଯାଏ।';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'ଅଧିକ ଜାଣନ୍ତୁ';
@@ -5677,7 +5590,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'ଏକ ସେଟିଂ ଖୋଜନ୍ତୁ (ଯଥା ନ୍ୟୁଟ୍ରି-ସ୍କୋର)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5755,7 +5668,7 @@ class AppLocalizationsOr extends AppLocalizations {
   String get preferences_tips => 'ପରାମର୍ଶ';
 
   @override
-  String get tips_discover_nutriscore => 'ନୂଆ ନ୍ୟୁଟ୍ରି-ସ୍କୋର ଆବିଷ୍କାର କରନ୍ତୁ';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle => 'Open Food Facts ୱେବସାଇଟରେ';
@@ -5843,7 +5756,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'ନ୍ୟୁଟ୍ରି-ସ୍କୋର କିପରି ଗଣନା କରାଯାଏ ତାହା ଜାଣନ୍ତୁ';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -6037,7 +5950,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'ଆପଣଙ୍କ ଦେଶରେ ନ୍ୟୁଟ୍ରି-ସ୍କୋର୍ ଏବଂ ଗ୍ରୀନ୍-ସ୍କୋର୍ ଗଣନା କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'ମୁଁ ଦେଇଥିବା ମୂଲ୍ୟ';
@@ -6107,7 +6020,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'ଖାଦ୍ୟ ତଥ୍ୟ ଖୋଲିବାରେ ସାହାଯ୍ୟ କରିବାର ସରଳ ଉପାୟ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6216,7 +6129,7 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'ଖାଦ୍ୟ ତଥ୍ୟ ଲ୍ୟାବ ଖୋଲନ୍ତୁ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
@@ -6267,44 +6180,4 @@ class AppLocalizationsOr extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'ଘରକୁ ଫେରନ୍ତୁ';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'କ୍ୟାମେରା ଟୋଗଲ୍ କରନ୍ତୁ';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'ବାରକୋଡ୍ ସ୍କାନର୍ ଦେଖାନ୍ତୁ';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'ଏକ **ବାରକୋଡ୍**\nସ୍କାନ୍ କରିବାକୁ ଟାପ୍ କରନ୍ତୁ ଏବଂ ଏହା **ଆପଣଙ୍କ ପାଇଁ ଭଲ** କି ନାହିଁ ଜାଣନ୍ତୁ!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'ଟର୍ଚ୍ଚ ଟୋଗଲ୍ କରନ୍ତୁ';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'ଏକ ଉତ୍ପାଦର ବାରକୋଡ୍ ନିକଟକୁ ଯାଇ ସ୍କାନ କରନ୍ତୁ';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'ଆମେ ନିମ୍ନଲିଖିତ ବାରକୋଡ୍ ଚିହ୍ନଟ କରିଛୁ: $barcode, କିନ୍ତୁ ଏହା ଅବୈଧ ପରି ମନେ ହେଉଛି।';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'ଅଧିକ ଦେଖନ୍ତୁ…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'ଗତ ଥର ସ୍କାନ ହୋଇଥିବା ଉତ୍ପାଦଗୁଡ଼ିକ';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

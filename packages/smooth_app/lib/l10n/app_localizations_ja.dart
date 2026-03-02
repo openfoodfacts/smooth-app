@@ -12,9 +12,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -49,7 +46,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get continue_label => '続ける';
 
   @override
-  String get exit_label => '出口';
+  String get exit_label => 'Exit';
 
   @override
   String get previous_label => '前';
@@ -145,7 +142,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get match_short_unknown => '一致度は不明';
 
   @override
-  String get licenses => 'ライセンス';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => '検索中';
@@ -460,7 +457,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get contribute_translate_header => '翻訳';
 
   @override
-  String get contribute_data_quality => 'データ品質';
+  String get contribute_data_quality => 'Data Quality';
 
   @override
   String get contribute_translate_link_text => '翻訳を始める';
@@ -500,7 +497,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get saving_answer => '回答を保存しています';
 
   @override
-  String get contribute_to_get_rewards => '食品の透明性の担い手になる';
+  String get contribute_to_get_rewards =>
+      'Become an actor of food transparency';
 
   @override
   String get question_sign_in_text =>
@@ -576,7 +574,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get reloaded_with_new_preferences => '新しい好みの設定で再読み込みしました';
 
   @override
-  String get profile_navbar_label => 'コミュニティ';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'スキャン';
@@ -631,9 +629,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get unknownBrand => '不明なブランド';
-
-  @override
-  String get unknownQuantity => '不明な数量';
 
   @override
   String get unknownProductName => '不明な製品名';
@@ -700,10 +695,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutrition_facts_editing_title => '栄養成分表示を編集する';
 
   @override
-  String get packaging_information => 'リサイクル手順';
+  String get packaging_information => 'パッケージ情報';
 
   @override
-  String get packaging_information_photo => 'リサイクル手順の画像';
+  String get packaging_information_photo => 'パッケージ情報の画像';
 
   @override
   String get missing_product => '新しい製品を見つけました！';
@@ -717,7 +712,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '最初に何枚か画像を撮ってください。後でいつでも製品を完成させることができます。';
 
   @override
-  String get add_product_information_button_label => '製品情報を追加する';
+  String get add_product_information_button_label => 'Add product information';
 
   @override
   String get new_product => '新しい製品';
@@ -804,7 +799,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutritional_facts_photo_title => '栄養成分表の画像';
 
   @override
-  String get recycling_photo_title => 'リサイクル手順写真';
+  String get recycling_photo_title => 'リサイクル情報の画像';
 
   @override
   String get take_photo_title => '画像を撮る';
@@ -1097,15 +1092,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get no_product_found => '製品が見つかりません';
 
   @override
-  String no_product_found_explanation(String search) {
-    return '\n**\"$search\"**\nの検索に一致する結果が見つかりませんでした。';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      '代わりに**グローバル データベース**で同じ検索を実行しますか?';
-
-  @override
   String get no_location_found => '場所が見つかりません';
 
   @override
@@ -1278,7 +1264,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get tag_value => '値：';
 
   @override
-  String get tag_values => '価値観';
+  String get tag_values => 'Values';
 
   @override
   String get tag_value_input_hint => '値を入力してください';
@@ -1307,7 +1293,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get product_search_same_category => '代替案を探す';
 
   @override
-  String get product_search_same_category_short => '比較する';
+  String get product_search_same_category_short => 'Compare';
 
   @override
   String get product_search_same_category_error =>
@@ -1496,7 +1482,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get select_none_products_mode => '何も選択しない';
 
   @override
-  String get compare_products_appbar_title => '製品を比較する';
+  String get compare_products_appbar_title => 'Compare products';
 
   @override
   String get compare_products_appbar_subtitle => '製品を2つ以上選択してください';
@@ -1958,7 +1944,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '大豆は欧州連合産ではない';
 
   @override
-  String get edit_product_form_item_countries_title => '国';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint => '国を入力してください（例：ドイツ）';
@@ -2435,9 +2421,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get product_type_label_product => 'その他';
 
   @override
-  String get product_type_label_unknown => '不明';
-
-  @override
   String get product_type_selection_title => '製品タイプ';
 
   @override
@@ -2467,7 +2450,8 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_bulk_proof_upload_warning => '画像を選択すると、編集できなくなります。';
 
   @override
-  String get prices_bulk_proof_upload_warning_ai => 'AI はあなたの証明に基づいて価格を抽出します。';
+  String get prices_bulk_proof_upload_warning_ai =>
+      'AI will run on your proofs to extract prices.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
@@ -2543,7 +2527,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get prices_barcode_search_not_found => '商品が見つかりません';
+  String get prices_barcode_search_not_found => 'Product not found';
 
   @override
   String get prices_barcode_search_none_yet => 'まだ製品はありません';
@@ -2609,9 +2593,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '価格入力は「$user」から';
   }
-
-  @override
-  String get prices_entry_menu_open_product => '製品の詳細を見る';
 
   @override
   String get prices_entry_menu_open_product_prices => 'この商品のすべての価格を見る';
@@ -2886,33 +2867,6 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_menu_know_more => 'Open Pricesについて詳しく知る';
 
   @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
-
-  @override
   String get dev_preferences_import_history_result_success => '完了';
 
   @override
@@ -3018,10 +2972,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_contribution_assistant => '価格貢献アシスタント';
 
   @override
-  String get prices_validation_assistant => '価格検証アシスタント';
+  String get prices_validation_assistant => 'Price Validation Assistant';
 
   @override
-  String get prices_challenges_page => '課題';
+  String get prices_challenges_page => 'Challenges';
 
   @override
   String get prices_multiple_proof_addition_system => '複数の証明を追加する';
@@ -3428,7 +3382,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'ローカルに保存されたフォークソノミーの更新に対するサーバーアクションの実行を開始します';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n => '最も人気のある製品のダウンロードを開始します';
@@ -3937,10 +3891,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (新しい計算)';
 
   @override
-  String get nutriscore_unknown => '不明な栄養スコア';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
-  String get nutriscore_unknown_new_formula => '未知の栄養スコア（新しい計算）';
+  String get nutriscore_unknown_new_formula =>
+      'Unknown Nutri-Score (New calculation)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Scoreは適用されません';
@@ -3950,7 +3905,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'Nutri-Scoreは適用されません（新しい計算）';
 
   @override
-  String get environmental_score_generic_new => 'グリーンスコア';
+  String get environmental_score_generic_new => 'Green-Score';
 
   @override
   String get environmental_score_a_new => 'グリーンスコアA';
@@ -4028,7 +3983,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get contact_title_press_email => '報道関係者向けのお問い合わせ先';
 
   @override
-  String get contact_title_newsletter => 'ニュースレターを購読する';
+  String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
   String get contact_title_calendar => 'コミュニティカレンダーを購読する';
@@ -4063,81 +4018,88 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String get guide_title => 'ガイド';
+  String get guide_title => 'Guide';
 
   @override
   String get guide_share_label => '共有';
 
   @override
-  String get guide_nutriscore_v2_title => 'Nutri-Score は進化しています: 説明!';
+  String get guide_nutriscore_v2_title =>
+      'The Nutri-Score is evolving: explanations!';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'Nutri-Scoreとは何ですか?';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'Nutri-Score は、**食品の栄養価** についてお知らせすることを目的としたロゴです。';
+      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      '色分けは、**最も健康的な** 製品を表す濃い緑 (**A**) から、**あまり健康的ではない** 製品を表す濃い赤 (**E**) まで異なります。';
+      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
 
   @override
-  String get guide_nutriscore_v2_nutriscore_a_caption => 'ニュートリスコアAロゴ';
+  String get guide_nutriscore_v2_nutriscore_a_caption =>
+      'The Nutri-Score A logo';
 
   @override
-  String get guide_nutriscore_v2_why_v2_title => 'Nutri-Score はなぜ進化しているのでしょうか?';
+  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
 
   @override
   String get guide_nutriscore_v2_why_v2_intro =>
-      'Nutri-Score の計算式は、より優れた推奨事項を提供するために**進化しています**。';
+      'The Nutri-Score formula **is evolving** to provide better recommendations:';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg1_title => 'すべての飲み物をより良く評価する';
+  String get guide_nutriscore_v2_why_v2_arg1_title =>
+      'Better evaluate all drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_text =>
-      '新しいアルゴリズムでは、**牛乳**、砂糖を加えた**乳製品飲料**、**野菜**飲料の比較ノートがより明確に区別されるようになりました。';
+      'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg2_title => '飲み物のランキング向上';
+  String get guide_nutriscore_v2_why_v2_arg2_title =>
+      'Better ranking of drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_text =>
-      '**砂糖含有量** をより適切に考慮し、**甘さ控えめ** の飲み物を推奨します。\\n**甘味料もペナルティの対象となります**: ダイエットソーダは B 評価から C と E の間に格下げされます。推奨される飲み物は引き続き水です。';
+      'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg3_title => '塩と砂糖は罰せられる';
+  String get guide_nutriscore_v2_why_v2_arg3_title =>
+      'Salt and sugar penalized';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      '**甘すぎる** または **塩辛すぎる** 製品は、**評価がさらに下がります**。';
+      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg4_title => '油と魚の階層';
+  String get guide_nutriscore_v2_why_v2_arg4_title =>
+      'Hierarchy within oils and fishes';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_text =>
-      '特定の**脂肪分の多い魚**と**良質な脂肪を豊富に含む油**の評価が向上します。';
+      'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg5_title => '赤身の肉を制限する';
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg5_text =>
-      '**赤身肉の摂取は制限すべき**です。そのため、**鶏肉は比較的良いランクにランク付けされます**。';
+      'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
 
   @override
   String get guide_nutriscore_v2_new_logo_title =>
-      '古い Nutri-Score と新しい計算を区別するにはどうすればよいですか?';
+      'How to differentiate old Nutri-Score and new calculation?';
 
   @override
   String get guide_nutriscore_v2_new_logo_text =>
-      '今後は、これが新しい計算であることを明確にするために、ロゴに「**新しい計算**」という表記が表示されるようになります。';
+      'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
 
   @override
-  String get guide_nutriscore_v2_new_logo_image_caption => '新しいNutri-Scoreのロゴ';
+  String get guide_nutriscore_v2_new_logo_image_caption =>
+      'The logo of the new Nutri-Score';
 
   @override
   String get guide_nutriscore_v2_where_title => '新しい Nutri-Score 計算はどこにありますか?';
@@ -4152,21 +4114,21 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
-      'メーカーがスコアを更新していない場合でも、待つことなく、**OpenFoodFacts アプリケーションで**、新しい計算を見つけることができます。';
+      'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => '変わらないもの';
+  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
-      'Nutri-Scoreは、**栄養価を測定**するために設計されたスコアです。**超加工食品**に関するNOVAグループ**（アプリ内にも掲載）を補完するものです。';
+      'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      'メーカーにとって、Nutri-Score の表示は **オプション** のままです。';
+      'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
-  String get guide_greenscore_title => 'グリーンスコア';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title => 'グリーンスコアとは何ですか?';
@@ -4255,7 +4217,8 @@ class AppLocalizationsJa extends AppLocalizations {
       'カテゴリー内でより優れた製品に報酬を与えるために、**いくつかの基準に基づいてボーナスとペナルティを適用します**。';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg1_title => '生産様式';
+  String get guide_greenscore_bonuses_penalties_arg1_title =>
+      'Mode of production';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
@@ -4269,7 +4232,8 @@ class AppLocalizationsJa extends AppLocalizations {
       '原材料の原産地に基づいて**ボーナス**が付与されます。このボーナスは、**輸送への影響**と、各生産国の**環境政策**を考慮に入れています。';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg3_title => '絶滅危惧種';
+  String get guide_greenscore_bonuses_penalties_arg3_title =>
+      'Endangered species';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
@@ -4284,7 +4248,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_title =>
-      '環境への影響をより適切に測定し、削減するために透明性が求められる';
+      'An increased need for transparency to better measure and reduce environmental impacts';
 
   @override
   String get guide_greenscore_transparency_intro1 =>
@@ -4340,7 +4304,7 @@ class AppLocalizationsJa extends AppLocalizations {
       '独自のラベルとは異なり、グリーン スコアの計算は **完全にオープン** であり、**誰でも検証できます**。';
 
   @override
-  String get guide_nova_title => '超加工食品';
+  String get guide_nova_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_what_is_nova_title => '超処理とは何ですか?';
@@ -4385,7 +4349,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
-  String get guide_nova_groups_arg4_title => '超加工食品';
+  String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
@@ -4526,7 +4490,8 @@ class AppLocalizationsJa extends AppLocalizations {
       '私たちは、ペットの飼い主が動物のニーズに最適な食べ物を選択できるように、**原材料**、**栄養分析**、給餌ガイドラインに関する情報を収集しています。';
 
   @override
-  String get guide_open_pet_food_facts_features_title => 'オープンペットフードファクトの特徴';
+  String get guide_open_pet_food_facts_features_title =>
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4599,7 +4564,8 @@ class AppLocalizationsJa extends AppLocalizations {
       '私たちの目標は、**パーソナルケア製品に何が含まれているのか**を理解していただくために、成分リストを解読することです。保湿剤から化粧品まで、化粧品業界の透明性を高めるために、成分、アレルゲン、パッケージに関するデータを収集しています。';
 
   @override
-  String get guide_open_beauty_facts_features_title => 'オープンビューティーファクトの特徴';
+  String get guide_open_beauty_facts_features_title =>
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4676,7 +4642,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
-      '現在、バーコードレベルの商品価格に関する大規模なデータベースを保有している企業はほとんどありません。これらの価格は自由に利用できるわけではなく、民間企業、研究者、その他の購入可能な組織に高額で販売されています。';
+      'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
   String get guide_open_prices_how_title => 'Open Pricesはどのように機能しますか?';
@@ -4727,7 +4693,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_title =>
-      '私は小売業者です。価格設定に貢献したいのですが、どうすればよいですか？';
+      'I\'m a retailer and I want to contribute prices. How can I do that?';
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
@@ -4753,7 +4719,8 @@ class AppLocalizationsJa extends AppLocalizations {
       '**電化製品**から**おもちゃ**、**衣類**から**掃除用品**まで、バーコードがあれば追加できます。このプロジェクトは、日常のあらゆるモノに「モノのインターネット」を構築し、それらに関する情報を誰もがアクセスできるようにすることを目的としています。';
 
   @override
-  String get guide_open_products_facts_features_title => 'オープンプロダクトの特徴';
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5028,7 +4995,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get photo_field_nutrition => '栄養写真';
 
   @override
-  String get photo_field_packaging => 'リサイクル手順の画像';
+  String get photo_field_packaging => 'パッケージ情報の画像';
 
   @override
   String get photo_already_exists => 'この写真は既に存在します';
@@ -5109,43 +5076,6 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => '私にとって';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => '私の相性';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% 互換性あり';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      '互換性スコアを計算するにはデータが不十分です。';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'タイプ \"$productType\" の製品のスコアを計算できません。';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => '重要性';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'マッチ';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => '良い試合';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches => '平均マッチ';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => '悪い一致';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches => '不明な一致';
 
   @override
   String get product_page_tab_website => 'ウェブサイト';
@@ -5253,13 +5183,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_stats_locations_section => '場所：';
 
   @override
-  String get prices_stats_proofs_section => '証明';
+  String get prices_stats_proofs_section => 'Proofs';
 
   @override
   String get prices_stats_contributors_section => '貢献者';
 
   @override
-  String get prices_stats_experiments_section => '実験';
+  String get prices_stats_experiments_section => 'Experiments';
 
   @override
   String get prices_stats_misc_section => 'その他';
@@ -5268,16 +5198,16 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_stats_total => '合計';
 
   @override
-  String get prices_stats_with_barcode => 'バーコード付き';
+  String get prices_stats_with_barcode => 'With a barcode';
 
   @override
-  String get prices_stats_with_category => 'カテゴリー付き';
+  String get prices_stats_with_category => 'With a category';
 
   @override
-  String get prices_stats_with_discount => '割引あり';
+  String get prices_stats_with_discount => 'With a discount';
 
   @override
-  String get prices_stats_community => 'コミュニティ';
+  String get prices_stats_community => 'Community';
 
   @override
   String get prices_stats_consumption => '消費';
@@ -5289,7 +5219,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_stats_food => '食べ物';
 
   @override
-  String get prices_stats_beauty => '美しさ';
+  String get prices_stats_beauty => 'Beauty';
 
   @override
   String get prices_stats_products => '製品';
@@ -5301,7 +5231,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_stats_osm => 'オープンストリートマップ';
 
   @override
-  String get prices_stats_online => 'オンライン';
+  String get prices_stats_online => 'Online';
 
   @override
   String get prices_stats_countries => '国';
@@ -5316,28 +5246,28 @@ class AppLocalizationsJa extends AppLocalizations {
   String get prices_stats_gdpr_request => 'GDPR リクエスト';
 
   @override
-  String get prices_stats_shop_import => 'ショップインポート';
+  String get prices_stats_shop_import => 'Shop import';
 
   @override
-  String get prices_stats_challenges => '課題';
+  String get prices_stats_challenges => 'Challenges';
 
   @override
-  String get prices_stats_linked_to_price_tag => '値札にリンクされた価格';
+  String get prices_stats_linked_to_price_tag => 'Prices linked to a price tag';
 
   @override
-  String get prices_stats_currencies => '通貨';
+  String get prices_stats_currencies => 'Currencies';
 
   @override
-  String get prices_stats_years => '年';
+  String get prices_stats_years => 'Years';
 
   @override
-  String get prices_stats_by_source_title => 'ソースごとの価格と証明';
+  String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
   String get prices_stats_website => 'ウェブサイト';
 
   @override
-  String get prices_stats_mobile_app => 'モバイルアプリ';
+  String get prices_stats_mobile_app => 'Mobile app';
 
   @override
   String get prices_stats_api => 'API';
@@ -5373,7 +5303,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_contribute_title => '貢献する';
 
   @override
-  String get preferences_my_contributions_title => '私の貢献';
+  String get preferences_my_contributions_title => 'My contributions';
 
   @override
   String get preferences_my_stats_title => '私の統計';
@@ -5388,7 +5318,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_connect_subtitle => 'ご連絡いただくか、ソーシャルメディアでフォローしてください';
 
   @override
-  String get preferences_support_title => '寄付をする';
+  String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle => '世界中の何百万人もの消費者に情報を提供するのにご協力ください';
@@ -5412,7 +5342,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_app_bar_products_modified => '製品が変更されました';
 
   @override
-  String get preferences_app_bar_prices_added => '価格が追加されました';
+  String get preferences_app_bar_prices_added => 'Prices added';
 
   @override
   String get preferences_app_bar_see_all_stats => 'すべての統計を見る';
@@ -5447,7 +5377,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_terms_of_use => '利用規約';
 
   @override
-  String get preferences_legal_mentions => '法的言及';
+  String get preferences_legal_mentions => 'Legal mentions';
 
   @override
   String get preferences_legal_header =>
@@ -5487,7 +5417,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_source_code_subtitle => 'そして何百万人もの人々に影響を与え始める';
 
   @override
-  String get preferences_add_prices => '価格を追加する';
+  String get preferences_add_prices => 'Add prices';
 
   @override
   String get preferences_complete_products => '製品情報を完成させる';
@@ -5586,16 +5516,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'Open Food Factsを発見';
 
   @override
-  String get preferences_faq_discover_obf_title => 'オープンビューティーファクトを発見';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
-  String get preferences_faq_discover_opff_title => 'オープンペットフードの事実を知る';
+  String get preferences_faq_discover_opff_title =>
+      'Discover Open Pet Food Facts';
 
   @override
   String get preferences_faq_discover_op_title => 'Open Pricesを見る';
 
   @override
-  String get preferences_faq_discover_opf_title => 'オープンプロダクトの詳細を見る';
+  String get preferences_faq_discover_opf_title =>
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - よくある質問';
@@ -5905,7 +5837,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get preferences_app_settings_media_title => 'メディア';
 
   @override
-  String get preferences_about_app_development_title => '発達';
+  String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title => 'Open Food Factsラボ';
@@ -5951,49 +5883,11 @@ class AppLocalizationsJa extends AppLocalizations {
   String get location_map_details_postcode => '郵便番号';
 
   @override
-  String get location_map_details_country => '国';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => '座標';
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => '家に戻る';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'カメラを切り替える';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'バーコードスキャナーを表示する';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'タップして**バーコード**をスキャンし\n、それが**あなたにとって良い**かどうか調べてください！';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'トーチを切り替える';
-
-  @override
-  String get homepage_scanner_banner_start_scanning => '商品のバーコードに近づいてスキャンする';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return '次のバーコードが検出されました: $barcode、無効のようです。';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'もっと見る…';
-
-  @override
-  String get homepage_list_most_scanned_title => '最もスキャンされた製品';
-
-  @override
-  String get homepage_list_last_scanned_title => '最後にスキャンした製品';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

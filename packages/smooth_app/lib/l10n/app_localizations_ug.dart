@@ -12,9 +12,6 @@ class AppLocalizationsUg extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'ئوچۇق باھا';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsUg extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'ئىجازەتنامە';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsUg extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'نامەلۇم مىقدار';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsUg extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'قايتا ئىشلەش كۆرسەتمىلىرى';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsUg extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'قايتا ئىشلەش كۆرسەتمىسى رەسىم';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'رەسىمگە تارتىش';
@@ -1141,15 +1135,6 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'سىزنىڭ\n**\"$search\"**\nنى ئىزدىشىڭىز ھېچقانداق نەتىجە تاپالمىدى.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'بۇنىڭ ئورنىغا **بىزنىڭ دۇنياۋى سانلىق مەلۇمات ئامبىرىمىز** دا ئوخشاش ئىزدەشنى ئىجرا قىلىشنى خالامسىز؟';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2519,6 @@ class AppLocalizationsUg extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2714,9 +2696,6 @@ class AppLocalizationsUg extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Price entry from \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'مەھسۇلات تەپسىلاتلىرىنى كۆرۈڭ';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2993,33 +2972,6 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3565,7 +3517,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'يەرلىك ساقلانغان ساقلانما يېڭىلاش ئۈچۈن مۇلازىمېتىر ھەرىكىتىنى قىلىشقا باشلايدۇ';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5261,7 +5213,7 @@ class AppLocalizationsUg extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5343,48 +5295,6 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'مەن ئۈچۈن';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'مېنىڭ ماسلىشىشچانلىقىم';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% ماس كېلىدۇ';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'ماسلىشىشچانلىق نومۇرىنى ھېسابلاش ئۈچۈن سانلىق مەلۇمات يېتەرلىك ئەمەس.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '«$productType» تىپلىق كۆپەيتىلگەن مىقدار ئۈچۈن نومۇر ھېسابلىغىلى بولمايدۇ.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'مۇھىملىقى';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'ماسلىشىشلار';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'ياخشى ماسلىشىشلار';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'ئوتتۇرىچە ماسلىشىشلار';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'ناچار ماسلىشىشلار';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'نامەلۇم ماسلىشىشلار';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -6035,7 +5945,7 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'دۆلىتىڭىزدىكى ئوزۇقلۇق نومۇرى ۋە يېشىل نومۇرلارنى ھېسابلاشقا ياردەملىشىڭ';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'مەن تۆھپە قوشقان باھا';
@@ -6063,7 +5973,7 @@ class AppLocalizationsUg extends AppLocalizations {
       'باھاسى ئەڭ كۆپ بولغان تۆھپىكارلار';
 
   @override
-  String get preferences_prices_metrics_title => 'ئېچىلىش باھا كۆرسەتكۈچلىرى';
+  String get preferences_prices_metrics_title => 'ئوچۇق باھا كۆرسەتكۈچى';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6264,44 +6174,4 @@ class AppLocalizationsUg extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'ئۆيگە قايتىش';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'كامېرانى ئېچىش/ياپىش';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'شىتىركود سىكانىرنى كۆرسىتىش';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**شترىك كود**\nنى سىكانىرلاش ۋە ئۇنىڭ سىزگە **ياخشىمۇ** ئىكەنلىكىنى بىلىش ئۈچۈن چېكىڭ!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'چىراغنى ئېچىش/ياپىش';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'مەھسۇلاتنىڭ شىتىركودىغا يېقىنلىشىپ سىكانىرلاڭ';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'بىز تۆۋەندىكى شىتىر كودنى بايقىدۇق: $barcode، ئەمما ئۇ ئىناۋەتسىزدەك قىلىدۇ.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'كۆپرەك كۆرۈڭ…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'ئەڭ ئاخىرقى قېتىم سىكانىرلانغان مەھسۇلاتلار';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

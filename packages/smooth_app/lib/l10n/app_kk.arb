@@ -1,6 +1,5 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Ашық бағалар",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -129,7 +128,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Лицензиялар",
+  "licenses": "Licences",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -494,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_all": {
+  "@category_al": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
@@ -536,17 +535,9 @@
   "product": "Өнім",
   "@product": {},
   "unknownBrand": "Unknown brand",
-  "@unknownBrand": {
-    "description": "Message when the brand is not available"
-  },
-  "unknownQuantity": "Белгісіз саны",
-  "@unknownQuantity": {
-    "description": "Message when the quantity is not available"
-  },
+  "@unknownBrand": {},
   "unknownProductName": "Unknown product name",
-  "@unknownProductName": {
-    "description": "Message when the product name is not available"
-  },
+  "@unknownProductName": {},
   "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -595,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Қайта өңдеу нұсқаулары",
+  "packaging_information": "Packaging information",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Recycling instructions photo",
+  "packaging_information_photo": "Packaging information photo",
   "@packaging_information_photo": {},
   "missing_product": "You found a new product!",
   "@missing_product": {},
@@ -697,7 +688,7 @@
   "front_packaging_photo_title": "Front Packaging Photo",
   "ingredients_photo_title": "Ingredients Photo",
   "nutritional_facts_photo_title": "Nutrition Facts Photo",
-  "recycling_photo_title": "Қайта өңдеу нұсқаулары Фотосурет",
+  "recycling_photo_title": "Recycling Photo",
   "take_photo_title": "Суретке түсіру",
   "take_more_photo_title": "Take more photos",
   "front_photo_uploaded": "Front photo uploaded",
@@ -886,17 +877,6 @@
   "@view_more_photo_button": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
-  "no_product_found_explanation": "\n**\"{search}\"**\nбойынша іздеуіңіз ешқандай нәтиже бермеді.",
-  "@no_product_found_explanation": {
-    "description": "Explanation shown when no product is found for a search",
-    "placeholders": {
-      "search": {
-        "type": "String",
-        "example": "chocolate"
-      }
-    }
-  },
-  "no_product_found_try_world_results": "Оның орнына **біздің жаһандық дерекқорымызда** дәл осы іздеуді іске қосқыңыз келе ме?",
   "no_location_found": "No location found",
   "not_found": "not found:",
   "refreshing_product": "Refreshing product",
@@ -2311,7 +2291,6 @@
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
   "product_type_label_product": "Other",
-  "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2445,7 +2424,6 @@
       }
     }
   },
-  "prices_entry_menu_open_product": "Өнімнің мәліметтерін қарау",
   "prices_entry_menu_open_product_prices": "Осы өнімнің барлық бағаларын қараңыз",
   "prices_entry_menu_open_proof": "Дәлелдеуді көру",
   "prices_entry_menu_my_prices": "Менің басқа бағаларымды қараңыз",
@@ -3285,10 +3263,6 @@
   "background_task_title_full_refresh": "Starting the refresh of all the products locally stored",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
-  },
-  "background_task_title_folksonomy": "Жергілікті сақталған фольксономиялық жаңартулар үшін сервер әрекеттерін орындауды бастау",
-  "@background_task_title_folksonomy": {
-    "description": "Snackbar message when server action for folksonomy updates is started"
   },
   "background_task_title_top_n": "Starting the download of the most popular products",
   "@background_task_title_top_n": {
@@ -4483,7 +4457,7 @@
   "photo_field_front": "Product photo",
   "photo_field_ingredients": "Ingredients photo",
   "photo_field_nutrition": "Nutrition photo",
-  "photo_field_packaging": "Recycling instructions photo",
+  "photo_field_packaging": "Packaging information photo",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
@@ -4568,56 +4542,6 @@
   "product_page_tab_for_me": "Мен үшін",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
-  },
-  "product_page_for_me_compatibility_score_title": "Менің үйлесімділігім",
-  "@product_page_for_me_compatibility_score_title": {
-    "description": "Title for the compatibility score"
-  },
-  "product_page_for_me_compatibility_score_value": "{value}% үйлесімді",
-  "@product_page_for_me_compatibility_score_value": {
-    "description": "Compatibility score value in the For me tab on the product page",
-    "placeholders": {
-      "value": {
-        "type": "int"
-      }
-    }
-  },
-  "product_page_for_me_compatibility_score_uncomputable": "Үйлесімділік ұпайын есептеу үшін деректер жеткіліксіз.",
-  "@product_page_for_me_compatibility_score_uncomputable": {
-    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
-  },
-  "product_page_for_me_compatibility_score_unsupported": "«{productType}» түріндегі көбейтінді үшін ұпай есептеу мүмкін емес.",
-  "@product_page_for_me_compatibility_score_unsupported": {
-    "description": "Message displayed when a compatibility score can't be computed for a product",
-    "placeholders": {
-      "productType": {
-        "type": "String"
-      }
-    }
-  },
-  "product_page_for_me_attributes_order_importance": "Маңыздылығы",
-  "@product_page_for_me_attributes_order_importance": {
-    "description": "Button to order the attributes by importance in the For me tab on the product page"
-  },
-  "product_page_for_me_attributes_order_evaluation": "Сәйкестік",
-  "@product_page_for_me_attributes_order_evaluation": {
-    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
-  },
-  "product_page_for_me_attributes_group_good_matches": "Жақсы сәйкестіктер",
-  "@product_page_for_me_attributes_group_good_matches": {
-    "description": "Title for the group of attributes that are good matches for the user"
-  },
-  "product_page_for_me_attributes_group_average_matches": "Орташа сәйкестіктер",
-  "@product_page_for_me_attributes_group_average_matches": {
-    "description": "Title for the group of attributes that are average matches for the user"
-  },
-  "product_page_for_me_attributes_group_bad_matches": "Сәтсіз сәйкестіктер",
-  "@product_page_for_me_attributes_group_bad_matches": {
-    "description": "Title for the group of attributes that are bad matches for the user"
-  },
-  "product_page_for_me_attributes_group_unknown_matches": "Белгісіз сәйкестіктер",
-  "@product_page_for_me_attributes_group_unknown_matches": {
-    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
@@ -5176,7 +5100,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Ашық азық-түлік фактілерін ашыңыз",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5200,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "«Ашық азық-түлік фактілері» үкіметтік емес ұйымы",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5404,7 +5328,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Ашық баға көрсеткіштері",
+  "preferences_prices_metrics_title": "Баға көрсеткіштерін ашу",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5648,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Азық-түлік фактілері зертханасын ашыңыз",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5656,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Ашық тағам фактілерін тіліңізге жеткізіңіз",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5690,59 +5614,5 @@
   "location_map_details_postcode": "Postcode",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID",
-  "homepage_scanner_back_to_home_button": "Үйге оралу",
-  "@homepage_scanner_back_to_home_button": {
-    "description": "Button to go back to home from the scanner page"
-  },
-  "homepage_scanner_toggle_camera_tooltip": "Камераны ауыстыру/жасыру",
-  "@homepage_scanner_toggle_camera_tooltip": {
-    "description": "Tooltip for the button to toggle the camera on the scanner page"
-  },
-  "homepage_header_barcode_tooltip": "Штрих-код сканерін көрсету",
-  "@homepage_header_barcode_tooltip": {
-    "description": "Tooltip for the button to open the barcode scanner from the homepage"
-  },
-  "homepage_scanner_overlay_message": "**Штрих-кодты**\nсканерлеу үшін түртіңіз және оның сізге **пайдалы екенін** біліңіз!",
-  "@homepage_scanner_overlay_message": {
-    "description": "Message visible above the camera."
-  },
-  "homepage_scanner_toggle_torch_tooltip": "Шамды ауыстыру",
-  "@homepage_scanner_toggle_torch_tooltip": {
-    "description": "Tooltip for the button to toggle the torch on the scanner page"
-  },
-  "homepage_scanner_banner_start_scanning": "Өнімнің штрих-кодын қарап шығу арқылы оны сканерлеңіз",
-  "@homepage_scanner_banner_start_scanning": {
-    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
-  },
-  "homepage_scanner_banner_invalid_barcode": "Біз келесі штрих-кодты анықтадық: {barcode}, бірақ ол жарамсыз сияқты.",
-  "@homepage_scanner_banner_invalid_barcode": {
-    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
-    "placeholders": {
-      "barcode": {
-        "type": "String"
-      }
-    }
-  },
-  "homepage_horizontal_list_view_more_button": "Толығырақ…қараңыз",
-  "@homepage_horizontal_list_view_more_button": {
-    "description": "Button to see all items in a horizontal list on the homepage"
-  },
-  "homepage_list_most_scanned_title": "Most scanned products",
-  "@homepage_list_most_scanned_title": {
-    "description": "Title for the most scanned products horizontal list on the homepage"
-  },
-  "homepage_list_last_scanned_title": "Соңғы сканерленген өнімдер",
-  "@homepage_list_last_scanned_title": {
-    "description": "Title for the last scanned products horizontal list on the homepage"
-  },
-  "percent_value": "{percent}%",
-  "@percent_value": {
-    "description": "A percentage value (you may insert a space before the % sign if needed)",
-    "placeholders": {
-      "percent": {
-        "type": "String"
-      }
-    }
-  }
+  "location_map_details_osm_id": "OSM ID"
 }

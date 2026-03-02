@@ -12,9 +12,6 @@ class AppLocalizationsAs extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'অনুজ্ঞাপত্ৰ';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsAs extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'অজ্ঞাত পৰিমাণ';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsAs extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'পুনঃব্যৱহাৰৰ নিৰ্দেশনা';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'পুনঃব্যৱহাৰৰ নিৰ্দেশনা ফটো';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1135,6 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'আপোনাৰ অনুসন্ধান\n**\"$search\"**\nৰ বাবে কোনো ফলাফল পোৱা নগ\'ল।';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'আপুনি ইয়াৰ পৰিবৰ্তে **আমাৰ গ্লোবেল ডাটাবেছ** ত এই একেটা সন্ধান চলাব বিচাৰেনে?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2519,6 @@ class AppLocalizationsAs extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2560,7 +2542,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'মুক্ত মূল্য ৱেবছাইটত খোলক';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -2715,9 +2697,6 @@ class AppLocalizationsAs extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '\"$user\" ৰ পৰা মূল্য প্ৰৱেশ।';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'পণ্যৰ বিৱৰণ চাওক';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2994,33 +2973,6 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3566,7 +3518,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'স্থানীয়ভাৱে সংৰক্ষণ কৰা লোকছ\'নমি আপডেইটসমূহৰ বাবে চাৰ্ভাৰ কাৰ্য্যসমূহ সম্পাদন কৰিবলে আৰম্ভ কৰা';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5258,7 +5210,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5340,44 +5292,6 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'মোৰ বাবে';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'মোৰ সামঞ্জস্যতা';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% সামঞ্জস্যপূৰ্ণ';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'সামঞ্জস্যতা স্ক’ৰ গণনা কৰিবলৈ অপৰ্যাপ্ত তথ্য।';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" ধৰণৰ উৎপাদনৰ বাবে এটা স্ক\'ৰ গণনা কৰিব নোৱাৰি।';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'গুৰুত্ব';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'মেচ';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'ভাল মেচ';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches => 'গড় মিল';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'বেয়া মেচ';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'অজ্ঞাত মিল';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5745,7 +5659,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get preferences_tips => 'কিটিপসমূহ';
 
   @override
-  String get tips_discover_nutriscore => 'নতুন নিউট্ৰি-স্ক’ৰ আৱিষ্কাৰ কৰক';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5833,7 +5747,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'নিউট্ৰি-স্ক’ৰ কেনেকৈ গণনা কৰা হয় আৱিষ্কাৰ কৰক';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5843,8 +5757,7 @@ class AppLocalizationsAs extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'মুকলি খাদ্যৰ তথ্য আৱিষ্কাৰ কৰক';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6207,7 +6120,7 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'আপোনাৰ ভাষালৈ মুকলি খাদ্যৰ তথ্য আনিব';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6251,43 +6164,4 @@ class AppLocalizationsAs extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'ঘৰলৈ উভতি আহিলোঁ';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'কেমেৰা টগল কৰক';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'বাৰক’ড স্ক্যানাৰ দেখুৱাওক';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'এটা **বাৰক\'ড**\nস্কেন কৰিবলৈ টেপ কৰক আৰু আৱিষ্কাৰ কৰক যে ই **আপোনাৰ বাবে ভাল**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'টগল টৰ্চ';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'এটা সামগ্ৰীৰ বাৰক’ডৰ কাষ চাপি স্কেন কৰক';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'আমি নিম্নলিখিত বাৰক\'ড ধৰা পেলাইছো: $barcode, কিন্তু ই অবৈধ যেন লাগে।';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'অধিক চাওক…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'শেষত স্কেন কৰা সামগ্ৰী';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

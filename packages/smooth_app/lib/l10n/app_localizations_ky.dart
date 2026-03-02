@@ -12,9 +12,6 @@ class AppLocalizationsKy extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Ачык баалар';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsKy extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Лицензиялар';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsKy extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Белгисиз сан';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsKy extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Кайра иштетүү боюнча көрсөтмөлөр';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsKy extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Кайра иштетүү боюнча көрсөтмөлөр Сүрөт';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1140,15 +1134,6 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return '\n**\"$search\"**\nбоюнча издөөңүз эч кандай жыйынтык берген жок.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Анын ордуна, ушул эле издөөнү **биздин глобалдык маалымат базабызда** жүргүзгүңүз келеби?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2533,9 +2518,6 @@ class AppLocalizationsKy extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2715,9 +2697,6 @@ class AppLocalizationsKy extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Баасы \"$user\" баштап';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Продукциянын чоо-жайын көрүү';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2995,33 +2974,6 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3568,7 +3520,7 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Жергиликтүү сакталган фольксономия жаңыртуулары үчүн сервер аракеттерин аткарууну баштоо';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5264,7 +5216,7 @@ class AppLocalizationsKy extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5346,48 +5298,6 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Мен үчүн';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Менин шайкештигим';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% шайкеш келет';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Шайкештик упайын эсептөө үчүн маалымат жетишсиз.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" түрүндөгү көбөйтүндү үчүн упай эсептелбейт.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Маанилүүлүгү';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Беттештер';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Жакшы дал келүүлөр';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Орточо дал келүүлөр';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Начар дал келүүлөр';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Белгисиз дал келүүлөр';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -6071,7 +5981,7 @@ class AppLocalizationsKy extends AppLocalizations {
       'Эң көп баалар менен салым кошкондор';
 
   @override
-  String get preferences_prices_metrics_title => 'Ачык баалардын көрсөткүчтөрү';
+  String get preferences_prices_metrics_title => 'Ачык баа көрсөткүчтөрү';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6220,14 +6130,14 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Тамак-аш фактылары лабораториясын ачыңыз';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ачык тамак-аш фактыларын өз тилиңизге алып келиңиз';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6272,45 +6182,4 @@ class AppLocalizationsKy extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Үйгө кайтуу';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip =>
-      'Камераны өчүрүү/күйгүзүү';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Штрих-код сканерин көрсөтүү';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**Штрих-код**\nсканерлөө үчүн таптап, ал сизге **пайдалуубу** же жокпу, билип алыңыз!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip =>
-      'Фонарьды күйгүзүү/өчүрүү';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Продукциянын штрих-кодун колдонуп сканерлеңиз';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Биз төмөнкү штрих-кодду таптык: $barcode, бирок ал жараксыз окшойт.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Көбүрөөк көрүү…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Акыркы сканерленген өнүмдөр';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

@@ -12,9 +12,6 @@ class AppLocalizationsMl extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'തുറന്ന വിലകൾ';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'ലൈസൻസുകൾ';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsMl extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'അജ്ഞാത അളവ്';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsMl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'പുനരുപയോഗ നിർദ്ദേശങ്ങൾ';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'പുനരുപയോഗ നിർദ്ദേശങ്ങൾ ഫോട്ടോ';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1135,6 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return '\n**\"$search\"**\nഎന്നിവയ്‌ക്കായുള്ള നിങ്ങളുടെ തിരയൽ ഫലങ്ങളൊന്നും പൊരുത്തപ്പെട്ടില്ല.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'പകരം **ഞങ്ങളുടെ ആഗോള ഡാറ്റാബേസിൽ** ഇതേ തിരയൽ നടത്തണോ?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2535,9 +2520,6 @@ class AppLocalizationsMl extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2716,9 +2698,6 @@ class AppLocalizationsMl extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '\"$user\" എന്നതിൽ നിന്നാണ് വില രേഖപ്പെടുത്തിയിരിക്കുന്നത്.';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'ഉൽപ്പന്ന വിശദാംശങ്ങൾ കാണുക';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2996,33 +2975,6 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3568,7 +3520,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'പ്രാദേശികമായി സംഭരിച്ചിരിക്കുന്ന ഫോക്ക്‌സോണമി അപ്‌ഡേറ്റുകൾക്കായി സെർവർ പ്രവർത്തനങ്ങൾ നടത്താൻ ആരംഭിക്കുന്നു.';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5264,7 +5216,7 @@ class AppLocalizationsMl extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5346,47 +5298,6 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'എനിക്കായി';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'എന്റെ അനുയോജ്യത';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% അനുയോജ്യം';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'അനുയോജ്യതാ സ്കോർ കണക്കാക്കാൻ ആവശ്യമായ ഡാറ്റയില്ല.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" എന്ന തരത്തിലുള്ള ഒരു ഗുണനഫലത്തിന് സ്കോർ കണക്കാക്കാൻ കഴിയില്ല.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'പ്രാധാന്യം';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'മത്സരങ്ങൾ';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'നല്ല പൊരുത്തങ്ങൾ';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'ശരാശരി പൊരുത്തങ്ങൾ';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'മോശം പൊരുത്തങ്ങൾ';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'അജ്ഞാത പൊരുത്തങ്ങൾ';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -6014,7 +5925,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'ഓപ്പൺ ഫുഡ് ഫാക്റ്റുകളിൽ ഞാൻ ചേർത്ത പുതിയ ഉൽപ്പന്നങ്ങൾ';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6062,14 +5973,14 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'ഓപ്പൺ പ്രൈസ് കമ്മ്യൂണിറ്റി ചേർത്ത ഏറ്റവും പുതിയ വിലകൾ';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
       'ഏറ്റവും കൂടുതൽ വില ലഭിക്കുന്ന സംഭാവകർ';
 
   @override
-  String get preferences_prices_metrics_title => 'ഓപ്പൺ വില മെട്രിക്‌സ്';
+  String get preferences_prices_metrics_title => 'ഓപ്പൺ പ്രൈസ് മെട്രിക്‌സ്';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6111,7 +6022,7 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'സഹായിക്കാനുള്ള ലളിതമായ വഴികൾ ഭക്ഷണ വസ്തുതകൾ തുറക്കുക';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6272,44 +6183,4 @@ class AppLocalizationsMl extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'വീട്ടിലേക്ക് മടങ്ങുക';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'ക്യാമറ മാറ്റുക';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'ബാർകോഡ് സ്കാനർ കാണിക്കുക';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'ഒരു **ബാർകോഡ്**\nസ്കാൻ ചെയ്യാൻ ടാപ്പ് ചെയ്യുക, അത് **നിങ്ങൾക്ക് നല്ലതാണോ എന്ന് കണ്ടെത്തുക**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'ടോർച്ച് മാറ്റുക';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'ഒരു ഉൽപ്പന്നത്തിന്റെ ബാർകോഡിനെ സമീപിച്ച് സ്കാൻ ചെയ്യുക';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'ഇനിപ്പറയുന്ന ബാർകോഡ് ഞങ്ങൾ കണ്ടെത്തി: $barcode, പക്ഷേ അത് അസാധുവാണെന്ന് തോന്നുന്നു.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'കൂടുതൽ കാണുക…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'അവസാനം സ്കാൻ ചെയ്ത ഉൽപ്പന്നങ്ങൾ';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

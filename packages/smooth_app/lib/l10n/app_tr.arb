@@ -1,6 +1,5 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Açık Fiyatlar",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -494,7 +493,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Hepsi",
-  "@category_all": {
+  "@category_al": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategori arama)",
@@ -514,7 +513,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_product_help": "Bir ürün, marka veya barkod arayın\n",
+  "search_product_help": "Search a product,\na brand or a barcode",
   "@search_product_help": {
     "description": "Help text of a search text input field. Please respect the line break."
   },
@@ -536,17 +535,9 @@
   "product": "Ürün",
   "@product": {},
   "unknownBrand": "Bilinmeyen marka",
-  "@unknownBrand": {
-    "description": "Message when the brand is not available"
-  },
-  "unknownQuantity": "Bilinmeyen miktar",
-  "@unknownQuantity": {
-    "description": "Message when the quantity is not available"
-  },
+  "@unknownBrand": {},
   "unknownProductName": "Bilinmeyen ürün adı",
-  "@unknownProductName": {
-    "description": "Message when the product name is not available"
-  },
+  "@unknownProductName": {},
   "label_refresh": "Yenile",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -595,11 +586,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Geri dönüşüm talimatları",
+  "packaging_information": "Paketleme bilgileri",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Geri dönüşüm talimatları fotoğrafı",
+  "packaging_information_photo": "Paketleme bilgileri fotoğrafı",
   "@packaging_information_photo": {},
   "missing_product": "Yeni bir ürün buldun!",
   "@missing_product": {},
@@ -697,7 +688,7 @@
   "front_packaging_photo_title": "Ön ambalaj fotoğrafı",
   "ingredients_photo_title": "İçindekiler fotoğarafı",
   "nutritional_facts_photo_title": "Besin Değerleri Fotoğrafı",
-  "recycling_photo_title": "Geri dönüşüm talimatları Fotoğraf",
+  "recycling_photo_title": "Geri Dönüşüm Fotoğrafı",
   "take_photo_title": "Resim çek",
   "take_more_photo_title": "Daha fazla fotoğraf çekin",
   "front_photo_uploaded": "Önden fotoğraf yüklendi",
@@ -886,17 +877,6 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ürün bulunamadı",
   "@no_product_found": {},
-  "no_product_found_explanation": "\n**\"{search}\"**\niçin yaptığınız arama hiçbir sonuçla eşleşmedi.",
-  "@no_product_found_explanation": {
-    "description": "Explanation shown when no product is found for a search",
-    "placeholders": {
-      "search": {
-        "type": "String",
-        "example": "chocolate"
-      }
-    }
-  },
-  "no_product_found_try_world_results": "Bu aramayı **küresel veri tabanımızda** da çalıştırmak ister misiniz?",
   "no_location_found": "Konum bulunamadı",
   "not_found": "bulunamadı:",
   "refreshing_product": "Ürün yenileme",
@@ -1783,7 +1763,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Ülke",
+  "edit_product_form_item_countries_title": "Country",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2311,7 +2291,6 @@
   "product_type_label_beauty": "Kişisel bakım",
   "product_type_label_pet_food": "Evcil hayvan maması",
   "product_type_label_product": "Diğer",
-  "product_type_label_unknown": "Bilinmeyen",
   "product_type_selection_title": "Ürün tipi",
   "product_type_selection_subtitle": "Bu ürünün türünü seçin",
   "product_type_selection_empty": "Öncelikle bir ürün türü seçmeniz gerekiyor!",
@@ -2445,7 +2424,6 @@
       }
     }
   },
-  "prices_entry_menu_open_product": "Ürün detaylarını görüntüle",
   "prices_entry_menu_open_product_prices": "Bu ürünün tüm fiyatlarını görüntüle",
   "prices_entry_menu_open_proof": "Kanıtı görüntüle",
   "prices_entry_menu_my_prices": "Diğer fiyatlarımı görüntüle",
@@ -2619,7 +2597,7 @@
   "prices_proof_empty_title": "Henüz bir kanıt yok!",
   "prices_proof_empty_explanation": "Öncelikle bir **fiş** veya **fiyat etiketi** fotoğrafı ekleyerek başlayın!",
   "prices_proof_find": "Bedeli sil",
-  "prices_proof_change": "Değişiklik kanıtı",
+  "prices_proof_change": "Change proof",
   "prices_proof_receipt": "Makbuz",
   "prices_proof_price_tag": "Fiyat etiketi",
   "prices_proof_mandatory": "Bir bedel seçmeniz gerekiyor!",
@@ -2666,7 +2644,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Açık Fiyatlar hakkında daha fazla bilgi edinin.",
+  "prices_menu_know_more": "Know more about Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -2770,7 +2748,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "\"{user}\"'dan kanıt",
+  "search_proof_title": "Proof from \"{user}\"",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -3285,10 +3263,6 @@
   "background_task_title_full_refresh": "Yerel olarak depolanan tüm ürünlerin yenilenmesinin başlatılması",
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
-  },
-  "background_task_title_folksonomy": "Yerel olarak depolanan folklor güncellemeleri için sunucu eylemlerinin gerçekleştirilmeye başlanması",
-  "@background_task_title_folksonomy": {
-    "description": "Snackbar message when server action for folksonomy updates is started"
   },
   "background_task_title_top_n": "En popüler ürünlerin indirilmesinin başlatılması",
   "@background_task_title_top_n": {
@@ -4004,20 +3978,20 @@
   "guide_greenscore_lca_arg3_text7": "Deniz ve tatlı su (partiküller, asitlenme, ötrofikasyon)",
   "guide_greenscore_lca_arg3_text8": "Kaynakların tükenmesi.",
   "guide_greenscore_bonuses_penalties_title": "Bonuslar ve cezalar",
-  "guide_greenscore_bonuses_penalties_intro": "Bir kategori içindeki daha iyi ürünleri ödüllendirmek için, **çeşitli kriterlere dayalı olarak bonuslar ve cezalar** uyguluyoruz:",
+  "guide_greenscore_bonuses_penalties_intro": "To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Üretim modu",
-  "guide_greenscore_bonuses_penalties_arg1_text": "**Resmi etikete, çevresel faydaları garanti eden bir etikete veya sertifikaya (organik, adil ticaret, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC) sahip ürünlere **ekstra ödül** verilir.",
+  "guide_greenscore_bonuses_penalties_arg1_text": "A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Malzemelerin kaynağı",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Malzemelerin menşe ülkesine bağlı olarak bir **bonus** verilir. Bu bonus, **ulaşıma olan etkiyi** ve ayrıca her üretici ülkenin **çevre politikasını** dikkate alır.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Nesli tükenmekte olan türler",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Biyoçeşitlilik ve ekosistemler üzerinde önemli **olumsuz etkileri** olan bileşenler içeren ürünlere **ceza** uygulanır; örneğin, üretimi büyük çaplı ormansızlaşmaya neden olan palmiye yağı gibi.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Ambalaj",
-  "guide_greenscore_bonuses_penalties_arg4_text": "**Ambalajın döngüselliği** (geri dönüştürülmüş ham madde kullanımı ve geri dönüştürülebilirlik) ve aşırı ambalajlama dikkate alınarak bir **ceza** hesaplanır.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
   "guide_greenscore_transparency_title": "Çevresel etkileri daha iyi ölçmek ve azaltmak için artan şeffaflık ihtiyacı",
-  "guide_greenscore_transparency_intro1": "Yeşil Puanı doğru bir şekilde hesaplamak için, **ambalaj üzerinde mutlaka belirtilmeyen (örneğin menşei ve her bir bileşenin tam yüzdesi gibi) veya kullanılabilir biçimde nadiren bulunan (örneğin ambalajın tüm bileşenlerinin ve kullanılan plastik türlerinin tam listesini içeren) bilgilere** ihtiyaç duyulmaktadır.",
-  "guide_greenscore_transparency_intro2": "**Bu bilgi henüz mevcut olmadığında ortalama değerler kullanılır**, ancak şimdi herkesi bu bilgiyi toplamamıza yardımcı olmaya çağırıyoruz; bu bilgi hem Yeşil Puanlama sistemi hem de diğer birçok kullanım alanı için çok faydalı olacaktır.",
-  "guide_greenscore_transparency_arg1_title": "Vatandaşlak nasıl yardım edebilir?",
-  "guide_greenscore_transparency_arg1_text": "Tüm vatandaşlar, ürünler üzerinde bulunan veya bunlardan çıkarılabilecek bilgileri toplamamıza ve yapılandırmamıza yardımcı olabilir; örneğin **ambalaj** hakkındaki bilgiler: \"Ambalaj Misyonu\": tüm gıda ürünleri için büyük ölçekli, işbirliğine dayalı bir ambalaj envanteri (Fransızca).",
+  "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
+  "guide_greenscore_transparency_intro2": "**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.",
+  "guide_greenscore_transparency_arg1_title": "How citizens can help?",
+  "guide_greenscore_transparency_arg1_text": "All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).",
   "guide_greenscore_transparency_arg2_title": "Üreticiler nasıl yardımcı olabilir?",
   "guide_greenscore_transparency_arg2_text": "Üreticiler bilgilerini doğrudan üreticilere özel ücretsiz platformumuz üzerinden bize gönderebilirler.",
   "guide_greenscore_better_product_title": "Hangi ürün gezegenimiz için daha iyidir?",
@@ -4034,7 +4008,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nova_what_is_nova_title": "Ultra-işleme nedir?",
-  "guide_nova_what_is_nova_paragraph1": "NOVA grupları size **gıda işleme düzeyi** hakkında bilgi verir.",
+  "guide_nova_what_is_nova_paragraph1": "The NOVA groups inform you about **the level of food processing**.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4046,129 +4020,129 @@
   "guide_nova_groups_title": "4 NOVA grubu",
   "guide_nova_groups_intro": "4 adet NOVA grubu var, sorunlu olanı ise Grup 4 - Ultra işlenmiş gıdalar.",
   "guide_nova_groups_arg1_title": "Minimum işlenmiş veya işlenmemiş gıdalar",
-  "guide_nova_groups_arg1_text": "İşlenmemiş (veya doğal) gıdalar, doğadan ayrıldıktan sonra bitkilerin (tohumlar, meyveler, yapraklar, saplar, kökler) veya hayvanların (kas, sakatat, yumurta, süt) **yenilebilir kısımları** ile mantarlar, algler ve sudur.",
+  "guide_nova_groups_arg1_text": "Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.",
   "guide_nova_groups_arg2_title": "İşlenmiş yemek malzemeleri",
-  "guide_nova_groups_arg2_text": "**Yağlar, tereyağı, şeker ve tuz** gibi işlenmiş mutfak malzemeleri, Grup 1 gıdalarından veya doğadan presleme, rafine etme, öğütme, frezeleme ve kurutma gibi işlemlerle elde edilen maddelerdir.",
+  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "İşlenmiş gıdalar",
-  "guide_nova_groups_arg3_text": "Şişelenmiş sebzeler, konserve balıklar, şuruplu meyveler, peynirler ve taze yapılmış ekmekler gibi işlenmiş gıdalar, **esas olarak Grup 2'deki gıdalara tuz, yağ, şeker veya diğer maddelerin eklenmesiyle** üretilir. İşlemler, çeşitli koruma veya pişirme yöntemlerini ve ekmek ve peynir durumunda alkolsüz fermantasyonu içerir. İşlenmiş gıdaların çoğu iki veya üç bileşenden oluşur ve Grup 1 gıdalarının değiştirilmiş versiyonları olarak tanınabilir. Tek başlarına veya daha yaygın olarak diğer gıdalarla birlikte tüketilebilirler.",
+  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.",
   "guide_nova_groups_arg4_title": "Aşırı işlenmiş gıdalar",
-  "guide_nova_groups_arg4_text": "Gazlı içecekler, tatlı veya tuzlu paketlenmiş atıştırmalıklar, yeniden yapılandırılmış et ürünleri ve önceden hazırlanmış dondurulmuş yemekler gibi ultra işlenmiş gıdalar, **sadece değiştirilmiş gıdalar değil, çoğunlukla veya tamamen gıdalardan ve katkı maddelerinden türetilen maddelerden yapılan formülasyonlardır** ve neredeyse hiç bozulmamış Grup 1 gıda içermezler. Bu formülasyonlardaki bileşenler genellikle işlenmiş gıdalarda da bulunan şekerler, yağlar, katı yağlar veya tuz gibi maddeleri içerir. Bununla birlikte, ultra işlenmiş ürünler, tipik olarak mutfak hazırlıklarında kullanılmayan diğer enerji ve besin kaynaklarını da içerir. Bunlardan bazıları, kazein, laktoz, peynir altı suyu ve gluten gibi doğrudan gıdalardan elde edilir.",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Ultra işlemeyle ilgili sorunlar",
   "guide_nova_explanations_arg1_title": "Gıda bileşenlerinin aşırı işlenmesi",
-  "guide_nova_explanations_arg1_text": "Birçoğu, hidrojene veya interesterifiye yağlar, hidrolize proteinler, soya proteini izolatı, maltodekstrin, invert şeker ve yüksek fruktozlu mısır şurubu gibi **gıda bileşenlerinin daha fazla işlenmesinden elde edilir**.",
+  "guide_nova_explanations_arg1_text": "Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.",
   "guide_nova_explanations_arg2_title": "Saf gıda güvenliğinin ötesine geçen katkı maddeleri",
-  "guide_nova_explanations_arg2_text": "Ultra işlenmiş gıdalardaki katkı maddeleri arasında, koruyucular, antioksidanlar ve stabilizatörler gibi işlenmiş gıdalarda da kullanılan bazı maddeler bulunur. Sadece ultra işlenmiş ürünlerde bulunan katkı maddesi sınıfları arasında, **gıdaların duyusal özelliklerini taklit etmek veya geliştirmek ya da nihai ürünün hoş olmayan yönlerini gizlemek** için kullanılanlar yer alır. Bu katkı maddeleri arasında boyalar ve diğer renkler, renk stabilizatörleri; aromalar, aroma artırıcılar, şekersiz tatlandırıcılar; ve karbonatlama, sertleştirme, hacim artırma ve hacim azaltma maddeleri, köpük giderme, topaklanmayı önleme ve parlatma maddeleri, emülgatörler, şelatlayıcılar ve nemlendiriciler gibi işleme yardımcıları bulunur.",
+  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
   "guide_nova_explanations_arg3_title": "Evde yapamayacağınız işlemler",
-  "guide_nova_explanations_arg3_text": "Genellikle çok sayıda bileşeni bir araya getirmek ve nihai ürünü oluşturmak için **çok sayıda işlem dizisi kullanılır** (bu nedenle 'ultra işlenmiş' denir). Bu işlemler arasında hidrojenasyon ve hidrolizasyon, ekstrüzyon ve kalıplama ve kızartma için ön işleme gibi **yerli muadili olmayan** birkaç işlem bulunur.",
+  "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "Ultra işleme sürecinin yırtıcı ve finansal yönleri",
-  "guide_nova_explanations_arg4_text": "**Ultra işlenmiş gıdaların genel amacı, diğer tüm gıda gruplarının yerini alacak şekilde tasarlanmış, markalı, kullanışlı (dayanıklı, tüketime hazır), çekici (aşırı lezzetli) ve yüksek kârlı (düşük maliyetli içerikler) gıda ürünleri yaratmaktır. Ultra işlenmiş gıda ürünleri genellikle çekici bir şekilde paketlenir ve yoğun bir şekilde pazarlanır.**",
-  "guide_nova_explanations_arg5_title": "Sağlık riski",
+  "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
+  "guide_nova_explanations_arg5_title": "A health hazard",
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
-  "guide_nova_explanations_arg6_title": "Ülkeler bunların sınırlandırılmasını tavsiye ediyor.",
-  "guide_nova_explanations_arg6_text": "Bazı ülkeler, beslenme kılavuzları veya hedefleri için NOVA gruplarını kullanmaktadır; örneğin:\n\n- **🇧🇷 Brezilya**'nın beslenme kılavuzları, işlenmiş gıdaların tüketimini sınırlandırmayı ve aşırı işlenmiş gıdalardan kaçınmayı önermektedir.\n\n- **🇫🇷 Fransa**'nın 2018-2022 yılları için kamu sağlığı beslenme politikası hedefleri, **4. grup aşırı işlenmiş gıdaların tüketimini %20 azaltmayı** amaçlamaktadır.",
+  "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
+  "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
   "guide_nova_share_link": "https://world-tr.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
-  "guide_open_food_facts_title": "Açık Gıda Gerçeklerine hoş geldiniz!",
+  "guide_open_food_facts_title": "Welcome to Open Food Facts!",
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Open Food Facts nedir?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts, dünyanın dört bir yanından gıda ürünlerine ait **işbirliğine dayalı**, **ücretsiz** ve **açık** bir veritabanıdır.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "What is Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Yediğimiz yiyecekler hakkında herkesin bilgiye erişebilmesi gerektiğine inanıyoruz. İçerikler, alerjenler, besin değerleri ve daha fazlası hakkında veri toplayarak, **tüketicilerin bilinçli seçimler yapmasını sağlıyor** ve gıda sektörünü **daha fazla şeffaflığa doğru** yönlendiriyoruz.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Open Food Facts'in Özellikleri",
-  "guide_open_food_facts_features_arg1_title": "İstenmeyen içerikler için uyarı alın.",
-  "guide_open_food_facts_tips_title": "Harika fotoğraflar çekmek için ipuçları",
-  "guide_open_food_facts_tips_arg1_title": "Yapılmaması Gerekenler",
-  "guide_open_food_facts_tips_arg1_text1": "Gölgelerden ve parlamadan kaçının.",
-  "guide_open_food_facts_tips_arg1_text2": "Bulanık veya odak dışı metin yok.",
-  "guide_open_food_facts_tips_arg1_text3": "Metnin bazı kısımlarını kırpmayın.",
-  "guide_open_food_facts_tips_arg1_text4": "Kalabalık arka planlardan kaçının.",
-  "guide_open_food_facts_tips_arg2_title": "Yapılması gerekenler",
-  "guide_open_food_facts_tips_arg2_text1": "İyi ve eşit bir aydınlatma kullanın.",
-  "guide_open_food_facts_tips_arg2_text2": "Metnin net ve okunaklı olduğundan emin olun.",
-  "guide_open_food_facts_tips_arg2_text3": "Tüm malzeme listesini kaydedin.",
-  "guide_open_food_facts_tips_arg2_text4": "Ürünü düz bir yüzeyde tutun.",
-  "guide_open_food_facts_scores_title": "\"Yiyeceklerin Vikipedisi\"ni oluşturmamıza yardımcı olun.",
-  "guide_open_food_facts_scores_arg1_title": "Besin kalitesine ilişkin bir puan",
-  "guide_open_food_facts_scores_arg2_title": "Aşırı işlenmiş gıdalardan kaçınmak için bir puanlama sistemi",
-  "guide_open_food_facts_scores_arg3_title": "Gezegen için bir skor",
+  "guide_open_food_facts_features_title": "Features of Open Food Facts",
+  "guide_open_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_food_facts_tips_arg1_title": "Don’ts",
+  "guide_open_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_food_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_food_facts_scores_title": "Help us build the \"Wikipedia of Food\"",
+  "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
+  "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
+  "guide_open_food_facts_scores_arg3_title": "A score for the planet",
   "guide_open_food_facts_share_link": "https://world-tr.openfoodfacts.org/discover",
-  "guide_open_pet_food_facts_title": "Açık Evcil Hayvan Yemi Gerçeklerine Hoş Geldiniz!",
+  "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Açık Evcil Hayvan Maması Gerçekleri nedir?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts, misyonumuzu tüylü dostlarımıza da genişletiyor! Bu, **kediler, köpekler ve diğer evcil hayvanlar için evcil hayvan maması ürünlerinin bir veritabanıdır**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts extends our mission to our furry friends! It's a **database of pet food products for cats, dogs, and other companions**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Evcil hayvan sahiplerinin hayvanlarının ihtiyaçlarına en uygun mamayı seçmelerine yardımcı olmak için **içerikler**, **besin analizi** ve beslenme kılavuzları hakkında bilgi topluyoruz.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals' needs.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Açık Evcil Hayvan Yemi Bilgileri Özellikleri",
-  "guide_open_pet_food_facts_features_arg1_title": "İstenmeyen içerikler için uyarı alın.",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Evcil hayvanınızın herhangi bir içeriğe alerjisi var mı? Uygulama üzerinden, kaçınılması gereken kozmetik içeriklerinin bir listesini belirleyebilirsiniz!",
-  "guide_open_pet_food_facts_tips_title": "Harika fotoğraflar çekmek için ipuçları",
-  "guide_open_pet_food_facts_tips_arg1_title": "Yapılmaması Gerekenler",
-  "guide_open_pet_food_facts_tips_arg1_text1": "Gölgelerden ve parlamadan kaçının.",
-  "guide_open_pet_food_facts_tips_arg1_text2": "Bulanık veya odak dışı metin yok.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Metnin bazı kısımlarını kırpmayın.",
-  "guide_open_pet_food_facts_tips_arg1_text4": "Kalabalık arka planlardan kaçının.",
-  "guide_open_pet_food_facts_tips_arg2_title": "Yapılması gerekenler",
-  "guide_open_pet_food_facts_tips_arg2_text1": "İyi ve eşit bir aydınlatma kullanın.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Metnin net ve okunaklı olduğundan emin olun.",
-  "guide_open_pet_food_facts_tips_arg2_text3": "Tüm malzeme listesini kaydedin.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Ürünü düz bir yüzeyde tutun.",
-  "guide_open_pet_food_facts_scores_title": "Puanlama hakkında bir not",
-  "guide_open_pet_food_facts_scores_paragraph1": "Evcil hayvan maması için bir puanlama sistemi geliştirmek **şu anda öncelikli bir konu değil**. Beslenme ihtiyaçları türlere, yaşa ve sağlık durumuna göre büyük ölçüde değiştiği için metodoloji karmaşık olacaktır. Henüz böyle bir puanlama sistemi geliştirebilecek bağımsız bir bilimsel ekip bulamadık.",
+  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
+  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_pet_food_facts_tips_arg1_title": "Don’ts",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Do’s",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Keep the product on a flat surface.",
+  "guide_open_pet_food_facts_scores_title": "A note on scoring",
+  "guide_open_pet_food_facts_scores_paragraph1": "Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.",
   "guide_open_pet_food_facts_share_link": "https://world-tr.openpetfoodfacts.org/discover",
-  "guide_open_beauty_facts_title": "Open Beauty Facts'e hoş geldiniz!",
+  "guide_open_beauty_facts_title": "Welcome to Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Open Beauty Facts nedir?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts, **kozmetik ürünleri** hakkında ortaklaşa oluşturulmuş bir veritabanıdır.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "What is Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts is a collaborative database of **cosmetic products**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Amacımız, kişisel bakım ürünlerinizin içeriğini anlamanıza yardımcı olmak için içerik listelerini çözümlemektir. Nemlendiricilerden makyaj ürünlerine kadar, kozmetik sektöründe şeffaflığı teşvik etmek için içerikler, alerjenler ve ambalajlar hakkında veri topluyoruz.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Open Beauty Facts'in Özellikleri",
-  "guide_open_beauty_facts_features_arg1_title": "İstenmeyen içerikler için uyarı alın.",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Herhangi bir içeriğe alerjiniz var mı? Komedojen maddelerden kaçınmak mı istiyorsunuz? Tartışmalı bileşenlerden uzak durmak mı istiyorsunuz? Uygulama üzerinden, kaçınmak istediğiniz kozmetik içeriklerinin bir listesini oluşturabilirsiniz!",
-  "guide_open_beauty_facts_tips_title": "Harika fotoğraflar çekmek için ipuçları",
-  "guide_open_beauty_facts_tips_arg1_title": "Yapılmaması Gerekenler",
-  "guide_open_beauty_facts_tips_arg1_text1": "Gölgelerden ve parlamadan kaçının.",
-  "guide_open_beauty_facts_tips_arg1_text2": "Bulanık veya odak dışı metin yok.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Metnin bazı kısımlarını kırpmayın.",
-  "guide_open_beauty_facts_tips_arg1_text4": "Kalabalık arka planlardan kaçının.",
-  "guide_open_beauty_facts_tips_arg2_title": "Yapılması gerekenler",
-  "guide_open_beauty_facts_tips_arg2_text1": "İyi ve eşit bir aydınlatma kullanın.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Metnin net ve okunaklı olduğundan emin olun.",
-  "guide_open_beauty_facts_tips_arg2_text3": "Tüm malzeme listesini kaydedin.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Şişe eğri ise, gerektiği kadar fotoğraf çekin.",
-  "guide_open_beauty_facts_tips_arg2_text5": "İçindekiler listesini görmek için etiketi soymanız gerekebilir.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Ürünü düz bir yüzeyde tutun.",
-  "guide_open_beauty_facts_scores_title": "Puanlama hakkında bir not",
-  "guide_open_beauty_facts_scores_paragraph1": "Gıda ürünlerinin aksine, kozmetik dünyasında **Nutri-Score gibi evrensel olarak kabul görmüş, devlet destekli bir puanlama sistemi** bulunmamaktadır. İçeriklerin etkileri kişiden kişiye büyük ölçüde değişebilir ve cilt tipine, alerjilere ve bireysel endişelere bağlıdır.",
+  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_arg1_title": "Get alerts for your unwanted ingredients",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
+  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
+  "guide_open_beauty_facts_tips_arg1_title": "Don’ts",
+  "guide_open_beauty_facts_tips_arg1_text1": "Avoid shadows and glare.",
+  "guide_open_beauty_facts_tips_arg1_text2": "No blurry or out-of-focus text.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Don't crop out parts of the text.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Avoid busy backgrounds.",
+  "guide_open_beauty_facts_tips_arg2_title": "Do’s",
+  "guide_open_beauty_facts_tips_arg2_text1": "Use good, even lighting.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Ensure text is sharp and readable.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Capture the entire ingredients list.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Take as many picture as need if the bottle is curved.",
+  "guide_open_beauty_facts_tips_arg2_text5": "You might need to peel the label to see the list of ingredients.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Keep the product on a flat surface.",
+  "guide_open_beauty_facts_scores_title": "A note on scoring",
+  "guide_open_beauty_facts_scores_paragraph1": "Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.",
   "guide_open_beauty_facts_share_link": "https://world-tr.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Açık Fiyatlar'a hoş geldiniz!",
+  "guide_open_prices_title": "Welcome to Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Açık Fiyatlar nedir?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices, **dünya genelindeki ürünlerin fiyatlarını toplamak ve paylaşmak** amacıyla oluşturulmuş bir projedir. Araştırma, analiz ve daha birçok amaç için kullanılabilen, herkese açık bir veri setidir. Open Prices, Open Food Facts tarafından geliştirilmekte ve sürdürülmektedir.",
+  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4176,53 +4150,53 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Açık Fiyatlandırma sistemi nasıl çalışır?",
-  "guide_open_prices_how_paragraph1": "**Açık kaynaklı bir fiyat veri seti oluşturmak için kitle kaynak yöntemini kullanıyoruz.** Kullanıcılar bu web uygulaması veya resmi Open Food Facts mobil uygulaması aracılığıyla fiyat ekleyebilirler. Perakendeciler veya üçüncü taraf uygulamalar da API'mizi kullanarak katkıda bulunabilirler.",
-  "guide_open_prices_how_arg1_title": "Koridorlardaki fiyat etiketlerinin fotoğraflarını toplayın.",
-  "guide_open_prices_how_arg2_title": "Fişlerin fotoğraflarını toplayın.",
-  "guide_open_prices_why_title": "Open Food Facts neden bunu yapıyor?",
-  "guide_open_prices_why_paragraph1": "Fiyat bilgisi, gıda sistemlerini anlamak için son derece önemlidir. Gıda maliyetini anlamada ve daha sağlıklı beslenmeyi teşvik etmede kilit bir faktördür. Fiyat verilerinin kamuya açık hale getirilmesi, araştırmacıların, gazetecilerin ve vatandaşların **gıda fiyatlarının coğrafi ve zamansal olarak nasıl değiştiğini daha iyi anlamalarını** kolaylaştırmanın bir yoludur.",
-  "guide_open_prices_why_arg1_title": "Fiyatların zaman içindeki gelişimini takip edin.",
-  "guide_open_prices_why_arg1_text": "Fiyatların **evrimini** izleyin: küçülme enflasyonu, ucuzluk enflasyonu, hepsini birlikte takip edebiliriz!",
-  "guide_open_prices_why_arg2_title": "Yakınınızdaki fiyatları karşılaştırın",
-  "guide_open_prices_why_arg2_text": "Daha fazla fiyat bilgisi edindikçe, **çevrenizdeki en ucuz mağazaları** tespit edebileceksiniz.",
-  "guide_open_prices_scrapping_title": "Perakendecilerin web sitelerinden fiyatları kazımayı düşündünüz mü?",
-  "guide_open_prices_scrapping_paragraph1": "Yasal ve teknik nedenlerden dolayı, **perakendecilerin web sitelerinden fiyat verilerini çekmeyi Açık Fiyatlar'a katkıda bulunmanın geçerli bir yolu olarak görmüyoruz**. Topladığımız fiyatların doğru ve güncel olduğundan emin olmak istiyoruz ve katkıda bulunanlardan çekilen fiyatları almak bunu yapmamıza olanak sağlamıyor.",
-  "guide_open_prices_scrapping_paragraph2": "Fiyat kazıma işlemi, Open Prices'ın gelecekteki bir sürümünde düşünülen bir seçenektir, ancak bu işlem Open Prices tarafından yapılacaktır, böylece HTML sayfasına dayalı olarak fiyatın kanıtını elde edebiliriz.",
+  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
+  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
+  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
+  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
+  "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
+  "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
+  "guide_open_prices_why_arg2_title": "Compare prices near you",
+  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
+  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
+  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "Ben bir perakendeciyim ve fiyatlara katkıda bulunmak istiyorum. Bunu nasıl yapabilirim?",
-  "guide_open_prices_retailers_paragraph1": "API'mizi kullanarak fiyat katkısında bulunabilirsiniz.\nBüyük ölçekte fiyat katkısında bulunmak istiyorsanız lütfen prices@openfoodfacts.org adresinden bizimle iletişime geçin.",
+  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Açık Ürün Bilgileri'ne hoş geldiniz!",
+  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "Açık Ürün Bilgileri nedir?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts, **gıda, kozmetik veya evcil hayvan yemi olmayan, barkodu bulunan her türlü ürün için** devasa, açık bir veritabanıdır.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "**Elektronik eşyalardan** **oyuncaklara**, **giysilerden** **temizlik malzemelerine** kadar, barkodu olan her şey eklenebilir. Bu proje, günlük nesneler için bir \"Nesnelerin İnterneti\" oluşturmayı ve bunlar hakkındaki bilgilere evrensel olarak erişimi sağlamayı amaçlamaktadır.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Açık Ürünlerin Özellikleri ve Bilgileri",
-  "guide_open_products_facts_features_text": "Open Products Facts, tüketicilere nesnelerinin ömrünü uzatmak için döngüsel çözümler sunarak, nesnelerini koruma, onarma, geri dönüştürme veya yeni bir sahibine verme imkanı sağlamayı amaçlamaktadır.",
-  "guide_open_products_facts_features_arg1_title": "Bazı ürünlerin karbon ayak izleri",
-  "guide_open_products_facts_features_arg1_text": "Fransız Çevre Otoritesi ADEME'nin **Impact CO2** raporu, birçok kategorinin **karbon etkisini** sunmaktadır; ürünleri doğru şekilde kategorize ettiğinizden emin olun.",
-  "guide_open_products_facts_features_arg2_title": "Birçok ürün için onarılabilirlik endeksi",
-  "guide_open_products_facts_features_arg2_text": "Fransızca onarılabilirlik endeksi mevcut olduğunda, onu göstereceğiz. Dahası, **Folksonomi Motorunu kullanarak değişkenleri toplamaya başlayabilirsiniz**; böylece gelecekte, mevcut olmadığı ülkelerde bile, kendimiz yeniden hesaplayabiliriz.",
-  "guide_open_products_facts_features_arg3_title": "Ürünlerinizi bağışlamanın/yeniden satmanın yollarını bulun.",
+  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
+  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
+  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
+  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
+  "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
+  "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
   "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
-  "guide_open_products_facts_information_title": "Hangi bilgiler faydalı?",
-  "guide_open_products_facts_information_text": "Bu kadar geniş bir ürün yelpazesi için, **topladığımız veriler esnektir**. Bunu sağlamak için **Folksonomi Motorunu oluşturduk**.",
-  "guide_open_products_facts_folksonomy_title": "Folksonomi Motoru",
-  "guide_open_products_facts_folksonomy_paragraph1": "Folksonomi Motoru, ürünleri ilgili özelliklerle tamamlamanıza yardımcı olan bir araçtır. Bu, arama ve keşfedilebilirliği iyileştirmenin yanı sıra gelecekte ilgi çekici şeyleri hesaplamaya ve görüntülemeye de yardımcı olur.",
-  "guide_open_products_facts_folksonomy_paragraph2": "Şöyle bir anahtar ve değer ekleyebilirsiniz: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "Olası özellikler hakkında otomatik öneriler alacaksınız ve favori ürün türleriniz için yenilerini ekleyip belgelemekten memnuniyet duyarız.",
+  "guide_open_products_facts_information_title": "What information is useful?",
+  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
+  "guide_open_products_facts_folksonomy_title": "The Folksonomy Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.",
+  "guide_open_products_facts_folksonomy_paragraph2": "You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
   "guide_open_products_facts_share_link": "https://world-tr.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Açık yemek tercihleri",
-  "guide_coming_soon_button_title": "Yakında gelecek",
-  "guide_learn_more_subtitle": "Daha fazla bilgi edinmek için dokunun.",
+  "guide_open_preferences_button_title": "Open food preferences",
+  "guide_coming_soon_button_title": "Coming soon",
+  "guide_learn_more_subtitle": "Tap to learn more",
   "preview_badge": "Ön izleme",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4483,7 +4457,7 @@
   "photo_field_front": "Ürün fotoğrafı",
   "photo_field_ingredients": "İçindekiler fotoğarafı",
   "photo_field_nutrition": "Beslenme fotoğrafı",
-  "photo_field_packaging": "Geri dönüşüm talimatları fotoğrafı",
+  "photo_field_packaging": "Paketleme bilgileri fotoğrafı",
   "photo_already_exists": "Bu fotoğraf zaten mevcut",
   "photo_missing": "Bu fotoğraf eksik",
   "date": "Tarih",
@@ -4569,56 +4543,6 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
-  "product_page_for_me_compatibility_score_title": "Uyumluluğum",
-  "@product_page_for_me_compatibility_score_title": {
-    "description": "Title for the compatibility score"
-  },
-  "product_page_for_me_compatibility_score_value": "{value}% uyumlu",
-  "@product_page_for_me_compatibility_score_value": {
-    "description": "Compatibility score value in the For me tab on the product page",
-    "placeholders": {
-      "value": {
-        "type": "int"
-      }
-    }
-  },
-  "product_page_for_me_compatibility_score_uncomputable": "Uyumluluk puanı hesaplamak için yeterli veri yok.",
-  "@product_page_for_me_compatibility_score_uncomputable": {
-    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
-  },
-  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" türündeki bir ürün için puan hesaplanamaz.",
-  "@product_page_for_me_compatibility_score_unsupported": {
-    "description": "Message displayed when a compatibility score can't be computed for a product",
-    "placeholders": {
-      "productType": {
-        "type": "String"
-      }
-    }
-  },
-  "product_page_for_me_attributes_order_importance": "Önem",
-  "@product_page_for_me_attributes_order_importance": {
-    "description": "Button to order the attributes by importance in the For me tab on the product page"
-  },
-  "product_page_for_me_attributes_order_evaluation": "Maçlar",
-  "@product_page_for_me_attributes_order_evaluation": {
-    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
-  },
-  "product_page_for_me_attributes_group_good_matches": "İyi eşleşmeler",
-  "@product_page_for_me_attributes_group_good_matches": {
-    "description": "Title for the group of attributes that are good matches for the user"
-  },
-  "product_page_for_me_attributes_group_average_matches": "Ortalama maçlar",
-  "@product_page_for_me_attributes_group_average_matches": {
-    "description": "Title for the group of attributes that are average matches for the user"
-  },
-  "product_page_for_me_attributes_group_bad_matches": "Kötü eşleşmeler",
-  "@product_page_for_me_attributes_group_bad_matches": {
-    "description": "Title for the group of attributes that are bad matches for the user"
-  },
-  "product_page_for_me_attributes_group_unknown_matches": "Bilinmeyen eşleşmeler",
-  "@product_page_for_me_attributes_group_unknown_matches": {
-    "description": "Title for the group of attributes that are unknown matches for the user"
-  },
   "product_page_tab_website": "Web sitesi",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4637,11 +4561,11 @@
   "folksonomy_explanation_card_title": "Folksonominin nitelikleri nelerdir?",
   "folksonomy_explanation_card_line1": "Nitelikler **anahtar-değer** tabanlıdır.",
   "folksonomy_explanation_card_line2": "Bu özellikler, katkıda bulunanlar tarafından her türlü kullanım için oluşturulup dosyalanır.",
-  "folksonomy_action_external_link_title": "Harici bağlantıyı aç",
+  "folksonomy_action_external_link_title": "Open external link",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "Harici bağlantılar güvenli olmayabilir. Gerçekten ziyaret etmek istiyor musunuz?",
+  "folksonomy_action_external_link_warning": "External links may be unsafe. Do you really want to visit it?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
@@ -5067,7 +4991,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "Açık Gıda Bilgileri web sitesinde",
+  "preferences_on_off_website_subtitle": "On the Open Food Facts website",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5176,23 +5100,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Açık Gıda Gerçeklerini Keşfedin",
+  "preferences_faq_discover_off_title": "Discover Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Açık Güzellik Gerçeklerini Keşfedin",
+  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Açık Evcil Hayvan Maması Gerçeklerini Keşfedin",
+  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Açık Fiyatları Keşfedin",
+  "preferences_faq_discover_op_title": "Discover Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Açık Ürünler Hakkında Bilgi Edinin",
+  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5200,7 +5124,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "Açık Gıda Gerçekleri STK'sı",
+  "preferences_faq_off_ngo_title": "The Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5224,7 +5148,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Açık Gıda Gerçekleri blogu",
+  "preferences_connect_blog_title": "The Open Food Facts blog",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5344,7 +5268,7 @@
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
-  "preferences_contributions_new_products_subtitle": "Açık Gıda Bilgilerine eklediğim yeni ürünler",
+  "preferences_contributions_new_products_subtitle": "New products I added to Open Food Facts",
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
@@ -5404,7 +5328,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Açılış Fiyatları metrikleri",
+  "preferences_prices_metrics_title": "Açık Fiyat metrikleri",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5648,7 +5572,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Açık Gıda Bilgileri Laboratuvarları",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5656,7 +5580,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Açık Gıda Gerçeklerini kendi dilinize getirin",
+  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5683,66 +5607,12 @@
       }
     }
   },
-  "location_map_details_title": "Konum detayları",
+  "location_map_details_title": "Location details",
   "location_map_details_name": "İsim",
-  "location_map_details_street": "Sokak",
-  "location_map_details_city": "Şehir",
-  "location_map_details_postcode": "Posta kodu",
-  "location_map_details_country": "Ülke",
-  "location_map_details_coordinates": "Koordinatlar",
-  "location_map_details_osm_id": "OSM Kimliği",
-  "homepage_scanner_back_to_home_button": "Ana sayfaya geri dön",
-  "@homepage_scanner_back_to_home_button": {
-    "description": "Button to go back to home from the scanner page"
-  },
-  "homepage_scanner_toggle_camera_tooltip": "Kamerayı aç/kapat",
-  "@homepage_scanner_toggle_camera_tooltip": {
-    "description": "Tooltip for the button to toggle the camera on the scanner page"
-  },
-  "homepage_header_barcode_tooltip": "Barkod okuyucuyu gösterin",
-  "@homepage_header_barcode_tooltip": {
-    "description": "Tooltip for the button to open the barcode scanner from the homepage"
-  },
-  "homepage_scanner_overlay_message": "Bir **barkodu** taramak için dokunun\nve **sizin için uygun olup olmadığını** öğrenin!",
-  "@homepage_scanner_overlay_message": {
-    "description": "Message visible above the camera."
-  },
-  "homepage_scanner_toggle_torch_tooltip": "El fenerini açıp kapatın.",
-  "@homepage_scanner_toggle_torch_tooltip": {
-    "description": "Tooltip for the button to toggle the torch on the scanner page"
-  },
-  "homepage_scanner_banner_start_scanning": "Ürünün barkoduna yaklaşarak ürünü tarayın.",
-  "@homepage_scanner_banner_start_scanning": {
-    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
-  },
-  "homepage_scanner_banner_invalid_barcode": "Şu barkodu tespit ettik: {barcode}, ancak geçersiz görünüyor.",
-  "@homepage_scanner_banner_invalid_barcode": {
-    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
-    "placeholders": {
-      "barcode": {
-        "type": "String"
-      }
-    }
-  },
-  "homepage_horizontal_list_view_more_button": "Daha fazlasını görüntüle…",
-  "@homepage_horizontal_list_view_more_button": {
-    "description": "Button to see all items in a horizontal list on the homepage"
-  },
-  "homepage_list_most_scanned_title": "En çok taranan ürünler",
-  "@homepage_list_most_scanned_title": {
-    "description": "Title for the most scanned products horizontal list on the homepage"
-  },
-  "homepage_list_last_scanned_title": "Son taranan ürünler",
-  "@homepage_list_last_scanned_title": {
-    "description": "Title for the last scanned products horizontal list on the homepage"
-  },
-  "percent_value": "{percent}%",
-  "@percent_value": {
-    "description": "A percentage value (you may insert a space before the % sign if needed)",
-    "placeholders": {
-      "percent": {
-        "type": "String"
-      }
-    }
-  }
+  "location_map_details_street": "Street",
+  "location_map_details_city": "City",
+  "location_map_details_postcode": "Postcode",
+  "location_map_details_country": "Country",
+  "location_map_details_coordinates": "Coordinates",
+  "location_map_details_osm_id": "OSM ID"
 }

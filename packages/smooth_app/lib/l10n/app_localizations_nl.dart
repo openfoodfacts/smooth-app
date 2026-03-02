@@ -12,9 +12,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -118,7 +115,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get match_poor => 'Slechte overeenkomst';
 
   @override
-  String get match_may_not => 'Komt mogelijk niet overeen\n';
+  String get match_may_not => 'Komt mogelijk niet overeen';
 
   @override
   String get match_does_not => 'Komt niet overeen';
@@ -136,7 +133,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get match_short_poor => 'Slechte overeenkomst';
 
   @override
-  String get match_short_may_not => 'Komt mogelijk niet overeen\n';
+  String get match_short_may_not => 'Komt mogelijk niet overeen';
 
   @override
   String get match_short_does_not => 'Komt niet overeen';
@@ -296,7 +293,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get sign_up_page_username_description =>
-      'De gebruikersnaam mag geen spaties, hoofdletters of speciale tekens bevatten.';
+      'Gebruikersnaam mag geen spaties, hoofdletters of speciale tekens bevatten.';
 
   @override
   String sign_up_page_username_length_invalid(int value) {
@@ -500,7 +497,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get contribute_share_content =>
-      'Ik wilde jullie graag vertellen over de app die ik gebruik, Open Food Facts. Met deze app kun je op een persoonlijke manier de gezondheids- en milieueffecten van je eten bekijken. Het werkt door de barcodes op de verpakking te scannen. Bovendien is de app gratis, hoef je je niet te registreren en kun je zelfs helpen om het aantal producten dat ontcijferd wordt te vergroten. Hier is de link om de app voor je telefoon te downloaden: https://openfoodfacts.app';
+      'Ik wil je laten weten dat ik de app Open Food Facts gebruik, waarmee je op een gepersonaliseerde manier de gezondheids- en milieueffecten van je eten kunt zien. Het werkt door de barcodes op de verpakking te scannen. Het is gratis, vereist geen registratie en je kunt zelfs helpen het aantal ontcijferde producten te vergroten. Download de app voor jouw telefoon via deze link: https://openfoodfacts.app';
 
   @override
   String get contribute_prices_gdpr =>
@@ -634,7 +631,8 @@ class AppLocalizationsNl extends AppLocalizations {
   String get search => 'Zoeken';
 
   @override
-  String get search_product_help => 'Zoek een product, een merk of een barcode';
+  String get search_product_help =>
+      'Zoek een product,\neen merk of een streepjescode';
 
   @override
   String get search_filter => 'Zoekfilter';
@@ -656,9 +654,6 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get unknownBrand => 'Onbekend merk';
-
-  @override
-  String get unknownQuantity => 'Onbekende hoeveelheid';
 
   @override
   String get unknownProductName => 'Onbekende productnaam';
@@ -727,10 +722,10 @@ class AppLocalizationsNl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Voedingswaarden bewerken';
 
   @override
-  String get packaging_information => 'Recyclinginstructies';
+  String get packaging_information => 'Verpakkingsinformatie';
 
   @override
-  String get packaging_information_photo => 'Recycling instructies foto';
+  String get packaging_information_photo => 'Foto van verpakkingsinformatie';
 
   @override
   String get missing_product => 'Je hebt een nieuw product gevonden!';
@@ -836,7 +831,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Foto van de voedingswaardetabel';
 
   @override
-  String get recycling_photo_title => 'Recyclinginstructies Foto';
+  String get recycling_photo_title => 'Foto recycleren';
 
   @override
   String get take_photo_title => 'Neem een foto';
@@ -1156,15 +1151,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get no_product_found => 'Geen product gevonden';
 
   @override
-  String no_product_found_explanation(String search) {
-    return 'Je zoekopdracht naar\n**\"$search\"**\nleverde geen resultaten op.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Wilt u deze zoekopdracht liever uitvoeren in **onze wereldwijde database**?';
-
-  @override
   String get no_location_found => 'Geen locatie gevonden';
 
   @override
@@ -1310,7 +1296,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get product_tags_explanation =>
-      'Door eigenschappen (sleutel/waarde) aan een product toe te voegen, help je het te verrijken.';
+      'Door eigenschappen (sleutel/waarde) aan een product toe te voegen, draagt u bij aan de verrijking ervan.';
 
   @override
   String get add_tag => 'Voeg een eigenschap toe';
@@ -2059,7 +2045,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'De soja komt niet uit de Europese Unie';
 
   @override
-  String get edit_product_form_item_countries_title => 'Land';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2567,9 +2553,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_type_label_product => 'Andere';
 
   @override
-  String get product_type_label_unknown => 'Onbekend';
-
-  @override
   String get product_type_selection_title => 'Producttype';
 
   @override
@@ -2738,7 +2721,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get prices_list_empty_subtitle =>
-      'Wees de eerste om er een toe te voegen: door een **kassabon** of een **prijskaartje** te scannen!';
+      'Wees de eerste om er een toe te voegen:\nDoor een **bon** of een **prijskaartje** te scannen!';
 
   @override
   String get prices_entry_shop_not_found => 'Onbekende winkel';
@@ -2747,9 +2730,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Prijsinvoer van \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Bekijk productdetails';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2833,7 +2813,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get prices_users_empty_title => '';
+  String get prices_users_empty_title => 'No contributor yet!';
 
   @override
   String get prices_users_empty_explanation =>
@@ -2845,7 +2825,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get prices_locations_empty_title => '';
+  String get prices_locations_empty_title => 'No shop yet!';
 
   @override
   String get prices_locations_empty_explanation =>
@@ -3027,34 +3007,7 @@ class AppLocalizationsNl extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Lees meer over Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Voltooid';
@@ -3608,7 +3561,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Beginnen met het uitvoeren van de serveracties voor folksonomie-updates die lokaal zijn opgeslagen';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4473,14 +4426,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Om betere producten binnen een categorie te belonen, passen we vervolgens **bonussen en sancties toe op basis van verschillende criteria**:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title => 'Productiewijze';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'Er wordt een **bonus** toegekend aan producten die een **officieel label, een keurmerk of een certificering hebben die milieuvoordelen garandeert** (biologisch, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4488,7 +4441,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Er wordt een **bonus** toegekend op basis van de herkomst van de ingrediënten. Deze bonus houdt rekening met de **impact op het transport** en ook met het **milieubeleid** van het land van elke producent.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4496,13 +4449,14 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Er wordt een **strafpunt** toegekend aan producten die ingrediënten bevatten die een aanzienlijke **negatieve impact hebben op de biodiversiteit en ecosystemen**, zoals palmolie, waarvan de productie verantwoordelijk is voor grootschalige ontbossing.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Verpakking';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_text => '';
+  String get guide_greenscore_bonuses_penalties_arg4_text =>
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4510,11 +4464,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Om de Green-Score nauwkeurig te kunnen berekenen, is het noodzakelijk om te beschikken over **informatie die niet noodzakelijkerwijs op de verpakking staat vermeld** (zoals de herkomst en het exacte percentage van elk ingrediënt) of die zelden in bruikbare vorm beschikbaar is (zoals een lijst van alle componenten van de verpakking met de precieze soorten kunststoffen die zijn gebruikt).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Er worden gemiddelde waarden gebruikt wanneer deze informatie nog niet beschikbaar is**, maar we roepen nu iedereen op om ons te helpen deze informatie te verzamelen, die zeer nuttig zal zijn voor de Green-Score, maar ook voor vele andere doeleinden.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
@@ -4522,7 +4476,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Alle burgers kunnen ons helpen bij het verzamelen en structureren van informatie die op producten staat of daaruit kan worden afgeleid, zoals informatie over **verpakkingen**: \"Mission Emballages\": een grootschalige gezamenlijke inventarisatie van verpakkingen voor alle voedingsmiddelen (in het Frans).';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4596,28 +4550,28 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Onbewerkte (of natuurlijke) voedingsmiddelen zijn de **eetbare delen van planten** (zaden, vruchten, bladeren, stengels, wortels) **of dieren** (spiervlees, slachtafval, eieren, melk), evenals schimmels, algen en water, nadat ze uit de natuur zijn gehaald.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Bewerkte ingrediënten';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Verwerkte culinaire ingrediënten, zoals **oliën, boter, suiker en zout**, zijn stoffen die afkomstig zijn van voedingsmiddelen uit groep 1 of uit de natuur en die zijn verkregen door middel van processen zoals persen, raffineren, malen, vermalen en drogen.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Bewerkte levensmiddelen';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Bewerkte voedingsmiddelen, zoals groenten in pot, vis in blik, fruit op siroop, kaas en versgebakken brood, worden **voornamelijk gemaakt door zout, olie, suiker of andere stoffen uit groep 2 toe te voegen aan voedingsmiddelen uit groep 1**. De bewerkingsprocessen omvatten verschillende conserverings- of kookmethodes en, in het geval van brood en kaas, niet-alcoholische fermentatie. De meeste bewerkte voedingsmiddelen hebben twee of drie ingrediënten en zijn herkenbaar als aangepaste versies van voedingsmiddelen uit groep 1. Ze kunnen op zichzelf worden gegeten of, wat vaker voorkomt, in combinatie met andere voedingsmiddelen.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-verwerkte voedingsmiddelen';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Ultraverwerkte voedingsmiddelen, zoals frisdranken, zoete of hartige verpakte snacks, gereconstitueerde vleesproducten en kant-en-klare diepvriesmaaltijden, **zijn niet alleen gemodificeerde voedingsmiddelen, maar ook samenstellingen die grotendeels of volledig bestaan uit stoffen afkomstig van voedingsmiddelen en additieven**, met weinig tot geen intacte voedingsmiddelen uit groep 1. Ingrediënten in deze samenstellingen zijn meestal dezelfde als die in bewerkte voedingsmiddelen, zoals suikers, oliën, vetten of zout. Ultraverwerkte producten bevatten echter ook andere bronnen van energie en voedingsstoffen die doorgaans niet in culinaire bereidingen worden gebruikt. Sommige daarvan worden rechtstreeks uit voedingsmiddelen gewonnen, zoals caseïne, lactose, wei en gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4629,7 +4583,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Veel daarvan zijn **afgeleid van verdere verwerking van voedingsbestanddelen**, zoals gehydrogeneerde of geïnteresterificeerde oliën, gehydrolyseerde eiwitten, soja-eiwitisolaat, maltodextrine, invertsuiker en fructoserijke glucosestroop.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4637,7 +4591,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Additieven in ultraverwerkte voedingsmiddelen omvatten sommige die ook in verwerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultraverwerkte producten voorkomen, zijn onder meer additieven die worden gebruikt **om de sensorische eigenschappen van voedingsmiddelen na te bootsen of te verbeteren of om onaangename aspecten van het eindproduct te maskeren**. Deze additieven omvatten kleurstoffen en andere kleurmiddelen, kleurstabilisatoren, smaakstoffen, smaakversterkers, niet-suikerhoudende zoetstoffen en technische hulpstoffen zoals koolzuur, verstevigingsmiddelen, vulstoffen en antiklontermiddelen, ontschuimers, glansmiddelen, emulgatoren, sekwestranten en bevochtigingsmiddelen.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4645,7 +4599,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**Er wordt een veelheid aan processtappen gebruikt** om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar \'ultraverwerkt\'). De processen omvatten verschillende **stappen die geen huishoudelijke equivalenten hebben**, zoals hydrogenering en hydrolyse, extrusie en vormgeving en voorbewerking voor frituren.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4653,22 +4607,22 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**Het algemene doel van ultraverwerking is het creëren van merkproducten**, **gemakkelijke** (houdbaar, klaar voor consumptie), **aantrekkelijke** (zeer smakelijk) en **zeer winstgevende** (goedkope ingrediënten) voedingsmiddelen die zijn ontworpen om alle andere voedingsmiddelen te verdringen. Ultraverwerkte voedingsmiddelen worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
   String get guide_nova_explanations_arg5_title => 'Een gezondheidsrisico';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Sinds 2018 zijn met NutriNet-Santé de eerste verbanden tussen **de consumptie van ultraverwerkte voedingsmiddelen en een verhoogd risico op kanker, hart- en vaatziekten en diabetes** aan het licht gekomen. Vandaag de dag bevestigen meer dan 90 studies wereldwijd deze bevindingen. De sterkste verbanden hebben betrekking op **obesitas, cardiovasculaire mortaliteit en depressieve symptomen**. Bij kinderen worden de effecten vooral waargenomen op het gewicht en de vetbalans.';
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Landen raden aan om ze te beperken';
+      'Countries recommend limiting them';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Sommige landen gebruiken de NOVA-groepen voor hun voedingsrichtlijnen of -doelstellingen, bijvoorbeeld: - **🇧🇷 Brazilië**\'s voedingsrichtlijnen **bevelen aan om de consumptie** van bewerkte voedingsmiddelen te beperken en ultraverwerkte voedingsmiddelen te vermijden.\n\n- **🇫🇷 Frankrijk** heeft in zijn volksgezondheidsbeleid voor 2018-2022 als doel gesteld **de consumptie van ultraverwerkte voedingsmiddelen uit groep 4 met 20% te verminderen**.';
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
@@ -4682,10 +4636,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts is een **collaboratieve**, **gratis** en **open** database met voedingsmiddelen uit de hele wereld.';
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
 
   @override
-  String get guide_open_food_facts_what_is_open_food_facts_paragraph2 => '';
+  String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
 
   @override
   String get guide_open_food_facts_features_title =>
@@ -4719,7 +4674,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Vermijd drukke achtergronden.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Wat je wel moet doen';
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
@@ -4743,7 +4698,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'Een score voor de voedingskwaliteit';
+      'A score on the nutritional quality';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
@@ -4755,7 +4710,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_share_link =>
-      'https://world-en.openfoodfacts.org/discover';
+      'https://world-nl.openfoodfacts.org/discover';
 
   @override
   String get guide_open_pet_food_facts_title =>
@@ -4767,11 +4722,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts breidt onze missie uit naar onze harige vrienden! Het is een **database met voeding voor katten, honden en andere huisdieren**.';
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'We verzamelen informatie over **ingrediënten**, **voedingsanalyses** en voedingsrichtlijnen om eigenaren van huisdieren te helpen bij het kiezen van het beste voer voor de behoeften van hun dieren.';
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
@@ -4810,8 +4765,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Vermijd drukke achtergronden.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title =>
-      'Wat je wel moet doen';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
@@ -4835,11 +4789,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Het ontwikkelen van een scoresysteem voor dierenvoeding **is op dit moment geen prioriteit**. De methodologie zou complex zijn, aangezien de voedingsbehoeften sterk variëren naargelang de diersoort, leeftijd en gezondheidstoestand. We hebben nog geen onafhankelijk wetenschappelijk team gevonden dat in staat is om een dergelijke score te ontwikkelen.';
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
-      'https://world-en.openpetfoodfacts.org/discover';
+      'https://world-nl.openpetfoodfacts.org/discover';
 
   @override
   String get guide_open_beauty_facts_title => 'Welkom bij Open Beauty Facts!';
@@ -4850,11 +4804,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts is een gezamenlijke database van **cosmetische producten**.';
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Ons doel is om ingrediëntenlijsten te ontcijferen, zodat u **beter begrijpt wat er in uw persoonlijke verzorgingsproducten zit**. Van moisturizers tot make-up: we verzamelen gegevens over ingrediënten, allergenen en verpakkingen om de transparantie in de cosmetica-industrie te bevorderen.';
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
@@ -4866,7 +4820,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Ben je allergisch voor bepaalde ingrediënten? Wil je comedogeen stoffen voorkomen? Wil je ze wegsturen van controversiële onderdelen? Je kunt een lijst van cosmetische ingrediënten instellen om te vermijden, direct in de app!';
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
@@ -4892,7 +4846,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Vermijd drukke achtergronden.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Wat je wel moet doen';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
@@ -4908,11 +4862,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Neem zoveel foto als nodig is als de fles gebogen is.';
+      'Take as many picture as need if the bottle is curved.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'Het kan zijn dat u het etiket moet verwijderen om de lijst met ingrediënten te kunnen zien.';
+      'You might need to peel the label to see the list of ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
@@ -4928,7 +4882,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_share_link =>
-      'https://world-en.openbeautyfacts.org/discover';
+      'https://world-nl.openbeautyfacts.org/discover';
 
   @override
   String get guide_open_prices_title => 'Welkom bij Open Prices!';
@@ -4939,7 +4893,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices is een project om **prijzen van producten over de hele wereld te verzamelen en te delen**. Het is een openbaar beschikbare dataset die kan worden gebruikt voor onderzoek, analyse en meer. Open Prices wordt ontwikkeld en onderhouden door Open Food Facts.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
@@ -4950,11 +4904,11 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**We zijn bezig met het crowdsourcen van een open-source dataset met prijzen**. Prijzen kunnen door gebruikers worden toegevoegd via deze webapp of via de officiële mobiele app van Open Food Facts. Detailhandelaren of apps van derden kunnen ook bijdragen door gebruik te maken van onze API.';
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Verzamel foto\'s van prijskaartjes in gangpaden';
+      'Collect photos of price tags in aisles';
 
   @override
   String get guide_open_prices_how_arg2_title =>
@@ -4965,15 +4919,15 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Prijsinformatie is van cruciaal belang om voedselsystemen te begrijpen. Het is een belangrijke factor om inzicht te krijgen in de kosten van voedsel en om gezondere voedingspatronen te bevorderen. Het openbaar maken van prijsgegevens is een manier om het voor onderzoekers, journalisten en burgers gemakkelijker te maken om **een beter inzicht te krijgen in hoe voedselprijzen geografisch en in de tijd variëren**.';
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Volg de evolutie van de prijzen in de loop van de tijd';
+      'Track the evolution of prices over time';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'Bekijk de **evolutie van de prijzen**: shrinkflation, cheapflation, we kunnen ze samen volgen!';
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
 
   @override
   String get guide_open_prices_why_arg2_title =>
@@ -4981,19 +4935,19 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'Naarmate we meer prijzen verzamelen, kun je **de goedkoopste winkels in je omgeving** vinden.';
+      'As we get more prices, you can spot **the cheapest stores around you**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Heb je overwogen om prijzen van websites van retailers te scrapen?';
+      'Did you consider scraping prices from retailers\' websites?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Om juridische en technische redenen **beschouwen we het scrapen van prijzen van websites van retailers niet als een geldige manier om bij te dragen aan Open Prices**. We willen ervoor zorgen dat de prijzen die we verzamelen nauwkeurig en actueel zijn, en dat is niet mogelijk als we gescrapete prijzen van bijdragers ontvangen.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Prijsscraping is een optie die wordt overwogen voor een toekomstige versie van Open Prices, maar dit zou door Open Prices zelf worden gedaan, zodat we een bewijs van de prijs op basis van de HTML-pagina kunnen hebben.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -5001,7 +4955,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'U kunt prijzen aanleveren via onze API. Als u op grote schaal prijzen wilt aanleveren, neem dan contact met ons op via prices@openfoodfacts.org.';
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -5017,42 +4971,43 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts is een enorme, open database voor **elk product met een barcode, dat geen voedingsmiddel, cosmetica of dierenvoeding is**.';
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'Van **elektronica** tot **speelgoed** en van **kleding** tot **schoonmaakmiddelen**: als het een streepjescode heeft, kan het worden toegevoegd. Dit project heeft tot doel een \'internet der dingen\' voor alledaagse voorwerpen te creëren, waardoor informatie over deze voorwerpen universeel toegankelijk wordt.';
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
 
   @override
-  String get guide_open_products_facts_features_title => '';
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts wil consumenten helpen **de levensduur van voorwerpen te verlengen** door circulaire oplossingen aan te bieden voor het onderhoud, **de reparatie** en **de recycling** van hun voorwerpen, of door ze aan een nieuwe eigenaar te geven.';
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Koolstofvoetafdrukken voor sommige producten';
+      'Carbon footprints for some products';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Impact CO2** van de Franse milieuautoriteit ADEME geeft de **koolstofimpact** van vele categorieën weer. Zorg ervoor dat u producten nauwkeurig categoriseert.';
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Reparatie-index voor veel producten';
+      'Reparability index for many products';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Wanneer er een Franse reparatie-index beschikbaar is, zullen we deze weergeven. Bovendien **kunt u beginnen met het verzamelen van de variabelen met behulp van de Folksonomy Engine**, zodat we deze in de toekomst zelf kunnen herberekenen, zelfs in landen waar deze niet beschikbaar is.';
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Zoek manieren om uw product te doneren/door te verkopen';
+      'Find ways to donate/resell your product';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'We bieden links naar **milieuvriendelijke diensten van derden** die u helpen het product te vinden dat u zoekt, als tweedehands product, om zuiniger om te gaan met de hulpbronnen van onze planeet. Houd er rekening mee dat we hiervoor niet worden betaald en dat het systeem alleen werkt als voorbeeld voor twee websites in Frankrijk. U kunt helpen dit systeem uit te breiden door meer sites op de wiki te documenteren.';
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
@@ -5060,30 +5015,30 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_information_text =>
-      'Voor zo\'n breed scala aan items **zijn de gegevens die we verzamelen flexibel**. Om dat te doen, **hebben we de Folksonomy Engine ontwikkeld**.';
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'De folksonomie-engine';
+      'The Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'De Folksonomy Engine is een tool die u helpt producten te voorzien van relevante eigenschappen. Dit helpt bij het verbeteren van zoekresultaten en vindbaarheid, maar ook bij het berekenen en weergeven van interessante zaken in de toekomst.';
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'U kunt alle gewenste sleutels en waarden toevoegen, zoals: **compatibility_with_5G_mobile_network: yes**';
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'U krijgt automatische suggesties voor mogelijke eigenschappen en u bent van harte welkom om nieuwe eigenschappen toe te voegen en te documenteren voor uw favoriete soorten producten.';
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
 
   @override
   String get guide_open_products_facts_share_link =>
-      'https://world-en.openproductsfacts.org/discover';
+      'https://world-nl.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => '';
+  String get guide_open_preferences_button_title => 'Open food preferences';
 
   @override
   String get guide_coming_soon_button_title => 'Binnenkort beschikbaar';
@@ -5314,7 +5269,7 @@ class AppLocalizationsNl extends AppLocalizations {
   String get photo_field_nutrition => 'Voedingswaarde foto';
 
   @override
-  String get photo_field_packaging => 'Recycling instructies foto';
+  String get photo_field_packaging => 'Foto van verpakkingsinformatie';
 
   @override
   String get photo_already_exists => 'Deze foto bestaat al';
@@ -5398,49 +5353,6 @@ class AppLocalizationsNl extends AppLocalizations {
   String get product_page_tab_for_me => 'Voor mij';
 
   @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Mijn compatibiliteit';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% compatibel';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Onvoldoende gegevens om een compatibiliteitsscore te berekenen.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Er kan geen score worden berekend voor een product van het type \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Belang';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation =>
-      'Overeenkomsten';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Goede overeenkomsten';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Gemiddelde overeenkomsten';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Slechte overeenkomsten';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Onbekende overeenkomsten';
-
-  @override
   String get product_page_tab_website => 'Website';
 
   @override
@@ -5451,7 +5363,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** is een project om prijzen van producten over de hele wereld te verzamelen en te delen 🌍. Open Prices wordt ontwikkeld en onderhouden door Open Food Facts.';
+      '**Open Prices** is een project om productprijzen wereldwijd te verzamelen en te delen 🌍. Open Prices wordt ontwikkeld en onderhouden door Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Meer informatie';
@@ -5461,15 +5373,15 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get folksonomy_explanation_card_title =>
-      'Wat zijn folksonomie-attributen?';
+      'Wat zijn Folksonomy-attributen?';
 
   @override
   String get folksonomy_explanation_card_line1 =>
-      'Attributen zijn gebaseerd op **sleutel-waarde**.';
+      'Attributen zijn **sleutel-waarde** gebaseerd.';
 
   @override
   String get folksonomy_explanation_card_line2 =>
-      'Deze eigenschappen worden door bijdragers aangemaakt en gearchiveerd voor allerlei soorten gebruik.';
+      'Deze eigenschappen worden door bijdragers gemaakt en opgeslagen voor allerlei doeleinden.';
 
   @override
   String get folksonomy_action_external_link_title => 'Externe link openen';
@@ -5759,7 +5671,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String get preferences_legal_header =>
-      'Open Food Facts is een database met voedingsmiddelen **gemaakt door iedereen, voor iedereen**. Je kunt deze gebruiken om betere voedingskeuzes te maken, en omdat het **open data** is, kan iedereen **deze voor elk doel hergebruiken**.';
+      'Open Food Facts is een database met voedselproducten **gemaakt door iedereen, voor iedereen**.\nU kunt het gebruiken om betere voedselkeuzes te maken, en omdat het **open data** is, kan iedereen het **hergebruiken voor welk doel dan ook**.';
 
   @override
   String get preferences_privacy_policy => 'Privacybeleid';
@@ -5862,7 +5774,7 @@ class AppLocalizationsNl extends AppLocalizations {
 
   @override
   String preferences_dev_mode_folksonomy_host_subtitle(String host) {
-    return '';
+    return 'Gastheer: $host';
   }
 
   @override
@@ -6117,7 +6029,7 @@ class AppLocalizationsNl extends AppLocalizations {
       'Bijdragers met de meeste prijzen';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Prices-statistieken';
+  String get preferences_prices_metrics_title => 'Open Price-metrieken';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6312,51 +6224,11 @@ class AppLocalizationsNl extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Land';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Coördinaten';
 
   @override
-  String get location_map_details_osm_id => 'OSM-ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Terug naar de homepage';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Camera aan/uit';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Laat de barcodescanner zien';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Tik om een **barcode**\nte scannen en ontdek of het **goed voor je is**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip =>
-      'Schakel de zaklamp in/uit';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Scan een product door de barcode te benaderen';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'We hebben de volgende barcode gedetecteerd: $barcode, maar deze lijkt ongeldig te zijn.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Bekijk meer…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Meest gescande producten';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Laatst gescande producten';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
+  String get location_map_details_osm_id => 'OSM ID';
 }

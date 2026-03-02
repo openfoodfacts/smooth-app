@@ -12,9 +12,6 @@ class AppLocalizationsSs extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Intsengo levulekile';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Emalayisensi';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsSs extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Inani lelingatiwa';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsSs extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Ticondziso tekuphindza usebentise';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,8 +825,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title =>
-      'Tiyaleto tekuphindza usebentise Sitfombe';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1134,6 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Luphenyo lwakho lwe\n**\"$search\"**\naluzange luhambisane nemiphumela.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Uyafuna yini kusebentisa loluphenyo lolufanako ku **database yetfu yemhlaba wonkhe** esikhundleni saloko?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2518,6 @@ class AppLocalizationsSs extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2715,9 +2696,6 @@ class AppLocalizationsSs extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Kufaka intsengo kusuka ku \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Buka imininingwane yemkhicito';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3000,33 +2978,6 @@ class AppLocalizationsSs extends AppLocalizations {
   String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
-
-  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -3064,7 +3015,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Shintja emkhatsini wemanani.vula emaciniso ekudla.org (PROD) kanye nekuhlola env';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3571,7 +3522,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Kucala kwenta tento teseva tetibuyeketo te-folksonomy letigcinwe endzaweni';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5271,7 +5222,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5353,48 +5304,6 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Kimi';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Kuhambisana kwami';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% kuyahambisana';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Idatha lengakeneli yekubala emaphuzu ekuhambisana.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Emaphuzu angeke abalwe ngemkhicito weluhlobo \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Kubaluleka';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Imidlalo';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Imidlalo lemihle';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Imidlalo lesemkhatsini';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Imidlalo lemibi';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Tintfo letingatiwa';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5767,7 +5676,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Lawula i-akhawunti yami';
@@ -5883,8 +5792,7 @@ class AppLocalizationsSs extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Imibuto Levame Kubutwa';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'I-NGO yeMaciniso Ekudla Lokuvulekile';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5906,8 +5814,7 @@ class AppLocalizationsSs extends AppLocalizations {
       'Tibandzakanye ngekuya kulomunye wemicimbi yetfu lebonakalako';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Ibhulogi Yemaciniso Ekudla Lokuvulekile';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6120,7 +6027,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Tindlela letilula tekusita Vula Emaciniso Ekudla .';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6228,7 +6135,7 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Vula Emalabs Emaciniso Ekudla';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
@@ -6280,44 +6187,4 @@ class AppLocalizationsSs extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Kubuyela ekhaya';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Gucula ikhamera';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Khombisa sikena sebhakhodi';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Thepha kuze uskene **ibhakhodi**\nbese utfola kutsi **kulungele yini**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Gucula lithoshi';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Skena umkhicito ngekusondzela kubhakhodi yawo';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Sitfole lebhakhodi lelandzelako: $barcode, kepha kubonakala shengatsi ayisebenti.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Buka lokunyenti…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Imikhicito yekugcina leskeniwe';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

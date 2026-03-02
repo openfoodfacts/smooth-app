@@ -12,9 +12,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Ачык бәяләр';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Лицензияләр';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Билгесез күләм';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsTt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Кайтару күрсәтмәләре';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Кайтару күрсәтмәләре Фото';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1140,15 +1134,6 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Сезнең\n**\"$search\"**\nэзләүегез бернинди нәтиҗә дә бирмәде.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Сез шул ук эзләүне **безнең глобаль мәгълүмат базасында** башкарырга телисезме?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2519,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Билгесез';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2714,10 +2696,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Price entry from \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'Продукция турында мәгълүматны карау';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2993,33 +2971,6 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Әзер';
@@ -3566,7 +3517,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Locallyирле сакланган фольксономия яңартулары өчен сервер эшләрен башкара башлау';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4540,7 +4491,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get guide_nova_logos_caption => 'NOVA логотиплары';
 
   @override
-  String get guide_nova_groups_title => '4 NOVA төркеме';
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
 
   @override
   String get guide_nova_groups_intro =>
@@ -5258,7 +5209,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5342,48 +5293,6 @@ class AppLocalizationsTt extends AppLocalizations {
   String get product_page_tab_for_me => 'Минем өчен';
 
   @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Минем туры килүчәнлегем';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% туры килә';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Яраклылык баллын исәпләү өчен мәгълүматлар җитәрлек түгел.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" тибындагы тапкырлау өчен балл исәпләп булмый.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Мөһимлек';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Матчлар';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Яхшы туры килүләр';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Уртача туры килүләр';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Начар туры килүләр';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Билгесез туры килүләр';
-
-  @override
   String get product_page_tab_website => 'Website';
 
   @override
@@ -5394,7 +5303,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '** Open Prices ** - бөтен дөнья буенча продуктларның бәяләрен җыю һәм бүлешү проекты 🌍. Open Prices ачык азык фактлары белән эшләнә һәм саклана.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5750,7 +5659,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Ачык азык фактлары сайтында';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Минем хисап белән идарә итү';
@@ -5846,7 +5755,7 @@ class AppLocalizationsTt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Ачык ризык фактларын ачу';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5867,8 +5776,7 @@ class AppLocalizationsTt extends AppLocalizations {
       'Сораулар - Еш бирелә торган сораулар';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Ачык азык фактлары иҗтимагый оешмасы';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Мәгълүмат';
@@ -5890,7 +5798,7 @@ class AppLocalizationsTt extends AppLocalizations {
       'Виртуаль вакыйгаларның берсендә катнашып катнашыгыз';
 
   @override
-  String get preferences_connect_blog_title => 'Ачык азык фактлары блогы';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle => 'Соңгы яңалыкларны алыгыз';
@@ -6005,7 +5913,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Ачык азык фактларына мин яңа продуктлар өстәдем';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6059,7 +5967,7 @@ class AppLocalizationsTt extends AppLocalizations {
       'Иң күп бәяләр белән катнашучылар';
 
   @override
-  String get preferences_prices_metrics_title => 'Ачык бәяләр күрсәткечләре';
+  String get preferences_prices_metrics_title => 'Ачык бәяләр';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6100,7 +6008,7 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Ачык азык фактларына булышуның гади ысуллары';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6207,14 +6115,14 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Азык-төлек фактлары лабораториясе';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ачык ризык фактларын телегезгә китерегез';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6259,44 +6167,4 @@ class AppLocalizationsTt extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Өйгә кайту';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Камераны ачу/ябу';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Штрих-код сканерын күрсәт';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Штрих-кодны сканерлау өчен басыгыз**\nһәм аның сезнең өчен файдалымы-юкмы икәнен ачыклагыз!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Фонарьны ачу/ябу';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Штрих-кодына якынлашып, продуктны сканерлагыз';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Без түбәндәге штрих-кодны таптык: $barcode, ләкин ул дөрес түгел кебек.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Күбрәк карау…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Соңгы сканерланган продуктлар';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

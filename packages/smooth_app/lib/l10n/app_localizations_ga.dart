@@ -12,9 +12,6 @@ class AppLocalizationsGa extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Praghsanna Oscailte';
-
-  @override
   String get sep => '';
 
   @override
@@ -25,19 +22,19 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get account_delete_message =>
-      'An bhfuil tú cinnte gur mian leat do chuntas a scriosadh?\nMás ann do chúis shonrach, roinn thíos le do thoil.';
+      'Are you sure you want to delete your account?\nIf there is a specific reason, please share below';
 
   @override
-  String get reason => 'Cúis';
+  String get reason => 'Reason';
 
   @override
-  String get okay => 'Ceart go leor';
+  String get okay => 'Okay';
 
   @override
   String get validate => 'Validate';
 
   @override
-  String get create => 'Cruthaigh';
+  String get create => 'Create';
 
   @override
   String get applyButtonText => 'Apply';
@@ -46,7 +43,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get next_label => 'Next';
 
   @override
-  String get continue_label => 'Lean ar aghaidh';
+  String get continue_label => 'Continue';
 
   @override
   String get exit_label => 'Exit';
@@ -55,14 +52,13 @@ class AppLocalizationsGa extends AppLocalizations {
   String get previous_label => 'Previous';
 
   @override
-  String get go_back_to_top => 'Téigh ar ais go barr';
+  String get go_back_to_top => 'Go back to top';
 
   @override
   String get save => 'Sábháil';
 
   @override
-  String get save_confirmation =>
-      'An bhfuil tú cinnte gur mhaith leat sábháil?';
+  String get save_confirmation => 'Are you sure you want to save?';
 
   @override
   String get skip => 'Scipeáil';
@@ -71,7 +67,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get cancel => 'Cealaigh';
 
   @override
-  String get ignore => 'Déan neamhaird de';
+  String get ignore => 'Ignore';
 
   @override
   String get close => 'Dún';
@@ -83,223 +79,217 @@ class AppLocalizationsGa extends AppLocalizations {
   String get stop => 'Stop';
 
   @override
-  String get finish => 'Críochnaigh';
+  String get finish => 'Finish';
 
   @override
-  String get calculate => 'Ríomh';
+  String get calculate => 'Calculate';
 
   @override
-  String get reset_food_prefs => 'Athshocraigh roghanna bia';
+  String get reset_food_prefs => 'Reset food preferences';
 
   @override
-  String get error => 'Chuaigh rud éigin mícheart';
+  String get error => 'Something went wrong';
 
   @override
-  String get error_occurred => 'Tharla earráid';
+  String get error_occurred => 'An error occurred';
 
   @override
   String get featureInProgress =>
-      'Táimid fós ag obair ar an ngné seo, fan tiúnta';
+      'We\'re still working on this feature, stay tuned';
 
   @override
-  String get label_web => 'Féach ar an ngréasán';
+  String get label_web => 'View on the web';
 
   @override
-  String get learnMore => 'Foghlaim níos mó';
+  String get learnMore => 'Learn more';
 
   @override
-  String get unknown => 'Anaithnid';
+  String get unknown => 'Unknown';
 
   @override
-  String get match_very_good => 'Cluiche an-mhaith';
+  String get match_very_good => 'Very good match';
 
   @override
-  String get match_good => 'Dea-chluiche';
+  String get match_good => 'Good match';
 
   @override
-  String get match_poor => 'Drochchluiche';
+  String get match_poor => 'Poor match';
 
   @override
   String get match_may_not => 'May not match';
 
   @override
-  String get match_does_not => 'Ní mheaitseálann';
+  String get match_does_not => 'Does not match';
 
   @override
-  String get match_unknown => 'Cluiche anaithnid';
+  String get match_unknown => 'Unknown match';
 
   @override
-  String get match_short_very_good => 'Cluiche an-mhaith';
+  String get match_short_very_good => 'Very good match';
 
   @override
-  String get match_short_good => 'Dea-chluiche';
+  String get match_short_good => 'Good match';
 
   @override
-  String get match_short_poor => 'Drochchluiche';
+  String get match_short_poor => 'Poor match';
 
   @override
   String get match_short_may_not => 'May not match';
 
   @override
-  String get match_short_does_not => 'Ní mheaitseálann';
+  String get match_short_does_not => 'Does not match';
 
   @override
-  String get match_short_unknown => 'Cluiche anaithnid';
+  String get match_short_unknown => 'Unknown match';
 
   @override
   String get licenses => 'Ceadúnais';
 
   @override
-  String get looking_for => 'Ag lorg';
+  String get looking_for => 'Looking for';
 
   @override
-  String get welcomeToOpenFoodFacts => 'Fáilte go dtí Fíricí Bia Oscailte';
+  String get welcomeToOpenFoodFacts => 'Welcome to Open Food Facts';
 
   @override
   String get whatIsOff =>
-      'Is eagraíocht neamhbhrabúis dhomhanda í Open Food Facts atá faoi thiomáint ag pobail áitiúla.';
+      'Open Food Facts is a global non-profit powered by local communities.';
 
   @override
   String get productDataUtility =>
-      'Féach ar na sonraí bia a bhaineann le do chuid sainroghanna.';
+      'See the food data relevant to your preferences.';
 
   @override
-  String get healthCardUtility => 'Roghnaigh bianna atá go maith duit.';
+  String get healthCardUtility => 'Choose foods that are good for you.';
 
   @override
-  String get ecoCardUtility => 'Roghnaigh bianna atá go maith don phláinéid.';
+  String get ecoCardUtility => 'Choose foods that are good for the planet.';
 
   @override
   String get server_error_open_new_issue =>
-      'Gan freagra ón bhfreastalaí! B’fhéidir go n-osclóidh tú fadhb leis an nasc seo a leanas.';
+      'No server response! You may open an issue with the following link.';
 
   @override
   String get sign_in_text =>
-      'Sínigh isteach i do chuntas Open Food Facts chun do chuid ranníocaíochtaí a shábháil';
+      'Sign in to your Open Food Facts account to save your contributions';
 
   @override
-  String get incorrect_credentials => 'Ainm úsáideora nó pasfhocal mícheart.';
+  String get incorrect_credentials => 'Incorrect username or password.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'Níl an ríomhphost ná an t-ainm úsáideora seo ann. Seiceáil do chuid dintiúir le do thoil.';
+      'This email or username doesn\'t exist. Please check your credentials.';
 
   @override
   String get password_lost_server_unavailable =>
-      'Tá moilliú ar ár bhfreastalaithe faoi láthair agus gabhaimid leithscéal as. Déan iarracht arís ar ball.';
+      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
   String get login => 'Login';
 
   @override
-  String get login_result_type_server_unreachable => 'Níl an líonra inrochtana';
+  String get login_result_type_server_unreachable => 'Network is unreachable';
 
   @override
   String get login_result_type_server_issue =>
-      'Fadhb ar an bhfreastalaí. Déan iarracht níos déanaí.';
+      'Problem on the server. Please try later.';
 
   @override
-  String get login_page_username_or_email =>
-      'Cuir isteach ainm úsáideora nó ríomhphost le do thoil';
+  String get login_page_username_or_email => 'Please enter username or e-mail';
 
   @override
-  String get login_page_password_error_empty =>
-      'Cuir isteach focal faire le do thoil';
+  String get login_page_password_error_empty => 'Please enter a password';
 
   @override
-  String get create_account => 'Cruthaigh cuntas';
+  String get create_account => 'Create account';
 
   @override
   String get sign_in => 'Sínigh isteach';
 
   @override
-  String get sign_in_mandatory =>
-      'Chun an ghné sin a úsáid ní mór duit síniú isteach.';
+  String get sign_in_mandatory => 'For that feature we need you to sign in.';
 
   @override
   String get help_improve_country =>
-      'Cabhraigh le feabhas a chur ar Open Food Facts i do thír féin';
+      'Help improve Open Food Facts in your country';
 
   @override
-  String get sign_out => 'Sínigh amach';
+  String get sign_out => 'Sign out';
 
   @override
-  String get sign_out_confirmation =>
-      'An bhfuil tú cinnte gur mhaith leat síniú amach?';
+  String get sign_out_confirmation => 'Are you sure you want to sign out?';
 
   @override
   String get password => 'Pasfhocal';
 
   @override
-  String get forgot_password => 'Pasfhocal dearmadta';
+  String get forgot_password => 'Forgot password';
 
   @override
   String get forgot_password_question =>
       'An ndearna tú dearmad ar do phasfhocal?';
 
   @override
-  String get view_profile => 'Féach ar phróifíl';
+  String get view_profile => 'View profile';
 
   @override
-  String get reset_password => 'Athshocraigh an focal faire';
+  String get reset_password => 'Reset password';
 
   @override
   String get reset_password_explanation_text =>
-      'I gcás go ndearna tú dearmad ar do phasfhocal, cuir isteach d’ainm úsáideora nó do sheoladh ríomhphoist chun treoracha a fháil maidir le do phasfhocal a athshocrú. Chomh maith leis sin, cuimhnigh an fillteán Turscair a sheiceáil.';
+      'In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.';
 
   @override
-  String get username_or_email => 'Ainm úsáideora nó ríomhphost';
+  String get username_or_email => 'Username or e-mail';
 
   @override
   String get reset_password_done =>
-      'Tá ríomhphost le nasc chun do phasfhocal a athshocrú seolta chuig an seoladh ríomhphoist atá nasctha le do chuntas. Seiceáil do bhosca turscair freisin.';
+      'An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam';
 
   @override
-  String get send_reset_password_mail => 'Athraigh an focal faire';
+  String get send_reset_password_mail => 'Change password';
 
   @override
-  String get enter_some_text => 'Cuir isteach roinnt téacs le do thoil';
+  String get enter_some_text => 'Please enter some text';
 
   @override
-  String get sign_up_page_title => 'Cláraigh';
+  String get sign_up_page_title => 'Sign Up';
 
   @override
-  String get sign_up_page_action_button => 'Cláraigh';
+  String get sign_up_page_action_button => 'Sign Up';
 
   @override
-  String get sign_up_page_action_doing_it => 'Ag clárú…';
+  String get sign_up_page_action_doing_it => 'Signing up…';
 
   @override
   String get sign_up_page_action_ok =>
-      'Comhghairdeas! Tá do chuntas díreach cruthaithe.';
+      'Congratulations! Your account has just been created.';
 
   @override
   String get sign_up_page_display_name_hint => 'Ainm';
 
   @override
   String get sign_up_page_display_name_error_empty =>
-      'Cuir isteach an t-ainm taispeána is mian leat a úsáid';
+      'Please enter the display name you want to use';
 
   @override
-  String get sign_up_page_email_hint => 'Ríomhphost';
+  String get sign_up_page_email_hint => 'E-mail';
 
   @override
-  String get sign_up_page_email_error_empty => 'Tá ríomhphost ag teastáil';
+  String get sign_up_page_email_error_empty => 'E-mail is required';
 
   @override
-  String get sign_up_page_email_error_invalid => 'Ríomhphost neamhbhailí';
+  String get sign_up_page_email_error_invalid => 'Invalid e-mail';
 
   @override
-  String get sign_up_page_username_hint =>
-      'Ainm úsáideora: Infheicthe go poiblí';
+  String get sign_up_page_username_hint => 'Username: Publicly visible';
 
   @override
-  String get sign_up_page_username_error_empty =>
-      'Cuir isteach ainm úsáideora le do thoil';
+  String get sign_up_page_username_error_empty => 'Please enter a username';
 
   @override
   String get sign_up_page_username_error_invalid =>
-      'Cuir isteach ainm úsáideora bailí le do thoil';
+      'Please enter a valid username';
 
   @override
   String get sign_up_page_username_description =>
@@ -307,206 +297,202 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'Ní féidir le hainm úsáideora níos mó ná $value carachtar a bheith ann';
+    return 'Username cannot exceed $value characters';
   }
 
   @override
   String get sign_up_page_password_hint => 'Pasfhocal';
 
   @override
-  String get sign_up_page_password_error_empty =>
-      'Cuir isteach focal faire le do thoil';
+  String get sign_up_page_password_error_empty => 'Please enter a password';
 
   @override
   String get sign_up_page_password_error_invalid =>
-      'Cuir isteach pasfhocal bailí (6 charachtar ar a laghad)';
+      'Please enter a valid password (at least 6 characters)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'Deimhnigh Pasfhocal';
+  String get sign_up_page_confirm_password_hint => 'Confirm Password';
 
   @override
   String get sign_up_page_confirm_password_error_empty =>
-      'Deimhnigh an focal faire le do thoil';
+      'Please confirm the password';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
-      'Ní hionann na pasfhocail';
+      'Passwords don\'t match';
 
   @override
-  String get sign_up_page_agree_text => 'Aontaím leis na Fíricí Bia Oscailte';
+  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
 
   @override
-  String get sign_up_page_terms_text => 'téarmaí úsáide agus ranníocaíochta';
+  String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
   String get sign_up_page_agree_error_invalid =>
-      'Agus cuntas á chruthú, tá sé éigeantach aontú leis na Téarmaí Úsáide, ach is féidir ranníocaíochtaí gan ainm a dhéanamh tríd an aip fós.';
+      'When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app';
 
   @override
-  String get sign_up_page_producer_checkbox => 'Is léiritheoir bia mé';
+  String get sign_up_page_producer_checkbox => 'I am a food producer';
 
   @override
-  String get sign_up_page_producer_hint => 'Léiritheoir/branda';
+  String get sign_up_page_producer_hint => 'Producer/brand';
 
   @override
   String get sign_up_page_producer_error_empty =>
-      'Cuir isteach ainm táirgeora nó branda le do thoil';
+      'Please enter a producer or a brand name';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'Ba mhaith liom liostáil le nuachtlitir Open Food Facts (Is féidir leat díliostáil uaidh ag am ar bith)';
+      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'Tá an t-ainm úsáideora ann cheana féin, roghnaigh ainm úsáideora eile le do thoil.';
+      'The user name already exists, please choose another username.';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'ann cheana féin, logáil isteach sa chuntas nó déan iarracht le ríomhphost eile.';
+      'already exists, login to the account or try with another email.';
 
   @override
   String get sign_up_page_provide_valid_email =>
-      'Cuir seoladh ríomhphoist bailí ar fáil.';
+      'Please provide a valid email address.';
 
   @override
   String get sign_up_page_server_busy =>
-      'Tá brón orainn, ach tá roinnt deacrachtaí teicniúla againn agus do chuntas á chruthú. Déan iarracht arís ar ball.';
+      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
 
   @override
   String get settingsTitle => 'Socruithe';
 
   @override
-  String get darkmode => 'Téama';
+  String get darkmode => 'Theme';
 
   @override
-  String get darkmode_dark => 'Dorcha';
+  String get darkmode_dark => 'Dark';
 
   @override
-  String get darkmode_light => 'Solas';
+  String get darkmode_light => 'Light';
 
   @override
-  String get darkmode_system_default => 'Réamhshocrú an chórais';
+  String get darkmode_system_default => 'System default';
 
   @override
-  String get thanks_for_contributing =>
-      'Go raibh maith agat as do rannchuidiú!';
+  String get thanks_for_contributing => 'Thanks for contributing!';
 
   @override
-  String get contributors_label => 'Tá siad ag tógáil an aip';
+  String get contributors_label => 'They are building the app';
 
   @override
   String get contributors_dialog_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'Rannpháirtí: $name';
+    return 'Contributor: $name';
   }
 
   @override
   String get contributors_description =>
-      'Liosta de na rannpháirtithe uile san aip seo';
+      'A list of all contributors of this app';
 
   @override
   String get support => 'Tacaíocht';
 
   @override
-  String get support_join_slack => 'Iarr cabhair inár gcainéal Slack';
+  String get support_join_slack => 'Ask for help in our Slack channel';
 
   @override
-  String get support_via_forum => 'Iarr cabhair ar ár bhfóram';
+  String get support_via_forum => 'Ask for help on our forum';
 
   @override
-  String get support_via_email => 'Seol ríomhphost chugainn';
+  String get support_via_email => 'Send us an e-mail';
 
   @override
-  String get support_via_email_include_logs_dialog_title =>
-      'Logaí aipeanna a sheoladh?';
+  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'Ar mhaith leat logaí feidhmchláir a chur san áireamh mar cheangaltán le do ríomhphost?';
+      'Do you wish to include application logs in attachment to your email?';
 
   @override
   String get termsOfUse => 'Téarmaí Úsáide';
 
   @override
-  String get legalNotices => 'Fógraí dlí';
+  String get legalNotices => 'Legal notices';
 
   @override
-  String get privacy_policy => 'Polasaí príobháideachta';
+  String get privacy_policy => 'Privacy policy';
 
   @override
-  String get about_this_app => 'Maidir leis an aip seo';
+  String get about_this_app => 'About this app';
 
   @override
   String get contribute => 'Cur';
 
   @override
-  String get contribute_sw_development => 'Forbairt bogearraí';
+  String get contribute_sw_development => 'Software development';
 
   @override
   String get contribute_develop_text =>
-      'Tá an cód do gach táirge Open Food Facts ar fáil ar GitHub. Tá fáilte romhat an cód a athúsáid (is foinse oscailte é) agus cabhrú linn é a fheabhsú, do gach duine, ar an phláinéid ar fad.';
+      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
 
   @override
   String get contribute_develop_text_2 =>
-      'Is féidir leat páirt a ghlacadh i seomra comhrá Open Food Facts Slack arb é an bealach is fearr le ceisteanna a chur.';
+      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
 
   @override
-  String get contribute_develop_dev_mode_title => 'Mód DEV?';
+  String get contribute_develop_dev_mode_title => 'DEV Mode?';
 
   @override
-  String get contribute_develop_dev_mode_subtitle =>
-      'Gníomhachtaigh an Mód DEV';
+  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
 
   @override
   String get contribute_donate_title => 'Donate';
 
   @override
-  String get contribute_donate_header => 'Tabhair síntiús do Open Food Facts';
+  String get contribute_donate_header => 'Donate to Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Tabhair faoi deara, le do thoil, go bhfuil cailliúint iomlán sonraí indéanta leis an leagan alfa inmheánach, agus go bhféadfadh an aip a bheith neamh-inúsáidte ag am ar bith!';
+      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'Táirgí le cur i gcrích';
+      'Products to be completed';
 
   @override
-  String get contribute_improve_header => 'Ag feabhsú';
+  String get contribute_improve_header => 'Improving';
 
   @override
   String get contribute_improve_text =>
-      'Is é an bunachar sonraí croílár an tionscadail. Tá sé éasca agus an-tapa cabhrú. Is féidir leat an aip shoghluaiste a íoslódáil do do ghuthán, agus tosú ag cur táirgí leis nó ag feabhsú táirgí.\n\nAr an láimh eile, cuireann suíomh Gréasáin Open Food Facts go leor bealaí ar fáil chun cur leis: ';
+      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
 
   @override
-  String get contribute_translate_header => 'Aistrigh';
+  String get contribute_translate_header => 'Translate';
 
   @override
   String get contribute_data_quality => 'Data Quality';
 
   @override
-  String get contribute_translate_link_text => 'Tosaigh ag Aistriú';
+  String get contribute_translate_link_text => 'Start Translating';
 
   @override
   String get contribute_translate_text =>
-      'Is tionscadal domhanda é Open Food Facts, ina bhfuil táirgí ó níos mó ná 160 tír. Aistrítear Open Food Facts go mórán teangacha, agus bíonn an t-ábhar i gcónaí ag athrú.';
+      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
 
   @override
   String get contribute_translate_text_2 =>
-      'Tá aistriúcháin ar cheann de phríomhthascanna an tionscadail';
+      'Translations is one of the key tasks of the project';
 
   @override
   String get contribute_join_skill_pool =>
-      'Cuir do scileanna le Open Food Facts. Bí linn na scileanna!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
-      'Roinn Fíricí Bia Oscailte le do chairde';
+      'Share Open Food Facts with your friends';
 
   @override
   String get contribute_share_content =>
@@ -514,21 +500,21 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Cuir praghsanna ar fáil trí easpórtáil GDPR de do shonraí cártaí dílseachta a iarraidh';
+      'Contribute prices by requesting a GDPR export of your loyalty cards data';
 
   @override
-  String get tap_to_answer => 'Beartaigh anseo chun ceisteanna a fhreagairt';
+  String get tap_to_answer => 'Tap here to answer questions';
 
   @override
   String get tap_to_answer_hint =>
-      'Beartaigh anseo chun ceisteanna faoin táirge seo a fhreagairt';
+      'Tap here to answer questions about this product';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'Fan le do thoil fad a luchtófar ceisteanna faoin táirge seo';
+      'Please wait while questions about this product are loaded';
 
   @override
-  String get saving_answer => 'Ag sábháil do fhreagra';
+  String get saving_answer => 'Saving your answer';
 
   @override
   String get contribute_to_get_rewards =>
@@ -536,110 +522,109 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Sínigh isteach i do chuntas Open Food Facts chun creidmheas a fháil as do chuid ranníocaíochtaí';
+      'Sign in to your Open Food Facts account to get credit for your contributions';
 
   @override
-  String get question_yes_button_accessibility_value => 'Freagair le tá';
+  String get question_yes_button_accessibility_value => 'Answer with yes';
 
   @override
-  String get question_no_button_accessibility_value => 'Freagair le níl';
+  String get question_no_button_accessibility_value => 'Answer with no';
 
   @override
-  String get question_skip_button_accessibility_value =>
-      'Seachain an cheist seo';
+  String get question_skip_button_accessibility_value => 'Skip this question';
 
   @override
-  String get tap_to_edit_search => 'Tapáil chun cuardach a chur in eagar';
+  String get tap_to_edit_search => 'Tap to edit search';
 
   @override
-  String get myPreferences => 'Mo chuid roghanna';
+  String get myPreferences => 'My preferences';
 
   @override
   String get account_create_message =>
-      'Cruthaigh do chuntas agus bí páirteach i bpobal Open Food Facts chun cabhrú le heolas bia a thógáil ar fud an domhain!';
+      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
 
   @override
-  String get join_us => 'Bí linn';
+  String get join_us => 'Join us';
 
   @override
-  String get myPreferences_profile_title => 'Do Phróifíl';
+  String get myPreferences_profile_title => 'Your Profile';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Bainistigh do chuntas rannpháirtí Open Food Facts.';
+      'Manage your Open Food Facts contributor account.';
 
   @override
-  String get myPreferences_settings_title => 'Socruithe Aipe';
+  String get myPreferences_settings_title => 'App Settings';
 
   @override
-  String get myPreferences_settings_subtitle => 'Mód dorcha, Teangacha…';
+  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
 
   @override
-  String get myPreferences_food_title => 'Roghanna Bia';
+  String get myPreferences_food_title => 'Food Preferences';
 
   @override
   String get myPreferences_food_subtitle =>
-      'Roghnaigh cén fhaisnéis faoi bhia is tábhachtaí duit.';
+      'Choose what information about food matters most to you.';
 
   @override
   String get myPreferences_food_comment =>
-      'Roghnaigh an fhaisnéis faoi bhia is tábhachtaí duit, chun bia a rangú de réir do chuid sainroghanna, an fhaisnéis is tábhachtaí duit a fheiceáil ar dtús, agus achoimre comhoiriúnachta a fháil. Fanann na roghanna bia sin ar do ghléas, agus níl siad bainteach le do chuntas rannpháirtí Open Food Facts má tá ceann agat.';
+      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
 
   @override
-  String get confirmResetPreferences => 'Do chuid roghanna bia a athshocrú?';
+  String get confirmResetPreferences => 'Reset your food preferences?';
 
   @override
-  String get myPersonalizedRanking => 'Mo rangú pearsantaithe';
+  String get myPersonalizedRanking => 'My personalized ranking';
 
   @override
   String get ranking_tab_all => 'All';
 
   @override
-  String get ranking_subtitle_match_yes => 'Cluiche iontach duit';
+  String get ranking_subtitle_match_yes => 'A great match for you';
 
   @override
-  String get ranking_subtitle_match_no => 'Cluiche an-lag';
+  String get ranking_subtitle_match_no => 'Very poor match';
 
   @override
-  String get ranking_subtitle_match_maybe => 'Cluiche anaithnid';
+  String get ranking_subtitle_match_maybe => 'Unknown match';
 
   @override
   String get refresh_with_new_preferences =>
-      'Athnuaigh an liosta le do chuid sainroghanna nua';
+      'Refresh the list with your new preferences';
 
   @override
   String get reloaded_with_new_preferences =>
-      'Athluchtaithe le do chuid roghanna nua';
+      'Reloaded with your new preferences';
 
   @override
   String get profile_navbar_label => 'Community';
 
   @override
-  String get scan_navbar_label => 'Scanadh';
+  String get scan_navbar_label => 'Scan';
 
   @override
   String get history_navbar_label => 'Stair';
 
   @override
-  String get list_navbar_label => 'Liostaí';
+  String get list_navbar_label => 'Lists';
 
   @override
-  String get category => 'Scag de réir catagóire';
+  String get category => 'Filter by category';
 
   @override
   String get category_all => 'All';
 
   @override
-  String get category_search => '(cuardach catagóire)';
+  String get category_search => '(category search)';
 
   @override
-  String get filter => 'Scagaire';
+  String get filter => 'Filter';
 
   @override
-  String get scan => 'Táirgí ón scáileán Scanadh';
+  String get scan => 'Products from the Scan screen';
 
   @override
-  String get scan_history => 'Stair scanadh';
+  String get scan_history => 'Scan history';
 
   @override
   String get search => 'Cuardaigh';
@@ -654,174 +639,169 @@ class AppLocalizationsGa extends AppLocalizations {
   String get search_history => 'Stair chuardaigh';
 
   @override
-  String get search_store => 'Cuardaigh siopa';
+  String get search_store => 'Search for a store';
 
   @override
   String get search_store_help => 'Leid: cuir an chathair nó an tír leis';
 
   @override
-  String get tap_for_more => 'Tapáil chun tuilleadh eolais a fheiceáil…';
+  String get tap_for_more => 'Tap to see more info…';
 
   @override
   String get product => 'Táirge';
 
   @override
-  String get unknownBrand => 'Branda anaithnid';
+  String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Cainníocht anaithnid';
-
-  @override
-  String get unknownProductName => 'Ainm táirge anaithnid';
+  String get unknownProductName => 'Unknown product name';
 
   @override
   String get label_refresh => 'Refresh';
 
   @override
-  String get label_reload => 'Athlódáil';
+  String get label_reload => 'Reload';
 
   @override
-  String get image => 'Íomhá';
+  String get image => 'Image';
 
   @override
-  String get front_photo => 'Grianghraf tosaigh';
+  String get front_photo => 'Front photo';
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (seans go bhfuil an íomhá seo as dáta)';
+    return '$imageType (this image may be outdated)';
   }
 
   @override
-  String get outdated_image_short_label => 'd\'fhéadfadh sé a bheith as dáta';
+  String get outdated_image_short_label => 'may be outdated';
 
   @override
   String get ingredients => 'Comhábhair';
 
   @override
   String get ingredients_editing_instructions =>
-      'Coinnigh an t-ord bunaidh. Léirigh an céatadán nuair a shonraítear é. Deighil le camóg nó fleiscín agus bain úsáid as lúibíní le haghaidh comhábhair de chomhábhar.';
+      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
 
   @override
-  String get ingredients_editing_error => 'Theip ar na comhábhair a shábháil.';
+  String get ingredients_editing_error => 'Failed to save the ingredients.';
 
   @override
   String get ingredients_editing_image_error =>
-      'Theip ar íomhá nua de na comhábhair a fháil.';
+      'Failed to get a new ingredients image.';
 
   @override
-  String get ingredients_editing_title => 'Cuir Comhábhair in Eagar';
+  String get ingredients_editing_title => 'Edit Ingredients';
 
   @override
-  String get ingredients_photo => 'Grianghraf comhábhair';
+  String get ingredients_photo => 'Ingredients photo';
 
   @override
   String get packaging_editing_instructions =>
-      'Liostaigh na codanna pacáistithe uile scartha le camóg nó le líne beatha, lena méid (m.sh. 1 nó 6) cineál (m.sh. buidéal, bosca, canna), ábhar (m.sh. plaisteach, miotal, alúmanam) agus más féidir a méid (m.sh. 33cl) agus treoracha athchúrsála.\nSampla: 1 bhuidéal gloine le hathchúrsáil, 1 corc plaisteach le caitheamh amach';
+      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
 
   @override
-  String get packaging_editing_error => 'Theip ar an bpacáistiú a shábháil.';
+  String get packaging_editing_error => 'Failed to save the packaging.';
 
   @override
   String get packaging_editing_image_error =>
-      'Theip ar íomhá nua den phacáistiú a fháil.';
+      'Failed to get a new packaging image.';
 
   @override
-  String get packaging_editing_title => 'Cuir Pacáistiú in Eagar';
+  String get packaging_editing_title => 'Edit Packaging';
 
   @override
-  String get nutrition => 'Cothú';
+  String get nutrition => 'Nutrition';
 
   @override
-  String get nutrition_facts_photo => 'Grianghraf fíricí cothaithe';
+  String get nutrition_facts_photo => 'Nutrition facts photo';
 
   @override
-  String get nutrition_facts_editing_title =>
-      'Cuir Faisnéis Chothaithe in Eagar';
+  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Treoracha athchúrsála';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Grianghraf treoracha athchúrsála';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
-  String get missing_product => 'Fuair tú táirge nua!';
+  String get missing_product => 'You found a new product!';
 
   @override
   String get add_product_take_photos =>
-      'Glac grianghraif den phacáistiú chun an táirge seo a chur le Open Food Facts';
+      'Take photos of the packaging to add this product to Open Food Facts';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'Tóg roinnt grianghraf ar dtús le do thoil. Is féidir leat an táirge a chríochnú níos déanaí i gcónaí.';
+      'Please take some photos first. You may always complete the product at a later time.';
 
   @override
   String get add_product_information_button_label => 'Add product information';
 
   @override
-  String get new_product => 'Táirge Nua';
+  String get new_product => 'New Product';
 
   @override
-  String get new_product_found_title => 'Táirge nua aimsithe!';
+  String get new_product_found_title => 'New product found!';
 
   @override
   String get new_product_found_text =>
-      'Tá níos mó ná **3 mhilliún táirge** inár mbunachar sonraí comhoibríoch, ach níl an cód barra seo ann: ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get new_product_found_button => 'Add this product';
 
   @override
-  String get new_product_leave_title => 'An leathanach seo a fhágáil?';
+  String get new_product_leave_title => 'Leave this page?';
 
   @override
   String get new_product_leave_message =>
-      'Is cosúil nár chuir tú aon rud isteach. An bhfuil tú cinnte gur mhaith leat an leathanach seo a fhágáil?';
+      'It looks like you didn\'t input anything. Do you really want to leave this page?';
 
   @override
   String get new_product_dialog_description =>
-      'Glac grianghraif den phacáistiú le do thoil chun an táirge seo a chur lenár mbunachar sonraí coiteann.';
+      'Please take photos of the packaging to add this product to our common database';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'Léaráid le Scór Cothaitheach agus Scór Glas anaithnid';
+      'An illustration with unknown Nutri-Score and Green Score';
 
   @override
-  String get front_packaging_photo_button_label =>
-      'Grianghraf pacáistithe tosaigh';
+  String get front_packaging_photo_button_label => 'Front packaging photo';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'Deimhnigh uaslódáil grianghraf den phacáistiú tosaigh';
+      'Confirm upload of Front packaging photo';
 
   @override
-  String get confirm_button_label => 'Deimhnigh';
+  String get confirm_button_label => 'Confirm';
 
   @override
-  String get send_image_button_label => 'Seol íomhá';
+  String get send_image_button_label => 'Send image';
 
   @override
-  String get crop_page_action_saving => 'Ag sábháil na híomhá…';
+  String get crop_page_action_saving => 'Saving the image…';
 
   @override
-  String get crop_page_action_cropping => 'Ag bearradh na híomhá…';
+  String get crop_page_action_cropping => 'Cropping the image…';
 
   @override
-  String get crop_page_action_local => 'Ag sábháil leagan áitiúil…';
+  String get crop_page_action_local => 'Saving a local version…';
 
   @override
   String get crop_page_action_local_failed_title =>
-      'Úps… tá rud éigin le do ghrianghraf!';
+      'Oops… there\'s something with your photo!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'Ní féidir linn an íomhá a phróiseáil go háitiúil, sula seoltar chuig ár bhfreastalaí í. Déan iarracht arís ar ball nó déan teagmháil linn má leanann an fhadhb.';
+      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
 
   @override
-  String get crop_page_action_retake => 'Athghlac grianghraf';
+  String get crop_page_action_retake => 'Retake a photo';
 
   @override
-  String get crop_page_too_small_image_title => 'Tá an íomhá róbheag!';
+  String get crop_page_too_small_image_title => 'The image is too small!';
 
   @override
   String crop_page_too_small_image_message(
@@ -830,193 +810,184 @@ class AppLocalizationsGa extends AppLocalizations {
     int actualWidth,
     int actualHeight,
   ) {
-    return 'Is é an méid íosta i bpicteilíní le haghaidh uaslódáil pictiúr ná ${expectedMinWidth}x$expectedMinHeight. Is é an pictiúr reatha ná ${actualWidth}x$actualHeight.';
+    return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
   }
 
   @override
-  String get crop_page_action_server => 'Ag ullmhú glao chuig an bhfreastalaí…';
+  String get crop_page_action_server => 'Preparing a call to the server…';
 
   @override
-  String get front_packaging_photo_title => 'Grianghraf Pacáistithe Tosaigh';
+  String get front_packaging_photo_title => 'Front Packaging Photo';
 
   @override
-  String get ingredients_photo_title => 'Grianghraf de Chomhábhair';
+  String get ingredients_photo_title => 'Ingredients Photo';
 
   @override
-  String get nutritional_facts_photo_title => 'Grianghraf Faisnéise Cothaithe';
+  String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Treoracha athchúrsála Grianghraf';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Tóg pictiúr';
 
   @override
-  String get take_more_photo_title => 'Tóg níos mó pictiúr';
+  String get take_more_photo_title => 'Take more pictures';
 
   @override
-  String get front_photo_uploaded => 'Grianghraf tosaigh uaslódáilte';
+  String get front_photo_uploaded => 'Front photo uploaded';
 
   @override
-  String get ingredients_photo_button_label => 'Grianghraf comhábhair';
+  String get ingredients_photo_button_label => 'Ingredients photo';
 
   @override
-  String get ingredients_photo_uploaded =>
-      'Grianghraf de chomhábhair uaslódáilte';
+  String get ingredients_photo_uploaded => 'Ingredients photo uploaded';
 
   @override
   String get nutrition_cache_loading_error =>
-      'Ní féidir cothaithigh a luchtú ón taisce';
+      'Unable to load nutrients from cache';
 
   @override
-  String get nutritional_facts_photo_button_label =>
-      'Grianghraf fíricí cothaithe';
+  String get nutritional_facts_photo_button_label => 'Nutrition facts photo';
 
   @override
-  String get nutritional_facts_input_button_label =>
-      'Líon isteach fíricí cothaithe';
+  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
 
   @override
-  String get nutritional_facts_added => 'Fíricí cothaithe curtha leis';
+  String get nutritional_facts_added => 'Nutrition facts added';
 
   @override
-  String get categories_added => 'Catagóirí curtha leis';
+  String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'Ríomh an Nutri-Score';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'Cabhraigh linn trí chatagóir amháin agus luachanna cothaitheacha ar a laghad a líonadh isteach';
+      'Help us by filling at least a category and nutritional values';
 
   @override
-  String get new_product_title_environmental_score => 'Ríomh an Scór Glas';
+  String get new_product_title_environmental_score => 'Compute the Green Score';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Faigh é trí chatagóir amháin ar a laghad a líonadh';
+      'Get it by filling at least a category';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Déan ríomh an Scóir Ghlais níos cruinne le bunús, pacáistiú & níos mó';
+      'Make Green Score computation more precise with origins, packaging & more';
 
   @override
-  String get new_product_title_nova => 'Ríomh an leibhéal próiseála bia (NOVA)';
+  String get new_product_title_nova =>
+      'Compute the food processing level (NOVA)';
 
   @override
   String get new_product_subtitle_nova =>
-      'Faigh é tríd an gcatagóir bia agus na comhábhair a líonadh isteach';
+      'Get it by filling the food category and ingredients';
 
   @override
-  String get new_product_desc_nova_unknown =>
-      'Leibhéal próiseála bia anaithnid';
+  String get new_product_desc_nova_unknown => 'Food processing level unknown';
 
   @override
-  String get new_product_title_pictures => 'Táirge nua';
+  String get new_product_title_pictures => 'New product';
 
   @override
   String get new_product_title_pictures_details =>
-      'Glac na grianghraif seo a leanas le do thoil agus is féidir leis an inneall Open Food Facts an chuid eile a oibriú amach!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'Agus roinnt sonraí bunúsacha…';
+  String get new_product_title_misc => 'And some basic data…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'Go raibh maith agat as do ranníocaíocht “$username”!';
+    return 'Thanks for your contribution “$username”!';
   }
 
   @override
-  String get new_product_done_msg_no_user =>
-      'Go raibh maith agat as do ranníocaíocht!';
+  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
 
   @override
-  String get new_product_done_button_label =>
-      'Faigh amach an táirge críochnaithe';
+  String get new_product_done_button_label => 'Discover the completed product';
 
   @override
   String get hey_incomplete_product_message =>
-      'Beartaigh chun 3 cheist a fhreagairt ANOIS chun an Scór Cothaitheach, an Scór Glas & an Ultraphróiseáil (NOVA) a ríomh!';
+      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tapáil anois chun 2 cheist a fhreagairt chun cabhrú leis an táirge cosmaideach seo a anailísiú!';
+      'Tap now to answer 2 questions to help analyze this cosmetic!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Tapáil anois chun 3 cheist a fhreagairt chun cabhrú leis an táirge bia peataí seo a anailísiú!';
+      'Tap now to answer 3 questions to help analyze this pet food product!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Tapáil anois chun cabhrú leis an táirge seo a chríochnú!';
+      'Tap now to help complete this product!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
-      'Grianghraf faisnéise cothaithe uaslódáilte';
+      'Nutrition facts photo uploaded';
 
   @override
-  String get recycling_photo_button_label => 'Grianghraf athchúrsála';
+  String get recycling_photo_button_label => 'Recycling photo';
 
   @override
-  String get recycling_photo_uploaded => 'Uaslódáilte grianghraf athchúrsála';
+  String get recycling_photo_uploaded => 'Recycling photo uploaded';
 
   @override
-  String get take_more_photo_button_label => 'Tóg níos mó pictiúr';
+  String get take_more_photo_button_label => 'Take more pictures';
 
   @override
-  String get other_photo_uploaded => 'Uaslódáileadh grianghraf éagsúil';
+  String get other_photo_uploaded => 'Miscellaneous photo uploaded';
 
   @override
-  String get retake_photo_button_label => 'Athghlacadh';
+  String get retake_photo_button_label => 'Retake';
 
   @override
-  String get selecting_photo => 'Ag roghnú grianghraf';
+  String get selecting_photo => 'Selecting photo';
 
   @override
-  String get uploading_image => 'Ag uaslódáil grianghraf chuig an bhfreastalaí';
+  String get uploading_image => 'Uploading photo to the server';
 
   @override
   String get uploading_image_type_front =>
-      'Íomhá tosaigh á uaslódáil chuig Open Food Facts';
+      'Uploading front image to Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Íomhá na gcomhábhar á uaslódáil chuig Open Food Facts';
+      'Uploading ingredients image to Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Íomhá cothaithe á uaslódáil chuig Open Food Facts';
+      'Uploading nutrition image to Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'Íomhá an phacáistithe á uaslódáil chuig Open Food Facts';
+      'Uploading packaging image to Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'Íomhá eile á uaslódáil chuig Open Food Facts';
+      'Uploading other image to Open Food Facts';
 
   @override
   String get uploading_image_type_generic =>
-      'Íomhá á huaslódáil chuig Open Food Facts';
+      'Uploading image to Open Food Facts';
 
   @override
-  String get score_add_missing_ingredients =>
-      'Cuir comhábhair atá ar iarraidh leis';
+  String get score_add_missing_ingredients => 'Add missing ingredients';
 
   @override
-  String get score_add_missing_packaging_image =>
-      'Cuir íomhá an phacáistithe atá ar iarraidh leis';
+  String get score_add_missing_packaging_image => 'Add missing packaging image';
 
   @override
-  String get score_add_missing_nutrition_facts =>
-      'Cuir fíricí cothaitheacha atá ar iarraidh leis';
+  String get score_add_missing_nutrition_facts => 'Add missing nutrition facts';
 
   @override
-  String get score_add_missing_product_traces =>
-      'Cuir rianta táirge atá ar iarraidh leis';
+  String get score_add_missing_product_traces => 'Add missing product traces';
 
   @override
-  String get score_add_missing_product_category => 'Roghnaigh catagóir';
+  String get score_add_missing_product_category => 'Select a category';
 
   @override
   String get score_add_missing_precise_product_category =>
@@ -1024,40 +995,36 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get score_add_missing_product_countries =>
-      'Cuir tíortha táirge atá ar iarraidh leis';
+      'Add missing product countries';
 
   @override
   String get score_add_missing_product_emb =>
-      'Cuir cóid inrianaitheachta táirgí atá ar iarraidh leis';
+      'Add missing product traceability codes';
 
   @override
-  String get score_add_missing_product_labels =>
-      'Cuir lipéid táirgí atá ar iarraidh leis';
+  String get score_add_missing_product_labels => 'Add missing product labels';
 
   @override
-  String get score_add_missing_product_origins =>
-      'Cuir bunús táirgí atá ar iarraidh leis';
+  String get score_add_missing_product_origins => 'Add missing product origins';
 
   @override
-  String get score_add_missing_product_stores =>
-      'Cuir siopaí táirgí atá ar iarraidh leis';
+  String get score_add_missing_product_stores => 'Add missing product stores';
 
   @override
-  String get score_add_missing_product_brands =>
-      'Cuir brandaí táirgí atá ar iarraidh leis';
+  String get score_add_missing_product_brands => 'Add missing product brands';
 
   @override
-  String get score_update_nutrition_facts => 'Nuashonraigh fíricí cothaithe';
+  String get score_update_nutrition_facts => 'Update nutrition facts';
 
   @override
-  String get nutrition_page_title => 'Fíricí Cothaitheacha';
+  String get nutrition_page_title => 'Nutrition Facts';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Faisnéis chothaitheach';
+  String get nutrition_page_nutritional_info_title => 'Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Luachanna atá sonraithe ar an táirge:';
+      'Values specified on the product:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Tá';
@@ -1066,61 +1033,61 @@ class AppLocalizationsGa extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'Níl';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Oscail grianghraf';
+  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Dea-chleachtais: Faisnéis chothaitheach';
+      'Good practices: Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Uaireanta ní bhíonn fíricí cothaitheacha **sonraithe ar an bpacáistiú** ná ar dhoiciméad a thugtar leis an táirge. Sa chás seo, agus sa chás seo amháin, is féidir leat an luach a shocrú go **NÍL**.';
+      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Luachanna cothaitheacha:';
+  String get nutrition_page_serving_type_label => 'Nutritional values:';
 
   @override
-  String get nutrition_page_per_100g => 'in aghaidh an 100g';
+  String get nutrition_page_per_100g => 'per 100g';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'in aghaidh an 100g/ml';
+  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
 
   @override
-  String get nutrition_page_per_serving => 'in aghaidh an riar';
+  String get nutrition_page_per_serving => 'per serving';
 
   @override
-  String get nutrition_page_add_nutrient => 'Cuir cothaitheach leis';
+  String get nutrition_page_add_nutrient => 'Add a nutrient';
 
   @override
-  String get nutrition_page_serving_size => 'Méid freastail';
+  String get nutrition_page_serving_size => 'Serving size';
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Cuir isteach méid riar (m.sh.: 100g)';
+      'Input a serving size (eg: 100g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Dea-chleachtais: Méid riar';
+      'Good practices: Serving size';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'Cuidíonn an luach seo le **ríomh comhréireach a dhéanamh ar gach cothaitheach in aghaidh an mhéid riar**.';
+      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Is iad na haonaid cheadaithe**: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升.';
+      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60 g** nó **60 G** (is fearr an chéad cheann)';
+      '**60 g**, **60g** or **60 G** (prefer the first one)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** nó **1L**';
+      '**1000 ml** or **1L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Aonad neamhbhailí';
+      'Invalid unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1128,98 +1095,88 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Aonaid neamhbhailí';
+      'Invalid units';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **milseán** agus 2 **bhrioscán**';
+      '9 **candies** and 2 **biscuits**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Aonad ar iarraidh';
+      'Missing unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => 'Uimhir neamhbhailí';
+  String get nutrition_page_invalid_number => 'Invalid number';
 
   @override
   String get nutrition_page_update_running =>
-      'Ag nuashonrú an táirge ar an bhfreastalaí…';
+      'Updating the product on the server…';
 
   @override
-  String get nutrition_page_update_done => 'Táirge nuashonraithe!';
+  String get nutrition_page_update_done => 'Product updated!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Úsáid cainníocht an táirge mar mhéid riar';
+      'Use the product quantity as serving size';
 
   @override
-  String get nutrition_page_photo_error => 'Ní féidir an grianghraf a luchtú';
+  String get nutrition_page_photo_error => 'Unable to load the photo';
 
   @override
-  String get more_photos => 'Tuilleadh grianghraf suimiúla';
+  String get more_photos => 'More interesting photos';
 
   @override
   String get view_more_photo_button =>
-      'Féach ar na grianghraif uile atá ann cheana don táirge seo';
+      'View all existing photos for this product';
 
   @override
-  String get no_product_found => 'Níor aimsíodh aon táirge';
+  String get no_product_found => 'No product found';
 
   @override
-  String no_product_found_explanation(String search) {
-    return 'Níor aimsíodh aon torthaí le do chuardach ar\n**\"$search\"**\n.';
-  }
+  String get no_location_found => 'No location found';
 
   @override
-  String get no_product_found_try_world_results =>
-      'Ar mhaith leat an cuardach céanna a dhéanamh inár mbunachar sonraí domhanda ina ionad?';
+  String get not_found => 'not found:';
 
   @override
-  String get no_location_found => 'Níor aimsíodh aon suíomh';
+  String get refreshing_product => 'Refreshing product';
 
   @override
-  String get not_found => 'níor aimsíodh:';
-
-  @override
-  String get refreshing_product => 'Táirge athnuachana';
-
-  @override
-  String get product_refreshed => 'Táirge athnuaite';
+  String get product_refreshed => 'Product refreshed';
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Íomhá tógtha ar $date';
+    return 'Image taken on $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Tógadh an íomhá ar $date. Seans go bhfuil an íomhá seo as dáta.';
+    return 'Image taken on $date. This image may be outdated';
   }
 
   @override
-  String get product_image_outdated =>
-      'B’fhéidir go bhfuil an íomhá seo as dáta';
+  String get product_image_outdated => 'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'B’fhéidir go bhfuil an íomhá seo as dáta';
+      'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'Tógadh an íomhá seo breis agus bliain ó shin.\n**Seiceáil le do thoil go bhfuil sé fós cothrom le dáta**.\n\nNíl anseo ach **rabhadh**. Más mar a chéile an t-ábhar fós, is féidir leat neamhaird a dhéanamh den teachtaireacht seo.';
+      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Athraigh grianghraf ($type)';
+    return 'Replace photo ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Cuir grianghraf leis ($type)';
+    return 'Add a photo ($type)';
   }
 
   @override
@@ -1230,91 +1187,91 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get product_image_action_from_gallery =>
-      'Roghnaigh ó ghailearaí do ghutháin';
+      'Select from your phone\'s gallery';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'Roghnaigh ó na grianghraif táirge';
+      'Select from the product photos';
 
   @override
-  String get product_image_details_label => 'Eolas faoin ngrianghraf';
+  String get product_image_details_label => 'Information about the photo';
 
   @override
-  String get product_image_details_from_producer => 'Ón léiritheoir';
+  String get product_image_details_from_producer => 'From the producer';
 
   @override
   String get product_image_details_contributor => 'Contributor';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Rannpháirtí (léiritheoir)';
+      'Contributor (producer)';
 
   @override
-  String get product_image_details_date => 'Dáta';
+  String get product_image_details_date => 'Date';
 
   @override
-  String get product_image_details_date_unknown => 'Anaithnid';
+  String get product_image_details_date_unknown => 'Unknown';
 
   @override
   String get homepage_main_card_logo_description =>
-      'Fáilte go dtí Fíricí Bia Oscailte';
+      'Welcome to Open Food Facts';
 
   @override
   String get homepage_main_card_subheading =>
-      '**Scanáil** cód barra nó\n**cuardaigh** táirge';
+      '**Scan** a barcode or\n**search** for a product';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Cuardaigh táirge';
+  String get homepage_main_card_search_field_hint => 'Search for a product';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Tosaigh cuardach';
+  String get homepage_main_card_search_field_tooltip => 'Start search';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Nuacht is déanaí: $news_title';
+    return 'Latest news: $news_title';
   }
 
   @override
-  String get tagline_app_review => 'An maith leat an aip?';
+  String get tagline_app_review => 'Do you like the app?';
 
   @override
-  String get tagline_app_review_button_positive => 'Is breá liom é! 😍';
+  String get tagline_app_review_button_positive => 'I love it! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'Ní i ndáiríre…';
+  String get tagline_app_review_button_negative => 'Not really…';
 
   @override
-  String get tagline_app_review_button_later => 'Iarr orm níos déanaí';
+  String get tagline_app_review_button_later => 'Ask me later';
 
   @override
-  String get tagline_feed_news_button => 'Faigh tuilleadh eolais';
+  String get tagline_feed_news_button => 'Know more';
 
   @override
-  String get app_review_negative_modal_title => 'Nach maith leat ár n-aip?';
+  String get app_review_negative_modal_title => 'You don\'t like our app?';
 
   @override
   String get app_review_negative_modal_text =>
-      'An bhféadfá cúpla soicind a thógáil chun a insint dúinn cén fáth?';
+      'Could you take a few seconds to tell us why?';
 
   @override
-  String get app_review_negative_modal_positive_button => 'Sea, go hiomlán!';
+  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
 
   @override
   String get app_review_negative_modal_negative_button => 'Níl';
 
   @override
-  String get could_not_refresh => 'Níorbh fhéidir an táirge a athnuachan';
+  String get could_not_refresh => 'Could not refresh product';
 
   @override
-  String get product_internet_error_modal_title => 'Tharla earráid!';
+  String get product_internet_error_modal_title => 'An error has occurred!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'Ní féidir linn faisnéis a fháil faoin táirge seo mar gheall ar earráid líonra. Seiceáil do nasc idirlín agus déan iarracht arís.\n\nEarráid inmheánach:\n$error';
+    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
   }
 
   @override
-  String get product_tags_title => 'Airíonna táirge';
+  String get product_tags_title => 'Product properties';
 
   @override
   String get no_product_tags_found_message =>
@@ -1331,28 +1288,28 @@ class AppLocalizationsGa extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Cuir airíonna leis';
+  String get add_tags => 'Add properties';
 
   @override
-  String get add_edit_tags => 'Cuir airíonna leis nó cuir in eagar iad';
+  String get add_edit_tags => 'Add or edit properties';
 
   @override
-  String get edit_tag => 'Cuir an mhaoin in eagar';
+  String get edit_tag => 'Edit property';
 
   @override
-  String get remove_tag => 'Bain an mhaoin';
+  String get remove_tag => 'Remove property';
 
   @override
-  String get tag_key => 'Maoin';
+  String get tag_key => 'Property';
 
   @override
   String get tag_keys => 'Airíonna';
 
   @override
-  String get tag_key_uneditable => 'Maoin (gan eagarthóireacht)';
+  String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
-  String get tag_key_input_hint => 'Ionchur maoin';
+  String get tag_key_input_hint => 'Input a property';
 
   @override
   String get tag_value => 'Value';
@@ -1361,29 +1318,29 @@ class AppLocalizationsGa extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'Cuir luach isteach';
+  String get tag_value_input_hint => 'Input a value';
 
   @override
-  String get tag_key_item => 'Maoin:';
+  String get tag_key_item => 'Property:';
 
   @override
-  String get tag_value_item => 'Luach:';
+  String get tag_value_item => 'Value:';
 
   @override
   String get tag_key_explanations =>
-      'Ní mór eochair a bheith i litreacha beaga agus gan aon spásanna.';
+      'A key must be lowercase and without any spaces.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'Tá clib ann cheana féin le maoin $property !';
+    return 'A tag with a property $property already exists!';
   }
 
   @override
   String get product_internet_error =>
-      'Ní féidir faisnéis faoin táirge seo a fháil mar gheall ar earráid líonra.';
+      'Impossible to fetch information about this product due to a network error.';
 
   @override
-  String get cached_results_from => 'Taispeáin torthaí ó:';
+  String get cached_results_from => 'Show results from:';
 
   @override
   String get product_search_same_category => 'Aimsigh roghanna malartacha';
@@ -1393,100 +1350,99 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'Ní féidir an ghné seo a úsáid ach amháin le haghaidh táirgí a bhfuil catagóir acu.\n\nCuir an táirge in eagar le do thoil chun catagóir a chur leis.';
+      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
 
   @override
   String get product_improvement_add_category =>
-      'Cuir catagóir leis chun an Scór Cothaitheach a ríomh.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Cuir fíricí cothaithe leis chun an Nutri-Score a ríomh.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Cuir fíricí cothaithe agus catagóir leis chun an Nutri-Score a ríomh.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Ní féidir an Scór Cothaithe don táirge seo a ríomh, rud a d\'fhéadfadh a bheith mar gheall ar chatagóir neamhchaighdeánach, mar shampla. Má mheastar gur earráid é seo, déan teagmháil linn.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'Tá an íomhá cothaithe as dáta: athnuachan í le do thoil.';
+      'The nutrition image is obsolete: please refresh it.';
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'Cuireann an Scór Glas bunús na gcomhábhar san áireamh. Glac grianghraf den liosta comhábhar agus/nó d’aon éileamh geografach nó cuir an táirge in eagar, le do thoil, ionas gur féidir iad a chur san áireamh.';
+      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
 
   @override
-  String get country_chooser_label => 'Roghnaigh tír le do thoil';
+  String get country_chooser_label => 'Please choose a country';
 
   @override
-  String get currency_chooser_label => 'Roghnaigh airgeadra le do thoil';
+  String get currency_chooser_label => 'Please choose a currency';
 
   @override
-  String get country_change_message => 'Tá tú díreach tar éis tíortha a athrú.';
+  String get country_change_message => 'You have just changed countries.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Ar mhaith leat an t-airgeadra a athrú ó $previousCurrency go $possibleCurrency?';
+    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Roghnaigh tír le do thoil:';
+  String get onboarding_country_chooser_label => 'Please choose a country:';
 
   @override
-  String get country_chooser_label_from_settings => 'Do thír';
+  String get country_chooser_label_from_settings => 'Your country';
 
   @override
   String get country_selection_explanation =>
-      'Tá roinnt gnéithe comhshaoil sonrach don suíomh';
+      'Some environmental features are location-specific';
 
   @override
-  String get product_removed_comparison => 'Táirge bainte den chomparáid';
+  String get product_removed_comparison => 'Product removed from comparison';
 
   @override
-  String get native_app_settings => 'Socruithe Aip Dúchasacha';
+  String get native_app_settings => 'Native App Settings';
 
   @override
   String get native_app_description =>
-      'Socruithe córais oscailte le haghaidh Open Food Facts';
+      'Open systems settings for Open Food Facts';
 
   @override
-  String get product_removed_history => 'Táirge bainte den stair';
+  String get product_removed_history => 'Product removed from history';
 
   @override
-  String get product_removed_list => 'Táirge bainte den liosta';
+  String get product_removed_list => 'Product removed from list';
 
   @override
-  String get product_could_not_remove => 'Níorbh fhéidir an táirge a bhaint';
+  String get product_could_not_remove => 'Could not remove product';
 
   @override
-  String get no_prodcut_in_list => 'Níl aon táirge ar an liosta seo';
+  String get no_prodcut_in_list => 'There is no product in this list';
 
   @override
-  String get no_product_in_section => 'Níl aon táirge sa chuid seo';
+  String get no_product_in_section => 'There is no product in this section';
 
   @override
-  String get recently_seen_products => 'Gach táirge a breathnaíodh';
+  String get recently_seen_products => 'All viewed products';
 
   @override
   String get clear => 'Glan';
 
   @override
-  String get clear_long => 'Folmhaigh an liosta';
+  String get clear_long => 'Empty the list';
 
   @override
-  String get really_clear =>
-      'An bhfuil tú cinnte gur mhaith leat an liosta seo a scriosadh?';
+  String get really_clear => 'Do you really want to delete this list?';
 
   @override
   String pct_match(Object percent) {
-    return '$percent% meaitseáil';
+    return '$percent% match';
   }
 
   @override
@@ -1494,8 +1450,8 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count lá ó shin',
-      one: 'lá amháin ó shin',
+      other: '$count days ago',
+      one: 'one day ago',
     );
     return '$_temp0';
   }
@@ -1505,8 +1461,8 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count uair an chloig ó shin',
-      one: 'uair an chloig ó shin',
+      other: '$count hours ago',
+      one: 'one hour ago',
     );
     return '$_temp0';
   }
@@ -1516,9 +1472,9 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count nóiméad ó shin',
-      one: 'nóiméad ó shin',
-      zero: 'níos lú ná nóiméad ó shin',
+      other: '$count minutes ago',
+      one: 'one minute ago',
+      zero: 'less than a minute ago',
     );
     return '$_temp0';
   }
@@ -1528,8 +1484,8 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count mí ó shin',
-      one: 'mí ó shin',
+      other: '$count months ago',
+      one: 'one month ago',
     );
     return '$_temp0';
   }
@@ -1539,8 +1495,8 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count seachtainí ó shin',
-      one: 'seachtain ó shin',
+      other: '$count weeks ago',
+      one: 'one week ago',
     );
     return '$_temp0';
   }
@@ -1550,8 +1506,8 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Déan comparáid idir $count Táirgí',
-      one: 'Déan comparáid idir táirge amháin',
+      other: 'Compare $count Products',
+      one: 'Compare one Product',
     );
     return '$_temp0';
   }
@@ -1561,86 +1517,86 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count táirgí roghnaithe',
-      one: 'Táirge amháin roghnaithe',
-      zero: 'Gan aon táirge roghnaithe',
+      other: '$count selected products',
+      one: 'One selected product',
+      zero: 'No selected product',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Déan comparáid idir táirgí roghnaithe';
+  String get compare_products_mode => 'Compare selected products';
 
   @override
-  String get delete_products_mode => 'Scrios táirgí roghnaithe';
+  String get delete_products_mode => 'Delete selected products';
 
   @override
-  String get select_all_products_mode => 'Roghnaigh gach táirge';
+  String get select_all_products_mode => 'Select all products';
 
   @override
-  String get select_none_products_mode => 'Roghnaigh aon cheann';
+  String get select_none_products_mode => 'Select none';
 
   @override
   String get compare_products_appbar_title => 'Compare products';
 
   @override
   String get compare_products_appbar_subtitle =>
-      'Roghnaigh dhá tháirge ar a laghad le do thoil';
+      'Please select at least two products';
 
   @override
-  String get retry_button_label => 'Déan iarracht eile';
+  String get retry_button_label => 'Retry';
 
   @override
-  String get connect_with_us => 'Ceangail linn';
+  String get connect_with_us => 'Connect with us';
 
   @override
-  String get tiktok => 'Lean muid ar TikTok';
+  String get tiktok => 'Follow us on TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'Lean muid ar Instagram';
+  String get instagram => 'Follow us on Instagram';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'Lean muid ar X (Twitter roimhe seo)';
+  String get twitter => 'Follow us on X (formerly Twitter)';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Lean muid ar Mastodon';
+  String get mastodon => 'Follow us on Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Lean muid ar BlueSky';
+  String get bsky => 'Follow us on BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
 
   @override
-  String get blog => 'Blag';
+  String get blog => 'Blog';
 
   @override
-  String get faq => 'Ceisteanna Coitianta';
+  String get faq => 'FAQ';
 
   @override
   String get discover => 'Faigh amach';
 
   @override
-  String get how_to_contribute => 'Conas Ranníocaíocht a Dhéanamh';
+  String get how_to_contribute => 'How to Contribute';
 
   @override
   String get hint_knowledge_panel_message =>
-      'Is féidir leat tapáil ar aon chuid den chárta chun tuilleadh sonraí a fháil faoi na rudaí a fheiceann tú. Bain triail as anois!';
+      'Your can tap on any part of the card to get more details about what you see. Try it now!';
 
   @override
-  String get permissions_page_title => 'Rochtain ceamara';
+  String get permissions_page_title => 'Camera access';
 
   @override
   String get permissions_page_body1 =>
@@ -1648,7 +1604,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get permissions_page_body2 =>
-      'Má athraíonn tú d’intinn, is féidir an rogha seo a chumasú agus a dhíchumasú tráth ar bith ó na socruithe.';
+      'If you change your mind, this option can be enabled and disabled at any time from the settings.';
 
   @override
   String contact_form_body_android(
@@ -1659,7 +1615,7 @@ class AppLocalizationsGa extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'Córas Oibriúcháin: Android (SDK Idirlín: $sdkInt / Scaoileadh: $release)\nSamhail: $model\nTáirge: $product\nGléas: $device\nBranda:$brand';
+    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
   }
 
   @override
@@ -1668,7 +1624,7 @@ class AppLocalizationsGa extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'Córas Oibriúcháin: iOS ($version)\nSamhail: $model\nSamhail Áitiúil: $localizedModel';
+    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
   }
 
   @override
@@ -1678,67 +1634,67 @@ class AppLocalizationsGa extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nLeagan an aipe:$appVersion\nUimhir thógála an aipe:$appBuildNumber\nAinm pacáiste an aipe:$appPackageName';
+    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
   }
 
   @override
   String get authorize_button_label => 'Authorise';
 
   @override
-  String get refuse_button_label => 'Diúltaigh';
+  String get refuse_button_label => 'Refuse';
 
   @override
-  String get ask_me_later_button_label => 'Níos déanaí';
+  String get ask_me_later_button_label => 'Later';
 
   @override
-  String get are_you_sure => 'An bhfuil tú cinnte?';
+  String get are_you_sure => 'Are you sure?';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
-    return 'Téigh ar aghaidh $sourceName';
+    return 'Go further on $sourceName';
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Fáilte!';
+  String get onboarding_home_welcome_text1 => 'Welcome !';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'An aip a chabhraíonn leat bia a roghnú atá go maith duit féin agus don phláinéid!';
+      'The app that helps you choose food that is good for **you** and the **planet**!';
 
   @override
-  String get onboarding_continue_button => 'Lean ar aghaidh';
+  String get onboarding_continue_button => 'Continue';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'Ag lódáil do chéad táirge samplach';
+      'Loading your first example product';
 
   @override
   String get onboarding_welcome_warning =>
       'Tá brón orm, is é ár dtáirge samplach é, ní féidir leat é a chur in eagar :)';
 
   @override
-  String get product_list_your_ranking => 'Do rangú';
+  String get product_list_your_ranking => 'Your ranking';
 
   @override
-  String get product_list_empty_icon_desc => 'Níl an stair ar fáil';
+  String get product_list_empty_icon_desc => 'History not available';
 
   @override
-  String get product_list_empty_title => 'Tosaigh ag scanadh';
+  String get product_list_empty_title => 'Start scanning';
 
   @override
   String get product_list_empty_message =>
-      'Beidh táirgí scanta le feiceáil anseo agus is féidir leat faisnéis mhionsonraithe fúthu a sheiceáil';
+      'Scanned products will appear here and you can check detailed information about them';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'táirgí',
-      one: 'táirge',
-      zero: 'táirge',
+      other: 'products',
+      one: 'product',
+      zero: 'product',
     );
-    return 'Ag athnuachan $_temp0 i do stair';
+    return 'Refreshing $_temp0 in your history';
   }
 
   @override
@@ -1746,11 +1702,11 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Táirgí',
-      one: 'Táirge',
-      zero: 'Táirge',
+      other: 'Products',
+      one: 'Product',
+      zero: 'Product',
     );
-    return '$_temp0 athnuachan críochnaithe';
+    return '$_temp0 refresh complete';
   }
 
   @override
@@ -1758,84 +1714,83 @@ class AppLocalizationsGa extends AppLocalizations {
       'Déan comparáid taobh le taobh';
 
   @override
-  String get loading_dialog_default_title => 'Sonraí á n-íoslódáil';
+  String get loading_dialog_default_title => 'Downloading data';
 
   @override
-  String get loading_dialog_default_error_message =>
-      'Níorbh fhéidir sonraí a íoslódáil';
+  String get loading_dialog_default_error_message => 'Could not download data';
 
   @override
-  String get account_delete => 'Scrios cuntas';
+  String get account_delete => 'Delete account';
 
   @override
   String get account_delete_title => 'Scrios mo chuntas';
 
   @override
-  String get user_profile => 'Cuntas';
+  String get user_profile => 'Account';
 
   @override
-  String get user_profile_title_guest => 'Fáilte!';
+  String get user_profile_title_guest => 'Welcome!';
 
   @override
   String get user_profile_subtitle_guest =>
-      'Sínigh isteach nó cláraigh le bheith páirteach i bpobal Open Food Facts';
+      'Sign-in or sign-up to join the Open Food Facts community';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Logáil isteach Oscailte Fíricí Bia: $email';
+    return 'Open Food Facts login: $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Fáilte $id!';
+    return 'Welcome $id!';
   }
 
   @override
-  String get email_subject_account_deletion => 'Scrios cuntas';
+  String get email_subject_account_deletion => 'Delete account';
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Haigh, scrios mo chuntas Open Food Facts le do thoil: $userId';
+    return 'Hi there, please delete my Open Food Facts account: $userId';
   }
 
   @override
-  String get settings_app_app => 'Feidhmchlár';
+  String get settings_app_app => 'Application';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Ceamara';
+  String get settings_app_camera => 'Camera';
 
   @override
   String get settings_app_products => 'Táirgí';
 
   @override
-  String get settings_app_miscellaneous => 'Ilghnéitheach';
+  String get settings_app_miscellaneous => 'Miscellaneous';
 
   @override
-  String get camera_play_sound_title => 'Seinn fuaim ar scanadh';
+  String get camera_play_sound_title => 'Play a sound on scan';
 
   @override
-  String get camera_play_sound_subtitle => 'Bípfidh sé ar gach scanadh rathúil';
+  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
 
   @override
   String get camera_window_accessibility_label =>
-      'Scanáil cód barra le do cheamara';
+      'Scan a barcode with your camera';
 
   @override
-  String get app_haptic_feedback_title => 'Creathadh & Haptics';
+  String get app_haptic_feedback_title => 'Vibration & Haptics';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'Creathadh tar éis roinnt gníomhartha a dhéanamh (cód barra díchódaithe, táirge bainte…).';
+      'Vibrations after executing some actions (barcode decoded, product removed…).';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'Nuair a bhíonn sé cumasaithe, cuirtear tuairiscí tuairteála isteach go huathoibríoch chuig córas rianaithe earráide Open Food Facts, ionas gur féidir fabhtanna a shocrú agus an aip a fheabhsú dá bharr.';
+      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1845,160 +1800,158 @@ class AppLocalizationsGa extends AppLocalizations {
       'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
 
   @override
-  String get product_edit_photo_title => 'Cuir Grianghraf in Eagar';
+  String get product_edit_photo_title => 'Edit Photo';
 
   @override
   String get permission_photo_error => 'Earráid';
 
   @override
   String get permission_photo_denied_title =>
-      'Ceadaigh úsáid ceamara chun barrachóid a scanadh';
+      'Allow camera use to scan barcodes';
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'Chun eispéireas feabhsaithe a fháil, lig do $appName rochtain a fháil ar do cheamara. Beidh tú in ann barrachóid a scanadh go díreach.';
+    return 'For an enhanced experience, please allow $appName to access your camera. You will be able to directly scan barcodes.';
   }
 
   @override
-  String get permission_photo_denied_button => 'Ceadaigh';
+  String get permission_photo_denied_button => 'Allow';
 
   @override
-  String get permission_photo_denied_dialog_settings_title => 'Cead diúltaithe';
+  String get permission_photo_denied_dialog_settings_title =>
+      'Permission denied';
 
   @override
   String get permission_photo_denied_dialog_settings_message =>
-      'Ós rud é gur dhiúltaigh tú cead don cheamara roimhe seo, ní mór duit é a cheadú de láimh ó na Socruithe.';
+      'As you\'ve previously denied the camera permission, you must allow it manually from the Settings.';
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
-      'Oscail socruithe';
+      'Open settings';
 
   @override
   String get permission_photo_denied_dialog_settings_button_cancel =>
       'Cealaigh';
 
   @override
-  String get permission_photo_none_found => 'Níor braitheadh ceamara';
+  String get permission_photo_none_found => 'No camera detected';
 
   @override
-  String get permission_photo_denied => 'Níor deonaíodh rochtain ceamara';
+  String get permission_photo_denied => 'No camera access granted';
 
   @override
-  String get show_product_pictures => 'Taispeáin pictiúir táirgí';
+  String get show_product_pictures => 'Show product pictures';
 
   @override
-  String get edit_product_label => 'Cuir an táirge in eagar';
+  String get edit_product_label => 'Edit product';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'Ag uaslódáil do chuid eagarthóireachtaí…';
+      'Uploading your edits…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Tá do chuid eagarthóireachtaí á **sheoladh sa chúlra** (nó níos déanaí i gcás earráide).\nIs féidir leat leanúint ar aghaidh ag eagarthóireacht réimsí táirge eile.';
+      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Tá do chuid eagarthóireachtaí á **sheoladh sa chúlra** (nó níos déanaí i gcás earráide).';
+      'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
   String get edit_product_label_short => 'Edit';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'Conas \"$value\" a iontráil?';
+    return 'How to enter \"$value\"?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Cuir isteach luach nach bhfuil folamh, le do thoil!';
+      'Please enter a non-empty value!';
 
   @override
   String get edit_product_form_item_error_existing =>
-      'Tá an luach seo ann cheana féin!';
+      'This value is already there!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Cuir branda nua leis';
+  String get edit_product_form_item_add_action_brand => 'Add a new brand';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Cuir lipéad nua leis';
+  String get edit_product_form_item_add_action_label => 'Add a new label';
 
   @override
-  String get edit_product_form_item_add_action_store => 'Cuir siopa nua leis';
+  String get edit_product_form_item_add_action_store => 'Add a new store';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Cuir bunús nua leis';
+  String get edit_product_form_item_add_action_origin => 'Add a new origin';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Cuir cód inrianaitheachta nua leis';
+      'Add a new traceability code';
 
   @override
-  String get edit_product_form_item_add_action_country => 'Cuir tír nua leis';
+  String get edit_product_form_item_add_action_country => 'Add a new country';
 
   @override
-  String get edit_product_form_item_add_action_category =>
-      'Cuir catagóir nua leis';
+  String get edit_product_form_item_add_action_category => 'Add a new category';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Cuir rian nua leis';
+  String get edit_product_form_item_add_action_trace => 'Add a new trace';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Cuir moladh leis';
+  String get edit_product_form_item_add_suggestion => 'Add suggestion';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Diúltaigh don mholadh';
 
   @override
-  String get edit_product_form_item_details_title => 'Sonraí bunúsacha';
+  String get edit_product_form_item_details_title => 'Basic details';
 
   @override
   String get edit_product_form_item_details_subtitle =>
-      'Ainm an táirge, branda, cainníocht';
+      'Product name, brand, quantity';
 
   @override
-  String get edit_product_form_item_other_details_title => 'Sonraí breise';
+  String get edit_product_form_item_other_details_title => 'Additional details';
 
   @override
-  String get edit_product_form_item_other_details_subtitle =>
-      'Suíomh Gréasáin…';
+  String get edit_product_form_item_other_details_subtitle => 'Website…';
 
   @override
   String get edit_product_form_item_photos_title => 'Grianghraif';
 
   @override
-  String get edit_product_form_item_photos_subtitle =>
-      'Cuir grianghraif leis nó athnuaigh iad';
+  String get edit_product_form_item_photos_subtitle => 'Add or refresh photos';
 
   @override
-  String get edit_product_form_item_labels_title => 'Lipéid & Deimhnithe';
+  String get edit_product_form_item_labels_title => 'Labels & Certifications';
 
   @override
   String get edit_product_form_item_labels_subtitle =>
-      'Lipéid Chomhshaoil, Cáilíochta…';
+      'Environmental, Quality labels…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Cuir lipéad isteach (m.sh.: NutriScore)';
+      'Input a label (eg: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'lipéad';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Dea-chleachtais: Lipéid';
+      'Good practices: Labels';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Aon tréith den táirge **atá fíorasach** agus difriúil ó na réimsí eile.';
+      'Any characteristic of the product **which is factual** and different from the other fields.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Scór Cothaitheach, NOVA…';
+      'Nutri-Score, NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Déanta sa Bheilg, táirgeadh sa Bhriotáin…';
+      'Made in Belgium, produced in Brittany…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -2006,28 +1959,28 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Saibhir i snáithín, foinse iarainn…';
+      'Rich in fiber, source of iron…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Trádáil chóir, Max Havelaar…';
+      'Fair trade, Max Havelaar…';
 
   @override
   String get edit_product_form_item_stores_title => 'Siopaí';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Iontráil siopa';
+  String get edit_product_form_item_stores_hint => 'Input a store';
 
   @override
   String get edit_product_form_item_stores_type => 'siopa';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Dea-chleachtais: Siopaí';
+      'Good practices: Stores';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Cuir isteach an siopa inar cheannaigh tú an táirge.';
+      'Input the store where you bought the product.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -2042,74 +1995,74 @@ class AppLocalizationsGa extends AppLocalizations {
       'Lidl';
 
   @override
-  String get edit_product_form_item_origins_title => 'Bunús';
+  String get edit_product_form_item_origins_title => 'Origins';
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Cuir isteach bunús (m.sh.: An Ghearmáin)';
+      'Input an origin (eg: Germany)';
 
   @override
   String get edit_product_form_item_origins_type => 'tír';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Dea-chleachtais: Bunús';
+      'Good practices: Origins';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Cuir **aon tásca tionscnaimh is féidir leat a fháil ar an bpacáistiú** leis.\nNí gá duit a bheith buartha faoi na tionscnaimh a léirítear go díreach sa liosta comhábhar.';
+      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Mairteoil ón Airgintín';
+      'Beef from Argentina';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'Ní thagann an pónaire soighe ón Aontas Eorpach';
+      'The soy does not come from the European Union';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Cuir isteach tír (m.sh.: An Ghearmáin)';
+      'Input a country (eg: Germany)';
 
   @override
   String get edit_product_form_item_countries_type => 'tír';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Dea-chleachtais: Tíortha';
+      'Good practices: Countries';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Tíortha ina bhfuil an táirge ar fáil go forleathan** (gan siopaí atá speisialaithe i dtáirgí eachtracha a áireamh).';
+      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
 
   @override
-  String get edit_product_form_item_emb_codes_title => 'Cóid inrianaitheachta';
+  String get edit_product_form_item_emb_codes_title => 'Traceability codes';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Cuir cód isteach (m.sh.: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 MÁINLIACHT 522…)';
+      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
-  String get edit_product_form_item_emb_codes_type => 'cód inrianaitheachta';
+  String get edit_product_form_item_emb_codes_type => 'traceability code';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Dea-chleachtais: Cóid inrianaitheachta';
+      'Good practices: Traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'Sa chuid seo, is féidir leat cóid a bhaineann le **marcanna pacáistíochta**, **marcanna aitheantais** nó **marcanna sláinte** a ionchur.';
+      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Samplaí de chóid inrianaitheachta';
+      'Examples of traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**Cóid CE** a úsáidtear sa Chomhphobal Eorpach chun táirgeoirí nó pacálaithe bia a aithint:';
+      '**EC codes** used in the European Community to identify food producers or packagers:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2117,11 +2070,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: cód tíre **na Fraince**\n**72.264.002**: sonraí geografacha\n**CE**: Comhphobal Eorpach';
+      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**Cóid EMB** a úsáidtear sa Fhrainc:';
+      '**EMB codes** used in France:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2135,7 +2088,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Cuir rian isteach (m.sh.: Pónairí soighe)';
+      'Input a trace (eg: Soy beans)';
 
   @override
   String get edit_product_form_item_categories_title => 'Catagóirí';
@@ -2145,156 +2098,154 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Cuir isteach catagóir (m.sh.: Sú oráiste)';
+      'Input a category (eg: Orange juice)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Dea-chleachtais: Catagóirí';
+      'Good practices: Categories';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Cuir in iúl **an chatagóir is sainiúla amháin**.\nCuirfear catagóirí tuismitheora leis go huathoibríoch.';
+      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Catagóir ar iarraidh?';
+      'Missing category?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'Sa chás nach bhfuil catagóir ar fáil san uath-líonadh, is féidir leat í a chur leis ar aon nós.\nCabhróidh sé seo linn Open Food Facts a fheabhsú i do thír féin.';
+      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Sairdíní in ola olóige';
+      'Sardines in olive oil';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Sú oráiste ó thiúchan';
+      'Orange juice from concentrate';
 
   @override
-  String get edit_product_form_item_exit_title => 'Scoir gan sábháil?';
+  String get edit_product_form_item_exit_title => 'Quit without saving?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Ar mhaith leat do chuid athruithe a shábháil sula bhfágann tú an leathanach seo?';
+      'Do you want to save your changes before leaving this page?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
-      'Sábháil athruithe';
+      'Save changes';
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'Scrios na hathruithe';
+      'Discard changes';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Comhábhair';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Zúmáil isteach agus amach trí phionáil an scáileáin';
+      'Zoom in and out by pinching the screen';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Zúmáil isteach agus amach an grianghraf';
+      'Zoom in and out the photo';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Ag baint úsáide as an **gotha pinch-to-súmáil**, is féidir leat súmáil isteach nó amach sa ghrianghraf:';
+      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Cuir leis';
 
   @override
   String get edit_product_form_item_add_invalid_item_tooltip =>
-      'Cuir isteach téacs ar dtús le do thoil';
+      'Please enter a text first';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'Bain';
+  String get edit_product_form_item_remove_item_tooltip => 'Remove';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip =>
-      'Sábháil d\'eagarthóireacht';
+  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Cealaigh d\'eagarthóireacht';
+      'Cancel your edit';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'Grianghraf treoracha athchúrsála';
+      'Recycling instructions photo';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title =>
-      'Fíricí cothaitheacha';
+  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
-      'Cothú, cion alcóil…';
+      'Nutrition, alcohol content…';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Dea-chleachtais: Fíricí cothaitheacha';
+      'Good practices: Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Luachanna cothaitheacha';
+      'Nutritional values';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'Ar dtús, roghnaigh an bhfuil na **luachanna curtha ar fáil**:';
+      'First, select if the **values are provided**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'Fíricí cothaitheacha';
+      'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Ansin, cuir isteach na luachanna cothaitheacha **mar atá léirithe ar an bpacáistiú**. Mura bhfuil aon luach ann, is féidir leat cliceáil ar an deilbhín \"Súil\".';
+      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Réimse ar iarraidh?';
+      'Missing field?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'Mura bhfuil iontráil ann, is féidir leat **cliceáil ar an deilbhín \"Plus\"** chun í a chur leis (m.sh.: vitimín D, maignéisiam…).';
+      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
   String get edit_product_form_save => 'Edit';
 
   @override
-  String get edit_product_ingredients_photo_title => 'Grianghraf comhábhair';
+  String get edit_product_ingredients_photo_title => 'Ingredients photo';
 
   @override
   String get edit_product_ingredients_list_title => 'List of ingredients';
 
   @override
-  String get edit_product_packaging_photo_title => 'Grianghraf pacáistithe';
+  String get edit_product_packaging_photo_title => 'Packaging photo';
 
   @override
-  String get edit_product_packaging_list_title => 'Liosta pacáistithe';
+  String get edit_product_packaging_list_title => 'Packaging list';
 
   @override
-  String get no_data_available => 'Níl aon sonraí ar fáil';
+  String get no_data_available => 'No data available';
 
   @override
-  String get product_field_website_title => 'Suíomh Gréasáin';
+  String get product_field_website_title => 'Website';
 
   @override
-  String get origins_editing_title => 'Cuir Bunús in Eagar';
+  String get origins_editing_title => 'Edit Origins';
 
   @override
-  String get completed_basic_details_btn_text => 'Comhlánaigh sonraí bunúsacha';
+  String get completed_basic_details_btn_text => 'Complete basic details';
 
   @override
-  String get not_implemented_snackbar_text => 'Níor cuireadh i bhfeidhm fós';
+  String get not_implemented_snackbar_text => 'Not implemented yet';
 
   @override
   String get category_picker_page_appbar_text => 'Catagóirí';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Bain comhábhair as an ngrianghraf';
+      'Extract ingredients from the photo';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2302,302 +2253,295 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Ag baint comhábhair\nas an ngrianghraf';
+      'Extracting ingredients\nfrom the photo';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Ag lódáil grianghraf…';
+  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Cén fáth a fheicim an teachtaireacht seo?';
+      'Why do I see this message?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'Chun an ghné \"Comhábhair a Bhaint Amach\" a úsáid, ní mór an grianghraf a uaslódáil ar dtús.\n\nFan cúpla soicind nó cuir isteach iad de láimh.';
+      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text => 'Athnuachan grianghraf';
+  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
 
   @override
   String get edit_packaging_extract_btn_text =>
-      'Bain an pacáistiú\nas an ngrianghraf';
+      'Extract packaging\nfrom the photo';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Pacáistiú sliocht';
+  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
 
   @override
   String get edit_packaging_extracting_btn_text =>
-      'Ag baint pacáistithe as an ngrianghraf';
+      'Extracting packaging from the photo';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Ag lódáil grianghraf…';
+  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Cén fáth a fheicim an teachtaireacht seo?';
+      'Why do I see this message?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'Chun an ghné \"Pacáistiú a Bhaint\" a úsáid, ní mór an grianghraf a uaslódáil ar dtús.\n\nFan cúpla soicind nó cuir isteach iad de láimh.';
+      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text => 'Athnuachan grianghraf';
+  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
 
   @override
-  String get edit_ocr_extract_failed => 'Theip ar théacs a bhrath san íomhá.';
+  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'Gan pictiúr!';
+  String get edit_ocr_extract_disabled_title => 'No picture!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'Chun an ghné eastósctha téacs a úsáid, ní mór duit grianghraf a thógáil ar dtús.';
+      'In order to use the text extraction feature, you must first take a photo.';
 
   @override
-  String get user_list_dialog_new_title => 'Liosta nua táirgí';
+  String get user_list_dialog_new_title => 'New list of products';
 
   @override
-  String get user_list_dialog_rename_title => 'Athainmnigh an liosta';
+  String get user_list_dialog_rename_title => 'Rename list';
 
   @override
-  String get user_list_subtitle_product => 'Liostaí';
+  String get user_list_subtitle_product => 'Lists';
 
   @override
   String get user_list_title => 'Do liostaí';
 
   @override
-  String get user_list_add_product => 'Cuir an táirge le do liostaí';
+  String get user_list_add_product => 'Add the product to your lists';
 
   @override
-  String get user_list_button_new => 'Cruthaigh liosta nua';
+  String get user_list_button_new => 'Create a new list';
 
   @override
   String get user_list_empty_label =>
       'No list available yet, please start by creating one';
 
   @override
-  String get user_list_button_add_product => 'Cuir leis an liosta';
+  String get user_list_button_add_product => 'Add to list';
 
   @override
-  String get added_to_list_msg => 'Curtha leis an liosta';
+  String get added_to_list_msg => 'Added to list';
 
   @override
-  String get user_list_popup_clear => 'Glan do stair';
+  String get user_list_popup_clear => 'Clear your history';
 
   @override
-  String get user_list_popup_rename => 'Athainmnigh';
+  String get user_list_popup_rename => 'Rename';
 
   @override
-  String get user_list_name_hint => 'Mo liosta';
+  String get user_list_name_hint => 'My list';
 
   @override
-  String get user_list_name_error_empty => 'Tá an t-ainm éigeantach';
+  String get user_list_name_error_empty => 'Name is mandatory';
 
   @override
-  String get user_list_name_error_already =>
-      'Tá an t-ainm sin in úsáid cheana féin';
+  String get user_list_name_error_already => 'That name is already used';
 
   @override
-  String get user_list_name_error_same => 'Sin an t-ainm céanna';
+  String get user_list_name_error_same => 'That is the same name';
 
   @override
-  String get user_list_name_input_hint => 'Ainm an liosta';
+  String get user_list_name_input_hint => 'Name of the list';
 
   @override
-  String get try_again => 'Bain Triail Arís';
+  String get try_again => 'Try Again';
 
   @override
-  String get there_was_an_error => 'Bhí earráid ann';
+  String get there_was_an_error => 'There was an error';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return 'Níor aimsíodh aon chatagóir do $items';
+    return 'No category found for $items';
   }
 
   @override
-  String get camera_toggle_camera =>
-      'Athraigh idir an ceamara cúil agus an ceamara tosaigh';
+  String get camera_toggle_camera => 'Switch between back and front camera';
 
   @override
-  String get camera_toggle_flash => 'Cas splanc an cheamara AR SIÚL nó AS';
+  String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
 
   @override
-  String get camera_enable_flash => 'Cumasaigh splanc';
+  String get camera_enable_flash => 'Enable flash';
 
   @override
-  String get camera_disable_flash => 'Díchumasaigh an splanc';
+  String get camera_disable_flash => 'Disable flash';
 
   @override
-  String get camera_flash_error_dialog_title => 'Tharla earráid!';
+  String get camera_flash_error_dialog_title => 'An error occurred!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'Tharla earráid agus staid do splanc á hathrú. Cinntigh nach bhfuil an tóirse cumasaithe ar do ghuthán cliste cheana féin.';
+      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
 
   @override
-  String get category_picker_no_category_found_button => 'Ar ais';
+  String get category_picker_no_category_found_button => 'Back';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Cliceáil chun oscailt i do bhrabhsálaí nó san fheidhmchlár (más suiteáilte)';
+      'Click to open in your browser or in the application (if installed)';
 
   @override
-  String get dev_preferences_screen_title => 'Mód DEV';
+  String get dev_preferences_screen_title => 'DEV Mode';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'Rochtain ar ghnéithe turgnamhacha agus uirlisí forbartha';
 
   @override
-  String get dev_preferences_reset_onboarding_title => 'Atosaigh an clárú';
+  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'Ansin caithfidh tú an Aip a atosú chun é a fheiceáil arís.';
+      'You then have to restart the App to see it again.';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'Athraigh idir openfoodfacts.org (PROD) agus timpeallacht tástála';
+      'Switch between openfoodfacts.org (PROD) and test env';
 
   @override
   String get dev_preferences_test_environment_title =>
-      'Paraiméadair thimpeallacht tástála';
+      'Test environment parameters';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'Bun-URL don timpeallacht tástála reatha: $url';
+    return 'Base URL for current test env: $url';
   }
 
   @override
   String get dev_preferences_test_environment_dialog_title =>
-      'Óstach timpeallachta tástála';
+      'Test environment host';
 
   @override
-  String get dev_preferences_ml_kit_title => 'Bain úsáid as an trealamh ML';
+  String get dev_preferences_ml_kit_title => 'Use ML Kit';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'ansin caithfidh tú an aip seo a atosú';
+      'then you have to restart this app';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'Cnaipe breise ar leathanach an táirge';
+      'Additional button on product page';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'Cuir comhábhair in eagar trí chnaipe painéil eolais';
+      'Edit ingredients via a knowledge panel button';
 
   @override
-  String get dev_preferences_export_history_title => 'Stair Easpórtála';
+  String get dev_preferences_export_history_title => 'Export History';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'eisceacht';
+  String get dev_preferences_export_history_progress_error => 'exception';
 
   @override
-  String get dev_preferences_export_history_progress_found => 'táirge aimsithe';
+  String get dev_preferences_export_history_progress_found => 'product found';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'táirge NÍ bhfuarthas';
+      'product NOT found';
 
   @override
-  String get dev_preferences_export_history_dialog_title =>
-      'Stair onnmhairithe';
+  String get dev_preferences_export_history_dialog_title => 'Export history';
 
   @override
-  String get dev_preferences_button_positive => 'Ceart go leor';
+  String get dev_preferences_button_positive => 'OK';
 
   @override
   String get dev_preferences_button_negative => 'Cealaigh';
 
   @override
-  String get dev_preferences_migration_title => 'Imirce sonraí ó V1';
+  String get dev_preferences_migration_title => 'Data migration from V1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
-    return 'Stádas: $status';
+    return 'Status: $status';
   }
 
   @override
   String get dev_preferences_migration_status_already_done =>
-      'rath nó suiteáil úr';
+      'success or fresh install';
 
   @override
-  String get dev_preferences_migration_status_success => 'rath';
+  String get dev_preferences_migration_status_success => 'success';
 
   @override
-  String get dev_preferences_migration_status_error => 'earráid';
+  String get dev_preferences_migration_status_error => 'error';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'ar siúl';
+  String get dev_preferences_migration_status_in_progress => 'in progress';
 
   @override
   String get dev_preferences_migration_status_required =>
-      'riachtanach (cliceáil chun tosú)';
+      'required (click to start)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'anaithnid';
+  String get dev_preferences_migration_status_not_started => 'unknown';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'Glanfaidh sé an stair agus cuirfear 3 tháirge ann';
+      'Will clear history and put 3 products in there';
 
   @override
-  String get dev_preferences_news_custom_url_title =>
-      'URL saincheaptha le haghaidh nuachta';
+  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
 
   @override
   String get dev_preferences_news_custom_url_subtitle =>
-      'URL an chomhaid JSON:';
+      'URL of the JSON file:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'Gan socrú';
+  String get dev_preferences_news_custom_url_empty_value => 'Not set';
 
   @override
   String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Athnuachan deireanach: $date';
+    return 'Last refresh: $date';
   }
 
   @override
-  String get product_type_label_food => 'Bia';
+  String get product_type_label_food => 'Food';
 
   @override
-  String get product_type_label_beauty => 'Cúram pearsanta';
+  String get product_type_label_beauty => 'Personal care';
 
   @override
-  String get product_type_label_pet_food => 'Bia peataí';
+  String get product_type_label_pet_food => 'Pet food';
 
   @override
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Anaithnid';
-
-  @override
-  String get product_type_selection_title => 'Cineál táirge';
+  String get product_type_selection_title => 'Product type';
 
   @override
   String get product_type_selection_subtitle =>
-      'Roghnaigh cineál an táirge seo';
+      'Select the type of this product';
 
   @override
   String get product_type_selection_empty =>
-      'Ní mór duit cineál táirge a roghnú ar dtús!';
+      'You need to select a product type first!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'Ní féidir leat an cineál táirge a athrú ($productType)!';
+    return 'You cannot change the product type ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Aicearraí chuig an aip Praghsanna ar leathanach an táirge';
+      'Shortcut to Prices app on product page';
 
   @override
-  String get prices_app_button => 'Téigh go dtí an aip Praghsanna';
+  String get prices_app_button => 'Go to Prices app';
 
   @override
   String get prices_website_button =>
@@ -2605,11 +2549,11 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Cuir clibeanna praghais leis go díreach ón ngailearaí';
+      'Add price tags directly from gallery';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Nuair a bheidh íomhánna roghnaithe agat, ní bheidh tú in ann iad a chur in eagar!';
+      'Once you\'ve selected images, you won\'t be able to edit them!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2620,10 +2564,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Lig don phobal praghsanna a bhaintear as intleacht shaorga a bhailíochtú.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Il-Chlibeanna Praghsanna';
+  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Uaslódáil Cruthúnais Bulc';
+  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Comhaid á roghnú';
@@ -2647,15 +2591,15 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'Praghsanna';
+  String get prices_generic_title => 'Prices';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Cuir praghsanna leis $count',
-      one: 'Cuir praghas leis',
+      other: 'Add $count prices',
+      one: 'Add a price',
     );
     return '$_temp0';
   }
@@ -2665,42 +2609,42 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Seol $count praghsanna',
-      one: 'Seol an praghas',
+      other: 'Send $count prices',
+      one: 'Send the price',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Cuir mír leis';
+  String get prices_add_an_item => 'Add an item';
 
   @override
-  String get prices_add_a_price => 'Cuir praghas leis';
+  String get prices_add_a_price => 'Add a price';
 
   @override
-  String get prices_add_a_receipt => 'Cuir admháil leis';
+  String get prices_add_a_receipt => 'Add a receipt';
 
   @override
-  String get prices_add_price_tags => 'Cuir clibeanna praghais leis';
+  String get prices_add_price_tags => 'Add price tags';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'Tá an cód barra seo ($barcode) sa liosta cheana féin!';
+    return 'This barcode ($barcode) is already in the list!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'Gan aon táirge fós';
+  String get prices_barcode_search_none_yet => 'No product yet';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'Ag lorg $barcode';
+    return 'Looking for $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Cuir isteach an Cód Barra';
+  String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
   String get prices_category_enter => 'Mír gan chód barra';
@@ -2727,10 +2671,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get prices_category_error_mandatory => 'Tá an chatagóir éigeantach';
 
   @override
-  String get prices_barcode_reader_action => 'Léitheoir barrachóid';
+  String get prices_barcode_reader_action => 'Barcode reader';
 
   @override
-  String get prices_view_prices => 'Féach ar na praghsanna';
+  String get prices_view_prices => 'View the prices';
 
   @override
   String get prices_list_title => 'Liosta praghsanna';
@@ -2757,9 +2701,6 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get prices_entry_menu_open_product => 'Féach sonraí an táirge';
-
-  @override
   String get prices_entry_menu_open_product_prices =>
       'Féach ar na praghsanna uile don táirge seo';
 
@@ -2782,10 +2723,10 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count praghsanna',
-      one: '1 phraghas',
+      other: '$count prices',
+      one: '1 price',
     );
-    return '$_temp0 le haghaidh $product';
+    return '$_temp0 for $product';
   }
 
   @override
@@ -2793,16 +2734,16 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Gach praghas $count',
-      one: 'Praghas amháin',
-      zero: 'Gan aon phraghas fós',
+      other: 'All $count prices',
+      one: 'Only one price',
+      zero: 'No price yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Praghsanna is déanaí $pageSize (iomlán: $total)';
+    return 'Latest $pageSize prices (total: $total)';
   }
 
   @override
@@ -2812,32 +2753,32 @@ class AppLocalizationsGa extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Praghas: $price / Siopa: \"$location\" / Foilsithe ar $date ag \"$user\"';
+    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Cruthúnais oscailte ar \"$user\"';
+    return 'Open proofs of \"$user\"';
   }
 
   @override
-  String get prices_open_proof => 'Cruthúnas praghais oscailte';
+  String get prices_open_proof => 'Open price proof';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Gach cruthúnas $count',
-      one: 'Cruthúnas amháin',
-      zero: 'Gan aon chruthúnas fós',
+      other: 'All $count proofs',
+      one: 'Only one proof',
+      zero: 'No proof yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Na cruthúnais is déanaí $pageSize (iomlán: $total)';
+    return 'Latest $pageSize proofs (total: $total)';
   }
 
   @override
@@ -2849,7 +2790,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Na príomh-rannpháirtithe $pageSize (iomlán: $total)';
+    return 'Top $pageSize contributors (total: $total)';
   }
 
   @override
@@ -2861,7 +2802,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Na suíomhanna is fearr $pageSize (iomlán: $total)';
+    return 'Top $pageSize locations (total: $total)';
   }
 
   @override
@@ -2869,9 +2810,9 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count cruthúnais',
-      one: 'Cruthúnas amháin',
-      zero: 'Gan aon chruthúnas',
+      other: '$count proofs',
+      one: 'One proof',
+      zero: 'No proof',
     );
     return '$_temp0';
   }
@@ -2881,9 +2822,9 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count táirgí',
-      one: 'Táirge amháin',
-      zero: 'Gan aon táirge',
+      other: '$count products',
+      one: 'One product',
+      zero: 'No product',
     );
     return '$_temp0';
   }
@@ -2893,9 +2834,9 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count úsáideoirí',
-      one: 'Úsáideoir amháin',
-      zero: 'Gan aon úsáideoir',
+      other: '$count users',
+      one: 'One user',
+      zero: 'No user',
     );
     return '$_temp0';
   }
@@ -2905,9 +2846,9 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count praghsanna',
-      one: 'Aon phraghas amháin',
-      zero: 'Gan phraghas',
+      other: '$count prices',
+      one: 'One price',
+      zero: 'No price',
     );
     return '$_temp0';
   }
@@ -2917,50 +2858,50 @@ class AppLocalizationsGa extends AppLocalizations {
       'Praghas curtha leis roimhe seo';
 
   @override
-  String get prices_amount_subtitle => 'Méid';
+  String get prices_amount_subtitle => 'Amount';
 
   @override
-  String get prices_amount_is_discounted => 'An bhfuil lascaine air?';
+  String get prices_amount_is_discounted => 'Is discounted?';
 
   @override
-  String get prices_amount_price_normal => 'Praghas';
+  String get prices_amount_price_normal => 'Price';
 
   @override
-  String get prices_amount_price_discounted => 'Praghas lascainithe';
+  String get prices_amount_price_discounted => 'Discounted price';
 
   @override
-  String get prices_amount_price_not_discounted => 'Praghas bunaidh';
+  String get prices_amount_price_not_discounted => 'Original price';
 
   @override
-  String get prices_amount_no_product => 'Tá táirge amháin ar iarraidh!';
+  String get prices_amount_no_product => 'One product is missing!';
 
   @override
-  String get prices_amount_price_incorrect => 'Luach mícheart';
+  String get prices_amount_price_incorrect => 'Incorrect value';
 
   @override
-  String get prices_amount_price_mandatory => 'Luach éigeantach';
+  String get prices_amount_price_mandatory => 'Mandatory value';
 
   @override
-  String get prices_currency_subtitle => 'Airgeadra';
+  String get prices_currency_subtitle => 'Currency';
 
   @override
-  String get prices_date_subtitle => 'Dáta';
+  String get prices_date_subtitle => 'Date';
 
   @override
-  String get prices_location_subtitle => 'Siopa';
+  String get prices_location_subtitle => 'Shop';
 
   @override
-  String get prices_location_find => 'Aimsigh siopa';
+  String get prices_location_find => 'Find a shop';
 
   @override
-  String get prices_location_mandatory => 'Ní mór duit siopa a roghnú!';
+  String get prices_location_mandatory => 'You need to select a shop!';
 
   @override
   String get prices_location_search_broader =>
-      'Nach bhfuair tú an rud a bhí á lorg agat? Déanaimis iarracht cuardach níos leithne a dhéanamh!';
+      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
 
   @override
-  String get prices_proof_subtitle => 'Cruthúnas';
+  String get prices_proof_subtitle => 'Proof';
 
   @override
   String get prices_proof_empty_title => 'Gan aon chruthúnas fós!';
@@ -2970,131 +2911,103 @@ class AppLocalizationsGa extends AppLocalizations {
       'Tosaigh trí ghrianghraf de **admháil** nó de **chlib phraghais** a chur leis!';
 
   @override
-  String get prices_proof_find => 'Roghnaigh cruthúnas';
+  String get prices_proof_find => 'Select a proof';
 
   @override
-  String get prices_proof_change => 'Cruthúnas athraithe';
+  String get prices_proof_change => 'Change proof';
 
   @override
-  String get prices_proof_receipt => 'Admháil';
+  String get prices_proof_receipt => 'Receipt';
 
   @override
-  String get prices_proof_price_tag => 'Clib praghais';
+  String get prices_proof_price_tag => 'Price tag';
 
   @override
-  String get prices_proof_mandatory => 'Ní mór duit cruthúnas a roghnú!';
+  String get prices_proof_mandatory => 'You need to select a proof!';
 
   @override
-  String get prices_add_validation_error => 'Earráid bailíochtaithe';
+  String get prices_add_validation_error => 'Validation error';
 
   @override
-  String get prices_privacy_warning_title => 'Rabhadh príobháideachta';
+  String get prices_privacy_warning_title => 'Privacy warning';
 
   @override
-  String get prices_unknown_product => 'Táirge anaithnid';
+  String get prices_unknown_product => 'Unknown product';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Beidh na praghsanna **poiblí**, mar aon leis an siopa dá dtagraíonn siad.\n\nD’fhéadfadh sé sin ligean do dhaoine a bhfuil eolas acu faoi d’ainm cleite Open Food Facts:\n';
+      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Faigh amach cén ceantar ina gcónaíonn tú';
+      'Infer in which area you live';
 
   @override
   String get prices_privacy_warning_message_bullet_2 =>
-      'Bíodh a fhios agat cad atá á cheannach agat';
+      'Know what you are buying';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'Mura bhfuil tú compordach leis sin, athraigh d’ainm cleite, nó cruthaigh cuntas nua Open Food Facts agus logáil isteach san aip leis.';
+      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
 
   @override
-  String get i_refuse => 'Diúltaím';
+  String get i_refuse => 'I refuse';
 
   @override
-  String get i_accept => 'Glacaim leis';
+  String get i_accept => 'I accept';
 
   @override
-  String get prices_currency_change_proposal_title => 'An t-airgeadra a athrú?';
+  String get prices_currency_change_proposal_title => 'Change the currency?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Is é **$currency** d\'airgeadra reatha. Ar mhaith leat é a athrú go **$newCurrency**?';
+    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Sea, bain úsáid as $newCurrency';
+    return 'Yes, use $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'Ní hea, coinnigh $currency';
+    return 'No, keep $currency';
   }
 
   @override
-  String get prices_menu_know_more =>
-      'Faigh tuilleadh eolais faoi Phraghsanna Oscailte';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get prices_discount_type => 'Discount type';
+  String get dev_preferences_import_history_result_success => 'Done';
 
   @override
-  String get prices_discount_type_quantity => 'Quantity discount';
+  String get dev_mode_section_server => 'Server configuration';
 
   @override
-  String get prices_discount_type_sale => 'Sale';
+  String get dev_mode_section_news => 'News provider configuration';
 
   @override
-  String get prices_discount_type_seasonal => 'Seasonal';
+  String get dev_mode_section_product_page => 'Product page';
 
   @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
+  String get dev_mode_section_ui => 'User Interface';
 
   @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
+  String get dev_mode_section_experimental_features => 'Experimental features';
 
   @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
-
-  @override
-  String get dev_preferences_import_history_result_success => 'Déanta';
-
-  @override
-  String get dev_mode_section_server => 'Cumraíocht an fhreastalaí';
-
-  @override
-  String get dev_mode_section_news => 'Cumraíocht soláthraí nuachta';
-
-  @override
-  String get dev_mode_section_product_page => 'Leathanach táirge';
-
-  @override
-  String get dev_mode_section_ui => 'Comhéadan Úsáideora';
-
-  @override
-  String get dev_mode_section_experimental_features => 'Gnéithe turgnamhacha';
-
-  @override
-  String get dev_mode_hide_environmental_score_title => 'Eisiamh Scór Glas';
+  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Bain úsáid as seiceálaí litrithe le haghaidh scáileáin OCR';
+      'Use a spellchecker for OCR screens';
 
   @override
   String get dev_mode_spellchecker_for_ocr_subtitle =>
-      '(Comhábhair agus pacáistiú)';
+      '(Ingredients and packaging)';
 
   @override
   String get dev_mode_reset_app_language_title => 'Athshocraigh teanga an aip';
@@ -3107,15 +3020,14 @@ class AppLocalizationsGa extends AppLocalizations {
       'Athraigh idir prices.openfoodfacts.org (PROD) agus timpeallacht tástála';
 
   @override
-  String get search_history_item_edit_tooltip =>
-      'Athúsáid agus cuir in eagar an cuardach seo';
+  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
-  String get search_history_item_remove_tooltip => 'Bain';
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'Tá na táirgí $totalSize go léir íoslódáilte agat.';
+    return 'You\'ve downloaded all the $totalSize products.';
   }
 
   @override
@@ -3124,40 +3036,38 @@ class AppLocalizationsGa extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return 'Íoslódáil $count táirgí breise\nÍoslódáilte cheana féin $downloaded as $totalSize.';
+    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return 'Tá do chuardach ar $search ar siúl.\n\nFan cúpla soicind le do thoil…';
+    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
   }
 
   @override
-  String get user_search_contributor_title => 'Táirgí a chuir mé leis';
+  String get user_search_contributor_title => 'Products I added';
 
   @override
-  String get user_search_informer_title =>
-      'Táirgí a ndearna mé eagarthóireacht orthu';
+  String get user_search_informer_title => 'Products I edited';
 
   @override
-  String get user_search_photographer_title =>
-      'Táirgí a ndearna mé grianghraf díobh';
+  String get user_search_photographer_title => 'Products I photographed';
 
   @override
-  String get user_search_to_be_completed_title => 'Mo tháirgí le críochnú';
+  String get user_search_to_be_completed_title => 'My to-be-completed products';
 
   @override
-  String get user_search_prices_title => 'Mo phraghsanna';
+  String get user_search_prices_title => 'My prices';
 
   @override
-  String get user_search_proofs_title => 'Mo chruthúnais';
+  String get user_search_proofs_title => 'My proofs';
 
   @override
-  String get user_search_proof_title => 'Mo chruthúnas';
+  String get user_search_proof_title => 'My proof';
 
   @override
   String search_proof_title(String user) {
-    return 'Cruthúnas ó \"$user\"';
+    return 'Proof from \"$user\"';
   }
 
   @override
@@ -3166,20 +3076,17 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title =>
-      'Praghsanna is Déanaí curtha leis';
+  String get all_search_prices_latest_title => 'Latest Prices added';
 
   @override
-  String get all_search_prices_top_user_title =>
-      'Na príomh-rannpháirtithe praghais';
+  String get all_search_prices_top_user_title => 'Top price contributors';
 
   @override
   String get all_search_prices_top_location_title =>
-      'Siopaí leis na praghsanna is airde';
+      'Stores with the most prices';
 
   @override
-  String get prices_contribution_assistant =>
-      'Cúntóir Ranníocaíochta Praghsanna';
+  String get prices_contribution_assistant => 'Price Contribution Assistant';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3188,66 +3095,63 @@ class AppLocalizationsGa extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Cuir Ilchruthúnais leis';
+  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
 
   @override
-  String get all_search_prices_top_location_single_title =>
-      'Praghsanna i siopa';
+  String get all_search_prices_top_location_single_title => 'Prices in a store';
 
   @override
   String get all_search_prices_top_product_title =>
-      'Táirgí leis na praghsanna is airde';
+      'Products with the most prices';
 
   @override
-  String get all_search_to_be_completed_title => 'Gach táirge le críochnú';
+  String get all_search_to_be_completed_title => 'All to-be-completed products';
 
   @override
   String get categorize_products_country_title =>
-      'Cabhair le táirgí a chatagóiriú i do thír féin';
+      'Help categorize products in your country';
 
   @override
-  String get edit_product_action_retake_picture => 'Athghlac an grianghraf';
+  String get edit_product_action_retake_picture => 'Retake photo';
 
   @override
-  String get edit_product_action_take_picture => 'Tóg grianghraf';
+  String get edit_product_action_take_picture => 'Take photo';
 
   @override
-  String get edit_product_action_confirm => 'Deimhnigh';
+  String get edit_product_action_confirm => 'Confirm';
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'Aontaím leis na Fíricí Bia Oscailte ';
+      'I agree to the Open Food Facts ';
 
   @override
-  String get signup_page_terms_of_use_line2 =>
-      'téarmaí úsáide agus ranníocaíochta';
+  String get signup_page_terms_of_use_line2 => 'terms of use and contribution';
 
   @override
-  String get analytics_consent_image_semantic_label => 'Deilbhín anailísíochta';
+  String get analytics_consent_image_semantic_label => 'Analytics icon';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Earráid Mharfach: $error';
+    return 'Fatal Error: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Earráid Mharfach: $error';
+    return 'Fatal Error: $error';
   }
 
   @override
-  String get summary_card_button_add_basic_details =>
-      'Comhlánaigh sonraí bunúsacha';
+  String get summary_card_button_add_basic_details => 'Complete basic details';
 
   @override
   String get edit_photo_button_label => 'Edit';
 
   @override
-  String get edit_photo_unselect_button_label => 'Díroghnaigh grianghraf';
+  String get edit_photo_unselect_button_label => 'Unselect photo';
 
   @override
   String get edit_photo_select_existing_button_label =>
-      'Roghnaigh íomhá atá ann cheana féin';
+      'Select an existing image';
 
   @override
   String get edit_photo_select_existing_all_label =>
@@ -3255,54 +3159,52 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Roghnaigh íomhá trí chliceáil uirthi';
+      'Select an image by clicking on it';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'Íomhánna atá ann cheana a aisghabháil…';
+      'Retrieving existing images…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
-      'Níl aon íomhánna uaslódáilte roimhe seo a bhaineann leis an táirge seo.';
+      'There are no images previously uploaded related to this product.';
 
   @override
   String get edit_photo_language_not_this_one =>
-      'Níl aon íomhá sa teanga sin fós';
+      'No image in that language yet';
 
   @override
-  String get edit_photo_language_none => 'Gan íomhá fós';
+  String get edit_photo_language_none => 'No image yet';
 
   @override
   String get category_picker_screen_title => 'Catagóirí';
 
   @override
-  String get basic_details => 'Sonraí Bunúsacha';
+  String get basic_details => 'Basic Details';
 
   @override
-  String get product_name => 'Ainm an Táirge';
+  String get product_name => 'Product Name';
 
   @override
-  String get product_names => 'Ainmneacha Táirgí';
+  String get product_names => 'Product Names';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Cuir aistriúchán nua leis';
+      'Add a new translation';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Sula ndéanann tú bailíochtú, déan cinnte nach gcuireann tú aistriúchán leis ach amháin **má tá an teanga ar an bpacáistiú**';
+      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
 
   @override
-  String get add_basic_details_product_name_open_photo =>
-      'Féach ar an ngrianghraf tosaigh';
+  String get add_basic_details_product_name_open_photo => 'View front photo';
 
   @override
-  String get add_basic_details_product_name_take_photo =>
-      'Tóg grianghraf tosaigh';
+  String get add_basic_details_product_name_take_photo => 'Take front photo';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Cuir isteach ainm an táirge (m.sh.: Nutella)';
+      'Input the name of the product (eg: Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3316,41 +3218,41 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Dea-shamplaí';
+  String get explanation_section_good_examples => 'Good examples';
 
   @override
-  String get explanation_section_bad_examples => 'Drochshamplaí';
+  String get explanation_section_bad_examples => 'Bad examples';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Dea-chleachtais: Ainm an táirge';
+      'Good practices: Product name';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'Is é ainm an táirge an **príomhainm atá clóite ar an bpacáistiú**. Is féidir gur trádmharc cláraithe é.';
+      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Nóta:** Ná cuir aistriúchán leis mura bhfuil an teanga ar an bpacáistiú.';
+      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Císte Trátaí';
+      'Tomato Ketchup';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Ná cuir an branda san ainm';
+      'Don\'t include the brand in the name';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Císte Trátaí **le Heinz**';
+      'Tomato Ketchup **by Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Ná húsáid siombailí ®, ™, © ná a leithéid';
+      'Don\'t use symbols ®, ™, © or similar';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3361,60 +3263,58 @@ class AppLocalizationsGa extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count aistriúcháin eile',
-      one: '$count aistriúchán eile',
+      other: '$count other translations',
+      one: '$count other translation',
     );
     return '$_temp0';
   }
 
   @override
-  String get brand_name => 'Ainm branda';
+  String get brand_name => 'Brand name';
 
   @override
-  String get brand_names => 'Ainmneacha branda';
+  String get brand_names => 'Brand names';
 
   @override
   String get add_basic_details_brand_name_error =>
-      'Cuir isteach ainm an bhranda le do thoil';
+      'Please enter the brand name';
 
   @override
-  String get add_basic_details_brand_names_hint =>
-      'Brandaí ionchuir (m.sh.: Ferrero)';
+  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Dea-chleachtais: Brandaí';
+      'Good practices: Brands';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Cuir isteach **gach branda den táirge**.';
+      'Input **all the brands of the product**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title =>
-      'Príomhbhranda';
+  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'Ba chóir an **príomhbhranda**, a bhíonn le feiceáil go soiléir ar an bpacáiste tosaigh de ghnáth, a **chur isteach ar dtús**.';
+      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title => 'Brandaí eile';
+  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'Nuair a dhíoltar é **ag cuideachta mhór**:';
+      'When sold **by a big company**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      'Díoltar **Actimel** ag **Danone**';
+      '**Actimel** is sold by **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'Nuair a dhíoltar é lena bhranda **aistrithe i dteangacha éagsúla**:';
+      'When sold with its brand **translated in multiple languages**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      'Uaireanta scríobhtar **Gleann an Dúlra** mar **Val Nature**';
+      '**Nature Valley** is sometimes written **Val Nature**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3424,184 +3324,181 @@ class AppLocalizationsGa extends AppLocalizations {
       'Oreo, Mondelez';
 
   @override
-  String get quantity => 'Cainníocht agus meáchan';
+  String get quantity => 'Quantity and weight';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Cuir isteach an meáchan agus más gá an chainníocht (m.sh.: 4x100g)';
+      'Input the weight and if needed the quantity (eg : 4x100g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Dea-chleachtais: Cainníocht';
+      'Good practices: Quantity';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Cóipeáil an luach atá léirithe ar an táirge agus **ná déan dearmad ar na haonaid**.';
+      'Copy the value indicated on the product and **don\'t forget the units**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** nó **230g**';
+      '**230g** or **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (le haghaidh 6 ubh)';
+      '**6** (for 6 eggs)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(le haghaidh táirge ina bhfuil 3 bhosca, 150g i ngach ceann)';
+      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
 
   @override
   String get barcode => 'Barcode';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Cód barra: $barcode';
+    return 'Barcode: $barcode';
   }
 
   @override
-  String get barcode_invalid_error => 'Barra cód neamhbhailí';
+  String get barcode_invalid_error => 'Invalid barcode';
 
   @override
-  String get basic_details_add_success =>
-      'Cuireadh sonraí bunúsacha leis go rathúil';
+  String get basic_details_add_success => 'Basic details added successfully';
 
   @override
   String get basic_details_add_error =>
-      'Ní féidir sonraí bunúsacha a chur leis. Déan iarracht arís tar éis tamaill.';
+      'Unable to add basic details. Please try again after some time';
 
   @override
-  String get clear_search => 'Glan do chuardach';
+  String get clear_search => 'Clear your search';
 
   @override
   String get confirm_clear =>
-      'Tá tú ar tí do stair iomlán a ghlanadh: an bhfuil tú cinnte gur mian leat leanúint ar aghaidh?';
+      'You\'re about to clear your entire history: are you sure you want to continue?';
 
   @override
   String get alert_clear_selected_user_list =>
-      'Tá tú ar tí míreanna roghnaithe i do stair a ghlanadh';
+      'You\'re about to clear selected items in your history';
 
   @override
   String get confirm_clear_selected_user_list =>
-      'An bhfuil tú cinnte gur mian leat leanúint ar aghaidh?';
+      'Are you sure you want to continue?';
 
   @override
   String get alert_select_items_to_clear =>
-      'Roghnaigh mír amháin nó níos mó le glanadh';
+      'Please select one or more items to clear';
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'Tá tú ar tí an liosta seo a ghlanadh ($name): an bhfuil tú cinnte gur mian leat leanúint ar aghaidh?';
+    return 'You\'re about to clear this list ($name): are you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Scrios an liosta?';
+  String get confirm_delete_user_list_title => 'Delete the list?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'Tá tú ar tí an liosta \"$name\" a scriosadh.\nAn bhfuil tú cinnte gur mian leat leanúint ar aghaidh?';
+    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Sea, deimhním';
+  String get confirm_delete_user_list_button => 'Yes, I confirm';
 
   @override
   String importance_label(String name, String id) {
-    return '$name tábhacht: $id';
+    return '$name importance: $id';
   }
 
   @override
-  String get user_list_all_title => 'Liostaí';
+  String get user_list_all_title => 'Lists';
 
   @override
-  String get user_list_all_empty => 'Cruthaigh do chéad liosta';
+  String get user_list_all_empty => 'Create your first list';
 
   @override
-  String get product_list_select => 'Roghnaigh liosta';
+  String get product_list_select => 'Select a list';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count táirgí',
-      one: 'Táirge amháin',
-      zero: 'Liosta folamh',
+      other: '$count products',
+      one: 'One product',
+      zero: 'Empty list',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'Cuir liosta leis';
+  String get add_list_label => 'Add list';
 
   @override
-  String get open_food_preferences_tooltip =>
-      'Cuir do chuid roghanna bia in eagar';
+  String get open_food_preferences_tooltip => 'Edit your food preferences';
 
   @override
-  String get add_photo_button_label => 'Cuir grianghraf leis';
+  String get add_photo_button_label => 'Add photo';
 
   @override
   String get add_packaging_photo_button_label =>
-      'Tóg grianghraif d\'aon fhaisnéis faoi phacáistiú/athchúrsáil';
+      'Take photos of any packaging/recycling information';
 
   @override
   String get add_origin_photo_button_label =>
-      'Tóg grianghraif d\'aon fhaisnéis tionscnaimh';
+      'Take photos of any origin information';
 
   @override
   String get add_emb_photo_button_label =>
-      'Tóg grianghraif d\'aon fhaisnéis faoi chód inrianaitheachta';
+      'Take photos of any traceability code information';
 
   @override
   String get add_label_photo_button_label =>
-      'Tóg grianghraif d\'aon lipéid agus faisnéis faoi dheimhnithe';
+      'Take photos of any labels & certifications information';
 
   @override
-  String get choose_image_source_title => 'Roghnaigh foinse íomhá';
+  String get choose_image_source_title => 'Choose image source';
 
   @override
-  String get choose_image_source_body => 'Roghnaigh foinse íomhá le do thoil';
+  String get choose_image_source_body => 'Please choose a image source';
 
   @override
-  String get gallery_source_label => 'Gailearaí';
+  String get gallery_source_label => 'Gallery';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'Rochtain diúltaithe';
+  String get gallery_source_access_denied_dialog_title => 'Access denied';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Ar an drochuair, ní féidir leis an bhfeidhmchlár rochtain a fháil ar do ghailearaí, mar gur dhiúltaigh tú an cead roimhe seo.\n\nTéigh chuig socruithe an aip i Socruithe do ghutháin -> Grianghraif.';
+      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
 
   @override
-  String get gallery_source_access_denied_dialog_button =>
-      'Oscail na Socruithe';
+  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
 
   @override
   String get share => 'Comhroinn';
 
   @override
   String share_product_text(String url) {
-    return 'Féach ar an táirge seo ar Open Food Facts: $url';
+    return 'Have a look at this product on Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Féach ar an táirge seo ar Open Beauty Facts: $url';
+    return 'Have a look at this product on Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Féach ar an táirge seo ar Open PetFood Facts: $url';
+    return 'Have a look at this product on Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Féach ar an táirge seo ar Open Products Facts: $url';
+    return 'Have a look at this product on Open Products Facts: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Féach ar mo liosta táirgí ar Open Food Facts: $url';
+    return 'Have a look at my list of products on Open Food Facts: $url';
   }
 
   @override
@@ -3611,177 +3508,172 @@ class AppLocalizationsGa extends AppLocalizations {
   String get capture_new_picture => 'Tóg pictiúr';
 
   @override
-  String get choose_from_gallery => 'Roghnaigh ón ngailearaí';
+  String get choose_from_gallery => 'Choose from gallery';
 
   @override
   String get image_upload_queued =>
-      'Uaslódálfar an íomhá sa chúlra a luaithe is féidir.';
+      'The image will be uploaded in the background as soon as possible.';
 
   @override
   String get add_price_queued =>
-      'Seolfar an praghas chuig an bhfreastalaí a luaithe is féidir.';
+      'The price will be sent to the server as soon as possible.';
 
   @override
   String get background_task_title_full_refresh =>
-      'Ag tosú ag athnuachan na dtáirgí go léir atá stóráilte go háitiúil';
+      'Starting the refresh of all the products locally stored';
 
   @override
   String get background_task_title_folksonomy =>
-      'Ag tosú ag déanamh gníomhartha an fhreastalaí le haghaidh nuashonruithe folksonomy atá stóráilte go háitiúil';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
-      'Ag tosú ag íoslódáil na dtáirgí is mó tóir';
+      'Starting the download of the most popular products';
 
   @override
-  String get expand_nutrition_facts => 'Leathnaigh an tábla fíricí cothaithe';
+  String get expand_nutrition_facts => 'Expand nutrition facts table';
 
   @override
   String get expand_nutrition_facts_body =>
-      'Coinnigh an tábla fíricí cothaithe leathnaithe';
+      'Keep the nutrition facts table expanded';
 
   @override
-  String get expand_ingredients => 'Leathnaigh comhábhair';
+  String get expand_ingredients => 'Expand ingredients';
 
   @override
-  String get expand_ingredients_body =>
-      'Coinnigh an painéal comhábhar leathnaithe';
+  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
 
   @override
-  String get no_internet_connection => 'Gan nasc idirlín';
+  String get no_internet_connection => 'No internet connection';
 
   @override
-  String get world_results_label => 'Domhan ar fad';
+  String get world_results_label => 'Entire world';
 
   @override
-  String get world_results_action =>
-      'Leathnaigh do chuardach amach ar fud an domhain';
+  String get world_results_action => 'Extend your search to the world';
 
   @override
-  String get copy_to_clipboard => 'Cóipeáil';
+  String get copy_to_clipboard => 'Copy';
 
   @override
-  String get paste_from_clipboard => 'Greamaigh ón ghearrthaisce';
+  String get paste_from_clipboard => 'Paste from clipboard';
 
   @override
   String get no_data_available_in_clipboard =>
-      'Níl aon sonraí ar fáil i do ghearrthaisce';
+      'No data available in your clipboard';
 
   @override
-  String get clipboard_barcode_copy =>
-      'Cóipeáil cód barra chuig an ghearrthaisce';
+  String get clipboard_barcode_copy => 'Copy barcode to clipboard';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Cód barra $barcode cóipeáilte chuig an ghearrthaisce!';
+    return 'Barcode $barcode copied to the clipboard!';
   }
 
   @override
-  String get open_product_website =>
-      'Oscail an táirge seo ar an suíomh Gréasáin';
+  String get open_product_website => 'Open this product on the website';
 
   @override
-  String get language_picker_label => 'Do theanga';
+  String get language_picker_label => 'Your language';
 
   @override
-  String get country_picker_label => 'Do thír';
+  String get country_picker_label => 'Your country';
 
   @override
-  String get currency_picker_label => 'Do airgeadra';
+  String get currency_picker_label => 'Your currency';
 
   @override
-  String get help_with_openfoodfacts => 'Cabhair le OpenFoodFacts';
+  String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
 
   @override
   String get product_task_background_schedule =>
-      'Déanfar an táirge a nuashonrú sa chúlra a luaithe is féidir.';
+      'The product will be updated in the background as soon as possible.';
 
   @override
-  String get no_email_client_available_dialog_title =>
-      'Gan aon aipeanna ríomhphoist!';
+  String get no_email_client_available_dialog_title => 'No email apps!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Seol ríomhphost chugainn de láimh chuig mobile@openfoodfacts.org le do thoil.';
+      'Please send us manually an email to mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'Gach Íomhá';
+  String get all_images => 'All Images';
 
   @override
-  String get selected_images => 'Íomhánna Roghnaithe';
+  String get selected_images => 'Selected Images';
 
   @override
-  String get product_card_remove_product_tooltip => 'Bain an táirge';
+  String get product_card_remove_product_tooltip => 'Remove product';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'Barrachód nua scanta: $barcode';
+    return 'New barcode scanned: $barcode';
   }
 
   @override
   String get scan_header_clear_button_tooltip =>
-      'Bain gach táirge as an gcarúsal';
+      'Remove all products from the carousel';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'Scanáil dhá tháirge ar a laghad le do thoil chun iad a chur i gcomparáid';
+      'Please scan at least two products to compare them';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'Cliceáil chun na táirgí atá scanta agat a chur i gcomparáid';
+      'Click to compare the products you have scanned';
 
   @override
-  String get scan_product_loading => 'Tá scanadh déanta agat ar\nan cód barra:';
+  String get scan_product_loading => 'You have scanned\nthe barcode:';
 
   @override
   String get scan_product_loading_initial =>
-      'Táimid ag lorg an táirge seo!\nFan cúpla soicind le do thoil…';
+      'We\'re looking for this product!\nPlease wait a few seconds…';
 
   @override
   String get scan_product_loading_long_request =>
-      'Táimid fós ag lorg an táirge seo!\nAn dtógann sé tamall fada ort é a luchtú? An dtógann sé tamall fada orainne freisin…';
+      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'Táimid fós ag lorg an táirge seo.\nAr mhaith leat an cuardach a atosú?';
+      'We\'re still looking for this product.\nWould you like to restart the search?';
 
   @override
-  String get scan_product_loading_restart_button => 'Atosaigh an cuardach';
+  String get scan_product_loading_restart_button => 'Restart search';
 
   @override
   String get portion_calculator_description =>
-      'Ríomh fíricí cothaitheacha le haghaidh cainníochta ar leith';
+      'Calculate nutrition facts for a specific quantity';
 
   @override
-  String get portion_calculator_hint => 'Cainníocht i';
+  String get portion_calculator_hint => 'Quantity in';
 
   @override
   String get portion_calculator_accessibility =>
-      'Cuir isteach cainníocht chun fíricí cothaitheacha a ríomh';
+      'Input a quantity to calculate nutrition facts';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Cuir isteach cainníocht idir $min agus $max g le do thoil';
+    return 'Please enter a quantity between $min and $max g';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Sonraí ar iarraidh. Níorbh fhéidir an ríomh a dhéanamh.';
+      'Missing data. Calculation could not be performed.';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return 'Faisnéis chothaitheach le haghaidh $grams g (nó ml)';
+    return 'Nutrition facts for $grams g (or ml)';
   }
 
   @override
-  String get offline_data => 'Sonraí As Líne';
+  String get offline_data => 'Offline Data';
 
   @override
   String get ocr_image_upload_instruction =>
-      'Uaslódáil íomhá chun an fhaisnéis atá inti a bhaint amach go huathoibríoch.';
+      'Upload an image to automatically extract the information it contains.';
 
   @override
-  String get upload_image => 'Uaslódáil Grianghraf';
+  String get upload_image => 'Upload Photo';
 
   @override
   String get word_separator_char => ',';
@@ -3790,355 +3682,348 @@ class AppLocalizationsGa extends AppLocalizations {
   String get word_separator => ', ';
 
   @override
-  String get image_download_error => 'Theip ar an íomhá a íoslódáil';
+  String get image_download_error => 'Failed to download image';
 
   @override
   String get image_edit_url_error =>
-      'Theip ar an íomhá a chur in eagar mar nach raibh URL na híomhá socraithe.';
+      'Failed to edit image because the image URL was not set.';
 
   @override
-  String get user_picture_source_remember => 'Cuimhnigh ar mo rogha';
+  String get user_picture_source_remember => 'Remember my choice';
 
   @override
-  String get user_picture_source_ask => 'Iarr gach uair';
+  String get user_picture_source_ask => 'Ask each time';
 
   @override
-  String get robotoff_continue => 'Lean ar aghaidh';
+  String get robotoff_continue => 'Continue';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count ceisteanna',
-      one: '',
+      other: '$count questions',
+      one: 'question',
     );
-    return 'An chéad cheist eile $_temp0';
+    return 'Next $_temp0';
   }
 
   @override
-  String get show_password => 'Taispeáin Pasfhocal';
+  String get show_password => 'Show Password';
 
   @override
-  String get owner_field_info_title =>
-      'Luachanna arna soláthar ag an léiritheoir';
+  String get owner_field_info_title => 'Producer provided values';
 
   @override
   String get owner_field_info_message =>
-      'Leis an lógó sin, cuirimid béim ar shonraí arna soláthar ag an léiritheoir, agus b’fhéidir nach féidir iad a chur in eagar.';
+      'With that logo we highlight data provided by the producer, and that may not be editable.';
 
   @override
-  String get owner_field_info_close_button => 'Dún an fhaisnéis seo';
+  String get owner_field_info_close_button => 'Close this info';
 
   @override
   String get owner_field_image =>
-      'Cuireann an léiritheoir an íomhá seo ar fáil. B’fhéidir nach féidir í a chur in eagar.';
+      'This image is provided by the producer. It may not be editable.';
 
   @override
-  String get edit_packagings_title => 'Comhpháirteanna pacáistithe';
+  String get edit_packagings_title => 'Packaging components';
 
   @override
-  String get edit_packagings_element_add => 'Cuir comhpháirt phacáistithe leis';
+  String get edit_packagings_element_add => 'Add a packaging component';
 
   @override
-  String get edit_packagings_completed => 'Tá an pacáistiú críochnaithe';
+  String get edit_packagings_completed => 'The packaging is complete';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'Comhpháirt phacáistithe #$index';
+    return 'Packaging component #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Líon na n-aonad';
+  String get edit_packagings_element_field_units => 'Number of units';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'Cuir isteach líon na n-aonad pacáistíochta den chruth agus den ábhar céanna atá sa táirge.';
+      'Enter the number of packaging units of the same shape and material contained in the product.';
 
   @override
-  String get edit_packagings_element_field_shape => 'Cruth';
+  String get edit_packagings_element_field_shape => 'Shape';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'Cuir isteach ainm an chrutha atá liostaithe sna treoracha athchúrsála má tá siad ar fáil, nó roghnaigh cruth.';
+      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
 
   @override
-  String get edit_packagings_element_example_shape => 'Buidéal';
+  String get edit_packagings_element_example_shape => 'Bottle';
 
   @override
-  String get edit_packagings_element_field_material => 'Ábhar';
+  String get edit_packagings_element_field_material => 'Material';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'Cuir isteach an t-ábhar sonrach más féidir é a chinneadh (is minic a bhíonn cód ábhair taobh istigh de thriantán le fáil ar chodanna pacáistíochta), nó ábhar cineálach (mar shampla plaisteach nó miotal) mura bhfuil tú cinnte.';
+      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
 
   @override
-  String get edit_packagings_element_example_material => 'Gloine';
+  String get edit_packagings_element_example_material => 'Glass';
 
   @override
-  String get edit_packagings_element_field_recycling => 'Treoir athchúrsála';
+  String get edit_packagings_element_field_recycling => 'Recycling instruction';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Ná cuir isteach treoracha athchúrsála ach amháin má tá siad liostaithe ar an táirge.';
+      'Enter recycling instructions only if they are listed on the product.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Athchúrsáil';
+  String get edit_packagings_element_example_recycling => 'Recycle';
 
   @override
   String get edit_packagings_element_field_quantity =>
-      'Glanchainníocht táirge in aghaidh an aonaid';
+      'Net quantity of product per unit';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Cuir isteach an meáchan glan nó an toirt ghlan agus léirigh an t-aonad (mar shampla g nó ml).';
+      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
 
   @override
   String get edit_packagings_element_field_weight =>
-      'Meáchan aonaid fholamh amháin (g)';
+      'Weight of one empty unit (g)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'Bain aon bhia atá fágtha agus nigh agus triomaigh an chuid pacáistithe sula meáfar é. Más féidir, bain úsáid as scála le cruinneas 0.1g nó 0.01g.';
+      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
 
   @override
-  String get background_task_title => 'Ranníocaíochtaí ar feitheamh';
+  String get background_task_title => 'Pending contributions';
 
   @override
   String get background_task_subtitle =>
-      'Sábháiltear do chuid ranníocaíochtaí go huathoibríoch ar ár bhfreastalaí, ach ní i bhfíor-am i gcónaí.';
+      'Your contributions are automatically saved to our server, but not always in real-time.';
 
   @override
-  String get background_task_list_empty =>
-      'Gan aon tascanna cúlra ar feitheamh';
+  String get background_task_list_empty => 'No Pending Background Tasks';
 
   @override
-  String get background_task_error_server_time_out =>
-      'Am críochnaithe freastalaí';
+  String get background_task_error_server_time_out => 'Server timeout';
 
   @override
   String get background_task_error_no_internet =>
-      'Earráid ceangail Idirlín. Déan iarracht níos déanaí.';
+      'Internet connection error. Try later.';
 
   @override
-  String get background_task_operation_unknown => 'cineál oibríochta anaithnid';
+  String get background_task_operation_unknown => 'unknown operation type';
 
   @override
-  String get background_task_operation_details => 'athruithe mionsonraithe';
+  String get background_task_operation_details => 'detailed changes';
 
   @override
-  String get background_task_operation_image => 'uaslódáil grianghraf';
+  String get background_task_operation_image => 'photo upload';
 
   @override
   String get background_task_operation_refresh =>
-      'moill ar athnuachan tar éis uaslódála grianghraf';
+      'refresh delayed after photo upload';
 
   @override
-  String get background_task_run_started => 'thosaigh';
+  String get background_task_run_started => 'started';
 
   @override
-  String get background_task_run_not_started => 'níor tosaíodh fós';
+  String get background_task_run_not_started => 'not started yet';
 
   @override
-  String get background_task_run_to_be_deleted => 'le scriosadh';
+  String get background_task_run_to_be_deleted => 'to be deleted';
 
   @override
   String get background_task_question_stop =>
-      'Ar mhaith leat an tasc sin a stopadh chomh luath agus is féidir?';
+      'Do you want to stop that task ASAP?';
 
   @override
-  String get feed_back => 'Aiseolas';
+  String get feed_back => 'Feedback';
 
   @override
-  String get undo => 'Cealaigh';
+  String get undo => 'Undo';
 
   @override
-  String get copy_email_to_clip_board =>
-      'Cóipeáil ríomhphost chuig an ghearrthaisce';
+  String get copy_email_to_clip_board => 'Copy email to clipboard';
 
   @override
   String get please_send_us_an_email_to =>
-      'Seol ríomhphost chugainn de láimh le do thoil chuig';
+      'Please send us manually an email to';
 
   @override
-  String get email_copied_to_clip_board =>
-      'Ríomhphost cóipeáilte chuig an ghearrthaisce!';
+  String get email_copied_to_clip_board => 'Email copied to clipboard!';
 
   @override
-  String get select_accent_color => 'Roghnaigh Dath Aicinn';
+  String get select_accent_color => 'Select Accent Color';
 
   @override
   String get theme_amoled => 'AMOLED';
 
   @override
-  String get color_blue => 'Gorm';
+  String get color_blue => 'Blue';
 
   @override
-  String get color_cyan => 'Cian';
+  String get color_cyan => 'Cyan';
 
   @override
-  String get color_green => 'Glas';
+  String get color_green => 'Green';
 
   @override
-  String get color_light_brown => 'Réamhshocrú';
+  String get color_light_brown => 'Default';
 
   @override
   String get color_magenta => 'Magenta';
 
   @override
-  String get color_orange => 'Oráiste';
+  String get color_orange => 'Orange';
 
   @override
-  String get color_pink => 'Bándearg';
+  String get color_pink => 'Pink';
 
   @override
-  String get color_red => 'Dearg';
+  String get color_red => 'Red';
 
   @override
-  String get color_rust => 'Meirg';
+  String get color_rust => 'Rust';
 
   @override
-  String get color_teal => 'Glaschré';
+  String get color_teal => 'Teal';
 
   @override
-  String get text_contrast_mode => 'Codarsnacht Téacs';
+  String get text_contrast_mode => 'Text Contrast';
 
   @override
-  String get contrast_high => 'Ard';
+  String get contrast_high => 'High';
 
   @override
-  String get contrast_medium => 'Meánach';
+  String get contrast_medium => 'Medium';
 
   @override
-  String get contrast_low => 'Íseal';
+  String get contrast_low => 'Low';
 
   @override
-  String get product_refresher_internet_not_found => 'Níor aimsíodh an táirge!';
+  String get product_refresher_internet_not_found => 'Product not found!';
 
   @override
   String get product_refresher_internet_not_connected =>
-      'Níl tú ceangailte leis an idirlíon!';
+      'You are not connected to internet!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Freastalaí síos ($host)';
+    return 'Server down ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Earráid freastalaí ($exception)';
+    return 'Server error ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'Níor aimsíodh an táirge!';
+  String get product_loader_not_found_title => 'Product not found!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'Níl táirge leis an gcód barra seo a leanas inár mbunachar sonraí: $barcode';
+    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'Gan nasc idirlín!';
+  String get product_loader_network_error_title => 'No internet connection!';
 
   @override
   String get product_loader_network_error_message =>
-      'Seiceáil le do thoil go bhfuil do ghuthán cliste ar líonra WiFi nó go bhfuil sonraí soghluaiste cumasaithe air.';
+      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
 
   @override
-  String get page_not_found_title => 'Leathanach gan aimsiú!';
+  String get page_not_found_title => 'Page not found!';
 
   @override
-  String get page_not_found_button => 'Téigh ar ais chuig an leathanach baile';
+  String get page_not_found_button => 'Go back to the homepage';
 
   @override
-  String get download_data => 'Íoslódáil sonraí';
+  String get download_data => 'Download data';
 
   @override
   String get download_top_products =>
-      'Íoslódáil na 1000 táirge is fearr i do thír féin le haghaidh scanadh láithreach';
+      'Download the top 1000 products in your country for instant scanning';
 
   @override
   String download_top_n_products(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count',
+      other: '$count products',
     );
-    return 'Íoslódáil na táirgí is fearr $_temp0 i do thír féin le haghaidh scanadh láithreach';
+    return 'Download the top $_temp0 in your country for instant scanning';
   }
 
   @override
-  String get download_in_progress =>
-      'Ag íoslódáil sonraí\nD’fhéadfadh sé seo tamall a thógáil';
+  String get download_in_progress => 'Downloading data\nThis may take a while';
 
   @override
   String downloaded_products(int num) {
-    return '$num táirgí curtha leis';
+    return '$num products added';
   }
 
   @override
-  String get update_offline_data => 'Nuashonraigh sonraí táirge as líne';
+  String get update_offline_data => 'Update offline product data';
 
   @override
   String get update_local_database_sub =>
-      'Nuashonraigh bunachar sonraí na dtáirgí áitiúla leis na sonraí is déanaí ó Open Food Facts';
+      'Update the local product database with the latest data from Open Food Facts';
 
   @override
-  String get clear_local_database => 'Glan sonraí táirge as líne';
+  String get clear_local_database => 'Clear offline product data';
 
   @override
   String get clear_local_database_sub =>
-      'Glan na sonraí táirge áitiúla go léir ó d\'aip chun spás a shaoradh';
+      'Clear all local product data from your app to free up space';
 
   @override
   String deleted_products(int num) {
-    return '$num táirgí scriosta';
+    return '$num products deleted';
   }
 
   @override
   String get loading => 'Loading...';
 
   @override
-  String get know_more => 'Faigh Tuilleadh Eolais';
+  String get know_more => 'Know More';
 
   @override
-  String get offline_data_desc =>
-      'Cliceáil chun tuilleadh eolais a fháil faoi shonraí as líne';
+  String get offline_data_desc => 'Click to know more about offline data';
 
   @override
-  String get offline_product_data_title => 'Sonraí táirge as líne';
+  String get offline_product_data_title => 'Offline product data';
 
   @override
   String available_for_download(int num) {
-    return '$num táirgí ar fáil le scanadh láithreach';
+    return '$num products available for immediate scaning';
   }
 
   @override
-  String get country_selector_title => 'Roghnaigh do thír:';
+  String get country_selector_title => 'Select your country:';
 
   @override
-  String get currency_selector_title => 'Roghnaigh d’airgeadra:';
+  String get currency_selector_title => 'Select your currency:';
 
   @override
-  String get language_selector_title => 'Roghnaigh do theanga:';
+  String get language_selector_title => 'Select your language:';
 
   @override
-  String get language_selector_section_selected => 'Teangacha roghnaithe';
+  String get language_selector_section_selected => 'Selected languages';
 
   @override
-  String get language_selector_section_frequently_used => 'Úsáidte go minic';
+  String get language_selector_section_frequently_used => 'Frequently used';
 
   @override
-  String get action_delete_list => 'Scrios';
+  String get action_delete_list => 'Delete';
 
   @override
-  String get action_change_list => 'Athraigh an liosta reatha';
+  String get action_change_list => 'Change the current list';
 
   @override
-  String get product_list_create => 'Cruthaigh';
+  String get product_list_create => 'Create';
 
   @override
-  String get product_list_create_tooltip => 'Cruthaigh liosta nua';
+  String get product_list_create_tooltip => 'Create a new list';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4160,25 +4045,25 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Score $letter (Ríomh nua)';
+    return 'Nutri-Score $letter (New calculation)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Score (Ríomh nua)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'Nutri-Score Anaithnid';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Nutri-Score Anaithnid (Ríomh nua)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'Ní bhaineann an Nutri-Score leis an';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Níl an Nutri-Score infheidhme (Ríomh nua)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4209,96 +4094,93 @@ class AppLocalizationsGa extends AppLocalizations {
   String get nova_group_generic_new => 'Bianna ultraphróiseáilte - grúpaí NOVA';
 
   @override
-  String get nova_group_1 => 'Grúpa 1 NOVA';
+  String get nova_group_1 => 'NOVA Group 1';
 
   @override
-  String get nova_group_2 => 'Grúpa NOVA 2';
+  String get nova_group_2 => 'NOVA Group 2';
 
   @override
-  String get nova_group_3 => 'Grúpa NOVA 3';
+  String get nova_group_3 => 'NOVA Group 3';
 
   @override
-  String get nova_group_4 => 'Grúpa NOVA 4';
+  String get nova_group_4 => 'NOVA Group 4';
 
   @override
-  String get nova_group_unknown => 'Grúpa NOVA Anaithnid';
+  String get nova_group_unknown => 'Unknown NOVA Group';
 
   @override
-  String get nutrition_facts => 'Leibhéil Cothaitheach';
+  String get nutrition_facts => 'Nutrient Levels';
 
   @override
-  String get faq_title_partners =>
-      'Comhpháirtithe & Pátrúin na hEagraíochta Neamhrialtasaí';
+  String get faq_title_partners => 'Partners & Patrons of the NGO';
 
   @override
   String get faq_title_vision =>
-      'Fís, Misean, Luachanna agus Cláir Open Food Facts';
+      'The Open Food Facts Vision, Mission, Values and Programs';
 
   @override
   String get faq_title_install_beauty =>
-      'Suiteáil Open Beauty Facts chun bunachar sonraí cosmaideach a chruthú';
+      'Install Open Beauty Facts to create a cosmetic database';
 
   @override
   String get faq_title_install_pet =>
-      'Suiteáil Open Pet Food Facts chun bunachar sonraí bia peataí a chruthú';
+      'Install Open Pet Food Facts to create a pet food database';
 
   @override
   String get faq_title_install_product =>
-      'Suiteáil Open Products Facts chun bunachar sonraí táirgí a chruthú chun saolré réad a fhadú.';
+      'Install Open Products Facts to create a products database to extend the life of objects';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'Ríomh nua ar an Nutri-Score: cad atá nua?';
+      'New calculation of the Nutri-Score: what\'s new?';
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Iompórtáil do tháirgí in Open Food Facts';
+      'Pro? Import your products in Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'Teagmháil Léiritheoir';
+  String get contact_title_pro_email => 'Producer Contact';
 
   @override
-  String get contact_title_press_page => 'Leathanach Preasa';
+  String get contact_title_press_page => 'Press Page';
 
   @override
-  String get contact_title_press_email => 'Teagmháil Preasa';
+  String get contact_title_press_email => 'Press Contact';
 
   @override
   String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
-  String get contact_title_calendar => 'Liostáil lenár bhféilire pobail';
+  String get contact_title_calendar => 'Subscribe to our community calendar';
 
   @override
-  String get hunger_games_loading_line1 =>
-      'Tabhair cúpla soicind dúinn le do thoil…';
+  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
 
   @override
-  String get hunger_games_loading_line2 =>
-      'Táimid ag íoslódáil na gceisteanna!';
+  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
 
   @override
   String get hunger_games_error_label =>
-      'Argh! Chuaigh rud éigin mícheart… agus níorbh fhéidir linn na ceisteanna a lódáil.';
+      'Argh! Something went wrong… and we couldn\'t load the questions.';
 
   @override
-  String get hunger_games_error_retry_button => 'Déanaimis iarracht eile!';
+  String get hunger_games_error_retry_button => 'Let\'s retry!';
 
   @override
-  String get reorder_attribute_action => 'Athordaigh na tréithe';
+  String get reorder_attribute_action => 'Reorder the attributes';
 
   @override
   String get link_cant_be_opened =>
-      'Ní féidir an nasc seo a oscailt ar do ghléas. Seiceáil le do thoil go bhfuil brabhsálaí suiteáilte agat.';
+      'This link can\'t be opened on your device. Please check that you have a browser installed.';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Sonraí le haghaidh $productName';
+    return 'Details for $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Sonraí le haghaidh $pageName le $productName';
+    return 'Details for $pageName with $productName';
   }
 
   @override
@@ -4309,74 +4191,73 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_title =>
-      'Tá an Nutri-Score ag teacht chun cinn: mínithe!';
+      'The Nutri-Score is evolving: explanations!';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'Cad é an Nutri-Score?';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'Is lógó é an Nutri-Score a bhfuil sé mar aidhm aige tú a chur ar an eolas faoi **cháilíocht chothaitheach bianna**.';
+      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      'Athraíonn an cód datha ó ghlas dorcha (**A**) do na táirgí **is sláintiúla** go dearg dorcha (**E**) do na cinn **nach bhfuil chomh sláintiúil**.';
+      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
 
   @override
-  String get guide_nutriscore_v2_nutriscore_a_caption => 'Lógó Nutri-Score A';
+  String get guide_nutriscore_v2_nutriscore_a_caption =>
+      'The Nutri-Score A logo';
 
   @override
-  String get guide_nutriscore_v2_why_v2_title =>
-      'Cén fáth a bhfuil an Nutri-Score ag athrú?';
+  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
 
   @override
   String get guide_nutriscore_v2_why_v2_intro =>
-      'Tá foirmle an Nutri-Score **ag athrú** chun moltaí níos fearr a sholáthar:';
+      'The Nutri-Score formula **is evolving** to provide better recommendations:';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_title =>
-      'Meastóireacht níos fearr a dhéanamh ar gach deoch';
+      'Better evaluate all drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_text =>
-      'Rinneadh idirdhealú níos fearr idir nótaí comparáideacha **bainne**, **deochanna déiríochta** le siúcra breise agus deochanna **glasraí** san algartam nua.';
+      'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_title =>
-      'Rangú níos fearr ar dheochanna';
+      'Better ranking of drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_text =>
-      'Is fearr an **cion siúcra** a chur san áireamh agus is fearr deochanna **le beagán milsithe** iad.\\n**Gearrfar pionós ar mhilseoirí freisin**: laghdófar grádú sóide aiste bia ó rátáil B go rátáil idir C agus E. Is é uisce an deoch a mholtar fós.';
+      'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_title =>
-      'Pionós curtha ar shalann agus siúcra';
+      'Salt and sugar penalized';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      'Laghdófar rátáil táirgí atá **ró-mhils** nó **ró-shalann** tuilleadh.';
+      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_title =>
-      'Ordlathas laistigh d\'olaí agus d\'iasc';
+      'Hierarchy within oils and fishes';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_text =>
-      'Feabhsóidh rátáil **éisc shailleacha** áirithe agus **olaí atá saibhir i saillte maithe**.';
+      'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg5_title =>
-      'Teorainn a chur le feoil dhearg';
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg5_text =>
-      'Ba chóir tomhaltas **feola deirge** a theorannú. Sin é an fáth go mbeidh **éanlaith chlóis rangaithe níos fearr**.';
+      'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
 
   @override
   String get guide_nutriscore_v2_new_logo_title =>
-      'Conas idirdhealú a dhéanamh idir an sean-Nutri-Score agus an ríomh nua?';
+      'How to differentiate old Nutri-Score and new calculation?';
 
   @override
   String get guide_nutriscore_v2_new_logo_text =>
@@ -4388,30 +4269,30 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Cá bhfaighidh mé an ríomh nua ar an Nutri-Score?';
+      'Where to find the new Nutri-Score calculation?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'Cuirtear an Nutri-Score i bhfeidhm i 7 dtír: an Fhrainc, an Ghearmáin, an Bheilg, an Spáinn, Lucsamburg, an Ísiltír agus an Eilvéis.';
+      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Tá **2 bhliain** ar a mhéad ag monaróirí ar a dhéanaí tar éis shíniú an fhoraithne chun an seanríomh a athsholáthar leis an gceann nua.';
+      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
-      'Gan fanacht, **gheobhaidh tú an ríomh nua cheana féin san fheidhmchlár OpenFoodFacts**, lena n-áirítear mura bhfuil an scór nuashonraithe ag na monaróirí.';
+      'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => 'Cad nach n-athraíonn';
+  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
-      'Is scór é an Nutri-Score atá deartha chun **cáilíocht chothaitheach** a thomhas. Tá sé **comhlánach don ghrúpa NOVA** ar **bhianna ultraphróiseáilte** (atá i láthair san fheidhmchlár freisin).';
+      'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      'I gcás monaróirí, tá taispeáint an Nutri-Score **roghnach fós**.';
+      'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
   String get guide_greenscore_title => 'Green-Score';
@@ -4504,7 +4385,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Chun luach saothair a thabhairt do tháirgí níos fearr laistigh de chatagóir, cuirimid **bónais & pionóis i bhfeidhm bunaithe ar roinnt critéar**:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4512,7 +4393,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'Bronntar **bónas** ar tháirgí a bhfuil **lipéad oifigiúil, lipéad nó deimhniú a ráthaíonn buntáistí comhshaoil** orthu (orgánach, trádáil chóir, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4520,7 +4401,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Bronntar **bónas** bunaithe ar bhunús na gcomhábhar. Cuireann an bónas seo san áireamh an **tionchar ar iompar** agus freisin **beartas comhshaoil** thír gach táirgeora.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4528,14 +4409,14 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Gearrtar **pionós** ar tháirgí ina bhfuil comhábhair a bhfuil **tionchair dhiúltacha shuntasacha acu ar bhithéagsúlacht agus ar éiceachórais**, amhail ola pailme, a bhfuil a táirgeadh freagrach as dífhoraoisiú ollmhór.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'Ríomhtar **pionós** chun **ciorclúlacht an phacáistithe** (úsáid amhábhar athchúrsáilte agus in-athchúrsáilteacht) agus róphacáistiú a chur san áireamh.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4543,19 +4424,19 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Chun an Scór Glas a ríomh go cruinn, is gá **eolas nach bhfuil sonraithe ar an bpacáistiú** (amhail bunús agus céatadán cruinn gach comhábhair) nó nach bhfuil ar fáil go minic i bhfoirm inúsáidte (amhail liosta de na comhpháirteanna uile den phacáistiú leis na cineálacha beachta plaisteach a úsáidtear).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Úsáidtear meánluachanna nuair nach bhfuil an fhaisnéis seo ar fáil go fóill**, ach táimid ag iarraidh ar gach duine anois cabhrú linn an fhaisnéis seo a bhailiú a bheidh an-úsáideach don Scór Glas ach le haghaidh go leor úsáidí eile freisin.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Conas is féidir le saoránaigh cabhrú?';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Is féidir le gach saoránach cabhrú linn an fhaisnéis atá i láthair ar tháirgí nó is féidir a bhaint astu a bhailiú agus a struchtúrú, amhail faisnéis ar **phacáistiú**: \"Mission Emballages\": fardal comhoibríoch fairsing ar phacáistiú do gach táirge bia (i bhFraincis).';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4630,7 +4511,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Is iad bianna neamhphróiseáilte (nó nádúrtha) na **codanna inite de phlandaí** (síolta, torthaí, duilleoga, gais, fréamhacha) **nó ainmhithe** (matán, sceascóga, uibheacha, bainne), chomh maith le fungais, algaí, agus uisce, tar éis iad a scaradh ón dúlra.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
@@ -4662,7 +4543,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Tá go leor acu **díorthaithe ó phróiseáil bhreise comhábhar bia**, amhail olaí hidriginithe nó idir-eistearaithe, próitéiní hidrealaithe, próitéin soighe leithlisithe, maltodextrin, siúcra inbhéartaithe, agus síoróip arbhair ard-fruchtóis.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4670,7 +4551,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'I measc na mbreiseán i mbianna ultraphróiseáilte tá cuid acu a úsáidtear i mbianna próiseáilte freisin, amhail leasaithigh, frithocsaídeoirí, agus cobhsaitheoirí. I measc na n-aicmí breiseán nach bhfaightear ach i dtáirgí ultraphróiseáilte tá na cinn a úsáidtear **chun cáilíochtaí céadfacha bianna a aithris nó a fheabhsú nó chun gnéithe míthaitneamhacha den táirge deiridh a cheilt**. Áirítear leis na breiseáin seo ruaimeanna agus dathanna eile, cobhsaitheoirí datha; blasanna, feabhsaitheoirí blas, milseoirí neamh-siúcra; agus áiseanna próiseála amhail gníomhairí carbónúcháin, daingnithe, toirtithe agus frith-toirtithe, gníomhairí díchúrtha, frith-chácaithe agus gloinithe, eiblitheoirí, seicheamhóirí, agus taisleáin.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4678,7 +4559,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**Úsáidtear réimse leathan próiseas** chun na comhábhair iomadúla de ghnáth a chomhcheangal agus an táirge deiridh a chruthú (dá bhrí sin \'ultraphróiseáilte\'). Áirítear leis na próisis roinnt **gan aon choibhéisí baile**, amhail hidriginiú agus hidrealú, easbhrú agus múnlú, agus réamhphróiseáil le haghaidh friochta.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4686,105 +4567,104 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Is é cuspóir foriomlán an ultraphróiseála táirgí bia brandáilte**, **áisiúil** (marthanach, réidh le hithe), **tarraingteach** (thar a bheith blasta) agus **an-bhrabúsach** (comhábhair ar chostas íseal) a chruthú atá deartha chun gach grúpa bia eile a dhíláithriú. De ghnáth, bíonn táirgí bia ultraphróiseáilte pacáistithe go tarraingteach agus margaíocht dhian orthu.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'Guais sláinte';
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Ó 2018 i leith, le NutriNet-Santé, tá na chéad naisc idir **tomhaltas bianna sárphróiseáilte agus rioscaí méadaithe ailse, galair chardashoithíoch, agus diaibéiteas curtha chun cinn**. Inniu, dearbhaíonn breis is 90 staidéar ar fud an domhain na torthaí seo.\nBaineann na naisc is láidre le **murtall, básmhaireacht chardashoithíoch, agus comharthaí dúlagair**. Ar leanaí, breathnaítear na héifeachtaí go príomha ar mheáchan agus ar mhíchothromaíochtaí lipid.';
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Molann tíortha iad a theorannú';
+      'Countries recommend limiting them';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Úsáideann roinnt tíortha na grúpaí NOVA dá dtreoirlínte nó spriocanna aiste bia, mar shampla:\n\n- **🇧🇷 Molann treoirlínte aiste bia na Brasaíle** tomhaltas bia próiseáilte a theorannú** agus bia ultraphróiseáilte a sheachaint.\n\n- **🇫🇷 Tá sé mar aidhm ag spriocanna beartais chothaithe sláinte poiblí na Fraince** do 2018-2022 **tomhaltas bianna ultraphróiseáilte grúpa 4 a laghdú 20%**.';
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Fáilte go Fíricí Bia Oscailte!';
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Cad is Fíricí Bia Oscailte ann?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Is bunachar sonraí **comhoibríoch**, **saor in aisce**, agus **oscailte** de tháirgí bia ó ar fud an domhain é Open Food Facts.';
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'Creidimid gur cheart go mbeadh rochtain ag gach duine ar fhaisnéis faoin méid a itheann siad. Trí shonraí a bhailiú ar chomhábhair, ailléirginí, fíricí cothaitheacha, agus tuilleadh, **cumhachtaímid tomhaltóirí chun roghanna eolasacha a dhéanamh** agus tiomáinimid an tionscal bia **i dtreo trédhearcachta níos mó**.';
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Gnéithe de Fíricí Bia Oscailte';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Faigh foláirimh maidir le comhábhair nach dteastaíonn uait';
+      'Get alerts for your unwanted ingredients';
 
   @override
-  String get guide_open_food_facts_tips_title =>
-      'Leideanna chun grianghraif iontacha a thógáil';
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Ná déan';
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Seachain scáthanna agus glare.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'Gan aon téacs doiléir ná as fócas.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Ná bearr codanna den téacs amach.';
+      'Don\'t crop out parts of the text.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 =>
-      'Seachain cúlraí gnóthacha.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Rudaí le déanamh';
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Bain úsáid as soilsiú maith, cothrom.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Cinntigh go bhfuil an téacs géar agus inléite.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Gabh an liosta comhábhar iomlán.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Coinnigh an táirge ar dhromchla cothrom.';
+      'Keep the product on a flat surface.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Cabhraigh linn \"Vicipéid an Bhia\" a thógáil';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'Scór ar cháilíocht chothaitheach';
+      'A score on the nutritional quality';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'Scór chun bianna ultraphróiseáilte a sheachaint';
+      'A score to avoid ultra-processed foods';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title => 'Scór don phláinéid';
+  String get guide_open_food_facts_scores_arg3_title =>
+      'A score for the planet';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4792,240 +4672,236 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Fáilte go dtí Fíricí Bia Peataí Oscailte!';
+      'Welcome to Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Cad is Fíricí Oscailte Bia Peataí ann?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Leathnaíonn Fíricí Bia Peataí Oscailte ár misean chuig ár gcairde clúmhacha! Is **bunachar sonraí de tháirgí bia peataí do chait, do mhadraí, agus do chompánaigh eile** é.';
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'Bailímid faisnéis faoi **chomhábhair**, **anailís chothaitheach**, agus treoirlínte beathaithe chun cabhrú le húinéirí peataí an bia is fearr a roghnú do riachtanais a n-ainmhithe.';
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Gnéithe de Fhíricí Bia Peataí Oscailte';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Faigh foláirimh maidir le comhábhair nach dteastaíonn uait';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'An bhfuil ailléirge ag do pheata ar aon chomhábhair? Is féidir leat liosta de chomhábhair chosmaideacha le seachaint a shocrú, díreach san aip!';
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Leideanna chun grianghraif iontacha a thógáil';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Ná déan';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Seachain scáthanna agus glare.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'Gan aon téacs doiléir ná as fócas.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Ná bearr codanna den téacs amach.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Seachain cúlraí gnóthacha.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Rudaí le déanamh';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Bain úsáid as soilsiú maith, cothrom.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Cinntigh go bhfuil an téacs géar agus inléite.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Gabh an liosta comhábhar iomlán.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Coinnigh an táirge ar dhromchla cothrom.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'Nóta maidir le scóráil';
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Ní tosaíocht í córas scórála a fhorbairt do bhia peataí **faoi láthair**. Bheadh an modheolaíocht casta, toisc go n-athraíonn riachtanais chothaitheacha go mór de réir speiceas, aoise agus riocht sláinte. Ní bhfuaireamar aon fhoireann eolaíoch neamhspleách go fóill atá in ann scór den sórt sin a fhorbairt.';
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-ga.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title =>
-      'Fáilte go Fíricí Áilleachta Oscailte!';
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'Cad is Fíricí Áilleachta Oscailte ann?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Is bunachar sonraí comhoibríoch de **tháirgí cosmaideacha** é Open Beauty Facts.';
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Is é an sprioc atá againn ná liostaí comhábhar a dhíchifriú chun cabhrú leat **tuiscint a fháil ar a bhfuil i do chuid earraí cúraim phearsanta**. Ó thaiseoirí go smideadh, bailímid sonraí ar chomhábhair, ailléirginí agus pacáistiú chun trédhearcacht a chur chun cinn sa tionscal cosmaidí.';
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Gnéithe de Fíricí Áilleachta Oscailte';
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Faigh foláirimh maidir le comhábhair nach dteastaíonn uait';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'An bhfuil ailléirge agat ar aon chomhábhair? Ar mhaith leat substaintí comedogenacha a sheachaint? Ar mhaith leat comhpháirteanna conspóideacha a sheachaint? Is féidir leat liosta de chomhábhair chosmaideacha le seachaint a shocrú, díreach san aip!';
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Leideanna chun grianghraif iontacha a thógáil';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Ná déan';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Seachain scáthanna agus glare.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'Gan aon téacs doiléir ná as fócas.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Ná bearr codanna den téacs amach.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Seachain cúlraí gnóthacha.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Rudaí le déanamh';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Bain úsáid as soilsiú maith, cothrom.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Cinntigh go bhfuil an téacs géar agus inléite.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Gabh an liosta comhábhar iomlán.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Tóg an oiread pictiúr agus is gá má tá an buidéal cuartha.';
+      'Take as many picture as need if the bottle is curved.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'B’fhéidir go mbeadh ort an lipéad a scafa chun liosta na gcomhábhar a fheiceáil.';
+      'You might need to peel the label to see the list of ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Coinnigh an táirge ar dhromchla cothrom.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'Nóta maidir le scóráil';
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Murab ionann agus táirgí bia, níl córas scórála aitheanta go huilíoch, atá tacaithe ag an rialtas, cosúil leis an Nutri-Score i saol na gcosmaidí. Is féidir le héifeachtaí comhábhar a bheith an-phearsanta agus braithfidh siad ar chineál craicinn, ailléirgí, agus imní aonair.';
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-ga.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Fáilte go Praghsanna Oscailte!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Cad is Praghsanna Oscailte ann?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Is tionscadal é Open Prices chun **praghsanna táirgí ar fud an domhain a bhailiú agus a roinnt**. Is tacar sonraí atá ar fáil go poiblí é agus is féidir a úsáid le haghaidh taighde, anailíse agus níos mó. Forbraíonn agus cothabhálann Open Food Facts Open Prices.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title =>
-      'Conas a oibríonn Praghsanna Oscailte?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**Táimid ag foinsiú sonraí foinse oscailte de phraghsanna**. Is féidir le húsáideoirí praghsanna a chur leis tríd an aip ghréasáin seo, nó tríd an aip shoghluaiste oifigiúil Open Food Facts. Is féidir le miondíoltóirí nó aipeanna tríú páirtí cur leis chomh maith trí úsáid a bhaint as ár n-API.';
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Bailigh grianghraif de chlibeanna praghais sna haisleáin';
+      'Collect photos of price tags in aisles';
 
   @override
-  String get guide_open_prices_how_arg2_title =>
-      'Bailigh grianghraif de admhálacha';
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
 
   @override
   String get guide_open_prices_why_title =>
-      'Cén fáth a bhfuil Open Food Facts ag déanamh seo?';
+      'Why is Open Food Facts doing this ?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Tá faisnéis faoi phraghsanna ríthábhachtach chun córais bhia a thuiscint. Is fachtóir ríthábhachtach í chun costas bia a thuiscint agus chun aistí bia níos sláintiúla a chur chun cinn. Is bealach é sonraí praghsanna a oscailt chun é a dhéanamh níos éasca do thaighdeoirí, d’iriseoirí agus do shaoránaigh **tuiscint níos fearr a bheith acu ar an gcaoi a n-athraíonn praghsanna bia go geografach agus in am**.';
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Rianú a dhéanamh ar éabhlóid na bpraghsanna le himeacht ama';
+      'Track the evolution of prices over time';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'Féach ar **éabhlóid na bpraghsanna**: boilsciú crapadh, boilsciú saor, is féidir linn iad a rianú le chéile!';
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
 
   @override
-  String get guide_open_prices_why_arg2_title =>
-      'Déan comparáid idir praghsanna in aice leat';
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'De réir mar a fhaighimid níos mó praghsanna, is féidir leat na siopaí is saoire timpeall ort a fheiceáil.';
+      'As we get more prices, you can spot **the cheapest stores around you**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'An ndearna tú machnamh ar phraghsanna a scríobadh ó shuíomhanna gréasáin miondíoltóirí?';
+      'Did you consider scraping prices from retailers\' websites?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Ar chúiseanna dlíthiúla agus teicniúla, **ní mheasaimid gur bealach bailí é praghsanna a scríobadh ó shuíomhanna gréasáin miondíoltóirí chun cur le Praghsanna Oscailte**. Ba mhaith linn a chinntiú go bhfuil na praghsanna a bhailímid cruinn agus cothrom le dáta, agus ní cheadaíonn praghsanna scríobtha a fháil ó rannpháirtithe dúinn é sin a dhéanamh.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Is rogha a mheastar a bheith i gceist le scríobadh praghsanna i leagan amach anseo de Open Prices, ach dhéanfadh Open Prices féin é ionas go mbeidh cruthúnas againn ar an bpraghas bunaithe ar an leathanach HTML.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -5033,7 +4909,7 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'Is féidir leat praghsanna a chur leis trí úsáid a bhaint as ár n-API.\nMás mian leat praghsanna a chur leis ar scála mór, déan teagmháil linn ag prices@openfoodfacts.org.';
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -5041,150 +4917,149 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Fáilte go dtí Fíricí Táirgí Oscailte!';
+      'Welcome to Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Cad is Fíricí Táirgí Oscailte ann?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Is bunachar sonraí ollmhór oscailte é Open Products Facts le haghaidh **aon táirge a bhfuil cód barra air, nach bia, cosmaidí ná bia peataí é**.';
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'Ó **leictreonaic** go **bréagáin**, agus **éadaí** go **soláthairtí glantacháin**, más ann do chód barra, is féidir é a chur leis. Tá sé mar aidhm ag an tionscadal seo \"Idirlíon na Rudaí\" a chruthú do rudaí laethúla, rud a fhágann go bhfuil faisnéis fúthu inrochtana go huilíoch.';
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Gnéithe de Fíricí Táirgí Oscailte';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Tá sé mar aidhm ag Open Products Facts cur ar chumas tomhaltóirí **saolré réad a shíneadh** trí réitigh chiorclacha a sholáthar chun a gcuid réad a chothabháil, a **dheisiú**, a **athchúrsáil** nó úinéir nua a thabhairt dóibh.';
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Lorg carbóin do roinnt táirgí';
+      'Carbon footprints for some products';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      'Soláthraíonn **Tionchar CO2** Údarás Comhshaoil na Fraince ADEME **tionchar carbóin** go leor catagóirí, déan cinnte táirgí a chatagóiriú go beacht.';
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Innéacs in-athchóirithe do go leor táirgí';
+      'Reparability index for many products';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Aon uair a bhíonn innéacs in-athchóirithe Francach ar fáil, taispeánfaimid é. Ina theannta sin, **is féidir leat tosú ag bailiú na n-athróg ag baint úsáide as an Inneall Folksonomy**; ionas gur féidir linn é a athríomh féin amach anseo, fiú i dtíortha nach bhfuil sé ar fáil iontu.';
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Aimsigh bealaí chun do tháirge a bhronnadh/a athdhíol';
+      'Find ways to donate/resell your product';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'Cuirimid naisc ar fáil chuig **seirbhísí tríú páirtí atá cairdiúil don chiorclach** a chabhraíonn leat an cineál táirge atá uait a fháil, mar tháirge athláimhe, chun a bheith níos ciúine ar acmhainní an phláinéid.\nTabhair faoi deara nach bhfaighimid íocaíocht as sin a dhéanamh, agus nach n-oibríonn an córas ach mar shampla do dhá shuíomh Gréasáin sa Fhrainc. Is féidir leat cabhrú leis an gcóras seo a leathnú trí níos mó suíomhanna a dhoiciméadú ar an vicí.';
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'Cén fhaisnéis atá úsáideach?';
+      'What information is useful?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'I gcás raon chomh leathan míreanna, **tá na sonraí a bhailímid solúbtha**. Chun é sin a dhéanamh, **chruthaíomar an tInneall Folksonomy**.';
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'Inneall na hOideachais Folke';
+      'The Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'Is uirlis é Inneall Folksonomy a chabhróidh leat táirgí a chomhlánú le hairíonna ábhartha. Cuidíonn sé seo le cuardach agus infhaighteacht a fheabhsú, ach freisin le rudaí suimiúla a ríomh agus a thaispeáint sa todhchaí.';
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'Is féidir leat aon eochracha agus luachanna a chur leis mar seo a leanas: **comhoiriúnacht_le_líonra_soghluaiste_5G: tá**';
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'Gheobhaidh tú uathmholtaí ar airíonna féideartha, agus tá fáilte mhór romhat cinn nua a chur leis agus a dhoiciméadú ar do chineálacha táirgí is fearr leat.';
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-ga.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Oscail roghanna bia';
+  String get guide_open_preferences_button_title => 'Open food preferences';
 
   @override
-  String get guide_coming_soon_button_title => 'Ag teacht go luath';
+  String get guide_coming_soon_button_title => 'Coming soon';
 
   @override
-  String get guide_learn_more_subtitle =>
-      'Tapáil chun tuilleadh eolais a fháil';
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
-  String get preview_badge => 'Réamhamharc';
+  String get preview_badge => 'Preview';
 
   @override
   String get prices_feedback_form =>
-      'Cliceáil anseo chun d’aiseolas faoin ngné nua seo a sheoladh chugainn!';
+      'Click here to send us your feedback about this new feature!';
 
   @override
-  String get menu_button_list_actions => 'Roghnaigh gníomh';
+  String get menu_button_list_actions => 'Select an action';
 
   @override
-  String get error_loading_photo => 'Earráid ag luchtú grianghraf';
+  String get error_loading_photo => 'Error loading photo';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Úsáid mar…';
+  String get photo_viewer_action_use_picture_as => 'Use as…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Úsáid an pictiúr seo mar…';
+  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Úsáid an pictiúr seo mar… ($language)';
+    return 'Use this picture as… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'Sonraí';
+  String get photo_viewer_details_button => 'Details';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Sonraí an ghrianghraif seo';
+      'Details of this photo';
 
   @override
-  String get photo_viewer_details_title => 'Sonraí an ghrianghraif';
+  String get photo_viewer_details_title => 'Details of the photo';
 
   @override
   String get photo_viewer_details_contributor_title => 'Contributor';
 
   @override
-  String get photo_viewer_details_size_title => 'Méid';
+  String get photo_viewer_details_size_title => 'Size';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height picteilín';
+    return '$width x $height pixels';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Dáta';
+  String get photo_viewer_details_date_title => 'Date';
 
   @override
   String get photo_viewer_details_url_title => 'URL';
 
   @override
-  String get product_page_compatibility_score => 'Comhoiriúnach';
+  String get product_page_compatibility_score => 'Compatible';
 
   @override
-  String get user_lists_action_multi_select => 'Ilroghnú';
+  String get user_lists_action_multi_select => 'Multi-select';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Do scór comhoiriúnachta: $score%';
+    return 'Your compatibility score: $score%';
   }
 
   @override
@@ -5195,168 +5070,164 @@ class AppLocalizationsGa extends AppLocalizations {
       'Ingredients picture';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Pictiúr cothaithe';
+  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
 
   @override
-  String get product_image_packaging_accessibility_label =>
-      'Pictiúr pacáistithe';
+  String get product_image_packaging_accessibility_label => 'Packaging picture';
 
   @override
-  String get product_image_other_accessibility_label => 'Pictiúr eile';
+  String get product_image_other_accessibility_label => 'Other picture';
 
   @override
-  String get product_image_outdated_message =>
-      'B’fhéidir go bhfuil an pictiúr seo as dáta';
+  String get product_image_outdated_message => 'This picture may be outdated';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (seans go bhfuil an íomhá seo as dáta)';
+    return '$type (this image may be outdated)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (d’fhéadfadh an léiritheoir an íomhá seo a ghlasáil)';
+    return '$type (this image may be locked by the producer)';
   }
 
   @override
-  String get product_image_error => 'Ní féidir an íomhá a luchtú!';
+  String get product_image_error => 'Unable to load the image!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'Ní féidir $type a luchtú (earráid líonra?)';
+    return 'Unable to load the $type (network error?)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'Gan íomhá\n!';
+  String get product_page_image_no_image_available => 'No\nimage!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'Níl aon phictiúr ar fáil don táirge seo';
+      'No picture available for this product';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Athordaigh nó folaigh gníomhartha';
+      'Reorder or hide actions';
 
   @override
-  String get product_page_action_bar_setting_modal_title =>
-      'Gníomhartha eagarthóireachta';
+  String get product_page_action_bar_setting_modal_title => 'Edit actions';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Bog suas';
+  String get product_page_action_bar_item_move_up => 'Move up';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Bog síos';
+  String get product_page_action_bar_item_move_down => 'Move down';
 
   @override
-  String get product_page_action_bar_item_enable => 'Cumasaigh gníomh';
+  String get product_page_action_bar_item_enable => 'Enable action';
 
   @override
-  String get product_page_action_bar_item_disable => 'Gníomh a dhíchumasú';
+  String get product_page_action_bar_item_disable => 'Disable action';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'Ag uaslódáil do chuid eagarthóireachtaí…';
+      'Uploading your edits…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'Ní léiríonn na sonraí a thaispeántar ar an leathanach seo do mhodhnuithe fós.\nFan cúpla soicind le do thoil…';
+      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
 
   @override
-  String get product_add_a_language => 'Cuir teanga leis';
+  String get product_add_a_language => 'Add a language';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Cód barra $barcode';
+    return 'Barcode $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Bain an táirge seo as an gcarúsal';
+  String get carousel_close_tooltip => 'Remove this product from the carousel';
 
   @override
-  String get carousel_unsupported_header => 'Barra cód gan tacaíocht!';
+  String get carousel_unsupported_header => 'Unsupported barcode!';
 
   @override
-  String get carousel_unsupported_title => 'Úps!';
+  String get carousel_unsupported_title => 'Ooops!';
 
   @override
   String get carousel_unsupported_text =>
-      'Ní thacaíonn Open Food Facts leis an gcód barra scanta!';
+      'The barcode scanned is not supported by Open Food Facts!';
 
   @override
-  String get carousel_error_header => 'Earráid!';
+  String get carousel_error_header => 'Error!';
 
   @override
-  String get carousel_error_title => 'Is mór an trua é!';
+  String get carousel_error_title => 'It\'s a bummer!';
 
   @override
   String get carousel_error_text_1 =>
-      'Níorbh fhéidir linn faisnéis a íoslódáil ar an gcód barra seo:';
+      'We couldn\'t download information on this barcode:';
 
   @override
   String get carousel_error_text_2 =>
-      'Seiceáil do nasc Idirlín nó cliceáil an cnaipe seo le do thoil:';
+      'Please check your Internet connection or click this button:';
 
   @override
-  String get carousel_error_button => 'Déan iarracht eile';
+  String get carousel_error_button => 'Retry';
 
   @override
-  String get carousel_unknown_product_header => 'Táirge anaithnid';
+  String get carousel_unknown_product_header => 'Unknown product';
 
   @override
   String get carousel_unknown_product_title =>
-      'Comhghairdeas!\nTá __an seod neamhchoitianta aimsithe agat!__';
+      'Congratulations!\nYou\'ve found __the rare gem!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Tá níos mó ná **3 mhilliún táirge** inár mbunachar sonraí comhoibríoch, ach níl an cód barra seo ann: ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get carousel_unknown_product_button => 'Add this product';
 
   @override
-  String get carousel_loading_header => 'Ag lódáil eolais...';
+  String get carousel_loading_header => 'Loading information...';
 
   @override
   String get carousel_loading_title =>
-      'Tá táirge leis an gcód barra seo a leanas scanta agat díreach anois:';
+      'You\'ve just scanned a product with the following barcode:';
 
   @override
   String get carousel_loading_text =>
-      'Táimid á chuardach inár mbunachar sonraí ina bhfuil níos mó ná **3 mhilliún táirge!**';
+      'We are searching for it in our database of more than **3 million products!**';
 
   @override
-  String get product_type_subtitle_food => 'Glasraí, torthaí, bia reoite…';
+  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
 
   @override
-  String get product_type_subtitle_beauty =>
-      'Smideadh, gallúnacha, taos fiacla…';
+  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Bia do mhadraí, cait…';
+  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
 
   @override
-  String get product_type_subtitle_product => 'Fóin chliste, troscán…';
+  String get product_type_subtitle_product => 'Smartphones, furniture…';
 
   @override
-  String get photo_field_front => 'Grianghraf táirge';
+  String get photo_field_front => 'Product photo';
 
   @override
-  String get photo_field_ingredients => 'Grianghraf comhábhair';
+  String get photo_field_ingredients => 'Ingredients photo';
 
   @override
-  String get photo_field_nutrition => 'Grianghraf cothaithe';
+  String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Grianghraf treoracha athchúrsála';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
-  String get photo_already_exists => 'Tá an grianghraf seo ann cheana féin';
+  String get photo_already_exists => 'This photo already exists';
 
   @override
-  String get photo_missing => 'Tá an grianghraf seo ar iarraidh';
+  String get photo_missing => 'This photo is missing';
 
   @override
-  String get date => 'Dáta';
+  String get date => 'Date';
 
   @override
   String get photo_rotate_left => 'Rotate left';
@@ -5365,118 +5236,76 @@ class AppLocalizationsGa extends AppLocalizations {
   String get photo_rotate_right => 'Rotate right';
 
   @override
-  String get photo_undo_action => 'Cealaigh an gníomh roimhe seo';
+  String get photo_undo_action => 'Undo the previous action';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'Léarscáil dhomhanda de $location';
+    return 'A world map of $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'Rannpháirtithe OpenStreetMap';
+      'OpenStreetMap contributors';
 
   @override
-  String get not_applicable_short => 'N/B';
+  String get not_applicable_short => 'N/A';
 
   @override
-  String get knowledge_panel_warning_text => 'Rabhadh';
+  String get knowledge_panel_warning_text => 'Warning';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Cén fáth go bhfuil an Nutri-Score seo difriúil ón gceann atá ar an bpacáiste?';
+      'Why is this Nutri-Score different from the one on the package?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'Tá dhá mhíniú féideartha ann:\nNíl an liosta comhábhar agus/nó na fíricí cothaithe cothrom le dáta.\n\nSoláthraímid an \"Ríomh nua\" den Nutri-Score (nó V2). Seiceáil le do thoil go bhfuil an meirge \"Ríomh nua\" ar an bpacáiste.';
+      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Seiceáil comhábhair';
+      'Check ingredients';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Seiceáil fíricí cothaithe';
+      'Check nutrition facts';
 
   @override
   String url_not_supported(String url) {
-    return 'Ar an drochuair, ní féidir linn an URL seo a oscailt:\n$url';
+    return 'Unfortunately, we can\'t open the URL:\n$url';
   }
 
   @override
-  String get product_list_export => 'Easpórtáil';
+  String get product_list_export => 'Export';
 
   @override
-  String get product_list_import => 'Iompórtáil';
+  String get product_list_import => 'Import';
 
   @override
-  String get product_footer_action_barcode => 'Féach ar an gcód barra';
+  String get product_footer_action_barcode => 'View barcode';
 
   @override
   String get product_footer_action_barcode_short => 'Barcode';
 
   @override
-  String get product_footer_action_open_website => 'Oscail an suíomh Gréasáin';
+  String get product_footer_action_open_website => 'Open website';
 
   @override
-  String get product_footer_action_report => 'Tuairisc';
+  String get product_footer_action_report => 'Report';
 
   @override
-  String get product_footer_action_contributor_guide => 'Cabhair';
+  String get product_footer_action_contributor_guide => 'Help';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Cáilíocht sonraí';
+  String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
   String get product_page_tab_for_me => 'Domsa';
 
   @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Mo chomhoiriúnacht';
+  String get product_page_tab_website => 'Website';
 
   @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% comhoiriúnach';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Gan dóthain sonraí chun scór comhoiriúnachta a ríomh.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Ní féidir scór a ríomh do tháirge den chineál \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Tábhacht';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Cluichí';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Cluichí maithe';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Meánchluichí';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Drochchluichí';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Meaitseálacha anaithnide';
-
-  @override
-  String get product_page_tab_website => 'Suíomh Gréasáin';
-
-  @override
-  String get product_page_tab_prices => 'Praghsanna';
+  String get product_page_tab_prices => 'Prices';
 
   @override
   String get prices_explanation_card_title => 'Cén fáth praghsanna?';
@@ -5486,10 +5315,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Is tionscadal é **Open Prices** chun praghsanna táirgí ar fud an domhain a bhailiú agus a roinnt 🌍. Forbraíonn agus cothabhálann Open Food Facts Open Prices.';
 
   @override
-  String get explanation_card_learn_more_button => 'Foghlaim níos mó';
+  String get explanation_card_learn_more_button => 'Learn more';
 
   @override
-  String get product_page_tab_folksonomy => 'Síceolaíocht tíre';
+  String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title => 'Cad iad tréithe Folkonomy?';
@@ -5503,11 +5332,11 @@ class AppLocalizationsGa extends AppLocalizations {
       'Cruthaítear agus comhdaítear na hairíonna seo ag rannpháirtithe le haghaidh aon chineál úsáidí.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Oscail nasc seachtrach';
+  String get folksonomy_action_external_link_title => 'Open external link';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'D’fhéadfadh naisc sheachtracha a bheith neamhshábháilte. An bhfuil tú cinnte gur mhaith leat cuairt a thabhairt orthu?';
+      'External links may be unsafe. Do you really want to visit it?';
 
   @override
   String get prices_products_empty_title => 'Níl aon phraghas ar fáil';
@@ -5518,42 +5347,41 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Táirgí is fearr $pageSize (iomlán: $total)';
+    return 'Top $pageSize products (total: $total)';
   }
 
   @override
-  String get app_review_title =>
-      'An bhfuil tú ag baint taitnimh as an aip seo?';
+  String get app_review_title => 'Are you enjoying this app?';
 
   @override
-  String get app_review_low => 'D’fhéadfaí níos fearr a dhéanamh';
+  String get app_review_low => 'Could do better';
 
   @override
-  String get app_review_medium => 'Ní dona';
+  String get app_review_medium => 'Not bad';
 
   @override
-  String get app_review_high => 'Is breá liom é!';
+  String get app_review_high => 'I love it!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Cabhraigh linn ár n-iarratas a fheabhsú';
+      'Help us improve our application';
 
   @override
   String get app_review_feedback_modal_content =>
-      'Más féidir leat cúpla nóiméad a chaitheamh, an bhféadfá an fhoirm seo a fhreagairt ionas **gur féidir linn feabhas a chur orainn i nuashonruithe amach anseo**:';
+      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Freagair an fhoirm';
+  String get app_review_feedback_modal_open_form => 'Answer the form';
 
   @override
-  String get app_review_feedback_modal_later => 'Iarr orm níos déanaí';
+  String get app_review_feedback_modal_later => 'Ask me later';
 
   @override
   String get nutrition_facts_extract_new =>
-      'NUA: Is féidir leat na cothaithigh a bhaint as an bpictiúr go huathoibríoch!';
+      'NEW: You can automatically extract the nutrients from the picture!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Sliocht anois';
+  String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
   String get nutrition_facts_extract_in_progress => 'Eastóscadh ar siúl…';
@@ -5563,19 +5391,19 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Theip ar chothaithigh a bhaint as an bpictiúr';
+      'Failed to extract nutrients from picture';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Staitisticí';
+  String get prices_stats_statistics => 'Statistics';
 
   @override
-  String get prices_stats_title => 'Staitisticí Praghsanna';
+  String get prices_stats_title => 'Prices Statistics';
 
   @override
-  String get prices_stats_prices_section => 'Praghsanna';
+  String get prices_stats_prices_section => 'Prices';
 
   @override
   String get prices_stats_products_section => 'Táirgí';
@@ -5593,7 +5421,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'Ilghnéitheach';
+  String get prices_stats_misc_section => 'Miscellaneous';
 
   @override
   String get prices_stats_total => 'Total';
@@ -5617,7 +5445,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Bia';
+  String get prices_stats_food => 'Food';
 
   @override
   String get prices_stats_beauty => 'Beauty';
@@ -5626,10 +5454,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get prices_stats_products => 'Táirgí';
 
   @override
-  String get prices_stats_pet_food => 'Bia peataí';
+  String get prices_stats_pet_food => 'Pet food';
 
   @override
-  String get prices_stats_osm => 'Léarscáil Shráid Oscailte';
+  String get prices_stats_osm => 'OpenStreetMap';
 
   @override
   String get prices_stats_online => 'Online';
@@ -5638,10 +5466,10 @@ class AppLocalizationsGa extends AppLocalizations {
   String get prices_stats_countries => 'Countries';
 
   @override
-  String get prices_stats_price_tag => 'Clib praghais';
+  String get prices_stats_price_tag => 'Price tag';
 
   @override
-  String get prices_stats_receipt => 'Admháil';
+  String get prices_stats_receipt => 'Receipt';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5665,7 +5493,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Suíomh Gréasáin';
+  String get prices_stats_website => 'Website';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
@@ -5677,22 +5505,23 @@ class AppLocalizationsGa extends AppLocalizations {
   String get prices_stats_other => 'Other';
 
   @override
-  String get prices_stats_last_updated => 'Nuashonraithe go deireanach ar';
+  String get prices_stats_last_updated => 'Last updated on';
 
   @override
-  String get prices_stats_error => 'Tharla earráid agus staitisticí á lódáil.';
+  String get prices_stats_error =>
+      'An error occurred while loading statistics.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Ceist freagraithe!';
+  String get product_edit_robotoff_question_answered => 'Question answered!';
 
   @override
-  String get product_edit_robotoff_proof => 'Cruthúnas';
+  String get product_edit_robotoff_proof => 'Proof';
 
   @override
   String get preferences_card_general => 'Ginearálta';
 
   @override
-  String get preferences_prices_title => 'Praghsanna';
+  String get preferences_prices_title => 'Prices';
 
   @override
   String get preferences_prices_subtitle => 'Bainistigh do roghanna praghsanna';
@@ -5731,7 +5560,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_card_help => 'Cabhair & Tacaíocht';
 
   @override
-  String get preferences_faq_title => 'Ceisteanna Coitianta';
+  String get preferences_faq_title => 'FAQ';
 
   @override
   String get preferences_faq_subtitle => 'Faigh freagraí ar do cheisteanna';
@@ -5794,7 +5623,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Is bunachar sonraí táirgí bia é Open Food Facts atá **déanta ag gach duine, do gach duine**.\nIs féidir leat é a úsáid chun roghanna bia níos fearr a dhéanamh, agus toisc gur **sonraí oscailte** é, is féidir le duine ar bith **é a athúsáid chun aon chríche**.';
 
   @override
-  String get preferences_privacy_policy => 'Polasaí príobháideachta';
+  String get preferences_privacy_policy => 'Privacy policy';
 
   @override
   String get preferences_licenses => 'Ceadúnais';
@@ -5838,7 +5667,7 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_tips => 'Leideanna';
 
   @override
-  String get tips_discover_nutriscore => 'Faigh amach an Nutri-Score nua';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle =>
@@ -5937,32 +5766,28 @@ class AppLocalizationsGa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Faigh amach Fíricí Bia Oscailte';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Faigh amach Fíricí Áilleachta Oscailte';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Faigh amach Fíricí Oscailte faoi Bhia Peataí';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title =>
-      'Faigh amach Praghsanna Oscailte';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Faigh amach Fíricí faoi Tháirgí Oscailte';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title =>
       'Ceisteanna Coitianta - Ceisteanna Coitianta';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'An Eagraíocht Neamhrialtasach Fíricí Bia Oscailte';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Eolas';
@@ -5977,14 +5802,14 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Liostáil lenár bhféilire pobail';
+      'Subscribe to our community calendar';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Bí páirteach trí fhreastal ar cheann dár n-imeachtaí fíorúla';
 
   @override
-  String get preferences_connect_blog_title => 'Blag Fíricí Bia Oscailte';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6084,7 +5909,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Céimeanna simplí chun trédhearcacht bia a mhéadú i do thír féin';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Cáilíocht sonraí';
+  String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -6111,10 +5936,10 @@ class AppLocalizationsGa extends AppLocalizations {
       'Gach táirge neamhiomlán';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Praghsanna';
+  String get preferences_my_contributions_prices_title => 'Prices';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'Mo phraghsanna';
+  String get preferences_my_contributions_my_prices_title => 'My prices';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6156,8 +5981,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Rannpháirtithe leis na praghsanna is airde';
 
   @override
-  String get preferences_prices_metrics_title =>
-      'Méadrachtaí Praghsanna Oscailte';
+  String get preferences_prices_metrics_title => 'Méadrachtaí Praghas Oscailte';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6307,14 +6131,14 @@ class AppLocalizationsGa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Saotharlanna Fíricí Bia Oscailte';
+      'Open Food Facts Labs';
 
   @override
-  String get preferences_root_account_title => 'Cuntas';
+  String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tabhair Fíricí Bia Oscailte chuig do theanga';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6329,7 +6153,7 @@ class AppLocalizationsGa extends AppLocalizations {
       'Ná taispeáin Cónaimíocht Phoiléiseach';
 
   @override
-  String get preferences_account_title => 'Cuntas';
+  String get preferences_account_title => 'Account';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
@@ -6337,66 +6161,26 @@ class AppLocalizationsGa extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Sonraí suímh';
+  String get location_map_details_title => 'Location details';
 
   @override
   String get location_map_details_name => 'Ainm';
 
   @override
-  String get location_map_details_street => 'Sráid';
+  String get location_map_details_street => 'Street';
 
   @override
-  String get location_map_details_city => 'Cathair';
+  String get location_map_details_city => 'City';
 
   @override
-  String get location_map_details_postcode => 'Cód Poist';
+  String get location_map_details_postcode => 'Postcode';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Comhordanáidí';
+  String get location_map_details_coordinates => 'Coordinates';
 
   @override
-  String get location_map_details_osm_id => 'Aitheantas OSM';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Ar ais sa bhaile';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Casadh ceamara';
-
-  @override
-  String get homepage_header_barcode_tooltip =>
-      'Taispeáin an scanóir barrachóid';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Tapáil chun **cód barra**\na scanadh agus faigh amach an bhfuil sé **go maith duit**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Tóirse a scoránaigh';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Scan táirge trí dhul i ngleic lena chód barra';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Tá an cód barra seo a leanas braite againn: $barcode, ach is cosúil go bhfuil sé neamhbhailí.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Féach tuilleadh…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Táirgí scanta deireanacha';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
+  String get location_map_details_osm_id => 'OSM ID';
 }

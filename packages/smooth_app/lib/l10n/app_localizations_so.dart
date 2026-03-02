@@ -12,9 +12,6 @@ class AppLocalizationsSo extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Qiimaha Furan';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsSo extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Shatiyada';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsSo extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Tirada aan la garanayn';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsSo extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Tilmaamaha dib u warshadaynta';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsSo extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Tilmaamaha dib u warshadaynta Sawir';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1140,15 +1134,6 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Raadintaada\n**\"$search\"**\nma aysan la mid ahayn wax natiijooyin ah.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Ma rabtaa inaad isla raadintan ku socodsiiso **xogtayada caalamiga ah** beddelkeeda?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2533,9 +2518,6 @@ class AppLocalizationsSo extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2713,9 +2695,6 @@ class AppLocalizationsSo extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Qiimaha laga soo galo \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Fiiri faahfaahinta alaabta';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2995,33 +2974,6 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3567,7 +3519,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Bilaabida samaynta ficilada serverka ee cusboonaysiinta folksonomi ee lagu kaydiyay gudaha';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5267,7 +5219,7 @@ class AppLocalizationsSo extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5349,47 +5301,6 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Aniga ahaan';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'Iswaafajintayda';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% la jaan qaadi kara';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Xog aan ku filnayn in lagu xisaabiyo dhibcaha iswaafajinta.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Dhibco laguma xisaabin karo nooc ka mid ah badeecada \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Muhiimadda';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Ciyaaraha';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Kulamo wanaagsan';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Celcelis ahaan ciyaaruhu';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Isbarbardhigyo xun';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Ciyaartoy aan la aqoon';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -6113,7 +6024,7 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Siyaabaha fudud ee lagu caawin karo Furitaanka Xaqiiqooyinka Cuntada';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6221,14 +6132,14 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Fur shaybaadhka Xaqiiqooyinka Cuntada';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Keen Xaqiiqo Cunno Furan luqadaada';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6273,45 +6184,4 @@ class AppLocalizationsSo extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Ku noqoshada guriga';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Kaamirada u wareeji';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Muuji iskaanka barcode-ka';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Taabo si aad u sawirto **barcode**\noo aad u ogaato inay **kugu fiican tahay**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Tooshka beddel';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Iskaan garee badeecad adigoo u dhawaanaya barcode-keeda';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Waxaan ogaanay barcode-ka soo socda: $barcode, laakiin waxay u muuqataa mid aan sax ahayn.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button =>
-      'Fiiri wax dheeraad ah…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Badeecooyinkii ugu dambeeyay ee la sawiray';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

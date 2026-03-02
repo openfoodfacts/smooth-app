@@ -12,9 +12,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Открытые цены';
-
-  @override
   String get sep => '';
 
   @override
@@ -666,9 +663,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get unknownBrand => 'Неизвестный бренд';
 
   @override
-  String get unknownQuantity => 'Неизвестная величина';
-
-  @override
   String get unknownProductName => 'Неизвестный продукт';
 
   @override
@@ -736,10 +730,10 @@ class AppLocalizationsRu extends AppLocalizations {
       'Добавить данные о пищевой ценности';
 
   @override
-  String get packaging_information => 'Инструкции по переработке';
+  String get packaging_information => 'Информация об упаковке';
 
   @override
-  String get packaging_information_photo => 'Фото инструкции по переработке';
+  String get packaging_information_photo => 'Фото информации об упаковке';
 
   @override
   String get missing_product => 'Вы нашли новый продукт!';
@@ -846,7 +840,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Фото информации о пищевой ценности';
 
   @override
-  String get recycling_photo_title => 'Инструкции по переработке (фото)';
+  String get recycling_photo_title => 'Изображение сведений о переработке';
 
   @override
   String get take_photo_title => 'Сфотографировать';
@@ -897,7 +891,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get new_product_additional_environmental_score =>
-      'Сделайте вычисления Green Score более точными, указав происхождение, упаковку и другие параметры';
+      'Сделайте вычисления Grren Score более точными, указав происхождение, упаковку и другие параметры';
 
   @override
   String get new_product_title_nova =>
@@ -1171,15 +1165,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get no_product_found => 'Продукт не найден';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Ваш поиск по запросу\n**\"$search\"**\nне дал результатов.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Вы хотите выполнить тот же поиск в **нашей глобальной базе данных**?';
 
   @override
   String get no_location_found => 'Расположение не найдено';
@@ -2078,7 +2063,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Соя не из Европейского Союза';
 
   @override
-  String get edit_product_form_item_countries_title => 'Страна';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2588,9 +2573,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String get product_type_label_product => 'Прочее';
 
   @override
-  String get product_type_label_unknown => 'Неизвестный';
-
-  @override
   String get product_type_selection_title => 'Тип изделия';
 
   @override
@@ -2771,10 +2753,6 @@ class AppLocalizationsRu extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Цена записи от \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'Просмотреть подробную информацию о товаре';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3067,34 +3045,7 @@ class AppLocalizationsRu extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Узнайте больше об открытых ценах';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Готово';
@@ -3133,7 +3084,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip =>
@@ -3652,7 +3603,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Начало выполнения действий сервера для обновлений folksonomy, хранящихся локально.';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4338,7 +4289,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_title =>
-      'Система Nutri-Score развивается: пояснения!';
+      'The Nutri-Score is evolving: explanations!';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
@@ -4346,71 +4297,73 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'Nutri-Score — это логотип, который информирует вас о **питательной ценности продуктов**.';
+      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      'Цветовая маркировка варьируется от тёмно-зелёного (**A**) для **самых полезных** продуктов до тёмно-красного (**E**) для **менее полезных**.';
+      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
 
   @override
-  String get guide_nutriscore_v2_nutriscore_a_caption => 'Логотип Nutri-Score';
+  String get guide_nutriscore_v2_nutriscore_a_caption =>
+      'The Nutri-Score A logo';
 
   @override
-  String get guide_nutriscore_v2_why_v2_title =>
-      'Почему система Nutri-Score развивается?';
+  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
 
   @override
   String get guide_nutriscore_v2_why_v2_intro =>
-      'Формула Nutri-Score **дорабатывается**, чтобы давать лучшие рекомендации:';
+      'The Nutri-Score formula **is evolving** to provide better recommendations:';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_title =>
-      'Лучшая оценка всех напитков';
+      'Better evaluate all drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_text =>
-      'В новом алгоритме лучше различаются сравнительные характеристики **молока**, **молочных напитков** с добавлением сахара и **растительных** напитков.';
+      'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg2_title => 'Лучший рейтинг напитков';
+  String get guide_nutriscore_v2_why_v2_arg2_title =>
+      'Better ranking of drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_text =>
-      '**Содержание сахара** в напитках должно быть минимальным. \\n**Подсластители также будут наказываться**: диетические газированные напитки будут переведены из категории B в категорию от C до E. Вода по-прежнему остаётся рекомендуемым напитком.';
+      'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg3_title => 'Соль и сахар понижены';
+  String get guide_nutriscore_v2_why_v2_arg3_title =>
+      'Salt and sugar penalized';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      'Продукты, которые **слишком сладкие** или **слишком солёные**, получат **ещё более низкий рейтинг**.';
+      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_title =>
-      'Иерархия среди масел и рыб';
+      'Hierarchy within oils and fishes';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_text =>
-      'Рейтинг некоторых видов **жирной рыбы** и **масел, богатых полезными жирами**, повысится.';
+      'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg5_title => 'Ограничить красное мяса';
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg5_text =>
-      'Потребление **красного мяса следует ограничить**. Поэтому **птица будет предпочтительнее**.';
+      'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
 
   @override
   String get guide_nutriscore_v2_new_logo_title =>
-      'Как отличить старый расчёт Nutri-Score от нового?';
+      'How to differentiate old Nutri-Score and new calculation?';
 
   @override
   String get guide_nutriscore_v2_new_logo_text =>
-      'С этого момента в логотипе может отображаться пометка \"**Новый расчёт**\", чтобы было понятно, что это действительно новый расчёт.';
+      'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
 
   @override
   String get guide_nutriscore_v2_new_logo_image_caption =>
-      'Логотип новой системы Nutri-Score';
+      'The logo of the new Nutri-Score';
 
   @override
   String get guide_nutriscore_v2_where_title =>
@@ -4426,18 +4379,18 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
-      'Не дожидаясь, вы **уже сейчас сможете найти в приложении OpenFoodFacts** новый расчёт, в том числе если производители не обновили данные.';
+      'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => 'Что не меняется';
+  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
-      'Nutri-Score — это шкала, разработанная для **оценки питательной ценности**. Она **дополняет шкалу NOVA** для **продуктов глубокой переработки** (также представленную в приложении).';
+      'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      'Для производителей отображение рейтинга Nutri-Score **не является обязательным**.';
+      'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
   String get guide_greenscore_title => 'Green-Score';
@@ -5006,7 +4959,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'В настоящее время лишь немногие компании владеют большими базами данных цен на продукты на уровне штрих-кодов. Эти цены не находятся в свободном доступе, а продаются по высокой цене частным лицам, исследователям и другим организациям, которые могут себе их позволить.';
 
   @override
-  String get guide_open_prices_how_title => 'Как работают цены открытия?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5377,7 +5330,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get photo_field_nutrition => 'Фото питания';
 
   @override
-  String get photo_field_packaging => 'Фото инструкции по переработке';
+  String get photo_field_packaging => 'Фото информации об упаковке';
 
   @override
   String get photo_already_exists => 'Это фото уже существует';
@@ -5459,48 +5412,6 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Для меня';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Моя совместимость';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% совместимо';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Недостаточно данных для вычисления показателя совместимости.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Для произведения типа \"$productType\" невозможно вычислить оценку.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Важность';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Матчи';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Хорошие матчи';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Среднее количество матчей';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Неудачные матчи';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Неизвестные совпадения';
 
   @override
   String get product_page_tab_website => 'Веб-сайт';
@@ -5968,29 +5879,27 @@ class AppLocalizationsRu extends AppLocalizations {
       'Откройте для себя проект';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Откройте для себя факты об открытых продуктах питания';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Откройте для себя Open Beauty Factsе';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Откройте для себя факты о кормах для домашних животных';
+      'Discover Open Pet Food Facts';
 
   @override
   String get preferences_faq_discover_op_title => 'Откройте Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Откройте для себя факты об открытых продуктах';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ — часто задаваемые вопросы';
 
   @override
-  String get preferences_faq_off_ngo_title => 'НПО «Открытые факты о еде»';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Информация';
@@ -6182,7 +6091,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Авторы с наибольшим количеством цен';
 
   @override
-  String get preferences_prices_metrics_title => 'Показатели цен открытия';
+  String get preferences_prices_metrics_title => 'Метрики цены открытия';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6332,7 +6241,7 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Открытые лаборатории фактов о продуктах питания';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Учётная запись';
@@ -6376,51 +6285,11 @@ class AppLocalizationsRu extends AppLocalizations {
   String get location_map_details_postcode => 'Почтовый индекс';
 
   @override
-  String get location_map_details_country => 'Страна';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Координаты';
 
   @override
   String get location_map_details_osm_id => 'Идентификатор OSM';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Вернуться на главную';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Переключить камеру';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Покажите сканер штрих-кодов';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Нажмите, чтобы отсканировать **штрихкод**\nи узнать, подходит ли он вам **нам**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Переключить фонарик';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Отсканируйте товар, поднеся к его штрихкоду.';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Мы обнаружили следующий штрихкод: $barcode, но он, по всей видимости, недействителен.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Посмотреть больше…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Самые просматриваемые товары';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Последние отсканированные товары';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

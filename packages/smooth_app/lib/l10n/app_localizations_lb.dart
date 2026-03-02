@@ -12,9 +12,6 @@ class AppLocalizationsLb extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Präisser opmaachen';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Lizenzen';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsLb extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Onbekannt Quantitéit';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsLb extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Recyclinginstruktiounen';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Recyclinginstruktiounen Foto';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Eng Foto maachen';
@@ -1141,15 +1135,6 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Är Sich no\n**\"$search\"**\nhuet keng Resultater erginn.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Wëllt Dir déiselwecht Sich amplaz an **eiser globaler Datebank** ausféieren?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2034,7 +2019,7 @@ class AppLocalizationsLb extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Land';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2534,9 +2519,6 @@ class AppLocalizationsLb extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2716,9 +2698,6 @@ class AppLocalizationsLb extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Präiseintrag vun \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Produktdetailer kucken';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2998,33 +2977,6 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3570,7 +3522,7 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Ufänken vun den Serveraktiounen fir lokal gespäichert Folksonomy-Updates';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5267,7 +5219,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5349,48 +5301,6 @@ class AppLocalizationsLb extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Fir mech';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Meng Kompatibilitéit';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% kompatibel';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Net genuch Daten fir e Kompatibilitéitsscore ze berechnen.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'E Score kann net fir e Produkt vum Typ \"$productType\" berechent ginn.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Wichtegkeet';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Matcher';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Gutt Matcher';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Duerchschnëttlech Matcher';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Schlecht Matcher';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Onbekannt Matcher';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5858,7 +5768,7 @@ class AppLocalizationsLb extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Entdeckt d\'Projet';
 
   @override
-  String get preferences_faq_discover_off_title => 'Entdeckt Open Food Fakten';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6071,7 +5981,8 @@ class AppLocalizationsLb extends AppLocalizations {
       'Bäiträger mat de meeschte Präisser';
 
   @override
-  String get preferences_prices_metrics_title => 'Metriken fir oppe Präisser';
+  String get preferences_prices_metrics_title =>
+      'Präismetriken fir den oppene Präis';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6265,51 +6176,11 @@ class AppLocalizationsLb extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Land';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Zréck heem';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Kamera ausschalten';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'De Barcode-Scanner weisen';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Tippt fir e **Barcode**\nze scannen a kuckt ob et **gutt fir Iech** ass!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip =>
-      'Täscheluucht ausschalten';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Scannt e Produkt andeems Dir op säi Barcode zougräift';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Mir hunn de folgende Barcode ${barcode}festgestallt, awer e schéngt ongëlteg ze sinn.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Méi kucken…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Lescht gescannte Produkter';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

@@ -12,9 +12,6 @@ class AppLocalizationsEu extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Lizentziak';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Bilatzen';
@@ -659,9 +656,6 @@ class AppLocalizationsEu extends AppLocalizations {
   String get unknownBrand => 'Marka ezezaguna';
 
   @override
-  String get unknownQuantity => 'Kantitate ezezaguna';
-
-  @override
   String get unknownProductName => 'Produktu-izen ezezaguna';
 
   @override
@@ -728,10 +722,10 @@ class AppLocalizationsEu extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Birziklatzeko argibideak';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -835,7 +829,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Birziklatzeko argibideak Argazkia';
+  String get recycling_photo_title => 'Birziklapenaren argazkia';
 
   @override
   String get take_photo_title => 'Atera argazki bat';
@@ -1143,15 +1137,6 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get no_product_found => 'Ez da produkturik aurkitu';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Ez duzu emaitzarik aurkitu\n**\"$search\"**\nbilaketan.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Bilaketa bera gure **datu-base globalean** exekutatu nahi duzu?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2540,9 +2525,6 @@ class AppLocalizationsEu extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Ezezaguna';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2720,9 +2702,6 @@ class AppLocalizationsEu extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Prezio sarrera \"$user\"-tik';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Ikusi produktuaren xehetasunak';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3002,33 +2981,6 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3576,7 +3528,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Tokikoki gordetako folksonomy eguneratzeetarako zerbitzariaren ekintzak egiten hasten da';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5280,7 +5232,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5362,48 +5314,6 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Niretzat';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Nire bateragarritasuna';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% bateragarria';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Bateragarritasun puntuazioa kalkulatzeko datu nahikorik ez.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Ezin da puntuaziorik kalkulatu \"$productType\" motako produktu batentzat.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Garrantzia';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Partiduak';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Partida onak';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Batez besteko partidak';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Bat etortze txarrak';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Bat etortze ezezagunak';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5871,8 +5781,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Ezagutu Janari Irekien Datuak';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5914,7 +5823,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'Parte hartu gure ekitaldi birtualetako batean parte hartuz';
 
   @override
-  String get preferences_connect_blog_title => 'Elikagaien Datu Irekien bloga';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6086,7 +5995,8 @@ class AppLocalizationsEu extends AppLocalizations {
       'Prezio gehien dituzten kolaboratzaileak';
 
   @override
-  String get preferences_prices_metrics_title => 'Irekitze Prezioen neurketak';
+  String get preferences_prices_metrics_title =>
+      'Irekitze Prezioaren neurketak';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6235,14 +6145,14 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Elikagaien Datuen Laborategi Irekiak';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Kontua';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ekarri Janari Informazio Irekia zure hizkuntzara';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6287,45 +6197,4 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Etxera itzuli';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip =>
-      'Kamera aktibatu/desaktibatu';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Erakutsi barra-kode eskanerra';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Sakatu barra-kode bat eskaneatzeko\neta zuretzat ona den jakiteko!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Piztu/Aktibatu linterna';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Produktu bat eskaneatu bere barra-barra hurbilduz';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Barra-kode hau detektatu dugu: $barcode, baina baliogabea dirudi.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Ikusi gehiago…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Azken eskaneatutako produktuak';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

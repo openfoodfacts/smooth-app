@@ -12,9 +12,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -144,7 +141,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get match_short_unknown => '未知匹配';
 
   @override
-  String get licenses => '許可證';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => '尋找';
@@ -623,9 +620,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get unknownBrand => '未知品牌';
 
   @override
-  String get unknownQuantity => 'Unknown quantity';
-
-  @override
   String get unknownProductName => '未知產品名稱';
 
   @override
@@ -690,10 +684,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutrition_facts_editing_title => '编辑营养成分表';
 
   @override
-  String get packaging_information => '回收說明';
+  String get packaging_information => '包裝資訊';
 
   @override
-  String get packaging_information_photo => '回收说明照片';
+  String get packaging_information_photo => '包裝資訊照片';
 
   @override
   String get missing_product => '您發現了一個新產品！';
@@ -789,7 +783,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get nutritional_facts_photo_title => '营养成分表照片';
 
   @override
-  String get recycling_photo_title => 'Recycling instructions Photo';
+  String get recycling_photo_title => '“循环利用标记”的照片';
 
   @override
   String get take_photo_title => '選一張圖片';
@@ -1081,15 +1075,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get no_product_found => '未發現產品';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Your search for\n**\"$search\"**\ndid not match any results.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Do you want to run this same search in **our global database** instead?';
 
   @override
   String get no_location_found => '未找到位置';
@@ -1935,7 +1920,7 @@ class AppLocalizationsZh extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => '國家';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint => '输入国家（例如：德国）';
@@ -2410,9 +2395,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => '未知';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2588,9 +2570,6 @@ class AppLocalizationsZh extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '價格條目來自“$user”';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'View product details';
 
   @override
   String get prices_entry_menu_open_product_prices => '查看該產品的所有價格';
@@ -2862,33 +2841,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => '已完成';
@@ -5050,7 +5002,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get photo_field_nutrition => '营养成分的照片';
 
   @override
-  String get photo_field_packaging => '回收说明照片';
+  String get photo_field_packaging => '包裝資訊照片';
 
   @override
   String get photo_already_exists => '这张照片已经存在';
@@ -5131,47 +5083,6 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => '為我';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'My compatibility';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% compatible';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Insufficient data to compute a compatibility score.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'A score can\'t be computed for a product of type \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Importance';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Matches';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Good matches';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Average matches';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'Bad matches';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Unknown matches';
 
   @override
   String get product_page_tab_website => '网站';
@@ -5785,7 +5696,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get preferences_prices_top_contributors_title => '貢獻最多獎項的貢獻者';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Prices metrics';
+  String get preferences_prices_metrics_title => '開盤價指標';
 
   @override
   String get preferences_prices_metrics_subtitle => '追蹤專案的進展';
@@ -5966,52 +5877,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => '國家';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Back to home';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Toggle camera';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Show the barcode scanner';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Tap to scan a **barcode**\nand discover if it\'s **good for you**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Toggle torch';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Scan a product by approaching its barcode';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'We have detected the following barcode: $barcode, but it seems to be invalid.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'View more…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Last scanned products';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }
 
 /// The translations for Chinese, as used in China (`zh_CN`).
@@ -6020,9 +5892,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get app_name => 'Open Food Facts';
-
-  @override
-  String get open_prices => 'Open Prices';
 
   @override
   String get sep => '';
@@ -6630,9 +6499,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get unknownBrand => '未知品牌';
 
   @override
-  String get unknownQuantity => '未知数量';
-
-  @override
   String get unknownProductName => '未知产品名称';
 
   @override
@@ -6697,10 +6563,10 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get nutrition_facts_editing_title => '编辑营养成分表';
 
   @override
-  String get packaging_information => '回收说明';
+  String get packaging_information => '包装信息';
 
   @override
-  String get packaging_information_photo => '回收说明照片';
+  String get packaging_information_photo => '包装信息照片';
 
   @override
   String get missing_product => '你发现了一件新产品！';
@@ -6796,7 +6662,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get nutritional_facts_photo_title => '营养成分表照片';
 
   @override
-  String get recycling_photo_title => '回收说明 图片';
+  String get recycling_photo_title => '“循环利用标记”的照片';
 
   @override
   String get take_photo_title => '请拍照';
@@ -7082,14 +6948,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get no_product_found => '没有找到的产品';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return '您搜索“\n**\"$search\"**\n” 未找到任何结果。';
-  }
-
-  @override
-  String get no_product_found_try_world_results => '您是否想在我们的全球数据库中运行相同的搜索？';
 
   @override
   String get no_location_found => '未找到位置';
@@ -7929,7 +7787,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '这种大豆并非来自欧盟。';
 
   @override
-  String get edit_product_form_item_countries_title => '国家/地区';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint => '输入国家（例如：德国）';
@@ -8394,9 +8252,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get product_type_label_product => '其他';
 
   @override
-  String get product_type_label_unknown => '未知';
-
-  @override
   String get product_type_selection_title => '产品类型';
 
   @override
@@ -8567,9 +8422,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String prices_entry_menu_title(String user) {
     return '价格条目来自“$user”';
   }
-
-  @override
-  String get prices_entry_menu_open_product => '查看产品详情';
 
   @override
   String get prices_entry_menu_open_product_prices => '查看该产品的所有价格';
@@ -9350,9 +9202,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get background_task_title_full_refresh => '开始刷新本地存储的所有产品';
 
   @override
-  String get background_task_title_folksonomy => '开始执行本地存储的民间分类更新的服务器操作';
-
-  @override
   String get background_task_title_top_n => '开始下载最受欢迎的产品';
 
   @override
@@ -10074,7 +9923,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '对于制造商来说，Nutri-Score 的显示**仍然是可选的**。';
 
   @override
-  String get guide_greenscore_title => '绿色评分';
+  String get guide_greenscore_title => 'Green-Score';
 
   @override
   String get guide_greenscore_what_is_greenscore_title => '什么是绿色分数？';
@@ -10635,7 +10484,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      '什么是开放产品信息？';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -10646,7 +10495,8 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
       '从电子产品到玩具，从服装到清洁用品，只要有条形码，都可以添加进去。本项目旨在为日常物品构建“物联网”，使所有相关信息都能被普遍获取。';
 
   @override
-  String get guide_open_products_facts_features_title => '开放产品事实的特点';
+  String get guide_open_products_facts_features_title =>
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -10916,7 +10766,7 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get photo_field_nutrition => '营养成分的照片';
 
   @override
-  String get photo_field_packaging => '回收说明照片';
+  String get photo_field_packaging => '包装信息照片';
 
   @override
   String get photo_already_exists => '这张照片已经存在';
@@ -10997,43 +10847,6 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
 
   @override
   String get product_page_tab_for_me => '为我';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => '我的兼容性';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% 兼容';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      '数据不足，无法计算兼容性评分。';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '无法计算类型为“$productType”的产品的分数。';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => '重要性';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => '比赛';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => '精彩匹配';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches => '平均匹配';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => '糟糕的匹配';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches => '未知匹配项';
 
   @override
   String get product_page_tab_website => '网站';
@@ -11478,7 +11291,8 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get preferences_faq_discover_op_title => '探索Open Prices';
 
   @override
-  String get preferences_faq_discover_opf_title => '了解开放产品信息';
+  String get preferences_faq_discover_opf_title =>
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - 常见问题';
@@ -11824,48 +11638,11 @@ class AppLocalizationsZhCn extends AppLocalizationsZh {
   String get location_map_details_postcode => '邮政编码';
 
   @override
-  String get location_map_details_country => '国家/地区';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => '坐标';
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => '返回首页';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => '切换摄像头';
-
-  @override
-  String get homepage_header_barcode_tooltip => '显示条形码扫描器';
-
-  @override
-  String get homepage_scanner_overlay_message => '点击扫描**条形码**\n，看看它是否**对您有益**！';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => '切换手电筒';
-
-  @override
-  String get homepage_scanner_banner_start_scanning => '靠近产品条形码即可扫描产品。';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return '我们检测到以下条形码： $barcode，但它似乎无效。';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => '查看更多…';
-
-  @override
-  String get homepage_list_most_scanned_title => '被查看最多的产品';
-
-  @override
-  String get homepage_list_last_scanned_title => '最新扫描产品';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

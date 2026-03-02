@@ -12,9 +12,6 @@ class AppLocalizationsTn extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Ditlhwatlhwa tse di bulegileng';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Dilaesense';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsTn extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Bontsi jo bo sa itsiweng';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsTn extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Ditaelo tsa tirisopoeletso';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Ditaelo tsa tirisopoeletso Senepe';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1135,6 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Patlo ya gago ya\n**\"$search\"**\nga e a tsamaisana le dipholo dipe.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'A o batla go dira patlo e e tshwanang mo **polokelongtshedimosetso ya rona ya lefatshe lotlhe** boemong jwa seo?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2519,6 @@ class AppLocalizationsTn extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2715,9 +2697,6 @@ class AppLocalizationsTn extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Tlhwatlhwa e e tsenngwang go tswa go \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Leba dintlha tsa sedirisiwa';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3001,33 +2980,6 @@ class AppLocalizationsTn extends AppLocalizations {
   String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
-
-  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -3064,7 +3016,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'Fetola fa gare ga ditlhwatlhwa.dintlha tsa dijo.org (PROD) le tikologo ya teko';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3571,7 +3523,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Go simolola go dira ditiro tsa sefara tsa dintšhwafatso tsa folksonomy tse di bolokilweng mo lefelong la gaeno';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4965,7 +4917,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get guide_open_prices_share_link =>
-      'https://ditlhwatlhwa.dintlha tsa dijo tse di bulegileng.org/ka ga';
+      'https://prices.openfoodfacts.org/about';
 
   @override
   String get guide_open_products_facts_title =>
@@ -5270,7 +5222,7 @@ class AppLocalizationsTn extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5354,48 +5306,6 @@ class AppLocalizationsTn extends AppLocalizations {
   String get product_page_tab_for_me => 'Mo go nna';
 
   @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Go tsamaisana ga me';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% e tsamaisana';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Tshedimosetso e e sa lekanang go bala maduo a go tsamaisana.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Maduo a ka se balelelwe kumo ya mofuta wa \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Botlhokwa';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Ditshwano';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Ditshwano tse di siameng';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Palogare ya ditshwano';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Ditshwano tse di sa siamang';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Ditshwano tse di sa itsiweng';
-
-  @override
   String get product_page_tab_website => 'Website';
 
   @override
@@ -5406,7 +5316,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** ke porojeke ya go kokoanya le go abelana ditlhwatlhwa tsa dikumo lefatshe ka bophara 🌍. Ditheko tse Bulehileng di ntshetswa pele le ho bolokwa ke Dintlha tsa Dijo tse Bulehileng.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -6021,7 +5931,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Dikumo tse disha tse ke di tsentseng mo Dintlhang tsa Dijo tse di Buletsweng';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6047,7 +5957,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'Thusa go balelela Maduo a Dikotla le Green-Score mo nageng ya gaeno';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle =>
@@ -6070,7 +5980,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Ditlhwatlhwa tsa bosheng tse di tsentsweng ke baagi ba Ditlhwatlhwa tse di Buletsweng';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
@@ -6078,7 +5988,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_prices_metrics_title =>
-      'Dimeteriki tsa Ditlhwatlhwa tse di Buletsweng';
+      'Dimeteriki tsa Ditlhwatlhwa tse di bulegileng';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6121,7 +6031,7 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Ditsela tse di bonolo tsa go thusa go Bula Dintlha tsa Dijo';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6230,14 +6140,14 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Bula Dilaboratori tsa Dintlha tsa Dijo';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Tlisa Dintlha tsa Dijo tse di Bulegileng mo puong ya gago';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6282,45 +6192,4 @@ class AppLocalizationsTn extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Go boela gae';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Fetola khamera';
-
-  @override
-  String get homepage_header_barcode_tooltip =>
-      'Bontsha sekenara sa khoutu ya dibara';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Konya go sekaseka **khoutu ya dibara**\nmme o bone gore a e **go siametse**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Fetola thotšhe';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Sekena sedirisiwa ka go atamela khoutu ya sone';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Re lemogile khoutu e e latelang: $barcode, mme go lebega e sa dire.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Leba tse dingwe…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Dikumo tse di skenilweng labofelo';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

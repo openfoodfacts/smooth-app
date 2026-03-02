@@ -12,9 +12,6 @@ class AppLocalizationsSa extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsSa extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'अनुज्ञापत्राणि';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsSa extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'अज्ञात परिमाण';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsSa extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'पुनःप्रयोगस्य निर्देशाः';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsSa extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'पुनःप्रयोगस्य निर्देशाः Photo';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1135,6 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'भवतः\n**\"$search\"**\nइत्यस्य अन्वेषणं किमपि परिणामं न प्राप्तवान् ।';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'किं भवान् तस्य स्थाने **अस्माकं वैश्विकदत्तांशकोशे** एतत् एव अन्वेषणं चालयितुम् इच्छति?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2535,9 +2520,6 @@ class AppLocalizationsSa extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2715,9 +2697,6 @@ class AppLocalizationsSa extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '\"$user\" तः मूल्यप्रविष्टिः ।';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'उत्पादविवरणं पश्यन्तु';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2994,33 +2973,6 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3567,7 +3519,7 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'स्थानीयरूपेण संगृहीतस्य folksonomy अद्यतनस्य कृते सर्वरक्रियाः कर्तुं आरभते';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5262,7 +5214,7 @@ class AppLocalizationsSa extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5344,46 +5296,6 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'मम कृते';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'मम संगतिः';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% संगत';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'संगततास्कोरस्य गणनाय अपर्याप्तदत्तांशः ।';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" प्रकारस्य उत्पादस्य कृते स्कोरस्य गणना कर्तुं न शक्यते ।';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'महत्त्वम्';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'मेलयति';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'उत्तमाः मेलाः';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'औसतमेलनम्';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'दुष्टमेलनानि';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'अज्ञात मेल';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5852,8 +5764,7 @@ class AppLocalizationsSa extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'खुले खाद्यतथ्यस्य आविष्कारं कुर्वन्तु';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6066,8 +5977,7 @@ class AppLocalizationsSa extends AppLocalizations {
       'अधिकतममूल्यानि युक्ताः योगदातारः';
 
   @override
-  String get preferences_prices_metrics_title =>
-      'मूल्यानि मेट्रिकं उद्घाटयन्तु';
+  String get preferences_prices_metrics_title => 'मूल्यमापनं उद्घाटयतु';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6216,7 +6126,7 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'खाद्यतथ्यप्रयोगशालाः उद्घाटयन्तु';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
@@ -6267,44 +6177,4 @@ class AppLocalizationsSa extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'गृहं प्रति पुनः';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'कॅमेरा टॉगल कुर्वन्तु';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'बारकोड् स्कैनरं दर्शयतु';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**बारकोड्**\nस्कैन् कर्तुं ट्याप् कुर्वन्तु तथा च आविष्करोतु यत् एतत् **भवतः कृते उत्तमम्** अस्ति वा!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'टॉगल टॉर्च';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'उत्पादस्य बारकोड् इत्यस्य समीपं गत्वा तस्य स्कैनिङ्गं कुर्वन्तु';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'वयं निम्नलिखितं बारकोड् ज्ञातवन्तः: $barcode, परन्तु अमान्यं दृश्यते ।';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'अधिकं…पश्यन्तु';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'अन्तिम स्कैन् कृतानि उत्पादानि';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent% 1 .';
-  }
 }

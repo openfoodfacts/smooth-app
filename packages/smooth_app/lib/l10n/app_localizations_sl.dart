@@ -12,9 +12,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Odpri cene';
-
-  @override
   String get sep => '';
 
   @override
@@ -660,9 +657,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get unknownBrand => 'Neznana znamka';
 
   @override
-  String get unknownQuantity => 'Neznana količina';
-
-  @override
   String get unknownProductName => 'Neznano ime izdelka';
 
   @override
@@ -729,11 +723,10 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Uredi hranilne vrednosti';
 
   @override
-  String get packaging_information => 'Navodila za recikliranje';
+  String get packaging_information => 'Informacije o embalaži';
 
   @override
-  String get packaging_information_photo =>
-      'Fotografija navodil za recikliranje';
+  String get packaging_information_photo => 'Slika informacij o embalaži';
 
   @override
   String get missing_product => 'Našli ste nov izdelek!';
@@ -838,7 +831,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Fotografija hranilnih vrednosti';
 
   @override
-  String get recycling_photo_title => 'Navodila za recikliranje Fotografija';
+  String get recycling_photo_title => 'Fotografija recikliranja';
 
   @override
   String get take_photo_title => 'Posnemi fotografijo';
@@ -1160,15 +1153,6 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get no_product_found => 'Ni zadetkov';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Vaše iskanje za\n**\"$search\"**\nni dalo nobenih rezultatov.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Ali želite namesto tega izvesti isto iskanje v **naši globalni bazi podatkov**?';
 
   @override
   String get no_location_found => 'Ni najdene lokacije';
@@ -2563,9 +2547,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String get product_type_label_product => 'Drugo';
 
   @override
-  String get product_type_label_unknown => 'Neznano';
-
-  @override
   String get product_type_selection_title => 'Vrsta izdelka';
 
   @override
@@ -2743,9 +2724,6 @@ class AppLocalizationsSl extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Vnos cene od \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Ogled podrobnosti o izdelku';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3020,34 +2998,7 @@ class AppLocalizationsSl extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Več o odprtih cenah';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Opravljeno';
@@ -3604,7 +3555,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Začetek izvajanja dejanj strežnika za lokalno shranjene posodobitve folksonomy';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4117,7 +4068,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Nutri-ocena A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
   String get nutriscore_b => 'Nutri-Score B';
@@ -4140,11 +4091,11 @@ class AppLocalizationsSl extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (nov izračun)';
 
   @override
-  String get nutriscore_unknown => 'Neznana hranilna vrednost';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Neznan nutri-rezultat (nov izračun)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
   String get nutriscore_not_applicable => 'Nutri-Score se ne uporablja.';
@@ -4205,7 +4156,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get faq_title_vision =>
-      'Vizija, poslanstvo, vrednote in programi Odprtega programa za živila';
+      'The Open Food Facts Vision, Mission, Values and Programs';
 
   @override
   String get faq_title_install_beauty =>
@@ -4681,7 +4632,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Kaj so odprta dejstva o hrani?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4693,7 +4644,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Značilnosti odprtih dejstev o hrani';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4778,7 +4729,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Značilnosti odprtih dejstev o hrani za hišne ljubljenčke';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4848,7 +4799,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'Kaj so odprta dejstva o lepoti?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4932,11 +4883,11 @@ class AppLocalizationsSl extends AppLocalizations {
       'https://world-sl.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Dobrodošli na Odprtih cenah!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Kaj so odprte cene?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4947,7 +4898,7 @@ class AppLocalizationsSl extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Kako delujejo odprte cene?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5013,7 +4964,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Kaj so dejstva o odprtih izdelkih?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -5025,7 +4976,7 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Značilnosti odprtih izdelkov Dejstva';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5310,7 +5261,7 @@ class AppLocalizationsSl extends AppLocalizations {
   String get photo_field_nutrition => 'Fotografija prehrane';
 
   @override
-  String get photo_field_packaging => 'Fotografija navodil za recikliranje';
+  String get photo_field_packaging => 'Slika informacij o embalaži';
 
   @override
   String get photo_already_exists => 'Ta fotografija že obstaja';
@@ -5392,46 +5343,6 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Zame';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Moja združljivost';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% združljivosti';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Premalo podatkov za izračun ocene združljivosti.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Za izdelek tipa »$productType« ni mogoče izračunati rezultata.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Pomen';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Tekme';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'Dobre tekme';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Povprečne tekme';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'Slabe tekme';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Neznane tekme';
 
   @override
   String get product_page_tab_website => 'Spletna stran';
@@ -5900,23 +5811,21 @@ class AppLocalizationsSl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Odkrijte projekt';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Odkrijte dejstva o odprti hrani';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Odkrijte odprta dejstva o lepoti';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Odkrijte dejstva o hrani za hišne ljubljenčke na Open';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Odkrijte odprte cene';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Odkrijte dejstva o odprtih izdelkih';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title =>
@@ -6117,7 +6026,7 @@ class AppLocalizationsSl extends AppLocalizations {
       'Sodelavci z najvišjimi cenami';
 
   @override
-  String get preferences_prices_metrics_title => 'Metrike odprtih cen';
+  String get preferences_prices_metrics_title => 'Metrike odprte cene';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6266,14 +6175,14 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Odprti laboratoriji za dejstva o hrani';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Račun';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Prinesite odprta dejstva o hrani v svoj jezik';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6318,43 +6227,4 @@ class AppLocalizationsSl extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'ID OSM-a';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Nazaj domov';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Preklopi kamero';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Prikaži skener črtne kode';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Dotaknite se za skeniranje **črtne kode**\nin ugotovite, ali je **dobra za vas**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Preklopi svetilko';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Skenirajte izdelek tako, da se približate njegovi črtni kodi';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Zaznali smo naslednjo črtno kodo: $barcode, vendar se zdi, da ni veljavna.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Oglejte si več…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Najbolj skenirani izdelki';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Zadnji skenirani izdelki';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

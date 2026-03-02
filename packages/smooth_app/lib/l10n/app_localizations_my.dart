@@ -12,9 +12,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'လိုင်စင်များ';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -658,9 +655,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'မသိရသော ပမာဏ';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -727,11 +721,10 @@ class AppLocalizationsMy extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information =>
-      'ပြန်လည်အသုံးပြုခြင်းဆိုင်ရာ ညွှန်ကြားချက်များ';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -834,8 +827,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title =>
-      'ပြန်လည်အသုံးပြုခြင်းဆိုင်ရာ ညွှန်ကြားချက်များ ဓာတ်ပုံ';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1144,15 +1136,6 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return '\n**\"$search\"**\nအတွက် သင်ရှာဖွေမှုသည် မည်သည့်ရလဒ်နှင့်မျှ ကိုက်ညီမှုမရှိပါ။';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'ဒီရှာဖွေမှုကို **ကျွန်ုပ်တို့ရဲ့ ကမ္ဘာလုံးဆိုင်ရာ ဒေတာဘေ့စ်** မှာ အစားထိုးလုပ်ဆောင်ချင်ပါသလား။';
 
   @override
   String get no_location_found => 'No location found';
@@ -2540,9 +2523,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2721,10 +2701,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '\"$user\" မှ စျေးနှုန်းဝင်ရောက်မှု';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'ထုတ်ကုန်အသေးစိတ်အချက်အလက်များကိုကြည့်ရှုပါ';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3007,33 +2983,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
-
-  @override
   String get dev_preferences_import_history_result_success => 'Done';
 
   @override
@@ -3071,7 +3020,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get dev_mode_openprices_switch_env_title =>
-      'price.openfoodfacts.org (PROD) နှင့် test env အကြား ပြောင်းပါ။';
+      'Switch between prices.openfoodfacts.org (PROD) and test env';
 
   @override
   String get search_history_item_edit_tooltip => 'Reuse and edit this search';
@@ -3578,7 +3527,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'စက်တွင်းသိမ်းဆည်းထားသော folksonomy အပ်ဒိတ်များအတွက် ဆာဗာလုပ်ဆောင်ချက်များကို စတင်လုပ်ဆောင်နေပါသည်။';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5276,7 +5225,7 @@ class AppLocalizationsMy extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5358,49 +5307,6 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'ကျွန်တော့်အတွက်';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'ကျွန်တော့်ရဲ့ လိုက်ဖက်မှု';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% လိုက်ဖက်ညီသည်';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'လိုက်ဖက်ညီမှုရမှတ်ကို တွက်ချက်ရန် အချက်အလက် မလုံလောက်ပါ။';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" အမျိုးအစား ထုတ်ကုန်အတွက် ရမှတ်ကို တွက်ချက်၍မရပါ။';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'အရေးပါမှု';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation =>
-      'ကိုက်ညီမှုများ';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'ကောင်းမွန်သော ပွဲစဉ်များ';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'ပျမ်းမျှကိုက်ညီမှုများ';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'မကိုက်ညီသော ပွဲစဉ်များ';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'မသိသော ကိုက်ညီမှုများ';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -6089,7 +5995,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_prices_metrics_title =>
-      'ပွင့်လင်းသော ဈေးနှုန်းများ မက်ထရစ်များ';
+      'စျေးနှုန်းတိုင်းတာမှုများကို ဖွင့်ပါ။';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6131,7 +6037,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Food Facts ကိုဖွင့်ရန် ရိုးရှင်းသောနည်းလမ်းများ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6240,7 +6146,7 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Food Facts Labs ကိုဖွင့်ပါ။';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
@@ -6292,45 +6198,4 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'အိမ်ပြန်ရန်';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'ကင်မရာပြောင်းရန်';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'ဘားကုဒ်စကင်နာကို ပြပါ';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**ဘားကုဒ်**\nကို စကင်ဖတ်ပြီး ၎င်းသည် သင့်အတွက် **ကောင်းမွန်မှု** ရှိမရှိ ရှာဖွေရန် နှိပ်ပါ။';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip =>
-      'မီးရှူးတိုင်ကို ပြောင်းပါ';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'ထုတ်ကုန်တစ်ခု၏ ဘားကုဒ်ကို ချဉ်းကပ်ခြင်းဖြင့် စကင်ဖတ်ပါ';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'အောက်ပါ ဘားကုဒ်ကို ကျွန်ုပ်တို့ တွေ့ရှိပါသည်- $barcode၊ သို့သော် ၎င်းသည် မှန်ကန်မှုမရှိပုံရပါသည်။';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'ပိုမိုကြည့်ရှုရန်…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'နောက်ဆုံးစကင်ဖတ်ထားသော ထုတ်ကုန်များ';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

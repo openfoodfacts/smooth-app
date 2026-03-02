@@ -12,9 +12,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Відкриті ціни';
-
-  @override
   String get sep => '';
 
   @override
@@ -662,9 +659,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unknownBrand => 'Невідома марка';
 
   @override
-  String get unknownQuantity => 'Невідома кількість';
-
-  @override
   String get unknownProductName => 'Невідомий продукт';
 
   @override
@@ -731,10 +725,10 @@ class AppLocalizationsUk extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Редагувати харчові показники';
 
   @override
-  String get packaging_information => 'Інструкції з переробки';
+  String get packaging_information => 'Інформація про упакування';
 
   @override
-  String get packaging_information_photo => 'Інструкція з перероблювання';
+  String get packaging_information_photo => 'Фото з інформацією про упакування';
 
   @override
   String get missing_product => 'Ви знайшли новий продукт!';
@@ -840,7 +834,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Світлина харчової цінності продукту';
 
   @override
-  String get recycling_photo_title => 'Інструкції з переробки Фото';
+  String get recycling_photo_title => 'Обробка фото';
 
   @override
   String get take_photo_title => 'Сфотографувати';
@@ -1161,15 +1155,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get no_product_found => 'Продукт не знайдено';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Ваш пошуковий запит\n**\"$search\"**\nне відповідає жодному результату.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Ви хочете виконати цей самий пошук у **нашій глобальній базі даних**?';
 
   @override
   String get no_location_found => 'Локацію не знайдено';
@@ -2562,9 +2547,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String get product_type_label_product => 'Інше';
 
   @override
-  String get product_type_label_unknown => 'Невідомий';
-
-  @override
   String get product_type_selection_title => 'Тип продукту';
 
   @override
@@ -2744,9 +2726,6 @@ class AppLocalizationsUk extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Введена ціна від \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Переглянути деталі продукту';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3025,33 +3004,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Знайте більше про Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Виконано';
@@ -3609,7 +3561,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Початок виконання дій сервера для оновлень folksonomy, що зберігаються локально.';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4436,7 +4388,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Обробляється';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Пакування';
+  String get guide_greenscore_lca_arg2_packaging => 'Упаковка';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Транспортування';
@@ -4508,7 +4460,7 @@ class AppLocalizationsUk extends AppLocalizations {
       '**Штраф** накладається на продукти, що містять інгредієнти, які мають значний **негативний вплив на біорізноманіття та екосистеми**, такі як пальмова олія, виробництво якої є причиною масового вирубування лісів.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Пакування';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Упаковка';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -5315,7 +5267,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get photo_field_nutrition => 'Фото харчування';
 
   @override
-  String get photo_field_packaging => 'Інструкція з перероблювання';
+  String get photo_field_packaging => 'Фото з інформацією про упакування';
 
   @override
   String get photo_already_exists => 'Це фото вже існує';
@@ -5397,45 +5349,6 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Для мене';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'Моя сумісність';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% сумісності';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Недостатньо даних для обчислення показника сумісності.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Неможливо обчислити бал для продукту типу \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Важливість';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Матчі';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'Гарні матчі';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Середні збіги';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'Погані збіги';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Невідомі збіги';
 
   @override
   String get product_page_tab_website => 'Сайт';
@@ -5911,8 +5824,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Відкрийте для себе проєкт';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Відкрийте для себе факти про відкриту їжу';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title =>
@@ -5934,8 +5846,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - Часті запитання';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Громадська організація «Факти про відкриту їжу»';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Інформація';
@@ -5957,7 +5868,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Долучайтеся, відвідавши один із наших віртуальних заходів';
 
   @override
-  String get preferences_connect_blog_title => 'Блог «Факти про відкриту їжу»';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6128,7 +6039,7 @@ class AppLocalizationsUk extends AppLocalizations {
       'Автори з найбільшою кількістю цін';
 
   @override
-  String get preferences_prices_metrics_title => 'Показники відкритої ціни';
+  String get preferences_prices_metrics_title => 'Метрики ціни відкриття';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6278,7 +6189,7 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Відкриті лабораторії фактів про їжу';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Обліковий запис';
@@ -6329,45 +6240,4 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Назад додому';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip =>
-      'Увімкнути/вимкнути камеру';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Показати сканер штрих-кодів';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Натисніть, щоб просканувати **штрих-код**\nта дізнайтеся, чи це **корисно для вас**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip =>
-      'Увімкнути/вимкнути ліхтарик';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Відскануйте продукт, підійшовши до його штрих-коду';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Ми виявили наступний штрих-код: $barcode, але, схоже, він недійсний.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Переглянути більше…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Найпопулярніші товари';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Останні скановані товари';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

@@ -12,9 +12,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -663,9 +660,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get unknownBrand => 'Neznámá značka';
 
   @override
-  String get unknownQuantity => 'Neznámé množství';
-
-  @override
   String get unknownProductName => 'Neznámý název produktu';
 
   @override
@@ -732,10 +726,10 @@ class AppLocalizationsCs extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Upravit nutriční fakta';
 
   @override
-  String get packaging_information => 'Pokyny pro recyklaci';
+  String get packaging_information => 'Informace o balení';
 
   @override
-  String get packaging_information_photo => 'Fotografie pokynů pro recyklaci';
+  String get packaging_information_photo => 'Informační foto balení';
 
   @override
   String get missing_product => 'Našli jste nový produkt!';
@@ -839,7 +833,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Fotografie nutričních údajů';
 
   @override
-  String get recycling_photo_title => 'Pokyny k recyklaci Fotografie';
+  String get recycling_photo_title => 'Fotografie recyklace';
 
   @override
   String get take_photo_title => 'Vyfotit';
@@ -1002,8 +996,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Přidejte chybějící výživová fakta';
 
   @override
-  String get score_add_missing_product_traces =>
-      'Přidat chybějící stopy produktu';
+  String get score_add_missing_product_traces => 'Add missing product traces';
 
   @override
   String get score_add_missing_product_category =>
@@ -1159,15 +1152,6 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get no_product_found => 'Nebyl nalezen žádný produkt';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Vaše vyhledávání výrazu\n**\"$search\"**\nneodpovídá žádným výsledkům.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Chcete místo toho spustit stejné vyhledávání v **naší globální databázi**?';
 
   @override
   String get no_location_found => 'Nenalezena žádná poloha';
@@ -1932,7 +1916,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Přidá novou kategorii';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Přidat novou stopu';
+  String get edit_product_form_item_add_action_trace => 'Add a new trace';
 
   @override
   String get edit_product_form_item_add_suggestion => 'Přidat návrh';
@@ -2125,7 +2109,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Zadejte stopu (např.: sójové boby)';
+      'Input a trace (eg: Soy beans)';
 
   @override
   String get edit_product_form_item_categories_title => 'Kategorie';
@@ -2558,9 +2542,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get product_type_label_product => 'Ostatní';
 
   @override
-  String get product_type_label_unknown => 'Neznámo';
-
-  @override
   String get product_type_selection_title => 'Typ produktu';
 
   @override
@@ -2587,25 +2568,25 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Přidejte cenovky přímo z galerie';
+      'Add price tags directly from gallery';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Jakmile vyberete obrázky, nebudete je moci upravovat!';
+      'Once you\'ve selected images, you won\'t be able to edit them!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
-      'Umělá inteligence poběží na základě vašich dokladů, aby extrahovala ceny.';
+      'AI will run on your proofs to extract prices.';
 
   @override
   String get prices_bulk_proof_upload_community_switch =>
       'Umožněte komunitě ověřovat ceny získané umělou inteligencí.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Více cenových štítků';
+  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Hromadné nahrání dokladů';
+  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Výběr souborů';
@@ -2737,10 +2718,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Zadání ceny od „$user“';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'Zobrazit podrobnosti o produktu';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2953,7 +2930,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get prices_proof_find => 'Vybrat doklad';
 
   @override
-  String get prices_proof_change => 'Změnit doklad';
+  String get prices_proof_change => 'Change proof';
 
   @override
   String get prices_proof_receipt => 'Účtenka';
@@ -3016,34 +2993,7 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Zjistěte více o otevřených cenách';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Hotovo';
@@ -3132,7 +3082,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String search_proof_title(String user) {
-    return 'Doklad od „$user“';
+    return 'Proof from \"$user\"';
   }
 
   @override
@@ -3159,7 +3109,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get prices_challenges_page => 'Výzvy';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Přidat více dokladů';
+  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
 
   @override
   String get all_search_prices_top_location_single_title => 'Ceny v obchodě';
@@ -3256,7 +3206,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Před ověřením se prosím ujistěte, že přidáváte překlad pouze v případě, **že je daný jazyk uveden na obalu**';
+      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
 
   @override
   String get add_basic_details_product_name_open_photo =>
@@ -3368,7 +3318,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'Při prodeji **velkou společností**:';
+      'When sold **by a big company**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
@@ -3376,7 +3326,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'Při prodeji se svou značkou **přeloženou do několika jazyků**:';
+      'When sold with its brand **translated in multiple languages**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
@@ -3590,7 +3540,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Zahájení provádění akcí serveru pro lokálně uložené aktualizace folksonomy';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4224,8 +4174,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Přihlaste se k odběru našeho zpravodaje';
 
   @override
-  String get contact_title_calendar =>
-      'Přihlaste se k odběru našeho komunitního kalendáře';
+  String get contact_title_calendar => 'Subscribe to our community calendar';
 
   @override
   String get hunger_games_loading_line1 => 'Dejte nám prosím pár sekund…';
@@ -4470,21 +4419,21 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'Na základě původu surovin se uděluje **bonus**. Tento bonus zohledňuje **dopad na dopravu** a také **environmentální politiku** země každého producenta.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title => 'Ohrožené druhy';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      '**Pokuta** se uděluje produktům, které obsahují složky s významným **negativním dopadem na biodiverzitu a ekosystémy**, jako je například palmový olej, jehož produkce je zodpovědná za masivní odlesňování.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Obal';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'Výše pokuty se vypočítává s ohledem na oběhový charakter obalů (použití recyklovaných surovin a recyklovatelnost) a nadměrné balení.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4492,11 +4441,11 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Pro přesný výpočet Green-Score je nutné mít **informace, které nemusí být nutně uvedeny na obalu** (jako je původ a přesné procento každé složky) nebo které jsou zřídka dostupné v použitelné formě (jako je seznam všech součástí obalu s přesným uvedením použitých typů plastů).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Průměrné hodnoty se používají, pokud tyto informace ještě nejsou k dispozici**, ale nyní vyzýváme všechny, aby nám pomohli tyto informace shromáždit, protože budou velmi užitečné pro Green-Score, ale i pro mnoho dalších použití.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
@@ -4578,7 +4527,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Nezpracované (nebo přírodní) potraviny jsou **jedlé části rostlin** (semena, plody, listy, stonky, kořeny) **nebo zvířat** (svalovina, droby, vejce, mléko), jakož i houby, řasy a voda po oddělení od přírody.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title =>
@@ -4611,7 +4560,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Mnohé z nich pocházejí z **dalšího zpracování složek potravin**, jako jsou hydrogenované nebo interesterifikované oleje, hydrolyzované bílkoviny, izolát sójových bílkovin, maltodextrin, invertní cukr a kukuřičný sirup s vysokým obsahem fruktózy.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4619,7 +4568,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Mezi přísady v ultrazpracovaných potravinách patří některé, které se používají i ve zpracovaných potravinách, jako jsou konzervanty, antioxidanty a stabilizátory. Mezi třídy přísad, které se nacházejí pouze v ultrazpracovaných produktech, patří ty, které se používají **k napodobení nebo vylepšení senzorických vlastností potravin nebo k zakrytí nechutných aspektů konečného produktu**. Mezi tyto přísady patří pigmenty a jiná barviva, stabilizátory barev; aromata, zvýrazňovače chuti, necukerná sladidla; a pomocné látky při zpracování, jako jsou syticí, zpevňující, objemové a protiplísňové látky, odpěňovací, protispékavé a lešticí látky, emulgátory, sekvestranty a zvlhčovadla.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4627,7 +4576,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**Ke smíchání obvykle mnoha ingrediencí a vytvoření konečného produktu (odtud „ultra zpracovaný“) se používá **množství sekvencí procesů**. Mezi tyto procesy patří několik **kterých v domácím prostředí neexistují ekvivalenty**, jako je hydrogenace a hydrolýza, extruze a lisování a předzpracování pro smažení.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4635,105 +4584,104 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      'Celkovým účelem ultrazpracování je vytvořit značkové, pohodlné (trvanlivé, připravené ke konzumaci), atraktivní (hyperchutné) a vysoce ziskové (s levnými ingrediencemi) potraviny určené k nahrazení všech ostatních skupin potravin. Ultrazpracované potraviny jsou obvykle atraktivně baleny a intenzivně uváděny na trh.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'Zdravotní riziko';
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Od roku 2018 byly díky projektu NutriNet-Santé zdůrazněny první souvislosti mezi **konzumací ultrazpracovaných potravin a zvýšeným rizikem rakoviny, kardiovaskulárních onemocnění a cukrovky**. Dnes tato zjištění potvrzuje více než 90 studií po celém světě.\nNejsilnější souvislosti se týkají **obezity, kardiovaskulární úmrtnosti a depresivních symptomů**. U dětí jsou účinky pozorovány především na hmotnosti a lipidové nerovnováze.';
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Země doporučují jejich omezení';
+      'Countries recommend limiting them';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Některé země používají skupiny NOVA pro svá stravovací doporučení nebo cíle, například:\n\n- **🇧🇷 Brazílie** – stravovací doporučení **doporučuje omezit** konzumaci zpracovaných potravin a vyhýbat se ultrazpracovaným potravinám.\n\n- **🇫🇷 Francie** – cíle politiky veřejného zdraví v oblasti výživy na období 2018–2022 si kladou za cíl **snížit spotřebu ultrazpracovaných potravin skupiny 4 o 20 %**.';
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world-cs.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Vítejte na Open Food Facts!';
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Co je to Open Food Facts?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts je **kolaborativní**, **bezplatná** a **otevřená** databáze potravinářských produktů z celého světa.';
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'Věříme, že každý by měl mít přístup k informacím o tom, co jí. Shromažďováním údajů o složkách, alergenech, nutričních hodnotách a dalších údajích **umožňujeme spotřebitelům činit informovaná rozhodnutí** a posouváme potravinářský průmysl **k větší transparentnosti**.';
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Vlastnosti Open Food Facts';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Získejte upozornění na nežádoucí přísady';
+      'Get alerts for your unwanted ingredients';
 
   @override
-  String get guide_open_food_facts_tips_title =>
-      'Tipy pro pořizování skvělých fotografií';
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Co nedělat';
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Vyhněte se stínům a přesvícení.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'Žádný rozmazaný nebo nezaostřený text.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Nevyřezávejte části textu.';
+      'Don\'t crop out parts of the text.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 =>
-      'Vyhněte se rušivému pozadí.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Co dělat';
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Používejte dobré, rovnoměrné osvětlení.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Ujistěte se, že text je ostrý a čitelný.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Zaznamenejte si celý seznam ingrediencí.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Dejte výrobek na rovný povrch.';
+      'Keep the product on a flat surface.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Pomozte nám vybudovat \"Wikipedii potravin\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'Skóre nutriční kvality';
+      'A score on the nutritional quality';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'Skóre, jak se vyhnout ultrazpracovaným potravinám';
+      'A score to avoid ultra-processed foods';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title => 'Skóre pro planetu';
+  String get guide_open_food_facts_scores_arg3_title =>
+      'A score for the planet';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4741,235 +4689,236 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Vítejte v Open Pet Food Facts!';
+      'Welcome to Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Co je Open Pet Food Facts?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts rozšiřuje naši misi na naše chlupaté přátele! Je to **databáze krmiv pro kočky, psy a další domácí mazlíčky**.';
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'Shromažďujeme informace o **složení**, **nutriční analýze** a krmných pokynech, abychom majitelům domácích mazlíčků pomohli vybrat nejlepší krmivo pro jejich zvířata.';
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Vlastnosti Open Pet Food Facts';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Získejte upozornění na nežádoucí přísady';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Je váš mazlíček alergický na nějaké složky? Seznam kosmetických složek, kterým se chcete vyhnout, si můžete nastavit přímo v aplikaci!';
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Tipy pro pořizování skvělých fotografií';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title => 'Co nedělat';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Vyhněte se stínům a přesvícení.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'Žádný rozmazaný nebo nezaostřený text.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Nevyřezávejte části textu.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Vyhněte se rušivému pozadí.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Co dělat';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Používejte dobré, rovnoměrné osvětlení.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Ujistěte se, že text je ostrý a čitelný.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Zaznamenejte si celý seznam ingrediencí.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Dejte výrobek na rovný povrch.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'Poznámka k bodování';
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Vývoj systému hodnocení krmiv pro domácí mazlíčky **není v současné době prioritou**. Metodika by byla složitá, protože nutriční potřeby se značně liší podle druhu, věku a zdravotního stavu. Zatím jsme nenašli žádný nezávislý vědecký tým, který by byl schopen takové hodnocení vyvinout.';
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-cs.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Vítejte na Open Beauty Facts!';
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'Co je to Open Beauty Facts?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts je kooperativní databáze **kosmetických produktů**.';
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Naším cílem je rozluštit seznamy složek, abyste **pochopili, co se nachází ve vašich produktech osobní péče**. Od hydratačních krémů po make-up shromažďujeme data o složkách, alergenech a obalech, abychom podpořili transparentnost v kosmetickém průmyslu.';
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Funkce Open Beauty Facts';
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Získejte upozornění na nežádoucí přísady';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Jste alergičtí na nějaké složky? Chcete se vyhnout komedogenním látkám? Chcete se vyhnout kontroverzním složkám? Seznam kosmetických složek, kterým se chcete vyhnout, si můžete nastavit přímo v aplikaci!';
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Tipy pro pořizování skvělých fotografií';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title => 'Co nedělat';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Vyhněte se stínům a přesvícení.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'Žádný rozmazaný nebo nezaostřený text.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Nevyřezávejte části textu.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Vyhněte se rušivému pozadí.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Co dělat';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Používejte dobré, rovnoměrné osvětlení.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Ujistěte se, že text je ostrý a čitelný.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Zaznamenejte si celý seznam ingrediencí.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Pokud je láhev zakřivená, pořiďte tolik fotografií, kolik je potřeba.';
+      'Take as many picture as need if the bottle is curved.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'Možná budete muset odloupnout štítek, abyste viděli seznam složek.';
+      'You might need to peel the label to see the list of ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Dejte výrobek na rovný povrch.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'Poznámka k bodování';
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Na rozdíl od potravinářských výrobků nemá svět kosmetiky **všeobecně uznávaný, vládou podporovaný systém hodnocení, jako je Nutri-Score**. Účinky složek mohou být velmi individuální a záviset na typu pleti, alergiích a individuálních problémech.';
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-cs.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Vítejte v Open Prices!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Co jsou to Open Prices?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices je projekt, jehož cílem je **shromažďovat a sdílet ceny produktů z celého světa**. Jedná se o veřejně dostupnou datovou sadu, kterou lze použít pro výzkum, analýzy a další účely. Open Prices je vyvíjen a spravován společností Open Food Facts.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'V současnosti je málo společností, které vlastní rozsáhlé databáze cen produktů na úrovni čárových kódů. Tyto ceny nejsou volně dostupné, ale prodávají se za vysokou cenu soukromým subjektům, výzkumníkům a dalším organizacím, které si je mohou dovolit.';
 
   @override
-  String get guide_open_prices_how_title => 'Jak fungují Open Prices?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**Provádíme crowdsourcing s open-source datovou sadou cen.** Ceny mohou uživatelé přidávat prostřednictvím této webové aplikace nebo oficiální mobilní aplikace Open Food Facts. Prostřednictvím našeho API mohou přispět i maloobchodníci nebo aplikace třetích stran.';
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Sbírejte fotografie cenovek v uličkách';
+      'Collect photos of price tags in aisles';
 
   @override
-  String get guide_open_prices_how_arg2_title => 'Sbírejte fotografie účtenek';
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
 
   @override
-  String get guide_open_prices_why_title => 'Proč to Open Food Facts dělá?';
+  String get guide_open_prices_why_title =>
+      'Why is Open Food Facts doing this ?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Informace o cenách jsou pro pochopení potravinových systémů zásadní. Jsou klíčovým faktorem pro pochopení nákladů na potraviny a pro podporu zdravějšího stravování. Uvolnění cenových dat je způsobem, jak usnadnit výzkumníkům, novinářům a občanům **lepší pochopení toho, jak se ceny potravin mění geograficky a v čase**.';
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
 
   @override
-  String get guide_open_prices_why_arg1_title => 'Sledujte vývoj cen v čase';
+  String get guide_open_prices_why_arg1_title =>
+      'Track the evolution of prices over time';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'Podívejte se na **vývoj cen**: smrskflace, cheapflace, můžeme je sledovat společně!';
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
 
   @override
-  String get guide_open_prices_why_arg2_title =>
-      'Porovnejte ceny ve vašem okolí';
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'Jak budeme dostávat více cen, můžete najít **nejlevnější obchody ve vašem okolí**.';
+      'As we get more prices, you can spot **the cheapest stores around you**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Zvažovali jste možnost sesbírat ceny z webových stránek maloobchodníků?';
+      'Did you consider scraping prices from retailers\' websites?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Z právních a technických důvodů **nepovažujeme scraping cen z webových stránek maloobchodníků za platný způsob, jak přispívat do Open Prices**. Chceme se ujistit, že ceny, které shromažďujeme, jsou přesné a aktuální, a získávání scrapingových cen od přispěvatelů nám to neumožňuje.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Sběr dat o cenách je v budoucí verzi Open Prices zvažovanou možností, ale prováděl by ji samotný Open Prices, abychom měli důkaz o ceně na základě HTML stránky.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4977,7 +4926,7 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'Ceny můžete zadávat pomocí našeho API.\nPokud chcete zadávat ceny ve velkém měřítku, kontaktujte nás prosím na adrese prices@openfoodfacts.org.';
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4985,87 +4934,88 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Vítejte na Open Products Facts!';
+      'Welcome to Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Co je to Open Products Facts?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts je rozsáhlá otevřená databáze pro **jakýkoli produkt s čárovým kódem, který není potravinou, kosmetickým přípravkem ani krmivem pro domácí zvířata**.';
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'Od **elektroniky** po **hračky** a od **oblečení** po **čisticí prostředky**, pokud má něco čárový kód, lze jej přidat. Cílem tohoto projektu je vytvořit „internet věcí“ pro předměty denní potřeby a zpřístupnit o nich informace univerzálně.';
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Vlastnosti Open Products Facts';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Cílem Open Products Facts je poskytnout spotřebitelům možnost **prodloužit životnost předmětů** tím, že jim poskytne cirkulární řešení pro údržbu, **opravy**, **recyklaci** jejich předmětů nebo jim dát nového majitele.';
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Uhlíková stopa některých produktů';
+      'Carbon footprints for some products';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Dopad CO2** od francouzského úřadu pro životní prostředí ADEME uvádí **dopad uhlíku** v mnoha kategoriích, proto dbejte na přesné kategorie produktů.';
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Index opravitelnosti pro mnoho produktů';
+      'Reparability index for many products';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Kdykoli bude k dispozici francouzský index opravitelnosti, zobrazíme ho. Navíc **můžete začít shromažďovat proměnné pomocí nástroje Folksonomy Engine**, abychom jej mohli v budoucnu sami přepočítat, a to i v zemích, kde není k dispozici.';
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Najděte způsoby, jak darovat/znovu prodat váš produkt';
+      'Find ways to donate/resell your product';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'Poskytujeme odkazy na **služby třetích stran zaměřené na oběhové hospodářství**, které vám pomohou získat produkt, který hledáte, ať už z druhé ruky, a zároveň šetrněji k planetárním zdrojům.\nUpozorňujeme, že za to nejsme placeni a že systém funguje pouze jako příklad pro dva webové stránky ve Francii. Můžete pomoci rozšířit tento systém zdokumentováním dalších stránek na wiki.';
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'Jaké informace jsou užitečné?';
+      'What information is useful?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'Pro tak širokou škálu položek jsou **data, která shromažďujeme, flexibilní**. Za tímto účelem jsme **vytvořili Folksonomy Engine**.';
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
 
   @override
-  String get guide_open_products_facts_folksonomy_title => 'Folksonomy Engine';
+  String get guide_open_products_facts_folksonomy_title =>
+      'The Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'Folksonomy Engine je nástroj, který vám pomůže doplnit produkty relevantními vlastnostmi. To pomáhá zlepšit vyhledávání a objevitelnost, ale také vypočítávat a zobrazovat zajímavé informace v budoucnu.';
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'Můžete přidat libovolné klíče a hodnoty, například: **compatibility_with_5G_mobile_network: yes**';
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'Získáte automatické návrhy možných vlastností a budete vítáni, když budete přidávat a dokumentovat nové vlastnosti pro vaše oblíbené druhy produktů.';
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-cs.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title => 'Otevřít předvolby jídla';
+  String get guide_open_preferences_button_title => 'Open food preferences';
 
   @override
-  String get guide_coming_soon_button_title => 'Již brzy';
+  String get guide_coming_soon_button_title => 'Coming soon';
 
   @override
-  String get guide_learn_more_subtitle => 'Klepnutím se dozvíte více';
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
   String get preview_badge => 'Náhled';
@@ -5288,7 +5238,7 @@ class AppLocalizationsCs extends AppLocalizations {
   String get photo_field_nutrition => 'Fotografie výživových údajů';
 
   @override
-  String get photo_field_packaging => 'Fotografie pokynů pro recyklaci';
+  String get photo_field_packaging => 'Informační foto balení';
 
   @override
   String get photo_already_exists => 'Tato fotografie již existuje';
@@ -5372,48 +5322,6 @@ class AppLocalizationsCs extends AppLocalizations {
   String get product_page_tab_for_me => 'Pro mě';
 
   @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Moje kompatibilita';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% kompatibilní';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Nedostatek dat pro výpočet skóre kompatibility.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Pro produkt typu „$productType“ nelze vypočítat skóre.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Význam';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Zápasy';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Dobré zápasy';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Průměrné shody';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Špatné zápasy';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Neznámé shody';
-
-  @override
   String get product_page_tab_website => 'Webová stránka';
 
   @override
@@ -5445,11 +5353,11 @@ class AppLocalizationsCs extends AppLocalizations {
       'Tyto vlastnosti jsou vytvářeny a archivovány přispěvateli pro jakékoli použití.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Otevřít externí odkaz';
+  String get folksonomy_action_external_link_title => 'Open external link';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'Externí odkazy mohou být nebezpečné. Opravdu je chcete navštívit?';
+      'External links may be unsafe. Do you really want to visit it?';
 
   @override
   String get prices_products_empty_title => 'Cena není k dispozici';
@@ -5621,10 +5529,11 @@ class AppLocalizationsCs extends AppLocalizations {
   String get prices_stats_last_updated => 'Naposled aktualizováno';
 
   @override
-  String get prices_stats_error => 'Při načítání statistik došlo k chybě.';
+  String get prices_stats_error =>
+      'An error occurred while loading statistics.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Otázka zodpovězena!';
+  String get product_edit_robotoff_question_answered => 'Question answered!';
 
   @override
   String get product_edit_robotoff_proof => 'Doklad';
@@ -5878,22 +5787,21 @@ class AppLocalizationsCs extends AppLocalizations {
       'Zjistěte více o projektu';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Objevte fakta o jídle na Open Food';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Objevte Open Beauty Facts';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Objevte Open Pet Food Facts';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Objevte Open Prices';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Objevte Open Products Facts';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title =>
@@ -5916,14 +5824,14 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Přihlaste se k odběru našeho komunitního kalendáře';
+      'Subscribe to our community calendar';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Zapojte se účastí na jedné z našich virtuálních akcí';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Otevřená fakta o jídle';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6095,7 +6003,7 @@ class AppLocalizationsCs extends AppLocalizations {
       'Přispěvatelé s nejvyššími cenami';
 
   @override
-  String get preferences_prices_metrics_title => 'Metriky otevíracích cen';
+  String get preferences_prices_metrics_title => 'Metriky otevírací ceny';
 
   @override
   String get preferences_prices_metrics_subtitle => 'Sledujte vývoj projektu';
@@ -6242,14 +6150,14 @@ class AppLocalizationsCs extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otevřené laboratoře faktů o potravinách';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Účet';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Přineste fakta o otevřeném jídle do svého jazyka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6271,68 +6179,26 @@ class AppLocalizationsCs extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Podrobnosti o poloze';
+  String get location_map_details_title => 'Location details';
 
   @override
   String get location_map_details_name => 'Jméno';
 
   @override
-  String get location_map_details_street => 'Ulice';
+  String get location_map_details_street => 'Street';
 
   @override
-  String get location_map_details_city => 'Město';
+  String get location_map_details_city => 'City';
 
   @override
-  String get location_map_details_postcode => 'PSČ';
+  String get location_map_details_postcode => 'Postcode';
 
   @override
   String get location_map_details_country => 'Země';
 
   @override
-  String get location_map_details_coordinates => 'Souřadnice';
+  String get location_map_details_coordinates => 'Coordinates';
 
   @override
-  String get location_map_details_osm_id => 'ID OSM';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Zpátky domů';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Přepnout kameru';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Zobrazit skener čárových kódů';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Klepnutím naskenujete **čárový kód**\na zjistíte, jestli je to **pro vás** dobré!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip =>
-      'Přepnout/zapnout svítilnu';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Naskenujte produkt přiblížením se k jeho čárovému kódu';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Detekovali jsme následující čárový kód: $barcode, ale zdá se, že je neplatný.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Zobrazit více…';
-
-  @override
-  String get homepage_list_most_scanned_title =>
-      'Nejčastěji skenované produkty';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Poslední naskenované produkty';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
+  String get location_map_details_osm_id => 'OSM ID';
 }

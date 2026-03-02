@@ -12,9 +12,6 @@ class AppLocalizationsOc extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Prètz dobèrt';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsOc extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Licéncias';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsOc extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Quantitat desconeguda';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsOc extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Instruccions de reciclatge';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsOc extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Instruccions de reciclatge Fòto';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1135,6 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Vòstra recèrca per\n**\"$search\"**\ncorrespondiá pas a cap de resultat.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Volètz executar aquesta meteissa recèrca dins **nòstra basa de donadas globala** a la plaça ?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2519,6 @@ class AppLocalizationsOc extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Desconegut';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2716,9 +2698,6 @@ class AppLocalizationsOc extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Entrada de prètz a partir de \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Veire los detalhs del produch';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2998,33 +2977,6 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3571,7 +3523,7 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Començant a realizar las accions del servidor per las mesas a jorn de folksonomia enregistradas localament';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5271,7 +5223,7 @@ class AppLocalizationsOc extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5353,48 +5305,6 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Per ieu';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Ma compatibilitat';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% compatible';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Donadas insufisentas per calcular una nòta de compatibilitat.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Una nòta pòt pas èsser calculada per un produch de tipe \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Importància';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Partidas';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Bons correspondéncias';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Correspondéncias mejanas';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Marridas partidas';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Correspondéncias desconegudas';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5866,8 +5776,7 @@ class AppLocalizationsOc extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Descobrissètz Open Food Facts';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5909,7 +5818,7 @@ class AppLocalizationsOc extends AppLocalizations {
       'Participatz-vos en assistissent a un de nòstres eveniments virtuals';
 
   @override
-  String get preferences_connect_blog_title => 'Lo blòg d\'Open Food Facts';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6082,7 +5991,7 @@ class AppLocalizationsOc extends AppLocalizations {
       'Los contributors amb lo mai de prètz';
 
   @override
-  String get preferences_prices_metrics_title => 'Metrics dels prètzs dobèrts';
+  String get preferences_prices_metrics_title => 'Metrics de prètz dobèrt';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6125,7 +6034,7 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'De biaisses simples d\'ajudar a dobrir Open Food Facts';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6233,14 +6142,14 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratòris d\'Open Food Facts';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Portatz Open Food Facts a vòstra lenga';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6285,45 +6194,4 @@ class AppLocalizationsOc extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Torna a l\'ostal';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Bascular la camèra';
-
-  @override
-  String get homepage_header_barcode_tooltip =>
-      'Afichar l\'escaner de còde de barras';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Picatz per escanejar un **còde de barras**\ne descobrissètz s\'es **bon per vos**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Bascular la torcha';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Escanar un produch en s\'aprochant de son còde de barras';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Avèm detectat lo còde de barras seguent : $barcode, mas sembla èsser pas valid.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Veire mai…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Los darrièrs produches escanejats';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

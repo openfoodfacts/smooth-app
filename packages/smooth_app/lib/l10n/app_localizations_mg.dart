@@ -12,9 +12,6 @@ class AppLocalizationsMg extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Vidiny misokatra';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsMg extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'fahazoan-dalana';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -658,9 +655,6 @@ class AppLocalizationsMg extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Habetsahana tsy fantatra';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -727,10 +721,10 @@ class AppLocalizationsMg extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Toromarika momba ny fanodinana';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -833,7 +827,7 @@ class AppLocalizationsMg extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Torolalana momba ny fanodinana Sary';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Makà sary';
@@ -1142,15 +1136,6 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Tsy nisy valiny nifanaraka tamin\'ny fikarohanao ny\n**\"$search\"**\n.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Tianao ve ny hanao io fikarohana io ihany ao amin\'ny **database manerantany**?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2035,7 +2020,7 @@ class AppLocalizationsMg extends AppLocalizations {
       'The soy does not come from the European Union';
 
   @override
-  String get edit_product_form_item_countries_title => 'Firenena';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2536,9 +2521,6 @@ class AppLocalizationsMg extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2718,10 +2700,6 @@ class AppLocalizationsMg extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Vidin\'ny fidirana avy amin\'ny \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'Jereo ny antsipirian\'ny vokatra';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3001,33 +2979,6 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3574,7 +3525,7 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Manomboka manao ny hetsika mpizara ho an\'ny fanavaozana folksonomy voatahiry eo an-toerana';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5272,7 +5223,7 @@ class AppLocalizationsMg extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5354,47 +5305,6 @@ class AppLocalizationsMg extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Ho ahy';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Ny fifandraisako';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% mifanaraka';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Tsy ampy ny angon-drakitra ahafahana manisa ny isa mifanaraka amin\'izany.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Tsy azo kajiana ny isa ho an\'ny vokatra karazana \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance =>
-      'MAHA ZAVA- DEHIBE';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'lalao';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'Lalao tsara';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Lalao antonony';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'Lalao ratsy';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Lalao tsy fantatra';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5864,8 +5774,7 @@ class AppLocalizationsMg extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Fantaro ny tetikasa';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Fantaro ny zava-misy momba ny sakafo misokatra';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6077,8 +5986,7 @@ class AppLocalizationsMg extends AppLocalizations {
       'Mpandray anjara manana vidiny be indrindra';
 
   @override
-  String get preferences_prices_metrics_title =>
-      'Metrika momba ny Vidiny Misokatra';
+  String get preferences_prices_metrics_title => 'Open Price metrika';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6273,50 +6181,11 @@ class AppLocalizationsMg extends AppLocalizations {
   String get location_map_details_postcode => 'Postcode';
 
   @override
-  String get location_map_details_country => 'Firenena';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Coordinates';
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Miverina any an-trano';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Avadiho ny fakantsary';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Asehoy ny scanner barcode';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Tsindrio raha hijery **kaody bara**\nary jereo raha **mety aminao** izany!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Ampifamadiho ny jiro';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Skanera ny vokatra amin\'ny alàlan\'ny fanatonana ny kaody barany';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Nahita ity kaody bara manaraka ity izahay: $barcode, saingy toa tsy manan-kery ilay izy.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Jereo bebe kokoa…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Vokatra nojerena farany';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

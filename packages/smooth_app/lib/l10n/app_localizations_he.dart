@@ -12,9 +12,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'מחירים פתוחים';
-
-  @override
   String get sep => '';
 
   @override
@@ -644,9 +641,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get unknownBrand => 'מותג לא ידוע';
 
   @override
-  String get unknownQuantity => 'כמות לא ידועה';
-
-  @override
   String get unknownProductName => 'שם המוצר אינו ידוע';
 
   @override
@@ -712,10 +706,10 @@ class AppLocalizationsHe extends AppLocalizations {
   String get nutrition_facts_editing_title => 'עריכת עובדות תזונתיות';
 
   @override
-  String get packaging_information => 'הוראות מיחזור';
+  String get packaging_information => 'פרטי אריזה';
 
   @override
-  String get packaging_information_photo => 'תמונת הנחיות מיחזור';
+  String get packaging_information_photo => 'תמונת פרטי אריזה';
 
   @override
   String get missing_product => 'מצאת מוצר חדש!';
@@ -818,7 +812,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get nutritional_facts_photo_title => 'תמונת פירוט תזונתי';
 
   @override
-  String get recycling_photo_title => 'תמונת הוראות מיחזור';
+  String get recycling_photo_title => 'תמונת מיחזור';
 
   @override
   String get take_photo_title => 'צילום תמונה';
@@ -1119,15 +1113,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get no_product_found => 'לא נמצאו מוצרים';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'החיפוש שלך עבור\n**\"$search\"**\nלא תאם אף תוצאה.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'האם ברצונך להריץ את אותו החיפוש ב **מסד הנתונים הגלובלי שלנו** במקום זאת?';
 
   @override
   String get no_location_found => 'לא נמצא מקום';
@@ -2518,9 +2503,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get product_type_label_product => 'אחר';
 
   @override
-  String get product_type_label_unknown => 'לא ידוע';
-
-  @override
   String get product_type_selection_title => 'סוג המוצר';
 
   @override
@@ -2699,9 +2681,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'הזנת מחיר מאת „$user”';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'הצגת פרטי מוצר';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2990,33 +2969,6 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'בוצע';
@@ -3555,7 +3507,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'מתחיל לבצע את פעולות השרת עבור עדכוני פולקסונומיה המאוחסנים באופן מקומי';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5233,7 +5185,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get photo_field_nutrition => 'תמונת מפרט תזונתי';
 
   @override
-  String get photo_field_packaging => 'תמונת הנחיות מיחזור';
+  String get photo_field_packaging => 'תמונת פרטי אריזה';
 
   @override
   String get photo_already_exists => 'התמונה הזאת כבר קיימת';
@@ -5316,47 +5268,6 @@ class AppLocalizationsHe extends AppLocalizations {
   String get product_page_tab_for_me => 'בשבילי';
 
   @override
-  String get product_page_for_me_compatibility_score_title => 'התאימות שלי';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% תואם';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'אין מספיק נתונים לחישוב ציון תאימות.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'לא ניתן לחשב ציון עבור מוצר מסוג \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'חֲשִׁיבוּת';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'התאמות';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'התאמות טובות';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'ממוצע התאמות';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'התאמות גרועות';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'התאמות לא ידועות';
-
-  @override
   String get product_page_tab_website => 'אתר';
 
   @override
@@ -5367,7 +5278,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Prices פתוחים** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Prices פתוחים פותח ומתוחזק על ידי Open Food Facts.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get explanation_card_learn_more_button => 'מידע נוסף';
@@ -5807,7 +5718,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'לגלות עוד על המיזם';
 
   @override
-  String get preferences_faq_discover_off_title => 'גלה עובדות על אוכל פתוח';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5827,7 +5738,7 @@ class AppLocalizationsHe extends AppLocalizations {
   String get preferences_faq_faq_title => 'שאלות נפוצות - שאלות נפוצות';
 
   @override
-  String get preferences_faq_off_ngo_title => 'עמותת \"עובדות על אוכל פתוח\"';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'פרטים';
@@ -5848,7 +5759,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'הצטרפו אלינו באחד מהאירועים הווירטואליים שלנו';
 
   @override
-  String get preferences_connect_blog_title => 'הבלוג של עובדות המזון הפתוחות';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6014,7 +5925,7 @@ class AppLocalizationsHe extends AppLocalizations {
       'התורמים עם המחירים הגבוהים ביותר';
 
   @override
-  String get preferences_prices_metrics_title => 'מדדי מחירי פתיחה';
+  String get preferences_prices_metrics_title => 'מדדי מחיר פתיחה';
 
   @override
   String get preferences_prices_metrics_subtitle => 'עקבו אחר התפתחות הפרויקט';
@@ -6164,7 +6075,7 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get preferences_contribute_translate_header =>
-      'הביאו עובדות פתוחות על מזון לשפה שלכם';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6208,43 +6119,4 @@ class AppLocalizationsHe extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'חזרה הביתה';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'הפעלה/כיבוי מצלמה';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'הצג את סורק הברקודים';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'הקש כדי לסרוק **ברקוד**\nולגלות אם זה **טוב בשבילך**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'פנס';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'סרוק מוצר על ידי גישה לברקוד שלו';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'זיהינו את הברקוד הבא: $barcode, אך נראה שהוא אינו תקין.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'הצג עוד…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'המוצרים הנסרקים ביותר';
-
-  @override
-  String get homepage_list_last_scanned_title => 'מוצרים שנסרקו אחרונים';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

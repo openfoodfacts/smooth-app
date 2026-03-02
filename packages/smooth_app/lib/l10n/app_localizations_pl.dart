@@ -12,9 +12,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Otwarte ceny';
-
-  @override
   String get sep => '';
 
   @override
@@ -145,7 +142,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get match_short_unknown => 'Nie znaleziono powiązania';
 
   @override
-  String get licenses => 'Licencje';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Szukam';
@@ -667,9 +664,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get unknownBrand => 'Nieznana marka';
 
   @override
-  String get unknownQuantity => 'Nieznana ilość';
-
-  @override
   String get unknownProductName => 'Nieznana nazwa produktu';
 
   @override
@@ -737,11 +731,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edytuj informacje żywieniowe';
 
   @override
-  String get packaging_information => 'Instrukcje dotyczące recyklingu';
+  String get packaging_information => 'Informacje dot. opakowania';
 
   @override
   String get packaging_information_photo =>
-      'Zdjęcie informacji dotyczących recyklingu';
+      'Zdjęcie informacji dotyczących opakowania';
 
   @override
   String get missing_product => 'Znalazłeś(-aś) nowy produkt!';
@@ -847,7 +841,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Zdjęcie tabeli wartości odżywczych';
 
   @override
-  String get recycling_photo_title => 'Instrukcje dotyczące recyklingu Zdjęcie';
+  String get recycling_photo_title => 'Zdjęcie informacji o recyklingu';
 
   @override
   String get take_photo_title => 'Zrób zdjęcie';
@@ -1168,15 +1162,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get no_product_found => 'Nie znaleziono produktu';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Twoje wyszukiwanie dla\n**\"$search\"**\nnie dało żadnych wyników.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Czy chcesz zamiast tego przeprowadzić to samo wyszukiwanie w **naszej globalnej bazie danych**?';
 
   @override
   String get no_location_found => 'Nie znaleziono lokalizacji';
@@ -2067,7 +2052,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Soja nie pochodzi z Unii Europejskiej';
 
   @override
-  String get edit_product_form_item_countries_title => 'Kraj';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2573,9 +2558,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String get product_type_label_product => 'Inne';
 
   @override
-  String get product_type_label_unknown => 'Nieznany';
-
-  @override
   String get product_type_selection_title => 'Typ produktu';
 
   @override
@@ -2754,9 +2736,6 @@ class AppLocalizationsPl extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Wpis ceny od \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Zobacz szczegóły produktu';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3033,34 +3012,7 @@ class AppLocalizationsPl extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Dowiedz się więcej o cenach otwartych';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Gotowe';
@@ -3618,7 +3570,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Rozpoczęcie wykonywania działań serwerowych dla aktualizacji folksonomii przechowywanych lokalnie';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4132,7 +4084,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Wskaźnik odżywczy A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
   String get nutriscore_b => 'Wynik Nutri-Score B';
@@ -4710,7 +4662,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Cechy otwartych informacji o żywności';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4794,7 +4746,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Cechy otwartych informacji o karmie dla zwierząt';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4952,7 +4904,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Czym są ceny otwarte?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4963,7 +4915,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Jak działają Ceny Otwarte?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -5039,7 +4991,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Cechy produktów otwartych Fakty';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5327,7 +5279,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get photo_field_packaging =>
-      'Zdjęcie informacji dotyczących recyklingu';
+      'Zdjęcie informacji dotyczących opakowania';
 
   @override
   String get photo_already_exists => 'To zdjęcie już istnieje';
@@ -5409,46 +5361,6 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Dla mnie';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'Moja zgodność';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% zgodności';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Za mało danych do obliczenia wyniku zgodności.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Nie można obliczyć wyniku dla produktu typu „$productType”.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Znaczenie';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Zapałki';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'Dobre mecze';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Średnia liczba dopasowań';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Złe dopasowania';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Nieznane dopasowania';
 
   @override
   String get product_page_tab_website => 'Strona';
@@ -5598,7 +5510,7 @@ class AppLocalizationsPl extends AppLocalizations {
   String get prices_stats_food => 'Żywność';
 
   @override
-  String get prices_stats_beauty => 'Uroda';
+  String get prices_stats_beauty => 'Beauty';
 
   @override
   String get prices_stats_products => 'Produkty';
@@ -5914,23 +5826,21 @@ class AppLocalizationsPl extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Odkryj projekt';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Odkryj fakty dotyczące żywności';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Odkryj fakty dotyczące otwartego piękna';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Odkryj fakty dotyczące karmy dla zwierząt';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Odkryj otwarte ceny';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Odkryj fakty dotyczące produktów Open';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ – Najczęściej zadawane pytania';
@@ -6130,7 +6040,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Współpracownicy z największą liczbą cen';
 
   @override
-  String get preferences_prices_metrics_title => 'Wskaźniki cen otwartych';
+  String get preferences_prices_metrics_title => 'Wskaźniki ceny otwartej';
 
   @override
   String get preferences_prices_metrics_subtitle => 'Śledź ewolucję projektu';
@@ -6171,7 +6081,7 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Proste sposoby na pomoc w otwarciu Food Facts';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6279,14 +6189,14 @@ class AppLocalizationsPl extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Otwarte Laboratoria Faktów Żywnościowych';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Konto';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Przenieś Open Food Fakty do swojego języka';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6323,52 +6233,11 @@ class AppLocalizationsPl extends AppLocalizations {
   String get location_map_details_postcode => 'Kod pocztowy';
 
   @override
-  String get location_map_details_country => 'Kraj';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Współrzędne';
 
   @override
   String get location_map_details_osm_id => 'Identyfikator OSM';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Powrót do domu';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Przełącz kamerę';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Pokaż skaner kodów kreskowych';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Kliknij, aby zeskanować **kod kreskowy**\ni dowiedz się, czy jest to **dobre dla Ciebie**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Przełącz latarkę';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Zeskanuj produkt, zbliżając się do jego kodu kreskowego';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Wykryliśmy następujący kod kreskowy: $barcode, ale wydaje się, że jest on nieprawidłowy.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Zobacz więcej…';
-
-  @override
-  String get homepage_list_most_scanned_title =>
-      'Najczęściej skanowane produkty';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Ostatnio zeskanowane produkty';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

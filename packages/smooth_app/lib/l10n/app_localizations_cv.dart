@@ -12,9 +12,6 @@ class AppLocalizationsCv extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Лицензисем';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsCv extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Паллӑ мар виҫе';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsCv extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Ҫӗнӗрен ӗҫе кӗртмелли инструкцисем';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,8 +825,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title =>
-      'Ҫӗнӗрен ӗҫе кӗртмелли инструкцисем Сӑнӳкерчӗк';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1134,6 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return '\n**\"$search\"**\nшырани нимӗнле результатпа та килӗшмерӗ.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Эсир ҫак шыравах **пирӗн тӗнчери базӑра** ӗҫлесшӗн-и?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2534,9 +2518,6 @@ class AppLocalizationsCv extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2560,7 +2541,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get prices_app_button => 'Go to Prices app';
 
   @override
-  String get prices_website_button => 'Open on the Open Prices website';
+  String get prices_website_button => 'Уҫӑ хаксен сайтӗнче уҫӑр';
 
   @override
   String get prices_bulk_proof_upload_select =>
@@ -2715,10 +2696,6 @@ class AppLocalizationsCv extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Хак кӗртни \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product =>
-      'Продукт ҫинчен калакан хыпарсене пӑхӑр';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2994,33 +2971,6 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3567,7 +3517,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Вырӑнта упранакан folksonomy ҫӗнетӗвӗсем валли сервер ӗҫӗсене пурнӑҫлама пуҫласси';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5261,7 +5211,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5345,47 +5295,6 @@ class AppLocalizationsCv extends AppLocalizations {
   String get product_page_tab_for_me => 'Маншӑн';
 
   @override
-  String get product_page_for_me_compatibility_score_title => 'Манӑн килӗшӳлӗх';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% килӗшӳллӗ';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Совместимость балне шутласа кӑларма даннӑйсем ҫителӗксӗр.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" йышши продуктшӑн балл шутласа кӑларма май ҫук.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Пӗлтерӗшӗ';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Шӑрпӑксем';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Лайӑх шӑрпӑксем';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Вӑтам шайлашусем';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Начар шӑрпӑксем';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Паллӑ мар тӗлпулусем';
-
-  @override
   String get product_page_tab_website => 'Website';
 
   @override
@@ -5396,7 +5305,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get prices_explanation_card_line1 =>
-      '**Open Prices** — тӗнчери продукци хакӗсене пухса пайламалли проект 🌍. Open Prices компанине Open Food Facts компани хатӗрлет тата тытса тӑрать.';
+      '**Уҫӑ хаксем** — тӗнчери продукци хакӗсене пухса пайламалли проект 🌍. Open Prices компанине Open Food Facts компани хатӗрлет тата тытса тӑрать.';
 
   @override
   String get explanation_card_learn_more_button => 'Learn more';
@@ -5754,7 +5663,7 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Уҫӑ апат-ҫимӗҫ факчӗсен сайтӗнче';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Манӑн аккаунта тытса пырӑр';
@@ -5852,8 +5761,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Уҫӑ апат-ҫимӗҫ ҫинчен калакан фактсене уҫӑр';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5873,7 +5781,7 @@ class AppLocalizationsCv extends AppLocalizations {
   String get preferences_faq_faq_title => 'FAQ - час-часах ыйтакан ыйтусем';
 
   @override
-  String get preferences_faq_off_ngo_title => '«Уҫӑ апат-ҫимӗҫ факчӗсем» НПО';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -5895,7 +5803,7 @@ class AppLocalizationsCv extends AppLocalizations {
       'Пирӗн виртуаллӑ мероприятисенчен пӗрне хутшӑнса хутшӑнӑр';
 
   @override
-  String get preferences_connect_blog_title => 'Уҫӑ апат-ҫимӗҫ факчӗсен блогӗ';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6064,7 +5972,7 @@ class AppLocalizationsCv extends AppLocalizations {
       'Чи нумай хакпа хутшӑнакансем';
 
   @override
-  String get preferences_prices_metrics_title => 'Уҫӑ хаксен кӑтартӑвӗсем';
+  String get preferences_prices_metrics_title => 'Уҫӑ хак кӑтартӑвӗсем';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6213,14 +6121,14 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Уҫӑ апат-ҫимӗҫ факчӗсен лабораторийӗ';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Хӑвӑрӑн чӗлхене уҫӑ апат-ҫимӗҫ факчӗсене илсе килӗр';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6265,44 +6173,4 @@ class AppLocalizationsCv extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Киле таврӑнасси';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Камерӑна куҫар';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Штрих-код сканерне кӑтартӑр';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**штрих-кода**\nсканерлама пусӑр та вӑл сирӗншӗн **лайӑх** пулнине пӗлӗр!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Факел куҫар';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Продукта унӑн штрих-кочӗ патне ҫывхарса сканерла';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Эпир ҫак штрих-кода тупрӑмӑр: $barcode, анчах вӑл тӗрӗс мар пек туйӑнать.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Тӗплӗнрех…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Юлашки хут сканерланӑ продуктсем';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

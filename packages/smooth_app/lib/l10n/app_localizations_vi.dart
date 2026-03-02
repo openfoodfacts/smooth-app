@@ -12,9 +12,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Giá mở';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get match_short_unknown => 'Độ phù hợp không xác định';
 
   @override
-  String get licenses => 'Giấy phép';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Đang tìm';
@@ -662,9 +659,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get unknownBrand => 'Thương hiệu không xác định';
 
   @override
-  String get unknownQuantity => 'Số lượng không xác định';
-
-  @override
   String get unknownProductName => 'Tên sản phẩm không xác định';
 
   @override
@@ -730,10 +724,10 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Chỉnh sửa thông tin dinh dưỡng';
 
   @override
-  String get packaging_information => 'Hướng dẫn tái chế';
+  String get packaging_information => 'Thông tin bao bì';
 
   @override
-  String get packaging_information_photo => 'Ảnh hướng dẫn tái chế';
+  String get packaging_information_photo => 'Ảnh chụp thông tin bao bì';
 
   @override
   String get missing_product => 'Bạn đã tìm thấy một sản phẩm mới!';
@@ -836,7 +830,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Ảnh chụp thông tin dinh dưỡng';
 
   @override
-  String get recycling_photo_title => 'Hướng dẫn tái chế (Ảnh)';
+  String get recycling_photo_title => 'Ảnh quy định tái chế';
 
   @override
   String get take_photo_title => 'Chụp ảnh';
@@ -1156,15 +1150,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get no_product_found => 'Không tìm thấy sản phẩm';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'Tìm kiếm của bạn cho\n**\"$search\"**\nkhông khớp với bất kỳ kết quả nào.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Bạn có muốn thực hiện tìm kiếm tương tự trong **cơ sở dữ liệu toàn cầu của chúng tôi** không?';
 
   @override
   String get no_location_found => 'Không tìm thấy vị trí';
@@ -1981,7 +1966,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
-      'Điểm số dinh dưỡng, NOVA…';
+      'Nutri-Score, NOVA…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
@@ -2055,7 +2040,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Đậu nành không đến từ Liên minh Châu Âu';
 
   @override
-  String get edit_product_form_item_countries_title => 'Quốc gia';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2557,9 +2542,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String get product_type_label_product => 'Khác';
 
   @override
-  String get product_type_label_unknown => 'Không biết';
-
-  @override
   String get product_type_selection_title => 'Loại sản phẩm';
 
   @override
@@ -2736,9 +2718,6 @@ class AppLocalizationsVi extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Giá nhập từ \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Xem chi tiết sản phẩm';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3017,33 +2996,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Tìm hiểu thêm về Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Xong';
@@ -3598,7 +3550,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Bắt đầu thực hiện các hành động máy chủ cho các bản cập nhật folksonomy được lưu trữ cục bộ';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4108,16 +4060,16 @@ class AppLocalizationsVi extends AppLocalizations {
   String get nutriscore_generic => 'Nutri-Score';
 
   @override
-  String get nutriscore_a => 'Điểm dinh dưỡng A';
+  String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'Điểm dinh dưỡng B';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
   String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Điểm dinh dưỡng D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
   String get nutriscore_e => 'Nutri-Score E';
@@ -4277,7 +4229,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'Nutri-Score là gì?';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
@@ -4773,7 +4725,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Đặc điểm của Thực phẩm cho thú cưng mở';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -5019,7 +4971,7 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Tính năng của Sản phẩm Mở Sự kiện';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5310,7 +5262,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get photo_field_nutrition => 'Ảnh dinh dưỡng';
 
   @override
-  String get photo_field_packaging => 'Ảnh hướng dẫn tái chế';
+  String get photo_field_packaging => 'Ảnh chụp thông tin bao bì';
 
   @override
   String get photo_already_exists => 'Bức ảnh này đã tồn tại';
@@ -5392,48 +5344,6 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Đối với tôi';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Khả năng tương thích của tôi';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% tương thích';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Không đủ dữ liệu để tính điểm tương thích.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Không thể tính điểm cho sản phẩm có kiểu \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance =>
-      'Tầm quan trọng';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Các trận đấu';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Những trận đấu hay';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Các trận đấu trung bình';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'Trận đấu tệ';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Các trận đấu không xác định';
 
   @override
   String get product_page_tab_website => 'Trang web';
@@ -5559,7 +5469,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get prices_stats_misc_section => 'Các tùy chọn khác';
 
   @override
-  String get prices_stats_total => 'Tổng cộng';
+  String get prices_stats_total => 'Total';
 
   @override
   String get prices_stats_with_barcode => 'With a barcode';
@@ -5583,7 +5493,7 @@ class AppLocalizationsVi extends AppLocalizations {
   String get prices_stats_food => 'Đồ ăn';
 
   @override
-  String get prices_stats_beauty => 'Sắc đẹp';
+  String get prices_stats_beauty => 'Beauty';
 
   @override
   String get prices_stats_products => 'Sản phẩm';
@@ -5901,23 +5811,21 @@ class AppLocalizationsVi extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Khám phá những dự án';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Khám phá sự thật về thực phẩm mở';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Khám phá sự thật về vẻ đẹp mở';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Khám phá sự thật về thức ăn cho thú cưng';
+      'Discover Open Pet Food Facts';
 
   @override
   String get preferences_faq_discover_op_title => 'Khám phá Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Khám phá sự thật về sản phẩm mở';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Những câu hỏi thường gặp';
@@ -5946,7 +5854,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Tham gia bằng cách tham dự một trong các sự kiện trực tuyến của chúng tôi';
 
   @override
-  String get preferences_connect_blog_title => 'Blog Sự thật về Thực phẩm Mở';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6115,7 +6023,7 @@ class AppLocalizationsVi extends AppLocalizations {
       'Những người đóng góp nhiều giá nhất';
 
   @override
-  String get preferences_prices_metrics_title => 'Các chỉ số giá mở';
+  String get preferences_prices_metrics_title => 'Số liệu giá mở';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6262,14 +6170,14 @@ class AppLocalizationsVi extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Phòng thí nghiệm thông tin thực phẩm mở';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Tài khoản';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Mang Thông tin Thực phẩm Mở sang ngôn ngữ của bạn';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6306,52 +6214,11 @@ class AppLocalizationsVi extends AppLocalizations {
   String get location_map_details_postcode => 'Mã bưu chính';
 
   @override
-  String get location_map_details_country => 'Quốc gia';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Tọa độ';
 
   @override
   String get location_map_details_osm_id => 'Mã OSM';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Trở về trang chủ';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Bật/tắt camera';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Hiển thị máy quét mã vạch';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Chạm để quét **mã vạch**\nvà khám phá xem nó có **tốt cho bạn** hay không!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Bật/tắt đèn pin';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Quét mã vạch sản phẩm bằng cách đưa sản phẩm lại gần.';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Chúng tôi đã phát hiện mã vạch sau: $barcode, nhưng có vẻ như nó không hợp lệ.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Xem thêm…';
-
-  @override
-  String get homepage_list_most_scanned_title =>
-      'Sản phẩm được quét nhiều nhất';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Sản phẩm được quét gần đây nhất';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

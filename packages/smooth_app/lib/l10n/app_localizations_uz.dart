@@ -12,9 +12,6 @@ class AppLocalizationsUz extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -25,19 +22,19 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get account_delete_message =>
-      'Haqiqatan ham hisobingizni o\'chirmoqchimisiz?\nAgar aniq sabab bo\'lsa, iltimos, quyida ulashing';
+      'Are you sure you want to delete your account?\nIf there is a specific reason, please share below';
 
   @override
-  String get reason => 'Sabab';
+  String get reason => 'Reason';
 
   @override
-  String get okay => 'xop';
+  String get okay => 'Okay';
 
   @override
   String get validate => 'Validate';
 
   @override
-  String get create => 'Yaratish';
+  String get create => 'Create';
 
   @override
   String get applyButtonText => 'Apply';
@@ -46,7 +43,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get next_label => 'Next';
 
   @override
-  String get continue_label => 'Davom etish';
+  String get continue_label => 'Continue';
 
   @override
   String get exit_label => 'Exit';
@@ -55,13 +52,13 @@ class AppLocalizationsUz extends AppLocalizations {
   String get previous_label => 'Previous';
 
   @override
-  String get go_back_to_top => 'Yuqoriga qaytish';
+  String get go_back_to_top => 'Go back to top';
 
   @override
   String get save => 'Save';
 
   @override
-  String get save_confirmation => 'Saqlamoqchi ekanligingizga aminmisiz?';
+  String get save_confirmation => 'Are you sure you want to save?';
 
   @override
   String get skip => 'Skip';
@@ -70,7 +67,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
-  String get ignore => 'E\'tibor bermaslik';
+  String get ignore => 'Ignore';
 
   @override
   String get close => 'Yopish';
@@ -79,228 +76,219 @@ class AppLocalizationsUz extends AppLocalizations {
   String get no => 'No';
 
   @override
-  String get stop => 'STOP';
+  String get stop => 'Stop';
 
   @override
-  String get finish => 'Tugatish';
+  String get finish => 'Finish';
 
   @override
-  String get calculate => 'Hisoblang';
+  String get calculate => 'Calculate';
 
   @override
-  String get reset_food_prefs => 'Oziq-ovqat afzalliklarini tiklash';
+  String get reset_food_prefs => 'Reset food preferences';
 
   @override
-  String get error => 'Nimadir noto\'g\'ri ketdi';
+  String get error => 'Something went wrong';
 
   @override
-  String get error_occurred => 'Xatolik yuz berdi';
+  String get error_occurred => 'An error occurred';
 
   @override
   String get featureInProgress =>
-      'Biz hali ham ushbu funksiya ustida ishlamoqdamiz, bizni kuzatib boring';
+      'We\'re still working on this feature, stay tuned';
 
   @override
-  String get label_web => 'Internetda ko\'rish';
+  String get label_web => 'View on the web';
 
   @override
-  String get learnMore => 'Batafsil ma\'lumot';
+  String get learnMore => 'Learn more';
 
   @override
-  String get unknown => 'Noma\'lum';
+  String get unknown => 'Unknown';
 
   @override
-  String get match_very_good => 'Juda yaxshi moslik';
+  String get match_very_good => 'Very good match';
 
   @override
-  String get match_good => 'Yaxshi moslik';
+  String get match_good => 'Good match';
 
   @override
-  String get match_poor => 'Yomon moslik';
+  String get match_poor => 'Poor match';
 
   @override
   String get match_may_not => 'May not match';
 
   @override
-  String get match_does_not => 'Mos kelmaydi';
+  String get match_does_not => 'Does not match';
 
   @override
-  String get match_unknown => 'Noma\'lum moslik';
+  String get match_unknown => 'Unknown match';
 
   @override
-  String get match_short_very_good => 'Juda yaxshi moslik';
+  String get match_short_very_good => 'Very good match';
 
   @override
-  String get match_short_good => 'Yaxshi moslik';
+  String get match_short_good => 'Good match';
 
   @override
-  String get match_short_poor => 'Yomon moslik';
+  String get match_short_poor => 'Poor match';
 
   @override
   String get match_short_may_not => 'May not match';
 
   @override
-  String get match_short_does_not => 'Mos kelmaydi';
+  String get match_short_does_not => 'Does not match';
 
   @override
-  String get match_short_unknown => 'Noma\'lum moslik';
+  String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Litsenziyalar';
+  String get licenses => 'Licences';
 
   @override
-  String get looking_for => 'Ni axtarish';
+  String get looking_for => 'Looking for';
 
   @override
-  String get welcomeToOpenFoodFacts =>
-      'Ochiq oziq-ovqat faktlariga xush kelibsiz';
+  String get welcomeToOpenFoodFacts => 'Welcome to Open Food Facts';
 
   @override
   String get whatIsOff =>
-      'Open Food Facts mahalliy jamoalar tomonidan qo\'llab-quvvatlanadigan global notijorat tashkilotdir.';
+      'Open Food Facts is a global non-profit powered by local communities.';
 
   @override
   String get productDataUtility =>
-      'Sizning afzalliklaringizga mos keladigan oziq-ovqat ma\'lumotlarini ko\'ring.';
+      'See the food data relevant to your preferences.';
 
   @override
-  String get healthCardUtility =>
-      'Siz uchun foydali bo\'lgan ovqatlarni tanlang.';
+  String get healthCardUtility => 'Choose foods that are good for you.';
 
   @override
-  String get ecoCardUtility =>
-      'Sayyora uchun foydali bo\'lgan ovqatlarni tanlang.';
+  String get ecoCardUtility => 'Choose foods that are good for the planet.';
 
   @override
   String get server_error_open_new_issue =>
-      'Server javob bermayapti! Quyidagi havola orqali muammo ochishingiz mumkin.';
+      'No server response! You may open an issue with the following link.';
 
   @override
   String get sign_in_text =>
-      'Hissalaringizni saqlash uchun Open Food Facts hisobingizga kiring';
+      'Sign in to your Open Food Facts account to save your contributions';
 
   @override
-  String get incorrect_credentials =>
-      'Noto\'g\'ri foydalanuvchi nomi yoki parol.';
+  String get incorrect_credentials => 'Incorrect username or password.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'Bu elektron pochta manzili yoki foydalanuvchi nomi mavjud emas. Iltimos, hisob ma\'lumotlaringizni tekshiring.';
+      'This email or username doesn\'t exist. Please check your credentials.';
 
   @override
   String get password_lost_server_unavailable =>
-      'Hozirda serverlarimizda sekinlashuv kuzatilmoqda va buning uchun uzr so\'raymiz. Iltimos, keyinroq qayta urinib ko\'ring.';
+      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
   String get login => 'Login';
 
   @override
-  String get login_result_type_server_unreachable =>
-      'Tarmoqqa ulanib bo\'lmaydi';
+  String get login_result_type_server_unreachable => 'Network is unreachable';
 
   @override
   String get login_result_type_server_issue =>
-      'Serverda muammo bor. Iltimos, keyinroq urinib ko\'ring.';
+      'Problem on the server. Please try later.';
 
   @override
-  String get login_page_username_or_email =>
-      'Iltimos, foydalanuvchi nomi yoki elektron pochta manzilini kiriting';
+  String get login_page_username_or_email => 'Please enter username or e-mail';
 
   @override
-  String get login_page_password_error_empty => 'Iltimos, parolni kiriting';
+  String get login_page_password_error_empty => 'Please enter a password';
 
   @override
-  String get create_account => 'Hisob yaratish';
+  String get create_account => 'Create account';
 
   @override
-  String get sign_in => 'tizimga kirish';
+  String get sign_in => 'Sign in';
 
   @override
-  String get sign_in_mandatory =>
-      'Bu funksiya uchun tizimga kirishingiz kerak.';
+  String get sign_in_mandatory => 'For that feature we need you to sign in.';
 
   @override
   String get help_improve_country =>
-      'Mamlakatingizda ochiq oziq-ovqat faktlarini yaxshilashga yordam bering';
+      'Help improve Open Food Facts in your country';
 
   @override
-  String get sign_out => 'tizimdan chiqish';
+  String get sign_out => 'Sign out';
 
   @override
-  String get sign_out_confirmation => 'Haqiqatan ham tizimdan chiqmoqchimisiz?';
+  String get sign_out_confirmation => 'Are you sure you want to sign out?';
 
   @override
-  String get password => 'Parol';
+  String get password => 'Password';
 
   @override
-  String get forgot_password => 'Parolni unutdingizmi?';
+  String get forgot_password => 'Forgot password';
 
   @override
   String get forgot_password_question => 'Parolni unutdingizmi?';
 
   @override
-  String get view_profile => 'Profilni ko\'rish';
+  String get view_profile => 'View profile';
 
   @override
-  String get reset_password => 'Parolni tiklash';
+  String get reset_password => 'Reset password';
 
   @override
   String get reset_password_explanation_text =>
-      'Agar parolni unutgan bo\'lsangiz, parolni tiklash bo\'yicha ko\'rsatmalar olish uchun foydalanuvchi nomingiz yoki elektron pochta manzilingizni kiriting. Shuningdek, Spam papkasini tekshirishni unutmang.';
+      'In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.';
 
   @override
-  String get username_or_email => 'Foydalanuvchi nomi yoki elektron pochta';
+  String get username_or_email => 'Username or e-mail';
 
   @override
   String get reset_password_done =>
-      'Parolingizni tiklash havolasi bo\'lgan elektron pochta xabari hisobingiz bilan bog\'liq elektron pochta manzilingizga yuborildi. Shuningdek, spamingizni tekshiring.';
+      'An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam';
 
   @override
-  String get send_reset_password_mail => 'Parolni o\'zgartirish';
+  String get send_reset_password_mail => 'Change password';
 
   @override
-  String get enter_some_text => 'Iltimos, matn kiriting';
+  String get enter_some_text => 'Please enter some text';
 
   @override
-  String get sign_up_page_title => 'Ro\'yxatdan o\'tish';
+  String get sign_up_page_title => 'Sign Up';
 
   @override
-  String get sign_up_page_action_button => 'Ro\'yxatdan o\'tish';
+  String get sign_up_page_action_button => 'Sign Up';
 
   @override
-  String get sign_up_page_action_doing_it => 'Ro\'yxatdan o\'tish…';
+  String get sign_up_page_action_doing_it => 'Signing up…';
 
   @override
   String get sign_up_page_action_ok =>
-      'Tabriklaymiz! Sizning hisobingiz hozirgina yaratildi.';
+      'Congratulations! Your account has just been created.';
 
   @override
-  String get sign_up_page_display_name_hint => 'Ism';
+  String get sign_up_page_display_name_hint => 'Name';
 
   @override
   String get sign_up_page_display_name_error_empty =>
-      'Iltimos, foydalanmoqchi bo\'lgan displey nomini kiriting';
+      'Please enter the display name you want to use';
 
   @override
-  String get sign_up_page_email_hint => 'Elektron pochta';
+  String get sign_up_page_email_hint => 'E-mail';
 
   @override
-  String get sign_up_page_email_error_empty => 'Elektron pochta talab qilinadi';
+  String get sign_up_page_email_error_empty => 'E-mail is required';
 
   @override
-  String get sign_up_page_email_error_invalid => 'Noto\'g\'ri elektron pochta';
+  String get sign_up_page_email_error_invalid => 'Invalid e-mail';
 
   @override
-  String get sign_up_page_username_hint =>
-      'Foydalanuvchi nomi: Hammaga ko\'rinadigan';
+  String get sign_up_page_username_hint => 'Username: Publicly visible';
 
   @override
-  String get sign_up_page_username_error_empty =>
-      'Iltimos, foydalanuvchi nomini kiriting';
+  String get sign_up_page_username_error_empty => 'Please enter a username';
 
   @override
   String get sign_up_page_username_error_invalid =>
-      'Iltimos, to\'g\'ri foydalanuvchi nomini kiriting';
+      'Please enter a valid username';
 
   @override
   String get sign_up_page_username_description =>
@@ -308,206 +296,202 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'Foydalanuvchi nomi $value belgidan oshmasligi kerak';
+    return 'Username cannot exceed $value characters';
   }
 
   @override
-  String get sign_up_page_password_hint => 'Parol';
+  String get sign_up_page_password_hint => 'Password';
 
   @override
-  String get sign_up_page_password_error_empty => 'Iltimos, parolni kiriting';
+  String get sign_up_page_password_error_empty => 'Please enter a password';
 
   @override
   String get sign_up_page_password_error_invalid =>
-      'Iltimos, haqiqiy parolni kiriting (kamida 6 ta belgi)';
+      'Please enter a valid password (at least 6 characters)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'Parolni tasdiqlang';
+  String get sign_up_page_confirm_password_hint => 'Confirm Password';
 
   @override
-  String get sign_up_page_confirm_password_error_empty => 'Parolni tasdiqlang';
+  String get sign_up_page_confirm_password_error_empty =>
+      'Please confirm the password';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
-      'Parollar mos kelmayapti';
+      'Passwords don\'t match';
 
   @override
-  String get sign_up_page_agree_text =>
-      'Men Ochiq Oziq-ovqat Faktlariga qo\'shilaman';
+  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
 
   @override
-  String get sign_up_page_terms_text =>
-      'foydalanish shartlari va hissa qo\'shish';
+  String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
   String get sign_up_page_agree_error_invalid =>
-      'Hisob yaratishda Foydalanish shartlariga rozilik bildirish shart, ammo ilova orqali anonim hissa qo\'shish mumkin.';
+      'When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app';
 
   @override
-  String get sign_up_page_producer_checkbox =>
-      'Men oziq-ovqat ishlab chiqaruvchisiman';
+  String get sign_up_page_producer_checkbox => 'I am a food producer';
 
   @override
-  String get sign_up_page_producer_hint => 'Ishlab chiqaruvchi/brend';
+  String get sign_up_page_producer_hint => 'Producer/brand';
 
   @override
   String get sign_up_page_producer_error_empty =>
-      'Iltimos, ishlab chiqaruvchi yoki brend nomini kiriting';
+      'Please enter a producer or a brand name';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'Men \"Ochiq oziq-ovqat faktlari\" axborot byulleteniga obuna bo\'lishni istayman (Siz istalgan vaqtda obunani bekor qilishingiz mumkin)';
+      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'Foydalanuvchi nomi allaqachon mavjud, iltimos, boshqa foydalanuvchi nomini tanlang.';
+      'The user name already exists, please choose another username.';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'allaqachon mavjud, hisobga kiring yoki boshqa elektron pochta manzili bilan urinib ko\'ring.';
+      'already exists, login to the account or try with another email.';
 
   @override
   String get sign_up_page_provide_valid_email =>
-      'Iltimos, haqiqiy elektron pochta manzilini kiriting.';
+      'Please provide a valid email address.';
 
   @override
   String get sign_up_page_server_busy =>
-      'Kechirasiz, hisobingizni yaratishda texnik muammolarga duch keldik. Iltimos, keyinroq qayta urinib ko\'ring.';
+      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
 
   @override
   String get settingsTitle => 'Sozlamalar';
 
   @override
-  String get darkmode => 'Mavzu';
+  String get darkmode => 'Theme';
 
   @override
-  String get darkmode_dark => 'Qorong\'u';
+  String get darkmode_dark => 'Dark';
 
   @override
-  String get darkmode_light => 'Yorug\'lik';
+  String get darkmode_light => 'Light';
 
   @override
-  String get darkmode_system_default => 'Tizim standarti';
+  String get darkmode_system_default => 'System default';
 
   @override
-  String get thanks_for_contributing => 'Hissa qo\'shganingiz uchun tashakkur!';
+  String get thanks_for_contributing => 'Thanks for contributing!';
 
   @override
-  String get contributors_label => 'Ular ilovani yaratmoqdalar';
+  String get contributors_label => 'They are building the app';
 
   @override
   String get contributors_dialog_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'Muallif: $name';
+    return 'Contributor: $name';
   }
 
   @override
   String get contributors_description =>
-      'Ushbu ilovaning barcha ishtirokchilari ro\'yxati';
+      'A list of all contributors of this app';
 
   @override
-  String get support => 'Qo\'llab-quvvatlash';
+  String get support => 'Support';
 
   @override
-  String get support_join_slack => 'Slack kanalimizda yordam so\'rang';
+  String get support_join_slack => 'Ask for help in our Slack channel';
 
   @override
-  String get support_via_forum => 'Forumimizda yordam so\'rang';
+  String get support_via_forum => 'Ask for help on our forum';
 
   @override
-  String get support_via_email => 'Bizga elektron pochta xabarini yuboring';
+  String get support_via_email => 'Send us an e-mail';
 
   @override
-  String get support_via_email_include_logs_dialog_title =>
-      'Ilova jurnallari yuborilsinmi?';
+  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'Elektron pochtangizga ilova sifatida ilova jurnallarini qo\'shmoqchimisiz?';
+      'Do you wish to include application logs in attachment to your email?';
 
   @override
-  String get termsOfUse => 'Foydalanish shartlari';
+  String get termsOfUse => 'Terms of use';
 
   @override
-  String get legalNotices => 'Huquqiy bildirishnomalar';
+  String get legalNotices => 'Legal notices';
 
   @override
-  String get privacy_policy => 'Maxfiylik siyosati';
+  String get privacy_policy => 'Privacy policy';
 
   @override
-  String get about_this_app => 'Ushbu ilova haqida';
+  String get about_this_app => 'About this app';
 
   @override
   String get contribute => 'Contribute';
 
   @override
-  String get contribute_sw_development => 'Dasturiy ta\'minotni ishlab chiqish';
+  String get contribute_sw_development => 'Software development';
 
   @override
   String get contribute_develop_text =>
-      'Har bir Open Food Facts mahsuloti uchun kod GitHub\'da mavjud. Siz kodni qayta ishlatishingiz mumkin (u ochiq kodli) va uni butun sayyoradagi hamma uchun yaxshilashga yordam berishingiz mumkin.';
+      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
 
   @override
   String get contribute_develop_text_2 =>
-      'Siz savollar berishning afzal ko\'rgan usuli bo\'lgan Open Food Facts Slack chat xonasiga qo\'shilishingiz mumkin.';
+      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
 
   @override
-  String get contribute_develop_dev_mode_title => 'DEV rejimi?';
+  String get contribute_develop_dev_mode_title => 'DEV Mode?';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => 'DEV rejimini yoqing';
+  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
 
   @override
   String get contribute_donate_title => 'Donate';
 
   @override
-  String get contribute_donate_header =>
-      'Ochiq oziq-ovqat ma\'lumotlariga xayriya qiling';
+  String get contribute_donate_header => 'Donate to Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Iltimos, ichki alfa versiyasi bilan ma\'lumotlarning to\'liq yo\'qolishi mumkinligini va ilova istalgan vaqtda foydalanib bo\'lmasligi mumkinligini yodda tuting!';
+      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'Yakunlanishi kerak bo\'lgan mahsulotlar';
+      'Products to be completed';
 
   @override
-  String get contribute_improve_header => 'Yaxshilash';
+  String get contribute_improve_header => 'Improving';
 
   @override
   String get contribute_improve_text =>
-      'Ma\'lumotlar bazasi loyihaning asosini tashkil etadi. Unga yordam berish oson va juda tez. Siz telefoningiz uchun mobil ilovani yuklab olishingiz va mahsulotlarni qo\'shishni yoki takomillashtirishni boshlashingiz mumkin.\n\nBoshqa tomondan, Open Food Facts veb-sayti hissa qo\'shishning ko\'plab usullarini taklif etadi: ';
+      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
 
   @override
-  String get contribute_translate_header => 'Tarjima';
+  String get contribute_translate_header => 'Translate';
 
   @override
   String get contribute_data_quality => 'Data Quality';
 
   @override
-  String get contribute_translate_link_text => 'Tarjimani boshlang';
+  String get contribute_translate_link_text => 'Start Translating';
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts — bu 160 dan ortiq mamlakatlardan mahsulotlarni o\'z ichiga olgan global loyiha. Open Food Facts o\'nlab tillarga tarjima qilingan va doimiy ravishda rivojlanib borayotgan kontentga ega.';
+      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
 
   @override
   String get contribute_translate_text_2 =>
-      'Tarjimalar loyihaning asosiy vazifalaridan biridir';
+      'Translations is one of the key tasks of the project';
 
   @override
   String get contribute_join_skill_pool =>
-      'Ochiq oziq-ovqat faktlariga o\'z mahoratingizni qo\'shing. Ko\'nikmalar jamg\'armasiga qo\'shiling!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
-      'Do\'stlaringiz bilan ochiq oziq-ovqat faktlarini baham ko\'ring';
+      'Share Open Food Facts with your friends';
 
   @override
   String get contribute_share_content =>
@@ -515,21 +499,21 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Sadoqat kartalaringiz ma\'lumotlarini GDPR eksportini so\'rash orqali narxlarni oshiring';
+      'Contribute prices by requesting a GDPR export of your loyalty cards data';
 
   @override
-  String get tap_to_answer => 'Savollarga javob berish uchun bu yerga bosing';
+  String get tap_to_answer => 'Tap here to answer questions';
 
   @override
   String get tap_to_answer_hint =>
-      'Ushbu mahsulot haqidagi savollarga javob berish uchun bu yerga bosing';
+      'Tap here to answer questions about this product';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'Ushbu mahsulot haqida savollar yuklanguncha kuting';
+      'Please wait while questions about this product are loaded';
 
   @override
-  String get saving_answer => 'Javobingiz saqlanmoqda';
+  String get saving_answer => 'Saving your answer';
 
   @override
   String get contribute_to_get_rewards =>
@@ -537,81 +521,79 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Hissalaringiz uchun kredit olish uchun Open Food Facts hisobingizga kiring';
+      'Sign in to your Open Food Facts account to get credit for your contributions';
 
   @override
-  String get question_yes_button_accessibility_value => 'Ha deb javob bering';
+  String get question_yes_button_accessibility_value => 'Answer with yes';
 
   @override
-  String get question_no_button_accessibility_value => 'Yo\'q deb javob bering';
+  String get question_no_button_accessibility_value => 'Answer with no';
 
   @override
-  String get question_skip_button_accessibility_value =>
-      'Bu savolni o\'tkazib yuborish';
+  String get question_skip_button_accessibility_value => 'Skip this question';
 
   @override
-  String get tap_to_edit_search => 'Qidiruvni tahrirlash uchun bosing';
+  String get tap_to_edit_search => 'Tap to edit search';
 
   @override
-  String get myPreferences => 'Mening afzalliklarim';
+  String get myPreferences => 'My preferences';
 
   @override
   String get account_create_message =>
-      'Dunyo bo\'ylab oziq-ovqat haqidagi bilimlarni oshirishga yordam berish uchun o\'z akkauntingizni yarating va Open Food Facts hamjamiyatiga qo\'shiling!';
+      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
 
   @override
-  String get join_us => 'Bizga qo\'shiling';
+  String get join_us => 'Join us';
 
   @override
-  String get myPreferences_profile_title => 'Sizning profilingiz';
+  String get myPreferences_profile_title => 'Your Profile';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Open Food Facts hissa qo\'shuvchi hisobingizni boshqaring.';
+      'Manage your Open Food Facts contributor account.';
 
   @override
-  String get myPreferences_settings_title => 'Ilova sozlamalari';
+  String get myPreferences_settings_title => 'App Settings';
 
   @override
-  String get myPreferences_settings_subtitle => 'Qorong\'u rejim, Tillar…';
+  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
 
   @override
-  String get myPreferences_food_title => 'Oziq-ovqat afzalliklari';
+  String get myPreferences_food_title => 'Food Preferences';
 
   @override
   String get myPreferences_food_subtitle =>
-      'Oziq-ovqat haqidagi qaysi ma\'lumot siz uchun eng muhimligini tanlang.';
+      'Choose what information about food matters most to you.';
 
   @override
   String get myPreferences_food_comment =>
-      'Oziq-ovqat haqidagi qaysi ma\'lumot siz uchun eng muhimligini tanlang, shunda oziq-ovqat mahsulotlarini afzalliklaringizga ko\'ra saralashingiz, avval sizga kerakli ma\'lumotlarni ko\'rishingiz va moslik xulosasini olishingiz mumkin. Ushbu oziq-ovqat afzalliklari qurilmangizda qoladi va agar sizda Open Food Facts hissa qo\'shuvchi hisobingiz bo\'lsa, ular bilan bog\'liq emas.';
+      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
 
   @override
-  String get confirmResetPreferences =>
-      'Ovqatlanish afzalliklaringizni qayta o\'rnatasizmi?';
+  String get confirmResetPreferences => 'Reset your food preferences?';
 
   @override
-  String get myPersonalizedRanking => 'Mening shaxsiylashtirilgan reytingim';
+  String get myPersonalizedRanking => 'My personalized ranking';
 
   @override
   String get ranking_tab_all => 'All';
 
   @override
-  String get ranking_subtitle_match_yes => 'Siz uchun ajoyib moslik';
+  String get ranking_subtitle_match_yes => 'A great match for you';
 
   @override
-  String get ranking_subtitle_match_no => 'Juda yomon moslik';
+  String get ranking_subtitle_match_no => 'Very poor match';
 
   @override
-  String get ranking_subtitle_match_maybe => 'Noma\'lum moslik';
+  String get ranking_subtitle_match_maybe => 'Unknown match';
 
   @override
   String get refresh_with_new_preferences =>
-      'Ro\'yxatni yangi sozlamalaringiz bilan yangilang';
+      'Refresh the list with your new preferences';
 
   @override
   String get reloaded_with_new_preferences =>
-      'Yangi sozlamalaringiz bilan qayta yuklandi';
+      'Reloaded with your new preferences';
 
   @override
   String get profile_navbar_label => 'Community';
@@ -620,28 +602,28 @@ class AppLocalizationsUz extends AppLocalizations {
   String get scan_navbar_label => 'Tekshirish';
 
   @override
-  String get history_navbar_label => 'Tarix';
+  String get history_navbar_label => 'History';
 
   @override
-  String get list_navbar_label => 'Ro\'yxatlar';
+  String get list_navbar_label => 'Lists';
 
   @override
-  String get category => 'Kategoriya bo\'yicha filtrlash';
+  String get category => 'Filter by category';
 
   @override
   String get category_all => 'All';
 
   @override
-  String get category_search => '(kategoriya bo\'yicha qidiruv)';
+  String get category_search => '(category search)';
 
   @override
-  String get filter => 'Filtr';
+  String get filter => 'Filter';
 
   @override
-  String get scan => 'Skanerlash ekranidan mahsulotlar';
+  String get scan => 'Products from the Scan screen';
 
   @override
-  String get scan_history => 'Skanerlash tarixi';
+  String get scan_history => 'Scan history';
 
   @override
   String get search => 'Qidirish';
@@ -657,174 +639,169 @@ class AppLocalizationsUz extends AppLocalizations {
   String get search_history => 'Qidiruv tarixi';
 
   @override
-  String get search_store => 'Do\'kon qidirish';
+  String get search_store => 'Search for a store';
 
   @override
   String get search_store_help => 'Maslahat: shahar yoki mamlakatni qo\'shing';
 
   @override
-  String get tap_for_more => 'Batafsil ma\'lumot olish uchun bosing…';
+  String get tap_for_more => 'Tap to see more info…';
 
   @override
   String get product => 'Product';
 
   @override
-  String get unknownBrand => 'Noma\'lum brend';
+  String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Noma\'lum miqdor';
-
-  @override
-  String get unknownProductName => 'Noma\'lum mahsulot nomi';
+  String get unknownProductName => 'Unknown product name';
 
   @override
   String get label_refresh => 'Refresh';
 
   @override
-  String get label_reload => 'Qayta yuklash';
+  String get label_reload => 'Reload';
 
   @override
-  String get image => 'Rasm';
+  String get image => 'Image';
 
   @override
-  String get front_photo => 'Old rasm';
+  String get front_photo => 'Front photo';
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (bu rasm eskirgan bo\'lishi mumkin)';
+    return '$imageType (this image may be outdated)';
   }
 
   @override
-  String get outdated_image_short_label => 'eskirgan bo\'lishi mumkin';
+  String get outdated_image_short_label => 'may be outdated';
 
   @override
   String get ingredients => 'Ingredients';
 
   @override
   String get ingredients_editing_instructions =>
-      'Asl tartibni saqlang. Belgilanganida foizni ko\'rsating. Tarkibning tarkibiy qismlarini vergul yoki chiziqcha bilan ajratib, qavslardan foydalaning.';
+      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
 
   @override
-  String get ingredients_editing_error => 'Masalliqlarni saqlab bo\'lmadi.';
+  String get ingredients_editing_error => 'Failed to save the ingredients.';
 
   @override
   String get ingredients_editing_image_error =>
-      'Yangi ingredientlar tasvirini olishda xatolik yuz berdi.';
+      'Failed to get a new ingredients image.';
 
   @override
-  String get ingredients_editing_title => 'Tarkiblarni tahrirlash';
+  String get ingredients_editing_title => 'Edit Ingredients';
 
   @override
-  String get ingredients_photo => 'Tarkibi fotosurati';
+  String get ingredients_photo => 'Ingredients photo';
 
   @override
   String get packaging_editing_instructions =>
-      'Barcha qadoqlash qismlarini vergul yoki chiziq bilan ajratib, ularning miqdorini (masalan, 1 yoki 6), turini (masalan, shisha, quti, banka), materialini (masalan, plastik, metall, alyuminiy) va agar mavjud bo\'lsa, ularning o\'lchamini (masalan, 33cl) va qayta ishlash bo\'yicha ko\'rsatmalarni ko\'rsating.\nMisol: Qayta ishlash uchun 1 ta shisha idish, tashlab yuborish uchun 1 ta plastik tiqin';
+      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
 
   @override
-  String get packaging_editing_error => 'Paketni saqlab bo\'lmadi.';
+  String get packaging_editing_error => 'Failed to save the packaging.';
 
   @override
   String get packaging_editing_image_error =>
-      'Yangi qadoqlash rasmini olishda xatolik yuz berdi.';
+      'Failed to get a new packaging image.';
 
   @override
-  String get packaging_editing_title => 'Qadoqlashni tahrirlash';
+  String get packaging_editing_title => 'Edit Packaging';
 
   @override
-  String get nutrition => 'Oziqlanish';
+  String get nutrition => 'Nutrition';
 
   @override
-  String get nutrition_facts_photo => 'Oziqlanish faktlari fotosurati';
+  String get nutrition_facts_photo => 'Nutrition facts photo';
 
   @override
-  String get nutrition_facts_editing_title =>
-      'Oziqlanish faktlarini tahrirlash';
+  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Qayta ishlash bo\'yicha ko\'rsatmalar';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo =>
-      'Qayta ishlash bo\'yicha ko\'rsatmalar fotosurati';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
-  String get missing_product => 'Siz yangi mahsulot topdingiz!';
+  String get missing_product => 'You found a new product!';
 
   @override
   String get add_product_take_photos =>
-      'Ushbu mahsulotni Open Food Facts’ga qo‘shish uchun qadoqning suratlarini oling';
+      'Take photos of the packaging to add this product to Open Food Facts';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'Iltimos, avval bir nechta rasm oling. Mahsulotni keyinroq yakunlashingiz mumkin.';
+      'Please take some photos first. You may always complete the product at a later time.';
 
   @override
   String get add_product_information_button_label => 'Add product information';
 
   @override
-  String get new_product => 'Yangi mahsulot';
+  String get new_product => 'New Product';
 
   @override
-  String get new_product_found_title => 'Yangi mahsulot topildi!';
+  String get new_product_found_title => 'New product found!';
 
   @override
   String get new_product_found_text =>
-      'Bizning hamkorlikdagi ma\'lumotlar bazamizda **3 milliondan ortiq mahsulot** mavjud, ammo bu shtrix-kod mavjud emas: ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get new_product_found_button => 'Add this product';
 
   @override
-  String get new_product_leave_title => 'Bu sahifadan chiqasizmi?';
+  String get new_product_leave_title => 'Leave this page?';
 
   @override
   String get new_product_leave_message =>
-      'Hech narsa kiritmaganga o\'xshaysiz. Rostdan ham bu sahifadan chiqmoqchimisiz?';
+      'It looks like you didn\'t input anything. Do you really want to leave this page?';
 
   @override
   String get new_product_dialog_description =>
-      'Ushbu mahsulotni bizning umumiy ma\'lumotlar bazamizga qo\'shish uchun iltimos, qadoqning rasmlarini oling';
+      'Please take photos of the packaging to add this product to our common database';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'Noma\'lum Nutri-Score va Green Score bilan illyustratsiya';
+      'An illustration with unknown Nutri-Score and Green Score';
 
   @override
-  String get front_packaging_photo_button_label => 'Old qadoqdagi fotosurat';
+  String get front_packaging_photo_button_label => 'Front packaging photo';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'Old qadoq rasmini yuklashni tasdiqlang';
+      'Confirm upload of Front packaging photo';
 
   @override
-  String get confirm_button_label => 'Tasdiqlash';
+  String get confirm_button_label => 'Confirm';
 
   @override
-  String get send_image_button_label => 'Rasm yuborish';
+  String get send_image_button_label => 'Send image';
 
   @override
-  String get crop_page_action_saving => 'Rasm saqlanmoqda…';
+  String get crop_page_action_saving => 'Saving the image…';
 
   @override
-  String get crop_page_action_cropping => 'Rasmni qirqish…';
+  String get crop_page_action_cropping => 'Cropping the image…';
 
   @override
-  String get crop_page_action_local => 'Mahalliy versiyani saqlash…';
+  String get crop_page_action_local => 'Saving a local version…';
 
   @override
   String get crop_page_action_local_failed_title =>
-      'Voy… rasmingizda biron bir narsa bor!';
+      'Oops… there\'s something with your photo!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'Tasvirni serverimizga yuborishdan oldin uni mahalliy ravishda qayta ishlay olmaymiz. Iltimos, keyinroq qayta urinib ko\'ring yoki muammo davom etsa, biz bilan bog\'laning.';
+      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
 
   @override
-  String get crop_page_action_retake => 'Qayta suratga olish';
+  String get crop_page_action_retake => 'Retake a photo';
 
   @override
-  String get crop_page_too_small_image_title => 'Rasm juda kichik!';
+  String get crop_page_too_small_image_title => 'The image is too small!';
 
   @override
   String crop_page_too_small_image_message(
@@ -833,192 +810,184 @@ class AppLocalizationsUz extends AppLocalizations {
     int actualWidth,
     int actualHeight,
   ) {
-    return 'Rasm yuklash uchun piksellarda minimal o\'lcham ${expectedMinWidth}x$expectedMinHeight. Joriy rasm ${actualWidth}x$actualHeight.';
+    return 'The minimum size in pixels for picture upload is ${expectedMinWidth}x$expectedMinHeight. The current picture is ${actualWidth}x$actualHeight.';
   }
 
   @override
-  String get crop_page_action_server => 'Serverga qo\'ng\'iroq tayyorlanmoqda…';
+  String get crop_page_action_server => 'Preparing a call to the server…';
 
   @override
-  String get front_packaging_photo_title => 'Old qadoqlash fotosurati';
+  String get front_packaging_photo_title => 'Front Packaging Photo';
 
   @override
-  String get ingredients_photo_title => 'Tarkibi fotosurati';
+  String get ingredients_photo_title => 'Ingredients Photo';
 
   @override
-  String get nutritional_facts_photo_title => 'Oziqlanish faktlari fotosurati';
+  String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title =>
-      'Qayta ishlash bo\'yicha ko\'rsatmalar Surat';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Suratga olish';
 
   @override
-  String get take_more_photo_title => 'Ko\'proq rasmga oling';
+  String get take_more_photo_title => 'Take more pictures';
 
   @override
-  String get front_photo_uploaded => 'Old rasm yuklandi';
+  String get front_photo_uploaded => 'Front photo uploaded';
 
   @override
-  String get ingredients_photo_button_label => 'Tarkibi fotosurati';
+  String get ingredients_photo_button_label => 'Ingredients photo';
 
   @override
-  String get ingredients_photo_uploaded => 'Masalliqlar fotosurati yuklandi';
+  String get ingredients_photo_uploaded => 'Ingredients photo uploaded';
 
   @override
   String get nutrition_cache_loading_error =>
-      'Keshdan ozuqa moddalarini yuklab bo\'lmadi';
+      'Unable to load nutrients from cache';
 
   @override
-  String get nutritional_facts_photo_button_label =>
-      'Oziqlanish faktlari fotosurati';
+  String get nutritional_facts_photo_button_label => 'Nutrition facts photo';
 
   @override
-  String get nutritional_facts_input_button_label =>
-      'Oziqlanish faktlarini to\'ldiring';
+  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
 
   @override
-  String get nutritional_facts_added =>
-      'Oziqlanish haqida ma\'lumot qo\'shildi';
+  String get nutritional_facts_added => 'Nutrition facts added';
 
   @override
-  String get categories_added => 'Kategoriyalar qo\'shildi';
+  String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'Nutri-Score hisoblang';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'Hech bo\'lmaganda bitta kategoriya va ozuqaviy qiymatlarni to\'ldirish orqali bizga yordam bering';
+      'Help us by filling at least a category and nutritional values';
 
   @override
-  String get new_product_title_environmental_score => 'Yashil ballni hisoblang';
+  String get new_product_title_environmental_score => 'Compute the Green Score';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Hech bo\'lmaganda bitta kategoriyani to\'ldirish orqali oling';
+      'Get it by filling at least a category';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Yashil ballarni hisoblashni kelib chiqishi, qadoqlashi va boshqa ko\'p narsalar bilan aniqroq qiling';
+      'Make Green Score computation more precise with origins, packaging & more';
 
   @override
   String get new_product_title_nova =>
-      'Oziq-ovqat mahsulotlarini qayta ishlash darajasini (NOVA) hisoblang';
+      'Compute the food processing level (NOVA)';
 
   @override
   String get new_product_subtitle_nova =>
-      'Oziq-ovqat toifasi va ingredientlarini to\'ldirish orqali oling';
+      'Get it by filling the food category and ingredients';
 
   @override
-  String get new_product_desc_nova_unknown =>
-      'Oziq-ovqat mahsulotlarini qayta ishlash darajasi noma\'lum';
+  String get new_product_desc_nova_unknown => 'Food processing level unknown';
 
   @override
-  String get new_product_title_pictures => 'Yangi mahsulot';
+  String get new_product_title_pictures => 'New product';
 
   @override
   String get new_product_title_pictures_details =>
-      'Iltimos, quyidagi rasmlarni oling, shunda Open Food Facts mexanizmi qolganini hal qila oladi!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'Va ba\'zi asosiy ma\'lumotlar…';
+  String get new_product_title_misc => 'And some basic data…';
 
   @override
   String new_product_done_msg(String username) {
-    return '“$username” hissangiz uchun tashakkur!';
+    return 'Thanks for your contribution “$username”!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'Hissangiz uchun tashakkur!';
+  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
 
   @override
-  String get new_product_done_button_label => 'Tayyor mahsulotni kashf eting';
+  String get new_product_done_button_label => 'Discover the completed product';
 
   @override
   String get hey_incomplete_product_message =>
-      'Nutri-Score, Green Score va Ultra-processing (NOVA) ni hisoblash uchun HOZIR 3 ta savolga javob berish uchun bosing!';
+      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Ushbu kosmetik mahsulotni tahlil qilishga yordam beradigan 2 ta savolga javob berish uchun hozir bosing!';
+      'Tap now to answer 2 questions to help analyze this cosmetic!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Ushbu uy hayvonlari uchun ozuqa mahsulotini tahlil qilishga yordam beradigan 3 ta savolga javob berish uchun hozir bosing!';
+      'Tap now to answer 3 questions to help analyze this pet food product!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Ushbu mahsulotni yakunlash uchun hozir bosing!';
+      'Tap now to help complete this product!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
-      'Oziqlanish faktlari fotosurati yuklandi';
+      'Nutrition facts photo uploaded';
 
   @override
-  String get recycling_photo_button_label => 'Qayta ishlash fotosurati';
+  String get recycling_photo_button_label => 'Recycling photo';
 
   @override
-  String get recycling_photo_uploaded => 'Qayta ishlash surati yuklandi';
+  String get recycling_photo_uploaded => 'Recycling photo uploaded';
 
   @override
-  String get take_more_photo_button_label => 'Ko\'proq rasmga oling';
+  String get take_more_photo_button_label => 'Take more pictures';
 
   @override
-  String get other_photo_uploaded => 'Turli xil rasm yuklandi';
+  String get other_photo_uploaded => 'Miscellaneous photo uploaded';
 
   @override
-  String get retake_photo_button_label => 'Qayta olish';
+  String get retake_photo_button_label => 'Retake';
 
   @override
-  String get selecting_photo => 'Surat tanlanmoqda';
+  String get selecting_photo => 'Selecting photo';
 
   @override
-  String get uploading_image => 'Surat serverga yuklanmoqda';
+  String get uploading_image => 'Uploading photo to the server';
 
   @override
   String get uploading_image_type_front =>
-      'Old rasmni Open Food Facts’ga yuklash';
+      'Uploading front image to Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Masalliqlar tasvirini Open Food Facts’ga yuklash';
+      'Uploading ingredients image to Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Oziqlanish tasvirini Open Food Facts’ga yuklash';
+      'Uploading nutrition image to Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'Qadoqlash rasmi Open Food Facts’ga yuklanmoqda';
+      'Uploading packaging image to Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'Boshqa rasmni Open Food Facts’ga yuklash';
+      'Uploading other image to Open Food Facts';
 
   @override
   String get uploading_image_type_generic =>
-      'Rasmni Open Food Facts’ga yuklash';
+      'Uploading image to Open Food Facts';
 
   @override
-  String get score_add_missing_ingredients =>
-      'Yo\'qolgan ingredientlarni qo\'shing';
+  String get score_add_missing_ingredients => 'Add missing ingredients';
 
   @override
-  String get score_add_missing_packaging_image =>
-      'Yetishmayotgan qadoqlash rasmini qo\'shing';
+  String get score_add_missing_packaging_image => 'Add missing packaging image';
 
   @override
-  String get score_add_missing_nutrition_facts =>
-      'Yo\'qolgan ovqatlanish faktlarini qo\'shing';
+  String get score_add_missing_nutrition_facts => 'Add missing nutrition facts';
 
   @override
-  String get score_add_missing_product_traces => 'Mahsulot izlarini qo\'shish';
+  String get score_add_missing_product_traces => 'Add missing product traces';
 
   @override
-  String get score_add_missing_product_category => 'Kategoriyani tanlang';
+  String get score_add_missing_product_category => 'Select a category';
 
   @override
   String get score_add_missing_precise_product_category =>
@@ -1026,41 +995,36 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get score_add_missing_product_countries =>
-      'Yo\'qolgan mahsulot mamlakatlarini qo\'shing';
+      'Add missing product countries';
 
   @override
   String get score_add_missing_product_emb =>
-      'Yo\'qolgan mahsulotni kuzatish kodlarini qo\'shing';
+      'Add missing product traceability codes';
 
   @override
-  String get score_add_missing_product_labels =>
-      'Yo\'qolgan mahsulot yorliqlarini qo\'shing';
+  String get score_add_missing_product_labels => 'Add missing product labels';
 
   @override
-  String get score_add_missing_product_origins =>
-      'Yo\'qolgan mahsulot manbalarini qo\'shing';
+  String get score_add_missing_product_origins => 'Add missing product origins';
 
   @override
-  String get score_add_missing_product_stores =>
-      'Yo\'qolgan mahsulot do\'konlarini qo\'shing';
+  String get score_add_missing_product_stores => 'Add missing product stores';
 
   @override
-  String get score_add_missing_product_brands =>
-      'Yo\'qolgan mahsulot brendlarini qo\'shing';
+  String get score_add_missing_product_brands => 'Add missing product brands';
 
   @override
-  String get score_update_nutrition_facts => 'Oziqlanish faktlarini yangilang';
+  String get score_update_nutrition_facts => 'Update nutrition facts';
 
   @override
-  String get nutrition_page_title => 'Oziqlanish faktlari';
+  String get nutrition_page_title => 'Nutrition Facts';
 
   @override
-  String get nutrition_page_nutritional_info_title =>
-      'Oziqlanish haqida ma\'lumot';
+  String get nutrition_page_nutritional_info_title => 'Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Mahsulotda ko\'rsatilgan qiymatlar:';
+      'Values specified on the product:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Yes';
@@ -1069,61 +1033,61 @@ class AppLocalizationsUz extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'No';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Suratni ochish';
+  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Yaxshi amaliyotlar: Oziqlanish haqida ma\'lumot';
+      'Good practices: Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Ba\'zan ozuqaviy ma\'lumotlar **qadoqda** yoki mahsulot bilan birga berilgan hujjatda ko\'rsatilmagan. Bu holda va faqat shu holatda siz qiymatni **YO\'Q** ga o\'rnatishingiz mumkin.';
+      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Oziqlanish qiymatlari:';
+  String get nutrition_page_serving_type_label => 'Nutritional values:';
 
   @override
-  String get nutrition_page_per_100g => '100 g uchun';
+  String get nutrition_page_per_100g => 'per 100g';
 
   @override
-  String get nutrition_page_per_100g_100ml => '100 g/ml uchun';
+  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
 
   @override
-  String get nutrition_page_per_serving => 'har bir porsiya uchun';
+  String get nutrition_page_per_serving => 'per serving';
 
   @override
-  String get nutrition_page_add_nutrient => 'Oziq moddasini qo\'shing';
+  String get nutrition_page_add_nutrient => 'Add a nutrient';
 
   @override
-  String get nutrition_page_serving_size => 'Porsiya hajmi';
+  String get nutrition_page_serving_size => 'Serving size';
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Porsiya hajmini kiriting (masalan: 100 g)';
+      'Input a serving size (eg: 100g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Yaxshi amaliyotlar: Porsiya hajmi';
+      'Good practices: Serving size';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'Bu qiymat **har bir porsiya miqdoriga mutanosib ravishda har bir ozuqa moddasini hisoblashga** yordam beradi.';
+      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '**Ruxsat berilgan birliklar** quyidagilar: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, g, mg, kg, l, dl, kl, ml, línąng, chàngín, líčí, chíní, lín.';
+      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60 g** yoki **60 G** (birinchisini afzal ko\'raman)';
+      '**60 g**, **60g** or **60 G** (prefer the first one)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 ml** yoki **1L**';
+      '**1000 ml** or **1L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Noto\'g\'ri birlik';
+      'Invalid unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1131,97 +1095,88 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Noto\'g\'ri birliklar';
+      'Invalid units';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 ta **konfet** va 2 ta **pechene**';
+      '9 **candies** and 2 **biscuits**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Yo\'qolgan birlik';
+      'Missing unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => 'Noto\'g\'ri raqam';
+  String get nutrition_page_invalid_number => 'Invalid number';
 
   @override
   String get nutrition_page_update_running =>
-      'Mahsulot serverda yangilanmoqda…';
+      'Updating the product on the server…';
 
   @override
-  String get nutrition_page_update_done => 'Mahsulot yangilandi!';
+  String get nutrition_page_update_done => 'Product updated!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Mahsulot miqdorini porsiya hajmi sifatida ishlating';
+      'Use the product quantity as serving size';
 
   @override
-  String get nutrition_page_photo_error => 'Suratni yuklab bo\'lmadi';
+  String get nutrition_page_photo_error => 'Unable to load the photo';
 
   @override
-  String get more_photos => 'Ko\'proq qiziqarli suratlar';
+  String get more_photos => 'More interesting photos';
 
   @override
   String get view_more_photo_button =>
-      'Ushbu mahsulot uchun mavjud bo\'lgan barcha rasmlarni ko\'rish';
+      'View all existing photos for this product';
 
   @override
-  String get no_product_found => 'Hech qanday mahsulot topilmadi';
+  String get no_product_found => 'No product found';
 
   @override
-  String no_product_found_explanation(String search) {
-    return '\n**\"$search\"**\nbo\'yicha qidiruvingiz hech qanday natija bermadi.';
-  }
+  String get no_location_found => 'No location found';
 
   @override
-  String get no_product_found_try_world_results =>
-      'Buning o\'rniga xuddi shu qidiruvni **bizning global ma\'lumotlar bazamizda** ishga tushirmoqchimisiz?';
+  String get not_found => 'not found:';
 
   @override
-  String get no_location_found => 'Hech qanday joylashuv topilmadi';
+  String get refreshing_product => 'Refreshing product';
 
   @override
-  String get not_found => 'topilmadi:';
-
-  @override
-  String get refreshing_product => 'Tetiklantiruvchi mahsulot';
-
-  @override
-  String get product_refreshed => 'Mahsulot yangilandi';
+  String get product_refreshed => 'Product refreshed';
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Rasm ${date}da olingan';
+    return 'Image taken on $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Rasm ${date}da olingan. Bu rasm eskirgan bo\'lishi mumkin.';
+    return 'Image taken on $date. This image may be outdated';
   }
 
   @override
-  String get product_image_outdated => 'Bu rasm eskirgan bo\'lishi mumkin';
+  String get product_image_outdated => 'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'Bu rasm eskirgan bo\'lishi mumkin';
+      'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'Bu rasm bir yildan ko\'proq vaqt oldin olingan.\n**Iltimos, uning hali ham yangilanganligini tekshiring**.\n\nBu **shunchaki ogohlantirish**. Agar kontent hali ham o\'sha bo\'lsa, siz ushbu xabarni e\'tiborsiz qoldirishingiz mumkin.';
+      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Suratni almashtirish ($type)';
+    return 'Replace photo ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Surat qo\'shish ($type)';
+    return 'Add a photo ($type)';
   }
 
   @override
@@ -1232,92 +1187,91 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get product_image_action_from_gallery =>
-      'Telefoningiz galereyasidan tanlang';
+      'Select from your phone\'s gallery';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'Mahsulot fotosuratlaridan tanlang';
+      'Select from the product photos';
 
   @override
-  String get product_image_details_label => 'Surat haqida ma\'lumot';
+  String get product_image_details_label => 'Information about the photo';
 
   @override
-  String get product_image_details_from_producer => 'Prodyuserdan';
+  String get product_image_details_from_producer => 'From the producer';
 
   @override
   String get product_image_details_contributor => 'Contributor';
 
   @override
   String get product_image_details_contributor_producer =>
-      'Ishtirokchi (prodyuser)';
+      'Contributor (producer)';
 
   @override
-  String get product_image_details_date => 'Sana';
+  String get product_image_details_date => 'Date';
 
   @override
-  String get product_image_details_date_unknown => 'Noma\'lum';
+  String get product_image_details_date_unknown => 'Unknown';
 
   @override
   String get homepage_main_card_logo_description =>
-      'Ochiq oziq-ovqat faktlariga xush kelibsiz';
+      'Welcome to Open Food Facts';
 
   @override
   String get homepage_main_card_subheading =>
-      '**Shtrix-kodni skanerlang** yoki\nmahsulotni **qidiring**';
+      '**Scan** a barcode or\n**search** for a product';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Mahsulot qidirish';
+  String get homepage_main_card_search_field_hint => 'Search for a product';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Qidiruvni boshlang';
+  String get homepage_main_card_search_field_tooltip => 'Start search';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'So\'nggi yangiliklar: $news_title';
+    return 'Latest news: $news_title';
   }
 
   @override
-  String get tagline_app_review => 'Ilova sizga yoqdimi?';
+  String get tagline_app_review => 'Do you like the app?';
 
   @override
-  String get tagline_app_review_button_positive => 'Menga juda yoqdi! 😍';
+  String get tagline_app_review_button_positive => 'I love it! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'Aslida…emas';
+  String get tagline_app_review_button_negative => 'Not really…';
 
   @override
-  String get tagline_app_review_button_later => 'Keyinroq so\'rang';
+  String get tagline_app_review_button_later => 'Ask me later';
 
   @override
-  String get tagline_feed_news_button => 'Batafsil ma\'lumot';
+  String get tagline_feed_news_button => 'Know more';
 
   @override
-  String get app_review_negative_modal_title =>
-      'Sizga bizning ilovamiz yoqmayaptimi?';
+  String get app_review_negative_modal_title => 'You don\'t like our app?';
 
   @override
   String get app_review_negative_modal_text =>
-      'Buning sababini aytib berish uchun bir necha soniya vaqt ajrata olasizmi?';
+      'Could you take a few seconds to tell us why?';
 
   @override
-  String get app_review_negative_modal_positive_button => 'Ha, albatta!';
+  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
 
   @override
   String get app_review_negative_modal_negative_button => 'No';
 
   @override
-  String get could_not_refresh => 'Mahsulotni yangilab bo\'lmadi';
+  String get could_not_refresh => 'Could not refresh product';
 
   @override
-  String get product_internet_error_modal_title => 'Xatolik yuz berdi!';
+  String get product_internet_error_modal_title => 'An error has occurred!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'Tarmoq xatosi tufayli ushbu mahsulot haqida ma\'lumot ololmadik. Internetga ulanishingizni tekshiring va qaytadan urinib ko\'ring.\n\nIchki xato:\n$error';
+    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
   }
 
   @override
-  String get product_tags_title => 'Mahsulot xususiyatlari';
+  String get product_tags_title => 'Product properties';
 
   @override
   String get no_product_tags_found_message =>
@@ -1334,28 +1288,28 @@ class AppLocalizationsUz extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Xususiyatlarni qo\'shish';
+  String get add_tags => 'Add properties';
 
   @override
-  String get add_edit_tags => 'Xususiyatlarni qo\'shish yoki tahrirlash';
+  String get add_edit_tags => 'Add or edit properties';
 
   @override
-  String get edit_tag => 'Xususiyatni tahrirlash';
+  String get edit_tag => 'Edit property';
 
   @override
-  String get remove_tag => 'Xususiyatni olib tashlash';
+  String get remove_tag => 'Remove property';
 
   @override
-  String get tag_key => 'Mulk';
+  String get tag_key => 'Property';
 
   @override
   String get tag_keys => 'Xususiyatlari';
 
   @override
-  String get tag_key_uneditable => 'Mulk (tahrirlab bo\'lmaydigan)';
+  String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
-  String get tag_key_input_hint => 'Xususiyatni kiriting';
+  String get tag_key_input_hint => 'Input a property';
 
   @override
   String get tag_value => 'Value';
@@ -1364,29 +1318,29 @@ class AppLocalizationsUz extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'Qiymat kiriting';
+  String get tag_value_input_hint => 'Input a value';
 
   @override
-  String get tag_key_item => 'Mulk:';
+  String get tag_key_item => 'Property:';
 
   @override
-  String get tag_value_item => 'Qiymat:';
+  String get tag_value_item => 'Value:';
 
   @override
   String get tag_key_explanations =>
-      'Kalit kichik harflar bilan yozilishi va bo\'sh joysiz yozilishi kerak.';
+      'A key must be lowercase and without any spaces.';
 
   @override
   String tag_key_already_exists(String property) {
-    return '$property xususiyatiga ega teg allaqachon mavjud!';
+    return 'A tag with a property $property already exists!';
   }
 
   @override
   String get product_internet_error =>
-      'Tarmoq xatosi tufayli ushbu mahsulot haqida ma\'lumot olishning iloji yo\'q.';
+      'Impossible to fetch information about this product due to a network error.';
 
   @override
-  String get cached_results_from => 'Natijalarni ko\'rsatish:';
+  String get cached_results_from => 'Show results from:';
 
   @override
   String get product_search_same_category => 'Muqobil variantlarni toping';
@@ -1396,102 +1350,99 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'Bu funksiyadan faqat kategoriyaga ega mahsulotlar uchun foydalanish mumkin.\n\nToifa qo\'shish uchun mahsulotni tahrirlang.';
+      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
 
   @override
   String get product_improvement_add_category =>
-      'Nutri-Score ni hisoblash uchun kategoriya qo\'shing.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Nutri-ballni hisoblash uchun ovqatlanish ma\'lumotlarini qo\'shing.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Nutri-ballni hisoblash uchun ovqatlanish faktlari va toifani qo\'shing.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'Ushbu mahsulot uchun Nutri-Score ni hisoblab bo\'lmaydi, bu, masalan, nostandart toifaga bog\'liq bo\'lishi mumkin. Agar bu xato deb hisoblansa, iltimos, biz bilan bog\'laning.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'Oziqlanish tasviri eskirgan: iltimos, uni yangilang.';
+      'The nutrition image is obsolete: please refresh it.';
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'Yashil ball ingredientlarning kelib chiqishini hisobga oladi. Iltimos, ingredientlar ro\'yxati va/yoki har qanday geografik da\'voning fotosuratini oling yoki mahsulotni tahrirlang, shunda ular hisobga olinishi mumkin.';
+      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
 
   @override
-  String get country_chooser_label => 'Iltimos, mamlakatni tanlang';
+  String get country_chooser_label => 'Please choose a country';
 
   @override
-  String get currency_chooser_label => 'Iltimos, valyutani tanlang';
+  String get currency_chooser_label => 'Please choose a currency';
 
   @override
-  String get country_change_message =>
-      'Siz hozirgina mamlakatlarni o\'zgartirdingiz.';
+  String get country_change_message => 'You have just changed countries.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Valyutani $previousCurrency dan ${possibleCurrency}ga o\'zgartirmoqchimisiz?';
+    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Iltimos, mamlakatni tanlang:';
+  String get onboarding_country_chooser_label => 'Please choose a country:';
 
   @override
-  String get country_chooser_label_from_settings => 'Sizning mamlakatingiz';
+  String get country_chooser_label_from_settings => 'Your country';
 
   @override
   String get country_selection_explanation =>
-      'Ba\'zi ekologik xususiyatlar joylashuvga xosdir';
+      'Some environmental features are location-specific';
 
   @override
-  String get product_removed_comparison =>
-      'Mahsulot taqqoslashdan olib tashlandi';
+  String get product_removed_comparison => 'Product removed from comparison';
 
   @override
-  String get native_app_settings => 'Mahalliy ilova sozlamalari';
+  String get native_app_settings => 'Native App Settings';
 
   @override
   String get native_app_description =>
-      'Ochiq oziq-ovqat faktlari uchun tizim sozlamalarini oching';
+      'Open systems settings for Open Food Facts';
 
   @override
-  String get product_removed_history => 'Mahsulot tarixdan olib tashlandi';
+  String get product_removed_history => 'Product removed from history';
 
   @override
-  String get product_removed_list => 'Mahsulot ro\'yxatdan olib tashlandi';
+  String get product_removed_list => 'Product removed from list';
 
   @override
-  String get product_could_not_remove => 'Mahsulotni olib tashlab bo\'lmadi';
+  String get product_could_not_remove => 'Could not remove product';
 
   @override
-  String get no_prodcut_in_list => 'Bu ro\'yxatda hech qanday mahsulot yo\'q';
+  String get no_prodcut_in_list => 'There is no product in this list';
 
   @override
-  String get no_product_in_section => 'Bu bo\'limda mahsulot yo\'q';
+  String get no_product_in_section => 'There is no product in this section';
 
   @override
-  String get recently_seen_products => 'Barcha ko\'rilgan mahsulotlar';
+  String get recently_seen_products => 'All viewed products';
 
   @override
-  String get clear => 'Toza';
+  String get clear => 'Clear';
 
   @override
-  String get clear_long => 'Ro\'yxatni bo\'shatish';
+  String get clear_long => 'Empty the list';
 
   @override
-  String get really_clear =>
-      'Siz haqiqatan ham ushbu ro\'yxatni o\'chirmoqchimisiz?';
+  String get really_clear => 'Do you really want to delete this list?';
 
   @override
   String pct_match(Object percent) {
-    return '$percent% moslik';
+    return '$percent% match';
   }
 
   @override
@@ -1499,8 +1450,8 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count kun oldin',
-      one: 'bir kun oldin',
+      other: '$count days ago',
+      one: 'one day ago',
     );
     return '$_temp0';
   }
@@ -1510,8 +1461,8 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count soat oldin',
-      one: 'bir soat oldin',
+      other: '$count hours ago',
+      one: 'one hour ago',
     );
     return '$_temp0';
   }
@@ -1521,9 +1472,9 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count daqiqa oldin',
-      one: 'bir daqiqa oldin',
-      zero: 'bir daqiqadan kamroq vaqt oldin',
+      other: '$count minutes ago',
+      one: 'one minute ago',
+      zero: 'less than a minute ago',
     );
     return '$_temp0';
   }
@@ -1533,8 +1484,8 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count bir oy oldin',
-      one: 'bir oy oldin',
+      other: '$count months ago',
+      one: 'one month ago',
     );
     return '$_temp0';
   }
@@ -1544,8 +1495,8 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count hafta oldin',
-      one: 'bir hafta oldin',
+      other: '$count weeks ago',
+      one: 'one week ago',
     );
     return '$_temp0';
   }
@@ -1555,8 +1506,8 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Taqqoslang $count Mahsulotlar',
-      one: 'Bitta mahsulotni taqqoslang',
+      other: 'Compare $count Products',
+      one: 'Compare one Product',
     );
     return '$_temp0';
   }
@@ -1566,64 +1517,64 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count tanlangan mahsulotlar',
-      one: 'Tanlangan bitta mahsulot',
-      zero: 'Tanlangan mahsulot yo\'q',
+      other: '$count selected products',
+      one: 'One selected product',
+      zero: 'No selected product',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Tanlangan mahsulotlarni taqqoslang';
+  String get compare_products_mode => 'Compare selected products';
 
   @override
-  String get delete_products_mode => 'Tanlangan mahsulotlarni o\'chirish';
+  String get delete_products_mode => 'Delete selected products';
 
   @override
-  String get select_all_products_mode => 'Barcha mahsulotlarni tanlang';
+  String get select_all_products_mode => 'Select all products';
 
   @override
-  String get select_none_products_mode => 'Hech birini tanlang';
+  String get select_none_products_mode => 'Select none';
 
   @override
   String get compare_products_appbar_title => 'Compare products';
 
   @override
   String get compare_products_appbar_subtitle =>
-      'Iltimos, kamida ikkita mahsulotni tanlang';
+      'Please select at least two products';
 
   @override
   String get retry_button_label => 'Qayta urinish';
 
   @override
-  String get connect_with_us => 'Biz bilan bog\'laning';
+  String get connect_with_us => 'Connect with us';
 
   @override
-  String get tiktok => 'Bizni TikTokda kuzatib boring';
+  String get tiktok => 'Follow us on TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'Bizni Instagramda kuzatib boring';
+  String get instagram => 'Follow us on Instagram';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'Bizni X (avvalgi Twitter) da kuzatib boring';
+  String get twitter => 'Follow us on X (formerly Twitter)';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Bizni Mastodonda kuzatib boring';
+  String get mastodon => 'Follow us on Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Bizni BlueSky’da kuzatib boring';
+  String get bsky => 'Follow us on BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
@@ -1632,20 +1583,20 @@ class AppLocalizationsUz extends AppLocalizations {
   String get blog => 'Blog';
 
   @override
-  String get faq => 'TSS';
+  String get faq => 'FAQ';
 
   @override
   String get discover => 'Discover';
 
   @override
-  String get how_to_contribute => 'Qanday hissa qo\'shish kerak';
+  String get how_to_contribute => 'How to Contribute';
 
   @override
   String get hint_knowledge_panel_message =>
-      'Ko\'rib turganingiz haqida batafsil ma\'lumot olish uchun kartaning istalgan qismiga bosishingiz mumkin. Hoziroq sinab ko\'ring!';
+      'Your can tap on any part of the card to get more details about what you see. Try it now!';
 
   @override
-  String get permissions_page_title => 'Kameraga kirish';
+  String get permissions_page_title => 'Camera access';
 
   @override
   String get permissions_page_body1 =>
@@ -1653,7 +1604,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get permissions_page_body2 =>
-      'Agar fikringizni o\'zgartirsangiz, ushbu parametrni istalgan vaqtda sozlamalardan yoqish va o\'chirish mumkin.';
+      'If you change your mind, this option can be enabled and disabled at any time from the settings.';
 
   @override
   String contact_form_body_android(
@@ -1664,7 +1615,7 @@ class AppLocalizationsUz extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'Operatsion tizim: Android (SDK Int: $sdkInt / Reliz: $release)\nModel: $model\nMahsulot: $product\nQurilma: $device\nBrend:$brand';
+    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
   }
 
   @override
@@ -1673,7 +1624,7 @@ class AppLocalizationsUz extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'OT: iOS ($version)\nModel: $model\nMahalliylashtirilgan model: $localizedModel';
+    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
   }
 
   @override
@@ -1683,67 +1634,67 @@ class AppLocalizationsUz extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nIlova versiyasi:$appVersion\nIlova tuzilish raqami:$appBuildNumber\nIlova paketi nomi:$appPackageName';
+    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
   }
 
   @override
   String get authorize_button_label => 'Authorise';
 
   @override
-  String get refuse_button_label => 'Rad etish';
+  String get refuse_button_label => 'Refuse';
 
   @override
-  String get ask_me_later_button_label => 'Keyinroq';
+  String get ask_me_later_button_label => 'Later';
 
   @override
-  String get are_you_sure => 'Ishonchingiz komilmi?';
+  String get are_you_sure => 'Are you sure?';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
-    return '${sourceName}sahifasiga o\'ting';
+    return 'Go further on $sourceName';
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Xush kelibsiz!';
+  String get onboarding_home_welcome_text1 => 'Welcome !';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'Sizga va butun sayyoramizga foydali taomlarni tanlashda yordam beradigan ilova!';
+      'The app that helps you choose food that is good for **you** and the **planet**!';
 
   @override
-  String get onboarding_continue_button => 'Davom etish';
+  String get onboarding_continue_button => 'Continue';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'Birinchi namunaviy mahsulotingiz yuklanmoqda';
+      'Loading your first example product';
 
   @override
   String get onboarding_welcome_warning =>
       'Kechirasiz, bu bizning namuna mahsulotimiz, siz uni tahrirlay olmaysiz :)';
 
   @override
-  String get product_list_your_ranking => 'Sizning reytingingiz';
+  String get product_list_your_ranking => 'Your ranking';
 
   @override
-  String get product_list_empty_icon_desc => 'Tarix mavjud emas';
+  String get product_list_empty_icon_desc => 'History not available';
 
   @override
-  String get product_list_empty_title => 'Skanerlashni boshlang';
+  String get product_list_empty_title => 'Start scanning';
 
   @override
   String get product_list_empty_message =>
-      'Skanerlangan mahsulotlar bu yerda ko\'rsatiladi va siz ular haqida batafsil ma\'lumotni tekshirishingiz mumkin';
+      'Scanned products will appear here and you can check detailed information about them';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'mahsulotlar',
-      one: 'mahsulot',
-      zero: 'mahsulot',
+      other: 'products',
+      one: 'product',
+      zero: 'product',
     );
-    return 'Tarixingizda $_temp0 yangilanmoqda';
+    return 'Refreshing $_temp0 in your history';
   }
 
   @override
@@ -1751,96 +1702,94 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Mahsulotlar',
-      one: 'Mahsulot',
-      zero: 'Mahsulot',
+      other: 'Products',
+      one: 'Product',
+      zero: 'Product',
     );
-    return '$_temp0 Yangilash tugallandi';
+    return '$_temp0 refresh complete';
   }
 
   @override
   String get product_list_compare_side_by_side => 'Yonma-yon solishtiring';
 
   @override
-  String get loading_dialog_default_title => 'Ma\'lumotlar yuklab olinmoqda';
+  String get loading_dialog_default_title => 'Downloading data';
 
   @override
-  String get loading_dialog_default_error_message =>
-      'Ma\'lumotlarni yuklab olib bo\'lmadi';
+  String get loading_dialog_default_error_message => 'Could not download data';
 
   @override
-  String get account_delete => 'Hisobni o\'chirish';
+  String get account_delete => 'Delete account';
 
   @override
   String get account_delete_title => 'Hisobimni o\'chirish';
 
   @override
-  String get user_profile => 'Hisob';
+  String get user_profile => 'Account';
 
   @override
-  String get user_profile_title_guest => 'Xush kelibsiz!';
+  String get user_profile_title_guest => 'Welcome!';
 
   @override
   String get user_profile_subtitle_guest =>
-      'Ochiq oziq-ovqat faktlari hamjamiyatiga qo\'shilish uchun tizimga kiring yoki ro\'yxatdan o\'ting';
+      'Sign-in or sign-up to join the Open Food Facts community';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Ochiq oziq-ovqat faktlari logini: $email';
+    return 'Open Food Facts login: $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Xush kelibsiz $id!';
+    return 'Welcome $id!';
   }
 
   @override
-  String get email_subject_account_deletion => 'Hisobni o\'chirish';
+  String get email_subject_account_deletion => 'Delete account';
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Salom, iltimos, mening Open Food Facts akkauntimni o\'chirib tashlang: $userId';
+    return 'Hi there, please delete my Open Food Facts account: $userId';
   }
 
   @override
-  String get settings_app_app => 'Ilova';
+  String get settings_app_app => 'Application';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Kamera';
+  String get settings_app_camera => 'Camera';
 
   @override
-  String get settings_app_products => 'Mahsulotlar';
+  String get settings_app_products => 'Products';
 
   @override
-  String get settings_app_miscellaneous => 'Turli xil';
+  String get settings_app_miscellaneous => 'Miscellaneous';
 
   @override
-  String get camera_play_sound_title => 'Skanerlashda ovozni ijro etish';
+  String get camera_play_sound_title => 'Play a sound on scan';
 
   @override
-  String get camera_play_sound_subtitle =>
-      'Har bir muvaffaqiyatli skanerlashda signal beriladi';
+  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
 
   @override
   String get camera_window_accessibility_label =>
-      'Shtrix-kodni kamerangiz bilan skanerlang';
+      'Scan a barcode with your camera';
 
   @override
-  String get app_haptic_feedback_title => 'Vibratsiya va sensorlar';
+  String get app_haptic_feedback_title => 'Vibration & Haptics';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'Ba\'zi amallarni bajargandan keyin tebranishlar (shtrix-kod dekodlangan, mahsulot olib tashlangan…).';
+      'Vibrations after executing some actions (barcode decoded, product removed…).';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'Yoqilganda, xatoliklar haqidagi hisobotlar avtomatik ravishda Open Food Facts xatolarni kuzatish tizimiga yuboriladi, shunda xatolar tuzatilishi va shu bilan ilovani yaxshilash mumkin bo\'ladi.';
+      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1850,157 +1799,149 @@ class AppLocalizationsUz extends AppLocalizations {
       'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
 
   @override
-  String get product_edit_photo_title => 'Suratni tahrirlash';
+  String get product_edit_photo_title => 'Edit Photo';
 
   @override
-  String get permission_photo_error => 'Xato';
+  String get permission_photo_error => 'Error';
 
   @override
   String get permission_photo_denied_title =>
-      'Shtrix-kodlarni skanerlash uchun kameradan foydalanishga ruxsat berish';
+      'Allow camera use to scan barcodes';
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'Yaxshilangan tajriba uchun $appName ga kamerangizga kirishga ruxsat bering. Siz shtrix-kodlarni to\'g\'ridan-to\'g\'ri skanerlashingiz mumkin bo\'ladi.';
+    return 'For an enhanced experience, please allow $appName to access your camera. You will be able to directly scan barcodes.';
   }
 
   @override
-  String get permission_photo_denied_button => 'Ruxsat berish';
+  String get permission_photo_denied_button => 'Allow';
 
   @override
   String get permission_photo_denied_dialog_settings_title =>
-      'Ruxsat berilmadi';
+      'Permission denied';
 
   @override
   String get permission_photo_denied_dialog_settings_message =>
-      'Avvalroq kameraga ruxsat berishni rad etganingiz uchun uni Sozlamalar orqali qo\'lda ruxsat berishingiz kerak.';
+      'As you\'ve previously denied the camera permission, you must allow it manually from the Settings.';
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
-      'Sozlamalarni ochish';
+      'Open settings';
 
   @override
   String get permission_photo_denied_dialog_settings_button_cancel => 'Cancel';
 
   @override
-  String get permission_photo_none_found => 'Kamera aniqlanmadi';
+  String get permission_photo_none_found => 'No camera detected';
 
   @override
-  String get permission_photo_denied => 'Kameraga kirishga ruxsat berilmagan';
+  String get permission_photo_denied => 'No camera access granted';
 
   @override
-  String get show_product_pictures => 'Mahsulot rasmlarini ko\'rsatish';
+  String get show_product_pictures => 'Show product pictures';
 
   @override
-  String get edit_product_label => 'Mahsulotni tahrirlash';
+  String get edit_product_label => 'Edit product';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'Tahrirlaringiz yuklanmoqda…';
+      'Uploading your edits…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Tahrirlaringiz **fonda** yuborilmoqda (yoki xatolik yuz bergan taqdirda keyinroq).\nSiz boshqa mahsulot maydonlarini tahrirlashni davom ettirishingiz mumkin.';
+      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Tahrirlaringiz **fonda** (yoki xatolik yuz bergan taqdirda keyinroq) yuborilmoqda.';
+      'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
   String get edit_product_label_short => 'Edit';
 
   @override
   String edit_product_form_item_help(String value) {
-    return '\"$value\" ni qanday kiritish mumkin?';
+    return 'How to enter \"$value\"?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Iltimos, bo\'sh bo\'lmagan qiymatni kiriting!';
+      'Please enter a non-empty value!';
 
   @override
   String get edit_product_form_item_error_existing =>
-      'Bu qiymat allaqachon mavjud!';
+      'This value is already there!';
 
   @override
-  String get edit_product_form_item_add_action_brand => 'Yangi brend qo\'shish';
+  String get edit_product_form_item_add_action_brand => 'Add a new brand';
 
   @override
-  String get edit_product_form_item_add_action_label =>
-      'Yangi yorliq qo\'shish';
+  String get edit_product_form_item_add_action_label => 'Add a new label';
 
   @override
-  String get edit_product_form_item_add_action_store =>
-      'Yangi do\'kon qo\'shish';
+  String get edit_product_form_item_add_action_store => 'Add a new store';
 
   @override
-  String get edit_product_form_item_add_action_origin =>
-      'Yangi manba qo\'shish';
+  String get edit_product_form_item_add_action_origin => 'Add a new origin';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Yangi kuzatuv kodini qo\'shing';
+      'Add a new traceability code';
 
   @override
-  String get edit_product_form_item_add_action_country =>
-      'Yangi mamlakat qo\'shish';
+  String get edit_product_form_item_add_action_country => 'Add a new country';
 
   @override
-  String get edit_product_form_item_add_action_category =>
-      'Yangi kategoriya qo\'shish';
+  String get edit_product_form_item_add_action_category => 'Add a new category';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Yangi iz qo\'shish';
+  String get edit_product_form_item_add_action_trace => 'Add a new trace';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Taklif qo\'shish';
+  String get edit_product_form_item_add_suggestion => 'Add suggestion';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Taklifni rad etish';
 
   @override
-  String get edit_product_form_item_details_title => 'Asosiy tafsilotlar';
+  String get edit_product_form_item_details_title => 'Basic details';
 
   @override
   String get edit_product_form_item_details_subtitle =>
-      'Mahsulot nomi, brendi, miqdori';
+      'Product name, brand, quantity';
 
   @override
-  String get edit_product_form_item_other_details_title =>
-      'Qo\'shimcha tafsilotlar';
+  String get edit_product_form_item_other_details_title => 'Additional details';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'Veb-sayt…';
+  String get edit_product_form_item_other_details_subtitle => 'Website…';
 
   @override
-  String get edit_product_form_item_photos_title => 'Rasmlar';
+  String get edit_product_form_item_photos_title => 'Photos';
 
   @override
-  String get edit_product_form_item_photos_subtitle =>
-      'Rasmlar qo\'shish yoki yangilash';
+  String get edit_product_form_item_photos_subtitle => 'Add or refresh photos';
 
   @override
-  String get edit_product_form_item_labels_title =>
-      'Yorliqlar va sertifikatlar';
+  String get edit_product_form_item_labels_title => 'Labels & Certifications';
 
   @override
   String get edit_product_form_item_labels_subtitle =>
-      'Atrof-muhit, sifat yorliqlari…';
+      'Environmental, Quality labels…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Yorliqni kiriting (masalan: NutriScore)';
+      'Input a label (eg: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'label';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Yaxshi amaliyotlar: Yorliqlar';
+      'Good practices: Labels';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Mahsulotning **haqiqiy** va boshqa sohalardan farq qiluvchi har qanday xususiyati.';
+      'Any characteristic of the product **which is factual** and different from the other fields.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -2008,7 +1949,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'Belgiyada ishlab chiqarilgan, Bretanida ishlab chiqarilgan…';
+      'Made in Belgium, produced in Brittany…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -2016,28 +1957,28 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Kletchatkaga boy, temir manbai…';
+      'Rich in fiber, source of iron…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Adolatli savdo, Maks Havelaar…';
+      'Fair trade, Max Havelaar…';
 
   @override
-  String get edit_product_form_item_stores_title => 'Do\'konlar';
+  String get edit_product_form_item_stores_title => 'Stores';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Do\'konni kiriting';
+  String get edit_product_form_item_stores_hint => 'Input a store';
 
   @override
-  String get edit_product_form_item_stores_type => 'do\'kon';
+  String get edit_product_form_item_stores_type => 'store';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Yaxshi amaliyotlar: Do\'konlar';
+      'Good practices: Stores';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Mahsulotni sotib olgan do\'koningizni kiriting.';
+      'Input the store where you bought the product.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -2052,74 +1993,74 @@ class AppLocalizationsUz extends AppLocalizations {
       'Lidl';
 
   @override
-  String get edit_product_form_item_origins_title => 'Kelib chiqishi';
+  String get edit_product_form_item_origins_title => 'Origins';
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Kelib chiqish manzilini kiriting (masalan: Germaniya)';
+      'Input an origin (eg: Germany)';
 
   @override
   String get edit_product_form_item_origins_type => 'mamlakat';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Yaxshi amaliyotlar: Kelib chiqishi';
+      'Good practices: Origins';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      '**Qadoqda topilgan har qanday kelib chiqish belgilarini** qo\'shing.\nTarkibidagi mahsulotlar ro\'yxatida to\'g\'ridan-to\'g\'ri ko\'rsatilgan kelib chiqish haqida tashvishlanishingiz shart emas.';
+      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Argentinadan mol go\'shti';
+      'Beef from Argentina';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'Soya Yevropa Ittifoqidan kelmaydi';
+      'The soy does not come from the European Union';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Mamlakatni kiriting (masalan: Germaniya)';
+      'Input a country (eg: Germany)';
 
   @override
   String get edit_product_form_item_countries_type => 'mamlakat';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Yaxshi amaliyotlar: Mamlakatlar';
+      'Good practices: Countries';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Mahsulot keng tarqalgan mamlakatlar** (xorijiy mahsulotlarga ixtisoslashgan do\'konlar bundan mustasno).';
+      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
 
   @override
-  String get edit_product_form_item_emb_codes_title => 'Kuzatuv kodlari';
+  String get edit_product_form_item_emb_codes_title => 'Traceability codes';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Kodni kiriting (masalan: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
-  String get edit_product_form_item_emb_codes_type => 'kuzatuv kodi';
+  String get edit_product_form_item_emb_codes_type => 'traceability code';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Yaxshi amaliyotlar: Kuzatuv kodlari';
+      'Good practices: Traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'Ushbu bo\'limda siz **qadoqlash belgilari**, **identifikatsiya belgilari** yoki **sog\'liqni saqlash belgilari** bilan bog\'liq kodlarni kiritishingiz mumkin.';
+      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Kuzatuv kodlariga misollar';
+      'Examples of traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      'Yevropa hamjamiyatida oziq-ovqat ishlab chiqaruvchilari yoki qadoqlovchilarni aniqlash uchun ishlatiladigan **YeI kodlari**:';
+      '**EC codes** used in the European Community to identify food producers or packagers:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2127,11 +2068,11 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: **Fransiya** mamlakat kodi\n**72.264.002**: geografik ma\'lumotlar\n**CE**: Yevropa hamjamiyati';
+      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      'Fransiyada ishlatiladigan **EMB kodlari**:';
+      '**EMB codes** used in France:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2145,7 +2086,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Iz qoldiring (masalan: Soya loviyalari)';
+      'Input a trace (eg: Soy beans)';
 
   @override
   String get edit_product_form_item_categories_title => 'Toifalar';
@@ -2155,156 +2096,154 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Toifani kiriting (masalan: Apelsin sharbati)';
+      'Input a category (eg: Orange juice)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Yaxshi amaliyotlar: Toifalar';
+      'Good practices: Categories';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      '**Faqat eng aniq kategoriyani** ko\'rsating.\nOta-ona kategoriyalari avtomatik ravishda qo\'shiladi.';
+      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Kategoriya yetishmayaptimi?';
+      'Missing category?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'Agar kategoriya avtomatik to\'ldirishda mavjud bo\'lmasa, uni baribir qo\'shishingiz mumkin.\nBu bizga sizning mamlakatingizda Ochiq Oziq-ovqat Faktlarini yaxshilashga yordam beradi.';
+      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Zaytun moyidagi sardalyalar';
+      'Sardines in olive oil';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Konsentratdan olingan apelsin sharbati';
+      'Orange juice from concentrate';
 
   @override
-  String get edit_product_form_item_exit_title => 'Saqlamasdan chiqasizmi?';
+  String get edit_product_form_item_exit_title => 'Quit without saving?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Ushbu sahifadan chiqishdan oldin o\'zgarishlarni saqlamoqchimisiz?';
+      'Do you want to save your changes before leaving this page?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
-      'O\'zgarishlarni saqlash';
+      'Save changes';
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'O\'zgarishlarni bekor qilish';
+      'Discard changes';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Ingredients';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Ekranni chimchilab kattalashtirish va kichraytirish';
+      'Zoom in and out by pinching the screen';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Suratni kattalashtirish va kichraytirish';
+      'Zoom in and out the photo';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      '**Chimchimlab kattalashtirish imo-ishorasi** yordamida siz rasmni kattalashtirishingiz yoki kichraytirishingiz mumkin:';
+      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Qoʻshish';
 
   @override
   String get edit_product_form_item_add_invalid_item_tooltip =>
-      'Avval matn kiriting';
+      'Please enter a text first';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'Olib tashlash';
+  String get edit_product_form_item_remove_item_tooltip => 'Remove';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip =>
-      'Tahriringizni saqlang';
+  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Tahriringizni bekor qiling';
+      'Cancel your edit';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'Qayta ishlash bo\'yicha ko\'rsatmalar fotosurati';
+      'Recycling instructions photo';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title =>
-      'Oziqlanish faktlari';
+  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
-      'Ozuqaviy qiymati, alkogol miqdori…';
+      'Nutrition, alcohol content…';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Yaxshi amaliyotlar: Oziqlanish faktlari';
+      'Good practices: Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Oziqlanish qiymatlari';
+      'Nutritional values';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'Avvalo, **qiymatlar** berilganligini tanlang:';
+      'First, select if the **values are provided**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'Oziqlanish faktlari';
+      'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Keyin, ozuqaviy qiymatlarni **qadoqda ko\'rsatilganidek** kiriting. Agar qiymat bo\'lmasa, \"Ko\'z\" belgisini bosishingiz mumkin.';
+      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Maydon yetishmayaptimi?';
+      'Missing field?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'Agar yozuv yetishmasa, uni qo\'shish uchun **\"Plyus\" belgisini** bosishingiz mumkin (masalan: D vitamini, magniy…).';
+      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
   String get edit_product_form_save => 'Edit';
 
   @override
-  String get edit_product_ingredients_photo_title => 'Tarkibi fotosurati';
+  String get edit_product_ingredients_photo_title => 'Ingredients photo';
 
   @override
   String get edit_product_ingredients_list_title => 'List of ingredients';
 
   @override
-  String get edit_product_packaging_photo_title => 'Qadoqlash fotosurati';
+  String get edit_product_packaging_photo_title => 'Packaging photo';
 
   @override
-  String get edit_product_packaging_list_title => 'Qadoqlash ro\'yxati';
+  String get edit_product_packaging_list_title => 'Packaging list';
 
   @override
-  String get no_data_available => 'Ma\'lumotlar mavjud emas';
+  String get no_data_available => 'No data available';
 
   @override
-  String get product_field_website_title => 'Veb-sayt';
+  String get product_field_website_title => 'Website';
 
   @override
-  String get origins_editing_title => 'Kelib chiqishlarni tahrirlash';
+  String get origins_editing_title => 'Edit Origins';
 
   @override
-  String get completed_basic_details_btn_text => 'Asosiy tafsilotlarni to\'liq';
+  String get completed_basic_details_btn_text => 'Complete basic details';
 
   @override
-  String get not_implemented_snackbar_text => 'Hali amalga oshirilmagan';
+  String get not_implemented_snackbar_text => 'Not implemented yet';
 
   @override
   String get category_picker_page_appbar_text => 'Toifalar';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Suratdan ingredientlarni ajratib oling';
+      'Extract ingredients from the photo';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2312,314 +2251,306 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Suratdan\ningredientlarni ajratib olish';
+      'Extracting ingredients\nfrom the photo';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'Surat yuklanmoqda…';
+  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Nima uchun men bu xabarni ko\'rmoqdaman?';
+      'Why do I see this message?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      '\"Masalliqlarni ajratib olish\" funksiyasidan foydalanish uchun avval rasm yuklanishi kerak.\n\nIltimos, bir necha soniya kuting yoki ularni qo\'lda kiriting.';
+      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text => 'Suratni yangilash';
+  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
 
   @override
   String get edit_packaging_extract_btn_text =>
-      'Suratdan\nqadoqni ajratib oling';
+      'Extract packaging\nfrom the photo';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Ekstrakt qadoqlash';
+  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
 
   @override
   String get edit_packaging_extracting_btn_text =>
-      'Suratdan qadoqni ajratib olish';
+      'Extracting packaging from the photo';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'Surat yuklanmoqda…';
+  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Nima uchun men bu xabarni ko\'rmoqdaman?';
+      'Why do I see this message?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      '\"Qadoqni ajratib olish\" funksiyasidan foydalanish uchun avval rasm yuklanishi kerak.\n\nIltimos, bir necha soniya kuting yoki ularni qo\'lda kiriting.';
+      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text => 'Suratni yangilash';
+  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
 
   @override
-  String get edit_ocr_extract_failed => 'Rasmdagi matnni aniqlab bo\'lmadi.';
+  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'Rasm yo\'q!';
+  String get edit_ocr_extract_disabled_title => 'No picture!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'Matnni ajratib olish funksiyasidan foydalanish uchun avval rasmga olishingiz kerak.';
+      'In order to use the text extraction feature, you must first take a photo.';
 
   @override
-  String get user_list_dialog_new_title => 'Yangi mahsulotlar ro\'yxati';
+  String get user_list_dialog_new_title => 'New list of products';
 
   @override
-  String get user_list_dialog_rename_title => 'Ro\'yxatni qayta nomlash';
+  String get user_list_dialog_rename_title => 'Rename list';
 
   @override
-  String get user_list_subtitle_product => 'Ro\'yxatlar';
+  String get user_list_subtitle_product => 'Lists';
 
   @override
   String get user_list_title => 'Your lists';
 
   @override
-  String get user_list_add_product => 'Mahsulotni ro\'yxatlaringizga qo\'shing';
+  String get user_list_add_product => 'Add the product to your lists';
 
   @override
-  String get user_list_button_new => 'Yangi ro\'yxat yarating';
+  String get user_list_button_new => 'Create a new list';
 
   @override
   String get user_list_empty_label =>
       'No list available yet, please start by creating one';
 
   @override
-  String get user_list_button_add_product => 'Ro\'yxatga qo\'shish';
+  String get user_list_button_add_product => 'Add to list';
 
   @override
-  String get added_to_list_msg => 'Ro\'yxatga qo\'shildi';
+  String get added_to_list_msg => 'Added to list';
 
   @override
-  String get user_list_popup_clear => 'Tarixingizni tozalang';
+  String get user_list_popup_clear => 'Clear your history';
 
   @override
-  String get user_list_popup_rename => 'Qayta nomlash';
+  String get user_list_popup_rename => 'Rename';
 
   @override
-  String get user_list_name_hint => 'Mening ro\'yxatim';
+  String get user_list_name_hint => 'My list';
 
   @override
-  String get user_list_name_error_empty => 'Ism majburiy';
+  String get user_list_name_error_empty => 'Name is mandatory';
 
   @override
-  String get user_list_name_error_already => 'Bu nom allaqachon ishlatilgan';
+  String get user_list_name_error_already => 'That name is already used';
 
   @override
-  String get user_list_name_error_same => 'Bu xuddi shu nom';
+  String get user_list_name_error_same => 'That is the same name';
 
   @override
-  String get user_list_name_input_hint => 'Ro\'yxat nomi';
+  String get user_list_name_input_hint => 'Name of the list';
 
   @override
-  String get try_again => 'Qayta urinib ko\'ring';
+  String get try_again => 'Try Again';
 
   @override
-  String get there_was_an_error => 'Xatolik yuz berdi';
+  String get there_was_an_error => 'There was an error';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return '${items}uchun hech qanday kategoriya topilmadi';
+    return 'No category found for $items';
   }
 
   @override
-  String get camera_toggle_camera =>
-      'Orqa va old kamera o\'rtasida almashinish';
+  String get camera_toggle_camera => 'Switch between back and front camera';
 
   @override
-  String get camera_toggle_flash =>
-      'Kamera chaqnog\'ini yoqing yoki o\'chiring';
+  String get camera_toggle_flash => 'Turn ON or OFF the flash of the camera';
 
   @override
-  String get camera_enable_flash => 'Chaqnoqni yoqish';
+  String get camera_enable_flash => 'Enable flash';
 
   @override
-  String get camera_disable_flash => 'Chaqnoqni o\'chirish';
+  String get camera_disable_flash => 'Disable flash';
 
   @override
-  String get camera_flash_error_dialog_title => 'Xatolik yuz berdi!';
+  String get camera_flash_error_dialog_title => 'An error occurred!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'Chaqnoq holatini o\'zgartirishda xatolik yuz berdi. Iltimos, smartfoningizda chiroq allaqachon yoqilmaganligiga ishonch hosil qiling.';
+      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
 
   @override
   String get category_picker_no_category_found_button => 'Orqaga';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Brauzeringizda yoki ilovada (agar o\'rnatilgan bo\'lsa) ochish uchun bosing';
+      'Click to open in your browser or in the application (if installed)';
 
   @override
-  String get dev_preferences_screen_title => 'DEV rejimi';
+  String get dev_preferences_screen_title => 'DEV Mode';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'Eksperimental xususiyatlar va ishlab chiqish vositalariga kirish';
 
   @override
-  String get dev_preferences_reset_onboarding_title =>
-      'Ishga qabul qilishni qayta boshlash';
+  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'Keyin uni qayta ko\'rish uchun ilovani qayta ishga tushirishingiz kerak.';
+      'You then have to restart the App to see it again.';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'openfoodfacts.org (PROD) va test env o\'rtasida almashinish';
+      'Switch between openfoodfacts.org (PROD) and test env';
 
   @override
   String get dev_preferences_test_environment_title =>
-      'Sinov muhiti parametrlari';
+      'Test environment parameters';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'Joriy sinov muhiti uchun asosiy URL: $url';
+    return 'Base URL for current test env: $url';
   }
 
   @override
   String get dev_preferences_test_environment_dialog_title =>
-      'Sinov muhiti xosti';
+      'Test environment host';
 
   @override
-  String get dev_preferences_ml_kit_title => 'ML to\'plamidan foydalaning';
+  String get dev_preferences_ml_kit_title => 'Use ML Kit';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'keyin siz ushbu ilovani qayta ishga tushirishingiz kerak';
+      'then you have to restart this app';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'Mahsulot sahifasidagi qo\'shimcha tugma';
+      'Additional button on product page';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'Masalliqlarni bilim paneli tugmasi orqali tahrirlash';
+      'Edit ingredients via a knowledge panel button';
 
   @override
-  String get dev_preferences_export_history_title => 'Eksport tarixi';
+  String get dev_preferences_export_history_title => 'Export History';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'istisno';
+  String get dev_preferences_export_history_progress_error => 'exception';
 
   @override
-  String get dev_preferences_export_history_progress_found =>
-      'mahsulot topildi';
+  String get dev_preferences_export_history_progress_found => 'product found';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'mahsulot topilmadi';
+      'product NOT found';
 
   @override
-  String get dev_preferences_export_history_dialog_title => 'Eksport tarixi';
+  String get dev_preferences_export_history_dialog_title => 'Export history';
 
   @override
-  String get dev_preferences_button_positive => 'KELISHDIKMI';
+  String get dev_preferences_button_positive => 'OK';
 
   @override
   String get dev_preferences_button_negative => 'Cancel';
 
   @override
-  String get dev_preferences_migration_title =>
-      'V1 dan ma\'lumotlarni migratsiya qilish';
+  String get dev_preferences_migration_title => 'Data migration from V1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
-    return 'Holati: $status';
+    return 'Status: $status';
   }
 
   @override
   String get dev_preferences_migration_status_already_done =>
-      'muvaffaqiyatli yoki yangi o\'rnatish';
+      'success or fresh install';
 
   @override
-  String get dev_preferences_migration_status_success => 'muvaffaqiyat';
+  String get dev_preferences_migration_status_success => 'success';
 
   @override
-  String get dev_preferences_migration_status_error => 'xato';
+  String get dev_preferences_migration_status_error => 'error';
 
   @override
-  String get dev_preferences_migration_status_in_progress => 'jarayonda';
+  String get dev_preferences_migration_status_in_progress => 'in progress';
 
   @override
   String get dev_preferences_migration_status_required =>
-      'majburiy (boshlash uchun bosing)';
+      'required (click to start)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'noma\'lum';
+  String get dev_preferences_migration_status_not_started => 'unknown';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'Tarixni tozalaydi va u yerga 3 ta mahsulotni qo\'yadi';
+      'Will clear history and put 3 products in there';
 
   @override
-  String get dev_preferences_news_custom_url_title =>
-      'Yangiliklar uchun maxsus URL';
+  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
 
   @override
   String get dev_preferences_news_custom_url_subtitle =>
-      'JSON faylining URL manzili:';
+      'URL of the JSON file:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'O\'rnatilmagan';
+  String get dev_preferences_news_custom_url_empty_value => 'Not set';
 
   @override
   String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Oxirgi yangilanish: $date';
+    return 'Last refresh: $date';
   }
 
   @override
-  String get product_type_label_food => 'Oziq-ovqat';
+  String get product_type_label_food => 'Food';
 
   @override
-  String get product_type_label_beauty => 'Shaxsiy parvarish';
+  String get product_type_label_beauty => 'Personal care';
 
   @override
-  String get product_type_label_pet_food => 'Uy hayvonlari uchun ozuqa';
+  String get product_type_label_pet_food => 'Pet food';
 
   @override
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Noma\'lum';
+  String get product_type_selection_title => 'Product type';
 
   @override
-  String get product_type_selection_title => 'Mahsulot turi';
-
-  @override
-  String get product_type_selection_subtitle => 'Ushbu mahsulot turini tanlang';
+  String get product_type_selection_subtitle =>
+      'Select the type of this product';
 
   @override
   String get product_type_selection_empty =>
-      'Avval mahsulot turini tanlashingiz kerak!';
+      'You need to select a product type first!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'Siz mahsulot turini o\'zgartira olmaysiz ($productType)!';
+    return 'You cannot change the product type ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Mahsulot sahifasida Narxlar ilovasiga yorliq';
+      'Shortcut to Prices app on product page';
 
   @override
-  String get prices_app_button => 'Narxlar ilovasiga o\'ting';
+  String get prices_app_button => 'Go to Prices app';
 
   @override
   String get prices_website_button => 'Open Prices veb-saytida oching';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Galereyadan to\'g\'ridan-to\'g\'ri narx teglarini qo\'shing';
+      'Add price tags directly from gallery';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Rasmlarni tanlaganingizdan so\'ng, ularni tahrirlay olmaysiz!';
+      'Once you\'ve selected images, you won\'t be able to edit them!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2630,10 +2561,10 @@ class AppLocalizationsUz extends AppLocalizations {
       'Hamjamiyatga AI tomonidan chiqarilgan narxlarni tasdiqlashga ruxsat bering.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Bir nechta narx teglari';
+  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
 
   @override
-  String get prices_bulk_proof_upload_title => 'Ommaviy isbot yuklash';
+  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Fayllarni tanlash';
@@ -2657,15 +2588,15 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'Narxlar';
+  String get prices_generic_title => 'Prices';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count narxlarni qo\'shish',
-      one: 'Narx qo\'shish',
+      other: 'Add $count prices',
+      one: 'Add a price',
     );
     return '$_temp0';
   }
@@ -2675,42 +2606,42 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count narxlarni yuboring',
-      one: 'Narxni yuboring',
+      other: 'Send $count prices',
+      one: 'Send the price',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Element qo\'shish';
+  String get prices_add_an_item => 'Add an item';
 
   @override
-  String get prices_add_a_price => 'Narx qo\'shish';
+  String get prices_add_a_price => 'Add a price';
 
   @override
-  String get prices_add_a_receipt => 'Chek qo\'shish';
+  String get prices_add_a_receipt => 'Add a receipt';
 
   @override
-  String get prices_add_price_tags => 'Narx teglarini qo\'shish';
+  String get prices_add_price_tags => 'Add price tags';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'Bu shtrix-kod ($barcode) allaqachon ro\'yxatda!';
+    return 'This barcode ($barcode) is already in the list!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'Hali mahsulot yo\'q';
+  String get prices_barcode_search_none_yet => 'No product yet';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return '${barcode}qidirilmoqda';
+    return 'Looking for $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Shtrix-kodni kiriting';
+  String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
   String get prices_category_enter => 'Shtrix-kodsiz mahsulot';
@@ -2737,10 +2668,10 @@ class AppLocalizationsUz extends AppLocalizations {
   String get prices_category_error_mandatory => 'Kategoriya majburiydir';
 
   @override
-  String get prices_barcode_reader_action => 'Shtrix-kod o\'quvchi';
+  String get prices_barcode_reader_action => 'Barcode reader';
 
   @override
-  String get prices_view_prices => 'Narxlarni ko\'rish';
+  String get prices_view_prices => 'View the prices';
 
   @override
   String get prices_list_title => 'Narxlar ro\'yxati';
@@ -2767,10 +2698,6 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get prices_entry_menu_open_product =>
-      'Mahsulot tafsilotlarini ko\'rish';
-
-  @override
   String get prices_entry_menu_open_product_prices =>
       'Ushbu mahsulot uchun barcha narxlarni ko\'ring';
 
@@ -2793,10 +2720,10 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count narxlar',
-      one: '1 ta narx',
+      other: '$count prices',
+      one: '1 price',
     );
-    return '$_temp0 uchun $product';
+    return '$_temp0 for $product';
   }
 
   @override
@@ -2804,16 +2731,16 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Barcha $count narxlar',
-      one: 'Faqat bitta narx',
-      zero: 'Hozircha narx yo\'q',
+      other: 'All $count prices',
+      one: 'Only one price',
+      zero: 'No price yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Eng so\'nggi $pageSize narxlar (jami: $total)';
+    return 'Latest $pageSize prices (total: $total)';
   }
 
   @override
@@ -2823,32 +2750,32 @@ class AppLocalizationsUz extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Narxi: $price / Do\'kon: \"$location\" / $date sanasida \"$user\" tomonidan nashr etilgan';
+    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return '\"$user\" ning ochiq isbotlari';
+    return 'Open proofs of \"$user\"';
   }
 
   @override
-  String get prices_open_proof => 'Ochiq narx isboti';
+  String get prices_open_proof => 'Open price proof';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Barcha $count dalillar',
-      one: 'Faqat bitta isbot',
-      zero: 'Hali isbot yo\'q',
+      other: 'All $count proofs',
+      one: 'Only one proof',
+      zero: 'No proof yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Eng so\'nggi $pageSize dalillar (jami: $total)';
+    return 'Latest $pageSize proofs (total: $total)';
   }
 
   @override
@@ -2860,7 +2787,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Eng ko\'p $pageSize hissa qo\'shganlar (jami: $total)';
+    return 'Top $pageSize contributors (total: $total)';
   }
 
   @override
@@ -2872,7 +2799,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Eng ko\'p $pageSize joylashuvlar (jami: $total)';
+    return 'Top $pageSize locations (total: $total)';
   }
 
   @override
@@ -2880,9 +2807,9 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count dalillar',
-      one: 'Bitta isbot',
-      zero: 'Isbot yo\'q',
+      other: '$count proofs',
+      one: 'One proof',
+      zero: 'No proof',
     );
     return '$_temp0';
   }
@@ -2892,9 +2819,9 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count mahsulotlar',
-      one: 'Bitta mahsulot',
-      zero: 'Mahsulot yo\'q',
+      other: '$count products',
+      one: 'One product',
+      zero: 'No product',
     );
     return '$_temp0';
   }
@@ -2904,9 +2831,9 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count foydalanuvchi',
-      one: 'Bitta foydalanuvchi',
-      zero: 'Foydalanuvchi yo\'q',
+      other: '$count users',
+      one: 'One user',
+      zero: 'No user',
     );
     return '$_temp0';
   }
@@ -2916,9 +2843,9 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count narxlar',
-      one: 'Bitta narx',
-      zero: 'Narxi yo\'q',
+      other: '$count prices',
+      one: 'One price',
+      zero: 'No price',
     );
     return '$_temp0';
   }
@@ -2927,50 +2854,50 @@ class AppLocalizationsUz extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'Oldindan qo\'shilgan narx';
 
   @override
-  String get prices_amount_subtitle => 'Miqdori';
+  String get prices_amount_subtitle => 'Amount';
 
   @override
-  String get prices_amount_is_discounted => 'Chegirma bormi?';
+  String get prices_amount_is_discounted => 'Is discounted?';
 
   @override
-  String get prices_amount_price_normal => 'Narxi';
+  String get prices_amount_price_normal => 'Price';
 
   @override
-  String get prices_amount_price_discounted => 'Chegirmali narx';
+  String get prices_amount_price_discounted => 'Discounted price';
 
   @override
-  String get prices_amount_price_not_discounted => 'Asl narx';
+  String get prices_amount_price_not_discounted => 'Original price';
 
   @override
-  String get prices_amount_no_product => 'Bitta mahsulot yetishmayapti!';
+  String get prices_amount_no_product => 'One product is missing!';
 
   @override
-  String get prices_amount_price_incorrect => 'Noto\'g\'ri qiymat';
+  String get prices_amount_price_incorrect => 'Incorrect value';
 
   @override
-  String get prices_amount_price_mandatory => 'Majburiy qiymat';
+  String get prices_amount_price_mandatory => 'Mandatory value';
 
   @override
-  String get prices_currency_subtitle => 'Valyuta';
+  String get prices_currency_subtitle => 'Currency';
 
   @override
-  String get prices_date_subtitle => 'Sana';
+  String get prices_date_subtitle => 'Date';
 
   @override
-  String get prices_location_subtitle => 'Do\'kon';
+  String get prices_location_subtitle => 'Shop';
 
   @override
-  String get prices_location_find => 'Do\'kon toping';
+  String get prices_location_find => 'Find a shop';
 
   @override
-  String get prices_location_mandatory => 'Siz do\'kon tanlashingiz kerak!';
+  String get prices_location_mandatory => 'You need to select a shop!';
 
   @override
   String get prices_location_search_broader =>
-      'Qidirayotgan narsangizni topa olmadingizmi? Keling, kengroq qidiruvni amalga oshiramiz!';
+      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
 
   @override
-  String get prices_proof_subtitle => 'Isbot';
+  String get prices_proof_subtitle => 'Proof';
 
   @override
   String get prices_proof_empty_title => 'Hali isbot yo\'q!';
@@ -2980,133 +2907,103 @@ class AppLocalizationsUz extends AppLocalizations {
       '**kvitansiya** yoki **narx yorlig‘i** suratini qo‘shishdan boshlang!';
 
   @override
-  String get prices_proof_find => 'Isbotni tanlang';
+  String get prices_proof_find => 'Select a proof';
 
   @override
-  String get prices_proof_change => 'O\'zgartirish isboti';
+  String get prices_proof_change => 'Change proof';
 
   @override
-  String get prices_proof_receipt => 'Chek';
+  String get prices_proof_receipt => 'Receipt';
 
   @override
-  String get prices_proof_price_tag => 'Narx yorlig\'i';
+  String get prices_proof_price_tag => 'Price tag';
 
   @override
-  String get prices_proof_mandatory => 'Siz dalil tanlashingiz kerak!';
+  String get prices_proof_mandatory => 'You need to select a proof!';
 
   @override
-  String get prices_add_validation_error => 'Tasdiqlash xatosi';
+  String get prices_add_validation_error => 'Validation error';
 
   @override
-  String get prices_privacy_warning_title => 'Maxfiylik haqida ogohlantirish';
+  String get prices_privacy_warning_title => 'Privacy warning';
 
   @override
-  String get prices_unknown_product => 'Noma\'lum mahsulot';
+  String get prices_unknown_product => 'Unknown product';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Narxlar **ular murojaat qilgan do\'kon bilan birga ommaga** e\'lon qilinadi.\n\nBu sizning Ochiq Oziq-ovqat Faktlari taxallusini biladigan odamlarga quyidagilarga imkon berishi mumkin:\n';
+      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
 
   @override
   String get prices_privacy_warning_message_bullet_1 =>
-      'Qaysi hududda yashayotganingizni aniqlang';
+      'Infer in which area you live';
 
   @override
   String get prices_privacy_warning_message_bullet_2 =>
-      'Nima sotib olayotganingizni biling';
+      'Know what you are buying';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'Agar bundan norozi bo\'lsangiz, iltimos, taxallusingizni o\'zgartiring yoki yangi Open Food Facts akkauntini yarating va u bilan ilovaga kiring.';
+      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
 
   @override
-  String get i_refuse => 'Men rad etaman';
+  String get i_refuse => 'I refuse';
 
   @override
-  String get i_accept => 'Men qabul qilaman';
+  String get i_accept => 'I accept';
 
   @override
-  String get prices_currency_change_proposal_title =>
-      'Valyutani o\'zgartirasizmi?';
+  String get prices_currency_change_proposal_title => 'Change the currency?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Joriy valyutangiz **$currency**. Uni **$newCurrency** ga o\'zgartirmoqchimisiz?';
+    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Ha, ${newCurrency}dan foydalaning';
+    return 'Yes, use $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'Yo\'q, ${currency}ni saqlab qo\'ying';
+    return 'No, keep $currency';
   }
 
   @override
-  String get prices_menu_know_more =>
-      'Ochiq narxlar haqida ko\'proq bilib oling';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get prices_discount_type => 'Discount type';
+  String get dev_preferences_import_history_result_success => 'Done';
 
   @override
-  String get prices_discount_type_quantity => 'Quantity discount';
+  String get dev_mode_section_server => 'Server configuration';
 
   @override
-  String get prices_discount_type_sale => 'Sale';
+  String get dev_mode_section_news => 'News provider configuration';
 
   @override
-  String get prices_discount_type_seasonal => 'Seasonal';
+  String get dev_mode_section_product_page => 'Product page';
 
   @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
+  String get dev_mode_section_ui => 'User Interface';
 
   @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
+  String get dev_mode_section_experimental_features => 'Experimental features';
 
   @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
-
-  @override
-  String get dev_preferences_import_history_result_success => 'Bajarildi';
-
-  @override
-  String get dev_mode_section_server => 'Server konfiguratsiyasi';
-
-  @override
-  String get dev_mode_section_news => 'Yangiliklar provayderi konfiguratsiyasi';
-
-  @override
-  String get dev_mode_section_product_page => 'Mahsulot sahifasi';
-
-  @override
-  String get dev_mode_section_ui => 'Foydalanuvchi interfeysi';
-
-  @override
-  String get dev_mode_section_experimental_features =>
-      'Eksperimental xususiyatlar';
-
-  @override
-  String get dev_mode_hide_environmental_score_title =>
-      'Yashil ballni chiqarib tashlash';
+  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'OCR ekranlari uchun imlo tekshiruvchisidan foydalaning';
+      'Use a spellchecker for OCR screens';
 
   @override
-  String get dev_mode_spellchecker_for_ocr_subtitle => '(Tarkibi va qadoqlash)';
+  String get dev_mode_spellchecker_for_ocr_subtitle =>
+      '(Ingredients and packaging)';
 
   @override
   String get dev_mode_reset_app_language_title => 'Ilova tilini tiklash';
@@ -3119,15 +3016,14 @@ class AppLocalizationsUz extends AppLocalizations {
       'prices.openfoodfacts.org (PROD) va test env oʻrtasida almashish';
 
   @override
-  String get search_history_item_edit_tooltip =>
-      'Ushbu qidiruvdan qayta foydalaning va tahrirlang';
+  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
-  String get search_history_item_remove_tooltip => 'Olib tashlash';
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'Siz barcha $totalSize mahsulotlarini yuklab oldingiz.';
+    return 'You\'ve downloaded all the $totalSize products.';
   }
 
   @override
@@ -3136,39 +3032,38 @@ class AppLocalizationsUz extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return '$count boshqa mahsulotlarni\nyuklab oling. ${totalSize}dan $downloaded yuklab olingan.';
+    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return '$search qidiruvi amalga oshirilmoqda.\n\nIltimos, bir necha soniya kuting…';
+    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
   }
 
   @override
-  String get user_search_contributor_title => 'Men qo\'shgan mahsulotlar';
+  String get user_search_contributor_title => 'Products I added';
 
   @override
-  String get user_search_informer_title => 'Men tahrirlagan mahsulotlar';
+  String get user_search_informer_title => 'Products I edited';
 
   @override
-  String get user_search_photographer_title => 'Men suratga olgan mahsulotlar';
+  String get user_search_photographer_title => 'Products I photographed';
 
   @override
-  String get user_search_to_be_completed_title =>
-      'Mening tayyorlanishi kerak bo\'lgan mahsulotlarim';
+  String get user_search_to_be_completed_title => 'My to-be-completed products';
 
   @override
-  String get user_search_prices_title => 'Mening narxlarim';
+  String get user_search_prices_title => 'My prices';
 
   @override
-  String get user_search_proofs_title => 'Mening dalillarim';
+  String get user_search_proofs_title => 'My proofs';
 
   @override
-  String get user_search_proof_title => 'Mening isbotim';
+  String get user_search_proof_title => 'My proof';
 
   @override
   String search_proof_title(String user) {
-    return '\"$user\" dan isbot';
+    return 'Proof from \"$user\"';
   }
 
   @override
@@ -3177,19 +3072,17 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'So\'nggi narxlar qo\'shildi';
+  String get all_search_prices_latest_title => 'Latest Prices added';
 
   @override
-  String get all_search_prices_top_user_title =>
-      'Eng yaxshi narx hissa qo\'shuvchilari';
+  String get all_search_prices_top_user_title => 'Top price contributors';
 
   @override
   String get all_search_prices_top_location_title =>
-      'Eng ko\'p narxlarga ega do\'konlar';
+      'Stores with the most prices';
 
   @override
-  String get prices_contribution_assistant =>
-      'Narxlarga hissa qo\'shish bo\'yicha yordamchi';
+  String get prices_contribution_assistant => 'Price Contribution Assistant';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3198,68 +3091,63 @@ class AppLocalizationsUz extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system =>
-      'Bir nechta dalillarni qo\'shish';
+  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
 
   @override
-  String get all_search_prices_top_location_single_title =>
-      'Do\'kondagi narxlar';
+  String get all_search_prices_top_location_single_title => 'Prices in a store';
 
   @override
   String get all_search_prices_top_product_title =>
-      'Eng ko\'p narxga ega mahsulotlar';
+      'Products with the most prices';
 
   @override
-  String get all_search_to_be_completed_title =>
-      'Barcha tayyorlanishi kerak bo\'lgan mahsulotlar';
+  String get all_search_to_be_completed_title => 'All to-be-completed products';
 
   @override
   String get categorize_products_country_title =>
-      'Mamlakatingizdagi mahsulotlarni tasniflashga yordam bering';
+      'Help categorize products in your country';
 
   @override
-  String get edit_product_action_retake_picture => 'Qayta suratga olish';
+  String get edit_product_action_retake_picture => 'Retake photo';
 
   @override
-  String get edit_product_action_take_picture => 'Suratga oling';
+  String get edit_product_action_take_picture => 'Take photo';
 
   @override
-  String get edit_product_action_confirm => 'Tasdiqlash';
+  String get edit_product_action_confirm => 'Confirm';
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'Men Ochiq Oziq-ovqat Faktlariga qo\'shilaman ';
+      'I agree to the Open Food Facts ';
 
   @override
-  String get signup_page_terms_of_use_line2 =>
-      'foydalanish shartlari va hissa qo\'shish';
+  String get signup_page_terms_of_use_line2 => 'terms of use and contribution';
 
   @override
-  String get analytics_consent_image_semantic_label => 'Analitika belgisi';
+  String get analytics_consent_image_semantic_label => 'Analytics icon';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Halokatli xato: $error';
+    return 'Fatal Error: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Halokatli xato: $error';
+    return 'Fatal Error: $error';
   }
 
   @override
-  String get summary_card_button_add_basic_details =>
-      'Asosiy tafsilotlarni to\'liq';
+  String get summary_card_button_add_basic_details => 'Complete basic details';
 
   @override
   String get edit_photo_button_label => 'Edit';
 
   @override
-  String get edit_photo_unselect_button_label =>
-      'Suratni tanlashni bekor qilish';
+  String get edit_photo_unselect_button_label => 'Unselect photo';
 
   @override
-  String get edit_photo_select_existing_button_label => 'Mavjud rasmni tanlang';
+  String get edit_photo_select_existing_button_label =>
+      'Select an existing image';
 
   @override
   String get edit_photo_select_existing_all_label =>
@@ -3267,52 +3155,52 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Rasmni bosish orqali tanlang';
+      'Select an image by clicking on it';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'Mavjud rasmlar olinmoqda…';
+      'Retrieving existing images…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
-      'Ushbu mahsulotga oid ilgari yuklangan rasmlar yo\'q.';
+      'There are no images previously uploaded related to this product.';
 
   @override
-  String get edit_photo_language_not_this_one => 'Bu tilda hali rasm yo\'q';
+  String get edit_photo_language_not_this_one =>
+      'No image in that language yet';
 
   @override
-  String get edit_photo_language_none => 'Hali rasm yo\'q';
+  String get edit_photo_language_none => 'No image yet';
 
   @override
   String get category_picker_screen_title => 'Toifalar';
 
   @override
-  String get basic_details => 'Asosiy tafsilotlar';
+  String get basic_details => 'Basic Details';
 
   @override
-  String get product_name => 'Mahsulot nomi';
+  String get product_name => 'Product Name';
 
   @override
-  String get product_names => 'Mahsulot nomlari';
+  String get product_names => 'Product Names';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Yangi tarjima qo\'shish';
+      'Add a new translation';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Tasdiqlashdan oldin, iltimos, faqat qadoqda til mavjud bo\'lsa, tarjimani qo\'shing.';
+      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'Old rasmni ko\'rish';
+  String get add_basic_details_product_name_open_photo => 'View front photo';
 
   @override
-  String get add_basic_details_product_name_take_photo =>
-      'Old tomondan suratga oling';
+  String get add_basic_details_product_name_take_photo => 'Take front photo';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Mahsulot nomini kiriting (masalan: Nutella)';
+      'Input the name of the product (eg: Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3326,41 +3214,41 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Yaxshi misollar';
+  String get explanation_section_good_examples => 'Good examples';
 
   @override
-  String get explanation_section_bad_examples => 'Yomon misollar';
+  String get explanation_section_bad_examples => 'Bad examples';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Yaxshi amaliyotlar: Mahsulot nomi';
+      'Good practices: Product name';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'Mahsulot nomi - qadoqda bosilgan **asosiy nom**. Bu ro\'yxatdan o\'tgan savdo belgisi bo\'lishi mumkin.';
+      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Izoh:** Agar til qadoqda ko\'rsatilmagan bo\'lsa, iltimos, tarjima qo\'shmang**.';
+      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Pomidor ketchupi';
+      'Tomato Ketchup';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Brendni nomga kiritmang';
+      'Don\'t include the brand in the name';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Heinz tomonidan tayyorlangan pomidor ketchupi**';
+      'Tomato Ketchup **by Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      '®, ™, © yoki shunga o\'xshash belgilarni ishlatmang';
+      'Don\'t use symbols ®, ™, © or similar';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3371,60 +3259,58 @@ class AppLocalizationsUz extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count boshqa tarjimalar',
-      one: '$count boshqa tarjima',
+      other: '$count other translations',
+      one: '$count other translation',
     );
     return '$_temp0';
   }
 
   @override
-  String get brand_name => 'Brend nomi';
+  String get brand_name => 'Brand name';
 
   @override
-  String get brand_names => 'Brend nomlari';
+  String get brand_names => 'Brand names';
 
   @override
   String get add_basic_details_brand_name_error =>
-      'Iltimos, brend nomini kiriting';
+      'Please enter the brand name';
 
   @override
-  String get add_basic_details_brand_names_hint =>
-      'Kiritish brendlari (masalan: Ferrero)';
+  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Yaxshi amaliyotlar: Brendlar';
+      'Good practices: Brands';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      '**Mahsulotning barcha brendlarini** kiriting.';
+      'Input **all the brands of the product**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Asosiy brend';
+  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'Odatda old qadoqda aniq ko\'rsatilgan **asosiy brend** avval **kiritilishi** kerak.';
+      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title =>
-      'Boshqa brendlar';
+  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'Katta kompaniya tomonidan**sotilganda**:';
+      'When sold **by a big company**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Actimel** Danone** tomonidan sotiladi';
+      '**Actimel** is sold by **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'Brendi bilan birga sotilganda **bir nechta tillarga tarjima qilingan**:';
+      'When sold with its brand **translated in multiple languages**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      '**Nature Valley** ba\'zan **Val Nature** deb yoziladi';
+      '**Nature Valley** is sometimes written **Val Nature**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3434,184 +3320,181 @@ class AppLocalizationsUz extends AppLocalizations {
       'Oreo, Mondelez';
 
   @override
-  String get quantity => 'Miqdori va vazni';
+  String get quantity => 'Quantity and weight';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Og\'irlikni va agar kerak bo\'lsa, miqdorini kiriting (masalan: 4x100g)';
+      'Input the weight and if needed the quantity (eg : 4x100g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Yaxshi amaliyotlar: Miqdor';
+      'Good practices: Quantity';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Mahsulotda ko\'rsatilgan qiymatni nusxalang va **birliklarni** unutmang.';
+      'Copy the value indicated on the product and **don\'t forget the units**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230 g** yoki **230 g**';
+      '**230g** or **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (6 ta tuxum uchun)';
+      '**6** (for 6 eggs)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150 g**\n(har biri 150 g dan iborat 3 ta qutili mahsulot uchun)';
+      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
 
   @override
   String get barcode => 'Shtrix kod';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Shtrix-kod: $barcode';
+    return 'Barcode: $barcode';
   }
 
   @override
-  String get barcode_invalid_error => 'Shtrix-kod noto\'g\'ri.';
+  String get barcode_invalid_error => 'Invalid barcode';
 
   @override
-  String get basic_details_add_success =>
-      'Asosiy ma\'lumotlar muvaffaqiyatli qo\'shildi';
+  String get basic_details_add_success => 'Basic details added successfully';
 
   @override
   String get basic_details_add_error =>
-      'Asosiy ma\'lumotlarni qo\'shib bo\'lmadi. Biroz vaqtdan keyin qayta urinib ko\'ring.';
+      'Unable to add basic details. Please try again after some time';
 
   @override
-  String get clear_search => 'Qidiruvingizni tozalang';
+  String get clear_search => 'Clear your search';
 
   @override
   String get confirm_clear =>
-      'Siz butun tarixingizni o\'chirib tashlamoqchisiz: davom ettirmoqchimisiz?';
+      'You\'re about to clear your entire history: are you sure you want to continue?';
 
   @override
   String get alert_clear_selected_user_list =>
-      'Tarixingizdagi tanlangan elementlarni tozalash arafasidasiz';
+      'You\'re about to clear selected items in your history';
 
   @override
-  String get confirm_clear_selected_user_list => 'Davom etmoqchimisiz?';
+  String get confirm_clear_selected_user_list =>
+      'Are you sure you want to continue?';
 
   @override
   String get alert_select_items_to_clear =>
-      'Iltimos, tozalash uchun bir yoki bir nechta elementni tanlang';
+      'Please select one or more items to clear';
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'Siz ushbu ro\'yxatni tozalash arafasidasiz ($name): davom etmoqchimisiz?';
+    return 'You\'re about to clear this list ($name): are you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_title =>
-      'Ro\'yxatni o\'chirib tashlaysizmi?';
+  String get confirm_delete_user_list_title => 'Delete the list?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'Siz \"$name\" ro\'yxatini o\'chirish arafasidasiz.\nDavom etmoqchimisiz?';
+    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Ha, tasdiqlayman';
+  String get confirm_delete_user_list_button => 'Yes, I confirm';
 
   @override
   String importance_label(String name, String id) {
-    return '$name ahamiyati: $id';
+    return '$name importance: $id';
   }
 
   @override
-  String get user_list_all_title => 'Ro\'yxatlar';
+  String get user_list_all_title => 'Lists';
 
   @override
-  String get user_list_all_empty => 'Birinchi ro\'yxatingizni yarating';
+  String get user_list_all_empty => 'Create your first list';
 
   @override
-  String get product_list_select => 'Ro\'yxatni tanlang';
+  String get product_list_select => 'Select a list';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count mahsulotlar',
-      one: 'Bitta mahsulot',
-      zero: 'Bo\'sh ro\'yxat',
+      other: '$count products',
+      one: 'One product',
+      zero: 'Empty list',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'Ro\'yxat qo\'shish';
+  String get add_list_label => 'Add list';
 
   @override
-  String get open_food_preferences_tooltip =>
-      'Ovqatlanish afzalliklaringizni tahrirlang';
+  String get open_food_preferences_tooltip => 'Edit your food preferences';
 
   @override
-  String get add_photo_button_label => 'Surat qo\'shish';
+  String get add_photo_button_label => 'Add photo';
 
   @override
   String get add_packaging_photo_button_label =>
-      'Qadoqlash/qayta ishlash haqidagi har qanday ma\'lumotni suratga oling';
+      'Take photos of any packaging/recycling information';
 
   @override
   String get add_origin_photo_button_label =>
-      'Kelib chiqish ma\'lumotlarining har qanday suratini oling';
+      'Take photos of any origin information';
 
   @override
   String get add_emb_photo_button_label =>
-      'Kuzatuv kodi haqidagi har qanday ma\'lumotni suratga oling';
+      'Take photos of any traceability code information';
 
   @override
   String get add_label_photo_button_label =>
-      'Har qanday yorliqlar va sertifikatlar haqidagi ma\'lumotlarni suratga oling';
+      'Take photos of any labels & certifications information';
 
   @override
-  String get choose_image_source_title => 'Rasm manbasini tanlang';
+  String get choose_image_source_title => 'Choose image source';
 
   @override
-  String get choose_image_source_body => 'Iltimos, rasm manbasini tanlang';
+  String get choose_image_source_body => 'Please choose a image source';
 
   @override
-  String get gallery_source_label => 'Galereya';
+  String get gallery_source_label => 'Gallery';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'Ruxsat berilmadi';
+  String get gallery_source_access_denied_dialog_title => 'Access denied';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Afsuski, ilova sizning galereyangizga kira olmaydi, chunki siz ilgari ruxsatni rad etgan edingiz.\n\nIltimos, telefoningizdagi Sozlamalar -> Rasmlar bo\'limida ilova sozlamalariga o\'ting.';
+      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
 
   @override
-  String get gallery_source_access_denied_dialog_button =>
-      'Sozlamalarni oching';
+  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
 
   @override
-  String get share => 'Ulashish';
+  String get share => 'Share';
 
   @override
   String share_product_text(String url) {
-    return 'Ushbu mahsulotga Open Food Facts sahifasida qarang: $url';
+    return 'Have a look at this product on Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Ushbu mahsulotga Open Beauty Facts sahifasida qarang: $url';
+    return 'Have a look at this product on Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Ushbu mahsulotga Open PetFood Facts sahifasida qarang: $url';
+    return 'Have a look at this product on Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Ushbu mahsulotga Open Products Facts sahifasida qarang: $url';
+    return 'Have a look at this product on Open Products Facts: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Open Food Facts’dagi mahsulotlar ro‘yxatimga qarang: $url';
+    return 'Have a look at my list of products on Open Food Facts: $url';
   }
 
   @override
@@ -3621,176 +3504,172 @@ class AppLocalizationsUz extends AppLocalizations {
   String get capture_new_picture => 'Suratga olish';
 
   @override
-  String get choose_from_gallery => 'Galereyadan tanlang';
+  String get choose_from_gallery => 'Choose from gallery';
 
   @override
   String get image_upload_queued =>
-      'Rasm imkon qadar tezroq orqa fonga yuklanadi.';
+      'The image will be uploaded in the background as soon as possible.';
 
   @override
-  String get add_price_queued => 'Narx imkon qadar tezroq serverga yuboriladi.';
+  String get add_price_queued =>
+      'The price will be sent to the server as soon as possible.';
 
   @override
   String get background_task_title_full_refresh =>
-      'Mahalliy saqlangan barcha mahsulotlarni yangilashni boshlash';
+      'Starting the refresh of all the products locally stored';
 
   @override
   String get background_task_title_folksonomy =>
-      'Mahalliy ravishda saqlangan folksonomiya yangilanishlari uchun server amallarini bajarishni boshlash';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
-      'Eng mashhur mahsulotlarni yuklab olishni boshlash';
+      'Starting the download of the most popular products';
 
   @override
-  String get expand_nutrition_facts =>
-      'Oziqlanish faktlari jadvalini kengaytirish';
+  String get expand_nutrition_facts => 'Expand nutrition facts table';
 
   @override
   String get expand_nutrition_facts_body =>
-      'Oziqlanish ma\'lumotlari jadvalini kengaytirilgan holda saqlang';
+      'Keep the nutrition facts table expanded';
 
   @override
-  String get expand_ingredients => 'Tarkiblarni kengaytirish';
+  String get expand_ingredients => 'Expand ingredients';
 
   @override
-  String get expand_ingredients_body =>
-      'Ingredientlar panelini kengaytirilgan holda saqlang';
+  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
 
   @override
-  String get no_internet_connection => 'Internetga ulanish yo\'q';
+  String get no_internet_connection => 'No internet connection';
 
   @override
-  String get world_results_label => 'Butun dunyo';
+  String get world_results_label => 'Entire world';
 
   @override
-  String get world_results_action =>
-      'Qidiruvingizni butun dunyoga kengaytiring';
+  String get world_results_action => 'Extend your search to the world';
 
   @override
-  String get copy_to_clipboard => 'Nusxalash';
+  String get copy_to_clipboard => 'Copy';
 
   @override
-  String get paste_from_clipboard => 'Buferdan joylashtirish';
+  String get paste_from_clipboard => 'Paste from clipboard';
 
   @override
   String get no_data_available_in_clipboard =>
-      'Buferingizda hech qanday ma\'lumot mavjud emas';
+      'No data available in your clipboard';
 
   @override
-  String get clipboard_barcode_copy => 'Shtrix-kodni buferga nusxalash';
+  String get clipboard_barcode_copy => 'Copy barcode to clipboard';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Shtrix-kod $barcode buferga nusxalandi!';
+    return 'Barcode $barcode copied to the clipboard!';
   }
 
   @override
-  String get open_product_website => 'Ushbu mahsulotni veb-saytda oching';
+  String get open_product_website => 'Open this product on the website';
 
   @override
-  String get language_picker_label => 'Sizning tilingiz';
+  String get language_picker_label => 'Your language';
 
   @override
-  String get country_picker_label => 'Sizning mamlakatingiz';
+  String get country_picker_label => 'Your country';
 
   @override
-  String get currency_picker_label => 'Sizning valyutangiz';
+  String get currency_picker_label => 'Your currency';
 
   @override
-  String get help_with_openfoodfacts => 'OpenFoodFacts bilan yordam';
+  String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
 
   @override
   String get product_task_background_schedule =>
-      'Mahsulot imkon qadar tezroq fonda yangilanadi.';
+      'The product will be updated in the background as soon as possible.';
 
   @override
-  String get no_email_client_available_dialog_title =>
-      'Elektron pochta ilovalari yo\'q!';
+  String get no_email_client_available_dialog_title => 'No email apps!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Iltimos, bizga mobile@openfoodfacts.org elektron pochta manziliga qo\'lda xat yuboring.';
+      'Please send us manually an email to mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'Barcha rasmlar';
+  String get all_images => 'All Images';
 
   @override
-  String get selected_images => 'Tanlangan rasmlar';
+  String get selected_images => 'Selected Images';
 
   @override
-  String get product_card_remove_product_tooltip => 'Mahsulotni olib tashlash';
+  String get product_card_remove_product_tooltip => 'Remove product';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'Yangi shtrix-kod skanerlandi: $barcode';
+    return 'New barcode scanned: $barcode';
   }
 
   @override
   String get scan_header_clear_button_tooltip =>
-      'Karuseldan barcha mahsulotlarni olib tashlang';
+      'Remove all products from the carousel';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'Taqqoslash uchun kamida ikkita mahsulotni skanerlang';
+      'Please scan at least two products to compare them';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'Skanerlagan mahsulotlaringizni taqqoslash uchun bosing';
+      'Click to compare the products you have scanned';
 
   @override
-  String get scan_product_loading => 'Siz\nshtrix-kodni skanerladingiz:';
+  String get scan_product_loading => 'You have scanned\nthe barcode:';
 
   @override
   String get scan_product_loading_initial =>
-      'Biz ushbu mahsulotni qidirmoqdamiz!\nIltimos, bir necha soniya kuting…';
+      'We\'re looking for this product!\nPlease wait a few seconds…';
 
   @override
   String get scan_product_loading_long_request =>
-      'Biz hali ham ushbu mahsulotni qidirmoqdamiz!\nSizningcha, yuklash ko\'p vaqt talab etadimi? Biz ham shunday qilamiz…';
+      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'Biz hali ham ushbu mahsulotni qidirmoqdamiz.\nQidiruvni qayta boshlamoqchimisiz?';
+      'We\'re still looking for this product.\nWould you like to restart the search?';
 
   @override
-  String get scan_product_loading_restart_button =>
-      'Qidiruvni qayta ishga tushiring';
+  String get scan_product_loading_restart_button => 'Restart search';
 
   @override
   String get portion_calculator_description =>
-      'Muayyan miqdor uchun ovqatlanish faktlarini hisoblang';
+      'Calculate nutrition facts for a specific quantity';
 
   @override
-  String get portion_calculator_hint => 'Miqdori';
+  String get portion_calculator_hint => 'Quantity in';
 
   @override
   String get portion_calculator_accessibility =>
-      'Ozuqaviy ma\'lumotlarni hisoblash uchun miqdorni kiriting';
+      'Input a quantity to calculate nutrition facts';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Iltimos, $min va $max g oralig\'idagi miqdorni kiriting';
+    return 'Please enter a quantity between $min and $max g';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Ma\'lumotlar yetishmayapti. Hisoblashni amalga oshirib bo\'lmadi.';
+      'Missing data. Calculation could not be performed.';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return '$grams g (yoki ml) uchun ozuqaviy ma\'lumotlar';
+    return 'Nutrition facts for $grams g (or ml)';
   }
 
   @override
-  String get offline_data => 'Oflayn ma\'lumotlar';
+  String get offline_data => 'Offline Data';
 
   @override
   String get ocr_image_upload_instruction =>
-      'Undagi ma\'lumotlarni avtomatik ravishda ajratib olish uchun rasmni yuklang.';
+      'Upload an image to automatically extract the information it contains.';
 
   @override
-  String get upload_image => 'Surat yuklash';
+  String get upload_image => 'Upload Photo';
 
   @override
   String get word_separator_char => ',';
@@ -3799,355 +3678,348 @@ class AppLocalizationsUz extends AppLocalizations {
   String get word_separator => ', ';
 
   @override
-  String get image_download_error => 'Rasmni yuklab olishda xatolik yuz berdi';
+  String get image_download_error => 'Failed to download image';
 
   @override
   String get image_edit_url_error =>
-      'Rasm URL manzili o\'rnatilmaganligi sababli rasmni tahrirlashda xatolik yuz berdi.';
+      'Failed to edit image because the image URL was not set.';
 
   @override
-  String get user_picture_source_remember => 'Tanlovimni eslab qoling';
+  String get user_picture_source_remember => 'Remember my choice';
 
   @override
-  String get user_picture_source_ask => 'Har safar so\'rang';
+  String get user_picture_source_ask => 'Ask each time';
 
   @override
-  String get robotoff_continue => 'Davom etish';
+  String get robotoff_continue => 'Continue';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count savollar',
-      one: 'savol',
+      other: '$count questions',
+      one: 'question',
     );
-    return 'Keyingi $_temp0';
+    return 'Next $_temp0';
   }
 
   @override
-  String get show_password => 'Parolni ko\'rsatish';
+  String get show_password => 'Show Password';
 
   @override
-  String get owner_field_info_title =>
-      'Ishlab chiqaruvchi taqdim etgan qiymatlar';
+  String get owner_field_info_title => 'Producer provided values';
 
   @override
   String get owner_field_info_message =>
-      'Ushbu logotip bilan biz ishlab chiqaruvchi tomonidan taqdim etilgan ma\'lumotlarni ta\'kidlaymiz va ularni tahrirlab bo\'lmasligi mumkin.';
+      'With that logo we highlight data provided by the producer, and that may not be editable.';
 
   @override
-  String get owner_field_info_close_button => 'Ushbu ma\'lumotni yopish';
+  String get owner_field_info_close_button => 'Close this info';
 
   @override
   String get owner_field_image =>
-      'Bu rasm ishlab chiqaruvchi tomonidan taqdim etilgan. Uni tahrirlab bo\'lmasligi mumkin.';
+      'This image is provided by the producer. It may not be editable.';
 
   @override
-  String get edit_packagings_title => 'Qadoqlash komponentlari';
+  String get edit_packagings_title => 'Packaging components';
 
   @override
-  String get edit_packagings_element_add => 'Qadoqlash komponentini qo\'shish';
+  String get edit_packagings_element_add => 'Add a packaging component';
 
   @override
-  String get edit_packagings_completed => 'Qadoqlash tugallandi';
+  String get edit_packagings_completed => 'The packaging is complete';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'Qadoqlash komponenti #$index';
+    return 'Packaging component #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Birliklar soni';
+  String get edit_packagings_element_field_units => 'Number of units';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'Mahsulot tarkibidagi bir xil shakl va materialdagi qadoqlash birliklari sonini kiriting.';
+      'Enter the number of packaging units of the same shape and material contained in the product.';
 
   @override
-  String get edit_packagings_element_field_shape => 'Shakl';
+  String get edit_packagings_element_field_shape => 'Shape';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'Agar mavjud bo\'lsa, qayta ishlash ko\'rsatmalarida ko\'rsatilgan shakl nomini kiriting yoki shaklni tanlang.';
+      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
 
   @override
-  String get edit_packagings_element_example_shape => 'Shisha';
+  String get edit_packagings_element_example_shape => 'Bottle';
 
   @override
-  String get edit_packagings_element_field_material => 'Materiallar';
+  String get edit_packagings_element_field_material => 'Material';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'Agar aniqlanishi mumkin bo\'lsa, aniq materialni kiriting (uchburchak ichidagi material kodini ko\'pincha qadoqlash qismlarida topish mumkin), yoki ishonchingiz komil bo\'lmasa, umumiy materialni (masalan, plastik yoki metall) kiriting.';
+      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
 
   @override
-  String get edit_packagings_element_example_material => 'Shisha';
+  String get edit_packagings_element_example_material => 'Glass';
 
   @override
-  String get edit_packagings_element_field_recycling =>
-      'Qayta ishlash bo\'yicha ko\'rsatmalar';
+  String get edit_packagings_element_field_recycling => 'Recycling instruction';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Qayta ishlash bo\'yicha ko\'rsatmalarni faqat mahsulotda ko\'rsatilgan bo\'lsa kiriting.';
+      'Enter recycling instructions only if they are listed on the product.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Qayta ishlash';
+  String get edit_packagings_element_example_recycling => 'Recycle';
 
   @override
   String get edit_packagings_element_field_quantity =>
-      'Bir birlik uchun mahsulotning sof miqdori';
+      'Net quantity of product per unit';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Sof og\'irlik yoki sof hajmni kiriting va o\'lchov birligini ko\'rsating (masalan, g yoki ml).';
+      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
 
   @override
   String get edit_packagings_element_field_weight =>
-      'Bitta bo\'sh birlikning og\'irligi (g)';
+      'Weight of one empty unit (g)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'Qolgan oziq-ovqat mahsulotlarini olib tashlang va tortishdan oldin qadoq qismini yuving va quriting. Iloji bo\'lsa, 0,1 g yoki 0,01 g aniqlikdagi tarozidan foydalaning.';
+      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
 
   @override
-  String get background_task_title => 'Kutilayotgan hissalar';
+  String get background_task_title => 'Pending contributions';
 
   @override
   String get background_task_subtitle =>
-      'Sizning hissangiz avtomatik ravishda serverimizga saqlanadi, lekin har doim ham real vaqt rejimida emas.';
+      'Your contributions are automatically saved to our server, but not always in real-time.';
 
   @override
-  String get background_task_list_empty => 'Kutilayotgan fon vazifalari yo\'q';
+  String get background_task_list_empty => 'No Pending Background Tasks';
 
   @override
-  String get background_task_error_server_time_out => 'Server vaqti tugadi';
+  String get background_task_error_server_time_out => 'Server timeout';
 
   @override
   String get background_task_error_no_internet =>
-      'Internetga ulanishda xatolik yuz berdi. Keyinroq urinib ko\'ring.';
+      'Internet connection error. Try later.';
 
   @override
-  String get background_task_operation_unknown => 'noma\'lum operatsiya turi';
+  String get background_task_operation_unknown => 'unknown operation type';
 
   @override
-  String get background_task_operation_details => 'batafsil o\'zgarishlar';
+  String get background_task_operation_details => 'detailed changes';
 
   @override
-  String get background_task_operation_image => 'rasm yuklash';
+  String get background_task_operation_image => 'photo upload';
 
   @override
   String get background_task_operation_refresh =>
-      'rasm yuklangandan keyin yangilanish kechikdi';
+      'refresh delayed after photo upload';
 
   @override
-  String get background_task_run_started => 'boshlandi';
+  String get background_task_run_started => 'started';
 
   @override
-  String get background_task_run_not_started => 'hali boshlanmagan';
+  String get background_task_run_not_started => 'not started yet';
 
   @override
-  String get background_task_run_to_be_deleted => 'o\'chirilishi kerak';
+  String get background_task_run_to_be_deleted => 'to be deleted';
 
   @override
   String get background_task_question_stop =>
-      'Bu vazifani imkon qadar tezroq to\'xtatmoqchimisiz?';
+      'Do you want to stop that task ASAP?';
 
   @override
-  String get feed_back => 'Fikr-mulohaza';
+  String get feed_back => 'Feedback';
 
   @override
-  String get undo => 'Bekor qilish';
+  String get undo => 'Undo';
 
   @override
-  String get copy_email_to_clip_board =>
-      'Elektron pochtani vaqtinchalik xotiraga nusxalash';
+  String get copy_email_to_clip_board => 'Copy email to clipboard';
 
   @override
   String get please_send_us_an_email_to =>
-      'Iltimos, bizga qo\'lda elektron pochta xabarini yuboring';
+      'Please send us manually an email to';
 
   @override
-  String get email_copied_to_clip_board =>
-      'Elektron pochta vaqtinchalik xotiraga nusxalandi!';
+  String get email_copied_to_clip_board => 'Email copied to clipboard!';
 
   @override
-  String get select_accent_color => 'Urg\'u rangini tanlang';
+  String get select_accent_color => 'Select Accent Color';
 
   @override
   String get theme_amoled => 'AMOLED';
 
   @override
-  String get color_blue => 'Moviy';
+  String get color_blue => 'Blue';
 
   @override
-  String get color_cyan => 'Moviy rang';
+  String get color_cyan => 'Cyan';
 
   @override
-  String get color_green => 'Yashil';
+  String get color_green => 'Green';
 
   @override
-  String get color_light_brown => 'Standart';
+  String get color_light_brown => 'Default';
 
   @override
-  String get color_magenta => 'Binafsha rang';
+  String get color_magenta => 'Magenta';
 
   @override
-  String get color_orange => 'To\'q sariq';
+  String get color_orange => 'Orange';
 
   @override
-  String get color_pink => 'Pushti';
+  String get color_pink => 'Pink';
 
   @override
-  String get color_red => 'Qizil';
+  String get color_red => 'Red';
 
   @override
-  String get color_rust => 'Zang';
+  String get color_rust => 'Rust';
 
   @override
-  String get color_teal => 'Moviy';
+  String get color_teal => 'Teal';
 
   @override
-  String get text_contrast_mode => 'Matn kontrasti';
+  String get text_contrast_mode => 'Text Contrast';
 
   @override
-  String get contrast_high => 'Yuqori';
+  String get contrast_high => 'High';
 
   @override
-  String get contrast_medium => 'O\'rta';
+  String get contrast_medium => 'Medium';
 
   @override
-  String get contrast_low => 'Past';
+  String get contrast_low => 'Low';
 
   @override
-  String get product_refresher_internet_not_found => 'Mahsulot topilmadi!';
+  String get product_refresher_internet_not_found => 'Product not found!';
 
   @override
   String get product_refresher_internet_not_connected =>
-      'Siz internetga ulanmagansiz!';
+      'You are not connected to internet!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Server ishlamayapti ($host)';
+    return 'Server down ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Server xatosi ($exception)';
+    return 'Server error ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'Mahsulot topilmadi!';
+  String get product_loader_not_found_title => 'Product not found!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'Quyidagi shtrix-kodga ega mahsulot bizning ma\'lumotlar bazamizda mavjud emas: $barcode';
+    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'Internetga ulanish yo\'q!';
+  String get product_loader_network_error_title => 'No internet connection!';
 
   @override
   String get product_loader_network_error_message =>
-      'Smartfoningiz Wi-Fi tarmog\'iga ulanganligini yoki mobil internet yoqilganligini tekshiring';
+      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
 
   @override
-  String get page_not_found_title => 'Sahifa topilmadi!';
+  String get page_not_found_title => 'Page not found!';
 
   @override
-  String get page_not_found_button => 'Bosh sahifaga qaytish';
+  String get page_not_found_button => 'Go back to the homepage';
 
   @override
-  String get download_data => 'Ma\'lumotlarni yuklab olish';
+  String get download_data => 'Download data';
 
   @override
   String get download_top_products =>
-      'Tezkor skanerlash uchun mamlakatingizdagi eng yaxshi 1000 ta mahsulotni yuklab oling';
+      'Download the top 1000 products in your country for instant scanning';
 
   @override
   String download_top_n_products(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count mahsulotlarini',
+      other: '$count products',
     );
-    return 'Tezkor skanerlash uchun mamlakatingizdagi eng yaxshi $_temp0 yuklab oling';
+    return 'Download the top $_temp0 in your country for instant scanning';
   }
 
   @override
-  String get download_in_progress =>
-      'Ma\'lumotlarni yuklab olish\nBu biroz vaqt olishi mumkin';
+  String get download_in_progress => 'Downloading data\nThis may take a while';
 
   @override
   String downloaded_products(int num) {
-    return '$num mahsulotlar qo\'shildi';
+    return '$num products added';
   }
 
   @override
-  String get update_offline_data => 'Oflayn mahsulot ma\'lumotlarini yangilang';
+  String get update_offline_data => 'Update offline product data';
 
   @override
   String get update_local_database_sub =>
-      'Mahalliy mahsulotlar ma\'lumotlar bazasini Open Food Facts’dan olingan eng so\'nggi ma\'lumotlar bilan yangilang';
+      'Update the local product database with the latest data from Open Food Facts';
 
   @override
-  String get clear_local_database => 'Oflayn mahsulot ma\'lumotlarini tozalash';
+  String get clear_local_database => 'Clear offline product data';
 
   @override
   String get clear_local_database_sub =>
-      'Joy bo\'shatish uchun ilovangizdagi barcha mahalliy mahsulot ma\'lumotlarini tozalang';
+      'Clear all local product data from your app to free up space';
 
   @override
   String deleted_products(int num) {
-    return '$num mahsulotlar o\'chirildi';
+    return '$num products deleted';
   }
 
   @override
   String get loading => 'Loading…';
 
   @override
-  String get know_more => 'Batafsil ma\'lumot';
+  String get know_more => 'Know More';
 
   @override
-  String get offline_data_desc =>
-      'Oflayn ma\'lumotlar haqida ko\'proq bilish uchun bosing';
+  String get offline_data_desc => 'Click to know more about offline data';
 
   @override
-  String get offline_product_data_title => 'Oflayn mahsulot ma\'lumotlari';
+  String get offline_product_data_title => 'Offline product data';
 
   @override
   String available_for_download(int num) {
-    return '$num Darhol skanerlash uchun mavjud mahsulotlar';
+    return '$num products available for immediate scaning';
   }
 
   @override
-  String get country_selector_title => 'Mamlakatingizni tanlang:';
+  String get country_selector_title => 'Select your country:';
 
   @override
-  String get currency_selector_title => 'Valyutangizni tanlang:';
+  String get currency_selector_title => 'Select your currency:';
 
   @override
-  String get language_selector_title => 'Tilingizni tanlang:';
+  String get language_selector_title => 'Select your language:';
 
   @override
-  String get language_selector_section_selected => 'Tanlangan tillar';
+  String get language_selector_section_selected => 'Selected languages';
 
   @override
-  String get language_selector_section_frequently_used =>
-      'Tez-tez ishlatiladigan';
+  String get language_selector_section_frequently_used => 'Frequently used';
 
   @override
-  String get action_delete_list => 'O\'chirish';
+  String get action_delete_list => 'Delete';
 
   @override
-  String get action_change_list => 'Joriy ro\'yxatni o\'zgartiring';
+  String get action_change_list => 'Change the current list';
 
   @override
-  String get product_list_create => 'Yaratish';
+  String get product_list_create => 'Create';
 
   @override
-  String get product_list_create_tooltip => 'Yangi ro\'yxat yarating';
+  String get product_list_create_tooltip => 'Create a new list';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4169,25 +4041,25 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Nutri-Score $letter (Yangi hisoblash)';
+    return 'Nutri-Score $letter (New calculation)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Nutri-Score (Yangi hisoblash)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'Noma\'lum Nutri-Score';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Noma\'lum Nutri-Score (Yangi hisoblash)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score qo\'llanilmaydi';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score qo\'llanilmaydi (Yangi hisob-kitob)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4219,208 +4091,205 @@ class AppLocalizationsUz extends AppLocalizations {
       'Ultra qayta ishlangan ovqatlar - NOVA guruhlari';
 
   @override
-  String get nova_group_1 => 'NOVA 1-guruh';
+  String get nova_group_1 => 'NOVA Group 1';
 
   @override
-  String get nova_group_2 => 'NOVA 2-guruh';
+  String get nova_group_2 => 'NOVA Group 2';
 
   @override
-  String get nova_group_3 => 'NOVA 3-guruh';
+  String get nova_group_3 => 'NOVA Group 3';
 
   @override
-  String get nova_group_4 => 'NOVA 4-guruh';
+  String get nova_group_4 => 'NOVA Group 4';
 
   @override
-  String get nova_group_unknown => 'Noma\'lum NOVA guruhi';
+  String get nova_group_unknown => 'Unknown NOVA Group';
 
   @override
-  String get nutrition_facts => 'Oziq moddalar darajasi';
+  String get nutrition_facts => 'Nutrient Levels';
 
   @override
-  String get faq_title_partners => 'NNT hamkorlari va homiylari';
+  String get faq_title_partners => 'Partners & Patrons of the NGO';
 
   @override
   String get faq_title_vision =>
-      'Ochiq oziq-ovqat faktlari Vizyon, Missiya, Qadriyatlar va Dasturlar';
+      'The Open Food Facts Vision, Mission, Values and Programs';
 
   @override
   String get faq_title_install_beauty =>
-      'Kosmetik ma\'lumotlar bazasini yaratish uchun Open Beauty Facts dasturini o\'rnating';
+      'Install Open Beauty Facts to create a cosmetic database';
 
   @override
   String get faq_title_install_pet =>
-      'Uy hayvonlari uchun oziq-ovqat ma\'lumotlar bazasini yaratish uchun Open Pet Food Facts dasturini o\'rnating';
+      'Install Open Pet Food Facts to create a pet food database';
 
   @override
   String get faq_title_install_product =>
-      'Ob\'ektlarning ishlash muddatini uzaytirish uchun mahsulotlar ma\'lumotlar bazasini yaratish maqsadida Open Products Facts dasturini o\'rnating';
+      'Install Open Products Facts to create a products database to extend the life of objects';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'Nutri-Score ning yangi hisob-kitobi: nima yangiliklar?';
+      'New calculation of the Nutri-Score: what\'s new?';
 
   @override
   String get contact_title_pro_page =>
-      'Pro? Mahsulotlaringizni Open Food Facts’ga import qiling';
+      'Pro? Import your products in Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'Ishlab chiqaruvchi bilan aloqa';
+  String get contact_title_pro_email => 'Producer Contact';
 
   @override
-  String get contact_title_press_page => 'Matbuot sahifasi';
+  String get contact_title_press_page => 'Press Page';
 
   @override
-  String get contact_title_press_email => 'Matbuot bilan aloqa';
+  String get contact_title_press_email => 'Press Contact';
 
   @override
   String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
-  String get contact_title_calendar => 'Jamiyat taqvimimizga obuna bo\'ling';
+  String get contact_title_calendar => 'Subscribe to our community calendar';
 
   @override
-  String get hunger_games_loading_line1 =>
-      'Iltimos, bizga bir necha soniya vaqt bering…';
+  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
 
   @override
-  String get hunger_games_loading_line2 => 'Savollarni yuklab olamiz!';
+  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
 
   @override
   String get hunger_games_error_label =>
-      'Voy! Nimadir noto\'g\'ri ketdi… va biz savollarni yuklay olmadik.';
+      'Argh! Something went wrong… and we couldn\'t load the questions.';
 
   @override
-  String get hunger_games_error_retry_button => 'Qayta urinib ko\'ramiz!';
+  String get hunger_games_error_retry_button => 'Let\'s retry!';
 
   @override
-  String get reorder_attribute_action => 'Atributlarni qayta tartiblang';
+  String get reorder_attribute_action => 'Reorder the attributes';
 
   @override
   String get link_cant_be_opened =>
-      'Bu havola qurilmangizda ochilmaydi. Brauzer o\'rnatilganligini tekshiring.';
+      'This link can\'t be opened on your device. Please check that you have a browser installed.';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return '${productName}uchun tafsilotlar';
+    return 'Details for $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return '$pageName uchun ${productName}bilan tafsilotlar';
+    return 'Details for $pageName with $productName';
   }
 
   @override
   String get guide_title => 'Guide';
 
   @override
-  String get guide_share_label => 'Ulashish';
+  String get guide_share_label => 'Share';
 
   @override
   String get guide_nutriscore_v2_title =>
-      'Nutri-Score rivojlanmoqda: tushuntirishlar!';
+      'The Nutri-Score is evolving: explanations!';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'Nutri-Score nima?';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'Nutri-Score - bu sizni **oziq-ovqat mahsulotlarining ozuqaviy sifati** haqida xabardor qilishga qaratilgan logotip.';
+      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      'Rang kodi eng foydali mahsulotlar uchun to\'q yashil (**A**) dan **uncha foydali bo\'lmagan mahsulotlar uchun to\'q qizil (**E**) gacha o\'zgaradi.';
+      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
 
   @override
   String get guide_nutriscore_v2_nutriscore_a_caption =>
-      'Nutri-Score A logotipi';
+      'The Nutri-Score A logo';
 
   @override
-  String get guide_nutriscore_v2_why_v2_title =>
-      'Nima uchun Nutri-Score rivojlanmoqda?';
+  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
 
   @override
   String get guide_nutriscore_v2_why_v2_intro =>
-      'Nutri-Score formulasi **yaxshiroq tavsiyalar berish uchun** rivojlanmoqda:';
+      'The Nutri-Score formula **is evolving** to provide better recommendations:';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_title =>
-      'Barcha ichimliklarni yaxshiroq baholang';
+      'Better evaluate all drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_text =>
-      'Yangi algoritmda **sut**, **shakar qo\'shilgan sutli ichimliklar** va **sabzavotli** ichimliklarning qiyosiy notalari yaxshiroq farqlandi.';
+      'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_title =>
-      'Ichimliklarning yaxshiroq reytingi';
+      'Better ranking of drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_text =>
-      '**Shakar miqdori** hisobga olinishi va **kam shirin** ichimliklar afzal ko\'rilishi kerak.\\n**Shirinlashtiruvchilar ham jarimaga tortiladi**: parhezli gazlangan ichimliklar B reytingidan C va E oralig\'iga tushiriladi. Suv tavsiya etilgan ichimlik bo\'lib qolmoqda.';
+      'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_title =>
-      'Tuz va shakar jarimaga tortiladi';
+      'Salt and sugar penalized';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      '**Juda shirin** yoki **juda sho\'r** mahsulotlarning **reytingi yanada pasayadi**.';
+      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_title =>
-      'Yog\'lar va baliqlar ichidagi ierarxiya';
+      'Hierarchy within oils and fishes';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_text =>
-      'Ba\'zi **yog\'li baliqlar** va **foydali yog\'larga boy yog\'lar** reytingi yaxshilanadi.';
+      'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg5_title =>
-      'Qizil go\'shtni cheklang';
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg5_text =>
-      '**Qizil go\'sht iste\'moli cheklangan bo\'lishi kerak**. Shuning uchun **parranda go\'shti nisbatan yuqori reytingga ega bo\'ladi**.';
+      'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
 
   @override
   String get guide_nutriscore_v2_new_logo_title =>
-      'Eski Nutri-Score va yangi hisoblashni qanday farqlash mumkin?';
+      'How to differentiate old Nutri-Score and new calculation?';
 
   @override
   String get guide_nutriscore_v2_new_logo_text =>
-      'Bundan buyon logotipda bu haqiqatan ham yangi hisoblash ekanligini aniqlashtirish uchun \"**Yangi hisoblash**\" yozuvi paydo bo\'lishi mumkin.';
+      'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
 
   @override
   String get guide_nutriscore_v2_new_logo_image_caption =>
-      'Yangi Nutri-Score logotipi';
+      'The logo of the new Nutri-Score';
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Yangi Nutri-Score hisob-kitobini qayerdan topsam bo\'ladi?';
+      'Where to find the new Nutri-Score calculation?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'Nutri-Score 7 ta mamlakatda qo\'llaniladi: Fransiya, Germaniya, Belgiya, Ispaniya, Lyuksemburg, Niderlandiya va Shveytsariya.';
+      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Ishlab chiqaruvchilar eski hisob-kitobni yangisi bilan almashtirish uchun farmon **imzolanganidan keyin eng ko\'pi bilan **2 yil** vaqtga ega.';
+      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
-      'Kutmasdan, siz **OpenFoodFacts ilovasida** yangi hisoblashni topasiz, shu jumladan ishlab chiqaruvchilar ballarni yangilamagan bo\'lsa ham.';
+      'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => 'Nima o\'zgarmaydi';
+  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
-      'Nutri-Score - bu **ozuqaviy sifatni** o\'lchash uchun mo\'ljallangan ball. U **o\'ta qayta ishlangan oziq-ovqatlar** bo\'yicha NOVA guruhiga** **qo\'shimcha hisoblanadi (ilovada ham mavjud).';
+      'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      'Ishlab chiqaruvchilar uchun Nutri-Score displeyi **ixtiyoriy** bo\'lib qoladi.';
+      'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
   String get guide_greenscore_title => 'Green-Score';
@@ -4515,7 +4384,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Bir toifadagi yaxshiroq mahsulotlarni mukofotlash uchun biz bir nechta mezonlarga asoslangan holda **bonuslar va jarimalarni** qo\'llaymiz:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4523,7 +4392,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      '**Bonus** rasmiy yorliqqa, yorliqqa yoki ekologik foydani kafolatlaydigan sertifikatga** ega bo\'lgan mahsulotlarga beriladi (organik, adolatli savdo, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4531,7 +4400,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      '**Bonus** tarkibiy qismlarning kelib chiqishiga qarab beriladi. Ushbu bonus transportga ta\'sirini** va har bir ishlab chiqaruvchi mamlakatning **ekologik siyosatini** hisobga oladi.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4539,14 +4408,14 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'Bioxilma-xillik va ekotizimlarga** sezilarli **salbiy ta\'sir ko\'rsatadigan** ingredientlarni o\'z ichiga olgan mahsulotlar, masalan, palma yog\'i uchun **jarima** qo\'llaniladi, ularning ishlab chiqarilishi o\'rmonlarning ommaviy ravishda kesilishiga sabab bo\'ladi.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      '**Jarima** qadoqlashning **doiraviyligini** (qayta ishlangan xom ashyodan foydalanish va qayta ishlashga yaroqlilik) va ortiqcha qadoqlashni hisobga olish uchun hisoblanadi.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4554,19 +4423,19 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Yashil ballni aniq hisoblash uchun, **qadoqda** ko\'rsatilmagan ma\'lumotlarga (masalan, kelib chiqishi va har bir ingredientning aniq foizi) yoki kamdan-kam hollarda foydalanishga yaroqli shaklda mavjud bo\'lgan ma\'lumotlarga (masalan, ishlatilgan plastmassalarning aniq turlari ko\'rsatilgan qadoqning barcha komponentlari ro\'yxati) ega bo\'lish kerak.';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**Ushbu ma\'lumot hali mavjud bo\'lmagan hollarda o\'rtacha qiymatlardan foydalaniladi**, ammo biz endi barchani ushbu ma\'lumotni to\'plashda bizga yordam berishga chaqiramiz, bu esa Green-Score uchun, shuningdek, boshqa ko\'plab maqsadlar uchun juda foydali bo\'ladi.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Fuqarolar qanday yordam berishlari mumkin?';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Barcha fuqarolar bizga mahsulotlarda mavjud bo\'lgan yoki ulardan xulosa chiqarish mumkin bo\'lgan ma\'lumotlarni, masalan, **qadoqlash** haqidagi ma\'lumotlarni to\'plash va tuzishda yordam berishlari mumkin: \"Mission Emballages\": barcha oziq-ovqat mahsulotlari uchun qadoqlashning keng ko\'lamli hamkorlikdagi inventarizatsiyasi (fransuz tilida).';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4618,7 +4487,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'NOVA guruhlari sizga **oziq-ovqat mahsulotlarini qayta ishlash darajasi** haqida ma\'lumot beradi.';
+      'The NOVA groups inform you about **the level of food processing**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4640,28 +4509,28 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Qayta ishlanmagan (yoki tabiiy) oziq-ovqatlar tabiatdan ajratilgandan keyin o\'simliklarning** (urug\'lar, mevalar, barglar, poyalar, ildizlar) **yoki hayvonlarning** (mushak, ichak-chovoq, tuxum, sut), shuningdek, zamburug\'lar, suv o\'tlari va suvning **yeyish mumkin bo\'lgan qismlaridir.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Qayta ishlangan oshpazlik ingredientlari, masalan, **yog\'lar, sariyog\', shakar va tuz**, 1-guruh oziq-ovqatlaridan yoki tabiatdan presslash, tozalash, maydalash, maydalash va quritish kabi jarayonlar orqali olingan moddalardir.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Qayta ishlangan oziq-ovqatlar, masalan, shishaga solingan sabzavotlar, konservalangan baliqlar, siropdagi mevalar, pishloqlar va yangi tayyorlangan nonlar, **asosan 2-guruhdagi oziq-ovqatlarga tuz, yog\', shakar yoki boshqa moddalarni qo\'shish orqali tayyorlanadi**. Jarayonlarga turli xil saqlash yoki pishirish usullari, non va pishloqga kelsak, alkogolsiz fermentatsiya kiradi. Ko\'pgina qayta ishlangan oziq-ovqatlar ikki yoki uchta ingredientdan iborat bo\'lib, 1-guruhdagi oziq-ovqatlarning modifikatsiyalangan versiyalari sifatida tan olinadi. Ularni alohida yoki, ko\'pincha, boshqa oziq-ovqatlar bilan birgalikda iste\'mol qilish mumkin.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Alkogolsiz ichimliklar, shirin yoki sho\'r qadoqlangan gazaklar, tiklangan go\'sht mahsulotlari va oldindan tayyorlangan muzlatilgan taomlar kabi ultra qayta ishlangan oziq-ovqatlar **nafaqat modifikatsiyalangan oziq-ovqatlar, balki asosan yoki butunlay oziq-ovqat va qo\'shimchalardan olingan moddalardan tayyorlangan formulalar** bo\'lib, 1-guruh oziq-ovqatlari deyarli yoki umuman yo\'q. Ushbu formulalardagi tarkibiy qismlar odatda qayta ishlangan oziq-ovqatlarda ham mavjud bo\'lgan tarkibiy qismlarni, masalan, shakar, yog\'lar, yog\'lar yoki tuzni o\'z ichiga oladi. Biroq, ultra qayta ishlangan mahsulotlar odatda oshpazlik tayyorlashda ishlatilmaydigan boshqa energiya va ozuqaviy moddalarni ham o\'z ichiga oladi. Ulardan ba\'zilari kazein, laktoza, zardob va glyuten kabi oziq-ovqatlardan to\'g\'ridan-to\'g\'ri olinadi.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4673,7 +4542,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Ko\'pchilik **oziq-ovqat tarkibiy qismlarini**, masalan, gidrogenlangan yoki intererifikatsiyalangan yog\'larni, gidrolizlangan oqsillarni, soya oqsili izolatini, maltodekstrinni, invert shakarni va yuqori fruktozali makkajo\'xori siropini keyingi qayta ishlash natijasida olinadi.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4681,7 +4550,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Ultra qayta ishlangan oziq-ovqat mahsulotlaridagi qo\'shimchalar tarkibiga qayta ishlangan oziq-ovqat mahsulotlarida ham ishlatiladigan ba\'zi qo\'shimchalar, masalan, konservantlar, antioksidantlar va stabilizatorlar kiradi. Faqat ultra qayta ishlangan mahsulotlarda uchraydigan qo\'shimchalar sinflariga **oziq-ovqat mahsulotlarining sezgir xususiyatlarini taqlid qilish yoki yaxshilash yoki yakuniy mahsulotning yoqimsiz jihatlarini yashirish uchun** ishlatiladigan qo\'shimchalar kiradi. Bu qo\'shimchalar bo\'yoqlar va boshqa ranglar, rang stabilizatorlari; lazzatlar, lazzat kuchaytirgichlar, shakarsiz tatlandırıcılar; va karbonatlashtiruvchi, qattiqlashtiruvchi, hajmlashtiruvchi va hajmlashtiruvchi vositalar, ko\'pikni yo\'qotuvchi, yopishqoqlikka va sirlanishga qarshi vositalar, emulsifikatorlar, sekvestrantlar va namlovchi moddalar kabi ishlov berish vositalari kiradi.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title =>
@@ -4689,7 +4558,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**Odatda ko\'p sonli ingredientlarni birlashtirish va yakuniy mahsulotni (shuning uchun \"o\'ta qayta ishlangan\") yaratish uchun ko\'plab jarayonlar ketma-ketligi qo\'llaniladi**. Jarayonlar bir nechta **mahalliy ekvivalentlari bo\'lmagan** jarayonlarni o\'z ichiga oladi, masalan, gidrogenlash va gidrolizlash, ekstruziya va qoliplash, shuningdek, qovurish uchun oldindan qayta ishlash.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4697,108 +4566,104 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**Ultra-qayta ishlashning umumiy maqsadi boshqa barcha oziq-ovqat guruhlarini siqib chiqarishga mo\'ljallangan brendli**, **qulay** (bardoshli, iste\'mol qilishga tayyor), **jozibali** (juda mazali) va **yuqori daromadli** (arzon ingredientlar) oziq-ovqat mahsulotlarini yaratishdir. Ultra-qayta ishlangan oziq-ovqat mahsulotlari odatda jozibador tarzda qadoqlanadi va intensiv ravishda sotiladi.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'Sog\'liq uchun xavf';
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      '2018-yildan beri NutriNet-Santé bilan **ultra qayta ishlangan oziq-ovqat mahsulotlarini iste\'mol qilish va saraton, yurak-qon tomir kasalliklari va diabet xavfining ortishi o\'rtasidagi dastlabki bog\'liqliklar ta\'kidlandi**. Bugungi kunda butun dunyo bo\'ylab 90 dan ortiq tadqiqotlar ushbu topilmalarni tasdiqlaydi.\nEng kuchli bog\'liqliklar **semirish, yurak-qon tomir o\'limi va depressiv alomatlar** bilan bog\'liq. Bolalarga ta\'siri asosan vazn va lipid nomutanosibligiga bog\'liq.';
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Davlatlar ularni cheklashni tavsiya qiladi';
+      'Countries recommend limiting them';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Ba\'zi mamlakatlar o\'zlarining parhez ko\'rsatmalari yoki maqsadlari uchun NOVA guruhlaridan foydalanadilar, masalan:\n\n- **🇧🇷 Braziliya** ning parhez ko\'rsatmalari **qayta ishlangan oziq-ovqat iste\'molini cheklashni** va o\'ta qayta ishlangan oziq-ovqatlardan saqlanishni tavsiya qiladi.\n\n- **🇫🇷 Fransiya** ning 2018-2022 yillarga mo\'ljallangan sog\'liqni saqlash ovqatlanish siyosati maqsadlari **4-guruh o\'ta qayta ishlangan oziq-ovqat iste\'molini 20% ga kamaytirishga** qaratilgan.';
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title =>
-      'Ochiq oziq-ovqat faktlariga xush kelibsiz!';
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Ochiq oziq-ovqat faktlari nima?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts — bu butun dunyo bo\'ylab oziq-ovqat mahsulotlarining **hamkorlikdagi**, **bepul** va **ochiq** ma\'lumotlar bazasi.';
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'Biz har bir kishi o\'zi nima yeyishi haqida ma\'lumotga ega bo\'lishi kerak, deb hisoblaymiz. Tarkibi, allergenlari, ovqatlanish faktlari va boshqa narsalar haqida ma\'lumot to\'plash orqali biz iste\'molchilarga xabardor tanlov qilish imkoniyatini beramiz** va oziq-ovqat sanoatini **shaffoflikni oshirishga** undaymiz.';
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Ochiq oziq-ovqat faktlarining xususiyatlari';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Keraksiz ingredientlar haqida ogohlantirishlarni oling';
+      'Get alerts for your unwanted ingredients';
 
   @override
-  String get guide_open_food_facts_tips_title =>
-      'Ajoyib suratga olish bo\'yicha maslahatlar';
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title =>
-      'Qilmaslik kerak bo\'lgan narsalar';
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Soyalar va porlashdan saqlaning.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'Xira yoki fokusdan tashqari matn yo\'q.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Matnning ayrim qismlarini kesib tashlamang.';
+      'Don\'t crop out parts of the text.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 =>
-      'Band bo\'lgan fonlardan saqlaning.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title =>
-      'Qilish kerak bo\'lgan ishlar';
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Yaxshi, bir tekis yoritishdan foydalaning.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Matn aniq va o\'qilishi oson ekanligiga ishonch hosil qiling.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Barcha ingredientlar ro\'yxatini yozib oling.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Mahsulotni tekis yuzaga qo\'ying.';
+      'Keep the product on a flat surface.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      '\"Oziq-ovqat Vikipediyasini\" yaratishda bizga yordam bering';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'Oziqlanish sifati bo\'yicha ball';
+      'A score on the nutritional quality';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'Ultra qayta ishlangan ovqatlardan saqlanish uchun ball';
+      'A score to avoid ultra-processed foods';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title => 'Sayyora uchun ball';
+  String get guide_open_food_facts_scores_arg3_title =>
+      'A score for the planet';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4806,244 +4671,236 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Uy hayvonlari uchun oziq-ovqat haqida ochiq ma\'lumotlarga xush kelibsiz!';
+      'Welcome to Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Ochiq uy hayvonlari uchun oziq-ovqat haqida faktlar nima?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Uy hayvonlari uchun oziq-ovqat haqidagi ochiq ma\'lumotlar bizning vazifamizni mo\'ynali do\'stlarimizga ham kengaytiradi! Bu **mushuklar, itlar va boshqa hamrohlar uchun uy hayvonlari uchun oziq-ovqat mahsulotlarining ma\'lumotlar bazasi**.';
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'Biz uy hayvonlari egalariga hayvonlarining ehtiyojlari uchun eng yaxshi ovqatni tanlashda yordam berish uchun **tarkibiy qismlar**, **ozuqaviy tahlil** va ovqatlanish bo\'yicha ko\'rsatmalar haqida ma\'lumot to\'playmiz.';
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Ochiq uy hayvonlari uchun oziq-ovqat faktlarining xususiyatlari';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Keraksiz ingredientlar haqida ogohlantirishlarni oling';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Uy hayvoningiz biron bir tarkibiy qismga allergiyaga egami? Siz to\'g\'ridan-to\'g\'ri ilovada kosmetik vositalardan saqlanish kerak bo\'lgan ingredientlar ro\'yxatini belgilashingiz mumkin!';
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Ajoyib suratga olish bo\'yicha maslahatlar';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title =>
-      'Qilmaslik kerak bo\'lgan narsalar';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Soyalar va porlashdan saqlaning.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'Xira yoki fokusdan tashqari matn yo\'q.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Matnning ayrim qismlarini kesib tashlamang.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Band bo\'lgan fonlardan saqlaning.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title =>
-      'Qilish kerak bo\'lgan ishlar';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Yaxshi, bir tekis yoritishdan foydalaning.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Matn aniq va o\'qilishi oson ekanligiga ishonch hosil qiling.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Barcha ingredientlar ro\'yxatini yozib oling.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Mahsulotni tekis yuzaga qo\'ying.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title =>
-      'Gol urish haqida eslatma';
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Uy hayvonlari uchun ozuqa uchun ballar tizimini ishlab chiqish **hozirda ustuvor vazifa emas**. Metodologiya murakkab bo\'ladi, chunki ozuqaviy ehtiyojlar turlar, yosh va sog\'liq holatiga qarab juda katta farq qiladi. Biz hali bunday ballarni ishlab chiqa oladigan mustaqil ilmiy guruhni topmadik.';
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-uz.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title =>
-      'Ochiq Go\'zallik Faktlariga xush kelibsiz!';
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'Ochiq go\'zallik faktlari nima?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts - bu **kosmetik mahsulotlar** ning hamkorlikdagi ma\'lumotlar bazasi.';
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Bizning maqsadimiz sizga **shaxsiy parvarish buyumlaringiz tarkibida nima borligini** tushunishga yordam berish uchun ingredientlar ro\'yxatini ochib berishdir. Namlovchi vositalardan tortib, bo\'yanishgacha, biz kosmetika sanoatida shaffoflikni ta\'minlash uchun ingredientlar, allergenlar va qadoqlash bo\'yicha ma\'lumotlarni to\'playmiz.';
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Ochiq go\'zallik faktlarining xususiyatlari';
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Keraksiz ingredientlar haqida ogohlantirishlarni oling';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Siz biron bir tarkibiy qismga allergiyangiz bormi? Komedogen moddalardan saqlanishni xohlaysizmi? Bahsli tarkibiy qismlardan uzoqroq turmoqchimisiz? Siz to\'g\'ridan-to\'g\'ri ilovada oldini olish kerak bo\'lgan kosmetik ingredientlar ro\'yxatini belgilashingiz mumkin!';
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Ajoyib suratga olish bo\'yicha maslahatlar';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title =>
-      'Qilmaslik kerak bo\'lgan narsalar';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Soyalar va porlashdan saqlaning.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'Xira yoki fokusdan tashqari matn yo\'q.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Matnning ayrim qismlarini kesib tashlamang.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Band bo\'lgan fonlardan saqlaning.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title =>
-      'Qilish kerak bo\'lgan ishlar';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Yaxshi, bir tekis yoritishdan foydalaning.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Matn aniq va o\'qilishi oson ekanligiga ishonch hosil qiling.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Barcha ingredientlar ro\'yxatini yozib oling.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Agar shisha egri bo\'lsa, kerakli darajada ko\'p rasm oling.';
+      'Take as many picture as need if the bottle is curved.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'Ingredientlar ro\'yxatini ko\'rish uchun yorliqni ochishingiz kerak bo\'lishi mumkin.';
+      'You might need to peel the label to see the list of ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Mahsulotni tekis yuzaga qo\'ying.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'Gol urish haqida eslatma';
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Oziq-ovqat mahsulotlaridan farqli o\'laroq, kosmetika dunyosida **Nutri-Score** kabi umumjahon tan olingan, hukumat tomonidan qo\'llab-quvvatlanadigan ball tizimi mavjud emas. Tarkibiy qismlarning ta\'siri juda shaxsiy bo\'lishi mumkin va terining turiga, allergiyaga va individual muammolarga bog\'liq bo\'lishi mumkin.';
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-uz.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Ochiq narxlarga xush kelibsiz!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Ochiq narxlar nima?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices - bu **dunyo bo\'ylab mahsulotlar narxlarini to\'plash va almashish** loyihasi. Bu tadqiqot, tahlil va boshqa maqsadlarda ishlatilishi mumkin bo\'lgan ommaga ochiq ma\'lumotlar to\'plami. Open Prices Open Food Facts tomonidan ishlab chiqilgan va qo\'llab-quvvatlanadi.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Ochiq narxlar qanday ishlaydi?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**Biz ochiq kodli narxlar to\'plamini kraudsorsing orqali taqdim etmoqdamiz**. Narxlarni foydalanuvchilar ushbu veb-ilova yoki rasmiy Open Food Facts mobil ilovasi orqali qo\'shishlari mumkin. Chakana sotuvchilar yoki uchinchi tomon ilovalari ham bizning API-mizdan foydalanib hissa qo\'shishlari mumkin.';
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Yo\'laklarda narx yorliqlarining fotosuratlarini to\'plang';
+      'Collect photos of price tags in aisles';
 
   @override
-  String get guide_open_prices_how_arg2_title =>
-      'Cheklarning fotosuratlarini to\'plang';
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
 
   @override
   String get guide_open_prices_why_title =>
-      'Nima uchun Open Food Facts buni qilyapti?';
+      'Why is Open Food Facts doing this ?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Oziq-ovqat tizimlarini tushunish uchun narxlar haqidagi ma\'lumotlar juda muhimdir. Bu oziq-ovqat narxini tushunish va sog\'lom ovqatlanishni targ\'ib qilishda muhim omil hisoblanadi. Boshlang\'ich narxlar haqidagi ma\'lumotlar tadqiqotchilar, jurnalistlar va fuqarolar uchun oziq-ovqat narxlarining geografik va vaqt o\'tishi bilan qanday o\'zgarishini yaxshiroq tushunishni osonlashtirish usulidir.';
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Vaqt o\'tishi bilan narxlarning o\'zgarishini kuzatib boring';
+      'Track the evolution of prices over time';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'Narxlarning **evolyutsiyasini** ko\'ring: qisqarish inflyatsiyasi, arzon inflyatsiya, biz ularni birgalikda kuzatib borishimiz mumkin!';
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
 
   @override
-  String get guide_open_prices_why_arg2_title =>
-      'Yaqin atrofingizdagi narxlarni taqqoslang';
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'Narxlar ko\'payib borar ekan, siz atrofingizdagi eng arzon do\'konlarni** topishingiz mumkin.';
+      'As we get more prices, you can spot **the cheapest stores around you**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Chakana sotuvchilarning veb-saytlaridan narxlarni olib tashlashni o\'ylab ko\'rdingizmi?';
+      'Did you consider scraping prices from retailers\' websites?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Huquqiy va texnik sabablarga ko\'ra, **biz chakana sotuvchilarning veb-saytlaridan narxlarni olib tashlashni Ochiq narxlarga hissa qo\'shishning asosli usuli deb hisoblamaymiz**. Biz to\'playdigan narxlar aniq va dolzarb ekanligiga ishonch hosil qilishni xohlaymiz va hissa qo\'shuvchilardan olib tashlangan narxlarni olish bizga buni amalga oshirishga imkon bermaydi.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Narxlarni qirib tashlash Ochiq narxlarning kelajakdagi versiyasida ko\'rib chiqiladigan variant hisoblanadi, ammo bu HTML sahifasiga asoslangan narxning isbotiga ega bo\'lishimiz uchun Ochiq narxlarning o\'zi tomonidan amalga oshiriladi.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -5051,7 +4908,7 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'Siz bizning API-mizdan foydalanib narxlarni qo\'shishingiz mumkin.\nAgar siz keng ko\'lamli narxlarni qo\'shmoqchi bo\'lsangiz, iltimos, biz bilan prices@openfoodfacts.org manzili orqali bog\'laning.';
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -5059,152 +4916,149 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Ochiq Mahsulotlar Haqida Xush Kelibsiz!';
+      'Welcome to Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Ochiq Mahsulotlar haqida faktlar nima?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts — bu oziq-ovqat, kosmetika yoki uy hayvonlari uchun ozuqa bo\'lmagan shtrix-kodli har qanday mahsulot uchun ulkan, ochiq ma\'lumotlar bazasi.';
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      '**Elektronika** dan **o\'yinchoqlar** gacha va **kiyimlar** dan **tozalash vositalari** gacha, agar shtrix-kod bo\'lsa, uni qo\'shish mumkin. Ushbu loyiha kundalik buyumlar uchun \"narsalar interneti\" ni yaratishga, ular haqidagi ma\'lumotlarni hamma uchun ochiq qilishga qaratilgan.';
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Ochiq Mahsulotlar Faktlarining Xususiyatlari';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Open Products Facts iste\'molchilarga o\'z buyumlarini saqlash, **ta\'mirlash**, **qayta ishlash** yoki ularga yangi egasini berish uchun aylanma yechimlarni taqdim etish orqali buyumlarning **umrini uzaytirish** imkonini berishga qaratilgan.';
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Ba\'zi mahsulotlar uchun uglerod izlari';
+      'Carbon footprints for some products';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      'Fransiya Atrof-muhitni muhofaza qilish boshqarmasi ADEME tomonidan **CO2 ta\'siri** ko\'plab toifalarning **uglerod ta\'sirini** ta\'minlaydi, mahsulotlarni aniq tasniflashga ishonch hosil qiling.';
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Ko\'pgina mahsulotlar uchun ta\'mirlash indeksi';
+      'Reparability index for many products';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Fransiyaning ta\'mirlash indeksi mavjud bo\'lganda, biz uni namoyish qilamiz. Bundan tashqari, **siz Folksonomy Engine yordamida o\'zgaruvchilarni to\'plashni boshlashingiz mumkin**; shunda biz kelajakda, hatto u mavjud bo\'lmagan mamlakatlarda ham uni o\'zimiz qayta hisoblashimiz mumkin.';
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Mahsulotingizni xayriya qilish/qayta sotish usullarini toping';
+      'Find ways to donate/resell your product';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'Biz sizga sayyora resurslaridan ehtiyotkorlik bilan foydalanish uchun ikkinchi qo\'l mahsulot sifatida qidirayotgan mahsulotingizni olishga yordam beradigan **uchinchi tomon aylanma xizmatlariga** havolalarni taqdim etamiz.\nShuni esda tutingki, bizga buning uchun pul to\'lanmaydi va tizim faqat Fransiyadagi ikkita veb-sayt uchun namuna sifatida ishlaydi. Siz vikida ko\'proq saytlarni hujjatlashtirish orqali ushbu tizimni kengaytirishga yordam berishingiz mumkin.';
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'Qanday ma\'lumot foydali?';
+      'What information is useful?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'Bunday keng turdagi elementlar uchun **biz to\'playdigan ma\'lumotlar moslashuvchan**. Buning uchun **biz Folksonomy Engine** ni yaratdik.';
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
 
   @override
   String get guide_open_products_facts_folksonomy_title =>
-      'Folksonomiya mexanizmi';
+      'The Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'Folksonomy Engine sizga tegishli xususiyatlarga ega mahsulotlarni to\'ldirishga yordam beradigan vositadir. Bu qidiruv va kashfiyotni yaxshilashga, shuningdek, kelajakda qiziqarli narsalarni hisoblash va namoyish qilishga yordam beradi.';
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'Siz quyidagi kabi istalgan kalit va qiymatlarni qo\'shishingiz mumkin: **5G_mobile_network_with_compatibility: yes**';
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'Sizga mumkin bo\'lgan xususiyatlarning avtomatik taklifi beriladi va sevimli mahsulot turlaringizga yangilarini qo\'shishingiz va hujjatlashtirishingiz mumkin.';
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-uz.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title =>
-      'Ochiq ovqatlanish afzalliklari';
+  String get guide_open_preferences_button_title => 'Open food preferences';
 
   @override
-  String get guide_coming_soon_button_title => 'Tez kunlarda';
+  String get guide_coming_soon_button_title => 'Coming soon';
 
   @override
-  String get guide_learn_more_subtitle =>
-      'Batafsil ma\'lumot olish uchun bosing';
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
-  String get preview_badge => 'Oldindan ko\'rish';
+  String get preview_badge => 'Preview';
 
   @override
   String get prices_feedback_form =>
-      'Ushbu yangi funksiya haqida fikr-mulohazalaringizni bizga yuborish uchun shu yerni bosing!';
+      'Click here to send us your feedback about this new feature!';
 
   @override
-  String get menu_button_list_actions => 'Amalni tanlang';
+  String get menu_button_list_actions => 'Select an action';
 
   @override
-  String get error_loading_photo => 'Suratni yuklashda xatolik yuz berdi';
+  String get error_loading_photo => 'Error loading photo';
 
   @override
-  String get photo_viewer_action_use_picture_as => '…sifatida foydalaning';
+  String get photo_viewer_action_use_picture_as => 'Use as…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip =>
-      'Ushbu rasmdan…sifatida foydalaning';
+  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Ushbu rasmdan… ($language) sifatida foydalaning';
+    return 'Use this picture as… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'Tafsilotlar';
+  String get photo_viewer_details_button => 'Details';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Ushbu fotosurat tafsilotlari';
+      'Details of this photo';
 
   @override
-  String get photo_viewer_details_title => 'Surat tafsilotlari';
+  String get photo_viewer_details_title => 'Details of the photo';
 
   @override
   String get photo_viewer_details_contributor_title => 'Contributor';
 
   @override
-  String get photo_viewer_details_size_title => 'Hajmi';
+  String get photo_viewer_details_size_title => 'Size';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return '$width x $height piksel';
+    return '$width x $height pixels';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Sana';
+  String get photo_viewer_details_date_title => 'Date';
 
   @override
   String get photo_viewer_details_url_title => 'URL';
 
   @override
-  String get product_page_compatibility_score => 'Mos keladi';
+  String get product_page_compatibility_score => 'Compatible';
 
   @override
-  String get user_lists_action_multi_select => 'Ko\'p tanlov';
+  String get user_lists_action_multi_select => 'Multi-select';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Moslik balingiz: $score%';
+    return 'Your compatibility score: $score%';
   }
 
   @override
@@ -5215,173 +5069,164 @@ class AppLocalizationsUz extends AppLocalizations {
       'Ingredients picture';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Oziqlanish surati';
+  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Qadoqlash rasmi';
+  String get product_image_packaging_accessibility_label => 'Packaging picture';
 
   @override
-  String get product_image_other_accessibility_label => 'Boshqa rasm';
+  String get product_image_other_accessibility_label => 'Other picture';
 
   @override
-  String get product_image_outdated_message =>
-      'Bu rasm eskirgan bo\'lishi mumkin';
+  String get product_image_outdated_message => 'This picture may be outdated';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (bu rasm eskirgan bo\'lishi mumkin)';
+    return '$type (this image may be outdated)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (bu rasm prodyuser tomonidan qulflangan bo\'lishi mumkin)';
+    return '$type (this image may be locked by the producer)';
   }
 
   @override
-  String get product_image_error => 'Rasmni yuklab bo\'lmadi!';
+  String get product_image_error => 'Unable to load the image!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return '$type faylini yuklab bo\'lmadi (tarmoq xatosi?)';
+    return 'Unable to load the $type (network error?)';
   }
 
   @override
-  String get product_page_image_no_image_available => '\nrasm yo\'q!';
+  String get product_page_image_no_image_available => 'No\nimage!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'Ushbu mahsulot uchun rasm mavjud emas';
+      'No picture available for this product';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Amallarni qayta tartiblash yoki yashirish';
+      'Reorder or hide actions';
 
   @override
-  String get product_page_action_bar_setting_modal_title =>
-      'Amallarni tahrirlash';
+  String get product_page_action_bar_setting_modal_title => 'Edit actions';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Yuqoriga siljiting';
+  String get product_page_action_bar_item_move_up => 'Move up';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Pastga siljiting';
+  String get product_page_action_bar_item_move_down => 'Move down';
 
   @override
-  String get product_page_action_bar_item_enable => 'Harakatni yoqish';
+  String get product_page_action_bar_item_enable => 'Enable action';
 
   @override
-  String get product_page_action_bar_item_disable =>
-      'Amalni o\'chirib qo\'yish';
+  String get product_page_action_bar_item_disable => 'Disable action';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'Tahrirlaringiz yuklanmoqda…';
+      'Uploading your edits…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'Ushbu sahifada ko\'rsatilgan ma\'lumotlar **hali sizning o\'zgartirishlaringizni aks ettirmaydi**.\nIltimos, bir necha soniya kuting…';
+      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
 
   @override
-  String get product_add_a_language => 'Til qo\'shish';
+  String get product_add_a_language => 'Add a language';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Shtrix-kod $barcode';
+    return 'Barcode $barcode';
   }
 
   @override
-  String get carousel_close_tooltip =>
-      'Ushbu mahsulotni karuseldan olib tashlang';
+  String get carousel_close_tooltip => 'Remove this product from the carousel';
 
   @override
-  String get carousel_unsupported_header =>
-      'Shtrix-kod qo\'llab-quvvatlanmaydi!';
+  String get carousel_unsupported_header => 'Unsupported barcode!';
 
   @override
-  String get carousel_unsupported_title => 'Voy!';
+  String get carousel_unsupported_title => 'Ooops!';
 
   @override
   String get carousel_unsupported_text =>
-      'Skanerlangan shtrix-kod Open Food Facts tomonidan qo\'llab-quvvatlanmaydi!';
+      'The barcode scanned is not supported by Open Food Facts!';
 
   @override
-  String get carousel_error_header => 'Xato!';
+  String get carousel_error_header => 'Error!';
 
   @override
-  String get carousel_error_title => 'Bu juda achinarli!';
+  String get carousel_error_title => 'It\'s a bummer!';
 
   @override
   String get carousel_error_text_1 =>
-      'Ushbu shtrix-kod haqidagi ma\'lumotlarni yuklab olib bo\'lmadi:';
+      'We couldn\'t download information on this barcode:';
 
   @override
   String get carousel_error_text_2 =>
-      'Internetga ulanishingizni tekshiring yoki ushbu tugmani bosing:';
+      'Please check your Internet connection or click this button:';
 
   @override
   String get carousel_error_button => 'Qayta urinish';
 
   @override
-  String get carousel_unknown_product_header => 'Noma\'lum mahsulot';
+  String get carousel_unknown_product_header => 'Unknown product';
 
   @override
   String get carousel_unknown_product_title =>
-      'Tabriklaymiz!\nSiz __noyob gavharni topdingiz!__';
+      'Congratulations!\nYou\'ve found __the rare gem!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Bizning hamkorlikdagi ma\'lumotlar bazamizda **3 milliondan ortiq mahsulot** mavjud, ammo bu shtrix-kod mavjud emas: ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get carousel_unknown_product_button => 'Add this product';
 
   @override
-  String get carousel_loading_header => 'Ma\'lumot yuklanmoqda...';
+  String get carousel_loading_header => 'Loading information...';
 
   @override
   String get carousel_loading_title =>
-      'Siz hozirgina quyidagi shtrix-kodli mahsulotni skanerladingiz:';
+      'You\'ve just scanned a product with the following barcode:';
 
   @override
   String get carousel_loading_text =>
-      'Biz buni **3 milliondan ortiq mahsulotlar ma\'lumotlar bazamizda qidirmoqdamiz!**';
+      'We are searching for it in our database of more than **3 million products!**';
 
   @override
-  String get product_type_subtitle_food =>
-      'Sabzavotlar, mevalar, muzlatilgan oziq-ovqat…';
+  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
 
   @override
-  String get product_type_subtitle_beauty =>
-      'Makiyaj, sovunlar, tish pastalari…';
+  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
 
   @override
-  String get product_type_subtitle_pet_food =>
-      'Itlar va mushuklar uchun ovqat…';
+  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
 
   @override
-  String get product_type_subtitle_product => 'Smartfonlar, mebellar…';
+  String get product_type_subtitle_product => 'Smartphones, furniture…';
 
   @override
-  String get photo_field_front => 'Mahsulot fotosurati';
+  String get photo_field_front => 'Product photo';
 
   @override
-  String get photo_field_ingredients => 'Tarkibi fotosurati';
+  String get photo_field_ingredients => 'Ingredients photo';
 
   @override
-  String get photo_field_nutrition => 'Oziqlanish fotosurati';
+  String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging =>
-      'Qayta ishlash bo\'yicha ko\'rsatmalar fotosurati';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
-  String get photo_already_exists => 'Bu rasm allaqachon mavjud';
+  String get photo_already_exists => 'This photo already exists';
 
   @override
-  String get photo_missing => 'Bu rasm yo\'q';
+  String get photo_missing => 'This photo is missing';
 
   @override
-  String get date => 'Sana';
+  String get date => 'Date';
 
   @override
   String get photo_rotate_left => 'Rotate left';
@@ -5390,117 +5235,76 @@ class AppLocalizationsUz extends AppLocalizations {
   String get photo_rotate_right => 'Rotate right';
 
   @override
-  String get photo_undo_action => 'Oldingi amalni bekor qilish';
+  String get photo_undo_action => 'Undo the previous action';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return '${location}ning dunyo xaritasi';
+    return 'A world map of $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'OpenStreetMap hissa qo\'shuvchilari';
+      'OpenStreetMap contributors';
 
   @override
-  String get not_applicable_short => 'Yo\'q';
+  String get not_applicable_short => 'N/A';
 
   @override
-  String get knowledge_panel_warning_text => 'Ogohlantirish';
+  String get knowledge_panel_warning_text => 'Warning';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Nima uchun bu Nutri-Score paketdagidan farq qiladi?';
+      'Why is this Nutri-Score different from the one on the package?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'Ikkita mumkin bo\'lgan tushuntirish mavjud:\nIngredientlar ro\'yxati va/yoki ozuqaviy ma\'lumotlar yangilanmagan.\n\nBiz Nutri-Score (yoki V2) ning \"Yangi hisob-kitobi\"ni taqdim etamiz. Iltimos, paketda \"Yangi hisob-kitob\" banneri borligiga ishonch hosil qiling.';
+      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Tarkiblarni tekshiring';
+      'Check ingredients';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Oziqlanish faktlarini tekshiring';
+      'Check nutrition facts';
 
   @override
   String url_not_supported(String url) {
-    return 'Afsuski, biz URL manzilini ocha olmayapmiz:\n$url';
+    return 'Unfortunately, we can\'t open the URL:\n$url';
   }
 
   @override
-  String get product_list_export => 'Eksport qilish';
+  String get product_list_export => 'Export';
 
   @override
   String get product_list_import => 'Import';
 
   @override
-  String get product_footer_action_barcode => 'Shtrix-kodni ko\'rish';
+  String get product_footer_action_barcode => 'View barcode';
 
   @override
   String get product_footer_action_barcode_short => 'Shtrix kod';
 
   @override
-  String get product_footer_action_open_website => 'Veb-saytni ochish';
+  String get product_footer_action_open_website => 'Open website';
 
   @override
-  String get product_footer_action_report => 'Hisobot';
+  String get product_footer_action_report => 'Report';
 
   @override
-  String get product_footer_action_contributor_guide => 'Yordam';
+  String get product_footer_action_contributor_guide => 'Help';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Ma\'lumotlar sifati';
+  String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
   String get product_page_tab_for_me => 'Men uchun';
 
   @override
-  String get product_page_for_me_compatibility_score_title => 'Mening mosligim';
+  String get product_page_tab_website => 'Website';
 
   @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% mos keladi';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Moslik balini hisoblash uchun ma\'lumotlar yetarli emas.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" turdagi ko\'paytma uchun ballni hisoblab bo\'lmaydi.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Muhimligi';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Mosliklar';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Yaxshi mosliklar';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'O\'rtacha mosliklar';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Yomon mosliklar';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Noma\'lum mosliklar';
-
-  @override
-  String get product_page_tab_website => 'Veb-sayt';
-
-  @override
-  String get product_page_tab_prices => 'Narxlar';
+  String get product_page_tab_prices => 'Prices';
 
   @override
   String get prices_explanation_card_title => 'Nima uchun narxlar?';
@@ -5510,10 +5314,10 @@ class AppLocalizationsUz extends AppLocalizations {
       '**Open Prices** - bu butun dunyo bo\'ylab mahsulotlar narxlarini yig\'ish va bo\'lishish loyihasi 🌍. Open Prices Open Food Facts tomonidan ishlab chiqilgan va qo\'llab-quvvatlanadi.';
 
   @override
-  String get explanation_card_learn_more_button => 'Batafsil ma\'lumot';
+  String get explanation_card_learn_more_button => 'Learn more';
 
   @override
-  String get product_page_tab_folksonomy => 'Folksonomiya';
+  String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title =>
@@ -5528,11 +5332,11 @@ class AppLocalizationsUz extends AppLocalizations {
       'Ushbu xususiyatlar har qanday foydalanish uchun hissa qo\'shuvchilar tomonidan yaratilgan va topshirilgan.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Tashqi havolani ochish';
+  String get folksonomy_action_external_link_title => 'Open external link';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'Tashqi havolalar xavfli bo\'lishi mumkin. Siz haqiqatan ham unga tashrif buyurmoqchimisiz?';
+      'External links may be unsafe. Do you really want to visit it?';
 
   @override
   String get prices_products_empty_title => 'Narx mavjud emas';
@@ -5543,41 +5347,41 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Eng yaxshi $pageSize mahsulotlar (jami: $total)';
+    return 'Top $pageSize products (total: $total)';
   }
 
   @override
-  String get app_review_title => 'Ushbu ilova sizga yoqyaptimi?';
+  String get app_review_title => 'Are you enjoying this app?';
 
   @override
-  String get app_review_low => 'Yaxshiroq qilishi mumkin edi';
+  String get app_review_low => 'Could do better';
 
   @override
-  String get app_review_medium => 'Yomon emas';
+  String get app_review_medium => 'Not bad';
 
   @override
-  String get app_review_high => 'Bu menga judayam yoqdi!';
+  String get app_review_high => 'I love it!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Ilovamizni yaxshilashga yordam bering';
+      'Help us improve our application';
 
   @override
   String get app_review_feedback_modal_content =>
-      'Agar bir necha daqiqangiz bo\'lsa, **kelajakdagi yangilanishlarni yaxshilashimiz** uchun ushbu shaklga javob bera olasizmi?';
+      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Shaklga javob bering';
+  String get app_review_feedback_modal_open_form => 'Answer the form';
 
   @override
-  String get app_review_feedback_modal_later => 'Keyinroq so\'rang';
+  String get app_review_feedback_modal_later => 'Ask me later';
 
   @override
   String get nutrition_facts_extract_new =>
-      'YANGI: Siz rasmdagi ozuqa moddalarini avtomatik ravishda ajratib olishingiz mumkin!';
+      'NEW: You can automatically extract the nutrients from the picture!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Hozir ajratib oling';
+  String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
   String get nutrition_facts_extract_in_progress => 'Chiqarish davom etmoqda…';
@@ -5587,22 +5391,22 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Rasmdan ozuqa moddalarini ajratib olishda xatolik yuz berdi';
+      'Failed to extract nutrients from picture';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Statistika';
+  String get prices_stats_statistics => 'Statistics';
 
   @override
-  String get prices_stats_title => 'Narxlar statistikasi';
+  String get prices_stats_title => 'Prices Statistics';
 
   @override
-  String get prices_stats_prices_section => 'Narxlar';
+  String get prices_stats_prices_section => 'Prices';
 
   @override
-  String get prices_stats_products_section => 'Mahsulotlar';
+  String get prices_stats_products_section => 'Products';
 
   @override
   String get prices_stats_locations_section => 'Locations';
@@ -5617,7 +5421,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'Turli xil';
+  String get prices_stats_misc_section => 'Miscellaneous';
 
   @override
   String get prices_stats_total => 'Total';
@@ -5641,16 +5445,16 @@ class AppLocalizationsUz extends AppLocalizations {
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Oziq-ovqat';
+  String get prices_stats_food => 'Food';
 
   @override
   String get prices_stats_beauty => 'Beauty';
 
   @override
-  String get prices_stats_products => 'Mahsulotlar';
+  String get prices_stats_products => 'Products';
 
   @override
-  String get prices_stats_pet_food => 'Uy hayvonlari uchun ozuqa';
+  String get prices_stats_pet_food => 'Pet food';
 
   @override
   String get prices_stats_osm => 'OpenStreetMap';
@@ -5662,10 +5466,10 @@ class AppLocalizationsUz extends AppLocalizations {
   String get prices_stats_countries => 'Countries';
 
   @override
-  String get prices_stats_price_tag => 'Narx yorlig\'i';
+  String get prices_stats_price_tag => 'Price tag';
 
   @override
-  String get prices_stats_receipt => 'Chek';
+  String get prices_stats_receipt => 'Receipt';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5689,7 +5493,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Veb-sayt';
+  String get prices_stats_website => 'Website';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
@@ -5701,23 +5505,23 @@ class AppLocalizationsUz extends AppLocalizations {
   String get prices_stats_other => 'Other';
 
   @override
-  String get prices_stats_last_updated => 'Oxirgi marta yangilangan sana';
+  String get prices_stats_last_updated => 'Last updated on';
 
   @override
-  String get prices_stats_error => 'Statistikani yuklashda xatolik yuz berdi.';
+  String get prices_stats_error =>
+      'An error occurred while loading statistics.';
 
   @override
-  String get product_edit_robotoff_question_answered =>
-      'Savolga javob berildi!';
+  String get product_edit_robotoff_question_answered => 'Question answered!';
 
   @override
-  String get product_edit_robotoff_proof => 'Isbot';
+  String get product_edit_robotoff_proof => 'Proof';
 
   @override
   String get preferences_card_general => 'General';
 
   @override
-  String get preferences_prices_title => 'Narxlar';
+  String get preferences_prices_title => 'Prices';
 
   @override
   String get preferences_prices_subtitle => 'Narxlar sozlamalarini boshqaring';
@@ -5756,7 +5560,7 @@ class AppLocalizationsUz extends AppLocalizations {
   String get preferences_card_help => 'Yordam va qo‘llab-quvvatlash';
 
   @override
-  String get preferences_faq_title => 'TSS';
+  String get preferences_faq_title => 'FAQ';
 
   @override
   String get preferences_faq_subtitle => 'Savollaringizga javob oling';
@@ -5796,7 +5600,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Foydalanish imkoniyati: ranglarni olib tashlang';
 
   @override
-  String get preferences_app_settings_products => 'Mahsulotlar';
+  String get preferences_app_settings_products => 'Products';
 
   @override
   String get preferences_card_about => 'Ma’lumot';
@@ -5809,7 +5613,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Foydalanish shartlari, maxfiylik siyosati va boshqalar';
 
   @override
-  String get preferences_terms_of_use => 'Foydalanish shartlari';
+  String get preferences_terms_of_use => 'Terms of use';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
@@ -5819,7 +5623,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Open Food Facts - bu oziq-ovqat mahsulotlari ma\'lumotlar bazasi **hamma tomonidan, hamma uchun**.\nSiz undan yaxshiroq taom tanlash uchun foydalanishingiz mumkin va u **ochiq ma\'lumotlar** bo\'lgani uchun, har kim **uni istalgan maqsadda qayta ishlatishi mumkin**.';
 
   @override
-  String get preferences_privacy_policy => 'Maxfiylik siyosati';
+  String get preferences_privacy_policy => 'Privacy policy';
 
   @override
   String get preferences_licenses => 'Litsenziyalar';
@@ -5964,31 +5768,28 @@ class AppLocalizationsUz extends AppLocalizations {
       'Loyihani koʻzdan kechirish';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Ochiq oziq-ovqat faktlari bilan tanishing';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Go\'zallik haqidagi ochiq faktlarni kashf eting';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Ochiq uy hayvonlari uchun oziq-ovqat haqida ma\'lumotni kashf eting';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Ochiq narxlarni bilib oling';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Ochiq Mahsulotlar Haqida Ma\'lumotni O\'rganing';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title =>
       'Tez-tez so\'raladigan savollar - tez-tez so\'raladigan savollar';
 
   @override
-  String get preferences_faq_off_ngo_title =>
-      'Ochiq oziq-ovqat faktlari nodavlat tashkiloti';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Information';
@@ -6003,15 +5804,14 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Jamiyat taqvimimizga obuna bo\'ling';
+      'Subscribe to our community calendar';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
       'Virtual tadbirlarimizdan birida ishtirok eting';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Ochiq oziq-ovqat faktlari blogi';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6112,7 +5912,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Mamlakatingizda oziq-ovqat shaffofligini oshirish uchun oddiy qadamlar';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Ma\'lumotlar sifati';
+  String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -6139,10 +5939,10 @@ class AppLocalizationsUz extends AppLocalizations {
       'Barcha to\'liq bo\'lmagan mahsulotlar';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Narxlar';
+  String get preferences_my_contributions_prices_title => 'Prices';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'Mening narxlarim';
+  String get preferences_my_contributions_my_prices_title => 'My prices';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6184,7 +5984,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Eng koʻp narxga ega boʻlgan hissa qoʻshuvchilar';
 
   @override
-  String get preferences_prices_metrics_title => 'Open Prices ko\'rsatkichlari';
+  String get preferences_prices_metrics_title => 'Ochiq narx ko\'rsatkichlari';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6334,14 +6134,14 @@ class AppLocalizationsUz extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Oziq-ovqat faktlari laboratoriyasini oching';
+      'Open Food Facts Labs';
 
   @override
-  String get preferences_root_account_title => 'Hisob';
+  String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ochiq oziq-ovqat faktlarini tilingizga olib keling';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6356,7 +6156,7 @@ class AppLocalizationsUz extends AppLocalizations {
       'Folksonomiyani ko\'rsatmang';
 
   @override
-  String get preferences_account_title => 'Hisob';
+  String get preferences_account_title => 'Account';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
@@ -6364,70 +6164,26 @@ class AppLocalizationsUz extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Joylashuv tafsilotlari';
+  String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Ism';
+  String get location_map_details_name => 'Name';
 
   @override
-  String get location_map_details_street => 'Ko\'cha';
+  String get location_map_details_street => 'Street';
 
   @override
-  String get location_map_details_city => 'Shahar';
+  String get location_map_details_city => 'City';
 
   @override
-  String get location_map_details_postcode => 'Pochta indeksi';
+  String get location_map_details_postcode => 'Postcode';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Koordinatalar';
+  String get location_map_details_coordinates => 'Coordinates';
 
   @override
-  String get location_map_details_osm_id => 'OSM identifikatori';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Uyga qaytish';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip =>
-      'Kamerani yoqish/o\'chirish';
-
-  @override
-  String get homepage_header_barcode_tooltip =>
-      'Shtrix-kod skanerini ko\'rsatish';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**Shtrix-kod**\nni skanerlash va u siz uchun foydalimi yoki yo\'qligini aniqlash uchun bosing!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip =>
-      'Chiroqni yoqish/o\'chirish';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Mahsulotni shtrix-kodiga yaqinlashib skanerlang';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Biz quyidagi shtrix-kodni aniqladik: $barcode, lekin u yaroqsiz ko\'rinadi.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button =>
-      'Batafsil…ni ko\'rish';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title =>
-      'Oxirgi skanerlangan mahsulotlar';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
+  String get location_map_details_osm_id => 'OSM ID';
 }

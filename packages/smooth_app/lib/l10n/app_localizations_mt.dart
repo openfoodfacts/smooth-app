@@ -12,9 +12,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Prezzijiet Miftuħa';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Liċenzji';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -656,9 +653,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Kwantità mhux magħrufa';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -725,10 +719,10 @@ class AppLocalizationsMt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Istruzzjonijiet dwar ir-riċiklaġġ';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -831,7 +825,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Istruzzjonijiet għar-riċiklaġġ Ritratt';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1140,15 +1134,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'It-tfittxija tiegħek għal\n**\"$search\"**\nma rriżultat f\'ebda riżultat.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Trid tħaddem din l-istess tfittxija fid-**database globali tagħna** minflok?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2533,9 +2518,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2715,9 +2697,6 @@ class AppLocalizationsMt extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Dħul tal-prezz minn \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Ara d-dettalji tal-prodott';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2994,33 +2973,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3566,7 +3518,7 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Nibdew inwettqu l-azzjonijiet tas-server għall-aġġornamenti tal-folksonomija maħżuna lokalment';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -5261,7 +5213,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5343,48 +5295,6 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Għalija';
-
-  @override
-  String get product_page_for_me_compatibility_score_title =>
-      'Il-kompatibilità tiegħi';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% kompatibbli';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Dejta insuffiċjenti biex jiġi kkalkulat punteġġ ta\' kompatibilità.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Punteġġ ma jistax jiġi kkalkulat għal prodott tat-tip \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Importanza';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Logħbiet';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Logħbiet tajbin';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Logħbiet medji';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Logħbiet ħżiena';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Logħbiet mhux magħrufa';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5853,8 +5763,7 @@ class AppLocalizationsMt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Skopri Fatti dwar l-Ikel Miftuħ';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -5897,8 +5806,7 @@ class AppLocalizationsMt extends AppLocalizations {
       'Involvi ruħek billi tattendi wieħed mill-avvenimenti virtwali tagħna';
 
   @override
-  String get preferences_connect_blog_title =>
-      'Il-blogg tal-Fatti dwar l-Ikel Miftuħ';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -6069,8 +5977,7 @@ class AppLocalizationsMt extends AppLocalizations {
       'Kontributuri bl-aktar prezzijiet';
 
   @override
-  String get preferences_prices_metrics_title =>
-      'Metriki tal-Prezzijiet Miftuħa';
+  String get preferences_prices_metrics_title => 'Metriki tal-Prezz Miftuħ';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6220,14 +6127,14 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Laboratorji Miftuħa tal-Fatti dwar l-Ikel';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Ġib il-Fatti Miftuħa dwar l-Ikel fil-lingwa tiegħek';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6272,43 +6179,4 @@ class AppLocalizationsMt extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Lura d-dar';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Ixgħel il-kamera';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Uri l-iskaner tal-barcode';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Tektek biex tiskennja **barcode**\nu skopri jekk hux **tajjeb għalik**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Ixgħel it-torċa';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Skennja prodott billi tersaq lejn il-barcode tiegħu';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Sibna l-barcode li ġej: $barcode, iżda jidher li mhux validu.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Ara aktar…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Prodotti skennjati l-aħħar';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

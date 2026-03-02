@@ -12,9 +12,6 @@ class AppLocalizationsMr extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'खुल्या किमती';
-
-  @override
   String get sep => '';
 
   @override
@@ -147,7 +144,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'परवाने';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Looking for';
@@ -657,9 +654,6 @@ class AppLocalizationsMr extends AppLocalizations {
   String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'अज्ञात प्रमाण';
-
-  @override
   String get unknownProductName => 'Unknown product name';
 
   @override
@@ -726,10 +720,10 @@ class AppLocalizationsMr extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'पुनर्वापर सूचना';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Recycling instructions photo';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
   String get missing_product => 'You found a new product!';
@@ -832,7 +826,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'पुनर्वापर सूचना फोटो';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Take a picture';
@@ -1141,15 +1135,6 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get no_product_found => 'No product found';
-
-  @override
-  String no_product_found_explanation(String search) {
-    return 'तुमचा\n**\"$search\"**\nसाठीचा शोध कोणत्याही निकालांशी जुळला नाही.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'तुम्हाला हाच शोध **आमच्या जागतिक डेटाबेस** मध्ये चालवायचा आहे का?';
 
   @override
   String get no_location_found => 'No location found';
@@ -2535,9 +2520,6 @@ class AppLocalizationsMr extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Unknown';
-
-  @override
   String get product_type_selection_title => 'Product type';
 
   @override
@@ -2715,9 +2697,6 @@ class AppLocalizationsMr extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return '\"$user\" वरून किंमत नोंद';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'उत्पादन तपशील पहा';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -2993,33 +2972,6 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get prices_menu_know_more => 'Know more about Open Prices';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
 
   @override
   String get dev_preferences_import_history_result_success => 'Done';
@@ -3565,7 +3517,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'स्थानिक पातळीवर संग्रहित केलेल्या लोकसाहित्य अद्यतनांसाठी सर्व्हर क्रिया करण्यास सुरुवात करत आहे';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4132,8 +4084,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'ग्रीन-स्कोअर लागू नाही.';
 
   @override
-  String get nova_group_generic_new =>
-      'अल्ट्रा-प्रक्रिया केलेले अन्न - नोव्हा गट';
+  String get nova_group_generic_new => 'Ultra-processed foods - NOVA groups';
 
   @override
   String get nova_group_1 => 'NOVA Group 1';
@@ -4540,7 +4491,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get guide_nova_logos_caption => 'NOVA लोगो';
 
   @override
-  String get guide_nova_groups_title => '४ नोव्हा गट';
+  String get guide_nova_groups_title => 'The 4 NOVA groups';
 
   @override
   String get guide_nova_groups_intro =>
@@ -5259,7 +5210,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Recycling instructions photo';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
   String get photo_already_exists => 'This photo already exists';
@@ -5341,46 +5292,6 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'माझ्यासाठी';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'माझी सुसंगतता';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% सुसंगत';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'सुसंगतता स्कोअर मोजण्यासाठी पुरेसा डेटा नाही.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return '\"$productType\" प्रकारच्या उत्पादनासाठी गुणांची गणना करता येत नाही.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'महत्त्व';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'सामने';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'चांगले जुळणारे';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'सरासरी सामने';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches => 'वाईट जुळण्या';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'अज्ञात जुळण्या';
 
   @override
   String get product_page_tab_website => 'Website';
@@ -5670,7 +5581,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_app_bar_search_hint =>
-      'सेटिंग शोधा (उदा. न्यूट्री-स्कोअर)';
+      'Search for a setting (e.g. Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5748,7 +5659,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get preferences_tips => 'टिपा';
 
   @override
-  String get tips_discover_nutriscore => 'नवीन न्यूट्री-स्कोअर शोधा';
+  String get tips_discover_nutriscore => 'Discover the new Nutri-Score';
 
   @override
   String get preferences_on_off_website_subtitle => 'Open Food Facts वेबसाइटवर';
@@ -5834,7 +5745,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_faq_nutriscore_subtitle =>
-      'न्यूट्री-स्कोअर कसा मोजला जातो ते शोधा';
+      'Discover how the Nutri-Score is computed';
 
   @override
   String get preferences_faq_nutriscore_v2_subtitle =>
@@ -5844,7 +5755,7 @@ class AppLocalizationsMr extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title => 'Open Food तथ्ये शोधा.';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
   String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
@@ -6029,7 +5940,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_contributions_categorize_subtitle =>
-      'तुमच्या देशातील न्यूट्री-स्कोअर आणि ग्रीन-स्कोअरची गणना करण्यात मदत करा.';
+      'Help compute the Nutri-Score & Green-Score in your country';
 
   @override
   String get preferences_prices_user_prices_subtitle => 'मी दिलेल्या किमती';
@@ -6057,7 +5968,7 @@ class AppLocalizationsMr extends AppLocalizations {
       'सर्वाधिक किमती असलेले योगदानकर्ते';
 
   @override
-  String get preferences_prices_metrics_title => 'खुल्या किंमतींचे मेट्रिक्स';
+  String get preferences_prices_metrics_title => 'ओपन किंमत मेट्रिक्स';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6099,7 +6010,7 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'अन्न तथ्ये उघडण्यास मदत करण्याचे सोपे मार्ग';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6207,14 +6118,14 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'अन्न तथ्य प्रयोगशाळा उघडा';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'तुमच्या भाषेत खुल्या अन्नाचे तथ्य आणा';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6258,43 +6169,4 @@ class AppLocalizationsMr extends AppLocalizations {
 
   @override
   String get location_map_details_osm_id => 'OSM ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'घरी परत';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'कॅमेरा टॉगल करा';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'बारकोड स्कॅनर दाखवा';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      '**बारकोड**\nस्कॅन करण्यासाठी टॅप करा आणि तो **तुमच्यासाठी चांगला आहे** का ते शोधा!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'टॉर्च टॉगल करा';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'उत्पादनाचा बारकोड वापरून स्कॅन करा';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'आम्हाला खालील बारकोड आढळला आहे: $barcode, परंतु तो अवैध असल्याचे दिसते.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'अधिक पहा…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'शेवटचे स्कॅन केलेले उत्पादने';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

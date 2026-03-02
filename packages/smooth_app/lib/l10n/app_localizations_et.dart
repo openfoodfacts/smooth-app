@@ -12,9 +12,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -146,7 +143,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get match_short_unknown => 'Vaste pole teada';
 
   @override
-  String get licenses => 'Litsentsid';
+  String get licenses => 'Licences';
 
   @override
   String get looking_for => 'Otsin';
@@ -160,7 +157,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get productDataUtility =>
-      'Vaata oma eelistustega seotud toiduandmeid.';
+      'Vaadake oma eelistustega seotud toiduandmeid.';
 
   @override
   String get healthCardUtility => 'Vali toidud, mis sulle head on.';
@@ -170,7 +167,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get server_error_open_new_issue =>
-      'Server ei vasta! Võid koostada veateate alljärgnevast lingist.';
+      'Server ei vasta! Võite probleemi avada järgmise lingi abil.';
 
   @override
   String get sign_in_text =>
@@ -431,7 +428,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get privacy_policy => 'Privaatsuspoliitika';
 
   @override
-  String get about_this_app => 'Selle rakenduse teave';
+  String get about_this_app => 'Selle rakenduse kohta';
 
   @override
   String get contribute => 'Tee kaastööd';
@@ -445,7 +442,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get contribute_develop_text_2 =>
-      'Küsimuste esitamiseks võid liituda Open Food Factsi Slacki vestlusruumiga.';
+      'Küsimuste esitamiseks võite liituda Open Food Factsi Slacki vestlusruumiga.';
 
   @override
   String get contribute_develop_dev_mode_title => 'Arendajarežiim?';
@@ -500,7 +497,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get contribute_share_content =>
-      'Tahtsin sulle kirjutada rakendusest Open Food Facts, mida olen kasutanud ja mis võimaldab sul saada teavet oma toidu tervise- ja keskkonnamõjude kohta personaalsel viisil. See toimib pakendil olevate vöötkoodide skaneerimise alusel. Lisaks on ta vaba ja tasuta, ei vaja registreerimist ja saad ka iseg aidata suurendada tuvastatud toodete arvu. Siin on link selle allalaadimiseks oma telefoni: https://openfoodfacts.app';
+      'Tahtsin teile rääkida rakendusest Open Food Facts, mida olen kasutanud ja mis võimaldab teil saada teavet oma toidu tervise- ja keskkonnamõjude kohta personaalsel viisil. See töötab pakendil olevate vöötkoodide skannimise teel. Lõpuks on see tasuta, ei vaja registreerimist ja saate isegi aidata suurendada dešifreeritud toodete arvu. Siin on link selle oma telefoni allalaadimiseks: https://openfoodfacts.app';
 
   @override
   String get contribute_prices_gdpr =>
@@ -602,7 +599,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Täiustatud teie uute eelistustega';
 
   @override
-  String get profile_navbar_label => 'Kogukond';
+  String get profile_navbar_label => 'Community';
 
   @override
   String get scan_navbar_label => 'Skanneeri';
@@ -657,9 +654,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get unknownBrand => 'Tundmatu kaubamärk';
-
-  @override
-  String get unknownQuantity => 'Tundmatu kogus';
 
   @override
   String get unknownProductName => 'Tundmatu tootenimi';
@@ -729,10 +723,10 @@ class AppLocalizationsEt extends AppLocalizations {
   String get nutrition_facts_editing_title => 'Toitumisalase teabe muutmine';
 
   @override
-  String get packaging_information => 'Taaskasutusjuhised';
+  String get packaging_information => 'Pakendiinfo';
 
   @override
-  String get packaging_information_photo => 'Foto ringlussevõtu juhistest';
+  String get packaging_information_photo => 'Pakendiinfo foto';
 
   @override
   String get missing_product => 'Oled leidnud uue toote!';
@@ -835,7 +829,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get nutritional_facts_photo_title => 'Toitumisalane teave Foto';
 
   @override
-  String get recycling_photo_title => 'Taaskasutusjuhised Foto';
+  String get recycling_photo_title => 'Foto ringlussevõtt';
 
   @override
   String get take_photo_title => 'Tehke foto';
@@ -1100,7 +1094,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Vigane ühik';
+      'Sobimatu ühik';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1116,7 +1110,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Puuduv ühik';
+      'Puuduv üksus';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
@@ -1149,15 +1143,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get no_product_found => 'Toodet ei leitud';
 
   @override
-  String no_product_found_explanation(String search) {
-    return 'Sinu otsingule\n**\"$search\"**\nei leitud vasteid.';
-  }
-
-  @override
-  String get no_product_found_try_world_results =>
-      'Kas soovite sama otsingu hoopis **meie globaalses andmebaasis** käivitada?';
-
-  @override
   String get no_location_found => 'Asukohta ei leitud';
 
   @override
@@ -1188,7 +1173,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get product_image_outdated_explanations_content =>
-      'See pilt on tehtud rohkem kui aasta tagasi.\n**Palun kontrolli, kas ta on ikka ajakohane**.\n\nSee on **lihtsalt hoiatus**. Kui sisu on ikka sama, võid seda teadet ignoreerida.';
+      'See pilt on tehtud rohkem kui aasta tagasi.\n**Palun kontrollige, kas see on ikka ajakohane**.\n\nSee on **lihtsalt hoiatus**. Kui sisu on ikka sama, võite seda teadet ignoreerida.';
 
   @override
   String product_image_action_replace_photo(String type) {
@@ -1613,7 +1598,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get hint_knowledge_panel_message =>
-      'Lisateabe saamiseks võid puudutada kaardi mis tahes osa. Proovi kohe!';
+      'Lisateabe saamiseks võite puudutada kaardi mis tahes osa. Proovige kohe!';
 
   @override
   String get permissions_page_title => 'Kaamera ligipääs';
@@ -1658,7 +1643,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get authorize_button_label => 'Luba';
+  String get authorize_button_label => 'Authorise';
 
   @override
   String get refuse_button_label => 'Keelduma';
@@ -1703,7 +1688,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get product_list_empty_message =>
-      'Skaneeritud tooted kuvatakse siin ja saad nende kohta üksikasjalikku teavet vaadata';
+      'Skannitud tooted kuvatakse siin ja saate nende kohta üksikasjalikku teavet vaadata.';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
@@ -1832,7 +1817,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'Parema kogemuse saamiseks luba $appName rakendusel oma kaamerat kasutada. Saad triipkoode mugavalt skaneerida.';
+    return 'Parema kogemuse saamiseks lubage $appName -l oma kaamerale ligi pääseda. Saate otse triipkoode skannida.';
   }
 
   @override
@@ -2042,7 +2027,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Soja ei pärine Euroopa Liidust';
 
   @override
-  String get edit_product_form_item_countries_title => 'Riik';
+  String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
@@ -2135,7 +2120,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'Kui kategooria **automaatselt täidetavas valikus pole saadaval**, võid selle ikkagi lisada.\nSee aitab meil sinu riigis Open Food Factsi täiustada.';
+      'Kui kategooria **automaatselt täidetavas valikus pole saadaval**, võite selle ikkagi lisada.\nSee aitab meil teie riigis Open Food Factsi täiustada.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
@@ -2223,7 +2208,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Seejärel sisesta toiteväärtused **nagu pakendil näidatud**. Kui väärtust pole, võid klõpsata „Silma“ ikoonil.';
+      'Seejärel sisesta toiteväärtused **nagu pakendil näidatud**. Kui väärtust pole, võite klõpsata ikoonil „Silma“.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
@@ -2240,7 +2225,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get edit_product_ingredients_photo_title => 'Koostisosade foto';
 
   @override
-  String get edit_product_ingredients_list_title => 'Koostisosade loend';
+  String get edit_product_ingredients_list_title => 'List of ingredients';
 
   @override
   String get edit_product_packaging_photo_title => 'Pakendi foto';
@@ -2545,9 +2530,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Tundmatu';
-
-  @override
   String get product_type_selection_title => 'Toote tüüp';
 
   @override
@@ -2725,9 +2707,6 @@ class AppLocalizationsEt extends AppLocalizations {
   String prices_entry_menu_title(String user) {
     return 'Hinna sisestamine alates \"$user\"';
   }
-
-  @override
-  String get prices_entry_menu_open_product => 'Vaata toote üksikasju';
 
   @override
   String get prices_entry_menu_open_product_prices =>
@@ -3002,34 +2981,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get prices_menu_know_more => 'Lisateave avatud hindade kohta';
-
-  @override
-  String get prices_discount_type => 'Discount type';
-
-  @override
-  String get prices_discount_type_quantity => 'Quantity discount';
-
-  @override
-  String get prices_discount_type_sale => 'Sale';
-
-  @override
-  String get prices_discount_type_seasonal => 'Seasonal';
-
-  @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
-
-  @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
-
-  @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
   String get dev_preferences_import_history_result_success => 'Valmis';
@@ -3580,7 +3532,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Serveri toimingute teostamise alustamine lokaalselt salvestatud folksonomy värskenduste jaoks';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
@@ -4110,7 +4062,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get nutriscore_new_formula_title => 'Nutri-Score (uus arvutus)';
 
   @override
-  String get nutriscore_unknown => 'Tundmatu Nutri-Score';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
@@ -4174,7 +4126,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get faq_title_vision =>
-      'Avatud toidufaktide visioon, missioon, väärtused ja programmid';
+      'The Open Food Facts Vision, Mission, Values and Programs';
 
   @override
   String get faq_title_install_beauty =>
@@ -4248,79 +4200,82 @@ class AppLocalizationsEt extends AppLocalizations {
   String get guide_share_label => 'Jaga';
 
   @override
-  String get guide_nutriscore_v2_title => 'Nutri-Score areneb: selgitused!';
+  String get guide_nutriscore_v2_title =>
+      'The Nutri-Score is evolving: explanations!';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_title =>
-      'Mis on Nutri-Score?';
+      'What is the Nutri-Score?';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph1 =>
-      'Nutri-Score on logo, mille eesmärk on teavitada teid **toidu toiteväärtusest**.';
+      'The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.';
 
   @override
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2 =>
-      'Värvikood varieerub tumerohelisest (**A**) kõige tervislikumate toodete puhul kuni tumepunaseni (**E**) kõige vähem tervislike toodete puhul.';
+      'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.';
 
   @override
-  String get guide_nutriscore_v2_nutriscore_a_caption => 'Nutri-Score A logo';
+  String get guide_nutriscore_v2_nutriscore_a_caption =>
+      'The Nutri-Score A logo';
 
   @override
-  String get guide_nutriscore_v2_why_v2_title => 'Miks Nutri-Score areneb?';
+  String get guide_nutriscore_v2_why_v2_title => 'Why is Nutri-Score evolving?';
 
   @override
   String get guide_nutriscore_v2_why_v2_intro =>
-      'Nutri-Score\'i valem **areneb**, et pakkuda paremaid soovitusi:';
+      'The Nutri-Score formula **is evolving** to provide better recommendations:';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_title =>
-      'Hinnake kõiki jooke paremini';
+      'Better evaluate all drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg1_text =>
-      'Uues algoritmis eristusid **piima**, **suhkruga **piimajookide** ja **köögiviljajookide** võrdlusnootid paremini.';
+      'The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg2_title => 'Jookide parem edetabel';
+  String get guide_nutriscore_v2_why_v2_arg2_title =>
+      'Better ranking of drinks';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg2_text =>
-      'Suhkrusisaldust võetakse rohkem arvesse ja eelistatakse madala suhkrusisaldusega jooke.\\n**Ka magusaineid karistatakse**: dieetlimonaadid alandatakse B-klassist C ja E vahele. Soovitatavaks joogiks jääb vesi.';
+      'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_title =>
-      'Soola ja suhkru eest karistatakse';
+      'Salt and sugar penalized';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg3_text =>
-      'Liiga magusate või liiga soolaste toodete **hinnang langeb veelgi**.';
+      'Products **too sweet** or **too salty** will see their **rating further downgraded**.';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_title =>
-      'Õlide ja kalade hierarhia';
+      'Hierarchy within oils and fishes';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg4_text =>
-      'Teatud **rasvaste kalade** ja **heade rasvade poolest rikaste õlide** hinnang paraneb.';
+      'The rating of certain **fatty fish** and **oils rich in good fats** will improve.';
 
   @override
-  String get guide_nutriscore_v2_why_v2_arg5_title => 'Piira punast liha';
+  String get guide_nutriscore_v2_why_v2_arg5_title => 'Limit red meat';
 
   @override
   String get guide_nutriscore_v2_why_v2_arg5_text =>
-      'Punase liha tarbimist **tuleks piirata**. Seetõttu on **linnuliha suhteliselt kõrgemal kohal**.';
+      'Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.';
 
   @override
   String get guide_nutriscore_v2_new_logo_title =>
-      'Kuidas eristada vana ja uut Nutri-Score\'i arvutust?';
+      'How to differentiate old Nutri-Score and new calculation?';
 
   @override
   String get guide_nutriscore_v2_new_logo_text =>
-      'Edaspidi saab logol kuvada märget \"**Uus arvutus**\", et selgitada, et tegemist on tõepoolest uue arvutusega.';
+      'From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.';
 
   @override
   String get guide_nutriscore_v2_new_logo_image_caption =>
-      'Uue Nutri-Score\'i logo';
+      'The logo of the new Nutri-Score';
 
   @override
   String get guide_nutriscore_v2_where_title =>
@@ -4336,18 +4291,18 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
-      'Ootamata leiad **juba OpenFoodFactsi rakendusest** uue arvutuse, sealhulgas juhul, kui tootjad pole skoori uuendanud.';
+      'Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.';
 
   @override
-  String get guide_nutriscore_v2_unchanged_title => 'Mis ei muutu';
+  String get guide_nutriscore_v2_unchanged_title => 'What doesn\'t change';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph1 =>
-      'Nutri-Score on **toiteväärtuse mõõtmiseks** loodud punktisumma. See täiendab NOVA rühma** ultratöödeldud toitude** punktisummat (mis on samuti rakenduses olemas).';
+      'The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).';
 
   @override
   String get guide_nutriscore_v2_unchanged_paragraph2 =>
-      'Tootjate jaoks on Nutri-Score\'i kuvamine **jääb valikuliseks**.';
+      'For manufacturers, the display of the Nutri-Score **remains optional**.';
 
   @override
   String get guide_greenscore_title => 'Green-Score';
@@ -4395,7 +4350,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get guide_greenscore_lca_arg2_processing => 'Processing';
 
   @override
-  String get guide_greenscore_lca_arg2_packaging => 'Pakend';
+  String get guide_greenscore_lca_arg2_packaging => 'Packaging';
 
   @override
   String get guide_greenscore_lca_arg2_transportation => 'Transportation';
@@ -4468,7 +4423,7 @@ class AppLocalizationsEt extends AppLocalizations {
       '**Karistust** määratakse toodetele, mis sisaldavad koostisosi, millel on märkimisväärne **negatiivne mõju bioloogilisele mitmekesisusele ja ökosüsteemidele**, näiteks palmiõli, mille tootmine põhjustab massilist metsade hävitamist.';
 
   @override
-  String get guide_greenscore_bonuses_penalties_arg4_title => 'Pakend';
+  String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
@@ -4577,7 +4532,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Töödeldud kulinaarsed koostisosad, näiteks **õlid, või, suhkur ja sool**, on ained, mis on saadud 1. rühma toiduainetest või loodusest selliste protsesside abil, mis hõlmavad pressimist, rafineerimist, jahvatamist, jahvatamist ja kuivatamist.';
 
   @override
-  String get guide_nova_groups_arg3_title => 'Töödeldud toidud';
+  String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
@@ -4648,7 +4603,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Mis on avatud toidufaktid?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
@@ -4660,7 +4615,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Avatud toidufaktide omadused';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
@@ -4731,7 +4686,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Mis on avatud lemmikloomatoidu faktid?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
@@ -4743,7 +4698,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Avatud lemmikloomatoidu faktide omadused';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
@@ -4813,7 +4768,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'Mis on avatud ilufaktid?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
@@ -4825,7 +4780,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_beauty_facts_features_title =>
-      'Avatud ilufaktide omadused';
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
@@ -4897,11 +4852,11 @@ class AppLocalizationsEt extends AppLocalizations {
       'https://world-et.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Tere tulemast avatud hindadesse!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Mis on avatud hinnad?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
@@ -4912,7 +4867,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title => 'Kuidas avatud hinnad toimivad?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
@@ -4952,7 +4907,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Juriidilistel ja tehnilistel põhjustel **ei pea me jaemüüjate veebisaitidelt hindade kopeerimist kehtivaks viisiks avatud hindade avaldamiseks**. Soovime veenduda, et meie kogutud hinnad on täpsed ja ajakohased ning kaastööliste käest kopeeritud hindade saamine ei võimalda meil seda teha.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
@@ -4976,7 +4931,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Mis on avatud tootefaktid?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
@@ -4988,7 +4943,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Avatud toodete faktide omadused';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
@@ -5008,7 +4963,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Alati, kui prantsusekeelne parandatavuse indeks on saadaval, kuvame selle. Lisaks **võid hakata muutujaid koguma Folksonomy mootori abil**, et saaksime selle tulevikus ise uuesti arvutada, isegi riikides, kus see pole saadaval.';
+      'Alati, kui prantsusekeelne parandatavuse indeks on saadaval, kuvame selle. Lisaks **võite hakata muutujaid koguma Folksonomy mootori abil**, et saaksime selle tulevikus ise uuesti arvutada, isegi riikides, kus see pole saadaval.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
@@ -5062,7 +5017,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Selle uue funktsiooni kohta tagasiside saatmiseks klõpsake siin!';
 
   @override
-  String get menu_button_list_actions => 'Vali tegevus';
+  String get menu_button_list_actions => 'Valige toiming';
 
   @override
   String get error_loading_photo => 'Viga foto laadimisel';
@@ -5274,7 +5229,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get photo_field_nutrition => 'Toitumisfoto';
 
   @override
-  String get photo_field_packaging => 'Foto ringlussevõtu juhistest';
+  String get photo_field_packaging => 'Pakendiinfo foto';
 
   @override
   String get photo_already_exists => 'See foto on juba olemas';
@@ -5307,7 +5262,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get not_applicable_short => 'Pole kohaldatav';
 
   @override
-  String get knowledge_panel_warning_text => 'Hoiatus';
+  String get knowledge_panel_warning_text => 'Warning';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
@@ -5356,46 +5311,6 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get product_page_tab_for_me => 'Minu jaoks';
-
-  @override
-  String get product_page_for_me_compatibility_score_title => 'Minu ühilduvus';
-
-  @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$valueÜhilduvuse %';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Ühilduvusskoori arvutamiseks pole piisavalt andmeid.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'Tüübi \"$productType\" korral ei saa skoori arvutada.';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Tähtsus';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Matšid';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches => 'Head matšid';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Keskmine vastete arv';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Halvad vasted';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Tundmatud vasted';
 
   @override
   String get product_page_tab_website => 'Veebisait';
@@ -5534,7 +5449,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get prices_stats_with_discount => 'With a discount';
 
   @override
-  String get prices_stats_community => 'Kogukond';
+  String get prices_stats_community => 'Community';
 
   @override
   String get prices_stats_consumption => 'Consumption';
@@ -5647,7 +5562,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Võtke meiega ühendust või jälgige meid sotsiaalmeedias';
 
   @override
-  String get preferences_support_title => 'Toeta rahaliselt';
+  String get preferences_support_title => 'Make a donation';
 
   @override
   String get preferences_support_subtitle =>
@@ -5683,8 +5598,7 @@ class AppLocalizationsEt extends AppLocalizations {
   }
 
   @override
-  String get preferences_app_bar_search_hint =>
-      'Otsi seadistust (nt Nutri-Score)';
+  String get preferences_app_bar_search_hint => 'Otsi seadet (nt Nutri-Score)';
 
   @override
   String get preferences_accessibility_show_emoji =>
@@ -5724,7 +5638,7 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_licenses => 'Litsentsid';
 
   @override
-  String get preferences_about_app_title => 'Rakenduse teave';
+  String get preferences_about_app_title => 'Rakenduse kohta';
 
   @override
   String get preferences_about_app_subtitle =>
@@ -5750,10 +5664,10 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_source_code_subtitle =>
-      'Ja hakkad tegutsema miljonite inimeste heaks';
+      'Ja hakake miljonite inimeste heaks mõju avaldama';
 
   @override
-  String get preferences_add_prices => 'Lisa hindu';
+  String get preferences_add_prices => 'Add prices';
 
   @override
   String get preferences_complete_products => 'Täienda tooteandmeid';
@@ -5766,7 +5680,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Avatud toidufaktide veebisaidil';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Halda minu kontot';
@@ -5862,28 +5776,27 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_faq_discover_project_title => 'Discover the project';
 
   @override
-  String get preferences_faq_discover_off_title =>
-      'Avastage avatud toidufaktid';
+  String get preferences_faq_discover_off_title => 'Discover Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title => 'Avastage avatud ilufaktid';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Avastage lemmikloomatoitude fakte';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Avasta avatud hinnad';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Avastage avatud toodete fakte';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'KKK - Korduma kippuvad küsimused';
 
   @override
-  String get preferences_faq_off_ngo_title => 'Avatud toidufaktide vabaühendus';
+  String get preferences_faq_off_ngo_title => 'The Open Food Facts NGO';
 
   @override
   String get preferences_about_information_title => 'Informatsioon';
@@ -5905,7 +5818,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Osale ühel meie virtuaalsel üritusel';
 
   @override
-  String get preferences_connect_blog_title => 'Avatud toidufaktide ajaveeb';
+  String get preferences_connect_blog_title => 'The Open Food Facts blog';
 
   @override
   String get preferences_connect_blog_subtitle =>
@@ -5929,7 +5842,7 @@ class AppLocalizationsEt extends AppLocalizations {
 
   @override
   String get preferences_connect_feedback_title =>
-      'Saada meile rakenduse kohta tagasisidet';
+      'Saatke meile rakenduse kohta tagasisidet';
 
   @override
   String get preferences_connect_feedback_subtitle =>
@@ -6074,7 +5987,7 @@ class AppLocalizationsEt extends AppLocalizations {
       'Kõige rohkem hindu pakkunud kaastöölised';
 
   @override
-  String get preferences_prices_metrics_title => 'Avatud hindade mõõdikud';
+  String get preferences_prices_metrics_title => 'Avatud hinna mõõdikud';
 
   @override
   String get preferences_prices_metrics_subtitle => 'Jälgige projekti arengut';
@@ -6218,11 +6131,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get preferences_app_settings_media_title => 'Meedia';
 
   @override
-  String get preferences_about_app_development_title => 'Arendus';
+  String get preferences_about_app_development_title => 'Development';
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Avatud toidufaktide laborid';
+      'Open Food Facts Labs';
 
   @override
   String get preferences_root_account_title => 'Konto';
@@ -6266,51 +6179,11 @@ class AppLocalizationsEt extends AppLocalizations {
   String get location_map_details_postcode => 'Postiindeks';
 
   @override
-  String get location_map_details_country => 'Riik';
+  String get location_map_details_country => 'Country';
 
   @override
   String get location_map_details_coordinates => 'Koordinaadid';
 
   @override
   String get location_map_details_osm_id => 'OSM-i ID';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Tagasi koju';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip =>
-      'Kaamera sisse/välja lülitamine';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Näita vöötkoodiskannerit';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Puuduta, et skannida **vöötkoodi**\nja vaadata, kas see **sobib sulle**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Lülitus-/taskulamp';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Skannige toodet, lähenedes selle vöötkoodile';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'Tuvastasime järgmise vöötkoodi: $barcode, kuid see tundub olevat kehtetu.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Vaata lähemalt…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Enim skeeritud tooted';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Viimati skannitud tooted';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
 }

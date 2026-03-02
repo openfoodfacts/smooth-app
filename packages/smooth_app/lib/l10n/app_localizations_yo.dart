@@ -12,9 +12,6 @@ class AppLocalizationsYo extends AppLocalizations {
   String get app_name => 'Open Food Facts';
 
   @override
-  String get open_prices => 'Open Prices';
-
-  @override
   String get sep => '';
 
   @override
@@ -25,19 +22,19 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get account_delete_message =>
-      'Ṣé ó dá ọ lójú pé o fẹ́ pa àkọọ́lẹ̀ rẹ rẹ́?\nTí ìdí kan bá wà, jọ̀wọ́ pín ní ìsàlẹ̀ yìí';
+      'Are you sure you want to delete your account?\nIf there is a specific reason, please share below';
 
   @override
-  String get reason => 'Ìdí';
+  String get reason => 'Reason';
 
   @override
-  String get okay => 'O dara';
+  String get okay => 'Okay';
 
   @override
   String get validate => 'Validate';
 
   @override
-  String get create => 'Ṣẹ̀dá';
+  String get create => 'Create';
 
   @override
   String get applyButtonText => 'Apply';
@@ -46,7 +43,7 @@ class AppLocalizationsYo extends AppLocalizations {
   String get next_label => 'Next';
 
   @override
-  String get continue_label => 'Tẹ̀síwájú';
+  String get continue_label => 'Continue';
 
   @override
   String get exit_label => 'Exit';
@@ -55,13 +52,13 @@ class AppLocalizationsYo extends AppLocalizations {
   String get previous_label => 'Previous';
 
   @override
-  String get go_back_to_top => 'Pada si oke';
+  String get go_back_to_top => 'Go back to top';
 
   @override
   String get save => 'Save';
 
   @override
-  String get save_confirmation => 'Ṣe o da ọ loju pe o fẹ fipamọ?';
+  String get save_confirmation => 'Are you sure you want to save?';
 
   @override
   String get skip => 'Skip';
@@ -70,7 +67,7 @@ class AppLocalizationsYo extends AppLocalizations {
   String get cancel => 'Cancel';
 
   @override
-  String get ignore => 'Fojufo';
+  String get ignore => 'Ignore';
 
   @override
   String get close => 'Close';
@@ -79,219 +76,219 @@ class AppLocalizationsYo extends AppLocalizations {
   String get no => 'No';
 
   @override
-  String get stop => 'Duro';
+  String get stop => 'Stop';
 
   @override
-  String get finish => 'Ipari';
+  String get finish => 'Finish';
 
   @override
-  String get calculate => 'Ṣíṣirò';
+  String get calculate => 'Calculate';
 
   @override
-  String get reset_food_prefs => 'Ṣe àtúntò àwọn ohun tí a fẹ́ láti jẹ';
+  String get reset_food_prefs => 'Reset food preferences';
 
   @override
-  String get error => 'Nǹkan kan ṣe àṣìṣe';
+  String get error => 'Something went wrong';
 
   @override
-  String get error_occurred => 'Àṣìṣe kan ṣẹlẹ̀';
+  String get error_occurred => 'An error occurred';
 
   @override
-  String get featureInProgress => 'A si n ṣiṣẹ lori ẹya yii, ẹ duro de ọ';
+  String get featureInProgress =>
+      'We\'re still working on this feature, stay tuned';
 
   @override
-  String get label_web => 'Wo lori ayelujara';
+  String get label_web => 'View on the web';
 
   @override
-  String get learnMore => 'Kọ ẹkọ diẹ si';
+  String get learnMore => 'Learn more';
 
   @override
-  String get unknown => 'Aimọ';
+  String get unknown => 'Unknown';
 
   @override
-  String get match_very_good => 'Ibamu ti o dara pupọ';
+  String get match_very_good => 'Very good match';
 
   @override
-  String get match_good => 'Ibamu to dara';
+  String get match_good => 'Good match';
 
   @override
-  String get match_poor => 'Ibamu ti ko dara';
+  String get match_poor => 'Poor match';
 
   @override
   String get match_may_not => 'May not match';
 
   @override
-  String get match_does_not => 'Kò bá ara mu';
+  String get match_does_not => 'Does not match';
 
   @override
-  String get match_unknown => 'Ibamu aimọ';
+  String get match_unknown => 'Unknown match';
 
   @override
-  String get match_short_very_good => 'Ibamu ti o dara pupọ';
+  String get match_short_very_good => 'Very good match';
 
   @override
-  String get match_short_good => 'Ibamu to dara';
+  String get match_short_good => 'Good match';
 
   @override
-  String get match_short_poor => 'Ibamu ti ko dara';
+  String get match_short_poor => 'Poor match';
 
   @override
   String get match_short_may_not => 'May not match';
 
   @override
-  String get match_short_does_not => 'Kò bá ara mu';
+  String get match_short_does_not => 'Does not match';
 
   @override
-  String get match_short_unknown => 'Ibamu aimọ';
+  String get match_short_unknown => 'Unknown match';
 
   @override
-  String get licenses => 'Awọn iwe-aṣẹ';
+  String get licenses => 'Licences';
 
   @override
-  String get looking_for => 'Nwa fun';
+  String get looking_for => 'Looking for';
 
   @override
-  String get welcomeToOpenFoodFacts => 'Ẹ káàbọ̀ sí Open Food Facts';
+  String get welcomeToOpenFoodFacts => 'Welcome to Open Food Facts';
 
   @override
   String get whatIsOff =>
-      'Open Food Facts jẹ́ àjọ tí kìí ṣe èrè lágbàáyé tí àwọn agbègbè ń ṣiṣẹ́ fún.';
+      'Open Food Facts is a global non-profit powered by local communities.';
 
   @override
-  String get productDataUtility => 'Wo alaye ounjẹ ti o baamu awọn ayanfẹ rẹ.';
+  String get productDataUtility =>
+      'See the food data relevant to your preferences.';
 
   @override
-  String get healthCardUtility => 'Yan ounjẹ ti o dara fun ọ.';
+  String get healthCardUtility => 'Choose foods that are good for you.';
 
   @override
-  String get ecoCardUtility => 'Yan ounjẹ ti o dara fun aye.';
+  String get ecoCardUtility => 'Choose foods that are good for the planet.';
 
   @override
   String get server_error_open_new_issue =>
-      'Kò sí ìdáhùn sí olupin! O le ṣí ìṣòro kan pẹ̀lú ìjápọ̀ yìí.';
+      'No server response! You may open an issue with the following link.';
 
   @override
   String get sign_in_text =>
-      'Wọlé sí àkọọ́lẹ̀ Open Food Facts rẹ láti fi àwọn àfikún rẹ pamọ́';
+      'Sign in to your Open Food Facts account to save your contributions';
 
   @override
-  String get incorrect_credentials => 'Orúkọ tàbí ọ̀rọ̀ìpamọ́ tí kò tọ́.';
+  String get incorrect_credentials => 'Incorrect username or password.';
 
   @override
   String get password_lost_incorrect_credentials =>
-      'Kò sí ìmeeli tàbí orúkọ ìforúkọsílẹ̀ yìí. Jọ̀wọ́ ṣàyẹ̀wò àwọn ìwé ẹ̀rí rẹ.';
+      'This email or username doesn\'t exist. Please check your credentials.';
 
   @override
   String get password_lost_server_unavailable =>
-      'A n ni iriri idinku lori awọn olupin wa lọwọlọwọ ati pe a tọrọ aforiji fun rẹ. Jọwọ gbiyanju lẹẹkansi nigbamii.';
+      'We are currently experiencing slowdowns on our servers and we apologise for it. Please try again later.';
 
   @override
   String get login => 'Username';
 
   @override
-  String get login_result_type_server_unreachable => 'A ko le de nẹtiwọọki naa';
+  String get login_result_type_server_unreachable => 'Network is unreachable';
 
   @override
   String get login_result_type_server_issue =>
-      'Iṣoro lori olupin naa. Jọwọ gbiyanju nigbamii.';
+      'Problem on the server. Please try later.';
 
   @override
-  String get login_page_username_or_email =>
-      'Jọwọ tẹ orukọ olumulo tabi imeeli sii';
+  String get login_page_username_or_email => 'Please enter username or e-mail';
 
   @override
-  String get login_page_password_error_empty =>
-      'Jọwọ tẹ ọrọ igbaniwọle kan sii';
+  String get login_page_password_error_empty => 'Please enter a password';
 
   @override
-  String get create_account => 'Se akanti fun ra re';
+  String get create_account => 'Create account';
 
   @override
-  String get sign_in => 'wọle';
+  String get sign_in => 'Sign in';
 
   @override
-  String get sign_in_mandatory => 'Fún ẹ̀yà ara ẹ̀rọ yẹn, a nílò kí o wọlé.';
+  String get sign_in_mandatory => 'For that feature we need you to sign in.';
 
   @override
   String get help_improve_country =>
-      'Ṣe ìrànlọ́wọ́ láti mú kí àwọn òtítọ́ oúnjẹ ṣíṣí sílẹ̀ ní orílẹ̀-èdè rẹ sunwọ̀n síi';
+      'Help improve Open Food Facts in your country';
 
   @override
-  String get sign_out => 'ifowosi jada';
+  String get sign_out => 'Sign out';
 
   @override
-  String get sign_out_confirmation => 'Ṣe o da ọ loju pe o fẹ jade?';
+  String get sign_out_confirmation => 'Are you sure you want to sign out?';
 
   @override
-  String get password => 'Ọ̀rọ̀ìpamọ́';
+  String get password => 'Password';
 
   @override
-  String get forgot_password => 'Gbagbe ọrọ aṣina bi';
+  String get forgot_password => 'Forgot password';
 
   @override
   String get forgot_password_question => 'Gbagbe ọrọ aṣina bi?';
 
   @override
-  String get view_profile => 'Wo profaili';
+  String get view_profile => 'View profile';
 
   @override
-  String get reset_password => 'Ṣe atunto ọrọ igbaniwọle';
+  String get reset_password => 'Reset password';
 
   @override
   String get reset_password_explanation_text =>
-      'Tí ọ̀rọ̀ìpamọ́ bá ti gbàgbé, tẹ orúkọ olùlò tàbí àdírẹ́sì ìmeeli rẹ láti gba ìtọ́ni fún àtúntò ọ̀rọ̀ìpamọ́. Bákan náà, rántí láti ṣàyẹ̀wò fódà Spam.';
+      'In case of a forgotten password, enter your username or e-mail address to receive instructions for a password reset. Also, remember to check the Spam folder.';
 
   @override
-  String get username_or_email => 'Orúkọ orúkọ tàbí ìmeeli';
+  String get username_or_email => 'Username or e-mail';
 
   @override
   String get reset_password_done =>
-      'A ti fi imeeli pẹlu ọna asopọ lati tun ọrọ igbaniwọle rẹ ṣe ranṣẹ si adirẹsi imeeli ti o ni nkan ṣe pẹlu akọọlẹ rẹ. Tun ṣayẹwo spam rẹ.';
+      'An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam';
 
   @override
-  String get send_reset_password_mail => 'Tun oruko akowole re se';
+  String get send_reset_password_mail => 'Change password';
 
   @override
-  String get enter_some_text => 'Jọwọ tẹ ọrọ diẹ sii';
+  String get enter_some_text => 'Please enter some text';
 
   @override
-  String get sign_up_page_title => 'Forukọsilẹ';
+  String get sign_up_page_title => 'Sign Up';
 
   @override
-  String get sign_up_page_action_button => 'Forukọsilẹ';
+  String get sign_up_page_action_button => 'Sign Up';
 
   @override
-  String get sign_up_page_action_doing_it => 'Ìforúkọsílẹ̀…';
+  String get sign_up_page_action_doing_it => 'Signing up…';
 
   @override
-  String get sign_up_page_action_ok => 'Oriire! A ṣẹ̀ṣẹ̀ ṣẹ̀dá àkọọ́lẹ̀ rẹ.';
+  String get sign_up_page_action_ok =>
+      'Congratulations! Your account has just been created.';
 
   @override
-  String get sign_up_page_display_name_hint => 'Orúkọ';
+  String get sign_up_page_display_name_hint => 'Name';
 
   @override
   String get sign_up_page_display_name_error_empty =>
-      'Jọ̀wọ́ tẹ orúkọ ìfihàn tí o fẹ́ lò';
+      'Please enter the display name you want to use';
 
   @override
-  String get sign_up_page_email_hint => 'Imeeli';
+  String get sign_up_page_email_hint => 'E-mail';
 
   @override
-  String get sign_up_page_email_error_empty => 'A nilo imeeli';
+  String get sign_up_page_email_error_empty => 'E-mail is required';
 
   @override
-  String get sign_up_page_email_error_invalid => 'Imeeli ti ko tọ';
+  String get sign_up_page_email_error_invalid => 'Invalid e-mail';
 
   @override
-  String get sign_up_page_username_hint => 'Orúkọ orúkọ: A lè rí i ní gbangba';
+  String get sign_up_page_username_hint => 'Username: Publicly visible';
 
   @override
-  String get sign_up_page_username_error_empty =>
-      'Jọwọ tẹ orukọ olumulo kan sii';
+  String get sign_up_page_username_error_empty => 'Please enter a username';
 
   @override
   String get sign_up_page_username_error_invalid =>
-      'Jọwọ tẹ orukọ olumulo to wulo sii';
+      'Please enter a valid username';
 
   @override
   String get sign_up_page_username_description =>
@@ -299,204 +296,202 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String sign_up_page_username_length_invalid(int value) {
-    return 'Orúkọ orúkọ kò le ju àwọn ohun kikọ $value lọ';
+    return 'Username cannot exceed $value characters';
   }
 
   @override
-  String get sign_up_page_password_hint => 'Ọ̀rọ̀ìpamọ́';
+  String get sign_up_page_password_hint => 'Password';
 
   @override
-  String get sign_up_page_password_error_empty =>
-      'Jọwọ tẹ ọrọ igbaniwọle kan sii';
+  String get sign_up_page_password_error_empty => 'Please enter a password';
 
   @override
   String get sign_up_page_password_error_invalid =>
-      'Jọwọ tẹ ọrọ igbaniwọle to wulo sii (o kere ju awọn lẹta 6)';
+      'Please enter a valid password (at least 6 characters)';
 
   @override
-  String get sign_up_page_confirm_password_hint => 'So ni pato orukoabawole re';
+  String get sign_up_page_confirm_password_hint => 'Confirm Password';
 
   @override
   String get sign_up_page_confirm_password_error_empty =>
-      'Jọwọ jẹrisi ọrọ igbaniwọle rẹ';
+      'Please confirm the password';
 
   @override
   String get sign_up_page_confirm_password_error_invalid =>
-      'Àwọn ọ̀rọ̀ ìpamọ́ kò báramu';
+      'Passwords don\'t match';
 
   @override
-  String get sign_up_page_agree_text => 'Mo gba si Awọn Otitọ Ounjẹ Ṣiṣi';
+  String get sign_up_page_agree_text => 'I agree to the Open Food Facts';
 
   @override
-  String get sign_up_page_terms_text => 'awọn ofin lilo ati ilowosi';
+  String get sign_up_page_terms_text => 'terms of use and contribution';
 
   @override
   String get donate_url => 'https://donate.openfoodfacts.org/';
 
   @override
   String get sign_up_page_agree_error_invalid =>
-      'Nígbà tí a bá ń ṣẹ̀dá àkọọ́lẹ̀ kan, gbígbà láti tẹ̀lé Àwọn Àdéhùn Lílò jẹ́ dandan, síbẹ̀síbẹ̀, a lè ṣe àwọn àfikún aláìlórúkọ nípasẹ̀ àpù náà';
+      'When creating an account, agreeing to the Terms of Use is mandatory, however, anonymous contributions can still be made through the app';
 
   @override
-  String get sign_up_page_producer_checkbox => 'Olùpèsè oúnjẹ ni mí';
+  String get sign_up_page_producer_checkbox => 'I am a food producer';
 
   @override
-  String get sign_up_page_producer_hint => 'Olùpèsè/orúkọ ọjà';
+  String get sign_up_page_producer_hint => 'Producer/brand';
 
   @override
   String get sign_up_page_producer_error_empty =>
-      'Jọ̀wọ́ tẹ orúkọ olùgbéjáde tàbí orúkọ ilé iṣẹ́ kan';
+      'Please enter a producer or a brand name';
 
   @override
   String get sign_up_page_subscribe_checkbox =>
-      'Mo fẹ́ forúkọ sílẹ̀ fún ìwé ìròyìn Open Food Facts (O lè yọ ara rẹ kúrò nínú rẹ̀ nígbàkigbà)';
+      'I\'d like to subscribe to the Open Food Facts newsletter (You can unsubscribe from it at any time)';
 
   @override
   String get sign_up_page_user_name_already_used =>
-      'Orúkọ olùlò náà ti wà tẹ́lẹ̀, jọ̀wọ́ yan orúkọ olùlò mìíràn.';
+      'The user name already exists, please choose another username.';
 
   @override
   String get sign_up_page_email_already_exists =>
-      'ti wa tẹlẹ, wọle si akọọlẹ naa tabi gbiyanju pẹlu imeeli miiran.';
+      'already exists, login to the account or try with another email.';
 
   @override
   String get sign_up_page_provide_valid_email =>
-      'Jọwọ pese adirẹsi imeeli to wulo.';
+      'Please provide a valid email address.';
 
   @override
   String get sign_up_page_server_busy =>
-      'A tọrọ àforíjì gidigidi, a ní àwọn ìṣòro ìmọ̀-ẹ̀rọ díẹ̀ láti ṣẹ̀dá àkọọ́lẹ̀ rẹ. Jọ̀wọ́ gbìyànjú lẹ́ẹ̀kan síi nígbà tó bá yá.';
+      'We are deeply sorry, we have some technical difficulties to create your account. Please try again later.';
 
   @override
   String get settingsTitle => 'Ètò';
 
   @override
-  String get darkmode => 'Àkòrí';
+  String get darkmode => 'Theme';
 
   @override
-  String get darkmode_dark => 'Dúdú';
+  String get darkmode_dark => 'Dark';
 
   @override
-  String get darkmode_light => 'Ìmọ́lẹ̀';
+  String get darkmode_light => 'Light';
 
   @override
-  String get darkmode_system_default => 'Àìyípadà ètò náà';
+  String get darkmode_system_default => 'System default';
 
   @override
-  String get thanks_for_contributing => 'O ṣeun fun ilowosi!';
+  String get thanks_for_contributing => 'Thanks for contributing!';
 
   @override
-  String get contributors_label => 'Wọ́n ń kọ́ ohun èlò ìṣàfilọ́lẹ̀ náà';
+  String get contributors_label => 'They are building the app';
 
   @override
   String get contributors_dialog_title => 'Contributors';
 
   @override
   String contributors_dialog_entry_description(Object name) {
-    return 'Olùkópa: $name';
+    return 'Contributor: $name';
   }
 
   @override
   String get contributors_description =>
-      'Àkójọ gbogbo àwọn olùkópa nínú àpù yìí';
+      'A list of all contributors of this app';
 
   @override
-  String get support => 'Àtìlẹ́yìn';
+  String get support => 'Support';
 
   @override
-  String get support_join_slack => 'Beere fun iranlọwọ ni ikanni Slack wa';
+  String get support_join_slack => 'Ask for help in our Slack channel';
 
   @override
-  String get support_via_forum => 'Beere fun iranlọwọ lori apejọ wa';
+  String get support_via_forum => 'Ask for help on our forum';
 
   @override
-  String get support_via_email => 'Fi imeeli ranṣẹ si wa';
+  String get support_via_email => 'Send us an e-mail';
 
   @override
-  String get support_via_email_include_logs_dialog_title =>
-      'Fi àwọn àkọsílẹ̀ àpù ránṣẹ́?';
+  String get support_via_email_include_logs_dialog_title => 'Send app logs?';
 
   @override
   String get support_via_email_include_logs_dialog_body =>
-      'Ṣe o fẹ lati fi awọn akọsilẹ ohun elo kun si asomọ si imeeli rẹ?';
+      'Do you wish to include application logs in attachment to your email?';
 
   @override
-  String get termsOfUse => 'Awọn ofin lilo';
+  String get termsOfUse => 'Terms of use';
 
   @override
-  String get legalNotices => 'Àwọn àkíyèsí òfin';
+  String get legalNotices => 'Legal notices';
 
   @override
-  String get privacy_policy => 'Ètò ìpamọ́';
+  String get privacy_policy => 'Privacy policy';
 
   @override
-  String get about_this_app => 'Nípa àpù yìí';
+  String get about_this_app => 'About this app';
 
   @override
   String get contribute => 'Contribute';
 
   @override
-  String get contribute_sw_development => 'Idagbasoke sọfitiwia';
+  String get contribute_sw_development => 'Software development';
 
   @override
   String get contribute_develop_text =>
-      'Kóòdù fún gbogbo ọjà Open Food Facts wà lórí GitHub. Ẹ lè tún lo kódù náà (ó jẹ́ orísun ṣíṣí sílẹ̀) kí ẹ sì ràn wá lọ́wọ́ láti mú un sunwọ̀n sí i, fún gbogbo ènìyàn, ní gbogbo ayé.';
+      'The code for every Open Food Facts product is available on GitHub. You are welcome to reuse the code (it\'s open source) and help us improve it, for everyone, on all the planet.';
 
   @override
   String get contribute_develop_text_2 =>
-      'O le darapọ mọ Open Food Facts Slack chatroom, eyi ti o jẹ ọna ti o fẹ lati beere awọn ibeere.';
+      'You can join the Open Food Facts Slack chatroom which is the preferred way to ask questions.';
 
   @override
-  String get contribute_develop_dev_mode_title => 'Ipò DEV?';
+  String get contribute_develop_dev_mode_title => 'DEV Mode?';
 
   @override
-  String get contribute_develop_dev_mode_subtitle => 'Mu Ipo DEV ṣiṣẹ';
+  String get contribute_develop_dev_mode_subtitle => 'Activate the DEV Mode';
 
   @override
   String get contribute_donate_title => 'Donate';
 
   @override
-  String get contribute_donate_header => 'Ṣe ìtọrẹ sí Àwọn Ìròyìn Oúnjẹ Ṣíṣí';
+  String get contribute_donate_header => 'Donate to Open Food Facts';
 
   @override
   String get contribute_enroll_alpha_warning =>
-      'Jọ̀wọ́ jẹ́wọ́ pé pẹ̀lú ẹ̀yà alpha inú, pípadánù dátà pátápátá ṣeé ṣe, àti pé àpù náà lè má ṣeé lò nígbàkigbà!';
+      'Please acknowledge that with the internal alpha version, complete loss of data is possible, and the app may become unusable at any time !';
 
   @override
   String get contribute_improve_ProductsToBeCompleted =>
-      'Awọn ọja ti a gbọdọ pari';
+      'Products to be completed';
 
   @override
-  String get contribute_improve_header => 'Ṣíṣe àtúnṣe';
+  String get contribute_improve_header => 'Improving';
 
   @override
   String get contribute_improve_text =>
-      'Ibi ipamọ data ni ipilẹ iṣẹ akanṣe naa. O rọrun ati ki o yara pupọ lati ṣe iranlọwọ. O le ṣe igbasilẹ app alagbeka fun foonu rẹ, ki o bẹrẹ si ṣafikun tabi mu awọn ọja dara si.\n\nNi apa keji, oju opo wẹẹbu Open Food Facts nfunni ni ọpọlọpọ awọn ọna lati ṣe alabapin: ';
+      'The database is the core of the project. It\'s easy and very quick to help. You can download the mobile app for your phone, and start adding or improving products.\n\nOn the other hand, Open Food Facts website offers many ways to contribute: ';
 
   @override
-  String get contribute_translate_header => 'Túmọ̀';
+  String get contribute_translate_header => 'Translate';
 
   @override
   String get contribute_data_quality => 'Data Quality';
 
   @override
-  String get contribute_translate_link_text => 'Bẹ̀rẹ̀ sí Ìtumọ̀';
+  String get contribute_translate_link_text => 'Start Translating';
 
   @override
   String get contribute_translate_text =>
-      'Open Food Facts jẹ́ iṣẹ́ àgbáyé kan, tí ó ní àwọn ọjà láti orílẹ̀-èdè tó ju 160 lọ. A ń túmọ̀ Open Food Facts sí ọ̀pọ̀lọpọ̀ èdè, pẹ̀lú àwọn akoonu tí ń yípadà nígbà gbogbo.';
+      'Open Food Facts is a global project, containing products from more than 160 countries. Open Food Facts is translated into dozens of languages, with constantly evolving content.';
 
   @override
   String get contribute_translate_text_2 =>
-      'Ìtumọ̀ jẹ́ ọ̀kan lára àwọn iṣẹ́ pàtàkì nínú iṣẹ́ náà';
+      'Translations is one of the key tasks of the project';
 
   @override
   String get contribute_join_skill_pool =>
-      'Ṣe àfikún àwọn ọgbọ́n rẹ sí Open Food Facts. Dára pọ̀ mọ́ àwọn ọgbọ́n náà!';
+      'Contribute your skills to Open Food Facts. Join the skill pool!';
 
   @override
   String get contribute_share_header =>
-      'Pin Awọn Otitọ Ounjẹ Ṣiṣi pẹlu awọn ọrẹ rẹ';
+      'Share Open Food Facts with your friends';
 
   @override
   String get contribute_share_content =>
@@ -504,20 +499,21 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get contribute_prices_gdpr =>
-      'Ṣe alabapin awọn idiyele nipa bibeere fun gbigbejade data kaadi iṣootọ rẹ si GDPR';
+      'Contribute prices by requesting a GDPR export of your loyalty cards data';
 
   @override
-  String get tap_to_answer => 'Tẹ ibi lati dahun awọn ibeere';
+  String get tap_to_answer => 'Tap here to answer questions';
 
   @override
-  String get tap_to_answer_hint => 'Tẹ ibi lati dahun awọn ibeere nipa ọja yii';
+  String get tap_to_answer_hint =>
+      'Tap here to answer questions about this product';
 
   @override
   String get robotoff_questions_loading_hint =>
-      'Jọwọ duro nigba ti awọn ibeere nipa ọja yii ba wa ni fifuye';
+      'Please wait while questions about this product are loaded';
 
   @override
-  String get saving_answer => 'Fifipamọ idahun rẹ';
+  String get saving_answer => 'Saving your answer';
 
   @override
   String get contribute_to_get_rewards =>
@@ -525,79 +521,79 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get question_sign_in_text =>
-      'Wọlé sí àkọọ́lẹ̀ Open Food Facts rẹ láti gba ìyìn fún àwọn àfikún rẹ';
+      'Sign in to your Open Food Facts account to get credit for your contributions';
 
   @override
-  String get question_yes_button_accessibility_value => 'Dáhùn pẹ̀lú bẹ́ẹ̀ni';
+  String get question_yes_button_accessibility_value => 'Answer with yes';
 
   @override
-  String get question_no_button_accessibility_value => 'Dáhùn pẹ̀lú rárá';
+  String get question_no_button_accessibility_value => 'Answer with no';
 
   @override
-  String get question_skip_button_accessibility_value => 'Fo ibeere yii';
+  String get question_skip_button_accessibility_value => 'Skip this question';
 
   @override
-  String get tap_to_edit_search => 'Fọwọ́ba láti ṣàtúnṣe ìwákiri';
+  String get tap_to_edit_search => 'Tap to edit search';
 
   @override
-  String get myPreferences => 'Àwọn ohun tí mo fẹ́';
+  String get myPreferences => 'My preferences';
 
   @override
   String get account_create_message =>
-      'Ṣẹ̀dá àkọọ́lẹ̀ rẹ kí o sì dara pọ̀ mọ́ àwùjọ Open Food Facts láti ran ọ́ lọ́wọ́ láti kọ́ ìmọ̀ nípa oúnjẹ kárí ayé!';
+      'Create your account and join the Open Food Facts community to help build food knowledge all over the world!';
 
   @override
-  String get join_us => 'Darapo mo wa';
+  String get join_us => 'Join us';
 
   @override
-  String get myPreferences_profile_title => 'Ìwífún Rẹ';
+  String get myPreferences_profile_title => 'Your Profile';
 
   @override
   String get myPreferences_profile_subtitle =>
-      'Ṣàkóso àkọọ́lẹ̀ olùkópa Open Food Facts rẹ.';
+      'Manage your Open Food Facts contributor account.';
 
   @override
-  String get myPreferences_settings_title => 'Àwọn Ètò Àpù';
+  String get myPreferences_settings_title => 'App Settings';
 
   @override
-  String get myPreferences_settings_subtitle => 'Ipo dudu, Awọn ede…';
+  String get myPreferences_settings_subtitle => 'Dark mode, Languages…';
 
   @override
-  String get myPreferences_food_title => 'Àwọn Àyànfẹ́ Oúnjẹ';
+  String get myPreferences_food_title => 'Food Preferences';
 
   @override
   String get myPreferences_food_subtitle =>
-      'Yan alaye ti o ṣe pataki julọ si ọ nipa ounjẹ.';
+      'Choose what information about food matters most to you.';
 
   @override
   String get myPreferences_food_comment =>
-      'Yan alaye ti o ṣe pataki julọ fun ọ, lati le ṣe ipo ounjẹ ni ibamu si awọn ayanfẹ rẹ, wo alaye ti o nifẹ si akọkọ, ki o si gba akopọ ibamu. Awọn ayanfẹ ounjẹ wọnyẹn wa lori ẹrọ rẹ, wọn ko si ni nkan ṣe pẹlu akọọlẹ olufunni Open Food Facts rẹ ti o ba ni ọkan.';
+      'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.';
 
   @override
-  String get confirmResetPreferences => 'Ṣe àtúntò àwọn ohun tí o fẹ́ láti jẹ?';
+  String get confirmResetPreferences => 'Reset your food preferences?';
 
   @override
-  String get myPersonalizedRanking => 'Ipele ti ara ẹni mi';
+  String get myPersonalizedRanking => 'My personalized ranking';
 
   @override
   String get ranking_tab_all => 'All';
 
   @override
-  String get ranking_subtitle_match_yes => 'Ibaramu nla kan fun ọ';
+  String get ranking_subtitle_match_yes => 'A great match for you';
 
   @override
-  String get ranking_subtitle_match_no => 'Ibamu ti ko dara pupọ';
+  String get ranking_subtitle_match_no => 'Very poor match';
 
   @override
-  String get ranking_subtitle_match_maybe => 'Ibamu aimọ';
+  String get ranking_subtitle_match_maybe => 'Unknown match';
 
   @override
   String get refresh_with_new_preferences =>
-      'Ṣe àtúnṣe àkójọ náà pẹ̀lú àwọn ohun tí o fẹ́ tuntun';
+      'Refresh the list with your new preferences';
 
   @override
   String get reloaded_with_new_preferences =>
-      'Atunse pẹlu awọn ayanfẹ tuntun rẹ';
+      'Reloaded with your new preferences';
 
   @override
   String get profile_navbar_label => 'Community';
@@ -606,28 +602,28 @@ class AppLocalizationsYo extends AppLocalizations {
   String get scan_navbar_label => 'Ọlọjẹ';
 
   @override
-  String get history_navbar_label => 'Ìtàn';
+  String get history_navbar_label => 'History';
 
   @override
-  String get list_navbar_label => 'Àwọn Àkójọ';
+  String get list_navbar_label => 'Lists';
 
   @override
-  String get category => 'Àlẹ̀mọ́ nípasẹ̀ ẹ̀ka';
+  String get category => 'Filter by category';
 
   @override
   String get category_all => 'All';
 
   @override
-  String get category_search => '(wíwá ẹ̀ka)';
+  String get category_search => '(category search)';
 
   @override
-  String get filter => 'Àlẹ̀mọ́';
+  String get filter => 'Filter';
 
   @override
-  String get scan => 'Àwọn ọjà láti ojú ìbojú ìṣàyẹ̀wò';
+  String get scan => 'Products from the Scan screen';
 
   @override
-  String get scan_history => 'Ìtàn ìṣàyẹ̀wò';
+  String get scan_history => 'Scan history';
 
   @override
   String get search => 'Search';
@@ -643,170 +639,166 @@ class AppLocalizationsYo extends AppLocalizations {
   String get search_history => 'Itan wiwa';
 
   @override
-  String get search_store => 'Wa ile itaja kan';
+  String get search_store => 'Search for a store';
 
   @override
   String get search_store_help => 'Akiyesi: ṣafikun ilu tabi orilẹ-ede naa';
 
   @override
-  String get tap_for_more => 'Tẹ lati wo alaye siwaju sii…';
+  String get tap_for_more => 'Tap to see more info…';
 
   @override
   String get product => 'Product';
 
   @override
-  String get unknownBrand => 'Orúkọ tí a kò mọ̀';
+  String get unknownBrand => 'Unknown brand';
 
   @override
-  String get unknownQuantity => 'Iye ti a ko mọ';
-
-  @override
-  String get unknownProductName => 'Orúkọ ọjà tí a kò mọ̀';
+  String get unknownProductName => 'Unknown product name';
 
   @override
   String get label_refresh => 'Refresh';
 
   @override
-  String get label_reload => 'Tun gbe sori ẹrọ';
+  String get label_reload => 'Reload';
 
   @override
-  String get image => 'Àwòrán';
+  String get image => 'Image';
 
   @override
-  String get front_photo => 'Fọ́tò iwájú';
+  String get front_photo => 'Front photo';
 
   @override
   String outdated_image_accessibility_label(Object imageType) {
-    return '$imageType (Àwòrán yìí lè ti gbó)';
+    return '$imageType (this image may be outdated)';
   }
 
   @override
-  String get outdated_image_short_label => 'le ti di igba atijọ';
+  String get outdated_image_short_label => 'may be outdated';
 
   @override
   String get ingredients => 'Ingredients';
 
   @override
   String get ingredients_editing_instructions =>
-      'Pa ìtòlẹ́sẹẹsẹ àtilẹ̀wá mọ́. Fi ìpín ogorun hàn nígbà tí a bá sọ ọ́. Ya sọ́tọ̀ pẹ̀lú àmì ìdámọ̀ tàbí àmì ìdámọ̀ kí o sì lo àmì ìdámọ̀ fún àwọn èròjà èròjà kan.';
+      'Keep the original order. Indicate the percentage when specified. Separate with a comma or hyphen and use parentheses for ingredients of an ingredient.';
 
   @override
-  String get ingredients_editing_error =>
-      'Kò ṣeé ṣe láti fi àwọn èròjà náà pamọ́.';
+  String get ingredients_editing_error => 'Failed to save the ingredients.';
 
   @override
   String get ingredients_editing_image_error =>
-      'Kò lè rí àwòrán àwọn èròjà tuntun.';
+      'Failed to get a new ingredients image.';
 
   @override
-  String get ingredients_editing_title => 'Ṣe àtúnṣe Àwọn Èròjà';
+  String get ingredients_editing_title => 'Edit Ingredients';
 
   @override
-  String get ingredients_photo => 'Fọto ti awọn eroja';
+  String get ingredients_photo => 'Ingredients photo';
 
   @override
   String get packaging_editing_instructions =>
-      'Ṣe àkọsílẹ̀ gbogbo àwọn ẹ̀yà ìdìpọ̀ tí a yà sọ́tọ̀ pẹ̀lú àmì ìdámọ̀ tàbí ìlà, pẹ̀lú iye wọn (fún àpẹẹrẹ 1 tàbí 6) irú (fún àpẹẹrẹ igo, àpótí, ago), ohun èlò (fún àpẹẹrẹ ike, irin, aluminiomu) àti bí ó bá wà ní ìwọ̀n wọn (fún àpẹẹrẹ 33cl) àti àwọn ìtọ́ni àtúnlò.\nÀpẹẹrẹ: Igo gilasi kan láti tún lò, koki ṣiṣu kan láti jù nù';
+      'List all packaging parts separated by a comma or line feed, with their amount (e.g. 1 or 6) type (e.g. bottle, box, can), material (e.g. plastic, metal, aluminium) and if available their size (e.g. 33cl) and recycling instructions.\nExample: 1 glass bottle to recycle, 1 plastic cork to throw away';
 
   @override
-  String get packaging_editing_error => 'Kò ṣeé ṣe láti fi àpò náà pamọ́.';
+  String get packaging_editing_error => 'Failed to save the packaging.';
 
   @override
-  String get packaging_editing_image_error => 'Kò lè rí àwòrán ìdìpọ̀ tuntun.';
+  String get packaging_editing_image_error =>
+      'Failed to get a new packaging image.';
 
   @override
-  String get packaging_editing_title => 'Ṣe àtúnṣe Àkójọ';
+  String get packaging_editing_title => 'Edit Packaging';
 
   @override
-  String get nutrition => 'Oúnjẹ';
+  String get nutrition => 'Nutrition';
 
   @override
-  String get nutrition_facts_photo => 'Fọ́tò àwọn òtítọ́ oúnjẹ';
+  String get nutrition_facts_photo => 'Nutrition facts photo';
 
   @override
-  String get nutrition_facts_editing_title =>
-      'Ṣe àtúnṣe Àwọn Òtítọ́ Nípa Oúnjẹ';
+  String get nutrition_facts_editing_title => 'Edit Nutrition Facts';
 
   @override
-  String get packaging_information => 'Àwọn ìtọ́ni àtúnlò';
+  String get packaging_information => 'Packaging information';
 
   @override
-  String get packaging_information_photo => 'Fọ́tò àwọn ìtọ́ni àtúnlò';
+  String get packaging_information_photo => 'Packaging information photo';
 
   @override
-  String get missing_product => 'O ti ri ọja tuntun kan!';
+  String get missing_product => 'You found a new product!';
 
   @override
   String get add_product_take_photos =>
-      'Ya awọn fọto ti apoti naa lati fi ọja yii kun si Open Food Facts';
+      'Take photos of the packaging to add this product to Open Food Facts';
 
   @override
   String get add_product_take_photos_descriptive =>
-      'Jọ̀wọ́, ya àwọn fọ́tò díẹ̀ ní àkọ́kọ́. O lè parí ọjà náà nígbà míì.';
+      'Please take some photos first. You may always complete the product at a later time.';
 
   @override
   String get add_product_information_button_label => 'Add product information';
 
   @override
-  String get new_product => 'Ọjà Tuntun';
+  String get new_product => 'New Product';
 
   @override
-  String get new_product_found_title => 'A ti ri ọjà tuntun!';
+  String get new_product_found_title => 'New product found!';
 
   @override
   String get new_product_found_text =>
-      'Ibi ipamọ data ajọṣepọ wa ni diẹ sii ju **3 milionu awọn ọja** lọ, ṣugbọn koodu koodu yii ko si: ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get new_product_found_button => 'Add this product';
 
   @override
-  String get new_product_leave_title => 'Fi ojú ìwé yìí sílẹ̀?';
+  String get new_product_leave_title => 'Leave this page?';
 
   @override
   String get new_product_leave_message =>
-      'Ó dà bíi pé o kò kọ ohunkóhun sí i. Ṣé o fẹ́ fi ojú ìwé yìí sílẹ̀ lóòótọ́?';
+      'It looks like you didn\'t input anything. Do you really want to leave this page?';
 
   @override
   String get new_product_dialog_description =>
-      'Jọwọ ya awọn fọto ti apoti naa lati ṣafikun ọja yii si ibi ipamọ data wa ti o wọpọ';
+      'Please take photos of the packaging to add this product to our common database';
 
   @override
   String get new_product_dialog_illustration_description =>
-      'Àwòrán pẹ̀lú Nutri-Score àti Green Score tí a kò mọ̀';
+      'An illustration with unknown Nutri-Score and Green Score';
 
   @override
-  String get front_packaging_photo_button_label => 'Fọ́tò àpótí iwájú';
+  String get front_packaging_photo_button_label => 'Front packaging photo';
 
   @override
   String get confirm_front_packaging_photo_button_label =>
-      'Jẹ́rìísí gbígbé àwòrán àpótí iwájú sókè';
+      'Confirm upload of Front packaging photo';
 
   @override
-  String get confirm_button_label => 'Jẹ́rìísí';
+  String get confirm_button_label => 'Confirm';
 
   @override
-  String get send_image_button_label => 'Fi àwòrán ránṣẹ́';
+  String get send_image_button_label => 'Send image';
 
   @override
-  String get crop_page_action_saving => 'Fifipamọ aworan naa…';
+  String get crop_page_action_saving => 'Saving the image…';
 
   @override
-  String get crop_page_action_cropping => 'Gígé àwòrán náà…';
+  String get crop_page_action_cropping => 'Cropping the image…';
 
   @override
-  String get crop_page_action_local => 'Fifipamọ ẹya agbegbe…';
+  String get crop_page_action_local => 'Saving a local version…';
 
   @override
   String get crop_page_action_local_failed_title =>
-      'Óò,… ohun kan wà pẹ̀lú fọ́tò rẹ!';
+      'Oops… there\'s something with your photo!';
 
   @override
   String get crop_page_action_local_failed_message =>
-      'A ko le ṣe ilana aworan naa ni agbegbe, ṣaaju ki a to fi ranṣẹ si olupin wa. Jọwọ gbiyanju lẹẹkansii tabi kan si wa ti iṣoro naa ba tẹsiwaju.';
+      'We are unable to process the image locally, before sending it to our server. Please try again later or contact-us if the issue persists.';
 
   @override
-  String get crop_page_action_retake => 'Tún ya fọ́tò kan';
+  String get crop_page_action_retake => 'Retake a photo';
 
   @override
   String get crop_page_too_small_image_title => 'Aworan naa kere ju!';
@@ -822,19 +814,19 @@ class AppLocalizationsYo extends AppLocalizations {
   }
 
   @override
-  String get crop_page_action_server => 'Ngbaradi ipe si olupin…';
+  String get crop_page_action_server => 'Preparing a call to the server…';
 
   @override
-  String get front_packaging_photo_title => 'Fọ́tò Àpò Iwájú';
+  String get front_packaging_photo_title => 'Front Packaging Photo';
 
   @override
-  String get ingredients_photo_title => 'Fọ́tò Àwọn Ohun Èlò';
+  String get ingredients_photo_title => 'Ingredients Photo';
 
   @override
-  String get nutritional_facts_photo_title => 'Fọ́tò Àwọn Òtítọ́ Nípa Oúnjẹ';
+  String get nutritional_facts_photo_title => 'Nutrition Facts Photo';
 
   @override
-  String get recycling_photo_title => 'Àwọn ìtọ́ni àtúnlò Fọ́tò';
+  String get recycling_photo_title => 'Recycling Photo';
 
   @override
   String get take_photo_title => 'Ya aworan kan';
@@ -843,162 +835,159 @@ class AppLocalizationsYo extends AppLocalizations {
   String get take_more_photo_title => 'Take more photos';
 
   @override
-  String get front_photo_uploaded => 'Fọ́tò iwájú tí a gbé sórí ayélujára';
+  String get front_photo_uploaded => 'Front photo uploaded';
 
   @override
-  String get ingredients_photo_button_label => 'Fọto ti awọn eroja';
+  String get ingredients_photo_button_label => 'Ingredients photo';
 
   @override
-  String get ingredients_photo_uploaded =>
-      'Fọ́tò àwọn èròjà tí a gbé sórí ìkànnì';
+  String get ingredients_photo_uploaded => 'Ingredients photo uploaded';
 
   @override
   String get nutrition_cache_loading_error =>
-      'Kò le kó àwọn èròjà oúnjẹ láti inú àkápamọ́';
+      'Unable to load nutrients from cache';
 
   @override
-  String get nutritional_facts_photo_button_label => 'Fọ́tò àwọn òtítọ́ oúnjẹ';
+  String get nutritional_facts_photo_button_label => 'Nutrition facts photo';
 
   @override
-  String get nutritional_facts_input_button_label => 'Kun awọn otitọ ounjẹ';
+  String get nutritional_facts_input_button_label => 'Fill nutrition facts';
 
   @override
-  String get nutritional_facts_added => 'A fi àwọn kókó nípa oúnjẹ kún un';
+  String get nutritional_facts_added => 'Nutrition facts added';
 
   @override
-  String get categories_added => 'A fi àwọn ẹ̀ka kún wọn';
+  String get categories_added => 'Categories added';
 
   @override
-  String get new_product_title_nutriscore => 'Ṣe ìṣirò Nutri-Score';
+  String get new_product_title_nutriscore => 'Compute the Nutri-Score';
 
   @override
   String get new_product_subtitle_nutriscore =>
-      'Ran wa lọwọ nipa kikọ o kere ju ẹka kan ati awọn iye ounjẹ ti o jẹ ounjẹ';
+      'Help us by filling at least a category and nutritional values';
 
   @override
-  String get new_product_title_environmental_score => 'Ṣírò Àmì Àwọ̀ Ewé';
+  String get new_product_title_environmental_score => 'Compute the Green Score';
 
   @override
   String get new_product_subtitle_environmental_score =>
-      'Gba á nípa kíkún ó kéré tán ẹ̀ka kan';
+      'Get it by filling at least a category';
 
   @override
   String get new_product_additional_environmental_score =>
-      'Ṣe iṣirò Àmì Àwọ̀ Ewé ní pàtó pẹ̀lú àwọn ìpilẹ̀ṣẹ̀, àpò àti bẹ́ẹ̀ bẹ́ẹ̀ lọ';
+      'Make Green Score computation more precise with origins, packaging & more';
 
   @override
-  String get new_product_title_nova => 'Ṣe iṣirò ipele sisẹ ounjẹ (NOVA)';
+  String get new_product_title_nova =>
+      'Compute the food processing level (NOVA)';
 
   @override
   String get new_product_subtitle_nova =>
-      'Gba nipa kikún ẹka ounjẹ ati awọn eroja';
+      'Get it by filling the food category and ingredients';
 
   @override
-  String get new_product_desc_nova_unknown => 'A ko mọ ipele ṣiṣe ounjẹ';
+  String get new_product_desc_nova_unknown => 'Food processing level unknown';
 
   @override
-  String get new_product_title_pictures => 'Ọjà tuntun';
+  String get new_product_title_pictures => 'New product';
 
   @override
   String get new_product_title_pictures_details =>
-      'Jọ̀wọ́ ya àwọn fọ́tò wọ̀nyí kí ẹ̀rọ Open Food Facts lè mọ ìyókù!';
+      'Please take the following photos and the Open Food Facts engine can work out the rest!';
 
   @override
-  String get new_product_title_misc => 'Ati diẹ ninu awọn data ipilẹ…';
+  String get new_product_title_misc => 'And some basic data…';
 
   @override
   String new_product_done_msg(String username) {
-    return 'O ṣeun fun ilowosi rẹ “$username”!';
+    return 'Thanks for your contribution “$username”!';
   }
 
   @override
-  String get new_product_done_msg_no_user => 'O ṣeun fun ilowosi rẹ!';
+  String get new_product_done_msg_no_user => 'Thanks for your contribution!';
 
   @override
-  String get new_product_done_button_label => 'Ṣawari ọja ti o ti pari';
+  String get new_product_done_button_label => 'Discover the completed product';
 
   @override
   String get hey_incomplete_product_message =>
-      'Tẹ lati dahun awọn ibeere mẹta NISIYI lati ṣe iṣiro Nutri-Score, Green Score & Ultra-processing (NOVA)!';
+      'Tap to answer 3 questions NOW to compute Nutri-Score, Green Score & Ultra-processing (NOVA)!';
 
   @override
   String get hey_incomplete_product_message_beauty =>
-      'Tẹ ni bayi lati dahun awọn ibeere meji lati ṣe iranlọwọ lati ṣe itupalẹ ohun ikunra yii!';
+      'Tap now to answer 2 questions to help analyze this cosmetic!';
 
   @override
   String get hey_incomplete_product_message_pet_food =>
-      'Tẹ ni bayi lati dahun awọn ibeere mẹta lati ṣe iranlọwọ lati ṣe itupalẹ ọja ounjẹ ẹranko yii!';
+      'Tap now to answer 3 questions to help analyze this pet food product!';
 
   @override
   String get hey_incomplete_product_message_product =>
-      'Tẹ nisinsinyi lati ṣe iranlọwọ lati pari ọja yii!';
+      'Tap now to help complete this product!';
 
   @override
   String get nutritional_facts_photo_uploaded =>
-      'Fọ́tò àwọn òtítọ́ oúnjẹ tí a gbé sórí ayélujára';
+      'Nutrition facts photo uploaded';
 
   @override
-  String get recycling_photo_button_label => 'Fọ́tò àtúnlò';
+  String get recycling_photo_button_label => 'Recycling photo';
 
   @override
-  String get recycling_photo_uploaded => 'Fọ́tò àtúnlò tí a gbé sórí ayélujára';
+  String get recycling_photo_uploaded => 'Recycling photo uploaded';
 
   @override
   String get take_more_photo_button_label => 'Take more photos';
 
   @override
-  String get other_photo_uploaded =>
-      'Àwọn fọ́tò onírúurú tí a gbé sórí ayélujára';
+  String get other_photo_uploaded => 'Miscellaneous photo uploaded';
 
   @override
-  String get retake_photo_button_label => 'Tun gbe pada';
+  String get retake_photo_button_label => 'Retake';
 
   @override
-  String get selecting_photo => 'Yíyan fọ́tò';
+  String get selecting_photo => 'Selecting photo';
 
   @override
-  String get uploading_image => 'Gbigbe fọto si olupin naa';
+  String get uploading_image => 'Uploading photo to the server';
 
   @override
   String get uploading_image_type_front =>
-      'Gbigbe aworan iwaju si Open Food Facts';
+      'Uploading front image to Open Food Facts';
 
   @override
   String get uploading_image_type_ingredients =>
-      'Àwòrán àwọn èròjà tí a gbé sórí ìkànnì Open Food Facts';
+      'Uploading ingredients image to Open Food Facts';
 
   @override
   String get uploading_image_type_nutrition =>
-      'Gbigbe aworan ounjẹ si Open Food Facts';
+      'Uploading nutrition image to Open Food Facts';
 
   @override
   String get uploading_image_type_packaging =>
-      'Gbigbe aworan apoti si Open Food Facts';
+      'Uploading packaging image to Open Food Facts';
 
   @override
   String get uploading_image_type_other =>
-      'Gbigbe aworan miiran si Open Food Facts';
+      'Uploading other image to Open Food Facts';
 
   @override
-  String get uploading_image_type_generic => 'Gbigbe aworan si Open Food Facts';
+  String get uploading_image_type_generic =>
+      'Uploading image to Open Food Facts';
 
   @override
-  String get score_add_missing_ingredients => 'Fi awọn eroja ti o padanu kun';
+  String get score_add_missing_ingredients => 'Add missing ingredients';
 
   @override
-  String get score_add_missing_packaging_image =>
-      'Fi àwòrán àpò tí ó sọnù kún un';
+  String get score_add_missing_packaging_image => 'Add missing packaging image';
 
   @override
-  String get score_add_missing_nutrition_facts =>
-      'Fi àwọn òtítọ́ oúnjẹ tí ó pàdánù kún un';
+  String get score_add_missing_nutrition_facts => 'Add missing nutrition facts';
 
   @override
-  String get score_add_missing_product_traces =>
-      'Fi àwọn àmì ọjà tí ó sọnù kún un';
+  String get score_add_missing_product_traces => 'Add missing product traces';
 
   @override
-  String get score_add_missing_product_category => 'Yan ẹ̀ka kan';
+  String get score_add_missing_product_category => 'Select a category';
 
   @override
   String get score_add_missing_precise_product_category =>
@@ -1006,40 +995,36 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get score_add_missing_product_countries =>
-      'Fi awọn orilẹ-ede ọja ti o nsọnu kun';
+      'Add missing product countries';
 
   @override
   String get score_add_missing_product_emb =>
-      'Fi àwọn kódù ìtọ́pasẹ̀ ọjà tí ó sọnù kún un';
+      'Add missing product traceability codes';
 
   @override
-  String get score_add_missing_product_labels =>
-      'Fi àwọn àmì ọjà tí ó sọnù kún un';
+  String get score_add_missing_product_labels => 'Add missing product labels';
 
   @override
-  String get score_add_missing_product_origins =>
-      'Fi awọn ipilẹṣẹ ọja ti o nsọnu kun';
+  String get score_add_missing_product_origins => 'Add missing product origins';
 
   @override
-  String get score_add_missing_product_stores =>
-      'Fi awọn ile itaja ọja ti o sọnu kun';
+  String get score_add_missing_product_stores => 'Add missing product stores';
 
   @override
-  String get score_add_missing_product_brands =>
-      'Fi àwọn àmì ọjà tí ó sọnù kún un';
+  String get score_add_missing_product_brands => 'Add missing product brands';
 
   @override
-  String get score_update_nutrition_facts => 'Ṣe imudojuiwọn awọn otitọ ounjẹ';
+  String get score_update_nutrition_facts => 'Update nutrition facts';
 
   @override
-  String get nutrition_page_title => 'Àwọn Òtítọ́ Nípa Oúnjẹ';
+  String get nutrition_page_title => 'Nutrition Facts';
 
   @override
-  String get nutrition_page_nutritional_info_title => 'Ìwífún nípa oúnjẹ';
+  String get nutrition_page_nutritional_info_title => 'Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_label =>
-      'Awọn iye ti a sọ lori ọja naa:';
+      'Values specified on the product:';
 
   @override
   String get nutrition_page_nutritional_info_value_positive => 'Yes';
@@ -1048,61 +1033,61 @@ class AppLocalizationsYo extends AppLocalizations {
   String get nutrition_page_nutritional_info_value_negative => 'No';
 
   @override
-  String get nutrition_page_nutritional_info_open_photo => 'Ṣí fọ́tò náà';
+  String get nutrition_page_nutritional_info_open_photo => 'Open photo';
 
   @override
   String get nutrition_page_nutritional_info_explanation_title =>
-      'Àwọn ìlànà rere: Ìwífún nípa oúnjẹ';
+      'Good practices: Nutritional information';
 
   @override
   String get nutrition_page_nutritional_info_explanation_info1 =>
-      'Nígbà míìrán, a kì í sọ àwọn ohun tó jẹ mọ́ oúnjẹ lórí àpótí tàbí lórí ìwé tí wọ́n fi ọjà náà sí. Nínú ọ̀ràn yìí, àti nínú ọ̀ràn yìí nìkan, o lè ṣètò iye náà sí **NO**.';
+      'Sometimes nutrition facts are **not specified on the packaging** or on a document given with the product. In this case, and only in this case, you can set the value to **NO**.';
 
   @override
-  String get nutrition_page_serving_type_label => 'Awọn iye ounjẹ:';
+  String get nutrition_page_serving_type_label => 'Nutritional values:';
 
   @override
-  String get nutrition_page_per_100g => 'fún 100g';
+  String get nutrition_page_per_100g => 'per 100g';
 
   @override
-  String get nutrition_page_per_100g_100ml => 'fún 100g/mililita';
+  String get nutrition_page_per_100g_100ml => 'per 100g/ml';
 
   @override
-  String get nutrition_page_per_serving => 'fún ìwọ̀n kọ̀ọ̀kan';
+  String get nutrition_page_per_serving => 'per serving';
 
   @override
-  String get nutrition_page_add_nutrient => 'Fi eroja kun';
+  String get nutrition_page_add_nutrient => 'Add a nutrient';
 
   @override
-  String get nutrition_page_serving_size => 'Iwọn ibi-iṣẹ́';
+  String get nutrition_page_serving_size => 'Serving size';
 
   @override
   String get nutrition_page_serving_size_hint =>
-      'Tẹ iwọn ìpèsè kan sii (fun apẹẹrẹ: 100g)';
+      'Input a serving size (eg: 100g)';
 
   @override
   String get nutrition_page_serving_size_explanation_title =>
-      'Àwọn ìlànà rere: Ìwọ̀n ìpèsè';
+      'Good practices: Serving size';
 
   @override
   String get nutrition_page_serving_size_explanation_info1 =>
-      'Iye yii n ran lọwọ lati ṣe iṣiro deede ti ounjẹ kọọkan fun iwọn ipin kan**.';
+      'This value helps to **make a proportional calculation of each nutrient per serving size**.';
 
   @override
   String get nutrition_page_serving_size_explanation_info2 =>
-      '** Awọn ẹya ti a gba laaye ** jẹ: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫名, 公斤, 毫名, 公斤.';
+      '**Allowed units** are: kg, g, mg, µg, oz, l, dl, cl, ml, fl.oz, fl oz, г, мг, кг, л, дл, кл, мл, 毫克, 公斤, 毫升, 公升, 吨.';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example1 =>
-      '**60 g**, **60g** tàbí **60 G** (ó dára jù èyí àkọ́kọ́ lọ)';
+      '**60 g**, **60g** or **60 G** (prefer the first one)';
 
   @override
   String get nutrition_page_serving_size_explanation_good_example2 =>
-      '**1000 milimita** tabi **1 lita**';
+      '**1000 ml** or **1L**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_explanation =>
-      'Ẹ̀yà tí kò tọ́';
+      'Invalid unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example1_example =>
@@ -1110,97 +1095,88 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_explanation =>
-      'Àwọn ẹ̀rọ tí kò tọ́';
+      'Invalid units';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example2_example =>
-      '9 **suwiti** àti 2 **biscuit**';
+      '9 **candies** and 2 **biscuits**';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_explanation =>
-      'Ẹyọ tí ó sọnù';
+      'Missing unit';
 
   @override
   String get nutrition_page_serving_size_explanation_bad_example3_example =>
       '**30**';
 
   @override
-  String get nutrition_page_invalid_number => 'Nọ́mbà tí kò tọ́';
+  String get nutrition_page_invalid_number => 'Invalid number';
 
   @override
   String get nutrition_page_update_running =>
-      'Ṣíṣe àtúnṣe ọjà náà lórí olupin…';
+      'Updating the product on the server…';
 
   @override
-  String get nutrition_page_update_done => 'Ọjà tí a ti ṣe àtúnṣe!';
+  String get nutrition_page_update_done => 'Product updated!';
 
   @override
   String get nutrition_page_take_serving_size_from_product_quantity =>
-      'Lo iye ọja naa gẹgẹ bi iwọn ipinfunni';
+      'Use the product quantity as serving size';
 
   @override
-  String get nutrition_page_photo_error => 'Kò le gbé fọ́tò náà sórí fóònù';
+  String get nutrition_page_photo_error => 'Unable to load the photo';
 
   @override
-  String get more_photos => 'Àwọn fọ́tò tó dùn mọ́ni sí i';
+  String get more_photos => 'More interesting photos';
 
   @override
   String get view_more_photo_button =>
-      'Wo gbogbo awọn fọto ti o wa tẹlẹ fun ọja yii';
+      'View all existing photos for this product';
 
   @override
-  String get no_product_found => 'A ko ri ọja kankan';
+  String get no_product_found => 'No product found';
 
   @override
-  String no_product_found_explanation(String search) {
-    return 'Ìwákiri rẹ fún\n**\"$search\"**\nkò bá àwọn èsì mu.';
-  }
+  String get no_location_found => 'No location found';
 
   @override
-  String get no_product_found_try_world_results =>
-      'Ṣé o fẹ́ ṣe ìwádìí kan náà yìí nínú **àkójọ ìpamọ́ àgbáyé wa** dípò?';
+  String get not_found => 'not found:';
 
   @override
-  String get no_location_found => 'A ko ri ipo kankan';
+  String get refreshing_product => 'Refreshing product';
 
   @override
-  String get not_found => 'ko ri:';
-
-  @override
-  String get refreshing_product => 'Ọjà tuntun';
-
-  @override
-  String get product_refreshed => 'Àtúnṣe ọjà náà';
+  String get product_refreshed => 'Product refreshed';
 
   @override
   String product_image_accessibility_label(String date) {
-    return 'Àwòrán tí a yà lórí $date';
+    return 'Image taken on $date';
   }
 
   @override
   String product_image_outdated_accessibility_label(String date) {
-    return 'Àwòrán tí a yà lórí $date. Àwòrán yìí lè ti gbó';
+    return 'Image taken on $date. This image may be outdated';
   }
 
   @override
-  String get product_image_outdated => 'Àwòrán yìí lè ti gbó àtijọ́';
+  String get product_image_outdated => 'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_title =>
-      'Àwòrán yìí lè ti gbó àtijọ́';
+      'This image may be outdated';
 
   @override
   String get product_image_outdated_explanations_content =>
-      'A ya àwòrán yìí ju ọdún kan sẹ́yìn lọ.\n**Jọ̀wọ́ ṣàyẹ̀wò pé ó ṣì wà ní ìgbà tuntun**.\n\nÈyí jẹ́ **ìkìlọ̀ lásán**. Tí àkóónú náà bá ṣì wà ní ìgbà kan náà, o lè fojú fo ìránṣẹ́ yìí.';
+      'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.';
 
   @override
   String product_image_action_replace_photo(String type) {
-    return 'Rọpo fọto ($type)';
+    return 'Replace photo ($type)';
   }
 
   @override
   String product_image_action_add_photo(String type) {
-    return 'Fi fọ́tò kan kun ($type)';
+    return 'Add a photo ($type)';
   }
 
   @override
@@ -1211,90 +1187,91 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get product_image_action_from_gallery =>
-      'Yan lati inu ibi aworan foonu rẹ';
+      'Select from your phone\'s gallery';
 
   @override
   String get product_image_action_choose_existing_photo =>
-      'Yan lati awọn fọto ọja naa';
+      'Select from the product photos';
 
   @override
-  String get product_image_details_label => 'Alaye nipa fọto naa';
+  String get product_image_details_label => 'Information about the photo';
 
   @override
-  String get product_image_details_from_producer => 'Láti ọwọ́ olùgbéjáde';
+  String get product_image_details_from_producer => 'From the producer';
 
   @override
   String get product_image_details_contributor => 'Contributor';
 
   @override
-  String get product_image_details_contributor_producer => 'Olùkópa (olùṣe)';
+  String get product_image_details_contributor_producer =>
+      'Contributor (producer)';
 
   @override
-  String get product_image_details_date => 'Déètì';
+  String get product_image_details_date => 'Date';
 
   @override
-  String get product_image_details_date_unknown => 'Aimọ';
+  String get product_image_details_date_unknown => 'Unknown';
 
   @override
   String get homepage_main_card_logo_description =>
-      'Ẹ káàbọ̀ sí Open Food Facts';
+      'Welcome to Open Food Facts';
 
   @override
   String get homepage_main_card_subheading =>
-      '**Ṣe àyẹ̀wò** àmì ìdámọ̀ràn tàbí\n**wá** fún ọjà kan';
+      '**Scan** a barcode or\n**search** for a product';
 
   @override
-  String get homepage_main_card_search_field_hint => 'Wa ọjà kan';
+  String get homepage_main_card_search_field_hint => 'Search for a product';
 
   @override
-  String get homepage_main_card_search_field_tooltip => 'Bẹ̀rẹ̀ ìwákiri';
+  String get homepage_main_card_search_field_tooltip => 'Start search';
 
   @override
   String scan_tagline_news_item_accessibility(String news_title) {
-    return 'Àwọn ìròyìn tuntun: $news_title';
+    return 'Latest news: $news_title';
   }
 
   @override
-  String get tagline_app_review => 'Ṣé o fẹ́ràn àpù náà?';
+  String get tagline_app_review => 'Do you like the app?';
 
   @override
-  String get tagline_app_review_button_positive => 'Mo nifẹẹ rẹ! 😍';
+  String get tagline_app_review_button_positive => 'I love it! 😍';
 
   @override
-  String get tagline_app_review_button_negative => 'Kì í ṣe ní tòótọ́…';
+  String get tagline_app_review_button_negative => 'Not really…';
 
   @override
-  String get tagline_app_review_button_later => 'Beere lọwọ mi nigbamii';
+  String get tagline_app_review_button_later => 'Ask me later';
 
   @override
-  String get tagline_feed_news_button => 'Mọ diẹ sii';
+  String get tagline_feed_news_button => 'Know more';
 
   @override
-  String get app_review_negative_modal_title => 'O kò fẹ́ràn ohun èlò wa?';
+  String get app_review_negative_modal_title => 'You don\'t like our app?';
 
   @override
   String get app_review_negative_modal_text =>
-      'Ṣe o le gba iṣẹju-aaya diẹ lati sọ fun wa idi rẹ?';
+      'Could you take a few seconds to tell us why?';
 
   @override
-  String get app_review_negative_modal_positive_button => 'Bẹ́ẹ̀ni, dájúdájú!';
+  String get app_review_negative_modal_positive_button => 'Yes, absolutely!';
 
   @override
   String get app_review_negative_modal_negative_button => 'No';
 
   @override
-  String get could_not_refresh => 'Kò le tún ọjà ṣe';
+  String get could_not_refresh => 'Could not refresh product';
 
   @override
-  String get product_internet_error_modal_title => 'Àṣìṣe kan ti ṣẹlẹ̀!';
+  String get product_internet_error_modal_title => 'An error has occurred!';
 
   @override
   String product_internet_error_modal_message(String error) {
-    return 'A ko le gba alaye nipa ọja yii nitori aṣiṣe nẹtiwọọki kan. Jọwọ ṣayẹwo asopọ intanẹẹti rẹ ki o gbiyanju lẹẹkansi.\n\nAṣiṣe inu:\n$error';
+    return 'We are unable to fetch information about this product due to a network error. Please check your internet connection and try again.\n\nInternal error:\n$error';
   }
 
   @override
-  String get product_tags_title => 'Àwọn ohun ìní ọjà';
+  String get product_tags_title => 'Product properties';
 
   @override
   String get no_product_tags_found_message =>
@@ -1311,28 +1288,28 @@ class AppLocalizationsYo extends AppLocalizations {
   String get add_tag => 'Add property';
 
   @override
-  String get add_tags => 'Fi àwọn ohun ìní kún un';
+  String get add_tags => 'Add properties';
 
   @override
-  String get add_edit_tags => 'Fikun tabi ṣatunkọ awọn ohun-ini';
+  String get add_edit_tags => 'Add or edit properties';
 
   @override
-  String get edit_tag => 'Ṣe àtúnṣe ohun ìní';
+  String get edit_tag => 'Edit property';
 
   @override
-  String get remove_tag => 'Yọ ohun ìní kúrò';
+  String get remove_tag => 'Remove property';
 
   @override
-  String get tag_key => 'Ohun ìní';
+  String get tag_key => 'Property';
 
   @override
   String get tag_keys => 'Awọn ohun-ini';
 
   @override
-  String get tag_key_uneditable => 'Ohun ìní (a kò le ṣàtúnṣe)';
+  String get tag_key_uneditable => 'Property (uneditable)';
 
   @override
-  String get tag_key_input_hint => 'Tẹ ohun-ini sii';
+  String get tag_key_input_hint => 'Input a property';
 
   @override
   String get tag_value => 'Value';
@@ -1341,29 +1318,29 @@ class AppLocalizationsYo extends AppLocalizations {
   String get tag_values => 'Values';
 
   @override
-  String get tag_value_input_hint => 'Tẹ iye kan sii';
+  String get tag_value_input_hint => 'Input a value';
 
   @override
-  String get tag_key_item => 'Ohun ìní:';
+  String get tag_key_item => 'Property:';
 
   @override
-  String get tag_value_item => 'Iye:';
+  String get tag_value_item => 'Value:';
 
   @override
   String get tag_key_explanations =>
-      'Kókó kan gbọ́dọ̀ jẹ́ lẹ́tà kékeré láìsí ààyè kankan.';
+      'A key must be lowercase and without any spaces.';
 
   @override
   String tag_key_already_exists(String property) {
-    return 'Àmì kan tí ó ní ohun ìní $property ti wà tẹ́lẹ̀!';
+    return 'A tag with a property $property already exists!';
   }
 
   @override
   String get product_internet_error =>
-      'Kò ṣeé ṣe láti gba ìwífún nípa ọjà yìí nítorí àṣìṣe nẹ́tíwọ́ọ̀kì kan.';
+      'Impossible to fetch information about this product due to a network error.';
 
   @override
-  String get cached_results_from => 'Fi awọn abajade lati:';
+  String get cached_results_from => 'Show results from:';
 
   @override
   String get product_search_same_category => 'Wa awọn omiiran';
@@ -1373,99 +1350,99 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get product_search_same_category_error =>
-      'A le lo ẹya ara ẹrọ yii fun awọn ọja ti o ni ẹka kan nikan.\n\nJọwọ ṣe atunṣe ọja naa lati ṣafikun ẹka kan.';
+      'This feature can only be used for products with a category.\n\nPlease edit the product to add a category.';
 
   @override
   String get product_improvement_add_category =>
-      'Fi ẹ̀ka kan kun lati ṣe iṣiro Nutri-Score.';
+      'Add a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts =>
-      'Fi àwọn òtítọ́ oúnjẹ kún un láti ṣírò Nutri-Score.';
+      'Add nutrition facts to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_add_nutrition_facts_and_category =>
-      'Fi àwọn òtítọ́ oúnjẹ àti ẹ̀ka kan kún un láti ṣírò Nutri-Score.';
+      'Add nutrition facts and a category to calculate the Nutri-Score.';
 
   @override
   String get product_improvement_categories_but_no_nutriscore =>
-      'A kò le ṣírò Nutri-Score fún ọjà yìí, èyí tó lè jẹ́ nítorí irú ẹ̀ka tí kì í ṣe déédé. Tí a bá kà èyí sí àṣìṣe, jọ̀wọ́ kàn sí wa.';
+      'The Nutri-Score for this product can\'t be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.';
 
   @override
   String get product_improvement_obsolete_nutrition_image =>
-      'Àwòrán oúnjẹ náà ti di ohun àtijọ́: jọ̀wọ́ ẹ tún un ṣe.';
+      'The nutrition image is obsolete: please refresh it.';
 
   @override
   String get product_improvement_origins_to_be_completed =>
-      'Àmì Àwọ̀ Ewé (Green Score) gba ibi tí àwọn èròjà náà ti wá. Jọ̀wọ́ ya fọ́tò àkójọ àwọn èròjà àti/tàbí èyíkéyìí ìbéèrè nípa ilẹ̀ ayé tàbí ṣe àtúnṣe ọjà náà, kí a lè gbà wọ́n rò.';
+      'The Green Score takes into account the origins of the ingredients. Please take a photo of the ingredient list and/or any geographic claim or edit the product, so they can be taken into account.';
 
   @override
-  String get country_chooser_label => 'Jọwọ yan orilẹ-ede kan';
+  String get country_chooser_label => 'Please choose a country';
 
   @override
-  String get currency_chooser_label => 'Jọwọ yan owó kan';
+  String get currency_chooser_label => 'Please choose a currency';
 
   @override
-  String get country_change_message => 'O ṣẹ̀ṣẹ̀ yí àwọn orílẹ̀-èdè padà.';
+  String get country_change_message => 'You have just changed countries.';
 
   @override
   String currency_auto_change_message(
     String previousCurrency,
     String possibleCurrency,
   ) {
-    return 'Ṣé o fẹ́ yí owó láti $previousCurrency sí $possibleCurrency?';
+    return 'Do you want to change the currency from $previousCurrency to $possibleCurrency?';
   }
 
   @override
-  String get onboarding_country_chooser_label => 'Jọwọ yan orilẹ-ede kan:';
+  String get onboarding_country_chooser_label => 'Please choose a country:';
 
   @override
-  String get country_chooser_label_from_settings => 'Orílẹ̀-èdè rẹ';
+  String get country_chooser_label_from_settings => 'Your country';
 
   @override
   String get country_selection_explanation =>
-      'Àwọn ẹ̀yà ara àyíká kan wà ní ipò pàtó kan.';
+      'Some environmental features are location-specific';
 
   @override
-  String get product_removed_comparison => 'Ọjà tí a yọ kúrò nínú ìfiwéra';
+  String get product_removed_comparison => 'Product removed from comparison';
 
   @override
-  String get native_app_settings => 'Àwọn Ètò Àpù Àbínibí';
+  String get native_app_settings => 'Native App Settings';
 
   @override
   String get native_app_description =>
-      'Ṣí àwọn ètò ètò fún Àwọn Ìròyìn Oúnjẹ Ṣíṣí';
+      'Open systems settings for Open Food Facts';
 
   @override
-  String get product_removed_history => 'A ti yọ ọjà náà kúrò nínú ìtàn';
+  String get product_removed_history => 'Product removed from history';
 
   @override
-  String get product_removed_list => 'A ti yọ ọjà kúrò nínú àkójọ náà';
+  String get product_removed_list => 'Product removed from list';
 
   @override
-  String get product_could_not_remove => 'Kò le yọ ọjà náà kúrò';
+  String get product_could_not_remove => 'Could not remove product';
 
   @override
-  String get no_prodcut_in_list => 'Ko si ọja kankan ninu akojọ yii';
+  String get no_prodcut_in_list => 'There is no product in this list';
 
   @override
-  String get no_product_in_section => 'Ko si ọja kankan ni apakan yii';
+  String get no_product_in_section => 'There is no product in this section';
 
   @override
-  String get recently_seen_products => 'Gbogbo àwọn ọjà tí a wò';
+  String get recently_seen_products => 'All viewed products';
 
   @override
-  String get clear => 'Parẹ́';
+  String get clear => 'Clear';
 
   @override
-  String get clear_long => 'Ṣí àkójọ náà parẹ́';
+  String get clear_long => 'Empty the list';
 
   @override
-  String get really_clear => 'Ṣé lóòótọ́ lo fẹ́ pa àkójọ yìí rẹ́?';
+  String get really_clear => 'Do you really want to delete this list?';
 
   @override
   String pct_match(Object percent) {
-    return '$percent% ìbáramu';
+    return '$percent% match';
   }
 
   @override
@@ -1473,8 +1450,8 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count ọjọ́ kan sẹ́yìn',
-      one: 'ọjọ́ kan sẹ́yìn',
+      other: '$count days ago',
+      one: 'one day ago',
     );
     return '$_temp0';
   }
@@ -1484,8 +1461,8 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count wákàtí kan sẹ́yìn',
-      one: 'wákàtí kan sẹ́yìn',
+      other: '$count hours ago',
+      one: 'one hour ago',
     );
     return '$_temp0';
   }
@@ -1495,9 +1472,9 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count ìṣẹ́jú kan sẹ́yìn',
-      one: 'ìṣẹ́jú kan sẹ́yìn',
-      zero: 'Kò tó ìṣẹ́jú kan sẹ́yìn',
+      other: '$count minutes ago',
+      one: 'one minute ago',
+      zero: 'less than a minute ago',
     );
     return '$_temp0';
   }
@@ -1507,8 +1484,8 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count oṣù díẹ̀ sẹ́yìn',
-      one: 'oṣù kan sẹ́yìn',
+      other: '$count months ago',
+      one: 'one month ago',
     );
     return '$_temp0';
   }
@@ -1518,8 +1495,8 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count ọ̀sẹ̀ díẹ̀ sẹ́yìn',
-      one: 'ọ̀sẹ̀ kan sẹ́yìn',
+      other: '$count weeks ago',
+      one: 'one week ago',
     );
     return '$_temp0';
   }
@@ -1529,8 +1506,8 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Fiwe $count Awọn Ọja',
-      one: 'Fi Ọja kan we',
+      other: 'Compare $count Products',
+      one: 'Compare one Product',
     );
     return '$_temp0';
   }
@@ -1540,86 +1517,86 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count àwọn ọjà tí a yàn',
-      one: 'Ọjà kan tí a yàn',
-      zero: 'Kò sí ọjà tí a yàn',
+      other: '$count selected products',
+      one: 'One selected product',
+      zero: 'No selected product',
     );
     return '$_temp0';
   }
 
   @override
-  String get compare_products_mode => 'Ṣe afiwe awọn ọja ti a yan';
+  String get compare_products_mode => 'Compare selected products';
 
   @override
-  String get delete_products_mode => 'Pa àwọn ọjà tí a yàn rẹ́';
+  String get delete_products_mode => 'Delete selected products';
 
   @override
-  String get select_all_products_mode => 'Yan gbogbo awọn ọja';
+  String get select_all_products_mode => 'Select all products';
 
   @override
-  String get select_none_products_mode => 'Yan kò sí èyíkéyìí';
+  String get select_none_products_mode => 'Select none';
 
   @override
   String get compare_products_appbar_title => 'Compare products';
 
   @override
   String get compare_products_appbar_subtitle =>
-      'Jọwọ yan o kere ju ọja meji lọ';
+      'Please select at least two products';
 
   @override
-  String get retry_button_label => 'Tún gbìyànjú lẹ́ẹ̀kan síi';
+  String get retry_button_label => 'Retry';
 
   @override
-  String get connect_with_us => 'Sopọ̀ mọ́ wa';
+  String get connect_with_us => 'Connect with us';
 
   @override
-  String get tiktok => 'Tẹ̀lé wa lórí TikTok';
+  String get tiktok => 'Follow us on TikTok';
 
   @override
   String get tiktok_link => 'https://www.tiktok.com/@openfoodfacts';
 
   @override
-  String get instagram => 'Tẹ̀lé wa lórí Instagram';
+  String get instagram => 'Follow us on Instagram';
 
   @override
   String get instagram_link => 'https://instagram.com/open.food.facts';
 
   @override
-  String get twitter => 'Tẹ̀lé wa lórí X (tí a mọ̀ sí Twitter tẹ́lẹ̀)';
+  String get twitter => 'Follow us on X (formerly Twitter)';
 
   @override
   String get twitter_link => 'https://www.twitter.com/openfoodfacts';
 
   @override
-  String get mastodon => 'Tẹ̀lé wa lórí Mastodon';
+  String get mastodon => 'Follow us on Mastodon';
 
   @override
   String get mastodon_link => 'https://mastodon.social/@openfoodfacts';
 
   @override
-  String get bsky => 'Tẹ̀lé wa lórí BlueSky';
+  String get bsky => 'Follow us on BlueSky';
 
   @override
   String get bsky_link => 'https://bsky.app/profile/openfoodfacts.bsky.social';
 
   @override
-  String get blog => 'Bulọọgi';
+  String get blog => 'Blog';
 
   @override
-  String get faq => 'Awọn ibeere ti a maa n beere nigbagbogbo';
+  String get faq => 'FAQ';
 
   @override
   String get discover => 'Iwari';
 
   @override
-  String get how_to_contribute => 'Bí a ṣe lè ṣe àfikún';
+  String get how_to_contribute => 'How to Contribute';
 
   @override
   String get hint_knowledge_panel_message =>
-      'O le tẹ apa eyikeyi ti kaadi naa lati gba alaye siwaju sii nipa ohun ti o ri. Gbiyanju rẹ ni bayi!';
+      'Your can tap on any part of the card to get more details about what you see. Try it now!';
 
   @override
-  String get permissions_page_title => 'Iwọle si kamẹra';
+  String get permissions_page_title => 'Camera access';
 
   @override
   String get permissions_page_body1 =>
@@ -1627,7 +1604,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get permissions_page_body2 =>
-      'Tí o bá yí èrò rẹ padà, a lè mú àṣàyàn yìí ṣiṣẹ́ kí a sì pa á nígbàkigbà láti inú àwọn ètò náà.';
+      'If you change your mind, this option can be enabled and disabled at any time from the settings.';
 
   @override
   String contact_form_body_android(
@@ -1638,7 +1615,7 @@ class AppLocalizationsYo extends AppLocalizations {
     String? device,
     String? brand,
   ) {
-    return 'Ẹ̀rọ ìṣiṣẹ́: Android (SDK Int: $sdkInt / Ìtújáde: $release)\nÀwòṣe: $model\nỌjà: $product\nẸ̀rọ: $device\nÀmì ìdámọ̀:$brand';
+    return 'OS: Android (SDK Int: $sdkInt / Release: $release)\nModel: $model\nProduct: $product\nDevice: $device\nBrand:$brand';
   }
 
   @override
@@ -1647,7 +1624,7 @@ class AppLocalizationsYo extends AppLocalizations {
     String? model,
     String? localizedModel,
   ) {
-    return 'Ẹ̀rọ ìṣiṣẹ́: iOS ($version)\nÀwòṣe: $model\nÀwòṣe agbègbè: $localizedModel';
+    return 'OS: iOS ($version)\nModel: $model\nLocalized model: $localizedModel';
   }
 
   @override
@@ -1657,67 +1634,67 @@ class AppLocalizationsYo extends AppLocalizations {
     String appBuildNumber,
     String appPackageName,
   ) {
-    return '$osContent\nẸ̀yà àpù:$appVersion\nNọ́mbà ìkọ́lé àpù:$appBuildNumber\nOrúkọ àpù:$appPackageName';
+    return '$osContent\nApp version:$appVersion\nApp build number:$appBuildNumber\nApp package name:$appPackageName';
   }
 
   @override
   String get authorize_button_label => 'Authorise';
 
   @override
-  String get refuse_button_label => 'Àìgbọ́ràn';
+  String get refuse_button_label => 'Refuse';
 
   @override
-  String get ask_me_later_button_label => 'Nigbamii';
+  String get ask_me_later_button_label => 'Later';
 
   @override
-  String get are_you_sure => 'Ṣe o da ọ loju?';
+  String get are_you_sure => 'Are you sure?';
 
   @override
   String knowledge_panel_text_source(String sourceName) {
-    return 'Tẹ̀síwájú lórí $sourceName';
+    return 'Go further on $sourceName';
   }
 
   @override
-  String get onboarding_home_welcome_text1 => 'Kaabo!';
+  String get onboarding_home_welcome_text1 => 'Welcome !';
 
   @override
   String get onboarding_home_welcome_text2 =>
-      'Àpù tí ó ń ràn ọ́ lọ́wọ́ láti yan oúnjẹ tí ó dára fún **ìwọ** àti **pílánẹ́ẹ̀tì**!';
+      'The app that helps you choose food that is good for **you** and the **planet**!';
 
   @override
-  String get onboarding_continue_button => 'Tẹ̀síwájú';
+  String get onboarding_continue_button => 'Continue';
 
   @override
   String get onboarding_welcome_loading_dialog_title =>
-      'N n gbe ọja apẹẹrẹ akọkọ rẹ soke';
+      'Loading your first example product';
 
   @override
   String get onboarding_welcome_warning =>
       'Ma binu, ọja apẹẹrẹ wa ni, o ko le ṣatunkọ rẹ :)';
 
   @override
-  String get product_list_your_ranking => 'Ipele rẹ';
+  String get product_list_your_ranking => 'Your ranking';
 
   @override
-  String get product_list_empty_icon_desc => 'Ìtàn kò sí nílẹ̀';
+  String get product_list_empty_icon_desc => 'History not available';
 
   @override
-  String get product_list_empty_title => 'Bẹ̀rẹ̀ ṣíṣàyẹ̀wò';
+  String get product_list_empty_title => 'Start scanning';
 
   @override
   String get product_list_empty_message =>
-      'Àwọn ọjà tí a ti ṣàyẹ̀wò yóò farahàn níbí, o sì le ṣàyẹ̀wò àlàyé kíkún nípa wọn';
+      'Scanned products will appear here and you can check detailed information about them';
 
   @override
   String product_list_reloading_in_progress_multiple(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'ọjà',
-      one: 'ọjà',
-      zero: 'ọjà',
+      other: 'products',
+      one: 'product',
+      zero: 'product',
     );
-    return 'Atunse $_temp0 nínú ìtàn rẹ';
+    return 'Refreshing $_temp0 in your history';
   }
 
   @override
@@ -1725,96 +1702,94 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Ọjà',
-      one: 'Ọjà',
-      zero: 'Ọjà',
+      other: 'Products',
+      one: 'Product',
+      zero: 'Product',
     );
-    return '$_temp0 àtúnṣe parí';
+    return '$_temp0 refresh complete';
   }
 
   @override
   String get product_list_compare_side_by_side => 'Afiwe ẹgbẹ nipa ẹgbẹ';
 
   @override
-  String get loading_dialog_default_title => 'Gbigba data lati ayelujara';
+  String get loading_dialog_default_title => 'Downloading data';
 
   @override
-  String get loading_dialog_default_error_message =>
-      'Kò le gba data lati ayelujara';
+  String get loading_dialog_default_error_message => 'Could not download data';
 
   @override
-  String get account_delete => 'Pa àkọọ́lẹ̀ rẹ rẹ́';
+  String get account_delete => 'Delete account';
 
   @override
   String get account_delete_title => 'Pa akọọlẹ mi rẹ';
 
   @override
-  String get user_profile => 'Àkọọ́lẹ̀';
+  String get user_profile => 'Account';
 
   @override
-  String get user_profile_title_guest => 'Kaabo!';
+  String get user_profile_title_guest => 'Welcome!';
 
   @override
   String get user_profile_subtitle_guest =>
-      'Wọlé tàbí forúkọ sílẹ̀ láti dara pọ̀ mọ́ àwùjọ Open Food Facts';
+      'Sign-in or sign-up to join the Open Food Facts community';
 
   @override
   String user_profile_title_id_email(String email) {
-    return 'Ṣíṣí Àwọn Ìròyìn Oúnjẹ Wọlé: $email';
+    return 'Open Food Facts login: $email';
   }
 
   @override
   String user_profile_title_id_default(String id) {
-    return 'Ẹ káàbọ̀ $id!';
+    return 'Welcome $id!';
   }
 
   @override
-  String get email_subject_account_deletion => 'Pa àkọọ́lẹ̀ rẹ rẹ́';
+  String get email_subject_account_deletion => 'Delete account';
 
   @override
   String email_body_account_deletion(String userId) {
-    return 'Ẹ n lẹ o, ẹ jọ̀wọ́ ẹ pa àkọọ́lẹ̀ Open Food Facts mi rẹ́: $userId';
+    return 'Hi there, please delete my Open Food Facts account: $userId';
   }
 
   @override
-  String get settings_app_app => 'Ohun elo';
+  String get settings_app_app => 'Application';
 
   @override
   String get settings_app_data => 'Privacy & monitoring';
 
   @override
-  String get settings_app_camera => 'Kámẹ́rà';
+  String get settings_app_camera => 'Camera';
 
   @override
-  String get settings_app_products => 'Àwọn ọjà';
+  String get settings_app_products => 'Products';
 
   @override
-  String get settings_app_miscellaneous => 'Onírúurú';
+  String get settings_app_miscellaneous => 'Miscellaneous';
 
   @override
-  String get camera_play_sound_title => 'Mu ohun kan ṣiṣẹ lori ọlọjẹ';
+  String get camera_play_sound_title => 'Play a sound on scan';
 
   @override
-  String get camera_play_sound_subtitle =>
-      'Yoo gbọ ariwo lori gbogbo ayẹwo aṣeyọri';
+  String get camera_play_sound_subtitle => 'Will beep on each successful scan';
 
   @override
   String get camera_window_accessibility_label =>
-      'Ṣe ìwòye koodu barcode kan pẹlu kamẹra rẹ';
+      'Scan a barcode with your camera';
 
   @override
-  String get app_haptic_feedback_title => 'Gbigbọn àti Ìdènà';
+  String get app_haptic_feedback_title => 'Vibration & Haptics';
 
   @override
   String get app_haptic_feedback_subtitle =>
-      'Àwọn ìgbọ̀nsẹ̀ lẹ́yìn ṣíṣe àwọn ìgbésẹ̀ kan (a ti yí koodu barcode padà, a ti yọ ọjà náà kúrò…).';
+      'Vibrations after executing some actions (barcode decoded, product removed…).';
 
   @override
   String get crash_reporting_toggle_title => 'Crash reporting';
 
   @override
   String get crash_reporting_toggle_subtitle =>
-      'Nígbà tí a bá ti ṣiṣẹ́, a máa fi àwọn ìròyìn ìjákulẹ̀ ránṣẹ́ sí ètò ìtọ́pinpin àṣìṣe Open Food Facts láìfọwọ́sí, kí a lè ṣàtúnṣe àwọn àṣìṣe kí a sì lè mú àpù náà sunwọ̀n síi.';
+      'When enabled, crash reports are automatically submitted to Open Food Facts\' error tracking system, so that bugs can be fixed and thus improve the app.';
 
   @override
   String get send_anonymous_data_toggle_title => 'Send anonymous data';
@@ -1824,151 +1799,149 @@ class AppLocalizationsYo extends AppLocalizations {
       'When enabled, some anonymous information regarding app usage will be sent to the Open Food Facts servers, so that we can understand how and how much features are used in order to improve them.';
 
   @override
-  String get product_edit_photo_title => 'Ṣe àtúnṣe Fọ́tò';
+  String get product_edit_photo_title => 'Edit Photo';
 
   @override
   String get permission_photo_error => 'Asise';
 
   @override
   String get permission_photo_denied_title =>
-      'Gba lilo kamẹra laaye lati ṣe ayẹwo awọn koodu barcode';
+      'Allow camera use to scan barcodes';
 
   @override
   String permission_photo_denied_message(String appName) {
-    return 'Fún ìrírí tó dára síi, jọ̀wọ́ jẹ́ kí $appName wọlé sí kámẹ́rà rẹ. O ó lè ṣe àyẹ̀wò àwọn àmì ìdámọ̀ràn tààrà.';
+    return 'For an enhanced experience, please allow $appName to access your camera. You will be able to directly scan barcodes.';
   }
 
   @override
-  String get permission_photo_denied_button => 'Gba laaye';
+  String get permission_photo_denied_button => 'Allow';
 
   @override
-  String get permission_photo_denied_dialog_settings_title => 'Ti kọ iyọọda';
+  String get permission_photo_denied_dialog_settings_title =>
+      'Permission denied';
 
   @override
   String get permission_photo_denied_dialog_settings_message =>
-      'Gẹ́gẹ́ bí o ti kọ̀ láti gba àṣẹ kámẹ́rà tẹ́lẹ̀, o gbọ́dọ̀ gbà á láyè láti ọwọ́ láti inú Ètò náà.';
+      'As you\'ve previously denied the camera permission, you must allow it manually from the Settings.';
 
   @override
   String get permission_photo_denied_dialog_settings_button_open =>
-      'Ṣí àwọn ètò';
+      'Open settings';
 
   @override
   String get permission_photo_denied_dialog_settings_button_cancel => 'Cancel';
 
   @override
-  String get permission_photo_none_found => 'A ko ri kamẹra kankan';
+  String get permission_photo_none_found => 'No camera detected';
 
   @override
-  String get permission_photo_denied => 'A ko fun ni iwọle si kamẹra';
+  String get permission_photo_denied => 'No camera access granted';
 
   @override
-  String get show_product_pictures => 'Fi awọn aworan ọja han';
+  String get show_product_pictures => 'Show product pictures';
 
   @override
-  String get edit_product_label => 'Ṣe àtúnṣe ọjà náà';
+  String get edit_product_label => 'Edit product';
 
   @override
   String get edit_product_pending_operations_banner_title =>
-      'N gbe awọn atunṣe rẹ soke…';
+      'Uploading your edits…';
 
   @override
   String get edit_product_pending_operations_banner_message =>
-      'Àwọn àtúnṣe rẹ ni a ń fi ránṣẹ́ sí ẹ̀yìn** (tàbí nígbà tí àṣìṣe bá ṣẹlẹ̀).\nO lè tẹ̀síwájú láti ṣe àtúnṣe sí àwọn pápá ọjà mìíràn.';
+      'Your edits are being **sent in the background** (or later in case of error).\nYou can continue editing other product fields.';
 
   @override
   String get edit_product_pending_operations_banner_short_message =>
-      'Àwọn àtúnṣe rẹ ni a ń fi ránṣẹ́ sí ẹ̀yìn** (tàbí nígbà tí àṣìṣe bá ṣẹlẹ̀).';
+      'Your edits are being **sent in the background** (or later in case of error).';
 
   @override
   String get edit_product_label_short => 'Edit';
 
   @override
   String edit_product_form_item_help(String value) {
-    return 'Báwo ni a ṣe le tẹ \"$value\" wọlé?';
+    return 'How to enter \"$value\"?';
   }
 
   @override
   String get edit_product_form_item_error_empty =>
-      'Jọwọ tẹ iye ti ko ṣofo sii!';
+      'Please enter a non-empty value!';
 
   @override
-  String get edit_product_form_item_error_existing => 'Iye yii ti wa tẹlẹ!';
+  String get edit_product_form_item_error_existing =>
+      'This value is already there!';
 
   @override
-  String get edit_product_form_item_add_action_brand =>
-      'Fi ami iyasọtọ tuntun kun';
+  String get edit_product_form_item_add_action_brand => 'Add a new brand';
 
   @override
-  String get edit_product_form_item_add_action_label => 'Fi àmì tuntun kún un';
+  String get edit_product_form_item_add_action_label => 'Add a new label';
 
   @override
-  String get edit_product_form_item_add_action_store =>
-      'Fi ile itaja tuntun kun';
+  String get edit_product_form_item_add_action_store => 'Add a new store';
 
   @override
-  String get edit_product_form_item_add_action_origin => 'Fi orísun tuntun kun';
+  String get edit_product_form_item_add_action_origin => 'Add a new origin';
 
   @override
   String get edit_product_form_item_add_action_emb_code =>
-      'Fi kódù ìtọ́pasẹ̀ tuntun kún un';
+      'Add a new traceability code';
 
   @override
-  String get edit_product_form_item_add_action_country =>
-      'Fi orílẹ̀-èdè tuntun kún un';
+  String get edit_product_form_item_add_action_country => 'Add a new country';
 
   @override
-  String get edit_product_form_item_add_action_category => 'Fi ẹ̀ka tuntun kun';
+  String get edit_product_form_item_add_action_category => 'Add a new category';
 
   @override
-  String get edit_product_form_item_add_action_trace => 'Fi àmì tuntun kún un';
+  String get edit_product_form_item_add_action_trace => 'Add a new trace';
 
   @override
-  String get edit_product_form_item_add_suggestion => 'Fi àbá kún un';
+  String get edit_product_form_item_add_suggestion => 'Add suggestion';
 
   @override
   String get edit_product_form_item_deny_suggestion => 'Kọ aba';
 
   @override
-  String get edit_product_form_item_details_title => 'Àwọn àlàyé ìpìlẹ̀';
+  String get edit_product_form_item_details_title => 'Basic details';
 
   @override
   String get edit_product_form_item_details_subtitle =>
-      'Orukọ ọja, ami iyasọtọ, iye';
+      'Product name, brand, quantity';
 
   @override
-  String get edit_product_form_item_other_details_title => 'Àwọn àlàyé afikún';
+  String get edit_product_form_item_other_details_title => 'Additional details';
 
   @override
-  String get edit_product_form_item_other_details_subtitle => 'Oju opo wẹẹbu…';
+  String get edit_product_form_item_other_details_subtitle => 'Website…';
 
   @override
-  String get edit_product_form_item_photos_title => 'Àwọn Fọ́tò';
+  String get edit_product_form_item_photos_title => 'Photos';
 
   @override
-  String get edit_product_form_item_photos_subtitle =>
-      'Fi awọn fọto kun tabi tun wọn ṣe';
+  String get edit_product_form_item_photos_subtitle => 'Add or refresh photos';
 
   @override
-  String get edit_product_form_item_labels_title => 'Àwọn àmì àti ìwé-ẹ̀rí';
+  String get edit_product_form_item_labels_title => 'Labels & Certifications';
 
   @override
   String get edit_product_form_item_labels_subtitle =>
-      'Àwọn àmì àyíká, Dídára…';
+      'Environmental, Quality labels…';
 
   @override
   String get edit_product_form_item_labels_hint =>
-      'Tẹ àmì kan sii (fun apẹẹrẹ: NutriScore)';
+      'Input a label (eg: NutriScore)';
 
   @override
   String get edit_product_form_item_labels_type => 'label';
 
   @override
   String get edit_product_form_item_labels_explanation_title =>
-      'Àwọn ìṣe rere: Àwọn àmì';
+      'Good practices: Labels';
 
   @override
   String get edit_product_form_item_labels_explanation_info1 =>
-      'Èyíkéyìí ànímọ́ ọjà náà **tí ó jẹ́ òótọ́** tí ó sì yàtọ̀ sí àwọn pápá mìíràn.';
+      'Any characteristic of the product **which is factual** and different from the other fields.';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_1 =>
@@ -1976,7 +1949,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_2 =>
-      'A ṣe é ní Bẹ́ljiọmu, a ṣe é ní Brittany…';
+      'Made in Belgium, produced in Brittany…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_3 =>
@@ -1984,28 +1957,28 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_4 =>
-      'Ọlọ́rọ̀ ní okun, orísun irin…';
+      'Rich in fiber, source of iron…';
 
   @override
   String get edit_product_form_item_labels_explanation_good_examples_5 =>
-      'Iṣowo ododo, Max Havelaar…';
+      'Fair trade, Max Havelaar…';
 
   @override
-  String get edit_product_form_item_stores_title => 'Àwọn ilé ìtajà';
+  String get edit_product_form_item_stores_title => 'Stores';
 
   @override
-  String get edit_product_form_item_stores_hint => 'Tẹ ile itaja kan sii';
+  String get edit_product_form_item_stores_hint => 'Input a store';
 
   @override
-  String get edit_product_form_item_stores_type => 'ile itaja';
+  String get edit_product_form_item_stores_type => 'store';
 
   @override
   String get edit_product_form_item_stores_explanation_title =>
-      'Àwọn ìṣe rere: Àwọn ilé ìtajà';
+      'Good practices: Stores';
 
   @override
   String get edit_product_form_item_stores_explanation_info1 =>
-      'Tẹ ibi ti o ti ra ọja naa sii.';
+      'Input the store where you bought the product.';
 
   @override
   String get edit_product_form_item_stores_explanation_good_examples_1 =>
@@ -2020,74 +1993,74 @@ class AppLocalizationsYo extends AppLocalizations {
       'Lidl';
 
   @override
-  String get edit_product_form_item_origins_title => 'Àwọn Ìpilẹ̀ṣẹ̀';
+  String get edit_product_form_item_origins_title => 'Origins';
 
   @override
   String get edit_product_form_item_origins_hint =>
-      'Tẹ orísun kan sii (fun apẹẹrẹ: Germany)';
+      'Input an origin (eg: Germany)';
 
   @override
   String get edit_product_form_item_origins_type => 'country';
 
   @override
   String get edit_product_form_item_origins_explanation_title =>
-      'Àwọn ìwà rere: Àwọn orísun';
+      'Good practices: Origins';
 
   @override
   String get edit_product_form_item_origins_explanation_info1 =>
-      'Fi **àmì ìpilẹ̀ṣẹ̀ tí o lè rí lórí àpótí náà** kún un.\nO kò gbọ́dọ̀ ṣàníyàn nípa ibi tí a ti tọ́ka sí tààrà nínú àkójọ àwọn èròjà náà.';
+      'Add **any indications of origins you can find on the packaging**.\nYou need not worry about origins indicated directly in the ingredient list.';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_1 =>
-      'Ẹran malu lati Argentina';
+      'Beef from Argentina';
 
   @override
   String get edit_product_form_item_origins_explanation_good_examples_2 =>
-      'Soy náà kò wá láti European Union';
+      'The soy does not come from the European Union';
 
   @override
   String get edit_product_form_item_countries_title => 'Country';
 
   @override
   String get edit_product_form_item_countries_hint =>
-      'Tẹ orilẹ-ede sii (fun apẹẹrẹ: Germany)';
+      'Input a country (eg: Germany)';
 
   @override
   String get edit_product_form_item_countries_type => 'country';
 
   @override
   String get edit_product_form_item_countries_explanations_title =>
-      'Àwọn ìwà rere: Àwọn orílẹ̀-èdè';
+      'Good practices: Countries';
 
   @override
   String get edit_product_form_item_countries_explanations_info1 =>
-      '**Àwọn orílẹ̀-èdè tí ọjà náà ti wà nílẹ̀ fún gbogbo ènìyàn** (láìka àwọn ilé ìtajà tí wọ́n ń ṣe àmọ̀ràn nípa àwọn ọjà àjèjì sí).';
+      '**Countries where the product is widely available** (not including stores specialising in foreign products).';
 
   @override
-  String get edit_product_form_item_emb_codes_title => 'Àwọn kódù ìtọ́pasẹ̀';
+  String get edit_product_form_item_emb_codes_title => 'Traceability codes';
 
   @override
   String get edit_product_form_item_emb_codes_hint =>
-      'Ṣe koodu sii (fun apẹẹrẹ: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
+      'Input a code (eg: EMB 53062, FR 62.448.034 CE, 84 R 20, 33 RECOLTANT 522…)';
 
   @override
-  String get edit_product_form_item_emb_codes_type => 'kódù ìtọ́pinpin';
+  String get edit_product_form_item_emb_codes_type => 'traceability code';
 
   @override
   String get edit_product_form_item_emb_help_title =>
-      'Àwọn ìlànà rere: Àwọn kódì ìtọ́pasẹ̀';
+      'Good practices: Traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info1 =>
-      'Nínú abala yìí, o le tẹ àwọn kódù tí ó níí ṣe pẹ̀lú **àmì ìdìpọ̀**, **àmì ìdámọ̀** tàbí **àmì ìlera**.';
+      'In this section, you can input codes related to **packaging marks**, **identification marks** or **health marks**.';
 
   @override
   String get edit_product_form_item_emb_help_info2_title =>
-      'Àwọn àpẹẹrẹ àwọn kódì ìtọ́pasẹ̀';
+      'Examples of traceability codes';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_text =>
-      '**Àwọn kódù EC** tí a lò ní Àwùjọ Àwọn Agbègbè Yúróòpù láti dá àwọn olùpèsè oúnjẹ tàbí àwọn olùkó oúnjẹ mọ̀:';
+      '**EC codes** used in the European Community to identify food producers or packagers:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_example =>
@@ -2095,11 +2068,11 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_emb_help_info2_item1_explanation =>
-      '**FR**: kóòdù orílẹ̀-èdè **France**\n**72.264.002**: dátà ilẹ̀\n**CE**: Àwùjọ Yúróòpù';
+      '**FR**: country code of **France**\n**72.264.002**: geographic data\n**CE**: European Community';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_text =>
-      '**Àwọn kóòdù EMB** tí a lò ní ilẹ̀ Faransé:';
+      '**EMB codes** used in France:';
 
   @override
   String get edit_product_form_item_emb_help_info2_item2_explanation =>
@@ -2113,7 +2086,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_traces_type =>
-      'Tẹ àmì kan (fún àpẹẹrẹ: Ewa soya)';
+      'Input a trace (eg: Soy beans)';
 
   @override
   String get edit_product_form_item_categories_title => 'Awon eka';
@@ -2123,157 +2096,154 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get edit_product_form_item_categories_type =>
-      'Tẹ ẹ̀ka kan sii (fun apẹẹrẹ: omi ọsan)';
+      'Input a category (eg: Orange juice)';
 
   @override
   String get edit_product_form_item_categories_explanation_title =>
-      'Àwọn ìṣe rere: Àwọn ẹ̀ka';
+      'Good practices: Categories';
 
   @override
   String get edit_product_form_item_categories_explanation_info1 =>
-      'Fi **ẹ̀ka pàtó jùlọ nìkan hàn**.\nA ó fi àwọn ẹ̀ka òbí kún un láìfọwọ́sí.';
+      'Indicate **only the most specific category**.\nParent categories will be automatically added.';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_title =>
-      'Ẹ̀ka tí ó pàdánù?';
+      'Missing category?';
 
   @override
   String get edit_product_form_item_categories_explanation_info2_content =>
-      'Tí ẹ̀ka kan kò bá sí ní ìparí aládàáṣe**, má ṣe lọ́ tìkọ̀ láti fi kún un.\nÈyí yóò ràn wá lọ́wọ́ láti mú kí àwọn ohun tí a ń pè ní Open Food Facts sunwọ̀n síi ní orílẹ̀-èdè rẹ.';
+      'In case a category is **not available in autocomplete**, feel free to add it anyway.\nThis will help us improve Open Food Facts in your country.';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_1 =>
-      'Àwọn sardínì nínú òróró ólífì';
+      'Sardines in olive oil';
 
   @override
   String get edit_product_form_item_categories_explanation_good_examples_2 =>
-      'Oje osan lati inu odidi';
+      'Orange juice from concentrate';
 
   @override
-  String get edit_product_form_item_exit_title =>
-      'Ṣe o fi silẹ laisi fifipamọ?';
+  String get edit_product_form_item_exit_title => 'Quit without saving?';
 
   @override
   String get edit_product_form_item_exit_confirmation =>
-      'Ṣe o fẹ́ fi àwọn àtúnṣe rẹ pamọ́ kí o tó fi ojú ìwé yìí sílẹ̀?';
+      'Do you want to save your changes before leaving this page?';
 
   @override
   String get edit_product_form_item_exit_confirmation_positive_button =>
-      'Fipamọ awọn iyipada';
+      'Save changes';
 
   @override
   String get edit_product_form_item_exit_confirmation_negative_button =>
-      'Da awọn iyipada silẹ';
+      'Discard changes';
 
   @override
   String get edit_product_form_item_ingredients_title => 'Ingredients';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_tooltip =>
-      'Sun-un sinu ati sita nipa fifun iboju naa';
+      'Zoom in and out by pinching the screen';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_title =>
-      'Fọ́tò náà sí i àti síta';
+      'Zoom in and out the photo';
 
   @override
   String get edit_product_form_item_ingredients_pinch_to_zoom_message =>
-      'Nípa lílo àmì **Pinch-to-sound**, o le sun-un sinu tabi so aworan naa sita:';
+      'Using the **Pinch-to-zoom gesture**, you can zoom in or out the photo:';
 
   @override
   String get edit_product_form_item_add_valid_item_tooltip => 'Fi kun';
 
   @override
   String get edit_product_form_item_add_invalid_item_tooltip =>
-      'Jọwọ tẹ ọrọ sii ni akọkọ';
+      'Please enter a text first';
 
   @override
-  String get edit_product_form_item_remove_item_tooltip => 'Yọ kuro';
+  String get edit_product_form_item_remove_item_tooltip => 'Remove';
 
   @override
-  String get edit_product_form_item_save_edit_item_tooltip =>
-      'Fipamọ́ àtúnṣe rẹ';
+  String get edit_product_form_item_save_edit_item_tooltip => 'Save your edit';
 
   @override
   String get edit_product_form_item_cancel_edit_item_tooltip =>
-      'Fagilé àtúnṣe rẹ';
+      'Cancel your edit';
 
   @override
   String get edit_product_form_item_packaging_title =>
-      'Fọ́tò àwọn ìtọ́ni àtúnlò';
+      'Recycling instructions photo';
 
   @override
-  String get edit_product_form_item_nutrition_facts_title =>
-      'Àwọn òtítọ́ oúnjẹ';
+  String get edit_product_form_item_nutrition_facts_title => 'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_subtitle =>
-      'Ounjẹ, akoonu ọtí…';
+      'Nutrition, alcohol content…';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_title =>
-      'Àwọn ìlànà rere: Àwọn òtítọ́ nípa oúnjẹ';
+      'Good practices: Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_title =>
-      'Àwọn ìwọ̀n oúnjẹ';
+      'Nutritional values';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info1_content =>
-      'Àkọ́kọ́, yan tí a bá pèsè àwọn iye **:';
+      'First, select if the **values are provided**:';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_title =>
-      'Àwọn òtítọ́ oúnjẹ';
+      'Nutrition facts';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info2_content =>
-      'Lẹ́yìn náà, tẹ àwọn iye oúnjẹ **gẹ́gẹ́ bí a ṣe fi hàn lórí àpótí náà**. Tí kò bá sí iye kankan, o lè tẹ àmì \"Ojú\".';
+      'Then, input the nutritional values **as indicated on the packaging**. If there is no value, you can click on the \"Eye\" icon.';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_title =>
-      'Pápá tí ó sọnù?';
+      'Missing field?';
 
   @override
   String get edit_product_form_item_nutrition_facts_explanation_info3_content =>
-      'Tí ìkọ̀wé kan bá sọnù, o lè tẹ àmì \"Plus\"** láti fi kún un (fún àpẹẹrẹ: Vitamin D, magnesium…).';
+      'If an entry is missing, you can **click on the \"Plus\" icon** to add it (eg: vitamin D, magnesium…).';
 
   @override
   String get edit_product_form_save => 'Edit';
 
   @override
-  String get edit_product_ingredients_photo_title => 'Fọto ti awọn eroja';
+  String get edit_product_ingredients_photo_title => 'Ingredients photo';
 
   @override
   String get edit_product_ingredients_list_title => 'List of ingredients';
 
   @override
-  String get edit_product_packaging_photo_title => 'Fọ́tò ìkópamọ́';
+  String get edit_product_packaging_photo_title => 'Packaging photo';
 
   @override
-  String get edit_product_packaging_list_title => 'Àkójọ àkójọ';
+  String get edit_product_packaging_list_title => 'Packaging list';
 
   @override
-  String get no_data_available => 'Ko si data ti o wa';
+  String get no_data_available => 'No data available';
 
   @override
-  String get product_field_website_title => 'Oju opo wẹẹbu';
+  String get product_field_website_title => 'Website';
 
   @override
-  String get origins_editing_title => 'Ṣàtúnṣe Àwọn Ìpilẹ̀ṣẹ̀';
+  String get origins_editing_title => 'Edit Origins';
 
   @override
-  String get completed_basic_details_btn_text => 'Pari awọn alaye ipilẹ';
+  String get completed_basic_details_btn_text => 'Complete basic details';
 
   @override
-  String get not_implemented_snackbar_text => 'A ko tii ṣe imuse sibẹsibẹ';
+  String get not_implemented_snackbar_text => 'Not implemented yet';
 
   @override
   String get category_picker_page_appbar_text => 'Awon eka';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text =>
-      'Fa awọn eroja jade lati fọto naa';
+      'Extract ingredients from the photo';
 
   @override
   String get edit_ingredients_extract_ingredients_btn_text_short =>
@@ -2281,114 +2251,115 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get edit_ingredients_extracting_ingredients_btn_text =>
-      'Yíyọ àwọn èròjà\nláti inú fọ́tò náà';
+      'Extracting ingredients\nfrom the photo';
 
   @override
-  String get edit_ingredients_loading_photo_btn_text => 'N gbe fọto soke…';
+  String get edit_ingredients_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_title =>
-      'Kí ló dé tí mo fi rí ìránṣẹ́ yìí?';
+      'Why do I see this message?';
 
   @override
   String get edit_ingredients_loading_photo_help_dialog_body =>
-      'Láti lo ẹ̀yà \"Extract ingredients\", ó ṣe pàtàkì kí a kọ́kọ́ gbé àwòrán náà sórí ìkànnì.\n\nJọ̀wọ́ dúró díẹ̀ tàbí kí o fi ọwọ́ kọ ọ́.';
+      'To use the \"Extract ingredients\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_ingredients_refresh_photo_btn_text => 'Ṣe àtúnṣe fọ́tò';
+  String get edit_ingredients_refresh_photo_btn_text => 'Refresh photo';
 
   @override
-  String get edit_packaging_extract_btn_text => 'Yọ apoti\nkuro ninu fọto naa';
+  String get edit_packaging_extract_btn_text =>
+      'Extract packaging\nfrom the photo';
 
   @override
-  String get edit_packaging_extract_btn_text_short => 'Àpò ìyọkúrò';
+  String get edit_packaging_extract_btn_text_short => 'Extract packaging';
 
   @override
   String get edit_packaging_extracting_btn_text =>
-      'Yíyọ àpò kúrò nínú fọ́tò náà';
+      'Extracting packaging from the photo';
 
   @override
-  String get edit_packaging_loading_photo_btn_text => 'N gbe fọto soke…';
+  String get edit_packaging_loading_photo_btn_text => 'Loading photo…';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_title =>
-      'Kí ló dé tí mo fi rí ìránṣẹ́ yìí?';
+      'Why do I see this message?';
 
   @override
   String get edit_packaging_loading_photo_help_dialog_body =>
-      'Láti lo iṣẹ́ \"Extract packaging\", ó ṣe pàtàkì kí a kọ́kọ́ gbé àwòrán náà sórí ìkànnì.\n\nJọ̀wọ́ dúró díẹ̀ tàbí kí o fi ọwọ́ kọ ọ́.';
+      'To use the \"Extract packaging\" feature, the photo needs to be uploaded first.\n\nPlease wait a few seconds or enter them manually.';
 
   @override
-  String get edit_packaging_refresh_photo_btn_text => 'Ṣe àtúnṣe fọ́tò';
+  String get edit_packaging_refresh_photo_btn_text => 'Refresh photo';
 
   @override
-  String get edit_ocr_extract_failed => 'Kò ṣeé ṣe láti rí ọ̀rọ̀ nínú àwòrán.';
+  String get edit_ocr_extract_failed => 'Failed to detect text in image.';
 
   @override
-  String get edit_ocr_extract_disabled_title => 'Ko si aworan!';
+  String get edit_ocr_extract_disabled_title => 'No picture!';
 
   @override
   String get edit_ocr_extract_disabled_message =>
-      'Láti lè lo iṣẹ́ ìyọkúrò ọ̀rọ̀, o gbọ́dọ̀ kọ́kọ́ ya fọ́tò kan.';
+      'In order to use the text extraction feature, you must first take a photo.';
 
   @override
-  String get user_list_dialog_new_title => 'Àkójọ tuntun ti awọn ọja';
+  String get user_list_dialog_new_title => 'New list of products';
 
   @override
-  String get user_list_dialog_rename_title => 'Ṣe àtúnsọ orúkọ àkójọ';
+  String get user_list_dialog_rename_title => 'Rename list';
 
   @override
-  String get user_list_subtitle_product => 'Àwọn Àkójọ';
+  String get user_list_subtitle_product => 'Lists';
 
   @override
   String get user_list_title => 'Your lists';
 
   @override
-  String get user_list_add_product => 'Fi ọja kun si awọn akojọ rẹ';
+  String get user_list_add_product => 'Add the product to your lists';
 
   @override
-  String get user_list_button_new => 'Ṣẹ̀dá àkójọ tuntun kan';
+  String get user_list_button_new => 'Create a new list';
 
   @override
   String get user_list_empty_label =>
       'No list available yet, please start by creating one';
 
   @override
-  String get user_list_button_add_product => 'Fi kún àkójọ';
+  String get user_list_button_add_product => 'Add to list';
 
   @override
-  String get added_to_list_msg => 'A fi kún àkójọ náà';
+  String get added_to_list_msg => 'Added to list';
 
   @override
-  String get user_list_popup_clear => 'Pa ìtàn rẹ rẹ́';
+  String get user_list_popup_clear => 'Clear your history';
 
   @override
-  String get user_list_popup_rename => 'Ṣe àtúnkọ orúkọ';
+  String get user_list_popup_rename => 'Rename';
 
   @override
-  String get user_list_name_hint => 'Àkójọ mi';
+  String get user_list_name_hint => 'My list';
 
   @override
-  String get user_list_name_error_empty => 'Orúkọ jẹ́ dandan';
+  String get user_list_name_error_empty => 'Name is mandatory';
 
   @override
-  String get user_list_name_error_already => 'Orúkọ yẹn ti lo tẹ́lẹ̀';
+  String get user_list_name_error_already => 'That name is already used';
 
   @override
-  String get user_list_name_error_same => 'Orúkọ kan náà nìyẹn';
+  String get user_list_name_error_same => 'That is the same name';
 
   @override
-  String get user_list_name_input_hint => 'Orúkọ àkójọ náà';
+  String get user_list_name_input_hint => 'Name of the list';
 
   @override
-  String get try_again => 'Gbiyanju lẹẹkansi';
+  String get try_again => 'Try Again';
 
   @override
-  String get there_was_an_error => 'Àṣìṣe kan wà';
+  String get there_was_an_error => 'There was an error';
 
   @override
   String category_picker_no_category_found_message(String items) {
-    return 'A ko ri ẹka kankan fun $items';
+    return 'No category found for $items';
   }
 
   @override
@@ -2398,189 +2369,188 @@ class AppLocalizationsYo extends AppLocalizations {
   String get camera_toggle_flash => 'Tan-an tabi PA filaṣi kamẹra naa';
 
   @override
-  String get camera_enable_flash => 'Mu filasi ṣiṣẹ';
+  String get camera_enable_flash => 'Enable flash';
 
   @override
-  String get camera_disable_flash => 'Pa filasi';
+  String get camera_disable_flash => 'Disable flash';
 
   @override
-  String get camera_flash_error_dialog_title => 'Àṣìṣe kan ṣẹlẹ̀!';
+  String get camera_flash_error_dialog_title => 'An error occurred!';
 
   @override
   String get camera_flash_error_dialog_message =>
-      'Àṣìṣe kan ṣẹlẹ̀ nígbà tí a ń yí ipò fìláṣì rẹ padà. Jọ̀wọ́ rí i dájú pé fóònù alágbèéká rẹ kò ní fìláṣì náà tí a ti ṣiṣẹ́ tẹ́lẹ̀.';
+      'An error occurred while changing the state of your flash. Please ensure your smartphone has not the torch already enabled.';
 
   @override
   String get category_picker_no_category_found_button => 'Èí tó ṣáájú';
 
   @override
   String get user_preferences_item_accessibility_hint =>
-      'Tẹ lati ṣii ninu ẹrọ aṣawakiri rẹ tabi ninu ohun elo naa (ti o ba fi sii)';
+      'Click to open in your browser or in the application (if installed)';
 
   @override
-  String get dev_preferences_screen_title => 'Ipò DEV';
+  String get dev_preferences_screen_title => 'DEV Mode';
 
   @override
   String get dev_preferences_screen_subtitle =>
       'Wọle si awọn ẹya idanwo ati awọn irinṣẹ idagbasoke';
 
   @override
-  String get dev_preferences_reset_onboarding_title => 'Tun bẹrẹ fifi sii';
+  String get dev_preferences_reset_onboarding_title => 'Restart onboarding';
 
   @override
   String get dev_preferences_reset_onboarding_subtitle =>
-      'Lẹhinna o ni lati tun bẹrẹ App naa lati tun wo o.';
+      'You then have to restart the App to see it again.';
 
   @override
   String get dev_preferences_environment_switch_title =>
-      'Yípadà láàrín openfoodfacts.org (PROD) àti dán env wò';
+      'Switch between openfoodfacts.org (PROD) and test env';
 
   @override
   String get dev_preferences_test_environment_title =>
-      'Awọn ipilẹ ayika idanwo';
+      'Test environment parameters';
 
   @override
   String dev_preferences_test_environment_subtitle(String url) {
-    return 'URL ìpìlẹ̀ fún env ìdánwò lọ́wọ́lọ́wọ́: $url';
+    return 'Base URL for current test env: $url';
   }
 
   @override
   String get dev_preferences_test_environment_dialog_title =>
-      'Olùgbàlejò àyíká ìdánwò';
+      'Test environment host';
 
   @override
-  String get dev_preferences_ml_kit_title => 'Lo Ohun elo ML';
+  String get dev_preferences_ml_kit_title => 'Use ML Kit';
 
   @override
   String get dev_preferences_ml_kit_subtitle =>
-      'lẹhinna o ni lati tun bẹrẹ app yii';
+      'then you have to restart this app';
 
   @override
   String get dev_preferences_product_additional_features_title =>
-      'Bọtini afikun lori oju-iwe ọja';
+      'Additional button on product page';
 
   @override
   String get dev_preferences_edit_ingredients_title =>
-      'Ṣe àtúnṣe àwọn èròjà nípasẹ̀ bọ́tìnì páànù ìmọ̀';
+      'Edit ingredients via a knowledge panel button';
 
   @override
-  String get dev_preferences_export_history_title => 'Ìtàn Ìkójáde';
+  String get dev_preferences_export_history_title => 'Export History';
 
   @override
-  String get dev_preferences_export_history_progress_error => 'ìyàtọ̀';
+  String get dev_preferences_export_history_progress_error => 'exception';
 
   @override
-  String get dev_preferences_export_history_progress_found => 'ọjà tí a rí';
+  String get dev_preferences_export_history_progress_found => 'product found';
 
   @override
   String get dev_preferences_export_history_progress_not_found =>
-      'A KO ri ọja naa';
+      'product NOT found';
 
   @override
-  String get dev_preferences_export_history_dialog_title => 'Ìtàn ìkójáde';
+  String get dev_preferences_export_history_dialog_title => 'Export history';
 
   @override
-  String get dev_preferences_button_positive => 'O dara';
+  String get dev_preferences_button_positive => 'OK';
 
   @override
   String get dev_preferences_button_negative => 'Cancel';
 
   @override
-  String get dev_preferences_migration_title => 'Ìṣípòpadà dátà láti V1';
+  String get dev_preferences_migration_title => 'Data migration from V1';
 
   @override
   String dev_preferences_migration_subtitle(String status) {
-    return 'Ipò: $status';
+    return 'Status: $status';
   }
 
   @override
   String get dev_preferences_migration_status_already_done =>
-      'aṣeyọri tabi fifi sori ẹrọ tuntun';
+      'success or fresh install';
 
   @override
-  String get dev_preferences_migration_status_success => 'aṣeyọri';
+  String get dev_preferences_migration_status_success => 'success';
 
   @override
-  String get dev_preferences_migration_status_error => 'àṣìṣe';
+  String get dev_preferences_migration_status_error => 'error';
 
   @override
-  String get dev_preferences_migration_status_in_progress =>
-      'ń lọ lọ́wọ́lọ́wọ́';
+  String get dev_preferences_migration_status_in_progress => 'in progress';
 
   @override
-  String get dev_preferences_migration_status_required => 'nilo (tẹ lati bẹrẹ)';
+  String get dev_preferences_migration_status_required =>
+      'required (click to start)';
 
   @override
-  String get dev_preferences_migration_status_not_started => 'aimọ';
+  String get dev_preferences_migration_status_not_started => 'unknown';
 
   @override
   String get dev_preferences_import_history_subtitle =>
-      'Yoo pa itan mọ ki o si fi awọn ọja mẹta sinu rẹ';
+      'Will clear history and put 3 products in there';
 
   @override
-  String get dev_preferences_news_custom_url_title =>
-      'URL àdáni fún àwọn ìròyìn';
+  String get dev_preferences_news_custom_url_title => 'Custom URL for news';
 
   @override
-  String get dev_preferences_news_custom_url_subtitle => 'URL ti faili JSON:';
+  String get dev_preferences_news_custom_url_subtitle =>
+      'URL of the JSON file:';
 
   @override
-  String get dev_preferences_news_custom_url_empty_value => 'Kò ṣètò';
+  String get dev_preferences_news_custom_url_empty_value => 'Not set';
 
   @override
   String get dev_preferences_news_provider_status_title => 'Status';
 
   @override
   String dev_preferences_news_provider_status_subtitle(String date) {
-    return 'Àtúnṣe ìkẹyìn: $date';
+    return 'Last refresh: $date';
   }
 
   @override
-  String get product_type_label_food => 'Ounjẹ';
+  String get product_type_label_food => 'Food';
 
   @override
-  String get product_type_label_beauty => 'Ìtọ́jú ara ẹni';
+  String get product_type_label_beauty => 'Personal care';
 
   @override
-  String get product_type_label_pet_food => 'Ounjẹ ẹranko';
+  String get product_type_label_pet_food => 'Pet food';
 
   @override
   String get product_type_label_product => 'Other';
 
   @override
-  String get product_type_label_unknown => 'Aimọ';
+  String get product_type_selection_title => 'Product type';
 
   @override
-  String get product_type_selection_title => 'Irú ọjà';
+  String get product_type_selection_subtitle =>
+      'Select the type of this product';
 
   @override
-  String get product_type_selection_subtitle => 'Yan iru ọja yii';
-
-  @override
-  String get product_type_selection_empty => 'O nilo lati yan iru ọja akọkọ!';
+  String get product_type_selection_empty =>
+      'You need to select a product type first!';
 
   @override
   String product_type_selection_already(String productType) {
-    return 'O ko le yi iru ọja pada ($productType)!';
+    return 'You cannot change the product type ($productType)!';
   }
 
   @override
   String get prices_app_dev_mode_flag =>
-      'Àpù àbùdá sí àpù Iye lórí ojú ìwé ọjà';
+      'Shortcut to Prices app on product page';
 
   @override
-  String get prices_app_button => 'Lọ sí àpù Iye owó';
+  String get prices_app_button => 'Go to Prices app';
 
   @override
   String get prices_website_button => 'Ṣii lori oju opo wẹẹbu Awọn idiyele Ṣii';
 
   @override
   String get prices_bulk_proof_upload_select =>
-      'Fi awọn ami idiyele kun taara lati ibi aworan aworan';
+      'Add price tags directly from gallery';
 
   @override
   String get prices_bulk_proof_upload_warning =>
-      'Nígbà tí o bá ti yan àwọn àwòrán, o kò ní lè ṣàtúnṣe wọn!';
+      'Once you\'ve selected images, you won\'t be able to edit them!';
 
   @override
   String get prices_bulk_proof_upload_warning_ai =>
@@ -2591,11 +2561,10 @@ class AppLocalizationsYo extends AppLocalizations {
       'Gba agbegbe laaye lati fọwọsi awọn idiyele ti AI jade.';
 
   @override
-  String get prices_bulk_proof_upload_subtitle => 'Ọ̀pọ̀lọpọ̀ Àwọn àmì Owó';
+  String get prices_bulk_proof_upload_subtitle => 'Multiple Price Tags';
 
   @override
-  String get prices_bulk_proof_upload_title =>
-      'Ìgbéjáde Ẹ̀rí Àfikún Ọ̀pọ̀lọpọ̀';
+  String get prices_bulk_proof_upload_title => 'Bulk Proof Upload';
 
   @override
   String get prices_bulk_proof_upload_step_selecting => 'Yiyan awọn faili';
@@ -2619,15 +2588,15 @@ class AppLocalizationsYo extends AppLocalizations {
   }
 
   @override
-  String get prices_generic_title => 'Awọn idiyele';
+  String get prices_generic_title => 'Prices';
 
   @override
   String prices_add_n_prices(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Fi $count awọn iye owo',
-      one: 'Fi iye owo kun',
+      other: 'Add $count prices',
+      one: 'Add a price',
     );
     return '$_temp0';
   }
@@ -2637,42 +2606,42 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Fi ránṣẹ́ $count iye owó',
-      one: 'Fi iye owó náà ránṣẹ́',
+      other: 'Send $count prices',
+      one: 'Send the price',
     );
     return '$_temp0';
   }
 
   @override
-  String get prices_add_an_item => 'Fi ohun kan kun';
+  String get prices_add_an_item => 'Add an item';
 
   @override
-  String get prices_add_a_price => 'Fi iye owo kun';
+  String get prices_add_a_price => 'Add a price';
 
   @override
-  String get prices_add_a_receipt => 'Fi ìwé ẹ̀rí ìsanwó kún un';
+  String get prices_add_a_receipt => 'Add a receipt';
 
   @override
-  String get prices_add_price_tags => 'Fi àwọn àmì iye owó kún un';
+  String get prices_add_price_tags => 'Add price tags';
 
   @override
   String prices_barcode_already(String barcode) {
-    return 'Àkójọ yìí ($barcode) ti wà lára àkójọ náà!';
+    return 'This barcode ($barcode) is already in the list!';
   }
 
   @override
   String get prices_barcode_search_not_found => 'Product not found';
 
   @override
-  String get prices_barcode_search_none_yet => 'Ko si ọja sibẹsibẹ';
+  String get prices_barcode_search_none_yet => 'No product yet';
 
   @override
   String prices_barcode_search_running(String barcode) {
-    return 'N wa $barcode';
+    return 'Looking for $barcode';
   }
 
   @override
-  String get prices_barcode_enter => 'Tẹ awọn Barcode sii';
+  String get prices_barcode_enter => 'Enter the Barcode';
 
   @override
   String get prices_category_enter => 'Ohun kan lai kooduopo';
@@ -2699,10 +2668,10 @@ class AppLocalizationsYo extends AppLocalizations {
   String get prices_category_error_mandatory => 'Ẹka naa jẹ dandan';
 
   @override
-  String get prices_barcode_reader_action => 'Olùka kódì báákì';
+  String get prices_barcode_reader_action => 'Barcode reader';
 
   @override
-  String get prices_view_prices => 'Wo awọn idiyele';
+  String get prices_view_prices => 'View the prices';
 
   @override
   String get prices_list_title => 'Akojọ owo';
@@ -2729,9 +2698,6 @@ class AppLocalizationsYo extends AppLocalizations {
   }
 
   @override
-  String get prices_entry_menu_open_product => 'Wo awọn alaye ọja';
-
-  @override
   String get prices_entry_menu_open_product_prices =>
       'Wo gbogbo awọn idiyele fun ọja yii';
 
@@ -2754,10 +2720,10 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count iye owo',
-      one: 'Iye owo 1',
+      other: '$count prices',
+      one: '1 price',
     );
-    return '$_temp0 fun $product';
+    return '$_temp0 for $product';
   }
 
   @override
@@ -2765,16 +2731,16 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Gbogbo $count iye owó',
-      one: 'Iye owó kan ṣoṣo',
-      zero: 'Kò sí iye owó kankan síbẹ̀',
+      other: 'All $count prices',
+      one: 'Only one price',
+      zero: 'No price yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_list_length_many_pages(int pageSize, int total) {
-    return 'Iye owo tuntun $pageSize (gbogbo: $total)';
+    return 'Latest $pageSize prices (total: $total)';
   }
 
   @override
@@ -2784,32 +2750,32 @@ class AppLocalizationsYo extends AppLocalizations {
     String date,
     String user,
   ) {
-    return 'Iye owo: $price / Ile itaja: \"$location\" / Ti a tẹjade lori $date nipasẹ \"$user\"';
+    return 'Price: $price / Store: \"$location\" / Published on $date by \"$user\"';
   }
 
   @override
   String prices_open_user_proofs(String user) {
-    return 'Àwọn ẹ̀rí tí ó ṣí sílẹ̀ ti \"$user\"';
+    return 'Open proofs of \"$user\"';
   }
 
   @override
-  String get prices_open_proof => 'Ẹ̀rí ìdíyelé tí ó ṣí sílẹ̀';
+  String get prices_open_proof => 'Open price proof';
 
   @override
   String prices_proofs_list_length_one_page(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: 'Gbogbo $count Ẹ̀rí',
-      one: 'Ẹ̀rí kan ṣoṣo',
-      zero: 'Kò sí ẹ̀rí síbẹ̀',
+      other: 'All $count proofs',
+      one: 'Only one proof',
+      zero: 'No proof yet',
     );
     return '$_temp0';
   }
 
   @override
   String prices_proofs_list_length_many_pages(int pageSize, int total) {
-    return 'Àwọn ẹ̀rí tuntun $pageSize (àròpọ̀: $total)';
+    return 'Latest $pageSize proofs (total: $total)';
   }
 
   @override
@@ -2820,7 +2786,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String prices_users_list_length_many_pages(int pageSize, int total) {
-    return 'Àwọn olùkópa $pageSize tó ga jùlọ (àròpọ̀: $total)';
+    return 'Top $pageSize contributors (total: $total)';
   }
 
   @override
@@ -2831,7 +2797,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String prices_locations_list_length_many_pages(int pageSize, int total) {
-    return 'Àwọn ibi tí ó wà ní òkè $pageSize (àròpọ̀: $total)';
+    return 'Top $pageSize locations (total: $total)';
   }
 
   @override
@@ -2839,9 +2805,9 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count Ẹ̀rí',
-      one: 'Ẹ̀rí kan',
-      zero: 'Kò sí ẹ̀rí',
+      other: '$count proofs',
+      one: 'One proof',
+      zero: 'No proof',
     );
     return '$_temp0';
   }
@@ -2851,9 +2817,9 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count àwọn ọjà',
-      one: 'Ọjà kan',
-      zero: 'Kò sí ọjà',
+      other: '$count products',
+      one: 'One product',
+      zero: 'No product',
     );
     return '$_temp0';
   }
@@ -2863,9 +2829,9 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count àwọn olùlò',
-      one: 'Olùlò kan',
-      zero: 'Kò sí olùlò',
+      other: '$count users',
+      one: 'One user',
+      zero: 'No user',
     );
     return '$_temp0';
   }
@@ -2875,9 +2841,9 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count iye owó',
-      one: 'Iye owó kan',
-      zero: 'Kò sí iye owó',
+      other: '$count prices',
+      one: 'One price',
+      zero: 'No price',
     );
     return '$_temp0';
   }
@@ -2886,50 +2852,50 @@ class AppLocalizationsYo extends AppLocalizations {
   String get prices_amount_existing_subtitle => 'Iye owo tẹlẹ fi kun';
 
   @override
-  String get prices_amount_subtitle => 'Iye owo';
+  String get prices_amount_subtitle => 'Amount';
 
   @override
-  String get prices_amount_is_discounted => 'Ṣe ẹdinwo?';
+  String get prices_amount_is_discounted => 'Is discounted?';
 
   @override
-  String get prices_amount_price_normal => 'Iye owo';
+  String get prices_amount_price_normal => 'Price';
 
   @override
-  String get prices_amount_price_discounted => 'Iye owo ẹdinwo';
+  String get prices_amount_price_discounted => 'Discounted price';
 
   @override
-  String get prices_amount_price_not_discounted => 'Iye atilẹba';
+  String get prices_amount_price_not_discounted => 'Original price';
 
   @override
-  String get prices_amount_no_product => 'Ọjà kan sonu!';
+  String get prices_amount_no_product => 'One product is missing!';
 
   @override
-  String get prices_amount_price_incorrect => 'Iye ti ko tọ';
+  String get prices_amount_price_incorrect => 'Incorrect value';
 
   @override
-  String get prices_amount_price_mandatory => 'Iye dandan';
+  String get prices_amount_price_mandatory => 'Mandatory value';
 
   @override
-  String get prices_currency_subtitle => 'Owó kọ̀ǹpútà';
+  String get prices_currency_subtitle => 'Currency';
 
   @override
-  String get prices_date_subtitle => 'Déètì';
+  String get prices_date_subtitle => 'Date';
 
   @override
-  String get prices_location_subtitle => 'Ṣọ́ọ̀bù';
+  String get prices_location_subtitle => 'Shop';
 
   @override
-  String get prices_location_find => 'Wa ile itaja kan';
+  String get prices_location_find => 'Find a shop';
 
   @override
-  String get prices_location_mandatory => 'O nilo lati yan ile itaja kan!';
+  String get prices_location_mandatory => 'You need to select a shop!';
 
   @override
   String get prices_location_search_broader =>
-      'Ṣé o kò rí ohun tí ò ń wá? Ẹ jẹ́ ká gbìyànjú ìwádìí gbígbòòrò!';
+      'Couldn\'t find what you were looking for? Let\'s try a broader search!';
 
   @override
-  String get prices_proof_subtitle => 'Ẹ̀rí';
+  String get prices_proof_subtitle => 'Proof';
 
   @override
   String get prices_proof_empty_title => 'Ko si ẹri sibẹsibẹ!';
@@ -2939,128 +2905,103 @@ class AppLocalizationsYo extends AppLocalizations {
       'Bẹrẹ nipa fifi fọto kun ti ** gbigba *** tabi aami idiyele idiyele ***!';
 
   @override
-  String get prices_proof_find => 'Yan ẹ̀rí kan';
+  String get prices_proof_find => 'Select a proof';
 
   @override
-  String get prices_proof_change => 'Ẹ̀rí ìyípadà';
+  String get prices_proof_change => 'Change proof';
 
   @override
-  String get prices_proof_receipt => 'Ìwé ẹ̀rí ìsanwó';
+  String get prices_proof_receipt => 'Receipt';
 
   @override
-  String get prices_proof_price_tag => 'Tagi oye owo';
+  String get prices_proof_price_tag => 'Price tag';
 
   @override
-  String get prices_proof_mandatory => 'O nilo lati yan ẹri kan!';
+  String get prices_proof_mandatory => 'You need to select a proof!';
 
   @override
-  String get prices_add_validation_error => 'Àṣìṣe ìfìdí múlẹ̀';
+  String get prices_add_validation_error => 'Validation error';
 
   @override
-  String get prices_privacy_warning_title => 'Ìkìlọ̀ ìpamọ́';
+  String get prices_privacy_warning_title => 'Privacy warning';
 
   @override
-  String get prices_unknown_product => 'Ọjà tí a kò mọ̀';
+  String get prices_unknown_product => 'Unknown product';
 
   @override
   String get prices_privacy_warning_main_message =>
-      'Iye owo **yoo han gbangba**, pelu ile itaja ti won n pe.\n\nIyẹn le gba awọn eniyan ti o mọ nipa orukọ apeso Open Food Facts rẹ laaye lati:\n';
+      'Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n';
 
   @override
-  String get prices_privacy_warning_message_bullet_1 => 'Mọ agbègbè tí o ń gbé';
+  String get prices_privacy_warning_message_bullet_1 =>
+      'Infer in which area you live';
 
   @override
-  String get prices_privacy_warning_message_bullet_2 => 'Mọ ohun tí o ń rà';
+  String get prices_privacy_warning_message_bullet_2 =>
+      'Know what you are buying';
 
   @override
   String get prices_privacy_warning_sub_message =>
-      'Tí èyí bá ń bí ọ nínú, jọ̀wọ́ yí orúkọ àpèlé rẹ padà, tàbí kí o ṣẹ̀dá àkọọ́lẹ̀ Open Food Facts tuntun kí o sì wọlé sínú àpù náà pẹ̀lú rẹ̀.';
+      'If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.';
 
   @override
-  String get i_refuse => 'Mo kọ̀';
+  String get i_refuse => 'I refuse';
 
   @override
-  String get i_accept => 'Mo gba';
+  String get i_accept => 'I accept';
 
   @override
-  String get prices_currency_change_proposal_title => 'Ṣé o lè yí owó rẹ padà?';
+  String get prices_currency_change_proposal_title => 'Change the currency?';
 
   @override
   String prices_currency_change_proposal_message(
     String currency,
     String newCurrency,
   ) {
-    return 'Owó rẹ lọ́wọ́lọ́wọ́ ni **$currency**. Ṣé o fẹ́ yí i padà sí **$newCurrency**?';
+    return 'Your current currency is **$currency**. Would you like to change it to **$newCurrency**?';
   }
 
   @override
   String prices_currency_change_proposal_action_approve(String newCurrency) {
-    return 'Bẹ́ẹ̀ni, lo $newCurrency';
+    return 'Yes, use $newCurrency';
   }
 
   @override
   String prices_currency_change_proposal_action_cancel(String currency) {
-    return 'Rárá, pa ${currency}mọ́';
+    return 'No, keep $currency';
   }
 
   @override
-  String get prices_menu_know_more => 'Mọ diẹ sii nipa Awọn idiyele Ṣiṣi';
+  String get prices_menu_know_more => 'Know more about Open Prices';
 
   @override
-  String get prices_discount_type => 'Discount type';
+  String get dev_preferences_import_history_result_success => 'Done';
 
   @override
-  String get prices_discount_type_quantity => 'Quantity discount';
+  String get dev_mode_section_server => 'Server configuration';
 
   @override
-  String get prices_discount_type_sale => 'Sale';
+  String get dev_mode_section_news => 'News provider configuration';
 
   @override
-  String get prices_discount_type_seasonal => 'Seasonal';
+  String get dev_mode_section_product_page => 'Product page';
 
   @override
-  String get prices_discount_type_loyalty_program => 'Loyalty program';
+  String get dev_mode_section_ui => 'User Interface';
 
   @override
-  String get prices_discount_type_expires_soon => 'Expires soon';
+  String get dev_mode_section_experimental_features => 'Experimental features';
 
   @override
-  String get prices_discount_type_pick_it_yourself => 'Pick it yourself';
-
-  @override
-  String get prices_discount_type_second_hand => 'Second hand';
-
-  @override
-  String get prices_discount_type_other => 'Other';
-
-  @override
-  String get dev_preferences_import_history_result_success => 'Ti pari';
-
-  @override
-  String get dev_mode_section_server => 'Ṣíṣeto olupin';
-
-  @override
-  String get dev_mode_section_news => 'Iṣeto olupese iroyin';
-
-  @override
-  String get dev_mode_section_product_page => 'Ojú ìwé ọjà';
-
-  @override
-  String get dev_mode_section_ui => 'Ìfọwọ́sowọ́pọ̀ Olùlò';
-
-  @override
-  String get dev_mode_section_experimental_features => 'Àwọn ẹ̀yà ìdánwò';
-
-  @override
-  String get dev_mode_hide_environmental_score_title =>
-      'Yọ àmì aláwọ̀ ewé kúrò';
+  String get dev_mode_hide_environmental_score_title => 'Exclude Green Score';
 
   @override
   String get dev_mode_spellchecker_for_ocr_title =>
-      'Lo àyẹ̀wò ìṣàyẹ̀wò fún àwọn ìbòjú OCR';
+      'Use a spellchecker for OCR screens';
 
   @override
-  String get dev_mode_spellchecker_for_ocr_subtitle => '(Awọn eroja ati apoti)';
+  String get dev_mode_spellchecker_for_ocr_subtitle =>
+      '(Ingredients and packaging)';
 
   @override
   String get dev_mode_reset_app_language_title => 'Tun ede app to';
@@ -3073,15 +3014,14 @@ class AppLocalizationsYo extends AppLocalizations {
       'Yipada laarin awọn prices.openfoodfacts.org (PROD) ati idanwo env';
 
   @override
-  String get search_history_item_edit_tooltip =>
-      'Tun lo ki o si se atunse wiwa yii';
+  String get search_history_item_edit_tooltip => 'Reuse and edit this search';
 
   @override
-  String get search_history_item_remove_tooltip => 'Yọ kuro';
+  String get search_history_item_remove_tooltip => 'Remove';
 
   @override
   String product_search_no_more_results(int totalSize) {
-    return 'O ti gba gbogbo awọn ọja $totalSize silẹ.';
+    return 'You\'ve downloaded all the $totalSize products.';
   }
 
   @override
@@ -3090,38 +3030,38 @@ class AppLocalizationsYo extends AppLocalizations {
     int downloaded,
     int totalSize,
   ) {
-    return 'Ṣe igbasilẹ $count awọn ọja diẹ sii\nTi gba lati ayelujara tẹlẹ $downloaded lati $totalSize.';
+    return 'Download $count more products\nAlready downloaded $downloaded out of $totalSize.';
   }
 
   @override
   String product_search_loading_message(Object search) {
-    return 'Ìwákiri rẹ lórí $search ń lọ lọ́wọ́.\n\nJọ̀wọ́ dúró fún ìṣẹ́jú díẹ̀…';
+    return 'Your search of $search is in progress.\n\nPlease wait a few seconds…';
   }
 
   @override
-  String get user_search_contributor_title => 'Àwọn ọjà tí mo fi kún';
+  String get user_search_contributor_title => 'Products I added';
 
   @override
-  String get user_search_informer_title => 'Àwọn ọjà tí mo ṣàtúnṣe';
+  String get user_search_informer_title => 'Products I edited';
 
   @override
-  String get user_search_photographer_title => 'Àwọn ọjà tí mo yàwòrán';
+  String get user_search_photographer_title => 'Products I photographed';
 
   @override
-  String get user_search_to_be_completed_title => 'Àwọn ọjà tí mo fẹ́ parí';
+  String get user_search_to_be_completed_title => 'My to-be-completed products';
 
   @override
-  String get user_search_prices_title => 'Àwọn iye owó mi';
+  String get user_search_prices_title => 'My prices';
 
   @override
-  String get user_search_proofs_title => 'Àwọn ẹ̀rí mi';
+  String get user_search_proofs_title => 'My proofs';
 
   @override
-  String get user_search_proof_title => 'Ẹ̀rí mi';
+  String get user_search_proof_title => 'My proof';
 
   @override
   String search_proof_title(String user) {
-    return 'Ẹ̀rí láti \"$user\"';
+    return 'Proof from \"$user\"';
   }
 
   @override
@@ -3130,18 +3070,17 @@ class AppLocalizationsYo extends AppLocalizations {
   }
 
   @override
-  String get all_search_prices_latest_title => 'Awọn idiyele tuntun ti a fikun';
+  String get all_search_prices_latest_title => 'Latest Prices added';
 
   @override
-  String get all_search_prices_top_user_title =>
-      'Àwọn olùkópa iye owó tó ga jùlọ';
+  String get all_search_prices_top_user_title => 'Top price contributors';
 
   @override
   String get all_search_prices_top_location_title =>
-      'Àwọn ilé ìtajà tó ní owó tó pọ̀ jùlọ';
+      'Stores with the most prices';
 
   @override
-  String get prices_contribution_assistant => 'Olùrànlọ́wọ́ Ìfilọ́wọ́ Owó';
+  String get prices_contribution_assistant => 'Price Contribution Assistant';
 
   @override
   String get prices_validation_assistant => 'Price Validation Assistant';
@@ -3150,65 +3089,63 @@ class AppLocalizationsYo extends AppLocalizations {
   String get prices_challenges_page => 'Challenges';
 
   @override
-  String get prices_multiple_proof_addition_system => 'Fi Ọ̀pọ̀ Ẹ̀rí kún un';
+  String get prices_multiple_proof_addition_system => 'Add Multiple Proofs';
 
   @override
-  String get all_search_prices_top_location_single_title =>
-      'Awọn idiyele ni ile itaja kan';
+  String get all_search_prices_top_location_single_title => 'Prices in a store';
 
   @override
   String get all_search_prices_top_product_title =>
-      'Awọn ọja pẹlu awọn idiyele ti o ga julọ';
+      'Products with the most prices';
 
   @override
-  String get all_search_to_be_completed_title =>
-      'Gbogbo awọn ọja ti a gbọdọ pari';
+  String get all_search_to_be_completed_title => 'All to-be-completed products';
 
   @override
   String get categorize_products_country_title =>
-      'Ran lọwọ lati pin awọn ọja ni orilẹ-ede rẹ';
+      'Help categorize products in your country';
 
   @override
-  String get edit_product_action_retake_picture => 'Tun fọto ya';
+  String get edit_product_action_retake_picture => 'Retake photo';
 
   @override
-  String get edit_product_action_take_picture => 'Ya fọ́tò';
+  String get edit_product_action_take_picture => 'Take photo';
 
   @override
-  String get edit_product_action_confirm => 'Jẹ́rìísí';
+  String get edit_product_action_confirm => 'Confirm';
 
   @override
   String get signup_page_terms_of_use_line1 =>
-      'Mo gba si Awọn Otitọ Ounjẹ Ṣiṣi ';
+      'I agree to the Open Food Facts ';
 
   @override
-  String get signup_page_terms_of_use_line2 => 'awọn ofin lilo ati ilowosi';
+  String get signup_page_terms_of_use_line2 => 'terms of use and contribution';
 
   @override
-  String get analytics_consent_image_semantic_label => 'Àmì Àtúpalẹ̀';
+  String get analytics_consent_image_semantic_label => 'Analytics icon';
 
   @override
   String knowledge_panel_page_loading_error(Object? error) {
-    return 'Àṣìṣe tó léwu: $error';
+    return 'Fatal Error: $error';
   }
 
   @override
   String preferences_page_loading_error(Object? error) {
-    return 'Àṣìṣe tó léwu: $error';
+    return 'Fatal Error: $error';
   }
 
   @override
-  String get summary_card_button_add_basic_details => 'Pari awọn alaye ipilẹ';
+  String get summary_card_button_add_basic_details => 'Complete basic details';
 
   @override
   String get edit_photo_button_label => 'Edit';
 
   @override
-  String get edit_photo_unselect_button_label => 'Yọ fọto kuro';
+  String get edit_photo_unselect_button_label => 'Unselect photo';
 
   @override
   String get edit_photo_select_existing_button_label =>
-      'Yan àwòrán tó wà tẹ́lẹ̀';
+      'Select an existing image';
 
   @override
   String get edit_photo_select_existing_all_label =>
@@ -3216,52 +3153,52 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get edit_photo_select_existing_all_subtitle =>
-      'Yan aworan kan nipa titẹ lori rẹ';
+      'Select an image by clicking on it';
 
   @override
   String get edit_photo_select_existing_download_label =>
-      'Gbigba awọn aworan ti o wa tẹlẹ…';
+      'Retrieving existing images…';
 
   @override
   String get edit_photo_select_existing_downloaded_none =>
-      'Kò sí àwòrán kankan tí a gbé sórí ìkànnì tí ó ní í ṣe pẹ̀lú ọjà yìí tẹ́lẹ̀.';
+      'There are no images previously uploaded related to this product.';
 
   @override
   String get edit_photo_language_not_this_one =>
-      'Kò sí àwòrán kankan ní èdè yẹn síbẹ̀';
+      'No image in that language yet';
 
   @override
-  String get edit_photo_language_none => 'Ko si aworan sibẹsibẹ';
+  String get edit_photo_language_none => 'No image yet';
 
   @override
   String get category_picker_screen_title => 'Awon eka';
 
   @override
-  String get basic_details => 'Àwọn Àlàyé Ìpìlẹ̀';
+  String get basic_details => 'Basic Details';
 
   @override
-  String get product_name => 'Orukọ Ọja';
+  String get product_name => 'Product Name';
 
   @override
-  String get product_names => 'Àwọn Orúkọ Ọjà';
+  String get product_names => 'Product Names';
 
   @override
   String get add_basic_details_product_name_add_translation =>
-      'Ṣe àfikún ìtumọ̀ tuntun kan';
+      'Add a new translation';
 
   @override
   String get add_basic_details_product_name_warning_translations =>
-      'Kí o tó fi ìdí múlẹ̀, jọ̀wọ́ rí i dájú pé ìtumọ̀ kan nìkan ni o fi kún **tí èdè náà bá wà lórí àpótí náà**';
+      'Before validating, please ensure you only add a translation **if the language is present on the packaging**';
 
   @override
-  String get add_basic_details_product_name_open_photo => 'Wo aworan iwaju';
+  String get add_basic_details_product_name_open_photo => 'View front photo';
 
   @override
-  String get add_basic_details_product_name_take_photo => 'Ya fọ́tò iwájú';
+  String get add_basic_details_product_name_take_photo => 'Take front photo';
 
   @override
   String get add_basic_details_product_name_hint =>
-      'Tẹ orukọ ọjà náà (fún àpẹẹrẹ: Nutella)';
+      'Input the name of the product (eg: Nutella)';
 
   @override
   String get add_basic_details_product_name_change_main_language_title =>
@@ -3275,41 +3212,41 @@ class AppLocalizationsYo extends AppLocalizations {
   }
 
   @override
-  String get explanation_section_good_examples => 'Àwọn àpẹẹrẹ rere';
+  String get explanation_section_good_examples => 'Good examples';
 
   @override
-  String get explanation_section_bad_examples => 'Àwọn àpẹẹrẹ búburú';
+  String get explanation_section_bad_examples => 'Bad examples';
 
   @override
   String get add_basic_details_product_name_help_title =>
-      'Àwọn ìwà rere: Orúkọ ọjà náà';
+      'Good practices: Product name';
 
   @override
   String get add_basic_details_product_name_help_info1 =>
-      'Orúkọ ọjà náà ni **orúkọ pàtàkì tí a kọ sí orí àpótí náà**. Ó lè jẹ́ àmì ìforúkọsílẹ̀ tí a forúkọ sílẹ̀.';
+      'The product name is the **main name printed on the packaging**. It can be a registered trademark.';
 
   @override
   String get add_basic_details_product_name_help_info2 =>
-      '**Àkíyèsí:** Jọ̀wọ́ má ṣe fi ìtumọ̀ kún **tí èdè náà kò bá sí lórí àpótí náà**.';
+      '**Note:** Please don\'t add a translation **if the language is not present on the packaging**.';
 
   @override
   String get add_basic_details_product_name_help_good_examples_1 => 'Nesquik';
 
   @override
   String get add_basic_details_product_name_help_good_examples_2 =>
-      'Tòmátì Kẹ́tíṣì';
+      'Tomato Ketchup';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_explanation =>
-      'Má ṣe fi orúkọ náà kún orúkọ náà';
+      'Don\'t include the brand in the name';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_1_example =>
-      'Kẹ́tíṣì Tòmátì **láti ọwọ́ Heinz**';
+      'Tomato Ketchup **by Heinz**';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_explanation =>
-      'Má ṣe lo àwọn àmì ®, ™, © tàbí irú wọn';
+      'Don\'t use symbols ®, ™, © or similar';
 
   @override
   String get add_basic_details_product_name_help_bad_examples_2_example =>
@@ -3320,59 +3257,58 @@ class AppLocalizationsYo extends AppLocalizations {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count Àwọn ìtumọ̀ mìíràn',
-      one: '$count Ìtumọ̀ mìíràn',
+      other: '$count other translations',
+      one: '$count other translation',
     );
     return '$_temp0';
   }
 
   @override
-  String get brand_name => 'Orúkọ ọjà';
+  String get brand_name => 'Brand name';
 
   @override
-  String get brand_names => 'Àwọn orúkọ ọjà';
+  String get brand_names => 'Brand names';
 
   @override
-  String get add_basic_details_brand_name_error => 'Jọ̀wọ́ tẹ orúkọ ìtajà náà';
+  String get add_basic_details_brand_name_error =>
+      'Please enter the brand name';
 
   @override
-  String get add_basic_details_brand_names_hint =>
-      'Àwọn àmì ìtẹ̀wọlé (fún àpẹẹrẹ: Ferrero)';
+  String get add_basic_details_brand_names_hint => 'Input brands (eg: Ferrero)';
 
   @override
   String get add_basic_details_product_brand_help_title =>
-      'Àwọn ìwà rere: Àwọn orúkọ ìtajà';
+      'Good practices: Brands';
 
   @override
   String get add_basic_details_product_brand_help_info1 =>
-      'Tẹ **gbogbo awọn ami iyasọtọ ti ọja naa** sii.';
+      'Input **all the brands of the product**.';
 
   @override
-  String get add_basic_details_product_brand_help_info2_title => 'Orúkọ pàtàkì';
+  String get add_basic_details_product_brand_help_info2_title => 'Main brand';
 
   @override
   String get add_basic_details_product_brand_help_info2_content =>
-      'Orúkọ pàtàkì **, tí a sábà máa ń fi hàn kedere lórí àpò iwájú, ni a gbọ́dọ̀ kọ́kọ́ fi sílẹ̀**.';
+      'The **main brand**, generally clearly displayed on the front pack, should be **entered first**.';
 
   @override
-  String get add_basic_details_product_brand_help_info3_title =>
-      'Àwọn orúkọ ìtajà míràn';
+  String get add_basic_details_product_brand_help_info3_title => 'Other brands';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_text =>
-      'Nígbà tí ilé-iṣẹ́ ńlá kan bá tà á**:';
+      'When sold **by a big company**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item1_explanation =>
-      '**Danone** ló ń tà Actimel**';
+      '**Actimel** is sold by **Danone**';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_text =>
-      'Nígbà tí a bá tà á pẹ̀lú àmì ìdámọ̀ rẹ̀ **tí a túmọ̀ sí ọ̀pọ̀lọpọ̀ èdè**:';
+      'When sold with its brand **translated in multiple languages**:';
 
   @override
   String get add_basic_details_product_brand_help_info3_item2_explanation =>
-      'Nígbà míìrán, a máa ń kọ **Àfonífojì Ìṣẹ̀dá**';
+      '**Nature Valley** is sometimes written **Val Nature**';
 
   @override
   String get add_basic_details_product_brand_help_good_examples_1 => 'Nutella';
@@ -3382,57 +3318,56 @@ class AppLocalizationsYo extends AppLocalizations {
       'Oreo, Mondelez';
 
   @override
-  String get quantity => 'Iye ati iwuwo';
+  String get quantity => 'Quantity and weight';
 
   @override
   String get add_basic_details_quantity_hint =>
-      'Tẹ iwuwo sii ati iye ti o ba nilo rẹ (fun apẹẹrẹ: 4x100g)';
+      'Input the weight and if needed the quantity (eg : 4x100g)';
 
   @override
   String get add_basic_details_product_quantity_help_title =>
-      'Àwọn ìwà rere: Iye';
+      'Good practices: Quantity';
 
   @override
   String get add_basic_details_product_quantity_help_info1 =>
-      'Da iye ti a fihan lori ọja naa kọ ati **maṣe gbagbe awọn iwọn naa**.';
+      'Copy the value indicated on the product and **don\'t forget the units**.';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_1 =>
-      '**230g** tàbí **230g**';
+      '**230g** or **230 g**';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_2 =>
-      '**6** (fún ẹyin 6)';
+      '**6** (for 6 eggs)';
 
   @override
   String get add_basic_details_product_quantity_help_good_examples_3 =>
-      '**3 x 150g**\n(fún ọjà tí ó ní àpótí mẹ́ta, ọ̀kọ̀ọ̀kan ti 150g)';
+      '**3 x 150g**\n(for a product with 3 boxes, each of 150g)';
 
   @override
   String get barcode => 'Onnka idanimo oja';
 
   @override
   String barcode_barcode(String barcode) {
-    return 'Kóòdù Ààrò: $barcode';
+    return 'Barcode: $barcode';
   }
 
   @override
-  String get barcode_invalid_error => 'Káàdì àmì tí kò tọ́';
+  String get barcode_invalid_error => 'Invalid barcode';
 
   @override
-  String get basic_details_add_success =>
-      'Àwọn àlàyé ìpìlẹ̀ ni a fi kún ní àṣeyọrí';
+  String get basic_details_add_success => 'Basic details added successfully';
 
   @override
   String get basic_details_add_error =>
-      'A ko le fi awọn alaye ipilẹ kun. Jọwọ gbiyanju lẹẹkansii lẹhin akoko diẹ';
+      'Unable to add basic details. Please try again after some time';
 
   @override
-  String get clear_search => 'Pa wiwa rẹ rẹ́';
+  String get clear_search => 'Clear your search';
 
   @override
   String get confirm_clear =>
-      'O ti fẹ́rẹ̀ pa gbogbo ìtàn rẹ rẹ́: ṣé ó dá ọ lójú pé o fẹ́ tẹ̀síwájú?';
+      'You\'re about to clear your entire history: are you sure you want to continue?';
 
   @override
   String get alert_clear_selected_user_list =>
@@ -3448,117 +3383,116 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String confirm_clear_user_list(String name) {
-    return 'O ti fẹ́rẹ̀ pa àkójọ yìí rẹ́ ($name): ṣé ó dá ọ lójú pé o fẹ́ tẹ̀síwájú?';
+    return 'You\'re about to clear this list ($name): are you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_title => 'Pa àkójọ náà rẹ́?';
+  String get confirm_delete_user_list_title => 'Delete the list?';
 
   @override
   String confirm_delete_user_list_message(String name) {
-    return 'O ti fẹ́rẹ̀ pa àkójọ náà \"$name\" rẹ́.\nṢé ó dá ọ lójú pé o fẹ́ tẹ̀síwájú?';
+    return 'You\'re about to delete the list \"$name\".\nAre you sure you want to continue?';
   }
 
   @override
-  String get confirm_delete_user_list_button => 'Bẹ́ẹ̀ni, mo jẹ́rìí sí i';
+  String get confirm_delete_user_list_button => 'Yes, I confirm';
 
   @override
   String importance_label(String name, String id) {
-    return '$name pàtàkì: $id';
+    return '$name importance: $id';
   }
 
   @override
-  String get user_list_all_title => 'Àwọn Àkójọ';
+  String get user_list_all_title => 'Lists';
 
   @override
-  String get user_list_all_empty => 'Ṣẹ̀dá àkójọ àkọ́kọ́ rẹ';
+  String get user_list_all_empty => 'Create your first list';
 
   @override
-  String get product_list_select => 'Yan àkójọ kan';
+  String get product_list_select => 'Select a list';
 
   @override
   String user_list_length(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count àwọn ọjà',
-      one: 'Ọjà kan',
-      zero: 'Àkójọ òfo',
+      other: '$count products',
+      one: 'One product',
+      zero: 'Empty list',
     );
     return '$_temp0';
   }
 
   @override
-  String get add_list_label => 'Fi àkójọ kún un';
+  String get add_list_label => 'Add list';
 
   @override
-  String get open_food_preferences_tooltip =>
-      'Ṣe àtúnṣe àwọn ohun tí o fẹ́ fún oúnjẹ rẹ';
+  String get open_food_preferences_tooltip => 'Edit your food preferences';
 
   @override
-  String get add_photo_button_label => 'Fi fọ́tò kún un';
+  String get add_photo_button_label => 'Add photo';
 
   @override
   String get add_packaging_photo_button_label =>
-      'Ya awọn fọto ti eyikeyi alaye nipa apoti/atunlo';
+      'Take photos of any packaging/recycling information';
 
   @override
   String get add_origin_photo_button_label =>
-      'Ya awọn fọto ti eyikeyi alaye ipilẹṣẹ';
+      'Take photos of any origin information';
 
   @override
   String get add_emb_photo_button_label =>
-      'Ya àwọn fọ́tò èyíkéyìí ìwífún nípa kódì ìtọ́pasẹ̀';
+      'Take photos of any traceability code information';
 
   @override
   String get add_label_photo_button_label =>
-      'Ya awọn fọto ti eyikeyi awọn aami ati alaye iwe-ẹri';
+      'Take photos of any labels & certifications information';
 
   @override
-  String get choose_image_source_title => 'Yan orísun àwòrán';
+  String get choose_image_source_title => 'Choose image source';
 
   @override
-  String get choose_image_source_body => 'Jọ̀wọ́ yan orísun àwòrán kan';
+  String get choose_image_source_body => 'Please choose a image source';
 
   @override
-  String get gallery_source_label => 'Àwòrán ibi ìkópamọ́';
+  String get gallery_source_label => 'Gallery';
 
   @override
-  String get gallery_source_access_denied_dialog_title => 'Ti kọ iraye si';
+  String get gallery_source_access_denied_dialog_title => 'Access denied';
 
   @override
   String get gallery_source_access_denied_dialog_message_ios =>
-      'Ó ṣeni láàánú pé ohun èlò náà kò le wọ inú àwòrán rẹ, nítorí o ti kọ̀ láti gba àṣẹ náà tẹ́lẹ̀.\n\nJọ̀wọ́ lọ sí àwọn ètò ohun èlò nínú fóònù rẹ Ètò -> Àwọn Fọ́tò';
+      'Unfortunately, the application can\'t access your gallery, as you have previously denied the permission.\n\nPlease go to the app settings in your phone Settings -> Photos';
 
   @override
-  String get gallery_source_access_denied_dialog_button => 'Ṣii Awọn Eto';
+  String get gallery_source_access_denied_dialog_button => 'Open the Settings';
 
   @override
-  String get share => 'Pin';
+  String get share => 'Share';
 
   @override
   String share_product_text(String url) {
-    return 'Wo ọjà yìí lórí Open Food Facts: $url';
+    return 'Have a look at this product on Open Food Facts: $url';
   }
 
   @override
   String share_product_text_beauty(String url) {
-    return 'Wo ọjà yìí lórí Open Beauty Facts: $url';
+    return 'Have a look at this product on Open Beauty Facts: $url';
   }
 
   @override
   String share_product_text_pet_food(String url) {
-    return 'Wo ọjà yìí lórí Open PetFood Facts: $url';
+    return 'Have a look at this product on Open PetFood Facts: $url';
   }
 
   @override
   String share_product_text_product(String url) {
-    return 'Wo ọjà yìí lórí Àwọn Ìròyìn Àwọn Ọjà Ṣíṣí: $url';
+    return 'Have a look at this product on Open Products Facts: $url';
   }
 
   @override
   String share_product_list_text(String url) {
-    return 'Wo àkójọ àwọn ọjà mi lórí Open Food Facts: $url';
+    return 'Have a look at my list of products on Open Food Facts: $url';
   }
 
   @override
@@ -3568,15 +3502,15 @@ class AppLocalizationsYo extends AppLocalizations {
   String get capture_new_picture => 'Ya aworan kan';
 
   @override
-  String get choose_from_gallery => 'Yan lati inu ibi aworan aworan';
+  String get choose_from_gallery => 'Choose from gallery';
 
   @override
   String get image_upload_queued =>
-      'A o gbe aworan naa si abẹlẹ ni kete bi o ti ṣee.';
+      'The image will be uploaded in the background as soon as possible.';
 
   @override
   String get add_price_queued =>
-      'A o fi owo naa ranṣẹ si olupin naa ni kete bi o ti ṣee.';
+      'The price will be sent to the server as soon as possible.';
 
   @override
   String get background_task_title_full_refresh =>
@@ -3584,158 +3518,156 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get background_task_title_folksonomy =>
-      'Bibẹrẹ lati ṣe awọn iṣe olupin fun awọn imudojuiwọn folksonomy ti o fipamọ ni agbegbe';
+      'Starting to perform the server actions for folksonomy updates stored locally';
 
   @override
   String get background_task_title_top_n =>
-      'Bibẹrẹ igbasilẹ ti awọn ọja olokiki julọ';
+      'Starting the download of the most popular products';
 
   @override
-  String get expand_nutrition_facts => 'Fẹ̀ sí tábìlì òtítọ́ oúnjẹ';
+  String get expand_nutrition_facts => 'Expand nutrition facts table';
 
   @override
   String get expand_nutrition_facts_body =>
-      'Jẹ́ kí tábìlì àwọn òtítọ́ oúnjẹ fẹ̀ sí i';
+      'Keep the nutrition facts table expanded';
 
   @override
-  String get expand_ingredients => 'Fẹ̀ síi àwọn èròjà';
+  String get expand_ingredients => 'Expand ingredients';
 
   @override
-  String get expand_ingredients_body =>
-      'Jẹ́ kí àwọn èròjà tó wà ní ojú òpó wẹ́ẹ̀bù náà fẹ̀ sí i';
+  String get expand_ingredients_body => 'Keep the ingredients panel expanded';
 
   @override
-  String get no_internet_connection => 'Ko si asopọ intanẹẹti';
+  String get no_internet_connection => 'No internet connection';
 
   @override
-  String get world_results_label => 'Gbogbo agbaye';
+  String get world_results_label => 'Entire world';
 
   @override
-  String get world_results_action => 'Fa wiwa rẹ si gbogbo agbaye';
+  String get world_results_action => 'Extend your search to the world';
 
   @override
-  String get copy_to_clipboard => 'Dáakọ';
+  String get copy_to_clipboard => 'Copy';
 
   @override
-  String get paste_from_clipboard => 'Lẹ́ẹ̀mọ́ láti inú àtẹ ìtẹ̀wé';
+  String get paste_from_clipboard => 'Paste from clipboard';
 
   @override
   String get no_data_available_in_clipboard =>
-      'Ko si data ti o wa ninu agekuru fidio rẹ';
+      'No data available in your clipboard';
 
   @override
-  String get clipboard_barcode_copy => 'Daakọ koodu barcode si agekuru fidio';
+  String get clipboard_barcode_copy => 'Copy barcode to clipboard';
 
   @override
   String clipboard_barcode_copied(Object barcode) {
-    return 'Àwòkọ ìpamọ́ $barcode sí àtẹ ìpamọ́!';
+    return 'Barcode $barcode copied to the clipboard!';
   }
 
   @override
-  String get open_product_website => 'Ṣí ọjà yìí lórí ojú-òpó wẹ́ẹ̀bù náà';
+  String get open_product_website => 'Open this product on the website';
 
   @override
-  String get language_picker_label => 'Èdè rẹ';
+  String get language_picker_label => 'Your language';
 
   @override
-  String get country_picker_label => 'Orílẹ̀-èdè rẹ';
+  String get country_picker_label => 'Your country';
 
   @override
-  String get currency_picker_label => 'Owó rẹ';
+  String get currency_picker_label => 'Your currency';
 
   @override
-  String get help_with_openfoodfacts => 'Ìrànlọ́wọ́ pẹ̀lú OpenFoodFacts';
+  String get help_with_openfoodfacts => 'Help with OpenFoodFacts';
 
   @override
   String get product_task_background_schedule =>
-      'A o ṣe imudojuiwọn ọja naa ni abẹlẹ ni kete bi o ti ṣee.';
+      'The product will be updated in the background as soon as possible.';
 
   @override
-  String get no_email_client_available_dialog_title =>
-      'Ko si awọn ohun elo imeeli!';
+  String get no_email_client_available_dialog_title => 'No email apps!';
 
   @override
   String get no_email_client_available_dialog_content =>
-      'Jọ̀wọ́ fi ìméèlì ránṣẹ́ sí wa pẹ̀lú ọwọ́ sí mobile@openfoodfacts.org';
+      'Please send us manually an email to mobile@openfoodfacts.org';
 
   @override
-  String get all_images => 'Gbogbo Àwọn Àwòrán';
+  String get all_images => 'All Images';
 
   @override
-  String get selected_images => 'Àwọn Àwòrán Tí A Yàn';
+  String get selected_images => 'Selected Images';
 
   @override
-  String get product_card_remove_product_tooltip => 'Yọ ọja kuro';
+  String get product_card_remove_product_tooltip => 'Remove product';
 
   @override
   String scan_announce_new_barcode(String barcode) {
-    return 'Àwòrán àmì-ẹ̀rọ tuntun: $barcode';
+    return 'New barcode scanned: $barcode';
   }
 
   @override
   String get scan_header_clear_button_tooltip =>
-      'Yọ gbogbo awọn ọja kuro ninu karosel';
+      'Remove all products from the carousel';
 
   @override
   String get scan_header_compare_button_invalid_state_tooltip =>
-      'Jọ̀wọ́ ṣe àyẹ̀wò ó kéré tán ọjà méjì láti fi wọ́n wéra';
+      'Please scan at least two products to compare them';
 
   @override
   String get scan_header_compare_button_valid_state_tooltip =>
-      'Tẹ lati fi awọn ọja ti o ti ṣayẹwo ṣe afiwe';
+      'Click to compare the products you have scanned';
 
   @override
-  String get scan_product_loading => 'O ti ṣe àyẹ̀wò\nàmì ìdámọ̀ràn náà:';
+  String get scan_product_loading => 'You have scanned\nthe barcode:';
 
   @override
   String get scan_product_loading_initial =>
-      'A n wa ọjà yii!\nJọwọ duro fun awọn iṣẹju diẹ…';
+      'We\'re looking for this product!\nPlease wait a few seconds…';
 
   @override
   String get scan_product_loading_long_request =>
-      'A si n wa ọja yii!\nṢe o rii pe o gba akoko pipẹ lati gbe e? Bakanna ni a ṣe…';
+      'We\'re still looking for this product!\nDo you find it takes a long time to load? So are we…';
 
   @override
   String get scan_product_loading_unresponsive =>
-      'A si n wa ọja yii.\nṢe o fẹ lati tun bẹrẹ wiwa naa?';
+      'We\'re still looking for this product.\nWould you like to restart the search?';
 
   @override
-  String get scan_product_loading_restart_button => 'Tun wiwa bẹrẹ';
+  String get scan_product_loading_restart_button => 'Restart search';
 
   @override
   String get portion_calculator_description =>
-      'Ṣe iṣirò awọn otitọ ounjẹ fun iye kan pato';
+      'Calculate nutrition facts for a specific quantity';
 
   @override
-  String get portion_calculator_hint => 'Iye ni';
+  String get portion_calculator_hint => 'Quantity in';
 
   @override
   String get portion_calculator_accessibility =>
-      'Tẹ iye sii lati ṣe iṣiro awọn otitọ ounjẹ';
+      'Input a quantity to calculate nutrition facts';
 
   @override
   String portion_calculator_error(int min, int max) {
-    return 'Jọ̀wọ́ tẹ iye kan láàrín $min àti $max g';
+    return 'Please enter a quantity between $min and $max g';
   }
 
   @override
   String get portion_calculator_computation_error =>
-      'Dátà tí ó sọnù. A kò le ṣe ìṣirò.';
+      'Missing data. Calculation could not be performed.';
 
   @override
   String portion_calculator_result_title(int grams) {
-    return 'Àwọn kókó nípa oúnjẹ fún $grams g (tàbí milimita)';
+    return 'Nutrition facts for $grams g (or ml)';
   }
 
   @override
-  String get offline_data => 'Dátà Àìsí-à ...ẹ̀rọ';
+  String get offline_data => 'Offline Data';
 
   @override
   String get ocr_image_upload_instruction =>
-      'Gbe aworan kan soke lati yọ alaye ti o wa ninu rẹ kuro laifọwọyi.';
+      'Upload an image to automatically extract the information it contains.';
 
   @override
-  String get upload_image => 'Gbe Fọto soke';
+  String get upload_image => 'Upload Photo';
 
   @override
   String get word_separator_char => ',';
@@ -3744,350 +3676,348 @@ class AppLocalizationsYo extends AppLocalizations {
   String get word_separator => ', ';
 
   @override
-  String get image_download_error => 'Kò ṣeé ṣe láti gba àwòrán láti ìgbàsílẹ̀';
+  String get image_download_error => 'Failed to download image';
 
   @override
   String get image_edit_url_error =>
-      'Kò ṣeé ṣe láti ṣàtúnṣe àwòrán náà nítorí pé a kò ṣètò URL àwòrán náà.';
+      'Failed to edit image because the image URL was not set.';
 
   @override
-  String get user_picture_source_remember => 'Ẹ rántí àṣàyàn mi';
+  String get user_picture_source_remember => 'Remember my choice';
 
   @override
-  String get user_picture_source_ask => 'Beere ni gbogbo igba';
+  String get user_picture_source_ask => 'Ask each time';
 
   @override
-  String get robotoff_continue => 'Tẹ̀síwájú';
+  String get robotoff_continue => 'Continue';
 
   @override
   String robotoff_next_n_questions(num count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count ìbéèrè',
-      one: 'ìbéèrè',
+      other: '$count questions',
+      one: 'question',
     );
-    return 'Tókàn $_temp0';
+    return 'Next $_temp0';
   }
 
   @override
-  String get show_password => 'Fi Ọ̀rọ̀ìpamọ́ hàn';
+  String get show_password => 'Show Password';
 
   @override
-  String get owner_field_info_title => 'Olùpèsè pèsè àwọn iye';
+  String get owner_field_info_title => 'Producer provided values';
 
   @override
   String get owner_field_info_message =>
-      'Pẹ̀lú àmì ìdámọ̀ náà, a máa ń tẹnu mọ́ àwọn ìwífún tí olùpèsè náà pèsè, èyí sì lè má ṣeé ṣe àtúnṣe.';
+      'With that logo we highlight data provided by the producer, and that may not be editable.';
 
   @override
-  String get owner_field_info_close_button => 'Ti alaye yii pa';
+  String get owner_field_info_close_button => 'Close this info';
 
   @override
   String get owner_field_image =>
-      'Àwòrán yìí ni olùgbékalẹ̀ rẹ̀ pèsè. Ó lè má ṣeé ṣe àtúnṣe rẹ̀.';
+      'This image is provided by the producer. It may not be editable.';
 
   @override
-  String get edit_packagings_title => 'Àwọn ẹ̀yà ìdìpọ̀';
+  String get edit_packagings_title => 'Packaging components';
 
   @override
-  String get edit_packagings_element_add => 'Fi apa kan ninu apoti kun';
+  String get edit_packagings_element_add => 'Add a packaging component';
 
   @override
-  String get edit_packagings_completed => 'Àpò náà ti parí';
+  String get edit_packagings_completed => 'The packaging is complete';
 
   @override
   String edit_packagings_element_title(int index) {
-    return 'Àwọn ẹ̀yà ìkópamọ́ #$index';
+    return 'Packaging component #$index';
   }
 
   @override
-  String get edit_packagings_element_field_units => 'Iye awọn ẹyọ';
+  String get edit_packagings_element_field_units => 'Number of units';
 
   @override
   String get edit_packagings_element_hint_units =>
-      'Tẹ iye awọn ohun elo apoti ti o ni apẹrẹ kanna ati ohun elo ti o wa ninu ọja naa sii.';
+      'Enter the number of packaging units of the same shape and material contained in the product.';
 
   @override
-  String get edit_packagings_element_field_shape => 'Àpẹẹrẹ';
+  String get edit_packagings_element_field_shape => 'Shape';
 
   @override
   String get edit_packagings_element_hint_shape =>
-      'Tẹ orukọ apẹrẹ ti a ṣe akojọ si ninu awọn ilana atunlo ti o ba wa, tabi yan apẹrẹ kan.';
+      'Enter the shape name listed in the recycling instructions if they are available, or select a shape.';
 
   @override
-  String get edit_packagings_element_example_shape => 'Igo';
+  String get edit_packagings_element_example_shape => 'Bottle';
 
   @override
-  String get edit_packagings_element_field_material => 'Ohun èlò';
+  String get edit_packagings_element_field_material => 'Material';
 
   @override
   String get edit_packagings_element_hint_material =>
-      'Tẹ ohun èlò pàtó náà tí a bá lè pinnu rẹ̀ (a lè rí kódù ohun èlò inú onígun mẹ́ta kan lórí àwọn ẹ̀yà ìdìpọ̀), tàbí ohun èlò gbogbogbòò (fún àpẹẹrẹ ike tàbí irin) tí o kò bá dá ọ lójú.';
+      'Enter the specific material if it can be determined (a material code inside a triangle can often be found on packaging parts), or a generic material (for instance plastic or metal) if you are unsure.';
 
   @override
-  String get edit_packagings_element_example_material => 'Díìsì';
+  String get edit_packagings_element_example_material => 'Glass';
 
   @override
-  String get edit_packagings_element_field_recycling => 'Ìtọ́ni àtúnlò';
+  String get edit_packagings_element_field_recycling => 'Recycling instruction';
 
   @override
   String get edit_packagings_element_hint_recycling =>
-      'Tẹ awọn ilana atunlo nikan ti wọn ba wa lori ọja naa.';
+      'Enter recycling instructions only if they are listed on the product.';
 
   @override
-  String get edit_packagings_element_example_recycling => 'Atunlo';
+  String get edit_packagings_element_example_recycling => 'Recycle';
 
   @override
   String get edit_packagings_element_field_quantity =>
-      'Iye apapọ ti ọja fun ẹyọ kan';
+      'Net quantity of product per unit';
 
   @override
   String get edit_packagings_element_hint_quantity =>
-      'Tẹ iwọn apapọ tabi iwọn apapọ sii ki o si tọka si iwọn naa (fun apẹẹrẹ g tabi milimita).';
+      'Enter the net weight or net volume and indicate the unit (for example g or ml).';
 
   @override
   String get edit_packagings_element_field_weight =>
-      'Ìwọ̀n ẹyọ kan tí ó ṣofo (g)';
+      'Weight of one empty unit (g)';
 
   @override
   String get edit_packagings_element_hint_weight =>
-      'Yọ gbogbo oúnjẹ tó kù kúrò kí o sì fọ apá ìdìpọ̀ náà kí o tó wọ̀n ọ́n. Tí ó bá ṣeé ṣe, lo ìwọ̀n tí ó ní ìwọ̀n 0.1g tàbí 0.01g tí ó péye.';
+      'Remove any remaining food and wash and dry the packaging part before weighing. If possible, use a scale with 0.1g or 0.01g precision.';
 
   @override
-  String get background_task_title => 'Àwọn àfikún tí a ń dúró dè';
+  String get background_task_title => 'Pending contributions';
 
   @override
   String get background_task_subtitle =>
-      'Àwọn àfikún rẹ ni a máa fi pamọ́ sí olupin wa láìfọwọ́sí, ṣùgbọ́n kìí ṣe ní àkókò gidi.';
+      'Your contributions are automatically saved to our server, but not always in real-time.';
 
   @override
-  String get background_task_list_empty =>
-      'Kò sí àwọn iṣẹ́ abẹlẹ̀ tí ó ń dúró dè';
+  String get background_task_list_empty => 'No Pending Background Tasks';
 
   @override
-  String get background_task_error_server_time_out =>
-      'Àkókò tí olupin bá ti parí';
+  String get background_task_error_server_time_out => 'Server timeout';
 
   @override
   String get background_task_error_no_internet =>
-      'Àṣìṣe ìsopọ̀mọ́ra Íńtánẹ́ẹ̀tì. Gbìyànjú nígbà tó bá yá.';
+      'Internet connection error. Try later.';
 
   @override
-  String get background_task_operation_unknown => 'irú iṣẹ́ tí a kò mọ̀';
+  String get background_task_operation_unknown => 'unknown operation type';
 
   @override
-  String get background_task_operation_details => 'Àwọn àyípadà kíkúnrẹ́rẹ́';
+  String get background_task_operation_details => 'detailed changes';
 
   @override
-  String get background_task_operation_image => 'gbe fọto soke';
+  String get background_task_operation_image => 'photo upload';
 
   @override
   String get background_task_operation_refresh =>
-      'àtúnṣe dúró lẹ́yìn ìgbéjáde fọ́tò';
+      'refresh delayed after photo upload';
 
   @override
-  String get background_task_run_started => 'bẹ̀rẹ̀';
+  String get background_task_run_started => 'started';
 
   @override
-  String get background_task_run_not_started => 'kò tíì bẹ̀rẹ̀';
+  String get background_task_run_not_started => 'not started yet';
 
   @override
-  String get background_task_run_to_be_deleted => 'lati paarẹ';
+  String get background_task_run_to_be_deleted => 'to be deleted';
 
   @override
   String get background_task_question_stop =>
-      'Ṣé o fẹ́ dá iṣẹ́ náà dúró kíákíá?';
+      'Do you want to stop that task ASAP?';
 
   @override
-  String get feed_back => 'Àbájáde';
+  String get feed_back => 'Feedback';
 
   @override
-  String get undo => 'Dá a padà';
+  String get undo => 'Undo';
 
   @override
-  String get copy_email_to_clip_board => 'Da imeeli kọ si agekuru fidio';
+  String get copy_email_to_clip_board => 'Copy email to clipboard';
 
   @override
   String get please_send_us_an_email_to =>
-      'Jọwọ fi imeeli ranṣẹ si wa pẹlu ọwọ si';
+      'Please send us manually an email to';
 
   @override
-  String get email_copied_to_clip_board => 'A ti daakọ imeeli si agekuru!';
+  String get email_copied_to_clip_board => 'Email copied to clipboard!';
 
   @override
-  String get select_accent_color => 'Yan Àwọ̀ Àmì';
+  String get select_accent_color => 'Select Accent Color';
 
   @override
   String get theme_amoled => 'AMOLED';
 
   @override
-  String get color_blue => 'Búlúù';
+  String get color_blue => 'Blue';
 
   @override
-  String get color_cyan => 'Síánì';
+  String get color_cyan => 'Cyan';
 
   @override
-  String get color_green => 'Àwọ̀ ewé';
+  String get color_green => 'Green';
 
   @override
-  String get color_light_brown => 'Aiyipada';
+  String get color_light_brown => 'Default';
 
   @override
   String get color_magenta => 'Magenta';
 
   @override
-  String get color_orange => 'ọsan';
+  String get color_orange => 'Orange';
 
   @override
-  String get color_pink => 'Pinki';
+  String get color_pink => 'Pink';
 
   @override
-  String get color_red => 'Pupa';
+  String get color_red => 'Red';
 
   @override
-  String get color_rust => 'Ipata';
+  String get color_rust => 'Rust';
 
   @override
-  String get color_teal => 'Tìlì';
+  String get color_teal => 'Teal';
 
   @override
-  String get text_contrast_mode => 'Ìyàtọ̀ Ọ̀rọ̀';
+  String get text_contrast_mode => 'Text Contrast';
 
   @override
-  String get contrast_high => 'Gíga';
+  String get contrast_high => 'High';
 
   @override
-  String get contrast_medium => 'Alabọde';
+  String get contrast_medium => 'Medium';
 
   @override
-  String get contrast_low => 'Kekere';
+  String get contrast_low => 'Low';
 
   @override
-  String get product_refresher_internet_not_found => 'A kò rí ọjà náà!';
+  String get product_refresher_internet_not_found => 'Product not found!';
 
   @override
   String get product_refresher_internet_not_connected =>
-      'O ko ni asopọ si intanẹẹti!';
+      'You are not connected to internet!';
 
   @override
   String product_refresher_internet_no_ping(String? host) {
-    return 'Sẹ́fáà ti lọ sílẹ̀ ($host)';
+    return 'Server down ($host)';
   }
 
   @override
   String product_refresher_internet_error(String? exception) {
-    return 'Àṣìṣe olupin ($exception)';
+    return 'Server error ($exception)';
   }
 
   @override
-  String get product_loader_not_found_title => 'A kò rí ọjà náà!';
+  String get product_loader_not_found_title => 'Product not found!';
 
   @override
   String product_loader_not_found_message(String barcode) {
-    return 'Ọjà tí ó ní àmì ìdámọ̀ yìí kò sí nínú ibi ìpamọ́ wa: $barcode';
+    return 'A product with the following barcode doesn\'t exist in our database: $barcode';
   }
 
   @override
-  String get product_loader_network_error_title => 'Ko si asopọ intanẹẹti!';
+  String get product_loader_network_error_title => 'No internet connection!';
 
   @override
   String get product_loader_network_error_message =>
-      'Jọwọ ṣayẹwo pe foonu alagbeka rẹ wa lori nẹtiwọọki WiFi tabi pe data alagbeka ti ṣiṣẹ';
+      'Please check that your smartphone is on a WiFi network or has mobile data enabled';
 
   @override
-  String get page_not_found_title => 'A kò rí ojú ìwé náà!';
+  String get page_not_found_title => 'Page not found!';
 
   @override
-  String get page_not_found_button => 'Pada si oju-iwe oju-iwe';
+  String get page_not_found_button => 'Go back to the homepage';
 
   @override
-  String get download_data => 'Ṣe ìgbàsókè dátà';
+  String get download_data => 'Download data';
 
   @override
   String get download_top_products =>
-      'Ṣe igbasilẹ awọn ọja 1000 ti o ga julọ ni orilẹ-ede rẹ fun iwoye lẹsẹkẹsẹ';
+      'Download the top 1000 products in your country for instant scanning';
 
   @override
   String download_top_n_products(int count) {
     String _temp0 = intl.Intl.pluralLogic(
       count,
       locale: localeName,
-      other: '$count',
+      other: '$count products',
     );
-    return 'Ṣe igbasilẹ awọn ọja oke $_temp0 ni orilẹ-ede rẹ fun iwoye lẹsẹkẹsẹ';
+    return 'Download the top $_temp0 in your country for instant scanning';
   }
 
   @override
-  String get download_in_progress => 'Gbigba data\nEyi le gba akoko diẹ';
+  String get download_in_progress => 'Downloading data\nThis may take a while';
 
   @override
   String downloaded_products(int num) {
-    return 'Àwọn ọjà $num tí a fi kún';
+    return '$num products added';
   }
 
   @override
-  String get update_offline_data => 'Ṣe àtúnṣe dátà ọjà àìsísínípò';
+  String get update_offline_data => 'Update offline product data';
 
   @override
   String get update_local_database_sub =>
-      'Ṣe àtúnṣe ibi ìpamọ́ ọjà àdúgbò pẹ̀lú ìwífún tuntun láti Open Food Facts';
+      'Update the local product database with the latest data from Open Food Facts';
 
   @override
-  String get clear_local_database => 'Pa data ọjà aisinipo rẹ';
+  String get clear_local_database => 'Clear offline product data';
 
   @override
   String get clear_local_database_sub =>
-      'Pa gbogbo data ọja agbegbe rẹ rẹ́ láti inu ohun elo rẹ láti fún ààyè ní àyè';
+      'Clear all local product data from your app to free up space';
 
   @override
   String deleted_products(int num) {
-    return 'Àwọn ọjà $num tí a ti parẹ́';
+    return '$num products deleted';
   }
 
   @override
   String get loading => 'Loading…';
 
   @override
-  String get know_more => 'Mọ diẹ sii';
+  String get know_more => 'Know More';
 
   @override
-  String get offline_data_desc => 'Tẹ lati mọ diẹ sii nipa data aisinipo';
+  String get offline_data_desc => 'Click to know more about offline data';
 
   @override
-  String get offline_product_data_title => 'Dátà ọjà tí kì í ṣe ti àsíání';
+  String get offline_product_data_title => 'Offline product data';
 
   @override
   String available_for_download(int num) {
-    return 'Àwọn ọjà $num wà fún ṣíṣe àyẹ̀wò lẹ́sẹ̀kẹsẹ̀';
+    return '$num products available for immediate scaning';
   }
 
   @override
-  String get country_selector_title => 'Yan orílẹ̀-èdè rẹ:';
+  String get country_selector_title => 'Select your country:';
 
   @override
-  String get currency_selector_title => 'Yan owó rẹ:';
+  String get currency_selector_title => 'Select your currency:';
 
   @override
-  String get language_selector_title => 'Yan èdè rẹ:';
+  String get language_selector_title => 'Select your language:';
 
   @override
-  String get language_selector_section_selected => 'Àwọn èdè tí a yàn';
+  String get language_selector_section_selected => 'Selected languages';
 
   @override
-  String get language_selector_section_frequently_used => 'Lílò nígbà gbogbo';
+  String get language_selector_section_frequently_used => 'Frequently used';
 
   @override
-  String get action_delete_list => 'Paarẹ́';
+  String get action_delete_list => 'Delete';
 
   @override
-  String get action_change_list => 'Yi akojọ lọwọlọwọ pada';
+  String get action_change_list => 'Change the current list';
 
   @override
-  String get product_list_create => 'Ṣẹ̀dá';
+  String get product_list_create => 'Create';
 
   @override
-  String get product_list_create_tooltip => 'Ṣẹ̀dá àkójọ tuntun kan';
+  String get product_list_create_tooltip => 'Create a new list';
 
   @override
   String get nutriscore_generic => 'Nutri-Score';
@@ -4096,38 +4026,38 @@ class AppLocalizationsYo extends AppLocalizations {
   String get nutriscore_a => 'Nutri-Score A';
 
   @override
-  String get nutriscore_b => 'Àmì Nutri-Score B';
+  String get nutriscore_b => 'Nutri-Score B';
 
   @override
   String get nutriscore_c => 'Nutri-Score C';
 
   @override
-  String get nutriscore_d => 'Àmì Nutri-Score D';
+  String get nutriscore_d => 'Nutri-Score D';
 
   @override
   String get nutriscore_e => 'Nutri-Score E';
 
   @override
   String nutriscore_new_formula(String letter) {
-    return 'Àmì Nutri-Score $letter (Ìṣirò tuntun)';
+    return 'Nutri-Score $letter (New calculation)';
   }
 
   @override
-  String get nutriscore_new_formula_title => 'Àmì Nutri-Score (Ìṣirò tuntun)';
+  String get nutriscore_new_formula_title => 'Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_unknown => 'Àmì Nutri-Score Àìmọ̀';
+  String get nutriscore_unknown => 'Unknown Nutri-Score';
 
   @override
   String get nutriscore_unknown_new_formula =>
-      'Àmì Nutri-Score tí a kò mọ̀ (Ìṣirò tuntun)';
+      'Unknown Nutri-Score (New calculation)';
 
   @override
-  String get nutriscore_not_applicable => 'Nutri-Score ko wulo';
+  String get nutriscore_not_applicable => 'Nutri-Score is not applicable';
 
   @override
   String get nutriscore_not_applicable_new_formula =>
-      'Nutri-Score kò wúlò (Ìṣirò tuntun)';
+      'Nutri-Score is not applicable (New calculation)';
 
   @override
   String get environmental_score_generic_new => 'Green-Score';
@@ -4158,101 +4088,100 @@ class AppLocalizationsYo extends AppLocalizations {
       'Awọn ounjẹ ti a ṣe ilana Ultra - awọn ẹgbẹ NOVA';
 
   @override
-  String get nova_group_1 => 'Ẹgbẹ́ NOVA 1';
+  String get nova_group_1 => 'NOVA Group 1';
 
   @override
-  String get nova_group_2 => 'Ẹgbẹ́ NOVA 2';
+  String get nova_group_2 => 'NOVA Group 2';
 
   @override
-  String get nova_group_3 => 'Ẹgbẹ́ NOVA 3';
+  String get nova_group_3 => 'NOVA Group 3';
 
   @override
-  String get nova_group_4 => 'Ẹgbẹ́ NOVA 4';
+  String get nova_group_4 => 'NOVA Group 4';
 
   @override
-  String get nova_group_unknown => 'Ẹgbẹ́ NOVA tí a kò mọ̀';
+  String get nova_group_unknown => 'Unknown NOVA Group';
 
   @override
-  String get nutrition_facts => 'Awọn Ipele Ounjẹ';
+  String get nutrition_facts => 'Nutrient Levels';
 
   @override
-  String get faq_title_partners =>
-      'Àwọn alábáṣiṣẹpọ̀ àti àwọn alábáṣiṣẹpọ̀ ti NGO';
+  String get faq_title_partners => 'Partners & Patrons of the NGO';
 
   @override
   String get faq_title_vision =>
-      'Ìran, Iṣẹ́ Àkànṣe, Àwọn Ìwà àti Àwọn Ètò Oúnjẹ Tí Ó Ṣí Sílẹ̀';
+      'The Open Food Facts Vision, Mission, Values and Programs';
 
   @override
   String get faq_title_install_beauty =>
-      'Fi Open Beauty Facts sori ẹrọ lati ṣẹda ibi ipamọ data ohun ikunra kan';
+      'Install Open Beauty Facts to create a cosmetic database';
 
   @override
   String get faq_title_install_pet =>
-      'Fi Open Pet Food Facts sori ẹrọ lati ṣẹda ibi ipamọ data ounjẹ ẹranko kan';
+      'Install Open Pet Food Facts to create a pet food database';
 
   @override
   String get faq_title_install_product =>
-      'Fi Awọn Ọja Ṣiṣi sii Awọn Otitọ lati ṣẹda ibi ipamọ data ọja lati fa igbesi aye awọn ohun kan gun';
+      'Install Open Products Facts to create a products database to extend the life of objects';
 
   @override
   String get faq_nutriscore_nutriscore =>
-      'Iṣiro tuntun ti Nutri-Score: kini tuntun?';
+      'New calculation of the Nutri-Score: what\'s new?';
 
   @override
   String get contact_title_pro_page =>
-      'Àbí? Kó àwọn ọjà rẹ wọlé sínú Àwọn Ìròyìn Oúnjẹ Ṣíṣí';
+      'Pro? Import your products in Open Food Facts';
 
   @override
-  String get contact_title_pro_email => 'Olùbáṣepọ̀ Olùpèsè';
+  String get contact_title_pro_email => 'Producer Contact';
 
   @override
-  String get contact_title_press_page => 'Oju-iwe Tẹ';
+  String get contact_title_press_page => 'Press Page';
 
   @override
-  String get contact_title_press_email => 'Tẹ Olubasọrọ';
+  String get contact_title_press_email => 'Press Contact';
 
   @override
   String get contact_title_newsletter => 'Subscribe to our newsletter';
 
   @override
-  String get contact_title_calendar => 'Ṣe alabapin si kalẹnda agbegbe wa';
+  String get contact_title_calendar => 'Subscribe to our community calendar';
 
   @override
-  String get hunger_games_loading_line1 => 'Jọ̀wọ́ fún wa ní ìṣẹ́jú díẹ̀…';
+  String get hunger_games_loading_line1 => 'Please give us a few seconds…';
 
   @override
-  String get hunger_games_loading_line2 => 'A n gba awọn ibeere naa silẹ!';
+  String get hunger_games_loading_line2 => 'We\'re downloading the questions!';
 
   @override
   String get hunger_games_error_label =>
-      'Ó ṣe é ṣe! Nǹkan kan ṣe àṣìṣe… a kò sì lè gbé àwọn ìbéèrè náà sórí ìkànnì.';
+      'Argh! Something went wrong… and we couldn\'t load the questions.';
 
   @override
-  String get hunger_games_error_retry_button => 'Ẹ jẹ́ ká tún gbìyànjú!';
+  String get hunger_games_error_retry_button => 'Let\'s retry!';
 
   @override
-  String get reorder_attribute_action => 'Ṣe àtúntò àwọn ànímọ́ náà';
+  String get reorder_attribute_action => 'Reorder the attributes';
 
   @override
   String get link_cant_be_opened =>
-      'A ko le ṣi ọna asopọ yii lori ẹrọ rẹ. Jọwọ ṣayẹwo pe o ti fi ẹrọ aṣawakiri sori ẹrọ rẹ.';
+      'This link can\'t be opened on your device. Please check that you have a browser installed.';
 
   @override
   String knowledge_panel_page_title_no_title(String productName) {
-    return 'Àwọn ẹ̀kúnrẹ́rẹ́ fún $productName';
+    return 'Details for $productName';
   }
 
   @override
   String knowledge_panel_page_title(String pageName, String productName) {
-    return 'Àwọn ẹ̀kúnrẹ́rẹ́ fún $pageName pẹ̀lú $productName';
+    return 'Details for $pageName with $productName';
   }
 
   @override
   String get guide_title => 'Guide';
 
   @override
-  String get guide_share_label => 'Pin';
+  String get guide_share_label => 'Share';
 
   @override
   String get guide_nutriscore_v2_title =>
@@ -4334,15 +4263,15 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_nutriscore_v2_where_title =>
-      'Nibo ni a le rii iṣiro Nutri-Score tuntun?';
+      'Where to find the new Nutri-Score calculation?';
 
   @override
   String get guide_nutriscore_v2_where_paragraph1 =>
-      'A lo Nutri-Score ni awọn orilẹ-ede meje: France, Germany, Belgium, Spain, Luxembourg, Netherlands ati Switzerland.';
+      'The Nutri-Score is applied in 7 countries: France, Germany, Belgium, Spain, Luxembourg, the Netherlands and Switzerland.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph2 =>
-      'Àwọn olùṣelọpọ ní ó kéré tán **ọdún méjì** lẹ́yìn ìfọwọ́sí àṣẹ náà **láti rọ́pò** ìṣirò àtijọ́ pẹ̀lú èyí tuntun.';
+      'Manufacturers have at most **2 years** at the latest after the signature of the decree **to replace** the old calculation with the new one.';
 
   @override
   String get guide_nutriscore_v2_where_paragraph3 =>
@@ -4451,7 +4380,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_intro =>
-      'Láti san ẹ̀san fún àwọn ọjà tó dára jù láàárín ẹ̀ka kan, a ó lo **àwọn àfikún àti ìyà tó dá lórí ọ̀pọ̀lọpọ̀ ìlànà**:';
+      'To reward better products within a category, we then apply **bonuses & penalties based on several criterion**:';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_title =>
@@ -4459,7 +4388,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg1_text =>
-      'A máa fún àwọn ọjà tí wọ́n ní àmì ìpamọ́, àmì ìpamọ́ tàbí ìwé ẹ̀rí tí ó ń ṣe ìdánilójú àwọn àǹfààní àyíká** (ẹ̀dá oníwà, ìṣòwò tí ó tọ́, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
+      'A **bonus** is awarded to products that have an **official label, a label or a certification that guarantees environmental benefits** (organic, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_title =>
@@ -4467,7 +4396,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg2_text =>
-      'A máa ń fúnni ní **èrè** ní ìbámu pẹ̀lú ibi tí àwọn èròjà náà ti wá. Ẹ̀bùn yìí gba **ipa lórí ìrìnnà** àti **ìlànà àyíká** ti orílẹ̀-èdè olùpèsè kọ̀ọ̀kan rò.';
+      'A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer\'s country.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_title =>
@@ -4475,14 +4404,14 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_greenscore_bonuses_penalties_arg3_text =>
-      'A máa ń fún àwọn ọjà tí ó ní àwọn èròjà tí ó ní **ipa búburú lórí onírúurú ẹ̀dá alààyè àti àwọn ètò àyíká**, bí epo ọ̀pẹ, tí ìṣẹ̀dá rẹ̀ ló fa pípa igbó run.';
+      'A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_title => 'Packaging';
 
   @override
   String get guide_greenscore_bonuses_penalties_arg4_text =>
-      'A ṣírò **ìjìyà** láti fi ṣe àkíyèsí **yíká àpótí** (lílo àwọn ohun èlò tí a tún ṣe àtúnlò àti ṣíṣe àtúnlò) àti ìdìpọ̀ ju bó ṣe yẹ lọ.';
+      'A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.';
 
   @override
   String get guide_greenscore_transparency_title =>
@@ -4490,19 +4419,19 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_greenscore_transparency_intro1 =>
-      'Láti ṣírò Àmì Àwọ̀ Ewé dáadáa, ó ṣe pàtàkì láti ní **ìròyìn tí a kò sọ pàtó lórí àpótí náà** (bí orísun àti ìpín ọgọ́rùn-ún pàtó ti èròjà kọ̀ọ̀kan) tàbí èyí tí a kò lè rí ní ọ̀nà tí a lè lò (bí àkójọ gbogbo àwọn èròjà inú àpótí náà pẹ̀lú àwọn irú ṣiṣu pàtó tí a lò).';
+      'To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).';
 
   @override
   String get guide_greenscore_transparency_intro2 =>
-      '**A maa n lo iye apapọ nigbati alaye yii ko ba si nibe**, sugbon a n ke si gbogbo eniyan bayi lati ran wa lowo lati ko alaye yi jo eyi ti yoo wulo pupo fun Green-Score sugbon fun opolopo awon lilo miiran.';
+      '**Average values are used when this information is not yet available**, but we are now calling on everyone to help us collect this information which will be very useful for the Green-Score but also for many other uses.';
 
   @override
   String get guide_greenscore_transparency_arg1_title =>
-      'Báwo ni àwọn ará ìlú ṣe lè ran àwọn ènìyàn lọ́wọ́?';
+      'How citizens can help?';
 
   @override
   String get guide_greenscore_transparency_arg1_text =>
-      'Gbogbo àwọn ará ìlú lè ràn wá lọ́wọ́ láti kó àwọn ìwífún tó wà lórí àwọn ọjà tàbí èyí tí a lè rí gbà láti inú wọn jọ àti láti ṣètò wọn, bí ìwífún nípa **àpò**: \"Iṣẹ́ Àkànṣe\": àkójọpọ̀ ìṣọ̀kan ìdìpọ̀ fún gbogbo oúnjẹ (ní èdè Faransé).';
+      'All citizens can help us gather and structure the information that is present on products or that can be deduced from them, such as information on **packaging**: \"Mission Emballages\": a large-scale collaborative inventory of packaging for all food products (in French).';
 
   @override
   String get guide_greenscore_transparency_arg2_title =>
@@ -4554,7 +4483,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_nova_what_is_nova_paragraph1 =>
-      'Àwọn ẹgbẹ́ NOVA ń sọ fún ọ nípa **ìpele ìṣiṣẹ́ oúnjẹ**.';
+      'The NOVA groups inform you about **the level of food processing**.';
 
   @override
   String get guide_nova_what_is_nova_paragraph2 =>
@@ -4576,28 +4505,28 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_nova_groups_arg1_text =>
-      'Àwọn oúnjẹ tí a kò tíì ṣe àgbékalẹ̀ (tàbí àdánidá) ni àwọn ẹ̀yà ara ewéko tí a lè jẹ** (irúgbìn, èso, ewé, igi, gbòǹgbò) **tàbí ẹranko** (iṣan, ìgbẹ́, ẹyin, wàrà), àti ewéko, ewéko, àti omi, lẹ́yìn tí a bá ti yà wọ́n sọ́tọ̀ kúrò nínú ìṣẹ̀dá.';
+      'Unprocessed (or natural) foods are the **edible parts of plants** (seeds, fruits, leaves, stems, roots) **or animals** (muscle, offal, eggs, milk), as well as fungi, algae, and water, after being separated from nature.';
 
   @override
   String get guide_nova_groups_arg2_title => 'Processed culinary ingredients';
 
   @override
   String get guide_nova_groups_arg2_text =>
-      'Àwọn èròjà oúnjẹ tí a ti ṣe iṣẹ́ àgbékalẹ̀, bíi **epo, bọ́tà, sùgà, àti iyọ̀**, jẹ́ àwọn èròjà tí a rí láti inú oúnjẹ Ẹgbẹ́ 1 tàbí láti inú ìṣẹ̀dá nípasẹ̀ àwọn ìlànà tí ó ní nínú títẹ̀, àtúnṣe, lílọ, lílọ, àti gbígbẹ.';
+      'Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from Group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.';
 
   @override
   String get guide_nova_groups_arg3_title => 'Processed foods';
 
   @override
   String get guide_nova_groups_arg3_text =>
-      'Àwọn oúnjẹ tí a ti ṣe iṣẹ́, bí ewébẹ̀ tí a fi sínú ìgò, ẹja inú agolo, èso nínú omi ṣuga, wàràkàṣì, àti búrẹ́dì tuntun, ni a sábà máa ń ṣe nípa fífi iyọ̀, epo, sùgà, tàbí àwọn nǹkan mìíràn láti inú oúnjẹ Ẹgbẹ́ 2 sí Ẹgbẹ́ 1*. Àwọn iṣẹ́ náà ní onírúurú ọ̀nà ìtọ́jú tàbí sísè oúnjẹ, àti ní ti búrẹ́dì àti wàràkàṣì, ìpara tí kò ní ọtí. Ọ̀pọ̀lọpọ̀ oúnjẹ tí a ti ṣe iṣẹ́ ní àwọn èròjà méjì tàbí mẹ́ta, a sì lè dá wọn mọ̀ gẹ́gẹ́ bí àwọn oúnjẹ Ẹgbẹ́ 1 tí a ti ṣe àtúnṣe. A lè jẹ wọ́n fúnra wọn tàbí, ní gbogbogbòò, ní ìdàpọ̀ pẹ̀lú àwọn oúnjẹ mìíràn.';
+      'Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to Group 1** foods. Processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. Most processed foods have two or three ingredients and are recognizable as modified versions of Group 1 foods. They can be eaten on their own or, more commonly, in combination with other foods.';
 
   @override
   String get guide_nova_groups_arg4_title => 'Ultra-processed foods';
 
   @override
   String get guide_nova_groups_arg4_text =>
-      'Àwọn oúnjẹ tí a ti ṣe iṣẹ́ ọnà rẹ̀ dáadáa, bíi ohun mímu dídùn, àwọn oúnjẹ dídùn tàbí oúnjẹ dídùn tí a ti dì sínú àpótí, àwọn oúnjẹ ẹran tí a ti ṣe àtúnṣe, àti àwọn oúnjẹ dídì tí a ti sè tẹ́lẹ̀, **kì í ṣe oúnjẹ tí a ti ṣe àtúnṣe nìkan, ṣùgbọ́n àwọn oúnjẹ tí a ṣe ní pàtàkì tàbí pátápátá láti inú àwọn ohun èlò tí a ti rí láti inú oúnjẹ àti àwọn àfikún**, pẹ̀lú oúnjẹ Ẹgbẹ́ 1 díẹ̀ tàbí kò sí ní ìparẹ́. Àwọn èròjà inú àwọn oúnjẹ wọ̀nyí sábà máa ń ní àwọn tí a tún rí nínú àwọn oúnjẹ tí a ti ṣe iṣẹ́ ọnà, bíi súgà, epo, ọ̀rá, tàbí iyọ̀. Síbẹ̀síbẹ̀, àwọn oúnjẹ tí a ti ṣe iṣẹ́ ọnà rẹ̀ dáadáa tún ní àwọn orísun agbára àti àwọn èròjà oúnjẹ mìíràn tí a kò sábà máa ń lò nínú àwọn oúnjẹ tí a ti ṣe oúnjẹ tààrà. Àwọn kan lára wọn ni a yọ jáde tààrà láti inú oúnjẹ, bíi casein, lactose, whey, àti gluten.';
+      'Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact Group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. However, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. Some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.';
 
   @override
   String get guide_nova_explanations_title =>
@@ -4609,7 +4538,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg1_text =>
-      'Ọ̀pọ̀lọpọ̀ ni a mú wá láti inú ìtọ́jú síwájú sí i ti àwọn èròjà oúnjẹ**, bí àwọn epo hydrogenated tàbí interified, hydrolyzed protein, soy protein isolate, maltodextrin, invert sugar, àti high-fructose corn syrup.';
+      'Many are **derived from further processing of food constituents**, such as hydrogenated or interesterified oils, hydrolyzed proteins, soy protein isolate, maltodextrin, invert sugar, and high-fructose corn syrup.';
 
   @override
   String get guide_nova_explanations_arg2_title =>
@@ -4617,14 +4546,14 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg2_text =>
-      'Àwọn afikún oúnjẹ tí a ti ṣe àtúnṣe púpọ̀ ní àwọn kan tí a tún ń lò nínú oúnjẹ tí a ti ṣe àtúnṣe, bí àwọn ohun ìpamọ́, àwọn antioxidants, àti àwọn ohun ìdúróṣinṣin. Àwọn ẹ̀yà afikún tí a rí nínú àwọn ọjà tí a ti ṣe àtúnṣe púpọ̀ nìkan ni àwọn tí a ń lò láti fara wé tàbí láti mú kí àwọn ànímọ́ ìmọ̀lára oúnjẹ pọ̀ sí i tàbí láti fi àwọn apá tí kò dùn mọ́ni nínú ọjà ìkẹyìn pamọ́**. Àwọn afikún wọ̀nyí ní àwọn àwọ̀ àti àwọn àwọ̀ mìíràn, àwọn ohun ìdúróṣinṣin àwọ̀; àwọn adùn, àwọn ohun ìdúróṣinṣin adùn, àwọn ohun dídùn tí kì í ṣe sùgà; àti àwọn ohun ìrànwọ́ ìṣiṣẹ́ bíi carbonating, firming, bulking àti anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, àti humectants.';
+      'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.';
 
   @override
   String get guide_nova_explanations_arg3_title => 'Ṣiṣeto o ko le ṣe ni ile';
 
   @override
   String get guide_nova_explanations_arg3_text =>
-      '**Ọ̀pọ̀lọpọ̀ ìtẹ̀léra iṣẹ́ ni a lò** láti so àwọn èròjà pọ̀ kí a sì ṣẹ̀dá ọjà ìkẹyìn (nítorí náà a ti sọ pé ó jẹ́ “a ti ṣe àtúnṣe púpọ̀”. Àwọn ìlànà náà ní ọ̀pọ̀lọpọ̀ **láìsí àwọn ohun tí ó jọra nílé**, bíi hydrogenation àti hydrolysation, extrusion àti molding, àti pre-processing fún dídín.';
+      '**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence \'ultra-processed\'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.';
 
   @override
   String get guide_nova_explanations_arg4_title =>
@@ -4632,105 +4561,104 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_nova_explanations_arg4_text =>
-      '**Ète gbogbogbòò ti iṣẹ́-ṣíṣe-pupọ ni lati ṣẹ̀dá awọn ounjẹ ti a ṣe ni ami iyasọtọ**, **rọrun** (ti o pẹ, ti o ṣetan lati jẹ), **fanimọra** (ti o dùn pupọ) ati **ti o ni ere pupọ** (awọn eroja ti o gbowolori) ti a ṣe apẹrẹ lati yọ gbogbo awọn ẹgbẹ ounjẹ miiran kuro. Awọn ọja ounjẹ ti a ṣe ilana pupọ julọ ni a maa n di ni apopọ daradara ati tita ni kikun.';
+      '**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.';
 
   @override
-  String get guide_nova_explanations_arg5_title => 'Ewu ilera kan';
+  String get guide_nova_explanations_arg5_title => 'A health hazard';
 
   @override
   String get guide_nova_explanations_arg5_text =>
-      'Láti ọdún 2018, pẹ̀lú NutriNet-Santé, ìsopọ̀ àkọ́kọ́ láàárín **lílo àwọn oúnjẹ tí a ti ṣe àgbékalẹ̀ púpọ̀ àti ewu tí ó pọ̀ sí i ti àrùn jẹjẹrẹ, àrùn ọkàn àti ẹ̀jẹ̀, àti àtọ̀gbẹ ni a ti tẹnumọ́**. Lónìí, ó lé ní ìwádìí 90 kárí ayé tí ó jẹ́rìí sí àwọn àwárí wọ̀nyí.\nÀwọn ìbáṣepọ̀ tí ó lágbára jùlọ níí ṣe pẹ̀lú **ìsanrajù, ikú ọkàn àti àwọn àmì ìbànújẹ́**. Lórí àwọn ọmọdé, àwọn ipa náà ni a ń rí ní pàtàkì lórí àìdọ́gba ìwọ̀n àti àìdọ́gba ọ̀rá.';
+      'Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.';
 
   @override
   String get guide_nova_explanations_arg6_title =>
-      'Àwọn orílẹ̀-èdè gbani nímọ̀ràn láti dín wọn kù';
+      'Countries recommend limiting them';
 
   @override
   String get guide_nova_explanations_arg6_text =>
-      'Àwọn orílẹ̀-èdè kan máa ń lo àwọn ẹgbẹ́ NOVA fún ìlànà oúnjẹ tàbí àfojúsùn wọn, fún àpẹẹrẹ:\n\n- **🇧🇷 Ìlànà oúnjẹ Brazil** **dámọ̀ràn láti dín lílo oúnjẹ tí a ti ṣe iṣẹ́ rẹ̀ kù** kí a sì yẹra fún oúnjẹ tí a ti ṣe iṣẹ́ rẹ̀ jù.\n\n- **🇫🇷 Àwọn góńgó ètò oúnjẹ ìlera gbogbogbòò ti France** fún ọdún 2018-2022 ni láti dín lílo oúnjẹ tí a ti ṣe iṣẹ́ rẹ̀ jù kù ní 20%**.';
+      'Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**\'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**\'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.';
 
   @override
   String get guide_nova_share_link => 'https://world-yo.openfoodfacts.org/nova';
 
   @override
-  String get guide_open_food_facts_title => 'Ẹ kú àbọ̀ sí Open Food Facts!';
+  String get guide_open_food_facts_title => 'Welcome to Open Food Facts!';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_title =>
-      'Kí ni Àwọn Ìròyìn Oúnjẹ Ìṣípayá?';
+      'What is Open Food Facts?';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph1 =>
-      'Open Food Facts jẹ́ ibi ìkópamọ́ àwọn ọjà oúnjẹ láti gbogbo àgbáyé tí a lè fọwọ́sowọ́pọ̀, tí ó jẹ́ ọ̀fẹ́**, tí ó sì jẹ́ **ọ̀fẹ́**.';
+      'Open Food Facts is a **collaborative**, **free**, and **open** database of food products from around the world.';
 
   @override
   String get guide_open_food_facts_what_is_open_food_facts_paragraph2 =>
-      'A gbagbọ pe gbogbo eniyan yẹ ki o ni iwọle si alaye nipa ohun ti wọn jẹ. Nipa gbigba data lori awọn eroja, awọn nkan ti ara korira, awọn alaye nipa ounjẹ, ati diẹ sii, **a fun awọn alabara ni agbara lati ṣe awọn yiyan ti o ni oye** ki o si wakọ ile-iṣẹ ounjẹ **si ọna ti o han gbangba**.';
+      'We believe that everyone should have access to information about what they eat. By collecting data on ingredients, allergens, nutrition facts, and more, **we empower consumers to make informed choices** and drive the food industry **toward greater transparency**.';
 
   @override
   String get guide_open_food_facts_features_title =>
-      'Àwọn Ànímọ́ ti Àwọn Ìròyìn Oúnjẹ Ṣíṣí';
+      'Features of Open Food Facts';
 
   @override
   String get guide_open_food_facts_features_arg1_title =>
-      'Gba awọn iwifunni fun awọn eroja ti ko fẹ rẹ';
+      'Get alerts for your unwanted ingredients';
 
   @override
-  String get guide_open_food_facts_tips_title =>
-      'Awọn imọran fun ṣiṣe awọn fọto nla';
+  String get guide_open_food_facts_tips_title => 'Tips for taking great photos';
 
   @override
-  String get guide_open_food_facts_tips_arg1_title => 'Àwọn tí a kò gbọ́dọ̀ ṣe';
+  String get guide_open_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_food_facts_tips_arg1_text1 =>
-      'Yẹra fún òjìji àti ìmọ́lẹ̀.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text2 =>
-      'Kò sí ọ̀rọ̀ tí kò ní àwọ̀ tàbí tí kò ní àfiyèsí.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_food_facts_tips_arg1_text3 =>
-      'Má ṣe yọ àwọn apá kan nínú ìwé náà kúrò.';
+      'Don\'t crop out parts of the text.';
 
   @override
-  String get guide_open_food_facts_tips_arg1_text4 =>
-      'Yẹra fún àwọn ìpìlẹ̀ tó kún fún iṣẹ́.';
+  String get guide_open_food_facts_tips_arg1_text4 => 'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_food_facts_tips_arg2_title => 'Àwọn ohun tí a ṣe';
+  String get guide_open_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_food_facts_tips_arg2_text1 =>
-      'Lo ìmọ́lẹ̀ tó dára, tó sì wà ní ìbámu pẹ̀lú rẹ̀.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text2 =>
-      'Rí i dájú pé ọ̀rọ̀ náà mú ṣinṣin tí ó sì ṣeé kà.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text3 =>
-      'Gba gbogbo akojọ awọn eroja.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_food_facts_tips_arg2_text4 =>
-      'Jẹ́ kí ọjà náà wà lórí ilẹ̀ tí ó tẹ́jú.';
+      'Keep the product on a flat surface.';
 
   @override
   String get guide_open_food_facts_scores_title =>
-      'Ẹ ran wa lọ́wọ́ láti kọ́ \"Wikipedia of Food\"';
+      'Help us build the \"Wikipedia of Food\"';
 
   @override
   String get guide_open_food_facts_scores_arg1_title =>
-      'Iwọn kan lori didara ounjẹ';
+      'A score on the nutritional quality';
 
   @override
   String get guide_open_food_facts_scores_arg2_title =>
-      'Àmì láti yẹra fún àwọn oúnjẹ tí a ti ṣe iṣẹ́ púpọ̀ jù';
+      'A score to avoid ultra-processed foods';
 
   @override
-  String get guide_open_food_facts_scores_arg3_title => 'Àmì fún pílánẹ́ẹ̀tì';
+  String get guide_open_food_facts_scores_arg3_title =>
+      'A score for the planet';
 
   @override
   String get guide_open_food_facts_share_link =>
@@ -4738,240 +4666,236 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_open_pet_food_facts_title =>
-      'Ẹ kú àbọ̀ sí Open Pet Food Facts!';
+      'Welcome to Open Pet Food Facts!';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_title =>
-      'Kí ni Àwọn Òtítọ́ Oúnjẹ Ẹranko Ìṣípààrọ̀?';
+      'What is Open Pet Food Facts?';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1 =>
-      'Open Pet Food Facts nà iṣẹ́ wa sí àwọn ọ̀rẹ́ wa onírun! Ó jẹ́ **ìpìlẹ̀ ìpamọ́ àwọn ọjà oúnjẹ ẹranko fún àwọn ológbò, ajá, àti àwọn ẹlẹgbẹ́ mìíràn**.';
+      'Open Pet Food Facts extends our mission to our furry friends! It\'s a **database of pet food products for cats, dogs, and other companions**.';
 
   @override
   String get guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2 =>
-      'A n kó ìwífún jọ lórí **àwọn èròjà**, **àyẹ̀wò oúnjẹ**, àti ìlànà oúnjẹ láti ran àwọn onílé ẹranko lọ́wọ́ láti yan oúnjẹ tó dára jùlọ fún àìní àwọn ẹranko wọn.';
+      'We gather information on **ingredients**, **nutritional analysis**, and feeding guidelines to help pet owners choose the best food for their animals\' needs.';
 
   @override
   String get guide_open_pet_food_facts_features_title =>
-      'Àwọn Ànímọ́ ti Ìròyìn Oúnjẹ Ẹranko Ṣíṣí';
+      'Features of Open Pet Food Facts';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_title =>
-      'Gba awọn iwifunni fun awọn eroja ti ko fẹ rẹ';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_pet_food_facts_features_arg1_paragraph1 =>
-      'Ǹjẹ́ àwọn èròjà tí ó wà nínú ohun ọ̀sìn rẹ lè fa àléjì sí? O lè ṣètò àkójọ àwọn èròjà tí ó yẹ kí o yẹra fún, nínú àpù náà!';
+      'Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_pet_food_facts_tips_title =>
-      'Awọn imọran fun ṣiṣe awọn fọto nla';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg1_title =>
-      'Àwọn tí a kò gbọ́dọ̀ ṣe';
+  String get guide_open_pet_food_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text1 =>
-      'Yẹra fún òjìji àti ìmọ́lẹ̀.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text2 =>
-      'Kò sí ọ̀rọ̀ tí kò ní àwọ̀ tàbí tí kò ní àfiyèsí.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text3 =>
-      'Má ṣe yọ àwọn apá kan nínú ìwé náà kúrò.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg1_text4 =>
-      'Yẹra fún àwọn ìpìlẹ̀ tó kún fún iṣẹ́.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_pet_food_facts_tips_arg2_title => 'Àwọn ohun tí a ṣe';
+  String get guide_open_pet_food_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text1 =>
-      'Lo ìmọ́lẹ̀ tó dára, tó sì wà ní ìbámu pẹ̀lú rẹ̀.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text2 =>
-      'Rí i dájú pé ọ̀rọ̀ náà mú ṣinṣin tí ó sì ṣeé kà.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text3 =>
-      'Gba gbogbo akojọ awọn eroja.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_pet_food_facts_tips_arg2_text4 =>
-      'Jẹ́ kí ọjà náà wà lórí ilẹ̀ tí ó tẹ́jú.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_pet_food_facts_scores_title => 'Àkọsílẹ̀ lórí ìdíyelé';
+  String get guide_open_pet_food_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_pet_food_facts_scores_paragraph1 =>
-      'Ṣíṣe ètò ìṣàyẹ̀wò fún oúnjẹ ẹranko **kì í ṣe ohun pàtàkì ní báyìí**. Ọ̀nà tí a gbà ń lò ó yóò díjú, nítorí pé àìní oúnjẹ yàtọ̀ síra gidigidi nípa irú ẹranko, ọjọ́ orí àti ipò ìlera. A kò tí ì rí ẹgbẹ́ onímọ̀ sáyẹ́ǹsì èyíkéyìí tí ó lè ṣe irú àmì bẹ́ẹ̀.';
+      'Developing a scoring system for pet food **is not a priority right now**. The methodology would be complex, as nutritional needs vary greatly by species, age, and health condition. We haven’t found any independant scientific team yet, able to develop such a score.';
 
   @override
   String get guide_open_pet_food_facts_share_link =>
       'https://world-yo.openpetfoodfacts.org/discover';
 
   @override
-  String get guide_open_beauty_facts_title => 'Kaabo si Open Beauty Facts!';
+  String get guide_open_beauty_facts_title => 'Welcome to Open Beauty Facts!';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_title =>
-      'Kí ni Àwọn Òtítọ́ Ìṣẹ̀dá Ìṣípìlẹ̀?';
+      'What is Open Beauty Facts?';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1 =>
-      'Open Beauty Facts jẹ́ ibi ìkópamọ́ ìfọwọ́sowọ́pọ̀ ti **àwọn ọjà ohun ọ̀ṣọ́**.';
+      'Open Beauty Facts is a collaborative database of **cosmetic products**.';
 
   @override
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2 =>
-      'Ète wa ni láti lóye àkójọ àwọn èròjà láti ràn ọ́ lọ́wọ́ láti *lóye ohun tó wà nínú àwọn ohun ìtọ́jú ara rẹ**. Láti àwọn ohun èlò ìtọ́jú ara sí àwọn ohun ìtọ́jú ara, a máa ń kó àwọn ìwádìí lórí àwọn èròjà, àwọn ohun tí ó lè fa àléjì, àti àwọn ohun tí a fi ń kó nǹkan jọ láti mú kí iṣẹ́ ohun ìtọ́jú ara túbọ̀ ṣe kedere.';
+      'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.';
 
   @override
-  String get guide_open_beauty_facts_features_title => 'Àwọn Ànímọ́ Ẹ̀wà Ṣíṣí';
+  String get guide_open_beauty_facts_features_title =>
+      'Features of Open Beauty Facts';
 
   @override
   String get guide_open_beauty_facts_features_arg1_title =>
-      'Gba awọn iwifunni fun awọn eroja ti ko fẹ rẹ';
+      'Get alerts for your unwanted ingredients';
 
   @override
   String get guide_open_beauty_facts_features_arg1_paragraph1 =>
-      'Ṣé o ní àléjì sí àwọn èròjà kan? Ṣé o fẹ́ yẹra fún àwọn èròjà comedogen? Ṣé o fẹ́ yẹra fún àwọn èròjà tí ó ń fa àríyànjiyàn? O lè ṣètò àkójọ àwọn èròjà ohun ọ̀ṣọ́ tí o gbọ́dọ̀ yẹra fún, nínú àpù náà!';
+      'Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!';
 
   @override
   String get guide_open_beauty_facts_tips_title =>
-      'Awọn imọran fun ṣiṣe awọn fọto nla';
+      'Tips for taking great photos';
 
   @override
-  String get guide_open_beauty_facts_tips_arg1_title =>
-      'Àwọn tí a kò gbọ́dọ̀ ṣe';
+  String get guide_open_beauty_facts_tips_arg1_title => 'Don’ts';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text1 =>
-      'Yẹra fún òjìji àti ìmọ́lẹ̀.';
+      'Avoid shadows and glare.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text2 =>
-      'Kò sí ọ̀rọ̀ tí kò ní àwọ̀ tàbí tí kò ní àfiyèsí.';
+      'No blurry or out-of-focus text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text3 =>
-      'Má ṣe yọ àwọn apá kan nínú ìwé náà kúrò.';
+      'Don\'t crop out parts of the text.';
 
   @override
   String get guide_open_beauty_facts_tips_arg1_text4 =>
-      'Yẹra fún àwọn ìpìlẹ̀ tó kún fún iṣẹ́.';
+      'Avoid busy backgrounds.';
 
   @override
-  String get guide_open_beauty_facts_tips_arg2_title => 'Àwọn ohun tí a ṣe';
+  String get guide_open_beauty_facts_tips_arg2_title => 'Do’s';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text1 =>
-      'Lo ìmọ́lẹ̀ tó dára, tó sì wà ní ìbámu pẹ̀lú rẹ̀.';
+      'Use good, even lighting.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text2 =>
-      'Rí i dájú pé ọ̀rọ̀ náà mú ṣinṣin tí ó sì ṣeé kà.';
+      'Ensure text is sharp and readable.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text3 =>
-      'Gba gbogbo akojọ awọn eroja.';
+      'Capture the entire ingredients list.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text4 =>
-      'Ya àwòrán tó bá yẹ kí o yà tí ìgò náà bá tẹ̀.';
+      'Take as many picture as need if the bottle is curved.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text5 =>
-      'O le nilo lati yọ aami naa kuro lati wo akojọ awọn eroja naa.';
+      'You might need to peel the label to see the list of ingredients.';
 
   @override
   String get guide_open_beauty_facts_tips_arg2_text6 =>
-      'Jẹ́ kí ọjà náà wà lórí ilẹ̀ tí ó tẹ́jú.';
+      'Keep the product on a flat surface.';
 
   @override
-  String get guide_open_beauty_facts_scores_title => 'Àkọsílẹ̀ lórí ìdíyelé';
+  String get guide_open_beauty_facts_scores_title => 'A note on scoring';
 
   @override
   String get guide_open_beauty_facts_scores_paragraph1 =>
-      'Láìdàbí àwọn oúnjẹ tí a ń jẹ, ayé àwọn ohun ìṣaralóge **kò ní ètò ìṣirò tí gbogbo ènìyàn mọ̀, tí ìjọba sì ń tì lẹ́yìn bíi Nutri-Score**. Àwọn ipa èròjà náà lè jẹ́ ti ara ẹni gan-an, wọ́n sì sinmi lórí irú awọ ara, àléjì, àti àníyàn ẹnìkọ̀ọ̀kan.';
+      'Unlike food products, the world of cosmetics **does not have a universally recognized, government-backed scoring system like the Nutri-Score**. Ingredient effects can be highly personal and depend on skin type, allergies, and individual concerns.';
 
   @override
   String get guide_open_beauty_facts_share_link =>
       'https://world-yo.openbeautyfacts.org/discover';
 
   @override
-  String get guide_open_prices_title => 'Kaabo si Awọn idiyele Ṣiṣi!';
+  String get guide_open_prices_title => 'Welcome to Open Prices!';
 
   @override
   String get guide_open_prices_what_is_open_prices_title =>
-      'Kí ni Àwọn Iye Owó Ṣíṣí?';
+      'What is Open Prices?';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph1 =>
-      'Open Prices jẹ́ iṣẹ́ akanṣe láti **kójọ àti pín iye owó ọjà káàkiri àgbáyé**. Ó jẹ́ ìwádìí tí gbogbo ènìyàn lè lò fún ìwádìí, ìtúpalẹ̀, àti bẹ́ẹ̀ bẹ́ẹ̀ lọ. Open Food Facts ló ṣe àgbékalẹ̀ àti tọ́jú Open Prices.';
+      'Open Prices is a project to **collect and share prices of products around the world**. It\'s a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
   String get guide_open_prices_what_is_open_prices_paragraph2 =>
       'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.';
 
   @override
-  String get guide_open_prices_how_title =>
-      'Báwo ni Àwọn Iye Owó Ṣíṣí ṣe ń ṣiṣẹ́?';
+  String get guide_open_prices_how_title => 'How does Open Prices work?';
 
   @override
   String get guide_open_prices_how_paragraph1 =>
-      '**A n pese data orisun ṣiṣi ti awọn idiyele**. Awọn olumulo le ṣafikun awọn idiyele nipasẹ ohun elo wẹẹbu yii, tabi nipasẹ ohun elo alagbeka Open Food Facts osise. Awọn oniṣowo tabi awọn ohun elo ẹni-kẹta le ṣe alabapin pẹlu nipa lilo API wa.';
+      '**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.';
 
   @override
   String get guide_open_prices_how_arg1_title =>
-      'Gba àwọn fọ́tò àwọn àmì owó ní àwọn ibi ìtajà';
+      'Collect photos of price tags in aisles';
 
   @override
-  String get guide_open_prices_how_arg2_title =>
-      'Gba awọn fọto ti awọn iwe-ẹri isanwo';
+  String get guide_open_prices_how_arg2_title => 'Collect photos of receipts';
 
   @override
   String get guide_open_prices_why_title =>
-      'Kí ló dé tí Open Food Facts fi ń ṣe èyí?';
+      'Why is Open Food Facts doing this ?';
 
   @override
   String get guide_open_prices_why_paragraph1 =>
-      'Ìwífún nípa iye owó ṣe pàtàkì gan-an láti lóye ètò oúnjẹ. Ó jẹ́ kókó pàtàkì nínú òye iye owó oúnjẹ àti láti gbé oúnjẹ tó dára lárugẹ. Ṣíṣí ìwífún nípa iye owó jẹ́ ọ̀nà láti mú kí ó rọrùn fún àwọn olùwádìí, àwọn oníròyìn, àti àwọn ará ìlú láti **ní òye tó dára jù nípa bí iye owó oúnjẹ ṣe yàtọ̀ síra ní agbègbè àti ní àkókò**.';
+      'Price information is of paramount importance to understand food systems. It\'s a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.';
 
   @override
   String get guide_open_prices_why_arg1_title =>
-      'Tọpinpin idagbasoke ti awọn idiyele lori akoko';
+      'Track the evolution of prices over time';
 
   @override
   String get guide_open_prices_why_arg1_text =>
-      'Wo **ilọsiwaju ti awọn idiyele**: idinku iṣu, idinku iṣu, a le tọpinpin wọn papọ!';
+      'See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!';
 
   @override
-  String get guide_open_prices_why_arg2_title =>
-      'Ṣe afiwe awọn idiyele nitosi rẹ';
+  String get guide_open_prices_why_arg2_title => 'Compare prices near you';
 
   @override
   String get guide_open_prices_why_arg2_text =>
-      'Bí a ṣe ń gba owó púpọ̀ sí i, o lè rí **àwọn ilé ìtajà tó rẹlẹ̀ jùlọ ní àyíká rẹ**.';
+      'As we get more prices, you can spot **the cheapest stores around you**.';
 
   @override
   String get guide_open_prices_scrapping_title =>
-      'Ṣe o ronu lati yọ awọn idiyele kuro lati awọn oju opo wẹẹbu awọn alatuta?';
+      'Did you consider scraping prices from retailers\' websites?';
 
   @override
   String get guide_open_prices_scrapping_paragraph1 =>
-      'Fún àwọn ìdí òfin àti ìmọ̀ ẹ̀rọ, **a kò ka yíyọ owó kúrò láti ojú òpó wẹ́ẹ̀bù àwọn olùtajà sí ọ̀nà tó tọ́ láti fi kún Àwọn Iye Owó Ṣíṣí**. A fẹ́ rí i dájú pé àwọn iye owó tí a ń gbà pé ó péye àti pé ó bá ìgbà mu, àti gbígbà àwọn iye owó tí a ti gé kúrò láti ọ̀dọ̀ àwọn olùrànlọ́wọ́ kò gbà wá láyè láti ṣe bẹ́ẹ̀.';
+      'For legal and technical reasons, **we don\'t consider scraping prices from retailers\' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn\'t allow us to do that.';
 
   @override
   String get guide_open_prices_scrapping_paragraph2 =>
-      'Ṣíṣàn iye owó jẹ́ àṣàyàn tí a gbé kalẹ̀ nínú àtúnṣe Open Prices lọ́jọ́ iwájú, ṣùgbọ́n Open Prices fúnra rẹ̀ ni yóò ṣe é kí a lè ní ẹ̀rí iye owó náà ní ìbámu pẹ̀lú ojú ìwé HTML.';
+      'Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.';
 
   @override
   String get guide_open_prices_retailers_title =>
@@ -4979,7 +4903,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_open_prices_retailers_paragraph1 =>
-      'O le fi awọn idiyele ranṣẹ nipa lilo API wa.\nTi o ba fẹ lati fi awọn idiyele kun ni iwọn, jọwọ kan si wa ni prices@openfoodfacts.org.';
+      'You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.';
 
   @override
   String get guide_open_prices_share_link =>
@@ -4987,150 +4911,149 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get guide_open_products_facts_title =>
-      'Kaabo si Awọn Otitọ Awọn Ọja Ṣiṣi!';
+      'Welcome to Open Products Facts!';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_title =>
-      'Kí ni Àwọn Òtítọ́ nípa Àwọn Ọjà Ìṣípìlẹ̀?';
+      'What is Open Products Facts?';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph1 =>
-      'Open Products Facts jẹ́ ibi ìkópamọ́ data tó gbòòrò fún **ọjà tó ní àmì ìdámọ̀ràn, èyí tí kì í ṣe oúnjẹ, ohun ọ̀ṣọ́ tàbí oúnjẹ ẹranko**.';
+      'Open Products Facts is a massive, open database for **any product with a barcode, which is not food, cosmetic or pet food**.';
 
   @override
   String get guide_open_products_facts_what_is_open_products_facts_paragraph2 =>
-      'Láti **ẹ̀rọ itanna** sí **àwọn nǹkan ìṣeré**, àti **aṣọ** sí **àwọn ohun èlò ìwẹ̀nùmọ́**, tí ó bá ní àmì ìdámọ̀, a lè fi kún un. Iṣẹ́ àgbékalẹ̀ yìí ń fẹ́ láti ṣẹ̀dá \"Íńtánẹ́ẹ̀tì Àwọn Ohun\" fún àwọn nǹkan ojoojúmọ́, kí ó lè jẹ́ kí ìwífún nípa wọn wà ní gbogbo ayé.';
+      'From **electronics** to **toys**, and **clothes** to **cleaning supplies**, if it has a barcode, it can be added. This project aims to create an \"Internet of Things\" for everyday objects, making information about them universally accessible.';
 
   @override
   String get guide_open_products_facts_features_title =>
-      'Àwọn Àmì Ẹ̀yà Àwọn Ìròyìn Àwọn Ọjà Ṣíṣí';
+      'Features of Open Products Facts';
 
   @override
   String get guide_open_products_facts_features_text =>
-      'Àwọn Ohun Ìṣẹ̀lẹ̀ Ìṣípayá Àwọn Ọjà (Open Products Facts) ń fẹ́ kí àwọn oníbàárà **pẹ́ síi fún àwọn nǹkan** nípa pípèsè àwọn ọ̀nà ìṣàtúnṣe láti tọ́jú, **túnṣe**, **túnlò** àwọn nǹkan wọn tàbí láti fún wọn ní ẹni tuntun.';
+      'Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.';
 
   @override
   String get guide_open_products_facts_features_arg1_title =>
-      'Awọn ipa ẹsẹ erogba fun diẹ ninu awọn ọja';
+      'Carbon footprints for some products';
 
   @override
   String get guide_open_products_facts_features_arg1_text =>
-      '**Ipa CO2** láti ọwọ́ Àjọ Àgbáyé ti ilẹ̀ Faransé ADEME ń pese **ipa erogba** ti ọpọlọpọ awọn ẹka, rii daju pe o pin awọn ọja ni pato.';
+      '**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.';
 
   @override
   String get guide_open_products_facts_features_arg2_title =>
-      'Atọka atunṣe fun ọpọlọpọ awọn ọja';
+      'Reparability index for many products';
 
   @override
   String get guide_open_products_facts_features_arg2_text =>
-      'Nígbàkúgbà tí a bá rí àtọ́ka àtúnṣe ti ilẹ̀ Faransé, a ó máa fihàn án. Jù bẹ́ẹ̀ lọ, **o lè bẹ̀rẹ̀ sí í kó àwọn onírúurú jọ nípa lílo Folksonomi Engine**; kí a lè tún ṣe ìṣirò rẹ̀ fúnra wa ní ọjọ́ iwájú, kódà ní àwọn orílẹ̀-èdè tí kò sí.';
+      'Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.';
 
   @override
   String get guide_open_products_facts_features_arg3_title =>
-      'Wa awọn ọna lati ṣe itọrẹ/tun ta ọja rẹ';
+      'Find ways to donate/resell your product';
 
   @override
   String get guide_open_products_facts_features_arg3_text =>
-      'A n pese awọn ọna asopọ si **awọn iṣẹ ti o ni ibatan si iyipo ẹgbẹ kẹta** ti o ran ọ lọwọ lati gba iru ọja ti o n wa, gẹgẹbi ọja ti a lo ni ọwọ keji, lati jẹ ki o rọrun lori awọn orisun aye.\nṢe akiyesi pe a ko sanwo fun wa lati ṣe iyẹn, ati pe eto naa n ṣiṣẹ gẹgẹbi apẹẹrẹ fun awọn oju opo wẹẹbu meji ni Faranse. O le ṣe iranlọwọ lati faagun eto yii nipa ṣiṣe akọsilẹ awọn aaye diẹ sii lori wiki.';
+      'We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.';
 
   @override
   String get guide_open_products_facts_information_title =>
-      'Ìwífún wo ló wúlò?';
+      'What information is useful?';
 
   @override
   String get guide_open_products_facts_information_text =>
-      'Fún onírúurú nǹkan bẹ́ẹ̀, **ìwé tí a ń kó jọ rọrùn**. Láti ṣe èyí, **a ṣẹ̀dá Folksonomi Engine**.';
+      'For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.';
 
   @override
-  String get guide_open_products_facts_folksonomy_title => 'Ẹ̀rọ Folksonomi';
+  String get guide_open_products_facts_folksonomy_title =>
+      'The Folksonomy Engine';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph1 =>
-      'Ẹ̀rọ Folksonomi jẹ́ irinṣẹ́ kan láti ràn ọ́ lọ́wọ́ láti parí àwọn ọjà pẹ̀lú àwọn ohun ìní tó yẹ. Èyí ń ran ọ́ lọ́wọ́ láti mú kí wíwá àti rírí nǹkan sunwọ̀n síi, ṣùgbọ́n ó tún ń ṣe ìṣirò àti láti fi àwọn nǹkan tó dùn mọ́ni hàn ní ọjọ́ iwájú.';
+      'The Folksonomy Engine is a tool to help you complete products with relevant properties. This helps improve search and discoverability, but also compute and display interesting things in the future.';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph2 =>
-      'O le fi awọn bọtini ati awọn iye kun eyikeyi bii: **ibaramu_pẹlu_5G_mobile_network: bẹẹni**';
+      'You can add any keys and values like: **compatibility_with_5G_mobile_network: yes**';
 
   @override
   String get guide_open_products_facts_folksonomy_paragraph3 =>
-      'O yoo gba imọran ara ẹni ti awọn ohun-ini ti o ṣeeṣe, ati pe o le ṣafikun ati ṣe akọsilẹ awọn tuntun lori awọn iru awọn ọja ayanfẹ rẹ.';
+      'You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.';
 
   @override
   String get guide_open_products_facts_share_link =>
       'https://world-yo.openproductsfacts.org/discover';
 
   @override
-  String get guide_open_preferences_button_title =>
-      'Àwọn ohun tí a fẹ́ láti jẹ ní ṣíṣí sílẹ̀';
+  String get guide_open_preferences_button_title => 'Open food preferences';
 
   @override
-  String get guide_coming_soon_button_title => 'Nbọ laipẹ';
+  String get guide_coming_soon_button_title => 'Coming soon';
 
   @override
-  String get guide_learn_more_subtitle => 'Tẹ lati kọ ẹkọ diẹ sii';
+  String get guide_learn_more_subtitle => 'Tap to learn more';
 
   @override
-  String get preview_badge => 'Àwòrán àwòkọ';
+  String get preview_badge => 'Preview';
 
   @override
   String get prices_feedback_form =>
-      'Tẹ ibi lati fi esi rẹ ranṣẹ si wa nipa ẹya tuntun yii!';
+      'Click here to send us your feedback about this new feature!';
 
   @override
-  String get menu_button_list_actions => 'Yan igbese kan';
+  String get menu_button_list_actions => 'Select an action';
 
   @override
-  String get error_loading_photo =>
-      'Àṣìṣe tí wọ́n ṣe lórí fọ́tò tí wọ́n ń gbé sórí fótò';
+  String get error_loading_photo => 'Error loading photo';
 
   @override
-  String get photo_viewer_action_use_picture_as => 'Lo gẹ́gẹ́ bíi…';
+  String get photo_viewer_action_use_picture_as => 'Use as…';
 
   @override
-  String get photo_viewer_use_picture_as_tooltip => 'Lo àwòrán yìí gẹ́gẹ́ bíi…';
+  String get photo_viewer_use_picture_as_tooltip => 'Use this picture as…';
 
   @override
   String photo_viewer_use_picture_as_title(String language) {
-    return 'Lo àwòrán yìí gẹ́gẹ́ bíi… ($language)';
+    return 'Use this picture as… ($language)';
   }
 
   @override
-  String get photo_viewer_details_button => 'Àwọn àlàyé';
+  String get photo_viewer_details_button => 'Details';
 
   @override
   String get photo_viewer_details_button_accessibility_label =>
-      'Àwọn ẹ̀kúnrẹ́rẹ́ fọ́tò yìí';
+      'Details of this photo';
 
   @override
-  String get photo_viewer_details_title => 'Awọn alaye ti fọto naa';
+  String get photo_viewer_details_title => 'Details of the photo';
 
   @override
   String get photo_viewer_details_contributor_title => 'Contributor';
 
   @override
-  String get photo_viewer_details_size_title => 'Iwọn';
+  String get photo_viewer_details_size_title => 'Size';
 
   @override
   String photo_viewer_details_size_value(int width, int height) {
-    return 'Àwọn píksẹ́lì $width x $height';
+    return '$width x $height pixels';
   }
 
   @override
-  String get photo_viewer_details_date_title => 'Déètì';
+  String get photo_viewer_details_date_title => 'Date';
 
   @override
   String get photo_viewer_details_url_title => 'URL';
 
   @override
-  String get product_page_compatibility_score => 'Ibamu';
+  String get product_page_compatibility_score => 'Compatible';
 
   @override
-  String get user_lists_action_multi_select => 'Yíyàn púpọ̀';
+  String get user_lists_action_multi_select => 'Multi-select';
 
   @override
   String product_page_compatibility_score_tooltip(String score) {
-    return 'Àmì ìbáramu rẹ: $score%';
+    return 'Your compatibility score: $score%';
   }
 
   @override
@@ -5141,167 +5064,164 @@ class AppLocalizationsYo extends AppLocalizations {
       'Ingredients picture';
 
   @override
-  String get product_image_nutrition_accessibility_label => 'Àwòrán oúnjẹ';
+  String get product_image_nutrition_accessibility_label => 'Nutrition picture';
 
   @override
-  String get product_image_packaging_accessibility_label => 'Àwòrán ìfipamọ́';
+  String get product_image_packaging_accessibility_label => 'Packaging picture';
 
   @override
-  String get product_image_other_accessibility_label => 'Àwòrán mìíràn';
+  String get product_image_other_accessibility_label => 'Other picture';
 
   @override
-  String get product_image_outdated_message => 'Àwòrán yìí lè ti di àtijọ́';
+  String get product_image_outdated_message => 'This picture may be outdated';
 
   @override
   String product_image_outdated_message_accessibility_label(String type) {
-    return '$type (Àwòrán yìí lè ti gbó)';
+    return '$type (this image may be outdated)';
   }
 
   @override
   String product_image_locked_message_accessibility_label(String type) {
-    return '$type (apẹẹrẹ yii le jẹ tii nipasẹ oluṣeto naa)';
+    return '$type (this image may be locked by the producer)';
   }
 
   @override
-  String get product_image_error => 'Kò le gbé àwòrán náà sókè!';
+  String get product_image_error => 'Unable to load the image!';
 
   @override
   String product_image_error_accessibility_label(String type) {
-    return 'Kò le ṣe àgbékalẹ̀ $type (àṣìṣe nẹ́tíwọ́ọ̀kì?)';
+    return 'Unable to load the $type (network error?)';
   }
 
   @override
-  String get product_page_image_no_image_available => 'Kò sí àwòrán\n!';
+  String get product_page_image_no_image_available => 'No\nimage!';
 
   @override
   String get product_page_image_no_image_available_accessibility_label =>
-      'Ko si aworan ti o wa fun ọja yii';
+      'No picture available for this product';
 
   @override
   String get product_page_action_bar_settings_accessibility_label =>
-      'Ṣe àtúntò tàbí tọ́jú àwọn ìgbésẹ̀';
+      'Reorder or hide actions';
 
   @override
-  String get product_page_action_bar_setting_modal_title =>
-      'Ṣe àtúnṣe àwọn ìgbésẹ̀';
+  String get product_page_action_bar_setting_modal_title => 'Edit actions';
 
   @override
-  String get product_page_action_bar_item_move_up => 'Gbe soke';
+  String get product_page_action_bar_item_move_up => 'Move up';
 
   @override
-  String get product_page_action_bar_item_move_down => 'Sún lọ sí ìsàlẹ̀';
+  String get product_page_action_bar_item_move_down => 'Move down';
 
   @override
-  String get product_page_action_bar_item_enable => 'Mu iṣe ṣiṣẹ';
+  String get product_page_action_bar_item_enable => 'Enable action';
 
   @override
-  String get product_page_action_bar_item_disable => 'Má ṣe iṣẹ́ náà mọ́';
+  String get product_page_action_bar_item_disable => 'Disable action';
 
   @override
   String get product_page_pending_operations_banner_title =>
-      'N gbe awọn atunṣe rẹ soke…';
+      'Uploading your edits…';
 
   @override
   String get product_page_pending_operations_banner_message =>
-      'Dátà tí a fihàn lórí ojú ìwé yìí **kò tíì ṣe àfihàn àwọn àtúnṣe rẹ**.\nJọ̀wọ́ dúró fún ìṣẹ́jú díẹ̀…';
+      'The data displayed on this page **does not yet reflect your modifications**.\nPlease wait a few seconds…';
 
   @override
-  String get product_add_a_language => 'Fi èdè kan kún un';
+  String get product_add_a_language => 'Add a language';
 
   @override
   String barcode_accessibility_label(String barcode) {
-    return 'Kóòdù bàákì $barcode';
+    return 'Barcode $barcode';
   }
 
   @override
-  String get carousel_close_tooltip => 'Yọ ọjà yìí kúrò nínú kárósílì';
+  String get carousel_close_tooltip => 'Remove this product from the carousel';
 
   @override
-  String get carousel_unsupported_header => 'Kóòdù tí kò ní àtìlẹ́yìn!';
+  String get carousel_unsupported_header => 'Unsupported barcode!';
 
   @override
-  String get carousel_unsupported_title => 'Óò!';
+  String get carousel_unsupported_title => 'Ooops!';
 
   @override
   String get carousel_unsupported_text =>
-      'Open Food Facts kò ṣe atilẹyin fun koodu barcode ti a ṣe ayẹwo!';
+      'The barcode scanned is not supported by Open Food Facts!';
 
   @override
-  String get carousel_error_header => 'Àṣìṣe!';
+  String get carousel_error_header => 'Error!';
 
   @override
-  String get carousel_error_title => 'Ó jẹ́ ohun ìbànújẹ́!';
+  String get carousel_error_title => 'It\'s a bummer!';
 
   @override
   String get carousel_error_text_1 =>
-      'A ko le gba alaye lori koodu barcode yii:';
+      'We couldn\'t download information on this barcode:';
 
   @override
   String get carousel_error_text_2 =>
-      'Jọwọ ṣayẹwo asopọ intanẹẹti rẹ tabi tẹ bọtini yii:';
+      'Please check your Internet connection or click this button:';
 
   @override
-  String get carousel_error_button => 'Tún gbìyànjú lẹ́ẹ̀kan síi';
+  String get carousel_error_button => 'Retry';
 
   @override
-  String get carousel_unknown_product_header => 'Ọjà tí a kò mọ̀';
+  String get carousel_unknown_product_header => 'Unknown product';
 
   @override
   String get carousel_unknown_product_title =>
-      'Oriire!\nO ti ri __ okuta iyebiye to ṣọwọn!__';
+      'Congratulations!\nYou\'ve found __the rare gem!__';
 
   @override
   String get carousel_unknown_product_text =>
-      'Ibi ipamọ data ajọṣepọ wa ni diẹ sii ju **3 milionu awọn ọja** lọ, ṣugbọn koodu koodu yii ko si: ';
+      'Our collaborative database contains more than **3 million products**, but this barcode doesn\'t exist: ';
 
   @override
   String get carousel_unknown_product_button => 'Add this product';
 
   @override
-  String get carousel_loading_header => 'N n gbe alaye soke...';
+  String get carousel_loading_header => 'Loading information...';
 
   @override
   String get carousel_loading_title =>
-      'O ṣẹ̀ṣẹ̀ ṣe àyẹ̀wò ọjà kan pẹ̀lú àmì ìdámọ̀ràn yìí:';
+      'You\'ve just scanned a product with the following barcode:';
 
   @override
   String get carousel_loading_text =>
-      'A n wa a ninu ibi ipamọ data wa ti o ju awọn ọja miliọnu mẹta lọ!**';
+      'We are searching for it in our database of more than **3 million products!**';
 
   @override
-  String get product_type_subtitle_food => 'Ẹfọ, èso, oúnjẹ dídì…';
+  String get product_type_subtitle_food => 'Vegetables, fruits, frozen food…';
 
   @override
-  String get product_type_subtitle_beauty =>
-      'Àwòrán ara, ọṣẹ, àti eyín ìfọwọ́ra…';
+  String get product_type_subtitle_beauty => 'Makeup, soaps, toothpastes…';
 
   @override
-  String get product_type_subtitle_pet_food => 'Oúnjẹ fún àwọn ajá, ológbò…';
+  String get product_type_subtitle_pet_food => 'Food for dogs, cats…';
 
   @override
-  String get product_type_subtitle_product =>
-      'Àwọn fóònù alágbékalẹ̀, àga àti ohun ọ̀ṣọ́…';
+  String get product_type_subtitle_product => 'Smartphones, furniture…';
 
   @override
-  String get photo_field_front => 'Fọ́tò ọjà náà';
+  String get photo_field_front => 'Product photo';
 
   @override
-  String get photo_field_ingredients => 'Fọto ti awọn eroja';
+  String get photo_field_ingredients => 'Ingredients photo';
 
   @override
-  String get photo_field_nutrition => 'Fọ́tò oúnjẹ';
+  String get photo_field_nutrition => 'Nutrition photo';
 
   @override
-  String get photo_field_packaging => 'Fọ́tò àwọn ìtọ́ni àtúnlò';
+  String get photo_field_packaging => 'Packaging information photo';
 
   @override
-  String get photo_already_exists => 'Fọ́tò yìí ti wà tẹ́lẹ̀';
+  String get photo_already_exists => 'This photo already exists';
 
   @override
-  String get photo_missing => 'Fọ́tò yìí sọnù';
+  String get photo_missing => 'This photo is missing';
 
   @override
-  String get date => 'Déètì';
+  String get date => 'Date';
 
   @override
   String get photo_rotate_left => 'Rotate left';
@@ -5310,130 +5230,89 @@ class AppLocalizationsYo extends AppLocalizations {
   String get photo_rotate_right => 'Rotate right';
 
   @override
-  String get photo_undo_action => 'Ṣe àtúnṣe ìgbésẹ̀ tó ti kọjá';
+  String get photo_undo_action => 'Undo the previous action';
 
   @override
   String knowledge_panel_world_map_accessibility_label(String location) {
-    return 'Máàpù àgbáyé ti $location';
+    return 'A world map of $location';
   }
 
   @override
   String get open_street_map_contributor_attribution =>
-      'Àwọn olùkópa OpenStreetMap';
+      'OpenStreetMap contributors';
 
   @override
-  String get not_applicable_short => 'Kò sí';
+  String get not_applicable_short => 'N/A';
 
   @override
   String get knowledge_panel_warning_text => 'Warning';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_title =>
-      'Kí ló dé tí Nutri-Score yìí fi yàtọ̀ sí èyí tó wà lórí àpò náà?';
+      'Why is this Nutri-Score different from the one on the package?';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_message =>
-      'Àwọn àlàyé méjì ló ṣeé ṣe:\nÀkójọ àwọn èròjà àti/tàbí àwọn òtítọ́ oúnjẹ kò tíì dé.\n\nA pèsè \"Ìṣirò Tuntun\" ti Nutri-Score (tàbí V2). Jọ̀wọ́ ṣàyẹ̀wò pé o ní àkọlé \"Ìṣirò Tuntun\" lórí àpò náà.';
+      'There are two possible explanations:\nThe list of ingredients and/or nutrition facts are not up-to-date.\n\nWe provide the \"New calculation\" of the Nutri-Score (or V2). Please check that you have the banner \"New calculation\" on the package.';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button1 =>
-      'Ṣe ayẹwo awọn eroja';
+      'Check ingredients';
 
   @override
   String get knowledge_panel_nutriscore_banner_incorrect_score_button2 =>
-      'Ṣayẹwo awọn otitọ ounjẹ';
+      'Check nutrition facts';
 
   @override
   String url_not_supported(String url) {
-    return 'Ó ṣeni láàánú pé a kò le ṣí URL náà:\n$url';
+    return 'Unfortunately, we can\'t open the URL:\n$url';
   }
 
   @override
-  String get product_list_export => 'Gbejade';
+  String get product_list_export => 'Export';
 
   @override
-  String get product_list_import => 'Kó wọlé';
+  String get product_list_import => 'Import';
 
   @override
-  String get product_footer_action_barcode => 'Wo koodu barcode';
+  String get product_footer_action_barcode => 'View barcode';
 
   @override
   String get product_footer_action_barcode_short => 'Onnka idanimo oja';
 
   @override
-  String get product_footer_action_open_website => 'Ṣí ojú òpó wẹ́ẹ̀bù';
+  String get product_footer_action_open_website => 'Open website';
 
   @override
-  String get product_footer_action_report => 'Iroyin';
+  String get product_footer_action_report => 'Report';
 
   @override
-  String get product_footer_action_contributor_guide => 'Egba Mi O';
+  String get product_footer_action_contributor_guide => 'Help';
 
   @override
-  String get product_footer_action_data_quality_tags => 'Dídára dátà';
+  String get product_footer_action_data_quality_tags => 'Data quality';
 
   @override
   String get product_page_tab_for_me => 'Fun mi';
 
   @override
-  String get product_page_for_me_compatibility_score_title => 'Ibamu mi';
+  String get product_page_tab_website => 'Website';
 
   @override
-  String product_page_for_me_compatibility_score_value(int value) {
-    return '$value% tó báramu';
-  }
-
-  @override
-  String get product_page_for_me_compatibility_score_uncomputable =>
-      'Àìtó ìwífún láti ṣírò àmì ìbáramu.';
-
-  @override
-  String product_page_for_me_compatibility_score_unsupported(
-    String productType,
-  ) {
-    return 'A ko le ṣe iṣiro ami kan fun iru ọja ti \"$productType\".';
-  }
-
-  @override
-  String get product_page_for_me_attributes_order_importance => 'Pataki';
-
-  @override
-  String get product_page_for_me_attributes_order_evaluation => 'Àwọn ìbáramu';
-
-  @override
-  String get product_page_for_me_attributes_group_good_matches =>
-      'Àwọn ìbáramu tó dára';
-
-  @override
-  String get product_page_for_me_attributes_group_average_matches =>
-      'Àwọn ìbáramu àròpín';
-
-  @override
-  String get product_page_for_me_attributes_group_bad_matches =>
-      'Àwọn ìbáramu búburú';
-
-  @override
-  String get product_page_for_me_attributes_group_unknown_matches =>
-      'Àwọn ìbáramu àìmọ̀';
-
-  @override
-  String get product_page_tab_website => 'Oju opo wẹẹbu';
-
-  @override
-  String get product_page_tab_prices => 'Awọn idiyele';
+  String get product_page_tab_prices => 'Prices';
 
   @override
   String get prices_explanation_card_title => 'Kini idi ti awọn idiyele?';
 
   @override
   String get prices_explanation_card_line1 =>
-      '** Open Prices *** jẹ iṣẹ akanṣe kan lati gba ati pin awọn idiyele ti awọn ọja ni ayika agbaye 🌍. Awọn idiyele Ṣii jẹ idagbasoke ati itọju nipasẹ Awọn Otitọ Ounjẹ Ṣii.';
+      '**Open Prices** is a project to collect and share prices of products around the world 🌍. Open Prices is developed and maintained by Open Food Facts.';
 
   @override
-  String get explanation_card_learn_more_button => 'Kọ ẹkọ diẹ si';
+  String get explanation_card_learn_more_button => 'Learn more';
 
   @override
-  String get product_page_tab_folksonomy => 'Àwọn ènìyàn ìlú';
+  String get product_page_tab_folksonomy => 'Folksonomy';
 
   @override
   String get folksonomy_explanation_card_title => 'Kini awọn abuda Folksonomy?';
@@ -5447,11 +5326,11 @@ class AppLocalizationsYo extends AppLocalizations {
       'Awọn ohun-ini wọnyi jẹ ẹda ati fiweranṣẹ nipasẹ awọn oluranlọwọ fun eyikeyi iru awọn lilo.';
 
   @override
-  String get folksonomy_action_external_link_title => 'Ṣí ìjápọ̀ òde';
+  String get folksonomy_action_external_link_title => 'Open external link';
 
   @override
   String get folksonomy_action_external_link_warning =>
-      'Àwọn ìjápọ̀ òde lè má ní ààbò. Ṣé o fẹ́ ṣèbẹ̀wò sí i gan-an?';
+      'External links may be unsafe. Do you really want to visit it?';
 
   @override
   String get prices_products_empty_title => 'Ko si owo to wa';
@@ -5462,41 +5341,41 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String prices_products_list_length_many_pages(int pageSize, int total) {
-    return 'Àwọn ọjà $pageSize tó ga jùlọ (àròpọ̀: $total)';
+    return 'Top $pageSize products (total: $total)';
   }
 
   @override
-  String get app_review_title => 'Ṣé o ń gbádùn àpù yìí?';
+  String get app_review_title => 'Are you enjoying this app?';
 
   @override
-  String get app_review_low => 'Le ṣe dara julọ';
+  String get app_review_low => 'Could do better';
 
   @override
-  String get app_review_medium => 'Ko buru';
+  String get app_review_medium => 'Not bad';
 
   @override
-  String get app_review_high => 'Mo ni ife re!';
+  String get app_review_high => 'I love it!';
 
   @override
   String get app_review_feedback_modal_title =>
-      'Ran wa lọwọ lati mu ohun elo wa dara si';
+      'Help us improve our application';
 
   @override
   String get app_review_feedback_modal_content =>
-      'Tí o bá ní ìṣẹ́jú díẹ̀, ṣé o lè dáhùn fọ́ọ̀mù yìí kí **a lè sunwọ̀n sí i nínú àwọn àtúnṣe ọjọ́ iwájú**:';
+      'If you have a few minutes, could you answer this form so that **we can improve in future updates**:';
 
   @override
-  String get app_review_feedback_modal_open_form => 'Dáhùn sí fọ́ọ̀mù náà';
+  String get app_review_feedback_modal_open_form => 'Answer the form';
 
   @override
-  String get app_review_feedback_modal_later => 'Beere lọwọ mi nigbamii';
+  String get app_review_feedback_modal_later => 'Ask me later';
 
   @override
   String get nutrition_facts_extract_new =>
-      'TUNTUN: O le yọ awọn eroja kuro ninu aworan naa laifọwọyi!';
+      'NEW: You can automatically extract the nutrients from the picture!';
 
   @override
-  String get nutrition_facts_extract_button_text => 'Yọ jade nisinsinyi';
+  String get nutrition_facts_extract_button_text => 'Extract now';
 
   @override
   String get nutrition_facts_extract_in_progress => 'Isediwon ni ilọsiwaju…';
@@ -5506,22 +5385,22 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get nutrition_facts_extract_failed =>
-      'Kò lè yọ àwọn èròjà oúnjẹ jáde láti inú àwòrán';
+      'Failed to extract nutrients from picture';
 
   @override
   String get prices_discount => 'Discount';
 
   @override
-  String get prices_stats_statistics => 'Àwọn Ìṣirò';
+  String get prices_stats_statistics => 'Statistics';
 
   @override
-  String get prices_stats_title => 'Awọn Iṣiro Iye owo';
+  String get prices_stats_title => 'Prices Statistics';
 
   @override
-  String get prices_stats_prices_section => 'Awọn idiyele';
+  String get prices_stats_prices_section => 'Prices';
 
   @override
-  String get prices_stats_products_section => 'Àwọn ọjà';
+  String get prices_stats_products_section => 'Products';
 
   @override
   String get prices_stats_locations_section => 'Locations';
@@ -5536,7 +5415,7 @@ class AppLocalizationsYo extends AppLocalizations {
   String get prices_stats_experiments_section => 'Experiments';
 
   @override
-  String get prices_stats_misc_section => 'Onírúurú';
+  String get prices_stats_misc_section => 'Miscellaneous';
 
   @override
   String get prices_stats_total => 'Total';
@@ -5560,19 +5439,19 @@ class AppLocalizationsYo extends AppLocalizations {
   String get prices_stats_with_price => 'With a price';
 
   @override
-  String get prices_stats_food => 'Ounjẹ';
+  String get prices_stats_food => 'Food';
 
   @override
   String get prices_stats_beauty => 'Beauty';
 
   @override
-  String get prices_stats_products => 'Àwọn ọjà';
+  String get prices_stats_products => 'Products';
 
   @override
-  String get prices_stats_pet_food => 'Ounjẹ ẹranko';
+  String get prices_stats_pet_food => 'Pet food';
 
   @override
-  String get prices_stats_osm => 'ṢíṣíMáàpù Ìta';
+  String get prices_stats_osm => 'OpenStreetMap';
 
   @override
   String get prices_stats_online => 'Online';
@@ -5581,10 +5460,10 @@ class AppLocalizationsYo extends AppLocalizations {
   String get prices_stats_countries => 'Countries';
 
   @override
-  String get prices_stats_price_tag => 'Tagi oye owo';
+  String get prices_stats_price_tag => 'Price tag';
 
   @override
-  String get prices_stats_receipt => 'Ìwé ẹ̀rí ìsanwó';
+  String get prices_stats_receipt => 'Receipt';
 
   @override
   String get prices_stats_gdpr_request => 'GDPR request';
@@ -5608,7 +5487,7 @@ class AppLocalizationsYo extends AppLocalizations {
   String get prices_stats_by_source_title => 'Prices and proofs per source';
 
   @override
-  String get prices_stats_website => 'Oju opo wẹẹbu';
+  String get prices_stats_website => 'Website';
 
   @override
   String get prices_stats_mobile_app => 'Mobile app';
@@ -5620,23 +5499,23 @@ class AppLocalizationsYo extends AppLocalizations {
   String get prices_stats_other => 'Other';
 
   @override
-  String get prices_stats_last_updated => 'Imudojuiwọn ikẹhin ni';
+  String get prices_stats_last_updated => 'Last updated on';
 
   @override
   String get prices_stats_error =>
-      'Àṣìṣe kan ṣẹlẹ̀ nígbà tí a ń kó àwọn statistiki jọ.';
+      'An error occurred while loading statistics.';
 
   @override
-  String get product_edit_robotoff_question_answered => 'Ìbéèrè tí a dáhùn!';
+  String get product_edit_robotoff_question_answered => 'Question answered!';
 
   @override
-  String get product_edit_robotoff_proof => 'Ẹ̀rí';
+  String get product_edit_robotoff_proof => 'Proof';
 
   @override
   String get preferences_card_general => 'General';
 
   @override
-  String get preferences_prices_title => 'Awọn idiyele';
+  String get preferences_prices_title => 'Prices';
 
   @override
   String get preferences_prices_subtitle => 'Ṣakoso awọn ayanfẹ iye owo rẹ';
@@ -5675,8 +5554,7 @@ class AppLocalizationsYo extends AppLocalizations {
   String get preferences_card_help => 'Iranlọwọ & Atilẹyin';
 
   @override
-  String get preferences_faq_title =>
-      'Awọn ibeere ti a maa n beere nigbagbogbo';
+  String get preferences_faq_title => 'FAQ';
 
   @override
   String get preferences_faq_subtitle => 'Gba awọn idahun si awọn ibeere rẹ';
@@ -5714,7 +5592,7 @@ class AppLocalizationsYo extends AppLocalizations {
       'Wiwọle: Yọ awọn awọ kuro';
 
   @override
-  String get preferences_app_settings_products => 'Àwọn ọjà';
+  String get preferences_app_settings_products => 'Products';
 
   @override
   String get preferences_card_about => 'Nipa';
@@ -5727,17 +5605,17 @@ class AppLocalizationsYo extends AppLocalizations {
       'Awọn ofin lilo, ilana ipamọ, ati diẹ sii';
 
   @override
-  String get preferences_terms_of_use => 'Awọn ofin lilo';
+  String get preferences_terms_of_use => 'Terms of use';
 
   @override
   String get preferences_legal_mentions => 'Legal mentions';
 
   @override
   String get preferences_legal_header =>
-      'Ṣii Awọn Otitọ Ounjẹ jẹ aaye data awọn ọja ounjẹ ** ti gbogbo eniyan ṣe, fun gbogbo eniyan ***.\nO le lo lati ṣe awọn yiyan ounjẹ to dara julọ, ati pe bi o ti jẹ ** data ṣiṣi **, ẹnikẹni le **tun-lo fun idi eyikeyi ***.';
+      'Open Food Facts is a food products database **made by everyone, for everyone**.\nYou can use it to make better food choices, and as it is **open data**, anyone can **re-use it for any purpose**.';
 
   @override
-  String get preferences_privacy_policy => 'Ètò ìpamọ́';
+  String get preferences_privacy_policy => 'Privacy policy';
 
   @override
   String get preferences_licenses => 'Awọn iwe-aṣẹ';
@@ -5785,7 +5663,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_on_off_website_subtitle =>
-      'Lori oju opo wẹẹbu Awọn Otitọ Ounjẹ Ṣii';
+      'On the Open Food Facts website';
 
   @override
   String get preferences_manage_account_title => 'Ṣakoso akọọlẹ mi';
@@ -5882,19 +5760,18 @@ class AppLocalizationsYo extends AppLocalizations {
   String get preferences_faq_discover_off_title => 'Iwari Open Food Facts';
 
   @override
-  String get preferences_faq_discover_obf_title =>
-      'Ṣawari Awọn Otitọ Ẹwa Ṣiṣii';
+  String get preferences_faq_discover_obf_title => 'Discover Open Beauty Facts';
 
   @override
   String get preferences_faq_discover_opff_title =>
-      'Ṣawari Awọn Otitọ lori Ounjẹ Ẹranko Ṣiṣi';
+      'Discover Open Pet Food Facts';
 
   @override
-  String get preferences_faq_discover_op_title => 'Ṣawari Awọn Iye Owo Ṣiṣi';
+  String get preferences_faq_discover_op_title => 'Discover Open Prices';
 
   @override
   String get preferences_faq_discover_opf_title =>
-      'Ṣawari awọn otitọ ti awọn ọja ṣiṣi silẹ';
+      'Discover Open Products Facts';
 
   @override
   String get preferences_faq_faq_title => 'FAQ - Awọn ibeere Nigbagbogbo';
@@ -5915,7 +5792,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_connect_community_calendar_title =>
-      'Ṣe alabapin si kalẹnda agbegbe wa';
+      'Subscribe to our community calendar';
 
   @override
   String get preferences_connect_community_calendar_subtitle =>
@@ -6019,7 +5896,7 @@ class AppLocalizationsYo extends AppLocalizations {
       'Awọn igbesẹ ti o rọrun lati dagba akoyawo ounjẹ ni orilẹ-ede rẹ';
 
   @override
-  String get preferences_contribute_data_quality_title => 'Dídára dátà';
+  String get preferences_contribute_data_quality_title => 'Data quality';
 
   @override
   String get preferences_contribute_data_quality_team_title =>
@@ -6035,7 +5912,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_contributions_new_products_subtitle =>
-      'Awọn ọja titun Mo ṣafikun si Awọn Otitọ Ounjẹ Ṣii';
+      'New products I added to Open Food Facts';
 
   @override
   String get preferences_contributions_to_be_completed_title =>
@@ -6046,10 +5923,10 @@ class AppLocalizationsYo extends AppLocalizations {
       'Gbogbo awọn ọja ti ko pari';
 
   @override
-  String get preferences_my_contributions_prices_title => 'Awọn idiyele';
+  String get preferences_my_contributions_prices_title => 'Prices';
 
   @override
-  String get preferences_my_contributions_my_prices_title => 'Àwọn iye owó mi';
+  String get preferences_my_contributions_my_prices_title => 'My prices';
 
   @override
   String get preferences_my_contributions_my_prices_subtitle =>
@@ -6084,14 +5961,14 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_prices_newest_subtitle =>
-      'Awọn idiyele tuntun ti a ṣafikun nipasẹ agbegbe Awọn idiyele Ṣii';
+      'Latest prices added by the Open Prices community';
 
   @override
   String get preferences_prices_top_contributors_title =>
       'Awọn olùkópa pẹlu awọn julọ owo';
 
   @override
-  String get preferences_prices_metrics_title => 'Àwọn ìwọ̀n Iye Owó Ṣíṣí';
+  String get preferences_prices_metrics_title => 'Ṣii Awọn metiriki Iye';
 
   @override
   String get preferences_prices_metrics_subtitle =>
@@ -6131,7 +6008,7 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_page_contribute_project_subtitle =>
-      'Awọn ọna ti o rọrun lati ṣe iranlọwọ Ṣii Awọn Otitọ Ounjẹ';
+      'Simple ways to help Open Food Facts';
 
   @override
   String get preferences_page_faq_subtitle =>
@@ -6238,14 +6115,14 @@ class AppLocalizationsYo extends AppLocalizations {
 
   @override
   String get preferences_page_open_food_facts_labs_title =>
-      'Ṣii Food Facts Labs';
+      'Open Food Facts Labs';
 
   @override
-  String get preferences_root_account_title => 'Àkọọ́lẹ̀';
+  String get preferences_root_account_title => 'Account';
 
   @override
   String get preferences_contribute_translate_header =>
-      'Mu Awọn Otitọ Ounjẹ Ṣii wá si ede rẹ';
+      'Bring Open Food Facts to your language';
 
   @override
   String get preferences_contribute_enroll_alpha =>
@@ -6259,7 +6136,7 @@ class AppLocalizationsYo extends AppLocalizations {
       'Maṣe ṣe afihan Folksonomy';
 
   @override
-  String get preferences_account_title => 'Àkọọ́lẹ̀';
+  String get preferences_account_title => 'Account';
 
   @override
   String prices_adding_timestamp_tooltip(String created) {
@@ -6267,65 +6144,26 @@ class AppLocalizationsYo extends AppLocalizations {
   }
 
   @override
-  String get location_map_details_title => 'Àwọn àlàyé ibi tí a wà';
+  String get location_map_details_title => 'Location details';
 
   @override
-  String get location_map_details_name => 'Orúkọ';
+  String get location_map_details_name => 'Name';
 
   @override
-  String get location_map_details_street => 'Opopona';
+  String get location_map_details_street => 'Street';
 
   @override
-  String get location_map_details_city => 'Ìlú';
+  String get location_map_details_city => 'City';
 
   @override
-  String get location_map_details_postcode => 'Kóòdù ìfìwéránṣẹ́';
+  String get location_map_details_postcode => 'Postcode';
 
   @override
   String get location_map_details_country => 'Country';
 
   @override
-  String get location_map_details_coordinates => 'Àwọn ìṣọ̀kan';
+  String get location_map_details_coordinates => 'Coordinates';
 
   @override
-  String get location_map_details_osm_id => 'ID OSM';
-
-  @override
-  String get homepage_scanner_back_to_home_button => 'Pada si ile';
-
-  @override
-  String get homepage_scanner_toggle_camera_tooltip => 'Yí kámẹ́rà padà';
-
-  @override
-  String get homepage_header_barcode_tooltip => 'Fi ẹ̀rọ ìwádìí àmì-ìdámọ̀ hàn';
-
-  @override
-  String get homepage_scanner_overlay_message =>
-      'Tẹ lati ṣe ayẹwo **barcode**\nki o si ṣawari boya o dara fun ọ**!';
-
-  @override
-  String get homepage_scanner_toggle_torch_tooltip => 'Yi tọọsi pada';
-
-  @override
-  String get homepage_scanner_banner_start_scanning =>
-      'Ṣe àyẹ̀wò ọjà kan nípa bíbá àwọn àmì ìdámọ̀ rẹ̀ sọ̀rọ̀';
-
-  @override
-  String homepage_scanner_banner_invalid_barcode(String barcode) {
-    return 'A ti rí àmì ìdámọ̀ràn yìí: $barcode, ṣùgbọ́n ó dàbí pé kò tọ́.';
-  }
-
-  @override
-  String get homepage_horizontal_list_view_more_button => 'Wo diẹ sii…';
-
-  @override
-  String get homepage_list_most_scanned_title => 'Most scanned products';
-
-  @override
-  String get homepage_list_last_scanned_title => 'Àwọn ọjà tí a ṣàyẹ̀wò kẹ́yìn';
-
-  @override
-  String percent_value(String percent) {
-    return '$percent%';
-  }
+  String get location_map_details_osm_id => 'OSM ID';
 }
