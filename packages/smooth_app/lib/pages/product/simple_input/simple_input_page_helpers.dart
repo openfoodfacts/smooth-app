@@ -442,7 +442,8 @@ class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
 
   @override
   List<String> initTerms(final Product product) {
-    final String localized = product.productNameInLanguages?[getLanguage()] ?? '';
+    final String localized =
+        product.productNameInLanguages?[getLanguage()] ?? '';
     final String fallback = product.productName ?? '';
     final String initial = MultilingualHelper.getCleanText(
       localized.isNotEmpty ? localized : fallback,
@@ -457,7 +458,10 @@ class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
   bool addItemsFromController(
     TextEditingController controller, {
     bool clearController = true,
-  }) => addSingleValueFromController(controller, clearController: clearController);
+  }) => addSingleValueFromController(
+    controller,
+    clearController: clearController,
+  );
 
   @override
   void changeProduct(final Product changedProduct) {
@@ -465,7 +469,8 @@ class SimpleInputPageProductNameHelper extends AbstractSimpleInputPageHelper {
     if (terms.isEmpty) {
       changedProduct.productNameInLanguages?.remove(getLanguage());
       // Optionally, if the map is now empty, set to null
-      if (changedProduct.productNameInLanguages != null && changedProduct.productNameInLanguages!.isEmpty) {
+      if (changedProduct.productNameInLanguages != null &&
+          changedProduct.productNameInLanguages!.isEmpty) {
         changedProduct.productNameInLanguages = null;
       }
       return;
@@ -536,7 +541,10 @@ class SimpleInputPageQuantityHelper extends AbstractSimpleInputPageHelper {
   bool addItemsFromController(
     TextEditingController controller, {
     bool clearController = true,
-  }) => addSingleValueFromController(controller, clearController: clearController);
+  }) => addSingleValueFromController(
+    controller,
+    clearController: clearController,
+  );
 
   @override
   void changeProduct(final Product changedProduct) {
@@ -630,7 +638,10 @@ class SimpleInputPageWebsiteHelper extends AbstractSimpleInputPageHelper {
   bool addItemsFromController(
     TextEditingController controller, {
     bool clearController = true,
-  }) => addSingleValueFromController(controller, clearController: clearController);
+  }) => addSingleValueFromController(
+    controller,
+    clearController: clearController,
+  );
 
   @override
   void changeProduct(final Product changedProduct) {
