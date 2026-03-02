@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Otvorené ceny",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -128,7 +129,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Licencie",
   "@licenses": {},
   "looking_for": "Hľadám",
   "@looking_for": {
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Všetky",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(vyhľadávanie podľa kategórií)",
@@ -535,9 +536,17 @@
   "product": "Produkt",
   "@product": {},
   "unknownBrand": "Neznáma značka",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Neznáme množstvo",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Neznámy názov výrobku",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Obnoviť",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informácie o balení",
+  "packaging_information": "Pokyny na recykláciu",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Informačná fotografia balenia",
+  "packaging_information_photo": "Fotografia recyklačných pokynov",
   "@packaging_information_photo": {},
   "missing_product": "Našli ste nový produkt!",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "Predná fotografia produktu",
   "ingredients_photo_title": "Fotografia zložiek",
   "nutritional_facts_photo_title": "Fotografia výživových údajov",
-  "recycling_photo_title": "Fotografia recyklačných pokynov",
+  "recycling_photo_title": "Pokyny na recykláciu Fotografia",
   "take_photo_title": "Odfotiť",
   "take_more_photo_title": "Odfotiť viacej fotografií",
   "front_photo_uploaded": "Predná fotografia produktu bola nahraná",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Neboli nájdené žiadne výrobky",
   "@no_product_found": {},
+  "no_product_found_explanation": "Vaše vyhľadávanie výrazu\n**\"{search}\"**\nneprinieslo žiadne výsledky.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Chcete namiesto toho spustiť rovnaké vyhľadávanie v **našej globálnej databáze**?",
   "no_location_found": "Neboli nájdené žiadne polohy",
   "not_found": "nenájdené:",
   "refreshing_product": "Obnovuje sa produkt",
@@ -1763,7 +1783,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Krajina",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "Osobná starostlivosť",
   "product_type_label_pet_food": "Krmivo pre domáce zvieratá",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Neznámy",
   "product_type_selection_title": "Typ výrobku",
   "product_type_selection_subtitle": "Vyberte typ tohto produktu",
   "product_type_selection_empty": "Najprv musíte vybrať typ produktu!",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Zobraziť podrobnosti o produkte",
   "prices_entry_menu_open_product_prices": "Zobraziť všetky ceny tohto produktu",
   "prices_entry_menu_open_proof": "Zobraziť dôkaz",
   "prices_entry_menu_my_prices": "Pozrite si moje ďalšie ceny",
@@ -4461,7 +4483,7 @@
   "photo_field_front": "Fotografia produktu",
   "photo_field_ingredients": "Fotografia zložiek",
   "photo_field_nutrition": "Fotografia nutričných hodnôt",
-  "photo_field_packaging": "Informačná fotografia balenia",
+  "photo_field_packaging": "Fotografia recyklačných pokynov",
   "photo_already_exists": "Táto fotografia už existuje",
   "photo_missing": "Táto fotografia chýba",
   "date": "Dátum",
@@ -4546,6 +4568,56 @@
   "product_page_tab_for_me": "Pre mňa",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Moja kompatibilita",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibilné",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Nedostatok údajov na výpočet skóre kompatibility.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Skóre nie je možné vypočítať pre produkt typu „{productType}“.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Dôležitosť",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Zápasy",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Dobré zápasy",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Priemerné zhody",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Zlé zápasy",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Neznáme zhody",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Webová stránka",
   "@product_page_tab_website": {
@@ -5104,23 +5176,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Objavte fakty o otvorenom jedle",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Objavte fakty o otvorenej kráse",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Objavte fakty o krmive pre domáce zvieratá na Open Pet Food",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Objavte otvorené ceny",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Objavte fakty o otvorených produktoch",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5332,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metriky otvorenej ceny",
+  "preferences_prices_metrics_title": "Metriky otvorených cien",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5576,7 +5648,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Otvorené laboratóriá faktov o potravinách",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5616,7 +5688,61 @@
   "location_map_details_street": "Ulica",
   "location_map_details_city": "Mesto",
   "location_map_details_postcode": "PSČ",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Krajina",
   "location_map_details_coordinates": "Súradnice",
-  "location_map_details_osm_id": "ID OSM"
+  "location_map_details_osm_id": "ID OSM",
+  "homepage_scanner_back_to_home_button": "Späť domov",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Prepnúť fotoaparát",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Zobraziť skener čiarových kódov",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Klepnutím naskenujete **čiarový kód**\na zistíte, či je to **pre vás dobré**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Prepnúť baterku",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Naskenujte produkt priblížením sa k jeho čiarovému kódu",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Zistili sme nasledujúci čiarový kód: {barcode}, ale zdá sa, že je neplatný.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Zobraziť viac…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Posledné naskenované produkty",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

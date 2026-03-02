@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "الكل",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(بحث عن فئة)",
@@ -535,9 +536,17 @@
   "product": "نتاج",
   "@product": {},
   "unknownBrand": "علامة تجارية مجهولة",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "كمية غير معروفة",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "إسم منتج غير معروف",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "تحديث",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "معلومات التعبِئة",
+  "packaging_information": "تعليمات إعادة التدوير",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "صورة معلومات التعبِئة",
+  "packaging_information_photo": "صورة تعليمات إعادة التدوير",
   "@packaging_information_photo": {},
   "missing_product": "لقد وجدت منتجا جديدا!",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "صورة التغليف الأمامية",
   "ingredients_photo_title": "صورة المكونات",
   "nutritional_facts_photo_title": "صورة الحقائق الغذائية",
-  "recycling_photo_title": "إعادة تدوير الصور",
+  "recycling_photo_title": "تعليمات إعادة التدوير (صورة)",
   "take_photo_title": "التقاط صورة",
   "take_more_photo_title": "التقط المزيد من الصور",
   "front_photo_uploaded": "تم تحميل الصورة الأمامية",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "لم يتم العثور على أي منتج",
   "@no_product_found": {},
+  "no_product_found_explanation": "لم تتطابق نتائج بحثك عن\n**\"{search}\"**\nمع أي نتائج.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "هل تريد تشغيل نفس البحث في **قاعدة بياناتنا العالمية** بدلاً من ذلك؟",
   "no_location_found": "لم يتم العثور على الموقع",
   "not_found": "لم يتم العثور على نتائج:",
   "refreshing_product": "تحديث المنتج",
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "العناية الشخصية",
   "product_type_label_pet_food": "طعام الحيوانات الأليفة",
   "product_type_label_product": "أخرى",
+  "product_type_label_unknown": "غير معروف",
   "product_type_selection_title": "نوع المنتج",
   "product_type_selection_subtitle": "حدد نوع هذا المنتج",
   "product_type_selection_empty": "يجب عليك تحديد نوع المنتج أولاً!",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "عرض تفاصيل المنتج",
   "prices_entry_menu_open_product_prices": "عرض جميع الأسعار لهذا المنتج",
   "prices_entry_menu_open_proof": "عرض الدليل",
   "prices_entry_menu_my_prices": "عرض أسعاري الأخرى",
@@ -3914,7 +3936,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "ما هو مؤشر التغذية (Nutri-Score)؟",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "الدرجة الغذائية هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4461,7 +4483,7 @@
   "photo_field_front": "صورة المنتج",
   "photo_field_ingredients": "صورة المكونات",
   "photo_field_nutrition": "صورة التغذية",
-  "photo_field_packaging": "صورة معلومات التعبِئة",
+  "photo_field_packaging": "صورة تعليمات إعادة التدوير",
   "photo_already_exists": "هذه الصورة موجودة بالفعل",
   "photo_missing": "هذه الصورة مفقودة",
   "date": "تاريخ",
@@ -4546,6 +4568,56 @@
   "product_page_tab_for_me": "لي",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "توافقي",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatible",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "البيانات غير كافية لحساب درجة التوافق.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "لا يمكن حساب النتيجة لمنتج من النوع \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "أهمية",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "مباريات",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "مباريات جيدة",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "متوسط عدد المباريات",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "مباريات سيئة",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "مباريات غير معروفة",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "موقع إلكتروني",
   "@product_page_tab_website": {
@@ -4679,7 +4751,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "المجموع",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4711,7 +4783,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "جمال",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4723,7 +4795,7 @@
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
-  "prices_stats_osm": "خريطة الشارع المفتوحة",
+  "prices_stats_osm": "OpenStreetMap",
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
@@ -5108,11 +5180,11 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "اكتشف حقائق الجمال المفتوحة",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "اكتشف حقائق طعام الحيوانات الأليفة المفتوحة",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5192,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "اكتشف حقائق المنتجات المفتوحة",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5332,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "مقاييس سعر الافتتاح",
+  "preferences_prices_metrics_title": "مؤشرات أسعار الافتتاح",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5576,7 +5648,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "مختبرات حقائق الغذاء المفتوحة",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5618,5 +5690,59 @@
   "location_map_details_postcode": "شفرة البريد",
   "location_map_details_country": "بلد",
   "location_map_details_coordinates": "الإحداثيات",
-  "location_map_details_osm_id": "معرف OSM"
+  "location_map_details_osm_id": "معرف OSM",
+  "homepage_scanner_back_to_home_button": "العودة إلى الصفحة الرئيسية",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "تبديل الكاميرا",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "أظهر ماسح الباركود",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "انقر لمسح **الباركود**\nواكتشف ما إذا كان **مفيدًا لك**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "تشغيل المصباح",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "امسح المنتج ضوئيًا عن طريق تقريب الرمز الشريطي الخاص به.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "لقد اكتشفنا الرمز الشريطي التالي: {barcode}، ولكن يبدو أنه غير صالح.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "عرض المزيد…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "المنتجات الأكثر فحصا",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "آخر المنتجات التي تم مسحها ضوئيًا",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

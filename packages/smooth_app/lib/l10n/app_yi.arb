@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "עפענע פרייזן",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -128,7 +129,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "ליצענצן",
   "@licenses": {},
   "looking_for": "Looking for",
   "@looking_for": {
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "All",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(category search)",
@@ -535,9 +536,17 @@
   "product": "Product",
   "@product": {},
   "unknownBrand": "Unknown brand",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "אומבאַקאַנטע קוואַנטיטעט",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Unknown product name",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Refresh",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Packaging information",
+  "packaging_information": "ריסייקלינג אינסטרוקציעס",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Packaging information photo",
+  "packaging_information_photo": "Recycling instructions photo",
   "@packaging_information_photo": {},
   "missing_product": "You found a new product!",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "Front Packaging Photo",
   "ingredients_photo_title": "Ingredients Photo",
   "nutritional_facts_photo_title": "Nutrition Facts Photo",
-  "recycling_photo_title": "Recycling Photo",
+  "recycling_photo_title": "ריסייקלינג אינסטרוקציעס פאָטאָ",
   "take_photo_title": "Take a picture",
   "take_more_photo_title": "Take more pictures",
   "front_photo_uploaded": "Front photo uploaded",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
+  "no_product_found_explanation": "אייער זוכעניש פאר\n**\"{search}\"**\nהאט נישט געטראפן קיין רעזולטאטן.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "ווילסטו אנשטאט דורכפירן די זעלבע זוכעניש אין **אונדזער גלאבאלער דאטנבאזע**?",
   "no_location_found": "No location found",
   "not_found": "not found:",
   "refreshing_product": "Refreshing product",
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "Personal care",
   "product_type_label_pet_food": "Pet food",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Unknown",
   "product_type_selection_title": "Product type",
   "product_type_selection_subtitle": "Select the type of this product",
   "product_type_selection_empty": "You need to select a product type first!",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "זען פּראָדוקט דעטאַלן",
   "prices_entry_menu_open_product_prices": "זען אַלע פּרייזן פֿאַר דעם פּראָדוקט",
   "prices_entry_menu_open_proof": "זען באַווייַז",
   "prices_entry_menu_my_prices": "זעט מײַנע אַנדערע פּרײַזן",
@@ -4461,7 +4483,7 @@
   "photo_field_front": "Product photo",
   "photo_field_ingredients": "Ingredients photo",
   "photo_field_nutrition": "Nutrition photo",
-  "photo_field_packaging": "Packaging information photo",
+  "photo_field_packaging": "Recycling instructions photo",
   "photo_already_exists": "This photo already exists",
   "photo_missing": "This photo is missing",
   "date": "Date",
@@ -4546,6 +4568,56 @@
   "product_page_tab_for_me": "פֿאַר מיר",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "מײַן קאָמפּאַטאַביליטי",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% קאָמפּאַטיבל",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "נישט גענוג דאַטן צו רעכענען אַ קאָמפּאַטאַביליטי כעזשבן.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "מען קען נישט אויסרעכענען א סקאָר פֿאַר אַ פּראָדוקט פֿון טיפּ \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "וויכטיקייט",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "שוועבעלעך",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "גוטע שוועבעלעך",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "דורכשניטלעכע שוועבעלעך",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "שלעכטע שוועבעלעך",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "אומבאַקאַנטע שידוכים",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
@@ -5104,7 +5176,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "אַנטדעקן אָפֿענע פֿוטער פֿאַקטן",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5332,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "עפֿענען פּרייַז מעטריקס",
+  "preferences_prices_metrics_title": "מעטריקס פון עפענע פרייזן",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5576,7 +5648,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "עפֿענע עסן פאַקטן לאַבאָראַטאָריעס",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5618,5 +5690,59 @@
   "location_map_details_postcode": "Postcode",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "צוריק אהיים",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "טאַגאַל קאַמעראַ",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "ווייזן דעם באַרקאָד סקאַנער",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "דריק צו סקענען א **באַרקאָד**\nאון זע אויב עס איז **גוט פֿאַר דיר**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "טאַגאַלן טאָרטש",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "סקענט א פּראָדוקט דורך צוגיין צו זיין באַרקאָד",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "מיר האָבן דעטעקטירט דעם פאלגנדן באַרקאָד: {barcode}, אָבער עס שיינט צו זיין אומגילטיק.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "זעה מער…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "לעצט געסקענטע פּראָדוקטן",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

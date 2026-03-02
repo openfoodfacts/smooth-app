@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Всички",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(търсене по категории)",
@@ -535,9 +536,17 @@
   "product": "Продукт",
   "@product": {},
   "unknownBrand": "Неизвестна марка",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Неизвестно количество",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Неразпознат продукт",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Опресни",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Информация на опаковката",
+  "packaging_information": "Инструкции за рециклиране",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Снимка с информация за опаковката",
+  "packaging_information_photo": "Снимка с инструкции за рециклиране",
   "@packaging_information_photo": {},
   "missing_product": "Откри нов продукт!",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "Снимка на предната част на опаковката",
   "ingredients_photo_title": "Снимка на съставките",
   "nutritional_facts_photo_title": "Снимка на хранителните стойности",
-  "recycling_photo_title": "Снимка на указанията за рециклиране",
+  "recycling_photo_title": "Инструкции за рециклиране Снимка",
   "take_photo_title": "Направи снимка",
   "take_more_photo_title": "Направи още снимки",
   "front_photo_uploaded": "Снимката на предната страна е качена",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Няма намерен продукт",
   "@no_product_found": {},
+  "no_product_found_explanation": "Търсенето ви за\n**\"{search}\"**\nне намери резултати.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Искате ли да извършите същото търсене в **нашата глобална база данни** вместо това?",
   "no_location_found": "Не е намерено местоположение",
   "not_found": "не е намерено:",
   "refreshing_product": "Актуализация на продукта",
@@ -1763,7 +1783,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Страна",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "Лична грижа",
   "product_type_label_pet_food": "Храна за домашни любимци",
   "product_type_label_product": "Друго",
+  "product_type_label_unknown": "Неизвестно",
   "product_type_selection_title": "Тип продукт",
   "product_type_selection_subtitle": "Изберете вида на този продукт",
   "product_type_selection_empty": "Първо трябва да изберете вид продукт!",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Вижте подробности за продукта",
   "prices_entry_menu_open_product_prices": "Вижте всички цени за този продукт",
   "prices_entry_menu_open_proof": "Вижте доказателството",
   "prices_entry_menu_my_prices": "Вижте другите ми цени",
@@ -4461,7 +4483,7 @@
   "photo_field_front": "Снимка на продукта",
   "photo_field_ingredients": "Снимка на съставките",
   "photo_field_nutrition": "Снимка за хранене",
-  "photo_field_packaging": "Снимка с информация за опаковката",
+  "photo_field_packaging": "Снимка с инструкции за рециклиране",
   "photo_already_exists": "Тази снимка вече съществува",
   "photo_missing": "Тази снимка липсва",
   "date": "Дата",
@@ -4546,6 +4568,56 @@
   "product_page_tab_for_me": "За мен",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Моята съвместимост",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% съвместимост",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Недостатъчно данни за изчисляване на оценка за съвместимост.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Не може да се изчисли резултат за продукт от тип „{productType}“.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Значение",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Мачове",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Добри мачове",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Средни съвпадения",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Лоши съвпадения",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Неизвестни съвпадения",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Уеб сайт",
   "@product_page_tab_website": {
@@ -5104,15 +5176,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Открийте фактите за отворената храна",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Открийте открити факти за красотата",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Открийте фактите за храната за домашни любимци на Open",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5120,7 +5192,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Открийте фактите за отворените продукти",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5332,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Показатели за отворена цена",
+  "preferences_prices_metrics_title": "Показатели за отворени цени",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5576,7 +5648,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Отворени лаборатории за факти за храните",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5616,7 +5688,61 @@
   "location_map_details_street": "Улица",
   "location_map_details_city": "Град",
   "location_map_details_postcode": "Пощенски код",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Страна",
   "location_map_details_coordinates": "Координати",
-  "location_map_details_osm_id": "OSM Идентификационен номер"
+  "location_map_details_osm_id": "OSM Идентификационен номер",
+  "homepage_scanner_back_to_home_button": "Обратно към дома",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Включване/изключване на камерата",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Показване на скенера за баркодове",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Докоснете, за да сканирате **баркод**\nи открийте дали е **полезен за вас**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Превключване на фенерчето",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Сканирайте продукт, като се приближите до неговия баркод",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Открихме следния баркод: {barcode}, но изглежда е невалиден.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Вижте още…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Най-сканираните продукти",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Последно сканирани продукти",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

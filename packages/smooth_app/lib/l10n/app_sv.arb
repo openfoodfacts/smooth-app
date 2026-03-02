@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Öppna priser",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Alla",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategorisökning)",
@@ -535,9 +536,17 @@
   "product": "Produkt",
   "@product": {},
   "unknownBrand": "Okänt varumärke",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Okänd kvantitet",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Okänt produktnamn",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Uppdatera",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Förpackningsinformation",
+  "packaging_information": "Återvinningsinstruktioner",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto på förpackningsinformation",
+  "packaging_information_photo": "Återvinningsinstruktioner foto",
   "@packaging_information_photo": {},
   "missing_product": "Du har hittat en ny produkt!",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "Foto på Förpackningens Framsida",
   "ingredients_photo_title": "Foto på Ingredienser",
   "nutritional_facts_photo_title": "Näringsfakta Foto",
-  "recycling_photo_title": "Bild på återvinningsinformation",
+  "recycling_photo_title": "Återvinningsinstruktioner Foto",
   "take_photo_title": "Ta en bild",
   "take_more_photo_title": "Ta fler bilder",
   "front_photo_uploaded": "Framsidefoto uppladdat",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Ingen produkt hittades",
   "@no_product_found": {},
+  "no_product_found_explanation": "Din sökning efter\n**\"{search}\"**\nmatchade inga resultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vill du köra samma sökning i **vår globala databas** istället?",
   "no_location_found": "Ingen plats hittades",
   "not_found": "hittades inte:",
   "refreshing_product": "Uppdaterar produkt",
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "Personlig vård",
   "product_type_label_pet_food": "Djurmat",
   "product_type_label_product": "Övrigt",
+  "product_type_label_unknown": "Okänd",
   "product_type_selection_title": "Produkttyp",
   "product_type_selection_subtitle": "Välj typ av denna produkt",
   "product_type_selection_empty": "Du måste först välja en produkttyp!",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Visa produktinformation",
   "prices_entry_menu_open_product_prices": "Se alla priser för den här produkten",
   "prices_entry_menu_open_proof": "Se bevis",
   "prices_entry_menu_my_prices": "Se mina andra priser",
@@ -4461,7 +4483,7 @@
   "photo_field_front": "Produktfoto",
   "photo_field_ingredients": "Foto på ingredienser",
   "photo_field_nutrition": "Näringsfoto",
-  "photo_field_packaging": "Foto på förpackningsinformation",
+  "photo_field_packaging": "Återvinningsinstruktioner foto",
   "photo_already_exists": "Det här fotot finns redan",
   "photo_missing": "Det här fotot saknas",
   "date": "Datum",
@@ -4546,6 +4568,56 @@
   "product_page_tab_for_me": "För mig",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Min kompatibilitet",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Otillräckliga data för att beräkna en kompatibilitetspoäng.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "En poäng kan inte beräknas för en produkt av typen \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Betydelse",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Tändstickor",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Bra matcher",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Genomsnittliga matchningar",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Dåliga matchningar",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Okända träffar",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Webbplats",
   "@product_page_tab_website": {
@@ -5104,23 +5176,23 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Upptäck öppna matfakta",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Upptäck fakta om öppna skönhetsföremål",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Upptäck öppna fakta om husdjursmat",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Upptäck öppna priser",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Upptäck fakta om öppna produkter",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5576,7 +5648,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Öppna matfaktalabb",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5618,5 +5690,59 @@
   "location_map_details_postcode": "Postnummer",
   "location_map_details_country": "Land",
   "location_map_details_coordinates": "Koordinater",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Tillbaka hem",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Växla kamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Visa streckkodsläsaren",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Tryck för att skanna en **streckkod**\noch upptäck om den är **bra för dig**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Växla ficklampa",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skanna en produkt genom att närma sig dess streckkod",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Vi har upptäckt följande streckkod: {barcode}, men den verkar vara ogiltig.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Visa mer…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Mest skannade produkter",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Senast skannade produkter",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

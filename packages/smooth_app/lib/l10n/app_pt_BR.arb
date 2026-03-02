@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Preços abertos",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Todos",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(pesquisa de categoria)",
@@ -513,7 +514,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_product_help": "Search a product,\na brand or a barcode",
+  "search_product_help": "Pesquisar um produto, marca ou um código de barras",
   "@search_product_help": {
     "description": "Help text of a search text input field. Please respect the line break."
   },
@@ -535,9 +536,17 @@
   "product": "Produto",
   "@product": {},
   "unknownBrand": "Marca desconhecida",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Quantidade desconhecida",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Nome de produto desconhecido",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Atualizar",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informação de embalagem",
+  "packaging_information": "Instruções de reciclagem",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto de informações da embalagem",
+  "packaging_information_photo": "Fotografia das instruções de reciclagem",
   "@packaging_information_photo": {},
   "missing_product": "Você encontrou um novo produto!",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "Foto frontal da embalagem",
   "ingredients_photo_title": "Fotografia dos ingredientes",
   "nutritional_facts_photo_title": "Fotografia das informações nutricionais",
-  "recycling_photo_title": "Fotografia de reciclagem",
+  "recycling_photo_title": "Instruções de reciclagem Foto",
   "take_photo_title": "Tirar uma foto",
   "take_more_photo_title": "Tirar mais fotografias",
   "front_photo_uploaded": "Fotografia inicial enviada",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Não foi encontrado nenhum produto",
   "@no_product_found": {},
+  "no_product_found_explanation": "Sua busca por\n**\"{search}\"**\nnão retornou nenhum resultado.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Deseja executar essa mesma pesquisa em **nosso banco de dados global**?",
   "no_location_found": "Nenhuma localização encontrada",
   "not_found": "não encontrado:",
   "refreshing_product": "A atualizar o produto",
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "Cuidados pessoais",
   "product_type_label_pet_food": "Alimentos de pets",
   "product_type_label_product": "Outros",
+  "product_type_label_unknown": "Desconhecido",
   "product_type_selection_title": "Tipo do produto",
   "product_type_selection_subtitle": "Selecione o tipo deste produto",
   "product_type_selection_empty": "Deve primeiro selecionar um tipo de produto!",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Ver detalhes do produto",
   "prices_entry_menu_open_product_prices": "Ver todos os preços deste produto",
   "prices_entry_menu_open_proof": "Ver prova",
   "prices_entry_menu_my_prices": "Veja meus outros preços",
@@ -3845,14 +3867,14 @@
   "nutriscore_unknown_new_formula": "Nutri-Score desconhecido (novo cálculo)",
   "nutriscore_not_applicable": "Nutri-Score não aplicável",
   "nutriscore_not_applicable_new_formula": "O Nutri-Score não é aplicável (novo cálculo)",
-  "environmental_score_generic_new": "Eco-Pontuação",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Green-Score Desconhecida",
-  "environmental_score_not_applicable_new": "Green-Score não é aplicável",
+  "environmental_score_not_applicable_new": "O Green-Score não é aplicável",
   "nova_group_generic_new": "Alimentos ultraprocessados - Grupos NOVA",
   "nova_group_1": "NOVA Grupo 1",
   "nova_group_2": "NOVA Grupo 2",
@@ -3946,7 +3968,7 @@
   "guide_nutriscore_v2_unchanged_title": "O que não muda",
   "guide_nutriscore_v2_unchanged_paragraph1": "O Nutri-Score é uma pontuação projetada para **medir a qualidade nutricional**. É **complementar ao grupo NOVA** sobre **alimentos ultraprocessados** (também presente no aplicativo).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Para os fabricantes, a exibição do Nutri-Score **continua opcional**.",
-  "guide_greenscore_title": "Eco-Pontuação",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4461,7 +4483,7 @@
   "photo_field_front": "Fotografia do produto",
   "photo_field_ingredients": "Foto de ingredientes",
   "photo_field_nutrition": "Fotografia das informações nutricionais",
-  "photo_field_packaging": "Foto de informações da embalagem",
+  "photo_field_packaging": "Fotografia das instruções de reciclagem",
   "photo_already_exists": "Esta fotografia já existe",
   "photo_missing": "Esta fotografia está em falta",
   "date": "Data",
@@ -4546,6 +4568,56 @@
   "product_page_tab_for_me": "Para mim",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Minha compatibilidade",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatível",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Dados insuficientes para calcular uma pontuação de compatibilidade.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Não é possível calcular uma pontuação para um produto do tipo \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Importância",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Partidas",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Boas combinações",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Média de partidas",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Combinações ruins",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "partidas desconhecidas",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Site",
   "@product_page_tab_website": {
@@ -5332,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Métricas de preço aberto",
+  "preferences_prices_metrics_title": "Métricas de preços de abertura",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5618,5 +5690,59 @@
   "location_map_details_postcode": "Código postal",
   "location_map_details_country": "País",
   "location_map_details_coordinates": "Coordenadas",
-  "location_map_details_osm_id": "ID OSM"
+  "location_map_details_osm_id": "ID OSM",
+  "homepage_scanner_back_to_home_button": "Voltar para a página inicial",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Alternar câmera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Mostre o leitor de código de barras.",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Toque para escanear um **código de barras**\ne descubra se ele é **bom para você**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Alternar tocha",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Escaneie um produto aproximando-o do seu código de barras.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Detectamos o seguinte código de barras: {barcode}, mas parece ser inválido.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Ver mais…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Produtos mais digitalizados",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Últimos produtos digitalizados",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }
