@@ -2671,7 +2671,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Type de réduction",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Remise sur la quantité",
   "prices_discount_type_sale": "Offres",
   "prices_discount_type_seasonal": "Saisonnier",
   "prices_discount_type_loyalty_program": "Programme de fidélité",
