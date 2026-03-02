@@ -42,15 +42,14 @@ Widget getAttributeDisplayIcon(
   BuildContext? context,
 }) {
   return attribute.getCircledIcon(
-        backgroundColor:
-            backgroundColor ??
-            (isFoodPreferences!
-                ? Theme.of(context!).primaryColor
-                : getAttributeDisplayBackgroundColor(attribute)),
-        foregroundColor: foregroundColor,
-        size: size ?? 32.0,
-      ) ??
-      EMPTY_WIDGET;
+    backgroundColor:
+        backgroundColor ??
+        (isFoodPreferences!
+            ? Theme.of(context!).primaryColor
+            : getAttributeDisplayBackgroundColor(attribute)),
+    foregroundColor: foregroundColor,
+    size: size ?? 32.0,
+  );
 }
 
 Color getAttributeDisplayBackgroundColor(final Attribute attribute) =>

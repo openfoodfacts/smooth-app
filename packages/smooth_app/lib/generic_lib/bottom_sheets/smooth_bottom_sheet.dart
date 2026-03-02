@@ -2,12 +2,12 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_autosize_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -98,6 +98,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   required String title,
   required Iterable<String> labels,
   required Iterable<T> values,
+  // If the size may change once the modal is shown
+  bool dynamicSize = false,
   Iterable<String>? subtitles,
   bool addEndArrowToItems = false,
   Widget? header,
@@ -164,9 +166,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
             : (addEndArrowToItems
                   ? const _SmoothListOfChoicesEndArrow()
                   : null)),
-        onTap: () {
-          Navigator.of(context).pop(values.elementAt(i));
-        },
+        onTap: () => Navigator.of(context).pop(values.elementAt(i)),
       ),
     );
 
@@ -211,20 +211,40 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     items.add(SizedBox(height: bottomPadding));
   }
 
-  return showSmoothModalSheet<T>(
-    context: context,
-    useRootNavigator: useRootNavigator,
-    builder: (BuildContext context) => SmoothModalSheet(
-      title: title,
-      type: type,
-      prefixIndicator: true,
-      prefixIndicatorColor: prefixIndicatorColor,
-      headerBackgroundColor: headerBackgroundColor,
-      bodyPadding: EdgeInsets.zero,
-      body: IntrinsicHeight(
-        child: Column(mainAxisSize: MainAxisSize.min, children: items),
+  if (dynamicSize) {
+    return showSmoothModalSheet<T>(
+      context: context,
+      useRootNavigator: useRootNavigator ?? false,
+      builder: (_) => Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          SmoothModalSheetHeader(
+            title: title,
+            prefix: SmoothModalSheetHeaderPrefixIndicator(
+              color: prefixIndicatorColor,
+            ),
+            backgroundColor: headerBackgroundColor,
+            type: type,
+          ),
+          ...items,
+        ],
       ),
+    );
+  }
+
+  return showSmoothAutoSizeModalSheet<T>(
+    context: context,
+    useRootNavigator: useRootNavigator ?? false,
+    useSafeArea: false,
+    header: SmoothModalSheetHeader(
+      title: title,
+      prefix: SmoothModalSheetHeaderPrefixIndicator(
+        color: prefixIndicatorColor,
+      ),
+      backgroundColor: headerBackgroundColor,
+      type: type,
     ),
+    bodyBuilder: (_) => Column(mainAxisSize: MainAxisSize.min, children: items),
   );
 }
 
@@ -736,17 +756,22 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
 
 class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
     implements SizeWidget {
-  const SmoothModalSheetHeaderPrefixIndicator({this.color, super.key});
+  const SmoothModalSheetHeaderPrefixIndicator({
+    this.color,
+    super.key,
+    this.size,
+  });
 
   final Color? color;
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
       child: SizedBox(
-        width: 10.0,
-        height: 10.0,
+        width: size?.width ?? 10.0,
+        height: size?.height ?? 10.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: color ?? Colors.white,
@@ -761,7 +786,7 @@ class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
   bool get requiresPadding => false;
 
   @override
-  double widgetHeight(BuildContext context) => 10.0;
+  double widgetHeight(BuildContext context) => size?.height ?? 10.0;
 }
 
 abstract class SizeWidget implements Widget {

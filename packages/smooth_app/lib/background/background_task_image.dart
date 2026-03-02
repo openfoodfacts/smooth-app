@@ -372,7 +372,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
   /// Uploads the product image.
   @override
-  Future<void> upload() async {
+  Future<void> upload(final LocalDatabase localDatabase) async {
+    final UriProductHelper uriProductHelper = await getUriProductHelper(
+      localDatabase,
+    );
     SendImage? image;
     BackgroundCropResult? cropResult;
     try {

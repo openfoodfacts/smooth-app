@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Giá mở",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -128,7 +129,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Giấy phép",
   "@licenses": {},
   "looking_for": "Đang tìm",
   "@looking_for": {
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Tất cả",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(tìm kiếm danh mục)",
@@ -535,9 +536,17 @@
   "product": "Sản phẩm",
   "@product": {},
   "unknownBrand": "Thương hiệu không xác định",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Số lượng không xác định",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Tên sản phẩm không xác định",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Làm mới",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Thông tin bao bì",
+  "packaging_information": "Hướng dẫn tái chế",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Ảnh chụp thông tin bao bì",
+  "packaging_information_photo": "Ảnh hướng dẫn tái chế",
   "@packaging_information_photo": {},
   "missing_product": "Bạn đã tìm thấy một sản phẩm mới!",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "Ảnh bao bì phía trước",
   "ingredients_photo_title": "Ảnh thành phần",
   "nutritional_facts_photo_title": "Ảnh chụp thông tin dinh dưỡng",
-  "recycling_photo_title": "Ảnh quy định tái chế",
+  "recycling_photo_title": "Hướng dẫn tái chế (Ảnh)",
   "take_photo_title": "Chụp ảnh",
   "take_more_photo_title": "Chụp thêm ảnh",
   "front_photo_uploaded": "Đã tải ảnh mặt trước lên",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Không tìm thấy sản phẩm",
   "@no_product_found": {},
+  "no_product_found_explanation": "Tìm kiếm của bạn cho\n**\"{search}\"**\nkhông khớp với bất kỳ kết quả nào.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Bạn có muốn thực hiện tìm kiếm tương tự trong **cơ sở dữ liệu toàn cầu của chúng tôi** không?",
   "no_location_found": "Không tìm thấy vị trí",
   "not_found": "không tìm thấy:",
   "refreshing_product": "Làm mới sản phẩm",
@@ -1683,7 +1703,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Điểm số dinh dưỡng, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1763,7 +1783,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Quốc gia",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "Chăm sóc cá nhân",
   "product_type_label_pet_food": "Thức ăn cho thú cưng",
   "product_type_label_product": "Khác",
+  "product_type_label_unknown": "Không biết",
   "product_type_selection_title": "Loại sản phẩm",
   "product_type_selection_subtitle": "Chọn loại sản phẩm này",
   "product_type_selection_empty": "Trước tiên, bạn cần chọn loại sản phẩm!",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Xem chi tiết sản phẩm",
   "prices_entry_menu_open_product_prices": "Xem tất cả giá cho sản phẩm này",
   "prices_entry_menu_open_proof": "Xem bằng chứng",
   "prices_entry_menu_my_prices": "Xem giá khác của tôi",
@@ -3264,6 +3286,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Bắt đầu thực hiện các hành động máy chủ cho các bản cập nhật folksonomy được lưu trữ cục bộ",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Bắt đầu tải xuống các sản phẩm phổ biến nhất",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3822,10 +3848,10 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_a": "Điểm dinh dưỡng A",
+  "nutriscore_b": "Điểm dinh dưỡng B",
   "nutriscore_c": "Nutri-Score C",
-  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_d": "Điểm dinh dưỡng D",
   "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (Tính toán mới)",
   "@nutriscore_new_formula": {
@@ -3910,7 +3936,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score là gì?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4088,7 +4114,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "Đặc điểm của Thực phẩm cho thú cưng mở",
   "guide_open_pet_food_facts_features_arg1_title": "Nhận cảnh báo về các thành phần không mong muốn của bạn",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Thú cưng của bạn có bị dị ứng với bất kỳ thành phần nào không? Bạn có thể thiết lập danh sách các thành phần mỹ phẩm cần tránh ngay trong ứng dụng!",
   "guide_open_pet_food_facts_tips_title": "Mẹo chụp ảnh đẹp",
@@ -4179,7 +4205,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Tính năng của Sản phẩm Mở Sự kiện",
   "guide_open_products_facts_features_text": "Open Products Facts hướng đến mục tiêu cung cấp cho người tiêu dùng giải pháp **kéo dài tuổi thọ của đồ vật** bằng cách cung cấp các giải pháp tuần hoàn để bảo trì, **sửa chữa**, **tái chế** đồ vật hoặc trao cho họ chủ sở hữu mới.",
   "guide_open_products_facts_features_arg1_title": "Dấu chân carbon của một số sản phẩm",
   "guide_open_products_facts_features_arg1_text": "**Tác động CO2** của Cơ quan Môi trường Pháp ADEME cung cấp **tác động carbon** của nhiều danh mục, hãy đảm bảo phân loại sản phẩm chính xác.",
@@ -4457,7 +4483,7 @@
   "photo_field_front": "Ảnh sản phẩm",
   "photo_field_ingredients": "Ảnh chụp thành phần",
   "photo_field_nutrition": "Ảnh dinh dưỡng",
-  "photo_field_packaging": "Ảnh chụp thông tin bao bì",
+  "photo_field_packaging": "Ảnh hướng dẫn tái chế",
   "photo_already_exists": "Bức ảnh này đã tồn tại",
   "photo_missing": "Bức ảnh này bị mất",
   "date": "Ngày",
@@ -4542,6 +4568,56 @@
   "product_page_tab_for_me": "Đối với tôi",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Khả năng tương thích của tôi",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% tương thích",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Không đủ dữ liệu để tính điểm tương thích.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Không thể tính điểm cho sản phẩm có kiểu \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Tầm quan trọng",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Các trận đấu",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Những trận đấu hay",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Các trận đấu trung bình",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Trận đấu tệ",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Các trận đấu không xác định",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Trang web",
   "@product_page_tab_website": {
@@ -4675,7 +4751,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "Tổng cộng",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4707,7 +4783,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Sắc đẹp",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -5100,15 +5176,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Khám phá sự thật về thực phẩm mở",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Khám phá sự thật về vẻ đẹp mở",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Khám phá sự thật về thức ăn cho thú cưng",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5116,7 +5192,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Khám phá sự thật về sản phẩm mở",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5148,7 +5224,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "The Open Food Facts blog",
+  "preferences_connect_blog_title": "Blog Sự thật về Thực phẩm Mở",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5328,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Số liệu giá mở",
+  "preferences_prices_metrics_title": "Các chỉ số giá mở",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5572,7 +5648,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Phòng thí nghiệm thông tin thực phẩm mở",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5580,7 +5656,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Mang Thông tin Thực phẩm Mở sang ngôn ngữ của bạn",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5612,7 +5688,61 @@
   "location_map_details_street": "Đường phố",
   "location_map_details_city": "Thành phố",
   "location_map_details_postcode": "Mã bưu chính",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Quốc gia",
   "location_map_details_coordinates": "Tọa độ",
-  "location_map_details_osm_id": "Mã OSM"
+  "location_map_details_osm_id": "Mã OSM",
+  "homepage_scanner_back_to_home_button": "Trở về trang chủ",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Bật/tắt camera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Hiển thị máy quét mã vạch",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Chạm để quét **mã vạch**\nvà khám phá xem nó có **tốt cho bạn** hay không!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Bật/tắt đèn pin",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Quét mã vạch sản phẩm bằng cách đưa sản phẩm lại gần.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Chúng tôi đã phát hiện mã vạch sau: {barcode}, nhưng có vẻ như nó không hợp lệ.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Xem thêm…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Sản phẩm được quét nhiều nhất",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Sản phẩm được quét gần đây nhất",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

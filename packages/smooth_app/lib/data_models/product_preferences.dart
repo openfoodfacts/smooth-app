@@ -132,19 +132,19 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       } else {
         differentLanguages = true;
       }
-      final String importanceUrl = AvailablePreferenceImportances.getUrl(
+      final Uri importanceUrl = AvailablePreferenceImportances.getUri(
         languageCode,
       );
-      final String attributeGroupUrl = AvailableAttributeGroups.getUrl(
+      final Uri attributeGroupUrl = AvailableAttributeGroups.getUri(
         languageCode,
       );
       final DownloadableString downloadableImportance = DownloadableString(
-        Uri.parse(importanceUrl),
+        importanceUrl,
         dao: daoString,
       );
       final bool differentImportance = await downloadableImportance.download();
       final DownloadableString downloadableAttributes = DownloadableString(
-        Uri.parse(attributeGroupUrl),
+        attributeGroupUrl,
         dao: daoString,
       );
       final bool differentAttributes = await downloadableAttributes.download();
@@ -170,17 +170,17 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       return false;
     }
     try {
-      final String importanceUrl = AvailablePreferenceImportances.getUrl(
+      final Uri importanceUrl = AvailablePreferenceImportances.getUri(
         languageCode,
       );
-      final String attributeGroupUrl = AvailableAttributeGroups.getUrl(
+      final Uri attributeGroupUrl = AvailableAttributeGroups.getUri(
         languageCode,
       );
       final String? preferenceImportancesString = await daoString!.get(
-        importanceUrl,
+        importanceUrl.toString(),
       );
       final String? attributeGroupsString = await daoString!.get(
-        attributeGroupUrl,
+        attributeGroupUrl.toString(),
       );
       if (preferenceImportancesString == null &&
           attributeGroupsString == null) {

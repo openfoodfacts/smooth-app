@@ -55,15 +55,34 @@ String? _clearString(final String? string) {
 String getProductName(
   final Product product,
   final AppLocalizations appLocalizations,
-) =>
-    _clearString(product.productNameInLanguages?[ProductQuery.getLanguage()]) ??
-    _clearString(product.productName) ??
-    /// Fallback to the first language available
-    _clearString(
-      product.productNameInLanguages?[OpenFoodFactsLanguage.ENGLISH],
-    ) ??
-    _clearString(product.productNameInLanguages?.values.firstOrNull) ??
-    appLocalizations.unknownProductName;
+) => getProductNameWithLanguage(product, appLocalizations).$2;
+
+(OpenFoodFactsLanguage, String) getProductNameWithLanguage(
+  final Product product,
+  final AppLocalizations appLocalizations,
+) {
+  final OpenFoodFactsLanguage currentLanguage = ProductQuery.getLanguage();
+  final String? nameInCurrentLanguage = _clearString(
+    product.productNameInLanguages?[currentLanguage],
+  );
+  if (nameInCurrentLanguage != null) {
+    return (currentLanguage, nameInCurrentLanguage);
+  }
+
+  // Fallback to the first language available
+  final Map<OpenFoodFactsLanguage, String>? namesInLanguages =
+      product.productNameInLanguages;
+  if (namesInLanguages != null && namesInLanguages.isNotEmpty) {
+    final OpenFoodFactsLanguage firstLanguage = namesInLanguages.keys.first;
+    final String firstName = namesInLanguages[firstLanguage]!;
+    return (firstLanguage, firstName);
+  }
+
+  return (
+    OpenFoodFactsLanguage.UNKNOWN_LANGUAGE,
+    appLocalizations.unknownProductName,
+  );
+}
 
 String getProductBrands(
   final Product product,
@@ -76,9 +95,21 @@ String getProductBrands(
   return formatProductBrands(brands);
 }
 
+List<String> getProductBrandsList(
+  final Product product,
+  final AppLocalizations appLocalizations,
+) {
+  final String? brands = _clearString(product.brands);
+  if (brands == null) {
+    return <String>[];
+  }
+
+  const String sep = ',';
+  return formatProductBrands(brands, separator: sep).split(sep);
+}
+
 /// Correctly format word separators between words.
-String formatProductBrands(String brands) {
-  const String separator = ', ';
+String formatProductBrands(String brands, {String separator = ', '}) {
   final String separatorChar = RegExp.escape(',');
   final RegExp regex = RegExp('\\s*$separatorChar\\s*');
   return brands.replaceAll(regex, separator);

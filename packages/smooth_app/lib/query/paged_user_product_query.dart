@@ -41,6 +41,7 @@ enum UserSearchType {
     language: language,
     fields: fields,
     version: ProductQuery.productQueryVersion,
+    activateKnowledgePanelsSimplified: true,
   );
 }
 

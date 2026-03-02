@@ -15,6 +15,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/product_page/new_product_page.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ProductHeaderDelegate extends SliverPersistentHeaderDelegate {
@@ -74,11 +75,10 @@ class _ProductHeaderState extends State<_ProductHeader> {
                 ProductPageCompatibility productCompatibility,
                 _,
               ) {
-                final Color tintColor =
-                    productCompatibility.color ??
-                    Theme.of(
-                      context,
-                    ).extension<SmoothColorsThemeExtension>()!.greyNormal;
+                final Color tintColor = _getTintColor(
+                  productCompatibility,
+                  context,
+                );
 
                 return Material(
                   color: tintColor,
@@ -123,6 +123,20 @@ class _ProductHeaderState extends State<_ProductHeader> {
         ),
       ),
     );
+  }
+
+  Color _getTintColor(
+    ProductPageCompatibility productCompatibility,
+    BuildContext context,
+  ) {
+    final Color? tintColor = productCompatibility.color;
+    if (tintColor != null) {
+      return tintColor;
+    }
+
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+    return context.lightTheme() ? theme.primaryBlack : theme.primaryUltraBlack;
   }
 
   void _onScroll(ScrollController scrollController) {
