@@ -206,7 +206,6 @@ class _SmoothAutocompleteTextFieldState
       return _SearchResults.empty();
     }
 
-    final DateTime start = DateTime.now();
 
     if (_suggestions[search] != null) {
       return _suggestions[search]!;
@@ -222,19 +221,16 @@ class _SmoothAutocompleteTextFieldState
       _suggestions[search] = _SearchResults(
         await widget.manager!.getSuggestions(search),
       );
-    } catch (_) {}
+    } catch (_) {
+      _setLoading(false);
+      return _SearchResults.empty();
+    }
 
     if (_suggestions[search]?.isEmpty ?? true && search == _searchInput) {
       _setLoading(false);
     }
 
-    if (_searchInput != search &&
-        start.difference(DateTime.now()).inSeconds > 5) {
-      // Ignore this request, it's too long and this is not even the current search
-      return _SearchResults.empty();
-    } else {
-      return _suggestions[search] ?? _SearchResults.empty();
-    }
+    return _suggestions[search] ?? _SearchResults.empty();
   }
 }
 
