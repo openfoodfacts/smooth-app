@@ -206,7 +206,6 @@ class _SmoothAutocompleteTextFieldState
       return _SearchResults.empty();
     }
 
-
     if (_suggestions[search] != null) {
       return _suggestions[search]!;
     } else if (widget.manager == null ||

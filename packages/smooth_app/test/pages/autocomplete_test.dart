@@ -3,10 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 
 /// Mock autocompleter that simulates slow/failing network
 class _MockAutocompleter implements Autocompleter {
-  _MockAutocompleter({
-    this.delay = Duration.zero,
-    this.shouldFail = false,
-  });
+  _MockAutocompleter({this.delay = Duration.zero, this.shouldFail = false});
 
   final Duration delay;
   final bool shouldFail;
@@ -59,16 +56,11 @@ void main() {
     });
 
     test('network failure throws exception', () async {
-      final _MockAutocompleter failMock = _MockAutocompleter(
-        shouldFail: true,
-      );
+      final _MockAutocompleter failMock = _MockAutocompleter(shouldFail: true);
       final AutocompleteManager manager = AutocompleteManager(failMock);
 
       // Should throw — smooth-app catch block must handle this
-      expect(
-        () => manager.getSuggestions('bo'),
-        throwsException,
-      );
+      expect(() => manager.getSuggestions('bo'), throwsException);
     });
   });
 }
