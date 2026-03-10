@@ -384,7 +384,8 @@ class _SmoothGoRouter {
             return AppRoutes.GUIDE_GREEN_SCORE;
           } else if (path == _ExternalRoutes.GUIDE_NOVA_SCORE) {
             return AppRoutes.GUIDE_NOVA;
-          } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
+          } else if (path == _ExternalRoutes.GUIDE_NUTRISCORE ||
+              path == _ExternalRoutes.GUIDE_NUTRISCORE_V2) {
             return AppRoutes.GUIDE_NUTRISCORE_V2;
           } else if (path == _ExternalRoutes.SIGNUP) {
             return AppRoutes.SIGNUP;
@@ -512,6 +513,7 @@ class _ExternalRoutes {
   static const String PRODUCT_EDITION = '/cgi/product.pl';
   static const String GUIDE_GREEN_SCORE = '/green-score';
   static const String GUIDE_NOVA_SCORE = '/nova';
+  static const String GUIDE_NUTRISCORE = '/nutriscore';
   static const String GUIDE_NUTRISCORE_V2 = '/nutriscore-v2';
   static const String SIGNUP = '/signup';
 }

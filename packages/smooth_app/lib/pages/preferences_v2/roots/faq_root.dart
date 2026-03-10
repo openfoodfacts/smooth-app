@@ -25,7 +25,6 @@ class FaqRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.preferences_faq_scores_methodologies_title,
         tiles: <PreferenceTile>[
-          _buildNutriscoreTile(appLocalizations),
           _buildNutriscoreV2Tile(context, appLocalizations),
           _buildGreenScoreTile(context, appLocalizations),
           _buildNovaTile(context, appLocalizations),
@@ -55,16 +54,6 @@ class FaqRoot extends PreferencesRoot {
   }
 
   // Scores and Methodologies section
-  PreferenceTile _buildNutriscoreTile(AppLocalizations appLocalizations) {
-    return _createScoreTile(
-      title: appLocalizations.nutriscore_generic,
-      subtitleText: appLocalizations.preferences_faq_nutriscore_subtitle,
-      url: 'https://world.openfoodfacts.org/nutriscore',
-      svg: SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, false),
-      leadingSvgWidth: 30.0,
-    );
-  }
-
   PreferenceTile _buildNutriscoreV2Tile(
     BuildContext context,
     AppLocalizations appLocalizations,
