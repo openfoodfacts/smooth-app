@@ -384,7 +384,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
       final OpenFoodFactsLanguage language = getLanguage();
       final User user = getUser();
-      
+
       // Local method to avoid code duplication
       Future<Status> addImage(int compressionPct, bool force) async {
         cropResult = await cropIfNeeded(
@@ -397,7 +397,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           compressQuality: compressionPct,
           forceCompression: force,
           eraserCoordinates: eraserCoordinates,
-         );
+        );
         final String? path = cropResult!.filePath;
         if (path == null) {
           throw Exception('Could not get image path after compression');
@@ -416,8 +416,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       }
 
       Status status;
-       try {
-         status = await addImage(100, false);
+      try {
+        status = await addImage(100, false);
       } catch (e) {
         if (e.toString().contains('413') ||
             e.toString().contains('Request Entity Too Large')) {
