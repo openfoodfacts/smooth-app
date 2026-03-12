@@ -378,75 +378,69 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     );
     SendImage? image;
     BackgroundCropResult? cropResult;
+    const String statusOk = 'status ok';
+    const String statusNotOk = 'status not ok';
     try {
-      cropResult = await cropIfNeeded(
-        fullPath: fullPath,
-        rotationDegrees: rotationDegrees,
-        cropX1: cropX1,
-        cropY1: cropY1,
-        cropX2: cropX2,
-        cropY2: cropY2,
-        compressQuality: 100,
-        forceCompression: false,
-        eraserCoordinates: eraserCoordinates,
-      );
-      final String? path = cropResult.filePath;
-      if (path == null) {
-        // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
-        return;
-      }
       final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
       final OpenFoodFactsLanguage language = getLanguage();
       final User user = getUser();
-      image = SendImage(
-        lang: language,
-        barcode: barcode,
-        imageField: imageField,
-        imageUri: Uri.parse(path),
-      );
-
-      Status status = await OpenFoodAPIClient.addProductImage(
-        user,
-        image,
-        uriHelper: uriProductHelper,
-      );
-      if (status.status == 'status ok') {
-        return;
-      }
-
-      if (status.error?.contains('413') == true ||
-          status.error?.contains('Request Entity Too Large') == true) {
-        final BackgroundCropResult compressedResult = await cropIfNeeded(
+      
+      // Local method to avoid code duplication
+      Future<Status> addImage(int compressionPct, bool force) async {
+        cropResult = await cropIfNeeded(
           fullPath: fullPath,
           rotationDegrees: rotationDegrees,
           cropX1: cropX1,
           cropY1: cropY1,
           cropX2: cropX2,
           cropY2: cropY2,
-          compressQuality: 80, // was 100
-          forceCompression: true, // forces re-crop even if no crop needed
+          compressQuality: compressionPct,
+          forceCompression: force,
           eraserCoordinates: eraserCoordinates,
+         );
+        final String? path = cropResult!.filePath;
+        if (path == null) {
+          throw Exception('Could not get image path after compression');
+        }
+        image = SendImage(
+          lang: language,
+          barcode: barcode,
+          imageField: imageField,
+          imageUri: Uri.parse(path),
         );
-        final String? compressedPath = compressedResult.filePath;
-        if (compressedPath != null) {
-          image = SendImage(
-            lang: language,
-            barcode: barcode,
-            imageField: imageField,
-            imageUri: Uri.parse(compressedPath),
-          );
-          status = await OpenFoodAPIClient.addProductImage(
-            user,
-            image,
-            uriHelper: uriProductHelper,
-          );
-          if (status.status == 'status ok') {
-            return;
-          }
+        return OpenFoodAPIClient.addProductImage(
+          user,
+          image!,
+          uriHelper: uriProductHelper,
+        );
+      }
+
+      Status status;
+       try {
+         status = await addImage(100, false);
+      } catch (e) {
+        if (e.toString().contains('413') ||
+            e.toString().contains('Request Entity Too Large')) {
+          status = await addImage(80, true);
+        } else {
+          rethrow;
+        }
+      }
+      if (status.status == statusOk) {
+        return;
+      }
+
+      if (status.error?.contains('413') == true ||
+          status.error?.contains('Request Entity Too Large') == true) {
+        status = await addImage(80, true);
+        if (status.status == statusOk) {
+          return;
         }
       }
       final int? imageId = status.imageId;
-      if (status.status == 'status not ok' && imageId != null) {
+      if (status.status == statusNotOk && imageId != null) {
+        // The very same image was already uploaded and therefore was rejected.
+        // We just have to select this image, with no angle.
         final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
           barcode: barcode,
           imageField: imageField,
