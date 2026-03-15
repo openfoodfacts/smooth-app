@@ -449,9 +449,9 @@
   "myPreferences_profile_subtitle": "Spravujte svoj Open Food Facts účet.",
   "myPreferences_settings_title": "Nastavenia aplikácie",
   "myPreferences_settings_subtitle": "Tmavý režim, jazyky…",
-  "myPreferences_food_title": "Potravinové preferencie",
+  "myPreferences_food_title": "Potravinové predvoľby",
   "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie.",
-  "myPreferences_food_comment": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie, aby ste mohli zoradiť produkty podľa svojich preferencií. Pozrite si informácie, ktoré vás zaujímajú ako prvé a získajte súhrn kompatibility. Tieto potravinové preferencie zostanú vo vašom zariadení a nie sú spojené s vaším účtom prispievateľa Open Food Facts, ak ho máte.",
+  "myPreferences_food_comment": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie, aby ste mohli zoradiť produkty podľa svojich predvolieb. Pozrite si informácie, ktoré vás zaujímajú ako prvé a získajte súhrn kompatibility. Tieto potravinové predvoľby zostanú vo vašom zariadení a nie sú spojené s vaším účtom prispievateľa Open Food Facts, ak ho máte.",
   "confirmResetPreferences": "Obnoviť potravinové preferencie?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -2671,7 +2671,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Discount type",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Množstevná zľava",
   "prices_discount_type_sale": "Sale",
   "prices_discount_type_seasonal": "Seasonal",
   "prices_discount_type_loyalty_program": "Loyalty program",
@@ -2810,7 +2810,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Asistent cenového príspevku",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Pomocník kontroly cien",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
