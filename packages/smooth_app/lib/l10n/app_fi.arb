@@ -539,11 +539,11 @@
   "@unknownBrand": {
     "description": "Message when the brand is not available"
   },
-  "unknownQuantity": "Tuntematon määrä",
+  "unknownQuantity": "Määrä ei tiedossa",
   "@unknownQuantity": {
     "description": "Message when the quantity is not available"
   },
-  "unknownProductName": "Tuntematon tuotenimi",
+  "unknownProductName": "Tuotenimi ei tiedossa",
   "@unknownProductName": {
     "description": "Message when the product name is not available"
   },
@@ -567,23 +567,23 @@
       "imageType": {}
     }
   },
-  "outdated_image_short_label": "voi olla vanhentunut",
+  "outdated_image_short_label": "saattaa olla vanhentunut",
   "@outdated_image_short_label": {
     "description": "A label for outdated images"
   },
   "ingredients": "Ainesosat",
   "@ingredients": {},
-  "ingredients_editing_instructions": "Säilytä alkuperäinen järjestys. Ilmoita prosenttiosuus, jos se on määritetty. Erota pilkulla tai yhdysviivalla ja käytä sulkeita ainesosan ainesosille.",
-  "ingredients_editing_error": "Ainesosalistan tallennus epäonnistui.",
+  "ingredients_editing_instructions": "Säilytä alkuperäinen järjestys. Ilmoita prosenttiosuus, jos se on määritetty. Erota ainesosat pilkulla tai yhdysviivalla ja käytä sulkeita ainesosan ainesosille.",
+  "ingredients_editing_error": "Ainesosien tallennus epäonnistui.",
   "ingredients_editing_image_error": "Ainesosakuvan lataus epäonnistui.",
   "ingredients_editing_title": "Muokkaa ainesosia",
   "ingredients_photo": "Ainesosakuva",
   "@ingredients_photo": {
     "description": "Button label: For adding a picture of the Ingredients of a product"
   },
-  "packaging_editing_instructions": "Luettele pakkauksen osat pilkuin taikka rivinvaihdoin eroteltuna, ilmoita myös lukumäärä (kuten 1 tai 6), tyyppi (kuten pullo, laatikko tai tölkki), materiaali (kuten muovi, metalli tai alumiini) sekä mikäli mahdollista, koko (kuten 33 cl) ja kierrätysohjeet.\nEsimerkki: 1 lasipullo kierrätettäväksi, 1 muovikorkki heitettäväksi pois",
+  "packaging_editing_instructions": "Luettele pakkauksen osat pilkuin taikka rivinvaihdoin eroteltuna. Ilmoita myös lukumäärä (kuten 1 tai 6), tyyppi (kuten pullo, laatikko tai tölkki), materiaali (kuten muovi, metalli tai alumiini), koko (kuten 33 cl), jos mahdollista, ja kierrätysohjeet.\nEsimerkki: 1 kierrätettävä lasipullo, 1 pois heitettävä muovikorrkki",
   "packaging_editing_error": "Pakkauksen tallentaminen epäonnistui.",
-  "packaging_editing_image_error": "Pakkauskuvan hakeminen epäonnistui.",
+  "packaging_editing_image_error": "Pakkauskuvan lataus epäonnistui.",
   "packaging_editing_title": "Muokkaa pakkausta",
   "nutrition": "Ravinto",
   "@nutrition": {},
@@ -603,7 +603,7 @@
   "@packaging_information_photo": {},
   "missing_product": "Löysit uuden tuotteen!",
   "@missing_product": {},
-  "add_product_take_photos": "Ota valokuvia pakkauksesta lisätäksesi tämän tuotteen Open Food Factsiin",
+  "add_product_take_photos": "Ota valokuvia pakkauksesta lisätäksesi tämä tuote Open Food Factsiin",
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "Ota kuvia ensin. Voit viimeistellä myöhemmin.",
   "@add_product_take_photos_descriptive": {},
@@ -636,9 +636,9 @@
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
-  "front_packaging_photo_button_label": "Kuva edestä",
+  "front_packaging_photo_button_label": "Tuotteen etupuoli",
   "@front_packaging_photo_button_label": {},
-  "confirm_front_packaging_photo_button_label": "Vahvista edestäpäin otetun kuvan lataaminen",
+  "confirm_front_packaging_photo_button_label": "Vahvista tuotteen etukuvan lataaminen",
   "@confirm_front_packaging_photo_button_label": {
     "description": "Button clicking on which confirms the picture of the front of product that user just took."
   },
@@ -656,7 +656,7 @@
   "@crop_page_action_local": {
     "description": "Action being performed on the crop page"
   },
-  "crop_page_action_local_failed_title": "Hups… valokuvassasi on jotain!",
+  "crop_page_action_local_failed_title": "Hups… Kuvassasi on jokin ongelma!",
   "@crop_page_action_local_title": {
     "description": "The save of the picture locally failed - error dialog message"
   },
@@ -672,7 +672,7 @@
   "@crop_page_too_small_image_title": {
     "description": "Title of a dialog warning the user that the image is too small for upload"
   },
-  "crop_page_too_small_image_message": "Vähimmäiskoko pikseleinä kuvan lähettämiseen on {expectedMinWidth}x{expectedMinHeight}. Nykyinen kuva on {actualWidth}x{actualHeight}.",
+  "crop_page_too_small_image_message": "Lähetettävä kuva voi olla kooltaan vähintään {expectedMinWidth}x{expectedMinHeight} pikseliä. Nykyisen kuvan koko on {actualWidth}x{actualHeight} pikseliä.",
   "@crop_page_too_small_image_message": {
     "description": "Message of a dialog warning the user that the image is too small for upload",
     "placeholders": {
@@ -695,18 +695,18 @@
     "description": "Action being performed on the crop page"
   },
   "front_packaging_photo_title": "Pakkauksen kuva",
-  "ingredients_photo_title": "Sisältöluettelon kuva",
+  "ingredients_photo_title": "Ainesosaluettelon kuva",
   "nutritional_facts_photo_title": "Ravintosisältökuva",
-  "recycling_photo_title": "Kierrätysohjeet Kuva",
+  "recycling_photo_title": "Kierrätysohjeiden kuva",
   "take_photo_title": "Ota kuva",
   "take_more_photo_title": "Ota lisää kuvia",
   "front_photo_uploaded": "Etukuva ladattu",
   "@front_photo_uploaded": {},
   "ingredients_photo_button_label": "Ainesosakuva",
   "@ingredients_photo_button_label": {},
-  "ingredients_photo_uploaded": "Sisältöluettelokuva ladattu",
+  "ingredients_photo_uploaded": "Ainesosaluettelon kuva ladattu",
   "@ingredients_photo_uploaded": {},
-  "nutrition_cache_loading_error": "Ravintoaineita ei voida ladata välimuistista",
+  "nutrition_cache_loading_error": "Ravintosisältötietoja ei voida ladata välimuistista",
   "nutritional_facts_photo_button_label": "Ravintosisältökuva",
   "@nutritional_facts_photo_button_label": {},
   "nutritional_facts_input_button_label": "Lisää ravintosisältö",
@@ -2484,7 +2484,7 @@
       }
     }
   },
-  "prices_entry_accessibility_label": "Hinta: {price} / Kauppa: \"{location}\" / tekijän \"{user}\" päivämääränä {date} julkaisema",
+  "prices_entry_accessibility_label": "Hinta: {price} / Myymälä: \"{location}\" / Julkaistu {date}, julkaisija: ”{user}”",
   "@prices_entry_accessibility_label": {
     "description": "Accessibility label for a price entry",
     "placeholders": {
@@ -3295,7 +3295,7 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
-  "background_task_title_folksonomy": "Paikallisesti tallennetuille folksonomy-päivityksille suoritetaan palvelintoimintoja.",
+  "background_task_title_folksonomy": "Paikallisesti tallennetuille tuotteen ominaisuuksien päivityksille suoritetaan palvelintoimintoja",
   "@background_task_title_folksonomy": {
     "description": "Snackbar message when server action for folksonomy updates is started"
   },
@@ -4639,13 +4639,13 @@
   "prices_explanation_card_title": "Miksi hinnat?",
   "prices_explanation_card_line1": "**Open Prices** on projekti, jonka tarkoituksena on kerätä ja jakaa tuotteiden hintoja ympäri maailmaa 🌍. Open Pricesin on kehittänyt ja ylläpitää Open Food Facts.",
   "explanation_card_learn_more_button": "Lue lisää",
-  "product_page_tab_folksonomy": "Folksonomia",
+  "product_page_tab_folksonomy": "Avoin asiasanoitus",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
-  "folksonomy_explanation_card_title": "Mitä ovat folksonomiaominaisuudet?",
-  "folksonomy_explanation_card_line1": "Attribuutit ovat **avain-arvo**-pohjaisia.",
-  "folksonomy_explanation_card_line2": "Nämä ominaisuudet luovat ja arkistoivat avustajat kaikenlaiseen käyttöön.",
+  "folksonomy_explanation_card_title": "Mitä ovat avoimen asiasanoituksen määritteet?",
+  "folksonomy_explanation_card_line1": "Määritteet ovat **avain-arvo**-pohjaisia.",
+  "folksonomy_explanation_card_line2": "Avustajat lisäävät näitä ominaisuuksia moniin eri käyttötarkoituksiin.",
   "folksonomy_action_external_link_title": "Avaa ulkoinen linkki",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
@@ -5132,11 +5132,11 @@
   "@preferences_dev_mode_add_cards_subtitle": {
     "description": "Subtitle for adding cards to scanner in demo mode"
   },
-  "preferences_dev_mode_folksonomy_host_title": "Folksonomy-isäntä",
+  "preferences_dev_mode_folksonomy_host_title": "Avoimen asiasanoituksen ylläpitäjä",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
-  "preferences_dev_mode_folksonomy_host_subtitle": "Isäntä: {host}",
+  "preferences_dev_mode_folksonomy_host_subtitle": "Ylläpitäjä: {host}",
   "@preferences_dev_mode_folksonomy_host_subtitle": {
     "description": "Subtitle for folksonomy host setting",
     "placeholders": {
@@ -5675,7 +5675,7 @@
   "@preferences_dev_mode_section_data": {
     "description": "Title for the contributions and product data preferences card in dev mode"
   },
-  "preferences_dev_preferences_show_folksonomy_title": "Älä näytä Folksonomiaa",
+  "preferences_dev_preferences_show_folksonomy_title": "Älä näytä avoin asiasanoitus -osiota",
   "@preferences_dev_preferences_show_folksonomy_title": {
     "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
   },
