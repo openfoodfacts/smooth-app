@@ -217,7 +217,7 @@
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "Lähetimme tiliin kirjattuun sähköpostiosoitteeseen linkin salasananvaihdokseen. Tarkista myös roskapostikansio",
+  "reset_password_done": "Lähetimme tiliisi liitettyyn sähköpostiosoitteeseen linkin salasananvaihdokseen. Tarkista myös roskapostikansio",
   "send_reset_password_mail": "Vaihda salasana",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
@@ -306,7 +306,7 @@
   "@darkmode_system_default": {
     "description": "Indicator inside the darkmode switch (system default)"
   },
-  "thanks_for_contributing": "Kiitos osallistumisestasi!",
+  "thanks_for_contributing": "Kiitos osallistumisesta!",
   "contributors_label": "He rakentavat sovellusta",
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
@@ -315,14 +315,14 @@
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
-  "contributors_dialog_entry_description": "Tekijä: {name}",
+  "contributors_dialog_entry_description": "Osallistuja: {name}",
   "@contributors_dialog_entry_description": {
     "description": "The user id of the contributor.",
     "placeholders": {
       "name": {}
     }
   },
-  "contributors_description": "Luettelo kaikista tämän sovelluksen tekijöistä",
+  "contributors_description": "Luettelo kaikista tämän sovelluksen avustajista",
   "@contributors_description": {
     "description": "Button description for accessibility purposes to explain what the Contributors button do"
   },
@@ -378,7 +378,7 @@
   "@contribute_improve_header": {
     "description": "Button label + page title: Ways to improve the database"
   },
-  "contribute_improve_text": "Tietokanta on hankkeen ydin. Se on helppoa ja erittäin nopeaa auttaa. Voit ladata mobiilisovelluksen puhelimeesi ja aloittaa tuotteiden lisäämisen tai parantamisen.\n\nToisaalta Open Food Facts -sivusto tarjoaa monia tapoja osallistua: ",
+  "contribute_improve_text": "Tietokanta on hankkeen ydin. Voit auttaa sen ylläpidossa helposti. Lataa mobiilisovellus puhelimeesi ja aloita tuotteiden lisääminen ja parantaminen.\n\nToisaalta Open Food Facts -sivusto tarjoaa monia osallistumistapoja: ",
   "@contribute_improve_text": {},
   "contribute_translate_header": "Käännä",
   "@contribute_translate_header": {
@@ -392,14 +392,14 @@
   "@contribute_translate_link_text": {
     "description": "Button label: Opens the Crowdin translation portal"
   },
-  "contribute_translate_text": "Open Food Facts on maailmanlaajuinen projekti, joka sisältää tuotteita yli 160 maasta. Open Food Facts on käännetty kymmenille kielille, ja sen sisältö kehittyy jatkuvasti.",
+  "contribute_translate_text": "OpenFoodFacts on maailmanlaajuinen hanke, joka sisältää tuotteita yli 160 maasta. OpenFoodFacts on käännetty kymmenille kielille, ja sen sisältö kehittyy jatkuvasti.",
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Käännökset on yksi hankkeen keskeisistä tehtävistä",
   "@contribute_translate_text_2": {},
   "contribute_join_skill_pool": "Edistä taitojasi Open Food Factsissa. Liity osaamispooliin!",
-  "contribute_share_header": "Jaa Open Food Facts ystäviesi kanssa",
+  "contribute_share_header": "Jaa Open Food Facts ystävillesi",
   "@contribute_share_header": {},
-  "contribute_share_content": "Halusin kertoa sinulle käyttämästäni Open Food Facts -sovelluksesta, jonka avulla saat henkilökohtaisesti selville ruokasi terveys- ja ympäristövaikutukset. Se toimii skannaamalla pakkauksessa olevat viivakoodit. Lopuksi se on ilmainen, ei vaadi rekisteröintiä, ja voit jopa auttaa lisäämään purettujen tuotteiden määrää. Tässä linkki, josta saat sen puhelimeesi: https://openfoodfacts.app",
+  "contribute_share_content": "Haluan kertoa sinulle käyttämästäni Open Food Facts -sovelluksesta, jonka avulla saat selville ruokasi terveys- ja ympäristövaikutukset. Sinun täytyy vain skannata pakkauksissa olevat viivakoodit. Sovellus on myös ilmainen, eikä siihen tarvitse rekisteröityä. Lisäksi voit auttaa lisäämään tuotteiden tietoja tietokantaan. Pääset asentamaan sovelluksen puhelimeesi painamalla tätä linkkiä: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -407,7 +407,7 @@
   "@contribute_prices_gdpr": {
     "description": "Label for option to contribute prices using GDPR export from loyalty cards"
   },
-  "tap_to_answer": "Vastaa tästä kysymyksiin",
+  "tap_to_answer": "Vastaa kysymyksiin painamalla tästä",
   "@tap_to_answer": {
     "description": "Button label shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts and gain rewards."
   },
@@ -798,7 +798,7 @@
   "score_add_missing_product_emb": "Lisää jäljitettävyyskoodi",
   "score_add_missing_product_labels": "Lisää puuttuvat merkit",
   "score_add_missing_product_origins": "Lisää alkuperä",
-  "score_add_missing_product_stores": "Lisää kaupat",
+  "score_add_missing_product_stores": "Lisää puuttuvia myymälöitä",
   "score_add_missing_product_brands": "Lisää puuttuvat tuotemerkit",
   "score_update_nutrition_facts": "Päivitä ravintosisältö",
   "nutrition_page_title": "Ravintosisältö",
@@ -1598,7 +1598,7 @@
   "@edit_product_label_short": {
     "description": "Edit product button short label (only the verb)"
   },
-  "edit_product_form_item_help": "Kuinka syöttää \"{value}\"?",
+  "edit_product_form_item_help": "\"{value}\"-kentän ohje",
   "@edit_product_form_item_help": {
     "description": "Help text for the input field. Eg 'How to enter stores?'",
     "placeholders": {
@@ -2081,7 +2081,7 @@
   "@user_list_subtitle_product": {
     "description": "Subtitle of a paragraph about user lists in a product context"
   },
-  "user_list_title": "Luettelosi",
+  "user_list_title": "Omat listat",
   "@user_list_title": {
     "description": "Label for the user lists (when the user wants to add a product to a list)"
   },
@@ -4177,7 +4177,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "Mitä ovat avoimet hinnat?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices on projekti, jonka tarkoituksena on **kerätä ja jakaa tuotteiden hintoja ympäri maailmaa**. Se on julkisesti saatavilla oleva tietojoukko, jota voidaan käyttää tutkimukseen, analyysiin ja muuhun. Open Pricesin on kehittänyt ja ylläpitää Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices on hanke, jonka tarkoituksena on **kerätä ja jakaa tuotteiden hintoja ympäri maailmaa**. Se on julkisesti saatavilla oleva tietojoukko, jota voidaan käyttää tutkimukseen, analyysiin ja moneen muuhun tarkoitukseen. Open Pricesin kehittäjä ja ylläpitäjä on Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4210,7 +4210,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "**Elektroniikasta** **leluihin** ja **vaatteista** **siivousvälineisiin** – jos niissä on viivakoodi, se voidaan lisätä. Tämän projektin tavoitteena on luoda \"esineiden internet\" arkipäivän esineille, jolloin niitä koskevat tiedot ovat yleisesti saatavilla.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "**Elektroniikasta** **leluihin** ja **vaatteista** **siivousvälineisiin** – jos niissä on viivakoodi, ne voidaan lisätä. Tämän hankkeen tavoitteena on luoda \"esineiden internet\" arkipäivän esineille, jolloin niitä koskevat tiedot ovat yleisesti saatavilla.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -5100,7 +5100,7 @@
   "@preferences_account_deletion_subtitle": {
     "description": "Subtitle for the preferences account deletion tile"
   },
-  "preferences_contributions_title": "Osallistumiset",
+  "preferences_contributions_title": "Muokkaukset",
   "@preferences_contributions_title": {
     "description": "Title of the contributions preferences tile"
   },
