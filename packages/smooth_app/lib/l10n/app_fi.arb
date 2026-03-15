@@ -713,13 +713,13 @@
   "nutritional_facts_added": "Ravintosisältö lisätty",
   "categories_added": "Tuoteluokat lisätty",
   "new_product_title_nutriscore": "Laske Nutri-Score",
-  "new_product_subtitle_nutriscore": "Hanki se täyttämällä ruokaluokka ja ravintoarvot",
+  "new_product_subtitle_nutriscore": "Auta meitä lisäämällä ainakin tuoteluokka ja ravintosisältö",
   "new_product_title_environmental_score": "Laske Green-Score",
   "new_product_subtitle_environmental_score": "Sinun on lisättävä tuotteelle luokka, jotta laskelma voidaan suorittaa",
   "new_product_additional_environmental_score": "Lisää tuotteen alkuperä- ja pakkaustiedot sekä muita tietoja, jotta Green-Score-laskelma olisi tarkempi",
   "new_product_title_nova": "Laske ruoan jalostustaso (NOVA)",
-  "new_product_subtitle_nova": "Hanki se täyttämällä ruokaluokka ja ainesosat",
-  "new_product_desc_nova_unknown": "Ruoan jalostusaste tuntematon",
+  "new_product_subtitle_nova": "Sinun on lisättävä tuotteelle luokka ja ainesosatiedot, jotta laskelma voidaan suorittaa",
+  "new_product_desc_nova_unknown": "Ruoan jalostusaste ei tiedossa",
   "new_product_title_pictures": "Otetaan muutamia kuvia!",
   "new_product_title_pictures_details": "Ota seuraavat kuvat, niin Open Food Facts -moottori ratkaisee loput!",
   "new_product_title_misc": "Ja joitakin perustietoja…",
@@ -4038,16 +4038,16 @@
   "guide_greenscore_better_product_arg3_text": "Kestävän ruoan valitseminen voi tuntua monimutkaiselta. Etiketit ovat hämmentäviä, ja monesti niistä puuttuu joitain tietoja. Tätä valintaa helpottamaan luotiin Green-Score. Se on **selkeä**, **tieteeseen perustuva** ja **läpinäkyvä** elintarvikkeiden ympäristöluokitus, jonka saat tietoosi juuri kun sitä tarvitset: ostoksia tehdessäsi.",
   "guide_greenscore_better_product_arg4_title": "Läpinäkyvyys",
   "guide_greenscore_better_product_arg4_text": "Toisin kuin valmistajien omat merkinnät, Green-Score-laskenta on **täysin avoin** ja **kuka tahansa voi tarkistaa sen oikeellisuuden**.",
-  "guide_nova_title": "Ultrajalostetut ruoat",
+  "guide_nova_title": "Suuresti jalostetut elintarvikkeet",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nova_what_is_nova_title": "Mitä on ultraprosessointi?",
-  "guide_nova_what_is_nova_paragraph1": "NOVA-ryhmät kertovat sinulle elintarvikkeiden jalostuksen tasosta.",
+  "guide_nova_what_is_nova_title": "Mitä ovat suuresti jalostetut tuotteet?",
+  "guide_nova_what_is_nova_paragraph1": "NOVA-ryhmät kertovat **elintarvikkeiden jalostusasteesta**.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "NOVA-luokituksen avulla elintarvikkeet voidaan luokitella **neljään ryhmään** niiden **teollisen prosessoinnin asteen** perusteella (minimaalisesti prosessoidut tai prosessoimattomat elintarvikkeet, ruoanlaittoainesosat, prosessoidut elintarvikkeet, erittäin prosessoidut elintarvikkeet).",
+  "guide_nova_what_is_nova_paragraph2": "NOVA-luokituksen avulla elintarvikkeet voidaan luokitella **neljään ryhmään** niiden **teollisen jalostusasteen** perusteella (jalostamattomat tai vähän jalostetut elintarvikkeet, ruoanvalmistusaineet, jalostetut elintarvikkeet, suuresti jalostetut elintarvikkeet).",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4060,7 +4060,7 @@
   "guide_nova_groups_arg2_text": "Jalostetut ruoanlaittoainesosat, kuten **öljyt, voi, sokeri ja suola**, ovat aineita, jotka on saatu ryhmän 1 elintarvikkeista tai luonnosta puristamalla, puhdistamalla, jauhamalla, jauhamalla ja kuivaamalla.",
   "guide_nova_groups_arg3_title": "Jalostetut ruoat",
   "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to group 1** foods. processes include various preservation or cooking methods, And in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or Three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "Ultrajalostetut ruoat",
+  "guide_nova_groups_arg4_title": "Suuresti jalostetut elintarvikkeet",
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. Ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically Used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Ultraprosessoinnin ongelmat",
   "guide_nova_explanations_arg1_title": "Elintarvikkeiden ainesosien äärimmäinen käsittely",
