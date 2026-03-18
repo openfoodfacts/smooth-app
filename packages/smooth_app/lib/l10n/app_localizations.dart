@@ -8774,6 +8774,12 @@ abstract class AppLocalizations {
   /// **'URL'**
   String get photo_viewer_details_url_title;
 
+  /// Label for the button to view the original full resolution image in browser
+  ///
+  /// In en, this message translates to:
+  /// **'View original image'**
+  String get photo_viewer_details_original_title;
+
   /// Compatibility score on top of the product page. The sentence is "100%" Compatible
   ///
   /// In en, this message translates to:

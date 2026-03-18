@@ -394,57 +394,65 @@ class _ProductImageDetailsButton extends StatelessWidget {
     );
   }
 
-  Future<dynamic> _showDetails(
-    BuildContext context,
-    AppLocalizations appLocalizations,
-    String url,
-  ) {
-    return showSmoothListOfItemsModalSheet(
-      context: context,
-      title: appLocalizations.photo_viewer_details_title,
-      items: <ModalSheetItem>[
-        ModalSheetItem(
-          title: appLocalizations.photo_viewer_details_contributor_title,
-          subTitle: image.contributor ?? '-',
-          leading: const icons.Profile(),
-          trailing: image.contributor?.startsWith('org') == true
-              ? const OwnerFieldIcon()
-              : null,
-        ),
-        ModalSheetItem(
-          title: appLocalizations.photo_viewer_details_date_title,
-          subTitle: image.uploaded != null
-              ? MaterialLocalizations.of(
-                  context,
-                ).formatFullDate(image.uploaded!).firstLetterInUppercase()
-              : '-',
-          leading: const icons.Calendar(),
-        ),
-        ModalSheetItem(
-          title: appLocalizations.photo_viewer_details_size_title,
-          subTitle: image.width != null && image.height != null
-              ? appLocalizations.photo_viewer_details_size_value(
-                  image.width!,
-                  image.height!,
-                )
-              : '-',
-          leading: const icons.Move(),
-        ),
-        if (url.isNotEmpty)
-          ModalSheetItem(
-            title: appLocalizations.photo_viewer_details_url_title,
-            subTitle: url.replaceAll(RegExp(r'\.\d+\.jpg$'), '.jpg'),
-            leading: const icons.ImageGallery(),
-            trailing: const icons.ExternalLink(),
-            onTap: () => LaunchUrlHelper.launchURL(
-              url.replaceAll(RegExp(r'\.\d+\.jpg$'), '.jpg'),
-            ),
-          ),
-      ],
-    );
-  }
-}
+Future<dynamic> _showDetails(
+  BuildContext context,
+  AppLocalizations appLocalizations,
+  String url,
+) {
+  final String originalUrl =
+      url.replaceAll(RegExp(r'\.\d+\.jpg$'), '.jpg');
 
+  return showSmoothListOfItemsModalSheet(
+    context: context,
+    title: appLocalizations.photo_viewer_details_title,
+    items: <ModalSheetItem>[
+      ModalSheetItem(
+        title: appLocalizations.photo_viewer_details_contributor_title,
+        subTitle: image.contributor ?? '-',
+        leading: const icons.Profile(),
+        trailing: image.contributor?.startsWith('org') == true
+            ? const OwnerFieldIcon()
+            : null,
+      ),
+      ModalSheetItem(
+        title: appLocalizations.photo_viewer_details_date_title,
+        subTitle: image.uploaded != null
+            ? MaterialLocalizations.of(
+                context,
+              ).formatFullDate(image.uploaded!).firstLetterInUppercase()
+            : '-',
+        leading: const icons.Calendar(),
+      ),
+      ModalSheetItem(
+        title: appLocalizations.photo_viewer_details_size_title,
+        subTitle: image.width != null && image.height != null
+            ? appLocalizations.photo_viewer_details_size_value(
+                image.width!,
+                image.height!,
+              )
+            : '-',
+        leading: const icons.Move(),
+      ),
+      if (url.isNotEmpty)
+        ModalSheetItem(
+          title: appLocalizations.photo_viewer_details_url_title,
+          subTitle: url,
+          leading: const icons.ImageGallery(),
+          trailing: const icons.ExternalLink(),
+          onTap: () => LaunchUrlHelper.launchURL(url),
+        ),
+      if (url.isNotEmpty)
+        ModalSheetItem(
+          title: appLocalizations.photo_viewer_details_original_title,
+          subTitle: originalUrl,
+          leading: const icons.ImageGallery(),
+          trailing: const icons.ExternalLink(),
+          onTap: () => LaunchUrlHelper.launchURL(originalUrl),
+        ),
+    ],
+  );
+}
+}
 class _ProductImagePageIndicator extends StatelessWidget {
   const _ProductImagePageIndicator({required this.items});
 
