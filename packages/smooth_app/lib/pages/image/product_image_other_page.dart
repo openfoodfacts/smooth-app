@@ -241,6 +241,7 @@ class _ProductImageViewer extends StatelessWidget {
                     ),
                   ),
                 ),
+
                 fit: BoxFit.contain,
                 loadingBuilder:
                     (
@@ -432,10 +433,12 @@ class _ProductImageDetailsButton extends StatelessWidget {
         if (url.isNotEmpty)
           ModalSheetItem(
             title: appLocalizations.photo_viewer_details_url_title,
-            subTitle: url,
+            subTitle: url.replaceAll(RegExp(r'\.\d+\.jpg$'), '.jpg'),
             leading: const icons.ImageGallery(),
             trailing: const icons.ExternalLink(),
-            onTap: () => LaunchUrlHelper.launchURL(url),
+            onTap: () => LaunchUrlHelper.launchURL(
+              url.replaceAll(RegExp(r'\.\d+\.jpg$'), '.jpg'),
+            ),
           ),
       ],
     );
