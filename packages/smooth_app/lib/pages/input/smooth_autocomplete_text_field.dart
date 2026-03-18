@@ -221,8 +221,9 @@ class _SmoothAutocompleteTextFieldState
         await widget.manager!.getSuggestions(search),
       );
     } catch (_) {
-      _setLoading(false);
       return _SearchResults.empty();
+    } finally {
+      _setLoading(false);
     }
 
     if (_suggestions[search]?.isEmpty ?? true && search == _searchInput) {
