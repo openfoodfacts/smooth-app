@@ -230,7 +230,7 @@ class _SmoothAutocompleteTextFieldState
       _setLoading(false);
     }
 
-    return _suggestions[search] ?? _SearchResults.empty();
+    return _suggestions[search]!;
   }
 }
 
