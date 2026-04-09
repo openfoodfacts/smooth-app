@@ -5068,7 +5068,7 @@
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
-  "preferences_complete_products": "Kerro koko maailmalle",
+  "preferences_complete_products": "Täydennä tuotteita",
   "@preferences_complete_products": {
     "description": "Title for the preferences complete products contribution tile"
   },
