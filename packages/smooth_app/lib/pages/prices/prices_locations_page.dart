@@ -96,10 +96,6 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
     final int priceCount = item.priceCount ?? 0;
 
     return PriceTopListCard(
-      onTap: () async => PriceLocationWidget.showLocationPrices(
-        locationId: item.locationId,
-        context: context,
-      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

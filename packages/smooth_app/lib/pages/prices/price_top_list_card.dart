@@ -22,8 +22,8 @@ class PriceTopListCard extends StatelessWidget {
       elevationColor: Colors.black26,
       margin: const EdgeInsetsDirectional.only(
         top: MEDIUM_SPACE,
-        start: 8.0,
-        end: 8.0,
+        start: SMALL_SPACE,
+        end: SMALL_SPACE,
       ),
       padding: EdgeInsets.zero,
       color: lightTheme ? null : extension.primaryUltraBlack,
