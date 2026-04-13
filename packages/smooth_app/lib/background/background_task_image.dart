@@ -260,6 +260,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int compressQuality,
     required final bool forceCompression,
     required final List<double>? eraserCoordinates,
+    final int? maxDimension, // max pixel size for width or height (e.g. 2000)
   }) async {
     final String croppedPath = await getCroppedPath(fullPath);
 
@@ -332,7 +333,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
       rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
       image: full,
-      maxSize: null,
+      maxSize: maxDimension != null
+          ? Size(maxDimension.toDouble(), maxDimension.toDouble())
+          : null,
       quality: FilterQuality.high,
       overlayPainter: overlayPainter,
     );
@@ -385,8 +388,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       final OpenFoodFactsLanguage language = getLanguage();
       final User user = getUser();
 
-      // Local method to avoid code duplication
-      Future<Status> addImage(int compressionPct, bool force) async {
+      Future<Status> addImage(
+        int compressionPct,
+        bool force, {
+        int? maxDimension,
+      }) async {
         cropResult = await cropIfNeeded(
           fullPath: fullPath,
           rotationDegrees: rotationDegrees,
@@ -397,6 +403,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           compressQuality: compressionPct,
           forceCompression: force,
           eraserCoordinates: eraserCoordinates,
+          maxDimension: maxDimension,
         );
         final String? path = cropResult!.filePath;
         if (path == null) {
@@ -421,21 +428,15 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       } catch (e) {
         if (e.toString().contains('413') ||
             e.toString().contains('Request Entity Too Large')) {
-          status = await addImage(80, true);
+            // Retry with 80% JPEG quality and max 2000px dimension as agreed
+          status = await addImage(80, true, maxDimension: 2000);
         } else {
           rethrow;
         }
       }
       if (status.status == statusOk) {
+        // successfully uploaded a new picture and set it as field+language
         return;
-      }
-
-      if (status.error?.contains('413') == true ||
-          status.error?.contains('Request Entity Too Large') == true) {
-        status = await addImage(80, true);
-        if (status.status == statusOk) {
-          return;
-        }
       }
       final int? imageId = status.imageId;
       if (status.status == statusNotOk && imageId != null) {
