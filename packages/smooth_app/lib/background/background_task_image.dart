@@ -428,7 +428,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       } catch (e) {
         if (e.toString().contains('413') ||
             e.toString().contains('Request Entity Too Large')) {
-            // Retry with 80% JPEG quality and max 2000px dimension as agreed
+          // Retry with 80% JPEG quality and max 2000px dimension as agreed
           status = await addImage(80, true, maxDimension: 2000);
         } else {
           rethrow;
