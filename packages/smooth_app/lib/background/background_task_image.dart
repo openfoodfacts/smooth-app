@@ -333,9 +333,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
       rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
       image: full,
-      maxSize: maxDimension != null
-          ? Size(maxDimension.toDouble(), maxDimension.toDouble())
-          : null,
+      maxSize: maxDimension?.toDouble(),
       quality: FilterQuality.high,
       overlayPainter: overlayPainter,
     );
