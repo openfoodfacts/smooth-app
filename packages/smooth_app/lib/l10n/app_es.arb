@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "Precios abiertos",
+  "open_prices": "Precio Abierto",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -9,7 +9,7 @@
   "@yes": {},
   "add": "Añadir",
   "@add": {},
-  "account_delete_message": "¿Seguro que quieres eliminar tu cuenta?\nSi hay alguna una razón específica, cuéntanoslo abajo.",
+  "account_delete_message": "¿Seguro que quieres eliminar tu cuenta?\nSi hay alguna una razón específica, cuéntanoslo abajo",
   "@account_delete_message": {},
   "reason": "Razón",
   "@reason": {},
@@ -2671,7 +2671,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Tipo de descuento",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Descuento por cantidad",
   "prices_discount_type_sale": "Venta",
   "prices_discount_type_seasonal": "Estacional",
   "prices_discount_type_loyalty_program": "Programa de fidelización",
@@ -4305,7 +4305,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "Ver imagen original",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
