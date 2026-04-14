@@ -546,7 +546,7 @@
   "myPreferences_beauty_subtitle": "Choose what information about beauty products matters most to you.",
   "myPreferences_product_title": "Product Preferences",
   "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Pet Food Preferences",
+  "myPreferences_pet_food_title": "Preferences for pet food",
   "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Reset your food preferences?",
   "@confirmResetPreferences": {
