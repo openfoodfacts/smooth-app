@@ -88,6 +88,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
+  static const String _TAG_UNWANTED_INGREDIENTS = 'unwanted_ingredients';
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
   static const String _TAG_LAZY_COUNT_PREFIX = '_lazy_count_prefix';
   static const String _TAG_LATEST_PRODUCT_TYPE = '_latest_product_type';
@@ -176,6 +177,11 @@ class UserPreferences extends ChangeNotifier {
   String _getImportanceTag(final String variable) =>
       _TAG_PREFIX_IMPORTANCE + variable;
 
+  String _getImportanceTagForProject(
+    final String variable,
+    final String projectKey,
+  ) => '${_TAG_PREFIX_IMPORTANCE}${projectKey}_$variable';
+
   Future<void> setImportance(
     final String attributeId,
     final String importanceId,
@@ -187,8 +193,31 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
+  /// Sets the importance for an attribute for a specific project.
+  Future<void> setImportanceForProject(
+    final String attributeId,
+    final String importanceId,
+    final String projectKey,
+  ) async {
+    await _sharedPreferences.setString(
+      _getImportanceTagForProject(attributeId, projectKey),
+      importanceId,
+    );
+    notifyListeners();
+  }
+
   String getImportance(final String attributeId) =>
       _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
+      PreferenceImportance.ID_NOT_IMPORTANT;
+
+  /// Gets the importance for an attribute for a specific project.
+  String getImportanceForProject(
+    final String attributeId,
+    final String projectKey,
+  ) =>
+      _sharedPreferences.getString(
+        _getImportanceTagForProject(attributeId, projectKey),
+      ) ??
       PreferenceImportance.ID_NOT_IMPORTANT;
 
   Future<void> setTheme(final String theme) async {
@@ -408,6 +437,96 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setExcludedAttributeIds(final List<String> value) async {
     await _sharedPreferences.setStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS, value);
+    notifyListeners();
+  }
+
+  /// Returns the unwanted ingredients map where keys are user-facing names
+  /// and values are canonical tags.
+  Map<String, String> _getUnwantedIngredientsMap() {
+    final String? jsonString = _sharedPreferences.getString(
+      _TAG_UNWANTED_INGREDIENTS,
+    );
+    if (jsonString?.isNotEmpty != true) {
+      return <String, String>{};
+    }
+    try {
+      final Map<String, dynamic> decoded =
+          jsonDecode(jsonString!) as Map<String, dynamic>;
+      return decoded.map(
+        (String key, dynamic value) =>
+            MapEntry<String, String>(key, value as String),
+      );
+    } catch (e) {
+      return <String, String>{};
+    }
+  }
+
+  /// Returns the unwanted ingredients map for a specific project.
+  Map<String, String> _getUnwantedIngredientsMapForProject(
+    final String projectKey,
+  ) {
+    final String? jsonString = _sharedPreferences.getString(
+      '${_TAG_UNWANTED_INGREDIENTS}_$projectKey',
+    );
+    if (jsonString == null || jsonString.isEmpty) {
+      return <String, String>{};
+    }
+    try {
+      final Map<String, dynamic> decoded =
+          jsonDecode(jsonString) as Map<String, dynamic>;
+      return decoded.map(
+        (String key, dynamic value) =>
+            MapEntry<String, String>(key, value as String),
+      );
+    } catch (e) {
+      return <String, String>{};
+    }
+  }
+
+  /// Returns the list of canonical tags for unwanted ingredients.
+  /// Use this when making API calls that require canonical tags.
+  List<String> getUnwantedIngredientTags() {
+    return _getUnwantedIngredientsMap().values.toList(growable: false);
+  }
+
+  /// Returns the list of canonical tags for unwanted ingredients for a specific project.
+  List<String> getUnwantedIngredientTagsForProject(final String projectKey) {
+    return _getUnwantedIngredientsMapForProject(projectKey).values.toList();
+  }
+
+  /// Returns the list of user-facing names for unwanted ingredients.
+  /// Use this for display purposes.
+  List<String> getUnwantedIngredients() {
+    return _getUnwantedIngredientsMap().keys.toList(growable: false);
+  }
+
+  /// Returns the list of user-facing names for unwanted ingredients for a specific project.
+  List<String> getUnwantedIngredientsForProject(final String projectKey) {
+    return _getUnwantedIngredientsMapForProject(projectKey).keys.toList();
+  }
+
+  /// Sets the unwanted ingredients map.
+  /// [ingredientsMap] is a map where keys are user-facing names and values are
+  /// canonical tags.
+  Future<void> setUnwantedIngredients(
+    Map<String, String> ingredientsMap,
+  ) async {
+    await _sharedPreferences.setString(
+      _TAG_UNWANTED_INGREDIENTS,
+      jsonEncode(ingredientsMap),
+    );
+    notifyListeners();
+  }
+
+  /// Sets the unwanted ingredients map for a specific project.
+  Future<void> setUnwantedIngredientsForProject(
+    Map<String, String> ingredientsMap,
+    final String projectKey,
+  ) async {
+    await _sharedPreferences.setString(
+      '${_TAG_UNWANTED_INGREDIENTS}_$projectKey',
+      jsonEncode(ingredientsMap),
+    );
     notifyListeners();
   }
 
