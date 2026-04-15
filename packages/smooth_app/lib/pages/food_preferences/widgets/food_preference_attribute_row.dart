@@ -65,10 +65,12 @@ class FoodPreferenceAttributeRow extends StatelessWidget {
                     ),
                   ),
                 ),
-                SmoothSwitch(
-                  value: isEnabled,
-                  onChanged: null,
-                  size: const Size(42.0, 26.0),
+                IgnorePointer(
+                  child: SmoothSwitch(
+                    value: isEnabled,
+                    onChanged: (_) {},
+                    size: const Size(42.0, 26.0),
+                  ),
                 ),
               ],
             ),

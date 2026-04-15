@@ -37,14 +37,13 @@ class IntroductionPage extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
               itemCount: steps.length,
-              itemBuilder: (BuildContext context, int index) =>
-                  TimelineStep(
-                    index: index,
-                    text: appLocalizations.food_preferences_step(
-                      index + 1,
-                      steps[index],
-                    ),
-                  ),
+              itemBuilder: (BuildContext context, int index) => TimelineStep(
+                index: index,
+                text: appLocalizations.food_preferences_step(
+                  index + 1,
+                  steps[index],
+                ),
+              ),
               separatorBuilder: (BuildContext context, int index) =>
                   const SizedBox(
                     height: VERY_LARGE_SPACE,

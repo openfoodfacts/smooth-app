@@ -473,7 +473,7 @@ class UserPreferences extends ChangeNotifier {
     }
     try {
       final Map<String, dynamic> decoded =
-          jsonDecode(jsonString) as Map<String, dynamic>;
+          jsonDecode(jsonString!) as Map<String, dynamic>;
       return decoded.map(
         (String key, dynamic value) =>
             MapEntry<String, String>(key, value as String),
