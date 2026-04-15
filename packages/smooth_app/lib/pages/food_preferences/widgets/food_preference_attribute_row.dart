@@ -67,12 +67,7 @@ class FoodPreferenceAttributeRow extends StatelessWidget {
                 ),
                 SmoothSwitch(
                   value: isEnabled,
-                  onChanged: (bool value) {
-                    pendingPreferences.setImportance(
-                      attributeId,
-                      value ? onImportanceId : offImportanceId,
-                    );
-                  },
+                  onChanged: null,
                   size: const Size(42.0, 26.0),
                 ),
               ],

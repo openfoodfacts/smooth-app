@@ -193,9 +193,9 @@ class ProductRefresher {
         getBarcodeQueryConfiguration(
           barcode,
           language,
-          unwantedIngredients: IngredientsUnwantedParameter(
-            unwantedIngredients,
-          ),
+          unwantedIngredients: unwantedIngredients.isNotEmpty
+              ? IngredientsUnwantedParameter(unwantedIngredients)
+              : null,
         ),
         uriHelper: uriProductHelper,
         user: ProductQuery.getReadUser(),
@@ -253,9 +253,9 @@ class ProductRefresher {
             getBarcodeListQueryConfiguration(
               barcodes,
               language,
-              unwantedIngredients: IngredientsUnwantedParameter(
-                unwantedIngredients,
-              ),
+              unwantedIngredients: unwantedIngredients.isNotEmpty
+                  ? IngredientsUnwantedParameter(unwantedIngredients)
+                  : null,
             ),
             uriHelper: ProductQuery.getUriProductHelper(
               productType: productType,

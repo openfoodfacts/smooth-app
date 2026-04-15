@@ -178,33 +178,6 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
     return '';
   }
 
-  List<Widget> _buildPageWidgets() {
-    final List<Widget> pages = <Widget>[];
-
-    if (_controller.showIntroduction) {
-      pages.add(IntroductionPage(attributeGroups: _controller.attributeGroups));
-    }
-
-    for (final AttributeGroup group in _controller.attributeGroups) {
-      pages.add(AttributeGroupPage(attributeGroup: group));
-    }
-
-    if (_controller.showSummary) {
-      pages.add(
-        SummaryPage(
-          onEditGroup: (int groupIndex) {
-            final int pageIndex = _controller.getPageIndexForGroupIndex(
-              groupIndex,
-            );
-            _controller.goToPage(pageIndex);
-          },
-        ),
-      );
-    }
-
-    return pages;
-  }
-
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -244,78 +217,13 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
       );
     }
 
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
-    final bool lightTheme = context.lightTheme();
-
-    final bool isSummaryPage = _controller.isSummaryPage;
-    final Color headerColor = isSummaryPage
-        ? extension.success
-        : extension.primaryMedium;
-    final Color foregroundColor = isSummaryPage ? Colors.white : Colors.black;
-
     return ChangeNotifierProvider<PendingPreferences>.value(
       value: _pendingPreferences,
-      child: SmoothScaffold(
-        appBar: SmoothTopBar2(
-          title: _getPageTitle(appLocalizations),
-          forceMultiLines: true,
-          backgroundColor: headerColor,
-          foregroundColor: foregroundColor,
-          elevationOnScroll: false,
-          topWidget: PreferredSize(
-            preferredSize: const Size(
-              double.infinity,
-              10.0 + SMALL_SPACE + VERY_SMALL_SPACE,
-            ),
-            child: Padding(
-              padding: const EdgeInsetsDirectional.only(
-                start: MEDIUM_SPACE,
-                end: MEDIUM_SPACE,
-                top: SMALL_SPACE,
-                bottom: VERY_SMALL_SPACE,
-              ),
-              child: FAProgressBar(
-                animatedDuration: SmoothAnimationsDuration.short,
-                progressColor: isSummaryPage
-                    ? Colors.white
-                    : lightTheme
-                    ? extension.primaryDark
-                    : extension.primaryNormal,
-                backgroundColor: isSummaryPage
-                    ? Colors.white.withValues(alpha: 0.3)
-                    : lightTheme
-                    ? extension.primaryLight
-                    : extension.primarySemiDark,
-                currentValue: _controller.progress,
-                maxValue: 1,
-              ),
-            ),
-          ),
-        ),
-        body: SafeArea(
-          bottom: false,
-          child: Column(
-            children: <Widget>[
-              Expanded(
-                child: PageView(
-                  controller: _controller.pageController,
-                  onPageChanged: _controller.onPageChanged,
-                  children: _buildPageWidgets(),
-                ),
-              ),
-              FoodPreferencesNavigationBar(
-                isFirstPage: _controller.isFirstPage,
-                isLastPage: _controller.isLastPage,
-                isSummaryPage: _controller.isSummaryPage,
-                onPrevious: _controller.previousPage,
-                onNext: _controller.nextPage,
-                onFinish: _onFinish,
-                onLater: () => Navigator.of(context).pop(),
-              ),
-            ],
-          ),
-        ),
+      child: _FoodPreferencesBody(
+        controller: _controller,
+        pageTitle: _getPageTitle(appLocalizations),
+        onFinish: _onFinish,
+        onLater: () => Navigator.of(context).pop(),
       ),
     );
   }
@@ -325,5 +233,121 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
     if (mounted) {
       Navigator.of(context).pop();
     }
+  }
+}
+
+class _FoodPreferencesBody extends StatelessWidget {
+  const _FoodPreferencesBody({
+    required this.controller,
+    required this.pageTitle,
+    required this.onFinish,
+    required this.onLater,
+  });
+
+  final FoodPreferencesController controller;
+  final String pageTitle;
+  final VoidCallback onFinish;
+  final VoidCallback onLater;
+
+  @override
+  Widget build(BuildContext context) {
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    final bool isSummaryPage = controller.isSummaryPage;
+    final Color headerColor = isSummaryPage
+        ? extension.success
+        : extension.primaryMedium;
+    final Color foregroundColor = isSummaryPage ? Colors.white : Colors.black;
+
+    return SmoothScaffold(
+      appBar: SmoothTopBar2(
+        title: pageTitle,
+        forceMultiLines: true,
+        backgroundColor: headerColor,
+        foregroundColor: foregroundColor,
+        elevationOnScroll: false,
+        topWidget: PreferredSize(
+          preferredSize: const Size(
+            double.infinity,
+            10.0 + SMALL_SPACE + VERY_SMALL_SPACE,
+          ),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.only(
+              start: MEDIUM_SPACE,
+              end: MEDIUM_SPACE,
+              top: SMALL_SPACE,
+              bottom: VERY_SMALL_SPACE,
+            ),
+            child: FAProgressBar(
+              animatedDuration: SmoothAnimationsDuration.short,
+              progressColor: isSummaryPage
+                  ? Colors.white
+                  : lightTheme
+                  ? extension.primaryDark
+                  : extension.primaryNormal,
+              backgroundColor: isSummaryPage
+                  ? Colors.white.withValues(alpha: 0.3)
+                  : lightTheme
+                  ? extension.primaryLight
+                  : extension.primarySemiDark,
+              currentValue: controller.progress,
+              maxValue: 1,
+            ),
+          ),
+        ),
+      ),
+      body: SafeArea(
+        bottom: false,
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: PageView(
+                controller: controller.pageController,
+                onPageChanged: controller.onPageChanged,
+                children: _buildPageWidgets(),
+              ),
+            ),
+            FoodPreferencesNavigationBar(
+              isFirstPage: controller.isFirstPage,
+              isLastPage: controller.isLastPage,
+              isSummaryPage: controller.isSummaryPage,
+              onPrevious: controller.previousPage,
+              onNext: controller.nextPage,
+              onFinish: onFinish,
+              onLater: onLater,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _buildPageWidgets() {
+    final List<Widget> pages = <Widget>[];
+
+    if (controller.showIntroduction) {
+      pages.add(IntroductionPage(attributeGroups: controller.attributeGroups));
+    }
+
+    for (final AttributeGroup group in controller.attributeGroups) {
+      pages.add(AttributeGroupPage(attributeGroup: group));
+    }
+
+    if (controller.showSummary) {
+      pages.add(
+        SummaryPage(
+          onEditGroup: (int groupIndex) {
+            final int pageIndex = controller.getPageIndexForGroupIndex(
+              groupIndex,
+            );
+            controller.goToPage(pageIndex);
+          },
+        ),
+      );
+    }
+
+    return pages;
   }
 }

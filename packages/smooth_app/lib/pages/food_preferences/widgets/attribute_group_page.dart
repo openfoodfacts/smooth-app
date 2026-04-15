@@ -129,6 +129,7 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
 
   Widget _buildNoResultsState() {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
 
     return Center(
       child: Padding(
@@ -137,13 +138,13 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           spacing: MEDIUM_SPACE,
           children: <Widget>[
-            const icons.Search(size: 48.0, color: Colors.grey),
+            icons.Search(size: 48.0, color: theme.hintColor),
             Text(
               appLocalizations.no_product_found,
-              style: const TextStyle(
+              style: TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.grey,
+                color: theme.hintColor,
               ),
               textAlign: TextAlign.center,
             ),

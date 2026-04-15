@@ -13,14 +13,12 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
   });
 
   final String keywords;
+
+  @override
   final List<String> unwantedIngredients;
 
   @override
   Parameter getParameter() => SearchTerms(terms: <String>[keywords]);
-
-  @override
-  IngredientsUnwantedParameter getUnwantedIngredientsParameter() =>
-      IngredientsUnwantedParameter(unwantedIngredients);
 
   @override
   ProductList getProductList() => ProductList.keywordSearch(
@@ -46,7 +44,12 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
   @override
   PagedProductQuery? getWorldQuery() => world
       ? null
-      : KeywordsProductQuery(keywords, productType: productType, world: true);
+      : KeywordsProductQuery(
+          keywords,
+          productType: productType,
+          world: true,
+          unwantedIngredients: unwantedIngredients,
+        );
 
   @override
   bool hasDifferentCountryWorldData() => true;

@@ -28,6 +28,7 @@ class PendingPreferences extends ChangeNotifier {
     _initializeFromCurrentPreferences();
   }
 
+  bool _isDisposed = false;
   bool _unwantedIngredientsInitialized = false;
 
   static const String enabledImportanceId = PreferenceImportance.ID_MANDATORY;
@@ -44,7 +45,7 @@ class PendingPreferences extends ChangeNotifier {
   static const String disabledImportanceId =
       PreferenceImportance.ID_NOT_IMPORTANT;
 
-  Future<void> _initializeFromCurrentPreferences() async {
+  void _initializeFromCurrentPreferences() {
     for (final AttributeGroup group in _attributeGroups) {
       for (final Attribute attribute in group.attributes ?? <Attribute>[]) {
         final String? attributeId = attribute.id;
@@ -57,12 +58,20 @@ class PendingPreferences extends ChangeNotifier {
     _loadExcludedIngredients();
   }
 
-  Future<void> _loadExcludedIngredients() async {
+  void _loadExcludedIngredients() {
     // Load user-facing names from preferences
     _pendingUnwantedIngredients = _userPreferences
         .getUnwantedIngredientsForProject(_projectKey);
     _unwantedIngredientsInitialized = true;
-    notifyListeners();
+    if (!_isDisposed) {
+      notifyListeners();
+    }
+  }
+
+  @override
+  void dispose() {
+    _isDisposed = true;
+    super.dispose();
   }
 
   List<String> get unwantedIngredients =>
@@ -146,6 +155,8 @@ class PendingPreferences extends ChangeNotifier {
         <String, String>{},
         _projectKey,
       );
+      // Also update the global key so background tasks and search use it
+      await _userPreferences.setUnwantedIngredients(<String, String>{});
       return;
     }
 
@@ -169,6 +180,8 @@ class PendingPreferences extends ChangeNotifier {
       ingredientsMap,
       _projectKey,
     );
+    // Also update the global key so background tasks and search use it
+    await _userPreferences.setUnwantedIngredients(ingredientsMap);
   }
 
   List<AttributeGroup> get attributeGroups => _attributeGroups;

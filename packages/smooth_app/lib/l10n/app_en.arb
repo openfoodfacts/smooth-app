@@ -99,13 +99,17 @@
   "@food_preferences_page_title_summary": {
     "description": "Title for the summary/confirmation page of the food preferences wizard"
   },
-  "food_preferences_step_prefix": "Step {stepNumber}: ",
-  "@food_preferences_step_prefix": {
-    "description": "Step number prefix shown before the page title in the food preferences wizard",
+  "food_preferences_step": "Step {stepNumber}: {stepName}",
+  "@food_preferences_step": {
+    "description": "A step in the food preferences wizard, showing the step number and its name",
     "placeholders": {
       "stepNumber": {
         "type": "int",
         "example": "1"
+      },
+      "stepName": {
+        "type": "String",
+        "example": "Diets"
       }
     }
   },

@@ -558,11 +558,11 @@ abstract class AppLocalizations {
   /// **'Profile ready'**
   String get food_preferences_page_title_summary;
 
-  /// Step number prefix shown before the page title in the food preferences wizard
+  /// A step in the food preferences wizard, showing the step number and its name
   ///
   /// In en, this message translates to:
-  /// **'Step {stepNumber}: '**
-  String food_preferences_step_prefix(int stepNumber);
+  /// **'Step {stepNumber}: {stepName}'**
+  String food_preferences_step(int stepNumber, String stepName);
 
   /// Text shown when no preferences are selected in a category on the summary page
   ///

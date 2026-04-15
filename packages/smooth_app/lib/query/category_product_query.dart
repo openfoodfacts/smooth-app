@@ -14,6 +14,8 @@ class CategoryProductQuery extends PagedSearchProductQuery {
 
   // e.g. 'en:unsweetened-natural-soy-milks'
   final String categoryTag;
+
+  @override
   final List<String> unwantedIngredients;
 
   @override
@@ -22,10 +24,6 @@ class CategoryProductQuery extends PagedSearchProductQuery {
     contains: true,
     tagName: categoryTag,
   );
-
-  @override
-  IngredientsUnwantedParameter getUnwantedIngredientsParameter() =>
-      IngredientsUnwantedParameter(unwantedIngredients);
 
   @override
   ProductList getProductList() => ProductList.categorySearch(
@@ -55,6 +53,7 @@ class CategoryProductQuery extends PagedSearchProductQuery {
           categoryTag,
           world: true,
           productType: productType,
+          unwantedIngredients: unwantedIngredients,
         );
 
   @override

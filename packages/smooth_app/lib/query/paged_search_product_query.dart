@@ -8,21 +8,24 @@ abstract class PagedSearchProductQuery extends PagedProductQuery {
 
   Parameter getParameter();
 
-  IngredientsUnwantedParameter getUnwantedIngredientsParameter();
+  /// Returns the list of unwanted ingredients for the query.
+  List<String> get unwantedIngredients;
 
   @override
-  AbstractQueryConfiguration getQueryConfiguration() =>
-      ProductSearchQueryConfiguration(
-        fields: ProductQuery.fields,
-        parametersList: <Parameter>[
-          PageSize(size: pageSize),
-          PageNumber(page: pageNumber),
-          getParameter(),
-          getUnwantedIngredientsParameter(),
-        ],
-        language: language,
-        country: country,
-        version: ProductQuery.productQueryVersion,
-        activateKnowledgePanelsSimplified: true,
-      );
+  AbstractQueryConfiguration getQueryConfiguration() {
+    return ProductSearchQueryConfiguration(
+      fields: ProductQuery.fields,
+      parametersList: <Parameter>[
+        PageSize(size: pageSize),
+        PageNumber(page: pageNumber),
+        getParameter(),
+        if (unwantedIngredients.isNotEmpty)
+          IngredientsUnwantedParameter(unwantedIngredients),
+      ],
+      language: language,
+      country: country,
+      version: ProductQuery.productQueryVersion,
+      activateKnowledgePanelsSimplified: true,
+    );
+  }
 }

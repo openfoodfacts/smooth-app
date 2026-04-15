@@ -468,7 +468,7 @@ class UserPreferences extends ChangeNotifier {
     final String? jsonString = _sharedPreferences.getString(
       '${_TAG_UNWANTED_INGREDIENTS}_$projectKey',
     );
-    if (jsonString == null || jsonString.isEmpty) {
+    if (jsonString?.isNotEmpty != true) {
       return <String, String>{};
     }
     try {

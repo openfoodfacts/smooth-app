@@ -135,7 +135,8 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
               PageSize(size: pageSize),
               const PageNumber(page: 1),
               BarcodeParameter.list(barcodes),
-              IngredientsUnwantedParameter(unwantedIngredients),
+              if (unwantedIngredients.isNotEmpty)
+                IngredientsUnwantedParameter(unwantedIngredients),
             ],
             language: language,
             country: ProductQuery.getCountry(),
