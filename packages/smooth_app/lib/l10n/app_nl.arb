@@ -2671,7 +2671,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Soort korting",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Kwantumkorting",
   "prices_discount_type_sale": "Uitverkoop",
   "prices_discount_type_seasonal": "Seizoensgebonden",
   "prices_discount_type_loyalty_program": "Loyaliteitsprogramma",
