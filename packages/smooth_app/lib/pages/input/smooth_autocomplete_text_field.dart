@@ -4,10 +4,14 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/dao_autocomplete.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/input/debounced_text_editing_controller.dart';
+import 'package:smooth_app/pages/input/server_suggestion.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 
 /// Autocomplete text field.
@@ -28,6 +32,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.textStyle,
     this.textCapitalization,
     this.onSelected,
+    this.serverSuggestion,
   });
 
   final FocusNode focusNode;
@@ -44,6 +49,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final TextStyle? textStyle;
   final TextCapitalization? textCapitalization;
+  final ServerSuggestion? serverSuggestion;
 
   /// Additional specific action when a suggested item is selected.
   final Function(String)? onSelected;
@@ -208,8 +214,7 @@ class _SmoothAutocompleteTextFieldState
 
     if (_suggestions[search] != null) {
       return _suggestions[search]!;
-    } else if (widget.manager == null ||
-        search.length < widget.minLengthForSuggestions) {
+    } else if (search.length < widget.minLengthForSuggestions) {
       _suggestions[search] = _SearchResults.empty();
       return _suggestions[search]!;
     }
@@ -217,9 +222,27 @@ class _SmoothAutocompleteTextFieldState
     _setLoading(true);
 
     try {
-      _suggestions[search] = _SearchResults(
-        await widget.manager!.getSuggestions(search),
-      );
+      final List<String> results;
+
+      // Use serverSuggestion if available
+      if (widget.serverSuggestion != null) {
+        results = await widget.serverSuggestion!.getSuggestionsFromServer(
+          search,
+        );
+      } else if (widget.manager != null) {
+        results = await widget.manager!.getSuggestions(search);
+      } else {
+        results = <String>[];
+      }
+
+      _suggestions[search] = _SearchResults(results);
+
+      // Store in persistent cache if serverSuggestion is provided and results not empty
+      if (widget.serverSuggestion != null && results.isNotEmpty) {
+        final String namespace = widget.serverSuggestion!.getNamespace(search);
+        final LocalDatabase localDb = context.read<LocalDatabase>();
+        await DaoAutocomplete(localDb).storeResults(namespace, search, results);
+      }
     } catch (_) {
       return _SearchResults.empty();
     } finally {
