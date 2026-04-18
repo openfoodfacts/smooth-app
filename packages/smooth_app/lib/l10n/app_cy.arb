@@ -712,7 +712,7 @@
   "nutritional_facts_input_button_label": "Llenwch ffeithiau maeth",
   "nutritional_facts_added": "Ffeithiau maeth wedi'u hychwanegu",
   "categories_added": "Categorïau wedi'u hychwanegu",
-  "new_product_title_nutriscore": "Cyfrifwch y Sgôr Maeth",
+  "new_product_title_nutriscore": "Cyfrifwch y Nutri-Score",
   "new_product_subtitle_nutriscore": "Helpwch ni drwy lenwi o leiaf un categori a gwerthoedd maethol",
   "new_product_title_environmental_score": "Cyfrifwch y Sgôr Werdd",
   "new_product_subtitle_environmental_score": "Cael gafael arno drwy lenwi o leiaf un categori",
@@ -1088,15 +1088,15 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Ychwanegwch gategori i gyfrifo'r Sgôr Maeth.",
+  "product_improvement_add_category": "Ychwanegwch gategori i gyfrifo'r Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Ychwanegwch ffeithiau maeth i gyfrifo'r Sgôr Maeth.",
+  "product_improvement_add_nutrition_facts": "Ychwanegwch ffeithiau maeth i gyfrifo'r Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Ychwanegwch ffeithiau maeth a chategori i gyfrifo'r Sgôr Maeth.",
+  "product_improvement_add_nutrition_facts_and_category": "Ychwanegwch ffeithiau maeth a chategori i gyfrifo'r Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -3874,8 +3874,8 @@
   "nutriscore_new_formula_title": "Nutri-Score (Cyfrifiad newydd)",
   "nutriscore_unknown": "Nutri-Score Anhysbys",
   "nutriscore_unknown_new_formula": "Nutri-Score Anhysbys (Cyfrifiad newydd)",
-  "nutriscore_not_applicable": "Nid yw Sgôr Maeth yn berthnasol",
-  "nutriscore_not_applicable_new_formula": "Nid yw Sgôr Maeth yn berthnasol (Cyfrifiad newydd)",
+  "nutriscore_not_applicable": "Nid yw Nutri-Score yn berthnasol",
+  "nutriscore_not_applicable_new_formula": "Nid yw Nutri-Score yn berthnasol (Cyfrifiad newydd)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Sgôr Gwyrdd A",
   "environmental_score_b_new": "Sgôr Gwyrdd B",
