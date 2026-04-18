@@ -250,6 +250,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Returns directly the original [fullPath] if no crop operation was needed.
   /// Returns the path of the cropped file if relevant.
   /// Returns null if the image (cropped or not) is too small.
+  /// [maxSize] is the max pixel size for width or height (e.g. 2000)
   static Future<BackgroundCropResult> cropIfNeeded({
     required final String fullPath,
     required final int rotationDegrees,
@@ -260,7 +261,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int compressQuality,
     required final bool forceCompression,
     required final List<double>? eraserCoordinates,
-    final int? maxDimension, // max pixel size for width or height (e.g. 2000)
+    final int? maxSize,
   }) async {
     final String croppedPath = await getCroppedPath(fullPath);
 
@@ -333,7 +334,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
       rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
       image: full,
-      maxSize: maxDimension?.toDouble(),
+      maxSize: maxSize?.toDouble(),
       quality: FilterQuality.high,
       overlayPainter: overlayPainter,
     );
@@ -379,17 +380,15 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     );
     SendImage? image;
     BackgroundCropResult? cropResult;
-    const String statusOk = 'status ok';
-    const String statusNotOk = 'status not ok';
     try {
       final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
       final OpenFoodFactsLanguage language = getLanguage();
       final User user = getUser();
 
-      Future<Status> addImage(
-        int compressionPct,
-        bool force, {
-        int? maxDimension,
+      Future<Status> addImage({
+        required int compressionPct,
+        required bool force,
+        int? maxSize,
       }) async {
         cropResult = await cropIfNeeded(
           fullPath: fullPath,
@@ -401,10 +400,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           compressQuality: compressionPct,
           forceCompression: force,
           eraserCoordinates: eraserCoordinates,
-          maxDimension: maxDimension,
+          maxSize: maxSize,
         );
         final String? path = cropResult!.filePath;
         if (path == null) {
+          // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
           throw Exception('Could not get image path after compression');
         }
         image = SendImage(
@@ -422,23 +422,26 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
       Status status;
       try {
-        status = await addImage(100, false);
+        status = await addImage(compressionPct: 100, force: false);
       } catch (e) {
         if (e.toString().contains('413') ||
             e.toString().contains('Request Entity Too Large')) {
-          // Retry with 80% JPEG quality and max 2000px dimension as agreed
-          status = await addImage(80, true, maxDimension: 2000);
+          status = await addImage(
+            compressionPct: 80,
+            force: true,
+            maxSize: 2000,
+          );
         } else {
           rethrow;
         }
       }
-      if (status.status == statusOk) {
+      if (status.status == 'status ok') {
         // successfully uploaded a new picture and set it as field+language
         // successfully uploaded a new picture and set it as field+language
         return;
       }
       final int? imageId = status.imageId;
-      if (status.status == statusNotOk && imageId != null) {
+      if (status.status == 'status not ok' && imageId != null) {
         // The very same image was already uploaded and therefore was rejected.
         // We just have to select this image, with no angle.
         final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
