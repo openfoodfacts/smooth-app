@@ -437,7 +437,6 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       }
       if (status.status == 'status ok') {
         // successfully uploaded a new picture and set it as field+language
-        // successfully uploaded a new picture and set it as field+language
         return;
       }
       final int? imageId = status.imageId;
