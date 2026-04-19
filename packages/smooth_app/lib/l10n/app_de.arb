@@ -2671,7 +2671,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Rabattart",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Mengenrabatt",
   "prices_discount_type_sale": "Angebot",
   "prices_discount_type_seasonal": "Saisonbedingt",
   "prices_discount_type_loyalty_program": "Treueprogramm",
@@ -4305,7 +4305,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "Originalbild anzeigen",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
