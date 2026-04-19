@@ -5,13 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/database/dao_autocomplete.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/input/debounced_text_editing_controller.dart';
-import 'package:smooth_app/pages/input/server_suggestion.dart';
+import 'package:smooth_app/pages/input/suggestion_cache.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 
 /// Autocomplete text field.
@@ -32,7 +31,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.textStyle,
     this.textCapitalization,
     this.onSelected,
-    this.serverSuggestion,
+    this.suggestionCache,
   });
 
   final FocusNode focusNode;
@@ -49,7 +48,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final TextStyle? textStyle;
   final TextCapitalization? textCapitalization;
-  final ServerSuggestion? serverSuggestion;
+  final SuggestionCache? suggestionCache;
 
   /// Additional specific action when a suggested item is selected.
   final Function(String)? onSelected;
@@ -224,11 +223,8 @@ class _SmoothAutocompleteTextFieldState
     try {
       final List<String> results;
 
-      // Use serverSuggestion if available
-      if (widget.serverSuggestion != null) {
-        results = await widget.serverSuggestion!.getSuggestionsFromServer(
-          search,
-        );
+      if (widget.suggestionCache != null) {
+        results = await widget.suggestionCache!.getSuggestions(search);
       } else if (widget.manager != null) {
         results = await widget.manager!.getSuggestions(search);
       } else {
@@ -236,24 +232,16 @@ class _SmoothAutocompleteTextFieldState
       }
 
       _suggestions[search] = _SearchResults(results);
-
-      // Store in persistent cache if serverSuggestion is provided and results not empty
-      if (widget.serverSuggestion != null && results.isNotEmpty) {
-        final String namespace = widget.serverSuggestion!.getNamespace(search);
-        final LocalDatabase localDb = context.read<LocalDatabase>();
-        await DaoAutocomplete(localDb).storeResults(namespace, search, results);
-      }
     } catch (_) {
       return _SearchResults.empty();
     } finally {
       _setLoading(false);
     }
+    // if (_suggestions[search]?.isEmpty ?? true && search == _searchInput) {
+    //   _setLoading(false);
+    // }
 
-    if (_suggestions[search]?.isEmpty ?? true && search == _searchInput) {
-      _setLoading(false);
-    }
-
-    return _suggestions[search]!;
+    return _suggestions[search] ?? _SearchResults.empty();
   }
 }
 

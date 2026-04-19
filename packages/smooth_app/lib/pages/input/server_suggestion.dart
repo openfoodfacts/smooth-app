@@ -54,7 +54,7 @@ class TaxonomyServerSuggestion implements ServerSuggestion {
 
   @override
   String getNamespace(String soFar) {
-    return '${_uriHelper.domain}|taxonomy|${taxonomyNames.map((t) => t.offTag).join(',')}|${_language.offTag}';
+    return '${_uriHelper.domain}|taxonomy|${taxonomyNames.map((final TaxonomyName t) => t.offTag).join(',')}|${_language.offTag}';
   }
 
   @override

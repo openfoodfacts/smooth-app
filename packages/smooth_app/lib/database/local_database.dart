@@ -126,6 +126,7 @@ class LocalDatabase extends ChangeNotifier {
     await DaoProductLastAccess.onUpgrade(db, oldVersion, newVersion);
     await DaoOsmLocation.onUpgrade(db, oldVersion, newVersion);
     await DaoFolksonomy.onUpgrade(db, oldVersion, newVersion);
-    await DaoAutocomplete.onUpgrade(db, oldVersion, newVersion);
+    await DaoNamespace.onUpgrade(db, oldVersion, newVersion);
+    await DaoAutocompleteCache.onUpgrade(db, oldVersion, newVersion);
   }
 }
