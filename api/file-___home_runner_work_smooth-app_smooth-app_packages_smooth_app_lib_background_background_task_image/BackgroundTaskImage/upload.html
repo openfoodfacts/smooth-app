@@ -80,37 +80,60 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
   SendImage? image;
   BackgroundCropResult? cropResult;
   try {
-    cropResult = await cropIfNeeded(
-      fullPath: fullPath,
-      rotationDegrees: rotationDegrees,
-      cropX1: cropX1,
-      cropY1: cropY1,
-      cropX2: cropX2,
-      cropY2: cropY2,
-      compressQuality: 100,
-      forceCompression: false,
-      eraserCoordinates: eraserCoordinates,
-    );
-    final String? path = cropResult.filePath;
-    if (path == null) {
-      &#47;&#47; TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it&#39;s not supposed to happen anymore from upstream.
-      return;
-    }
     final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
     final OpenFoodFactsLanguage language = getLanguage();
     final User user = getUser();
-    image = SendImage(
-      lang: language,
-      barcode: barcode,
-      imageField: imageField,
-      imageUri: Uri.parse(path),
-    );
 
-    final Status status = await OpenFoodAPIClient.addProductImage(
-      user,
-      image,
-      uriHelper: uriProductHelper,
-    );
+    Future&lt;Status&gt; addImage({
+      required int compressionPct,
+      required bool force,
+      int? maxSize,
+    }) async {
+      cropResult = await cropIfNeeded(
+        fullPath: fullPath,
+        rotationDegrees: rotationDegrees,
+        cropX1: cropX1,
+        cropY1: cropY1,
+        cropX2: cropX2,
+        cropY2: cropY2,
+        compressQuality: compressionPct,
+        forceCompression: force,
+        eraserCoordinates: eraserCoordinates,
+        maxSize: maxSize,
+      );
+      final String? path = cropResult!.filePath;
+      if (path == null) {
+        &#47;&#47; TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it&#39;s not supposed to happen anymore from upstream.
+        throw Exception(&#39;Could not get image path after compression&#39;);
+      }
+      image = SendImage(
+        lang: language,
+        barcode: barcode,
+        imageField: imageField,
+        imageUri: Uri.parse(path),
+      );
+      return OpenFoodAPIClient.addProductImage(
+        user,
+        image!,
+        uriHelper: uriProductHelper,
+      );
+    }
+
+    Status status;
+    try {
+      status = await addImage(compressionPct: 100, force: false);
+    } catch (e) {
+      if (e.toString().contains(&#39;413&#39;) ||
+          e.toString().contains(&#39;Request Entity Too Large&#39;)) {
+        status = await addImage(
+          compressionPct: 80,
+          force: true,
+          maxSize: 2000,
+        );
+      } else {
+        rethrow;
+      }
+    }
     if (status.status == &#39;status ok&#39;) {
       &#47;&#47; successfully uploaded a new picture and set it as field+language
       return;
