@@ -180,7 +180,7 @@ class UserPreferences extends ChangeNotifier {
   String _getImportanceTagForProject(
     final String variable,
     final String projectKey,
-  ) => '${_TAG_PREFIX_IMPORTANCE}${projectKey}_$variable';
+  ) => '$_TAG_PREFIX_IMPORTANCE${projectKey}_$variable';
 
   Future<void> setImportance(
     final String attributeId,
