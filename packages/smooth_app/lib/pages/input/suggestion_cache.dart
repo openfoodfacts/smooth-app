@@ -11,8 +11,9 @@ class SuggestionCache {
   final ServerSuggestion serverSuggestion;
   final LocalDatabase localDatabase;
 
-  // namespace string → namespace DB id (avoids repeated DB lookup per session)
-  final Map<String, int> _namespaceIdCache = <String, int>{};
+  static final Map<String, int> _namespaceIdCache = <String, int>{};
+  static final Map<String, List<String>> _resultsCache =
+      <String, List<String>>{};
 
   Future<int> _getNamespaceId(final String namespace) async {
     final int? cached = _namespaceIdCache[namespace];
@@ -20,27 +21,34 @@ class SuggestionCache {
       return cached;
     }
     final int id = await DaoNamespace(localDatabase).getOrCreateId(namespace);
-    _namespaceIdCache[namespace] = id;
-    return id;
+    return _namespaceIdCache[namespace] = id;
   }
 
   Future<List<String>> getSuggestions(final String soFar) async {
-    final String namespace = serverSuggestion.getNamespace(soFar);
+    final String namespace = serverSuggestion.getNamespace();
     final int namespaceId = await _getNamespaceId(namespace);
+    final String cacheKey = '$namespaceId|$soFar';
+
+    // 1. Static
+    final List<String>? static_ = _resultsCache[cacheKey];
+    if (static_ != null) {
+      return static_;
+    }
 
     final DaoAutocompleteCache daoCache = DaoAutocompleteCache(localDatabase);
 
-    // 1. DB
+    // 2. DB
     final List<String>? db = await daoCache.get(namespaceId, soFar);
     if (db != null) {
-      return db;
+      return _resultsCache[cacheKey] = db;
     }
 
-    // 2. Server
+    // 3. Server
     final List<String> results = await serverSuggestion
         .getSuggestionsFromServer(soFar);
     if (results.isNotEmpty) {
       await daoCache.put(namespaceId, soFar, results);
+      _resultsCache[cacheKey] = results;
     }
     return results;
   }

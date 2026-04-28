@@ -4,7 +4,7 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Abstract interface for server-backed autocomplete with cache namespace support.
 abstract class ServerSuggestion {
-  String getNamespace(String soFar);
+  String getNamespace();
   Future<List<String>> getSuggestionsFromServer(String soFar);
 }
 
@@ -21,7 +21,7 @@ class TagTypeServerSuggestion implements ServerSuggestion {
       ProductQuery.getUriProductHelper(productType: productType);
 
   @override
-  String getNamespace(String soFar) {
+  String getNamespace() {
     return '${_uriHelper.domain}|tagtype|${tagType.offTag}|${_language.offTag}|${_country?.offTag ?? ''}';
   }
 
@@ -53,7 +53,7 @@ class TaxonomyServerSuggestion implements ServerSuggestion {
       ProductQuery.getUriProductHelper(productType: productType);
 
   @override
-  String getNamespace(String soFar) {
+  String getNamespace() {
     return '${_uriHelper.domain}|taxonomy|${taxonomyNames.map((final TaxonomyName t) => t.offTag).join(',')}|${_language.offTag}';
   }
 
@@ -78,7 +78,7 @@ class FolksonomyKeysServerSuggestion implements ServerSuggestion {
   UriHelper get _uriHelper => ProductQuery.uriFolksonomyHelper;
 
   @override
-  String getNamespace(String soFar) {
+  String getNamespace() {
     return '${_uriHelper.host}|folksonomy|keys';
   }
 
@@ -100,7 +100,7 @@ class FolksonomyValuesServerSuggestion implements ServerSuggestion {
   UriHelper get _uriHelper => ProductQuery.uriFolksonomyHelper;
 
   @override
-  String getNamespace(String soFar) {
+  String getNamespace() {
     final String key = _keyProvider().trim();
     return '${_uriHelper.host}|folksonomy|values|$key';
   }

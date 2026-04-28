@@ -109,6 +109,6 @@ class DaoAutocompleteCache extends AbstractSqlDao {
       _TABLE_CACHE_COLUMN_QUERY: query,
       _TABLE_CACHE_COLUMN_RESULTS: jsonEncode(results),
       _TABLE_CACHE_COLUMN_LAST_UPDATE: LocalDatabase.nowInMillis(),
-    }, conflictAlgorithm: ConflictAlgorithm.replace);
+    });
   }
 }
