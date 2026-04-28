@@ -556,7 +556,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
                   ),
                 ),
               ),
-              if (suffix != null) suffix!,
+              ?suffix,
             ],
           ),
         ),

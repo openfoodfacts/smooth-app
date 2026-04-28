@@ -51,7 +51,7 @@ class GuidesPage extends StatelessWidget {
         create: (_) => headerType,
         child: _GuidesPageBody(
           pageName: pageName,
-          slivers: <Widget>[header, ...body, if (footer != null) footer!],
+          slivers: <Widget>[header, ...body, ?footer],
         ),
       ),
     );

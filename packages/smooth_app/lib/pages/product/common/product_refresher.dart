@@ -103,7 +103,7 @@ class ProductRefresher {
     parametersList: <Parameter>[
       BarcodeParameter.list(barcodes),
       PageSize(size: barcodes.length),
-      if (unwantedIngredients != null) unwantedIngredients,
+      ?unwantedIngredients,
     ],
     version: ProductQuery.productQueryVersion,
     activateKnowledgePanelsSimplified: true,
