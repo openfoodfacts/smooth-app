@@ -87,6 +87,11 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
   if (downloadFlag &amp; flagMaskExcludeKP != 0) {
     fields.remove(ProductField.KNOWLEDGE_PANELS);
   }
+
+  final List&lt;String&gt; unwantedIngredients =
+      (await UserPreferences.getUserPreferences())
+          .getUnwantedIngredientTags();
+
   final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
   final SearchResult searchResult =
       await SearchProductsManager.searchProducts(
@@ -97,6 +102,7 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
             PageSize(size: pageSize),
             const PageNumber(page: 1),
             BarcodeParameter.list(barcodes),
+            IngredientsUnwantedParameter(unwantedIngredients),
           ],
           language: language,
           country: ProductQuery.getCountry(),

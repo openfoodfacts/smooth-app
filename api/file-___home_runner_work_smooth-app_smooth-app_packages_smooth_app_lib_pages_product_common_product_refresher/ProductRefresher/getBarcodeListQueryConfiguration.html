@@ -53,7 +53,8 @@
 
 <span class="returntype">dynamic</span>
 <span class="name ">getBarcodeListQueryConfiguration</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getBarcodeListQueryConfiguration-param-barcodes"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">barcodes</span>, </span></li>
-<li><span class="parameter" id="getBarcodeListQueryConfiguration-param-language"><span class="type-annotation">dynamic</span> <span class="parameter-name">language</span></span></li>
+<li><span class="parameter" id="getBarcodeListQueryConfiguration-param-language"><span class="type-annotation">dynamic</span> <span class="parameter-name">language</span>, </span></li>
+<li><span class="parameter" id="getBarcodeListQueryConfiguration-param-unwantedIngredients">{<span class="type-annotation">dynamic</span> <span class="parameter-name">unwantedIngredients</span>}</span></li>
 </ol>)
 
       
@@ -70,14 +71,16 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
   final List&lt;String&gt; barcodes,
-  final OpenFoodFactsLanguage language,
-) =&gt; ProductSearchQueryConfiguration(
+  final OpenFoodFactsLanguage language, {
+  final IngredientsUnwantedParameter? unwantedIngredients,
+}) =&gt; ProductSearchQueryConfiguration(
   fields: ProductQuery.fields,
   language: language,
   country: ProductQuery.getCountry(),
   parametersList: &lt;Parameter&gt;[
     BarcodeParameter.list(barcodes),
     PageSize(size: barcodes.length),
+    if (unwantedIngredients != null) unwantedIngredients,
   ],
   version: ProductQuery.productQueryVersion,
   activateKnowledgePanelsSimplified: true,

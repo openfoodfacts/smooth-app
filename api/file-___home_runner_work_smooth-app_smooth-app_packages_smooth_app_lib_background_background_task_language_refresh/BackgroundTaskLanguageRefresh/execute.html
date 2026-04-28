@@ -82,6 +82,11 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
   if (barcodes.isEmpty) {
     return;
   }
+
+  final List&lt;String&gt; unwantedIngredients =
+      (await UserPreferences.getUserPreferences())
+          .getUnwantedIngredientTags();
+
   final SearchResult searchResult =
       await SearchProductsManager.searchProducts(
         getUser(),
@@ -91,6 +96,7 @@ Future&lt;void&gt; execute(final LocalDatabase localDatabase) async {
             const PageSize(size: _pageSize),
             const PageNumber(page: 1),
             BarcodeParameter.list(barcodes),
+            IngredientsUnwantedParameter(unwantedIngredients),
           ],
           language: language,
           country: ProductQuery.getCountry(),

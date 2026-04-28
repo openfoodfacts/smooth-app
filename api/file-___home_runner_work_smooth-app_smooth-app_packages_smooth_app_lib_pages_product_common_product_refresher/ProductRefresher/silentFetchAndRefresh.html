@@ -80,9 +80,19 @@
     productType: productType,
   );
   try {
+    final List&lt;String&gt; unwantedIngredients =
+        (await UserPreferences.getUserPreferences())
+            .getUnwantedIngredientTags();
+
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
-      getBarcodeQueryConfiguration(barcode, language),
+      getBarcodeQueryConfiguration(
+        barcode,
+        language,
+        unwantedIngredients: IngredientsUnwantedParameter(
+          unwantedIngredients,
+        ),
+      ),
       uriHelper: uriProductHelper,
       user: ProductQuery.getReadUser(),
     );
