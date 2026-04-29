@@ -71,11 +71,11 @@
   "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "food_preferences_page_title_introduction": "Personalize the app",
+  "food_preferences_page_title_introduction": "Personnaliser l'application",
   "@food_preferences_page_title_introduction": {
     "description": "Title for the introduction page of the food preferences wizard"
   },
-  "food_preferences_page_title_diets": "Diets",
+  "food_preferences_page_title_diets": "Régimes",
   "@food_preferences_page_title_diets": {
     "description": "Title for the diets page of the food preferences wizard"
   },
@@ -83,23 +83,23 @@
   "@food_preferences_page_title_allergies": {
     "description": "Title for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "food_preferences_page_title_unwanted_foods": "Ce que je ne mange pas",
   "@food_preferences_page_title_unwanted_foods": {
     "description": "Title for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "food_preferences_page_title_foods_to_avoid": "Ce que je préfère éviter",
   "@food_preferences_page_title_foods_to_avoid": {
     "description": "Title for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_title_environment": "Environmental preferences",
+  "food_preferences_page_title_environment": "Préférences environnementales",
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_page_title_summary": "Profile ready",
+  "food_preferences_page_title_summary": "Profil prêt",
   "@food_preferences_page_title_summary": {
     "description": "Title for the summary/confirmation page of the food preferences wizard"
   },
-  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "food_preferences_step_prefix": "Étape {stepNumber}: ",
   "@food_preferences_step_prefix": {
     "description": "Step number prefix shown before the page title in the food preferences wizard",
     "placeholders": {
@@ -109,51 +109,51 @@
       }
     }
   },
-  "food_preferences_no_selection": "No selection",
+  "food_preferences_no_selection": "Aucune sélection",
   "@food_preferences_no_selection": {
     "description": "Text shown when no preferences are selected in a category on the summary page"
   },
-  "food_preferences_empty_state": "No attributes available for this category.",
+  "food_preferences_empty_state": "Aucun attribut disponible pour cette catégorie.",
   "@food_preferences_empty_state": {
     "description": "Text shown when a preference category has no attributes available"
   },
-  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "food_preferences_error_loading": "Impossible de charger les préférences. Veuillez vérifier votre connexion Internet.",
   "@food_preferences_error_loading": {
     "description": "Error message shown when the food preferences fail to load from the server"
   },
-  "food_preferences_summary_description": "Here is your profile:",
+  "food_preferences_summary_description": "Voici votre profil :",
   "@food_preferences_summary_description": {
     "description": "Description text shown at the top of the preferences summary page"
   },
-  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "food_preferences_introduction_description": "Dans les étapes suivantes, vous pouvez **personnaliser l'application** en indiquant vos préférences :",
   "@food_preferences_introduction_description": {
     "description": "Description shown on the introduction page of the food preferences wizard."
   },
-  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "food_preferences_page_description_diets": "Sélectionnez les régimes alimentaires que vous suivez pour personnaliser vos recommandations.",
   "@food_preferences_page_description_diets": {
     "description": "Description for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "food_preferences_page_description_allergies": "Sélectionnez les allergènes à éviter pour votre sécurité alimentaire.",
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "food_preferences_page_description_unwanted_foods": "Indiquez les aliments ou les ingrédients que vous ne mangez pas.",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "food_preferences_page_description_foods_to_avoid": "Sélectionnez les aliments que vous préférez éviter sans que cela soit une interdiction stricte.",
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "food_preferences_page_description_environment": "Indiquez vos préférences environnementales pour des recommandations plus durables.",
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "food_preferences_search_ingredients_hint": "Rechercher des ingrédients",
   "@food_preferences_search_ingredients_hint": {
     "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
   },
-  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "food_preferences_ingredient_already_added": "Ingrédient déjà ajouté",
   "@food_preferences_ingredient_already_added": {
     "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
@@ -542,12 +542,12 @@
   "myPreferences_food_title": "Préférences alimentaires",
   "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
   "myPreferences_food_comment": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité. Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
+  "myPreferences_beauty_title": "Préférences en matière de cosmétiques",
+  "myPreferences_beauty_subtitle": "Choisissez les informations sur les produits cosmétiques qui vous importent le plus.",
+  "myPreferences_product_title": "Préférences pour d'autres produits",
+  "myPreferences_product_subtitle": "Choisissez les informations sur les autres produits qui vous importent le plus.",
+  "myPreferences_pet_food_title": "Préférences en matière d'alimentation pour animaux de compagnie",
+  "myPreferences_pet_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
   "confirmResetPreferences": "Réinitialiser vos préférences alimentaires ?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
