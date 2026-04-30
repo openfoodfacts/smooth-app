@@ -11,6 +11,7 @@ class NavigationPreferenceTile extends PreferenceTile {
     super.leading,
     this.root,
     this.target,
+    this.fullScreen = false,
   }) : assert(
          (root != null && target == null) || (root == null && target != null),
          'Either root or target must be provided, not both.',
@@ -18,6 +19,7 @@ class NavigationPreferenceTile extends PreferenceTile {
 
   final PreferencesRoot? root;
   final Widget? target;
+  final bool fullScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class NavigationPreferenceTile extends PreferenceTile {
       title: title,
       subtitleText: subtitleText,
       onTap: () {
-        Navigator.of(context).push(
+        Navigator.of(context, rootNavigator: fullScreen).push(
           MaterialPageRoute<Widget>(
             builder: (BuildContext context) => root != null
                 ? ChangeNotifierProvider<PreferencesRootSearchController>(

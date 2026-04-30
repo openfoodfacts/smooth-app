@@ -134,9 +134,11 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       }
       final Uri importanceUrl = AvailablePreferenceImportances.getUri(
         languageCode,
+        uriHelper: uriHelperFoodProd,
       );
       final Uri attributeGroupUrl = AvailableAttributeGroups.getUri(
         languageCode,
+        uriHelper: uriHelperFoodProd,
       );
       final DownloadableString downloadableImportance = DownloadableString(
         importanceUrl,
@@ -153,6 +155,7 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
       }
       final String preferenceImportancesString = downloadableImportance.value!;
       final String attributeGroupsString = downloadableAttributes.value!;
+
       _loadFromStrings(
         languageCode,
         preferenceImportancesString,
@@ -172,9 +175,11 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     try {
       final Uri importanceUrl = AvailablePreferenceImportances.getUri(
         languageCode,
+        uriHelper: uriHelperFoodProd,
       );
       final Uri attributeGroupUrl = AvailableAttributeGroups.getUri(
         languageCode,
+        uriHelper: uriHelperFoodProd,
       );
       final String? preferenceImportancesString = await daoString!.get(
         importanceUrl.toString(),
