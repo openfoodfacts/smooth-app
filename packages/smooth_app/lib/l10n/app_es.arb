@@ -1180,15 +1180,15 @@
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_search_same_category_error": "Esta función solo está disponible para productos con categoría.\n\nEdita el producto para añadir una categoría.",
+  "product_search_same_category_error": "Esta función solo está disponible para productos que pertenecen a una categoría.\n\nEdita el producto para añadir una categoría.",
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Añade una categoría para calcular la Nutri-Score.",
+  "product_improvement_add_category": "Añade una categoría para calcular el Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Añade la información nutricional para calcular la Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Añade la información nutricional para calcular el Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
@@ -1482,7 +1482,7 @@
   "@are_you_sure": {
     "description": "Are you sure?"
   },
-  "knowledge_panel_text_source": "Obtener más información en {sourceName}",
+  "knowledge_panel_text_source": "Obtén más información en {sourceName}",
   "@knowledge_panel_text_source": {
     "description": "When we show information from for example Wikipedia or health authorities, this is the button label to open the source website",
     "placeholders": {
@@ -3515,7 +3515,7 @@
   "@scan_product_loading_restart_button": {
     "description": "Button to force restart a product search"
   },
-  "portion_calculator_description": "Calcula información nutricional para una cantidad específica",
+  "portion_calculator_description": "Calcula la información nutricional para una cantidad específica",
   "@portion_calculator_description": {
     "description": "Sort of title that describes the portion calculator."
   },
