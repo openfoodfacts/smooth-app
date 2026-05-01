@@ -79,7 +79,7 @@
   "@food_preferences_page_title_diets": {
     "description": "Title for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_title_allergies": "Allergies",
+  "food_preferences_page_title_allergies": "Allergien",
   "@food_preferences_page_title_allergies": {
     "description": "Title for the allergies page of the food preferences wizard"
   },
