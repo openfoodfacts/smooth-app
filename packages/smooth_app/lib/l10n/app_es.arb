@@ -236,7 +236,7 @@
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "Elige los alimentos que sean buenos para ti.",
+  "healthCardUtility": "Elige alimentos que sean buenos para ti.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
@@ -1091,7 +1091,7 @@
   "@homepage_main_card_logo_description": {
     "description": "Description for accessibility of the Open Food Facts logo on the homepage"
   },
-  "homepage_main_card_subheading": "**Escanee** un código de barras o\n**busque** un producto",
+  "homepage_main_card_subheading": "**Escanea** un código de barras o\n**busca** un producto",
   "@homepage_main_card_subheading": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please keep it."
   },
@@ -1242,7 +1242,7 @@
   "@country_chooser_label_from_settings": {
     "description": "Label to use in the settings to change the user country"
   },
-  "country_selection_explanation": "Algunas características ambientales son específicas de tu ubicación geográfica",
+  "country_selection_explanation": "Algunas características ambientales son específicas de tu ubicación geográfica.",
   "@country_label": {
     "description": "Explanation as to why users should select their country."
   },
@@ -1491,7 +1491,7 @@
       }
     }
   },
-  "onboarding_home_welcome_text1": "¡Bienvenido!",
+  "onboarding_home_welcome_text1": "¡Hola!",
   "onboarding_home_welcome_text2": "¡La app que te ayuda a elegir alimentos buenos para **ti** y para el **planeta**!",
   "@onboarding_home_welcome_text2": {
     "description": "Onboarding home screen welcome text, text surrounded by * will be bold"
@@ -4041,7 +4041,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "¿Qué es el Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "¿Qué es Nutri-Score?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score es un logotipo que tiene como objetivo informarle sobre la **calidad nutricional de los alimentos**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
