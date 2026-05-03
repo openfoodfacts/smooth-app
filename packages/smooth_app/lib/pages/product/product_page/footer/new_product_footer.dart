@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_data_contributor_guide.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_data_quality.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_edit.dart';
+import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_edit_everything.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_open_website.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_report.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer_settings.dart';
@@ -66,6 +67,7 @@ class ProductFooter extends StatelessWidget {
 enum ProductFooterActionBar {
   addPrice('add_price'),
   edit('edit'),
+  editEverything('edit_everything'),
   compare('compare'),
   addToList('add_to_list'),
   share('share'),
@@ -85,6 +87,7 @@ enum ProductFooterActionBar {
     return switch (key) {
       'add_price' => ProductFooterActionBar.addPrice,
       'edit' => ProductFooterActionBar.edit,
+      'edit_everything' => ProductFooterActionBar.editEverything,
       'compare' => ProductFooterActionBar.compare,
       'add_to_list' => ProductFooterActionBar.addToList,
       'share' => ProductFooterActionBar.share,
@@ -101,6 +104,7 @@ enum ProductFooterActionBar {
   static List<ProductFooterActionBar> defaultOrder() =>
       const <ProductFooterActionBar>[
         edit,
+        editEverything,
         addPrice,
         compare,
         addToList,
@@ -222,6 +226,8 @@ class _ProductFooterButtonsBarItems extends StatelessWidget {
             ProductFooterActionBar.compare =>
               const ProductFooterCompareButton(),
             ProductFooterActionBar.edit => const ProductFooterEditButton(),
+            ProductFooterActionBar.editEverything =>
+              const ProductFooterEditEverythingButton(),
             ProductFooterActionBar.share => const ProductFooterShareButton(),
             ProductFooterActionBar.settings =>
               const ProductFooterSettingsButton(),
