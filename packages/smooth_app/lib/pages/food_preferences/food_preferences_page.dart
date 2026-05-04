@@ -292,6 +292,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
                     ? Colors.white.withValues(alpha: 0.3)
                     : lightTheme
                     ? extension.primaryLight
+                    // Semi-transparent track so the dark header shows through
                     : extension.primarySemiDark.withValues(alpha: 0.5),
                 currentValue: _controller.progress,
                 maxValue: 1,

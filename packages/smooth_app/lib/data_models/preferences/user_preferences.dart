@@ -509,16 +509,22 @@ class UserPreferences extends ChangeNotifier {
   ///
   /// This checks both attribute importances (i.e., attributes set to a value
   /// other than "not important") and unwanted ingredients.
+  ///
+  /// The method filters the SharedPreferences key space by the project-specific
+  /// prefix and exits as soon as one configured preference is found.
   bool hasAnyPreferencesForProject(final String projectKey) {
     final String prefix = '${_TAG_PREFIX_IMPORTANCE}${projectKey}_';
-    for (final String key in _sharedPreferences.getKeys()) {
-      if (key.startsWith(prefix)) {
-        final String? value = _sharedPreferences.getString(key);
-        if (value != null &&
-            value != PreferenceImportance.ID_NOT_IMPORTANT) {
-          return true;
+    final bool hasConfiguredAttribute = _sharedPreferences.getKeys().any(
+      (String key) {
+        if (!key.startsWith(prefix)) {
+          return false;
         }
-      }
+        final String? value = _sharedPreferences.getString(key);
+        return value != null && value != PreferenceImportance.ID_NOT_IMPORTANT;
+      },
+    );
+    if (hasConfiguredAttribute) {
+      return true;
     }
     return getUnwantedIngredientsForProject(projectKey).isNotEmpty;
   }
