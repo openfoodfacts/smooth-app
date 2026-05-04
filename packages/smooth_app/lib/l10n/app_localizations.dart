@@ -1503,31 +1503,31 @@ abstract class AppLocalizations {
   /// No description provided for @myPreferences_beauty_title.
   ///
   /// In en, this message translates to:
-  /// **'Beauty Preferences'**
+  /// **'Preferences for cosmetics'**
   String get myPreferences_beauty_title;
 
   /// No description provided for @myPreferences_beauty_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Choose what information about beauty products matters most to you.'**
+  /// **'Choose what information about cosmetics products matters most to you.'**
   String get myPreferences_beauty_subtitle;
 
   /// No description provided for @myPreferences_product_title.
   ///
   /// In en, this message translates to:
-  /// **'Product Preferences'**
+  /// **'Preferences for other products'**
   String get myPreferences_product_title;
 
   /// No description provided for @myPreferences_product_subtitle.
   ///
   /// In en, this message translates to:
-  /// **'Choose what information about products matters most to you.'**
+  /// **'Choose what information about other products matters most to you.'**
   String get myPreferences_product_subtitle;
 
   /// No description provided for @myPreferences_pet_food_title.
   ///
   /// In en, this message translates to:
-  /// **'Pet Food Preferences'**
+  /// **'Preferences for pet food'**
   String get myPreferences_pet_food_title;
 
   /// No description provided for @myPreferences_pet_food_subtitle.
