@@ -117,6 +117,10 @@
   "@food_preferences_empty_state": {
     "description": "Text shown when a preference category has no attributes available"
   },
+  "food_preferences_no_results": "No settings found",
+  "@food_preferences_no_results": {
+    "description": "Text shown when a search within food preferences returns no results"
+  },
   "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
   "@food_preferences_error_loading": {
     "description": "Error message shown when the food preferences fail to load from the server"

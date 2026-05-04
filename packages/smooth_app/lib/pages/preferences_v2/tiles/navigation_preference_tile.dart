@@ -9,6 +9,7 @@ class NavigationPreferenceTile extends PreferenceTile {
     required super.subtitleText,
     super.icon,
     super.leading,
+    super.trailing,
     this.root,
     this.target,
     this.fullScreen = false,
@@ -26,6 +27,7 @@ class NavigationPreferenceTile extends PreferenceTile {
     return PreferenceTile(
       icon: icon,
       leading: leading,
+      trailing: trailing,
       title: title,
       subtitleText: subtitleText,
       onTap: () {

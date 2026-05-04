@@ -576,6 +576,12 @@ abstract class AppLocalizations {
   /// **'No attributes available for this category.'**
   String get food_preferences_empty_state;
 
+  /// Text shown when a search within food preferences returns no results
+  ///
+  /// In en, this message translates to:
+  /// **'No settings found'**
+  String get food_preferences_no_results;
+
   /// Error message shown when the food preferences fail to load from the server
   ///
   /// In en, this message translates to:

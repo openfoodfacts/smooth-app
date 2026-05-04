@@ -36,6 +36,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dar
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 
 class PreferencesPage extends StatelessWidget {
@@ -58,10 +59,10 @@ class PreferencesPage extends StatelessWidget {
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
-              _buildFoodPreferencesTile(appLocalizations),
-              _buildBeautyPreferencesTile(appLocalizations),
-              _buildProductPreferencesTile(appLocalizations),
-              _buildPetFoodPreferencesTile(appLocalizations),
+              _buildFoodPreferencesTile(appLocalizations, userPreferences),
+              _buildBeautyPreferencesTile(appLocalizations, userPreferences),
+              _buildProductPreferencesTile(appLocalizations, userPreferences),
+              _buildPetFoodPreferencesTile(appLocalizations, userPreferences),
               _buildAppSettingsTile(appLocalizations),
             ],
           ),
@@ -114,6 +115,37 @@ class PreferencesPage extends StatelessWidget {
               },
         ),
       ),
+    );
+  }
+
+  /// Returns a trailing widget that displays a configured checkmark next to
+  /// the navigation chevron when [isConfigured] is true.
+  Widget? _buildConfiguredTrailing(
+    BuildContext context,
+    bool isConfigured,
+  ) {
+    if (!isConfigured) {
+      return null;
+    }
+
+    final SmoothColorsThemeExtension extension =
+        context.extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+    final Color iconColor = lightTheme
+        ? extension.primarySemiDark
+        : Colors.white;
+
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Icon(
+          Icons.check_circle_rounded,
+          size: 18.0,
+          color: extension.success,
+        ),
+        const SizedBox(width: 6.0),
+        icons.Chevron.right(size: 14.0, color: iconColor),
+      ],
     );
   }
 
@@ -213,9 +245,25 @@ class PreferencesPage extends StatelessWidget {
   // Customize App section
   NavigationPreferenceTile _buildFoodPreferencesTile(
     AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
   ) {
+    final bool isConfigured = userPreferences.hasAnyPreferencesForProject(
+      PreferencesPageProjects.food.name,
+    );
     return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
+      leading: const icons.HappyJam(),
+      trailing: Builder(
+        builder: (BuildContext context) =>
+            _buildConfiguredTrailing(context, isConfigured) ??
+            icons.Chevron.right(
+              size: 14.0,
+              color: context.lightTheme()
+                  ? context
+                        .extension<SmoothColorsThemeExtension>()
+                        .primarySemiDark
+                  : Colors.white,
+            ),
+      ),
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
       target: const FoodPreferencesPage(project: PreferencesPageProjects.food),
@@ -225,9 +273,25 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildBeautyPreferencesTile(
     AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
   ) {
+    final bool isConfigured = userPreferences.hasAnyPreferencesForProject(
+      PreferencesPageProjects.beauty.name,
+    );
     return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
+      leading: const icons.Brush(),
+      trailing: Builder(
+        builder: (BuildContext context) =>
+            _buildConfiguredTrailing(context, isConfigured) ??
+            icons.Chevron.right(
+              size: 14.0,
+              color: context.lightTheme()
+                  ? context
+                        .extension<SmoothColorsThemeExtension>()
+                        .primarySemiDark
+                  : Colors.white,
+            ),
+      ),
       title: appLocalizations.myPreferences_beauty_title,
       subtitleText: appLocalizations.myPreferences_beauty_subtitle,
       target: const FoodPreferencesPage(
@@ -239,9 +303,25 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildProductPreferencesTile(
     AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
   ) {
+    final bool isConfigured = userPreferences.hasAnyPreferencesForProject(
+      PreferencesPageProjects.products.name,
+    );
     return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
+      leading: const icons.Shopping.bag(),
+      trailing: Builder(
+        builder: (BuildContext context) =>
+            _buildConfiguredTrailing(context, isConfigured) ??
+            icons.Chevron.right(
+              size: 14.0,
+              color: context.lightTheme()
+                  ? context
+                        .extension<SmoothColorsThemeExtension>()
+                        .primarySemiDark
+                  : Colors.white,
+            ),
+      ),
       title: appLocalizations.myPreferences_product_title,
       subtitleText: appLocalizations.myPreferences_product_subtitle,
       target: const FoodPreferencesPage(
@@ -253,9 +333,25 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildPetFoodPreferencesTile(
     AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
   ) {
+    final bool isConfigured = userPreferences.hasAnyPreferencesForProject(
+      PreferencesPageProjects.pets.name,
+    );
     return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
+      leading: const icons.Chicken(),
+      trailing: Builder(
+        builder: (BuildContext context) =>
+            _buildConfiguredTrailing(context, isConfigured) ??
+            icons.Chevron.right(
+              size: 14.0,
+              color: context.lightTheme()
+                  ? context
+                        .extension<SmoothColorsThemeExtension>()
+                        .primarySemiDark
+                  : Colors.white,
+            ),
+      ),
       title: appLocalizations.myPreferences_pet_food_title,
       subtitleText: appLocalizations.myPreferences_pet_food_subtitle,
       target: const FoodPreferencesPage(project: PreferencesPageProjects.pets),

@@ -4,6 +4,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class SummarySection extends StatelessWidget {
   const SummarySection({
@@ -24,6 +25,12 @@ class SummarySection extends StatelessWidget {
     final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
 
+    final bool lightTheme = context.lightTheme();
+    final Color headerColor = lightTheme
+        ? theme.primaryMedium
+        : theme.primarySemiDark;
+    final Color headerTextColor = lightTheme ? theme.primaryBlack : Colors.white;
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String groupName = group.name ?? group.id ?? '';
 
@@ -34,17 +41,20 @@ class SummarySection extends StatelessWidget {
           padding: const EdgeInsetsDirectional.symmetric(
             horizontal: LARGE_SPACE,
           ),
-          color: theme.primaryMedium,
+          color: headerColor,
           child: Row(
             children: <Widget>[
               Expanded(
                 child: Text(
                   groupName,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: headerTextColor,
+                  ),
                 ),
               ),
               IconButton(
-                icon: const icons.Edit(size: 20.0),
+                icon: icons.Edit(size: 20.0, color: headerTextColor),
                 onPressed: onEdit,
                 tooltip: appLocalizations.edit,
               ),
@@ -109,8 +119,11 @@ class SummarySection extends StatelessWidget {
                         runSpacing: SMALL_SPACE,
                         children: unwantedIngredients.map((String ingredient) {
                           return Chip(
-                            label: Text(ingredient),
-                            backgroundColor: theme.primaryMedium,
+                            label: Text(
+                              ingredient,
+                              style: TextStyle(color: headerTextColor),
+                            ),
+                            backgroundColor: headerColor,
                             materialTapTargetSize:
                                 MaterialTapTargetSize.shrinkWrap,
                             visualDensity: VisualDensity.compact,

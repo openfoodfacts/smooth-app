@@ -505,6 +505,24 @@ class UserPreferences extends ChangeNotifier {
     return _getUnwantedIngredientsMapForProject(projectKey).keys.toList();
   }
 
+  /// Returns true if any preferences have been configured for the given project.
+  ///
+  /// This checks both attribute importances (i.e., attributes set to a value
+  /// other than "not important") and unwanted ingredients.
+  bool hasAnyPreferencesForProject(final String projectKey) {
+    final String prefix = '${_TAG_PREFIX_IMPORTANCE}${projectKey}_';
+    for (final String key in _sharedPreferences.getKeys()) {
+      if (key.startsWith(prefix)) {
+        final String? value = _sharedPreferences.getString(key);
+        if (value != null &&
+            value != PreferenceImportance.ID_NOT_IMPORTANT) {
+          return true;
+        }
+      }
+    }
+    return getUnwantedIngredientsForProject(projectKey).isNotEmpty;
+  }
+
   /// Sets the unwanted ingredients map.
   /// [ingredientsMap] is a map where keys are user-facing names and values are
   /// canonical tags.

@@ -251,8 +251,14 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
     final bool isSummaryPage = _controller.isSummaryPage;
     final Color headerColor = isSummaryPage
         ? extension.success
-        : extension.primaryMedium;
-    final Color foregroundColor = isSummaryPage ? Colors.white : Colors.black;
+        : lightTheme
+        ? extension.primaryMedium
+        : extension.primaryDark;
+    final Color foregroundColor = isSummaryPage
+        ? Colors.white
+        : lightTheme
+        ? Colors.black
+        : Colors.white;
 
     return ChangeNotifierProvider<PendingPreferences>.value(
       value: _pendingPreferences,
@@ -286,7 +292,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
                     ? Colors.white.withValues(alpha: 0.3)
                     : lightTheme
                     ? extension.primaryLight
-                    : extension.primarySemiDark,
+                    : extension.primarySemiDark.withValues(alpha: 0.5),
                 currentValue: _controller.progress,
                 maxValue: 1,
               ),
