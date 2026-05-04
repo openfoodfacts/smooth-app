@@ -80,7 +80,7 @@
   parametersList: &lt;Parameter&gt;[
     BarcodeParameter.list(barcodes),
     PageSize(size: barcodes.length),
-    if (unwantedIngredients != null) unwantedIngredients,
+    ?unwantedIngredients,
   ],
   version: ProductQuery.productQueryVersion,
   activateKnowledgePanelsSimplified: true,

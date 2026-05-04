@@ -76,7 +76,7 @@ Widget build(BuildContext context) {
       create: (_) =&gt; headerType,
       child: _GuidesPageBody(
         pageName: pageName,
-        slivers: &lt;Widget&gt;[header, ...body, if (footer != null) footer!],
+        slivers: &lt;Widget&gt;[header, ...body, ?footer],
       ),
     ),
   );
