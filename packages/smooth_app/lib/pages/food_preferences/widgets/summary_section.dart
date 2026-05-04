@@ -29,7 +29,8 @@ class SummarySection extends StatelessWidget {
     final Color headerColor = lightTheme
         ? theme.primaryMedium
         : theme.primarySemiDark;
-    final Color headerTextColor = lightTheme ? theme.primaryBlack : Colors.white;
+    final Color headerTextColor =
+        lightTheme ? theme.primaryBlack : Colors.white;
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String groupName = group.name ?? group.id ?? '';

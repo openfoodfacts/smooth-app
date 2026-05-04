@@ -126,8 +126,8 @@ class PreferencesPage extends StatelessWidget {
     BuildContext context,
     bool isConfigured,
   ) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
     final Color iconColor = lightTheme
         ? extension.primarySemiDark
