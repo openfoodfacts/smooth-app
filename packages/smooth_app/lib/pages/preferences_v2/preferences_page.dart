@@ -118,22 +118,25 @@ class PreferencesPage extends StatelessWidget {
     );
   }
 
-  /// Returns a trailing widget that displays a configured checkmark next to
-  /// the navigation chevron when [isConfigured] is true.
-  Widget? _buildConfiguredTrailing(
+  /// Returns a trailing widget for a preference tile.
+  ///
+  /// When [isConfigured] is true, displays a green checkmark alongside the
+  /// navigation chevron. Otherwise returns just the chevron.
+  Widget _buildPreferenceTileTrailing(
     BuildContext context,
     bool isConfigured,
   ) {
-    if (!isConfigured) {
-      return null;
-    }
-
     final SmoothColorsThemeExtension extension =
         context.extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
     final Color iconColor = lightTheme
         ? extension.primarySemiDark
         : Colors.white;
+    final Widget chevron = icons.Chevron.right(size: 14.0, color: iconColor);
+
+    if (!isConfigured) {
+      return chevron;
+    }
 
     return Row(
       mainAxisSize: MainAxisSize.min,
@@ -144,7 +147,7 @@ class PreferencesPage extends StatelessWidget {
           color: extension.success,
         ),
         const SizedBox(width: 6.0),
-        icons.Chevron.right(size: 14.0, color: iconColor),
+        chevron,
       ],
     );
   }
@@ -254,15 +257,7 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.HappyJam(),
       trailing: Builder(
         builder: (BuildContext context) =>
-            _buildConfiguredTrailing(context, isConfigured) ??
-            icons.Chevron.right(
-              size: 14.0,
-              color: context.lightTheme()
-                  ? context
-                        .extension<SmoothColorsThemeExtension>()
-                        .primarySemiDark
-                  : Colors.white,
-            ),
+            _buildPreferenceTileTrailing(context, isConfigured),
       ),
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
@@ -282,15 +277,7 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Brush(),
       trailing: Builder(
         builder: (BuildContext context) =>
-            _buildConfiguredTrailing(context, isConfigured) ??
-            icons.Chevron.right(
-              size: 14.0,
-              color: context.lightTheme()
-                  ? context
-                        .extension<SmoothColorsThemeExtension>()
-                        .primarySemiDark
-                  : Colors.white,
-            ),
+            _buildPreferenceTileTrailing(context, isConfigured),
       ),
       title: appLocalizations.myPreferences_beauty_title,
       subtitleText: appLocalizations.myPreferences_beauty_subtitle,
@@ -312,15 +299,7 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Shopping.bag(),
       trailing: Builder(
         builder: (BuildContext context) =>
-            _buildConfiguredTrailing(context, isConfigured) ??
-            icons.Chevron.right(
-              size: 14.0,
-              color: context.lightTheme()
-                  ? context
-                        .extension<SmoothColorsThemeExtension>()
-                        .primarySemiDark
-                  : Colors.white,
-            ),
+            _buildPreferenceTileTrailing(context, isConfigured),
       ),
       title: appLocalizations.myPreferences_product_title,
       subtitleText: appLocalizations.myPreferences_product_subtitle,
@@ -342,15 +321,7 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Chicken(),
       trailing: Builder(
         builder: (BuildContext context) =>
-            _buildConfiguredTrailing(context, isConfigured) ??
-            icons.Chevron.right(
-              size: 14.0,
-              color: context.lightTheme()
-                  ? context
-                        .extension<SmoothColorsThemeExtension>()
-                        .primarySemiDark
-                  : Colors.white,
-            ),
+            _buildPreferenceTileTrailing(context, isConfigured),
       ),
       title: appLocalizations.myPreferences_pet_food_title,
       subtitleText: appLocalizations.myPreferences_pet_food_subtitle,
