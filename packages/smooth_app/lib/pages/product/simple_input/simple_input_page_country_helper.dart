@@ -118,7 +118,6 @@ class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
       appLocalizations.edit_product_form_item_countries_explanations_title;
 
   @override
-  @override
   WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return ExplanationBodyInfo(

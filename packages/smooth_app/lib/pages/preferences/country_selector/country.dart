@@ -101,7 +101,7 @@ extension OpenFoodFactsCountryLocalization on OpenFoodFactsCountry {
       if (b.offTag == userCountryCode) {
         return 1;
       }
-      return a.name.compareTo(b.name);
+      return a.localizedName.compareTo(b.localizedName);
     });
   }
 }
