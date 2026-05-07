@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
 
   async: 2.13.1
-  go_router: 17.2.2
+  go_router: 17.2.3
   barcode_widget: 2.0.4
   carousel_slider: 5.1.2
   cupertino_icons: 1.0.9
@@ -28,7 +28,7 @@ dependencies:
   hive_flutter: 1.1.0
   http: 1.6.0
   http_parser: 4.1.2
-  image_picker: 1.2.1
+  image_picker: 1.2.2
   l10n_countries: 2.0.2
   latlong2: 0.9.1
   matomo_tracker: 6.1.0
@@ -62,7 +62,7 @@ dependencies:
   shimmer: 3.0.0
   rive: 0.14.6
   webview_flutter: 4.13.1
-  webview_flutter_android: 4.11.0
+  webview_flutter_android: 4.12.0
   webview_flutter_wkwebview: 3.25.1
   flutter_custom_tabs: 2.5.0
   flutter_image_compress: 2.4.0
