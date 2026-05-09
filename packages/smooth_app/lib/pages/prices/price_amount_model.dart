@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 
@@ -44,6 +45,15 @@ class PriceAmountModel {
   set promo(final bool value) {
     _hasChanged = true;
     _promo = value;
+  }
+
+  DiscountType? _discountType;
+
+  DiscountType? get discountType => _discountType;
+
+  set discountType(final DiscountType? value) {
+    _hasChanged = true;
+    _discountType = value;
   }
 
   /// Returns the value as a valid strictly positive `double`, or `null`.
