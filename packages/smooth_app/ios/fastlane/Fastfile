@@ -95,7 +95,7 @@ platform :ios do
       export_method: "app-store",
       export_options: {
           provisioningProfiles: {
-              APP_IDENTIFIER => "match AppStore #{APP_IDENTIFIER}", 
+              "#{APP_IDENTIFIER}" => "match AppStore #{APP_IDENTIFIER}", 
           }
       }
     )
