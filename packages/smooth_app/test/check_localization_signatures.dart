@@ -11,22 +11,22 @@ import 'dart:io';
 
 void main() {
   print('Checking localization method signatures...\n');
-  
+
   // Find all generated localization files
   final libDir = Directory('lib/l10n');
   if (!libDir.existsSync()) {
     print('Error: lib/l10n directory not found');
     exit(1);
   }
-  
+
   final localizationFiles = libDir
       .listSync()
       .whereType<File>()
       .where((f) => f.path.endsWith('.dart') && f.path.contains('app_localizations_'))
       .toList();
-  
+
   print('Found ${localizationFiles.length} localization files\n');
-  
+
   // Methods to check (add more as needed)
   final methodsToCheck = [
     'pct_match',
@@ -51,9 +51,9 @@ void main() {
     'user_list_length',
     'share_product_text',
   ];
-  
+
   final methodSignatures = <String, Map<String, List<String>>>{};
-  
+
   // Extract method signatures from each file
   for (final file in localizationFiles) {
     final content = file.readAsStringSync();
@@ -61,12 +61,12 @@ void main() {
     final locale = fileName
         .replaceAll('app_localizations_', '')
         .replaceAll('.dart', '');
-    
+
     for (final method in methodsToCheck) {
       // Look for method signatures like: String methodName(Type param1, Type param2)
       final regex = RegExp(r'String\s+' + method + r'\s*\([^)]*\)');
       final match = regex.firstMatch(content);
-      
+
       if (match != null) {
         final signature = match.group(0)!;
         methodSignatures.putIfAbsent(method, () => {});
@@ -75,23 +75,23 @@ void main() {
       }
     }
   }
-  
+
   // Check for inconsistencies
   bool foundIssues = false;
-  
+
   for (final method in methodsToCheck) {
     if (!methodSignatures.containsKey(method)) {
       print('⚠️  Method "$method" not found in any localization file');
       foundIssues = true;
       continue;
     }
-    
+
     final signatures = methodSignatures[method]!;
-    
+
     if (signatures.length > 1) {
       print('❌ ERROR: Method "$method" has inconsistent signatures:');
       foundIssues = true;
-      
+
       for (final entry in signatures.entries) {
         print('   ${entry.key}');
         print('   Used by: ${entry.value.join(", ")}');
@@ -102,7 +102,7 @@ void main() {
       print('✓ Method "$method" is consistent across all locales');
     }
   }
-  
+
   print('');
   if (foundIssues) {
     print('❌ Found inconsistencies in localization files.');

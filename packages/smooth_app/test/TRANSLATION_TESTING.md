@@ -7,7 +7,7 @@ This directory contains tests to ensure all language translations are correctly 
 When `flutter analyze` fails with an error like:
 
 ```
-error • 2 positional arguments expected by 'pct_match', but 1 found • 
+error • 2 positional arguments expected by 'pct_match', but 1 found •
 packages/smooth_app/test/plural_translation_test.dart:70:51 • not_enough_positional_arguments
 ```
 

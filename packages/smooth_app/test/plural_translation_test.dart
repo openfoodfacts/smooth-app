@@ -92,7 +92,7 @@ void main() {
             contains(crazyInt.toString()),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing pct_match
           // If error: check "pct_match" entry in app_${locale.languageCode}.arb
           expect(
@@ -100,7 +100,7 @@ void main() {
             contains(crazyObject.toString()),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing contact_form_body_android
           // If error: check "contact_form_body_android" entry in app_${locale.languageCode}.arb
           expect(
@@ -175,7 +175,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing contact_form_body_ios
           // If error: check "contact_form_body_ios" entry in app_${locale.languageCode}.arb
           expect(
@@ -193,7 +193,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing contact_form_body
           // If error: check "contact_form_body" entry in app_${locale.languageCode}.arb
           expect(
@@ -216,7 +216,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing knowledge_panel_text_source
           // If error: check "knowledge_panel_text_source" entry in app_${locale.languageCode}.arb
           expect(
@@ -226,7 +226,7 @@ void main() {
           );
           // product_list_reloading_in_progress_multiple: no number displayed.
           // product_list_reloading_success_multiple: no number displayed.
-          
+
           // Testing user_profile_title_id_email
           // If error: check "user_profile_title_id_email" entry in app_${locale.languageCode}.arb
           expect(
@@ -234,7 +234,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing user_profile_title_id_default
           // If error: check "user_profile_title_id_default" entry in app_${locale.languageCode}.arb
           expect(
@@ -242,7 +242,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing email_body_account_deletion
           // If error: check "email_body_account_deletion" entry in app_${locale.languageCode}.arb
           expect(
@@ -250,7 +250,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing permission_photo_denied_message
           // If error: check "permission_photo_denied_message" entry in app_${locale.languageCode}.arb
           expect(
@@ -258,7 +258,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing category_picker_no_category_found_message
           // If error: check "category_picker_no_category_found_message" entry in app_${locale.languageCode}.arb
           expect(
@@ -268,7 +268,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing dev_preferences_test_environment_subtitle
           // If error: check "dev_preferences_test_environment_subtitle" entry in app_${locale.languageCode}.arb
           expect(
@@ -278,7 +278,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing dev_preferences_migration_subtitle
           // If error: check "dev_preferences_migration_subtitle" entry in app_${locale.languageCode}.arb
           expect(
@@ -286,7 +286,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing product_search_no_more_results
           // If error: check "product_search_no_more_results" entry in app_${locale.languageCode}.arb
           expect(
@@ -294,7 +294,7 @@ void main() {
             contains(crazyInt.toString()),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing product_search_button_download_more
           // If error: check "product_search_button_download_more" entry in app_${locale.languageCode}.arb
           expect(
@@ -324,7 +324,7 @@ void main() {
             contains(crazyInt.toString()),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing knowledge_panel_page_loading_error
           // If error: check "knowledge_panel_page_loading_error" entry in app_${locale.languageCode}.arb
           expect(
@@ -332,7 +332,7 @@ void main() {
             contains(crazyObject.toString()),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing preferences_page_loading_error
           // If error: check "preferences_page_loading_error" entry in app_${locale.languageCode}.arb
           expect(
@@ -340,7 +340,7 @@ void main() {
             contains(crazyObject.toString()),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing barcode_barcode
           // If error: check "barcode_barcode" entry in app_${locale.languageCode}.arb
           expect(
@@ -348,7 +348,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing importance_label
           // If error: check "importance_label" entry in app_${locale.languageCode}.arb
           expect(
@@ -361,7 +361,7 @@ void main() {
             contains(crazyString),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing user_list_length
           // If error: check "user_list_length" entry in app_${locale.languageCode}.arb
           expect(
@@ -369,7 +369,7 @@ void main() {
             contains(crazyInt.toString()),
             reason: 'Failed for locale: ${locale.toLanguageTag()}',
           );
-          
+
           // Testing share_product_text
           // If error: check "share_product_text" entry in app_${locale.languageCode}.arb
           expect(
