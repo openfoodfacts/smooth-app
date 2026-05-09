@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -158,7 +157,7 @@ class _SmoothTab<T> extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
-            if (leading != null) leading!,
+            ?leading,
             Padding(
               padding: EdgeInsetsDirectional.only(
                 start: leading != null ? SMALL_SPACE : 0.0,
@@ -166,7 +165,7 @@ class _SmoothTab<T> extends StatelessWidget {
               ),
               child: Text(item.label),
             ),
-            if (trailing != null) trailing!,
+            ?trailing,
           ],
         ),
       );

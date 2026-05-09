@@ -7,6 +7,7 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Background task about answering a hunger games question.
 class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
@@ -109,9 +110,11 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
     await robotoffInsightHelper.cacheInsightAnnotationVoted(barcode, insightId);
   }
 
-  /// Unselects the product image.
   @override
-  Future<void> upload() async {
+  bool get refreshAfterException => false;
+
+  @override
+  Future<void> upload(final LocalDatabase localDatabase) async {
     final InsightAnnotation? annotation = InsightAnnotation.fromInt(
       insightAnnotation,
     );
@@ -123,6 +126,8 @@ class BackgroundTaskHungerGames extends BackgroundTaskBarcode {
       insightId.isEmpty ? null : insightId,
       annotation,
       deviceId: OpenFoodAPIConfiguration.uuid,
+      user: ProductQuery.getReadUser(),
+      uriHelper: ProductQuery.uriRobotoffHelper,
     );
   }
 }

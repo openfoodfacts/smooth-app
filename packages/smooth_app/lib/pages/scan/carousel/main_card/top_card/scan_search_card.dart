@@ -18,7 +18,6 @@ import 'package:smooth_app/pages/search/search_icon.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
@@ -184,7 +183,7 @@ class _ScanSearchBar extends StatelessWidget {
 }
 
 class OxFLogosAnimation extends StatefulWidget {
-  const OxFLogosAnimation({super.key});
+  const OxFLogosAnimation();
 
   @override
   State<OxFLogosAnimation> createState() => _OxFLogosAnimationState();

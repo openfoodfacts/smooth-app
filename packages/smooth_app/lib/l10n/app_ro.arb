@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Prețuri deschise",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Toate",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(căutare pe categorii)",
@@ -535,9 +536,17 @@
   "product": "Produs",
   "@product": {},
   "unknownBrand": "Marcă necunoscută",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Cantitate necunoscută",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Produs cu nume necunoscut",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Reîmprospătare",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Informații despre ambalaj",
+  "packaging_information": "Instrucțiuni de reciclare",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Foto cu informații despre ambalaj",
+  "packaging_information_photo": "Fotografie cu instrucțiuni de reciclare",
   "@packaging_information_photo": {},
   "missing_product": "Ai gasit un produs nou!",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "Fotografie ambalaj frontal",
   "ingredients_photo_title": "Fotografie cu ingredientele",
   "nutritional_facts_photo_title": "Informații nutriționale Foto",
-  "recycling_photo_title": "Imaginea cu metoda de reciclare",
+  "recycling_photo_title": "Instrucțiuni de reciclare Fotografie",
   "take_photo_title": "Faceți o fotografie",
   "take_more_photo_title": "Faceți mai multe poze",
   "front_photo_uploaded": "Fotografia frontală a fost încărcată",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "Nu a fost găsit niciun produs",
   "@no_product_found": {},
+  "no_product_found_explanation": "Căutarea dvs. pentru\n**\"{search}\"**\nnu a returnat niciun rezultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Doriți să rulați aceeași căutare în **baza noastră de date globală**?",
   "no_location_found": "Nu a fost găsită nicio locație",
   "not_found": "nu a fost găsit:",
   "refreshing_product": "Reîmprospătare produs",
@@ -1072,15 +1092,15 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Adăugați informații nutriționale pentru a calcula Scorul Nutrițional.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "Adăugați informații nutriționale și o categorie pentru a calcula Scorul Nutrițional.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "The Nutri-Score for this product can't be calculated, which may be due to e.g. a non-standard category. If this is considered an error, please contact us.",
+  "product_improvement_categories_but_no_nutriscore": "Scorul Nutritiv pentru acest produs nu poate fi calculat, ceea ce se poate datora, de exemplu, unei categorii nestandard. Dacă aceasta este considerată o eroare, vă rugăm să ne contactați.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1763,7 +1783,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Țară",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "Îngrijire personală",
   "product_type_label_pet_food": "Hrană pentru animale de companie",
   "product_type_label_product": "Altele",
+  "product_type_label_unknown": "Necunoscut",
   "product_type_selection_title": "Tipul de produs",
   "product_type_selection_subtitle": "Selectați tipul acestui produs",
   "product_type_selection_empty": "Mai întâi trebuie să selectați un tip de produs!",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Vizualizați detaliile produsului",
   "prices_entry_menu_open_product_prices": "Vezi toate prețurile pentru acest produs",
   "prices_entry_menu_open_proof": "Vizualizați dovada",
   "prices_entry_menu_my_prices": "Vezi celelalte prețuri ale mele",
@@ -3264,6 +3286,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "Începerea efectuării acțiunilor serverului pentru actualizările folksonomy stocate local",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "Începe descărcarea celor mai populare produse",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3839,9 +3865,9 @@
   "nutriscore_new_formula_title": "Nutri-Score (Calcul nou)",
   "nutriscore_unknown": "Nutri-Score necunoscut",
   "nutriscore_unknown_new_formula": "Nutri-Score necunoscut (calcul nou)",
-  "nutriscore_not_applicable": "Nutri-Score is not applicable",
-  "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
-  "environmental_score_generic_new": "Scor Ecologic",
+  "nutriscore_not_applicable": "Scorul nutrițional nu se aplică",
+  "nutriscore_not_applicable_new_formula": "Scorul Nutri nu este aplicabil (calcul nou)",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
@@ -3910,7 +3936,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Ce este Nutri-Score-ul?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3942,7 +3968,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Scor Ecologic",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4079,7 +4105,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "What is Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Care sunt informațiile despre hrana pentru animale de companie?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts își extinde misiunea către prietenii noștri blănoși! Este o **bază de date cu produse alimentare pentru pisici, câini și alți companioni**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4088,7 +4114,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
+  "guide_open_pet_food_facts_features_title": "Caracteristicile hranei deschise pentru animale de companie",
   "guide_open_pet_food_facts_features_arg1_title": "Primește alerte pentru ingredientele nedorite",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Animalul tău de companie este alergic la vreun ingredient? Poți seta o listă de ingrediente cosmetice de evitat, direct în aplicație!",
   "guide_open_pet_food_facts_tips_title": "Sfaturi pentru a face fotografii grozave",
@@ -4141,7 +4167,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Ce sunt prețurile deschise?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices este un proiect care are ca scop **colectarea și partajarea prețurilor produselor din întreaga lume**. Este un set de date disponibil publicului, care poate fi utilizat pentru cercetare, analiză și multe altele. Open Prices este dezvoltat și întreținut de Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4150,7 +4176,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Cum funcționează Prețurile Deschise?",
   "guide_open_prices_how_paragraph1": "**Utilizăm crowdsourcing pentru a obține un set de date open-source cu prețuri.** Prețurile pot fi adăugate de utilizatori prin intermediul acestei aplicații web sau prin intermediul aplicației mobile oficiale Open Food Facts. Comercianții cu amănuntul sau aplicațiile terțe pot contribui, de asemenea, utilizând API-ul nostru.",
   "guide_open_prices_how_arg1_title": "Colectați fotografii cu etichetele de preț de pe culoar",
   "guide_open_prices_how_arg2_title": "Colectați fotografii ale chitanțelor",
@@ -4170,7 +4196,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Care sunt informațiile despre produsele deschise?",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts este o bază de date masivă și deschisă pentru **orice produs cu cod de bare, care nu este hrană alimentară, cosmetică sau hrană pentru animale de companie**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4205,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Caracteristici ale produselor deschise",
   "guide_open_products_facts_features_text": "Open Products Facts își propune să ofere consumatorilor posibilitatea de a **prelungi durata de viață a obiectelor** prin furnizarea de soluții circulare pentru întreținerea, **repararea**, **reciclarea** obiectelor sau pentru a le oferi un nou proprietar.",
   "guide_open_products_facts_features_arg1_title": "Amprenta de carbon pentru unele produse",
   "guide_open_products_facts_features_arg1_text": "**Impactul CO2** realizat de Autoritatea Franceză pentru Mediu (ADEME) oferă **impactul carbonului** pentru mai multe categorii. Asigurați-vă că clasificați produsele cu precizie.",
@@ -4457,7 +4483,7 @@
   "photo_field_front": "Fotografie de produs",
   "photo_field_ingredients": "Foto ingrediente",
   "photo_field_nutrition": "Fotografie nutrițională",
-  "photo_field_packaging": "Foto cu informații despre ambalaj",
+  "photo_field_packaging": "Fotografie cu instrucțiuni de reciclare",
   "photo_already_exists": "Această fotografie există deja",
   "photo_missing": "Această fotografie lipsește",
   "date": "Data",
@@ -4542,6 +4568,56 @@
   "product_page_tab_for_me": "Pentru mine",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Compatibilitatea mea",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatibil",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Date insuficiente pentru a calcula un scor de compatibilitate.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Nu se poate calcula un scor pentru un produs de tipul „{productType}”.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Importanţă",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Meciuri",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Meciuri bune",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Media meciurilor",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Potriviri proaste",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Potriviri necunoscute",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Site-ul web",
   "@product_page_tab_website": {
@@ -4707,7 +4783,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Frumuseţe",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -5100,15 +5176,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Discover Open Food Facts",
+  "preferences_faq_discover_off_title": "Descoperiți informații despre alimentele deschise",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Discover Open Beauty Facts",
+  "preferences_faq_discover_obf_title": "Descoperă informații despre frumusețea deschisă",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Discover Open Pet Food Facts",
+  "preferences_faq_discover_opff_title": "Descoperiți informații despre hrana deschisă pentru animale de companie",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5116,7 +5192,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "Descoperiți informații despre produsele deschise",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5328,7 +5404,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrici ale prețului de deschidere",
+  "preferences_prices_metrics_title": "Metrici ale prețurilor de deschidere",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5372,7 +5448,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Modalități simple de a ajuta la Open Food Informations",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5572,7 +5648,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratoare Deschise de Informații Alimentare",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5580,7 +5656,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Bring Open Food Facts to your language",
+  "preferences_contribute_translate_header": "Adu informații despre alimentele deschise în limba ta",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5612,7 +5688,61 @@
   "location_map_details_street": "Stradă",
   "location_map_details_city": "Oraş",
   "location_map_details_postcode": "Cod poștal",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Țară",
   "location_map_details_coordinates": "Coordonate",
-  "location_map_details_osm_id": "ID-ul OSM"
+  "location_map_details_osm_id": "ID-ul OSM",
+  "homepage_scanner_back_to_home_button": "Înapoi acasă",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Comutare cameră",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Afișați scanerul de coduri de bare",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Atingeți pentru a scana un **cod de bare**\nși a descoperi dacă este **bun pentru dumneavoastră**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Comutare lanterna",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scanați un produs apropiindu-vă de codul de bare al acestuia",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Am detectat următorul cod de bare: {barcode}, dar se pare că este invalid.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Vezi mai multe…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Cele mai scanate produse",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Ultimele produse scanate",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

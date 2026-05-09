@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -11,8 +10,8 @@ import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_ap
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/banner/new_nutriscore_header.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/footer/preferences_social_networks.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
@@ -36,8 +35,8 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 
 class PreferencesPage extends StatelessWidget {
   @override
@@ -60,6 +59,9 @@ class PreferencesPage extends StatelessWidget {
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
               _buildFoodPreferencesTile(appLocalizations),
+              _buildBeautyPreferencesTile(appLocalizations),
+              _buildProductPreferencesTile(appLocalizations),
+              _buildPetFoodPreferencesTile(appLocalizations),
               _buildAppSettingsTile(appLocalizations),
             ],
           ),
@@ -216,7 +218,48 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.HappyToast(),
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
-      target: const UserPreferencesFoodPage(),
+      target: const FoodPreferencesPage(project: PreferencesPageProjects.food),
+      fullScreen: true,
+    );
+  }
+
+  NavigationPreferenceTile _buildBeautyPreferencesTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return NavigationPreferenceTile(
+      leading: const icons.HappyToast(),
+      title: appLocalizations.myPreferences_beauty_title,
+      subtitleText: appLocalizations.myPreferences_beauty_subtitle,
+      target: const FoodPreferencesPage(
+        project: PreferencesPageProjects.beauty,
+      ),
+      fullScreen: true,
+    );
+  }
+
+  NavigationPreferenceTile _buildProductPreferencesTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return NavigationPreferenceTile(
+      leading: const icons.HappyToast(),
+      title: appLocalizations.myPreferences_product_title,
+      subtitleText: appLocalizations.myPreferences_product_subtitle,
+      target: const FoodPreferencesPage(
+        project: PreferencesPageProjects.products,
+      ),
+      fullScreen: true,
+    );
+  }
+
+  NavigationPreferenceTile _buildPetFoodPreferencesTile(
+    AppLocalizations appLocalizations,
+  ) {
+    return NavigationPreferenceTile(
+      leading: const icons.HappyToast(),
+      title: appLocalizations.myPreferences_pet_food_title,
+      subtitleText: appLocalizations.myPreferences_pet_food_subtitle,
+      target: const FoodPreferencesPage(project: PreferencesPageProjects.pets),
+      fullScreen: true,
     );
   }
 

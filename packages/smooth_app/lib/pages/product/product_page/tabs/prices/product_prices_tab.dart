@@ -14,7 +14,6 @@ import 'package:smooth_app/pages/product/product_page/widgets/product_page_entry
 import 'package:smooth_app/pages/product/product_page/widgets/product_page_title.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class ProductPricesTab extends StatelessWidget {

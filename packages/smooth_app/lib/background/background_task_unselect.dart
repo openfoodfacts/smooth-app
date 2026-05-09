@@ -132,7 +132,10 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
 
   /// Unselects the product image.
   @override
-  Future<void> upload() async {
+  Future<void> upload(final LocalDatabase localDatabase) async {
+    final UriProductHelper uriProductHelper = await getUriProductHelper(
+      localDatabase,
+    );
     final OpenFoodFactsLanguage language = getLanguage();
     try {
       return OpenFoodAPIClient.unselectProductImage(

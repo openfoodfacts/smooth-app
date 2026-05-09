@@ -22,7 +22,6 @@ import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_incomplete_card.dart';
 import 'package:smooth_app/pages/product/summary_attribute_group.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -43,7 +42,7 @@ class SummaryCard extends StatefulWidget {
     this.isRemovable = true,
     this.isSettingVisible = true,
     this.isPictureVisible = true,
-    this.attributeGroupsClickable = true,
+    this.attributeGroupsVisible = true,
     this.scrollableContent = false,
     this.isTextSelectable,
     this.margin,
@@ -71,8 +70,8 @@ class SummaryCard extends StatefulWidget {
   /// If true, a picture will be display next to the product name…
   final bool isPictureVisible;
 
-  /// If true, all chips / groups are clickable
-  final bool attributeGroupsClickable;
+  /// If true, all chips / groups are visible
+  final bool attributeGroupsVisible;
 
   /// If true, the text will be selectable
   final bool? isTextSelectable;
@@ -226,6 +225,75 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       excludedAttributeIds,
     );
 
+    final List<Widget> summaryCardButtons = <Widget>[];
+
+    if (widget.isFullVersion) {
+      final List<String> statesTags =
+          upToDateProduct.statesTags ?? List<String>.empty();
+
+      // Complete basic details
+      if (statesTags.contains(
+            ProductState.PRODUCT_NAME_COMPLETED.toBeCompletedTag,
+          ) ||
+          statesTags.contains(
+            ProductState.QUANTITY_COMPLETED.toBeCompletedTag,
+          )) {
+        final ProductFieldEditor editor = ProductFieldDetailsEditor();
+        summaryCardButtons.add(
+          addPanelButton(
+            editor.getLabel(localizations),
+            onPressed: () async =>
+                editor.edit(context: context, product: upToDateProduct),
+          ),
+        );
+      }
+    }
+
+    final Widget child = Column(
+      children: <Widget>[
+        Padding(
+          padding: padding,
+          child: ProductTitleCard(
+            upToDateProduct,
+            widget.isTextSelectable ?? widget.isFullVersion,
+            heroTag: widget.heroTag,
+            dense: !widget.isFullVersion,
+            isPictureVisible: widget.isPictureVisible,
+            expandableBrands: widget.isTextSelectable ?? true,
+            onRemove: (BuildContext context) async {
+              HideableContainerState.of(context).hide(() async {
+                final ContinuousScanModel model = context
+                    .read<ContinuousScanModel>();
+                await model.removeBarcode(barcode);
+
+                // Vibrate twice
+                SmoothHapticFeedback.confirm();
+              });
+            },
+          ),
+        ),
+        if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
+          Padding(
+            padding: padding,
+            child: ProductIncompleteCard(product: upToDateProduct),
+          ),
+        ..._getAttributes(scoreAttributes),
+        if (widget.attributeGroupsVisible) _attributesContainer(padding),
+        Padding(
+          padding: padding,
+          child: Column(children: summaryCardButtons),
+        ),
+      ],
+    );
+
+    if (widget.scrollableContent) {
+      return SingleChildScrollView(child: child);
+    } else {
+      return child;
+    }
+  }
+
+  Widget _attributesContainer(EdgeInsetsGeometry padding) {
     final List<Widget> displayedGroups = <Widget>[];
 
     // First, a virtual group with mandatory attributes of all groups
@@ -242,7 +310,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       displayedGroups.add(
         SummaryAttributeGroup(
           attributeChips: attributeChips,
-          isClickable: widget.attributeGroupsClickable,
+          isClickable: false,
           isFirstGroup: displayedGroups.isEmpty,
           groupName: null,
         ),
@@ -285,7 +353,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
         displayedGroups.add(
           SummaryAttributeGroup(
             attributeChips: attributeChips,
-            isClickable: widget.attributeGroupsClickable,
+            isClickable: false,
             isFirstGroup: displayedGroups.isEmpty,
             groupName: group.id == AttributeGroup.ATTRIBUTE_GROUP_ALLERGENS
                 ? group.name!
@@ -306,72 +374,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           )
         : const SizedBox(height: SMALL_SPACE);
     // cf. https://github.com/openfoodfacts/smooth-app/issues/2147
-
-    final List<Widget> summaryCardButtons = <Widget>[];
-
-    if (widget.isFullVersion) {
-      final List<String> statesTags =
-          upToDateProduct.statesTags ?? List<String>.empty();
-
-      // Complete basic details
-      if (statesTags.contains(
-            ProductState.PRODUCT_NAME_COMPLETED.toBeCompletedTag,
-          ) ||
-          statesTags.contains(
-            ProductState.QUANTITY_COMPLETED.toBeCompletedTag,
-          )) {
-        final ProductFieldEditor editor = ProductFieldDetailsEditor();
-        summaryCardButtons.add(
-          addPanelButton(
-            editor.getLabel(localizations),
-            onPressed: () async =>
-                editor.edit(context: context, product: upToDateProduct),
-          ),
-        );
-      }
-    }
-
-    final Widget child = Column(
-      children: <Widget>[
-        Padding(
-          padding: padding,
-          child: ProductTitleCard(
-            upToDateProduct,
-            widget.isTextSelectable ?? widget.isFullVersion,
-            heroTag: widget.heroTag,
-            dense: !widget.isFullVersion,
-            isPictureVisible: widget.isPictureVisible,
-            onRemove: (BuildContext context) async {
-              HideableContainerState.of(context).hide(() async {
-                final ContinuousScanModel model = context
-                    .read<ContinuousScanModel>();
-                await model.removeBarcode(barcode);
-
-                // Vibrate twice
-                SmoothHapticFeedback.confirm();
-              });
-            },
-          ),
-        ),
-        if (ProductIncompleteCard.isProductIncomplete(upToDateProduct))
-          Padding(
-            padding: padding,
-            child: ProductIncompleteCard(product: upToDateProduct),
-          ),
-        ..._getAttributes(scoreAttributes),
-        attributesContainer,
-        Padding(
-          padding: padding,
-          child: Column(children: summaryCardButtons),
-        ),
-      ],
-    );
-
-    if (widget.scrollableContent) {
-      return SingleChildScrollView(child: child);
-    } else {
-      return child;
-    }
+    return attributesContainer;
   }
 
   List<Widget> _getAttributes(List<Attribute> scoreAttributes) {

@@ -9,7 +9,6 @@ import 'package:smooth_app/pages/locations/location_map_page.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Location search preloaded list item, for locations historically selected.

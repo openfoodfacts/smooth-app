@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -10,9 +9,9 @@ import 'package:smooth_app/helpers/physics.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -52,7 +51,7 @@ class GuidesPage extends StatelessWidget {
         create: (_) => headerType,
         child: _GuidesPageBody(
           pageName: pageName,
-          slivers: <Widget>[header, ...body, if (footer != null) footer!],
+          slivers: <Widget>[header, ...body, ?footer],
         ),
       ),
     );

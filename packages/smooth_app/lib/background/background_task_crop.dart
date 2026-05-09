@@ -177,7 +177,10 @@ class BackgroundTaskCrop extends BackgroundTaskUpload {
 
   /// Uploads the product image.
   @override
-  Future<void> upload() async {
+  Future<void> upload(final LocalDatabase localDatabase) async {
+    final UriProductHelper uriProductHelper = await getUriProductHelper(
+      localDatabase,
+    );
     final ProductImage productImage = getProductImageChange();
     try {
       final String? imageUrl = await OpenFoodAPIClient.setProductImageCrop(

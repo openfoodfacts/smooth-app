@@ -16,13 +16,11 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -398,8 +396,7 @@ Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
 
   const String CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
 
-  final int sequenceNumber = await getNextSequenceNumber(
-    daoInt,
+  final int sequenceNumber = await daoInt.getNextSequenceNumber(
     CROP_IMAGE_SEQUENCE_KEY,
   );
 

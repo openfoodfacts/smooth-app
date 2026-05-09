@@ -17,7 +17,6 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
@@ -431,8 +430,7 @@ class _CropPageState extends State<CropPage> {
     }
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoInt daoInt = DaoInt(localDatabase);
-    final int sequenceNumber = await getNextSequenceNumber(
-      daoInt,
+    final int sequenceNumber = await daoInt.getNextSequenceNumber(
       _CROP_PAGE_SEQUENCE_KEY,
     );
     final Directory directory = await BackgroundTaskUpload.getDirectory();

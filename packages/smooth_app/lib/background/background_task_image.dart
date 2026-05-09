@@ -250,6 +250,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Returns directly the original [fullPath] if no crop operation was needed.
   /// Returns the path of the cropped file if relevant.
   /// Returns null if the image (cropped or not) is too small.
+  /// [maxSize] is the max pixel size for width or height (e.g. 2000)
   static Future<BackgroundCropResult> cropIfNeeded({
     required final String fullPath,
     required final int rotationDegrees,
@@ -260,6 +261,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int compressQuality,
     required final bool forceCompression,
     required final List<double>? eraserCoordinates,
+    final int? maxSize,
   }) async {
     final String croppedPath = await getCroppedPath(fullPath);
 
@@ -332,7 +334,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
       rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
       image: full,
-      maxSize: null,
+      maxSize: maxSize?.toDouble(),
       quality: FilterQuality.high,
       overlayPainter: overlayPainter,
     );
@@ -372,41 +374,67 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
   /// Uploads the product image.
   @override
-  Future<void> upload() async {
+  Future<void> upload(final LocalDatabase localDatabase) async {
+    final UriProductHelper uriProductHelper = await getUriProductHelper(
+      localDatabase,
+    );
     SendImage? image;
     BackgroundCropResult? cropResult;
     try {
-      cropResult = await cropIfNeeded(
-        fullPath: fullPath,
-        rotationDegrees: rotationDegrees,
-        cropX1: cropX1,
-        cropY1: cropY1,
-        cropX2: cropX2,
-        cropY2: cropY2,
-        compressQuality: 100,
-        forceCompression: false,
-        eraserCoordinates: eraserCoordinates,
-      );
-      final String? path = cropResult.filePath;
-      if (path == null) {
-        // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
-        return;
-      }
       final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
       final OpenFoodFactsLanguage language = getLanguage();
       final User user = getUser();
-      image = SendImage(
-        lang: language,
-        barcode: barcode,
-        imageField: imageField,
-        imageUri: Uri.parse(path),
-      );
 
-      final Status status = await OpenFoodAPIClient.addProductImage(
-        user,
-        image,
-        uriHelper: uriProductHelper,
-      );
+      Future<Status> addImage({
+        required int compressionPct,
+        required bool force,
+        int? maxSize,
+      }) async {
+        cropResult = await cropIfNeeded(
+          fullPath: fullPath,
+          rotationDegrees: rotationDegrees,
+          cropX1: cropX1,
+          cropY1: cropY1,
+          cropX2: cropX2,
+          cropY2: cropY2,
+          compressQuality: compressionPct,
+          forceCompression: force,
+          eraserCoordinates: eraserCoordinates,
+          maxSize: maxSize,
+        );
+        final String? path = cropResult!.filePath;
+        if (path == null) {
+          // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
+          throw Exception('Could not get image path after compression');
+        }
+        image = SendImage(
+          lang: language,
+          barcode: barcode,
+          imageField: imageField,
+          imageUri: Uri.parse(path),
+        );
+        return OpenFoodAPIClient.addProductImage(
+          user,
+          image!,
+          uriHelper: uriProductHelper,
+        );
+      }
+
+      Status status;
+      try {
+        status = await addImage(compressionPct: 100, force: false);
+      } catch (e) {
+        if (e.toString().contains('413') ||
+            e.toString().contains('Request Entity Too Large')) {
+          status = await addImage(
+            compressionPct: 80,
+            force: true,
+            maxSize: 2000,
+          );
+        } else {
+          rethrow;
+        }
+      }
       if (status.status == 'status ok') {
         // successfully uploaded a new picture and set it as field+language
         return;

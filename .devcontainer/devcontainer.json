@@ -1,16 +1,16 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/ubuntu
 {
-    "image": "ghcr.io/cirruslabs/flutter:3.35.7",
-	"forwardPorts": [
-		3000
-	],
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"Dart-Code.flutter",
-				"dart-code.dart-code"
-			]
-		}
-	}
+  "image": "ghcr.io/cirruslabs/flutter:3.41.8",
+  "forwardPorts": [
+    3000
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Dart-Code.flutter",
+        "dart-code.dart-code"
+      ]
+    }
+  }
 }

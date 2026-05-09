@@ -15,7 +15,6 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
@@ -80,7 +79,11 @@ class SmoothProductCardItemFound extends StatelessWidget {
                       ),
                       const SizedBox(height: VERY_SMALL_SPACE),
                       Text(
-                        getProductBrands(product, appLocalizations),
+                        getProductBrandsList(
+                              product,
+                              appLocalizations,
+                            ).firstOrNull ??
+                            appLocalizations.unknownBrand,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: themeData.textTheme.bodyMedium,
@@ -197,7 +200,7 @@ class _SmoothProductItemPicture extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          if (scoreWidget != null) scoreWidget,
+          ?scoreWidget,
           ProductPicture.fromProduct(
             product: product,
             imageField: ImageField.FRONT,

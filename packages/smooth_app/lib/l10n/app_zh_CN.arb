@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -493,7 +494,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "全部",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(类别搜索)",
@@ -535,9 +536,17 @@
   "product": "产品",
   "@product": {},
   "unknownBrand": "未知品牌",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "未知数量",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "未知产品名称",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "刷新",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -586,11 +595,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "包装信息",
+  "packaging_information": "回收说明",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "包装信息照片",
+  "packaging_information_photo": "回收说明照片",
   "@packaging_information_photo": {},
   "missing_product": "你发现了一件新产品！",
   "@missing_product": {},
@@ -688,7 +697,7 @@
   "front_packaging_photo_title": "正面包装照片",
   "ingredients_photo_title": "配料表照片",
   "nutritional_facts_photo_title": "营养成分表照片",
-  "recycling_photo_title": "“循环利用标记”的照片",
+  "recycling_photo_title": "回收说明 图片",
   "take_photo_title": "请拍照",
   "take_more_photo_title": "拍摄更多照片",
   "front_photo_uploaded": "已上传正面照片",
@@ -877,6 +886,17 @@
   "@view_more_photo_button": {},
   "no_product_found": "没有找到的产品",
   "@no_product_found": {},
+  "no_product_found_explanation": "您搜索“\n**\"{search}\"**\n” 未找到任何结果。",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "您是否想在我们的全球数据库中运行相同的搜索？",
   "no_location_found": "未找到位置",
   "not_found": "未找到:",
   "refreshing_product": "产品更新中",
@@ -1763,7 +1783,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "国家/地区",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2291,6 +2311,7 @@
   "product_type_label_beauty": "个人护理",
   "product_type_label_pet_food": "宠物食品",
   "product_type_label_product": "其他",
+  "product_type_label_unknown": "未知",
   "product_type_selection_title": "产品类型",
   "product_type_selection_subtitle": "请选择该产品的类型",
   "product_type_selection_empty": "您需要先选择产品类型！",
@@ -2424,6 +2445,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "查看产品详情",
   "prices_entry_menu_open_product_prices": "查看该产品的所有价格",
   "prices_entry_menu_open_proof": "查看证明",
   "prices_entry_menu_my_prices": "查看我的其他价格",
@@ -3264,6 +3286,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "开始执行本地存储的民间分类更新的服务器操作",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "开始下载最受欢迎的产品",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3942,7 +3968,7 @@
   "guide_nutriscore_v2_unchanged_title": "哪些要素没有改变",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score 是一个旨在**衡量营养质量**的评分系统。它作为 NOVA 分组关于**超加工食品的补充**（也包含在应用中）。",
   "guide_nutriscore_v2_unchanged_paragraph2": "对于制造商来说，Nutri-Score 的显示**仍然是可选的**。",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "绿色评分",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4170,7 +4196,7 @@
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "What is Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_title": "什么是开放产品信息？",
   "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts 是一个庞大的开放数据库，其中包含**任何带有条形码的产品，但不包括食品、化妆品或宠物食品**。",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4179,7 +4205,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "开放产品事实的特点",
   "guide_open_products_facts_features_text": "Open Products Facts 旨在通过提供循环解决方案，帮助消费者**延长物品的使用寿命**，从而维护、**修理**、**回收**物品或将其转赠给新的主人。",
   "guide_open_products_facts_features_arg1_title": "某些产品的碳足迹",
   "guide_open_products_facts_features_arg1_text": "法国环境管理署 ADEME 发布的 **Impact CO2** 提供了许多类别的 **碳排放影响**，请务必对产品进行准确分类。",
@@ -4457,7 +4483,7 @@
   "photo_field_front": "产品照片",
   "photo_field_ingredients": "原料的照片",
   "photo_field_nutrition": "营养成分的照片",
-  "photo_field_packaging": "包装信息照片",
+  "photo_field_packaging": "回收说明照片",
   "photo_already_exists": "这张照片已经存在",
   "photo_missing": "这张照片不见了",
   "date": "日期",
@@ -4542,6 +4568,56 @@
   "product_page_tab_for_me": "为我",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "我的兼容性",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% 兼容",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "数据不足，无法计算兼容性评分。",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "无法计算类型为“{productType}”的产品的分数。",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "重要性",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "比赛",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "精彩匹配",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "平均匹配",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "糟糕的匹配",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "未知匹配项",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "网站",
   "@product_page_tab_website": {
@@ -5116,7 +5192,7 @@
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
-  "preferences_faq_discover_opf_title": "Discover Open Products Facts",
+  "preferences_faq_discover_opf_title": "了解开放产品信息",
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
@@ -5612,7 +5688,61 @@
   "location_map_details_street": "街道",
   "location_map_details_city": "城市",
   "location_map_details_postcode": "邮政编码",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "国家/地区",
   "location_map_details_coordinates": "坐标",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "返回首页",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "切换摄像头",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "显示条形码扫描器",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "点击扫描**条形码**\n，看看它是否**对您有益**！",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "切换手电筒",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "靠近产品条形码即可扫描产品。",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "我们检测到以下条形码： {barcode}，但它似乎无效。",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "查看更多…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "被查看最多的产品",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "最新扫描产品",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

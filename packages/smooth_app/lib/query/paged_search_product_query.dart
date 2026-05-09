@@ -8,6 +8,8 @@ abstract class PagedSearchProductQuery extends PagedProductQuery {
 
   Parameter getParameter();
 
+  IngredientsUnwantedParameter getUnwantedIngredientsParameter();
+
   @override
   AbstractQueryConfiguration getQueryConfiguration() =>
       ProductSearchQueryConfiguration(
@@ -16,9 +18,11 @@ abstract class PagedSearchProductQuery extends PagedProductQuery {
           PageSize(size: pageSize),
           PageNumber(page: pageNumber),
           getParameter(),
+          getUnwantedIngredientsParameter(),
         ],
         language: language,
         country: country,
         version: ProductQuery.productQueryVersion,
+        activateKnowledgePanelsSimplified: true,
       );
 }

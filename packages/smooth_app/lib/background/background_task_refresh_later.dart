@@ -89,7 +89,7 @@ class BackgroundTaskRefreshLater extends BackgroundTaskBarcode {
 
   /// Here we change nothing, therefore we do nothing.
   @override
-  Future<void> upload() async {}
+  Future<void> upload(final LocalDatabase localDatabase) async {}
 
   /// Returns true if "enough" time elapsed after the task creation.
   @override

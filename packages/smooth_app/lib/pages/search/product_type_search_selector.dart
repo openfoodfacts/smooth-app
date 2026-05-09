@@ -10,7 +10,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
@@ -59,6 +58,7 @@ class ProductTypeSearchSelector extends StatelessWidget {
     final ProductType? productType =
         await showSmoothListOfChoicesModalSheet<ProductType>(
           context: context,
+          useRootNavigator: true,
           title: appLocalizations.search_filter,
           prefixIcons: ProductType.values.map(
             (ProductType type) => Icon(

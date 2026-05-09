@@ -59,9 +59,7 @@ class ContinuousScanModel with ChangeNotifier {
 
   set lastConsultedBarcode(String? barcode) {
     _latestConsultedBarcode = barcode;
-    if (barcode != null) {
-      notifyListeners();
-    }
+    notifyListeners();
   }
 
   Future<ContinuousScanModel?> load(final LocalDatabase localDatabase) async {

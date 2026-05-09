@@ -34,7 +34,7 @@ jobs:
             - name: Build documentation using mkdocs
               run: mkdocs build
             - name: Deploy smooth_app documentation to Github Pages
-              uses: JamesIves/github-pages-deploy-action@v4.7.6	
+              uses: JamesIves/github-pages-deploy-action@v4.8.0	
               with:
                 BRANCH: gh-pages
                 FOLDER: packages/smooth_app/gh_pages/
