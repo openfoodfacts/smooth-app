@@ -117,7 +117,8 @@ Widget build(BuildContext context) {
                     spacing: VERY_SMALL_SPACE,
                     children: &lt;Widget&gt;[
                       Text(
-                        country?.name ?? AppLocalizations.of(context).loading,
+                        country?.localizedName ??
+                            AppLocalizations.of(context).loading,
                       ),
                       if (country != null)
                         SizedBox(
