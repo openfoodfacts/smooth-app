@@ -200,7 +200,7 @@ class _SmoothProductItemPicture extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          if (scoreWidget != null) scoreWidget,
+          ?scoreWidget,
           ProductPicture.fromProduct(
             product: product,
             imageField: ImageField.FRONT,
