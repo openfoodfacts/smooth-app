@@ -23,7 +23,7 @@ dependencies:
   flutter_map: 8.3.0
   html: 0.15.6
   flutter_widget_from_html_core: 0.17.2
-  flutter_secure_storage: 10.1.0
+  flutter_secure_storage: 10.2.0
   hive: 2.2.3
   hive_flutter: 1.1.0
   http: 1.6.0
