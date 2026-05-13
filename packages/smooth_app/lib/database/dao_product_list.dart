@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:collection';
 
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -235,28 +236,24 @@ class DaoProductList extends AbstractDao {
     final bool include = true,
   }) async {
     final _BarcodeList? list = await _get(productList);
-    final List<String> allBarcodes;
-
+    final LinkedHashSet<String> allBarcodes;
     if (list == null) {
-      allBarcodes = <String>[];
+      allBarcodes = LinkedHashSet<String>();
     } else {
-      allBarcodes = _getSafeBarcodeListCopy(list.barcodes);
+      allBarcodes = LinkedHashSet<String>.from(list.barcodes);
     }
 
     for (final String barcode in barcodes) {
-      if (include) {
-        if (!allBarcodes.contains(barcode)) {
-          allBarcodes.add(barcode);
-        }
-      } else {
-        if (allBarcodes.contains(barcode)) {
-          allBarcodes.remove(barcode);
-        }
-      }
+    if (include) {
+      allBarcodes.add(barcode);
+    } else {
+      allBarcodes.remove(barcode);
+    }
+    }
     }
 
-    final _BarcodeList newList = _BarcodeList.now(allBarcodes);
-    await _put(getKey(productList), newList);
+    final _BarcodeList newList =
+        _BarcodeList.now(allBarcodes.toList());
   }
 
   Future<ProductList> rename(
