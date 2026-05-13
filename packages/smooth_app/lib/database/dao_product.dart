@@ -195,6 +195,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
 
   Future<List<String>> getAllKeys() async {
     final List<String> result = <String>[];
+    final Set<String> excluded = excludeBarcodes.toSet();
     final List<Map<String, dynamic>> queryResults = await localDatabase.database
         .query(
           _TABLE_PRODUCT,
@@ -433,7 +434,7 @@ class DaoProduct extends AbstractSqlDao implements BulkDeletable {
       while (await queryCursor.moveNext()) {
         final String barcode =
             queryCursor.current[_TABLE_PRODUCT_COLUMN_BARCODE]! as String;
-        if (excludeBarcodes.contains(barcode)) {
+        if (excluded.contains(barcode)) {
           continue;
         }
         String? foundProductType =
