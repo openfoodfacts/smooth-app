@@ -19,7 +19,7 @@ dependencies:
   carousel_slider: 5.1.2
   cupertino_icons: 1.0.9
   flutter_svg: 2.3.0
-  vector_graphics: 1.2.1
+  vector_graphics: 1.2.2
   flutter_map: 8.3.0
   html: 0.15.6
   flutter_widget_from_html_core: 0.17.2
@@ -60,7 +60,7 @@ dependencies:
   share_plus: 12.0.2
   fimber: 0.7.0
   shimmer: 3.0.0
-  rive: 0.14.6
+  rive: 0.14.7
   webview_flutter: 4.13.1
   webview_flutter_android: 4.12.0
   webview_flutter_wkwebview: 3.25.1
