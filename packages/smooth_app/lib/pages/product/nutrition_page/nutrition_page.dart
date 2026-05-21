@@ -442,7 +442,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
                       return Padding(
                         padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
                         child: Column(
-                          children: [
+                          children: <Widget>[
                             Row(
                               children: <Widget>[
                                 const ExcludeSemantics(
