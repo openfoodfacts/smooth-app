@@ -28,6 +28,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.textStyle,
     this.textCapitalization,
     this.onSelected,
+    this.enabled,
   });
 
   final FocusNode focusNode;
@@ -44,6 +45,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final EdgeInsetsGeometry? padding;
   final TextStyle? textStyle;
   final TextCapitalization? textCapitalization;
+  final bool? enabled;
 
   /// Additional specific action when a suggested item is selected.
   final Function(String)? onSelected;
@@ -97,6 +99,7 @@ class _SmoothAutocompleteTextFieldState
             FocusNode focusNode,
             VoidCallback onFieldSubmitted,
           ) => TextField(
+            enabled: widget.enabled,
             maxLines: 1,
             controller: widget.controller,
             onChanged: (_) {

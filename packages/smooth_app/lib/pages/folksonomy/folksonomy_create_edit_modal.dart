@@ -151,12 +151,14 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             isKeyEditable
                 ? appLocalizations.tag_key
                 : appLocalizations.tag_key_uneditable,
-            explanation: appLocalizations.tag_key_explanations,
+            explanation: isKeyEditable
+                ? appLocalizations.tag_key_explanations
+                : null,
             hasErrors: !isKeyValid,
           ),
           SimpleInputTextField(
             focusNode: keyFocusNode,
-            autofocus: true,
+            autofocus: isKeyEditable,
             autocompleteKey: keyAutocompleteKey,
             constraints: const BoxConstraints(maxWidth: double.infinity),
             borderRadius: HEADER_BORDER_RADIUS,
@@ -169,6 +171,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             autocompleteManager: AutocompleteManager(
               const FolksonomyKeysAutocompleter(limit: 10),
             ),
+            enabled: isKeyEditable,
           ),
           const SizedBox(height: LARGE_SPACE),
           _FolksonomyEditTagContentTitle(
@@ -180,6 +183,7 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
             builder: (BuildContext context, _, _) {
               return SimpleInputTextField(
                 focusNode: valueFocusNode,
+                autofocus: !isKeyEditable,
                 autocompleteKey: valueAutocompleteKey,
                 constraints: const BoxConstraints(maxWidth: double.infinity),
                 borderRadius: HEADER_BORDER_RADIUS,
