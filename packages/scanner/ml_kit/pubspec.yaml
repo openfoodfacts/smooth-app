@@ -10,12 +10,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  visibility_detector: 0.4.0+2
-  async: 2.13.0
+  visibility_detector: ^0.4.0+2
+  async: ^2.13.1
   provider: ^6.1.5+1
 
   mobile_scanner: 6.0.10
-  torch_light: 1.1.0
+  torch_light: ^1.1.0
 
   scanner_shared:
     path: ../shared
