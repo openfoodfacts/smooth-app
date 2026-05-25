@@ -98,10 +98,10 @@ jobs:
       with:
         comment-id: ${{ github.event.comment.id }}
         reactions: eyes
-    - name: Get branch name
-      # see https://github.com/actions/checkout/issues/331
-      id: get-branch
-      run: echo "branch=$(gh pr view $PR_NO --repo $REPO --json headRefName --jq '.headRefName')" >> $GITHUB_OUTPUT
+    - name: Get PR head SHA
+      # Use an immutable commit SHA to avoid TOCTOU on mutable branch refs
+      id: get-pr-head
+      run: echo "sha=$(gh pr view $PR_NO --repo $REPO --json headRefOid --jq '.headRefOid')" >> $GITHUB_OUTPUT
       env:
         REPO: ${{ github.repository }}
         PR_NO: ${{ github.event.issue.number }}
@@ -110,8 +110,8 @@ jobs:
       uses: actions/checkout@v6
       with:
         fetch-depth: 1
-        # grab the PR branch
-        ref: ${{ steps.get-branch.outputs.branch }}
+        # grab the PR commit (immutable)
+        ref: ${{ steps.get-pr-head.outputs.sha }}
         # We can't use GITHUB_TOKEN here because, github actions can't trigger actions
         # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#using-the-github_token-in-a-workflow
         # So this is a personal access token
