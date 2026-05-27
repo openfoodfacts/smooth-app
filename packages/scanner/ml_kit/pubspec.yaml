@@ -15,7 +15,7 @@ dependencies:
   provider: ^6.1.5+1
 
   mobile_scanner: 6.0.10
-  torch_light: ^1.1.0
+  torch_light: ^2.0.0
 
   scanner_shared:
     path: ../shared
