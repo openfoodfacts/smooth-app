@@ -1052,10 +1052,10 @@ packages:
     dependency: "direct main"
     description:
       name: matomo_tracker
-      sha256: cdf3bd31f50c89a313181a8f671074870f8ecc129ab4590cf016a2cb0e3c511a
+      sha256: "4e74c74bf6c8ba28e55982416bcbe2ce5b237ead087aba377d665d78318fab3e"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.0"
+    version: "6.1.1"
   meta:
     dependency: transitive
     description:
