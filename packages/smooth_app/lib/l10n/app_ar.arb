@@ -474,7 +474,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "جودة البيانات",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
