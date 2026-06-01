@@ -1859,7 +1859,7 @@
   "@edit_product_form_item_origins_hint": {
     "description": "Product edition - Origins - input textfield hint"
   },
-  "edit_product_form_item_origins_type": "paese",
+  "edit_product_form_item_origins_type": "Paese",
   "@edit_product_form_item_origins_type": {
     "description": "Product edition - Origins - input textfield type"
   },
@@ -1887,7 +1887,7 @@
   "@edit_product_form_item_countries_hint": {
     "description": "Product edition - Countries - input textfield hint"
   },
-  "edit_product_form_item_countries_type": "paese",
+  "edit_product_form_item_countries_type": "Paese",
   "@edit_product_form_item_countries_type": {
     "description": "Product edition - Countries - input textfield type"
   },
@@ -3182,7 +3182,7 @@
   "@add_basic_details_product_quantity_help_good_examples_3": {
     "description": "A 2nd good example for the quantity (you can change it if necessary)"
   },
-  "barcode": "Codice a Barre",
+  "barcode": "Codice a barre",
   "barcode_barcode": "Codice a barre: {barcode}",
   "@barcode_barcode": {
     "description": "Displaying the raw barcode with label",
@@ -4654,7 +4654,7 @@
   "@product_footer_action_barcode": {
     "description": "Action to see the barcode of a product"
   },
-  "product_footer_action_barcode_short": "Codice a Barre",
+  "product_footer_action_barcode_short": "Codice a barre",
   "@product_footer_action_barcode_short": {
     "description": "Action to see the barcode of a product (short text)"
   },
@@ -5385,7 +5385,7 @@
   "@preferences_connect_pro_email_subtitle": {
     "description": "Subtitle for professional email tile"
   },
-  "preferences_connect_press_title": "Stampa se",
+  "preferences_connect_press_title": "Stampa",
   "@preferences_connect_press_title": {
     "description": "Title for press card"
   },
