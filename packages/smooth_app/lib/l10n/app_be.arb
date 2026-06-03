@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Паглядзець усе існуючыя фатаграфіі гэтага тавару",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Прадукт не знойдзены",
   "@no_product_found": {},
   "no_product_found_explanation": "Па запыце\n**\"{search}\"**\nнічога не знойдзена.",
