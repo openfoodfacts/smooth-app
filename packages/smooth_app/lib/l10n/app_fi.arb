@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Näytä kaikki tämän tuotteen olemassa olevat kuvat",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Tuotetta ei löytynyt",
   "@no_product_found": {},
   "no_product_found_explanation": "Haullasi\n**\"{search}\"**\nei löytynyt tuloksia.",
