@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Féach ar na grianghraif uile atá ann cheana don táirge seo",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Níor aimsíodh aon táirge",
   "@no_product_found": {},
   "no_product_found_explanation": "Níor aimsíodh aon torthaí le do chuardach ar\n**\"{search}\"**\n.",
