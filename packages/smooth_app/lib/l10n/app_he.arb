@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "הצגת כל התמונות הקיימות עבור מוצר זה",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "לא נמצאו מוצרים",
   "@no_product_found": {},
   "no_product_found_explanation": "החיפוש שלך עבור\n**\"{search}\"**\nלא תאם אף תוצאה.",
