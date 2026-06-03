@@ -2543,6 +2543,12 @@ abstract class AppLocalizations {
   /// **'View all existing photos for this product'**
   String get view_more_photo_button;
 
+  /// No description provided for @no_settings_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No settings found'**
+  String get no_settings_found;
+
   /// No description provided for @no_product_found.
   ///
   /// In en, this message translates to:
