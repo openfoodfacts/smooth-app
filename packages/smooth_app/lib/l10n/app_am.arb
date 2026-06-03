@@ -3954,9 +3954,9 @@
   },
   "nutriscore_generic": "Nutri-Score",
   "nutriscore_a": "Nutri-Score A",
-  "nutriscore_b": "የኑትሪ-ውጤት ቢ",
-  "nutriscore_c": "የኑትሪ-ስኬር ሲ",
-  "nutriscore_d": "የኑትሪ-ውጤት ዲ",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (አዲስ ስሌት)",
   "@nutriscore_new_formula": {
