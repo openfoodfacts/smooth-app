@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Lihat semua foto yang ada untuk produk ini",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Produk tidak ditemukan",
   "@no_product_found": {},
   "no_product_found_explanation": "Pencarian Anda untuk\n**\"{search}\"**\ntidak menghasilkan hasil apa pun.",
