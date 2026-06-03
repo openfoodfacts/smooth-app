@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Xem tất cả ảnh hiện có cho sản phẩm này",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Không tìm thấy sản phẩm",
   "@no_product_found": {},
   "no_product_found_explanation": "Tìm kiếm của bạn cho\n**\"{search}\"**\nkhông khớp với bất kỳ kết quả nào.",
