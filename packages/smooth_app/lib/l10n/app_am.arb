@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "የዚህን ምርት ሁሉንም ነባር ፎቶዎች ይመልከቱ",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "ምንም ምርት አልተገኘም",
   "@no_product_found": {},
   "no_product_found_explanation": "የ\n**\"{search}\"**\nፍለጋዎ ምንም አይነት ውጤት አላመጣም።",
