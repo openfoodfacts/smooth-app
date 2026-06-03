@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Visualizza tutte le foto esistenti per questo prodotto",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Nessun prodotto trovato",
   "@no_product_found": {},
   "no_product_found_explanation": "La tua ricerca per\n**\"{search}\"**\nnon ha prodotto risultati.",
