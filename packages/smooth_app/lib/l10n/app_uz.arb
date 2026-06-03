@@ -1188,11 +1188,11 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Nutri-ballni hisoblash uchun ovqatlanish ma'lumotlarini qo'shing.",
+  "product_improvement_add_nutrition_facts": "Nutri-Score hisoblash uchun ovqatlanish ma'lumotlarini qo'shing.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Nutri-ballni hisoblash uchun ovqatlanish faktlari va toifani qo'shing.",
+  "product_improvement_add_nutrition_facts_and_category": "Nutri-Score hisoblash uchun ovqatlanish faktlari va toifani qo'shing.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
