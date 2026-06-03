@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Peržiūrėti visas esamas šio produkto nuotraukas",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Prekės nerasta",
   "@no_product_found": {},
   "no_product_found_explanation": "Jūsų paieška pagal\n**\"{search}\"**\nnerado jokių rezultatų.",
