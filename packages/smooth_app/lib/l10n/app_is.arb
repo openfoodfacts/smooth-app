@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Skoða allar myndir sem fyrir eru af þessari vöru",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Engin vara fannst",
   "@no_product_found": {},
   "no_product_found_explanation": "Leit þín að\n**\"{search}\"**\nskilaði engum niðurstöðum.",
