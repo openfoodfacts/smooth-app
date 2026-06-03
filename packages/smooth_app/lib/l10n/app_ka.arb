@@ -3968,8 +3968,8 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (ახალი გაანგარიშება)",
-  "nutriscore_unknown": "უცნობი კვებითი ღირებულება",
-  "nutriscore_unknown_new_formula": "უცნობი ნუტრი-ქულა (ახალი გაანგარიშება)",
+  "nutriscore_unknown": "უცნობი Nutri-Score",
+  "nutriscore_unknown_new_formula": "უცნობი Nutri-Score (ახალი გამოთვლა)",
   "nutriscore_not_applicable": "Nutri-Score არ გამოიყენება",
   "nutriscore_not_applicable_new_formula": "Nutri-Score არ გამოიყენება (ახალი გაანგარიშება)",
   "environmental_score_generic_new": "მწვანე ქულა",
