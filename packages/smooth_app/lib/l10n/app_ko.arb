@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "이 제품에 대한 모든 기존 사진 보기",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "상품 없음",
   "@no_product_found": {},
   "no_product_found_explanation": "\n**\"{search}\"**\n검색 결과가 없습니다.",
