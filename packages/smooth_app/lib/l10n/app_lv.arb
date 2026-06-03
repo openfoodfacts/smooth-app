@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Skatīt visus esošos šī produkta fotoattēlus",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Nav atrasts neviens produkts",
   "@no_product_found": {},
   "no_product_found_explanation": "Jūsu meklēšanai vaicājumam\n**\"{search}\"**\nnetika atrasts neviens rezultāts.",
