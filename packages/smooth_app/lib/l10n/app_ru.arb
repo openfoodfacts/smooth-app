@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Просмотреть все существующие фотографии для этого продукта",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Продукт не найден",
   "@no_product_found": {},
   "no_product_found_explanation": "Ваш поиск по запросу\n**\"{search}\"**\nне дал результатов.",
