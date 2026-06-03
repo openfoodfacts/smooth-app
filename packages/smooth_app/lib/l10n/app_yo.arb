@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Wo gbogbo awọn fọto ti o wa tẹlẹ fun ọja yii",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "A ko ri ọja kankan",
   "@no_product_found": {},
   "no_product_found_explanation": "Ìwákiri rẹ fún\n**\"{search}\"**\nkò bá àwọn èsì mu.",
