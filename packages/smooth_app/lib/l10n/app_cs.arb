@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Zobrazit všechny existující fotografie tohoto produktu",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Nebyl nalezen žádný produkt",
   "@no_product_found": {},
   "no_product_found_explanation": "Vaše vyhledávání výrazu\n**\"{search}\"**\nneodpovídá žádným výsledkům.",
