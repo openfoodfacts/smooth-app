@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Δείτε όλες τις υπάρχουσες φωτογραφίες για αυτό το προϊόν",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Δε βρέθηκε προϊόν",
   "@no_product_found": {},
   "no_product_found_explanation": "Η αναζήτησή σας για\n**\"{search}\"**\nδε βρήκε κανένα αποτέλεσμα.",
