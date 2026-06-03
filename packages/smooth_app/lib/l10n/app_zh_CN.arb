@@ -171,15 +171,15 @@
   "@unknown": {
     "description": "Short label for product list view: the compatibility of that product with your preferences is unknown"
   },
-  "match_very_good": "优秀的配对",
+  "match_very_good": "匹配度高",
   "@match_very_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: very good match"
   },
-  "match_good": "不错的配对",
+  "match_good": "匹配度较高",
   "@match_good": {
     "description": "Label for product page regarding product compatibility with the user preferences: good match"
   },
-  "match_poor": "较差的配对",
+  "match_poor": "匹配度低",
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
@@ -191,19 +191,19 @@
   "@match_does_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: does not match"
   },
-  "match_unknown": "未知匹配",
+  "match_unknown": "匹配度未知",
   "@match_unknown": {
     "description": "Label for product page regarding product compatibility with the user preferences: unknown match"
   },
-  "match_short_very_good": "优秀的配对",
+  "match_short_very_good": "匹配度高",
   "@match_short_very_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: very good match"
   },
-  "match_short_good": "不错的配对",
+  "match_short_good": "匹配度较高",
   "@match_short_good": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: good match"
   },
-  "match_short_poor": "较差的配对",
+  "match_short_poor": "匹配度低",
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
@@ -215,7 +215,7 @@
   "@match_short_does_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: does not match"
   },
-  "match_short_unknown": "未知匹配",
+  "match_short_unknown": "匹配度未知",
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
@@ -541,7 +541,7 @@
   "myPreferences_settings_subtitle": "黑暗模式，语言…",
   "myPreferences_food_title": "食物偏好",
   "myPreferences_food_subtitle": "选择对您最重要的食物信息.",
-  "myPreferences_food_comment": "选择您最关心的食物信息，以便根据您的偏好对食物进行排名，优先查看您关注的信息，并获得兼容性摘要。这些食物偏好设置将保留在您的设备上，并且不会与您的 Open Food Facts 贡献者帐户关联（如果您有的话）。",
+  "myPreferences_food_comment": "选择您最关注的食品信息，以便根据您的个人偏好对食品排序、优先展示重要内容，并获取匹配度摘要。这些偏好设置仅保存在您的设备中，不会与您的 Open Food Facts 贡献者账户关联（若您有的话）。",
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
@@ -559,7 +559,7 @@
   "ranking_tab_all": "全部",
   "ranking_subtitle_match_yes": "非常适合",
   "ranking_subtitle_match_no": "非常不适合",
-  "ranking_subtitle_match_maybe": "未知匹配",
+  "ranking_subtitle_match_maybe": "匹配度未知",
   "refresh_with_new_preferences": "使用您的新偏好刷新列表",
   "@refresh_with_new_preferences": {
     "description": "Action button label: Refresh the list with your new preferences"
