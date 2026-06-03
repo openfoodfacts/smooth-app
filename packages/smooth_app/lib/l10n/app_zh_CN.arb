@@ -91,7 +91,7 @@
   "@food_preferences_page_title_foods_to_avoid": {
     "description": "Title for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_title_environment": "Environmental preferences",
+  "food_preferences_page_title_environment": "环保偏好",
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
   },
@@ -99,7 +99,7 @@
   "@food_preferences_page_title_summary": {
     "description": "Title for the summary/confirmation page of the food preferences wizard"
   },
-  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "food_preferences_step_prefix": "步骤 {stepNumber}：",
   "@food_preferences_step_prefix": {
     "description": "Step number prefix shown before the page title in the food preferences wizard",
     "placeholders": {
@@ -117,7 +117,7 @@
   "@food_preferences_empty_state": {
     "description": "Text shown when a preference category has no attributes available"
   },
-  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "food_preferences_error_loading": "加载偏好设置失败。请检查您的网络连接。",
   "@food_preferences_error_loading": {
     "description": "Error message shown when the food preferences fail to load from the server"
   },
@@ -137,23 +137,23 @@
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "food_preferences_page_description_unwanted_foods": "设置您不食用的食品或特定成分。",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "food_preferences_page_description_foods_to_avoid": "选择您倾向于避免但并不严格禁止的食品。",
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "food_preferences_page_description_environment": "设置您的环保偏好，获取更符合可持续理念的食品建议。",
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "food_preferences_search_ingredients_hint": "搜索配料",
   "@food_preferences_search_ingredients_hint": {
     "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
   },
-  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "food_preferences_ingredient_already_added": "配料已添加",
   "@food_preferences_ingredient_already_added": {
     "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
@@ -541,13 +541,13 @@
   "myPreferences_settings_subtitle": "黑暗模式，语言…",
   "myPreferences_food_title": "食物偏好",
   "myPreferences_food_subtitle": "选择对您最重要的食物信息.",
-  "myPreferences_food_comment": "选择您最关注的食品信息，以便根据您的个人偏好对食品排序、优先展示重要内容，并获取匹配度摘要。这些偏好设置仅保存在您的设备中，不会与您的 Open Food Facts 贡献者账户关联（若您有的话）。",
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
+  "myPreferences_food_comment": "选择对您而言最重要的食品信息，以便根据您的个人偏好对食品排序、优先展示您关注的内容，并获取匹配度摘要。这些偏好设置仅保存在您的设备中，不会与您的 Open Food Facts 贡献者账户关联（若您有的话）。",
+  "myPreferences_beauty_title": "化妆品偏好",
+  "myPreferences_beauty_subtitle": "选择对您而言最重要的化妆品信息。",
+  "myPreferences_product_title": "其他产品偏好",
+  "myPreferences_product_subtitle": "选择对您而言最重要的其他产品信息。",
+  "myPreferences_pet_food_title": "宠物食品偏好",
+  "myPreferences_pet_food_subtitle": "选择对您而言最重要的宠物食品信息。",
   "confirmResetPreferences": "重置您的食物偏好?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
