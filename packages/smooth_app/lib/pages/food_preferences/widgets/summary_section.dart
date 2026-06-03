@@ -19,6 +19,8 @@ class SummarySection extends StatelessWidget {
   final VoidCallback onEdit;
   final List<String> unwantedIngredients;
 
+  static const Color _foregroundColor = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension theme = context
@@ -40,11 +42,14 @@ class SummarySection extends StatelessWidget {
               Expanded(
                 child: Text(
                   groupName,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: _foregroundColor,
+                  ),
                 ),
               ),
               IconButton(
-                icon: const icons.Edit(size: 20.0),
+                icon: const icons.Edit(size: 20.0, color: _foregroundColor),
                 onPressed: onEdit,
                 tooltip: appLocalizations.edit,
               ),
