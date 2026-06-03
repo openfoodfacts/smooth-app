@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "იხილეთ ამ პროდუქტის ყველა არსებული ფოტო",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "პროდუქტი ვერ მოიძებნა",
   "@no_product_found": {},
   "no_product_found_explanation": "თქვენი ძიება\n**\"{search}\"**\nვერცერთი შედეგი ვერ მოიძებნა.",
