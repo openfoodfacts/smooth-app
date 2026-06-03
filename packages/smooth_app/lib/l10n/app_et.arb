@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Kuva kõik selle toote olemasolevad fotod",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Toodet ei leitud",
   "@no_product_found": {},
   "no_product_found_explanation": "Sinu otsingule\n**\"{search}\"**\nei leitud vasteid.",
