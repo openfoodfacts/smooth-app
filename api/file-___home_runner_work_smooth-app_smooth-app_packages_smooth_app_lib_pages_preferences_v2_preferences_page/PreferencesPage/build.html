@@ -76,6 +76,7 @@ Widget build(BuildContext context) {
   context.watch&lt;UserManagementProvider&gt;();
 
   final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
+  final bool lightTheme = context.lightTheme();
 
   return ChangeNotifierProvider&lt;PreferencesRootSearchController&gt;(
     create: (_) =&gt; PreferencesRootSearchController(),
@@ -88,10 +89,10 @@ Widget build(BuildContext context) {
         PreferenceCard(
           title: appLocalizations.preferences_page_customize_app_title,
           tiles: &lt;PreferenceTile&gt;[
-            _buildFoodPreferencesTile(appLocalizations),
-            _buildBeautyPreferencesTile(appLocalizations),
-            _buildProductPreferencesTile(appLocalizations),
-            _buildPetFoodPreferencesTile(appLocalizations),
+            _buildFoodPreferencesTile(appLocalizations, lightTheme),
+            _buildBeautyPreferencesTile(appLocalizations, lightTheme),
+            _buildProductPreferencesTile(appLocalizations, lightTheme),
+            _buildPetFoodPreferencesTile(appLocalizations, lightTheme),
             _buildAppSettingsTile(appLocalizations),
           ],
         ),
