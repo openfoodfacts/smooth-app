@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Visa alla befintliga foton för den här produkten",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Ingen produkt hittades",
   "@no_product_found": {},
   "no_product_found_explanation": "Din sökning efter\n**\"{search}\"**\nmatchade inga resultat.",
