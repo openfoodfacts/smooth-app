@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "この製品の既存の写真をすべて表示",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "製品が見つかりません",
   "@no_product_found": {},
   "no_product_found_explanation": "\n**\"{search}\"**\nの検索に一致する結果が見つかりませんでした。",
