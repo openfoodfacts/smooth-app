@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Bu ürüne ait mevcut tüm fotoğrafları görüntüle",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Ürün bulunamadı",
   "@no_product_found": {},
   "no_product_found_explanation": "\n**\"{search}\"**\niçin yaptığınız arama hiçbir sonuçla eşleşmedi.",
