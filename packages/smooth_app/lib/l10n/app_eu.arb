@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Ikusi produktu honen argazki guztiak",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Ez da produkturik aurkitu",
   "@no_product_found": {},
   "no_product_found_explanation": "Ez duzu emaitzarik aurkitu\n**\"{search}\"**\nbilaketan.",
