@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Vizualizați toate fotografiile existente pentru acest produs",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Nu a fost găsit niciun produs",
   "@no_product_found": {},
   "no_product_found_explanation": "Căutarea dvs. pentru\n**\"{search}\"**\nnu a returnat niciun rezultat.",
