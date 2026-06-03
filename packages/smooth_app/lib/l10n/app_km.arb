@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "មើលរូបថតដែលមានស្រាប់ទាំងអស់សម្រាប់ផលិតផលនេះ",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "រកមិនឃើញផលិតផលទេ",
   "@no_product_found": {},
   "no_product_found_explanation": "ការស្វែងរករបស់អ្នកសម្រាប់\n**\"{search}\"**\nមិនត្រូវគ្នានឹងលទ្ធផលណាមួយឡើយ។",
