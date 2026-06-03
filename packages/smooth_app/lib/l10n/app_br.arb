@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Gwelet an holl luc'hskeudennoù zo evit ar produ-mañ",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "N'eus bet kavet produ ebet",
   "@no_product_found": {},
   "no_product_found_explanation": "Ho klask evit\n**\"{search}\"**\nn'eus disoc'h ebet.",
