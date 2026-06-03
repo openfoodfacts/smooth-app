@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Shikoni të gjitha fotot ekzistuese për këtë produkt",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Nuk u gjet asnje produkt",
   "@no_product_found": {},
   "no_product_found_explanation": "Kërkimi juaj për\n**\"{search}\"**\nnuk përputhet me asnjë rezultat.",
