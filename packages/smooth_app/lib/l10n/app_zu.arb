@@ -980,6 +980,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Buka zonke izithombe ezikhona zalo mkhiqizo",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Akukho mkhiqizo otholiwe",
   "@no_product_found": {},
   "no_product_found_explanation": "Usesho lwakho lwe-\n**\"{search}\"**\naluzange lufane nanoma yimiphi imiphumela.",
