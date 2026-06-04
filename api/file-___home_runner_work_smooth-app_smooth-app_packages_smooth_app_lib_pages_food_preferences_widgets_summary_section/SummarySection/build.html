@@ -90,11 +90,14 @@ Widget build(BuildContext context) {
             Expanded(
               child: Text(
                 groupName,
-                style: const TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: _foregroundColor,
+                ),
               ),
             ),
             IconButton(
-              icon: const icons.Edit(size: 20.0),
+              icon: const icons.Edit(size: 20.0, color: _foregroundColor),
               onPressed: onEdit,
               tooltip: appLocalizations.edit,
             ),
@@ -106,10 +109,7 @@ Widget build(BuildContext context) {
           padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
           child: Text(
             appLocalizations.food_preferences_no_selection,
-            style: TextStyle(
-              color: theme.greyMedium,
-              fontStyle: FontStyle.italic,
-            ),
+            style: const TextStyle(fontStyle: FontStyle.italic),
           ),
         )
       else
