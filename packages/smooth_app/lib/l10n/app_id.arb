@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Kelola akun kontributor OpenFoodFacts Anda.",
   "myPreferences_settings_title": "Pengaturan Aplikasi",
   "myPreferences_settings_subtitle": "Mode gelap, Bahasa…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Preferensi Makanan",
   "myPreferences_food_subtitle": "Pilih informasi tentang makanan yang paling penting bagi anda.",
   "myPreferences_food_comment": "Pilih informasi tentang makanan yang paling penting bagi anda, untuk memberi peringkat makanan sesuai preferensi anda, melihat informasi yang paling anda minati lebih dahulu dan dapatkan ringkasan kompatibilitas. Preferensi makanan tersebut tetap ada di perangkat anda, dan tidak terkait dengan akun kontributor OpenFoodFacts anda jika anda memilikinya.",
