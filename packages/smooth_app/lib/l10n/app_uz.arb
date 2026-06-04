@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Open Food Facts hissa qo'shuvchi hisobingizni boshqaring.",
   "myPreferences_settings_title": "Ilova sozlamalari",
   "myPreferences_settings_subtitle": "Qorong'u rejim, Tillar…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Oziq-ovqat afzalliklari",
   "myPreferences_food_subtitle": "Oziq-ovqat haqidagi qaysi ma'lumot siz uchun eng muhimligini tanlang.",
   "myPreferences_food_comment": "Oziq-ovqat haqidagi qaysi ma'lumot siz uchun eng muhimligini tanlang, shunda oziq-ovqat mahsulotlarini afzalliklaringizga ko'ra saralashingiz, avval sizga kerakli ma'lumotlarni ko'rishingiz va moslik xulosasini olishingiz mumkin. Ushbu oziq-ovqat afzalliklari qurilmangizda qoladi va agar sizda Open Food Facts hissa qo'shuvchi hisobingiz bo'lsa, ular bilan bog'liq emas.",
