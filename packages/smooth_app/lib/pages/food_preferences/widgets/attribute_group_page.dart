@@ -60,7 +60,8 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
                           filteredAttributes,
                         ),
                 ),
-                if (widget.attributeGroup.warning != null)
+                if (_searchQuery.isEmpty &&
+                    widget.attributeGroup.warning != null)
                   _buildWarningBanner(context, widget.attributeGroup.warning!),
               ],
             );
