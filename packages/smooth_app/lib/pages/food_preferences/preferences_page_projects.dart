@@ -19,18 +19,16 @@ enum PreferencesPageProjects {
     PreferencesPageProjects.pets => 'pets',
   };
 
-  // TODO 0000 roll back
   String getTitle(AppLocalizations appLocalizations) => switch (this) {
     PreferencesPageProjects.food => appLocalizations.myPreferences_food_title,
     PreferencesPageProjects.products =>
-      'Change your preferences for products', //appLocalizations.myPreferences_product_title,
+      appLocalizations.myPreferences_product_title,
     PreferencesPageProjects.beauty =>
-      'Define your preferences for cosmetics', //appLocalizations.myPreferences_beauty_title,
+      appLocalizations.myPreferences_beauty_title,
     PreferencesPageProjects.pets =>
       appLocalizations.myPreferences_pet_food_title,
   };
 
-  // TODO 0000 roll back
   String getSubtitle(AppLocalizations appLocalizations) => switch (this) {
     PreferencesPageProjects.food =>
       appLocalizations.myPreferences_food_subtitle,
@@ -39,7 +37,7 @@ enum PreferencesPageProjects {
     PreferencesPageProjects.beauty =>
       appLocalizations.myPreferences_beauty_subtitle,
     PreferencesPageProjects.pets =>
-      "${appLocalizations.myPreferences_pet_food_subtitle}\nYou haven't set any preference yet.",
+      appLocalizations.myPreferences_pet_food_subtitle,
   };
 
   UriProductHelper getUriProductHelper() => switch (this) {

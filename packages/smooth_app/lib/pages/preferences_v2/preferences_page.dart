@@ -240,7 +240,6 @@ class PreferencesPage extends StatelessWidget {
     final PreferencesPageProjects project,
     final UserPreferences userPreferences,
   ) {
-    // TODO 0000 use this appropriately
     final bool alreadySet = userPreferences.arePreferencesSetForProject(
       project,
     );
@@ -248,6 +247,9 @@ class PreferencesPage extends StatelessWidget {
       leading: project.getLeadingIcon(lightTheme),
       title: project.getTitle(appLocalizations),
       subtitleText: project.getSubtitle(appLocalizations),
+      boldPostScriptum: alreadySet
+          ? null
+          : appLocalizations.myPreferences_not_configured_yet,
       target: FoodPreferencesPage(project: project),
       fullScreen: true,
     );

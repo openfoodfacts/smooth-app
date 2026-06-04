@@ -1482,6 +1482,12 @@ abstract class AppLocalizations {
   /// **'Dark mode, Languages…'**
   String get myPreferences_settings_subtitle;
 
+  /// No description provided for @myPreferences_not_configured_yet.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t set any preference yet.'**
+  String get myPreferences_not_configured_yet;
+
   /// No description provided for @myPreferences_food_title.
   ///
   /// In en, this message translates to:
