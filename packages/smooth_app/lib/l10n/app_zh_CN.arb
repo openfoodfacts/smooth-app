@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "管理您的 Open Food Facts 贡献者帐户。",
   "myPreferences_settings_title": "应用设置",
   "myPreferences_settings_subtitle": "黑暗模式，语言…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "食物偏好",
   "myPreferences_food_subtitle": "选择对您最重要的食物信息.",
   "myPreferences_food_comment": "选择对您而言最重要的食品信息，以便根据您的个人偏好对食品排序、优先展示您关注的内容，并获取匹配度摘要。这些偏好设置仅保存在您的设备中，不会与您的 Open Food Facts 贡献者账户关联（若您有的话）。",
