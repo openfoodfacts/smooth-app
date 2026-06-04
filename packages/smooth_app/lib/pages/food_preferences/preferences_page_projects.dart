@@ -12,6 +12,13 @@ enum PreferencesPageProjects {
   beauty,
   pets;
 
+  ProductType get productType => switch (this) {
+    PreferencesPageProjects.food => ProductType.food,
+    PreferencesPageProjects.products => ProductType.product,
+    PreferencesPageProjects.beauty => ProductType.beauty,
+    PreferencesPageProjects.pets => ProductType.petFood,
+  };
+
   String get projectKey => switch (this) {
     PreferencesPageProjects.food => 'food',
     PreferencesPageProjects.products => 'products',

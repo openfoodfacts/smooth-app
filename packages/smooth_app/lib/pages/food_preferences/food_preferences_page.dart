@@ -14,8 +14,6 @@ import 'package:smooth_app/pages/food_preferences/pages/summary_page.dart';
 import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/food_preferences/widgets/attribute_group_page.dart';
 import 'package:smooth_app/pages/food_preferences/widgets/food_preferences_navigation_bar.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
@@ -168,6 +166,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
       return SmoothScaffold(
         appBar: SmoothTopBar2(
           title: appLocalizations.food_preferences_page_title_introduction,
+          productType: widget.project.productType,
         ),
         body: const Center(child: CircularProgressIndicator()),
       );
@@ -178,6 +177,7 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
       return SmoothScaffold(
         appBar: SmoothTopBar2(
           title: appLocalizations.food_preferences_page_title_introduction,
+          productType: widget.project.productType,
         ),
         body: Center(
           child: Column(
@@ -198,24 +198,13 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
       );
     }
 
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
-    final bool lightTheme = context.lightTheme();
-
-    final bool isSummaryPage = _controller.isSummaryPage;
-    final Color headerColor = isSummaryPage
-        ? extension.success
-        : extension.primaryMedium;
-    final Color foregroundColor = isSummaryPage ? Colors.white : Colors.black;
-
     return ChangeNotifierProvider<PendingPreferences>.value(
       value: _pendingPreferences,
       child: SmoothScaffold(
         appBar: SmoothTopBar2(
           title: _getPageTitle(appLocalizations),
+          productType: widget.project.productType,
           forceMultiLines: true,
-          backgroundColor: headerColor,
-          foregroundColor: foregroundColor,
           elevationOnScroll: false,
           topWidget: PreferredSize(
             preferredSize: const Size(
@@ -229,21 +218,13 @@ class _FoodPreferencesPageState extends State<FoodPreferencesPage> {
                 top: SMALL_SPACE,
                 bottom: VERY_SMALL_SPACE,
               ),
-              child: FAProgressBar(
-                animatedDuration: SmoothAnimationsDuration.short,
-                progressColor: isSummaryPage
-                    ? Colors.white
-                    : lightTheme
-                    ? extension.primaryDark
-                    : extension.primaryNormal,
-                backgroundColor: isSummaryPage
-                    ? Colors.white.withValues(alpha: 0.3)
-                    : lightTheme
-                    ? extension.primaryLight
-                    : extension.primarySemiDark,
-                currentValue: _controller.progress,
-                maxValue: 1,
-              ),
+              child: _controller.progress == 1
+                  ? null
+                  : FAProgressBar(
+                      animatedDuration: SmoothAnimationsDuration.short,
+                      currentValue: _controller.progress,
+                      maxValue: 1,
+                    ),
             ),
           ),
         ),
