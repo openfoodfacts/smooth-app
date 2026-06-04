@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Gestiona el teu compte de col·laborador d'Open Food Facts.",
   "myPreferences_settings_title": "Configuració de l'App",
   "myPreferences_settings_subtitle": "Mode fosc, Idiomes…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Preferències alimentàries",
   "myPreferences_food_subtitle": "Triau quina informació dels aliments us importa més.",
   "myPreferences_food_comment": "Trieu quina informació sobre els aliments us importa més per classificar els aliments segons les vostres preferències, veure primer la informació que us interessa i obtenir un resum de compatibilitat. Aquestes preferències alimentàries es queden al vostre dispositiu i no estan associades al vostre compte de col·laborador d'Open Food Facts si en teniu un.",
