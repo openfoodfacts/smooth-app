@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "قم بإدارة حساب المساهم الخاص بك في Open Food Facts.",
   "myPreferences_settings_title": "إعدادات التطبيق",
   "myPreferences_settings_subtitle": "الوضع الداكن، اللغات…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "أضف تفضيلات غذائية",
   "myPreferences_food_subtitle": "اختر المعلومات التي تهمك أكثر عن الطعام.",
   "myPreferences_food_comment": "اختر المعلومات الغذائية الأكثر أهمية بالنسبة لك، لتصنيف الطعام حسب تفضيلاتك، واطلع على المعلومات التي تهمك أولًا، واحصل على ملخص التوافق. تبقى هذه التفضيلات الغذائية على جهازك، وليست مرتبطة بحساب مساهمك في Open Food Facts، إن كان لديك حساب.",
