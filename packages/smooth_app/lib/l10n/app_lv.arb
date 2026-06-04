@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Pārvaldiet savu Open Food Facts līdzstrādnieka kontu.",
   "myPreferences_settings_title": "Lietotnes iestatījumi",
   "myPreferences_settings_subtitle": "Tumšais režīms, Valodas…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Pārtikas preferences",
   "myPreferences_food_subtitle": "Izvēlieties, kura informācija par pārtiku jums ir vissvarīgākā.",
   "myPreferences_food_comment": "Izvēlieties, kāda informācija par pārtiku jums ir vissvarīgākā, lai klasificētu pārtiku atbilstoši savām vēlmēm, vispirms redzētu informāciju, kas jūs interesē, un saņemtu saderības kopsavilkumu. Šīs pārtikas preferences paliek jūsu ierīcē un nav saistītas ar jūsu Open Food Facts līdzstrādnieka kontu, ja jums tāds ir.",
