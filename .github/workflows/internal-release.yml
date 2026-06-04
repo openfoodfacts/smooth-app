@@ -44,10 +44,8 @@ jobs:
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
-        uses: maierj/fastlane-action@v3.1.0
-        with:
-          lane: getOldVersionCode
-          subdirectory: packages/smooth_app/android
+        run: bundle exec fastlane getOldVersionCode
+        working-directory: ./packages/smooth_app/android
 
       - name: Version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
