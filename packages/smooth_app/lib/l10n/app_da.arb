@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Administrer din Open Food Facts bidragyderkonto.",
   "myPreferences_settings_title": "App-indstillinger",
   "myPreferences_settings_subtitle": "Mørk tilstand, Sprog…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Fødevarepræferencer",
   "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
   "myPreferences_food_comment": "Vælg de fødevareoplysninger med størst betydning for dig, for at kunne rangere dem efter dine præferencer, se de oplysninger, du finder interessante først, samt få en kompatibilitetsoversigt. Disse fødevarepræferencer forbliver lokale og tilknyttes ikke OpenFoodFacts-bidragsyderkontoen, såfremt du har én.",
