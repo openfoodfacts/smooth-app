@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Halda oma Open Food Factsi kaastöölise kontot.",
   "myPreferences_settings_title": "Rakenduse seaded",
   "myPreferences_settings_subtitle": "Tume režiim, keeled…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Toidueelistused",
   "myPreferences_food_subtitle": "Vali, milline toidualane teave on sinu jaoks kõige olulisem.",
   "myPreferences_food_comment": "Valige, milline toidualane teave on teie jaoks kõige olulisem, et järjestada toitu vastavalt oma eelistustele, näha esmalt teile olulist teavet ja saada ühilduvuse kokkuvõte. Need toidueelistused jäävad teie seadmesse ega ole seotud teie Open Food Factsi kaastöölise kontoga, kui teil see on.",
