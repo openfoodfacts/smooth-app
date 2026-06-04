@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">OpenFoodFacts</string>
-
+    <string name="asset_statements" translatable="false">
+    [{
+        \"include\": \"https://world.openfoodfacts.org/.well-known/assetlinks.json\"
+    }]
+    </string>
 </resources>
