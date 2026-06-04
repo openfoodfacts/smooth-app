@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Open Food Facts 貢献者アカウントを管理します。",
   "myPreferences_settings_title": "アプリ設定",
   "myPreferences_settings_subtitle": "ダークモード、言語…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "食品の好み",
   "myPreferences_food_subtitle": "あなたにとって最も重要な食品に関する情報を選択してください。",
   "myPreferences_food_comment": "食品に関する最も重要な情報を選択すると、あなたの好みに応じて食品がランク付けされ、関心のある情報が最初に表示され、相性の概要が表示されます。これらの食品の好みはデバイスに保存され、Open Food Facts寄稿者アカウント（お持ちの場合）には関連付けられません。",
