@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Управлявайте акаунта си за сътрудници на Open Food Facts.",
   "myPreferences_settings_title": "Настройки",
   "myPreferences_settings_subtitle": "Тъмен режим, Езици…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Хранителни предпочитания",
   "myPreferences_food_subtitle": "Избери каква информация за храната е най-важна за теб.",
   "myPreferences_food_comment": "Избери коя информация за храната е най-важна за теб, за да класираш храната според твоите предпочитания. Виж информацията, която те интересува и получи обобщение за съвместимост. Тези предпочитания за храна остават на твоето устройство и не са свързани с твоят акаунт на сътрудник в Open Food Facts, ако имаш такъв.",
