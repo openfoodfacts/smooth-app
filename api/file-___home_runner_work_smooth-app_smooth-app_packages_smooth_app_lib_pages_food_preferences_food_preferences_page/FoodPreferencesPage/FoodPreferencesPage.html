@@ -49,8 +49,8 @@
 </h1></div>
 
     <section class="multi-line-signature">const
-      <span class="name ">FoodPreferencesPage</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-key">{<span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>, </span></li>
-<li><span class="parameter" id="-param-project"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_food_preferences_food_preferences_page/PreferencesPageProjects.html">PreferencesPageProjects</a></span> <span class="parameter-name">project</span> = <span class="default-value">PreferencesPageProjects.food</span>}</span></li>
+      <span class="name ">FoodPreferencesPage</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-project">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">project</span>, </span></li>
+<li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>}</span></li>
 </ol>)
     </section>
 
@@ -60,10 +60,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const FoodPreferencesPage({
-  super.key,
-  this.project = PreferencesPageProjects.food,
-});</code></pre>
+  <pre class="language-dart"><code class="language-dart">const FoodPreferencesPage({required this.project, super.key});</code></pre>
 </section>
 
 

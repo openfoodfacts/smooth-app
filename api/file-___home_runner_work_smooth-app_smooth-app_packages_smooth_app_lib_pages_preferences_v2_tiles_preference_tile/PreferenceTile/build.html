@@ -143,8 +143,14 @@ Widget build(BuildContext context) {
                               subtitle ??
                               _PreferenceTileSubtitle(
                                 subtitle: subtitleText!,
+                                bold: false,
                               ),
                         ),
+                      ),
+                    if (boldPostScriptum != null)
+                      _PreferenceTileSubtitle(
+                        subtitle: boldPostScriptum!,
+                        bold: true,
                       ),
                   ],
                 ),
@@ -187,6 +193,7 @@ Widget build(BuildContext context) {
     <li class="section-title">
       <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_tiles_preference_tile/PreferenceTile-class.html#instance-properties">Properties</a>
     </li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_tiles_preference_tile/PreferenceTile/boldPostScriptum.html">boldPostScriptum</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_tiles_preference_tile/PreferenceTile/borderRadius.html">borderRadius</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_preferences_v2_tiles_preference_tile/PreferenceTile/icon.html">icon</a></li>

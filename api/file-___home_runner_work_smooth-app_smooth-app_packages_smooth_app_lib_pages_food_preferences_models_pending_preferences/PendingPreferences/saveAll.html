@@ -67,7 +67,7 @@
   await Future.wait(
     _pendingImportances.entries.map(
       (MapEntry&lt;String, String&gt; entry) =&gt; _userPreferences
-          .setImportanceForProject(entry.key, entry.value, _projectKey),
+          .setImportanceForProject(entry.key, entry.value, _project),
     ),
   );
 

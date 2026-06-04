@@ -53,7 +53,7 @@
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
 <span class="name ">getImportanceForProject</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getImportanceForProject-param-attributeId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">attributeId</span>, </span></li>
-<li><span class="parameter" id="getImportanceForProject-param-projectKey"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">projectKey</span></span></li>
+<li><span class="parameter" id="getImportanceForProject-param-project"><span class="type-annotation">dynamic</span> <span class="parameter-name">project</span></span></li>
 </ol>)
 
       
@@ -70,10 +70,10 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">String getImportanceForProject(
   final String attributeId,
-  final String projectKey,
+  final PreferencesPageProjects project,
 ) =&gt;
     _sharedPreferences.getString(
-      _getImportanceTagForProject(attributeId, projectKey),
+      _getImportanceTagForProject(attributeId, project),
     ) ??
     PreferenceImportance.ID_NOT_IMPORTANT;</code></pre>
 </section>
@@ -140,6 +140,7 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/userTracking.html">userTracking</a></li>
 
     <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/arePreferencesSetForProject.html">arePreferencesSetForProject</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/getDevModeString.html">getDevModeString</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/getExcludedAttributeIds.html">getExcludedAttributeIds</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/getFlag.html">getFlag</a></li>
