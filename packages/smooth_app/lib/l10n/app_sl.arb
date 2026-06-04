@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Upravljajte svoj račun za sodelavce na Open Food Facts.",
   "myPreferences_settings_title": "Nastavitve aplikacije",
   "myPreferences_settings_subtitle": "Temni način, Jeziki…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Najljubša hrana",
   "myPreferences_food_subtitle": "Izberite katere informacije o hrani so vam najbolj pomembne.",
   "myPreferences_food_comment": "Izberite, katere informacije o hrani so vam najpomembnejše, da boste hrano razvrstili glede na svoje preference, si ogledali informacije, ki vas najprej zanimajo, in dobili povzetek združljivosti. Te preference glede hrane ostanejo v vaši napravi in niso povezane z vašim računom za sodelavce Open Food Facts, če ga imate.",
