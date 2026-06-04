@@ -36,6 +36,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dar
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 
 class PreferencesPage extends StatelessWidget {
@@ -46,6 +47,7 @@ class PreferencesPage extends StatelessWidget {
     context.watch<UserManagementProvider>();
 
     final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
+    final bool lightTheme = context.lightTheme();
 
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
@@ -58,10 +60,10 @@ class PreferencesPage extends StatelessWidget {
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
-              _buildFoodPreferencesTile(appLocalizations),
-              _buildBeautyPreferencesTile(appLocalizations),
-              _buildProductPreferencesTile(appLocalizations),
-              _buildPetFoodPreferencesTile(appLocalizations),
+              _buildFoodPreferencesTile(appLocalizations, lightTheme),
+              _buildBeautyPreferencesTile(appLocalizations, lightTheme),
+              _buildProductPreferencesTile(appLocalizations, lightTheme),
+              _buildPetFoodPreferencesTile(appLocalizations, lightTheme),
               _buildAppSettingsTile(appLocalizations),
             ],
           ),
@@ -213,9 +215,10 @@ class PreferencesPage extends StatelessWidget {
   // Customize App section
   NavigationPreferenceTile _buildFoodPreferencesTile(
     AppLocalizations appLocalizations,
+    bool lightTheme,
   ) {
     return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
+      leading: FaqRoot.createOffLeadingIcon(lightTheme),
       title: appLocalizations.myPreferences_food_title,
       subtitleText: appLocalizations.myPreferences_food_subtitle,
       target: const FoodPreferencesPage(project: PreferencesPageProjects.food),
@@ -225,9 +228,10 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildBeautyPreferencesTile(
     AppLocalizations appLocalizations,
+    bool lightTheme,
   ) {
     return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
+      leading: FaqRoot.createObfLeadingIcon(lightTheme),
       title: appLocalizations.myPreferences_beauty_title,
       subtitleText: appLocalizations.myPreferences_beauty_subtitle,
       target: const FoodPreferencesPage(
@@ -239,9 +243,10 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildProductPreferencesTile(
     AppLocalizations appLocalizations,
+    bool lightTheme,
   ) {
     return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
+      leading: FaqRoot.createOpfLeadingIcon(lightTheme),
       title: appLocalizations.myPreferences_product_title,
       subtitleText: appLocalizations.myPreferences_product_subtitle,
       target: const FoodPreferencesPage(
@@ -253,9 +258,10 @@ class PreferencesPage extends StatelessWidget {
 
   NavigationPreferenceTile _buildPetFoodPreferencesTile(
     AppLocalizations appLocalizations,
+    bool lightTheme,
   ) {
     return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
+      leading: FaqRoot.createOpffLeadingIcon(lightTheme),
       title: appLocalizations.myPreferences_pet_food_title,
       subtitleText: appLocalizations.myPreferences_pet_food_subtitle,
       target: const FoodPreferencesPage(project: PreferencesPageProjects.pets),
