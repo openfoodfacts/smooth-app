@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Quản lý tài khoản cộng tác viên Open Food Facts của bạn.",
   "myPreferences_settings_title": "Cài đặt ứng dụng",
   "myPreferences_settings_subtitle": "Chế độ tối, Ngôn ngữ…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Sở thích ăn uống",
   "myPreferences_food_subtitle": "Chọn loại thông tin về thực phẩm quan trọng nhất đối với bạn.",
   "myPreferences_food_comment": "Chọn thông tin về thực phẩm quan trọng nhất với bạn để xếp hạng thực phẩm theo sở thích, xem thông tin bạn quan tâm trước và nhận tóm tắt về khả năng tương thích. Những sở thích về thực phẩm đó sẽ được lưu trên thiết bị của bạn và không được liên kết với tài khoản cộng tác viên Open Food Facts của bạn (nếu có).",
