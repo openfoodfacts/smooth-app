@@ -41,6 +41,14 @@ import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 
 class PreferencesPage extends StatelessWidget {
+  static const List<PreferencesPageProjects> _projects =
+      <PreferencesPageProjects>[
+        PreferencesPageProjects.food,
+        PreferencesPageProjects.beauty,
+        PreferencesPageProjects.products,
+        PreferencesPageProjects.pets,
+      ];
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -61,30 +69,20 @@ class PreferencesPage extends StatelessWidget {
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
-              _buildOxfPreferencesTile(
-                appLocalizations,
-                lightTheme,
-                PreferencesPageProjects.food,
-                userPreferences,
-              ),
-              _buildOxfPreferencesTile(
-                appLocalizations,
-                lightTheme,
-                PreferencesPageProjects.beauty,
-                userPreferences,
-              ),
-              _buildOxfPreferencesTile(
-                appLocalizations,
-                lightTheme,
-                PreferencesPageProjects.products,
-                userPreferences,
-              ),
-              _buildOxfPreferencesTile(
-                appLocalizations,
-                lightTheme,
-                PreferencesPageProjects.pets,
-                userPreferences,
-              ),
+              ..._projects.map((PreferencesPageProjects project) {
+                final bool alreadySet = userPreferences
+                    .arePreferencesSetForProject(project);
+                return NavigationPreferenceTile(
+                  leading: project.getLeadingIcon(lightTheme),
+                  title: project.getTitle(appLocalizations),
+                  subtitleText: project.getSubtitle(appLocalizations),
+                  boldPostScriptum: alreadySet
+                      ? null
+                      : appLocalizations.myPreferences_not_configured_yet,
+                  target: FoodPreferencesPage(project: project),
+                  fullScreen: true,
+                );
+              }),
               _buildAppSettingsTile(appLocalizations),
             ],
           ),
@@ -234,27 +232,6 @@ class PreferencesPage extends StatelessWidget {
   }
 
   // Customize App section
-  NavigationPreferenceTile _buildOxfPreferencesTile(
-    AppLocalizations appLocalizations,
-    bool lightTheme,
-    final PreferencesPageProjects project,
-    final UserPreferences userPreferences,
-  ) {
-    final bool alreadySet = userPreferences.arePreferencesSetForProject(
-      project,
-    );
-    return NavigationPreferenceTile(
-      leading: project.getLeadingIcon(lightTheme),
-      title: project.getTitle(appLocalizations),
-      subtitleText: project.getSubtitle(appLocalizations),
-      boldPostScriptum: alreadySet
-          ? null
-          : appLocalizations.myPreferences_not_configured_yet,
-      target: FoodPreferencesPage(project: project),
-      fullScreen: true,
-    );
-  }
-
   NavigationPreferenceTile _buildAppSettingsTile(
     AppLocalizations appLocalizations,
   ) {
