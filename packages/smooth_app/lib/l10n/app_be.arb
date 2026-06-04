@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Кіруйце сваім уліковым запісам аўтара Open Food Facts.",
   "myPreferences_settings_title": "Налады праграмы",
   "myPreferences_settings_subtitle": "Цёмны рэжым, Мовы…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Перавагі ў харчаванні",
   "myPreferences_food_subtitle": "Выберыце, якая інфармацыя пра харчаванне для вас найбольш важная.",
   "myPreferences_food_comment": "Выберыце найбольш важную для вас інфармацыю пра ежу, каб ранжыраваць ежу ў адпаведнасці з вашымі перавагамі, бачыць інфармацыю, якая вас цікавіць у першую чаргу, і атрымліваць зводку па сумяшчальнасці. Гэтыя перавагі ў ежы застаюцца на вашай прыладзе і не звязаны з вашым уліковым запісам аўтара Open Food Facts, калі ён у вас ёсць.",
