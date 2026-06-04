@@ -330,6 +330,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
       key: _listKey,
       controller: _scrollController,
       initialItemCount: _tags.length,
+      padding: const EdgeInsets.only(bottom: kFloatingActionButtonHeight * 2),
       itemBuilder:
           (BuildContext context, int index, Animation<double> animation) {
             final ProductTag entry = _tags[index];
