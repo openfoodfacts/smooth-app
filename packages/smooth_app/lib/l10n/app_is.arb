@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Stjórnaðu aðganginum þínum að Open Food Facts sem framlag.",
   "myPreferences_settings_title": "Stillingar forrits",
   "myPreferences_settings_subtitle": "Dökk stilling, Tungumál…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Matarval",
   "myPreferences_food_subtitle": "Veldu hvaða upplýsingar um mat skipta þig mestu máli.",
   "myPreferences_food_comment": "Veldu hvaða upplýsingar um mat skipta þig mestu máli til að raða mat eftir óskum þínum, sjá upplýsingarnar sem þér skipta fyrst máli og fá samhæfingaryfirlit. Þessar mataróskir eru geymdar á tækinu þínu og eru ekki tengdar við Open Food Facts reikninginn þinn ef þú ert með einn.",
