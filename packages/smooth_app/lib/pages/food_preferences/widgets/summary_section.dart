@@ -61,10 +61,7 @@ class SummarySection extends StatelessWidget {
             padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
             child: Text(
               appLocalizations.food_preferences_no_selection,
-              style: TextStyle(
-                color: theme.greyMedium,
-                fontStyle: FontStyle.italic,
-              ),
+              style: const TextStyle(fontStyle: FontStyle.italic),
             ),
           )
         else
