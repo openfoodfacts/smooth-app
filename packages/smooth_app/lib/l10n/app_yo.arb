@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Ṣàkóso àkọọ́lẹ̀ olùkópa Open Food Facts rẹ.",
   "myPreferences_settings_title": "Àwọn Ètò Àpù",
   "myPreferences_settings_subtitle": "Ipo dudu, Awọn ede…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Àwọn Àyànfẹ́ Oúnjẹ",
   "myPreferences_food_subtitle": "Yan alaye ti o ṣe pataki julọ si ọ nipa ounjẹ.",
   "myPreferences_food_comment": "Yan alaye ti o ṣe pataki julọ fun ọ, lati le ṣe ipo ounjẹ ni ibamu si awọn ayanfẹ rẹ, wo alaye ti o nifẹ si akọkọ, ki o si gba akopọ ibamu. Awọn ayanfẹ ounjẹ wọnyẹn wa lori ẹrọ rẹ, wọn ko si ni nkan ṣe pẹlu akọọlẹ olufunni Open Food Facts rẹ ti o ba ni ọkan.",
