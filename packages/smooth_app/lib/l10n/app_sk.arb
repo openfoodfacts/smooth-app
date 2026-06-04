@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Spravujte svoj Open Food Facts účet.",
   "myPreferences_settings_title": "Nastavenia aplikácie",
   "myPreferences_settings_subtitle": "Tmavý režim, jazyky…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Potravinové predvoľby",
   "myPreferences_food_subtitle": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie.",
   "myPreferences_food_comment": "Vyberte si, ktoré informácie o potravinách sú pre vás najdôležitejšie, aby ste mohli zoradiť produkty podľa svojich predvolieb. Pozrite si informácie, ktoré vás zaujímajú ako prvé a získajte súhrn kompatibility. Tieto potravinové predvoľby zostanú vo vašom zariadení a nie sú spojené s vaším účtom prispievateľa Open Food Facts, ak ho máte.",
