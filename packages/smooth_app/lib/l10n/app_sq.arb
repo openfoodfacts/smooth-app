@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Menaxhoni llogarinë tuaj të kontribuesit në Open Food Facts.",
   "myPreferences_settings_title": "Parametrat e aplikacionit",
   "myPreferences_settings_subtitle": "Modaliteti i errët, Gjuhët…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Preferencat ushqimore",
   "myPreferences_food_subtitle": "Zgjidhni cfare informacioni rreth ushqimit eshte me i rendesishmi per ju.",
   "myPreferences_food_comment": "Zgjidhni se cili informacion në lidhje me ushqimin ka më shumë rëndësi për ju, në mënyrë që të renditni ushqimin sipas preferencave tuaja, shikoni informacionin që ju intereson së pari dhe merrni një përmbledhje të përputhshmërisë. Ato preferenca ushqimore mbeten në pajisjen tuaj dhe nuk shoqërohen me llogarinë tuaj të kontribuesit në Open Food Facts, nëse keni një të tillë.",
