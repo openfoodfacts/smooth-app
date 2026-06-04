@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "จัดการบัญชีผู้ร่วมเขียนบทความ Open Food Facts ของคุณ",
   "myPreferences_settings_title": "การตั้งค่าแอพ",
   "myPreferences_settings_subtitle": "โหมดมืด, ภาษา…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "ความชอบด้านอาหาร",
   "myPreferences_food_subtitle": "เลือกข้อมูลเกี่ยวกับอาหารที่สำคัญที่สุดสำหรับคุณ",
   "myPreferences_food_comment": "เลือกข้อมูลเกี่ยวกับอาหารที่คุณสนใจมากที่สุด เพื่อจัดอันดับอาหารตามความชอบของคุณ ดูข้อมูลที่คุณสนใจก่อน และรับสรุปความเข้ากันได้ การตั้งค่าอาหารเหล่านั้นจะยังคงอยู่ในอุปกรณ์ของคุณ และจะไม่เชื่อมโยงกับบัญชีผู้ร่วมให้ข้อมูล Open Food Facts ของคุณ หากคุณมีบัญชีดังกล่าว",
