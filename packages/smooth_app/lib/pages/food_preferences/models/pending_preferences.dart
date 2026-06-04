@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
-import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Manages pending (unsaved) food preference changes during the preferences wizard.
@@ -36,8 +36,6 @@ class PendingPreferences extends ChangeNotifier {
   final List<AttributeGroup> _attributeGroups;
   final PreferencesPageProjects _project;
 
-  String get _projectKey => _project.name;
-
   final Map<String, String> _pendingImportances = <String, String>{};
 
   List<String> _pendingUnwantedIngredients = <String>[];
@@ -50,7 +48,7 @@ class PendingPreferences extends ChangeNotifier {
         final String? attributeId = attribute.id;
         if (attributeId != null) {
           _pendingImportances[attributeId] = _userPreferences
-              .getImportanceForProject(attributeId, _projectKey);
+              .getImportanceForProject(attributeId, _project);
         }
       }
     }
@@ -60,7 +58,7 @@ class PendingPreferences extends ChangeNotifier {
   Future<void> _loadExcludedIngredients() async {
     // Load user-facing names from preferences
     _pendingUnwantedIngredients = _userPreferences
-        .getUnwantedIngredientsForProject(_projectKey);
+        .getUnwantedIngredientsForProject(_project);
     _unwantedIngredientsInitialized = true;
     notifyListeners();
   }
@@ -133,7 +131,7 @@ class PendingPreferences extends ChangeNotifier {
     await Future.wait(
       _pendingImportances.entries.map(
         (MapEntry<String, String> entry) => _userPreferences
-            .setImportanceForProject(entry.key, entry.value, _projectKey),
+            .setImportanceForProject(entry.key, entry.value, _project),
       ),
     );
 
@@ -144,7 +142,7 @@ class PendingPreferences extends ChangeNotifier {
     if (_pendingUnwantedIngredients.isEmpty) {
       await _userPreferences.setUnwantedIngredientsForProject(
         <String, String>{},
-        _projectKey,
+        _project,
       );
       return;
     }
@@ -167,7 +165,7 @@ class PendingPreferences extends ChangeNotifier {
 
     await _userPreferences.setUnwantedIngredientsForProject(
       ingredientsMap,
-      _projectKey,
+      _project,
     );
   }
 

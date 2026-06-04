@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
@@ -70,7 +71,7 @@ class FaqRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      leading: _createLeadingIcon(
+      leading: createLeadingIcon(
         SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.b, true),
       ),
       leadingSize: 31.0,
@@ -85,7 +86,7 @@ class FaqRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      leading: _createLeadingIcon(
+      leading: createLeadingIcon(
         'assets/guides/greenscore/greenscore_a.svg.vec',
       ),
       title: appLocalizations.environmental_score_generic_new,
@@ -98,7 +99,7 @@ class FaqRoot extends PreferencesRoot {
     AppLocalizations appLocalizations,
   ) {
     return PreferenceTile(
-      leading: _createLeadingIcon('assets/cache/nova-group-4.svg'),
+      leading: createLeadingIcon('assets/cache/nova-group-4.svg'),
       title: appLocalizations.nova_group_generic_new,
       onTap: () => AppNavigator.of(context).push(AppRoutes.GUIDE_NOVA),
     );
@@ -120,7 +121,7 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: createOffLeadingIcon(
+      leading: PreferencesPageProjects.food.getLeadingIcon(
         lightTheme,
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
@@ -137,7 +138,7 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: createObfLeadingIcon(
+      leading: PreferencesPageProjects.beauty.getLeadingIcon(
         lightTheme,
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
@@ -154,7 +155,7 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: createOpffLeadingIcon(
+      leading: PreferencesPageProjects.pets.getLeadingIcon(
         lightTheme,
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
@@ -171,7 +172,7 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: createOpfLeadingIcon(
+      leading: PreferencesPageProjects.products.getLeadingIcon(
         lightTheme,
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
@@ -188,7 +189,7 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: _createLeadingIcon(
+      leading: createLeadingIcon(
         'assets/guides/open_prices/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
@@ -237,7 +238,7 @@ class FaqRoot extends PreferencesRoot {
     );
   }
 
-  static Widget _createLeadingIcon(String svg, {EdgeInsetsGeometry? padding}) {
+  static Widget createLeadingIcon(String svg, {EdgeInsetsGeometry? padding}) {
     final Widget child;
     if (svg.endsWith('vec')) {
       child = SvgPicture(AssetBytesLoader(svg), width: 48.0);
@@ -251,38 +252,6 @@ class FaqRoot extends PreferencesRoot {
     return child;
   }
 
-  static Widget createOffLeadingIcon(
-    bool lightTheme, {
-    EdgeInsetsGeometry? padding,
-  }) => _createLeadingIcon(
-    'assets/guides/open_food_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
-    padding: padding,
-  );
-
-  static Widget createObfLeadingIcon(
-    bool lightTheme, {
-    EdgeInsetsGeometry? padding,
-  }) => _createLeadingIcon(
-    'assets/guides/open_beauty_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
-    padding: padding,
-  );
-
-  static Widget createOpffLeadingIcon(
-    bool lightTheme, {
-    EdgeInsetsGeometry? padding,
-  }) => _createLeadingIcon(
-    'assets/guides/open_pet_food_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
-    padding: padding,
-  );
-
-  static Widget createOpfLeadingIcon(
-    bool lightTheme, {
-    EdgeInsetsGeometry? padding,
-  }) => _createLeadingIcon(
-    'assets/guides/open_products_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
-    padding: padding,
-  );
-
   PreferenceTile _createScoreTile({
     required String title,
     required String url,
@@ -291,7 +260,7 @@ class FaqRoot extends PreferencesRoot {
     double? leadingSvgWidth,
   }) {
     return UrlPreferenceTile(
-      leading: _createLeadingIcon(svg),
+      leading: createLeadingIcon(svg),
       leadingSize: leadingSvgWidth,
       title: title,
       subtitleText: subtitleText,

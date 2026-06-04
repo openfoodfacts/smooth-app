@@ -7,6 +7,7 @@ class NavigationPreferenceTile extends PreferenceTile {
   const NavigationPreferenceTile({
     required super.title,
     required super.subtitleText,
+    super.boldPostScriptum,
     super.icon,
     super.leading,
     this.root,
@@ -28,6 +29,7 @@ class NavigationPreferenceTile extends PreferenceTile {
       leading: leading,
       title: title,
       subtitleText: subtitleText,
+      boldPostScriptum: boldPostScriptum,
       onTap: () {
         Navigator.of(context, rootNavigator: fullScreen).push(
           MaterialPageRoute<Widget>(

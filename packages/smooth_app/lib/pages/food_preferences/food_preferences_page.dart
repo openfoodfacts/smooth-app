@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation_progress_bar/flutter_animation_progress_bar.dart';
-import 'package:http/http.dart' as http;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -12,61 +11,16 @@ import 'package:smooth_app/pages/food_preferences/food_preferences_controller.da
 import 'package:smooth_app/pages/food_preferences/models/pending_preferences.dart';
 import 'package:smooth_app/pages/food_preferences/pages/introduction_page.dart';
 import 'package:smooth_app/pages/food_preferences/pages/summary_page.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/food_preferences/widgets/attribute_group_page.dart';
 import 'package:smooth_app/pages/food_preferences/widgets/food_preferences_navigation_bar.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
 
-enum PreferencesPageProjects {
-  food,
-  products,
-  beauty,
-  pets;
-
-  UriProductHelper getUriProductHelper() {
-    switch (this) {
-      case PreferencesPageProjects.food:
-        return uriHelperFoodProd;
-      case PreferencesPageProjects.products:
-        return uriHelperProductsProd;
-      case PreferencesPageProjects.beauty:
-        return uriHelperBeautyProd;
-      case PreferencesPageProjects.pets:
-        return uriHelperPetFoodProd;
-    }
-  }
-
-  Future<List<AttributeGroup>?> fetchAttributeGroups() async {
-    try {
-      final String languageCode = ProductQuery.getLanguage().code;
-      final Uri uri = AvailableAttributeGroups.getUri(
-        languageCode,
-        uriHelper: getUriProductHelper(),
-      );
-
-      final http.Response response = await http.get(uri);
-      if (response.statusCode != 200) {
-        return null;
-      }
-
-      final AvailableAttributeGroups availableAttributeGroups =
-          AvailableAttributeGroups.loadFromJSONString(response.body);
-      return availableAttributeGroups.attributeGroups;
-    } catch (e) {
-      debugPrint('Error fetching attribute groups for $name: $e');
-      return null;
-    }
-  }
-}
-
 class FoodPreferencesPage extends StatefulWidget {
-  const FoodPreferencesPage({
-    super.key,
-    this.project = PreferencesPageProjects.food,
-  });
+  const FoodPreferencesPage({required this.project, super.key});
 
   final PreferencesPageProjects project;
 
