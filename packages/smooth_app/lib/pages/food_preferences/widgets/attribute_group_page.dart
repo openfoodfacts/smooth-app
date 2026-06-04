@@ -139,7 +139,7 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
           children: <Widget>[
             const icons.Search(size: 48.0, color: Colors.grey),
             Text(
-              appLocalizations.no_product_found,
+              appLocalizations.no_settings_found,
               style: const TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,

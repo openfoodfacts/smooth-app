@@ -120,8 +120,8 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: _createLeadingIcon(
-        'assets/guides/open_food_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+      leading: createOffLeadingIcon(
+        lightTheme,
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
       title: appLocalizations.preferences_faq_discover_off_title,
@@ -137,8 +137,8 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: _createLeadingIcon(
-        'assets/guides/open_beauty_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+      leading: createObfLeadingIcon(
+        lightTheme,
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
       title: appLocalizations.preferences_faq_discover_obf_title,
@@ -154,8 +154,8 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: _createLeadingIcon(
-        'assets/guides/open_pet_food_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+      leading: createOpffLeadingIcon(
+        lightTheme,
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
       title: appLocalizations.preferences_faq_discover_opff_title,
@@ -171,8 +171,8 @@ class FaqRoot extends PreferencesRoot {
     bool lightTheme,
   ) {
     return PreferenceTile(
-      leading: _createLeadingIcon(
-        'assets/guides/open_products_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+      leading: createOpfLeadingIcon(
+        lightTheme,
         padding: const EdgeInsetsDirectional.only(start: 2.0),
       ),
       title: appLocalizations.preferences_faq_discover_opf_title,
@@ -237,7 +237,7 @@ class FaqRoot extends PreferencesRoot {
     );
   }
 
-  Widget _createLeadingIcon(String svg, {EdgeInsetsGeometry? padding}) {
+  static Widget _createLeadingIcon(String svg, {EdgeInsetsGeometry? padding}) {
     final Widget child;
     if (svg.endsWith('vec')) {
       child = SvgPicture(AssetBytesLoader(svg), width: 48.0);
@@ -250,6 +250,38 @@ class FaqRoot extends PreferencesRoot {
     }
     return child;
   }
+
+  static Widget createOffLeadingIcon(
+    bool lightTheme, {
+    EdgeInsetsGeometry? padding,
+  }) => _createLeadingIcon(
+    'assets/guides/open_food_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+    padding: padding,
+  );
+
+  static Widget createObfLeadingIcon(
+    bool lightTheme, {
+    EdgeInsetsGeometry? padding,
+  }) => _createLeadingIcon(
+    'assets/guides/open_beauty_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+    padding: padding,
+  );
+
+  static Widget createOpffLeadingIcon(
+    bool lightTheme, {
+    EdgeInsetsGeometry? padding,
+  }) => _createLeadingIcon(
+    'assets/guides/open_pet_food_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+    padding: padding,
+  );
+
+  static Widget createOpfLeadingIcon(
+    bool lightTheme, {
+    EdgeInsetsGeometry? padding,
+  }) => _createLeadingIcon(
+    'assets/guides/open_products_facts/thumb_${lightTheme ? 'light' : 'dark'}.svg.vec',
+    padding: padding,
+  );
 
   PreferenceTile _createScoreTile({
     required String title,

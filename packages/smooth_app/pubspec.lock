@@ -289,10 +289,10 @@ packages:
     dependency: transitive
     description:
       name: code_assets
-      sha256: "83ccdaa064c980b5596c35dd64a8d3ecc68620174ab9b90b6343b753aa721687"
+      sha256: bf394f466ba9205f1812a0433b392d6af280f155f56651eda7c18cc32ed493b8
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.2.1"
   code_builder:
     dependency: transitive
     description:
@@ -696,10 +696,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
-      sha256: "38d1c268de9097ff59cf0e844ac38759fc78f76836d37edad06fa21e182055a0"
+      sha256: "3854fe5e3bff0b113c658f260b90c95dea17c92db0f2addeac2e343dd9969785"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.34"
+    version: "2.0.35"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -791,10 +791,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "92d8cee7c57dff0a6c409c05597b460002434eccf7424a712283225b3962d03f"
+      sha256: "5922b2861e2235a3504896f0d6fa07d84141b480cf52eecd2f42cd25585a9e8a"
       url: "https://pub.dev"
     source: hosted
-    version: "17.2.3"
+    version: "17.3.0"
   graphs:
     dependency: transitive
     description:
@@ -823,10 +823,10 @@ packages:
     dependency: transitive
     description:
       name: hooks
-      sha256: "025f060e86d2d4c3c47b56e33caf7f93bf9283340f26d23424ebcfccf34f621e"
+      sha256: "9a62a50b50b769a737bc0a8ff381f333529df3ab746b2f6b02e83760231455ba"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.3"
+    version: "2.0.2"
   html:
     dependency: "direct main"
     description:
@@ -1108,10 +1108,10 @@ packages:
     dependency: transitive
     description:
       name: native_toolchain_c
-      sha256: "6ba77bb18063eebe9de401f5e6437e95e1438af0a87a3a39084fbd37c90df572"
+      sha256: f59351d28f49520cd3a74eb1f41c5f19ae15e53c65a3231d14af672e46510a96
       url: "https://pub.dev"
     source: hosted
-    version: "0.17.6"
+    version: "0.19.1"
   nested:
     dependency: transitive
     description:
@@ -1132,10 +1132,10 @@ packages:
     dependency: transitive
     description:
       name: objective_c
-      sha256: "100a1c87616ab6ed41ec263b083c0ef3261ee6cd1dc3b0f35f8ddfa4f996fe52"
+      sha256: "6cb691c686fa2838c6deb34980d426145c2a5d537491cb83d463c33cdbc726ed"
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.0"
+    version: "9.4.1"
   octo_image:
     dependency: transitive
     description:
@@ -1253,10 +1253,10 @@ packages:
     dependency: "direct main"
     description:
       name: permission_handler
-      sha256: bc917da36261b00137bbc8896bf1482169cd76f866282368948f032c8c1caae1
+      sha256: fe54465bcc62a4564c6e4db337bbaded6c0c0fa6e10487414436d163114784f6
       url: "https://pub.dev"
     source: hosted
-    version: "12.0.1"
+    version: "12.0.3"
   permission_handler_android:
     dependency: transitive
     description:
@@ -1269,10 +1269,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_apple
-      sha256: f000131e755c54cf4d84a5d8bd6e4149e262cc31c5a8b1d698de1ac85fa41023
+      sha256: e20daf680eef1ca62ffe8c8c526b778cc386d50137c77ac71c8ec9c88c13fb9d
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.7"
+    version: "9.4.9"
   permission_handler_html:
     dependency: transitive
     description:
@@ -1623,10 +1623,10 @@ packages:
     dependency: transitive
     description:
       name: sqlite3
-      sha256: "56da3e13ed7d28a66f930aa2b2b29db6736a233f08283326e96321dd812030f5"
+      sha256: "9488c7d2cdb1091c91cacf7e207cff81b28bff8e366f042bad3afe7d34afe189"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.1"
+    version: "3.3.2"
   stack_trace:
     dependency: transitive
     description:
@@ -1815,10 +1815,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics_compiler
-      sha256: b9b3f391857781aa96acacef96066f2f49b4cd03cf9fce3ca4d8da2ef5ea129e
+      sha256: "7ee12e6dffe0fc8e755179d6d91b3b34f5924223fc104d85572ef9180d73d172"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.3"
+    version: "1.2.5"
   vector_math:
     dependency: transitive
     description:
