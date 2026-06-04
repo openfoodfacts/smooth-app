@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Administrer din Open Food Facts-bidragsyterkonto.",
   "myPreferences_settings_title": "Appinnstillinger",
   "myPreferences_settings_subtitle": "Mørk modus, Språk…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Matpreferanser",
   "myPreferences_food_subtitle": "Velg hvilken informasjon om mat som er viktigst for deg.",
   "myPreferences_food_comment": "Velg hvilken informasjon om mat som er viktigst for deg, for å rangere mat i henhold til dine preferanser, se informasjonen du bryr deg om først, og få et kompatibilitetssammendrag. Disse matpreferansene forblir på enheten din, og er ikke knyttet til din Open Food Facts-bidragsyterkonto hvis du har en.",
