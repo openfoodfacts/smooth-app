@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Gerir a sua conta como colaborador do Open Food Facts.",
   "myPreferences_settings_title": "Configurações da aplicação",
   "myPreferences_settings_subtitle": "Modo escuro, idiomas…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Preferências alimentares",
   "myPreferences_food_subtitle": "Escolha as informações sobre os alimentos que mais lhe interessam.",
   "myPreferences_food_comment": "Escolha as informações sobre alimentos que mais lhe interessam, para classificar os alimentos de acordo com as suas preferências, ver primeiro as informações que lhe interessam e obter um resumo de compatibilidade. Essas preferências alimentares permanecem no seu dispositivo e não estão associadas à sua conta de colaborador do Open Food Facts, caso tenha uma.",
