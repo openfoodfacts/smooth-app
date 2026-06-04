@@ -539,6 +539,7 @@
   "myPreferences_profile_subtitle": "Open Food Facts 기고자 계정을 관리하세요.",
   "myPreferences_settings_title": "앱 설정",
   "myPreferences_settings_subtitle": "다크 모드, 언어…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "식품 설정",
   "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
   "myPreferences_food_comment": "음식에 대한 가장 중요한 정보를 선택하여 선호도에 따라 음식을 순위를 매기고, 관심 있는 정보를 먼저 확인하고, 호환성 요약을 받아보세요. 선택한 음식 선호도는 기기에 저장되며, Open Food Facts 기여자 계정이 있는 경우 해당 계정과 연결되지 않습니다.",
