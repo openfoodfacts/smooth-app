@@ -11,6 +11,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/banner/new_nutriscore_header.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/footer/preferences_social_networks.dart';
@@ -60,10 +61,30 @@ class PreferencesPage extends StatelessWidget {
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
-              _buildFoodPreferencesTile(appLocalizations, lightTheme),
-              _buildBeautyPreferencesTile(appLocalizations, lightTheme),
-              _buildProductPreferencesTile(appLocalizations, lightTheme),
-              _buildPetFoodPreferencesTile(appLocalizations, lightTheme),
+              _buildOxfPreferencesTile(
+                appLocalizations,
+                lightTheme,
+                PreferencesPageProjects.food,
+                userPreferences,
+              ),
+              _buildOxfPreferencesTile(
+                appLocalizations,
+                lightTheme,
+                PreferencesPageProjects.beauty,
+                userPreferences,
+              ),
+              _buildOxfPreferencesTile(
+                appLocalizations,
+                lightTheme,
+                PreferencesPageProjects.products,
+                userPreferences,
+              ),
+              _buildOxfPreferencesTile(
+                appLocalizations,
+                lightTheme,
+                PreferencesPageProjects.pets,
+                userPreferences,
+              ),
               _buildAppSettingsTile(appLocalizations),
             ],
           ),
@@ -213,58 +234,21 @@ class PreferencesPage extends StatelessWidget {
   }
 
   // Customize App section
-  NavigationPreferenceTile _buildFoodPreferencesTile(
+  NavigationPreferenceTile _buildOxfPreferencesTile(
     AppLocalizations appLocalizations,
     bool lightTheme,
+    final PreferencesPageProjects project,
+    final UserPreferences userPreferences,
   ) {
-    return NavigationPreferenceTile(
-      leading: FaqRoot.createOffLeadingIcon(lightTheme),
-      title: appLocalizations.myPreferences_food_title,
-      subtitleText: appLocalizations.myPreferences_food_subtitle,
-      target: const FoodPreferencesPage(project: PreferencesPageProjects.food),
-      fullScreen: true,
+    // TODO 0000 use this appropriately
+    final bool alreadySet = userPreferences.arePreferencesSetForProject(
+      project,
     );
-  }
-
-  NavigationPreferenceTile _buildBeautyPreferencesTile(
-    AppLocalizations appLocalizations,
-    bool lightTheme,
-  ) {
     return NavigationPreferenceTile(
-      leading: FaqRoot.createObfLeadingIcon(lightTheme),
-      title: appLocalizations.myPreferences_beauty_title,
-      subtitleText: appLocalizations.myPreferences_beauty_subtitle,
-      target: const FoodPreferencesPage(
-        project: PreferencesPageProjects.beauty,
-      ),
-      fullScreen: true,
-    );
-  }
-
-  NavigationPreferenceTile _buildProductPreferencesTile(
-    AppLocalizations appLocalizations,
-    bool lightTheme,
-  ) {
-    return NavigationPreferenceTile(
-      leading: FaqRoot.createOpfLeadingIcon(lightTheme),
-      title: appLocalizations.myPreferences_product_title,
-      subtitleText: appLocalizations.myPreferences_product_subtitle,
-      target: const FoodPreferencesPage(
-        project: PreferencesPageProjects.products,
-      ),
-      fullScreen: true,
-    );
-  }
-
-  NavigationPreferenceTile _buildPetFoodPreferencesTile(
-    AppLocalizations appLocalizations,
-    bool lightTheme,
-  ) {
-    return NavigationPreferenceTile(
-      leading: FaqRoot.createOpffLeadingIcon(lightTheme),
-      title: appLocalizations.myPreferences_pet_food_title,
-      subtitleText: appLocalizations.myPreferences_pet_food_subtitle,
-      target: const FoodPreferencesPage(project: PreferencesPageProjects.pets),
+      leading: project.getLeadingIcon(lightTheme),
+      title: project.getTitle(appLocalizations),
+      subtitleText: project.getSubtitle(appLocalizations),
+      target: FoodPreferencesPage(project: project),
       fullScreen: true,
     );
   }
