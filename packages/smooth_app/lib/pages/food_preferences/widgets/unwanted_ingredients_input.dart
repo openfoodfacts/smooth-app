@@ -5,7 +5,6 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/food_preferences/models/pending_preferences.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class UnwantedIngredientsInput extends StatefulWidget {
   const UnwantedIngredientsInput({required this.pendingPreferences, super.key});
@@ -46,9 +45,6 @@ class _UnwantedIngredientsInputState extends State<UnwantedIngredientsInput> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme = context
-        .extension<SmoothColorsThemeExtension>();
-
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final List<String> unwantedIngredients =
         _pendingPreferences.unwantedIngredients;
@@ -88,7 +84,6 @@ class _UnwantedIngredientsInputState extends State<UnwantedIngredientsInput> {
                     label: Text(ingredient),
                     deleteIcon: const Icon(Icons.close, size: 18.0),
                     onDeleted: () => _removeIngredient(ingredient),
-                    backgroundColor: theme.primaryMedium,
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     visualDensity: VisualDensity.compact,
                   );
