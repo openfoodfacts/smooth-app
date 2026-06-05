@@ -5,7 +5,6 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/food_preferences/models/pending_preferences.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class UnwantedIngredientsInput extends StatefulWidget {
   const UnwantedIngredientsInput({required this.pendingPreferences, super.key});
@@ -62,7 +61,7 @@ class _UnwantedIngredientsInputState extends State<UnwantedIngredientsInput> {
                 controller: _controller,
                 autocompleteKey: _autocompleteKey,
                 hintText:
-                appLocalizations.food_preferences_search_ingredients_hint,
+                    appLocalizations.food_preferences_search_ingredients_hint,
                 manager: _autocompleteManager,
                 constraints: const BoxConstraints(maxHeight: 48.0),
                 padding: const EdgeInsetsDirectional.symmetric(
@@ -81,14 +80,14 @@ class _UnwantedIngredientsInputState extends State<UnwantedIngredientsInput> {
             runSpacing: SMALL_SPACE,
             children: unwantedIngredients
                 .map((String ingredient) {
-              return Chip(
-                label: Text(ingredient),
-                deleteIcon: const Icon(Icons.close, size: 18.0),
-                onDeleted: () => _removeIngredient(ingredient),
-                materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                visualDensity: VisualDensity.compact,
-              );
-            })
+                  return Chip(
+                    label: Text(ingredient),
+                    deleteIcon: const Icon(Icons.close, size: 18.0),
+                    onDeleted: () => _removeIngredient(ingredient),
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    visualDensity: VisualDensity.compact,
+                  );
+                })
                 .toList(growable: false),
           ),
         ],
@@ -106,11 +105,9 @@ class _UnwantedIngredientsInputState extends State<UnwantedIngredientsInput> {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(
-            AppLocalizations
-                .of(
+            AppLocalizations.of(
               context,
-            )
-                .food_preferences_ingredient_already_added,
+            ).food_preferences_ingredient_already_added,
           ),
         ),
       );
