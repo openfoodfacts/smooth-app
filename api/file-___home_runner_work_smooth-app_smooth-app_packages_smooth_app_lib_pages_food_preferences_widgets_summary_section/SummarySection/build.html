@@ -77,6 +77,8 @@ Widget build(BuildContext context) {
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final String groupName = group.name ?? group.id ?? &#39;&#39;;
 
+  final bool lightTheme = context.lightTheme();
+
   return Column(
     crossAxisAlignment: CrossAxisAlignment.start,
     children: &lt;Widget&gt;[
@@ -136,7 +138,9 @@ Widget build(BuildContext context) {
                       Icon(
                         Icons.arrow_circle_right_rounded,
                         size: 28.0,
-                        color: theme.primaryAccent,
+                        color: lightTheme
+                            ? theme.primaryAccent
+                            : Colors.white,
                       ),
                       const SizedBox(width: SMALL_SPACE),
                       Expanded(
@@ -160,7 +164,6 @@ Widget build(BuildContext context) {
                       children: unwantedIngredients.map((String ingredient) {
                         return Chip(
                           label: Text(ingredient),
-                          backgroundColor: theme.primaryMedium,
                           materialTapTargetSize:
                               MaterialTapTargetSize.shrinkWrap,
                           visualDensity: VisualDensity.compact,
