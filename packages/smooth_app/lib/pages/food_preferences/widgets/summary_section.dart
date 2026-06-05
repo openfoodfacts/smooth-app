@@ -4,6 +4,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 
 class SummarySection extends StatelessWidget {
   const SummarySection({
@@ -28,6 +29,8 @@ class SummarySection extends StatelessWidget {
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String groupName = group.name ?? group.id ?? '';
+
+    final bool lightTheme = context.lightTheme();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,7 +91,9 @@ class SummarySection extends StatelessWidget {
                         Icon(
                           Icons.arrow_circle_right_rounded,
                           size: 28.0,
-                          color: theme.primaryAccent,
+                          color: lightTheme
+                              ? theme.primaryAccent
+                              : Colors.white,
                         ),
                         const SizedBox(width: SMALL_SPACE),
                         Expanded(
@@ -112,7 +117,6 @@ class SummarySection extends StatelessWidget {
                         children: unwantedIngredients.map((String ingredient) {
                           return Chip(
                             label: Text(ingredient),
-                            backgroundColor: theme.primaryMedium,
                             materialTapTargetSize:
                                 MaterialTapTargetSize.shrinkWrap,
                             visualDensity: VisualDensity.compact,
