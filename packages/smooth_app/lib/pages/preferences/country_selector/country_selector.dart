@@ -138,7 +138,7 @@ class _CountrySelectorButton extends StatelessWidget {
                         const SizedBox(width: SMALL_SPACE),
                         Expanded(
                           child: Text(
-                            country?.name ??
+                            country?.localizedName ??
                                 AppLocalizations.of(context).loading,
                             style: Theme.of(
                               context,
@@ -290,7 +290,7 @@ class _CountrySelectorScreen extends StatelessWidget {
                 Expanded(
                   flex: 7,
                   child: TextHighlighter(
-                    text: country.name,
+                    text: country.localizedName,
                     filter: filter,
                     textStyle: const TextStyle(fontWeight: FontWeight.w600),
                   ),
@@ -304,31 +304,12 @@ class _CountrySelectorScreen extends StatelessWidget {
             Country? selectedItem,
             Country? selectedItemOverride,
             String filter,
-          ) => _filterCountries(
+          ) => OpenFoodFactsCountryLocalization.filterCountries(
             list,
             selectedItem,
             selectedItemOverride,
             filter,
           ),
-    );
-  }
-
-  Iterable<Country> _filterCountries(
-    List<Country> countries,
-    Country? userCountry,
-    Country? selectedCountry,
-    String? filter,
-  ) {
-    if (filter == null || filter.isEmpty) {
-      return countries;
-    }
-
-    return countries.where(
-      (Country country) =>
-          country == userCountry ||
-          country == selectedCountry ||
-          country.name.toLowerCase().contains(filter.toLowerCase()) ||
-          country.offTag.toLowerCase().contains(filter.toLowerCase()),
     );
   }
 }

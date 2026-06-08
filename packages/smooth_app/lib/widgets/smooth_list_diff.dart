@@ -10,7 +10,7 @@ class SmoothAnimatedList<T> extends StatefulWidget {
     required this.itemBuilder,
     required this.separatorSize,
     required this.data,
-    this.findChildIndexCallback,
+    this.findItemIndexCallback,
     this.addAutomaticKeepAlives = true,
     this.addRepaintBoundaries = true,
     this.addSemanticIndexes = true,
@@ -19,7 +19,7 @@ class SmoothAnimatedList<T> extends StatefulWidget {
   });
 
   final SmoothSliverListItemBuilder<T> itemBuilder;
-  final ChildIndexGetter? findChildIndexCallback;
+  final ChildIndexGetter? findItemIndexCallback;
   final double separatorSize;
   final List<T> data;
   final bool addAutomaticKeepAlives;
@@ -146,7 +146,7 @@ class _SmoothAnimatedListState<T> extends State<SmoothAnimatedList<T>> {
         );
       },
       separatorBuilder: (_, _) => SizedBox(height: widget.separatorSize),
-      findChildIndexCallback: widget.findChildIndexCallback,
+      findItemIndexCallback: widget.findItemIndexCallback,
       addAutomaticKeepAlives: widget.addAutomaticKeepAlives,
       addRepaintBoundaries: widget.addRepaintBoundaries,
       addSemanticIndexes: widget.addSemanticIndexes,

@@ -214,7 +214,9 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     final FolksonomyTag? res = await showSmoothModalSheetForTextField(
       context: context,
       header: SmoothModalSheetHeader(
-        title: appLocalizations.add_tag,
+        title: action == FolksonomyAction.edit
+            ? appLocalizations.edit_tag
+            : appLocalizations.add_tag,
         prefix: const SmoothModalSheetHeaderPrefixIndicator(),
       ),
       bodyBuilder: (BuildContext context) {
@@ -328,6 +330,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
       key: _listKey,
       controller: _scrollController,
       initialItemCount: _tags.length,
+      padding: const EdgeInsets.only(bottom: kFloatingActionButtonHeight * 2),
       itemBuilder:
           (BuildContext context, int index, Animation<double> animation) {
             final ProductTag entry = _tags[index];

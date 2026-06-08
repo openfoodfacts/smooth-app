@@ -83,7 +83,6 @@ class ProductTypeSearchSelector extends StatelessWidget {
             ),
           ),
           values: ProductType.values,
-          safeArea: true,
         );
 
     if (context.mounted && productType != null) {

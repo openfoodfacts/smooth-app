@@ -11,7 +11,6 @@ import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
@@ -49,6 +48,16 @@ class BackgroundTaskManager {
   /// Returns [DaoInt] key for count of task failures.
   static String taskIdToCountDaoIntKey(final String taskId) =>
       'taskCount:$taskId';
+
+  /// Returns [DaoInt] key for "stale" task status.
+  ///
+  /// When a task failed too often (e.g. 50 times), we "stale" it.
+  /// When it's in a "stale" status, we don't run it anymore, but it's still
+  /// visible in the background task page.
+  /// Here, the user can stop it altogether (like any failed taks)
+  /// or un-stale it.
+  static String taskIdToStaleStatusDaoIntKey(final String taskId) =>
+      'taskStaleStatus:$taskId';
 
   /// Runs all background task queues.
   static void runAgain(
@@ -90,13 +99,15 @@ class BackgroundTaskManager {
       await task.postExecute(localDatabase, success);
     }
     await DaoStringList(localDatabase).remove(queue.tagTaskQueue, taskId);
-    await DaoInstantString(
-      localDatabase,
-    ).put(_taskIdToDaoInstantStringKey(taskId), null);
-    await DaoInstantString(
-      localDatabase,
-    ).put(taskIdToErrorDaoInstantStringKey(taskId), null);
-    await DaoInt(localDatabase).put(taskIdToCountDaoIntKey(taskId), null);
+
+    final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
+    await daoInstantString.put(_taskIdToDaoInstantStringKey(taskId), null);
+    await daoInstantString.put(taskIdToErrorDaoInstantStringKey(taskId), null);
+
+    final DaoInt daoInt = DaoInt(localDatabase);
+    await daoInt.put(taskIdToCountDaoIntKey(taskId), null);
+    await daoInt.put(taskIdToStaleStatusDaoIntKey(taskId), null);
+
     localDatabase.notifyListeners();
   }
 
@@ -208,6 +219,7 @@ class BackgroundTaskManager {
     /// With this, we can detect a run that went wrong.
     /// Like, still running 1 hour later.
     await localDatabase.daoIntPut(queue.tagLastStartTimestamp, now);
+    final DaoInt daoInt = DaoInt(localDatabase);
     bool runAgain = true;
     while (runAgain) {
       runAgain = false;
@@ -217,6 +229,13 @@ class BackgroundTaskManager {
       }
       for (final BackgroundTask task in tasks) {
         final String taskId = task.uniqueId;
+        final int? staleStatus = daoInt.get(
+          taskIdToStaleStatusDaoIntKey(taskId),
+        );
+        if (staleStatus != null) {
+          _debugPrint('stale task $taskId');
+          continue;
+        }
         try {
           await _setTaskErrorStatus(taskId, taskStatusStarted);
           await task.execute(localDatabase);
@@ -252,18 +271,25 @@ class BackgroundTaskManager {
     final String status,
   ) async {
     _debugPrint('setStatus - $taskId: $status');
+
+    final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
+    final DaoInt daoInt = DaoInt(localDatabase);
+
     final String key = taskIdToErrorDaoInstantStringKey(taskId);
-    if (DaoInstantString(localDatabase).get(key) == taskStatusStopAsap) {
+    if (daoInstantString.get(key) == taskStatusStopAsap) {
       // the task is supposed to be stopped asap and it's a good moment for that
       await _finishTask(taskId);
       return;
     }
-    await DaoInstantString(localDatabase).put(key, status);
+    await daoInstantString.put(key, status);
     if (status != taskStatusStarted && status != taskStatusNoInternet) {
-      await getNextSequenceNumber(
-        DaoInt(localDatabase),
+      final int count = await daoInt.getNextSequenceNumber(
         taskIdToCountDaoIntKey(taskId),
       );
+      // if the background task failed too often, we "stale" it.
+      if (count >= 50) {
+        await daoInt.put(taskIdToStaleStatusDaoIntKey(taskId), count);
+      }
     }
     localDatabase.notifyListeners();
   }
