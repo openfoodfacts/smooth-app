@@ -74,7 +74,6 @@
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIndicatorColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">prefixIndicatorColor</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-footerSpace"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">footerSpace</span> = <span class="default-value">0.0</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-type"><span class="type-annotation"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_generic_lib_bottom_sheets_smooth_bottom_sheet/SmoothModalSheetType.html">SmoothModalSheetType</a></span> <span class="parameter-name">type</span> = <span class="default-value">SmoothModalSheetType.info</span>, </span></li>
-<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-safeArea"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">safeArea</span> = <span class="default-value">false</span>, </span></li>
 <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-useRootNavigator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">useRootNavigator</span>}</span></li>
 </ol>)
 
@@ -112,7 +111,6 @@
   Color? prefixIndicatorColor,
   double footerSpace = 0.0,
   SmoothModalSheetType type = SmoothModalSheetType.info,
-  bool safeArea = false,
   bool? useRootNavigator,
 }) {
   assert(labels.length == values.length);
@@ -176,23 +174,12 @@
     }
   }
 
-  double bottomPadding = MediaQuery.paddingOf(context).bottom;
-
-  if (safeArea &amp;&amp; bottomPadding == 0.0) {
-    bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
-  }
-
   if (footer != null) {
     if (footerSpace &gt; 0.0) {
       items.add(SizedBox(height: footerSpace));
     }
 
-    Widget footerChild = Column(
-      children: &lt;Widget&gt;[
-        footer,
-        SizedBox(height: bottomPadding),
-      ],
-    );
+    Widget footerChild = footer;
 
     if (footerBackgroundColor != null) {
       footerChild = ColoredBox(
@@ -202,27 +189,27 @@
     }
 
     items.add(footerChild);
-  } else {
-    items.add(SizedBox(height: bottomPadding));
   }
 
   if (dynamicSize) {
     return showSmoothModalSheet&lt;T&gt;(
       context: context,
       useRootNavigator: useRootNavigator ?? false,
-      builder: (_) =&gt; Column(
-        mainAxisSize: MainAxisSize.min,
-        children: &lt;Widget&gt;[
-          SmoothModalSheetHeader(
-            title: title,
-            prefix: SmoothModalSheetHeaderPrefixIndicator(
-              color: prefixIndicatorColor,
+      builder: (_) =&gt; SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: &lt;Widget&gt;[
+            SmoothModalSheetHeader(
+              title: title,
+              prefix: SmoothModalSheetHeaderPrefixIndicator(
+                color: prefixIndicatorColor,
+              ),
+              backgroundColor: headerBackgroundColor,
+              type: type,
             ),
-            backgroundColor: headerBackgroundColor,
-            type: type,
-          ),
-          ...items,
-        ],
+            ...items,
+          ],
+        ),
       ),
     );
   }
@@ -239,7 +226,9 @@
       backgroundColor: headerBackgroundColor,
       type: type,
     ),
-    bodyBuilder: (_) =&gt; Column(mainAxisSize: MainAxisSize.min, children: items),
+    bodyBuilder: (_) =&gt; SafeArea(
+      child: Column(mainAxisSize: MainAxisSize.min, children: items),
+    ),
   );
 }</code></pre>
 </section>
