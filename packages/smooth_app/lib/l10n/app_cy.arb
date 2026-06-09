@@ -5,10 +5,14 @@
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
   },
-  "yes": "Yes",
+  "yes": "Ie",
   "@yes": {},
   "add": "Ychwanegu",
   "@add": {},
+  "edit": "Edit",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Ydych chi'n siŵr eich bod chi eisiau dileu eich cyfrif?\nOs oes rheswm penodol, rhannwch isod.",
   "@account_delete_message": {},
   "reason": "Rheswm",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Ailosod dewisiadau bwyd",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personoli'r ap",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Dietau",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Alergeddau",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "Yr hyn nad ydw i'n ei fwyta",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "Yr hyn rwy'n well ganddo ei osgoi",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Dewisiadau amgylcheddol",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Proffil yn barod",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Cam {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "Dim dewis",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "Dim priodoleddau ar gael ar gyfer y categori hwn.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Methwyd llwytho'r dewisiadau. Gwiriwch eich cysylltiad rhyngrwyd.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Dyma eich proffil:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "Yn y camau canlynol, gallwch chi **bersonoli'r ap** drwy nodi eich dewisiadau:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Dewiswch y dietau rydych chi'n eu dilyn i bersonoli eich argymhellion.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Dewiswch yr alergenau y mae angen i chi eu hosgoi er mwyn diogelwch eich bwyd.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Nodwch y bwydydd neu'r cynhwysion nad ydych chi'n eu bwyta.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Dewiswch y bwydydd rydych chi'n well ganddynt eu hosgoi heb iddo fod yn waharddiad llym.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Nodwch eich dewisiadau amgylcheddol am argymhellion mwy cynaliadwy.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Chwiliwch am gynhwysion",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Cynhwysyn eisoes wedi'i ychwanegu",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Aeth rhywbeth o'i le",
   "@error": {},
@@ -423,7 +513,7 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "Become an actor of food transparency",
+  "contribute_to_get_rewards": "Dewch yn actor tryloywder bwyd",
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Rheoli eich cyfrif cyfrannwr Open Food Facts.",
   "myPreferences_settings_title": "Gosodiadau Ap",
   "myPreferences_settings_subtitle": "Modd tywyll, Ieithoedd…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Dewisiadau Bwyd",
   "myPreferences_food_subtitle": "Dewiswch pa wybodaeth am fwyd sydd bwysicaf i chi.",
   "myPreferences_food_comment": "Dewiswch pa wybodaeth am fwyd sydd bwysicaf i chi, er mwyn rhestru bwyd yn ôl eich dewisiadau, gweld y wybodaeth sy'n bwysig i chi yn gyntaf, a chael crynodeb cydnawsedd. Mae'r dewisiadau bwyd hynny'n aros ar eich dyfais, ac nid ydynt yn gysylltiedig â'ch cyfrif cyfrannwr Open Food Facts os oes gennych un.",
+  "myPreferences_beauty_title": "Dewisiadau ar gyfer colur",
+  "myPreferences_beauty_subtitle": "Dewiswch pa wybodaeth am gynhyrchion colur sydd bwysicaf i chi.",
+  "myPreferences_product_title": "Dewisiadau ar gyfer cynhyrchion eraill",
+  "myPreferences_product_subtitle": "Dewiswch pa wybodaeth am gynhyrchion eraill sydd bwysicaf i chi.",
+  "myPreferences_pet_food_title": "Dewisiadau ar gyfer bwyd anifeiliaid anwes",
+  "myPreferences_pet_food_subtitle": "Dewiswch pa wybodaeth am fwyd anifeiliaid anwes sydd bwysicaf i chi.",
   "confirmResetPreferences": "Ailosod eich dewisiadau bwyd?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -712,7 +809,7 @@
   "nutritional_facts_input_button_label": "Llenwch ffeithiau maeth",
   "nutritional_facts_added": "Ffeithiau maeth wedi'u hychwanegu",
   "categories_added": "Categorïau wedi'u hychwanegu",
-  "new_product_title_nutriscore": "Cyfrifwch y Sgôr Maeth",
+  "new_product_title_nutriscore": "Cyfrifwch y Nutri-Score",
   "new_product_subtitle_nutriscore": "Helpwch ni drwy lenwi o leiaf un categori a gwerthoedd maethol",
   "new_product_title_environmental_score": "Cyfrifwch y Sgôr Werdd",
   "new_product_subtitle_environmental_score": "Cael gafael arno drwy lenwi o leiaf un categori",
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Gweld yr holl luniau presennol ar gyfer y cynnyrch hwn",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Ni chanfuwyd unrhyw gynnyrch",
   "@no_product_found": {},
   "no_product_found_explanation": "Ni wnaeth eich chwiliad am\n**\"{search}\"**\ngyd-fynd ag unrhyw ganlyniadau.",
@@ -1088,15 +1187,15 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Ychwanegwch gategori i gyfrifo'r Sgôr Maeth.",
+  "product_improvement_add_category": "Ychwanegwch gategori i gyfrifo'r Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Ychwanegwch ffeithiau maeth i gyfrifo'r Sgôr Maeth.",
+  "product_improvement_add_nutrition_facts": "Ychwanegwch ffeithiau maeth i gyfrifo'r Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Ychwanegwch ffeithiau maeth a chategori i gyfrifo'r Sgôr Maeth.",
+  "product_improvement_add_nutrition_facts_and_category": "Ychwanegwch ffeithiau maeth a chategori i gyfrifo'r Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -2670,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Gostyngiad maint",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "Wedi'i wneud",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2801,7 +2909,7 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Cynorthwyydd Cyfraniad Prisiau",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Cynorthwyydd Dilysu Prisiau",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
@@ -3777,7 +3885,7 @@
   "@clear_local_database_sub": {
     "description": "Clear all local product data from your app to free up space"
   },
-  "deleted_products": "{num} products deleted",
+  "deleted_products": "cynhyrchion wedi'u dileu {num}",
   "@deleted_products": {
     "description": "text to show when products are deleted from local databse",
     "placeholders": {
@@ -3865,8 +3973,8 @@
   "nutriscore_new_formula_title": "Nutri-Score (Cyfrifiad newydd)",
   "nutriscore_unknown": "Nutri-Score Anhysbys",
   "nutriscore_unknown_new_formula": "Nutri-Score Anhysbys (Cyfrifiad newydd)",
-  "nutriscore_not_applicable": "Nid yw Sgôr Maeth yn berthnasol",
-  "nutriscore_not_applicable_new_formula": "Nid yw Sgôr Maeth yn berthnasol (Cyfrifiad newydd)",
+  "nutriscore_not_applicable": "Nid yw Nutri-Score yn berthnasol",
+  "nutriscore_not_applicable_new_formula": "Nid yw Nutri-Score yn berthnasol (Cyfrifiad newydd)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Sgôr Gwyrdd A",
   "environmental_score_b_new": "Sgôr Gwyrdd B",
@@ -4295,6 +4403,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "Gweld y ddelwedd wreiddiol",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Cydnaws",
   "@product_page_compatibility_score": {

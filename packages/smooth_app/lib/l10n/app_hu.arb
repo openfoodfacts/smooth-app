@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "Hozzáadás",
   "@add": {},
+  "edit": "Szerkesztés",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Biztosan törölni szeretné a fiókját?\nHa van konkrét oka, kérjük ossza meg alább",
   "@account_delete_message": {},
   "reason": "Ok",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Preferált ételek visszaállítása",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Valami hiba történt",
   "@error": {},
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Kezelje OpenFoodFacts-közreműködői fiókját.",
   "myPreferences_settings_title": "Alkalmazás beállításai",
   "myPreferences_settings_subtitle": "Sötét mód, nyelvek…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Élelmiszer-preferenciák",
   "myPreferences_food_subtitle": "Válassza ki, hogy mely élelmiszerekkel kapcsolatos információk a legfontosabbak az Ön számára.",
   "myPreferences_food_comment": "Válassza ki, hogy az élelmiszerekkel kapcsolatban mely információk a legfontosabbak az Ön számára, hogy az élelmiszereket a preferenciái szerint rangsorolja, az Ön számára fontos információkat lássa elsőként, és kapjon egy megfelelőségi összefoglalót. Ezek az élelmiszer-preferenciák az Ön készülékén maradnak, és nem kapcsolódnak az Open Food Facts közreműködői fiókjához, ha rendelkezik ilyennel.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Visszaállítja az élelmiszer-preferenciáit?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Termék meglévő fotóinak megtekintése",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Nem található termék",
   "@no_product_found": {},
   "no_product_found_explanation": "A(z)\n**\"{search}\"**\nkifejezésre keresve nincsen találat.",
@@ -2670,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Egyéb",
   "dev_preferences_import_history_result_success": "Kész",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -4029,7 +4137,7 @@
   "guide_greenscore_better_product_arg3_text": "A fenntartható élelmiszerek kiválasztása bonyolultnak tűnhet. A címkék zavarosak lehetnek, és gyakran hiányoznak bizonyos információk. A Green-Score rendszer azért jött létre, hogy ezt egyszerűbbé, és **egyértelmű**, **tudományosan megalapozott** és **átlátható** környezetvédelmi besorolást adjon az élelmiszeripari termékeknek, pont ott, ahol szüksége van rá: vásárlás közben.",
   "guide_greenscore_better_product_arg4_title": "Átláthatóság",
   "guide_greenscore_better_product_arg4_text": "A zárt, céghez kötődő címkékkel ellentétben a Green-Score számítás **teljesen nyílt**, és **bárki által ellenőrizhető**.",
-  "guide_nova_title": "Többszörösen feldolgozott élelmiszerek",
+  "guide_nova_title": "Ultrafeldolgozott élelmiszerek",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4047,11 +4155,11 @@
   "guide_nova_groups_intro": "4 NOVA-csoport létezik. A problémás a 4. csoport, az ultrafeldolgozott élelmiszereké.",
   "guide_nova_groups_arg1_title": "Minimálisan feldolgozott vagy feldolgozatlan élelmiszerek",
   "guide_nova_groups_arg1_text": "A feldolgozatlan (vagy természetes) élelmiszerek a **növények** (magvak, gyümölcsök, levelek, szárak, gyökerek) **vagy állatok ehető részei** (izom, belsőségek, tojás, tej), valamint gombák, algák és víz, miután elválasztották őket a természetből.",
-  "guide_nova_groups_arg2_title": "Feldolgozott összetevők",
+  "guide_nova_groups_arg2_title": "Feldolgozott konyhai alapanyagok",
   "guide_nova_groups_arg2_text": "A feldolgozott konyhai összetevők, mint például az **olaj, vaj, cukor és só** olyan, az 1. csoportba tartozó élelmiszerekből vagy a természetből származó anyagok, amelyeket préseléssel, finomítással, őrléssel, darálással, szárítással állítanak elő.",
   "guide_nova_groups_arg3_title": "Feldolgozott élelmiszerek",
   "guide_nova_groups_arg3_text": "PROCESSED foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have TWO or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten On their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "Többszörösen feldolgozott élelmiszerek",
+  "guide_nova_groups_arg4_title": "Ultrafeldolgozott élelmiszerek",
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used In culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "Az ultrafeldolgozással kapcsolatos problémák",
   "guide_nova_explanations_arg1_title": "Az élelmiszer-összetevők extrém feldolgozása",
@@ -4295,6 +4403,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "egyezés",
   "@product_page_compatibility_score": {

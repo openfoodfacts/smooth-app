@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "Přidat",
   "@add": {},
+  "edit": "Upravit",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Opravdu chcete smazat svůj účet?\nPokud existuje konkrétní důvod, podělte se prosím níže",
   "@account_delete_message": {},
   "reason": "Důvod",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Obnovit předvolby jídla",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Přizpůsobte si aplikaci",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diety",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Alergie",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "Co nejím",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "Čemu se raději vyhýbám",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Preference k životnímu prostředí",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profil připraven",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Krok {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "Žádný výběr",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "Pro tuto kategorii nejsou k dispozici žádné atributy.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Načtení nastavení se nezdařilo. Zkontrolujte prosím připojení k internetu.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Zde je váš profil:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "V následujících krocích si můžete **aplikaci** přizpůsobit zadáním svých preferencí:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Vyberte si diety, které dodržujete, a upravte si doporučení podle sebe.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Vyberte alergeny, kterým se musíte vyhnout pro bezpečnost vašich potravin.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Uveďte potraviny nebo ingredience, které nejíte.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Vyberte si potraviny, kterým se chcete vyhnout, aniž by to byl přísný zákaz.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Uveďte své preference v oblasti životního prostředí a získejte udržitelnější doporučení.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Hledat ingredience",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredience je již přidána",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Něco se nepovedlo",
   "@error": {},
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Spravujte svůj účet přispěvatele Open Food Facts.",
   "myPreferences_settings_title": "Nastavení aplikace",
   "myPreferences_settings_subtitle": "Tmavý režim, Jazyky…",
+  "myPreferences_not_configured_yet": "Zatím jste nenastavili žádné předvolby.",
   "myPreferences_food_title": "Předvolby jídla",
   "myPreferences_food_subtitle": "Vyberte si, které informace o jídle jsou pro vás nejdůležitější.",
   "myPreferences_food_comment": "Vyberte si, na kterých informacích o potravinách vám nejvíce záleží, abyste mohli seřadit potraviny podle svých preferencí, prohlédněte si informace, které vás zajímají, jako první a získejte přehled kompatibility. Tyto preference jídla zůstanou ve vašem zařízení a nejsou spojeny s vaším účtem přispěvatele Open Food Facts, pokud jej máte.",
+  "myPreferences_beauty_title": "Předvolby kosmetiky",
+  "myPreferences_beauty_subtitle": "Vyberte si, které informace o kosmetických produktech jsou pro vás nejdůležitější.",
+  "myPreferences_product_title": "Předvolby pro ostatní produkty",
+  "myPreferences_product_subtitle": "Vyberte si, které informace o ostatních produktech jsou pro vás nejdůležitější.",
+  "myPreferences_pet_food_title": "Preference pro krmivo pro domácí mazlíčky",
+  "myPreferences_pet_food_subtitle": "Vyberte si, které informace o krmivu pro domácí mazlíčky jsou pro vás nejdůležitější.",
   "confirmResetPreferences": "Obnovit předvolby jídla?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Zobrazit všechny existující fotografie tohoto produktu",
   "@view_more_photo_button": {},
+  "no_settings_found": "Nebyla nalezena žádná nastavení",
+  "@no_settings_found": {},
   "no_product_found": "Nebyl nalezen žádný produkt",
   "@no_product_found": {},
   "no_product_found_explanation": "Vaše vyhledávání výrazu\n**\"{search}\"**\nneodpovídá žádným výsledkům.",
@@ -1237,7 +1336,7 @@
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+  "multiselect_title": "{count,plural, one {}=0{Žádný vybraný produkt} =1{Jeden vybraný produkt} few{{count} vybrané produkty} many{{count} vybraných produktů} other{{count} vybraných produktů}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
@@ -1532,7 +1631,7 @@
   "@crash_reporting_toggle_subtitle": {
     "description": "SubTitle for the Crash reporting toggle"
   },
-  "send_anonymous_data_toggle_title": "Odeslat anonymní data",
+  "send_anonymous_data_toggle_title": "Hlásit využívání funkcí",
   "@send_anonymous_toggle_title": {
     "description": "Title for the Send anonymous data toggle"
   },
@@ -2375,8 +2474,8 @@
     }
   },
   "prices_generic_title": "Ceny",
-  "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
-  "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+  "prices_add_n_prices": "{count,plural, one {}=1{Přidat jednu cenu} few{Přidat {count} ceny} many {Přidat {count} cen} other{Přidat {count} cen}}",
+  "prices_send_n_prices": "{count,plural, one {}=1{Přidat jednu cenu} few{Přidat {count} ceny} many {Přidat {count} cen} other{Přidat {count} cen}}",
   "prices_add_an_item": "Přidat položku",
   "prices_add_a_price": "Přidat cenu",
   "prices_add_a_receipt": "Přidat účtenku",
@@ -2670,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Typ slevy",
+  "prices_discount_type_quantity": "Množstevní sleva",
+  "prices_discount_type_sale": "Výprodej",
+  "prices_discount_type_seasonal": "Sezónní",
+  "prices_discount_type_loyalty_program": "Věrnostní program",
+  "prices_discount_type_expires_soon": "Platnost brzy vyprší",
+  "prices_discount_type_pick_it_yourself": "Vyberte si to sami",
+  "prices_discount_type_second_hand": "Z druhé ruky",
+  "prices_discount_type_other": "Ostatní",
   "dev_preferences_import_history_result_success": "Hotovo",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3298,12 +3406,12 @@
   "@expand_nutrition_facts": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_nutrition_facts_body": "Nechte tabulku nutričních údajů rozšířenou",
+  "expand_nutrition_facts_body": "Nechat tabulku nutričních údajů rozbalenou",
   "expand_ingredients": "Rozbalit přísady",
   "@expand_ingredients": {
     "description": "Label for expanding nutrition facts table in application setting"
   },
-  "expand_ingredients_body": "Nechte panel ingrediencí rozbalený",
+  "expand_ingredients_body": "Nechat panel ingrediencí rozbalený",
   "no_internet_connection": "Žádné připojení k Internetu",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -4295,6 +4403,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "Zobrazit původní obrázek",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Kompatibilní",
   "@product_page_compatibility_score": {

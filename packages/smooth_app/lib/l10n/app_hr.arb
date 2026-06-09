@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "Dodaj",
   "@add": {},
+  "edit": "Urediti",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Are you sure you want to delete your account?\nIf there is a specific reason, please share below",
   "@account_delete_message": {},
   "reason": "Reason",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Resetiraj preferencije hrane",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Dogodila se greška.",
   "@error": {},
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Manage your Open Food Facts contributor account.",
   "myPreferences_settings_title": "App Settings",
   "myPreferences_settings_subtitle": "Dark mode, Languages…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Food Preferences",
   "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
   "myPreferences_food_comment": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Reset your food preferences?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -547,7 +644,7 @@
   "@unknownProductName": {
     "description": "Message when the product name is not available"
   },
-  "label_refresh": "Refresh",
+  "label_refresh": "Osvježi",
   "@label_refresh": {
     "description": "Refresh the cached product"
   },
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "View all existing photos for this product",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "No product found",
   "@no_product_found": {},
   "no_product_found_explanation": "Vaša pretraga za\n**\"{search}\"**\nnije dala nikakve rezultate.",
@@ -2511,7 +2610,7 @@
       }
     }
   },
-  "prices_open_proof": "Open price proof",
+  "prices_open_proof": "Dokaz o otvorenoj cijeni",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
@@ -2626,10 +2725,10 @@
   "prices_add_validation_error": "Validation error",
   "prices_privacy_warning_title": "Privacy warning",
   "prices_unknown_product": "Unknown product",
-  "prices_privacy_warning_main_message": "Prices **will be public**, along with the store they refer to.\n\nThat might allow people who know about your Open Food Facts pseudonym to:\n",
+  "prices_privacy_warning_main_message": "Cijene **bit će javne**, zajedno s trgovinom na koju se odnose.\n\nTo bi moglo omogućiti ljudima koji znaju za vaš pseudonim Open Food Facts da:\n",
   "prices_privacy_warning_message_bullet_1": "Infer in which area you live",
   "prices_privacy_warning_message_bullet_2": "Know what you are buying",
-  "prices_privacy_warning_sub_message": "If you are uneasy with that, please change your pseudonym, or create a new Open Food Facts account and log into the app with it.",
+  "prices_privacy_warning_sub_message": "Ako vam to ne odgovara, promijenite pseudonim ili stvorite novi Open Food Facts račun i prijavite se u aplikaciju s njim.",
   "i_refuse": "I refuse",
   "i_accept": "I accept",
   "prices_currency_change_proposal_title": "Change the currency?",
@@ -2666,10 +2765,19 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Saznajte više o otvorenim cijenama",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Ostalo",
   "dev_preferences_import_history_result_success": "Done",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2805,7 +2913,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Izazovi",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3786,7 +3894,7 @@
       }
     }
   },
-  "loading": "Loading…",
+  "loading": "Učitavanje…",
   "@loading": {
     "description": "Loading…"
   },
@@ -3990,7 +4098,7 @@
   "guide_greenscore_lca_arg2_title": "6 koraka proizvodnje",
   "guide_greenscore_lca_arg2_agriculture": "Poljoprivreda",
   "guide_greenscore_lca_arg2_processing": "Obrada",
-  "guide_greenscore_lca_arg2_packaging": "Packaging",
+  "guide_greenscore_lca_arg2_packaging": "Pakiranje",
   "guide_greenscore_lca_arg2_transportation": "Prijevoz",
   "guide_greenscore_lca_arg2_distribution": "Distribucija",
   "guide_greenscore_lca_arg2_consumption": "Potrošnja",
@@ -4011,7 +4119,7 @@
   "guide_greenscore_bonuses_penalties_arg2_text": "A **bonus** is awarded based on the origin of the ingredients. This bonus takes into account the **impact on transportation** and also the **environmental policy** of each producer's country.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
   "guide_greenscore_bonuses_penalties_arg3_text": "A **penalty** is given to products that contain ingredients that have significant **negative impacts on biodiversity and ecosystems**, such as palm oil, the production of which is responsible for massive deforestation.",
-  "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Pakiranje",
   "guide_greenscore_bonuses_penalties_arg4_text": "A **penalty** is calculated to take into account the **circularity of packaging** (use of recycled raw material and recyclability) and overpacking.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
   "guide_greenscore_transparency_intro1": "To accurately calculate the Green-Score, it is necessary to have **information which is not necessarily specified on the packaging** (such as the origin and the exact percentage of each ingredient) or which is rarely available in usable form (such as a list of all the components of the packaging with the precise types of plastics used).",
@@ -4168,29 +4276,29 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "Što su Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt za **prikupljanje i dijeljenje cijena proizvoda diljem svijeta**. To je javno dostupan skup podataka koji se može koristiti za istraživanje, analizu i još mnogo toga. Open Prices razvija i održava Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Trenutno postoji malo tvrtki koje posjeduju velike baze podataka cijena proizvoda na razini barkoda. Te cijene nisu slobodno dostupne, već se prodaju po visokoj cijeni privatnim akterima, istraživačima i drugim organizacijama koje si ih mogu priuštiti.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
-  "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
-  "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
+  "guide_open_prices_how_title": "Kako funkcioniraju cijene otvaranja?",
+  "guide_open_prices_how_paragraph1": "**Prikupljamo skup podataka o cijenama otvorenog koda putem crowdsourcinga**. Cijene mogu dodati korisnici putem ove web aplikacije ili putem službene mobilne aplikacije Open Food Facts. Trgovci ili aplikacije trećih strana također mogu doprinijeti korištenjem našeg API-ja.",
+  "guide_open_prices_how_arg1_title": "Skupljajte fotografije cijena u prolazima",
+  "guide_open_prices_how_arg2_title": "Prikupite fotografije računa",
+  "guide_open_prices_why_title": "Zašto Open Food Facts to radi?",
+  "guide_open_prices_why_paragraph1": "Informacije o cijenama od najveće su važnosti za razumijevanje prehrambenih sustava. To je ključni čimbenik u razumijevanju troškova hrane i promicanju zdravije prehrane. Podaci o početnim cijenama način su da se istraživačima, novinarima i građanima olakša **bolje razumijevanje kako se cijene hrane razlikuju geografski i vremenski**.",
   "guide_open_prices_why_arg1_title": "Pratite razvoj cijena tijekom vremena",
   "guide_open_prices_why_arg1_text": "Pogledajte **evoluciju cijena**: smanjenje inflacije, jeftina inflacija, možemo ih pratiti zajedno!",
   "guide_open_prices_why_arg2_title": "Usporedite cijene u vašoj blizini",
-  "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
-  "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
-  "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
+  "guide_open_prices_why_arg2_text": "Kako dobivamo više cijena, možete uočiti **najjeftinije trgovine oko sebe**.",
+  "guide_open_prices_scrapping_title": "Jeste li razmišljali o preuzimanju cijena s web stranica trgovaca?",
+  "guide_open_prices_scrapping_paragraph1": "Iz pravnih i tehničkih razloga, **ne smatramo preuzimanje cijena s web stranica trgovaca valjanim načinom doprinosa Open Pricesu**. Želimo biti sigurni da su cijene koje prikupljamo točne i ažurne, a primanje prikupljenih cijena od suradnika nam to ne dopušta.",
+  "guide_open_prices_scrapping_paragraph2": "Skupljanje podataka o cijenama razmatrana je opcija u budućoj verziji Open Pricesa, ali bi to radio sam Open Prices kako bismo mogli imati dokaz o cijeni na temelju HTML stranice.",
+  "guide_open_prices_retailers_title": "Ja sam trgovac i želim doprinijeti cijenama. Kako to mogu učiniti?",
+  "guide_open_prices_retailers_paragraph1": "Možete doprinijeti cijenama putem našeg API-ja.\nAko želite doprinijeti cijenama u većem obimu, kontaktirajte nas na prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
@@ -4295,6 +4403,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Compatible",
   "@product_page_compatibility_score": {
@@ -5188,7 +5300,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Otkrijte otvorene cijene",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5360,7 +5472,7 @@
   "@preferences_my_contributions_prices_title": {
     "description": "Title for a container linking to user prices"
   },
-  "preferences_my_contributions_my_prices_title": "My prices",
+  "preferences_my_contributions_my_prices_title": "Moje cijene",
   "@preferences_my_contributions_my_prices_title": {
     "description": "Title for opening prices stats"
   },
