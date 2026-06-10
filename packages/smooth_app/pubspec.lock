@@ -1060,10 +1060,10 @@ packages:
     dependency: transitive
     description:
       name: meta
-      sha256: "23f08335362185a5ea2ad3a4e597f1375e78bce8a040df5c600c8d3552ef2394"
+      sha256: "1741988757a65eb6b36abe716829688cf01910bbf91c34354ff7ec1c3de2b349"
       url: "https://pub.dev"
     source: hosted
-    version: "1.17.0"
+    version: "1.18.0"
   mgrs_dart:
     dependency: transitive
     description:
@@ -1397,18 +1397,18 @@ packages:
     dependency: "direct main"
     description:
       name: rive
-      sha256: "3533244f855469047500c6d40c1232adf61e3ee35a6e706a6e8e5c6e2328c7df"
+      sha256: "95733287b3b5bd6732dc1188f6e13c9eaf9c4320e84ef601b355fe9abbd0967d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.14.7"
+    version: "0.14.8"
   rive_native:
     dependency: transitive
     description:
       name: rive_native
-      sha256: "27ffdb21e0c2cc3b5d37bcfa6b198830954784adb82b798383d35b0c2603a74e"
+      sha256: aa8a1e4c2c3b3de8e9ba8d6e346ad58ee5b6cc4b07614c0bcd2cf5ef8c4a41e1
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.7"
+    version: "0.1.8"
   rxdart:
     dependency: transitive
     description:
@@ -1687,10 +1687,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: "8161c84903fd860b26bfdefb7963b3f0b68fee7adea0f59ef805ecca346f0c7a"
+      sha256: "949a932224383300f01be9221c39180316445ecb8e7547f70a41a35bf421fb9e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.10"
+    version: "0.7.11"
   torch_light:
     dependency: "direct main"
     description:
@@ -1949,4 +1949,4 @@ packages:
     version: "3.1.3"
 sdks:
   dart: ">=3.11.5 <4.0.0"
-  flutter: ">=3.41.8 <4.0.0"
+  flutter: ">=3.41.8"
