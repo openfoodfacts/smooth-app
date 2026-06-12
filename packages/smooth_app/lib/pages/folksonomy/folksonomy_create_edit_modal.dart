@@ -10,6 +10,8 @@ import 'package:smooth_app/pages/folksonomy/folksonomy_autocompleter.dart';
 import 'package:smooth_app/pages/folksonomy/folksonomy_provider.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_text_field.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 
 class FolksonomyEditTagContent extends StatefulWidget {
@@ -50,24 +52,32 @@ class FolksonomyEditTagContentState extends State<FolksonomyEditTagContent> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        _FolksonomyEditTagContentBody(
-          keyController: keyController,
-          valueController: valueController,
-          isKeyEditable: widget.action == FolksonomyAction.add,
-          isKeyValid: isKeyValid,
-          isValueValid: isValueValid,
-          onSave: _onSubmit,
-          keyFocusNode: keyFocusNode,
-          valueFocusNode: valueFocusNode,
-          keyAutocompleteKey: keyAutocompleteKey,
-          valueAutocompleteKey: valueAutocompleteKey,
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    return SmoothScaffold(
+      appBar: SmoothAppBar(
+        title: Text(
+          widget.action == FolksonomyAction.edit
+              ? appLocalizations.edit_tag
+              : appLocalizations.add_tag,
         ),
-        _FolksonomyEditTagContentFooter(onSave: _onSubmit),
-      ],
+      ),
+      body: ListView(
+        children: <Widget>[
+          _FolksonomyEditTagContentBody(
+            keyController: keyController,
+            valueController: valueController,
+            isKeyEditable: widget.action == FolksonomyAction.add,
+            isKeyValid: isKeyValid,
+            isValueValid: isValueValid,
+            onSave: _onSubmit,
+            keyFocusNode: keyFocusNode,
+            valueFocusNode: valueFocusNode,
+            keyAutocompleteKey: keyAutocompleteKey,
+            valueAutocompleteKey: valueAutocompleteKey,
+          ),
+          _FolksonomyEditTagContentFooter(onSave: _onSubmit),
+        ],
+      ),
     );
   }
 
@@ -193,6 +203,8 @@ class _FolksonomyEditTagContentBody extends StatelessWidget {
                 productType: null,
                 withClearButton: false,
                 margin: EdgeInsetsDirectional.zero,
+                // don't restrict to 1 line - descriptions may be longer
+                maxLines: null,
                 autocompleteManager: AutocompleteManager(
                   FolksonomyValuesAutocompleter(
                     keyProvider: () => keyController.text,
