@@ -603,10 +603,34 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_email_sender
-      sha256: f01bccb29bc1aba3d128859ca970883923a43824c7b9bc2fc47bb278a8cc2674
+      sha256: b7a944822a9f58224818e61ab68a37d293e3aa2734f6037379aec95740516f16
       url: "https://pub.dev"
     source: hosted
-    version: "9.0.0"
+    version: "10.0.0"
+  flutter_email_sender_method_channel:
+    dependency: transitive
+    description:
+      name: flutter_email_sender_method_channel
+      sha256: "4e4bec933e0d7de41fce9e6e87294d6f6b9fa2d375e8ee4ea2e14c1f91620afa"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  flutter_email_sender_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_email_sender_platform_interface
+      sha256: "576fb2b08790040693bd02b1911ad51bf52ccabba87dc2964d6805552f27c39a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  flutter_email_sender_web:
+    dependency: transitive
+    description:
+      name: flutter_email_sender_web
+      sha256: cf47a07211d2e802f4638a8e17bfc87de0ee5c93f91d16051c0ed5ad01781c65
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   flutter_icmp_ping:
     dependency: transitive
     description:
