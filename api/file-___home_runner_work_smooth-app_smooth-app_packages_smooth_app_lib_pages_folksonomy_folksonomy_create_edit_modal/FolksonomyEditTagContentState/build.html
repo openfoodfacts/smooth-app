@@ -71,24 +71,32 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return Column(
-    mainAxisSize: MainAxisSize.min,
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: &lt;Widget&gt;[
-      _FolksonomyEditTagContentBody(
-        keyController: keyController,
-        valueController: valueController,
-        isKeyEditable: widget.action == FolksonomyAction.add,
-        isKeyValid: isKeyValid,
-        isValueValid: isValueValid,
-        onSave: _onSubmit,
-        keyFocusNode: keyFocusNode,
-        valueFocusNode: valueFocusNode,
-        keyAutocompleteKey: keyAutocompleteKey,
-        valueAutocompleteKey: valueAutocompleteKey,
+  final AppLocalizations appLocalizations = AppLocalizations.of(context);
+  return SmoothScaffold(
+    appBar: SmoothAppBar(
+      title: Text(
+        widget.action == FolksonomyAction.edit
+            ? appLocalizations.edit_tag
+            : appLocalizations.add_tag,
       ),
-      _FolksonomyEditTagContentFooter(onSave: _onSubmit),
-    ],
+    ),
+    body: ListView(
+      children: &lt;Widget&gt;[
+        _FolksonomyEditTagContentBody(
+          keyController: keyController,
+          valueController: valueController,
+          isKeyEditable: widget.action == FolksonomyAction.add,
+          isKeyValid: isKeyValid,
+          isValueValid: isValueValid,
+          onSave: _onSubmit,
+          keyFocusNode: keyFocusNode,
+          valueFocusNode: valueFocusNode,
+          keyAutocompleteKey: keyAutocompleteKey,
+          valueAutocompleteKey: valueAutocompleteKey,
+        ),
+        _FolksonomyEditTagContentFooter(onSave: _onSubmit),
+      ],
+    ),
   );
 }</code></pre>
 </section>
