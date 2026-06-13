@@ -25,6 +25,11 @@
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_scheme"
         tools:targetApi="q">
+
+        <property
+            android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY"
+            android:value="true" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
