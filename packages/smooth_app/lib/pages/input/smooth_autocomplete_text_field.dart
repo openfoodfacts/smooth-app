@@ -22,6 +22,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.minLengthForSuggestions = 1,
     this.autofocus = false,
     this.allowEmojis = true,
+    this.maxLines = 1,
     this.suffixIcon,
     this.borderRadius,
     this.padding,
@@ -40,6 +41,7 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final int minLengthForSuggestions;
   final AutocompleteManager? manager;
   final bool allowEmojis;
+  final int? maxLines;
   final Widget? suffixIcon;
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? padding;
@@ -100,7 +102,7 @@ class _SmoothAutocompleteTextFieldState
             VoidCallback onFieldSubmitted,
           ) => TextField(
             enabled: widget.enabled,
-            maxLines: 1,
+            maxLines: widget.maxLines,
             controller: widget.controller,
             onChanged: (_) {
               if (mounted) {
