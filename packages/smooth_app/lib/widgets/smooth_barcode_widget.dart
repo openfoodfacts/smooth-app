@@ -24,8 +24,9 @@ class SmoothBarcodeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Semantics(
-      label: AppLocalizations.of(context).barcode_accessibility_label(barcode),
+      label: appLocalizations.barcode_accessibility_label(barcode),
       excludeSemantics: true,
       child: Padding(
         padding: padding ?? EdgeInsets.zero,
@@ -40,6 +41,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
             errorBuilder: (final BuildContext context, String? error) {
               return Container(
                 width: double.infinity,
+                height: height,
                 padding: const EdgeInsets.symmetric(
                   horizontal: SMALL_SPACE,
                   vertical: SMALL_SPACE,
@@ -56,10 +58,15 @@ class SmoothBarcodeWidget extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         const icons.Warning(),
-                        Text(
-                          // TODO(monsieurtanuki): localize
-                          ' probably invalid barcode',
-                          style: TextStyle(color: color),
+                        const SizedBox(width: SMALL_SPACE),
+                        Expanded(
+                          child: FittedBox(
+                            fit: BoxFit.contain,
+                            child: Text(
+                              appLocalizations.barcode_probably_invalid,
+                              style: TextStyle(color: color),
+                            ),
+                          ),
                         ),
                       ],
                     ),
