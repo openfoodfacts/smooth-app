@@ -50,12 +50,10 @@
 
     <section class="multi-line-signature">const
       <span class="name ">SmoothBarcodeWidget</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-barcode">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">barcode</span>, </span></li>
-<li><span class="parameter" id="-param-errorBuilder"><span class="type-annotation">dynamic</span> <span class="parameter-name">errorBuilder</span>, </span></li>
+<li><span class="parameter" id="-param-height"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">height</span>, </span></li>
+<li><span class="parameter" id="-param-color"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">color</span>, </span></li>
 <li><span class="parameter" id="-param-backgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">backgroundColor</span>, </span></li>
-<li><span class="parameter" id="-param-color"><span class="type-annotation">dynamic</span> <span class="parameter-name">color</span>, </span></li>
-<li><span class="parameter" id="-param-height"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">height</span>, </span></li>
 <li><span class="parameter" id="-param-padding"><span class="type-annotation">dynamic</span> <span class="parameter-name">padding</span>, </span></li>
-<li><span class="parameter" id="-param-onInvalidBarcode"><span class="type-annotation">dynamic</span> <span class="parameter-name">onInvalidBarcode</span>, </span></li>
 <li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>}</span></li>
 </ol>)
     </section>
@@ -68,12 +66,10 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const SmoothBarcodeWidget({
   required this.barcode,
-  this.errorBuilder,
+  required this.height,
+  required this.color,
   this.backgroundColor,
-  this.color,
-  this.height,
   this.padding,
-  this.onInvalidBarcode,
   super.key,
 }) : assert(barcode.length &gt; 0);</code></pre>
 </section>
@@ -109,10 +105,8 @@
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_barcode_widget/SmoothBarcodeWidget/backgroundColor.html">backgroundColor</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_barcode_widget/SmoothBarcodeWidget/barcode.html">barcode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_barcode_widget/SmoothBarcodeWidget/color.html">color</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_barcode_widget/SmoothBarcodeWidget/errorBuilder.html">errorBuilder</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_barcode_widget/SmoothBarcodeWidget/height.html">height</a></li>
-    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_barcode_widget/SmoothBarcodeWidget/onInvalidBarcode.html">onInvalidBarcode</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_smooth_barcode_widget/SmoothBarcodeWidget/padding.html">padding</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
 

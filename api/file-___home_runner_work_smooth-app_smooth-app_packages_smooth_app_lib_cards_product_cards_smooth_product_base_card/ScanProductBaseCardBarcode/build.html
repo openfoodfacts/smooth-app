@@ -96,7 +96,7 @@ Widget build(BuildContext context) {
         child: ConstrainedBox(
           constraints: BoxConstraints(minHeight: dense ? 75.0 : 100.0),
           child: SmoothBarcodeWidget(
-            height: height ?? 100.0,
+            height: height,
             padding: EdgeInsetsDirectional.symmetric(
               horizontal: 30.0,
               vertical: dense ? SMALL_SPACE : MEDIUM_SPACE,
