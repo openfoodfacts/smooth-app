@@ -48,7 +48,7 @@ dependencies:
   app_store_shared:
     path: ../app_store/shared
   audioplayers: 6.7.1
-  flutter_email_sender: 9.0.0
+  flutter_email_sender: 10.0.1
   flutter_native_splash: 2.4.7
   image: 4.8.0
   crop_image: 1.0.17
