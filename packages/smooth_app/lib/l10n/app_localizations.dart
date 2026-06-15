@@ -9104,6 +9104,12 @@ abstract class AppLocalizations {
   /// **'Barcode {barcode}'**
   String barcode_accessibility_label(String barcode);
 
+  /// Warning message. Keep it short.
+  ///
+  /// In en, this message translates to:
+  /// **'Probably invalid barcode'**
+  String get barcode_probably_invalid;
+
   /// A message explaining the goal of the Close button on a card of the carousel
   ///
   /// In en, this message translates to:

@@ -4533,6 +4533,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Remove this product from the carousel",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
