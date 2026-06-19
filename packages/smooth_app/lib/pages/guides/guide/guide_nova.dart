@@ -135,8 +135,7 @@ class _NOVALogos extends StatelessWidget {
             child: Row(
               children: assets
                   .map(
-                    (String path) =>
-                    Expanded(
+                    (String path) => Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: SvgPicture(
@@ -146,7 +145,7 @@ class _NOVALogos extends StatelessWidget {
                         ),
                       ),
                     ),
-              )
+                  )
                   .toList(growable: false),
             ),
           );
