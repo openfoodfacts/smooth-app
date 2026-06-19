@@ -135,7 +135,8 @@ class _NOVALogos extends StatelessWidget {
             child: Row(
               children: assets
                   .map(
-                    (String path) => Expanded(
+                    (String path) =>
+                    Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: SvgPicture(
@@ -145,7 +146,7 @@ class _NOVALogos extends StatelessWidget {
                         ),
                       ),
                     ),
-                  )
+              )
                   .toList(growable: false),
             ),
           );
@@ -168,7 +169,7 @@ class _NOVASection2 extends StatelessWidget {
         GuidesTitleWithText(
           title: appLocalizations.guide_nova_groups_arg1_title,
           icon: const icons.FoodIcons.nova1(),
-          text: appLocalizations.guide_nova_groups_arg2_text,
+          text: appLocalizations.guide_nova_groups_arg1_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nova_groups_arg2_title,
