@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "הוספה",
   "@add": {},
+  "edit": "עריכה",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "למחוק את חשבונך?\nאם יש לכך סיבה כלשהי, נשמע לקבל הסבר כאן למטה",
   "@account_delete_message": {},
   "reason": "סיבה",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "איפוס העדפות מזון",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "התאמת היישומון להעדפות שלך",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "דיאטות",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "אלרגיות",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "מה אני לא אוכל או אוכלת",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "ממה עדיף לי להימנע",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "העדפות סביבתיות",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "הפרופיל מוכן",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "שלב {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "אין בחירה",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "אין מאפיינים זמינים לקטגוריה הזאת.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "טעינת ההעדפות נכשלה. נא לבדוק שהחיבור שלך לאינטרנט תקין.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "הינה הפרופיל שלך:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "בשלבים הבאים, אפשר **להתאים את היישומון להעדפות שלך** על ידי בחירתן:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "נא לבחור את הדיאטות שמנחות אותך תזונתית כדי להתאים את ההעדפות שלך.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "נא לבחור את האלרגנים שיש להימנע מהם כדי שהאוכל שלך יהיה בטוח יותר.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "נא לציין מאכלים או רכיבים שאינך אוכל או אוכלת.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "נא לבחור את המאכלים להימנע מהם מבלי להציב אותם כאיסור חמור.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "נא לציין את ההעדפות הסביבתיות כדי לקבל המלצות יותר ידידותיות לכדור הארץ.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "חיפוש רכיבים",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "הרכיב כבר נוסף",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "משהו השתבש",
   "@error": {},
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "ניהול חשבון התרומה שלך ב־Open Food Facts.",
   "myPreferences_settings_title": "הגדרות היישומון",
   "myPreferences_settings_subtitle": "מצב כהה, שפות…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "העדפות מזון",
   "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
   "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
+  "myPreferences_beauty_title": "העדפות למוצרי טיפוח",
+  "myPreferences_beauty_subtitle": "נא לבחור איזה מידע על מוצרי טיפוח הכי חשוב לך.",
+  "myPreferences_product_title": "העדפות למוצרים אחרים",
+  "myPreferences_product_subtitle": "נא לבחור איזה מידע על מוצרים אחרים הכי חשוב לך.",
+  "myPreferences_pet_food_title": "העדפות למזון לחיות מחמד",
+  "myPreferences_pet_food_subtitle": "נא לבחור איזה מידע על מזון לחיות מחמד הכי חשוב לך.",
   "confirmResetPreferences": "לאפס את העדפות המזון שלך?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "הצגת כל התמונות הקיימות עבור מוצר זה",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "לא נמצאו מוצרים",
   "@no_product_found": {},
+  "no_product_found_explanation": "החיפוש שלך עבור\n**\"{search}\"**\nלא תאם אף תוצאה.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "האם ברצונך להריץ את אותו החיפוש ב **מסד הנתונים הגלובלי שלנו** במקום זאת?",
   "no_location_found": "לא נמצא מקום",
   "not_found": "לא נמצאו:",
   "refreshing_product": "המוצר מתרענן",
@@ -2659,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "סוג הנחה",
+  "prices_discount_type_quantity": "הנחת כמות",
+  "prices_discount_type_sale": "מכירת חיסול",
+  "prices_discount_type_seasonal": "עונתית",
+  "prices_discount_type_loyalty_program": "תוכנית מנויים",
+  "prices_discount_type_expires_soon": "התוקף פג בקרוב",
+  "prices_discount_type_pick_it_yourself": "איסוף עצמי",
+  "prices_discount_type_second_hand": "יד שנייה",
+  "prices_discount_type_other": "אחר",
   "dev_preferences_import_history_result_success": "בוצע",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -4284,6 +4403,10 @@
   "photo_viewer_details_url_title": "כתובת",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "תואם",
   "@product_page_compatibility_score": {

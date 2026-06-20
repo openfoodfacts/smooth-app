@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "Tambahkan",
   "@add": {},
+  "edit": "Sunting",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Anda yakin ingin menghapus akun?\nJika ada alasan khusus, silahkan bagikan di bawah",
   "@account_delete_message": {},
   "reason": "Alasan",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Atur ulang preferensi makanan Anda",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalisasikan aplikasi",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diet",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Alergi",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "Yang tidak saya makan",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "Yang ingin saya hindari",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Preferensi lingkungan",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profil siap",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Langkah {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "Tidak ada pilihan",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "Tidak ada atribut yang tersedia untuk kategori ini.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Gagal memuat preferensi. Silakan periksa koneksi internet Anda.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Berikut profil Anda:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "Pada langkah-langkah berikut, kamu bisa **memersonalisasi aplikasi** dengan menentukan preferensimu:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Pilih pola makan yang kamu ikuti untuk memersonalisasi rekomendasimu.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Ada yang salah",
   "@error": {},
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Kelola akun kontributor OpenFoodFacts Anda.",
   "myPreferences_settings_title": "Pengaturan Aplikasi",
   "myPreferences_settings_subtitle": "Mode gelap, Bahasa…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Preferensi Makanan",
   "myPreferences_food_subtitle": "Pilih informasi tentang makanan yang paling penting bagi anda.",
   "myPreferences_food_comment": "Pilih informasi tentang makanan yang paling penting bagi anda, untuk memberi peringkat makanan sesuai preferensi anda, melihat informasi yang paling anda minati lebih dahulu dan dapatkan ringkasan kompatibilitas. Preferensi makanan tersebut tetap ada di perangkat anda, dan tidak terkait dengan akun kontributor OpenFoodFacts anda jika anda memilikinya.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Atur ulang preferensi makanan anda?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Lihat semua foto yang ada untuk produk ini",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Produk tidak ditemukan",
   "@no_product_found": {},
+  "no_product_found_explanation": "Pencarian Anda untuk\n**\"{search}\"**\ntidak menghasilkan hasil apa pun.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Apakah Anda ingin menjalankan pencarian yang sama di **basis data global kami**?",
   "no_location_found": "Lokasi tidak ditemukan",
   "not_found": "tidak ditemukan:",
   "refreshing_product": "Muat ulang produk",
@@ -2659,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Jenis diskon",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Diskon",
+  "prices_discount_type_seasonal": "Musiman",
+  "prices_discount_type_loyalty_program": "Program loyalti",
+  "prices_discount_type_expires_soon": "Segera kedaluwarsa",
+  "prices_discount_type_pick_it_yourself": "Panen sendiri",
+  "prices_discount_type_second_hand": "Barang bekas",
+  "prices_discount_type_other": "Lainnya",
   "dev_preferences_import_history_result_success": "Selesai",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -4285,6 +4404,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "Kompatibel",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4792,7 +4915,7 @@
   "@prices_stats_online": {
     "description": "Label for online count"
   },
-  "prices_stats_countries": "Negara - negara",
+  "prices_stats_countries": "Negara",
   "@prices_stats_countries": {
     "description": "Label for countries count"
   },

@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "Ouzhpennañ",
   "@add": {},
+  "edit": "Aozañ",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Ha sur oc'h e fell deoc'h dilemel ho kont ?\nMa 'z eus un abeg resis, rannit amañ dindan mar plij",
   "@account_delete_message": {},
   "reason": "Abeg",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Adderaouekaat ar penndibaboù boued",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Un dra bennak a zo aet fall",
   "@error": {},
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Merañ ho kont kenlabourerien Open Food Facts.",
   "myPreferences_settings_title": "Arventennoù an arload",
   "myPreferences_settings_subtitle": "Mod teñval, Yezhoù…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Gwellvezioù boued",
   "myPreferences_food_subtitle": "Dibabit peseurt titouroù diwar-benn ar boued a zo pouezusañ evidoc'h.",
   "myPreferences_food_comment": "Dibabit peseurt titouroù diwar-benn ar boued a zo pouezusañ evidoc'h, evit renkañ ar boued hervez ho c'hoantoù, gwelit an titouroù a blij deoc'h da gentañ, ha kaout un diverrañ eus ar c'hevredigezh. Chom a ra an dibaboù boued-se war ho trevnad, ha n'int ket liammet ouzh ho kont kenlabourer Open Food Facts ma'z eus unan ganeoc'h.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Adderaouekaat ho penndibaboù boued ?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -712,7 +809,7 @@
   "nutritional_facts_input_button_label": "Leuniañ titouroù diwar-benn ar boued",
   "nutritional_facts_added": "Fedoù boued ouzhpennet",
   "categories_added": "Rummadoù ouzhpennet",
-  "new_product_title_nutriscore": "Jediñ ar skor Nutri",
+  "new_product_title_nutriscore": "Jediñ ar Nutri-Score",
   "new_product_subtitle_nutriscore": "Sikourit ac'hanomp en ur leuniañ ur rummad da nebeutañ ha talvoudoù boued",
   "new_product_title_environmental_score": "Jediñ ar skor glas",
   "new_product_subtitle_environmental_score": "Kaout anezhañ en ur leuniañ ur rummad da nebeutañ",
@@ -884,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Gwelet an holl luc'hskeudennoù zo evit ar produ-mañ",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "N'eus bet kavet produ ebet",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ho klask evit\n**\"{search}\"**\nn'eus disoc'h ebet.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Ha fellout a ra deoc'h ober ar memes enklask-mañ e **hon diaz roadennoù hollek** kentoc'h ?",
   "no_location_found": "N'eus bet kavet lec'hiadur ebet",
   "not_found": "n'eo ket bet kavet :",
   "refreshing_product": "Produ freskaat",
@@ -2659,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "Graet",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3852,7 +3971,7 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Jikladur nevez)",
-  "nutriscore_unknown": "Skor boued dianav",
+  "nutriscore_unknown": "Nutri-Score dianav",
   "nutriscore_unknown_new_formula": "Nutri-Score dianav (ur jedadenn nevez)",
   "nutriscore_not_applicable": "N'eo ket arveret Nutri-Score",
   "nutriscore_not_applicable_new_formula": "N'eo ket arveret Nutri-Score (Jalkuladur nevez)",
@@ -3921,42 +4040,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Rannañ",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Emañ an Nutri-Score o vont war-raok : displegadennoù !",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Petra eo ar Nutri-Score ?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Ur logo eo ar Nutri-Score hag a glask kelaouiñ ac'hanoc'h diwar-benn **kalite bouedus**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Kemmañ a ra ar c'hod liv eus glas teñval (**A**) evit ar produioù **yac'hañ** betek ruz teñval (**E**) evit ar re **nebeutoc'h yac'h**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Al logo Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "Perak emañ Nutri-Score o vont war-raok ?",
   "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Priziañ gwelloc'h an holl evajoù",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Gwelloc'h e oa bet diforc'het notennoù keñveriañ **laezh**, **evajoù laezh** gant sukr ouzhpennet hag evajoù **legumaj** en algoritm nevez.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Renkadur gwelloc'h an evajoù",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Gwelloc'h eo kemer e kont ar **danvez sukr** ha plijout a ra d'an evajoù **sukret nebeut**.\\n**Kastizet e vo an dousterioù ivez** : digreskiñ a raio ar sodaoù dietegel eus ur feur B da etre C hag E. Chom a ra an dour an evaj erbedet.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Kastizet eo an holen hag ar sukr",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Ar produioù **re dous** pe **re sall** a vo **digresket c'hoazh o feur**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarkiezh e-barzh an eoul hag ar pesked",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Gwellaat a raio ar feur evit **pesked druz** ha **eoul pinvidik e lard mat**.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Bevenniñ ar c'hig ruz",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Bevennet e ranker debriñ **kig ruz**. Setu perak e vo renket gwelloc'h **ar poultr**.",
+  "guide_nutriscore_v2_new_logo_title": "Penaos diforc'hañ ar Nutri-Score kozh hag ar jediñ nevez ?",
+  "guide_nutriscore_v2_new_logo_text": "Adalek bremañ e c'hallo al logo diskouez ur meneg \"**Kentadur nevez**\" evit sklaeraat ez eo ar jedadenn nevez e gwirionez.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Logo ar Nutri-Score nevez",
   "guide_nutriscore_v2_where_title": "Pelec'h kavout ar jediñ Nutri-Score nevez ?",
   "guide_nutriscore_v2_where_paragraph1": "Implijet e vez ar Nutri-Score e 7 bro : Bro-C'hall, Alamagn, Belgia, Spagn, Luksembourg, an Izelvroioù ha Suis.",
   "guide_nutriscore_v2_where_paragraph2": "Ar c'henderc'herien o deus **2 vloaz** d'an nebeutañ goude sinadur an dekred **da erlec'hiañ** ar jediñ kozh gant an hini nevez.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Hep gortoz, **kavout a reot dija en arload OpenFoodFacts**, ar jediñ nevez, en o zouez ma n'eo ket bet hizivaet ar skor gant ar c'henderc'herien.",
+  "guide_nutriscore_v2_unchanged_title": "Petra ne cheñch ket",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Ur skor savet evit **muzuliañ kalite ar boued** eo ar Nutri-Score. **Kemplezh d'ar strollad NOVA** eo war **bouedoù dreist-treuzfurmet** (kavet e vez ivez en arload).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Evit ar c'henderc'herien e chom diskouezadur an Nutri-Score **dibar**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4284,6 +4403,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Kenglotus",
   "@product_page_compatibility_score": {

@@ -481,7 +481,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       if (pagedProductQuery.world) {
         counting += ' (${appLocalizations.world_results_label})';
       } else {
-        final String? countryName = _country?.name;
+        final String? countryName = _country?.localizedName;
         if (countryName != null) {
           counting += ' ($countryName)';
         }
