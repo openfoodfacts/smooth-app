@@ -57,7 +57,7 @@ class SmoothBarcodeWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        const icons.Warning(),
+                        icons.Warning(color: color),
                         const SizedBox(width: SMALL_SPACE),
                         Expanded(
                           child: FittedBox(

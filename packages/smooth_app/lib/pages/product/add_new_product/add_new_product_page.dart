@@ -29,6 +29,7 @@ import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/smooth_barcode_widget.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/v2/smooth_buttons_bar.dart';
 import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
@@ -614,6 +615,18 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         ),
       );
     }
+    rows.add(
+      SmoothBarcodeWidget(
+        height: 75,
+        padding: const EdgeInsetsDirectional.only(
+          start: VERY_LARGE_SPACE,
+          end: VERY_LARGE_SPACE,
+          top: VERY_LARGE_SPACE,
+        ),
+        color: context.lightTheme() ? Colors.black : Colors.white,
+        barcode: barcode,
+      ),
+    );
     return rows;
   }
 
