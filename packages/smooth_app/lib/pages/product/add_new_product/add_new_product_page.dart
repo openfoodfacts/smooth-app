@@ -616,15 +616,13 @@ class _AddNewProductPageState extends State<AddNewProductPage>
       );
     }
     rows.add(
-      SmoothBarcodeWidget(
-        height: 75,
+      Padding(
         padding: const EdgeInsetsDirectional.only(
           start: VERY_LARGE_SPACE,
           end: VERY_LARGE_SPACE,
           top: VERY_LARGE_SPACE,
         ),
-        color: context.lightTheme() ? Colors.black : Colors.white,
-        barcode: barcode,
+        child: SmoothBarcodeWidget(barcode: barcode, height: 75),
       ),
     );
     return rows;
