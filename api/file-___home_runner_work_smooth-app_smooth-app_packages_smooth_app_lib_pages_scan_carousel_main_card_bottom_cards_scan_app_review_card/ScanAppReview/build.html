@@ -76,51 +76,56 @@ Widget build(BuildContext context) {
   return ScanBottomCardContainer(
     title: appLocalizations.app_review_title,
     onClose: () =&gt; context.read&lt;AppReviewProvider&gt;().hide(),
-    body: Row(
-      children: &lt;Widget&gt;[
-        Expanded(
-          child: _AppReviewItem(
-            asset: &#39;assets&#47;misc&#47;tagline_0.svg.vec&#39;,
-            text: appLocalizations.app_review_low,
-            backgroundColor: const Color(0xFFD44C29),
-            borderRadius: BorderRadiusHelper.fromDirectional(
-              context: context,
-              bottomStart: ScanBottomCardContainer.radius,
-            ),
-            onTap: () =&gt; _showUserFeedBackModalSheet(
-              context,
-              AppReviewResult.unsatisfied,
+    body: Padding(
+      padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+      child: Row(
+        children: &lt;Widget&gt;[
+          Expanded(
+            child: _AppReviewItem(
+              asset: &#39;assets&#47;misc&#47;tagline_0.svg.vec&#39;,
+              text: appLocalizations.app_review_low,
+              backgroundColor: const Color(0xFFD44C29),
+              borderRadius: BorderRadiusHelper.fromDirectional(
+                context: context,
+                bottomStart: ScanBottomCardContainer.radius,
+              ),
+              onTap: () =&gt; _showUserFeedBackModalSheet(
+                context,
+                AppReviewResult.unsatisfied,
+              ),
             ),
           ),
-        ),
-        Expanded(
-          child: _AppReviewItem(
-            asset: &#39;assets&#47;misc&#47;tagline_1.svg.vec&#39;,
-            text: appLocalizations.app_review_medium,
-            backgroundColor: const Color(0xFFFF8C14),
-            borderRadius: BorderRadius.zero,
-            onTap: () =&gt;
-                _showUserFeedBackModalSheet(context, AppReviewResult.neutral),
-          ),
-        ),
-        Expanded(
-          child: _AppReviewItem(
-            asset: &#39;assets&#47;misc&#47;tagline_2.svg.vec&#39;,
-            text: appLocalizations.app_review_high,
-            backgroundColor: const Color(0xFF6CB564),
-            borderRadius: BorderRadiusHelper.fromDirectional(
-              context: context,
-              bottomEnd: ScanBottomCardContainer.radius,
+          Expanded(
+            child: _AppReviewItem(
+              asset: &#39;assets&#47;misc&#47;tagline_1.svg.vec&#39;,
+              text: appLocalizations.app_review_medium,
+              backgroundColor: const Color(0xFFFF8C14),
+              borderRadius: BorderRadius.zero,
+              onTap: () =&gt; _showUserFeedBackModalSheet(
+                context,
+                AppReviewResult.neutral,
+              ),
             ),
-            onTap: () async {
-              final AppReviewProvider appReview = context
-                  .read&lt;AppReviewProvider&gt;();
-              await ApplicationStore.openAppReview();
-              appReview.markAsReviewed(AppReviewResult.satisfied);
-            },
           ),
-        ),
-      ],
+          Expanded(
+            child: _AppReviewItem(
+              asset: &#39;assets&#47;misc&#47;tagline_2.svg.vec&#39;,
+              text: appLocalizations.app_review_high,
+              backgroundColor: const Color(0xFF6CB564),
+              borderRadius: BorderRadiusHelper.fromDirectional(
+                context: context,
+                bottomEnd: ScanBottomCardContainer.radius,
+              ),
+              onTap: () async {
+                final AppReviewProvider appReview = context
+                    .read&lt;AppReviewProvider&gt;();
+                await ApplicationStore.openAppReview();
+                appReview.markAsReviewed(AppReviewResult.satisfied);
+              },
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }</code></pre>
