@@ -1274,7 +1274,7 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "আপনার",
+  "no_product_in_list": "আপনার",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "All viewed products",
   "clear": "Clear",
