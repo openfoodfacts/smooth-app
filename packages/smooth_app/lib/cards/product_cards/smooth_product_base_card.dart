@@ -301,15 +301,12 @@ class ScanProductBaseCardBarcode extends StatelessWidget {
         child: Center(
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: dense ? 75.0 : 100.0),
-            child: SmoothBarcodeWidget(
-              height: height,
+            child: Padding(
               padding: EdgeInsetsDirectional.symmetric(
                 horizontal: 30.0,
                 vertical: dense ? SMALL_SPACE : MEDIUM_SPACE,
               ),
-              color: Colors.black,
-              backgroundColor: lightTheme ? Colors.white : Colors.transparent,
-              barcode: barcode,
+              child: SmoothBarcodeWidget(barcode: barcode, height: height),
             ),
           ),
         ),
