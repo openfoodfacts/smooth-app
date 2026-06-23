@@ -89,6 +89,9 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   int _otherCount = 0;
 
   /// The behavior is different for FOOD. And we don't know about it at first.
+  ///
+  /// Be careful: as it can change (because `_inputProductType` can), don't
+  /// cache anything, and always recompute anything based on `_probablyFood`.
   bool get _probablyFood =>
       (_inputProductType ?? ProductType.food) == ProductType.food;
 
@@ -108,8 +111,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   late DaoProductList _daoProductList;
 
   final ProductList _history = ProductList.history();
-
-  List<String>? _appBarTitles;
 
   final ProductFieldEditor _packagingEditor = ProductFieldPackagingEditor();
   final ProductFieldEditor _ingredientsEditor =
@@ -236,7 +237,6 @@ class _AddNewProductPageState extends State<AddNewProductPage>
   @override
   Widget build(BuildContext context) {
     _colorScheme = Theme.of(context).colorScheme;
-    _appBarTitles ??= _generateAppBarTitles(AppLocalizations.of(context));
 
     context.watch<LocalDatabase>();
     refreshUpToDate();
@@ -251,13 +251,17 @@ class _AddNewProductPageState extends State<AddNewProductPage>
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
+    final List<String> appBarTitles = _generateAppBarTitles(
+      AppLocalizations.of(context),
+    );
     return WillPopScope2(
       onWillPop: () async => (await _onWillPop(), null),
       child: SmoothScaffold(
         appBar: SmoothTopBar2(
-          title: _appBarTitles![_pageNumber],
+          title: appBarTitles[_pageNumber],
           forceMultiLines: true,
           leadingAction: SmoothLeadingAction.back,
+          productType: _inputProductType,
           topWidget: PreferredSize(
             preferredSize: const Size(
               double.infinity,

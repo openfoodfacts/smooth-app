@@ -43,6 +43,7 @@ class PricesPage extends StatelessWidget {
         title: appLocalizations.prices_list_title,
         subTitle: model.title,
         elevationOnScroll: true,
+        productType: null,
       ),
       injectPaddingInBody: model.displayEachProduct,
       belowTopBar: !model.displayEachProduct,

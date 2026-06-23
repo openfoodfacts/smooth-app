@@ -143,6 +143,13 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
       ) ||
       !const DeepCollectionEquality().equals(_terms, _initTerms);
 
+  /// Returns the label of the corresponding standard "add" button.
+  ///
+  /// Typical use case: for category, that have a distinct label when the values
+  /// are already set.
+  String getStandardAddButtonLabel(final AppLocalizations appLocalizations) =>
+      getAddButtonLabel(appLocalizations);
+
   /// Returns the title on the main "edit product" page.
   String getTitle(final AppLocalizations appLocalizations);
 
@@ -979,6 +986,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
     }
     return appLocalizations.score_add_missing_product_category;
   }
+
+  @override
+  String getStandardAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_category;
 
   @override
   String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
