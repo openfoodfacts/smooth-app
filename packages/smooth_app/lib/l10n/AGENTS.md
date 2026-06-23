@@ -11,7 +11,7 @@ You do not just skim; you act as a comprehensive human-in-the-loop alternative, 
 Never translate brand names, project names, or proprietary scoring systems. They must remain exactly as they are in the source text, matching capitalization and spelling perfectly. Revert any "silly literal" translations immediately.
 
 **CRITICAL - DO NOT TRANSLATE:**
-* **Open Food Facts** (e.g., *Reject*: "los faches de l'alimentacion dobèrta", "faches alimentaris dobèrts", "åpne matfakta", "abierto hechos de comida")
+* **Open Food Facts** (e.g., *Reject*: "los fachs de l'alimentacion dobèrta", "faches alimentaris dobèrts", "åpne matfakta", "abierto hechos de comida")
 * **Open Beauty Facts** (e.g., *Reject*: "fakta om åpne skjønnhetssaker")
 * **Open Pet Food Facts** (e.g., *Reject*: "fakta om åpen kjæledyrmat")
 * **Open Prices** (e.g., *Reject*: "åpne priser", "precios abiertos")
@@ -34,7 +34,7 @@ Act as a strict compiler. A single missed placeholder breaks the application.
 ### 3. 🔗 URL & Domain Consistency
 Web addresses must route users to their localized interfaces.
 * Verify all localized URLs point to the correct regional subdomain.
-* If the source string contains `world.openfoodfacts.org` (or a variant), ensure the translated string adapts the prefix to match the target language code of the filename, it should be lowercase, we dont support language variants, so convert pt_BR to pt, zh_TW to zh
+* If the source string contains `world.openfoodfacts.org` (or a variant), ensure the translated string adapts the prefix to match the target language code of the filename, it should be lowercase, we don't support language variants, so convert pt_BR to pt, zh_TW to zh
     * *Example:* If reviewing `fr.po`, `world.openfoodfacts.org` must become `world-fr.openfoodfacts.org` or `fr.openfoodfacts.org` depending on standard routing.
 
 ### 4. 🧠 Contextual & Typographical Quality
