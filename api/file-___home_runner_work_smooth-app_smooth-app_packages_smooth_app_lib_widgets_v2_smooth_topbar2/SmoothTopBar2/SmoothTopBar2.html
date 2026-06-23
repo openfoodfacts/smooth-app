@@ -50,6 +50,7 @@
 
     <section class="multi-line-signature">const
       <span class="name ">SmoothTopBar2</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-title">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="-param-productType"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">productType</span>, </span></li>
 <li><span class="parameter" id="-param-subTitle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">subTitle</span>, </span></li>
 <li><span class="parameter" id="-param-topWidget"><span class="type-annotation">dynamic</span> <span class="parameter-name">topWidget</span>, </span></li>
 <li><span class="parameter" id="-param-leadingAction"><span class="type-annotation">dynamic</span> <span class="parameter-name">leadingAction</span>, </span></li>
@@ -60,7 +61,6 @@
 <li><span class="parameter" id="-param-elevationOnScroll"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">elevationOnScroll</span> = <span class="default-value">true</span>, </span></li>
 <li><span class="parameter" id="-param-foregroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">foregroundColor</span>, </span></li>
 <li><span class="parameter" id="-param-backgroundColor"><span class="type-annotation">dynamic</span> <span class="parameter-name">backgroundColor</span>, </span></li>
-<li><span class="parameter" id="-param-productType"><span class="type-annotation">dynamic</span> <span class="parameter-name">productType</span>, </span></li>
 <li><span class="parameter" id="-param-theme"><span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_widgets_v2_smooth_topbar2/SmoothTopBar2Theme.html">SmoothTopBar2Theme</a>?</span> <span class="parameter-name">theme</span>, </span></li>
 <li><span class="parameter" id="-param-key"><span class="type-annotation">dynamic</span> <span class="parameter-name">key</span>}</span></li>
 </ol>)
@@ -74,6 +74,7 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">const SmoothTopBar2({
   required this.title,
+  required this.productType,
   this.subTitle,
   this.topWidget,
   this.leadingAction,
@@ -84,7 +85,6 @@
   this.elevationOnScroll = true,
   this.foregroundColor,
   this.backgroundColor,
-  this.productType,
   this.theme,
   super.key,
 }) : assert(title.length &gt; 0),
