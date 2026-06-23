@@ -331,7 +331,7 @@
   "sign_up_page_action_ok": "Congratulations! Your account has just been created.",
   "sign_up_page_display_name_hint": "Name",
   "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
-  "sign_up_page_email_hint": "E-post",
+  "sign_up_page_email_hint": "E-mail",
   "sign_up_page_email_error_empty": "E-post is required",
   "sign_up_page_email_error_invalid": "Invalid e-mail",
   "sign_up_page_username_hint": "Username: Publicly visible",
@@ -3719,7 +3719,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Please send us manually an email to",
-  "email_copied_to_clip_board": "Epost copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Select Accent Colour",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
