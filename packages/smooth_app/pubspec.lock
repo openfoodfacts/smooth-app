@@ -257,10 +257,10 @@ packages:
     dependency: transitive
     description:
       name: camera_web
-      sha256: "57f49a635c8bf249d07fb95eb693d7e4dda6796dedb3777f9127fb54847beba7"
+      sha256: "1245a480a113437f8d46d19c0fb90cea9db921436d9cf2ba5fb11854a1312693"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.5+3"
+    version: "0.3.5+4"
   carousel_slider:
     dependency: "direct main"
     description:
@@ -1205,10 +1205,10 @@ packages:
     dependency: "direct main"
     description:
       name: path_provider
-      sha256: "50c5dd5b6e1aaf6fb3a78b33f6aa3afca52bf903a8a5298f53101fdaee55bbcd"
+      sha256: a7f4874f987173da295a61c181b8ee71dab59b332a486b391babf26a1b884825
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.5"
+    version: "2.1.6"
   path_provider_android:
     dependency: transitive
     description:
@@ -1237,10 +1237,10 @@ packages:
     dependency: "direct dev"
     description:
       name: path_provider_platform_interface
-      sha256: "88f5779f72ba699763fa3a3b06aa4bf6de76c8e5de842cf6f29e2e06476c2334"
+      sha256: "484838772624c3a4b94f1e44a3e19897fee738f2d5c4ce448443b0417f7c9dda"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.3"
   path_provider_windows:
     dependency: transitive
     description:
@@ -1269,10 +1269,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_apple
-      sha256: e20daf680eef1ca62ffe8c8c526b778cc386d50137c77ac71c8ec9c88c13fb9d
+      sha256: "79dfa1df734798aa3cfdad166d3a3698c206d8813de13516ea1071b5d7e2f420"
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.9"
+    version: "9.4.10"
   permission_handler_html:
     dependency: transitive
     description:
@@ -1397,18 +1397,18 @@ packages:
     dependency: "direct main"
     description:
       name: rive
-      sha256: "3533244f855469047500c6d40c1232adf61e3ee35a6e706a6e8e5c6e2328c7df"
+      sha256: "84a640f48122679e48397935ed1b971db19ef2e44bfcbae60e42fb5ce29a0a4e"
       url: "https://pub.dev"
     source: hosted
-    version: "0.14.7"
+    version: "0.14.9"
   rive_native:
     dependency: transitive
     description:
       name: rive_native
-      sha256: "27ffdb21e0c2cc3b5d37bcfa6b198830954784adb82b798383d35b0c2603a74e"
+      sha256: "85dc8413398f7540eab9b73c6d704ecd5051ab9c57e539eed85ccd2a69f119aa"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.7"
+    version: "0.1.9"
   rxdart:
     dependency: transitive
     description:
@@ -1442,18 +1442,18 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: "3284d220618d9344ce8a0765519129744a4cc658309496f052680909d74f7c51"
+      sha256: "3311f89e0c964c4df5f65670348c8a11744c94ae2b57032c947cfb26bfd03ef0"
       url: "https://pub.dev"
     source: hosted
-    version: "9.21.0"
+    version: "9.22.0"
   sentry_flutter:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: fc14658d90645e83e2305e8300513d5633aa5cd2cbf5b5d805e78416acbc61e9
+      sha256: efd3bebd7962438d0ecbe5c7b530de012e2e8efe14ef838b89195d7c2bb3f66c
       url: "https://pub.dev"
     source: hosted
-    version: "9.21.0"
+    version: "9.22.0"
   share_plus:
     dependency: "direct main"
     description:
@@ -1623,10 +1623,10 @@ packages:
     dependency: transitive
     description:
       name: sqlite3
-      sha256: "9488c7d2cdb1091c91cacf7e207cff81b28bff8e366f042bad3afe7d34afe189"
+      sha256: "37356bcb56ce0d9404d602c41e4bdb7765e7e9732a3e47adb3d98c556a6abdad"
       url: "https://pub.dev"
     source: hosted
-    version: "3.3.2"
+    version: "3.3.3"
   stack_trace:
     dependency: transitive
     description:
@@ -1815,10 +1815,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics_compiler
-      sha256: "7ee12e6dffe0fc8e755179d6d91b3b34f5924223fc104d85572ef9180d73d172"
+      sha256: "142a9146f447d15b10bdc00e21d5f4d83e5b32bb5f8f8f5a04c75311344923a3"
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.5"
+    version: "1.2.6"
   vector_math:
     dependency: transitive
     description:
@@ -1871,10 +1871,10 @@ packages:
     dependency: "direct main"
     description:
       name: webview_flutter
-      sha256: a3da219916aba44947d3a5478b1927876a09781174b5a2b67fa5be0555154bf9
+      sha256: e4d3474277c5043f5f3100ed27d94ad693abfd5c602b0221c719a4497e4ba1e4
       url: "https://pub.dev"
     source: hosted
-    version: "4.13.1"
+    version: "4.14.0"
   webview_flutter_android:
     dependency: "direct main"
     description:
