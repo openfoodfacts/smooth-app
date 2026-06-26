@@ -32,8 +32,8 @@ dependencies:
   l10n_countries: 2.0.2
   latlong2: 0.9.1
   matomo_tracker: 6.1.1
-  package_info_plus: 9.0.1
-  device_info_plus: 12.4.0
+  package_info_plus: 10.2.0
+  device_info_plus: 13.2.0
   permission_handler: 12.0.3
   photo_view: 0.15.0
   uuid: 4.5.3
@@ -57,7 +57,7 @@ dependencies:
   collection: 1.19.1
   path: 1.9.1
   path_provider: 2.1.6
-  share_plus: 12.0.2
+  share_plus: 13.2.0
   fimber: 0.7.0
   shimmer: 3.0.0
   rive: 0.14.9
@@ -73,7 +73,7 @@ dependencies:
   email_validator: 3.0.0
   sliver_tools: 0.2.12
   cached_network_image: 3.4.1
-  file_picker: 11.0.2
+  file_picker: 12.0.0-beta.7
   animated_line_through: 1.0.5
   mobkit_dashed_border: 0.0.8
 
