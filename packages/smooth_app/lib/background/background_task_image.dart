@@ -443,6 +443,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       if (status.status == 'status not ok' && imageId != null) {
         // The very same image was already uploaded and therefore was rejected.
         // We just have to select this image, with no angle.
+        if (imageField == ImageField.OTHER) {
+          // we're done here: all we wanted was to have the image uploaded, and
+          // it is. And the server rejects "set as" operation for OTHER images.
+          return;
+        }
         final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
           barcode: barcode,
           imageField: imageField,
