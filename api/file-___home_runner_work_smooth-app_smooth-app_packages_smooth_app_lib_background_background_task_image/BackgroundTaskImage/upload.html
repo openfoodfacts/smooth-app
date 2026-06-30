@@ -142,6 +142,11 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
     if (status.status == &#39;status not ok&#39; &amp;&amp; imageId != null) {
       &#47;&#47; The very same image was already uploaded and therefore was rejected.
       &#47;&#47; We just have to select this image, with no angle.
+      if (imageField == ImageField.OTHER) {
+        &#47;&#47; we&#39;re done here: all we wanted was to have the image uploaded, and
+        &#47;&#47; it is. And the server rejects &quot;set as&quot; operation for OTHER images.
+        return;
+      }
       final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
         barcode: barcode,
         imageField: imageField,
