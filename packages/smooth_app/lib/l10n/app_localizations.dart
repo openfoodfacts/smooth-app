@@ -981,7 +981,7 @@ abstract class AppLocalizations {
   /// No description provided for @sign_up_page_email_hint.
   ///
   /// In en, this message translates to:
-  /// **'E-post'**
+  /// **'E-mail'**
   String get sign_up_page_email_hint;
 
   /// No description provided for @sign_up_page_email_error_empty.
@@ -3067,12 +3067,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not remove product'**
   String get product_could_not_remove;
-
-  /// No description provided for @no_prodcut_in_list.
-  ///
-  /// In en, this message translates to:
-  /// **'There is no product in this list'**
-  String get no_prodcut_in_list;
 
   /// No description provided for @no_product_in_section.
   ///
@@ -6965,7 +6959,7 @@ abstract class AppLocalizations {
   /// No description provided for @email_copied_to_clip_board.
   ///
   /// In en, this message translates to:
-  /// **'Epost copied to clipboard!'**
+  /// **'E-mail copied to clipboard!'**
   String get email_copied_to_clip_board;
 
   /// Accent Color for the application in AMOLED mode.
@@ -7211,7 +7205,7 @@ abstract class AppLocalizations {
   /// text to show details of products available for download
   ///
   /// In en, this message translates to:
-  /// **'{num} products available for immediate scaning'**
+  /// **'{num} products available for immediate scanning'**
   String available_for_download(int num);
 
   /// Label written as the title of the dialog to select the user country
