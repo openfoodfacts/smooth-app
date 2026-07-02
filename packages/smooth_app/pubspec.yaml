@@ -20,7 +20,7 @@ dependencies:
   cupertino_icons: 1.0.9
   flutter_svg: 2.3.0
   vector_graphics: 1.2.2
-  flutter_map: 8.3.0
+  flutter_map: 8.3.1
   html: 0.15.6
   flutter_widget_from_html_core: 0.17.2
   flutter_secure_storage: 10.3.1
@@ -28,7 +28,7 @@ dependencies:
   hive_flutter: 1.1.0
   http: 1.6.0
   http_parser: 4.1.2
-  image_picker: 1.2.2
+  image_picker: 1.2.3
   l10n_countries: 2.0.2
   latlong2: 0.9.1
   matomo_tracker: 6.1.1
