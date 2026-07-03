@@ -988,10 +988,10 @@ packages:
     dependency: "direct main"
     description:
       name: latlong2
-      sha256: "98227922caf49e6056f91b6c56945ea1c7b166f28ffcd5fb8e72fc0b453cc8fe"
+      sha256: "84b776b100a84a684a0aaa3fa4dc2c9b1931c658de533701ee4e09bfa991f8dc"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.1"
+    version: "0.10.1"
   leak_tracker:
     dependency: transitive
     description:
@@ -1442,18 +1442,18 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: "3311f89e0c964c4df5f65670348c8a11744c94ae2b57032c947cfb26bfd03ef0"
+      sha256: "2528b3d9550996b1f933270fabd13ad0f22aa05a19b46cb66afd05adcf313441"
       url: "https://pub.dev"
     source: hosted
-    version: "9.22.0"
+    version: "9.23.0"
   sentry_flutter:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: efd3bebd7962438d0ecbe5c7b530de012e2e8efe14ef838b89195d7c2bb3f66c
+      sha256: "1e6c2950b944f512ad88b8c05e905849f25a5e9cecd3cad4c53e38e7cc679362"
       url: "https://pub.dev"
     source: hosted
-    version: "9.22.0"
+    version: "9.23.0"
   share_plus:
     dependency: "direct main"
     description:
