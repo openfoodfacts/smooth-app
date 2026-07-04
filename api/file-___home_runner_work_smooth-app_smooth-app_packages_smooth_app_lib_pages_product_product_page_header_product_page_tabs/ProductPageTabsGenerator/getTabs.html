@@ -108,6 +108,10 @@
 
     children = children.sublist(1);
 
+    if (product.productType == ProductType.product &amp;&amp;
+        id.startsWith(&#39;health_&#39;)) {
+      continue;
+    }
     tabs.add(
       ProductPageTab(
         id: id,
