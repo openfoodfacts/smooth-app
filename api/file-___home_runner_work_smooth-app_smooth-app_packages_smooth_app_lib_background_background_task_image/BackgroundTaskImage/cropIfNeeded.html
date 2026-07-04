@@ -58,7 +58,6 @@
 <li><span class="parameter" id="cropIfNeeded-param-cropY1"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropY1</span>, </span></li>
 <li><span class="parameter" id="cropIfNeeded-param-cropX2"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropX2</span>, </span></li>
 <li><span class="parameter" id="cropIfNeeded-param-cropY2"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropY2</span>, </span></li>
-<li><span class="parameter" id="cropIfNeeded-param-compressQuality"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">compressQuality</span>, </span></li>
 <li><span class="parameter" id="cropIfNeeded-param-forceCompression"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceCompression</span>, </span></li>
 <li><span class="parameter" id="cropIfNeeded-param-eraserCoordinates"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span>?</span> <span class="parameter-name">eraserCoordinates</span>, </span></li>
 <li><span class="parameter" id="cropIfNeeded-param-maxSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxSize</span>}</span></li>
@@ -87,7 +86,6 @@ Returns null if the image (cropped or not) is too small.
   required final int cropY1,
   required final int cropX2,
   required final int cropY2,
-  required final int compressQuality,
   required final bool forceCompression,
   required final List&lt;double&gt;? eraserCoordinates,
   final int? maxSize,
@@ -171,7 +169,7 @@ Returns null if the image (cropped or not) is too small.
   await saveJpeg(
     file: croppedFile,
     source: cropped,
-    quality: compressQuality,
+    quality: ImagePickerConstants.imageQuality,
   );
   return BackgroundCropResult.success(
     filePath: croppedPath,

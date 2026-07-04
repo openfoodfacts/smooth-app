@@ -85,9 +85,8 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
     final User user = getUser();
 
     Future&lt;Status&gt; addImage({
-      required int compressionPct,
       required bool force,
-      int? maxSize,
+      required int maxSize,
     }) async {
       cropResult = await cropIfNeeded(
         fullPath: fullPath,
@@ -96,7 +95,6 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
         cropY1: cropY1,
         cropX2: cropX2,
         cropY2: cropY2,
-        compressQuality: compressionPct,
         forceCompression: force,
         eraserCoordinates: eraserCoordinates,
         maxSize: maxSize,
@@ -121,14 +119,16 @@ Future&lt;void&gt; upload(final LocalDatabase localDatabase) async {
 
     Status status;
     try {
-      status = await addImage(compressionPct: 100, force: false);
+      status = await addImage(
+        force: false,
+        maxSize: ImagePickerConstants.maxSize.toInt(),
+      );
     } catch (e) {
       if (e.toString().contains(&#39;413&#39;) ||
           e.toString().contains(&#39;Request Entity Too Large&#39;)) {
         status = await addImage(
-          compressionPct: 80,
           force: true,
-          maxSize: 2000,
+          maxSize: ImagePickerConstants.maxSizeFallback.toInt(),
         );
       } else {
         rethrow;

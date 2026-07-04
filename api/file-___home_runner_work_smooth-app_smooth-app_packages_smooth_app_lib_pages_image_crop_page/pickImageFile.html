@@ -87,7 +87,12 @@
     final ImagePicker picker = ImagePicker();
     if (source == UserPictureSource.GALLERY) {
       try {
-        return picker.pickImage(source: ImageSource.gallery);
+        return picker.pickImage(
+          imageQuality: ImagePickerConstants.imageQuality,
+          maxHeight: ImagePickerConstants.maxSize.toDouble(),
+          maxWidth: ImagePickerConstants.maxSize.toDouble(),
+          source: ImageSource.gallery,
+        );
       } on PlatformException catch (e) {
         &#47;&#47; On debug builds this catch won&#39;t work.
         &#47;&#47; Please run on profile&#47;release modes to test it
@@ -100,7 +105,12 @@
         }
       }
     }
-    return picker.pickImage(source: ImageSource.camera);
+    return picker.pickImage(
+      imageQuality: ImagePickerConstants.imageQuality,
+      maxHeight: ImagePickerConstants.maxSize.toDouble(),
+      maxWidth: ImagePickerConstants.maxSize.toDouble(),
+      source: ImageSource.camera,
+    );
   }
 
   try {
@@ -141,6 +151,8 @@
 
     <h5>image_crop_page library</h5>
     <ol>
+  <li class="section-title"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page-library.html#classes">Classes</a></li>
+  <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_pages_image_crop_page/ImagePickerConstants-class.html">ImagePickerConstants</a></li>
 
 
 
