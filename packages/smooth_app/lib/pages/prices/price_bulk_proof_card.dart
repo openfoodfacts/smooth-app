@@ -15,6 +15,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 
@@ -102,7 +103,6 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    const int imageQuality = 80;
     final Directory directory = await BackgroundTaskUpload.getDirectory();
     const String BULK_PROOF_IMAGE_SEQUENCE_KEY = 'bulk_proof_image_sequence';
     final Rect cropRect = CropHelper.getLocalCropRectFromRect(
@@ -111,7 +111,9 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
 
     _setText(appLocalizations.prices_bulk_proof_upload_step_selecting);
     final List<XFile> xFiles = await ImagePicker().pickMultiImage(
-      imageQuality: imageQuality,
+      imageQuality: ImagePickerConstants.imageQuality,
+      maxHeight: ImagePickerConstants.maxSize.toDouble(),
+      maxWidth: ImagePickerConstants.maxSize.toDouble(),
       requestFullMetadata: false,
     );
     if (xFiles.isEmpty) {
