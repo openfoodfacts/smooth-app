@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Bei Zilizofunguliwa",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Ongeza",
   "@add": {},
+  "edit": "Hariri",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Je, una uhakika unataka kufuta akaunti yako?\nIkiwa kuna sababu maalum, tafadhali shiriki hapa chini",
   "@account_delete_message": {},
   "reason": "Sababu",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Weka upya mapendeleo ya chakula",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Kuna kitu ilienda mrama",
   "@error": {},
@@ -185,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Saidia kuboresha Ukweli wa Chakula Huria katika nchi yako",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -395,7 +486,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Tafsiri ni moja wapo ya kazi kuu za mradi",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+  "contribute_join_skill_pool": "Changia ujuzi wako kwa Fungua Ukweli wa Chakula. Jiunge na bwawa la ujuzi!",
   "contribute_share_header": "Shiriki Ukweli wa Chakula cha Open na marafiki zako",
   "@contribute_share_header": {},
   "contribute_share_content": "Nilitaka kukujulisha kuhusu programu ambayo nimekuwa nikitumia, Ukweli wa Chakula cha Open, ambayo hukuruhusu kupata athari za kiafya na mazingira za chakula chako, kwa njia iliyobinafsishwa. Inafanya kazi kwa kuchanganua misimbopau kwenye kifurushi. Hatimaye ni bure, hauhitaji usajili, na unaweza hata kusaidia kuongeza idadi ya bidhaa decyphered. Hiki hapa ni kiungo cha kuipata kwa simu yako: https://openfoodfacts.app",
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Dhibiti akaunti yako ya mchangiaji wa Open Food Facts.",
   "myPreferences_settings_title": "Mipangilio ya Programu",
   "myPreferences_settings_subtitle": "Hali nyeusi, Lugha…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Mapendeleo ya Chakula",
   "myPreferences_food_subtitle": "Chagua ni taarifa gani kuhusu chakula muhimu zaidi kwako.",
   "myPreferences_food_comment": "Chagua ni taarifa gani kuhusu chakula muhimu zaidi kwako, ili kupanga chakula kulingana na mapendeleo yako, angalia maelezo unayojali kwanza, na upate muhtasari wa uoanifu. Mapendeleo hayo ya chakula hukaa kwenye kifaa chako, na hayahusiani na akaunti yako ya mchangiaji wa Ukweli wa Chakula Huria ikiwa unayo.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Ungependa kuweka upya mapendeleo yako ya chakula?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -711,7 +809,7 @@
   "nutritional_facts_input_button_label": "Jaza ukweli wa lishe",
   "nutritional_facts_added": "Ukweli wa lishe umeongezwa",
   "categories_added": "Kategoria zimeongezwa",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "Kuhesabu Nutri-Score",
   "new_product_subtitle_nutriscore": "Tusaidie kwa kujaza angalau kategoria na maadili ya lishe",
   "new_product_title_environmental_score": "Kuhesabu Alama ya Kijani",
   "new_product_subtitle_environmental_score": "Ipate kwa kujaza angalau kategoria",
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Tazama picha zote zilizopo za bidhaa hii",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Hakuna bidhaa iliyopatikana",
   "@no_product_found": {},
+  "no_product_found_explanation": "Utafutaji wako wa\n**\"{search}\"**\nhaukulingana na matokeo yoyote.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Je, unataka kuendesha utafutaji huu huu katika **hifadhidata yetu ya kimataifa** badala yake?",
   "no_location_found": "Hakuna eneo lililopatikana",
   "not_found": "haijapatikana:",
   "refreshing_product": "Bidhaa ya kuburudisha",
@@ -1076,7 +1187,7 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+  "product_improvement_add_category": "Ongeza kategoria ili kukokotoa Nutri-Alama.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
@@ -1084,7 +1195,7 @@
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "Ongeza ukweli wa lishe na kategoria ili kukokotoa Alama ya Nutri.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -2299,6 +2410,7 @@
   "product_type_label_beauty": "Utunzaji wa kibinafsi",
   "product_type_label_pet_food": "Chakula cha kipenzi",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Haijulikani",
   "product_type_selection_title": "Aina ya bidhaa",
   "product_type_selection_subtitle": "Chagua aina ya bidhaa hii",
   "product_type_selection_empty": "Unahitaji kuchagua aina ya bidhaa kwanza!",
@@ -2432,6 +2544,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Tazama maelezo ya bidhaa",
   "prices_entry_menu_open_product_prices": "Tazama bei zote za bidhaa hii",
   "prices_entry_menu_open_proof": "Tazama uthibitisho",
   "prices_entry_menu_my_prices": "Tazama bei zangu zingine",
@@ -2652,10 +2765,19 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Jua zaidi kuhusu Bei Huria",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "Imekamilika",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3839,7 +3961,7 @@
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
-  "nutriscore_new_formula": "Nutri-Score {letter} (New calculation)",
+  "nutriscore_new_formula": "Nutri-Score {letter} (Hesabu mpya)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3848,11 +3970,11 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "Nutri-Score (New calculation)",
+  "nutriscore_new_formula_title": "Nutri-Score (Hesabu Mpya)",
   "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
-  "nutriscore_not_applicable": "Nutri-Score is not applicable",
-  "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
+  "nutriscore_unknown_new_formula": "Nutri-Score Isiyojulikana (Hesabu Mpya)",
+  "nutriscore_not_applicable": "Nutri-Score haitumiki",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score haitumiki (Hesabu mpya)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Alama ya Kijani A",
   "environmental_score_b_new": "Alama ya Kijani B",
@@ -3873,7 +3995,7 @@
   "faq_title_install_beauty": "Sakinisha Fungua Ukweli wa Urembo ili kuunda hifadhidata ya vipodozi",
   "faq_title_install_pet": "Sakinisha Ukweli wa Wazi wa Chakula cha Kipenzi ili kuunda hifadhidata ya vyakula vipenzi",
   "faq_title_install_product": "Sakinisha Ukweli wa Bidhaa Huria ili kuunda hifadhidata ya bidhaa ili kupanua maisha ya vitu",
-  "faq_nutriscore_nutriscore": "Hesabu mpya ya Alama ya Nutri: ni nini kipya?",
+  "faq_nutriscore_nutriscore": "Hesabu mpya ya Nutri-Score: ni nini kipya?",
   "contact_title_pro_page": "Pro? Ingiza bidhaa zako katika Ukweli wa Chakula Huria",
   "contact_title_pro_email": "Mawasiliano ya Mtayarishaji",
   "contact_title_press_page": "Bonyeza Ukurasa",
@@ -3918,35 +4040,35 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Shiriki",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score inabadilika: maelezo!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score ni nini?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nembo ya Nutri-Score inalenga kukujulisha kuhusu ubora wa lishe wa vyakula.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Msimbo wa rangi hutofautiana kutoka kijani kibichi (**A**) kwa bidhaa zenye afya zaidi** hadi nyekundu iliyokolea (**E**) kwa zile zenye afya kidogo**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nembo ya Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "Kwa nini Nutri-Score inabadilika?",
+  "guide_nutriscore_v2_why_v2_intro": "Fomula ya Nutri-Score **inabadilika** ili kutoa mapendekezo bora zaidi:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Tathmini vyema vinywaji vyote",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Maelezo ya kulinganisha ya **maziwa**, **vinywaji vya maziwa** pamoja na sukari iliyoongezwa na **vinywaji vya mboga** yalitofautishwa vyema katika algoriti mpya.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Uainishaji bora wa vinywaji",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Kiwango cha **sukari** kinazingatiwa vyema na hupendelea vinywaji vyenye tamu kidogo**.\\n**Vitamu pia vitaadhibiwa**: soda za kupunguza uzito zitapunguzwa kutoka kiwango cha B hadi kati ya C na E. Maji yanabaki kuwa kinywaji kinachopendekezwa.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Chumvi na sukari vinaadhibiwa",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Bidhaa **tamu sana** au **zenye chumvi nyingi** zitapunguza** ukadiriaji wao** zaidi**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Uongozi ndani ya mafuta na samaki",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Ukadiriaji wa baadhi ya samaki wenye mafuta mengi** na mafuta yenye mafuta mengi mazuri** utaongezeka.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Punguza nyama nyekundu",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Matumizi ya nyama nyekundu yanapaswa kuwa na kikomo**. Hii ndiyo sababu kuku watakuwa na nafasi nzuri zaidi**.",
+  "guide_nutriscore_v2_new_logo_title": "Jinsi ya kutofautisha hesabu ya Nutri-Score ya zamani na hesabu mpya?",
+  "guide_nutriscore_v2_new_logo_text": "Kuanzia sasa, nembo inaweza kuonyesha kutajwa \"**Hesabu mpya**\" ili kufafanua kwamba hii ndiyo hesabu mpya.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Nembo ya Nutri-Score mpya",
   "guide_nutriscore_v2_where_title": "Wapi kupata hesabu mpya ya Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Alama inatumika katika nchi 7: Ufaransa, Ujerumani, Ubelgiji, Uhispania, Luxemburg, Uholanzi na Uswizi.",
   "guide_nutriscore_v2_where_paragraph2": "Watengenezaji wana angalau miaka **2** hivi punde zaidi baada ya kutia saini amri **kubadilisha** hesabu ya zamani na mpya.",
@@ -4149,12 +4271,12 @@
   "guide_open_beauty_facts_scores_title": "Ujumbe juu ya kufunga bao",
   "guide_open_beauty_facts_scores_paragraph1": "Tofauti na bidhaa za vyakula, ulimwengu wa vipodozi **hauna mfumo wa alama unaotambulika ulimwenguni kote, unaoungwa mkono na serikali kama Nutri-Alama**. Madhara ya viungo yanaweza kuwa ya kibinafsi sana na yanategemea aina ya ngozi, mizio, na wasiwasi wa mtu binafsi.",
   "guide_open_beauty_facts_share_link": "https://world-sw.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Karibu kwa Fungua Bei!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "Bei Zilizofunguliwa ni nini?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Fungua Bei ni mradi wa **kukusanya na kushiriki bei za bidhaa kote ulimwenguni**. Ni mkusanyiko wa data unaopatikana kwa umma ambao unaweza kutumika kwa utafiti, uchanganuzi na zaidi. Bei Huzi hutengenezwa na kudumishwa na Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,7 +4284,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Je, Bei za Open hufanya kazi vipi?",
   "guide_open_prices_how_paragraph1": "**Tunatafuta mkusanyiko wa data wa chanzo huria wa bei**. Bei zinaweza kuongezwa na watumiaji kupitia programu hii ya wavuti, au kupitia programu rasmi ya Open Food Facts ya simu ya mkononi. Wauzaji wa reja reja au programu za wahusika wengine wanaweza kuchangia pia kwa kutumia API yetu.",
   "guide_open_prices_how_arg1_title": "Kusanya picha za lebo za bei kwenye njia",
   "guide_open_prices_how_arg2_title": "Kusanya picha za risiti",
@@ -4173,8 +4295,8 @@
   "guide_open_prices_why_arg2_title": "Linganisha bei zilizo karibu nawe",
   "guide_open_prices_why_arg2_text": "Tunapopata bei zaidi, unaweza kuona **maduka nafuu yaliyo karibu nawe**.",
   "guide_open_prices_scrapping_title": "Je, ulizingatia kuondoa bei kutoka kwa tovuti za wauzaji reja reja?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_scrapping_paragraph1": "Kwa sababu za kisheria na kiufundi, **hatuzingatii kuondoa bei kwenye tovuti za wauzaji reja reja kama njia halali ya kuchangia Bei Huria**. Tunataka kuhakikisha kuwa bei tunazokusanya ni sahihi na zimesasishwa, na kupokea bei zilizoondolewa kutoka kwa wachangiaji hakuturuhusu kufanya hivyo.",
+  "guide_open_prices_scrapping_paragraph2": "Kuondoa bei ni chaguo linalozingatiwa katika toleo la baadaye la Bei Huria, lakini itafanywa na Bei Huria yenyewe ili tuweze kuwa na uthibitisho wa bei kulingana na ukurasa wa HTML.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Unaweza kuchangia bei kwa kutumia API yetu.\nIwapo ungependa kuchangia bei kwa kiwango kikubwa, tafadhali wasiliana nasi kwa prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4281,6 +4403,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Sambamba",
   "@product_page_compatibility_score": {
@@ -4506,7 +4632,7 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Kwa nini Nutri-Alama hii ni tofauti na ile iliyo kwenye kifurushi?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Kwa nini Nutri-Score hii ni tofauti na ile iliyo kwenye kifurushi?",
   "knowledge_panel_nutriscore_banner_incorrect_score_message": "Kuna maelezo mawili yanayowezekana:\nOrodha ya viungo na/au ukweli wa lishe si ya kisasa.\n\nTunatoa \"Hesabu Mpya\" ya Nutri-Score (au V2). Tafadhali hakikisha kuwa una bango \"Hesabu Mpya\" kwenye kifurushi.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Angalia viungo",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Angalia ukweli wa lishe",
@@ -4554,6 +4680,56 @@
   "product_page_tab_for_me": "Kwa ajili yangu",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Utangamano wangu",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% inayolingana",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Data haitoshi kukokotoa alama ya utangamano.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Alama haiwezi kuhesabiwa kwa bidhaa ya aina ya \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Umuhimu",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Mechi",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Mechi nzuri",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Wastani wa mechi",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Mechi mbaya",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Mechi zisizojulikana",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Tovuti",
   "@product_page_tab_website": {
@@ -4999,7 +5175,7 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "Gundua Nutri-Alama mpya",
+  "tips_discover_nutriscore": "Gundua Nutri-Score mpya",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
@@ -5124,7 +5300,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Gundua Bei Zilizofunguliwa",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5332,7 +5508,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
+  "preferences_prices_newest_subtitle": "Bei za hivi punde zilizoongezwa na jumuiya ya Bei Huria",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5340,7 +5516,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Fungua vipimo vya Bei",
+  "preferences_prices_metrics_title": "Vipimo vya Bei Huria",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5384,7 +5560,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Njia rahisi za kusaidia Fungua Ukweli wa Chakula",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5626,5 +5802,59 @@
   "location_map_details_postcode": "Msimbo wa posta",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Kuratibu",
-  "location_map_details_osm_id": "Kitambulisho cha OSM"
+  "location_map_details_osm_id": "Kitambulisho cha OSM",
+  "homepage_scanner_back_to_home_button": "Kurudi nyumbani",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Badilisha kamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Onyesha kichanganuzi cha msimbopau",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Gusa ili kuchanganua **msimbopau**\nna ugundue kama **ni mzuri kwako**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Badilisha tochi",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Changanua bidhaa kwa kukaribia msimbopau wake",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Tumegundua msimbopau ufuatao: {barcode}, lakini inaonekana kuwa batili.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Tazama zaidi…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Bidhaa zilizochanganuliwa mara ya mwisho",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

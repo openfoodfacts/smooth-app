@@ -133,7 +133,7 @@ class ProductPageTabsGenerator {
           onPressed: () => Navigator.of(context).push(
             MaterialPageRoute<void>(
               builder: (BuildContext context) => KnowledgePanelPage(
-                panelId: id.replaceAll('simplified_', ''),
+                panelId: id.replaceAll('_simplified', ''),
                 product: product,
               ),
             ),
@@ -147,6 +147,10 @@ class ProductPageTabsGenerator {
 
       children = children.sublist(1);
 
+      if (product.productType == ProductType.product &&
+          id.startsWith('health_')) {
+        continue;
+      }
       tabs.add(
         ProductPageTab(
           id: id,

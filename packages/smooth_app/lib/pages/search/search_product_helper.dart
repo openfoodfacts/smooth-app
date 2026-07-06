@@ -108,6 +108,14 @@ class SearchProductHelper extends SearchHelper {
     final BuildContext context,
     final LocalDatabase localDatabase,
   ) async {
+    final List<String> unwantedIngredients =
+        (await UserPreferences.getUserPreferences())
+            .getUnwantedIngredientTags();
+
+    if (!context.mounted) {
+      return;
+    }
+
     emit(
       SearchQuery(
         search: value,
@@ -118,6 +126,7 @@ class SearchProductHelper extends SearchHelper {
             value,
             productType:
                 UserPreferences.getUserPreferencesSync().latestProductType,
+            unwantedIngredients: unwantedIngredients,
           ),
           context: context,
           editableAppBarTitle: false,

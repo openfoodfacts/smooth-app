@@ -331,6 +331,7 @@ class KnowledgePanelsBuilder {
           if (squarePanels.isNotEmpty) {
             return KnowledgePanelSquareCard(
               panels: squarePanels,
+              panelsIds: element.panelGroupElement?.panelIds,
               product: product,
             );
           }
@@ -413,6 +414,7 @@ class KnowledgePanelsBuilder {
             if (squarePanels.isNotEmpty) {
               return KnowledgePanelSquareCard(
                 panels: squarePanels,
+                panelsIds: element.panelGroupElement?.panelIds,
                 product: product,
               );
             }
@@ -451,6 +453,7 @@ class KnowledgePanelsBuilder {
               if (squarePanels.isNotEmpty) {
                 return KnowledgePanelSquareCard(
                   panels: squarePanels,
+                  panelsIds: element.panelGroupElement?.panelIds,
                   product: product,
                 );
               }

@@ -22,12 +22,14 @@ class SmoothAutocompleteTextField extends StatefulWidget {
     this.minLengthForSuggestions = 1,
     this.autofocus = false,
     this.allowEmojis = true,
+    this.maxLines = 1,
     this.suffixIcon,
     this.borderRadius,
     this.padding,
     this.textStyle,
     this.textCapitalization,
     this.onSelected,
+    this.enabled,
   });
 
   final FocusNode focusNode;
@@ -39,11 +41,13 @@ class SmoothAutocompleteTextField extends StatefulWidget {
   final int minLengthForSuggestions;
   final AutocompleteManager? manager;
   final bool allowEmojis;
+  final int? maxLines;
   final Widget? suffixIcon;
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry? padding;
   final TextStyle? textStyle;
   final TextCapitalization? textCapitalization;
+  final bool? enabled;
 
   /// Additional specific action when a suggested item is selected.
   final Function(String)? onSelected;
@@ -97,7 +101,8 @@ class _SmoothAutocompleteTextFieldState
             FocusNode focusNode,
             VoidCallback onFieldSubmitted,
           ) => TextField(
-            maxLines: 1,
+            enabled: widget.enabled,
+            maxLines: widget.maxLines,
             controller: widget.controller,
             onChanged: (_) {
               if (mounted) {

@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
@@ -11,6 +10,7 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
 class AppBarStatisticsCard extends StatefulWidget {
@@ -88,7 +88,6 @@ class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
                   widget.description,
                   group: widget.autoSizeGroup,
                   minFontSize: 8.0,
-                  softWrap: false,
                   maxLines: 1,
                   style: const TextStyle(color: Colors.white),
                 ),

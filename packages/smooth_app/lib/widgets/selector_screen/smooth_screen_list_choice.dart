@@ -66,6 +66,7 @@ class SmoothSelectorScreen<T> extends StatelessWidget {
                     ? SmoothLeadingAction.minimize
                     : SmoothLeadingAction.close,
                 elevationOnScroll: false,
+                productType: null,
               ),
               bottomBar: !provider.autoValidate
                   ? _SmoothSelectorScreenBottomBar<T>(

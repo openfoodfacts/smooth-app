@@ -2,6 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
+import 'package:smooth_app/generic_lib/bottom_sheets/smooth_autosize_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_draggable_bottom_sheet_route.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/color_extension.dart';
@@ -97,6 +98,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   required String title,
   required Iterable<String> labels,
   required Iterable<T> values,
+  // If the size may change once the modal is shown
+  bool dynamicSize = false,
   Iterable<String>? subtitles,
   bool addEndArrowToItems = false,
   Widget? header,
@@ -114,7 +117,6 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   Color? prefixIndicatorColor,
   double footerSpace = 0.0,
   SmoothModalSheetType type = SmoothModalSheetType.info,
-  bool safeArea = false,
   bool? useRootNavigator,
 }) {
   assert(labels.length == values.length);
@@ -163,9 +165,7 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
             : (addEndArrowToItems
                   ? const _SmoothListOfChoicesEndArrow()
                   : null)),
-        onTap: () {
-          Navigator.of(context).pop(values.elementAt(i));
-        },
+        onTap: () => Navigator.of(context).pop(values.elementAt(i)),
       ),
     );
 
@@ -180,23 +180,12 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     }
   }
 
-  double bottomPadding = MediaQuery.paddingOf(context).bottom;
-
-  if (safeArea && bottomPadding == 0.0) {
-    bottomPadding = MediaQuery.viewPaddingOf(context).bottom;
-  }
-
   if (footer != null) {
     if (footerSpace > 0.0) {
       items.add(SizedBox(height: footerSpace));
     }
 
-    Widget footerChild = Column(
-      children: <Widget>[
-        footer,
-        SizedBox(height: bottomPadding),
-      ],
-    );
+    Widget footerChild = footer;
 
     if (footerBackgroundColor != null) {
       footerChild = ColoredBox(
@@ -206,23 +195,45 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     }
 
     items.add(footerChild);
-  } else {
-    items.add(SizedBox(height: bottomPadding));
   }
 
-  return showSmoothModalSheet<T>(
-    context: context,
-    useRootNavigator: useRootNavigator,
-    builder: (BuildContext context) => SmoothModalSheet(
-      title: title,
-      type: type,
-      prefixIndicator: true,
-      prefixIndicatorColor: prefixIndicatorColor,
-      headerBackgroundColor: headerBackgroundColor,
-      bodyPadding: EdgeInsets.zero,
-      body: IntrinsicHeight(
-        child: Column(mainAxisSize: MainAxisSize.min, children: items),
+  if (dynamicSize) {
+    return showSmoothModalSheet<T>(
+      context: context,
+      useRootNavigator: useRootNavigator ?? false,
+      builder: (_) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SmoothModalSheetHeader(
+              title: title,
+              prefix: SmoothModalSheetHeaderPrefixIndicator(
+                color: prefixIndicatorColor,
+              ),
+              backgroundColor: headerBackgroundColor,
+              type: type,
+            ),
+            ...items,
+          ],
+        ),
       ),
+    );
+  }
+
+  return showSmoothAutoSizeModalSheet<T>(
+    context: context,
+    useRootNavigator: useRootNavigator ?? false,
+    useSafeArea: false,
+    header: SmoothModalSheetHeader(
+      title: title,
+      prefix: SmoothModalSheetHeaderPrefixIndicator(
+        color: prefixIndicatorColor,
+      ),
+      backgroundColor: headerBackgroundColor,
+      type: type,
+    ),
+    bodyBuilder: (_) => SafeArea(
+      child: Column(mainAxisSize: MainAxisSize.min, children: items),
     ),
   );
 }
@@ -278,7 +289,6 @@ Future<T?> showSmoothAlertModalSheet<T>({
       horizontal: MEDIUM_SPACE,
     ),
     textStyle: const TextStyle(fontWeight: FontWeight.w600),
-    safeArea: true,
   );
 }
 
@@ -535,7 +545,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
                   ),
                 ),
               ),
-              if (suffix != null) suffix!,
+              ?suffix,
             ],
           ),
         ),
@@ -735,17 +745,22 @@ class SmoothModalSheetHeaderCloseButton extends StatelessWidget
 
 class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
     implements SizeWidget {
-  const SmoothModalSheetHeaderPrefixIndicator({this.color, super.key});
+  const SmoothModalSheetHeaderPrefixIndicator({
+    this.color,
+    super.key,
+    this.size,
+  });
 
   final Color? color;
+  final Size? size;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsetsDirectional.only(end: VERY_SMALL_SPACE),
       child: SizedBox(
-        width: 10.0,
-        height: 10.0,
+        width: size?.width ?? 10.0,
+        height: size?.height ?? 10.0,
         child: DecoratedBox(
           decoration: BoxDecoration(
             color: color ?? Colors.white,
@@ -760,7 +775,7 @@ class SmoothModalSheetHeaderPrefixIndicator extends StatelessWidget
   bool get requiresPadding => false;
 
   @override
-  double widgetHeight(BuildContext context) => 10.0;
+  double widgetHeight(BuildContext context) => size?.height ?? 10.0;
 }
 
 abstract class SizeWidget implements Widget {
