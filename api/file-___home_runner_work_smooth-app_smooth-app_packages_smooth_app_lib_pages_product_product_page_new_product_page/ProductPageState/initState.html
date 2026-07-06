@@ -76,8 +76,13 @@ void initState() {
   DaoProductLastAccess(localDatabase).put(barcode);
 
   onNextFrame(() {
-    if (!KnowledgePanelsBuilder.hasSimplifiedPanels(widget.product)) {
-      ProductRefresher().fetchAndRefresh(barcode: barcode, context: context);
+    if (KnowledgePanelsBuilder.needsSimplifiedPanelsRefresh(widget.product)) {
+      unawaited(
+        ProductRefresher().fetchAndRefresh(
+          barcode: barcode,
+          context: context,
+        ),
+      );
     }
     _updateLocalDatabaseWithProductHistory(context);
   });

@@ -56,7 +56,7 @@
 <li><span class="parameter" id="getChildren-param-panelElement">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">panelElement</span>, </span></li>
 <li><span class="parameter" id="getChildren-param-product"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
 <li><span class="parameter" id="getChildren-param-onboardingMode"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">onboardingMode</span>, </span></li>
-<li><span class="parameter" id="getChildren-param-simplified"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">simplified</span> = <span class="default-value">false</span>}</span></li>
+<li><span class="parameter" id="getChildren-param-simplified"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">simplified</span>}</span></li>
 </ol>)
 
       
@@ -73,7 +73,7 @@
   required KnowledgePanelElement panelElement,
   required Product product,
   required bool onboardingMode,
-  bool simplified = false,
+  required bool simplified,
 }) {
   final String? panelId = panelElement.panelElement?.panelId;
   final KnowledgePanel? rootPanel = panelId == null
@@ -190,12 +190,14 @@
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getElementWidget.html">getElementWidget</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getKnowledgePanel.html">getKnowledgePanel</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getPanelSummaryWidget.html">getPanelSummaryWidget</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootKnowledgePanel.html">getRootKnowledgePanel</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootPanelElement.html">getRootPanelElement</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootPanelElements.html">getRootPanelElements</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getSquarePanels.html">getSquarePanels</a></li>
-          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/hasSimplifiedPanels.html">hasSimplifiedPanels</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/hasSomethingToDisplay.html">hasSomethingToDisplay</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/lookForSquarePanels.html">lookForSquarePanels</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/needsSimplifiedPanelsRefresh.html">needsSimplifiedPanelsRefresh</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/supportsSimplifiedPanels.html">supportsSimplifiedPanels</a></li>
 
 </ol>
 

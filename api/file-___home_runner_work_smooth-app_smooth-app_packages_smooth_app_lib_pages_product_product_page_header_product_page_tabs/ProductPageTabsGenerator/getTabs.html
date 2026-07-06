@@ -68,8 +68,14 @@
   <pre class="language-dart"><code class="language-dart">List&lt;ProductPageTab&gt; getTabs(BuildContext context, Product product) {
   final List&lt;ProductPageTab&gt; tabs = &lt;ProductPageTab&gt;[];
 
+  final bool simplifiedKP = KnowledgePanelsBuilder.supportsSimplifiedPanels(
+    product,
+  );
   final List&lt;KnowledgePanelElement&gt; roots =
-      KnowledgePanelsBuilder.getRootPanelElements(product, simplified: true);
+      KnowledgePanelsBuilder.getRootPanelElements(
+        product,
+        simplified: simplifiedKP,
+      );
 
   for (final KnowledgePanelElement root in roots) {
     final String? id = root.panelElement?.panelId;
@@ -89,19 +95,22 @@
       continue;
     }
 
-    children.add(
-      TextButton(
-        onPressed: () =&gt; Navigator.of(context).push(
-          MaterialPageRoute&lt;void&gt;(
-            builder: (BuildContext context) =&gt; KnowledgePanelPage(
-              panelId: id.replaceAll(&#39;_simplified&#39;, &#39;&#39;),
-              product: product,
+    if (simplifiedKP) {
+      &#47;&#47; open the un-simplified &#47; standard KP in a page.
+      children.add(
+        TextButton(
+          onPressed: () =&gt; Navigator.of(context).push(
+            MaterialPageRoute&lt;void&gt;(
+              builder: (BuildContext context) =&gt; KnowledgePanelPage(
+                panelId: id.replaceAll(&#39;_simplified&#39;, &#39;&#39;),
+                product: product,
+              ),
             ),
           ),
+          child: Text(AppLocalizations.of(context).learnMore),
         ),
-        child: Text(AppLocalizations.of(context).learnMore),
-      ),
-    );
+      );
+    }
 
     final KnowledgePanelTitle knowledgePanelTitle =
         children.first as KnowledgePanelTitle;

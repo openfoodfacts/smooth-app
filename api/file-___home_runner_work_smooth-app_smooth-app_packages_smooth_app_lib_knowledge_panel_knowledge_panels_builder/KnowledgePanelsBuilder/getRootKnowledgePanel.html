@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="description" content="API docs for the hasSimplifiedPanels method from the KnowledgePanelsBuilder class, for the Dart programming language.">
-  <title>hasSimplifiedPanels method - KnowledgePanelsBuilder class - knowledge_panels_builder library - Dart API</title>
+  <meta name="description" content="API docs for the getRootKnowledgePanel method from the KnowledgePanelsBuilder class, for the Dart programming language.">
+  <title>getRootKnowledgePanel method - KnowledgePanelsBuilder class - knowledge_panels_builder library - Dart API</title>
 
 
   
@@ -31,9 +31,9 @@
     <li><a href="../../index.html">smooth_app</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder-library.html">knowledge_panels_builder</a></li>
     <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder-class.html">KnowledgePanelsBuilder</a></li>
-    <li class="self-crumb">hasSimplifiedPanels method</li>
+    <li class="self-crumb">getRootKnowledgePanel method</li>
   </ol>
-  <div class="self-name">hasSimplifiedPanels</div>
+  <div class="self-name">getRootKnowledgePanel</div>
   <form class="search navbar-right" role="search">
     <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
   </form>
@@ -44,28 +44,34 @@
 
   <div id="dartdoc-main-content" class="main-content">
       <div>
-<h1><span class="kind-method">hasSimplifiedPanels</span> method 
+<h1><span class="kind-method">getRootKnowledgePanel</span> method 
     <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
 </h1></div>
 
     <section class="multi-line-signature">
       
 
-<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
-<span class="name ">hasSimplifiedPanels</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="hasSimplifiedPanels-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span></span></li>
+<span class="returntype">dynamic</span>
+<span class="name ">getRootKnowledgePanel</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getRootKnowledgePanel-param-product"><span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="getRootKnowledgePanel-param-simplified">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">simplified</span>}</span></li>
 </ol>)
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>Returns the root KP.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static bool hasSimplifiedPanels(final Product product) =&gt;
-    getKnowledgePanel(product, _simplifiedRootPanelId) != null;</code></pre>
+  <pre class="language-dart"><code class="language-dart">static KnowledgePanel? getRootKnowledgePanel(
+  final Product product, {
+  required final bool simplified,
+}) =&gt; getKnowledgePanel(product, simplified ? &#39;simplified_root&#39; : &#39;root&#39;);</code></pre>
 </section>
 
 
@@ -82,7 +88,7 @@
   <li><a href="../../index.html">smooth_app</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder-library.html">knowledge_panels_builder</a></li>
   <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder-class.html">KnowledgePanelsBuilder</a></li>
-  <li class="self-crumb">hasSimplifiedPanels method</li>
+  <li class="self-crumb">getRootKnowledgePanel method</li>
 </ol>
 
 
@@ -112,12 +118,14 @@
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getElementWidget.html">getElementWidget</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getKnowledgePanel.html">getKnowledgePanel</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getPanelSummaryWidget.html">getPanelSummaryWidget</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootKnowledgePanel.html">getRootKnowledgePanel</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootPanelElement.html">getRootPanelElement</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getRootPanelElements.html">getRootPanelElements</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/getSquarePanels.html">getSquarePanels</a></li>
-          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/hasSimplifiedPanels.html">hasSimplifiedPanels</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/hasSomethingToDisplay.html">hasSomethingToDisplay</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/lookForSquarePanels.html">lookForSquarePanels</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/needsSimplifiedPanelsRefresh.html">needsSimplifiedPanelsRefresh</a></li>
+          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panels_builder/KnowledgePanelsBuilder/supportsSimplifiedPanels.html">supportsSimplifiedPanels</a></li>
 
 </ol>
 

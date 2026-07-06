@@ -122,7 +122,7 @@ Widget build(BuildContext context) {
         ),
         const SizedBox(width: LARGE_SPACE),
         if (iconUrl != null &amp;&amp; iconUrl!.isNotEmpty)
-          SvgCache(iconUrl, height: 42.0),
+          AbstractCache.best(iconUrl: iconUrl, height: 42.0),
       ],
     ),
   );
