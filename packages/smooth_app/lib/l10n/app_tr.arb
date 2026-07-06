@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "Ekle",
   "@add": {},
+  "edit": "Düzenle",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Hesabınızı silmek istediğinizden emin misiniz?\nBelirli bir nedeni varsa aşağıda paylaşın",
   "@account_delete_message": {},
   "reason": "Sebep",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Yemek tercihlerini sıfırla",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Bir şeyler ters gitti",
   "@error": {},
@@ -160,7 +250,7 @@
   "incorrect_credentials": "Hatalı kullanıcı adı veya parola.",
   "password_lost_incorrect_credentials": "Bu e-posta veya kullanıcı adı mevcut değil. Lütfen kimlik bilgilerinizi kontrol edin.",
   "password_lost_server_unavailable": "Şu anda sunucularımızda yavaşlamalar yaşıyoruz ve bunun için özür dileriz. Lütfen daha sonra tekrar deneyiniz.",
-  "login": "Oturumu Başlat",
+  "login": "Giriş yap",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -350,7 +440,7 @@
     "description": "Button label: Opens a pop up window which shows information about the app"
   },
   "@About this app section": {},
-  "contribute": "Destekleyebilirsiniz",
+  "contribute": "Katkıda bulunun",
   "@contribute": {
     "description": "Button label: Shows multiple ways how users can contribute to OFF"
   },
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
   "myPreferences_settings_title": "Uygulama Ayarları",
   "myPreferences_settings_subtitle": "Karanlık mod, Diller…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Yiyecek tercihleri",
   "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
   "myPreferences_food_comment": "Yiyecekleri tercihlerinize göre sıralamak, önemsediğiniz bilgileri ilk önce görmek ve uyumluluk özeti almak için yiyeceklerle ilgili sizin için en önemli olan bilgileri seçin. Bu yemek tercihleri cihazınızda kalır ve varsa Open Food Facts hesabınızla ilişkilendirilmez.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Yiyecek tercihleriniz sıfırlansın mı?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Bu ürüne ait mevcut tüm fotoğrafları görüntüle",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Ürün bulunamadı",
   "@no_product_found": {},
   "no_product_found_explanation": "\n**\"{search}\"**\niçin yaptığınız arama hiçbir sonuçla eşleşmedi.",
@@ -1282,7 +1381,7 @@
   "bsky_link": "https://bsky.app/profile/openfoodfacts.bsky.social",
   "blog": "Blog",
   "faq": "SSS",
-  "discover": "Keşfet",
+  "discover": "Keşfedin",
   "how_to_contribute": "Nasıl Katkıda Bulunulur",
   "hint_knowledge_panel_message": "Gördüğünüz şey hakkında daha fazla ayrıntı almak için kartın herhangi bir yerine dokunabilirsiniz. Şimdi dene!",
   "@hint_knowledge_panel_message": {
@@ -2670,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "İndirim türü",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "İndirim",
+  "prices_discount_type_seasonal": "Mevsimsel",
+  "prices_discount_type_loyalty_program": "Sadakat programı",
+  "prices_discount_type_expires_soon": "Yakında sona eriyor",
+  "prices_discount_type_pick_it_yourself": "Kendiniz seçin",
+  "prices_discount_type_second_hand": "İkinci el",
+  "prices_discount_type_other": "Diğer",
   "dev_preferences_import_history_result_success": "Yapıldı",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -4296,6 +4404,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "Uyumlu",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4891,7 +5003,7 @@
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
-  "preferences_contribute_title": "Destekleyebilirsiniz",
+  "preferences_contribute_title": "Katkıda bulunun",
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },

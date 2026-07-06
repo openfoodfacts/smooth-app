@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "Dodaj",
   "@add": {},
+  "edit": "Uredi",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Ali ste prepričani, da želite izbrisati svoj račun?\nČe obstaja poseben razlog, ga prosim delite spodaj.",
   "@account_delete_message": {},
   "reason": "Razlog",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Ponastavi nastavitve",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Nekaj je šlo narobe",
   "@error": {},
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Upravljajte svoj račun za sodelavce na Open Food Facts.",
   "myPreferences_settings_title": "Nastavitve aplikacije",
   "myPreferences_settings_subtitle": "Temni način, Jeziki…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Najljubša hrana",
   "myPreferences_food_subtitle": "Izberite katere informacije o hrani so vam najbolj pomembne.",
   "myPreferences_food_comment": "Izberite, katere informacije o hrani so vam najpomembnejše, da boste hrano razvrstili glede na svoje preference, si ogledali informacije, ki vas najprej zanimajo, in dobili povzetek združljivosti. Te preference glede hrane ostanejo v vaši napravi in niso povezane z vašim računom za sodelavce Open Food Facts, če ga imate.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Ponastavitev preferenc o izdelkih?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Oglejte si vse obstoječe fotografije tega izdelka",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Ni zadetkov",
   "@no_product_found": {},
   "no_product_found_explanation": "Vaše iskanje za\n**\"{search}\"**\nni dalo nobenih rezultatov.",
@@ -2670,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Drugo",
   "dev_preferences_import_history_result_success": "Opravljeno",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3848,7 +3956,7 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "Nutri-ocena A",
+  "nutriscore_a": "Nutri-Score A",
   "nutriscore_b": "Nutri-Score B",
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
@@ -3864,7 +3972,7 @@
   },
   "nutriscore_new_formula_title": "Nutri-Score (nov izračun)",
   "nutriscore_unknown": "Neznana hranilna vrednost",
-  "nutriscore_unknown_new_formula": "Neznan nutri-rezultat (nov izračun)",
+  "nutriscore_unknown_new_formula": "Neznan Nutri-Score (nov izračun)",
   "nutriscore_not_applicable": "Nutri-Score se ne uporablja.",
   "nutriscore_not_applicable_new_formula": "Nutri-Score se ne uporablja (nov izračun)",
   "environmental_score_generic_new": "Green-Score",
@@ -3932,42 +4040,42 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Deli",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score se razvija: razlage!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Kaj je Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score je logotip, katerega namen je obveščati vas o **hranilni kakovosti živil**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Barvna koda se razlikuje od temno zelene (**A**) za **najbolj zdrave** izdelke do temno rdeče (**E**) za **manj zdrave**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Logotip Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "Zakaj se Nutri-Score razvija?",
+  "guide_nutriscore_v2_why_v2_intro": "Formula Nutri-Score se **razvija**, da bi zagotovila boljša priporočila:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Bolje ocenite vse pijače",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Primerjalne note **mleka**, **mlečnih pijač** z dodanim sladkorjem in **zelenjavnih** pijač so bile v novem algoritmu bolje ločene.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Boljša uvrstitev pijač",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Bolje je upoštevati **vsebnost sladkorja** in dati prednost **nizko sladkanim** pijačam.\\n**Sladila bodo prav tako kaznovana**: dietne gazirane pijače bodo dobile znižano oceno z B na med C in E. Voda ostaja priporočena pijača.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Sol in sladkor sta kaznovana",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Izdelkom, ki so **preslaki** ali **preslaki**, se bo **ocena še dodatno znižala**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarhija znotraj olj in rib",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Izboljšala se bo ocena nekaterih **mastnih rib** in **olj, bogatih z dobrimi maščobami**.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Omejite rdeče meso",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Uživanje **rdečega mesa je treba omejiti**. Zato bo **perutnina primerjalno bolje uvrščena**.",
+  "guide_nutriscore_v2_new_logo_title": "Kako razlikovati stari Nutri-Score od novega izračuna?",
+  "guide_nutriscore_v2_new_logo_text": "Od zdaj naprej lahko logotip prikazuje omenitev »**Nov izračun**«, ki pojasnjuje, da gre dejansko za nov izračun.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Logotip novega Nutri-Scorea",
   "guide_nutriscore_v2_where_title": "Kje najdem nov izračun Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score se uporablja v 7 državah: Franciji, Nemčiji, Belgiji, Španiji, Luksemburgu, na Nizozemskem in v Švici.",
   "guide_nutriscore_v2_where_paragraph2": "Proizvajalci imajo po podpisu odloka največ **2 leti** časa, da stari izračun nadomestijo z novim.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Brez čakanja boste **že našli v aplikaciji OpenFoodFacts** nov izračun, tudi če proizvajalci še niso posodobili ocene.",
+  "guide_nutriscore_v2_unchanged_title": "Kaj se ne spremeni",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score je ocena, zasnovana za **merjenje prehranske kakovosti**. **Dopolnjuje skupino NOVA** za **ultra predelana živila** (ki je prav tako prisotna v aplikaciji).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Za proizvajalce prikaz Nutri-Score **ostaja neobvezen**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4295,6 +4403,10 @@
   "photo_viewer_details_url_title": "URL-naslov",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Združljivo",
   "@product_page_compatibility_score": {

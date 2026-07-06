@@ -116,19 +116,15 @@ class ProductDialogHelper {
                           ? theme.primaryMedium
                           : theme.primaryLight,
                     ),
-                    child: SmoothBarcodeWidget(
-                      barcode: barcode,
-                      height: 75.0,
-                      padding: const EdgeInsetsDirectional.only(
-                        top: MEDIUM_SPACE,
-                        start: VERY_LARGE_SPACE,
-                        end: VERY_LARGE_SPACE,
-                        bottom: MEDIUM_SPACE,
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.symmetric(
+                        vertical: MEDIUM_SPACE,
+                        horizontal: VERY_LARGE_SPACE,
                       ),
-                      color: Colors.black,
-                      backgroundColor: lightTheme
-                          ? Colors.white
-                          : Colors.transparent,
+                      child: SmoothBarcodeWidget(
+                        barcode: barcode,
+                        height: 75.0,
+                      ),
                     ),
                   ),
                   const SizedBox(height: MEDIUM_SPACE * 2),

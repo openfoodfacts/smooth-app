@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "إضافة",
   "@add": {},
+  "edit": "تحرير",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "هل انت متأكد انك تريد حذف حسابك؟\nإذا كان هناك سبب محدد ، يرجى المشاركة بالأسفل",
   "@account_delete_message": {},
   "reason": "السبب",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "إعادة تعيين تفضيلات الطعام",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "قم بتخصيص التطبيق",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "الحميات الغذائية",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "أنواع الحساسية",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "ما لا آكله",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "ما أفضل تجنبه",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "التفضيلات البيئية",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "الملف الشخصي جاهز",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "الخطوة {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "بدون تحديد",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "لا توجد سمات متاحة لهذه الفئة.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "تعذر تحميل الإعدادات. يرجى التحقق من اتصالك بالإنترنت.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "هذا هو ملفك الشخصي:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "في الخطوات التالية، يمكنك **تخصيص التطبيق** من خلال تحديد تفضيلاتك:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "اختر الأنظمة الغذائية التي تتبعها لتخصيص توصياتك.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "حدد المواد المسببة للحساسية التي تحتاج إلى تجنبها لضمان سلامة طعامك.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "حدد الأطعمة أو المكونات التي لا تتناولها.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "اختر الأطعمة التي تفضل تجنبها دون أن يكون ذلك حظراً صارماً.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "حدد تفضيلاتك البيئية للحصول على توصيات أكثر استدامة.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "ابحث عن المكونات",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "تم إضافة المكون مسبقاً",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "حدث خطأ ما",
   "@error": {},
@@ -384,7 +474,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "جودة البيانات",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "قم بإدارة حساب المساهم الخاص بك في Open Food Facts.",
   "myPreferences_settings_title": "إعدادات التطبيق",
   "myPreferences_settings_subtitle": "الوضع الداكن، اللغات…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "أضف تفضيلات غذائية",
   "myPreferences_food_subtitle": "اختر المعلومات التي تهمك أكثر عن الطعام.",
   "myPreferences_food_comment": "اختر المعلومات الغذائية الأكثر أهمية بالنسبة لك، لتصنيف الطعام حسب تفضيلاتك، واطلع على المعلومات التي تهمك أولًا، واحصل على ملخص التوافق. تبقى هذه التفضيلات الغذائية على جهازك، وليست مرتبطة بحساب مساهمك في Open Food Facts، إن كان لديك حساب.",
+  "myPreferences_beauty_title": "تفضيلات مستحضرات التجميل",
+  "myPreferences_beauty_subtitle": "اختر ما هي المعلومات عن منتجات مستحضرات التجميل التي تهمك أكثر من غيرها.",
+  "myPreferences_product_title": "تفضيلات المنتجات الأخرى",
+  "myPreferences_product_subtitle": "اختر المعلومات المتعلقة بالمنتجات الأخرى التي تهمك أكثر.",
+  "myPreferences_pet_food_title": "تفضيلات طعام الحيوانات الأليفة",
+  "myPreferences_pet_food_subtitle": "اختر المعلومات المتعلقة بأغذية الحيوانات الأليفة التي تهمك أكثر.",
   "confirmResetPreferences": "إعادة تعيين تفضيلات التطبيق؟",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "عرض جميع الصور الموجودة لهذا المنتج",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "لم يتم العثور على أي منتج",
   "@no_product_found": {},
   "no_product_found_explanation": "لم تتطابق نتائج بحثك عن\n**\"{search}\"**\nمع أي نتائج.",
@@ -1056,7 +1155,7 @@
   "tag_key_uneditable": "الملكية (غير قابلة للتعديل)",
   "tag_key_input_hint": "إدخال خاصية",
   "tag_value": "القيمة",
-  "tag_values": "Values",
+  "tag_values": "القيم",
   "tag_value_input_hint": "أدخل قيمة",
   "tag_key_item": "ملكية:",
   "tag_value_item": "قيمة:",
@@ -2670,6 +2769,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "نوع الخصم",
+  "prices_discount_type_quantity": "خصم على الكمية",
+  "prices_discount_type_sale": "أُوكَازيُون",
+  "prices_discount_type_seasonal": "موسمي",
+  "prices_discount_type_loyalty_program": "برنامج الولاء",
+  "prices_discount_type_expires_soon": "ينتهي قريباً",
+  "prices_discount_type_pick_it_yourself": "اخترها بنفسك",
+  "prices_discount_type_second_hand": "اليد الثانية",
+  "prices_discount_type_other": "أخرى",
   "dev_preferences_import_history_result_success": "تم",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3945,29 +4053,29 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "شعار Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "لماذا يتطور نظام Nutri-Score؟",
+  "guide_nutriscore_v2_why_v2_intro": "تتطور صيغة Nutri-Score لتقديم توصيات أفضل:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "من الأفضل تقييم جميع المشروبات",
+  "guide_nutriscore_v2_why_v2_arg1_text": "تم تمييز الملاحظات المقارنة بين **الحليب** و**مشروبات الألبان** مع إضافة السكر و**مشروبات الخضار** بشكل أفضل في الخوارزمية الجديدة.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "تصنيف أفضل للمشروبات",
+  "guide_nutriscore_v2_why_v2_arg2_text": "يُفضّل مراعاة محتوى السكر، مما يُشجع على اختيار المشروبات قليلة الحلاوة.\\nكما سيتمّ تخفيض تصنيف المشروبات الغازية الدايت من B إلى ما بين C و E. ويبقى الماء المشروب المُوصى به.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "تم فرض عقوبة على الملح والسكر",
+  "guide_nutriscore_v2_why_v2_arg3_text": "المنتجات **حلوة جداً** أو **مرتبة جداً** سوف ترى **تصنيفها أكثر انخفاضاً**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "التسلسل الهرمي في صناعة الزيوت والأسماك",
+  "guide_nutriscore_v2_why_v2_arg4_text": "سيتحسن تصنيف بعض أنواع **الأسماك الدهنية** و**الزيوت الغنية بالدهون الجيدة**.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "قلل من تناول اللحوم الحمراء",
+  "guide_nutriscore_v2_why_v2_arg5_text": "ينبغي الحد من استهلاك اللحوم الحمراء. ولهذا السبب، ستكون الدواجن في مرتبة أفضل نسبياً.",
+  "guide_nutriscore_v2_new_logo_title": "كيف يمكن التمييز بين نظام Nutri-Score القديم والحساب الجديد؟",
+  "guide_nutriscore_v2_new_logo_text": "من الآن فصاعدًا، يمكن للشعار أن يعرض عبارة \"**حساب جديد**\" لتوضيح أن هذا هو الحساب الجديد بالفعل.",
+  "guide_nutriscore_v2_new_logo_image_caption": "شعار Nutri-Score الجديد",
   "guide_nutriscore_v2_where_title": "أين يمكنني العثور على حساب Nutri-Score الجديد؟",
   "guide_nutriscore_v2_where_paragraph1": "يتم تطبيق نظام Nutri-Score في 7 دول: فرنسا، ألمانيا، بلجيكا، إسبانيا، لوكسمبورج، هولندا وسويسرا.",
   "guide_nutriscore_v2_where_paragraph2": "لدى المصنعين مهلة لا تتجاوز **سنتين** بعد توقيع المرسوم **لاستبدال** الحساب القديم بالحساب الجديد.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "ستجدون **في تطبيق OpenFoodFacts** الحساب الجديد، بما في ذلك ما إذا كان المصنعون لم يقوموا بتحديث النتيجة أم لا، دون انتظار.",
+  "guide_nutriscore_v2_unchanged_title": "ما الذي لا يتغير",
+  "guide_nutriscore_v2_unchanged_paragraph1": "مؤشر التغذية هو مؤشر مصمم لقياس الجودة الغذائية. وهو مكمل لمجموعة NOVA الخاصة بالأطعمة فائقة المعالجة (الموجودة أيضاً في التطبيق).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "بالنسبة للمصنعين، يظل عرض مؤشر التغذية اختياريًا.",
   "guide_greenscore_title": "النتيجة البيئية",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4029,7 +4137,7 @@
   "guide_greenscore_better_product_arg3_text": "قد يبدو اختيار الطعام المستدام معقدًا. فالملصقات مُربكة، والمعلومات غالبًا ما تكون ناقصة. صُممت \"الدرجة الخضراء\" لتبسيط الأمر، حيث تمنحك تقييمًا بيئيًا واضحًا، وواضحًا، وشفافًا، للمنتجات الغذائية، أينما كنت: أثناء التسوق.",
   "guide_greenscore_better_product_arg4_title": "الشفافية",
   "guide_greenscore_better_product_arg4_text": "على عكس العلامات التجارية المسجلة الملكية، فإن حساب Green-Score هو **مفتوح تمامًا** ويمكن **التحقق منه من قبل أي شخص**.",
-  "guide_nova_title": "Ultra-processed foods",
+  "guide_nova_title": "أغذية فائقة التجهيز",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4051,7 +4159,7 @@
   "guide_nova_groups_arg2_text": "processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "المجموعة ٣ المجموعة ٣ Processed foods",
   "guide_nova_groups_arg3_text": "processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_title": "أغذية فائقة التجهيز",
   "guide_nova_groups_arg4_text": "ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "مشاكل المعالجة الفائقة",
   "guide_nova_explanations_arg1_title": "المعالجة المتطرفة لمكونات الطعام",
@@ -4063,7 +4171,7 @@
   "guide_nova_explanations_arg4_title": "الجوانب المفترسة والمالية للمعالجة الفائقة",
   "guide_nova_explanations_arg4_text": "**الغرض العام من المعالجة الفائقة هو إنتاج منتجات غذائية تحمل علامة تجارية**، و**مريحة** (متينة، وجاهزة للاستهلاك)، و**جذابة** (شهية للغاية) و**مربحة للغاية** (بمكونات منخفضة التكلفة)، مصممة لتحل محل جميع المجموعات الغذائية الأخرى. عادةً ما تُعبأ المنتجات الغذائية فائقة المعالجة بشكل جذاب وتُسوّق بشكل مكثف.",
   "guide_nova_explanations_arg5_title": "خطر على الصحة",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
+  "guide_nova_explanations_arg5_text": "منذ عام 2018، مع NutriNet-Santé، تم إبراز الروابط الأولى بين **استهلاك الأطعمة المعالجة بشكل واسع والنقصان في مخاطر سرطان، وأمراض القلب والأوعية الدموية، والسكري**. اليوم، أكثر من 90 دراسة في جميع أنحاء العالم تؤكد هذه النتائج.\nأقوى الارتباطات تتعلق **بالسمنة، ووفيات أمراض القلب والأوعية الدموية، وأعراض الاكتئاب**. بالنسبة للأطفال، يتم ملاحظة الآثار بشكل أساسي على الوزن وعدم توازن الدهون.",
   "guide_nova_explanations_arg6_title": "توصي الدول بالحد منها",
   "guide_nova_explanations_arg6_text": "تستخدم بعض البلدان مجموعات NOVA لإرشاداتها أو أهدافها الغذائية، على سبيل المثال:\n\n- **🇧🇷 توصي الإرشادات الغذائية للبرازيل بالحد من استهلاك** الأطعمة المصنعة وتجنب الأطعمة فائقة المعالجة.\n\n- **🇫🇷 تهدف أهداف السياسة الغذائية الصحية العامة في فرنسا للفترة 2018-2022 إلى **تقليل استهلاك الأطعمة فائقة المعالجة من المجموعة 4 بنسبة 20%**.",
   "guide_nova_share_link": "https://world-ar.openfoodfacts.org/nova",
@@ -4295,6 +4403,10 @@
   "photo_viewer_details_url_title": "عنوان URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "عرض الصورة الأصلية",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "متناسق",
   "@product_page_compatibility_score": {
@@ -4573,7 +4685,7 @@
   "@product_page_for_me_compatibility_score_title": {
     "description": "Title for the compatibility score"
   },
-  "product_page_for_me_compatibility_score_value": "{value}% compatible",
+  "product_page_for_me_compatibility_score_value": "{value}% متوافق",
   "@product_page_for_me_compatibility_score_value": {
     "description": "Compatibility score value in the For me tab on the product page",
     "placeholders": {
@@ -5188,7 +5300,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "اكتشف الأسعار المفتوحة",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },

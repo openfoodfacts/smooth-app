@@ -147,6 +147,10 @@ class ProductPageTabsGenerator {
 
       children = children.sublist(1);
 
+      if (product.productType == ProductType.product &&
+          id.startsWith('health_')) {
+        continue;
+      }
       tabs.add(
         ProductPageTab(
           id: id,

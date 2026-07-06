@@ -20,6 +20,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/prices/eraser_model.dart';
 import 'package:smooth_app/pages/prices/eraser_painter.dart';
 
@@ -258,7 +259,6 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final int cropY1,
     required final int cropX2,
     required final int cropY2,
-    required final int compressQuality,
     required final bool forceCompression,
     required final List<double>? eraserCoordinates,
     final int? maxSize,
@@ -342,7 +342,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     await saveJpeg(
       file: croppedFile,
       source: cropped,
-      quality: compressQuality,
+      quality: ImagePickerConstants.imageQuality,
     );
     return BackgroundCropResult.success(
       filePath: croppedPath,
@@ -386,9 +386,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       final User user = getUser();
 
       Future<Status> addImage({
-        required int compressionPct,
         required bool force,
-        int? maxSize,
+        required int maxSize,
       }) async {
         cropResult = await cropIfNeeded(
           fullPath: fullPath,
@@ -397,7 +396,6 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           cropY1: cropY1,
           cropX2: cropX2,
           cropY2: cropY2,
-          compressQuality: compressionPct,
           forceCompression: force,
           eraserCoordinates: eraserCoordinates,
           maxSize: maxSize,
@@ -422,14 +420,16 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
       Status status;
       try {
-        status = await addImage(compressionPct: 100, force: false);
+        status = await addImage(
+          force: false,
+          maxSize: ImagePickerConstants.maxSize.toInt(),
+        );
       } catch (e) {
         if (e.toString().contains('413') ||
             e.toString().contains('Request Entity Too Large')) {
           status = await addImage(
-            compressionPct: 80,
             force: true,
-            maxSize: 2000,
+            maxSize: ImagePickerConstants.maxSizeFallback.toInt(),
           );
         } else {
           rethrow;
@@ -443,6 +443,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       if (status.status == 'status not ok' && imageId != null) {
         // The very same image was already uploaded and therefore was rejected.
         // We just have to select this image, with no angle.
+        if (imageField == ImageField.OTHER) {
+          // we're done here: all we wanted was to have the image uploaded, and
+          // it is. And the server rejects "set as" operation for OTHER images.
+          return;
+        }
         final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
           barcode: barcode,
           imageField: imageField,
