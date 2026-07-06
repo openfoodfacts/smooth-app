@@ -25,14 +25,12 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 class KnowledgePanelsBuilder {
   const KnowledgePanelsBuilder._();
 
-  static const String _simplifiedRootPanelId = 'simplified_root';
-
   static List<Widget> getChildren(
     BuildContext context, {
     required KnowledgePanelElement panelElement,
     required Product product,
     required bool onboardingMode,
-    bool simplified = false,
+    required bool simplified,
   }) {
     final String? panelId = panelElement.panelElement?.panelId;
     final KnowledgePanel? rootPanel = panelId == null
@@ -155,8 +153,15 @@ class KnowledgePanelsBuilder {
         <KnowledgePanel>[];
   }
 
-  static bool hasSimplifiedPanels(final Product product) =>
-      getKnowledgePanel(product, _simplifiedRootPanelId) != null;
+  static bool supportsSimplifiedPanels(final Product product) =>
+      (product.productType ?? ProductType.food) == ProductType.food;
+
+  static bool needsSimplifiedPanelsRefresh(final Product product) {
+    if (supportsSimplifiedPanels(product)) {
+      return getRootKnowledgePanel(product, simplified: true) == null;
+    }
+    return false;
+  }
 
   /// Returns all the panel elements from "root".
   ///
@@ -164,13 +169,13 @@ class KnowledgePanelsBuilder {
   /// In option, only the one matching [panelId].
   static List<KnowledgePanelElement> getRootPanelElements(
     final Product product, {
+    required final bool simplified,
     final String? panelId,
-    final bool simplified = false,
   }) {
     final List<KnowledgePanelElement> result = <KnowledgePanelElement>[];
-    final KnowledgePanel? root = getKnowledgePanel(
+    final KnowledgePanel? root = getRootKnowledgePanel(
       product,
-      simplified ? _simplifiedRootPanelId : 'root',
+      simplified: simplified,
     );
 
     if (root == null) {
@@ -196,6 +201,12 @@ class KnowledgePanelsBuilder {
     return result;
   }
 
+  /// Returns the root KP.
+  static KnowledgePanel? getRootKnowledgePanel(
+    final Product product, {
+    required final bool simplified,
+  }) => getKnowledgePanel(product, simplified ? 'simplified_root' : 'root');
+
   /// Returns the KP that matches the [panelId].
   static KnowledgePanel? getKnowledgePanel(
     final Product product,
@@ -210,6 +221,7 @@ class KnowledgePanelsBuilder {
     final List<KnowledgePanelElement> elements = getRootPanelElements(
       product,
       panelId: panelId,
+      simplified: false,
     );
     if (elements.length != 1) {
       return null;
@@ -396,11 +408,11 @@ class KnowledgePanelsBuilder {
     final KnowledgePanel knowledgePanel,
     final Product product, {
     required final bool isClickable,
+    required final bool simplified,
     final bool ignoreEvaluation = false,
     final TextStyle? textStyleOverride,
     final EdgeInsetsGeometry? margin,
     final EdgeInsetsGeometry? padding,
-    final bool simplified = true,
   }) {
     if (knowledgePanel.titleElement == null) {
       if (simplified) {

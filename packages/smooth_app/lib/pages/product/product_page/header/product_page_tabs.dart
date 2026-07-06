@@ -108,7 +108,10 @@ class ProductPageTabsGenerator {
     final List<ProductPageTab> tabs = <ProductPageTab>[];
 
     final List<KnowledgePanelElement> roots =
-        KnowledgePanelsBuilder.getRootPanelElements(product, simplified: true);
+        KnowledgePanelsBuilder.getRootPanelElements(
+          product,
+          simplified: KnowledgePanelsBuilder.supportsSimplifiedPanels(product),
+        );
 
     for (final KnowledgePanelElement root in roots) {
       final String? id = root.panelElement?.panelId;
