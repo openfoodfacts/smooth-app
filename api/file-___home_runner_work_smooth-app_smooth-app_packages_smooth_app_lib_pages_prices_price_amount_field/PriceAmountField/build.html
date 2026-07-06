@@ -81,6 +81,17 @@ Widget build(BuildContext context) {
         ? appLocalizations.prices_amount_price_discounted
         : appLocalizations.prices_amount_price_normal,
     textInputType: _priceTextInputType,
+    suffixIcon: SizedBox(
+      height: kMinInteractiveDimension,
+      width: 10.0,
+      child: Center(
+        child: Text(
+          context.watch&lt;PriceModel&gt;().currency.symbol,
+          style: const TextStyle(fontWeight: FontWeight.bold),
+        ),
+      ),
+    ),
+    maxLines: 1,
     onChanged: (final String? value) {
       if (isPaidPrice) {
         model.paidPrice = value ?? &#39;&#39;;

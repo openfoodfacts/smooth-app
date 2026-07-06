@@ -78,6 +78,7 @@ Widget build(BuildContext context) {
   return SmoothCardWithRoundedHeader(
     title: appLocalizations.prices_proof_subtitle,
     leading: const icons.PriceReceipt(),
+    trailing: const PriceCurrencyButton(),
     contentPadding: const EdgeInsetsDirectional.only(
       top: BALANCED_SPACE,
       bottom: MEDIUM_SPACE,
@@ -140,7 +141,7 @@ Widget build(BuildContext context) {
             if (!context.mounted) {
               return;
             }
-            return proofSource.process(context, model);
+            return proofSource.process(context);
           },
         ),
       ],

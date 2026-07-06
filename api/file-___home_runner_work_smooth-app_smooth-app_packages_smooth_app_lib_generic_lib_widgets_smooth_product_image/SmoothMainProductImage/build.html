@@ -83,13 +83,15 @@ Widget build(BuildContext context) {
     final String? url = product.imageFrontUrl;
     if (url != null) {
       imageProvider = NetworkImage(url);
+    } else {
+      return EMPTY_WIDGET;
     }
   }
 
-  return SmoothImage(
-    width: width,
-    height: height,
+  return ProductPicture.fromImageProvider(
+    size: Size(width, height),
     imageProvider: imageProvider,
+    borderRadius: ROUNDED_BORDER_RADIUS,
   );
 }</code></pre>
 </section>

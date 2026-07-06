@@ -88,6 +88,7 @@
   <pre class="language-dart"><code class="language-dart">set priceWithoutDiscount(final String value) {
   _hasChanged = true;
   _priceWithoutDiscount = value;
+  notifyListeners();
 }</code></pre>
 </section>
 

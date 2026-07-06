@@ -85,8 +85,26 @@ Widget build(BuildContext context) {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: &lt;Widget&gt;[
-            Text(product.getName(appLocalizations)),
-            if (product.barcode.isNotEmpty) Text(product.barcode),
+            Text(
+              product.getName(appLocalizations),
+              style: const TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 14.5,
+              ),
+            ),
+            if (product.barcode.isNotEmpty)
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: VERY_SMALL_SPACE,
+                ),
+                child: Row(
+                  spacing: SMALL_SPACE,
+                  children: &lt;Widget&gt;[
+                    const icons.Barcode.withCorners(),
+                    Expanded(child: Text(product.barcode)),
+                  ],
+                ),
+              ),
             if (product.originNames.isNotEmpty)
               Text(product.originNames.join(&#39;, &#39;)),
           ],

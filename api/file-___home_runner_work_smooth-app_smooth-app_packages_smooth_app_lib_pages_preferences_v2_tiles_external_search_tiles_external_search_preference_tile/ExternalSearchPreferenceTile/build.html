@@ -79,7 +79,7 @@ Widget build(BuildContext context) {
       ? PreferenceTile(
           icon: icon,
           title: buildTitle(context, keyword),
-          trailing: const ExternalLink.bold(size: 16.0),
+          trailing: const icons.ExternalLink.bold(size: 16.0),
           onTap: () {
             LaunchUrlHelper.launchURLInWebViewOrBrowser(
               context,

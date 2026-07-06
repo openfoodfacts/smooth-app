@@ -74,62 +74,51 @@ Widget build(BuildContext context) {
   final PriceModel model = context.watch&lt;PriceModel&gt;();
   final AppLocalizations appLocalizations = AppLocalizations.of(context);
   final OsmLocation? location = model.location;
+  final bool editable = model.cropParameters != null;
+  final VoidCallback? onTap = editable ? () =&gt; _onTap(context) : null;
 
   return SmoothCardWithRoundedHeader(
     title: appLocalizations.prices_location_subtitle,
+    titlePadding: const EdgeInsetsDirectional.symmetric(
+      vertical: BALANCED_SPACE,
+      horizontal: LARGE_SPACE,
+    ),
     leading: const icons.Shopping.cart(),
+    trailing: location != null
+        ? Row(
+            spacing: SMALL_SPACE,
+            mainAxisSize: MainAxisSize.min,
+            children: &lt;Widget&gt;[
+              SmoothCardHeaderButton(
+                tooltip: appLocalizations.owner_field_info_title,
+                circled: true,
+                onTap: () =&gt; Navigator.of(context).push(
+                  MaterialPageRoute&lt;OsmLocation&gt;(
+                    builder: (BuildContext context) =&gt;
+                        LocationMapPage(location, popFirst: false),
+                  ),
+                ),
+                child: const icons.Map(size: 12.0),
+              ),
+              if (editable)
+                SmoothCardHeaderButton(
+                  tooltip: appLocalizations.owner_field_info_title,
+                  circled: true,
+                  onTap: onTap!,
+                  child: const icons.Edit(size: 12.0),
+                ),
+            ],
+          )
+        : null,
     contentPadding: const EdgeInsetsDirectional.symmetric(
       horizontal: SMALL_SPACE,
       vertical: MEDIUM_SPACE,
     ),
-    child: SmoothLargeButtonWithIcon(
-      text: location == null
-          ? appLocalizations.prices_location_find
-          : location.getTitle() ??
-                location.getSubtitle() ??
-                location.getLatLng().toString(),
-      leadingIcon: const icons.Location(),
-      trailingIcon: const icons.Chevron.right(size: 10.0),
-      onPressed: model.proof != null
-          ? null
-          : () async {
-              final LocalDatabase localDatabase = context
-                  .read&lt;LocalDatabase&gt;();
-              final List&lt;SearchLocationPreloadedItem&gt; preloadedList =
-                  &lt;SearchLocationPreloadedItem&gt;[];
-              final List&lt;OsmLocation&gt; locations = await DaoOsmLocation(
-                localDatabase,
-              ).getAll();
-              if (!context.mounted) {
-                return;
-              }
-              for (final OsmLocation osmLocation in locations) {
-                preloadedList.add(
-                  SearchLocationPreloadedItem(osmLocation, popFirst: false),
-                );
-              }
-              final OsmLocation? osmLocation =
-                  await Navigator.push&lt;OsmLocation&gt;(
-                    context,
-                    MaterialPageRoute&lt;OsmLocation&gt;(
-                      builder: (BuildContext context) =&gt; SearchPage(
-                        SearchLocationHelper(),
-                        preloadedList: preloadedList,
-                        autofocus: false,
-                        backButtonType: BackButtonType.close,
-                      ),
-                    ),
-                  );
-              if (osmLocation == null) {
-                return;
-              }
-              final DaoOsmLocation daoOsmLocation = DaoOsmLocation(
-                localDatabase,
-              );
-              await daoOsmLocation.put(osmLocation);
-
-              onLocationChanged.call(osmLocation);
-            },
+    child: SizedBox(
+      width: double.infinity,
+      child: location == null
+          ? _PriceLocationCardEmptyLocation(onTap: onTap)
+          : _PriceLocationCardWithLocation(location: location, onTap: onTap),
     ),
   );
 }</code></pre>
