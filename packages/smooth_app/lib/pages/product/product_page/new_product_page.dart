@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -67,8 +69,13 @@ class ProductPageState extends State<ProductPage>
     DaoProductLastAccess(localDatabase).put(barcode);
 
     onNextFrame(() {
-      if (!KnowledgePanelsBuilder.hasSimplifiedPanels(widget.product)) {
-        ProductRefresher().fetchAndRefresh(barcode: barcode, context: context);
+      if (KnowledgePanelsBuilder.needsSimplifiedPanelsRefresh(widget.product)) {
+        unawaited(
+          ProductRefresher().fetchAndRefresh(
+            barcode: barcode,
+            context: context,
+          ),
+        );
       }
       _updateLocalDatabaseWithProductHistory(context);
     });
