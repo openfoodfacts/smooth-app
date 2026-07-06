@@ -19,6 +19,7 @@ class PriceAmountCard extends StatelessWidget {
 
     return SliverCardWithRoundedHeader(
       title: appLocalizations.prices_amount_subtitle,
+      pinned: false,
       leading: const Icon(Icons.calculate_rounded),
       titlePadding: const EdgeInsetsDirectional.symmetric(
         vertical: BALANCED_SPACE,
