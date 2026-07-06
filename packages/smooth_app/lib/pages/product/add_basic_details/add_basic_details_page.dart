@@ -159,17 +159,31 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                           _imageLanguagePreview = language;
                         }),
                   ),
-                  
+
                   Padding(
                     padding: EdgeInsets.symmetric(vertical: _heightSpace),
-                    child: SmoothTextFormField(
-                      controller: _genericNameController,
-                      type: TextFieldTypes.PLAIN_TEXT,
-                      hintText: 'Common Name',
-                      prefixIcon: const Icon(Icons.info_outline),
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(SMALL_SPACE),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              'Common name',
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                            const SizedBox(height: SMALL_SPACE),
+                            SmoothTextFormField(
+                              controller: _genericNameController,
+                              type: TextFieldTypes.PLAIN_TEXT,
+                              hintText: 'Common name',
+                              prefixIcon: const Icon(Icons.info_outline),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),  
-                  
+                  ),
                   SizedBox(height: _heightSpace),
                   _ProductBrandsInputWidget(
                     textController: _brandsController,
