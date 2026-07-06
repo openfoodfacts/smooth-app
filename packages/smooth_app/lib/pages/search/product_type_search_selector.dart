@@ -58,6 +58,7 @@ class ProductTypeSearchSelector extends StatelessWidget {
     final ProductType? productType =
         await showSmoothListOfChoicesModalSheet<ProductType>(
           context: context,
+          useRootNavigator: true,
           title: appLocalizations.search_filter,
           prefixIcons: ProductType.values.map(
             (ProductType type) => Icon(
@@ -82,7 +83,6 @@ class ProductTypeSearchSelector extends StatelessWidget {
             ),
           ),
           values: ProductType.values,
-          safeArea: true,
         );
 
     if (context.mounted && productType != null) {

@@ -9,6 +9,7 @@ class SliverCardWithRoundedHeader extends StatefulWidget {
   const SliverCardWithRoundedHeader({
     required this.title,
     required this.child,
+    required this.pinned,
     this.leading,
     this.leadingIconSize,
     this.leadingPadding,
@@ -36,6 +37,7 @@ class SliverCardWithRoundedHeader extends StatefulWidget {
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
   final Widget? banner;
+  final bool pinned;
 
   @override
   State<SliverCardWithRoundedHeader> createState() =>
@@ -102,7 +104,7 @@ class _SliverCardWithRoundedHeaderState
             child: child,
           ),
           floating: true,
-          pinned: true,
+          pinned: widget.pinned,
         ),
         SliverToBoxAdapter(
           child: SmoothCardWithRoundedHeaderBody(

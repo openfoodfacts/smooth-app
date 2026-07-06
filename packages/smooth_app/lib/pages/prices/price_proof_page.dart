@@ -132,7 +132,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
                     ),
                     child: _PriceProofCounter(count: widget.proof.priceCount),
                   ),
-                  const Spacer(),
+                  const SizedBox(width: SMALL_SPACE),
                   Offstage(
                     offstage: !_imageLoaded,
                     child: const _PriceProofChildContainer(

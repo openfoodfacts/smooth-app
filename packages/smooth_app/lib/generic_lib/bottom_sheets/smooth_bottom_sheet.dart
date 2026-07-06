@@ -99,6 +99,8 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   required String title,
   required Iterable<String> labels,
   required Iterable<T> values,
+  // If the size may change once the modal is shown
+  bool dynamicSize = false,
   Iterable<String>? subtitles,
   bool addEndArrowToItems = false,
   Widget? header,
@@ -116,7 +118,6 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
   Color? prefixIndicatorColor,
   double footerSpace = 0.0,
   SmoothModalSheetType type = SmoothModalSheetType.info,
-  bool safeArea = false,
   bool? useRootNavigator,
 }) {
   assert(labels.length == values.length);
@@ -180,23 +181,12 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     }
   }
 
-  double bottomPadding = MediaQuery.paddingOf(context).bottom;
-
-  if (safeArea && bottomPadding == 0.0) {
-    bottomPadding = SmoothViewPadding.of(context).bottom;
-  }
-
   if (footer != null) {
     if (footerSpace > 0.0) {
       items.add(SizedBox(height: footerSpace));
     }
 
-    Widget footerChild = Column(
-      children: <Widget>[
-        footer,
-        SizedBox(height: bottomPadding),
-      ],
-    );
+    Widget footerChild = footer;
 
     if (footerBackgroundColor != null) {
       footerChild = ColoredBox(
@@ -206,8 +196,29 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
     }
 
     items.add(footerChild);
-  } else {
-    items.add(SizedBox(height: bottomPadding));
+  }
+
+  if (dynamicSize) {
+    return showSmoothModalSheet<T>(
+      context: context,
+      useRootNavigator: useRootNavigator ?? false,
+      builder: (_) => SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            SmoothModalSheetHeader(
+              title: title,
+              prefix: SmoothModalSheetHeaderPrefixIndicator(
+                color: prefixIndicatorColor,
+              ),
+              backgroundColor: headerBackgroundColor,
+              type: type,
+            ),
+            ...items,
+          ],
+        ),
+      ),
+    );
   }
 
   return showSmoothAutoSizeModalSheet<T>(
@@ -222,7 +233,9 @@ Future<T?> showSmoothListOfChoicesModalSheet<T>({
       backgroundColor: headerBackgroundColor,
       type: type,
     ),
-    bodyBuilder: (_) => Column(mainAxisSize: MainAxisSize.min, children: items),
+    bodyBuilder: (_) => SafeArea(
+      child: Column(mainAxisSize: MainAxisSize.min, children: items),
+    ),
   );
 }
 
@@ -277,7 +290,6 @@ Future<T?> showSmoothAlertModalSheet<T>({
       horizontal: MEDIUM_SPACE,
     ),
     textStyle: const TextStyle(fontWeight: FontWeight.w600),
-    safeArea: true,
   );
 }
 
@@ -534,7 +546,7 @@ class SmoothModalSheetHeader extends StatelessWidget implements SizeWidget {
                   ),
                 ),
               ),
-              if (suffix != null) suffix!,
+              ?suffix,
             ],
           ),
         ),

@@ -227,6 +227,7 @@ class PriceModel with ChangeNotifier {
     final List<bool> pricesAreDiscounted = <bool>[];
     final List<double> prices = <double>[];
     final List<double?> pricesWithoutDiscount = <double?>[];
+    final List<String> discountTypes = <String>[];
     for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
       barcodes.add(priceAmountModel.product.barcode);
       categories.add(priceAmountModel.product.categoryTag);
@@ -237,6 +238,7 @@ class PriceModel with ChangeNotifier {
       pricesAreDiscounted.add(priceAmountModel.promo);
       prices.add(priceAmountModel.checkedPaidPrice);
       pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
+      discountTypes.add(priceAmountModel.discountType?.offTag ?? '');
     }
     if (proof != null) {
       return BackgroundTaskAddOtherPrice.addTask(
@@ -256,6 +258,7 @@ class PriceModel with ChangeNotifier {
         pricesAreDiscounted: pricesAreDiscounted,
         prices: prices,
         pricesWithoutDiscount: pricesWithoutDiscount,
+        discountTypes: discountTypes,
       );
     }
     return BackgroundTaskAddPrice.addTask(
@@ -279,6 +282,7 @@ class PriceModel with ChangeNotifier {
       pricesWithoutDiscount: pricesWithoutDiscount,
       displaySnackbar: displaySnackbar,
       readyForPriceTagValidation: readyForPriceTagValidation,
+      discountTypes: discountTypes,
     );
   }
 

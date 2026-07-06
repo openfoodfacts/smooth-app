@@ -426,6 +426,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
         bottom: MEDIUM_SPACE,
       ),
       sliver: SliverCardWithRoundedHeader(
+        pinned: false,
         banner: nutritionContainer.robotoffNutrientExtraction == null
             ? Consumer<NutritionContainerHelper>(
                 builder:
@@ -439,65 +440,73 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
 
                       return Padding(
                         padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-                        child: Row(
+                        child: Column(
                           children: <Widget>[
-                            const ExcludeSemantics(
-                              child: icons.Sparkles(size: 18.0),
+                            Row(
+                              children: <Widget>[
+                                const ExcludeSemantics(
+                                  child: icons.Sparkles(size: 18.0),
+                                ),
+                                const SizedBox(width: MEDIUM_SPACE),
+                                Expanded(
+                                  child: Text(
+                                    appLocalizations
+                                        .nutrition_facts_extract_new,
+                                  ),
+                                ),
+                              ],
                             ),
-                            const SizedBox(width: MEDIUM_SPACE),
-                            Expanded(
-                              child: Text(
-                                appLocalizations.nutrition_facts_extract_new,
-                              ),
-                            ),
-                            TextButton(
-                              onPressed:
-                                  nutritionContainer
-                                              .robotoffNutrientExtraction !=
-                                          null ||
-                                      loading
-                                  ? null
-                                  : () async {
-                                      if (widget.product.barcode == null) {
-                                        return;
-                                      }
+                            Align(
+                              alignment: AlignmentDirectional.centerEnd,
+                              child: TextButton(
+                                onPressed:
+                                    nutritionContainer
+                                                .robotoffNutrientExtraction !=
+                                            null ||
+                                        loading
+                                    ? null
+                                    : () async {
+                                        if (widget.product.barcode == null) {
+                                          return;
+                                        }
 
-                                      final bool success =
-                                          await nutritionContainer
-                                              .fetchRobotoffExtraction(
-                                                widget.product,
-                                              );
+                                        final bool success =
+                                            await nutritionContainer
+                                                .fetchRobotoffExtraction(
+                                                  widget.product,
+                                                );
 
-                                      if (context.mounted) {
-                                        ScaffoldMessenger.of(
-                                          context,
-                                        ).showSnackBar(
-                                          success
-                                              ? SmoothFloatingSnackbar.positive(
-                                                  context: context,
-                                                  text: appLocalizations
-                                                      .nutrition_facts_extract_successful,
-                                                )
-                                              : SmoothFloatingSnackbar.error(
-                                                  context: context,
-                                                  text: appLocalizations
-                                                      .nutrition_facts_extract_failed,
-                                                ),
-                                        );
-                                      }
-                                    },
-                              child: loading
-                                  ? const SizedBox.square(
-                                      dimension: 20.0,
-                                      child: CircularProgressIndicator(),
-                                    )
-                                  : Text(
-                                      appLocalizations
-                                          .nutrition_facts_extract_button_text,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        if (context.mounted) {
+                                          ScaffoldMessenger.of(
+                                            context,
+                                          ).showSnackBar(
+                                            success
+                                                ? SmoothFloatingSnackbar.positive(
+                                                    context: context,
+                                                    text: appLocalizations
+                                                        .nutrition_facts_extract_successful,
+                                                  )
+                                                : SmoothFloatingSnackbar.error(
+                                                    context: context,
+                                                    text: appLocalizations
+                                                        .nutrition_facts_extract_failed,
+                                                  ),
+                                          );
+                                        }
+                                      },
+                                child: loading
+                                    ? const SizedBox.square(
+                                        dimension: 20.0,
+                                        child: CircularProgressIndicator(),
+                                      )
+                                    : Text(
+                                        appLocalizations
+                                            .nutrition_facts_extract_button_text,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
+                              ),
                             ),
                           ],
                         ),
