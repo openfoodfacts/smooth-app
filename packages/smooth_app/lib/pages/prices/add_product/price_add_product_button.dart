@@ -44,7 +44,6 @@ class PriceAddProductButton extends StatelessWidget {
               child: option.icon(context),
             ),
           ),
-          safeArea: true,
         );
 
     if (option == null || !context.mounted) {
