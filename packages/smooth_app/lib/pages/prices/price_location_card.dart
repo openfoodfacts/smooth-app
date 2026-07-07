@@ -26,8 +26,6 @@ class PriceLocationCard extends StatelessWidget {
     final PriceModel model = context.watch<PriceModel>();
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final OsmLocation? location = model.location;
-    final bool editable = model.cropParameters != null;
-    final VoidCallback? onTap = editable ? () => _onTap(context) : null;
 
     return SmoothCardWithRoundedHeader(
       title: appLocalizations.prices_location_subtitle,
@@ -52,13 +50,12 @@ class PriceLocationCard extends StatelessWidget {
                   ),
                   child: const icons.Map(size: 12.0),
                 ),
-                if (editable)
-                  SmoothCardHeaderButton(
-                    tooltip: appLocalizations.owner_field_info_title,
-                    circled: true,
-                    onTap: onTap!,
-                    child: const icons.Edit(size: 12.0),
-                  ),
+                SmoothCardHeaderButton(
+                  tooltip: appLocalizations.owner_field_info_title,
+                  circled: true,
+                  onTap: () => _onTap(context),
+                  child: const icons.Edit(size: 12.0),
+                ),
               ],
             )
           : null,
@@ -69,8 +66,11 @@ class PriceLocationCard extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: location == null
-            ? _PriceLocationCardEmptyLocation(onTap: onTap)
-            : _PriceLocationCardWithLocation(location: location, onTap: onTap),
+            ? _PriceLocationCardEmptyLocation(onTap: () => _onTap(context))
+            : _PriceLocationCardWithLocation(
+                location: location,
+                onTap: () => _onTap(context),
+              ),
       ),
     );
   }
