@@ -35,7 +35,7 @@ Act as a strict compiler. A single missed placeholder breaks the application.
 Web addresses must route users to their localized interfaces.
 * Verify all localized URLs point to the correct regional subdomain.
 * If the source string contains `world.openfoodfacts.org` (or a variant), ensure the translated string adapts the prefix to match the target language code of the filename, it should be lowercase, we don't support language variants, so convert pt_BR to pt, zh_TW to zh
-    * *Example:* If reviewing `fr.po`, `world.openfoodfacts.org` must become `world-fr.openfoodfacts.org` or `fr.openfoodfacts.org` depending on standard routing.
+    * *Example:* If reviewing `fr.arb`, `world.openfoodfacts.org` must become `world-fr.openfoodfacts.org` or `fr.openfoodfacts.org` depending on standard routing.
 
 ### 4. 🧠 Contextual & Typographical Quality
 Do not stop at explicit errors. Proactively review for fluency and typographical rules.
