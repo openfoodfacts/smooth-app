@@ -11,7 +11,7 @@ You do not just skim; you act as a comprehensive human-in-the-loop alternative, 
 Never translate brand names, project names, or proprietary scoring systems. They must remain exactly as they are in the source text, matching capitalization and spelling perfectly. Revert any "silly literal" translations immediately.
 
 **CRITICAL - DO NOT TRANSLATE:**
-* **Open Food Facts** (e.g., *Reject*: "los fachs de l'alimentacion dobèrta", "faches alimentaris dobèrts", "åpne matfakta", "abierto hechos de comida")
+* **Open Food Facts** (e.g., *Reject*: "los fachs de l'alimentación dobèrta", "faches alimentaris dobèrts", "åpne matfakta", "abierto hechos de comida")
 * **Open Beauty Facts** (e.g., *Reject*: "fakta om åpne skjønnhetssaker")
 * **Open Pet Food Facts** (e.g., *Reject*: "fakta om åpen kjæledyrmat")
 * **Open Prices** (e.g., *Reject*: "åpne priser", "precios abiertos")
