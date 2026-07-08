@@ -980,10 +980,10 @@ packages:
     dependency: "direct main"
     description:
       name: l10n_countries
-      sha256: d2e976d43018659d06f8747994dd9ab158fcddb3b2c9458f8360ebfb37956172
+      sha256: "92d9bebace44305be030a2276678dd1b651e1475eb6c119a28b5c25b87b1d88c"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.2"
+    version: "2.0.3"
   latlong2:
     dependency: "direct main"
     description:
