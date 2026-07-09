@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Віншуем! Ваш уліковы запіс толькі што створаны.",
   "sign_up_page_display_name_hint": "Імя",
   "sign_up_page_display_name_error_empty": "Увядзіце імя, якое вы будзеце выкарыстоўваць для адлюстравання",
-  "sign_up_page_email_hint": "Эл. пошта",
-  "sign_up_page_email_error_empty": "Эл. пошта — абавязкова",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Памылковы адрас эл. пошты",
   "sign_up_page_username_hint": "Імя карыстальніка: бачнае ўсім",
   "sign_up_page_username_error_empty": "Увядзіце імя карыстальніка",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Гэта выява можа быць састарэлай",
   "product_image_outdated_explanations_title": "Гэта выява можа быць састарэлай",
-  "product_image_outdated_explanations_content": "Гэты здымак быў зроблены больш за год таму.\n**Калі ласка, праверце, ці актуальны ён**.\n\nГэта **проста папярэджанне**. Калі змест усё той жа, вы можаце ігнараваць гэтае паведамленне.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "У гэтым спісе няма прадуктаў",
   "no_product_in_section": "У гэтым раздзеле няма прадуктаў",
   "recently_seen_products": "Усе прагледжаныя тавары",
   "clear": "Ачысціць",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Дадаткова",
+  "prices_origins_title": "Паходжанне",
   "prices_category_error_mandatory": "Катэгорыя абавязковая",
   "prices_barcode_reader_action": "Счытвальнік штрых-кодаў",
   "prices_view_prices": "Паглядзець цэны",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Аднаго прадукту не хапае!",
   "prices_amount_price_incorrect": "Няправільнае значэнне",
   "prices_amount_price_mandatory": "Абавязковае значэнне",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Валюта",
   "prices_date_subtitle": "Дата",
   "prices_location_subtitle": "Крама",
   "prices_location_find": "Знайсці краму",
   "prices_location_mandatory": "Вам трэба выбраць краму!",
   "prices_location_search_broader": "Не змаглі знайсці тое, што шукалі? Паспрабуйце больш шырокі пошук!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Доказ",
   "prices_proof_empty_title": "Пакуль няма доказаў!",
   "prices_proof_empty_explanation": "Пачніце з дадання фота **чэка** або **цэнніка**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Калі ласка, дашліце нам ліст уручную на адрас",
-  "email_copied_to_clip_board": "Электронны ліст скапіраваны ў буфер абмену!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Выберыце акцэнтны колер",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} прадуктаў, даступных для неадкладнага сканавання",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Выдаліць гэты тавар з каруселі",
   "@carousel_close_tooltip": {
