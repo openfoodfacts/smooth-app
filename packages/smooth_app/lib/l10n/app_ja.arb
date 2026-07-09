@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "おめでとうございます！あなたのアカウントが作成されました。",
   "sign_up_page_display_name_hint": "名前",
   "sign_up_page_display_name_error_empty": "使用したい表示名を入力してください",
-  "sign_up_page_email_hint": "メールアドレス",
-  "sign_up_page_email_error_empty": "メールアドレスは必須です",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "無効なメールアドレスです",
   "sign_up_page_username_hint": "ユーザー名：他者に公開されます",
   "sign_up_page_username_error_empty": "ユーザー名を入力してください",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "この画像は古い可能性があります",
   "product_image_outdated_explanations_title": "この画像は古い可能性があります",
-  "product_image_outdated_explanations_content": "この画像は1年以上前に撮影されたものです。\n**最新の状態であることを確認してください**。\n\nこれは**単なる警告**です。内容が変わっていない場合は、このメッセージを無視してください。",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "このリストには製品がありません",
   "no_product_in_section": "このリストには製品がありません",
   "recently_seen_products": "閲覧されたすべての製品",
   "clear": "クリア",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "カテゴリー",
   "prices_category_mandatory": "必須",
   "prices_category_optional": "オプション",
+  "prices_origins_title": "原産国",
   "prices_category_error_mandatory": "カテゴリーは必須です",
   "prices_barcode_reader_action": "バーコードリーダー",
   "prices_view_prices": "価格を見る",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "商品が1つ不足しています。",
   "prices_amount_price_incorrect": "値が正しくありません",
   "prices_amount_price_mandatory": "必須値",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "通貨",
   "prices_date_subtitle": "日付",
   "prices_location_subtitle": "店",
   "prices_location_find": "お店を探す",
   "prices_location_mandatory": "ショップを選択する必要があります！",
   "prices_location_search_broader": "探しているものが見つかりませんでしたか？もっと広い範囲で検索してみましょう！",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "証拠",
   "prices_proof_empty_title": "まだ証拠はありません!",
   "prices_proof_empty_explanation": "まずは**領収書**または**値札**の写真を追加しましょう！",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "こちらのアドレスにメールを送信してください",
-  "email_copied_to_clip_board": "メールをクリップボードにコピーしました！",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "アクセントカラーを選択",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "即時スキャン可能な製品は{num} 件あります",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "この商品をカルーセルから削除する",
   "@carousel_close_tooltip": {
