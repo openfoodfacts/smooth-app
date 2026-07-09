@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Pergezime! Llogaria juaj sapo eshte krijuar.",
   "sign_up_page_display_name_hint": "Emri",
   "sign_up_page_display_name_error_empty": "Ju lutemi futni emrin e shfaqur që dëshironi të përdorni",
-  "sign_up_page_email_hint": "Email",
-  "sign_up_page_email_error_empty": "Adresa e postes elektronike kerkohet, eshte e detyrueshme te paraqitet.",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Email i pavlefshëm",
   "sign_up_page_username_hint": "Emri i përdoruesit: I dukshëm publikisht",
   "sign_up_page_username_error_empty": "Ju lutem vendosni emrin e perdoruesit",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Ky imazh mund të jetë i vjetëruar",
   "product_image_outdated_explanations_title": "Ky imazh mund të jetë i vjetëruar",
-  "product_image_outdated_explanations_content": "Kjo imazh është bërë më shumë se një vit më parë.\n**Ju lutemi kontrolloni nëse është ende e azhurnuar**.\n\nKy është **vetëm një paralajmërim**. Nëse përmbajtja është ende e njëjtë, mund ta injoroni këtë mesazh.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Nuk ka produkte ne kete list.",
   "no_product_in_section": "Nuk ka produkte ne kete seksion.",
   "recently_seen_products": "Të gjitha produktet e shikuara",
   "clear": "Pastro",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Opsionale",
+  "prices_origins_title": "Origjina",
   "prices_category_error_mandatory": "Kategoria është e detyrueshme",
   "prices_barcode_reader_action": "Lexues barkodi",
   "prices_view_prices": "Shikoni çmimet",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Mungon një produkt!",
   "prices_amount_price_incorrect": "Vlerë e pasaktë",
   "prices_amount_price_mandatory": "Vlerë e detyrueshme",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Data",
   "prices_location_subtitle": "Dyqan",
   "prices_location_find": "Gjej një dyqan",
   "prices_location_mandatory": "Duhet të zgjidhni një dyqan!",
   "prices_location_search_broader": "Nuk mundët ta gjeni atë që po kërkonit? Le të provojmë një kërkim më të gjerë!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Provë",
   "prices_proof_empty_title": "Asnjë provë ende!",
   "prices_proof_empty_explanation": "Filloni duke shtuar një foto të një **fature** ose një **etikete çmimi**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Ju lutemi të na dërgoni manualisht një email te",
-  "email_copied_to_clip_board": "Email-i u kopjua në kujtesën e përkohshme!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Zgjidh Ngjyrën e Theksimit",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produkte të disponueshme për skanim të menjëhershëm",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Hiqeni këtë produkt nga karuseli",
   "@carousel_close_tooltip": {
