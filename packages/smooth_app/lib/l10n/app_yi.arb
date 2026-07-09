@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "This image may be outdated",
   "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "There is no product in this list",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "All viewed products",
   "clear": "Clear",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "אפציאנאל",
+  "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "די קאַטעגאָריע איז פארלאנגט",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Currency",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "קיין באַווייַז נאָך נישט!",
   "prices_proof_empty_explanation": "הייבט אן דורך צולייגן א בילד פון א **קװיטונג** אדער א **פרייז־טעקע**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Please send us manually an email to",
-  "email_copied_to_clip_board": "Email copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Select Accent Color",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scaning",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Remove this product from the carousel",
   "@carousel_close_tooltip": {
