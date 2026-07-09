@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "ยินดีด้วยแอคเค้าท์ของคุณสร้างเสร็จเรียบร้อย",
   "sign_up_page_display_name_hint": "ชื่อ",
   "sign_up_page_display_name_error_empty": "กรุณาตั้งชื่อเล่น ที่คุณต้องการ",
-  "sign_up_page_email_hint": "อีเม",
-  "sign_up_page_email_error_empty": "ต้องระบุอีเมล์",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "อีเมลไม่ถูกต้อง",
   "sign_up_page_username_hint": "ชื่อผู้ใช้: เปิดเผยต่อสาธารณะ",
   "sign_up_page_username_error_empty": "กรุณา ใส่ชื่อแอคเค้าท์",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "รูปภาพนี้อาจไม่ทันสมัยแล้ว",
   "product_image_outdated_explanations_title": "รูปภาพนี้อาจไม่ทันสมัยแล้ว",
-  "product_image_outdated_explanations_content": "ภาพนี้ถ่ายไว้เมื่อกว่าหนึ่งปีที่แล้ว\n**โปรดตรวจสอบว่ายังเป็นข้อมูลล่าสุดอยู่หรือไม่**\n\nนี่เป็น **เพียงคำเตือน** หากเนื้อหายังคงเหมือนเดิม คุณสามารถละเว้นข้อความนี้ได้",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "ไม่มีสินค้าในรายการนี้",
   "no_product_in_section": "ไม่มีสินค้าในหมวดนี้",
   "recently_seen_products": "สินค้าทั้งหมดที่แสดง",
   "clear": "ล้างข้อมูล",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "หมวดหมู่:",
   "prices_category_mandatory": "บังคับ",
   "prices_category_optional": "ไม่จำเป็น",
+  "prices_origins_title": "ต้นกำเนิด",
   "prices_category_error_mandatory": "หมวดหมู่นี้จำเป็นต้องกรอก",
   "prices_barcode_reader_action": "เครื่องอ่านบาร์โค้ด",
   "prices_view_prices": "ดูราคา",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "สินค้าหายไปหนึ่งรายการ!",
   "prices_amount_price_incorrect": "ค่าไม่ถูกต้อง",
   "prices_amount_price_mandatory": "ค่าบังคับ",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "สกุลเงิน",
   "prices_date_subtitle": "วันที่",
   "prices_location_subtitle": "ร้านค้า",
   "prices_location_find": "ค้นหาร้านค้า",
   "prices_location_mandatory": "คุณต้องเลือกร้านค้า!",
   "prices_location_search_broader": "หาไม่เจอสิ่งที่ต้องการใช่ไหม ลองค้นหาในวงกว้างขึ้นดูสิ!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "การพิสูจน์",
   "prices_proof_empty_title": "ยังไม่มีหลักฐาน!",
   "prices_proof_empty_explanation": "เริ่มต้นด้วยการเพิ่มรูปภาพของ **ใบเสร็จ** หรือ **ป้ายราคา**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "โปรดส่งอีเมลถึงเราด้วยตนเองที่",
-  "email_copied_to_clip_board": "คัดลอกอีเมลไปยังคลิปบอร์ดเรียบร้อยแล้ว!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "เลือกสีเน้น",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} สินค้าพร้อมสำหรับการสแกนทันที",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "นำผลิตภัณฑ์นี้ออกจากแถบแสดงสินค้า",
   "@carousel_close_tooltip": {
