@@ -41,7 +41,7 @@
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Previous",
+  "previous_label": "Əvvəlki",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Təbrik edirik! Hesabınız yeni yaradıldı.",
   "sign_up_page_display_name_hint": "Ad",
   "sign_up_page_display_name_error_empty": "İstifadə etmək istədiyiniz ekran adını daxil edin",
-  "sign_up_page_email_hint": "E-poçt",
-  "sign_up_page_email_error_empty": "E-poçt tələb olunur",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Yanlış e-poçt",
   "sign_up_page_username_hint": "İstifadəçi adı: Hamıya görünür",
   "sign_up_page_username_error_empty": "Zəhmət olmasa, istifadəçi adı daxil edin",
@@ -795,7 +795,7 @@
   "ingredients_photo_title": "Tərkibi Şəkil",
   "nutritional_facts_photo_title": "Qidalanma Faktları Şəkil",
   "recycling_photo_title": "Təkrar emal təlimatları Şəkil",
-  "take_photo_title": "Take a picture",
+  "take_photo_title": "Şəkil çəkin",
   "take_more_photo_title": "Take more photos",
   "front_photo_uploaded": "Ön şəkil yükləndi",
   "@front_photo_uploaded": {},
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Bu şəkil köhnəlmiş ola bilər",
   "product_image_outdated_explanations_title": "Bu şəkil köhnəlmiş ola bilər",
-  "product_image_outdated_explanations_content": "Bu şəkil bir ildən çox əvvəl çəkilib.\n**Zəhmət olmasa, hələ də yenilənib-yenilənmədiyini yoxlayın**.\n\nBu, **sadəcə bir xəbərdarlıqdır**. Məzmun hələ də eynidirsə, bu mesajı qulaqardına vura bilərsiniz.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1054,7 +1054,7 @@
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "Take a picture",
+  "product_image_action_take_picture": "Şəkil çəkin",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Bu siyahıda heç bir məhsul yoxdur",
   "no_product_in_section": "Bu bölmədə məhsul yoxdur",
   "recently_seen_products": "Bütün baxılan məhsullar",
   "clear": "Təmizlə",
@@ -1950,7 +1949,7 @@
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
-  "edit_product_form_item_traces_hint": "trace",
+  "edit_product_form_item_traces_hint": "iz",
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
@@ -2409,7 +2408,7 @@
   "product_type_label_food": "Yemək",
   "product_type_label_beauty": "Şəxsi qulluq",
   "product_type_label_pet_food": "Ev heyvanları üçün yem",
-  "product_type_label_product": "Other",
+  "product_type_label_product": "Digər",
   "product_type_label_unknown": "Naməlum",
   "product_type_selection_title": "Məhsul növü",
   "product_type_selection_subtitle": "Bu məhsulun növünü seçin",
@@ -2489,7 +2488,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "Məhsul tapılmadı",
   "prices_barcode_search_none_yet": "Hələ məhsul yoxdur",
   "prices_barcode_search_running": "{barcode}axtarılır",
   "@prices_barcode_search_running": {
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
-  "prices_category_mandatory": "Mandatory",
+  "prices_category_title": "Category",
+  "prices_category_mandatory": "Məcburi",
   "prices_category_optional": "Könüllü",
+  "prices_origins_title": "Mənşəyi",
   "prices_category_error_mandatory": "Kateqoriya məcburidir",
   "prices_barcode_reader_action": "Barkod oxuyucusu",
   "prices_view_prices": "Qiymətlərə baxın",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Bir məhsul çatışmır!",
   "prices_amount_price_incorrect": "Yanlış dəyər",
   "prices_amount_price_mandatory": "Məcburi dəyər",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valyuta",
   "prices_date_subtitle": "Tarix",
   "prices_location_subtitle": "Mağaza",
   "prices_location_find": "Mağaza tapın",
   "prices_location_mandatory": "Mağaza seçməlisiniz!",
   "prices_location_search_broader": "Axtardığınızı tapa bilmədiniz? Daha geniş axtarışa cəhd edək!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Sübut",
   "prices_proof_empty_title": "Hələ sübut yoxdur!",
   "prices_proof_empty_explanation": "**qəbz** və ya **qiymət etiketinin** şəklini əlavə etməklə başlayın!",
@@ -2777,7 +2781,7 @@
   "prices_discount_type_expires_soon": "Expires soon",
   "prices_discount_type_pick_it_yourself": "Pick it yourself",
   "prices_discount_type_second_hand": "Second hand",
-  "prices_discount_type_other": "Other",
+  "prices_discount_type_other": "Digər",
   "dev_preferences_import_history_result_success": "Hazırdır",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3374,7 +3378,7 @@
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "Take a picture",
+  "capture_new_picture": "Şəkil çəkin",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Zəhmət olmasa, bizə əl ilə bir e-poçt göndərin",
-  "email_copied_to_clip_board": "E-poçt panoya kopyalandı!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Vurğu Rəngini Seçin",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} məhsullar dərhal skan edilə bilər",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3975,7 +3979,7 @@
   "nutriscore_unknown_new_formula": "Naməlum Nutri-Balı (Yeni hesablama)",
   "nutriscore_not_applicable": "Nutri-Score tətbiq olunmur",
   "nutriscore_not_applicable_new_formula": "Nutri-Score tətbiq olunmur (Yeni hesablama)",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "Yaşıl Hesab",
   "environmental_score_a_new": "Yaşıl xal A",
   "environmental_score_b_new": "Yaşıl xal B",
   "environmental_score_c_new": "Yaşıl xal C",
@@ -4000,7 +4004,7 @@
   "contact_title_pro_email": "İstehsalçı ilə əlaqə",
   "contact_title_press_page": "Mətbuat Səhifəsi",
   "contact_title_press_email": "Mətbuatla Əlaqə",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "Bülletenimizə abunə olun",
   "contact_title_calendar": "İcma təqvimimizə abunə olun",
   "hunger_games_loading_line1": "Zəhmət olmasa, bizə bir neçə saniyə vaxt verin…",
   "hunger_games_loading_line2": "Sualları yükləyirik!",
@@ -4044,7 +4048,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Balı nədir?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4076,7 +4080,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "Yaşıl Hesab",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4096,12 +4100,12 @@
   "guide_greenscore_lca_arg1_text2": "**Həyat dövrünün təhlili** çoxmərhələli və çoxmeyarlı ətraf mühitin qiymətləndirilməsini həyata keçirmək üçün standartlaşdırılmış qiymətləndirmə metodudur.",
   "guide_greenscore_lca_arg1_text3": "**Ölçülər:**",
   "guide_greenscore_lca_arg2_title": "6 istehsal addımı",
-  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
-  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_agriculture": "Kənd təsərrüfatı",
+  "guide_greenscore_lca_arg2_processing": "Emal olunur",
   "guide_greenscore_lca_arg2_packaging": "Packaging",
-  "guide_greenscore_lca_arg2_transportation": "Transportation",
-  "guide_greenscore_lca_arg2_distribution": "Distribution",
-  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg2_transportation": "Nəqliyyat",
+  "guide_greenscore_lca_arg2_distribution": "Dağıtım",
+  "guide_greenscore_lca_arg2_consumption": "İstehlak",
   "guide_greenscore_lca_arg3_title": "14 ətraf mühitə təsir göstəricisi",
   "guide_greenscore_lca_arg3_text1": "İqlim dəyişikliyi/karbon izi",
   "guide_greenscore_lca_arg3_text2": "Ozon qatının deşilməsi",
@@ -4425,11 +4429,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Front picture",
+  "product_image_front_accessibility_label": "Ön şəkil",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Ingredients picture",
+  "product_image_ingredients_accessibility_label": "Tərkibi şəkli",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -4533,6 +4537,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Bu məhsulu karuseldən silin",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4599,11 +4607,11 @@
   "photo_already_exists": "Bu foto artıq mövcuddur",
   "photo_missing": "Bu foto yoxdur",
   "date": "Tarix",
-  "photo_rotate_left": "Rotate left",
+  "photo_rotate_left": "Sola çevirin",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Rotate right",
+  "photo_rotate_right": "Sağa çevirin",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4863,7 +4871,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "Cəmi",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4883,7 +4891,7 @@
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "Consumption",
+  "prices_stats_consumption": "İstehlak",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
@@ -4895,7 +4903,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Gözəllik",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4967,7 +4975,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "Other",
+  "prices_stats_other": "Digər",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -5055,7 +5063,7 @@
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
-  "preferences_app_bar_products_modified": "Products modified",
+  "preferences_app_bar_products_modified": "Məhsullar dəyişdirilib",
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
@@ -5840,7 +5848,7 @@
   "@homepage_horizontal_list_view_more_button": {
     "description": "Button to see all items in a horizontal list on the homepage"
   },
-  "homepage_list_most_scanned_title": "Most scanned products",
+  "homepage_list_most_scanned_title": "Ən çox skan edilmiş məhsullar",
   "@homepage_list_most_scanned_title": {
     "description": "Title for the most scanned products horizontal list on the homepage"
   },
