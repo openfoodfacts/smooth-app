@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Name",
   "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-post is required",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Invalid e-mail",
   "sign_up_page_username_hint": "Username: Publicly visible",
   "sign_up_page_username_error_empty": "Please enter a username",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "This image may be outdated",
   "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -2353,7 +2353,7 @@
   "@dev_preferences_export_history_dialog_title": {
     "description": "User dev preferences - Export history - Dialog title"
   },
-  "dev_preferences_button_positive": "Ok",
+  "dev_preferences_button_positive": "OK",
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
@@ -2517,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Optional",
+  "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "The category is mandatory",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
@@ -2707,12 +2709,15 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Currency",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "No proof yet!",
   "prices_proof_empty_explanation": "Start by adding a photo of a **receipt** or a **price tag**!",
@@ -3893,7 +3898,7 @@
       }
     }
   },
-  "loading": "Loading...",
+  "loading": "Loading…",
   "@loading": {
     "description": "Loading…"
   },
