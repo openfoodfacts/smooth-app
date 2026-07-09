@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "অভিনন্দন! আপনার অ্যাকাউন্ট তৈরি হয়েছে।",
   "sign_up_page_display_name_hint": "নাম",
   "sign_up_page_display_name_error_empty": "আপনি যে প্রদর্শন নামটি ব্যবহার করতে চান তা লিখুন।",
-  "sign_up_page_email_hint": "ই-মেইল",
-  "sign_up_page_email_error_empty": "ই-মেইল প্রয়োজন।",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "অবৈধ ই-মেইল",
   "sign_up_page_username_hint": "ব্যবহারকারীর নাম: সর্বজনীনভাবে দৃশ্যমান",
   "sign_up_page_username_error_empty": "অনুগ্রহ করে একটি ব্যবহারকারীর নাম লিখুন।",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "এই ছবিটি পুরনো হতে পারে।",
   "product_image_outdated_explanations_title": "এই ছবিটি পুরনো হতে পারে।",
-  "product_image_outdated_explanations_content": "এই ছবিটি এক বছরেরও বেশি সময় আগে তোলা হয়েছিল।\n**দয়া করে পরীক্ষা করে দেখুন এটি এখনও আপ-টু-ডেট আছে**।\n\nএটি **শুধুমাত্র একটি সতর্কতা**। যদি বিষয়বস্তু এখনও একই থাকে, তাহলে আপনি এই বার্তাটি উপেক্ষা করতে পারেন।",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "এই তালিকায় কোনও পণ্য নেই।",
   "no_product_in_section": "এই বিভাগে কোনও পণ্য নেই।",
   "recently_seen_products": "সকল দেখা পণ্য",
   "clear": "মুছে ফেলুন",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "বিভাগ",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ঐচ্ছিক",
+  "prices_origins_title": "উৎপত্তি",
   "prices_category_error_mandatory": "বিভাগটি বাধ্যতামূলক",
   "prices_barcode_reader_action": "বারকোড রিডার",
   "prices_view_prices": "দাম দেখুন",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "একটি পণ্য অনুপস্থিত!",
   "prices_amount_price_incorrect": "ভুল মান",
   "prices_amount_price_mandatory": "বাধ্যতামূলক মান",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "মুদ্রা",
   "prices_date_subtitle": "তারিখ",
   "prices_location_subtitle": "দোকান",
   "prices_location_find": "একটি দোকান খুঁজুন",
   "prices_location_mandatory": "তোমাকে একটা দোকান বেছে নিতে হবে!",
   "prices_location_search_broader": "আপনি যা খুঁজছিলেন তা খুঁজে পাননি? আরও বিস্তৃত অনুসন্ধানের চেষ্টা করা যাক!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "প্রমাণ",
   "prices_proof_empty_title": "এখনও কোন প্রমাণ নেই!",
   "prices_proof_empty_explanation": "**রসিদ** অথবা **মূল্য ট্যাগ** এর একটি ছবি যোগ করে শুরু করুন!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "অনুগ্রহ করে আমাদের ম্যানুয়ালি একটি ইমেল পাঠান",
-  "email_copied_to_clip_board": "ইমেল ক্লিপবোর্ডে কপি করা হয়েছে!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "অ্যাকসেন্ট রঙ নির্বাচন করুন",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} তাৎক্ষণিক স্ক্যানিংয়ের জন্য উপলব্ধ পণ্য",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "ক্যারোজেল থেকে এই পণ্যটি সরিয়ে ফেলুন",
   "@carousel_close_tooltip": {
