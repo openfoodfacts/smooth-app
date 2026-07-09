@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Nama",
   "sign_up_page_display_name_error_empty": "Silakan masukkan nama panggilan yang Anda inginkan",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail diperlukan",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Surel tidak valid",
   "sign_up_page_username_hint": "Nama pengguna: Terlihat publik",
   "sign_up_page_username_error_empty": "Silakan masukkan nama pengguna Anda",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Gambar ini mungkin sudah terlalu lama",
   "product_image_outdated_explanations_title": "Gambar ini mungkin sudah terlalu lama",
-  "product_image_outdated_explanations_content": "Gambar ini diambil lebih dari setahun yang lalu. **Harap periksa apakah gambar masih mutakhir**.\n\nIni **hanya peringatan**. Jika kontennya masih sama, Anda dapat mengabaikan pesan ini.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Tidak ada produk di daftar ini",
   "no_product_in_section": "Tidak ada produk di bagian ini",
   "recently_seen_products": "Semua produk yang dilihat",
   "clear": "Hapus",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategori",
   "prices_category_mandatory": "Wajib",
   "prices_category_optional": "Opsional",
+  "prices_origins_title": "Tempat asal",
   "prices_category_error_mandatory": "Kategori wajib diisi",
   "prices_barcode_reader_action": "Pembaca barcode",
   "prices_view_prices": "Lihat harga",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Ada satu produk yang hilang!",
   "prices_amount_price_incorrect": "Nilai tidak valid",
   "prices_amount_price_mandatory": "Nilai wajib",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Mata uang",
   "prices_date_subtitle": "Tanggal",
   "prices_location_subtitle": "Toko",
   "prices_location_find": "Temukan toko",
   "prices_location_mandatory": "Anda harus memilih toko!",
   "prices_location_search_broader": "Tidak dapat menemukan apa yang Anda cari? Coba pencarian yang lebih luas!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bukti",
   "prices_proof_empty_title": "Belum ada bukti!",
   "prices_proof_empty_explanation": "Mulailah dengan menambahkan foto **kwitansi** atau **label harga**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Mohon kirimkan kami email secara manual ke",
-  "email_copied_to_clip_board": "Email disalin ke papan klip!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Pilih Warna Aksen",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "Produk {num} tersedia untuk pemindaian segera",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Hapus produk ini dari carousel",
   "@carousel_close_tooltip": {
