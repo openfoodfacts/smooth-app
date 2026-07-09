@@ -3979,7 +3979,7 @@
   "nutriscore_unknown_new_formula": "Naməlum Nutri-Balı (Yeni hesablama)",
   "nutriscore_not_applicable": "Nutri-Score tətbiq olunmur",
   "nutriscore_not_applicable_new_formula": "Nutri-Score tətbiq olunmur (Yeni hesablama)",
-  "environmental_score_generic_new": "Yaşıl Hesab",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Yaşıl xal A",
   "environmental_score_b_new": "Yaşıl xal B",
   "environmental_score_c_new": "Yaşıl xal C",
@@ -4080,7 +4080,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Yaşıl Hesab",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
