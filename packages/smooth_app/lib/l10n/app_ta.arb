@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "வாழ்த்துக்கள்! உங்கள் கணக்கு இப்போதுதான் உருவாக்கப்பட்டது.",
   "sign_up_page_display_name_hint": "பெயர்",
   "sign_up_page_display_name_error_empty": "நீங்கள் பயன்படுத்த விரும்பும் காட்சிப் பெயரை உள்ளிடவும்.",
-  "sign_up_page_email_hint": "மின்னஞ்சல்",
-  "sign_up_page_email_error_empty": "மின்னஞ்சல் அவசியம்",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "தவறான மின்னஞ்சல்",
   "sign_up_page_username_hint": "பயனர்பெயர்: பொதுவில் தெரியும்",
   "sign_up_page_username_error_empty": "தயவுசெய்து ஒரு பயனர்பெயரை உள்ளிடவும்.",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "இந்தப் படம் காலாவதியானதாக இருக்கலாம்.",
   "product_image_outdated_explanations_title": "இந்தப் படம் காலாவதியானதாக இருக்கலாம்.",
-  "product_image_outdated_explanations_content": "இந்தப் படம் ஒரு வருடத்திற்கு முன்பு எடுக்கப்பட்டது.\n**இது இன்னும் புதுப்பித்த நிலையில் உள்ளதா எனப் பார்க்கவும்**.\n\nஇது **வெறும் எச்சரிக்கை**. உள்ளடக்கம் இன்னும் அப்படியே இருந்தால், இந்தச் செய்தியை நீங்கள் புறக்கணிக்கலாம்.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "இந்தப் பட்டியலில் எந்தப் பொருளும் இல்லை.",
   "no_product_in_section": "இந்தப் பிரிவில் எந்தப் பொருளும் இல்லை.",
   "recently_seen_products": "பார்த்த அனைத்து தயாரிப்புகளும்",
   "clear": "தெளிவு",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "வகை",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "விருப்பத்தேர்வு",
+  "prices_origins_title": "தோற்றம்",
   "prices_category_error_mandatory": "இந்தப் பிரிவு கட்டாயமானது",
   "prices_barcode_reader_action": "பார்கோடு ரீடர்",
   "prices_view_prices": "விலைகளைப் பார்க்கவும்",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "ஒரு தயாரிப்பு காணவில்லை!",
   "prices_amount_price_incorrect": "தவறான மதிப்பு",
   "prices_amount_price_mandatory": "கட்டாய மதிப்பு",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "நாணயம்",
   "prices_date_subtitle": "தேதி",
   "prices_location_subtitle": "கடை",
   "prices_location_find": "ஒரு கடையைக் கண்டுபிடி.",
   "prices_location_mandatory": "நீங்கள் ஒரு கடையைத் தேர்ந்தெடுக்க வேண்டும்!",
   "prices_location_search_broader": "நீங்கள் தேடுவதைக் கண்டுபிடிக்க முடியவில்லையா? இன்னும் விரிவாகத் தேட முயற்சிப்போம்!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "ஆதாரம்",
   "prices_proof_empty_title": "இன்னும் ஆதாரம் இல்லை!",
   "prices_proof_empty_explanation": "**ரசீது** அல்லது **விலை குறி**யின் புகைப்படத்தைச் சேர்ப்பதன் மூலம் தொடங்குங்கள்!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "தயவுசெய்து எங்களுக்கு கைமுறையாக ஒரு மின்னஞ்சல் அனுப்பவும்",
-  "email_copied_to_clip_board": "மின்னஞ்சல் கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "உச்சரிப்பு நிறத்தைத் தேர்ந்தெடுக்கவும்",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "உடனடி ஸ்கேனிங்கிற்குக் கிடைக்கும் {num} தயாரிப்புகள்",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "இந்தத் தயாரிப்பை கேரோசலில் இருந்து அகற்று",
   "@carousel_close_tooltip": {
