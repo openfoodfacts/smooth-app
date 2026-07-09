@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Herzlichen Glückwunsch! Ihr Konto wurde erstellt.",
   "sign_up_page_display_name_hint": "Name",
   "sign_up_page_display_name_error_empty": "Bitte geben Sie den zu verwendenden Anzeigenamen ein",
-  "sign_up_page_email_hint": "E-Mail-Adresse",
-  "sign_up_page_email_error_empty": "E-Mail-Adresse erforderlich",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ungültige E-Mail-Adresse",
   "sign_up_page_username_hint": "Benutzername: Öffentlich sichtbar",
   "sign_up_page_username_error_empty": "Bitte geben Sie einen Benutzernamen ein",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Dieses Bild ist möglicherweise veraltet",
   "product_image_outdated_explanations_title": "Dieses Bild ist möglicherweise veraltet",
-  "product_image_outdated_explanations_content": "Dieses Bild wurde vor mehr als einem Jahr aufgenommen.\n**Bitte prüfen Sie, ob es noch aktuell ist**.\n\nDies ist **nur ein Warnhinweis**. Wenn der Inhalt immer noch derselbe ist, können Sie diese Meldung ignorieren.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Liste enthält noch keine Produkte",
   "no_product_in_section": "Bereich enthält noch kein Produkt",
   "recently_seen_products": "Alle angesehenen Produkte",
   "clear": "Leeren",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategorie",
   "prices_category_mandatory": "Pflichtfeld",
   "prices_category_optional": "Optional",
+  "prices_origins_title": "Herkunft",
   "prices_category_error_mandatory": "Die Kategorie ist verpflichtend",
   "prices_barcode_reader_action": "Barcodelesegerät",
   "prices_view_prices": "Preise anzeigen",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Ein Produkt fehlt!",
   "prices_amount_price_incorrect": "Ungültiger Wert",
   "prices_amount_price_mandatory": "Notwendiger Wert",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Währung",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Laden",
   "prices_location_find": "Einen Laden finden",
   "prices_location_mandatory": "Sie müssen einen Laden auswählen!",
   "prices_location_search_broader": "Sie haben nicht gefunden, wonach Sie gesucht haben? Versuchen Sie es mit einer allgemeineren Suchanfrage!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Nachweis",
   "prices_proof_empty_title": "Noch keine Beweise!",
   "prices_proof_empty_explanation": "Fügen Sie zunächst ein Foto der **Quittung** oder des **Preisschilds** hinzu!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Bitte senden Sie uns manuell eine E-Mail an",
-  "email_copied_to_clip_board": "E-Mail-Adresse in Zwischenablage kopiert!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Akzentfarbe auswählen",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} Produkte zum sofortigen Scannen verfügbar",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Dieses Produkt aus dem Karussell entfernen",
   "@carousel_close_tooltip": {
