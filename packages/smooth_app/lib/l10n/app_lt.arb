@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Sveikiname! Jūsų paskyra ką tik sukurta.",
   "sign_up_page_display_name_hint": "Vardas",
   "sign_up_page_display_name_error_empty": "Įveskite rodomą pavadinimą, kurį norite naudoti",
-  "sign_up_page_email_hint": "El. paštas",
-  "sign_up_page_email_error_empty": "El. pašto adresas yra privalomas",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Neteisingas el. pašto adresas",
   "sign_up_page_username_hint": "Vartotojo vardas: matomas viešai",
   "sign_up_page_username_error_empty": "Įveskite vartotojo vardą",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Ši vaizdas gali būti pasenęs",
   "product_image_outdated_explanations_title": "Ši vaizdas gali būti pasenęs",
-  "product_image_outdated_explanations_content": "Ši nuotrauka daryta seniau negu prieš metus.\n**Patikrinkite, ar jis vis dar aktuali**.\n\nTai **tik įspėjimas**. Jei turinys vis dar toks pat, galite nepaisyti šio pranešimo.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Šiame sąraše nėra produkto",
   "no_product_in_section": "Šiame skyriuje nėra produkto",
   "recently_seen_products": "Visi peržiūrėti produktai",
   "clear": "Išvalyti",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategorija",
   "prices_category_mandatory": "Privaloma",
   "prices_category_optional": "Pasirinktinai",
+  "prices_origins_title": "Kilmė",
   "prices_category_error_mandatory": "Kategorija yra privaloma",
   "prices_barcode_reader_action": "Brūkšninių kodų skaitytuvas",
   "prices_view_prices": "Peržiūrėti kainas",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Trūksta vieno produkto!",
   "prices_amount_price_incorrect": "Neteisinga vertė",
   "prices_amount_price_mandatory": "Privaloma reikšmė",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valiuta",
   "prices_date_subtitle": "Data",
   "prices_location_subtitle": "Parduotuvė",
   "prices_location_find": "Rasti parduotuvę",
   "prices_location_mandatory": "Reikia išsirinkti parduotuvę!",
   "prices_location_search_broader": "Neradote to, ko ieškojote? Išbandykime platesnę paiešką!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Įrodymai",
   "prices_proof_empty_title": "Dar nėra įrodymų!",
   "prices_proof_empty_explanation": "Pradėkite pridėdami **kvito** arba **kainos etiketės** nuotrauką!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Išsiųskite mums el. laišką rankiniu būdu į",
-  "email_copied_to_clip_board": "El. laiškas nukopijuotas į iškarpinę!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Pasirinkti akcento spalvą",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produktų galima nuskaityti iškart",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Pašalinti šį produktą iš karuselės",
   "@carousel_close_tooltip": {
