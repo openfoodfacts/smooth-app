@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "ಅಭಿನಂದನೆಗಳು! ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಇದೀಗ ರಚಿಸಲಾಗಿದೆ.",
   "sign_up_page_display_name_hint": "ಹೆಸರು",
   "sign_up_page_display_name_error_empty": "ದಯವಿಟ್ಟು ನೀವು ಬಳಸಲು ಬಯಸುವ ಪ್ರದರ್ಶನ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.",
-  "sign_up_page_email_hint": "ಇ-ಮೇಲ್",
-  "sign_up_page_email_error_empty": "ಇ-ಮೇಲ್ ಅಗತ್ಯವಿದೆ",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "ಅಮಾನ್ಯವಾದ ಇ-ಮೇಲ್",
   "sign_up_page_username_hint": "ಬಳಕೆದಾರಹೆಸರು: ಸಾರ್ವಜನಿಕವಾಗಿ ಗೋಚರಿಸುತ್ತದೆ",
   "sign_up_page_username_error_empty": "ದಯವಿಟ್ಟು ಬಳಕೆದಾರಹೆಸರನ್ನು ನಮೂದಿಸಿ.",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "ಈ ಚಿತ್ರ ಹಳೆಯದಾಗಿರಬಹುದು.",
   "product_image_outdated_explanations_title": "ಈ ಚಿತ್ರ ಹಳೆಯದಾಗಿರಬಹುದು.",
-  "product_image_outdated_explanations_content": "ಈ ಚಿತ್ರವನ್ನು ಒಂದು ವರ್ಷಕ್ಕೂ ಹೆಚ್ಚು ಹಿಂದೆ ತೆಗೆಯಲಾಗಿದೆ.\n**ದಯವಿಟ್ಟು ಇದು ಇನ್ನೂ ನವೀಕೃತವಾಗಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ**.\n\nಇದು **ಕೇವಲ ಎಚ್ಚರಿಕೆ**. ವಿಷಯ ಇನ್ನೂ ಒಂದೇ ಆಗಿದ್ದರೆ, ನೀವು ಈ ಸಂದೇಶವನ್ನು ನಿರ್ಲಕ್ಷಿಸಬಹುದು.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "ಈ ಪಟ್ಟಿಯಲ್ಲಿ ಯಾವುದೇ ಉತ್ಪನ್ನವಿಲ್ಲ.",
   "no_product_in_section": "ಈ ವಿಭಾಗದಲ್ಲಿ ಯಾವುದೇ ಉತ್ಪನ್ನವಿಲ್ಲ.",
   "recently_seen_products": "ವೀಕ್ಷಿಸಿದ ಎಲ್ಲಾ ಉತ್ಪನ್ನಗಳು",
   "clear": "ತೆರವು ಮಾಡಿ",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "ವರ್ಗ",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ಐಚ್ಛಿಕ",
+  "prices_origins_title": "ಮೂಲಗಳು",
   "prices_category_error_mandatory": "ವರ್ಗವು ಕಡ್ಡಾಯವಾಗಿದೆ",
   "prices_barcode_reader_action": "ಬಾರ್‌ಕೋಡ್ ರೀಡರ್",
   "prices_view_prices": "ಬೆಲೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "ಒಂದು ಉತ್ಪನ್ನ ಕಾಣೆಯಾಗಿದೆ!",
   "prices_amount_price_incorrect": "ತಪ್ಪಾದ ಮೌಲ್ಯ",
   "prices_amount_price_mandatory": "ಕಡ್ಡಾಯ ಮೌಲ್ಯ",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "ಕರೆನ್ಸಿ",
   "prices_date_subtitle": "ದಿನಾಂಕ",
   "prices_location_subtitle": "ಅಂಗಡಿ",
   "prices_location_find": "ಅಂಗಡಿ ಹುಡುಕಿ",
   "prices_location_mandatory": "ನೀವು ಅಂಗಡಿಯನ್ನು ಆರಿಸಬೇಕು!",
   "prices_location_search_broader": "ನೀವು ಹುಡುಕುತ್ತಿರುವುದು ಸಿಗಲಿಲ್ಲವೇ? ವಿಶಾಲವಾದ ಹುಡುಕಾಟವನ್ನು ಪ್ರಯತ್ನಿಸೋಣ!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "ಪುರಾವೆ",
   "prices_proof_empty_title": "ಇನ್ನೂ ಯಾವುದೇ ಪುರಾವೆಗಳಿಲ್ಲ!",
   "prices_proof_empty_explanation": "**ರಶೀದಿ** ಅಥವಾ **ಬೆಲೆ ಟ್ಯಾಗ್** ನ ಫೋಟೋ ಸೇರಿಸುವ ಮೂಲಕ ಪ್ರಾರಂಭಿಸಿ!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "ದಯವಿಟ್ಟು ನಮಗೆ ಹಸ್ತಚಾಲಿತವಾಗಿ ಇಮೇಲ್ ಕಳುಹಿಸಿ",
-  "email_copied_to_clip_board": "ಇಮೇಲ್ ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "ಉಚ್ಚಾರಣಾ ಬಣ್ಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} ಉತ್ಪನ್ನಗಳು ತಕ್ಷಣ ಸ್ಕ್ಯಾನಿಂಗ್‌ಗೆ ಲಭ್ಯವಿದೆ",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "ಈ ಉತ್ಪನ್ನವನ್ನು ಕ್ಯಾರೋಸಲ್‌ನಿಂದ ತೆಗೆದುಹಾಕಿ",
   "@carousel_close_tooltip": {
