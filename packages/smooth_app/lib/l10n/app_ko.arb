@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "축하합니다! 귀하의 계정이 방금 생성되었습니다.",
   "sign_up_page_display_name_hint": "이름",
   "sign_up_page_display_name_error_empty": "사용하고자 하는 이름을 입력하십시오",
-  "sign_up_page_email_hint": "이메일",
-  "sign_up_page_email_error_empty": "이메일이 필요합니다",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "이메일이 올바르지 않습니다",
   "sign_up_page_username_hint": "사용자 이름: 모두가 볼 수 있어요",
   "sign_up_page_username_error_empty": "사용자 이름을 입력하십시오",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "이 이미지는 오래되었을 수 있습니다.",
   "product_image_outdated_explanations_title": "이 이미지는 오래되었을 수 있습니다.",
-  "product_image_outdated_explanations_content": "이 이미지는 1년 이상 전에 촬영되었습니다.\n**아직 최신 상태인지 확인해 주세요.**\n\n**경고**입니다. 내용이 동일하다면 이 메시지를 무시해도 됩니다.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "목록에 상품이 없습니다",
   "no_product_in_section": "이 섹션에는 상품이 없습니다",
   "recently_seen_products": "본 모든 상품",
   "clear": "지우기",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "카테고리",
   "prices_category_mandatory": "필수",
   "prices_category_optional": "선택 과목",
+  "prices_origins_title": "근원",
   "prices_category_error_mandatory": "카테고리는 필수입니다",
   "prices_barcode_reader_action": "바코드 리더기",
   "prices_view_prices": "가격 보기",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "제품 하나가 빠졌습니다!",
   "prices_amount_price_incorrect": "잘못된 값",
   "prices_amount_price_mandatory": "필수 값",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "통화",
   "prices_date_subtitle": "날짜",
   "prices_location_subtitle": "가게",
   "prices_location_find": "가게 찾기",
   "prices_location_mandatory": "가게를 선택해야 합니다!",
   "prices_location_search_broader": "원하시는 내용을 찾지 못하셨나요? 더 광범위하게 검색해 보세요!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "증거",
   "prices_proof_empty_title": "아직 증거가 없습니다!",
   "prices_proof_empty_explanation": "**영수증**이나 **가격표** 사진을 첨부하여 시작하세요!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "수동으로 이메일을 보내주세요.",
-  "email_copied_to_clip_board": "이메일이 클립보드에 복사되었습니다!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "강조색 선택",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} 개 제품을 즉시 스캔할 수 있습니다.",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3956,11 +3960,11 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "뉴트리스코어 A",
-  "nutriscore_b": "뉴트리스코어 B",
-  "nutriscore_c": "뉴트리스코어 C",
-  "nutriscore_d": "뉴트리스코어 D",
-  "nutriscore_e": "뉴트리스코어 E",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "Nutri-Score {letter} (새로운 계산)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "이 제품을 캐러셀에서 제거하세요",
   "@carousel_close_tooltip": {
