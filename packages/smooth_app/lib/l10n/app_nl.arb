@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Gefeliciteerd! Uw account is zojuist aangemaakt.",
   "sign_up_page_display_name_hint": "Naam",
   "sign_up_page_display_name_error_empty": "Voer de weergavenaam in die u wilt gebruiken",
-  "sign_up_page_email_hint": "E-post",
-  "sign_up_page_email_error_empty": "E-post is required",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
   "sign_up_page_username_hint": "Gebruikersnaam: Openbaar zichtbaar",
   "sign_up_page_username_error_empty": "Voer een gebruikersnaam in",
@@ -489,7 +489,7 @@
   "contribute_join_skill_pool": "Draag uw vaardigheden bij aan Open Food Facts. Sluit je aan bij de vaardighedenpool!",
   "contribute_share_header": "Deel Open Food Facts met je vrienden",
   "@contribute_share_header": {},
-  "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalised way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products deciphered. Here's the link to get it for your phone: https://openfoodfacts.app",
+  "contribute_share_content": "Ik wilde jullie graag vertellen over de app die ik gebruik, Open Food Facts. Met deze app kun je op een persoonlijke manier de gezondheids- en milieueffecten van je eten bekijken. Het werkt door de barcodes op de verpakking te scannen. Bovendien is de app gratis, hoef je je niet te registreren en kun je zelfs helpen om het aantal producten dat ontcijferd wordt te vergroten. Hier is de link om de app voor je telefoon te downloaden: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -553,7 +553,7 @@
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
-  "myPersonalizedRanking": "My personalised ranking",
+  "myPersonalizedRanking": "Mijn persoonlijke ranglijst",
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Deze afbeelding is mogelijk verouderd",
   "product_image_outdated_explanations_title": "Deze afbeelding is mogelijk verouderd",
-  "product_image_outdated_explanations_content": "Deze afbeelding is meer dan een jaar geleden gemaakt.\n**Controleer of deze nog up-to-date is**.\n\nDit is **gewoon een waarschuwing**. Als de inhoud nog steeds hetzelfde is, kunt u dit bericht negeren.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Er is geen product in deze lijst",
   "no_product_in_section": "Er is geen product in deze sectie",
   "recently_seen_products": "Alle bekeken producten",
   "clear": "Wissen",
@@ -1391,7 +1390,7 @@
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+  "permissions_page_body1": "Om barcodes te scannen met de camera van uw telefoon, moet u de toegang autoriseren.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Categorie",
   "prices_category_mandatory": "Verplicht",
   "prices_category_optional": "Optioneel",
+  "prices_origins_title": "Oorsprong",
   "prices_category_error_mandatory": "De categorie is verplicht",
   "prices_barcode_reader_action": "Streepjescodelezer",
   "prices_view_prices": "Bekijk de prijzen",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Er ontbreekt één product!",
   "prices_amount_price_incorrect": "Onjuiste waarde",
   "prices_amount_price_mandatory": "Verplichte waarde",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Winkel",
   "prices_location_find": "Zoek een winkel",
   "prices_location_mandatory": "Je moet een winkel selecteren!",
   "prices_location_search_broader": "Niet gevonden wat u zocht? Probeer een bredere zoekopdracht!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bewijs",
   "prices_proof_empty_title": "Nog geen bewijs!",
   "prices_proof_empty_explanation": "Begin met het toevoegen van een foto van een **bon** of een **prijskaartje**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Stuur ons handmatig een e-mail naar",
-  "email_copied_to_clip_board": "Epost copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Accentkleur selecteren",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} producten beschikbaar om onmiddellijk te scannen",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4049,7 +4053,7 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The colour code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "De kleurcode varieert van donkergroen (**A**) voor de **gezondste** producten tot donkerrood (**E**) voor de **minder gezonde** producten.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4059,7 +4063,7 @@
   "guide_nutriscore_v2_why_v2_arg1_title": "Evalueert alle drankjes beter",
   "guide_nutriscore_v2_why_v2_arg1_text": "De relatieve aantekeningen van **melk**, **zuiveldranken** met toegevoegde suikers en **groentedranken** werden beter gedifferentieerd in het nieuwe algoritme.",
   "guide_nutriscore_v2_why_v2_arg2_title": "Betere rangschikking van drankjes",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalised**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Er wordt beter rekening gehouden met het **suikergehalte** en dranken met **weinig suiker** krijgen de voorkeur.\\n**Zoetstoffen worden ook bestraft**: light frisdranken worden van een B-rating verlaagd naar een rating tussen C en E. Water blijft de aanbevolen drank.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Zout en suiker worden bestraft",
   "guide_nutriscore_v2_why_v2_arg3_text": "Producten die **te zoet** of **te zout** zijn, krijgen een lagere beoordeling**.",
   "guide_nutriscore_v2_why_v2_arg4_title": "Hiërarchie binnen oliën en vis",
@@ -4085,7 +4089,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_what_is_greenscore_paragraph2": "The colour code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.",
+  "guide_greenscore_what_is_greenscore_paragraph2": "De kleurcode varieert van donkergroen (**A+**) voor de **minst impactvolle** producten tot donkerrood (**F**) voor de **meest impactvolle** producten.",
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4146,7 +4150,7 @@
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "The NOVA classification allows for the categorisation of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).",
+  "guide_nova_what_is_nova_paragraph2": "De NOVA-classificatie maakt het mogelijk om voedingsmiddelen in te delen in **4 groepen** op basis van hun **mate van industriële bewerking** (minimaal bewerkte of onbewerkte voedingsmiddelen, culinaire ingrediënten, bewerkte voedingsmiddelen, ultrabewerkte voedingsmiddelen).",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4165,7 +4169,7 @@
   "guide_nova_explanations_arg1_title": "Extreme bewerking van voedselingrediënten",
   "guide_nova_explanations_arg1_text": "Veel daarvan zijn **afgeleid van verdere verwerking van voedingsbestanddelen**, zoals gehydrogeneerde of geïnteresterificeerde oliën, gehydrolyseerde eiwitten, soja-eiwitisolaat, maltodextrine, invertsuiker en fructoserijke glucosestroop.",
   "guide_nova_explanations_arg2_title": "Additieven die verder gaan dan pure voedselveiligheid",
-  "guide_nova_explanations_arg2_text": "Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilisers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colours, colour stabilisers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.",
+  "guide_nova_explanations_arg2_text": "Additieven in ultraverwerkte voedingsmiddelen omvatten sommige die ook in verwerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultraverwerkte producten voorkomen, zijn onder meer additieven die worden gebruikt **om de sensorische eigenschappen van voedingsmiddelen na te bootsen of te verbeteren of om onaangename aspecten van het eindproduct te maskeren**. Deze additieven omvatten kleurstoffen en andere kleurmiddelen, kleurstabilisatoren, smaakstoffen, smaakversterkers, niet-suikerhoudende zoetstoffen en technische hulpstoffen zoals koolzuur, verstevigingsmiddelen, vulstoffen en antiklontermiddelen, ontschuimers, glansmiddelen, emulgatoren, sekwestranten en bevochtigingsmiddelen.",
   "guide_nova_explanations_arg3_title": "Bewerking die je niet thuis kan uitvoeren",
   "guide_nova_explanations_arg3_text": "**Er wordt een veelheid aan processtappen gebruikt** om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar 'ultraverwerkt'). De processen omvatten verschillende **stappen die geen huishoudelijke equivalenten hebben**, zoals hydrogenering en hydrolyse, extrusie en vormgeving en voorbewerking voor frituren.",
   "guide_nova_explanations_arg4_title": "De roofzuchtige en financiële aspecten van ultra-bewerking",
@@ -4248,7 +4252,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Our goal is to decipher ingredient lists to help you **understand what's in your personal care items**. From moisturisers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Ons doel is om ingrediëntenlijsten te ontcijferen, zodat u **beter begrijpt wat er in uw persoonlijke verzorgingsproducten zit**. Van moisturizers tot make-up: we verzamelen gegevens over ingrediënten, allergenen en verpakkingen om de transparantie in de cosmetica-industrie te bevorderen.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4280,7 +4284,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organisations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Er zijn momenteel weinig bedrijven die grote databases met productprijzen op barcodeniveau bezitten. Deze prijzen zijn niet vrij beschikbaar, maar worden tegen een hoge prijs verkocht aan private actoren, onderzoekers en andere organisaties die ze zich kunnen veroorloven.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4316,7 +4320,7 @@
   "guide_open_products_facts_features_title": "",
   "guide_open_products_facts_features_text": "Open Products Facts wil consumenten helpen **de levensduur van voorwerpen te verlengen** door circulaire oplossingen aan te bieden voor het onderhoud, **de reparatie** en **de recycling** van hun voorwerpen, of door ze aan een nieuwe eigenaar te geven.",
   "guide_open_products_facts_features_arg1_title": "Koolstofvoetafdrukken voor sommige producten",
-  "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorise products precisely.",
+  "guide_open_products_facts_features_arg1_text": "**Impact CO2** van de Franse milieuautoriteit ADEME geeft de **koolstofimpact** van vele categorieën weer. Zorg ervoor dat u producten nauwkeurig categoriseert.",
   "guide_open_products_facts_features_arg2_title": "Reparatie-index voor veel producten",
   "guide_open_products_facts_features_arg2_text": "Wanneer er een Franse reparatie-index beschikbaar is, zullen we deze weergeven. Bovendien **kunt u beginnen met het verzamelen van de variabelen met behulp van de Folksonomy Engine**, zodat we deze in de toekomst zelf kunnen herberekenen, zelfs in landen waar deze niet beschikbaar is.",
   "guide_open_products_facts_features_arg3_title": "Zoek manieren om uw product te doneren/door te verkopen",
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Waarschijnlijk ongeldige barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Verwijder dit product uit de carrousel",
   "@carousel_close_tooltip": {
