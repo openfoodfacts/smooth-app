@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Tabriklaymiz! Sizning hisobingiz hozirgina yaratildi.",
   "sign_up_page_display_name_hint": "Ism",
   "sign_up_page_display_name_error_empty": "Iltimos, foydalanmoqchi bo'lgan displey nomini kiriting",
-  "sign_up_page_email_hint": "Elektron pochta",
-  "sign_up_page_email_error_empty": "Elektron pochta talab qilinadi",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Noto'g'ri elektron pochta",
   "sign_up_page_username_hint": "Foydalanuvchi nomi: Hammaga ko'rinadigan",
   "sign_up_page_username_error_empty": "Iltimos, foydalanuvchi nomini kiriting",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Bu rasm eskirgan bo'lishi mumkin",
   "product_image_outdated_explanations_title": "Bu rasm eskirgan bo'lishi mumkin",
-  "product_image_outdated_explanations_content": "Bu rasm bir yildan ko'proq vaqt oldin olingan.\n**Iltimos, uning hali ham yangilanganligini tekshiring**.\n\nBu **shunchaki ogohlantirish**. Agar kontent hali ham o'sha bo'lsa, siz ushbu xabarni e'tiborsiz qoldirishingiz mumkin.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Bu ro'yxatda hech qanday mahsulot yo'q",
   "no_product_in_section": "Bu bo'limda mahsulot yo'q",
   "recently_seen_products": "Barcha ko'rilgan mahsulotlar",
   "clear": "Toza",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Ixtiyoriy",
+  "prices_origins_title": "Kelib chiqishi",
   "prices_category_error_mandatory": "Kategoriya majburiydir",
   "prices_barcode_reader_action": "Shtrix-kod o'quvchi",
   "prices_view_prices": "Narxlarni ko'rish",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Bitta mahsulot yetishmayapti!",
   "prices_amount_price_incorrect": "Noto'g'ri qiymat",
   "prices_amount_price_mandatory": "Majburiy qiymat",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valyuta",
   "prices_date_subtitle": "Sana",
   "prices_location_subtitle": "Do'kon",
   "prices_location_find": "Do'kon toping",
   "prices_location_mandatory": "Siz do'kon tanlashingiz kerak!",
   "prices_location_search_broader": "Qidirayotgan narsangizni topa olmadingizmi? Keling, kengroq qidiruvni amalga oshiramiz!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Isbot",
   "prices_proof_empty_title": "Hali isbot yo'q!",
   "prices_proof_empty_explanation": "**kvitansiya** yoki **narx yorlig‘i** suratini qo‘shishdan boshlang!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Iltimos, bizga qo'lda elektron pochta xabarini yuboring",
-  "email_copied_to_clip_board": "Elektron pochta vaqtinchalik xotiraga nusxalandi!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Urg'u rangini tanlang",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} Darhol skanerlash uchun mavjud mahsulotlar",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Ushbu mahsulotni karuseldan olib tashlang",
   "@carousel_close_tooltip": {
