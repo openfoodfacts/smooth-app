@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Grattis! Ditt konto har just skapats.",
   "sign_up_page_display_name_hint": "Namn",
   "sign_up_page_display_name_error_empty": "Ange det visningsnamn du vill använda",
-  "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_hint": "E-post",
+  "sign_up_page_email_error_empty": "E-post krävs",
   "sign_up_page_email_error_invalid": "Ogiltig e-postadress",
   "sign_up_page_username_hint": "Användarnamn: Offentligt synligt",
   "sign_up_page_username_error_empty": "Ange ett användarnamn",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Den här bilden kan vara föråldrad",
   "product_image_outdated_explanations_title": "Den här bilden kan vara föråldrad",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Den här bilden togs för mer än ett år sedan.\n**Kontrollera att den fortfarande gäller**.\n\nDetta är **bara en varning**. Om innehållet fortfarande är detsamma kan du ignorera det här meddelandet.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -2709,15 +2709,15 @@
   "prices_amount_no_product": "En produkt saknas!",
   "prices_amount_price_incorrect": "Felaktigt värde",
   "prices_amount_price_mandatory": "Obligatoriskt värde",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Uppdatera valuta",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Handla",
   "prices_location_find": "Hitta en butik",
   "prices_location_mandatory": "Du måste välja en butik!",
   "prices_location_search_broader": "Hittade du inte det du sökte? Nu försöker vi med en bredare sökning!",
-  "prices_location_open_map": "View the shop on the map",
-  "prices_location_edit": "Select another shop",
+  "prices_location_open_map": "Visa butiken på kartan",
+  "prices_location_edit": "Välj en annan butik",
   "prices_proof_subtitle": "Bevis",
   "prices_proof_empty_title": "Inga bevis än!",
   "prices_proof_empty_explanation": "Börja med att lägga till ett foto på ett **kvitto** eller en **prislapp**!",
@@ -3724,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Vänligen skicka oss ett e-postmeddelande manuellt till",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "E-post kopierat till urklipp!",
   "select_accent_color": "Välj accentfärg",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3914,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} produkter tillgängliga för omedelbar skanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
