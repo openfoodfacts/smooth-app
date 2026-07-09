@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Comhghairdeas! Tá do chuntas díreach cruthaithe.",
   "sign_up_page_display_name_hint": "Ainm",
   "sign_up_page_display_name_error_empty": "Cuir isteach an t-ainm taispeána is mian leat a úsáid",
-  "sign_up_page_email_hint": "Ríomhphost",
-  "sign_up_page_email_error_empty": "Tá ríomhphost ag teastáil",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ríomhphost neamhbhailí",
   "sign_up_page_username_hint": "Ainm úsáideora: Infheicthe go poiblí",
   "sign_up_page_username_error_empty": "Cuir isteach ainm úsáideora le do thoil",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "B’fhéidir go bhfuil an íomhá seo as dáta",
   "product_image_outdated_explanations_title": "B’fhéidir go bhfuil an íomhá seo as dáta",
-  "product_image_outdated_explanations_content": "Tógadh an íomhá seo breis agus bliain ó shin.\n**Seiceáil le do thoil go bhfuil sé fós cothrom le dáta**.\n\nNíl anseo ach **rabhadh**. Más mar a chéile an t-ábhar fós, is féidir leat neamhaird a dhéanamh den teachtaireacht seo.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Níl aon táirge ar an liosta seo",
   "no_product_in_section": "Níl aon táirge sa chuid seo",
   "recently_seen_products": "Gach táirge a breathnaíodh",
   "clear": "Glan",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Roghnach",
+  "prices_origins_title": "Bunús",
   "prices_category_error_mandatory": "Tá an chatagóir éigeantach",
   "prices_barcode_reader_action": "Léitheoir barrachóid",
   "prices_view_prices": "Féach ar na praghsanna",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Tá táirge amháin ar iarraidh!",
   "prices_amount_price_incorrect": "Luach mícheart",
   "prices_amount_price_mandatory": "Luach éigeantach",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Airgeadra",
   "prices_date_subtitle": "Dáta",
   "prices_location_subtitle": "Siopa",
   "prices_location_find": "Aimsigh siopa",
   "prices_location_mandatory": "Ní mór duit siopa a roghnú!",
   "prices_location_search_broader": "Nach bhfuair tú an rud a bhí á lorg agat? Déanaimis iarracht cuardach níos leithne a dhéanamh!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Cruthúnas",
   "prices_proof_empty_title": "Gan aon chruthúnas fós!",
   "prices_proof_empty_explanation": "Tosaigh trí ghrianghraf de **admháil** nó de **chlib phraghais** a chur leis!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Seol ríomhphost chugainn de láimh le do thoil chuig",
-  "email_copied_to_clip_board": "Ríomhphost cóipeáilte chuig an ghearrthaisce!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Roghnaigh Dath Aicinn",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} táirgí ar fáil le scanadh láithreach",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Bain an táirge seo as an gcarúsal",
   "@carousel_close_tooltip": {
