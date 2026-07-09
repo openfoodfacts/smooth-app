@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Čestitamo! Vaš račun je bil ustvarjen.",
   "sign_up_page_display_name_hint": "Ime",
   "sign_up_page_display_name_error_empty": "Prosimo vnesite ime, ki ga želite prikazati",
-  "sign_up_page_email_hint": "Elektronski naslov",
-  "sign_up_page_email_error_empty": "Elektronski naslov je obvezen",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Neveljaven elektronski naslov",
   "sign_up_page_username_hint": "Uporabniško ime: Javno",
   "sign_up_page_username_error_empty": "Vnesite uporabniško ime",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Ta slika je morda zastarela",
   "product_image_outdated_explanations_title": "Ta slika je morda zastarela",
-  "product_image_outdated_explanations_content": "Ta slika je bila posneta pred več kot enim letom.\n**Preverite, ali je še vedno posodobljena**.\n\nTo je **le opozorilo**. Če je vsebina še vedno enaka, lahko to sporočilo prezrete.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Na tem seznamu ni nobenega izdelka",
   "no_product_in_section": "V tem razdelku ni izdelka",
   "recently_seen_products": "Vsi ogledani izdelki",
   "clear": "Počisti",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategorijo",
   "prices_category_mandatory": "Obvezno",
   "prices_category_optional": "Neobvezno",
+  "prices_origins_title": "Poreklo",
   "prices_category_error_mandatory": "Kategorija je obvezna",
   "prices_barcode_reader_action": "Čitalnik črtne kode",
   "prices_view_prices": "Oglejte si cene",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Manjka en izdelek!",
   "prices_amount_price_incorrect": "Napačna vrednost",
   "prices_amount_price_mandatory": "Obvezna vrednost",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Trgovina",
   "prices_location_find": "Poiščite trgovino",
   "prices_location_mandatory": "Izbrati morate trgovino!",
   "prices_location_search_broader": "Niste našli, kar ste iskali? Poskusimo s širšim iskanjem!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Dokaz",
   "prices_proof_empty_title": "Še ni dokazov!",
   "prices_proof_empty_explanation": "Začnite tako, da dodate fotografijo **računa** ali **cenovke**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Prosimo, pošljite nam ročno e-pošto na",
-  "email_copied_to_clip_board": "E-pošta je bila kopirana v odložišče!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Izberite barvo poudarka",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} izdelkov na voljo za takojšnje skeniranje",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Odstrani ta izdelek iz vrtiljaka",
   "@carousel_close_tooltip": {
