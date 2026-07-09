@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "అభినందనలు! మీ ఖాతా ఇప్పుడే సృష్టించబడింది.",
   "sign_up_page_display_name_hint": "పేరు",
   "sign_up_page_display_name_error_empty": "దయచేసి మీరు ఉపయోగించాలనుకుంటున్న డిస్‌ప్లే పేరును నమోదు చేయండి.",
-  "sign_up_page_email_hint": "ఇ-మెయిల్",
-  "sign_up_page_email_error_empty": "ఈ-మెయిల్ అవసరం",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "చెల్లని ఈ-మెయిల్",
   "sign_up_page_username_hint": "యూజర్ పేరు: పబ్లిక్‌గా కనిపిస్తుంది",
   "sign_up_page_username_error_empty": "దయచేసి వినియోగదారు పేరును నమోదు చేయండి.",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "ఈ చిత్రం పాతది కావచ్చు.",
   "product_image_outdated_explanations_title": "ఈ చిత్రం పాతది కావచ్చు.",
-  "product_image_outdated_explanations_content": "ఈ చిత్రం ఒక సంవత్సరం కంటే ఎక్కువ కాలం క్రితం తీయబడింది.\n**దయచేసి ఇది ఇంకా తాజాగా ఉందో లేదో తనిఖీ చేయండి**.\n\nఇది **కేవలం హెచ్చరిక**. కంటెంట్ ఇప్పటికీ అలాగే ఉంటే, మీరు ఈ సందేశాన్ని విస్మరించవచ్చు.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "ఈ జాబితాలో ఏ ఉత్పత్తి లేదు.",
   "no_product_in_section": "ఈ విభాగంలో ఏ ఉత్పత్తి లేదు.",
   "recently_seen_products": "చూసిన అన్ని ఉత్పత్తులు",
   "clear": "తొలగింపు పూర్తయింది",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "విభాగాలు",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ఐచ్ఛికం",
+  "prices_origins_title": "మూలాలు",
   "prices_category_error_mandatory": "వర్గం తప్పనిసరి",
   "prices_barcode_reader_action": "బార్‌కోడ్ రీడర్",
   "prices_view_prices": "ధరలను చూడండి",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "ఒక ఉత్పత్తి లేదు!",
   "prices_amount_price_incorrect": "తప్పు విలువ",
   "prices_amount_price_mandatory": "తప్పనిసరి విలువ",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "కరెన్సీ",
   "prices_date_subtitle": "తేదీ",
   "prices_location_subtitle": "షాప్",
   "prices_location_find": "దుకాణాన్ని కనుగొనండి",
   "prices_location_mandatory": "మీరు ఒక దుకాణాన్ని ఎంచుకోవాలి!",
   "prices_location_search_broader": "మీరు వెతుకుతున్నది దొరకలేదా? విస్తృత శోధనను ప్రయత్నిద్దాం!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "రుజువు",
   "prices_proof_empty_title": "ఇంకా రుజువు లేదు!",
   "prices_proof_empty_explanation": "**రసీదు** యొక్క ఫోటో లేదా **ధర ట్యాగ్** జోడించడం ద్వారా ప్రారంభించండి!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "దయచేసి మాకు మాన్యువల్‌గా ఇమెయిల్ పంపండి",
-  "email_copied_to_clip_board": "ఇమెయిల్ క్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "యాక్సెంట్ రంగును ఎంచుకోండి",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "తక్షణ స్కానింగ్ కోసం అందుబాటులో ఉన్న {num} ఉత్పత్తులు",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "ఈ ఉత్పత్తిని కారౌసెల్ నుండి తీసివేయండి",
   "@carousel_close_tooltip": {
