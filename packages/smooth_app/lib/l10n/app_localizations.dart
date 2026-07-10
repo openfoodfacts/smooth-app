@@ -987,7 +987,7 @@ abstract class AppLocalizations {
   /// No description provided for @sign_up_page_email_error_empty.
   ///
   /// In en, this message translates to:
-  /// **'E-post is required'**
+  /// **'E-mail is required'**
   String get sign_up_page_email_error_empty;
 
   /// No description provided for @sign_up_page_email_error_invalid.
@@ -2624,7 +2624,7 @@ abstract class AppLocalizations {
   /// Please keep the ** syntax to make the text bold
   ///
   /// In en, this message translates to:
-  /// **'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.'**
+  /// **'This image was taken more than a year ago.\n**Please check that it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.'**
   String get product_image_outdated_explanations_content;
 
   /// Action on the photo gallery to replace an existing picture

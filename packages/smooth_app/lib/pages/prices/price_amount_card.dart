@@ -4,8 +4,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_sliver_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_amount_card_item.dart';
-import 'package:smooth_app/pages/prices/price_amount_quantity.dart';
-import 'package:smooth_app/pages/prices/price_amount_sum.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 
 /// Card that displays the amounts (discounted or not) for price adding.
@@ -25,18 +23,6 @@ class PriceAmountCard extends StatelessWidget {
         vertical: BALANCED_SPACE,
         horizontal: LARGE_SPACE,
       ),
-      trailing: model.multipleProducts
-          ? IconTheme.merge(
-              data: IconThemeData(
-                size: 16.0,
-                color: DefaultTextStyle.of(context).style.color,
-              ),
-              child: const Row(
-                spacing: SMALL_SPACE,
-                children: <Widget>[PriceAmountQuantity(), PriceAmountSum()],
-              ),
-            )
-          : null,
       contentPadding: const EdgeInsetsDirectional.symmetric(
         horizontal: SMALL_SPACE,
       ),

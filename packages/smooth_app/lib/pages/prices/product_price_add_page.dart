@@ -7,7 +7,6 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
-import 'package:smooth_app/pages/prices/add_product/price_add_product_button.dart';
 import 'package:smooth_app/pages/prices/add_product/price_add_product_card.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
 import 'package:smooth_app/pages/prices/price_amount_card.dart';
@@ -164,7 +163,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                         ),
                         sliver: PriceAmountCard(key: UniqueKey()),
                       ),
-                    if (model.multipleProducts && model.length == 0)
+                    if (model.multipleProducts)
                       const SliverPadding(
                         padding: EdgeInsetsDirectional.only(
                           top: LARGE_SPACE,
@@ -183,45 +182,20 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                     ),
                   ],
                 ),
-                floatingActionButtonLocation:
-                    FloatingActionButtonLocation.centerFloat,
-                floatingActionButton: Padding(
-                  padding: const EdgeInsetsDirectional.symmetric(
-                    horizontal: SMALL_SPACE,
-                  ),
-                  child: Stack(
-                    fit: StackFit.expand,
-                    children: <Widget>[
-                      if (model.multipleProducts && model.length > 0)
-                        const Align(
-                          alignment: AlignmentDirectional.bottomCenter,
-                          child: PriceAddProductButton(),
-                        ),
-                      Align(
-                        alignment: AlignmentDirectional.bottomEnd,
-                        child: SmoothExpandableFloatingActionButton(
-                          scrollController: _scrollController,
-                          onPressed: () async => _exitPage(
-                            await _mayExitPage(saving: true, model: model),
-                          ),
-                          icon: const icons.Send(size: 18.0),
-                          label: Padding(
-                            padding: const EdgeInsetsDirectional.only(
-                              bottom: 2.0,
-                            ),
-                            child: Text(
-                              appLocalizations.prices_send_n_prices(
-                                model.length,
-                              ),
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 15.0,
-                              ),
-                            ),
-                          ),
-                        ),
+                floatingActionButton: SmoothExpandableFloatingActionButton(
+                  scrollController: _scrollController,
+                  onPressed: () async =>
+                      _exitPage(await _mayExitPage(saving: true, model: model)),
+                  icon: const icons.Send(size: 18.0),
+                  label: Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 2.0),
+                    child: Text(
+                      appLocalizations.prices_send_n_prices(model.length),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15.0,
                       ),
-                    ],
+                    ),
                   ),
                 ),
               ),
