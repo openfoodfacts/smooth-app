@@ -82,18 +82,6 @@ Widget build(BuildContext context) {
       vertical: BALANCED_SPACE,
       horizontal: LARGE_SPACE,
     ),
-    trailing: model.multipleProducts
-        ? IconTheme.merge(
-            data: IconThemeData(
-              size: 16.0,
-              color: DefaultTextStyle.of(context).style.color,
-            ),
-            child: const Row(
-              spacing: SMALL_SPACE,
-              children: &lt;Widget&gt;[PriceAmountQuantity(), PriceAmountSum()],
-            ),
-          )
-        : null,
     contentPadding: const EdgeInsetsDirectional.symmetric(
       horizontal: SMALL_SPACE,
     ),
