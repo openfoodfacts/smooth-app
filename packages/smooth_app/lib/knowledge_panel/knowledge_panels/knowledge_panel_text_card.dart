@@ -8,6 +8,7 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/widgets/table/scrollable_table_widget.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 /// Card that displays a Knowledge Panel _Text_ element.
@@ -30,6 +31,8 @@ class KnowledgePanelTextCard extends StatelessWidget {
         title: warningLabel,
         text: textElement.html.replaceFirst(regExp, '').trim(),
       );
+    } else if (textElement.html.startsWith('<table')) {
+      return ScrollableTableWidget(textElement.html);
     } else {
       text = Padding(
         padding: const EdgeInsetsDirectional.only(
