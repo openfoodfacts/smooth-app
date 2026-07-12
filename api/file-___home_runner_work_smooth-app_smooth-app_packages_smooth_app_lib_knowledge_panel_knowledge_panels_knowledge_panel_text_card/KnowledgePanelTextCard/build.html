@@ -83,6 +83,8 @@ Widget build(BuildContext context) {
       title: warningLabel,
       text: textElement.html.replaceFirst(regExp, &#39;&#39;).trim(),
     );
+  } else if (textElement.html.startsWith(&#39;&lt;table&#39;)) {
+    return ScrollableTableWidget(textElement.html);
   } else {
     text = Padding(
       padding: const EdgeInsetsDirectional.only(
