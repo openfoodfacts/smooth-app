@@ -13,9 +13,9 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     required this.product,
     required this.isInitiallyExpanded,
     required this.isClickable,
+    required this.simplified,
     this.roundedIcons = true,
     this.overrideStyle = true,
-    this.simplified = false,
   });
 
   final Product product;

@@ -30,7 +30,6 @@ import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -125,7 +124,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                 actions: <Widget>[
                   if (!_imageVisible)
                     IconButton(
-                      icon: const Picture.open(),
+                      icon: const icons.Picture.open(),
                       tooltip: ImageField.NUTRITION.getProductImageButtonText(
                         appLocalizations,
                       ),
@@ -516,7 +515,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
               )
             : null,
         title: appLocalizations.edit_product_form_item_nutrition_facts_title,
-        leading: const NutritionFacts(),
+        leading: const icons.NutritionFacts(),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[

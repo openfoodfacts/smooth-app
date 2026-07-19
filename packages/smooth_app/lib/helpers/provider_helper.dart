@@ -123,6 +123,50 @@ class _ValueNotifierListenerState<T extends ValueNotifier<S>, S>
   }
 }
 
+class MultipleChangeNotifierBuilder<T extends ChangeNotifier>
+    extends StatefulWidget {
+  const MultipleChangeNotifierBuilder({
+    required this.notifiers,
+    required this.builder,
+    super.key,
+  });
+
+  final List<T> notifiers;
+  final Widget Function(BuildContext context, List<T> notifiers) builder;
+
+  @override
+  State<MultipleChangeNotifierBuilder<T>> createState() =>
+      _MultipleChangeNotifierBuilderState<T>();
+}
+
+class _MultipleChangeNotifierBuilderState<T extends ChangeNotifier>
+    extends State<MultipleChangeNotifierBuilder<T>> {
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    for (final ChangeNotifier notifier in widget.notifiers) {
+      notifier.replaceListener(_onNotifierChanged);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return widget.builder(context, widget.notifiers);
+  }
+
+  void _onNotifierChanged() {
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    for (final ChangeNotifier notifier in widget.notifiers) {
+      notifier.removeListener(_onNotifierChanged);
+    }
+    super.dispose();
+  }
+}
+
 /// Same as [Consumer] but only rebuilds if [buildWhen] returns true
 /// (And on the first build)
 class ConsumerFilter<T> extends StatefulWidget {

@@ -1047,7 +1047,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.CATEGORIES;
 
   @override
-  Widget getIcon() => const Icon(Icons.restaurant);
+  Widget getIcon() => const icons.Ingredients();
 
   @override
   BackgroundTaskDetailsStamp getStamp() =>

@@ -981,13 +981,13 @@ abstract class AppLocalizations {
   /// No description provided for @sign_up_page_email_hint.
   ///
   /// In en, this message translates to:
-  /// **'E-post'**
+  /// **'E-mail'**
   String get sign_up_page_email_hint;
 
   /// No description provided for @sign_up_page_email_error_empty.
   ///
   /// In en, this message translates to:
-  /// **'E-post is required'**
+  /// **'E-mail is required'**
   String get sign_up_page_email_error_empty;
 
   /// No description provided for @sign_up_page_email_error_invalid.
@@ -2624,7 +2624,7 @@ abstract class AppLocalizations {
   /// Please keep the ** syntax to make the text bold
   ///
   /// In en, this message translates to:
-  /// **'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.'**
+  /// **'This image was taken more than a year ago.\n**Please check that it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.'**
   String get product_image_outdated_explanations_content;
 
   /// Action on the photo gallery to replace an existing picture
@@ -3067,12 +3067,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Could not remove product'**
   String get product_could_not_remove;
-
-  /// No description provided for @no_prodcut_in_list.
-  ///
-  /// In en, this message translates to:
-  /// **'There is no product in this list'**
-  String get no_prodcut_in_list;
 
   /// No description provided for @no_product_in_section.
   ///
@@ -5040,6 +5034,12 @@ abstract class AppLocalizations {
   /// **' / unit'**
   String get prices_per_unit_short;
 
+  /// No description provided for @prices_category_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get prices_category_title;
+
   /// No description provided for @prices_category_mandatory.
   ///
   /// In en, this message translates to:
@@ -5051,6 +5051,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Optional'**
   String get prices_category_optional;
+
+  /// No description provided for @prices_origins_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Origins'**
+  String get prices_origins_title;
 
   /// No description provided for @prices_category_error_mandatory.
   ///
@@ -5315,6 +5321,12 @@ abstract class AppLocalizations {
   /// **'Mandatory value'**
   String get prices_amount_price_mandatory;
 
+  /// No description provided for @prices_amount_update_currency.
+  ///
+  /// In en, this message translates to:
+  /// **'Update currency'**
+  String get prices_amount_update_currency;
+
   /// No description provided for @prices_currency_subtitle.
   ///
   /// In en, this message translates to:
@@ -5350,6 +5362,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t find what you were looking for? Let\'s try a broader search!'**
   String get prices_location_search_broader;
+
+  /// No description provided for @prices_location_open_map.
+  ///
+  /// In en, this message translates to:
+  /// **'View the shop on the map'**
+  String get prices_location_open_map;
+
+  /// No description provided for @prices_location_edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Select another shop'**
+  String get prices_location_edit;
 
   /// No description provided for @prices_proof_subtitle.
   ///
@@ -6965,7 +6989,7 @@ abstract class AppLocalizations {
   /// No description provided for @email_copied_to_clip_board.
   ///
   /// In en, this message translates to:
-  /// **'Epost copied to clipboard!'**
+  /// **'E-mail copied to clipboard!'**
   String get email_copied_to_clip_board;
 
   /// Accent Color for the application in AMOLED mode.
@@ -7211,7 +7235,7 @@ abstract class AppLocalizations {
   /// text to show details of products available for download
   ///
   /// In en, this message translates to:
-  /// **'{num} products available for immediate scaning'**
+  /// **'{num} products available for immediate scanning'**
   String available_for_download(int num);
 
   /// Label written as the title of the dialog to select the user country

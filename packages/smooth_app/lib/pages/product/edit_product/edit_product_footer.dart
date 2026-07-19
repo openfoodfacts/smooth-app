@@ -9,7 +9,7 @@ import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/resources/app_animations.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
@@ -175,7 +175,7 @@ class _EditProductFooterState extends State<EditProductFooter>
                                       width - BUTTON_WIDTH,
                                       1.0,
                                     )),
-                            child: const Drag.start(color: Colors.white),
+                            child: const icons.Drag.start(color: Colors.white),
                           ),
                         ),
                       ),
