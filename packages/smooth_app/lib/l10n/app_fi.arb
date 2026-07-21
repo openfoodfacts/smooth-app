@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Onnittelut! Tilisi on nyt luotu.",
   "sign_up_page_display_name_hint": "Nimi",
   "sign_up_page_display_name_error_empty": "Lisää haluamasi julkinen nimi",
-  "sign_up_page_email_hint": "Sähköpostiosoite",
-  "sign_up_page_email_error_empty": "Sähköpostiosoite on pakollinen",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Virheellinen sähköpostiosoite",
   "sign_up_page_username_hint": "Käyttäjänimi: julkinen",
   "sign_up_page_username_error_empty": "Syötä käyttäjänimi",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Tämä kuva saattaa olla vanhentunut",
   "product_image_outdated_explanations_title": "Tämä kuva saattaa olla vanhentunut",
-  "product_image_outdated_explanations_content": "Tämä kuva on otettu yli vuosi sitten.\n**Tarkista, että se on edelleen ajan tasalla**.\n\nTämä on **vain varoitus**. Jos sisältö on edelleen sama, voit jättää tämän viestin huomiotta.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Listassa ei ole tuotteita",
   "no_product_in_section": "Tässä osiossa ei ole tuotteita",
   "recently_seen_products": "Kaikki katsotut tuotteet",
   "clear": "Tyhjennä",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Tuoteluokka",
   "prices_category_mandatory": "Pakollinen",
   "prices_category_optional": "Valinnainen",
+  "prices_origins_title": "Alkuperät",
   "prices_category_error_mandatory": "Luokka on pakollinen",
   "prices_barcode_reader_action": "Viivakoodinlukija",
   "prices_view_prices": "Katso hinnat",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Yksi tuote puuttuu!",
   "prices_amount_price_incorrect": "Virheellinen arvo",
   "prices_amount_price_mandatory": "Pakollinen arvo",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuutta",
   "prices_date_subtitle": "Päivämäärä",
   "prices_location_subtitle": "Myymälä",
   "prices_location_find": "Etsi kauppa",
   "prices_location_mandatory": "Sinun on valittava kauppa!",
   "prices_location_search_broader": "Etkö löytänyt etsimääsi? Kokeillaan laajempaa hakua!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Todiste",
   "prices_proof_empty_title": "Ei vielä todisteita!",
   "prices_proof_empty_explanation": "Aloita lisäämällä kuva **kuitista** tai **hintalapusta**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Lähetä manuaalisesti sähköpostia osoitteeseen",
-  "email_copied_to_clip_board": "Sähköpostiosoite kopioitu leikepöydälle",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Valitse korostusväri",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} tuotetta saatavilla välittömään skannaukseen",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Poista tämä tuote karuselista",
   "@carousel_close_tooltip": {

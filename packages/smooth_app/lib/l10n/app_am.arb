@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "እንኳን ደስ አላችሁ! መለያዎ አሁን ተፈጥሯል።",
   "sign_up_page_display_name_hint": "ስም",
   "sign_up_page_display_name_error_empty": "እባክዎ መጠቀም የሚፈልጉትን የማሳያ ስም ያስገቡ",
-  "sign_up_page_email_hint": "ኢሜይል",
-  "sign_up_page_email_error_empty": "ኢሜይል ያስፈልጋል",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "ልክ ያልሆነ ኢሜይል",
   "sign_up_page_username_hint": "የተጠቃሚ ስም፡ በይፋ የሚታይ",
   "sign_up_page_username_error_empty": "እባክዎ የተጠቃሚ ስም ያስገቡ",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "ይህ ምስል ጊዜው ያለፈበት ሊሆን ይችላል",
   "product_image_outdated_explanations_title": "ይህ ምስል ጊዜው ያለፈበት ሊሆን ይችላል",
-  "product_image_outdated_explanations_content": "ይህ ምስል የተወሰደው ከአንድ ዓመት በፊት ነው።\n**እባክዎ አሁንም ወቅታዊ መሆኑን ያረጋግጡ።**።\n\nይህ **ማስጠንቀቂያ ብቻ ነው**። ይዘቱ አሁንም ተመሳሳይ ከሆነ፣ ይህንን መልእክት ችላ ማለት ይችላሉ።",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "በዚህ ዝርዝር ውስጥ ምንም አይነት ምርት የለም",
   "no_product_in_section": "በዚህ ክፍል ውስጥ ምንም ምርት የለም",
   "recently_seen_products": "ሁሉም የታዩ ምርቶች",
   "clear": "አጽዳ",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "አማራጭ",
+  "prices_origins_title": "መነሻዎች",
   "prices_category_error_mandatory": "ምድቡ የግዴታ ነው",
   "prices_barcode_reader_action": "የባርኮድ አንባቢ",
   "prices_view_prices": "ዋጋዎችን ይመልከቱ",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "አንድ ምርት ጠፍቷል!",
   "prices_amount_price_incorrect": "የተሳሳተ እሴት",
   "prices_amount_price_mandatory": "የግዴታ እሴት",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "ምንዛሬ",
   "prices_date_subtitle": "ቀን",
   "prices_location_subtitle": "ሱቅ",
   "prices_location_find": "ሱቅ ያግኙ",
   "prices_location_mandatory": "ሱቅ መምረጥ አለብህ!",
   "prices_location_search_broader": "የሚፈልጉትን ማግኘት አልቻሉም? ሰፋ ያለ ፍለጋ እንሞክር!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "ማረጋገጫ",
   "prices_proof_empty_title": "እስካሁን ምንም ማረጋገጫ የለም!",
   "prices_proof_empty_explanation": "**ደረሰኝ** ወይም **የዋጋ መለያ** ፎቶ በማከል ይጀምሩ!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "እባክዎን በእጅ ኢሜይል ይላኩልን ወደ",
-  "email_copied_to_clip_board": "ኢሜይል ወደ ቅንጥብ ሰሌዳ ተቀድቷል!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "የአክሰንት ቀለም ይምረጡ",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} ምርቶች ወዲያውኑ ለመቃኘት ይገኛሉ",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "ይህንን ምርት ከካሮሴል ውስጥ ያስወግዱት",
   "@carousel_close_tooltip": {

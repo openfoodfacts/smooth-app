@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "សូមអបអរសាទរ! គណនីរបស់អ្នកទើបតែត្រូវបានបង្កើត។",
   "sign_up_page_display_name_hint": "ឈ្មោះ",
   "sign_up_page_display_name_error_empty": "សូមបញ្ចូលឈ្មោះបង្ហាញដែលអ្នកចង់ប្រើ",
-  "sign_up_page_email_hint": "អ៊ីមែល",
-  "sign_up_page_email_error_empty": "តម្រូវឲ្យមានអ៊ីមែល",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "អ៊ីមែលមិនត្រឹមត្រូវ",
   "sign_up_page_username_hint": "ឈ្មោះអ្នកប្រើប្រាស់៖ អាចមើលឃើញជាសាធារណៈ",
   "sign_up_page_username_error_empty": "សូមបញ្ចូលឈ្មោះអ្នកប្រើប្រាស់",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "រូបភាពនេះអាចហួសសម័យហើយ",
   "product_image_outdated_explanations_title": "រូបភាពនេះអាចហួសសម័យហើយ",
-  "product_image_outdated_explanations_content": "រូបភាពនេះត្រូវបានថតជាងមួយឆ្នាំមុន។\n**សូមពិនិត្យមើលថាតើវានៅតែទាន់សម័យឬអត់**។\n\nនេះគ្រាន់តែជា **ការព្រមាន** ប៉ុណ្ណោះ។ ប្រសិនបើខ្លឹមសារនៅតែដដែល អ្នកអាចមិនអើពើនឹងសារនេះបាន។",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "មិនមានផលិតផលនៅក្នុងបញ្ជីនេះទេ",
   "no_product_in_section": "មិនមានផលិតផលនៅក្នុងផ្នែកនេះទេ",
   "recently_seen_products": "ផលិតផលដែលបានមើលទាំងអស់",
   "clear": "ជម្រះ",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "ប្រភេទ",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ស្រេចចិត្ត",
+  "prices_origins_title": "ប្រភពដើម",
   "prices_category_error_mandatory": "ប្រភេទគឺចាំបាច់",
   "prices_barcode_reader_action": "ឧបករណ៍អានបាកូដ",
   "prices_view_prices": "មើលតម្លៃ",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "ផលិតផលមួយបាត់ហើយ!",
   "prices_amount_price_incorrect": "តម្លៃមិនត្រឹមត្រូវ",
   "prices_amount_price_mandatory": "តម្លៃចាំបាច់",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "រូបិយប័ណ្ណ",
   "prices_date_subtitle": "កាលបរិច្ឆេទ",
   "prices_location_subtitle": "ហាង",
   "prices_location_find": "ស្វែងរកហាងមួយ",
   "prices_location_mandatory": "អ្នកត្រូវជ្រើសរើសហាងមួយ!",
   "prices_location_search_broader": "រកមិនឃើញអ្វីដែលអ្នកកំពុងស្វែងរកមែនទេ? ចូរយើងសាកល្បងស្វែងរកឱ្យកាន់តែទូលំទូលាយ!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "ភស្តុតាង",
   "prices_proof_empty_title": "មិនទាន់មានភស្តុតាងទេ!",
   "prices_proof_empty_explanation": "ចាប់ផ្តើមដោយបន្ថែមរូបថត **បង្កាន់ដៃ** ឬ **ស្លាកតម្លៃ**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "សូមផ្ញើអ៊ីមែលមកយើងដោយដៃទៅកាន់",
-  "email_copied_to_clip_board": "បានចម្លងអ៊ីមែលទៅក្ដារតម្បៀតខ្ទាស់ហើយ!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "ជ្រើសរើសពណ៌សង្កត់សំឡេង",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "ផលិតផល {num} អាចស្កេនបានភ្លាមៗ",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "ដកផលិតផលនេះចេញពីរង្វង់",
   "@carousel_close_tooltip": {

@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Név",
   "sign_up_page_display_name_error_empty": "Kérjük, adja meg felhasználónevét",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail cím megadása kötelező",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Érvénytelen e-mail cím",
   "sign_up_page_username_hint": "Felhasználónév: Nyilvánosan látható",
   "sign_up_page_username_error_empty": "Adjon meg egy felhasználónevet",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Ez a kép elavult lehet",
   "product_image_outdated_explanations_title": "Ez a kép elavult lehet",
-  "product_image_outdated_explanations_content": "Ez a kép több mint egy éve készült.\n**Ellenőrizze, hogy még mindig naprakész-e**.\n\nEz **csak figyelmeztetés**. Ha a tartalom nem változott, figyelmen kívül hagyhatja ezt az üzenetet.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Nincs termék ezen a listán",
   "no_product_in_section": "Nincs termék ebben a szekcióban",
   "recently_seen_products": "Összes megtekintett termék",
   "clear": "Törlés",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategória",
   "prices_category_mandatory": "Kötelező",
   "prices_category_optional": "Opcionális",
+  "prices_origins_title": "Származás",
   "prices_category_error_mandatory": "A kategória kitöltése kötelező",
   "prices_barcode_reader_action": "Vonalkódolvasó",
   "prices_view_prices": "Árak megtekintése",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Egy termék hiányzik!",
   "prices_amount_price_incorrect": "Hibás érték",
   "prices_amount_price_mandatory": "Kötelező érték",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Pénznem",
   "prices_date_subtitle": "Dátum",
   "prices_location_subtitle": "Bolt",
   "prices_location_find": "Bolt keresése",
   "prices_location_mandatory": "Ki kell választani egy boltot!",
   "prices_location_search_broader": "Nem találta, amit keresett? Próbáljunk meg egy átfogóbb keresést!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bizonylat",
   "prices_proof_empty_title": "Még nincsenek bizonylatok!",
   "prices_proof_empty_explanation": "Kezdje egy **nyugta** vagy egy **árcédula** fotójának hozzáadásával!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Kérjük, manuálisan küldjön e-mailt a címre",
-  "email_copied_to_clip_board": "E-mail vágólapra másolva",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Kiemelt szín kiválasztása",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} termék elérhető azonnali leolvasáshoz",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Termék eltávolítása a lapozóból",
   "@carousel_close_tooltip": {

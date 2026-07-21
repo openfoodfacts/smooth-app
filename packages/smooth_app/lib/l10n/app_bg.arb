@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Честито! Твоят акаунт току-що бе създаден.",
   "sign_up_page_display_name_hint": "Име",
   "sign_up_page_display_name_error_empty": "Моля, въведи екранно име, което искаш да използваш",
-  "sign_up_page_email_hint": "Имейл",
-  "sign_up_page_email_error_empty": "Изисква се имейл",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Невалиден имейл",
   "sign_up_page_username_hint": "Потребителско име: публично видимо",
   "sign_up_page_username_error_empty": "Моля, въведи потребителско име",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Това изображение може да е остаряло",
   "product_image_outdated_explanations_title": "Това изображение може да е остаряло",
-  "product_image_outdated_explanations_content": "Това изображение е направено преди повече от година.\n**Моля, проверете дали е актуално**.\n\nТова е **просто предупреждение**. Ако съдържанието е все още същото, можете да игнорирате това съобщение.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Няма продукт в този списък",
   "no_product_in_section": "Няма продукт в този раздел",
   "recently_seen_products": "Всички разгледани продукти",
   "clear": "Изчисти",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Категория",
   "prices_category_mandatory": "Задължително",
   "prices_category_optional": "По избор",
+  "prices_origins_title": "Произход",
   "prices_category_error_mandatory": "Категорията е задължителна",
   "prices_barcode_reader_action": "Четец на баркодове",
   "prices_view_prices": "Вижте цените",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Липсва един продукт!",
   "prices_amount_price_incorrect": "Неправилна стойност",
   "prices_amount_price_mandatory": "Задължителна стойност",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Валута",
   "prices_date_subtitle": "Дата",
   "prices_location_subtitle": "Магазин",
   "prices_location_find": "Намерете магазин",
   "prices_location_mandatory": "Трябва да изберете магазин!",
   "prices_location_search_broader": "Не можахте да намерите това, което търсите? Нека опитаме по-широко търсене!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Доказателство",
   "prices_proof_empty_title": "Все още няма доказателства!",
   "prices_proof_empty_explanation": "Започнете, като добавите снимка на **касова бележка** или **цена**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Моля, изпрати ни ръчно имейл до",
-  "email_copied_to_clip_board": "Имейлът е копиран в клипборда!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Изберете цвят за акцент",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} налични продукта за незабавно сканиране",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Премахнете този продукт от карусела",
   "@carousel_close_tooltip": {

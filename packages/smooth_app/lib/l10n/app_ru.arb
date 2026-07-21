@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Название",
   "sign_up_page_display_name_error_empty": "Пожалуйста, введите имя пользователя",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "Введите адрес электронной почты",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Неверный e-mail",
   "sign_up_page_username_hint": "Имя пользователя: Общедоступно",
   "sign_up_page_username_error_empty": "Введите имя пользователя",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Это изображение может быть устаревшим",
   "product_image_outdated_explanations_title": "Это изображение может быть устаревшим",
-  "product_image_outdated_explanations_content": "Это изображение было сделано больше года назад.\n**Пожалуйста, проверьте, актуально ли оно**.\n\nЭто **просто предупреждение**. Если содержимое осталось прежним, вы можете проигнорировать это сообщение.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "В этом списке нет продуктов",
   "no_product_in_section": "В этом разделе нет продуктов",
   "recently_seen_products": "Все просмотренные продукты",
   "clear": "Очистить",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Категория",
   "prices_category_mandatory": "Обязательно",
   "prices_category_optional": "Необязательный",
+  "prices_origins_title": "Происхождение",
   "prices_category_error_mandatory": "Категория обязательна",
   "prices_barcode_reader_action": "Считыватель штрих-кода",
   "prices_view_prices": "Посмотреть цены",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Не хватает одного товара!",
   "prices_amount_price_incorrect": "Некорректное значение",
   "prices_amount_price_mandatory": "Обязательное значение",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Валюта",
   "prices_date_subtitle": "Дата",
   "prices_location_subtitle": "Магазин",
   "prices_location_find": "Найти магазин",
   "prices_location_mandatory": "Вам нужно выбрать магазин!",
   "prices_location_search_broader": "Не смогли найти то, что искали? Давайте попробуем более широкий поиск!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Доказательство",
   "prices_proof_empty_title": "Пока нет доказательств!",
   "prices_proof_empty_explanation": "Начните с добавления фотографии **чека** или **ценника**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Пожалуйста, отправьте нам вручную электронное письмо на адрес",
-  "email_copied_to_clip_board": "Email скопирован в буфер обмена!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Выберите акцентный цвет",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} продуктов, доступных для немедленного сканирования",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Удалить этот продукт из карусели",
   "@carousel_close_tooltip": {

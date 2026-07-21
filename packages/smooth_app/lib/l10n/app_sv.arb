@@ -71,35 +71,35 @@
   "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
   },
-  "food_preferences_page_title_introduction": "Personalize the app",
+  "food_preferences_page_title_introduction": "Anpassa appen",
   "@food_preferences_page_title_introduction": {
     "description": "Title for the introduction page of the food preferences wizard"
   },
-  "food_preferences_page_title_diets": "Diets",
+  "food_preferences_page_title_diets": "Dieter",
   "@food_preferences_page_title_diets": {
     "description": "Title for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_title_allergies": "Allergies",
+  "food_preferences_page_title_allergies": "Allergier",
   "@food_preferences_page_title_allergies": {
     "description": "Title for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "food_preferences_page_title_unwanted_foods": "Vad jag inte äter",
   "@food_preferences_page_title_unwanted_foods": {
     "description": "Title for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "food_preferences_page_title_foods_to_avoid": "Vad jag helst vill undvika",
   "@food_preferences_page_title_foods_to_avoid": {
     "description": "Title for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_title_environment": "Environmental preferences",
+  "food_preferences_page_title_environment": "Miljöpreferenser",
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_page_title_summary": "Profile ready",
+  "food_preferences_page_title_summary": "Profilen är klar",
   "@food_preferences_page_title_summary": {
     "description": "Title for the summary/confirmation page of the food preferences wizard"
   },
-  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "food_preferences_step_prefix": "Steg {stepNumber}: ",
   "@food_preferences_step_prefix": {
     "description": "Step number prefix shown before the page title in the food preferences wizard",
     "placeholders": {
@@ -109,51 +109,51 @@
       }
     }
   },
-  "food_preferences_no_selection": "No selection",
+  "food_preferences_no_selection": "Inget markerat",
   "@food_preferences_no_selection": {
     "description": "Text shown when no preferences are selected in a category on the summary page"
   },
-  "food_preferences_empty_state": "No attributes available for this category.",
+  "food_preferences_empty_state": "Inga attribut tillgängliga för den här kategorin.",
   "@food_preferences_empty_state": {
     "description": "Text shown when a preference category has no attributes available"
   },
-  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "food_preferences_error_loading": "Det gick inte att läsa in preferenser. Kontrollera din internetanslutning.",
   "@food_preferences_error_loading": {
     "description": "Error message shown when the food preferences fail to load from the server"
   },
-  "food_preferences_summary_description": "Here is your profile:",
+  "food_preferences_summary_description": "Här är din profil:",
   "@food_preferences_summary_description": {
     "description": "Description text shown at the top of the preferences summary page"
   },
-  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "food_preferences_introduction_description": "I följande steg kan du **anpassa appen** genom att ange dina preferenser:",
   "@food_preferences_introduction_description": {
     "description": "Description shown on the introduction page of the food preferences wizard."
   },
-  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "food_preferences_page_description_diets": "Välj de dieter du följer för att anpassa dina rekommendationer.",
   "@food_preferences_page_description_diets": {
     "description": "Description for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "food_preferences_page_description_allergies": "Välj de allergener du behöver undvika för din livsmedelssäkerhet.",
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "food_preferences_page_description_unwanted_foods": "Ange de livsmedel eller ingredienser du inte äter.",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "food_preferences_page_description_foods_to_avoid": "Välj de livsmedel du helst vill undvika utan att det är ett strikt förbud.",
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "food_preferences_page_description_environment": "Ange dina miljöpreferenser för mer hållbara rekommendationer.",
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "food_preferences_search_ingredients_hint": "Sök efter ingredienser",
   "@food_preferences_search_ingredients_hint": {
     "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
   },
-  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "food_preferences_ingredient_already_added": "Ingrediensen har redan lagts till",
   "@food_preferences_ingredient_already_added": {
     "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
@@ -539,17 +539,17 @@
   "myPreferences_profile_subtitle": "Hantera ditt Open Food Facts bidragsgivarkonto.",
   "myPreferences_settings_title": "Appinställningar",
   "myPreferences_settings_subtitle": "Mörkt läge, Språk…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "Du har inte angett någon preferens än.",
   "myPreferences_food_title": "Matpreferenser",
   "myPreferences_food_subtitle": "Välj vilken information om mat som är viktigast för dig.",
   "myPreferences_food_comment": "Välj vilken information om mat som är viktigast för dig, för att rangordna mat enligt dina preferenser, se den information du bryr dig om först, och få en kompatibilitetssammanfattning. Dessa matpreferenser stannar på din enhet, och är inte associerade med ditt Open Food Facts bidragsgivarkonto om du har ett.",
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
-  "confirmResetPreferences": "Återställa dina matpreferenser?",
+  "myPreferences_beauty_title": "Preferenser för kosmetika",
+  "myPreferences_beauty_subtitle": "Välj vilken information om kosmetikprodukter som är viktigast för dig.",
+  "myPreferences_product_title": "Preferenser för andra produkter",
+  "myPreferences_product_subtitle": "Välj vilken information om andra produkter som är viktigast för dig.",
+  "myPreferences_pet_food_title": "Preferenser för husdjursfoder",
+  "myPreferences_pet_food_subtitle": "Välj vilken information om djurfoder som är viktigast för dig.",
+  "confirmResetPreferences": "Återställ dina matpreferenser?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
@@ -981,7 +981,7 @@
   "@more_photos": {},
   "view_more_photo_button": "Visa alla befintliga foton för den här produkten",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "Inga inställningar hittades",
   "@no_settings_found": {},
   "no_product_found": "Ingen produkt hittades",
   "@no_product_found": {},
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Den här bilden kan vara föråldrad",
   "product_image_outdated_explanations_title": "Den här bilden kan vara föråldrad",
-  "product_image_outdated_explanations_content": "Den här bilden togs för mer än ett år sedan.\n**Kontrollera att den fortfarande är uppdaterad**.\n\nDetta är **bara en varning**. Om innehållet fortfarande är detsamma kan du ignorera det här meddelandet.",
+  "product_image_outdated_explanations_content": "Den här bilden togs för mer än ett år sedan.\n**Kontrollera att den fortfarande gäller**.\n\nDetta är **bara en varning**. Om innehållet fortfarande är detsamma kan du ignorera det här meddelandet.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Det finns ingen produkt i denna lista",
   "no_product_in_section": "Det finns ingen produkt i detta avsnitt",
   "recently_seen_products": "Alla visade produkter",
   "clear": "Rensa",
@@ -1391,7 +1390,7 @@
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "To scan barcodes with your phone's camera, please Authorise the access.",
+  "permissions_page_body1": "För att skanna streckkoder med telefonens kamera, godkänn åtkomst.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
@@ -1469,7 +1468,7 @@
       }
     }
   },
-  "authorize_button_label": "Authorise",
+  "authorize_button_label": "Godkänn",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
@@ -1623,7 +1622,7 @@
   "@app_haptic_feedback_subtitle": {
     "description": "SubTitle for the Haptic feedback toggle"
   },
-  "crash_reporting_toggle_title": "Crash reporting",
+  "crash_reporting_toggle_title": "Krashrapportering",
   "@crash_reporting_toggle_title": {
     "description": "Title for the Crash reporting toggle"
   },
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategori",
   "prices_category_mandatory": "Obligatorisk",
   "prices_category_optional": "Frivillig",
+  "prices_origins_title": "Ursprung",
   "prices_category_error_mandatory": "Kategorin är obligatorisk",
   "prices_barcode_reader_action": "Streckkodsläsare",
   "prices_view_prices": "Visa priserna",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "En produkt saknas!",
   "prices_amount_price_incorrect": "Felaktigt värde",
   "prices_amount_price_mandatory": "Obligatoriskt värde",
+  "prices_amount_update_currency": "Uppdatera valuta",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Handla",
   "prices_location_find": "Hitta en butik",
   "prices_location_mandatory": "Du måste välja en butik!",
   "prices_location_search_broader": "Hittade du inte det du sökte? Nu försöker vi med en bredare sökning!",
+  "prices_location_open_map": "Visa butiken på kartan",
+  "prices_location_edit": "Välj en annan butik",
   "prices_proof_subtitle": "Bevis",
   "prices_proof_empty_title": "Inga bevis än!",
   "prices_proof_empty_explanation": "Börja med att lägga till ett foto på ett **kvitto** eller en **prislapp**!",
@@ -2770,7 +2774,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Rabattyp",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Mängdrabatt",
   "prices_discount_type_sale": "Sale",
   "prices_discount_type_seasonal": "Seasonal",
   "prices_discount_type_loyalty_program": "Lojalitetsprogram",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Vänligen skicka oss ett e-postmeddelande manuellt till",
-  "email_copied_to_clip_board": "E-postmeddelandet kopierat till urklipp!",
+  "email_copied_to_clip_board": "E-post kopierat till urklipp!",
   "select_accent_color": "Välj accentfärg",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -4404,7 +4408,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "Visa originalbild",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Ta bort den här produkten från karusellen",
   "@carousel_close_tooltip": {
@@ -5019,7 +5027,7 @@
   "@preferences_contribute_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_connect_title": "Ansluta",
+  "preferences_connect_title": "Anknyt",
   "@preferences_connect_title": {
     "description": "Title for the contribution preferences tile"
   },

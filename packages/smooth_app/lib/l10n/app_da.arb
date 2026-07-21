@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Navn",
   "sign_up_page_display_name_error_empty": "Angiv det navn, der ønskes vist",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail er obligatorisk",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ugyldig e-mail",
   "sign_up_page_username_hint": "Brugernavn: Offentligt synligt",
   "sign_up_page_username_error_empty": "Indtast et brugernavn",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Dette billede kan være forældet",
   "product_image_outdated_explanations_title": "Dette billede kan være forældet",
-  "product_image_outdated_explanations_content": "Dette billede er taget for mere end et år siden.\n**Tjek venligst, at den stadig er opdateret**.\n\nDette er **bare en advarsel**. Hvis indholdet stadig er det samme, kan du ignorere denne besked.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Der er intet produkt på denne liste",
   "no_product_in_section": "Der er intet produkt i dette afsnit",
   "recently_seen_products": "Alle sete produkter",
   "clear": "Ryd",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategori",
   "prices_category_mandatory": "Obligatorisk",
   "prices_category_optional": "Valgfri",
+  "prices_origins_title": "Oprindelser",
   "prices_category_error_mandatory": "Kategorien er obligatorisk",
   "prices_barcode_reader_action": "Stregkodelæser",
   "prices_view_prices": "Se priserne",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Et produkt mangler!",
   "prices_amount_price_incorrect": "Forkert værdi",
   "prices_amount_price_mandatory": "Obligatorisk værdi",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Dato",
   "prices_location_subtitle": "Butik",
   "prices_location_find": "Find en butik",
   "prices_location_mandatory": "Du skal vælge en butik!",
   "prices_location_search_broader": "Kunne du ikke finde det, du ledte efter? Lad os prøve en bredere søgning!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bevis",
   "prices_proof_empty_title": "Intet bevis endnu!",
   "prices_proof_empty_explanation": "Start med at tilføje et billede af en **kvittering** eller et **prisskilt**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Send os manuelt en e-mail til",
-  "email_copied_to_clip_board": "E-mail kopieret til udklipsholder!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Vælg fremhævningsfarve",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produkter tilgængelige til omgående skanning",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Fjern dette produkt fra karrusellen",
   "@carousel_close_tooltip": {

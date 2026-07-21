@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Вітаємо! Ваш обліковий створено.",
   "sign_up_page_display_name_hint": "Ім’я",
   "sign_up_page_display_name_error_empty": "Будь ласка, введіть відображуване ім'я, яке ви хочете використовувати.",
-  "sign_up_page_email_hint": "Електронна пошта",
-  "sign_up_page_email_error_empty": "Необхідно заповнити поле електронної адреси",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Невірний e-mail",
   "sign_up_page_username_hint": "Ім'я користувача: Публічно видиме",
   "sign_up_page_username_error_empty": "Будь ласка, введіть ім'я користувача",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Це зображення може бути застарілим",
   "product_image_outdated_explanations_title": "Це зображення може бути застарілим",
-  "product_image_outdated_explanations_content": "Це фото зроблено більше року тому.\n**Будь ласка, перевірте, чи воно досі актуальне**.\n\nЦе **лише попередження**. Якщо вміст залишається незмінним, ви можете проігнорувати це повідомлення.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "В цьому списку немає такого товару",
   "no_product_in_section": "У цьому розділі немає товару",
   "recently_seen_products": "Всі переглянуті товари",
   "clear": "Очистити",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Категорія",
   "prices_category_mandatory": "Обов'язковий",
   "prices_category_optional": "Необов'язково",
+  "prices_origins_title": "Місце вироблення",
   "prices_category_error_mandatory": "Категорія обов'язкова",
   "prices_barcode_reader_action": "Сканер штрих-коду",
   "prices_view_prices": "Переглянути ціни",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Бракує одного товару!",
   "prices_amount_price_incorrect": "Помилкове значення",
   "prices_amount_price_mandatory": "Обов'язкове значення",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Валюта",
   "prices_date_subtitle": "Дата",
   "prices_location_subtitle": "Крамниця",
   "prices_location_find": "Знайти магазин",
   "prices_location_mandatory": "Вам потрібно вибрати магазин!",
   "prices_location_search_broader": "Не змогли знайти те, що шукали? Давайте спробуємо розширити пошук!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Доказ",
   "prices_proof_empty_title": "Поки що немає доказів!",
   "prices_proof_empty_explanation": "Почніть із додавання фотографії **чек** або **цінника**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Будь ласка, надішліть нам електронного листа на адресу",
-  "email_copied_to_clip_board": "Лист скопійовано в буфер обміну!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Виберіть колір акценту",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} продуктів доступні для миттєвого сканування",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Видалити цей товар з каруселі",
   "@carousel_close_tooltip": {

@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Nume",
   "sign_up_page_display_name_error_empty": "Vă rugăm să introduceți numele afișat pe care doriți să îl utilizați",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mailul este necesar",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "E-mail invalid",
   "sign_up_page_username_hint": "Nume de utilizator: vizibil public",
   "sign_up_page_username_error_empty": "Vă rugăm să introduceți un nume de utilizator",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Această imagine poate fi învechită",
   "product_image_outdated_explanations_title": "Această imagine poate fi învechită",
-  "product_image_outdated_explanations_content": "Această imagine a fost făcută acum mai bine de un an.\n**Vă rugăm să verificați dacă este încă actualizată**.\n\nAcesta este **doar un avertisment**. Dacă conținutul este încă același, puteți ignora acest mesaj.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Nu există niciun produs în această listă",
   "no_product_in_section": "Nu există niciun produs în această secțiune",
   "recently_seen_products": "Toate produsele vizualizate",
   "clear": "Ștergeți",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Categorie",
   "prices_category_mandatory": "Obligatoriu",
   "prices_category_optional": "Opțional",
+  "prices_origins_title": "Origini",
   "prices_category_error_mandatory": "Categoria este obligatorie",
   "prices_barcode_reader_action": "Cititor de coduri de bare",
   "prices_view_prices": "Vezi prețurile",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Lipsește un produs!",
   "prices_amount_price_incorrect": "Valoare incorectă",
   "prices_amount_price_mandatory": "Valoare obligatorie",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valută",
   "prices_date_subtitle": "Data",
   "prices_location_subtitle": "Magazin",
   "prices_location_find": "Găsește un magazin",
   "prices_location_mandatory": "Trebuie să alegi un magazin!",
   "prices_location_search_broader": "Nu ați găsit ceea ce căutați? Haideți să încercăm o căutare mai amplă!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Dovadă",
   "prices_proof_empty_title": "Încă nicio dovadă!",
   "prices_proof_empty_explanation": "Începeți prin a adăuga o fotografie a unei **bonuri** sau a unei **etichete de preț**!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Vă rugăm să ne trimiteți manual un e-mail la",
-  "email_copied_to_clip_board": "E-mailul a fost copiat în clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Selectaţi culoarea de accent",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produse disponibile pentru scanare imediată",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Eliminați acest produs din carusel",
   "@carousel_close_tooltip": {

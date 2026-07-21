@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Apsveicam! Jūsu konts tikko ir izveidots.",
   "sign_up_page_display_name_hint": "Nosaukums",
   "sign_up_page_display_name_error_empty": "Lūdzu, ievadiet vēlamo parādāmo vārdu.",
-  "sign_up_page_email_hint": "E-pasts",
-  "sign_up_page_email_error_empty": "E-pasta adrese ir obligāta",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Nederīga e-pasta adrese",
   "sign_up_page_username_hint": "Lietotājvārds: Publiski redzams",
   "sign_up_page_username_error_empty": "Lūdzu, ievadiet lietotājvārdu",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Šis attēls var būt novecojis",
   "product_image_outdated_explanations_title": "Šis attēls var būt novecojis",
-  "product_image_outdated_explanations_content": "Šis attēls tika uzņemts pirms vairāk nekā gada.\n**Lūdzu, pārbaudiet, vai tas joprojām ir aktuāls**.\n\nŠis ir **tikai brīdinājums**. Ja saturs joprojām ir tāds pats, varat ignorēt šo ziņojumu.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1274,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Šajā sarakstā nav neviena produkta",
   "no_product_in_section": "Šajā sadaļā nav neviena produkta",
   "recently_seen_products": "Visi skatītie produkti",
   "clear": "Notīrīt",
@@ -2518,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategorija",
   "prices_category_mandatory": "Obligāti",
   "prices_category_optional": "Pēc izvēles",
+  "prices_origins_title": "Izcelsme",
   "prices_category_error_mandatory": "Kategorija ir obligāta",
   "prices_barcode_reader_action": "Svītrkodu lasītājs",
   "prices_view_prices": "Skatīt cenas",
@@ -2708,12 +2709,15 @@
   "prices_amount_no_product": "Trūkst viena produkta!",
   "prices_amount_price_incorrect": "Nepareiza vērtība",
   "prices_amount_price_mandatory": "Obligāta vērtība",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valūta",
   "prices_date_subtitle": "Datums",
   "prices_location_subtitle": "Veikals",
   "prices_location_find": "Atrast veikalu",
   "prices_location_mandatory": "Tev jāizvēlas veikals!",
   "prices_location_search_broader": "Nevarējāt atrast meklēto? Mēģināsim veikt plašāku meklēšanu!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Pierādījums",
   "prices_proof_empty_title": "Vēl nav pierādījumu!",
   "prices_proof_empty_explanation": "Sāciet, pievienojot **čeka** vai **cenu zīmes** fotoattēlu!",
@@ -3720,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Lūdzu, manuāli nosūtiet mums e-pastu uz",
-  "email_copied_to_clip_board": "E-pasts kopēts starpliktuvē!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Izvēlieties akcenta krāsu",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produkti pieejami tūlītējai skenēšanai",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Noņemt šo produktu no ruletes",
   "@carousel_close_tooltip": {
