@@ -6,7 +6,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/top_card/scan_search_card.dart';
-import 'package:smooth_app/widgets/text/text_extensions.dart';
 
 class ScanMainCard extends StatelessWidget {
   const ScanMainCard();
@@ -21,59 +20,29 @@ class ScanMainCard extends StatelessWidget {
       builder: (BuildContext context, AppNewsProvider newsFeed, _) {
         if (!newsFeed.hasContent) {
           return const ScanSearchCard(expandedMode: true);
-        } else {
-          return Semantics(
-            explicitChildNodes: true,
-            child: LayoutBuilder(
-              builder: (_, BoxConstraints constraints) {
-                final bool dense =
-                    constraints.maxHeight * 0.4 <=
-                    _maxHeight(context.textScaler());
-
-                if (dense) {
-                  return ListView(
-                    padding: EdgeInsetsDirectional.zero,
-                    children: <Widget>[
-                      ConstrainedBox(
-                        constraints: BoxConstraints(
-                          minHeight: math.max(
-                            ScanSearchCard.computeMinSize(context),
-                            constraints.maxHeight * 0.5,
-                          ),
-                        ),
-                        child: const ScanSearchCard(expandedMode: false),
-                      ),
-                      const SizedBox(height: SMALL_SPACE),
-                      const ScanBottomCard(dense: true),
-                    ],
-                  );
-                } else {
-                  return const Column(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 6,
-                        child: ScanSearchCard(expandedMode: false),
-                      ),
-                      SizedBox(height: SMALL_SPACE),
-                      Expanded(flex: 4, child: ScanBottomCard(dense: false)),
-                    ],
-                  );
-                }
-              },
-            ),
-          );
         }
+        return Semantics(
+          explicitChildNodes: true,
+          child: LayoutBuilder(
+            builder: (_, BoxConstraints constraints) => ListView(
+              padding: EdgeInsetsDirectional.zero,
+              children: <Widget>[
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: math.max(
+                      ScanSearchCard.computeMinSize(context),
+                      constraints.maxHeight * 0.5,
+                    ),
+                  ),
+                  child: const ScanSearchCard(expandedMode: false),
+                ),
+                const SizedBox(height: SMALL_SPACE),
+                const ScanBottomCard(dense: true),
+              ],
+            ),
+          ),
+        );
       },
     );
-  }
-
-  double _maxHeight(double textScaler) {
-    if (textScaler < 1.1) {
-      return 160.0;
-    } else if (textScaler < 1.3) {
-      return 173.0;
-    } else {
-      return 186.0;
-    }
   }
 }

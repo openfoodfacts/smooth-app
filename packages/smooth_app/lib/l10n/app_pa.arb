@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "ਜੋੜੋ",
   "@add": {},
+  "edit": "Edit",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਆਪਣਾ ਖਾਤਾ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?\nਜੇਕਰ ਕੋਈ ਖਾਸ ਕਾਰਨ ਹੈ, ਤਾਂ ਕਿਰਪਾ ਕਰਕੇ ਹੇਠਾਂ ਸਾਂਝਾ ਕਰੋ",
   "@account_delete_message": {},
   "reason": "ਕਾਰਨ",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "ਭੋਜਨ ਤਰਜੀਹਾਂ ਰੀਸੈਟ ਕਰੋ",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "ਕੁਝ ਗਲਤ ਹੋ ਗਿਆ।",
   "@error": {},
@@ -241,8 +331,8 @@
   "sign_up_page_action_ok": "ਵਧਾਈਆਂ! ਤੁਹਾਡਾ ਖਾਤਾ ਹੁਣੇ ਬਣਾਇਆ ਗਿਆ ਹੈ।",
   "sign_up_page_display_name_hint": "ਨਾਮ",
   "sign_up_page_display_name_error_empty": "ਕਿਰਪਾ ਕਰਕੇ ਉਹ ਡਿਸਪਲੇ ਨਾਮ ਦਰਜ ਕਰੋ ਜੋ ਤੁਸੀਂ ਵਰਤਣਾ ਚਾਹੁੰਦੇ ਹੋ।",
-  "sign_up_page_email_hint": "ਈ-ਮੇਲ",
-  "sign_up_page_email_error_empty": "ਈ-ਮੇਲ ਦੀ ਲੋੜ ਹੈ",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "ਅਵੈਧ ਈ-ਮੇਲ",
   "sign_up_page_username_hint": "ਯੂਜ਼ਰਨੇਮ: ਜਨਤਕ ਤੌਰ 'ਤੇ ਦਿਖਾਈ ਦੇਣ ਵਾਲਾ",
   "sign_up_page_username_error_empty": "ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਵਰਤੋਂਕਾਰ ਨਾਮ ਦਰਜ ਕਰੋ",
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "ਆਪਣੇ ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਯੋਗਦਾਨੀ ਖਾਤੇ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ।",
   "myPreferences_settings_title": "ਐਪ ਸੈਟਿੰਗਾਂ",
   "myPreferences_settings_subtitle": "ਡਾਰਕ ਮੋਡ, ਭਾਸ਼ਾਵਾਂ…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "ਭੋਜਨ ਪਸੰਦ",
   "myPreferences_food_subtitle": "ਚੁਣੋ ਕਿ ਭੋਜਨ ਬਾਰੇ ਕਿਹੜੀ ਜਾਣਕਾਰੀ ਤੁਹਾਡੇ ਲਈ ਸਭ ਤੋਂ ਵੱਧ ਮਾਇਨੇ ਰੱਖਦੀ ਹੈ।",
   "myPreferences_food_comment": "ਆਪਣੀ ਪਸੰਦ ਦੇ ਅਨੁਸਾਰ ਭੋਜਨ ਨੂੰ ਦਰਜਾ ਦੇਣ ਲਈ, ਭੋਜਨ ਬਾਰੇ ਕਿਹੜੀ ਜਾਣਕਾਰੀ ਤੁਹਾਡੇ ਲਈ ਸਭ ਤੋਂ ਵੱਧ ਮਾਇਨੇ ਰੱਖਦੀ ਹੈ, ਚੁਣੋ ਕਿ ਉਹ ਜਾਣਕਾਰੀ ਜੋ ਤੁਸੀਂ ਪਹਿਲਾਂ ਚਾਹੁੰਦੇ ਹੋ, ਅਤੇ ਇੱਕ ਅਨੁਕੂਲਤਾ ਸਾਰ ਪ੍ਰਾਪਤ ਕਰੋ। ਉਹ ਭੋਜਨ ਤਰਜੀਹਾਂ ਤੁਹਾਡੀ ਡਿਵਾਈਸ 'ਤੇ ਰਹਿੰਦੀਆਂ ਹਨ, ਅਤੇ ਜੇਕਰ ਤੁਹਾਡੇ ਕੋਲ ਹੈ ਤਾਂ ਤੁਹਾਡੇ ਓਪਨ ਫੂਡ ਫੈਕਟਸ ਯੋਗਦਾਨੀ ਖਾਤੇ ਨਾਲ ਜੁੜੀਆਂ ਨਹੀਂ ਹਨ।",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "ਕੀ ਆਪਣੀਆਂ ਭੋਜਨ ਪਸੰਦਾਂ ਨੂੰ ਰੀਸੈਟ ਕਰਨਾ ਹੈ?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "ਇਸ ਉਤਪਾਦ ਲਈ ਸਾਰੀਆਂ ਮੌਜੂਦਾ ਫੋਟੋਆਂ ਵੇਖੋ",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "ਕੋਈ ਉਤਪਾਦ ਨਹੀਂ ਮਿਲਿਆ",
   "@no_product_found": {},
   "no_product_found_explanation": "ਤੁਹਾਡੀ\n**\"{search}\"**\nਲਈ ਖੋਜ ਕਿਸੇ ਵੀ ਨਤੀਜੇ ਨਾਲ ਮੇਲ ਨਹੀਂ ਖਾਂਦੀ।",
@@ -927,7 +1026,7 @@
   },
   "product_image_outdated": "ਇਹ ਤਸਵੀਰ ਪੁਰਾਣੀ ਹੋ ਸਕਦੀ ਹੈ।",
   "product_image_outdated_explanations_title": "ਇਹ ਤਸਵੀਰ ਪੁਰਾਣੀ ਹੋ ਸਕਦੀ ਹੈ।",
-  "product_image_outdated_explanations_content": "ਇਹ ਤਸਵੀਰ ਇੱਕ ਸਾਲ ਤੋਂ ਵੱਧ ਸਮਾਂ ਪਹਿਲਾਂ ਲਈ ਗਈ ਸੀ।\n**ਕਿਰਪਾ ਕਰਕੇ ਜਾਂਚ ਕਰੋ ਕਿ ਇਹ ਅਜੇ ਵੀ ਅੱਪ-ਟੂ-ਡੇਟ ਹੈ**।\n\nਇਹ **ਸਿਰਫ਼ ਇੱਕ ਚੇਤਾਵਨੀ** ਹੈ। ਜੇਕਰ ਸਮੱਗਰੀ ਅਜੇ ਵੀ ਉਹੀ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਇਸ ਸੁਨੇਹੇ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰ ਸਕਦੇ ਹੋ।",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1175,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "ਇਸ ਸੂਚੀ ਵਿੱਚ ਕੋਈ ਉਤਪਾਦ ਨਹੀਂ ਹੈ।",
   "no_product_in_section": "ਇਸ ਭਾਗ ਵਿੱਚ ਕੋਈ ਉਤਪਾਦ ਨਹੀਂ ਹੈ।",
   "recently_seen_products": "ਸਾਰੇ ਦੇਖੇ ਗਏ ਉਤਪਾਦ",
   "clear": "ਸਾਫ਼",
@@ -2419,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ਵਿਕਲਪਿਕ",
+  "prices_origins_title": "ਮੂਲ",
   "prices_category_error_mandatory": "ਸ਼੍ਰੇਣੀ ਲਾਜ਼ਮੀ ਹੈ।",
   "prices_barcode_reader_action": "ਬਾਰਕੋਡ ਰੀਡਰ",
   "prices_view_prices": "ਕੀਮਤਾਂ ਵੇਖੋ",
@@ -2609,12 +2709,15 @@
   "prices_amount_no_product": "ਇੱਕ ਉਤਪਾਦ ਗੁੰਮ ਹੈ!",
   "prices_amount_price_incorrect": "ਗਲਤ ਮੁੱਲ",
   "prices_amount_price_mandatory": "ਲਾਜ਼ਮੀ ਮੁੱਲ",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "ਮੁਦਰਾ",
   "prices_date_subtitle": "ਮਿਤੀ",
   "prices_location_subtitle": "ਦੁਕਾਨ",
   "prices_location_find": "ਇੱਕ ਦੁਕਾਨ ਲੱਭੋ",
   "prices_location_mandatory": "ਤੁਹਾਨੂੰ ਇੱਕ ਦੁਕਾਨ ਚੁਣਨ ਦੀ ਲੋੜ ਹੈ!",
   "prices_location_search_broader": "ਕੀ ਤੁਸੀਂ ਜੋ ਲੱਭ ਰਹੇ ਸੀ ਉਹ ਨਹੀਂ ਮਿਲਿਆ? ਆਓ ਇੱਕ ਵਿਸ਼ਾਲ ਖੋਜ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੀਏ!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "ਸਬੂਤ",
   "prices_proof_empty_title": "ਅਜੇ ਕੋਈ ਸਬੂਤ ਨਹੀਂ!",
   "prices_proof_empty_explanation": "**ਰਸੀਦ** ਜਾਂ **ਕੀਮਤ ਟੈਗ** ਦੀ ਫੋਟੋ ਜੋੜ ਕੇ ਸ਼ੁਰੂਆਤ ਕਰੋ!",
@@ -2670,6 +2773,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "ਹੋ ਗਿਆ",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3612,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "ਕਿਰਪਾ ਕਰਕੇ ਸਾਨੂੰ ਹੱਥੀਂ ਇੱਕ ਈਮੇਲ ਭੇਜੋ",
-  "email_copied_to_clip_board": "ਈਮੇਲ ਕਲਿੱਪਬੋਰਡ 'ਤੇ ਕਾਪੀ ਕੀਤੀ ਗਈ!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "ਐਕਸੈਂਟ ਰੰਗ ਚੁਣੋ",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3802,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} ਤੁਰੰਤ ਸਕੈਨਿੰਗ ਲਈ ਉਪਲਬਧ ਉਤਪਾਦ",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4296,6 +4408,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "ਅਨੁਕੂਲ",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4420,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "ਇਸ ਉਤਪਾਦ ਨੂੰ ਕੈਰੋਸਲ ਤੋਂ ਹਟਾਓ",
   "@carousel_close_tooltip": {

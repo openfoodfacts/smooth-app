@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "ಸೇರಿಸಿ",
   "@add": {},
+  "edit": "ತಿದ್ದು",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಅಳಿಸಲು ನೀವು ಖಚಿತವಾಗಿ ಬಯಸುವಿರಾ?\nನಿರ್ದಿಷ್ಟ ಕಾರಣವಿದ್ದರೆ, ದಯವಿಟ್ಟು ಕೆಳಗೆ ಹಂಚಿಕೊಳ್ಳಿ",
   "@account_delete_message": {},
   "reason": "ಕಾರಣ",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "ಆಹಾರ ಆದ್ಯತೆಗಳನ್ನು ಮರುಹೊಂದಿಸಿ",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "ಏನೋ ತಪ್ಪಾಗಿದೆ",
   "@error": {},
@@ -241,8 +331,8 @@
   "sign_up_page_action_ok": "ಅಭಿನಂದನೆಗಳು! ನಿಮ್ಮ ಖಾತೆಯನ್ನು ಇದೀಗ ರಚಿಸಲಾಗಿದೆ.",
   "sign_up_page_display_name_hint": "ಹೆಸರು",
   "sign_up_page_display_name_error_empty": "ದಯವಿಟ್ಟು ನೀವು ಬಳಸಲು ಬಯಸುವ ಪ್ರದರ್ಶನ ಹೆಸರನ್ನು ನಮೂದಿಸಿ.",
-  "sign_up_page_email_hint": "ಇ-ಮೇಲ್",
-  "sign_up_page_email_error_empty": "ಇ-ಮೇಲ್ ಅಗತ್ಯವಿದೆ",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "ಅಮಾನ್ಯವಾದ ಇ-ಮೇಲ್",
   "sign_up_page_username_hint": "ಬಳಕೆದಾರಹೆಸರು: ಸಾರ್ವಜನಿಕವಾಗಿ ಗೋಚರಿಸುತ್ತದೆ",
   "sign_up_page_username_error_empty": "ದಯವಿಟ್ಟು ಬಳಕೆದಾರಹೆಸರನ್ನು ನಮೂದಿಸಿ.",
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "ನಿಮ್ಮ ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ಕೊಡುಗೆದಾರರ ಖಾತೆಯನ್ನು ನಿರ್ವಹಿಸಿ.",
   "myPreferences_settings_title": "ಅಪ್ಲಿಕೇಶನ್ ಸೆಟ್ಟಿಂಗ್‌ಗಳು",
   "myPreferences_settings_subtitle": "ಡಾರ್ಕ್ ಮೋಡ್, ಭಾಷೆಗಳು…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "ಆಹಾರ ಆದ್ಯತೆಗಳು",
   "myPreferences_food_subtitle": "ಆಹಾರದ ಬಗ್ಗೆ ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿ ಹೆಚ್ಚು ಮುಖ್ಯ ಎಂಬುದನ್ನು ಆರಿಸಿ.",
   "myPreferences_food_comment": "ನಿಮ್ಮ ಆದ್ಯತೆಗಳಿಗೆ ಅನುಗುಣವಾಗಿ ಆಹಾರವನ್ನು ಶ್ರೇಣೀಕರಿಸಲು, ನೀವು ಕಾಳಜಿವಹಿಸುವ ಮಾಹಿತಿಯನ್ನು ಮೊದಲು ನೋಡಿ ಮತ್ತು ಹೊಂದಾಣಿಕೆಯ ಸಾರಾಂಶವನ್ನು ಪಡೆಯಲು, ಆಹಾರದ ಬಗ್ಗೆ ನಿಮಗೆ ಯಾವ ಮಾಹಿತಿಯು ಹೆಚ್ಚು ಮುಖ್ಯವಾಗಿದೆ ಎಂಬುದನ್ನು ಆರಿಸಿ. ಆ ಆಹಾರ ಆದ್ಯತೆಗಳು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ಉಳಿಯುತ್ತವೆ ಮತ್ತು ನೀವು ಓಪನ್ ಫುಡ್ ಫ್ಯಾಕ್ಟ್ಸ್ ಕೊಡುಗೆದಾರರ ಖಾತೆಯನ್ನು ಹೊಂದಿದ್ದರೆ ಅವು ನಿಮ್ಮೊಂದಿಗೆ ಸಂಬಂಧ ಹೊಂದಿರುವುದಿಲ್ಲ.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "ನಿಮ್ಮ ಆಹಾರ ಆದ್ಯತೆಗಳನ್ನು ಮರುಹೊಂದಿಸುವುದೇ?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "ಈ ಉತ್ಪನ್ನದ ಎಲ್ಲಾ ಅಸ್ತಿತ್ವದಲ್ಲಿರುವ ಫೋಟೋಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "ಯಾವುದೇ ಉತ್ಪನ್ನ ಕಂಡುಬಂದಿಲ್ಲ",
   "@no_product_found": {},
   "no_product_found_explanation": "\n**\"{search}\"**\nಗಾಗಿ ನಿಮ್ಮ ಹುಡುಕಾಟವು ಯಾವುದೇ ಫಲಿತಾಂಶಗಳಿಗೆ ಹೊಂದಿಕೆಯಾಗಲಿಲ್ಲ.",
@@ -927,7 +1026,7 @@
   },
   "product_image_outdated": "ಈ ಚಿತ್ರ ಹಳೆಯದಾಗಿರಬಹುದು.",
   "product_image_outdated_explanations_title": "ಈ ಚಿತ್ರ ಹಳೆಯದಾಗಿರಬಹುದು.",
-  "product_image_outdated_explanations_content": "ಈ ಚಿತ್ರವನ್ನು ಒಂದು ವರ್ಷಕ್ಕೂ ಹೆಚ್ಚು ಹಿಂದೆ ತೆಗೆಯಲಾಗಿದೆ.\n**ದಯವಿಟ್ಟು ಇದು ಇನ್ನೂ ನವೀಕೃತವಾಗಿದೆಯೇ ಎಂದು ಪರಿಶೀಲಿಸಿ**.\n\nಇದು **ಕೇವಲ ಎಚ್ಚರಿಕೆ**. ವಿಷಯ ಇನ್ನೂ ಒಂದೇ ಆಗಿದ್ದರೆ, ನೀವು ಈ ಸಂದೇಶವನ್ನು ನಿರ್ಲಕ್ಷಿಸಬಹುದು.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1175,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "ಈ ಪಟ್ಟಿಯಲ್ಲಿ ಯಾವುದೇ ಉತ್ಪನ್ನವಿಲ್ಲ.",
   "no_product_in_section": "ಈ ವಿಭಾಗದಲ್ಲಿ ಯಾವುದೇ ಉತ್ಪನ್ನವಿಲ್ಲ.",
   "recently_seen_products": "ವೀಕ್ಷಿಸಿದ ಎಲ್ಲಾ ಉತ್ಪನ್ನಗಳು",
   "clear": "ತೆರವು ಮಾಡಿ",
@@ -2419,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "ವರ್ಗ",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ಐಚ್ಛಿಕ",
+  "prices_origins_title": "ಮೂಲಗಳು",
   "prices_category_error_mandatory": "ವರ್ಗವು ಕಡ್ಡಾಯವಾಗಿದೆ",
   "prices_barcode_reader_action": "ಬಾರ್‌ಕೋಡ್ ರೀಡರ್",
   "prices_view_prices": "ಬೆಲೆಗಳನ್ನು ವೀಕ್ಷಿಸಿ",
@@ -2609,12 +2709,15 @@
   "prices_amount_no_product": "ಒಂದು ಉತ್ಪನ್ನ ಕಾಣೆಯಾಗಿದೆ!",
   "prices_amount_price_incorrect": "ತಪ್ಪಾದ ಮೌಲ್ಯ",
   "prices_amount_price_mandatory": "ಕಡ್ಡಾಯ ಮೌಲ್ಯ",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "ಕರೆನ್ಸಿ",
   "prices_date_subtitle": "ದಿನಾಂಕ",
   "prices_location_subtitle": "ಅಂಗಡಿ",
   "prices_location_find": "ಅಂಗಡಿ ಹುಡುಕಿ",
   "prices_location_mandatory": "ನೀವು ಅಂಗಡಿಯನ್ನು ಆರಿಸಬೇಕು!",
   "prices_location_search_broader": "ನೀವು ಹುಡುಕುತ್ತಿರುವುದು ಸಿಗಲಿಲ್ಲವೇ? ವಿಶಾಲವಾದ ಹುಡುಕಾಟವನ್ನು ಪ್ರಯತ್ನಿಸೋಣ!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "ಪುರಾವೆ",
   "prices_proof_empty_title": "ಇನ್ನೂ ಯಾವುದೇ ಪುರಾವೆಗಳಿಲ್ಲ!",
   "prices_proof_empty_explanation": "**ರಶೀದಿ** ಅಥವಾ **ಬೆಲೆ ಟ್ಯಾಗ್** ನ ಫೋಟೋ ಸೇರಿಸುವ ಮೂಲಕ ಪ್ರಾರಂಭಿಸಿ!",
@@ -2670,6 +2773,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "ಮುಗಿದಿದೆ",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3612,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "ದಯವಿಟ್ಟು ನಮಗೆ ಹಸ್ತಚಾಲಿತವಾಗಿ ಇಮೇಲ್ ಕಳುಹಿಸಿ",
-  "email_copied_to_clip_board": "ಇಮೇಲ್ ಅನ್ನು ಕ್ಲಿಪ್‌ಬೋರ್ಡ್‌ಗೆ ನಕಲಿಸಲಾಗಿದೆ!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "ಉಚ್ಚಾರಣಾ ಬಣ್ಣವನ್ನು ಆಯ್ಕೆಮಾಡಿ",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3802,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} ಉತ್ಪನ್ನಗಳು ತಕ್ಷಣ ಸ್ಕ್ಯಾನಿಂಗ್‌ಗೆ ಲಭ್ಯವಿದೆ",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4296,6 +4408,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "ಹೊಂದಾಣಿಕೆಯಾಗುತ್ತದೆ",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4420,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "ಈ ಉತ್ಪನ್ನವನ್ನು ಕ್ಯಾರೋಸಲ್‌ನಿಂದ ತೆಗೆದುಹಾಕಿ",
   "@carousel_close_tooltip": {

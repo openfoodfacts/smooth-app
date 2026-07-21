@@ -44,12 +44,7 @@ class ProductFooterBarcodeButton extends StatelessWidget {
             children: <Widget>[
               FractionallySizedBox(
                 widthFactor: 0.65,
-                child: SmoothBarcodeWidget(
-                  padding: EdgeInsets.zero,
-                  color: context.lightTheme() ? Colors.black : Colors.white,
-                  barcode: barcode,
-                  height: 110.0,
-                ),
+                child: SmoothBarcodeWidget(barcode: barcode, height: 110.0),
               ),
               const SizedBox(height: LARGE_SPACE),
               OutlinedButton(

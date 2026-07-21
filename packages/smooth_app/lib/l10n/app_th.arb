@@ -1,6 +1,6 @@
 {
   "app_name": "Open Food Facts",
-  "open_prices": "ราคาเปิด",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "เพิ่ม",
   "@add": {},
+  "edit": "แก้ไข",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "คุณแน่ใจหรือไม่ว่าต้องการลบบัญชี หากมีเหตุผลที่เฉพาะเจาะจงโปรดแจ้งด้านล่าง",
   "@account_delete_message": {},
   "reason": "สาเหตุ",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "ล้างค่าการกำหนดลักษณะ",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "บางอย่างผิดพลาด",
   "@error": {},
@@ -241,8 +331,8 @@
   "sign_up_page_action_ok": "ยินดีด้วยแอคเค้าท์ของคุณสร้างเสร็จเรียบร้อย",
   "sign_up_page_display_name_hint": "ชื่อ",
   "sign_up_page_display_name_error_empty": "กรุณาตั้งชื่อเล่น ที่คุณต้องการ",
-  "sign_up_page_email_hint": "อีเม",
-  "sign_up_page_email_error_empty": "ต้องระบุอีเมล์",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "อีเมลไม่ถูกต้อง",
   "sign_up_page_username_hint": "ชื่อผู้ใช้: เปิดเผยต่อสาธารณะ",
   "sign_up_page_username_error_empty": "กรุณา ใส่ชื่อแอคเค้าท์",
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "จัดการบัญชีผู้ร่วมเขียนบทความ Open Food Facts ของคุณ",
   "myPreferences_settings_title": "การตั้งค่าแอพ",
   "myPreferences_settings_subtitle": "โหมดมืด, ภาษา…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "ความชอบด้านอาหาร",
   "myPreferences_food_subtitle": "เลือกข้อมูลเกี่ยวกับอาหารที่สำคัญที่สุดสำหรับคุณ",
   "myPreferences_food_comment": "เลือกข้อมูลเกี่ยวกับอาหารที่คุณสนใจมากที่สุด เพื่อจัดอันดับอาหารตามความชอบของคุณ ดูข้อมูลที่คุณสนใจก่อน และรับสรุปความเข้ากันได้ การตั้งค่าอาหารเหล่านั้นจะยังคงอยู่ในอุปกรณ์ของคุณ และจะไม่เชื่อมโยงกับบัญชีผู้ร่วมให้ข้อมูล Open Food Facts ของคุณ หากคุณมีบัญชีดังกล่าว",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "รีเซ็ตการตั้งค่าอาหารของคุณ?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "ดูรูปภาพทั้งหมดที่มีสำหรับผลิตภัณฑ์นี้",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "ไม่พบผลิตภัณฑ์",
   "@no_product_found": {},
   "no_product_found_explanation": "การค้นหาของคุณสำหรับ\n**\"{search}\"**\nไม่ตรงกับผลลัพธ์ใดๆ",
@@ -927,7 +1026,7 @@
   },
   "product_image_outdated": "รูปภาพนี้อาจไม่ทันสมัยแล้ว",
   "product_image_outdated_explanations_title": "รูปภาพนี้อาจไม่ทันสมัยแล้ว",
-  "product_image_outdated_explanations_content": "ภาพนี้ถ่ายไว้เมื่อกว่าหนึ่งปีที่แล้ว\n**โปรดตรวจสอบว่ายังเป็นข้อมูลล่าสุดอยู่หรือไม่**\n\nนี่เป็น **เพียงคำเตือน** หากเนื้อหายังคงเหมือนเดิม คุณสามารถละเว้นข้อความนี้ได้",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1175,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "ไม่มีสินค้าในรายการนี้",
   "no_product_in_section": "ไม่มีสินค้าในหมวดนี้",
   "recently_seen_products": "สินค้าทั้งหมดที่แสดง",
   "clear": "ล้างข้อมูล",
@@ -2329,7 +2427,7 @@
   },
   "prices_app_dev_mode_flag": "ทางลัดไปยังแอปแสดงราคาบนหน้าสินค้า",
   "prices_app_button": "ไปที่แอปราคา",
-  "prices_website_button": "เปิดบนเว็บไซต์ราคาเปิด",
+  "prices_website_button": "เปิดดูข้อมูลได้ที่เว็บไซต์ Open Prices",
   "prices_bulk_proof_upload_select": "เพิ่มป้ายราคาโดยตรงจากแกลเลอรี่",
   "prices_bulk_proof_upload_warning": "เมื่อคุณเลือกรูปภาพแล้ว คุณจะไม่สามารถแก้ไขรูปภาพเหล่านั้นได้อีก!",
   "prices_bulk_proof_upload_warning_ai": "AI จะประมวลผลหลักฐานของคุณเพื่อดึงราคาออกมา",
@@ -2419,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "หมวดหมู่:",
   "prices_category_mandatory": "บังคับ",
   "prices_category_optional": "ไม่จำเป็น",
+  "prices_origins_title": "ต้นกำเนิด",
   "prices_category_error_mandatory": "หมวดหมู่นี้จำเป็นต้องกรอก",
   "prices_barcode_reader_action": "เครื่องอ่านบาร์โค้ด",
   "prices_view_prices": "ดูราคา",
@@ -2609,12 +2709,15 @@
   "prices_amount_no_product": "สินค้าหายไปหนึ่งรายการ!",
   "prices_amount_price_incorrect": "ค่าไม่ถูกต้อง",
   "prices_amount_price_mandatory": "ค่าบังคับ",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "สกุลเงิน",
   "prices_date_subtitle": "วันที่",
   "prices_location_subtitle": "ร้านค้า",
   "prices_location_find": "ค้นหาร้านค้า",
   "prices_location_mandatory": "คุณต้องเลือกร้านค้า!",
   "prices_location_search_broader": "หาไม่เจอสิ่งที่ต้องการใช่ไหม ลองค้นหาในวงกว้างขึ้นดูสิ!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "การพิสูจน์",
   "prices_proof_empty_title": "ยังไม่มีหลักฐาน!",
   "prices_proof_empty_explanation": "เริ่มต้นด้วยการเพิ่มรูปภาพของ **ใบเสร็จ** หรือ **ป้ายราคา**!",
@@ -2670,6 +2773,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "อื่น",
   "dev_preferences_import_history_result_success": "เสร็จแล้ว",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3612,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "โปรดส่งอีเมลถึงเราด้วยตนเองที่",
-  "email_copied_to_clip_board": "คัดลอกอีเมลไปยังคลิปบอร์ดเรียบร้อยแล้ว!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "เลือกสีเน้น",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3802,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} สินค้าพร้อมสำหรับการสแกนทันที",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3847,12 +3959,12 @@
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
-  "nutriscore_generic": "คะแนนโภชนาการ",
-  "nutriscore_a": "คะแนนโภชนาการ A",
-  "nutriscore_b": "นูทริ-สกอร์ บี",
-  "nutriscore_c": "นูทริ-สกอร์ ซี",
-  "nutriscore_d": "นูทริ-สกอร์ ดี",
-  "nutriscore_e": "นูทริ-สกอร์ อี",
+  "nutriscore_generic": "Nutri-Score",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
   "nutriscore_new_formula": "คะแนนโภชนาการ {letter} (การคำนวณใหม่)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
@@ -3932,7 +4044,7 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "แบ่งปัน",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "ระบบประเมินคุณค่าทางโภชนาการ (Nutri-Score) กำลังมีการปรับปรุง: โปรดอ่านคำอธิบาย!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4167,7 +4279,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ราคาเปิดคืออะไร?",
+  "guide_open_prices_what_is_open_prices_title": "Open Prices คืออะไร?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices คือโครงการที่ **รวบรวมและแบ่งปันราคาสินค้าทั่วโลก** เป็นชุดข้อมูลสาธารณะที่สามารถนำไปใช้ในการวิจัย วิเคราะห์ และอื่นๆ ได้ Open Prices พัฒนาและดูแลโดย Open Food Facts",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4176,7 +4288,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "ราคาเปิดทำงานอย่างไร?",
+  "guide_open_prices_how_title": "Open Prices ทำงานอย่างไร?",
   "guide_open_prices_how_paragraph1": "**เรากำลังรวบรวมชุดข้อมูลราคาแบบโอเพนซอร์สจากผู้ใช้งาน** ผู้ใช้สามารถเพิ่มราคาได้ผ่านเว็บแอปพลิเคชันนี้ หรือผ่านแอปพลิเคชันมือถือ Open Food Facts อย่างเป็นทางการ นอกจากนี้ ผู้ค้าปลีกหรือแอปพลิเคชันจากบุคคลที่สามก็สามารถร่วมให้ข้อมูลได้โดยใช้ API ของเรา",
   "guide_open_prices_how_arg1_title": "รวบรวมภาพถ่ายป้ายราคาตามชั้นวางสินค้า",
   "guide_open_prices_how_arg2_title": "รวบรวมรูปถ่ายใบเสร็จรับเงิน",
@@ -4295,6 +4407,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "เข้ากันได้",
   "@product_page_compatibility_score": {
@@ -4420,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "นำผลิตภัณฑ์นี้ออกจากแถบแสดงสินค้า",
   "@carousel_close_tooltip": {

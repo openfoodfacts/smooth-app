@@ -30,7 +30,6 @@ import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -125,7 +124,7 @@ class _NutritionPageLoadedState extends State<NutritionPageLoaded>
                 actions: <Widget>[
                   if (!_imageVisible)
                     IconButton(
-                      icon: const Picture.open(),
+                      icon: const icons.Picture.open(),
                       tooltip: ImageField.NUTRITION.getProductImageButtonText(
                         appLocalizations,
                       ),
@@ -427,6 +426,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
         bottom: MEDIUM_SPACE,
       ),
       sliver: SliverCardWithRoundedHeader(
+        pinned: false,
         banner: nutritionContainer.robotoffNutrientExtraction == null
             ? Consumer<NutritionContainerHelper>(
                 builder:
@@ -440,65 +440,73 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
 
                       return Padding(
                         padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-                        child: Row(
+                        child: Column(
                           children: <Widget>[
-                            const ExcludeSemantics(
-                              child: icons.Sparkles(size: 18.0),
+                            Row(
+                              children: <Widget>[
+                                const ExcludeSemantics(
+                                  child: icons.Sparkles(size: 18.0),
+                                ),
+                                const SizedBox(width: MEDIUM_SPACE),
+                                Expanded(
+                                  child: Text(
+                                    appLocalizations
+                                        .nutrition_facts_extract_new,
+                                  ),
+                                ),
+                              ],
                             ),
-                            const SizedBox(width: MEDIUM_SPACE),
-                            Expanded(
-                              child: Text(
-                                appLocalizations.nutrition_facts_extract_new,
-                              ),
-                            ),
-                            TextButton(
-                              onPressed:
-                                  nutritionContainer
-                                              .robotoffNutrientExtraction !=
-                                          null ||
-                                      loading
-                                  ? null
-                                  : () async {
-                                      if (widget.product.barcode == null) {
-                                        return;
-                                      }
+                            Align(
+                              alignment: AlignmentDirectional.centerEnd,
+                              child: TextButton(
+                                onPressed:
+                                    nutritionContainer
+                                                .robotoffNutrientExtraction !=
+                                            null ||
+                                        loading
+                                    ? null
+                                    : () async {
+                                        if (widget.product.barcode == null) {
+                                          return;
+                                        }
 
-                                      final bool success =
-                                          await nutritionContainer
-                                              .fetchRobotoffExtraction(
-                                                widget.product,
-                                              );
+                                        final bool success =
+                                            await nutritionContainer
+                                                .fetchRobotoffExtraction(
+                                                  widget.product,
+                                                );
 
-                                      if (context.mounted) {
-                                        ScaffoldMessenger.of(
-                                          context,
-                                        ).showSnackBar(
-                                          success
-                                              ? SmoothFloatingSnackbar.positive(
-                                                  context: context,
-                                                  text: appLocalizations
-                                                      .nutrition_facts_extract_successful,
-                                                )
-                                              : SmoothFloatingSnackbar.error(
-                                                  context: context,
-                                                  text: appLocalizations
-                                                      .nutrition_facts_extract_failed,
-                                                ),
-                                        );
-                                      }
-                                    },
-                              child: loading
-                                  ? const SizedBox.square(
-                                      dimension: 20.0,
-                                      child: CircularProgressIndicator(),
-                                    )
-                                  : Text(
-                                      appLocalizations
-                                          .nutrition_facts_extract_button_text,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        if (context.mounted) {
+                                          ScaffoldMessenger.of(
+                                            context,
+                                          ).showSnackBar(
+                                            success
+                                                ? SmoothFloatingSnackbar.positive(
+                                                    context: context,
+                                                    text: appLocalizations
+                                                        .nutrition_facts_extract_successful,
+                                                  )
+                                                : SmoothFloatingSnackbar.error(
+                                                    context: context,
+                                                    text: appLocalizations
+                                                        .nutrition_facts_extract_failed,
+                                                  ),
+                                          );
+                                        }
+                                      },
+                                child: loading
+                                    ? const SizedBox.square(
+                                        dimension: 20.0,
+                                        child: CircularProgressIndicator(),
+                                      )
+                                    : Text(
+                                        appLocalizations
+                                            .nutrition_facts_extract_button_text,
+                                        style: const TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                        ),
                                       ),
-                                    ),
+                              ),
                             ),
                           ],
                         ),
@@ -507,7 +515,7 @@ class _NutritionPageBodyState extends State<_NutritionPageBody> {
               )
             : null,
         title: appLocalizations.edit_product_form_item_nutrition_facts_title,
-        leading: const NutritionFacts(),
+        leading: const icons.NutritionFacts(),
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[

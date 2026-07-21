@@ -1184,6 +1184,11 @@ class _IconsFont {
     fontFamily: _kFontFam,
     fontPackage: _kFontPkg,
   );
+  static const IconData map = IconData(
+    0xe930,
+    fontFamily: _kFontFam,
+    fontPackage: _kFontPkg,
+  );
   static const IconData document_sparkles = IconData(
     0xe94a,
     fontFamily: _kFontFam,
