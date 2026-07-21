@@ -60,7 +60,8 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
                           filteredAttributes,
                         ),
                 ),
-                if (widget.attributeGroup.warning != null)
+                if (_searchQuery.isEmpty &&
+                    widget.attributeGroup.warning != null)
                   _buildWarningBanner(context, widget.attributeGroup.warning!),
               ],
             );
@@ -139,7 +140,7 @@ class _AttributeGroupPageState extends State<AttributeGroupPage> {
           children: <Widget>[
             const icons.Search(size: 48.0, color: Colors.grey),
             Text(
-              appLocalizations.no_product_found,
+              appLocalizations.no_settings_found,
               style: const TextStyle(
                 fontSize: 20.0,
                 fontWeight: FontWeight.bold,

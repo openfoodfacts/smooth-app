@@ -519,7 +519,7 @@ abstract class AppLocalizations {
   /// Title for the introduction page of the food preferences wizard
   ///
   /// In en, this message translates to:
-  /// **'Personalize the app'**
+  /// **'Personalise the app'**
   String get food_preferences_page_title_introduction;
 
   /// Title for the diets page of the food preferences wizard
@@ -579,7 +579,7 @@ abstract class AppLocalizations {
   /// Error message shown when the food preferences fail to load from the server
   ///
   /// In en, this message translates to:
-  /// **'Failed to load preferences. Please check your internet connection.'**
+  /// **'Failed to load preferences. Please check your Internet connection.'**
   String get food_preferences_error_loading;
 
   /// Description text shown at the top of the preferences summary page
@@ -591,13 +591,13 @@ abstract class AppLocalizations {
   /// Description shown on the introduction page of the food preferences wizard.
   ///
   /// In en, this message translates to:
-  /// **'In the following steps, you can **personalize the app** by indicating your preferences:'**
+  /// **'In the following steps, you can **personalise the app** by indicating your preferences:'**
   String get food_preferences_introduction_description;
 
   /// Description for the diets page of the food preferences wizard
   ///
   /// In en, this message translates to:
-  /// **'Select the diets you follow to personalize your recommendations.'**
+  /// **'Select the diets you follow to personalise your recommendations.'**
   String get food_preferences_page_description_diets;
 
   /// Description for the allergies page of the food preferences wizard
@@ -1371,7 +1371,7 @@ abstract class AppLocalizations {
   /// Content that will be shared, don't forget to include the URL
   ///
   /// In en, this message translates to:
-  /// **'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products deciphered. Here\'s the link to get it for your phone: https://openfoodfacts.app'**
+  /// **'I wanted to let you know about the app I\'ve been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalised way. It works by scanning the barcodes on the packaging. Finally it\'s free, does not require registration, and you can even help increase the number of products deciphered. Here\'s the link to get it for your phone: https://openfoodfacts.app'**
   String get contribute_share_content;
 
   /// Label for option to contribute prices using GDPR export from loyalty cards
@@ -1482,6 +1482,12 @@ abstract class AppLocalizations {
   /// **'Dark mode, Languages…'**
   String get myPreferences_settings_subtitle;
 
+  /// No description provided for @myPreferences_not_configured_yet.
+  ///
+  /// In en, this message translates to:
+  /// **'You haven\'t set any preference yet.'**
+  String get myPreferences_not_configured_yet;
+
   /// No description provided for @myPreferences_food_title.
   ///
   /// In en, this message translates to:
@@ -1545,7 +1551,7 @@ abstract class AppLocalizations {
   /// When you press this button, all products (in list or category) are sorted according to your preferences.
   ///
   /// In en, this message translates to:
-  /// **'My personalized ranking'**
+  /// **'My personalised ranking'**
   String get myPersonalizedRanking;
 
   /// No description provided for @ranking_tab_all.
@@ -2543,6 +2549,12 @@ abstract class AppLocalizations {
   /// **'View all existing photos for this product'**
   String get view_more_photo_button;
 
+  /// No description provided for @no_settings_found.
+  ///
+  /// In en, this message translates to:
+  /// **'No settings found'**
+  String get no_settings_found;
+
   /// No description provided for @no_product_found.
   ///
   /// In en, this message translates to:
@@ -2612,7 +2624,7 @@ abstract class AppLocalizations {
   /// Please keep the ** syntax to make the text bold
   ///
   /// In en, this message translates to:
-  /// **'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.'**
+  /// **'This image was taken more than a year ago.\n**Please check that it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.'**
   String get product_image_outdated_explanations_content;
 
   /// Action on the photo gallery to replace an existing picture
@@ -3056,12 +3068,6 @@ abstract class AppLocalizations {
   /// **'Could not remove product'**
   String get product_could_not_remove;
 
-  /// No description provided for @no_prodcut_in_list.
-  ///
-  /// In en, this message translates to:
-  /// **'There is no product in this list'**
-  String get no_prodcut_in_list;
-
   /// No description provided for @no_product_in_section.
   ///
   /// In en, this message translates to:
@@ -3287,7 +3293,7 @@ abstract class AppLocalizations {
   /// first paragraph for the camera permission's page (onboarding)
   ///
   /// In en, this message translates to:
-  /// **'To scan barcodes with your phone\'s camera, please Authorize the access.'**
+  /// **'To scan barcodes with your phone\'s camera, please Authorise the access.'**
   String get permissions_page_body1;
 
   /// second paragraph for the camera permission's page (onboarding)
@@ -3312,7 +3318,7 @@ abstract class AppLocalizations {
   /// Contact form content for iOS devices
   ///
   /// In en, this message translates to:
-  /// **'OS: iOS ({version})\nModel: {model}\nLocalized model: {localizedModel}'**
+  /// **'OS: iOS ({version})\nModel: {model}\nLocalised model: {localizedModel}'**
   String contact_form_body_ios(
     String? version,
     String? model,
@@ -3333,7 +3339,7 @@ abstract class AppLocalizations {
   /// No description provided for @authorize_button_label.
   ///
   /// In en, this message translates to:
-  /// **'Authorize'**
+  /// **'Authorise'**
   String get authorize_button_label;
 
   /// No description provided for @refuse_button_label.
@@ -3477,7 +3483,7 @@ abstract class AppLocalizations {
   /// User login (when it's an email)
   ///
   /// In en, this message translates to:
-  /// **'Open Food Facts login: {email}'**
+  /// **'Open Food Facts login: {email}'**
   String user_profile_title_id_email(String email);
 
   /// User login (when it's an id)
@@ -5028,6 +5034,12 @@ abstract class AppLocalizations {
   /// **' / unit'**
   String get prices_per_unit_short;
 
+  /// No description provided for @prices_category_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get prices_category_title;
+
   /// No description provided for @prices_category_mandatory.
   ///
   /// In en, this message translates to:
@@ -5039,6 +5051,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Optional'**
   String get prices_category_optional;
+
+  /// No description provided for @prices_origins_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Origins'**
+  String get prices_origins_title;
 
   /// No description provided for @prices_category_error_mandatory.
   ///
@@ -5303,6 +5321,12 @@ abstract class AppLocalizations {
   /// **'Mandatory value'**
   String get prices_amount_price_mandatory;
 
+  /// No description provided for @prices_amount_update_currency.
+  ///
+  /// In en, this message translates to:
+  /// **'Update currency'**
+  String get prices_amount_update_currency;
+
   /// No description provided for @prices_currency_subtitle.
   ///
   /// In en, this message translates to:
@@ -5338,6 +5362,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t find what you were looking for? Let\'s try a broader search!'**
   String get prices_location_search_broader;
+
+  /// No description provided for @prices_location_open_map.
+  ///
+  /// In en, this message translates to:
+  /// **'View the shop on the map'**
+  String get prices_location_open_map;
+
+  /// No description provided for @prices_location_edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Select another shop'**
+  String get prices_location_edit;
 
   /// No description provided for @prices_proof_subtitle.
   ///
@@ -5751,7 +5787,7 @@ abstract class AppLocalizations {
   /// Help categorize products in your country: list tile title
   ///
   /// In en, this message translates to:
-  /// **'Help categorize products in your country'**
+  /// **'Help categorise products in your country'**
   String get categorize_products_country_title;
 
   /// Product edition - FAB actions - retake a picture
@@ -6953,13 +6989,13 @@ abstract class AppLocalizations {
   /// No description provided for @email_copied_to_clip_board.
   ///
   /// In en, this message translates to:
-  /// **'Email copied to clipboard!'**
+  /// **'E-mail copied to clipboard!'**
   String get email_copied_to_clip_board;
 
   /// Accent Color for the application in AMOLED mode.
   ///
   /// In en, this message translates to:
-  /// **'Select Accent Color'**
+  /// **'Select Accent Colour'**
   String get select_accent_color;
 
   /// AMOLED theme mode.
@@ -7199,7 +7235,7 @@ abstract class AppLocalizations {
   /// text to show details of products available for download
   ///
   /// In en, this message translates to:
-  /// **'{num} products available for immediate scaning'**
+  /// **'{num} products available for immediate scanning'**
   String available_for_download(int num);
 
   /// Label written as the title of the dialog to select the user country
@@ -7571,7 +7607,7 @@ abstract class AppLocalizations {
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.'**
+  /// **'The colour code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.'**
   String get guide_nutriscore_v2_what_is_nutriscore_paragraph2;
 
   /// No description provided for @guide_nutriscore_v2_nutriscore_a_caption.
@@ -7613,13 +7649,13 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nutriscore_v2_why_v2_arg2_text.
   ///
   /// In en, this message translates to:
-  /// **'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.'**
+  /// **'The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalised**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.'**
   String get guide_nutriscore_v2_why_v2_arg2_text;
 
   /// No description provided for @guide_nutriscore_v2_why_v2_arg3_title.
   ///
   /// In en, this message translates to:
-  /// **'Salt and sugar penalized'**
+  /// **'Salt and sugar penalised'**
   String get guide_nutriscore_v2_why_v2_arg3_title;
 
   /// No description provided for @guide_nutriscore_v2_why_v2_arg3_text.
@@ -7733,7 +7769,7 @@ abstract class AppLocalizations {
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'The color code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.'**
+  /// **'The colour code varies from dark green (**A+**) for the **least impactful** products to dark red (**F**) for the **most impactful** products.'**
   String get guide_greenscore_what_is_greenscore_paragraph2;
 
   /// No description provided for @guide_greenscore_logos_caption.
@@ -8045,7 +8081,7 @@ abstract class AppLocalizations {
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'The NOVA classification allows for the categorization of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).'**
+  /// **'The NOVA classification allows for the categorisation of foods into **4 groups** based on their **degree of industrial processing** (minimally processed or unprocessed foods, culinary ingredients, processed foods, ultra-processed foods).'**
   String get guide_nova_what_is_nova_paragraph2;
 
   /// No description provided for @guide_nova_logos_caption.
@@ -8141,7 +8177,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_nova_explanations_arg2_text.
   ///
   /// In en, this message translates to:
-  /// **'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilizers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colors, color stabilizers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.'**
+  /// **'Additives in ultra-processed foods include some that are also used in processed foods, such as preservatives, antioxidants, and stabilisers. Classes of additives found only in ultra-processed products include those used **to imitate or enhance the sensory qualities of foods or to disguise unpalatable aspects of the final product**. These additives include dyes and other colours, colour stabilisers; flavors, flavor enhancers, non-sugar sweeteners; and processing aids such as carbonating, firming, bulking and anti-bulking agents, de-foaming, anti-caking and glazing agents, emulsifiers, sequestrants, and humectants.'**
   String get guide_nova_explanations_arg2_text;
 
   /// No description provided for @guide_nova_explanations_arg3_title.
@@ -8477,7 +8513,7 @@ abstract class AppLocalizations {
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturizers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.'**
+  /// **'Our goal is to decipher ingredient lists to help you **understand what\'s in your personal care items**. From moisturisers to makeup, we collect data on ingredients, allergens, and packaging to promote transparency in the cosmetics industry.'**
   String get guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2;
 
   /// No description provided for @guide_open_beauty_facts_features_title.
@@ -8615,7 +8651,7 @@ abstract class AppLocalizations {
   /// Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it.
   ///
   /// In en, this message translates to:
-  /// **'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.'**
+  /// **'There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organisations that can afford them.'**
   String get guide_open_prices_what_is_open_prices_paragraph2;
 
   /// No description provided for @guide_open_prices_how_title.
@@ -8759,7 +8795,7 @@ abstract class AppLocalizations {
   /// No description provided for @guide_open_products_facts_features_arg1_text.
   ///
   /// In en, this message translates to:
-  /// **'**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.'**
+  /// **'**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorise products precisely.'**
   String get guide_open_products_facts_features_arg1_text;
 
   /// No description provided for @guide_open_products_facts_features_arg2_title.
@@ -9091,6 +9127,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Barcode {barcode}'**
   String barcode_accessibility_label(String barcode);
+
+  /// Warning message. Keep it short.
+  ///
+  /// In en, this message translates to:
+  /// **'Probably invalid barcode'**
+  String get barcode_probably_invalid;
 
   /// A message explaining the goal of the Close button on a card of the carousel
   ///
@@ -9991,7 +10033,7 @@ abstract class AppLocalizations {
   /// Preferences dev mode tile for removing colors
   ///
   /// In en, this message translates to:
-  /// **'Accessibility: Remove colors'**
+  /// **'Accessibility: Remove colours'**
   String get preferences_accessibility_remove_colors;
 
   /// Title for the app settings products card

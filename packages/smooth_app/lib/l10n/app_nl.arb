@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "Toevoegen",
   "@add": {},
+  "edit": "Bewerken",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Weet je zeker dat je je account wilt verwijderen?\nAls er een specifieke reden is, deel deze dan hieronder",
   "@account_delete_message": {},
   "reason": "Reden",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Voedselvoorkeuren resetten",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personaliseer de app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diëten",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergieën",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "Wat ik niet eet",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "Wat ik graag wil vermijden",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Milieuvoorkeuren",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profiel klaar",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Stap {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "Geen selectie",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "Geen attributen beschikbaar voor deze categorie.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Voorkeuren laden mislukt. Controleer je internetverbinding.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Hier is je profiel:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In de volgende stappen kunt u de app **personaliseren** door uw voorkeuren aan te geven:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalise your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Selecteer de allergenen die u moet vermijden voor uw voedselveiligheid.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Geef aan welke voedingsmiddelen of ingrediënten u niet eet.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Selecteer de voedingsmiddelen die u liever vermijdt, zonder dat het een strikt verbod hoeft te zijn.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Geef uw milieuvoorkeuren aan voor duurzamere aanbevelingen.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Zoek naar ingrediënten",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Reeds toegevoegde ingrediënten",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Er ging iets mis",
   "@error": {},
@@ -242,7 +332,7 @@
   "sign_up_page_display_name_hint": "Naam",
   "sign_up_page_display_name_error_empty": "Voer de weergavenaam in die u wilt gebruiken",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is verplicht",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
   "sign_up_page_username_hint": "Gebruikersnaam: Openbaar zichtbaar",
   "sign_up_page_username_error_empty": "Voer een gebruikersnaam in",
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "Beheer uw Open Food Facts-bijdragersaccount.",
   "myPreferences_settings_title": "App-instellingen",
   "myPreferences_settings_subtitle": "Donkere modus, Talen…",
+  "myPreferences_not_configured_yet": "Je hebt nog geen voorkeuren ingesteld.",
   "myPreferences_food_title": "Voedselvoorkeuren",
   "myPreferences_food_subtitle": "Kies welke informatie over voedsel voor u het belangrijkst is.",
   "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als je er een hebt.",
+  "myPreferences_beauty_title": "Voorkeuren voor cosmetica",
+  "myPreferences_beauty_subtitle": "Kies welke informatie over cosmetische producten voor jou het belangrijkst is.",
+  "myPreferences_product_title": "Voorkeuren voor andere producten",
+  "myPreferences_product_subtitle": "Kies welke informatie over andere producten voor u het belangrijkst is.",
+  "myPreferences_pet_food_title": "Voorkeuren voor dierenvoeding",
+  "myPreferences_pet_food_subtitle": "Kies welke informatie over dierenvoeding voor u het belangrijkst is.",
   "confirmResetPreferences": "Voedselvoorkeuren resetten?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "Bekijk alle bestaande foto's voor dit product",
   "@view_more_photo_button": {},
+  "no_settings_found": "Geen instellingen gevonden",
+  "@no_settings_found": {},
   "no_product_found": "Geen product gevonden",
   "@no_product_found": {},
   "no_product_found_explanation": "Je zoekopdracht naar\n**\"{search}\"**\nleverde geen resultaten op.",
@@ -927,7 +1026,7 @@
   },
   "product_image_outdated": "Deze afbeelding is mogelijk verouderd",
   "product_image_outdated_explanations_title": "Deze afbeelding is mogelijk verouderd",
-  "product_image_outdated_explanations_content": "Deze afbeelding is meer dan een jaar geleden gemaakt.\n**Controleer of deze nog up-to-date is**.\n\nDit is **gewoon een waarschuwing**. Als de inhoud nog steeds hetzelfde is, kunt u dit bericht negeren.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1175,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Er is geen product in deze lijst",
   "no_product_in_section": "Er is geen product in deze sectie",
   "recently_seen_products": "Alle bekeken producten",
   "clear": "Wissen",
@@ -1292,7 +1390,7 @@
   "@permissions_page_title": {
     "description": "Title for the camera permission's page (onboarding)"
   },
-  "permissions_page_body1": "Om barcodes te scannen met de camera van uw telefoon, moet u toestemming verlenen.",
+  "permissions_page_body1": "Om barcodes te scannen met de camera van uw telefoon, moet u de toegang autoriseren.",
   "@permissions_page_body1": {
     "description": "first paragraph for the camera permission's page (onboarding)"
   },
@@ -1330,7 +1428,7 @@
       }
     }
   },
-  "contact_form_body_ios": "Besturingssysteem: iOS ({version})\nModel: {model}\nGelokaliseerd model: {localizedModel}",
+  "contact_form_body_ios": "OS: iOS ({version})\nModel: {model}\nGelocaliseerd model: {localizedModel}",
   "@contact_form_body_ios": {
     "description": "Contact form content for iOS devices",
     "placeholders": {
@@ -1370,7 +1468,7 @@
       }
     }
   },
-  "authorize_button_label": "Goedkeuren",
+  "authorize_button_label": "Autoriseren",
   "@authorize": {
     "description": "Button to accept the request of sending the anonymous analytics or authorize the camera permission"
   },
@@ -2419,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Categorie",
   "prices_category_mandatory": "Verplicht",
   "prices_category_optional": "Optioneel",
+  "prices_origins_title": "Oorsprong",
   "prices_category_error_mandatory": "De categorie is verplicht",
   "prices_barcode_reader_action": "Streepjescodelezer",
   "prices_view_prices": "Bekijk de prijzen",
@@ -2609,12 +2709,15 @@
   "prices_amount_no_product": "Er ontbreekt één product!",
   "prices_amount_price_incorrect": "Onjuiste waarde",
   "prices_amount_price_mandatory": "Verplichte waarde",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Winkel",
   "prices_location_find": "Zoek een winkel",
   "prices_location_mandatory": "Je moet een winkel selecteren!",
   "prices_location_search_broader": "Niet gevonden wat u zocht? Probeer een bredere zoekopdracht!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bewijs",
   "prices_proof_empty_title": "Nog geen bewijs!",
   "prices_proof_empty_explanation": "Begin met het toevoegen van een foto van een **bon** of een **prijskaartje**!",
@@ -2670,6 +2773,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Soort korting",
+  "prices_discount_type_quantity": "Kwantumkorting",
+  "prices_discount_type_sale": "Uitverkoop",
+  "prices_discount_type_seasonal": "Seizoensgebonden",
+  "prices_discount_type_loyalty_program": "Loyaliteitsprogramma",
+  "prices_discount_type_expires_soon": "Vervalt binnenkort",
+  "prices_discount_type_pick_it_yourself": "Zelf plukken",
+  "prices_discount_type_second_hand": "Tweedehands",
+  "prices_discount_type_other": "Andere",
   "dev_preferences_import_history_result_success": "Voltooid",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2825,7 +2937,7 @@
   "@all_search_to_be_completed_title": {
     "description": "All products to be completed: list tile title"
   },
-  "categorize_products_country_title": "Help producten in uw land te categoriseren",
+  "categorize_products_country_title": "Help mee met het categoriseren van producten in uw land.",
   "@categorize_products_country_title": {
     "description": "Help categorize products in your country: list tile title"
   },
@@ -3612,8 +3724,8 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Stuur ons handmatig een e-mail naar",
-  "email_copied_to_clip_board": "E-mail gekopieerd naar klembord!",
-  "select_accent_color": "Selecteer een accentkleur",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "select_accent_color": "Accentkleur selecteren",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
   },
@@ -3802,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} producten beschikbaar om onmiddellijk te scannen",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3951,8 +4063,8 @@
   "guide_nutriscore_v2_why_v2_arg1_title": "Evalueert alle drankjes beter",
   "guide_nutriscore_v2_why_v2_arg1_text": "De relatieve aantekeningen van **melk**, **zuiveldranken** met toegevoegde suikers en **groentedranken** werden beter gedifferentieerd in het nieuwe algoritme.",
   "guide_nutriscore_v2_why_v2_arg2_title": "Betere rangschikking van drankjes",
-  "guide_nutriscore_v2_why_v2_arg2_text": "Er wordt meer rekening gehouden met het suikergehalte**, wat in voordeel is voor dranken met een laag suikergehalte.\\n** Zoetstoffen worden ook bestraft**: dieetdrankjes worden gedegradeerd van een B naar een C tot een E-score. Water is nog steeds de aanbevolen drank.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Zout en suiker bestraft",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Er wordt beter rekening gehouden met het **suikergehalte** en dranken met **weinig suiker** krijgen de voorkeur.\\n**Zoetstoffen worden ook bestraft**: light frisdranken worden van een B-rating verlaagd naar een rating tussen C en E. Water blijft de aanbevolen drank.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Zout en suiker worden bestraft",
   "guide_nutriscore_v2_why_v2_arg3_text": "Producten die **te zoet** of **te zout** zijn, krijgen een lagere beoordeling**.",
   "guide_nutriscore_v2_why_v2_arg4_title": "Hiërarchie binnen oliën en vis",
   "guide_nutriscore_v2_why_v2_arg4_text": "De beoordeling van bepaalde **vette vis** en **oliën rijk aan goede vetten** zal verbeteren.",
@@ -3977,7 +4089,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_what_is_greenscore_paragraph2": "De kleurcode varieert van donkergroen (**A+**) voor de **producten met de minste impact** tot donkerrood (**F**) voor de **producten met de meeste impact**.",
+  "guide_greenscore_what_is_greenscore_paragraph2": "De kleurcode varieert van donkergroen (**A+**) voor de **minst impactvolle** producten tot donkerrood (**F**) voor de **meest impactvolle** producten.",
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4038,7 +4150,7 @@
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "De NOVA-classificatie maakt het mogelijk om voedingsmiddelen in **4 groepen** in te delen op basis van hun **mate van industriële verwerking** (minimaal bewerkte of onbewerkte voedingsmiddelen, culinaire ingrediënten, bewerkte voedingsmiddelen, ultrabewerkte voedingsmiddelen).",
+  "guide_nova_what_is_nova_paragraph2": "De NOVA-classificatie maakt het mogelijk om voedingsmiddelen in te delen in **4 groepen** op basis van hun **mate van industriële bewerking** (minimaal bewerkte of onbewerkte voedingsmiddelen, culinaire ingrediënten, bewerkte voedingsmiddelen, ultrabewerkte voedingsmiddelen).",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4296,6 +4408,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "Bekijk de originele afbeelding",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "Compatibel",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4420,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Waarschijnlijk ongeldige barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Verwijder dit product uit de carrousel",
   "@carousel_close_tooltip": {
@@ -4975,7 +5095,7 @@
   "@preferences_accessibility_show_emoji": {
     "description": "Preferences dev mode tile for showing emoji"
   },
-  "preferences_accessibility_remove_colors": "Toegankelijkheid: kleuren verwijderen",
+  "preferences_accessibility_remove_colors": "Toegankelijkheid: Kleuren verwijderen",
   "@preferences_accessibility_remove_colors": {
     "description": "Preferences dev mode tile for removing colors"
   },

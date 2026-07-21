@@ -1845,6 +1845,16 @@ class LoyaltyCard extends AppIcon {
   }) : super._(_IconsFont.loyalty_card);
 }
 
+class Map extends AppIcon {
+  const Map({
+    super.color,
+    super.size,
+    super.shadow,
+    super.semanticLabel,
+    super.key,
+  }) : super._(_IconsFont.map);
+}
+
 class MagicWand extends AppIcon {
   const MagicWand({
     super.color,

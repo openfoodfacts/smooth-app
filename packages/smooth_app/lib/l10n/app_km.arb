@@ -9,6 +9,10 @@
   "@yes": {},
   "add": "បន្ថែម",
   "@add": {},
+  "edit": "កែសម្រួល",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "តើអ្នកពិតជាចង់លុបគណនីរបស់អ្នកមែនទេ?\nបើអ្នកមានហេតុផលណាមួយ សូមបំពេញនៅខាងក្រោម",
   "@account_delete_message": {},
   "reason": "ហេតុផល",
@@ -64,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "កំណត់ចំណូលចិត្តអាហារឡើងវិញ",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "មានអ្វីមួយខុសប្រក្រតី",
   "@error": {},
@@ -241,8 +331,8 @@
   "sign_up_page_action_ok": "សូមអបអរសាទរ! គណនីរបស់អ្នកទើបតែត្រូវបានបង្កើត។",
   "sign_up_page_display_name_hint": "ឈ្មោះ",
   "sign_up_page_display_name_error_empty": "សូមបញ្ចូលឈ្មោះបង្ហាញដែលអ្នកចង់ប្រើ",
-  "sign_up_page_email_hint": "អ៊ីមែល",
-  "sign_up_page_email_error_empty": "តម្រូវឲ្យមានអ៊ីមែល",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "អ៊ីមែលមិនត្រឹមត្រូវ",
   "sign_up_page_username_hint": "ឈ្មោះអ្នកប្រើប្រាស់៖ អាចមើលឃើញជាសាធារណៈ",
   "sign_up_page_username_error_empty": "សូមបញ្ចូលឈ្មោះអ្នកប្រើប្រាស់",
@@ -449,9 +539,16 @@
   "myPreferences_profile_subtitle": "គ្រប់គ្រងគណនីអ្នកចូលរួម Open Food Facts របស់អ្នក។",
   "myPreferences_settings_title": "ការកំណត់កម្មវិធី",
   "myPreferences_settings_subtitle": "មុខងារងងឹត, ភាសា…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "ចំណង់ចំណូលចិត្តអាហារ",
   "myPreferences_food_subtitle": "ជ្រើសរើសព័ត៌មានអំពីអាហារដែលសំខាន់បំផុតសម្រាប់អ្នក។",
   "myPreferences_food_comment": "ជ្រើសរើសព័ត៌មានអំពីអាហារដែលសំខាន់បំផុតសម្រាប់អ្នក ដើម្បីចាត់ថ្នាក់អាហារតាមចំណូលចិត្តរបស់អ្នក មើលព័ត៌មានដែលអ្នកយកចិត្តទុកដាក់ជាមុនសិន និងទទួលបានសេចក្តីសង្ខេបអំពីភាពឆបគ្នា។ ចំណូលចិត្តអាហារទាំងនោះនៅតែមាននៅលើឧបករណ៍របស់អ្នក ហើយមិនត្រូវបានភ្ជាប់ជាមួយគណនីអ្នកចូលរួម Open Food Facts របស់អ្នកទេ ប្រសិនបើអ្នកមាន។",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "កំណត់ចំណូលចិត្តអាហាររបស់អ្នកឡើងវិញ?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -884,6 +981,8 @@
   "@more_photos": {},
   "view_more_photo_button": "មើលរូបថតដែលមានស្រាប់ទាំងអស់សម្រាប់ផលិតផលនេះ",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "រកមិនឃើញផលិតផលទេ",
   "@no_product_found": {},
   "no_product_found_explanation": "ការស្វែងរករបស់អ្នកសម្រាប់\n**\"{search}\"**\nមិនត្រូវគ្នានឹងលទ្ធផលណាមួយឡើយ។",
@@ -927,7 +1026,7 @@
   },
   "product_image_outdated": "រូបភាពនេះអាចហួសសម័យហើយ",
   "product_image_outdated_explanations_title": "រូបភាពនេះអាចហួសសម័យហើយ",
-  "product_image_outdated_explanations_content": "រូបភាពនេះត្រូវបានថតជាងមួយឆ្នាំមុន។\n**សូមពិនិត្យមើលថាតើវានៅតែទាន់សម័យឬអត់**។\n\nនេះគ្រាន់តែជា **ការព្រមាន** ប៉ុណ្ណោះ។ ប្រសិនបើខ្លឹមសារនៅតែដដែល អ្នកអាចមិនអើពើនឹងសារនេះបាន។",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1175,7 +1274,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "មិនមានផលិតផលនៅក្នុងបញ្ជីនេះទេ",
   "no_product_in_section": "មិនមានផលិតផលនៅក្នុងផ្នែកនេះទេ",
   "recently_seen_products": "ផលិតផលដែលបានមើលទាំងអស់",
   "clear": "ជម្រះ",
@@ -2419,8 +2517,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "ប្រភេទ",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ស្រេចចិត្ត",
+  "prices_origins_title": "ប្រភពដើម",
   "prices_category_error_mandatory": "ប្រភេទគឺចាំបាច់",
   "prices_barcode_reader_action": "ឧបករណ៍អានបាកូដ",
   "prices_view_prices": "មើលតម្លៃ",
@@ -2609,12 +2709,15 @@
   "prices_amount_no_product": "ផលិតផលមួយបាត់ហើយ!",
   "prices_amount_price_incorrect": "តម្លៃមិនត្រឹមត្រូវ",
   "prices_amount_price_mandatory": "តម្លៃចាំបាច់",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "រូបិយប័ណ្ណ",
   "prices_date_subtitle": "កាលបរិច្ឆេទ",
   "prices_location_subtitle": "ហាង",
   "prices_location_find": "ស្វែងរកហាងមួយ",
   "prices_location_mandatory": "អ្នកត្រូវជ្រើសរើសហាងមួយ!",
   "prices_location_search_broader": "រកមិនឃើញអ្វីដែលអ្នកកំពុងស្វែងរកមែនទេ? ចូរយើងសាកល្បងស្វែងរកឱ្យកាន់តែទូលំទូលាយ!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "ភស្តុតាង",
   "prices_proof_empty_title": "មិនទាន់មានភស្តុតាងទេ!",
   "prices_proof_empty_explanation": "ចាប់ផ្តើមដោយបន្ថែមរូបថត **បង្កាន់ដៃ** ឬ **ស្លាកតម្លៃ**!",
@@ -2670,6 +2773,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "រួចរាល់",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3612,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "សូមផ្ញើអ៊ីមែលមកយើងដោយដៃទៅកាន់",
-  "email_copied_to_clip_board": "បានចម្លងអ៊ីមែលទៅក្ដារតម្បៀតខ្ទាស់ហើយ!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "ជ្រើសរើសពណ៌សង្កត់សំឡេង",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3802,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "ផលិតផល {num} អាចស្កេនបានភ្លាមៗ",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4296,6 +4408,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "ឆបគ្នា",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4420,6 +4536,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "ដកផលិតផលនេះចេញពីរង្វង់",
   "@carousel_close_tooltip": {
