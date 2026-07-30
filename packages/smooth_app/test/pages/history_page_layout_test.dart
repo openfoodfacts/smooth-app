@@ -92,6 +92,8 @@ void main() {
         );
         expect(tester, meetsGuideline(textContrastGuideline));
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
+        expect(tester, meetsGuideline(iOSTapTargetGuideline));
+        expect(tester, meetsGuideline(androidTapTargetGuideline));
       });
     }
   });
