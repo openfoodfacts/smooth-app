@@ -8,7 +8,6 @@ class MockLocalDatabase extends Mock implements LocalDatabase {
   late final UpToDateProductListProvider _upToDateProductList =
       UpToDateProductListProvider(this);
 
-  /// Needed by pages using `UpToDateProductListMixin`, e.g. the history page.
   @override
   UpToDateProductListProvider get upToDateProductList => _upToDateProductList;
 

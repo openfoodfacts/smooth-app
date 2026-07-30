@@ -22,8 +22,7 @@ void main() {
   late Directory hiveDirectory;
 
   setUpAll(() async {
-    // The history page reads its barcode list from a hive box, so the box has
-    // to exist even when it is empty.
+    // The page reads its barcodes from a hive box, which must exist even empty.
     hiveDirectory = Directory.systemTemp.createTempSync('history_page_test');
     Hive.init(hiveDirectory.path);
     final DaoProductList daoProductList = DaoProductList(MockLocalDatabase());
@@ -39,10 +38,8 @@ void main() {
   group('HistoryPage looks as expected', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
       testWidgets(theme, (WidgetTester tester) async {
-        // The default 800x600 test surface is landscape, which makes the
-        // floating action button overlap the empty state text. These values
-        // are a Pixel 9 (1080x2424 at 2.625), so the golden shows what a user
-        // actually sees.
+        // The default 800x600 surface is landscape, where the floating action
+        // button overlaps the empty state text. These are a Pixel 9's metrics.
         tester.view.physicalSize = const Size(1080, 2424);
         tester.view.devicePixelRatio = 2.625;
         addTearDown(tester.view.reset);
