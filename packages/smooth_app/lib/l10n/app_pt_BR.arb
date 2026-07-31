@@ -46,7 +46,7 @@
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
   "go_back_to_top": "Voltar ao topo",
-  "save": "Guardar",
+  "save": "Salvar",
   "save_confirmation": "Você tem certeza de que deseja salvar?",
   "skip": "Pular",
   "cancel": "Cancelar",
@@ -250,7 +250,7 @@
   "incorrect_credentials": "Nome do usuário ou senha incorretos.",
   "password_lost_incorrect_credentials": "Este endereço eletrónico ou este nome de utilizador não existe. Por favor, verifique as suas credenciais.",
   "password_lost_server_unavailable": "Estamos atualmente a sofrer lentidão nos nossos servidores e pedimos desculpa por isso. Por favor, tente novamente mais tarde.",
-  "login": "Login",
+  "login": "Entrar",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -376,7 +376,7 @@
   "sign_up_page_email_already_exists": "já existe, inicie sessão nessa conta ou tente com outro e-mail.",
   "sign_up_page_provide_valid_email": "Por favor, indique um endereço de email válido.",
   "sign_up_page_server_busy": "Pedimos desculpa, estamos com algumas dificuldades técnicas para criar a sua conta. Por favor, tente mais tarde.",
-  "settingsTitle": "Definições",
+  "settingsTitle": "Configurações",
   "@settingsTitle": {
     "description": "The title of the Settings page"
   },
