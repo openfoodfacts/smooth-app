@@ -5803,14 +5803,14 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "פרטי מקום",
   "location_map_details_name": "שם",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "רחוב",
+  "location_map_details_city": "עיר",
+  "location_map_details_postcode": "מיקוד",
   "location_map_details_country": "מדינה",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID",
+  "location_map_details_coordinates": "נקודות ציון",
+  "location_map_details_osm_id": "מזהה OSM",
   "homepage_scanner_back_to_home_button": "חזרה הביתה",
   "@homepage_scanner_back_to_home_button": {
     "description": "Button to go back to home from the scanner page"
