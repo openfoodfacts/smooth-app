@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Jméno",
   "sign_up_page_display_name_error_empty": "Zadejte zobrazované jméno, které chcete používat",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_error_empty": "E-mail je vyžadován",
   "sign_up_page_email_error_invalid": "Neplatný e-mail",
   "sign_up_page_username_hint": "Uživatelské jméno: Veřejně viditelné",
   "sign_up_page_username_error_empty": "Prosím, zadejte své uživatelské jméno",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Tento obrázek může být zastaralý",
   "product_image_outdated_explanations_title": "Tento obrázek může být zastaralý",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Tento obrázek byl pořízen před více než rokem.\n**Zkontrolujte prosím, zda je stále aktuální**.\n\nToto je **jen varování**. Pokud je obsah stále stejný, můžete tuto zprávu ignorovat.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -2709,15 +2709,15 @@
   "prices_amount_no_product": "Jeden produkt chybí!",
   "prices_amount_price_incorrect": "Nesprávná hodnota",
   "prices_amount_price_mandatory": "Povinná hodnota",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Aktualizovat měnu",
   "prices_currency_subtitle": "Měna",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Obchod",
   "prices_location_find": "Najít obchod",
   "prices_location_mandatory": "Musíte vybrat obchod!",
   "prices_location_search_broader": "Nenašli jste to, co jste hledali? Pojďme zkusit širší vyhledávání!",
-  "prices_location_open_map": "View the shop on the map",
-  "prices_location_edit": "Select another shop",
+  "prices_location_open_map": "Zobrazit obchod na mapě",
+  "prices_location_edit": "Vyberte jiný obchod",
   "prices_proof_subtitle": "Doklad",
   "prices_proof_empty_title": "Zatím žádný důkaz!",
   "prices_proof_empty_explanation": "Začněte přidáním fotografie **účtenky** nebo **cenovky**!",
@@ -3724,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Pošlete nám prosím ručně e-mail na",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail zkopírován do schránky!",
   "select_accent_color": "Vyberte barvu zvýraznění",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3914,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} produktů dostupných k okamžitému skenování",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
