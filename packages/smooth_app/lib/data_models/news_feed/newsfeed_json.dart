@@ -127,6 +127,9 @@ class _TagLineItemNewsItem {
     this.minVersion,
     this.maxVersion,
     this.style,
+    this.raised,
+    this.goal,
+    this.currency,
   });
 
   _TagLineItemNewsItem.fromJson(this.id, Map<dynamic, dynamic> json)
@@ -152,6 +155,11 @@ class _TagLineItemNewsItem {
         }
       }),
       minLaunches = json['min_launches'] is int ? json['min_launches'] : null,
+      raised = json['raised'] is num
+          ? (json['raised'] as num).toDouble()
+          : null,
+      goal = json['goal'] is num ? (json['goal'] as num).toDouble() : null,
+      currency = json['currency'] is String ? json['currency'] : null,
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
       minVersion = json['min_version'],
@@ -169,6 +177,9 @@ class _TagLineItemNewsItem {
   final String? minVersion;
   final String? maxVersion;
   final _TagLineNewsStyle? style;
+  final double? raised;
+  final double? goal;
+  final String? currency;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -204,6 +215,9 @@ class _TagLineItemNewsItem {
       minAppVersion: minVersion,
       maxAppVersion: maxVersion,
       style: style?.toTagLineStyle(),
+      raised: raised,
+      goal: goal,
+      currency: currency,
       image: translation.image?.overridesContent == true
           ? translation.image?.toTagLineImage()
           : null,
@@ -222,6 +236,9 @@ class _TagLineItemNewsItem {
     String? minVersion,
     String? maxVersion,
     _TagLineNewsStyle? style,
+    double? raised,
+    double? goal,
+    String? currency,
   }) {
     return _TagLineItemNewsItem._(
       id: id,
@@ -234,6 +251,9 @@ class _TagLineItemNewsItem {
       minVersion: minVersion ?? this.minVersion,
       maxVersion: maxVersion ?? this.maxVersion,
       style: style ?? this.style,
+      raised: raised ?? this.raised,
+      goal: goal ?? this.goal,
+      currency: currency ?? this.currency,
     );
   }
 }

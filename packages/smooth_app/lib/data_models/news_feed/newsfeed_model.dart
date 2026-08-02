@@ -42,6 +42,9 @@ class AppNewsItem {
     this.image,
     this.darkImage,
     this.style,
+    this.raised,
+    this.goal,
+    this.currency,
   });
 
   final String id;
@@ -57,10 +60,70 @@ class AppNewsItem {
   final AppNewsImage? image;
   final AppNewsImage? darkImage;
   final AppNewsStyle? style;
+  final double? raised;
+  final double? goal;
+  final String? currency;
+
+  AppNewsFunding? get funding => AppNewsFunding.tryFrom(raised, goal, currency);
+
+  int? monthsLeft(DateTime from) {
+    final DateTime? end = endDate;
+    if (end == null) {
+      return null;
+    }
+
+    final int months =
+        (end.year - from.year) * 12 +
+        end.month -
+        from.month -
+        (end.day < from.day ? 1 : 0);
+
+    return months < 0 ? 0 : months;
+  }
 
   @override
   String toString() {
-    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, minLaunches: $minLaunches, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, darkImage: $darkImage, style: $style}';
+    return 'AppNewsItem{id: $id, title: $title, message: $message, url: $url, buttonLabel: $buttonLabel, minLaunches: $minLaunches, startDate: $startDate, endDate: $endDate, minAppVersion: $minAppVersion, maxAppVersion: $maxAppVersion, image: $image, darkImage: $darkImage, style: $style, raised: $raised, goal: $goal, currency: $currency}';
+  }
+}
+
+class AppNewsFunding {
+  const AppNewsFunding._({
+    required this.raised,
+    required this.goal,
+    required this.currency,
+  });
+
+  final double raised;
+  final double goal;
+  final String currency;
+
+  static AppNewsFunding? tryFrom(
+    double? raised,
+    double? goal,
+    String? currency,
+  ) {
+    if (raised == null || goal == null || currency == null) {
+      return null;
+    }
+    if (!raised.isFinite || !goal.isFinite || raised < 0.0 || goal <= 0.0) {
+      return null;
+    }
+    if (currency.length != 3) {
+      return null;
+    }
+    return AppNewsFunding._(raised: raised, goal: goal, currency: currency);
+  }
+
+  double get ratio => raised / goal;
+
+  double get progress => ratio.clamp(0.0, 1.0);
+
+  double get shortfall => goal - raised;
+
+  @override
+  String toString() {
+    return 'AppNewsFunding{raised: $raised, goal: $goal, currency: $currency}';
   }
 }
 
