@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
@@ -10,6 +11,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -81,6 +83,13 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
                 darkImage: currentNews.darkImage,
                 dense: dense,
               ),
+              if (currentNews.funding case final AppNewsFunding funding)
+                _TagLineFundingMeter(
+                  funding: funding,
+                  monthsLeft: currentNews.monthsLeft(DateTime.now()),
+                  textColor: currentNews.style?.messageTextColor,
+                  barColor: currentNews.style?.titleIndicatorColor,
+                ),
               SizedBox(height: dense ? VERY_SMALL_SPACE : SMALL_SPACE),
               Align(
                 alignment: AlignmentDirectional.bottomEnd,
@@ -102,6 +111,103 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
   void dispose() {
     _timer?.cancel();
     super.dispose();
+  }
+}
+
+Color _messageColor(BuildContext context, Color? feedColor) {
+  if (feedColor != null) {
+    return feedColor;
+  }
+
+  final SmoothColorsThemeExtension theme = context
+      .extension<SmoothColorsThemeExtension>();
+  return context.lightTheme() ? theme.primaryBlack : theme.primaryLight;
+}
+
+class _TagLineFundingMeter extends StatelessWidget {
+  const _TagLineFundingMeter({
+    required this.funding,
+    this.monthsLeft,
+    this.textColor,
+    this.barColor,
+  });
+
+  final AppNewsFunding funding;
+  final int? monthsLeft;
+  final Color? textColor;
+  final Color? barColor;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations localizations = AppLocalizations.of(context);
+    final Color labelColor = _messageColor(context, textColor);
+    final String locale = ProductQuery.getLocaleString();
+    final NumberFormat currencyFormat = NumberFormat.simpleCurrency(
+      locale: locale,
+      name: funding.currency,
+    );
+    final String percent = NumberFormat.percentPattern(
+      locale,
+    ).format(funding.ratio);
+    final int? months = monthsLeft;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      spacing: VERY_SMALL_SPACE,
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          spacing: SMALL_SPACE,
+          children: <Widget>[
+            Flexible(
+              child: Text(
+                currencyFormat.format(funding.raised),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: labelColor,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Flexible(
+              child: Text(
+                localizations.tagline_feed_funding_progress(
+                  currencyFormat.format(funding.goal),
+                  percent,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(color: labelColor, fontSize: 13.0),
+              ),
+            ),
+          ],
+        ),
+        LinearProgressIndicator(
+          value: funding.progress,
+          // A progress bar semantics value is read against minValue 0 and
+          // maxValue 100, so it has to stay a bare number.
+          semanticsValue: (funding.ratio * 100).round().toString(),
+          minHeight: SMALL_SPACE,
+          borderRadius: MAX_BORDER_RADIUS,
+          color:
+              barColor ??
+              context.extension<SmoothColorsThemeExtension>().secondaryVibrant,
+          backgroundColor: labelColor.withValues(alpha: 0.2),
+        ),
+        if (months != null && funding.shortfall > 0.0)
+          Text(
+            localizations.tagline_feed_funding_shortfall(
+              currencyFormat.format(funding.shortfall),
+              months,
+            ),
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(color: labelColor, fontSize: 13.0),
+          ),
+      ],
+    );
   }
 }
 
@@ -134,10 +240,6 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
-
     final Widget text = TextWithBoldParts(
       text: widget.message,
 
@@ -145,11 +247,7 @@ class _TagLineContentBodyState extends State<_TagLineContentBody> {
       maxLines: widget.dense ? 500 : null,
       overflow: widget.dense ? TextOverflow.ellipsis : null,
       textStyle: TextStyle(
-        color:
-            widget.textColor ??
-            (context.lightTheme(listen: true)
-                ? theme.primaryBlack
-                : theme.primaryLight),
+        color: _messageColor(context, widget.textColor),
         fontSize: 15.0,
       ),
     );
