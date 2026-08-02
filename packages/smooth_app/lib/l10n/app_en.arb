@@ -1117,6 +1117,34 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_progress": "of {goal} · {percent}",
+  "@tagline_feed_funding_progress": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal, and the share of it already raised. Both values arrive already formatted by the app, so do not add currency symbols, digits, separators or a percent sign.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      },
+      "percent": {
+        "type": "String",
+        "example": "26%"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short · {months,plural, =0{less than a month left} =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing, and how long the campaign runs. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      },
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
