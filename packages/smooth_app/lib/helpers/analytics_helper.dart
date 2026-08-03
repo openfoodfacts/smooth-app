@@ -24,7 +24,8 @@ enum AnalyticsCategory {
   deepLink(tag: 'deep link'),
   hungerGame(tag: 'hunger game'),
   appRating(tag: 'app rating'),
-  taglineFeed(tag: 'tagline feed');
+  taglineFeed(tag: 'tagline feed'),
+  donation(tag: 'donation');
 
   const AnalyticsCategory({required this.tag});
 
@@ -161,6 +162,14 @@ enum AnalyticsEvent {
   taglineNewsClicked(
     tag: 'tagline news clicked',
     category: AnalyticsCategory.taglineFeed,
+  ),
+  donationPageOpened(
+    tag: 'donation page opened',
+    category: AnalyticsCategory.donation,
+  ),
+  donationHandoff(
+    tag: 'donation handoff',
+    category: AnalyticsCategory.donation,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
