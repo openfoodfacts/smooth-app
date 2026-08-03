@@ -11067,6 +11067,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{percent}%'**
   String percent_value(String percent);
+
+  /// Headline at the top of the donation page
+  ///
+  /// In en, this message translates to:
+  /// **'Open Food Facts is funded by the people who use it'**
+  String get donation_page_headline;
+
+  /// Title of the block listing what a donation pays for
+  ///
+  /// In en, this message translates to:
+  /// **'Where it goes'**
+  String get donation_where_it_goes_title;
+
+  /// First thing a donation pays for
+  ///
+  /// In en, this message translates to:
+  /// **'Servers and storage'**
+  String get donation_where_it_goes_servers;
+
+  /// Second thing a donation pays for
+  ///
+  /// In en, this message translates to:
+  /// **'One full-time engineer'**
+  String get donation_where_it_goes_engineer;
+
+  /// Third thing a donation pays for
+  ///
+  /// In en, this message translates to:
+  /// **'Services and tooling'**
+  String get donation_where_it_goes_services;
+
+  /// Title of the block listing the monthly donation amounts
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly, cancel any time'**
+  String get donation_tiers_title;
+
+  /// A monthly donation amount, already formatted with its currency
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} a month'**
+  String donation_tier_amount_monthly(String amount);
+
+  /// Approximate number of product scans that a monthly donation covers
+  ///
+  /// In en, this message translates to:
+  /// **'about {scans} scans'**
+  String donation_tier_scans(String scans);
+
+  /// Main button of the donation page, opens the donation form with the selected monthly amount
+  ///
+  /// In en, this message translates to:
+  /// **'Support monthly'**
+  String get donation_cta_monthly;
+
+  /// Secondary link of the donation page, opens the donation form for a single gift
+  ///
+  /// In en, this message translates to:
+  /// **'Give once instead'**
+  String get donation_cta_one_off;
 }
 
 class _AppLocalizationsDelegate
