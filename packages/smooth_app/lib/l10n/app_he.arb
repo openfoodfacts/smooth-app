@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "מזל טוב! החשבון שלך נוצר.",
   "sign_up_page_display_name_hint": "שם",
   "sign_up_page_display_name_error_empty": "נא למלא את שם התצוגה המיועד",
-  "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_hint": "דוא״ל",
+  "sign_up_page_email_error_empty": "דוא״ל הכרחי",
   "sign_up_page_email_error_invalid": "דוא״ל שגוי",
   "sign_up_page_username_hint": "שם משתמש: גלוי לציבור",
   "sign_up_page_username_error_empty": "נא למלא שם משתמש",
@@ -539,7 +539,7 @@
   "myPreferences_profile_subtitle": "ניהול חשבון התרומה שלך ב־Open Food Facts.",
   "myPreferences_settings_title": "הגדרות היישומון",
   "myPreferences_settings_subtitle": "מצב כהה, שפות…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "לא הגדרת העדפה עדיין.",
   "myPreferences_food_title": "העדפות מזון",
   "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
   "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
@@ -3724,7 +3724,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "נא לשלוח לנו הודעה ידנית בדוא״ל אל",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "כתובת הדוא״ל הועתקה ללוח הגזירים!",
   "select_accent_color": "בחירת צבע נושא",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3914,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} מוצרים זמינים לסריקה מיידית",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4290,13 +4290,13 @@
   },
   "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_how_arg1_title": "לאסוף תמונות של תוויות מחיר במעברים",
+  "guide_open_prices_how_arg2_title": "לאסוף תמונות של קבלות",
+  "guide_open_prices_why_title": "למה מיזם Open Food Facts עושה את זה?",
   "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
   "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
   "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
+  "guide_open_prices_why_arg2_title": "השוואת מחירים בסביבה שלך",
   "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
   "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
   "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
@@ -4304,7 +4304,7 @@
   "guide_open_prices_retailers_title": "אני קמעונאי ואני רוצה לתרום מחירים. איך אפשר לעשות את זה?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "ברוך בואך ל־Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4319,9 +4319,9 @@
   },
   "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
+  "guide_open_products_facts_features_arg1_title": "טביעות רגל פחמניות עבור מוצרים מסוימים",
   "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
-  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
+  "guide_open_products_facts_features_arg2_title": "מדד תיקון עבור מוצרים רבים",
   "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
   "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
   "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
@@ -4333,7 +4333,7 @@
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
   "guide_open_products_facts_share_link": "https://world-he.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
+  "guide_coming_soon_button_title": "בקרוב",
   "guide_learn_more_subtitle": "Tap to learn more",
   "preview_badge": "תצוגה מקדימה",
   "@preview_badge": {
@@ -4408,7 +4408,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "הצגת התמונה המקורית",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
@@ -4537,7 +4537,7 @@
       }
     }
   },
-  "barcode_probably_invalid": "Probably invalid barcode",
+  "barcode_probably_invalid": "כנראה ברקוד שגוי",
   "@barcode_probably_invalid": {
     "description": "Warning message. Keep it short."
   },
@@ -4987,7 +4987,7 @@
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "שאלה נענתה!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
