@@ -158,10 +158,8 @@ class _TagLineFundingMeter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: VERY_SMALL_SPACE,
       children: <Widget>[
-        // A Wrap rather than a Row: both cells size to their content and the
-        // slack goes between them, but a long locale or a large textScaler
-        // moves the goal onto its own full-width line instead of clipping an
-        // amount at half the card.
+        // A Wrap, not a Row: a long locale or a large textScaler moves the goal
+        // onto its own line instead of clipping an amount at half the card.
         Wrap(
           alignment: WrapAlignment.spaceBetween,
           crossAxisAlignment: WrapCrossAlignment.end,
