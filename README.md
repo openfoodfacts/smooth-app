@@ -32,7 +32,7 @@
   ** ([App Store](https://testflight.apple.com/join/c2tiBHgd)) if you'd like to use the results of
   your PRs quicker.
 
-<img alt="app showcase" height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png" align="left" hspace="1" vspace="1">
+<img alt="app showcase" height='175' src="https://user-images.githubusercontent.com/1689815/168430524-3adc923a-1ce3-4233-9af5-02e9d49a76ca.png">
 
 - Smooth-app is developed in parallel to
   the [openfoodfacts-dart](https://github.com/openfoodfacts/openfoodfacts-dart) plugin, which
@@ -111,15 +111,15 @@ Full list of features on the wiki: https://wiki.openfoodfacts.org/Mobile_App/Fea
 
 - Make sure you have installed Flutter and all the requirements
     - [Official Flutter installation guide](https://docs.flutter.dev/get-started/install)
-- Currently, the app uses the following version of Flutter: **3.41.8**.
+- Currently, the app uses the following version of Flutter: **3.44.8**.
 - **Setting Up Your Environment with FVM**
     - To manage Flutter versions easily, download and install **FVM (Flutter Version Management)**:
         - Install FVM by following
           the [official FVM installation guide](https://fvm.app/documentation/getting-started/installation).
-        - Once FVM is installed, run the following commands to set Flutter to version 3.41.8:
+        - Once FVM is installed, run the following commands to set Flutter to version 3.44.8:
           ```bash
-          fvm install 3.41.8
-          fvm use 3.41.8
+          fvm install 3.44.8
+          fvm use 3.44.8
           ```
         - Verify the Flutter version with:
           ```bash

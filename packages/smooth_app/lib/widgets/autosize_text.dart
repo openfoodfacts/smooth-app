@@ -11,8 +11,7 @@ import 'package:flutter/widgets.dart';
 /// It can be grouped with other [AutoSizeText] widgets using
 /// an [AutoSizeGroup] to synchronize their font sizes.
 class AutoSizeText extends StatefulWidget {
-  const AutoSizeText(
-    this.text, {
+  const AutoSizeText(this.text, {
     this.style,
     this.minFontSize = 8.0,
     this.maxFontSize = double.infinity,
@@ -22,13 +21,14 @@ class AutoSizeText extends StatefulWidget {
     this.overflow,
     this.group,
     super.key,
-  }) : assert(minFontSize > 0.0),
-       assert(maxFontSize >= minFontSize),
-       assert(maxLines == null || maxLines > 0),
-       assert(
-         overflow == null || maxLines != null,
-         'Overflow can only be specified if maxLines is also specified.',
-       );
+  })
+      : assert(minFontSize > 0.0),
+        assert(maxFontSize >= minFontSize),
+        assert(maxLines == null || maxLines > 0),
+        assert(
+        overflow == null || maxLines != null,
+        'Overflow can only be specified if maxLines is also specified.',
+        );
 
   final String text;
   final TextStyle? style;
@@ -73,13 +73,16 @@ class _AutoSizeTextState extends State<AutoSizeText> {
   Widget build(BuildContext context) {
     final double? groupFontSize = widget.group?._fontSize;
     final double? effectiveGroupFontSize =
-        (groupFontSize != null && groupFontSize != double.infinity)
+    (groupFontSize != null && groupFontSize != double.infinity)
         ? groupFontSize
         : null;
 
     return _AutoSizeTextRenderWidget(
       text: widget.text,
-      style: DefaultTextStyle.of(context).style.merge(widget.style),
+      style: DefaultTextStyle
+          .of(context)
+          .style
+          .merge(widget.style),
       minFontSize: widget.minFontSize,
       maxFontSize: widget.maxFontSize,
       textAlign: widget.textAlign ?? TextAlign.start,
@@ -147,43 +150,33 @@ class _AutoSizeTextRenderWidget extends LeafRenderObjectWidget {
       );
 
   @override
-  void updateRenderObject(
-    BuildContext context,
-    _AutoSizeTextRenderBox renderObject,
-  ) => renderObject
-    ..text = text
-    ..style = style
-    ..minFontSize = minFontSize
-    ..maxFontSize = maxFontSize
-    ..textAlign = textAlign
-    ..textDirection = textDirection
-    ..maxLines = maxLines
-    ..groupFontSize = groupFontSize
-    ..onFontSizeCalculated = onFontSizeCalculated;
+  void updateRenderObject(BuildContext context,
+      _AutoSizeTextRenderBox renderObject,) =>
+      renderObject
+        ..text = text
+        ..style = style
+        ..minFontSize = minFontSize
+        ..maxFontSize = maxFontSize
+        ..textAlign = textAlign
+        ..textDirection = textDirection
+        ..maxLines = maxLines
+        ..groupFontSize = groupFontSize
+        ..onFontSizeCalculated = onFontSizeCalculated;
 }
 
 class _AutoSizeTextRenderBox extends RenderBox {
   _AutoSizeTextRenderBox({
-    required String text,
-    required TextStyle style,
-    required double minFontSize,
-    required double maxFontSize,
-    required TextAlign textAlign,
-    required TextDirection textDirection,
-    required TextScaler textScaler,
-    required ValueChanged<double> onFontSizeCalculated,
-    int? maxLines,
-    double? groupFontSize,
-  }) : _text = text,
-       _style = style,
-       _minFontSize = minFontSize,
-       _maxFontSize = maxFontSize,
-       _textAlign = textAlign,
-       _textDirection = textDirection,
-       _textScaler = textScaler,
-       _maxLines = maxLines,
-       _groupFontSize = groupFontSize,
-       _onFontSizeCalculated = onFontSizeCalculated;
+    required this._text,
+    required this._style,
+    required this._minFontSize,
+    required this._maxFontSize,
+    required this._textAlign,
+    required this._textDirection,
+    required this._textScaler,
+    required this._onFontSizeCalculated,
+    this._maxLines,
+    this._groupFontSize,
+  });
 
   String _text;
   TextStyle _style;
@@ -362,20 +355,21 @@ class _AutoSizeTextRenderBox extends RenderBox {
   /// Check if the text fits within the given constraints
   bool _textFits(TextPainter painter, BoxConstraints constraints) =>
       painter.width <= constraints.maxWidth &&
-      painter.height <= constraints.maxHeight &&
-      !painter.didExceedMaxLines;
+          painter.height <= constraints.maxHeight &&
+          !painter.didExceedMaxLines;
 
-  TextPainter _createTextPainter(double fontSize) => TextPainter(
-    text: TextSpan(
-      text: _text,
-      style: _style.copyWith(fontSize: fontSize),
-    ),
-    textAlign: _textAlign,
-    textDirection: _textDirection,
-    textScaler: _textScaler,
-    maxLines: _maxLines,
-    ellipsis: _maxLines != null ? '…' : null,
-  );
+  TextPainter _createTextPainter(double fontSize) =>
+      TextPainter(
+        text: TextSpan(
+          text: _text,
+          style: _style.copyWith(fontSize: fontSize),
+        ),
+        textAlign: _textAlign,
+        textDirection: _textDirection,
+        textScaler: _textScaler,
+        maxLines: _maxLines,
+        ellipsis: _maxLines != null ? '…' : null,
+      );
 
   @override
   void paint(PaintingContext context, Offset offset) {
@@ -383,7 +377,7 @@ class _AutoSizeTextRenderBox extends RenderBox {
     if (_textAlign == TextAlign.center) {
       translationX = (size.width - _textPainter!.width) / 2;
     } else if ((_textDirection == TextDirection.ltr &&
-            _textAlign == TextAlign.right) ||
+        _textAlign == TextAlign.right) ||
         (_textDirection == TextDirection.rtl && _textAlign == TextAlign.left) ||
         _textAlign == TextAlign.end) {
       translationX = size.width - _textPainter!.width;
@@ -409,7 +403,7 @@ class AutoSizeGroup {
   AutoSizeGroup();
 
   final Map<_AutoSizeTextState, double> _listeners =
-      <_AutoSizeTextState, double>{};
+  <_AutoSizeTextState, double>{};
   bool _widgetsNotified = false;
   double _fontSize = double.infinity;
 

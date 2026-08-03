@@ -143,12 +143,7 @@ class AppNewsFeed {
 }
 
 class AppNewsFeedItem {
-  const AppNewsFeedItem({
-    required this.news,
-    DateTime? startDate,
-    DateTime? endDate,
-  }) : _startDate = startDate,
-       _endDate = endDate;
+  const AppNewsFeedItem({required this.news, this._startDate, this._endDate});
 
   final AppNewsItem news;
   final DateTime? _startDate;

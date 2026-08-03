@@ -47,24 +47,22 @@ class SimpleInputList extends StatelessWidget {
             initialItemCount: localTerms.length,
             padding: EdgeInsets.zero,
             itemBuilder:
-                (
-                  BuildContext context,
-                  int position,
-                  Animation<double> animation,
-                ) {
-                  return KeyedSubtree(
-                    key: ValueKey<String>(localTerms[position]),
-                    child: SizeTransition(
-                      sizeFactor: animation,
-                      child: Padding(
-                        padding: const EdgeInsetsDirectional.symmetric(
-                          horizontal: SMALL_SPACE,
-                        ),
-                        child: _getItem(context, localTerms, position),
-                      ),
+                (BuildContext context,
+                int position,
+                Animation<double> animation,) {
+              return KeyedSubtree(
+                key: ValueKey<String>(localTerms[position]),
+                child: SizeTransition(
+                  sizeFactor: animation,
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: SMALL_SPACE,
                     ),
-                  );
-                },
+                    child: _getItem(context, localTerms, position),
+                  ),
+                ),
+              );
+            },
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
           ),
@@ -82,7 +80,7 @@ class SimpleInputList extends StatelessWidget {
         );
       },
       itemCount: localTerms.length,
-      onReorder: (int oldIndex, int newIndex) {
+      onReorderItem: (int oldIndex, int newIndex) {
         if (oldIndex < newIndex) {
           newIndex--;
         }
@@ -132,10 +130,8 @@ class SimpleInputList extends StatelessWidget {
       final int position = localTerms.indexOf(term);
       if (position >= 0) {
         localTerms.removeAt(position);
-        listKey.currentState?.removeItem(position, (
-          _,
-          Animation<double> animation,
-        ) {
+        listKey.currentState?.removeItem(position, (_,
+            Animation<double> animation,) {
           return FadeTransition(
             opacity: animation,
             child: SizeTransition(

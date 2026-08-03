@@ -4,10 +4,10 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 
 class FoodPreferencesController extends ChangeNotifier {
   FoodPreferencesController({
-    required List<AttributeGroup> attributeGroups,
+    required this._attributeGroups,
     this.showIntroduction = true,
     this.showSummary = true,
-  }) : _attributeGroups = attributeGroups {
+  }) {
     _pageController = PageController();
   }
 
@@ -36,7 +36,9 @@ class FoodPreferencesController extends ChangeNotifier {
   }
 
   bool get isFirstPage => _currentPageIndex == 0;
+
   bool get isLastPage => _currentPageIndex == pageCount - 1;
+
   double get progress => pageCount > 0 ? (currentPageIndex + 1) / pageCount : 0;
 
   bool get isIntroductionPage => showIntroduction && _currentPageIndex == 0;

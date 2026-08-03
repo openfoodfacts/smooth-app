@@ -1,4 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -37,7 +36,7 @@ class HomePageCameraView extends StatefulWidget {
 class _HomePageCameraViewState extends State<HomePageCameraView> {
   /// A [Stream] for the [HomePageCameraOverlay]
   final StreamController<DetectedBarcode> _barcodeStream =
-      StreamController<DetectedBarcode>();
+  StreamController<DetectedBarcode>();
 
   @override
   Widget build(BuildContext context) {
@@ -52,11 +51,13 @@ class _HomePageCameraViewState extends State<HomePageCameraView> {
               overlayBuilder: (_, _) =>
                   HomePageCameraOverlay(barcodes: _barcodeStream.stream),
               controller: widget.controller._controller,
-              placeholderBuilder: (_, _) =>
-                  const SizedBox.expand(child: ColoredBox(color: Colors.black)),
+              placeholderBuilder: (_) =>
+              const SizedBox.expand(child: ColoredBox(color: Colors.black)),
               onDetect: (BarcodeCapture capture) {
                 // Only pass if the camera is fully visible and the sheet is not visible and/or scrolled
-                if (HomePage.of(context).isCameraFullyVisible) {
+                if (HomePage
+                    .of(context)
+                    .isCameraFullyVisible) {
                   final String barcode = capture.barcodes.first.rawValue!;
                   context.read<ContinuousScanModel>().onScan(barcode);
                 }
@@ -140,7 +141,7 @@ class _MessageOverlay extends StatelessWidget {
                 ScannedProductState.CACHED => _buildFoundCard(model),
                 ScannedProductState.LOADING => _buildLoadingCard(model),
                 ScannedProductState.FOUND_BUT_CONSIDERED_AS_NOT_FOUND =>
-                  _buildNotFoundCard(model),
+                    _buildNotFoundCard(model),
                 ScannedProductState.NOT_FOUND => _buildNotFoundCard(model),
                 ScannedProductState.ERROR_INTERNET => _buildErrorCard(model),
                 _ => EMPTY_WIDGET,
@@ -209,9 +210,8 @@ class _OpaqueOverlay extends StatelessWidget {
 }
 
 class CustomScannerController {
-  CustomScannerController({required MobileScannerController controller})
-    : _controller = controller,
-      _torchState = _TorchState() {
+  CustomScannerController({required this._controller})
+      : _torchState = _TorchState() {
     _detectTorch();
   }
 
