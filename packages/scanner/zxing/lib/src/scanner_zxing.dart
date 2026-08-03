@@ -18,11 +18,11 @@ class ScannerZXing extends Scanner {
     required Future<void> Function() hapticFeedback,
     required Function(BuildContext)? onCameraFlashError,
     required Function(
-        String msg,
-        String category, {
-        int? eventValue,
-        String? barcode,
-        })
+      String msg,
+      String category, {
+      int? eventValue,
+      String? barcode,
+    })
     trackCustomEvent,
     required bool hasMoreThanOneCamera,
     required Widget barcodeScannerIcon,
@@ -81,21 +81,19 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
 
 class _SmoothBarcodeScannerZXingState
     extends State<_SmoothBarcodeScannerZXing> {
-
   @override
-  Widget build(BuildContext context) =>
-      VisibilityDetector(
-        key: const ValueKey<String>('VisibilityDetector'),
-        onVisibilityChanged: (final VisibilityInfo info) {},
-        child: Stack(
-          children: <Widget>[
-            Center(
-              child: SmoothBarcodeScannerVisor(
-                icon: widget.barcodeScannerIcon,
-                contentPadding: widget.contentPadding,
-              ),
-            ),
-          ],
+  Widget build(BuildContext context) => VisibilityDetector(
+    key: const ValueKey<String>('VisibilityDetector'),
+    onVisibilityChanged: (final VisibilityInfo info) {},
+    child: Stack(
+      children: <Widget>[
+        Center(
+          child: SmoothBarcodeScannerVisor(
+            icon: widget.barcodeScannerIcon,
+            contentPadding: widget.contentPadding,
+          ),
         ),
-      );
+      ],
+    ),
+  );
 }
