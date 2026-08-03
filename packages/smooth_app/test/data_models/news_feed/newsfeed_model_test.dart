@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 
@@ -92,6 +94,30 @@ void main() {
 
     test('is absent without the fields', () {
       expect(_newsItem().funding, isNull);
+    });
+  });
+
+  group('AppNewsStyle.fromHex', () {
+    test('keeps a feed colour opaque', () {
+      final AppNewsStyle style = AppNewsStyle.fromHex(
+        messageTextColor: '#123456',
+        titleIndicatorColor: '#FFFFFF',
+      );
+
+      expect(style.messageTextColor, const Color(0xFF123456));
+      expect(style.titleIndicatorColor, const Color(0xFFFFFFFF));
+    });
+
+    test('ignores a value it cannot read', () {
+      expect(AppNewsStyle.fromHex().messageTextColor, isNull);
+      expect(
+        AppNewsStyle.fromHex(messageTextColor: '123456').messageTextColor,
+        isNull,
+      );
+      expect(
+        AppNewsStyle.fromHex(messageTextColor: '#GGGGGG').messageTextColor,
+        isNull,
+      );
     });
   });
 

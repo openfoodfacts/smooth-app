@@ -170,7 +170,8 @@ class AppNewsStyle {
     if (hex == null || hex.length != 7) {
       return null;
     }
-    return Color(int.parse(hex.substring(1), radix: 16));
+    final int? rgb = int.tryParse(hex.substring(1), radix: 16);
+    return rgb == null ? null : Color(0xFF000000 | rgb);
   }
 
   @override
