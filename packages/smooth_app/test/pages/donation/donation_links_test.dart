@@ -84,7 +84,10 @@ void main() {
     });
 
     test('does not match the other items live in the feed', () {
-      expect(isDonationNewsItem(_newsItem('nutriscore_petition_2025')), isFalse);
+      expect(
+        isDonationNewsItem(_newsItem('nutriscore_petition_2025')),
+        isFalse,
+      );
       expect(
         isDonationNewsItem(_newsItem('openprices_challenge_01_06')),
         isFalse,
