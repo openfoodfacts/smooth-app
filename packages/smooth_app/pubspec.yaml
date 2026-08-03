@@ -100,8 +100,8 @@ dependencies:
   scanner_ml_kit:
     path: ../scanner/ml_kit
 
-  #scanner_zxing:
-  #  path: ../scanner/zxing
+  scanner_zxing:
+    path: ../scanner/zxing
 
   openfoodfacts: 3.30.2
   # openfoodfacts:

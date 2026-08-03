@@ -1399,6 +1399,13 @@ packages:
       relative: true
     source: path
     version: "1.0.0"
+  scanner_zxing:
+    dependency: "direct main"
+    description:
+      path: "../scanner/zxing"
+      relative: true
+    source: path
+    version: "1.0.0"
   sentry:
     dependency: transitive
     description:
