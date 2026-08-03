@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -30,12 +31,13 @@ AppNewsItem _newsItem({
   double? goal,
   String? currency,
   AppNewsStyle? style,
+  DateTime? endDate,
 }) => AppNewsItem(
   id: 'donation_campaign_2026',
   title: 'Our application needs you!',
   message: 'Help us inform millions of consumers on what they eat!',
   url: 'https://world.openfoodfacts.org/donate-to-open-food-facts',
-  endDate: _fiveMonthsFromNow(),
+  endDate: endDate ?? _fiveMonthsFromNow(),
   raised: raised,
   goal: goal,
   currency: currency,
@@ -45,8 +47,9 @@ AppNewsItem _newsItem({
 Future<void> _pumpCard(
   WidgetTester tester,
   String theme,
-  AppNewsItem item,
-) async {
+  AppNewsItem item, {
+  double? textScaler,
+}) async {
   tester.view.physicalSize = const Size(1080, 2424);
   tester.view.devicePixelRatio = 2.625;
   addTearDown(tester.view.reset);
@@ -73,6 +76,19 @@ Future<void> _pumpCard(
   ProductQuery.setLanguage(null, userPreferences, languageCode: 'en');
   await ProductQuery.setCountry(userPreferences, 'fr');
 
+  final Widget cardWidget = ScanNewsCard(news: <AppNewsItem>[item]);
+  final double? scaler = textScaler;
+  final Widget card = scaler == null
+      ? cardWidget
+      : Builder(
+          builder: (BuildContext context) => MediaQuery(
+            data: MediaQuery.of(
+              context,
+            ).copyWith(textScaler: TextScaler.linear(scaler)),
+            child: cardWidget,
+          ),
+        );
+
   await tester.pumpWidget(
     MockSmoothApp(
       userPreferences,
@@ -83,9 +99,7 @@ Future<void> _pumpCard(
       ColorProvider(userPreferences),
       Provider<ScanBottomCardDensity>.value(
         value: ScanBottomCardDensity.dense,
-        child: SingleChildScrollView(
-          child: ScanNewsCard(news: <AppNewsItem>[item]),
-        ),
+        child: SingleChildScrollView(child: card),
       ),
       localDatabase: MockLocalDatabase(),
     ),
@@ -104,6 +118,8 @@ void main() {
         );
 
         expect(find.byType(LinearProgressIndicator), findsOneWidget);
+        // The goldens draw text as boxes, so whole euros need their own pin.
+        expect(find.textContaining('.47'), findsNothing);
 
         await expectGoldenMatches(
           find.byType(ScanNewsCard),
@@ -130,6 +146,56 @@ void main() {
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
       });
     }
+  });
+
+  // The goldens cannot catch this: an amount clipped at record time is baked
+  // into the PNG as the expected render.
+  group('The funding amounts are not clipped', () {
+    for (final double scaler in <double>[1.3, 2.0]) {
+      testWidgets('at a text scale of $scaler', (WidgetTester tester) async {
+        await _pumpCard(
+          tester,
+          'Light',
+          _newsItem(raised: 44059.47, goal: 170000.0, currency: 'EUR'),
+          textScaler: scaler,
+        );
+
+        final Iterable<RenderParagraph> amounts = tester
+            .renderObjectList<RenderParagraph>(
+              find.descendant(
+                of: find.byType(Wrap),
+                matching: find.byType(RichText),
+              ),
+            );
+
+        expect(amounts.length, 2);
+        for (final RenderParagraph amount in amounts) {
+          expect(
+            amount.didExceedMaxLines,
+            isFalse,
+            reason: amount.text.toPlainText(),
+          );
+        }
+      });
+    }
+  });
+
+  testWidgets('A deadline beyond a year is not shown as time left', (
+    WidgetTester tester,
+  ) async {
+    await _pumpCard(
+      tester,
+      'Light',
+      _newsItem(
+        raised: 44059.47,
+        goal: 170000.0,
+        currency: 'EUR',
+        endDate: DateTime(DateTime.now().year + 2, 1, 31),
+      ),
+    );
+
+    expect(find.textContaining('short'), findsOneWidget);
+    expect(find.textContaining('left'), findsNothing);
   });
 
   testWidgets('The feed style drives the meter colours', (

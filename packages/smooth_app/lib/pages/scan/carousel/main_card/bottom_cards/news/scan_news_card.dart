@@ -145,6 +145,7 @@ class _TagLineFundingMeter extends StatelessWidget {
     final NumberFormat currencyFormat = NumberFormat.simpleCurrency(
       locale: locale,
       name: funding.currency,
+      decimalDigits: 0,
     );
     final String percent = NumberFormat.percentPattern(
       locale,
@@ -152,35 +153,39 @@ class _TagLineFundingMeter extends StatelessWidget {
     final int? months = monthsLeft;
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      // stretch, so the Wrap below spans the card and its two cells can sit at
+      // the two edges the way the design does.
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: VERY_SMALL_SPACE,
       children: <Widget>[
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // A Wrap rather than a Row: both cells size to their content and the
+        // slack goes between them, but a long locale or a large textScaler
+        // moves the goal onto its own full-width line instead of clipping an
+        // amount at half the card.
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.end,
           spacing: SMALL_SPACE,
+          runSpacing: VERY_SMALL_SPACE,
           children: <Widget>[
-            Flexible(
-              child: Text(
-                currencyFormat.format(funding.raised),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: labelColor,
-                  fontSize: 18.0,
-                  fontWeight: FontWeight.bold,
-                ),
+            Text(
+              currencyFormat.format(funding.raised),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: labelColor,
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            Flexible(
-              child: Text(
-                localizations.tagline_feed_funding_progress(
-                  currencyFormat.format(funding.goal),
-                  percent,
-                ),
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: labelColor, fontSize: 13.0),
+            Text(
+              localizations.tagline_feed_funding_progress(
+                currencyFormat.format(funding.goal),
+                percent,
               ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(color: labelColor, fontSize: 13.0),
             ),
           ],
         ),
@@ -198,9 +203,12 @@ class _TagLineFundingMeter extends StatelessWidget {
         ),
         if (months != null && funding.shortfall > 0.0)
           Text(
+            // endDate marks when the feed stops serving the item, not the
+            // campaign deadline, so a span no campaign would run reads as 0 and
+            // leaves only the amount.
             localizations.tagline_feed_funding_shortfall(
               currencyFormat.format(funding.shortfall),
-              months,
+              months > 12 ? 0 : months,
             ),
             maxLines: 2,
             overflow: TextOverflow.ellipsis,

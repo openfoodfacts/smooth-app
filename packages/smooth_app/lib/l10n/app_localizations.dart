@@ -2765,10 +2765,10 @@ abstract class AppLocalizations {
   /// **'of {goal} · {percent}'**
   String tagline_feed_funding_progress(String goal, String percent);
 
-  /// Third line of the home news card when a funding campaign publishes its figures: how much money is still missing, and how long the campaign runs. The amount arrives already formatted by the app.
+  /// Third line of the home news card when a funding campaign publishes its figures: how much money is still missing, and how long the campaign runs. The amount arrives already formatted by the app. The app passes 0 months when it has no meaningful deadline to show, so that case is deliberately empty and only the amount is displayed.
   ///
   /// In en, this message translates to:
-  /// **'{shortfall} short · {months,plural, =0{less than a month left} =1{one month left} other{{months} months left}}'**
+  /// **'{shortfall} short{months,plural, =0{} =1{ · one month left} other{ · {months} months left}}'**
   String tagline_feed_funding_shortfall(String shortfall, int months);
 
   /// No description provided for @app_review_negative_modal_title.
