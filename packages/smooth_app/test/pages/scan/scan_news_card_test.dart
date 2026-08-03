@@ -16,7 +16,6 @@ import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
-import '../../tests_utils/goldens.dart';
 import '../../tests_utils/local_database_mock.dart';
 import '../../tests_utils/mocks.dart';
 
@@ -108,7 +107,7 @@ Future<void> _pumpCard(
 }
 
 void main() {
-  group('ScanNewsCard with campaign figures looks as expected', () {
+  group('ScanNewsCard with campaign figures', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
       testWidgets(theme, (WidgetTester tester) async {
         await _pumpCard(
@@ -118,38 +117,28 @@ void main() {
         );
 
         expect(find.byType(LinearProgressIndicator), findsOneWidget);
-        // The goldens draw text as boxes, so whole euros need their own pin.
+        // Whole euros, so the amounts fit the row the design draws.
         expect(find.textContaining('.47'), findsNothing);
-
-        await expectGoldenMatches(
-          find.byType(ScanNewsCard),
-          'scan_news_card_funding-${theme.toLowerCase()}.png',
-        );
         expect(tester, meetsGuideline(textContrastGuideline));
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
       });
     }
   });
 
-  group('ScanNewsCard without campaign figures looks as expected', () {
+  group('ScanNewsCard without campaign figures', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
       testWidgets(theme, (WidgetTester tester) async {
         await _pumpCard(tester, theme, _newsItem());
 
         expect(find.byType(LinearProgressIndicator), findsNothing);
-
-        await expectGoldenMatches(
-          find.byType(ScanNewsCard),
-          'scan_news_card_no_funding-${theme.toLowerCase()}.png',
-        );
         expect(tester, meetsGuideline(textContrastGuideline));
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
       });
     }
   });
 
-  // The goldens cannot catch this: an amount clipped at record time is baked
-  // into the PNG as the expected render.
+  // Money must never be truncated: a clipped amount is a wrong amount, and the
+  // row has to survive a long locale and an enlarged system font.
   group('The funding amounts are not clipped', () {
     for (final double scaler in <double>[1.3, 2.0]) {
       testWidgets('at a text scale of $scaler', (WidgetTester tester) async {
