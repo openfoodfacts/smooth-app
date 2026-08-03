@@ -51,25 +51,14 @@ class SmoothDraggableBottomSheetState
   Widget build(BuildContext context) {
     final Color backgroundColor =
         widget.bottomSheetColor ??
-            Theme
-                .of(context)
-                .bottomSheetTheme
-                .backgroundColor ??
-            Theme
-                .of(context)
-                .scaffoldBackgroundColor;
-    final double bottomPaddingHeight = MediaQuery
-        .paddingOf(context)
-        .bottom;
+        Theme.of(context).bottomSheetTheme.backgroundColor ??
+        Theme.of(context).scaffoldBackgroundColor;
+    final double bottomPaddingHeight = MediaQuery.paddingOf(context).bottom;
 
     // Fix keyboard glitch
     final double keyboardFraction =
-        MediaQuery
-            .viewInsetsOf(context)
-            .bottom /
-            MediaQuery
-                .sizeOf(context)
-                .height;
+        MediaQuery.viewInsetsOf(context).bottom /
+        MediaQuery.sizeOf(context).height;
 
     return ChangeNotifierProvider<DraggableScrollableController>(
       create: (_) => _controller,
@@ -84,7 +73,7 @@ class SmoothDraggableBottomSheetState
                   minChildSize: widget.minHeightFraction ?? 0.0,
                   maxChildSize: widget.maxHeightFraction,
                   initialChildSize:
-                  widget.initHeightFraction + keyboardFraction,
+                      widget.initHeightFraction + keyboardFraction,
                   snap: true,
                   controller: _controller,
                   builder: (BuildContext context, ScrollController controller) {
@@ -106,9 +95,7 @@ class SmoothDraggableBottomSheetState
                                 : widget.initHeightFraction,
                             scrollController: controller,
                             cacheExtent: _calculateCacheExtent(
-                              MediaQuery
-                                  .viewInsetsOf(context)
-                                  .bottom,
+                              MediaQuery.viewInsetsOf(context).bottom,
                             ),
                           ),
                         ),
@@ -223,7 +210,7 @@ class _SmoothDraggableContentState extends State<_SmoothDraggableContent> {
 /// A fixed header
 class _SliverHeader extends SliverPersistentHeaderDelegate {
   _SliverHeader({required this.child, required this.height})
-      : assert(height > 0.0);
+    : assert(height > 0.0);
 
   final Widget child;
   final double height;

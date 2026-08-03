@@ -20,18 +20,17 @@ class PriceModel with ChangeNotifier {
     required this.multipleProducts,
     final PriceMetaProduct? initialProduct,
     this._readyForPriceTagValidation = false,
-  })
-      : _proof = null,
-        existingPrices = null,
-        _date = DateTime.now(),
-        _priceAmountModels = <PriceAmountModel>[
-          if (initialProduct != null) PriceAmountModel(product: initialProduct),
-        ];
+  }) : _proof = null,
+       existingPrices = null,
+       _date = DateTime.now(),
+       _priceAmountModels = <PriceAmountModel>[
+         if (initialProduct != null) PriceAmountModel(product: initialProduct),
+       ];
 
   PriceModel.proof({required Proof proof, this.existingPrices})
-      : multipleProducts = true,
-        _readyForPriceTagValidation = false,
-        _priceAmountModels = <PriceAmountModel>[] {
+    : multipleProducts = true,
+      _readyForPriceTagValidation = false,
+      _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
   }
 
@@ -90,13 +89,13 @@ class PriceModel with ChangeNotifier {
   /// Sometimes we get partial data from the Prices server.
   static bool isProofNotGoodEnough(final Proof proof) =>
       proof.currency == null ||
-          proof.date == null ||
-          proof.type == null ||
-          proof.location == null ||
-          proof.locationOSMId == null ||
-          proof.locationOSMType == null ||
-          proof.imageThumbPath == null ||
-          proof.filePath == null;
+      proof.date == null ||
+      proof.type == null ||
+      proof.location == null ||
+      proof.locationOSMId == null ||
+      proof.locationOSMType == null ||
+      proof.imageThumbPath == null ||
+      proof.filePath == null;
 
   bool get hasImage => _proof != null || _cropParameters != null;
 
@@ -169,10 +168,9 @@ class PriceModel with ChangeNotifier {
     notifyListeners();
   }
 
-  OsmLocation? get location =>
-      proof?.location?.osmId != null
-          ? OsmLocation.fromPrice(proof!.location!)
-          : _location;
+  OsmLocation? get location => proof?.location?.osmId != null
+      ? OsmLocation.fromPrice(proof!.location!)
+      : _location;
 
   late Currency _currency;
 
@@ -214,7 +212,8 @@ class PriceModel with ChangeNotifier {
   }
 
   /// Adds the related background task.
-  Future<void> addTask(final BuildContext context, {
+  Future<void> addTask(
+    final BuildContext context, {
     required final bool displaySnackbar,
   }) async {
     final List<String> barcodes = <String>[];
