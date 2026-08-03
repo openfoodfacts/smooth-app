@@ -153,7 +153,10 @@ class _WhereItGoesRow extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: MEDIUM_SPACE,
-      children: <Widget>[icon, Expanded(child: Text(label))],
+      children: <Widget>[
+        icon,
+        Expanded(child: Text(label)),
+      ],
     );
   }
 }
@@ -227,12 +230,13 @@ class _TierRow extends StatelessWidget {
           child: DecoratedBox(
             decoration: BoxDecoration(
               borderRadius: ROUNDED_BORDER_RADIUS,
-              // Transparent rather than absent, so selecting does not move the
-              // rest of the list.
+              // Every row is outlined so all three read as pickable; only the
+              // opacity moves, so selecting never shifts the list.
               border: Border.all(
-                color: selected
-                    ? Theme.of(context).colorScheme.primary
-                    : Colors.transparent,
+                width: 2.0,
+                color: Theme.of(
+                  context,
+                ).colorScheme.primary.withValues(alpha: selected ? 1.0 : 0.25),
               ),
             ),
             child: PreferenceTile(
