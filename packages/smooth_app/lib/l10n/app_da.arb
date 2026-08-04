@@ -3979,7 +3979,7 @@
   "nutriscore_unknown_new_formula": "Ukendt Nutri-Score (Ny beregning)",
   "nutriscore_not_applicable": "Nutri-Score er ikke tilgængeligt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke tilgængeligt (Ny beregning)",
-  "environmental_score_generic_new": "Øko-Score",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Grøn-Score A",
   "environmental_score_b_new": "Grøn-Score B",
   "environmental_score_c_new": "Grøn-Score C",
@@ -4080,7 +4080,7 @@
   "guide_nutriscore_v2_unchanged_title": "Hvad ændrer sig ikke",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en score designet til at **måle ernæringskvalitet**. Den er **supplerende til NOVA-gruppen** om **ultraforarbejdede fødevarer** (også til stede i ansøgningen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For producenter er visningen af Nutri-Score ** fortsat valgfri**.",
-  "guide_greenscore_title": "Øko-Score",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
