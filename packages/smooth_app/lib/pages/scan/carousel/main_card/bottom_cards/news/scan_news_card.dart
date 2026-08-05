@@ -153,15 +153,14 @@ class _TagLineFundingMeter extends StatelessWidget {
     final int? months = monthsLeft;
 
     return Column(
-      // stretch, so the Wrap below spans the card and its two cells can sit at
-      // the two edges the way the design does.
+      // stretch, so the progress bar spans the card.
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: VERY_SMALL_SPACE,
       children: <Widget>[
         // A Wrap, not a Row: a long locale or a large textScaler moves the goal
         // onto its own line instead of clipping an amount at half the card.
         Wrap(
-          alignment: WrapAlignment.spaceBetween,
+          alignment: WrapAlignment.start,
           crossAxisAlignment: WrapCrossAlignment.end,
           spacing: SMALL_SPACE,
           runSpacing: VERY_SMALL_SPACE,
