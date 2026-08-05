@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/pages/donation/donation_links.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
 AppNewsItem _newsItem(String id) => AppNewsItem(
   id: id,
@@ -69,6 +70,48 @@ void main() {
       );
       expect(url.contains('amount'), isFalse);
       expect(url.contains('default_interval'), isFalse);
+    });
+  });
+
+  group('DonationSource', () {
+    test('gives each entry point its own analytics value', () {
+      expect(
+        DonationSource.values
+            .map((DonationSource source) => source.analyticsValue)
+            .toList(),
+        <int>[1, 2],
+      );
+    });
+
+    test('rides along as utm_content on a tier URL', () {
+      expect(
+        buildDonationUrl(DonationTier.eur3, source: DonationSource.settings),
+        'https://donorbox.org/help-open-food-facts-stay-afloat'
+        '?amount=3&default_interval=m&currency=eur'
+        '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
+        '&utm_content=donation-screen-settings',
+      );
+    });
+
+    test('rides along as utm_content on the one-off URL', () {
+      expect(
+        buildDonationUrl(null, source: DonationSource.tagline),
+        'https://donorbox.org/help-open-food-facts-stay-afloat'
+        '?currency=eur'
+        '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
+        '&utm_content=donation-screen-tagline',
+      );
+    });
+
+    test('is carried by the route', () {
+      expect(
+        AppRoutes.DONATE(DonationSource.settings),
+        '/_donate?source=settings',
+      );
+      expect(
+        AppRoutes.DONATE(DonationSource.tagline),
+        '/_donate?source=tagline',
+      );
     });
   });
 

@@ -69,7 +69,9 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
         borderRadius: const BorderRadius.vertical(bottom: radius),
         onTap: () {
           if (isDonationNewsItem(currentNews)) {
-            AppNavigator.of(context).push(AppRoutes.DONATE);
+            AppNavigator.of(
+              context,
+            ).push(AppRoutes.DONATE(DonationSource.tagline));
           } else {
             LaunchUrlHelper.launchURLAndFollowDeepLinks(
               context,
