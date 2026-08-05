@@ -1,4 +1,3 @@
-// ignore_for_file: depend_on_referenced_packages
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -52,7 +51,7 @@ class _HomePageCameraViewState extends State<HomePageCameraView> {
               overlayBuilder: (_, _) =>
                   HomePageCameraOverlay(barcodes: _barcodeStream.stream),
               controller: widget.controller._controller,
-              placeholderBuilder: (_, _) =>
+              placeholderBuilder: (_) =>
                   const SizedBox.expand(child: ColoredBox(color: Colors.black)),
               onDetect: (BarcodeCapture capture) {
                 // Only pass if the camera is fully visible and the sheet is not visible and/or scrolled
@@ -209,9 +208,8 @@ class _OpaqueOverlay extends StatelessWidget {
 }
 
 class CustomScannerController {
-  CustomScannerController({required MobileScannerController controller})
-    : _controller = controller,
-      _torchState = _TorchState() {
+  CustomScannerController({required this._controller})
+    : _torchState = _TorchState() {
     _detectTorch();
   }
 

@@ -99,7 +99,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     BarcodeFormat.code128,
     BarcodeFormat.ean8,
     BarcodeFormat.ean13,
-    BarcodeFormat.itf,
+    BarcodeFormat.itf14,
     BarcodeFormat.upcA,
     BarcodeFormat.upcE,
     // 2D formats for GS1 Sunrise 2027
@@ -160,7 +160,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             MobileScanner(
               controller: _cameraController.controller,
               fit: BoxFit.cover,
-              errorBuilder: (_, _, _) => EMPTY_WIDGET,
+              errorBuilder: (_, _) => EMPTY_WIDGET,
               onDetect: (final BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;
@@ -316,6 +316,8 @@ class _ToggleCameraIcon extends StatelessWidget {
               return switch (state) {
                 CameraFacing.front => const Icon(Icons.camera_front),
                 CameraFacing.back => const Icon(Icons.camera_rear),
+                CameraFacing.external => const Icon(Icons.camera_alt),
+                CameraFacing.unknown => const Icon(Icons.camera_alt),
               };
             },
           ),

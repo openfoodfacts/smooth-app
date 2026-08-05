@@ -19,12 +19,10 @@ import 'package:smooth_app/query/product_query.dart';
 /// Use [saveAll] to persist all pending changes to [UserPreferences].
 class PendingPreferences extends ChangeNotifier {
   PendingPreferences({
-    required UserPreferences userPreferences,
-    required List<AttributeGroup> attributeGroups,
-    required PreferencesPageProjects project,
-  }) : _userPreferences = userPreferences,
-       _attributeGroups = attributeGroups,
-       _project = project {
+    required this._userPreferences,
+    required this._attributeGroups,
+    required this._project,
+  }) {
     _initializeFromCurrentPreferences();
   }
 

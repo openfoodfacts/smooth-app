@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart' as off;
 
 part 'app_food_icons.dart';
+
 part 'app_icons_font.dart';
 
 class Add extends AppIcon {
@@ -641,6 +642,7 @@ class CircledArrow extends AppIcon {
              ? _IconsFont.circled_arrow
              : _IconsFont.arrow_right,
        );
+
   const CircledArrow.right({
     CircledArrowType? type,
     Color? circleColor,
@@ -3191,13 +3193,12 @@ class Zoom extends AppIcon {
 abstract class AppIcon extends StatelessWidget {
   const AppIcon._(
     this.icon, {
-    Color? color,
+    this._color,
     this.shadow,
     double? size,
     this.semanticLabel,
     super.key,
   }) : _size = size,
-       _color = color,
        assert(size == null || size >= 0);
 
   final IconData icon;

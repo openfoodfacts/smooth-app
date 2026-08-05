@@ -120,14 +120,14 @@ class _TagLineItemNewsItem {
   const _TagLineItemNewsItem._({
     required this.id,
     required this.url,
-    required _TagLineItemNewsTranslations translations,
+    required this._translations,
     this.minLaunches,
     this.startDate,
     this.endDate,
     this.minVersion,
     this.maxVersion,
     this.style,
-  }) : _translations = translations;
+  });
 
   _TagLineItemNewsItem.fromJson(this.id, Map<dynamic, dynamic> json)
     : assert((json['url'] as String).isNotEmpty),

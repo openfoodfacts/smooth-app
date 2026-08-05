@@ -12,25 +12,21 @@ import 'package:smooth_app/widgets/text/text_highlighter.dart';
 class ExplanationTitleIcon extends StatelessWidget {
   const ExplanationTitleIcon({
     required this.title,
-    required Widget child,
+    required this._child,
     this.margin = EdgeInsets.zero,
     this.padding = EdgeInsets.zero,
     this.safeArea = true,
-  }) : // ignore: avoid_field_initializers_in_const_classes
-       type = null,
-       _child = child;
+  }) : type = null;
 
   ExplanationTitleIcon.text({required this.title, required String text})
-    : // ignore: avoid_field_initializers_in_const_classes
-      type = null,
+    : type = null,
       margin = null,
       padding = null,
       safeArea = true,
       _child = Text(text);
 
   ExplanationTitleIcon.type({required this.type, required String text})
-    : // ignore: avoid_field_initializers_in_const_classes
-      title = null,
+    : title = null,
       margin = null,
       padding = null,
       safeArea = true,
