@@ -49,11 +49,11 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">PriceModel</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-proofType">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">proofType</span>, </span></li>
-<li><span class="parameter" id="-param-currency"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">currency</span>, </span></li>
+      <span class="name ">PriceModel</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-_proofType">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">_proofType</span>, </span></li>
+<li><span class="parameter" id="-param-_currency"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">_currency</span>, </span></li>
 <li><span class="parameter" id="-param-multipleProducts"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">multipleProducts</span>, </span></li>
 <li><span class="parameter" id="-param-initialProduct"><span class="type-annotation">dynamic</span> <span class="parameter-name">initialProduct</span>, </span></li>
-<li><span class="parameter" id="-param-readyForPriceTagValidation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">readyForPriceTagValidation</span> = <span class="default-value">false</span>}</span></li>
+<li><span class="parameter" id="-param-_readyForPriceTagValidation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">_readyForPriceTagValidation</span> = <span class="default-value">false</span>}</span></li>
 </ol>)
     </section>
 
@@ -64,17 +64,14 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">PriceModel({
-  required final ProofType proofType,
-  required final Currency currency,
+  required this._proofType,
+  required this._currency,
   required this.multipleProducts,
   final PriceMetaProduct? initialProduct,
-  final bool readyForPriceTagValidation = false,
+  this._readyForPriceTagValidation = false,
 }) : _proof = null,
      existingPrices = null,
-     _proofType = proofType,
      _date = DateTime.now(),
-     _currency = currency,
-     _readyForPriceTagValidation = readyForPriceTagValidation,
      _priceAmountModels = &lt;PriceAmountModel&gt;[
        if (initialProduct != null) PriceAmountModel(product: initialProduct),
      ];</code></pre>

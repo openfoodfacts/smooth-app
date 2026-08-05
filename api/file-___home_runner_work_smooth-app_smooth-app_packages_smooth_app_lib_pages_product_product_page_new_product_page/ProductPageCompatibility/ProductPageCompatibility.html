@@ -49,7 +49,7 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">ProductPageCompatibility</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-color">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">color</span>, </span></li>
+      <span class="name ">ProductPageCompatibility</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-_color">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">_color</span>, </span></li>
 <li><span class="parameter" id="-param-matchedProductV2"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">matchedProductV2</span>}</span></li>
 </ol>)
     </section>
@@ -61,10 +61,9 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">ProductPageCompatibility({
-  required Color color,
+  required this._color,
   required MatchedProductV2 matchedProductV2,
-}) : _color = color,
-     score = ProductCompatibilityHelper.product(
+}) : score = ProductCompatibilityHelper.product(
        matchedProductV2,
      ).getFormattedScore();</code></pre>
 </section>

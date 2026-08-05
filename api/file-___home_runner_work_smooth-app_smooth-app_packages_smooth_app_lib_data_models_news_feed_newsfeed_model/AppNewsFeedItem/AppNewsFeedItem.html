@@ -50,8 +50,8 @@
 
     <section class="multi-line-signature">const
       <span class="name ">AppNewsFeedItem</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-news">{<span>required</span> <span class="type-annotation"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_news_feed_newsfeed_model/AppNewsItem-class.html">AppNewsItem</a></span> <span class="parameter-name">news</span>, </span></li>
-<li><span class="parameter" id="-param-startDate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">startDate</span>, </span></li>
-<li><span class="parameter" id="-param-endDate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">endDate</span>}</span></li>
+<li><span class="parameter" id="-param-_startDate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">_startDate</span>, </span></li>
+<li><span class="parameter" id="-param-_endDate"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a>?</span> <span class="parameter-name">_endDate</span>}</span></li>
 </ol>)
     </section>
 
@@ -61,12 +61,7 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">const AppNewsFeedItem({
-  required this.news,
-  DateTime? startDate,
-  DateTime? endDate,
-}) : _startDate = startDate,
-     _endDate = endDate;</code></pre>
+  <pre class="language-dart"><code class="language-dart">const AppNewsFeedItem({required this.news, this._startDate, this._endDate});</code></pre>
 </section>
 
 

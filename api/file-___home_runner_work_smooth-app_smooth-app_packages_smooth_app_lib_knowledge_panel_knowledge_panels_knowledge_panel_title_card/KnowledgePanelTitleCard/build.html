@@ -116,7 +116,7 @@ Widget build(BuildContext context) {
   if (knowledgePanelTitleElement.iconUrl != null) {
     iconWidget = &lt;Widget&gt;[
       Expanded(
-        flex: IconWidgetSizer.getIconFlex(),
+        flex: IconWidgetSizer().getIconFlex(),
         child: _KnowledgePanelTitleIcon(
           url: knowledgePanelTitleElement.iconUrl!,
           backgroundColor: backgroundIconColor,
@@ -149,7 +149,7 @@ Widget build(BuildContext context) {
           else
             const SizedBox(width: VERY_SMALL_SPACE),
           Expanded(
-            flex: IconWidgetSizer.getRemainingWidgetFlex(),
+            flex: IconWidgetSizer().getRemainingWidgetFlex(),
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints constraints) {
                 final bool hasSubtitle =

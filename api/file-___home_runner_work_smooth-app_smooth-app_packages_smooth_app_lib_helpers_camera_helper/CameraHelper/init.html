@@ -59,7 +59,7 @@
     </section>
     
 <section class="desc markdown">
-  <p>Mandatory method to call before <code>findBestCamera</code></p>
+  <p>Mandatory method to call.</p>
 </section>
 
 
@@ -68,10 +68,14 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; init() async {
   if (!isSupported) {
-    _cameras = &lt;CameraDescription&gt;[];
-  } else {
-    _cameras = await availableCameras();
+    _cameraLensTypesBack = &lt;CameraLensType&gt;{};
+    _cameraLensTypesFront = &lt;CameraLensType&gt;{};
+    return;
   }
+  _cameraLensTypesBack = await MobileScannerPlatform.instance
+      .getSupportedLenses(facing: CameraFacing.back);
+  _cameraLensTypesFront = await MobileScannerPlatform.instance
+      .getSupportedLenses(facing: CameraFacing.front);
 }</code></pre>
 </section>
 

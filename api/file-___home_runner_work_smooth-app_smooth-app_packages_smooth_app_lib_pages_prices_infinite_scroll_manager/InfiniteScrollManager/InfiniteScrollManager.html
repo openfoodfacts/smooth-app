@@ -50,8 +50,8 @@
 
     <section class="multi-line-signature">
       <span class="name ">InfiniteScrollManager&lt;<wbr><span class="type-parameter">T</span>&gt;</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-initialItems">{<span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span>?</span> <span class="parameter-name">initialItems</span>, </span></li>
-<li><span class="parameter" id="-param-totalItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">totalItems</span>, </span></li>
-<li><span class="parameter" id="-param-totalPages"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">totalPages</span>}</span></li>
+<li><span class="parameter" id="-param-_totalItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">_totalItems</span>, </span></li>
+<li><span class="parameter" id="-param-_totalPages"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">_totalPages</span>}</span></li>
 </ol>)
     </section>
 
@@ -66,14 +66,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">InfiniteScrollManager({
   final List&lt;T&gt;? initialItems,
-  final int? totalItems,
-  final int? totalPages,
+  this._totalItems,
+  this._totalPages,
 }) : _items = List&lt;T&gt;.from(initialItems ?? &lt;T&gt;[]),
      _currentPage = initialItems != null &amp;&amp; initialItems.isNotEmpty
          ? _initialPage
-         : 0,
-     _totalPages = totalPages,
-     _totalItems = totalItems;</code></pre>
+         : 0;</code></pre>
 </section>
 
 

@@ -68,11 +68,11 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static bool get hasACamera {
-  if (_cameras == null) {
+  if (_cameraLensTypesBack == null) {
     throw Exception(&#39;Please call [init] before!&#39;);
-  } else {
-    return _cameras!.isNotEmpty;
   }
+  return _cameraLensTypesBack!.isNotEmpty ||
+      _cameraLensTypesFront!.isNotEmpty;
 }</code></pre>
 </section>
 

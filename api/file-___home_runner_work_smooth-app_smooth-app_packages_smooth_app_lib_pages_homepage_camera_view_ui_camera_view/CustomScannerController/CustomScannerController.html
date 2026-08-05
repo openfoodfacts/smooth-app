@@ -49,7 +49,7 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">CustomScannerController</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-controller">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span>}</span></li>
+      <span class="name ">CustomScannerController</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-_controller">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">_controller</span>}</span></li>
 </ol>)
     </section>
 
@@ -59,9 +59,8 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">CustomScannerController({required MobileScannerController controller})
-  : _controller = controller,
-    _torchState = _TorchState() {
+  <pre class="language-dart"><code class="language-dart">CustomScannerController({required this._controller})
+  : _torchState = _TorchState() {
   _detectTorch();
 }</code></pre>
 </section>

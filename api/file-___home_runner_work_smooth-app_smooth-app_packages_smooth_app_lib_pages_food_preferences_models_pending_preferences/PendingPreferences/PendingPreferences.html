@@ -49,9 +49,9 @@
 </h1></div>
 
     <section class="multi-line-signature">
-      <span class="name ">PendingPreferences</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-userPreferences">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">userPreferences</span>, </span></li>
-<li><span class="parameter" id="-param-attributeGroups"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">attributeGroups</span>, </span></li>
-<li><span class="parameter" id="-param-project"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">project</span>}</span></li>
+      <span class="name ">PendingPreferences</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="-param-_userPreferences">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">_userPreferences</span>, </span></li>
+<li><span class="parameter" id="-param-_attributeGroups"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a></span> <span class="parameter-name">_attributeGroups</span>, </span></li>
+<li><span class="parameter" id="-param-_project"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">_project</span>}</span></li>
 </ol>)
     </section>
 
@@ -62,12 +62,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">PendingPreferences({
-  required UserPreferences userPreferences,
-  required List&lt;AttributeGroup&gt; attributeGroups,
-  required PreferencesPageProjects project,
-}) : _userPreferences = userPreferences,
-     _attributeGroups = attributeGroups,
-     _project = project {
+  required this._userPreferences,
+  required this._attributeGroups,
+  required this._project,
+}) {
   _initializeFromCurrentPreferences();
 }</code></pre>
 </section>
