@@ -19,9 +19,11 @@ import 'package:url_launcher/url_launcher.dart';
 /// Explains what a donation pays for and hands off to the donation form with
 /// the amount, interval and currency preselected.
 class DonationPage extends StatefulWidget {
-  const DonationPage();
+  const DonationPage({this.source});
 
   static const Key whereItGoesKey = Key('donation_where_it_goes');
+
+  final DonationSource? source;
 
   @override
   State<DonationPage> createState() => _DonationPageState();
@@ -33,7 +35,10 @@ class _DonationPageState extends State<DonationPage> {
   @override
   void initState() {
     super.initState();
-    AnalyticsHelper.trackEvent(AnalyticsEvent.donationPageOpened);
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.donationPageOpened,
+      eventValue: widget.source?.analyticsValue,
+    );
   }
 
   @override
@@ -69,7 +74,7 @@ class _DonationPageState extends State<DonationPage> {
                   onSelected: (DonationTier tier) =>
                       setState(() => _selected = tier),
                 ),
-                _Ctas(selected: _selected),
+                _Ctas(selected: _selected, source: widget.source),
               ],
             ),
           ),
@@ -174,15 +179,19 @@ class _TierList extends StatelessWidget {
     // Both numbers are formatted here and injected as placeholders, so no
     // translated string carries a currency symbol or a digit separator.
     // [AppLocalizations.localeName] rather than [ProductQuery]: it is the
-    // locale the sentence itself is in, and it is always a valid `intl` locale.
+    // locale the sentence itself is in. `intl` ships no number symbols for 46
+    // of the app's 128 locales and both constructors throw there, so fall back
+    // rather than lose the tier picker to an ErrorWidget.
+    final String numberLocale =
+        NumberFormat.localeExists(appLocalizations.localeName)
+        ? appLocalizations.localeName
+        : 'en';
     final NumberFormat amountFormat = NumberFormat.simpleCurrency(
-      locale: appLocalizations.localeName,
+      locale: numberLocale,
       name: 'EUR',
       decimalDigits: 0,
     );
-    final NumberFormat scansFormat = NumberFormat.decimalPattern(
-      appLocalizations.localeName,
-    );
+    final NumberFormat scansFormat = NumberFormat.decimalPattern(numberLocale);
 
     return _Block(
       title: appLocalizations.donation_tiers_title,
@@ -257,9 +266,10 @@ class _TierRow extends StatelessWidget {
 }
 
 class _Ctas extends StatelessWidget {
-  const _Ctas({required this.selected});
+  const _Ctas({required this.selected, required this.source});
 
   final DonationTier selected;
+  final DonationSource? source;
 
   @override
   Widget build(BuildContext context) {
@@ -270,10 +280,10 @@ class _Ctas extends StatelessWidget {
         SmoothLargeButtonWithIcon(
           text: appLocalizations.donation_cta_monthly,
           leadingIcon: const icons.Donate(),
-          onPressed: () => _openDonationForm(selected),
+          onPressed: () => _openDonationForm(selected, source),
         ),
         TextButton(
-          onPressed: () => _openDonationForm(null),
+          onPressed: () => _openDonationForm(null, source),
           style: TextButton.styleFrom(
             minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
           ),
@@ -285,16 +295,24 @@ class _Ctas extends StatelessWidget {
 }
 
 /// Opens the donation form for [tier], or for a single gift when null.
-void _openDonationForm(DonationTier? tier) {
+Future<void> _openDonationForm(
+  DonationTier? tier,
+  DonationSource? source,
+) async {
   AnalyticsHelper.trackEvent(
     AnalyticsEvent.donationHandoff,
     eventValue: tier?.monthlyAmount ?? 0,
   );
 
-  // In-app browser view, never a webview: Apple Pay and Google Pay disappear
-  // inside a webview and the donor is pushed back to card entry.
-  LaunchUrlHelper.launchURL(
-    buildDonationUrl(tier),
-    mode: LaunchMode.inAppBrowserView,
+  // Apple Pay and Google Pay disappear inside a webview, and a device with no
+  // Custom Tabs provider silently gets url_launcher's own bundled one. Fall
+  // back to a real browser instead, which keeps every payment method.
+  final bool customTabs = await supportsLaunchMode(LaunchMode.inAppBrowserView);
+
+  return LaunchUrlHelper.launchURL(
+    buildDonationUrl(tier, source: source),
+    mode: customTabs
+        ? LaunchMode.inAppBrowserView
+        : LaunchMode.externalApplication,
   );
 }
