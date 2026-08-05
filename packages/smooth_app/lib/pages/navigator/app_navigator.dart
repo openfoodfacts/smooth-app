@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -10,6 +11,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/barcode_utils.dart';
+import 'package:smooth_app/pages/donation/donation_links.dart';
 import 'package:smooth_app/pages/donation/donation_page.dart';
 import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
@@ -315,7 +317,12 @@ class _SmoothGoRouter {
             ),
             GoRoute(
               path: _InternalAppRoutes.DONATE_PAGE,
-              builder: (_, _) => const DonationPage(),
+              builder: (_, GoRouterState state) => DonationPage(
+                source: DonationSource.values.firstWhereOrNull(
+                  (DonationSource source) =>
+                      source.name == state.uri.queryParameters['source'],
+                ),
+              ),
             ),
           ],
         ),
@@ -603,8 +610,9 @@ class AppRoutes {
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
 
-  // Donation screen
-  static String get DONATE => '/${_InternalAppRoutes.DONATE_PAGE}';
+  // Donation screen, keeping the entry point attributable
+  static String DONATE(DonationSource source) =>
+      '/${_InternalAppRoutes.DONATE_PAGE}?source=${source.name}';
 
   // Open an external link in the browser or custom tabs
   static String EXTERNAL(String path) =>

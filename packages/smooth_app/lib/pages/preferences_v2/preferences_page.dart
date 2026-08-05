@@ -9,6 +9,7 @@ import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/donation/donation_links.dart';
 import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
 import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
@@ -267,7 +268,9 @@ class PreferencesPage extends StatelessWidget {
       leading: const icons.Donate(),
       title: appLocalizations.preferences_support_title,
       subtitleText: appLocalizations.preferences_support_subtitle,
-      onTap: () => AppNavigator.of(context).push(AppRoutes.DONATE),
+      onTap: () => AppNavigator.of(
+        context,
+      ).push(AppRoutes.DONATE(DonationSource.settings)),
     );
   }
 
