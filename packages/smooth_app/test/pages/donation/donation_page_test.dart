@@ -200,9 +200,17 @@ void main() {
     ) async {
       await _pumpDonationPage(tester, locale: Locale(locale));
 
-      // Flutter's own Material and Cupertino delegates cover none of these
-      // locales and say so; that warning is app-wide and not this screen's.
-      tester.takeException();
+      // Flutter ships no Material or Cupertino delegates for these locales, so
+      // the pumped tree says so and then cannot lay the top bar out. That is
+      // app-wide and pre-existing; an `intl` ArgumentError would not be, and
+      // is what this test exists to catch.
+      for (
+        Object? exception = tester.takeException();
+        exception != null;
+        exception = tester.takeException()
+      ) {
+        expect(exception, isNot(isA<ArgumentError>()), reason: '$exception');
+      }
 
       expect(find.byType(PreferenceTile), findsNWidgets(3));
       // Formatting falls back to `en`, so the numbers still render grouped
