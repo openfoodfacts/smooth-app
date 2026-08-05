@@ -55,10 +55,16 @@ String _selectedAmount(WidgetTester tester) => tester
 Future<void> _pumpDonationPage(
   WidgetTester tester, {
   String theme = 'Light',
+  Locale? locale,
 }) async {
   tester.view.physicalSize = const Size(1080, 2424);
   tester.view.devicePixelRatio = 2.625;
   addTearDown(tester.view.reset);
+
+  if (locale != null) {
+    tester.platformDispatcher.localesTestValue = <Locale>[locale];
+    addTearDown(tester.platformDispatcher.clearLocalesTestValue);
+  }
 
   SharedPreferences.setMockInitialValues(mockSharedPreferences());
 
@@ -184,6 +190,28 @@ void main() {
     expect(find.textContaining(',00'), findsNothing);
     expect(find.textContaining('.00'), findsNothing);
   });
+
+  // `intl` ships no number symbols for 46 of the app's 128 locales; before the
+  // fallback, both NumberFormat constructors threw and the tier list - the
+  // screen's only interaction - was replaced by an ErrorWidget.
+  for (final String locale in <String>['nn', 'lb', 'gd']) {
+    testWidgets('DonationPage keeps its tiers in $locale', (
+      WidgetTester tester,
+    ) async {
+      await _pumpDonationPage(tester, locale: Locale(locale));
+
+      // Flutter's own Material and Cupertino delegates cover none of these
+      // locales and say so; that warning is app-wide and not this screen's.
+      tester.takeException();
+
+      expect(find.byType(PreferenceTile), findsNWidgets(3));
+      // Formatting falls back to `en`, so the numbers still render grouped
+      // even though the sentence around them is translated.
+      for (final String number in <String>['800', '1,300', '2,700']) {
+        expect(find.textContaining(number), findsOneWidget);
+      }
+    });
+  }
 
   for (final double textScale in <double>[1.3, 2.0]) {
     testWidgets('DonationPage does not truncate at textScaler $textScale', (
