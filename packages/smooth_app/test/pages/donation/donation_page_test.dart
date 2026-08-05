@@ -161,13 +161,13 @@ void main() {
     });
   }
 
-  testWidgets('DonationPage preselects 3 EUR and moves the selection on tap', (
+  testWidgets('DonationPage preselects 5 EUR and moves the selection on tap', (
     WidgetTester tester,
   ) async {
     await _pumpDonationPage(tester);
 
     expect(_selectedCheckBox, findsOneWidget);
-    expect(_selectedAmount(tester), _amounts.first);
+    expect(_selectedAmount(tester), _amounts[1]);
 
     await tester.tap(find.text(_amounts.last));
     await tester.pump();

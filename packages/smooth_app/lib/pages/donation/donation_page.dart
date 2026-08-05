@@ -30,7 +30,7 @@ class DonationPage extends StatefulWidget {
 }
 
 class _DonationPageState extends State<DonationPage> {
-  DonationTier _selected = DonationTier.values.first;
+  DonationTier _selected = DonationTier.eur5;
 
   @override
   void initState() {
