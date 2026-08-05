@@ -37,7 +37,7 @@ class _UnwantedIngredientsInputState extends State<UnwantedIngredientsInput> {
         user: ProductQuery.getReadUser(),
         limit: 15,
         uriHelper: ProductQuery.getUriProductHelper(
-          productType: ProductType.food,
+          productType: _pendingPreferences.project.productType,
         ),
       ),
     );
