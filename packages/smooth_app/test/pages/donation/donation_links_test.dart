@@ -31,7 +31,7 @@ void main() {
     test('3 EUR monthly', () {
       expect(
         buildDonationUrl(DonationTier.eur3),
-        'https://donorbox.org/help-open-food-facts-stay-afloat'
+        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
         '?amount=3&default_interval=m&currency=eur'
         '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
         '&utm_content=donation-screen',
@@ -41,7 +41,7 @@ void main() {
     test('5 EUR monthly', () {
       expect(
         buildDonationUrl(DonationTier.eur5),
-        'https://donorbox.org/help-open-food-facts-stay-afloat'
+        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
         '?amount=5&default_interval=m&currency=eur'
         '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
         '&utm_content=donation-screen',
@@ -51,7 +51,7 @@ void main() {
     test('10 EUR monthly', () {
       expect(
         buildDonationUrl(DonationTier.eur10),
-        'https://donorbox.org/help-open-food-facts-stay-afloat'
+        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
         '?amount=10&default_interval=m&currency=eur'
         '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
         '&utm_content=donation-screen',
@@ -63,7 +63,7 @@ void main() {
 
       expect(
         url,
-        'https://donorbox.org/help-open-food-facts-stay-afloat'
+        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
         '?currency=eur'
         '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
         '&utm_content=donation-screen',
@@ -86,7 +86,7 @@ void main() {
     test('rides along as utm_content on a tier URL', () {
       expect(
         buildDonationUrl(DonationTier.eur3, source: DonationSource.settings),
-        'https://donorbox.org/help-open-food-facts-stay-afloat'
+        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
         '?amount=3&default_interval=m&currency=eur'
         '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
         '&utm_content=donation-screen-settings',
@@ -96,7 +96,7 @@ void main() {
     test('rides along as utm_content on the one-off URL', () {
       expect(
         buildDonationUrl(null, source: DonationSource.tagline),
-        'https://donorbox.org/help-open-food-facts-stay-afloat'
+        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
         '?currency=eur'
         '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
         '&utm_content=donation-screen-tagline',

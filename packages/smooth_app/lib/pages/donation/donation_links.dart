@@ -29,8 +29,14 @@ enum DonationSource {
   final int analyticsValue;
 }
 
+/// The campaign's embedded form rather than its hosted campaign page.
+///
+/// Both render the same Donorbox campaign, but the hosted page puts the form
+/// below a full marketing layout, while `/embed/` opens on the amount step and
+/// is one step from the payment options. It is also what Open Food Facts' own
+/// donate page renders, through `donorbox.org/widgets.js`.
 const String _campaignUrl =
-    'https://donorbox.org/help-open-food-facts-stay-afloat';
+    'https://donorbox.org/embed/help-open-food-facts-stay-afloat';
 
 const String _utm =
     'utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026';
