@@ -1,18 +1,16 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
-import 'package:torch_light/torch_light.dart';
 
 class CustomScannerController {
-  CustomScannerController({required MobileScannerController controller})
-    : _controller = controller,
-      _torchState = TorchState(),
+  CustomScannerController(this._controller)
+    : _torchState = ScannerTorchState(),
       _availableCamerasState = AvailableCamerasState(),
-      _cameraFacingState = CameraFacingState() {
-    _detectTorch();
-  }
+      _cameraFacingState = CameraFacingState();
 
   final MobileScannerController _controller;
-  final TorchState _torchState;
+  final ScannerTorchState _torchState;
   final AvailableCamerasState _availableCamerasState;
   final CameraFacingState _cameraFacingState;
 
@@ -43,9 +41,17 @@ class CustomScannerController {
     } catch (_) {}
   }
 
+  void onPause() {
+    _isStarted = false;
+    _isStarting = false;
+    _isClosing = false;
+    _isClosed = false;
+  }
+
   void _onControllerChanged() {
     _availableCamerasState.value = _controller.value.availableCameras ?? 0;
     _cameraFacingState.value = _controller.facing;
+    _torchState.value = _controller.value.torchState;
   }
 
   MobileScannerController get controller => _controller;
@@ -74,21 +80,20 @@ class CustomScannerController {
 
   bool get hasTorch => _torchState.value != null;
 
-  ValueNotifier<bool?> get hasTorchState => _torchState;
+  ValueNotifier<TorchState?> get hasTorchState => _torchState;
 
-  bool get isTorchOn => _torchState.value == true;
+  // ugly
+  bool get isTorchOn => _torchState.value == TorchState.on;
 
   void turnTorchOff() {
     if (isTorchOn) {
-      _controller.toggleTorch();
-      _torchState.value = false;
+      unawaited(_controller.toggleTorch());
     }
   }
 
   void turnTorchOn() {
     if (!isTorchOn) {
-      _controller.toggleTorch();
-      _torchState.value = true;
+      unawaited(_controller.toggleTorch());
     }
   }
 
@@ -101,6 +106,7 @@ class CustomScannerController {
   }
 
   ValueNotifier<int> get availableCameras => _availableCamerasState;
+
   ValueNotifier<CameraFacing> get cameraFacing => _cameraFacingState;
 
   void toggleCamera() {
@@ -109,27 +115,16 @@ class CustomScannerController {
       _torchState.value = null;
       _cameraFacingState.value = CameraFacing.front;
     } else if (_controller.facing == CameraFacing.front) {
-      _torchState.value = false;
+      _torchState.value = TorchState.off;
       _cameraFacingState.value = CameraFacing.back;
     }
-  }
-
-  Future<void> _detectTorch() async {
-    try {
-      final bool isTorchAvailable = await TorchLight.isTorchAvailable();
-      if (isTorchAvailable) {
-        _torchState.value = false;
-      } else {
-        _torchState.value = null;
-      }
-    } on Exception catch (_) {}
   }
 
   Future<void> dispose() => _controller.dispose();
 }
 
-class TorchState extends ValueNotifier<bool?> {
-  TorchState({bool? value}) : super(value);
+class ScannerTorchState extends ValueNotifier<TorchState?> {
+  ScannerTorchState({TorchState? value}) : super(value);
 }
 
 class AvailableCamerasState extends ValueNotifier<int> {

@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
-import 'package:scanner_ml_kit/src/mobile_scanner_controller.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -120,7 +119,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     super.initState();
 
     _cameraController = CustomScannerController(
-      controller: MobileScannerController(
+      MobileScannerController(
         autoStart: false,
         torchEnabled: false,
         formats: _barcodeFormats,
@@ -160,7 +159,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
             MobileScanner(
               controller: _cameraController.controller,
               fit: BoxFit.cover,
-              errorBuilder: (_, _) => EMPTY_WIDGET,
+              errorBuilder: (_, _) => SCANNER_EMPTY_WIDGET,
               onDetect: (final BarcodeCapture capture) async {
                 for (final Barcode barcode in capture.barcodes) {
                   final String? string = barcode.displayValue;
@@ -246,11 +245,11 @@ class _TorchIcon extends StatefulWidget {
 class _TorchIconState extends State<_TorchIcon> {
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<bool?>(
+    return ValueListenableBuilder<TorchState?>(
       valueListenable: context.watch<CustomScannerController>().hasTorchState,
-      builder: (BuildContext context, bool? hasTorch, _) {
+      builder: (BuildContext context, TorchState? hasTorch, _) {
         if (hasTorch == null) {
-          return EMPTY_WIDGET;
+          return SCANNER_EMPTY_WIDGET;
         }
 
         final CustomScannerController controller = context
@@ -300,7 +299,7 @@ class _ToggleCameraIcon extends StatelessWidget {
       valueListenable: controller.availableCameras,
       builder: (BuildContext context, int cameras, _) {
         if (cameras <= 1) {
-          return EMPTY_WIDGET;
+          return SCANNER_EMPTY_WIDGET;
         }
 
         return VisorButton(
