@@ -22,7 +22,7 @@ void main() {
         mockMatomoPlatformChannels();
 
         await AnalyticsHelper.initMatomo(false);
-        MatomoTracker.instance.setOptOut(optOut: true);
+        await MatomoTracker.instance.setOptOut(optOut: true);
         MatomoTracker.instance.dequeueTimer.cancel();
         MatomoTracker.instance.pingTimer?.cancel();
 

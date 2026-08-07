@@ -191,7 +191,7 @@ Future<void> mockMatomo() async {
     false,
     dispatchSettings: const DispatchSettings.nonPersistent(),
   );
-  MatomoTracker.instance.setOptOut(optOut: true);
+  await MatomoTracker.instance.setOptOut(optOut: true);
   MatomoTracker.instance.dequeueTimer.cancel();
   MatomoTracker.instance.pingTimer?.cancel();
 }

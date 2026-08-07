@@ -214,6 +214,9 @@ class AnalyticsHelper {
   static late int _uniqueRandom;
 
   static Future<void> linkPreferences(UserPreferences userPreferences) async {
+    // Before the first _setAnalyticsReports: the anonymous visitor id reads it.
+    _uniqueRandom = await userPreferences.getUniqueRandom();
+
     // Init the value
     _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
     _setCrashReports(userPreferences.onCrashReportingChanged.value);
@@ -226,8 +229,6 @@ class AnalyticsHelper {
     userPreferences.onCrashReportingChanged.addListener(() {
       _setCrashReports(userPreferences.onCrashReportingChanged.value);
     });
-
-    _uniqueRandom = await userPreferences.getUniqueRandom();
   }
 
   static Future<void> initSentry({required Function()? appRunner}) async {
@@ -251,7 +252,7 @@ class AnalyticsHelper {
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static Future<void> _setAnalyticsReports(final bool allow) async {
+  static void _setAnalyticsReports(final bool allow) {
     if (allow) {
       _analyticsReporting = _AnalyticsTrackingMode.enabled;
     } else {
@@ -267,10 +268,7 @@ class AnalyticsHelper {
   static bool get isEnabled =>
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
-  static FutureOr<SentryEvent?> _beforeSend(
-    SentryEvent event,
-    dynamic hint,
-  ) async {
+  static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
     if (!_crashReports) {
       return null;
     }
@@ -446,7 +444,7 @@ class AnalyticsHelper {
   }
 
   static void sendException(dynamic throwable, {dynamic stackTrace}) {
-    Sentry.captureException(throwable, stackTrace: stackTrace);
+    unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
   }
 
   static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
