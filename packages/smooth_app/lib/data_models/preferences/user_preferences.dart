@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -152,6 +153,7 @@ class UserPreferences extends ChangeNotifier {
     }
     await productPreferences.resetImportances();
     await _sharedPreferences.setBool(_TAG_INIT, true);
+    AnalyticsHelper.trackEvent(AnalyticsEvent.appFirstOpen);
   }
 
   /// Allow to migrate between versions
@@ -375,6 +377,10 @@ class UserPreferences extends ChangeNotifier {
     await _sharedPreferences.setInt(
       _TAG_LAST_VISITED_ONBOARDING_PAGE,
       page.index,
+    );
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.onboardingPageVisited,
+      action: page.name,
     );
     notifyListeners();
   }
