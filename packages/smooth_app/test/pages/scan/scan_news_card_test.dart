@@ -119,7 +119,7 @@ void main() {
         expect(find.byType(LinearProgressIndicator), findsOneWidget);
         // Whole euros, so the amounts fit the row the design draws.
         expect(find.textContaining('.47'), findsNothing);
-        // The separator is joined in code, never in a translated value.
+        // Both funding lines carry the separator the app joins in code.
         expect(find.textContaining('·'), findsNWidgets(2));
         expect(tester, meetsGuideline(textContrastGuideline));
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
@@ -154,12 +154,17 @@ void main() {
         final Iterable<RenderParagraph> amounts = tester
             .renderObjectList<RenderParagraph>(
               find.descendant(
-                of: find.byType(Wrap),
+                of: find
+                    .ancestor(
+                      of: find.byType(LinearProgressIndicator),
+                      matching: find.byType(Column),
+                    )
+                    .first,
                 matching: find.byType(RichText),
               ),
             );
 
-        expect(amounts.length, 2);
+        expect(amounts.length, 3);
         for (final RenderParagraph amount in amounts) {
           expect(
             amount.didExceedMaxLines,

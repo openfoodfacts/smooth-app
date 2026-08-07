@@ -201,13 +201,13 @@ class _TagLineFundingMeter extends StatelessWidget {
               context.extension<SmoothColorsThemeExtension>().secondaryVibrant,
           backgroundColor: labelColor.withValues(alpha: 0.2),
         ),
-        if (funding.shortfall > 0)
+        if (months != null && funding.shortfall > 0)
           Text(
             localizations.tagline_feed_funding_shortfall(
                   currencyFormat.format(funding.shortfall),
                 ) +
                 deadline,
-            maxLines: 2,
+            maxLines: 3,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(color: labelColor, fontSize: 13.0),
           ),

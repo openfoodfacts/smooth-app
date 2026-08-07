@@ -155,6 +155,8 @@ class _TagLineItemNewsItem {
         }
       }),
       minLaunches = json['min_launches'] is int ? json['min_launches'] : null,
+      // A cast would throw into the catch that wraps this parse, and blank the
+      // whole feed rather than only the figures.
       raised = json['raised'] is num ? json['raised'] : null,
       goal = json['goal'] is num ? json['goal'] : null,
       currency = json['currency'] is String ? json['currency'] : null,

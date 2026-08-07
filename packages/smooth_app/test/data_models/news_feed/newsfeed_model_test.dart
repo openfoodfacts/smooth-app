@@ -122,27 +122,32 @@ void main() {
   });
 
   group('AppNewsItem.monthsLeft', () {
-    AppNewsItem endingIn(Duration duration) =>
-        _newsItem(endDate: DateTime.now().add(duration));
+    /// [months] calendar months from today, whatever the day the test runs on.
+    AppNewsItem endingIn(int months) {
+      final DateTime now = DateTime.now();
+      return _newsItem(
+        endDate: DateTime(now.year, now.month + months, now.day, 23, 59, 59),
+      );
+    }
 
     test('is null without an end date', () {
       expect(_newsItem().monthsLeft, isNull);
     });
 
-    test('is 0 for an end date less than a month away', () {
-      expect(endingIn(const Duration(days: 29)).monthsLeft, 0);
+    test('is 0 for the current month', () {
+      expect(endingIn(0).monthsLeft, 0);
     });
 
-    test('is 1 a month out', () {
-      expect(endingIn(const Duration(days: 35)).monthsLeft, 1);
+    test('is 1 for the next month', () {
+      expect(endingIn(1).monthsLeft, 1);
     });
 
     test('is 5 across a year boundary', () {
-      expect(endingIn(const Duration(days: 160)).monthsLeft, 5);
+      expect(endingIn(5).monthsLeft, 5);
     });
 
     test('floors at 0 for a past end date', () {
-      expect(endingIn(const Duration(days: -40)).monthsLeft, 0);
+      expect(endingIn(-2).monthsLeft, 0);
     });
   });
 }
