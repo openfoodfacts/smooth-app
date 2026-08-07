@@ -83,9 +83,9 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
                 darkImage: currentNews.darkImage,
                 dense: dense,
               ),
-              if (currentNews.funding case final AppNewsFunding funding)
+              if (currentNews.funding != null)
                 _TagLineFundingMeter(
-                  funding: funding,
+                  funding: currentNews.funding!,
                   monthsLeft: currentNews.monthsLeft,
                   textColor: currentNews.style?.messageTextColor,
                   barColor: currentNews.style?.titleIndicatorColor,
@@ -153,8 +153,6 @@ class _TagLineFundingMeter extends StatelessWidget {
     final String percent = NumberFormat.percentPattern(
       locale,
     ).format(funding.ratio);
-    // endDate marks when the feed stops serving the item, not the campaign
-    // deadline, so a span no campaign would run shows no deadline at all.
     final int? months = monthsLeft;
     final String deadline = months == null || months < 1 || months > 12
         ? ''
@@ -164,8 +162,6 @@ class _TagLineFundingMeter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: VERY_SMALL_SPACE,
       children: <Widget>[
-        // A Wrap, not a Row: a long locale or a large textScaler moves the goal
-        // onto its own line instead of clipping an amount at half the card.
         Wrap(
           alignment: WrapAlignment.start,
           crossAxisAlignment: WrapCrossAlignment.end,
@@ -203,10 +199,8 @@ class _TagLineFundingMeter extends StatelessWidget {
         ),
         if (months != null && funding.shortfall > 0)
           Text(
-            localizations.tagline_feed_funding_shortfall(
-                  currencyFormat.format(funding.shortfall),
-                ) +
-                deadline,
+            '${localizations.tagline_feed_funding_shortfall(currencyFormat.format(funding.shortfall))}'
+            '$deadline',
             maxLines: 3,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(color: labelColor, fontSize: 13.0),

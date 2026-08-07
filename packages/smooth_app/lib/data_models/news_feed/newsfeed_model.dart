@@ -72,14 +72,8 @@ class AppNewsItem {
       return null;
     }
 
-    final DateTime now = DateTime.now();
-    final int months =
-        (end.year - now.year) * 12 +
-        end.month -
-        now.month -
-        (end.day < now.day ? 1 : 0);
-
-    return months < 0 ? 0 : months;
+    final int days = end.difference(DateTime.now()).inDays;
+    return days < 0 ? 0 : (days / (365 / 12)).round();
   }
 
   @override
