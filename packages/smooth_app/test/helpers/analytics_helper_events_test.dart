@@ -1,5 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -30,7 +31,7 @@ void main() {
   group('enum shape', () {
     test('T1a - the three categories and three events are the last entries, '
         'with the exact tags/categories from the naming table', () {
-      final List<AnalyticsCategory> categories = AnalyticsCategory.values;
+      const List<AnalyticsCategory> categories = AnalyticsCategory.values;
       expect(categories[categories.length - 3], AnalyticsCategory.lifecycle);
       expect(categories[categories.length - 2], AnalyticsCategory.onboarding);
       expect(categories.last, AnalyticsCategory.knowledgePanel);
@@ -38,7 +39,7 @@ void main() {
       expect(AnalyticsCategory.onboarding.tag, 'onboarding');
       expect(AnalyticsCategory.knowledgePanel.tag, 'knowledge panel');
 
-      final List<AnalyticsEvent> events = AnalyticsEvent.values;
+      const List<AnalyticsEvent> events = AnalyticsEvent.values;
       expect(events[events.length - 3], AnalyticsEvent.appFirstOpen);
       expect(events[events.length - 2], AnalyticsEvent.onboardingPageVisited);
       expect(events.last, AnalyticsEvent.knowledgePanelOpen);
