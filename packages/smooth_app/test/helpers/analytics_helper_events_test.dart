@@ -29,53 +29,55 @@ void main() {
   });
 
   group('enum shape', () {
-    test('T1a - the three categories and three events are the last entries, '
-        'with the exact tags/categories from the naming table', () {
-      const List<AnalyticsCategory> categories = AnalyticsCategory.values;
-      expect(categories[categories.length - 3], AnalyticsCategory.lifecycle);
-      expect(categories[categories.length - 2], AnalyticsCategory.onboarding);
-      expect(categories.last, AnalyticsCategory.knowledgePanel);
-      expect(AnalyticsCategory.lifecycle.tag, 'lifecycle');
-      expect(AnalyticsCategory.onboarding.tag, 'onboarding');
-      expect(AnalyticsCategory.knowledgePanel.tag, 'knowledge panel');
+    test(
+      'the new categories and events are appended last, with their tags',
+      () {
+        const List<AnalyticsCategory> categories = AnalyticsCategory.values;
+        expect(categories[categories.length - 3], AnalyticsCategory.lifecycle);
+        expect(categories[categories.length - 2], AnalyticsCategory.onboarding);
+        expect(categories.last, AnalyticsCategory.knowledgePanel);
+        expect(AnalyticsCategory.lifecycle.tag, 'lifecycle');
+        expect(AnalyticsCategory.onboarding.tag, 'onboarding');
+        expect(AnalyticsCategory.knowledgePanel.tag, 'knowledge panel');
 
-      const List<AnalyticsEvent> events = AnalyticsEvent.values;
-      expect(events[events.length - 3], AnalyticsEvent.appFirstOpen);
-      expect(events[events.length - 2], AnalyticsEvent.onboardingPageVisited);
-      expect(events.last, AnalyticsEvent.knowledgePanelOpen);
-      expect(AnalyticsEvent.appFirstOpen.tag, 'app first open');
-      expect(AnalyticsEvent.appFirstOpen.category, AnalyticsCategory.lifecycle);
-      expect(
-        AnalyticsEvent.onboardingPageVisited.tag,
-        'onboarding page visited',
-      );
-      expect(
-        AnalyticsEvent.onboardingPageVisited.category,
-        AnalyticsCategory.onboarding,
-      );
-      expect(AnalyticsEvent.knowledgePanelOpen.tag, 'knowledge panel open');
-      expect(
-        AnalyticsEvent.knowledgePanelOpen.category,
-        AnalyticsCategory.knowledgePanel,
-      );
-    });
+        const List<AnalyticsEvent> events = AnalyticsEvent.values;
+        expect(events[events.length - 3], AnalyticsEvent.appFirstOpen);
+        expect(events[events.length - 2], AnalyticsEvent.onboardingPageVisited);
+        expect(events.last, AnalyticsEvent.knowledgePanelOpen);
+        expect(AnalyticsEvent.appFirstOpen.tag, 'app first open');
+        expect(
+          AnalyticsEvent.appFirstOpen.category,
+          AnalyticsCategory.lifecycle,
+        );
+        expect(
+          AnalyticsEvent.onboardingPageVisited.tag,
+          'onboarding page visited',
+        );
+        expect(
+          AnalyticsEvent.onboardingPageVisited.category,
+          AnalyticsCategory.onboarding,
+        );
+        expect(AnalyticsEvent.knowledgePanelOpen.tag, 'knowledge panel open');
+        expect(
+          AnalyticsEvent.knowledgePanelOpen.category,
+          AnalyticsCategory.knowledgePanel,
+        );
+      },
+    );
   });
 
   group('trackEvent payloads', () {
-    test(
-      'T1b - appFirstOpen enqueues category/name/action, no barcode value',
-      () {
-        AnalyticsHelper.trackEvent(AnalyticsEvent.appFirstOpen);
+    test('appFirstOpen enqueues category/name/action, no barcode value', () {
+      AnalyticsHelper.trackEvent(AnalyticsEvent.appFirstOpen);
 
-        final Map<String, String> event = MatomoTracker.instance.queue.single;
-        expect(event['e_c'], 'lifecycle');
-        expect(event['e_n'], 'appFirstOpen');
-        expect(event['e_a'], 'appFirstOpen');
-        expect(event.containsKey('e_v'), isFalse);
-      },
-    );
+      final Map<String, String> event = MatomoTracker.instance.queue.single;
+      expect(event['e_c'], 'lifecycle');
+      expect(event['e_n'], 'appFirstOpen');
+      expect(event['e_a'], 'appFirstOpen');
+      expect(event.containsKey('e_v'), isFalse);
+    });
 
-    test('T1c - the new action parameter reaches trackCustomEvent', () {
+    test('the new action parameter reaches trackCustomEvent', () {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.knowledgePanelOpen,
         action: 'nutriscore',
@@ -88,7 +90,7 @@ void main() {
   });
 
   group('UserPreferences analytics', () {
-    test('T2 - appFirstOpen fires exactly once per install, '
+    test('appFirstOpen fires exactly once per install, '
         'a later init() on the same instance fires none', () async {
       final ProductPreferences productPreferences = ProductPreferences(
         ProductPreferencesSelection(
@@ -117,7 +119,7 @@ void main() {
       );
     });
 
-    test('T3 - onboardingPageVisited fires once per call, '
+    test('onboardingPageVisited fires once per call, '
         'and again (replayably) after resetOnboarding', () async {
       await userPreferences.setLastVisitedOnboardingPage(
         OnboardingPage.WELCOME,
