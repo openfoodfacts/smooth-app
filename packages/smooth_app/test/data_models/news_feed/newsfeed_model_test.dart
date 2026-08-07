@@ -146,6 +146,15 @@ void main() {
       expect(endingIn(5).monthsLeft, 5);
     });
 
+    test('decrements when the end day of month precedes today', () {
+      final DateTime now = DateTime.now();
+      final AppNewsItem item = _newsItem(
+        endDate: DateTime(now.year, now.month + 2, 1),
+      );
+
+      expect(item.monthsLeft, now.day == 1 ? 2 : 1);
+    });
+
     test('floors at 0 for a past end date', () {
       expect(endingIn(-2).monthsLeft, 0);
     });
