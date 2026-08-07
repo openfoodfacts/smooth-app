@@ -36,6 +36,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
   static const Key _visibilityKey = Key('scan_news_card');
 
   final Set<String> _trackedNewsIds = <String>{};
+  final Set<String> _clickedNewsIds = <String>{};
   Timer? _timer;
   int _index = -1;
   bool _visible = false;
@@ -79,9 +80,12 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
       return;
     }
 
-    context.read<UserPreferences>().taglineFeedMarkNewsAsDisplayed(
-      currentNews.id,
-    );
+    final UserPreferences preferences = context.read<UserPreferences>();
+    // Marking as displayed also removes the id from the clicked list, which
+    // would demote an already-clicked item back to the middle sort tier.
+    if (!preferences.taglineFeedClickedNews.contains(currentNews.id)) {
+      preferences.taglineFeedMarkNewsAsDisplayed(currentNews.id);
+    }
     AnalyticsHelper.trackTaglineNewsEvent(
       AnalyticsEvent.taglineNewsDisplayed,
       currentNews.id,
@@ -106,13 +110,15 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
         body: InkWell(
           borderRadius: const BorderRadius.vertical(bottom: radius),
           onTap: () {
-            context.read<UserPreferences>().taglineFeedMarkNewsAsClicked(
-              currentNews.id,
-            );
-            AnalyticsHelper.trackTaglineNewsEvent(
-              AnalyticsEvent.taglineNewsClicked,
-              currentNews.id,
-            );
+            if (_clickedNewsIds.add(currentNews.id)) {
+              context.read<UserPreferences>().taglineFeedMarkNewsAsClicked(
+                currentNews.id,
+              );
+              AnalyticsHelper.trackTaglineNewsEvent(
+                AnalyticsEvent.taglineNewsClicked,
+                currentNews.id,
+              );
+            }
             LaunchUrlHelper.launchURLAndFollowDeepLinks(
               context,
               currentNews.url,
@@ -160,6 +166,10 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
   @override
   void dispose() {
     _timer?.cancel();
+    // The key is process-wide and the package keeps the last reported
+    // visibility in a static map, so without this a card remounted at the same
+    // geometry would never get a first callback.
+    VisibilityDetectorController.instance.forget(_visibilityKey);
     super.dispose();
   }
 }
