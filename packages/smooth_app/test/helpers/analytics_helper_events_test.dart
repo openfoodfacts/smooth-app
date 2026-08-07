@@ -1,0 +1,152 @@
+import 'package:flutter_test/flutter_test.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
+import 'package:smooth_app/query/product_query.dart';
+
+import '../tests_utils/mocks.dart';
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  late UserPreferences userPreferences;
+
+  setUpAll(() async {
+    SharedPreferences.setMockInitialValues(<String, Object>{});
+    await mockMatomo();
+    // trackCustomEvent reads ProductQuery.getCountry()/getLanguage(), both
+    // `late` - a fresh test isolate has never set them.
+    userPreferences = await UserPreferences.getUserPreferences();
+    await ProductQuery.setCountry(userPreferences, 'fr');
+  });
+
+  setUp(() {
+    MatomoTracker.instance.dropActions();
+  });
+
+  group('enum shape', () {
+    test('T1a - the three categories and three events are the last entries, '
+        'with the exact tags/categories from the naming table', () {
+      final List<AnalyticsCategory> categories = AnalyticsCategory.values;
+      expect(categories[categories.length - 3], AnalyticsCategory.lifecycle);
+      expect(categories[categories.length - 2], AnalyticsCategory.onboarding);
+      expect(categories.last, AnalyticsCategory.knowledgePanel);
+      expect(AnalyticsCategory.lifecycle.tag, 'lifecycle');
+      expect(AnalyticsCategory.onboarding.tag, 'onboarding');
+      expect(AnalyticsCategory.knowledgePanel.tag, 'knowledge panel');
+
+      final List<AnalyticsEvent> events = AnalyticsEvent.values;
+      expect(events[events.length - 3], AnalyticsEvent.appFirstOpen);
+      expect(events[events.length - 2], AnalyticsEvent.onboardingPageVisited);
+      expect(events.last, AnalyticsEvent.knowledgePanelOpen);
+      expect(AnalyticsEvent.appFirstOpen.tag, 'app first open');
+      expect(AnalyticsEvent.appFirstOpen.category, AnalyticsCategory.lifecycle);
+      expect(
+        AnalyticsEvent.onboardingPageVisited.tag,
+        'onboarding page visited',
+      );
+      expect(
+        AnalyticsEvent.onboardingPageVisited.category,
+        AnalyticsCategory.onboarding,
+      );
+      expect(AnalyticsEvent.knowledgePanelOpen.tag, 'knowledge panel open');
+      expect(
+        AnalyticsEvent.knowledgePanelOpen.category,
+        AnalyticsCategory.knowledgePanel,
+      );
+    });
+  });
+
+  group('trackEvent payloads', () {
+    test(
+      'T1b - appFirstOpen enqueues category/name/action, no barcode value',
+      () {
+        AnalyticsHelper.trackEvent(AnalyticsEvent.appFirstOpen);
+
+        final Map<String, String> event = MatomoTracker.instance.queue.single;
+        expect(event['e_c'], 'lifecycle');
+        expect(event['e_n'], 'appFirstOpen');
+        expect(event['e_a'], 'appFirstOpen');
+        expect(event.containsKey('e_v'), isFalse);
+      },
+    );
+
+    test('T1c - the new action parameter reaches trackCustomEvent', () {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.knowledgePanelOpen,
+        action: 'nutriscore',
+      );
+
+      final Map<String, String> event = MatomoTracker.instance.queue.single;
+      expect(event['e_c'], 'knowledge panel');
+      expect(event['e_a'], 'nutriscore');
+    });
+  });
+
+  group('UserPreferences analytics', () {
+    test('T2 - appFirstOpen fires exactly once per install, '
+        'a later init() on the same instance fires none', () async {
+      final ProductPreferences productPreferences = ProductPreferences(
+        ProductPreferencesSelection(
+          setImportance: userPreferences.setImportance,
+          getImportance: userPreferences.getImportance,
+          notify: () {},
+        ),
+      );
+
+      await userPreferences.init(productPreferences);
+      expect(
+        MatomoTracker.instance.queue.where(
+          (Map<String, String> event) => event['e_n'] == 'appFirstOpen',
+        ),
+        hasLength(1),
+      );
+
+      // Second launch / upgrade from an older build: `_TAG_INIT` is now
+      // set, so `init()` returns early and fires nothing new.
+      await userPreferences.init(productPreferences);
+      expect(
+        MatomoTracker.instance.queue.where(
+          (Map<String, String> event) => event['e_n'] == 'appFirstOpen',
+        ),
+        hasLength(1),
+      );
+    });
+
+    test('T3 - onboardingPageVisited fires once per call, '
+        'and again (replayably) after resetOnboarding', () async {
+      await userPreferences.setLastVisitedOnboardingPage(
+        OnboardingPage.WELCOME,
+      );
+      await userPreferences.setLastVisitedOnboardingPage(
+        OnboardingPage.PREFERENCES_PAGE,
+      );
+
+      final List<Map<String, String>> events = MatomoTracker.instance.queue
+          .where(
+            (Map<String, String> event) =>
+                event['e_n'] == 'onboardingPageVisited',
+          )
+          .toList();
+      expect(events, hasLength(2));
+      expect(events[0]['e_a'], 'WELCOME');
+      expect(events[1]['e_a'], 'PREFERENCES_PAGE');
+
+      await userPreferences.resetOnboarding();
+
+      final List<Map<String, String>> eventsAfterReset = MatomoTracker
+          .instance
+          .queue
+          .where(
+            (Map<String, String> event) =>
+                event['e_n'] == 'onboardingPageVisited',
+          )
+          .toList();
+      expect(eventsAfterReset, hasLength(3));
+      expect(eventsAfterReset.last['e_a'], 'NOT_STARTED');
+    });
+  });
+}
