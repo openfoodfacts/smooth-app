@@ -186,7 +186,9 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
 Future<void> mockMatomo() async {
   mockMatomoPlatformChannels();
 
-  // Persistence would never finish initializing here: see [initMatomo].
+  // Non persistent on purpose: the persistent queue saves through a
+  // zero-duration timer, and the fake clock in a widget test never fires it, so
+  // initialization would never return.
   await AnalyticsHelper.initMatomo(
     false,
     dispatchSettings: const DispatchSettings.nonPersistent(),

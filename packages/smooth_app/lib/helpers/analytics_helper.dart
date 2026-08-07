@@ -214,7 +214,6 @@ class AnalyticsHelper {
   static late int _uniqueRandom;
 
   static Future<void> linkPreferences(UserPreferences userPreferences) async {
-    // Before the first _setAnalyticsReports: the anonymous visitor id reads it.
     _uniqueRandom = await userPreferences.getUniqueRandom();
 
     // Init the value
@@ -282,9 +281,9 @@ class AnalyticsHelper {
 
   static late PackageInfo _packageInfo;
 
-  /// Widget tests must pass [DispatchSettings.nonPersistent]: the persistent
-  /// queue saves through a zero-duration timer that `flutter_test`'s fake clock
-  /// never fires, so initialization never returns.
+  /// Undispatched actions survive a restart for a day, and no longer: the
+  /// default [PersistenceFilter] of [DispatchSettings.persistent] drops
+  /// anything older than 23h59m59s when the queue is loaded.
   static Future<void> initMatomo(
     final bool screenshotMode, {
     final DispatchSettings dispatchSettings =
