@@ -625,6 +625,17 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_CLICKED) ??
       <String>[];
 
+  /// News ids whose impression, respectively click, has already been sent to
+  /// analytics during this app session.
+  ///
+  /// Deliberately not persisted: an impression is the denominator of the news
+  /// click-through rate, so it has to be counted once per session and not once
+  /// per install. It cannot be held by the news card either - that card is the
+  /// first page of a carousel, which disposes off-screen pages, so a swipe away
+  /// and back re-creates its state and would count the same id twice.
+  final Set<String> taglineFeedSessionImpressions = <String>{};
+  final Set<String> taglineFeedSessionClicks = <String>{};
+
   // This method voluntarily does not notify listeners (not needed)
   Future<void> taglineFeedMarkNewsAsDisplayed(final String ids) async {
     final List<String> displayedNews = taglineFeedDisplayedNews;

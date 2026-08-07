@@ -182,6 +182,13 @@ void main() {
     await prefs.setStringList(_tagDisplayed, <String>[]);
     await prefs.setStringList(_tagClicked, <String>[]);
 
+    // The analytics de-dup is session-scoped and `UserPreferences` is a
+    // per-isolate singleton, so one test's session has to end before the next.
+    final UserPreferences userPreferences =
+        await UserPreferences.getUserPreferences();
+    userPreferences.taglineFeedSessionImpressions.clear();
+    userPreferences.taglineFeedSessionClicks.clear();
+
     VisibilityDetectorController.instance.updateInterval = Duration.zero;
     MatomoTracker.instance.dropActions();
   });
@@ -357,15 +364,53 @@ void main() {
     await tester.pump();
     expect(prefs.taglineFeedClickedNews, <String>[_item0.id]);
 
-    // A brand new card instance, i.e. the next app launch: its de-dup set is
-    // empty, so the impression fires again on an id that is already clicked.
+    // The next app launch: the two persisted lists survive, the session de-dup
+    // does not, so the impression fires again on an already-clicked id.
     await tester.pumpWidget(const SizedBox());
+    prefs.taglineFeedSessionImpressions.clear();
     MatomoTracker.instance.dropActions();
     await _pumpCard(tester, 'Light', <AppNewsItem>[_item0, _item1]);
 
     expect(prefs.taglineFeedClickedNews, <String>[_item0.id]);
     expect(prefs.taglineFeedDisplayedNews, isEmpty);
     expect(_eventsNamed('taglineNewsDisplayed'), hasLength(1));
+  });
+
+  // The card is the first page of a `CarouselSlider`, i.e. a `PageView` that
+  // disposes off-screen pages: swiping to a scanned product and back destroys
+  // the card's state inside one session. De-dup held there would let the same
+  // id be counted again, inflating the denominator of the click-through rate.
+  testWidgets('a recycled card does not re-fire an impression', (
+    WidgetTester tester,
+  ) async {
+    final UserPreferences prefs = await _pumpCard(
+      tester,
+      'Light',
+      <AppNewsItem>[_item0, _item1],
+    );
+    expect(_eventsNamed('taglineNewsDisplayed'), hasLength(1));
+
+    await tester.pumpWidget(const SizedBox());
+    await _pumpCard(tester, 'Light', <AppNewsItem>[_item0, _item1]);
+
+    expect(_eventsNamed('taglineNewsDisplayed'), hasLength(1));
+    expect(prefs.taglineFeedDisplayedNews, <String>[_item0.id]);
+  });
+
+  testWidgets('a recycled card does not re-fire a click', (
+    WidgetTester tester,
+  ) async {
+    await _pumpCard(tester, 'Light', <AppNewsItem>[_item0, _item1]);
+    await tester.tap(find.byType(InkWell));
+    await tester.pump();
+    expect(_eventsNamed('taglineNewsClicked'), hasLength(1));
+
+    await tester.pumpWidget(const SizedBox());
+    await _pumpCard(tester, 'Light', <AppNewsItem>[_item0, _item1]);
+    await tester.tap(find.byType(InkWell));
+    await tester.pump();
+
+    expect(_eventsNamed('taglineNewsClicked'), hasLength(1));
   });
 
   testWidgets('rotation repaints after 30 minutes (setState regression)', (

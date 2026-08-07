@@ -35,8 +35,6 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
   static const Radius radius = Radius.circular(16.0);
   static const Key _visibilityKey = Key('scan_news_card');
 
-  final Set<String> _trackedNewsIds = <String>{};
-  final Set<String> _clickedNewsIds = <String>{};
   Timer? _timer;
   int _index = -1;
   bool _visible = false;
@@ -76,11 +74,14 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
     }
 
     final AppNewsItem currentNews = widget.news.elementAt(_index);
-    if (!_trackedNewsIds.add(currentNews.id)) {
+    final UserPreferences preferences = context.read<UserPreferences>();
+    // De-duplicated on the preferences rather than on this state: the card is
+    // the first page of the scan carousel, which disposes off-screen pages, so
+    // a swipe away and back would otherwise count the same id twice.
+    if (!preferences.taglineFeedSessionImpressions.add(currentNews.id)) {
       return;
     }
 
-    final UserPreferences preferences = context.read<UserPreferences>();
     // Marking as displayed also removes the id from the clicked list, which
     // would demote an already-clicked item back to the middle sort tier.
     if (!preferences.taglineFeedClickedNews.contains(currentNews.id)) {
@@ -110,10 +111,11 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
         body: InkWell(
           borderRadius: const BorderRadius.vertical(bottom: radius),
           onTap: () {
-            if (_clickedNewsIds.add(currentNews.id)) {
-              context.read<UserPreferences>().taglineFeedMarkNewsAsClicked(
-                currentNews.id,
-              );
+            // Same session scope as the impression, so the click-through rate
+            // keeps a numerator and a denominator that are counted alike.
+            final UserPreferences preferences = context.read<UserPreferences>();
+            if (preferences.taglineFeedSessionClicks.add(currentNews.id)) {
+              preferences.taglineFeedMarkNewsAsClicked(currentNews.id);
               AnalyticsHelper.trackTaglineNewsEvent(
                 AnalyticsEvent.taglineNewsClicked,
                 currentNews.id,
