@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
@@ -31,8 +32,6 @@ import '../../tests_utils/mocks.dart';
 // cached instance is what actually isolates each test.
 const String _tagDisplayed = 'taglineFeedNewsDisplayed';
 const String _tagClicked = 'taglineFeedNewsClicked';
-
-const Key _visibilityKey = Key('scan_news_card');
 
 const AppNewsItem _item0 = AppNewsItem(
   id: 'news-0',
@@ -72,17 +71,21 @@ AppNewsItem _newsItem({
   style: style,
 );
 
-Future<void> _pumpCard(
+/// Pumps a [ScanNewsCard] behind everything the widget reads from context.
+///
+/// [offstage], when given, drives an [Offstage] wrapper so a test can flip
+/// visibility mid-run without losing the card's [State] (same [Element],
+/// same position in the tree).
+Future<UserPreferences> _pumpCard(
   WidgetTester tester,
   String theme,
-  AppNewsItem item, {
+  List<AppNewsItem> news, {
   double? textScaler,
+  ValueListenable<bool>? offstage,
 }) async {
   tester.view.physicalSize = const Size(1080, 2424);
   tester.view.devicePixelRatio = 2.625;
   addTearDown(tester.view.reset);
-
-  SharedPreferences.setMockInitialValues(mockSharedPreferences());
 
   final UserPreferences userPreferences =
       await UserPreferences.getUserPreferences();
@@ -104,9 +107,9 @@ Future<void> _pumpCard(
   ProductQuery.setLanguage(null, userPreferences, languageCode: 'en');
   await ProductQuery.setCountry(userPreferences, 'fr');
 
-  final Widget cardWidget = ScanNewsCard(news: <AppNewsItem>[item]);
+  final Widget cardWidget = ScanNewsCard(news: news);
   final double? scaler = textScaler;
-  final Widget card = scaler == null
+  final Widget scaled = scaler == null
       ? cardWidget
       : Builder(
           builder: (BuildContext context) => MediaQuery(
@@ -117,53 +120,9 @@ Future<void> _pumpCard(
           ),
         );
 
-  await tester.pumpWidget(
-    MockSmoothApp(
-      userPreferences,
-      UserManagementProvider(),
-      productPreferences,
-      ThemeProvider(userPreferences),
-      TextContrastProvider(userPreferences),
-      ColorProvider(userPreferences),
-      Provider<ScanBottomCardDensity>.value(
-        value: ScanBottomCardDensity.dense,
-        child: SingleChildScrollView(child: card),
-      ),
-      localDatabase: MockLocalDatabase(),
-    ),
-  );
-  await tester.pump();
-}
-
-/// Pumps a [ScanNewsCard] behind everything the widget reads from context.
-///
-/// [offstage], when given, drives an [Offstage] wrapper so a test can flip
-/// visibility mid-run without losing the card's [State] (same [Element],
-/// same position in the tree).
-Future<UserPreferences> _pumpNewsCard(
-  WidgetTester tester, {
-  required List<AppNewsItem> news,
-  String theme = 'Light',
-  ValueListenable<bool>? offstage,
-}) async {
-  final UserPreferences userPreferences =
-      await UserPreferences.getUserPreferences();
-  userPreferences.setTheme(theme);
-
-  late ProductPreferences productPreferences;
-  productPreferences = ProductPreferences(
-    ProductPreferencesSelection(
-      setImportance: userPreferences.setImportance,
-      getImportance: userPreferences.getImportance,
-      notify: () => productPreferences.notifyListeners(),
-    ),
-  );
-  await productPreferences.init(PlatformAssetBundle());
-  await userPreferences.init(productPreferences);
-
   final Widget card = Provider<ScanBottomCardDensity>.value(
     value: ScanBottomCardDensity.dense,
-    child: ScanNewsCard(news: news),
+    child: SingleChildScrollView(child: scaled),
   );
 
   final Widget body = offstage == null
@@ -185,6 +144,7 @@ Future<UserPreferences> _pumpNewsCard(
       TextContrastProvider(userPreferences),
       ColorProvider(userPreferences),
       body,
+      localDatabase: MockLocalDatabase(),
     ),
   );
   await tester.pump();
@@ -205,6 +165,10 @@ List<Map<String, String>> _eventsNamed(String name) => MatomoTracker
     .toList();
 
 void main() {
+  // `setMockInitialValues` resets the `SharedPreferences` completer, so calling
+  // it per test would hand `setUp` a different instance from the memoized one
+  // `UserPreferences` holds - and the per-test cleanup below would clear the
+  // wrong store. It belongs here, once, before anything reads a preference.
   setUpAll(() async {
     SharedPreferences.setMockInitialValues(mockSharedPreferences());
     await mockMatomo();
@@ -228,11 +192,9 @@ void main() {
   group('ScanNewsCard with campaign figures', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
       testWidgets(theme, (WidgetTester tester) async {
-        await _pumpCard(
-          tester,
-          theme,
+        await _pumpCard(tester, theme, <AppNewsItem>[
           _newsItem(raised: 44059.47, goal: 170000.0, currency: 'EUR'),
-        );
+        ]);
 
         expect(find.byType(LinearProgressIndicator), findsOneWidget);
         // Whole euros, so the amounts fit the row the design draws.
@@ -248,7 +210,7 @@ void main() {
   group('ScanNewsCard without campaign figures', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
       testWidgets(theme, (WidgetTester tester) async {
-        await _pumpCard(tester, theme, _newsItem());
+        await _pumpCard(tester, theme, <AppNewsItem>[_newsItem()]);
 
         expect(find.byType(LinearProgressIndicator), findsNothing);
         expect(tester, meetsGuideline(textContrastGuideline));
@@ -262,12 +224,9 @@ void main() {
   group('The funding amounts are not clipped', () {
     for (final double scaler in <double>[1.3, 2.0]) {
       testWidgets('at a text scale of $scaler', (WidgetTester tester) async {
-        await _pumpCard(
-          tester,
-          'Light',
+        await _pumpCard(tester, 'Light', <AppNewsItem>[
           _newsItem(raised: 44059.47, goal: 170000.0, currency: 'EUR'),
-          textScaler: scaler,
-        );
+        ], textScaler: scaler);
 
         final Iterable<RenderParagraph> amounts = tester
             .renderObjectList<RenderParagraph>(
@@ -297,16 +256,14 @@ void main() {
   testWidgets('A deadline beyond a year is not shown as time left', (
     WidgetTester tester,
   ) async {
-    await _pumpCard(
-      tester,
-      'Light',
+    await _pumpCard(tester, 'Light', <AppNewsItem>[
       _newsItem(
         raised: 44059.47,
         goal: 170000.0,
         currency: 'EUR',
         endDate: DateTime(DateTime.now().year + 2, 1, 31),
       ),
-    );
+    ]);
 
     expect(find.textContaining('short'), findsOneWidget);
     expect(find.textContaining('left'), findsNothing);
@@ -318,9 +275,7 @@ void main() {
     const Color messageTextColor = Color(0xFFEEEEEE);
     const Color titleIndicatorColor = Color(0xFF00FF00);
 
-    await _pumpCard(
-      tester,
-      'Light',
+    await _pumpCard(tester, 'Light', <AppNewsItem>[
       _newsItem(
         raised: 44059.47,
         goal: 170000.0,
@@ -330,7 +285,7 @@ void main() {
           titleIndicatorColor: titleIndicatorColor,
         ),
       ),
-    );
+    ]);
 
     final LinearProgressIndicator bar = tester.widget<LinearProgressIndicator>(
       find.byType(LinearProgressIndicator),
@@ -344,9 +299,10 @@ void main() {
   testWidgets('impression fires on the first visible frame', (
     WidgetTester tester,
   ) async {
-    final UserPreferences prefs = await _pumpNewsCard(
+    final UserPreferences prefs = await _pumpCard(
       tester,
-      news: <AppNewsItem>[_item0, _item1],
+      'Light',
+      <AppNewsItem>[_item0, _item1],
     );
 
     expect(prefs.taglineFeedDisplayedNews, <String>[_item0.id]);
@@ -360,9 +316,10 @@ void main() {
   testWidgets('tap marks and tracks the click without delaying the launch', (
     WidgetTester tester,
   ) async {
-    final UserPreferences prefs = await _pumpNewsCard(
+    final UserPreferences prefs = await _pumpCard(
       tester,
-      news: <AppNewsItem>[_item0, _item1],
+      'Light',
+      <AppNewsItem>[_item0, _item1],
     );
 
     await tester.tap(find.byType(InkWell));
@@ -378,7 +335,7 @@ void main() {
   testWidgets('a second tap on the same item tracks only one click', (
     WidgetTester tester,
   ) async {
-    await _pumpNewsCard(tester, news: <AppNewsItem>[_item0, _item1]);
+    await _pumpCard(tester, 'Light', <AppNewsItem>[_item0, _item1]);
 
     await tester.tap(find.byType(InkWell));
     await tester.pump();
@@ -391,9 +348,10 @@ void main() {
   testWidgets('an impression does not demote an already-clicked item', (
     WidgetTester tester,
   ) async {
-    final UserPreferences prefs = await _pumpNewsCard(
+    final UserPreferences prefs = await _pumpCard(
       tester,
-      news: <AppNewsItem>[_item0, _item1],
+      'Light',
+      <AppNewsItem>[_item0, _item1],
     );
     await tester.tap(find.byType(InkWell));
     await tester.pump();
@@ -403,7 +361,7 @@ void main() {
     // empty, so the impression fires again on an id that is already clicked.
     await tester.pumpWidget(const SizedBox());
     MatomoTracker.instance.dropActions();
-    await _pumpNewsCard(tester, news: <AppNewsItem>[_item0, _item1]);
+    await _pumpCard(tester, 'Light', <AppNewsItem>[_item0, _item1]);
 
     expect(prefs.taglineFeedClickedNews, <String>[_item0.id]);
     expect(prefs.taglineFeedDisplayedNews, isEmpty);
@@ -413,7 +371,7 @@ void main() {
   testWidgets('rotation repaints after 30 minutes (setState regression)', (
     WidgetTester tester,
   ) async {
-    await _pumpNewsCard(tester, news: <AppNewsItem>[_item0, _item1]);
+    await _pumpCard(tester, 'Light', <AppNewsItem>[_item0, _item1]);
 
     await tester.pump(const Duration(minutes: 31));
 
@@ -423,9 +381,10 @@ void main() {
   testWidgets('rotation marks the new item as displayed', (
     WidgetTester tester,
   ) async {
-    final UserPreferences prefs = await _pumpNewsCard(
+    final UserPreferences prefs = await _pumpCard(
       tester,
-      news: <AppNewsItem>[_item0, _item1],
+      'Light',
+      <AppNewsItem>[_item0, _item1],
     );
 
     await tester.pump(const Duration(minutes: 31));
@@ -447,9 +406,10 @@ void main() {
     final ValueNotifier<bool> hidden = ValueNotifier<bool>(false);
     addTearDown(hidden.dispose);
 
-    final UserPreferences prefs = await _pumpNewsCard(
+    final UserPreferences prefs = await _pumpCard(
       tester,
-      news: <AppNewsItem>[_item0, _item1],
+      'Light',
+      <AppNewsItem>[_item0, _item1],
       offstage: hidden,
     );
 
@@ -465,9 +425,10 @@ void main() {
   testWidgets('single-item feed wraps without a second impression', (
     WidgetTester tester,
   ) async {
-    final UserPreferences prefs = await _pumpNewsCard(
+    final UserPreferences prefs = await _pumpCard(
       tester,
-      news: <AppNewsItem>[_item0],
+      'Light',
+      <AppNewsItem>[_item0],
     );
 
     await tester.pump(const Duration(minutes: 31));
@@ -482,9 +443,10 @@ void main() {
     final ValueNotifier<bool> hidden = ValueNotifier<bool>(true);
     addTearDown(hidden.dispose);
 
-    final UserPreferences prefs = await _pumpNewsCard(
+    final UserPreferences prefs = await _pumpCard(
       tester,
-      news: <AppNewsItem>[_item0],
+      'Light',
+      <AppNewsItem>[_item0],
       offstage: hidden,
     );
 
@@ -495,7 +457,7 @@ void main() {
   testWidgets('does not fire or throw after being disposed mid-timer', (
     WidgetTester tester,
   ) async {
-    await _pumpNewsCard(tester, news: <AppNewsItem>[_item0, _item1]);
+    await _pumpCard(tester, 'Light', <AppNewsItem>[_item0, _item1]);
 
     await tester.pumpWidget(const SizedBox());
     await tester.pump(const Duration(minutes: 31));
@@ -506,11 +468,7 @@ void main() {
   group('renders correctly in every theme', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
       testWidgets(theme, (WidgetTester tester) async {
-        await _pumpNewsCard(
-          tester,
-          news: <AppNewsItem>[_item0, _item1],
-          theme: theme,
-        );
+        await _pumpCard(tester, theme, <AppNewsItem>[_item0, _item1]);
 
         await expectLater(tester, meetsGuideline(textContrastGuideline));
         await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
