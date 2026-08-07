@@ -235,15 +235,7 @@ class AnalyticsHelper {
       options
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
-        ..beforeSend = (SentryEvent event, Hint hint) async {
-          return event
-            ..tags = <String, String>{
-              'store': GlobalVars.storeLabel.name,
-              'scanner': GlobalVars.scannerLabel.name,
-            };
-        };
-      // To set a uniform sample rate
-      options
+        // To set a uniform sample rate
         ..tracesSampleRate = 1.0
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
@@ -282,7 +274,12 @@ class AnalyticsHelper {
     if (!_crashReports) {
       return null;
     }
-    return event;
+    return event
+      ..tags = <String, String>{
+        ...?event.tags,
+        'store': GlobalVars.storeLabel.name,
+        'scanner': GlobalVars.scannerLabel.name,
+      };
   }
 
   static late PackageInfo _packageInfo;
