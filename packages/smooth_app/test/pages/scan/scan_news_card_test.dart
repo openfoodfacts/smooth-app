@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -15,9 +17,37 @@ import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../tests_utils/local_database_mock.dart';
 import '../../tests_utils/mocks.dart';
+
+// `UserPreferences.getUserPreferences()` memoizes a single instance for the
+// whole isolate (`user_preferences.dart:50-60`), and the legacy
+// `SharedPreferences` plugin memoizes its own instance the same way - so
+// `SharedPreferences.setMockInitialValues` only has effect before the very
+// first `getInstance()` call. These are the two tagline-feed keys
+// (`user_preferences.dart:139-141`); clearing them directly on the shared
+// cached instance is what actually isolates each test.
+const String _tagDisplayed = 'taglineFeedNewsDisplayed';
+const String _tagClicked = 'taglineFeedNewsClicked';
+
+const Key _visibilityKey = Key('scan_news_card');
+
+const AppNewsItem _item0 = AppNewsItem(
+  id: 'news-0',
+  title: 'First news',
+  message: 'First message',
+  url: 'https://example.com/0',
+);
+
+const AppNewsItem _item1 = AppNewsItem(
+  id: 'news-1',
+  title: 'Second news',
+  message: 'Second message',
+  url: 'https://example.com/1',
+);
 
 /// Five calendar months ahead, whatever the day the test runs on.
 DateTime _fiveMonthsFromNow() {
@@ -106,7 +136,97 @@ Future<void> _pumpCard(
   await tester.pump();
 }
 
+/// Pumps a [ScanNewsCard] behind everything the widget reads from context.
+///
+/// [offstage], when given, drives an [Offstage] wrapper so a test can flip
+/// visibility mid-run without losing the card's [State] (same [Element],
+/// same position in the tree).
+Future<UserPreferences> _pumpNewsCard(
+  WidgetTester tester, {
+  required List<AppNewsItem> news,
+  String theme = 'Light',
+  ValueListenable<bool>? offstage,
+}) async {
+  final UserPreferences userPreferences =
+      await UserPreferences.getUserPreferences();
+  userPreferences.setTheme(theme);
+
+  late ProductPreferences productPreferences;
+  productPreferences = ProductPreferences(
+    ProductPreferencesSelection(
+      setImportance: userPreferences.setImportance,
+      getImportance: userPreferences.getImportance,
+      notify: () => productPreferences.notifyListeners(),
+    ),
+  );
+  await productPreferences.init(PlatformAssetBundle());
+  await userPreferences.init(productPreferences);
+
+  final Widget card = Provider<ScanBottomCardDensity>.value(
+    value: ScanBottomCardDensity.dense,
+    child: ScanNewsCard(news: news),
+  );
+
+  final Widget body = offstage == null
+      ? card
+      : ValueListenableBuilder<bool>(
+          valueListenable: offstage,
+          builder: (BuildContext context, bool hidden, Widget? child) {
+            return Offstage(offstage: hidden, child: child);
+          },
+          child: card,
+        );
+
+  await tester.pumpWidget(
+    MockSmoothApp(
+      userPreferences,
+      UserManagementProvider(),
+      productPreferences,
+      ThemeProvider(userPreferences),
+      TextContrastProvider(userPreferences),
+      ColorProvider(userPreferences),
+      body,
+    ),
+  );
+  await tester.pump();
+
+  return userPreferences;
+}
+
+// The card title renders via `AutoSizeText`, a custom `LeafRenderObjectWidget`
+// with no `Text`/`RichText` descendant, so `find.text()` cannot see it.
+Finder _titleFinder(String title) => find.byWidgetPredicate(
+  (Widget widget) => widget is AutoSizeText && widget.text == title,
+);
+
+List<Map<String, String>> _eventsNamed(String name) => MatomoTracker
+    .instance
+    .queue
+    .where((Map<String, String> event) => event['e_n'] == name)
+    .toList();
+
 void main() {
+  setUpAll(() async {
+    SharedPreferences.setMockInitialValues(mockSharedPreferences());
+    await mockMatomo();
+    final UserPreferences bootstrapPreferences =
+        await UserPreferences.getUserPreferences();
+    await ProductQuery.setCountry(bootstrapPreferences, 'fr');
+  });
+
+  setUp(() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList(_tagDisplayed, <String>[]);
+    await prefs.setStringList(_tagClicked, <String>[]);
+
+    VisibilityDetectorController.instance.updateInterval = Duration.zero;
+    MatomoTracker.instance.dropActions();
+  });
+
+  tearDown(() {
+    VisibilityDetectorController.instance.forget(_visibilityKey);
+  });
+
   group('ScanNewsCard with campaign figures', () {
     for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
       testWidgets(theme, (WidgetTester tester) async {
@@ -221,5 +341,162 @@ void main() {
     expect(bar.color, titleIndicatorColor);
     expect(bar.backgroundColor, messageTextColor.withValues(alpha: 0.2));
     expect(bar.semanticsValue, '26');
+  });
+
+  testWidgets('impression fires on the first visible frame', (
+    WidgetTester tester,
+  ) async {
+    final UserPreferences prefs = await _pumpNewsCard(
+      tester,
+      news: <AppNewsItem>[_item0, _item1],
+    );
+
+    expect(prefs.taglineFeedDisplayedNews, <String>[_item0.id]);
+    final List<Map<String, String>> events = _eventsNamed(
+      'taglineNewsDisplayed',
+    );
+    expect(events, hasLength(1));
+    expect(events.single['e_a'], _item0.id);
+  });
+
+  testWidgets('tap marks and tracks the click without delaying the launch', (
+    WidgetTester tester,
+  ) async {
+    final UserPreferences prefs = await _pumpNewsCard(
+      tester,
+      news: <AppNewsItem>[_item0, _item1],
+    );
+
+    await tester.tap(find.byType(InkWell));
+    await tester.pump();
+
+    expect(prefs.taglineFeedClickedNews, <String>[_item0.id]);
+    expect(prefs.taglineFeedDisplayedNews, isNot(contains(_item0.id)));
+    final List<Map<String, String>> events = _eventsNamed('taglineNewsClicked');
+    expect(events, hasLength(1));
+    expect(events.single['e_a'], _item0.id);
+  });
+
+  testWidgets('rotation repaints after 30 minutes (setState regression)', (
+    WidgetTester tester,
+  ) async {
+    await _pumpNewsCard(tester, news: <AppNewsItem>[_item0, _item1]);
+
+    await tester.pump(const Duration(minutes: 31));
+
+    expect(_titleFinder(_item1.title), findsOneWidget);
+  });
+
+  testWidgets('rotation marks the new item as displayed', (
+    WidgetTester tester,
+  ) async {
+    final UserPreferences prefs = await _pumpNewsCard(
+      tester,
+      news: <AppNewsItem>[_item0, _item1],
+    );
+
+    await tester.pump(const Duration(minutes: 31));
+
+    expect(
+      prefs.taglineFeedDisplayedNews,
+      containsAll(<String>[_item0.id, _item1.id]),
+    );
+    final List<Map<String, String>> events = _eventsNamed(
+      'taglineNewsDisplayed',
+    );
+    expect(events, hasLength(2));
+    expect(events.last['e_a'], _item1.id);
+  });
+
+  testWidgets('impression is de-duplicated across a hide/show cycle', (
+    WidgetTester tester,
+  ) async {
+    final ValueNotifier<bool> hidden = ValueNotifier<bool>(false);
+    addTearDown(hidden.dispose);
+
+    final UserPreferences prefs = await _pumpNewsCard(
+      tester,
+      news: <AppNewsItem>[_item0, _item1],
+      offstage: hidden,
+    );
+
+    hidden.value = true;
+    await tester.pump();
+    hidden.value = false;
+    await tester.pump();
+
+    expect(prefs.taglineFeedDisplayedNews, <String>[_item0.id]);
+    expect(_eventsNamed('taglineNewsDisplayed'), hasLength(1));
+  });
+
+  testWidgets('single-item feed wraps without a second impression', (
+    WidgetTester tester,
+  ) async {
+    final UserPreferences prefs = await _pumpNewsCard(
+      tester,
+      news: <AppNewsItem>[_item0],
+    );
+
+    await tester.pump(const Duration(minutes: 31));
+
+    expect(prefs.taglineFeedDisplayedNews, <String>[_item0.id]);
+    expect(_eventsNamed('taglineNewsDisplayed'), hasLength(1));
+  });
+
+  testWidgets('an off-screen build does not fire an impression', (
+    WidgetTester tester,
+  ) async {
+    final ValueNotifier<bool> hidden = ValueNotifier<bool>(true);
+    addTearDown(hidden.dispose);
+
+    final UserPreferences prefs = await _pumpNewsCard(
+      tester,
+      news: <AppNewsItem>[_item0],
+      offstage: hidden,
+    );
+
+    expect(prefs.taglineFeedDisplayedNews, isEmpty);
+    expect(_eventsNamed('taglineNewsDisplayed'), isEmpty);
+  });
+
+  testWidgets('does not fire or throw after being disposed mid-timer', (
+    WidgetTester tester,
+  ) async {
+    await _pumpNewsCard(tester, news: <AppNewsItem>[_item0, _item1]);
+
+    await tester.pumpWidget(const SizedBox());
+    await tester.pump(const Duration(minutes: 31));
+
+    expect(tester.takeException(), isNull);
+  });
+
+  group('renders correctly in every theme', () {
+    for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
+      testWidgets(theme, (WidgetTester tester) async {
+        await _pumpNewsCard(
+          tester,
+          news: <AppNewsItem>[_item0, _item1],
+          theme: theme,
+        );
+
+        await expectLater(tester, meetsGuideline(textContrastGuideline));
+        await expectLater(tester, meetsGuideline(labeledTapTargetGuideline));
+
+        for (final double textScale in <double>[1.3, 2.0]) {
+          tester.platformDispatcher.textScaleFactorTestValue = textScale;
+          addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+          await tester.pump();
+
+          expect(
+            tester
+                .renderObjectList<RenderParagraph>(find.byType(RichText))
+                .any(
+                  (RenderParagraph paragraph) => paragraph.didExceedMaxLines,
+                ),
+            isFalse,
+          );
+        }
+      });
+    }
   });
 }
