@@ -146,6 +146,22 @@ void main() {
       expect(endingIn(5).monthsLeft, 5);
     });
 
+    test('rounds to the nearest month, and the card hides 0', () {
+      // The extra hour keeps `inDays` off the boundary whatever time it runs.
+      expect(
+        _newsItem(
+          endDate: DateTime.now().add(const Duration(days: 16, hours: 1)),
+        ).monthsLeft,
+        1,
+      );
+      expect(
+        _newsItem(
+          endDate: DateTime.now().add(const Duration(days: 15, hours: 1)),
+        ).monthsLeft,
+        0,
+      );
+    });
+
     test('floors at 0 for a past end date', () {
       expect(endingIn(-2).monthsLeft, 0);
     });
