@@ -366,6 +366,11 @@ class AnalyticsHelper {
     String? action,
     ProductType? productType,
   }) {
+    // Screenshot mode skips [MatomoTracker.initialize], which leaves its
+    // `queue` an unassigned `late final`.
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final Map<String, String> dimensions = <String, String>{
       'dimension1': ProductQuery.getLanguage().offTag,
       'dimension2': ProductQuery.getCountry().offTag,
