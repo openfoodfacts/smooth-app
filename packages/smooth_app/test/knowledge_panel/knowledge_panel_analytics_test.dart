@@ -88,7 +88,7 @@ void main() {
         );
 
   group('KnowledgePanelCard - card -> full page (route 1)', () {
-    testWidgets('T4 - unclickable card has a null onTap and fires nothing', (
+    testWidgets('an unclickable card has a null onTap and fires nothing', (
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
@@ -108,7 +108,7 @@ void main() {
       expect(knowledgePanelOpenEvents(), isEmpty);
     });
 
-    testWidgets('T4 - a clickable card fires nothing before it is tapped', (
+    testWidgets('a clickable card fires nothing before it is tapped', (
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
@@ -128,7 +128,7 @@ void main() {
       expect(knowledgePanelOpenEvents(), isEmpty);
     });
 
-    testWidgets('T5 - tapping a clickable card fires the panel id', (
+    testWidgets('tapping a clickable card fires the panel id', (
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(
@@ -168,7 +168,7 @@ void main() {
       ),
     );
 
-    testWidgets('T6 - no panel id means a null onTap and fires nothing', (
+    testWidgets('no panel id means a null onTap and fires nothing', (
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(wrapSquare(null));
@@ -179,7 +179,7 @@ void main() {
       expect(knowledgePanelOpenEvents(), isEmpty);
     });
 
-    testWidgets('T6 - tapping a square fires its panel id', (
+    testWidgets('tapping a square fires its panel id', (
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(wrapSquare('nutriscore'));
@@ -194,14 +194,11 @@ void main() {
     });
   });
 
-  test(
-    'T7 - KnowledgePanelPage keeps its existing screen-view actionName '
-    '(source-level check, no navigation - the page is untouched by this PR)',
-    () {
-      final String source = File(
-        'lib/knowledge_panel/knowledge_panels/knowledge_panel_page.dart',
-      ).readAsStringSync();
-      expect(source.contains("'Opened full knowledge panel page'"), isTrue);
-    },
-  );
+  test('KnowledgePanelPage keeps its existing screen-view actionName '
+      '(source-level check, no navigation - the page is untouched here)', () {
+    final String source = File(
+      'lib/knowledge_panel/knowledge_panels/knowledge_panel_page.dart',
+    ).readAsStringSync();
+    expect(source.contains("'Opened full knowledge panel page'"), isTrue);
+  });
 }
