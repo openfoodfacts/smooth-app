@@ -284,7 +284,14 @@ class AnalyticsHelper {
 
   static late PackageInfo _packageInfo;
 
-  static Future<void> initMatomo(final bool screenshotMode) async {
+  /// Widget tests must pass [DispatchSettings.nonPersistent]: the persistent
+  /// queue saves through a zero-duration timer that `flutter_test`'s fake clock
+  /// never fires, so initialization never returns.
+  static Future<void> initMatomo(
+    final bool screenshotMode, {
+    final DispatchSettings dispatchSettings =
+        const DispatchSettings.persistent(),
+  }) async {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
       _setCrashReports(false);
@@ -296,6 +303,7 @@ class AnalyticsHelper {
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: '2',
         visitorId: _visitorId,
+        dispatchSettings: dispatchSettings,
       );
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized

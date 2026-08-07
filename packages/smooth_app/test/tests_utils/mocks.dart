@@ -184,6 +184,19 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
 }
 
 Future<void> mockMatomo() async {
+  mockMatomoPlatformChannels();
+
+  // Persistence would never finish initializing here: see [initMatomo].
+  await AnalyticsHelper.initMatomo(
+    false,
+    dispatchSettings: const DispatchSettings.nonPersistent(),
+  );
+  MatomoTracker.instance.setOptOut(optOut: true);
+  MatomoTracker.instance.dequeueTimer.cancel();
+  MatomoTracker.instance.pingTimer?.cancel();
+}
+
+void mockMatomoPlatformChannels() {
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(
         const MethodChannel('dev.fluttercommunity.plus/device_info'),
@@ -222,9 +235,4 @@ Future<void> mockMatomo() async {
           return null;
         },
       );
-
-  await AnalyticsHelper.initMatomo(false);
-  MatomoTracker.instance.setOptOut(optOut: true);
-  MatomoTracker.instance.dequeueTimer.cancel();
-  MatomoTracker.instance.pingTimer?.cancel();
 }
