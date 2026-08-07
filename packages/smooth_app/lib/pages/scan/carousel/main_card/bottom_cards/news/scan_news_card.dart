@@ -86,7 +86,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
               if (currentNews.funding case final AppNewsFunding funding)
                 _TagLineFundingMeter(
                   funding: funding,
-                  monthsLeft: currentNews.monthsLeft(DateTime.now()),
+                  monthsLeft: currentNews.monthsLeft,
                   textColor: currentNews.style?.messageTextColor,
                   barColor: currentNews.style?.titleIndicatorColor,
                 ),
@@ -124,6 +124,9 @@ Color _messageColor(BuildContext context, Color? feedColor) {
   return context.lightTheme() ? theme.primaryBlack : theme.primaryLight;
 }
 
+/// Separates the two halves of a funding line, e.g. `of 170,000 € · 26%`.
+const String _separator = '·';
+
 class _TagLineFundingMeter extends StatelessWidget {
   const _TagLineFundingMeter({
     required this.funding,
@@ -150,10 +153,14 @@ class _TagLineFundingMeter extends StatelessWidget {
     final String percent = NumberFormat.percentPattern(
       locale,
     ).format(funding.ratio);
+    // endDate marks when the feed stops serving the item, not the campaign
+    // deadline, so a span no campaign would run shows no deadline at all.
     final int? months = monthsLeft;
+    final String deadline = months == null || months < 1 || months > 12
+        ? ''
+        : ' $_separator ${localizations.tagline_feed_funding_months_left(months)}';
 
     return Column(
-      // stretch, so the progress bar spans the card.
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: VERY_SMALL_SPACE,
       children: <Widget>[
@@ -176,10 +183,8 @@ class _TagLineFundingMeter extends StatelessWidget {
               ),
             ),
             Text(
-              localizations.tagline_feed_funding_progress(
-                currencyFormat.format(funding.goal),
-                percent,
-              ),
+              '${localizations.tagline_feed_funding_goal(currencyFormat.format(funding.goal))}'
+              ' $_separator $percent',
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(color: labelColor, fontSize: 13.0),
@@ -188,8 +193,6 @@ class _TagLineFundingMeter extends StatelessWidget {
         ),
         LinearProgressIndicator(
           value: funding.progress,
-          // A progress bar semantics value is read against minValue 0 and
-          // maxValue 100, so it has to stay a bare number.
           semanticsValue: (funding.ratio * 100).round().toString(),
           minHeight: SMALL_SPACE,
           borderRadius: MAX_BORDER_RADIUS,
@@ -198,15 +201,12 @@ class _TagLineFundingMeter extends StatelessWidget {
               context.extension<SmoothColorsThemeExtension>().secondaryVibrant,
           backgroundColor: labelColor.withValues(alpha: 0.2),
         ),
-        if (months != null && funding.shortfall > 0.0)
+        if (funding.shortfall > 0)
           Text(
-            // endDate marks when the feed stops serving the item, not the
-            // campaign deadline, so a span no campaign would run reads as 0 and
-            // leaves only the amount.
             localizations.tagline_feed_funding_shortfall(
-              currencyFormat.format(funding.shortfall),
-              months > 12 ? 0 : months,
-            ),
+                  currencyFormat.format(funding.shortfall),
+                ) +
+                deadline,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(color: labelColor, fontSize: 13.0),

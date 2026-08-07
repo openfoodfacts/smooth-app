@@ -1117,28 +1117,30 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
-  "tagline_feed_funding_progress": "of {goal} · {percent}",
-  "@tagline_feed_funding_progress": {
-    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal, and the share of it already raised. Both values arrive already formatted by the app, so do not add currency symbols, digits, separators or a percent sign.",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
     "placeholders": {
       "goal": {
         "type": "String",
         "example": "170,000 €"
-      },
-      "percent": {
-        "type": "String",
-        "example": "26%"
       }
     }
   },
-  "tagline_feed_funding_shortfall": "{shortfall} short{months,plural, =0{} =1{ · one month left} other{ · {months} months left}}",
+  "tagline_feed_funding_shortfall": "{shortfall} short",
   "@tagline_feed_funding_shortfall": {
-    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing, and how long the campaign runs. The amount arrives already formatted by the app. The app passes 0 months when it has no meaningful deadline to show, so that case is deliberately empty and only the amount is displayed.",
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
     "placeholders": {
       "shortfall": {
         "type": "String",
         "example": "125,941 €"
-      },
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
       "months": {
         "type": "int",
         "example": "5"

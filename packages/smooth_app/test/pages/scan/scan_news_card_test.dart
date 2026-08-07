@@ -26,8 +26,8 @@ DateTime _fiveMonthsFromNow() {
 }
 
 AppNewsItem _newsItem({
-  double? raised,
-  double? goal,
+  num? raised,
+  num? goal,
   String? currency,
   AppNewsStyle? style,
   DateTime? endDate,
@@ -119,6 +119,8 @@ void main() {
         expect(find.byType(LinearProgressIndicator), findsOneWidget);
         // Whole euros, so the amounts fit the row the design draws.
         expect(find.textContaining('.47'), findsNothing);
+        // The separator is joined in code, never in a translated value.
+        expect(find.textContaining('·'), findsNWidgets(2));
         expect(tester, meetsGuideline(textContrastGuideline));
         expect(tester, meetsGuideline(labeledTapTargetGuideline));
       });

@@ -121,15 +121,15 @@ class _TagLineItemNewsItem {
     required this.id,
     required this.url,
     required this._translations,
+    required this.raised,
+    required this.goal,
+    required this.currency,
     this.minLaunches,
     this.startDate,
     this.endDate,
     this.minVersion,
     this.maxVersion,
     this.style,
-    this.raised,
-    this.goal,
-    this.currency,
   });
 
   _TagLineItemNewsItem.fromJson(this.id, Map<dynamic, dynamic> json)
@@ -155,10 +155,8 @@ class _TagLineItemNewsItem {
         }
       }),
       minLaunches = json['min_launches'] is int ? json['min_launches'] : null,
-      raised = json['raised'] is num
-          ? (json['raised'] as num).toDouble()
-          : null,
-      goal = json['goal'] is num ? (json['goal'] as num).toDouble() : null,
+      raised = json['raised'] is num ? json['raised'] : null,
+      goal = json['goal'] is num ? json['goal'] : null,
       currency = json['currency'] is String ? json['currency'] : null,
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
@@ -177,8 +175,8 @@ class _TagLineItemNewsItem {
   final String? minVersion;
   final String? maxVersion;
   final _TagLineNewsStyle? style;
-  final double? raised;
-  final double? goal;
+  final num? raised;
+  final num? goal;
   final String? currency;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
@@ -236,8 +234,8 @@ class _TagLineItemNewsItem {
     String? minVersion,
     String? maxVersion,
     _TagLineNewsStyle? style,
-    double? raised,
-    double? goal,
+    num? raised,
+    num? goal,
     String? currency,
   }) {
     return _TagLineItemNewsItem._(

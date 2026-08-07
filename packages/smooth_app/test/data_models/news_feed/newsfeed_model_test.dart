@@ -5,8 +5,8 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 
 AppNewsItem _newsItem({
   DateTime? endDate,
-  double? raised,
-  double? goal,
+  num? raised,
+  num? goal,
   String? currency,
 }) => AppNewsItem(
   id: 'donation_campaign_2026',
@@ -122,53 +122,27 @@ void main() {
   });
 
   group('AppNewsItem.monthsLeft', () {
+    AppNewsItem endingIn(Duration duration) =>
+        _newsItem(endDate: DateTime.now().add(duration));
+
     test('is null without an end date', () {
-      expect(_newsItem().monthsLeft(DateTime(2026, 8, 2)), isNull);
+      expect(_newsItem().monthsLeft, isNull);
     });
 
-    test('is 0 for the same month', () {
-      expect(
-        _newsItem(
-          endDate: DateTime(2026, 8, 2),
-        ).monthsLeft(DateTime(2026, 8, 2)),
-        0,
-      );
+    test('is 0 for an end date less than a month away', () {
+      expect(endingIn(const Duration(days: 29)).monthsLeft, 0);
     });
 
-    test('is 1 for the next month', () {
-      expect(
-        _newsItem(
-          endDate: DateTime(2026, 9, 2),
-        ).monthsLeft(DateTime(2026, 8, 2)),
-        1,
-      );
+    test('is 1 a month out', () {
+      expect(endingIn(const Duration(days: 35)).monthsLeft, 1);
     });
 
     test('is 5 across a year boundary', () {
-      expect(
-        _newsItem(
-          endDate: DateTime(2027, 1, 2),
-        ).monthsLeft(DateTime(2026, 8, 2)),
-        5,
-      );
-    });
-
-    test('decrements when the end day of month precedes the start one', () {
-      expect(
-        _newsItem(
-          endDate: DateTime(2026, 9, 1),
-        ).monthsLeft(DateTime(2026, 8, 15)),
-        0,
-      );
+      expect(endingIn(const Duration(days: 160)).monthsLeft, 5);
     });
 
     test('floors at 0 for a past end date', () {
-      expect(
-        _newsItem(
-          endDate: DateTime(2026, 7, 1),
-        ).monthsLeft(DateTime(2026, 8, 2)),
-        0,
-      );
+      expect(endingIn(const Duration(days: -40)).monthsLeft, 0);
     });
   });
 }

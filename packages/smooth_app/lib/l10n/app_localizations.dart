@@ -2759,17 +2759,23 @@ abstract class AppLocalizations {
   /// **'Know more'**
   String get tagline_feed_news_button;
 
-  /// Second line of the home news card when a funding campaign publishes its figures: the campaign goal, and the share of it already raised. Both values arrive already formatted by the app, so do not add currency symbols, digits, separators or a percent sign.
+  /// Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.
   ///
   /// In en, this message translates to:
-  /// **'of {goal} · {percent}'**
-  String tagline_feed_funding_progress(String goal, String percent);
+  /// **'of {goal}'**
+  String tagline_feed_funding_goal(String goal);
 
-  /// Third line of the home news card when a funding campaign publishes its figures: how much money is still missing, and how long the campaign runs. The amount arrives already formatted by the app. The app passes 0 months when it has no meaningful deadline to show, so that case is deliberately empty and only the amount is displayed.
+  /// Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.
   ///
   /// In en, this message translates to:
-  /// **'{shortfall} short{months,plural, =0{} =1{ · one month left} other{ · {months} months left}}'**
-  String tagline_feed_funding_shortfall(String shortfall, int months);
+  /// **'{shortfall} short'**
+  String tagline_feed_funding_shortfall(String shortfall);
+
+  /// How long a funding campaign still runs, shown on the home news card next to the missing amount.
+  ///
+  /// In en, this message translates to:
+  /// **'{months,plural, =1{one month left} other{{months} months left}}'**
+  String tagline_feed_funding_months_left(int months);
 
   /// No description provided for @app_review_negative_modal_title.
   ///
