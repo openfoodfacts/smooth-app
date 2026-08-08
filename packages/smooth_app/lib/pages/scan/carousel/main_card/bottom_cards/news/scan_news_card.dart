@@ -68,7 +68,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
       body: InkWell(
         borderRadius: const BorderRadius.vertical(bottom: radius),
         onTap: () {
-          if (isDonationNewsItem(currentNews)) {
+          if (currentNews.isDonation) {
             AppNavigator.of(
               context,
             ).push(AppRoutes.DONATE(DonationSource.tagline));
