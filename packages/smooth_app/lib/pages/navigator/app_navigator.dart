@@ -11,7 +11,7 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/barcode_utils.dart';
-import 'package:smooth_app/pages/donation/donation_links.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_page.dart';
 import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
