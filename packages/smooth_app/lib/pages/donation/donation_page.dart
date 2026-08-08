@@ -300,25 +300,42 @@ class _TierList extends StatelessWidget {
       ),
     );
   }
+}
 
-  /// The locale's own format first, because [int.tryParse] reads nothing at all
-  /// from a keyboard emitting Persian or Bengali digits - and plain digits
-  /// after it, because those same locales' formats reject an ASCII `7`.
-  static int? _amountOf(NumberFormat format, String value) {
-    final num? amount = format.tryParse(value) ?? int.tryParse(value);
-    return amount != null && amount.isFinite && amount > 0
-        ? amount.toInt()
-        : null;
+/// The outline every pickable thing in the ladder shares.
+class _LadderOutline extends StatelessWidget {
+  const _LadderOutline({required this.active, required this.child});
+
+  final bool active;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          // Everything is outlined so it all reads as pickable; only the
+          // opacity moves, so choosing never shifts the list.
+          border: Border.all(
+            width: 2.0,
+            color: Theme.of(
+              context,
+            ).colorScheme.primary.withValues(alpha: active ? 1.0 : 0.25),
+          ),
+        ),
+        child: child,
+      ),
+    );
   }
 }
 
-/// Free-entry amount, skinned to read as one more row of the ladder.
-///
-/// The shared field hardcodes `filled: true` and takes its colour from the
-/// app's [InputDecorationTheme], which is the same fill as a primary button -
-/// so it read as an action rather than a choice. A nested [Theme] neutralises
-/// that fill for this one field instead of adding a parameter to a widget 50
-/// other screens use, and the outline then matches [_TierRow] token for token.
+/// The shared field hardcodes `filled: true` from [InputDecorationTheme], which
+/// is the primary-button fill - so it read as an action rather than a choice. A
+/// nested [Theme] neutralises it here instead of adding a parameter to the 50
+/// other call sites, and blanks the state borders so [_LadderOutline] is the
+/// only ring drawn.
 class _CustomAmountField extends StatelessWidget {
   const _CustomAmountField({
     required this.active,
@@ -339,52 +356,59 @@ class _CustomAmountField extends StatelessWidget {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final ThemeData theme = Theme.of(context);
 
-    return ClipRRect(
+    const InputBorder blank = OutlineInputBorder(
       borderRadius: ROUNDED_BORDER_RADIUS,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          border: Border.all(
-            width: 2.0,
-            color: theme.colorScheme.primary.withValues(
-              alpha: active ? 1.0 : 0.25,
-            ),
+      borderSide: BorderSide(color: Colors.transparent, width: 5.0),
+    );
+
+    return _LadderOutline(
+      active: active,
+      child: Theme(
+        data: theme.copyWith(
+          inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+            fillColor: Colors.transparent,
+            focusedBorder: blank,
+            errorBorder: blank,
+            focusedErrorBorder: blank,
           ),
         ),
-        child: Theme(
-          data: theme.copyWith(
-            inputDecorationTheme: theme.inputDecorationTheme.copyWith(
-              fillColor: Colors.transparent,
-            ),
-          ),
-          child: SmoothTextFormField(
-            type: TextFieldTypes.PLAIN_TEXT,
-            controller: controller,
-            hintText: appLocalizations.donation_custom_amount_hint,
-            textInputType: TextInputType.number,
-            maxLines: 1,
-            borderRadius: ROUNDED_BORDER_RADIUS,
-            validator: (String? value) =>
-                value == null ||
-                    value.isEmpty ||
-                    _TierList._amountOf(numberFormat, value) != null
-                ? null
-                : appLocalizations.donation_custom_amount_error,
-            suffixIcon: Center(
-              widthFactor: 1.0,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
-                child: Text(
-                  appLocalizations.donation_tier_amount_monthly(currencySymbol),
-                ),
+        child: SmoothTextFormField(
+          type: TextFieldTypes.PLAIN_TEXT,
+          controller: controller,
+          hintText: appLocalizations.donation_custom_amount_hint,
+          textInputType: TextInputType.number,
+          maxLines: 1,
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          validator: (String? value) =>
+              value == null ||
+                  value.isEmpty ||
+                  _amountOf(numberFormat, value) != null
+              ? null
+              : appLocalizations.donation_custom_amount_error,
+          suffixIcon: Center(
+            widthFactor: 1.0,
+            child: Padding(
+              padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
+              child: Text(
+                appLocalizations.donation_tier_amount_monthly(currencySymbol),
               ),
             ),
-            onChanged: (String? value) =>
-                onCustomAmount(_TierList._amountOf(numberFormat, value ?? '')),
           ),
+          onChanged: (String? value) =>
+              onCustomAmount(_amountOf(numberFormat, value ?? '')),
         ),
       ),
     );
+  }
+
+  /// The locale's own format first, because [int.tryParse] reads nothing at all
+  /// from a keyboard emitting Persian or Bengali digits - and plain digits
+  /// after it, because those same locales' formats reject an ASCII `7`.
+  static int? _amountOf(NumberFormat format, String value) {
+    final num? amount = format.tryParse(value) ?? int.tryParse(value);
+    return amount != null && amount.isFinite && amount > 0
+        ? amount.toInt()
+        : null;
   }
 }
 
@@ -406,30 +430,17 @@ class _TierRow extends StatelessWidget {
     return MergeSemantics(
       child: Semantics(
         selected: selected,
-        child: ClipRRect(
-          borderRadius: ROUNDED_BORDER_RADIUS,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              // Every row is outlined so all three read as pickable; only the
-              // opacity moves, so selecting never shifts the list.
-              border: Border.all(
-                width: 2.0,
-                color: Theme.of(
-                  context,
-                ).colorScheme.primary.withValues(alpha: selected ? 1.0 : 0.25),
-              ),
-            ),
-            child: PreferenceTile(
-              leading: selected
-                  ? const icons.CheckBox.filled()
-                  : const icons.CheckBox(),
-              title: amount,
-              subtitleText: scans,
-              trailing: EMPTY_WIDGET,
-              borderRadius: ROUNDED_BORDER_RADIUS,
-              onTap: onTap,
-            ),
+        child: _LadderOutline(
+          active: selected,
+          child: PreferenceTile(
+            leading: selected
+                ? const icons.CheckBox.filled()
+                : const icons.CheckBox(),
+            title: amount,
+            subtitleText: scans,
+            trailing: EMPTY_WIDGET,
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            onTap: onTap,
           ),
         ),
       ),
