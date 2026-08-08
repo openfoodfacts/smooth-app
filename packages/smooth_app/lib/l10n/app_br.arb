@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "N'eo ket e gwirionez…",
   "tagline_app_review_button_later": "Goulenn diganin diwezhatoc'h",
   "tagline_feed_news_button": "Gouzout hiroc'h",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Ne blij ket deoc'h hon arload ?",
   "app_review_negative_modal_text": "Ha gallout a rit kemer un nebeud eilennoù evit lâret deomp perak ?",
   "app_review_negative_modal_positive_button": "Ya, sur a-walc'h !",
