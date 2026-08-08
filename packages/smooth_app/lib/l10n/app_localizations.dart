@@ -11122,6 +11122,12 @@ abstract class AppLocalizations {
   /// **'Amount'**
   String get donation_custom_amount_hint;
 
+  /// Error shown under the donation amount field when what the donor typed cannot be read as an amount
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an amount'**
+  String get donation_custom_amount_error;
+
   /// Main button of the donation page, opens the donation form with the selected monthly amount
   ///
   /// In en, this message translates to:

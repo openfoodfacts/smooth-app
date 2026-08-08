@@ -10,7 +10,7 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/donation/donation_links.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -117,11 +117,8 @@ class _DonationPageState extends State<DonationPage> {
     });
   }
 
-  void _setCustomAmount(String value) {
-    final int? amount = int.tryParse(value);
-    setState(
-      () => _customAmount = amount != null && amount > 0 ? amount : null,
-    );
+  void _setCustomAmount(int? amount) {
+    setState(() => _customAmount = amount);
   }
 }
 
@@ -231,7 +228,7 @@ class _TierList extends StatelessWidget {
   final int selectedAmount;
   final TextEditingController customAmountController;
   final ValueChanged<int> onSelected;
-  final ValueChanged<String> onCustomAmount;
+  final ValueChanged<int?> onCustomAmount;
 
   @override
   Widget build(BuildContext context) {
@@ -250,7 +247,7 @@ class _TierList extends StatelessWidget {
       name: offer.currency,
       decimalDigits: 0,
     );
-    final NumberFormat scansFormat = NumberFormat.decimalPattern(numberLocale);
+    final NumberFormat numberFormat = NumberFormat.decimalPattern(numberLocale);
     final List<DonationTier> tiers = offer.tiers;
 
     return _Block(
@@ -285,7 +282,7 @@ class _TierList extends StatelessWidget {
                 amountFormat.format(tier.amount),
               ),
               scans: appLocalizations.donation_tier_scans(
-                scansFormat.format(tier.scans),
+                numberFormat.format(tier.scans),
               ),
               onTap: () => onSelected(tier.amount),
             ),
@@ -295,6 +292,12 @@ class _TierList extends StatelessWidget {
             hintText: appLocalizations.donation_custom_amount_hint,
             textInputType: TextInputType.number,
             maxLines: 1,
+            validator: (String? value) =>
+                value == null ||
+                    value.isEmpty ||
+                    _amountOf(numberFormat, value) != null
+                ? null
+                : appLocalizations.donation_custom_amount_error,
             suffixIcon: Center(
               widthFactor: 1.0,
               child: Padding(
@@ -302,11 +305,22 @@ class _TierList extends StatelessWidget {
                 child: Text(amountFormat.currencySymbol),
               ),
             ),
-            onChanged: (String? value) => onCustomAmount(value ?? ''),
+            onChanged: (String? value) =>
+                onCustomAmount(_amountOf(numberFormat, value ?? '')),
           ),
         ],
       ),
     );
+  }
+
+  /// The locale's own format first, because [int.tryParse] reads nothing at all
+  /// from a keyboard emitting Persian or Bengali digits - and plain digits
+  /// after it, because those same locales' formats reject an ASCII `7`.
+  static int? _amountOf(NumberFormat format, String value) {
+    final num? amount = format.tryParse(value) ?? int.tryParse(value);
+    return amount != null && amount.isFinite && amount > 0
+        ? amount.toInt()
+        : null;
   }
 }
 
