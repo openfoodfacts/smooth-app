@@ -1,12 +1,12 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
-import 'package:smooth_app/pages/donation/donation_links.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
 AppNewsItem _newsItem({
   String? currency,
-  List<int>? donationAmounts,
-  int? donationScansPerUnit,
+  List<num>? donationAmounts,
+  num? donationScansPerUnit,
   List<String>? donationWhereItGoes,
 }) => AppNewsItem(
   id: 'donation_campaign_2026',
@@ -86,6 +86,42 @@ void main() {
     test('refuses a scan anchor that is not positive', () {
       expect(
         DonationOffer.fromNews(_newsItem(donationScansPerUnit: 0)).scansPerUnit,
+        270,
+      );
+    });
+
+    test('sorts and deduplicates the ladder', () {
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(donationAmounts: <int>[10, 3, 5, 10]),
+        ).amounts,
+        <int>[3, 5, 10],
+      );
+    });
+
+    test('takes a whole-number amount written as a decimal', () {
+      final DonationOffer offer = DonationOffer.fromNews(
+        _newsItem(
+          donationAmounts: <num>[3.0, 5.0],
+          donationScansPerUnit: 270.0,
+        ),
+      );
+
+      expect(offer.amounts, <int>[3, 5]);
+      expect(offer.scansPerUnit, 270);
+    });
+
+    test('refuses values that are not finite', () {
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(donationAmounts: <num>[3, double.infinity]),
+        ).amounts,
+        <int>[3, 5, 10],
+      );
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(donationScansPerUnit: double.nan),
+        ).scansPerUnit,
         270,
       );
     });
