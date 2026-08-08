@@ -39,21 +39,16 @@ class DonationOffer {
   /// screen exactly as it shipped.
   factory DonationOffer.fromNews(AppNewsItem? item) {
     final String? currency = item?.currency;
-    final List<int>? amounts = item?.donationAmounts;
-    final int? scansPerUnit = item?.donationScansPerUnit;
+    final List<int> amounts = _ladder(item?.donationAmounts);
+    final num? scansPerUnit = item?.donationScansPerUnit;
 
     return DonationOffer(
       currency: currency != null && currency.length == 3
           ? currency
           : _fallbackCurrency,
-      amounts:
-          amounts != null &&
-              amounts.isNotEmpty &&
-              amounts.every((int amount) => amount > 0)
-          ? amounts
-          : _fallbackAmounts,
-      scansPerUnit: scansPerUnit != null && scansPerUnit > 0
-          ? scansPerUnit
+      amounts: amounts.isEmpty ? _fallbackAmounts : amounts,
+      scansPerUnit: scansPerUnit != null && _isUsable(scansPerUnit)
+          ? scansPerUnit.toInt()
           : _fallbackScansPerUnit,
       whereItGoes: item?.donationWhereItGoes ?? const <String>[],
     );
@@ -65,6 +60,20 @@ class DonationOffer {
   /// Scans a month of one currency unit covers, from Open Food Facts'
   /// published 2026 infrastructure budget over their published scan volume.
   static const int _fallbackScansPerUnit = 270;
+
+  /// Sorted and deduplicated: the slider walks the ladder by index, so an
+  /// unordered feed makes dragging right ask for less money, and a repeated
+  /// amount selects two rows at once.
+  static List<int> _ladder(List<num>? amounts) {
+    if (amounts == null || amounts.isEmpty || !amounts.every(_isUsable)) {
+      return const <int>[];
+    }
+    return amounts.map((num amount) => amount.toInt()).toSet().toList()..sort();
+  }
+
+  /// `isFinite` because `toInt()` throws on the infinity a JSON `1e400` decodes
+  /// to, the same guard [AppNewsFunding.tryFrom] carries.
+  static bool _isUsable(num amount) => amount.isFinite && amount > 0;
 
   final String currency;
   final List<int> amounts;
