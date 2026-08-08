@@ -331,11 +331,9 @@ class _LadderOutline extends StatelessWidget {
   }
 }
 
-/// The shared field hardcodes `filled: true` from [InputDecorationTheme], which
-/// is the primary-button fill - so it read as an action rather than a choice. A
-/// nested [Theme] neutralises it here instead of adding a parameter to the 50
-/// other call sites, and blanks the state borders so [_LadderOutline] is the
-/// only ring drawn.
+/// A nested [Theme] rather than a new parameter on a field with 50 other call
+/// sites: its `filled: true` picks up the primary-button fill, and its unset
+/// state borders would draw a second ring inside [_LadderOutline].
 class _CustomAmountField extends StatelessWidget {
   const _CustomAmountField({
     required this.active,
