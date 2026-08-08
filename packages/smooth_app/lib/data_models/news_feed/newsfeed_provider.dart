@@ -9,6 +9,7 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
