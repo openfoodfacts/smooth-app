@@ -75,8 +75,8 @@ class AppNewsItem {
   final num? raised;
   final num? goal;
   final String? currency;
-  final List<int>? donationAmounts;
-  final int? donationScansPerUnit;
+  final List<num>? donationAmounts;
+  final num? donationScansPerUnit;
   final List<String>? donationWhereItGoes;
 
   AppNewsFunding? get funding => AppNewsFunding.tryFrom(raised, goal, currency);
