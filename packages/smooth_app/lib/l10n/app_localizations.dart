@@ -11104,7 +11104,7 @@ abstract class AppLocalizations {
   /// **'Monthly, cancel any time'**
   String get donation_tiers_title;
 
-  /// A monthly donation amount, already formatted with its currency
+  /// A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own
   ///
   /// In en, this message translates to:
   /// **'{amount} a month'**
