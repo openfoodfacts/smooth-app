@@ -124,6 +124,8 @@ class _TagLineItemNewsItem {
     required this.raised,
     required this.goal,
     required this.currency,
+    required this.donationAmounts,
+    required this.donationScansPerUnit,
     this.minLaunches,
     this.startDate,
     this.endDate,
@@ -158,6 +160,10 @@ class _TagLineItemNewsItem {
       raised = json['raised'] as num?,
       goal = json['goal'] as num?,
       currency = json['currency'],
+      donationAmounts = json['donation_amounts'] == null
+          ? null
+          : List<int>.from(json['donation_amounts'] as Iterable<dynamic>),
+      donationScansPerUnit = json['donation_scans_per_unit'] as int?,
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
       minVersion = json['min_version'],
@@ -178,6 +184,8 @@ class _TagLineItemNewsItem {
   final num? raised;
   final num? goal;
   final String? currency;
+  final List<int>? donationAmounts;
+  final int? donationScansPerUnit;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -216,6 +224,9 @@ class _TagLineItemNewsItem {
       raised: raised,
       goal: goal,
       currency: currency,
+      donationAmounts: donationAmounts,
+      donationScansPerUnit: donationScansPerUnit,
+      donationWhereItGoes: translation.donationWhereItGoes,
       image: translation.image?.overridesContent == true
           ? translation.image?.toTagLineImage()
           : null,
@@ -237,6 +248,8 @@ class _TagLineItemNewsItem {
     num? raised,
     num? goal,
     String? currency,
+    List<int>? donationAmounts,
+    int? donationScansPerUnit,
   }) {
     return _TagLineItemNewsItem._(
       id: id,
@@ -252,6 +265,8 @@ class _TagLineItemNewsItem {
       raised: raised ?? this.raised,
       goal: goal ?? this.goal,
       currency: currency ?? this.currency,
+      donationAmounts: donationAmounts ?? this.donationAmounts,
+      donationScansPerUnit: donationScansPerUnit ?? this.donationScansPerUnit,
     );
   }
 }
@@ -266,6 +281,7 @@ class _TagLineItemNewsTranslation {
     this.buttonLabel,
     this.image,
     this.darkImage,
+    this.donationWhereItGoes,
   });
 
   _TagLineItemNewsTranslation.fromJson(Map<dynamic, dynamic> json)
@@ -285,13 +301,19 @@ class _TagLineItemNewsTranslation {
           : _TagLineNewsImage.fromJson(json['image']),
       darkImage = json['image_dark'] == null
           ? null
-          : _TagLineNewsImage.fromJson(json['image_dark']);
+          : _TagLineNewsImage.fromJson(json['image_dark']),
+      donationWhereItGoes = json['donation_where_it_goes'] == null
+          ? null
+          : List<String>.from(
+              json['donation_where_it_goes'] as Iterable<dynamic>,
+            );
   final String? title;
   final String? message;
   final String? url;
   final String? buttonLabel;
   final _TagLineNewsImage? image;
   final _TagLineNewsImage? darkImage;
+  final List<String>? donationWhereItGoes;
 
   _TagLineItemNewsTranslation copyWith({
     String? title,
@@ -300,6 +322,7 @@ class _TagLineItemNewsTranslation {
     String? buttonLabel,
     _TagLineNewsImage? image,
     _TagLineNewsImage? darkImage,
+    List<String>? donationWhereItGoes,
   }) {
     return _TagLineItemNewsTranslation._(
       title: title ?? this.title,
@@ -308,6 +331,7 @@ class _TagLineItemNewsTranslation {
       buttonLabel: buttonLabel ?? this.buttonLabel,
       image: image ?? this.image,
       darkImage: darkImage ?? this.darkImage,
+      donationWhereItGoes: donationWhereItGoes ?? this.donationWhereItGoes,
     );
   }
 
@@ -323,6 +347,7 @@ class _TagLineItemNewsTranslation {
       buttonLabel: other.buttonLabel,
       image: other.image,
       darkImage: other.darkImage,
+      donationWhereItGoes: other.donationWhereItGoes,
     );
   }
 }
