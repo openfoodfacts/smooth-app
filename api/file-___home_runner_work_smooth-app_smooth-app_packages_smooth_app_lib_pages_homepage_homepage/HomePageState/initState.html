@@ -74,7 +74,7 @@ void initState() {
 
   _controller = ScrollController();
   _cameraController = CustomScannerController(
-    controller: MobileScannerController(autoStart: false),
+    MobileScannerController(autoStart: false),
   );
   _lifecycleListener = AppLifecycleListener(
     onPause: _onPause,
