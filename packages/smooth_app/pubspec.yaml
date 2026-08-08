@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
 
   async: 2.13.1
-  go_router: 17.3.0
+  go_router: 17.4.0
   barcode_widget: 2.0.4
   carousel_slider: 5.1.2
   cupertino_icons: 1.0.9
@@ -67,7 +67,7 @@ dependencies:
   flutter_custom_tabs: 2.6.0
   flutter_image_compress: 2.5.1
   connectivity_plus: 7.3.1
-  dart_ping: 9.0.1
+  dart_ping: 10.0.1
   flutter_animation_progress_bar: 2.3.1
   email_validator: 3.0.0
   sliver_tools: 0.2.12
@@ -92,7 +92,6 @@ dependencies:
   # We use two different scanning engines, 
   # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
   # but qr_code_scanner which uses the open source ZXing for F-Droid
-  torch_light: 1.1.0
   mobile_scanner: 7.4.0
 
   scanner_shared:

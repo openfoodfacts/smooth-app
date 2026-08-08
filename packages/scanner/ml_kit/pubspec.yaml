@@ -4,7 +4,7 @@ version: 1.0.0
 publish_to: "none"
 
 environment:
-  sdk: ^3.10.4
+  sdk: ^3.12.2
 
 dependencies:
   flutter:
@@ -15,7 +15,6 @@ dependencies:
   provider: ^6.1.5+1
 
   mobile_scanner: 7.4.0
-  torch_light: ^1.1.0
 
   scanner_shared:
     path: ../shared
