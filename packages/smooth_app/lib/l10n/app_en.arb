@@ -5921,7 +5921,7 @@
   },
   "donation_tier_amount_monthly": "{amount} a month",
   "@donation_tier_amount_monthly": {
-    "description": "A monthly donation amount, already formatted with its currency",
+    "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
     "placeholders": {
       "amount": {
         "type": "String"

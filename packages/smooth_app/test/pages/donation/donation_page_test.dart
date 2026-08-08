@@ -403,8 +403,7 @@ void main() {
         // The custom-amount hint is the one string allowed to shorten. It sits
         // in a fixed-width field beside a currency suffix, `SmoothTextFormField`
         // gives every hint `TextOverflow.ellipsis` by design, and its content is
-        // recoverable from the suffix and the section title. Every string that
-        // carries a number the donor is charged is still covered below.
+        // recoverable from the suffix and the section title.
         if (paragraph.text.toPlainText() == _hint) {
           continue;
         }
@@ -415,12 +414,47 @@ void main() {
           reason: '"${paragraph.text.toPlainText()}" is truncated',
         );
       }
-      // Guards the skip above: if the hint were ever the only paragraph found,
-      // this test would pass while asserting nothing.
-      expect(checked, greaterThan(5));
+      // Exact, so it cannot drift as the page grows: everything except the
+      // hint is probed, and a second paragraph matching the hint would fail.
+      expect(checked, paragraphs.length - 1);
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets('the custom-amount suffix says which currency and how often', (
+    WidgetTester tester,
+  ) async {
+    await _pumpDonationPage(tester);
+
+    // Deliberately a bare symbol in `{amount} a month`, not a formatted amount:
+    // the field is where the donor supplies the number, so the suffix supplies
+    // only the unit. Pinned because nothing else asserts on this text.
+    expect(
+      find.descendant(
+        of: find.byType(TextField),
+        matching: find.text('€ a month'),
+      ),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('nothing truncates in a long locale at textScaler 2.0', (
+    WidgetTester tester,
+  ) async {
+    tester.platformDispatcher.textScaleFactorTestValue = 2.0;
+    addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+
+    // The suffix went from one glyph to a translated phrase, and a long
+    // compound locale is where it squeezes the input hardest. Soft-wrapping
+    // sets neither didExceedMaxLines nor an exception, so assert the field
+    // keeps a usable width rather than only that nothing threw.
+    await _pumpDonationPage(tester, locale: const Locale('de'));
+
+    final double field = tester.getSize(find.byType(TextField)).width;
+    final double card = tester.getSize(find.byType(CustomScrollView)).width;
+    expect(field, greaterThan(card / 2));
+    expect(tester.takeException(), isNull);
+  });
 
   testWidgets(
     'the custom-amount hint shortens gracefully rather than clipping',
