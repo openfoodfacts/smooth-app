@@ -5937,6 +5937,10 @@
       }
     }
   },
+  "donation_custom_amount_hint": "Amount",
+  "@donation_custom_amount_hint": {
+    "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
+  },
   "donation_cta_monthly": "Support monthly",
   "@donation_cta_monthly": {
     "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
