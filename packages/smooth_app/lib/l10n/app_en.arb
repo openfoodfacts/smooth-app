@@ -5941,6 +5941,10 @@
   "@donation_custom_amount_hint": {
     "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
   },
+  "donation_custom_amount_error": "Enter an amount",
+  "@donation_custom_amount_error": {
+    "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
+  },
   "donation_cta_monthly": "Support monthly",
   "@donation_cta_monthly": {
     "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
