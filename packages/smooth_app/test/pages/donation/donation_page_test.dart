@@ -43,6 +43,25 @@ final Finder _selectedCheckBox = find.byWidgetPredicate(
       widget.icon == const icons.CheckBox.filled().icon,
 );
 
+/// Records what `SmoothHapticFeedback` asks the platform for.
+List<String> _recordHaptics() {
+  final List<String> played = <String>[];
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(SystemChannels.platform, (
+        MethodCall call,
+      ) async {
+        if (call.method == 'HapticFeedback.vibrate') {
+          played.add(call.arguments as String? ?? '');
+        }
+        return null;
+      });
+  addTearDown(
+    () => TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(SystemChannels.platform, null),
+  );
+  return played;
+}
+
 String _selectedAmount(WidgetTester tester) => tester
     .widget<PreferenceTile>(
       find.ancestor(
@@ -174,6 +193,48 @@ void main() {
 
     expect(_selectedCheckBox, findsOneWidget);
     expect(_selectedAmount(tester), _amounts.last);
+  });
+
+  testWidgets('DonationPage slider snaps across the tiers, with a haptic', (
+    WidgetTester tester,
+  ) async {
+    final List<String> haptics = _recordHaptics();
+    await _pumpDonationPage(tester);
+
+    final Slider slider = tester.widget<Slider>(find.byType(Slider));
+    expect(slider.divisions, 2);
+    expect(slider.max, 2.0);
+    expect(slider.value, 1.0);
+    expect(slider.semanticFormatterCallback!(2.0), '€10');
+
+    await tester.drag(find.byType(Slider), const Offset(500.0, 0.0));
+    await tester.pumpAndSettle();
+
+    expect(_selectedAmount(tester), _amounts.last);
+    expect(haptics, <String>['HapticFeedbackType.selectionClick']);
+  });
+
+  testWidgets('DonationPage takes a custom amount over the tiers', (
+    WidgetTester tester,
+  ) async {
+    await _pumpDonationPage(tester);
+
+    await tester.enterText(find.byType(TextFormField), '7');
+    await tester.pump();
+
+    // 7 is not on the ladder, so no tier claims to be what the CTA will send.
+    expect(_selectedCheckBox, findsNothing);
+
+    await tester.enterText(find.byType(TextFormField), '10');
+    await tester.pump();
+
+    expect(_selectedAmount(tester), _amounts.last);
+
+    await tester.tap(find.text(_amounts.first));
+    await tester.pump();
+
+    expect(_selectedAmount(tester), _amounts.first);
+    expect(find.widgetWithText(TextFormField, '10'), findsNothing);
   });
 
   testWidgets('DonationPage formats the amounts and the scan anchors', (

@@ -3,71 +3,159 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/pages/donation/donation_links.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 
-AppNewsItem _newsItem(String id) => AppNewsItem(
-  id: id,
+AppNewsItem _newsItem({
+  String? currency,
+  List<int>? donationAmounts,
+  int? donationScansPerUnit,
+  List<String>? donationWhereItGoes,
+}) => AppNewsItem(
+  id: 'donation_campaign_2026',
   title: 'title',
   message: 'message',
   url: 'https://world.openfoodfacts.org/',
+  currency: currency,
+  donationAmounts: donationAmounts,
+  donationScansPerUnit: donationScansPerUnit,
+  donationWhereItGoes: donationWhereItGoes,
 );
 
+const String _campaign =
+    'https://donorbox.org/embed/help-open-food-facts-stay-afloat';
+const String _utm =
+    '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026';
+
 void main() {
-  group('DonationTier', () {
-    test('has three tiers with the shipped amounts and anchors', () {
-      expect(DonationTier.values.length, 3);
+  group('DonationOffer.fromNews', () {
+    test('falls back to the shipped offer when there is no news item', () {
+      final DonationOffer offer = DonationOffer.fromNews(null);
+
+      expect(offer.currency, 'EUR');
+      expect(offer.amounts, <int>[3, 5, 10]);
+      expect(offer.scansPerUnit, 270);
+      expect(offer.whereItGoes, isEmpty);
+      expect(offer.defaultAmount, 5);
+    });
+
+    test('falls back field by field when the feed carries none of it', () {
+      final DonationOffer offer = DonationOffer.fromNews(_newsItem());
+
+      expect(offer.currency, 'EUR');
+      expect(offer.amounts, <int>[3, 5, 10]);
+      expect(offer.scansPerUnit, 270);
+      expect(offer.whereItGoes, isEmpty);
+    });
+
+    test('takes what the feed declares', () {
+      final DonationOffer offer = DonationOffer.fromNews(
+        _newsItem(
+          currency: 'USD',
+          donationAmounts: <int>[5, 10, 25, 50],
+          donationScansPerUnit: 200,
+          donationWhereItGoes: <String>['Servers', 'One engineer'],
+        ),
+      );
+
+      expect(offer.currency, 'USD');
+      expect(offer.amounts, <int>[5, 10, 25, 50]);
+      expect(offer.scansPerUnit, 200);
+      expect(offer.whereItGoes, <String>['Servers', 'One engineer']);
+      expect(offer.defaultAmount, 25);
+    });
+
+    test('refuses a currency that is not a three letter code', () {
       expect(
-        DonationTier.values
-            .map((DonationTier tier) => tier.monthlyAmount)
-            .toList(),
+        DonationOffer.fromNews(_newsItem(currency: 'EURO')).currency,
+        'EUR',
+      );
+      expect(DonationOffer.fromNews(_newsItem(currency: '')).currency, 'EUR');
+    });
+
+    test('refuses amounts that are not all positive', () {
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(donationAmounts: <int>[3, 0, 10]),
+        ).amounts,
         <int>[3, 5, 10],
       );
       expect(
-        DonationTier.values.map((DonationTier tier) => tier.scans).toList(),
-        <int>[800, 1300, 2700],
+        DonationOffer.fromNews(_newsItem(donationAmounts: <int>[])).amounts,
+        <int>[3, 5, 10],
+      );
+    });
+
+    test('refuses a scan anchor that is not positive', () {
+      expect(
+        DonationOffer.fromNews(_newsItem(donationScansPerUnit: 0)).scansPerUnit,
+        270,
       );
     });
   });
 
-  group('buildDonationUrl', () {
-    test('3 EUR monthly', () {
+  group('DonationTier.scans', () {
+    test('cross-multiplies the shipped ladder', () {
+      final DonationOffer offer = DonationOffer.fromNews(null);
+
+      expect(offer.tiers.map((DonationTier tier) => tier.scans).toList(), <int>[
+        800,
+        1300,
+        2700,
+      ]);
+    });
+
+    test('rounds down to the hundred', () {
+      final DonationOffer offer = DonationOffer.fromNews(
+        _newsItem(donationAmounts: <int>[1, 7]),
+      );
+
+      expect(offer.tier(1).scans, 200);
+      expect(offer.tier(7).scans, 1800);
+    });
+
+    test('follows the anchor the feed declares', () {
       expect(
-        buildDonationUrl(DonationTier.eur3),
-        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
-        '?amount=3&default_interval=m&currency=eur'
-        '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
-        '&utm_content=donation-screen',
+        DonationOffer.fromNews(
+          _newsItem(donationScansPerUnit: 200),
+        ).tier(10).scans,
+        2000,
+      );
+    });
+  });
+
+  group('DonationTier.url', () {
+    test('preselects the amount, the monthly interval and the currency', () {
+      final DonationOffer offer = DonationOffer.fromNews(null);
+
+      expect(
+        offer.tier(3).url(),
+        '$_campaign?amount=3&default_interval=m&currency=eur'
+        '$_utm&utm_content=donation-screen',
+      );
+      expect(
+        offer.tier(5).url(),
+        '$_campaign?amount=5&default_interval=m&currency=eur'
+        '$_utm&utm_content=donation-screen',
+      );
+      expect(
+        offer.tier(10).url(),
+        '$_campaign?amount=10&default_interval=m&currency=eur'
+        '$_utm&utm_content=donation-screen',
       );
     });
 
-    test('5 EUR monthly', () {
+    test('carries the currency the feed declares', () {
       expect(
-        buildDonationUrl(DonationTier.eur5),
-        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
-        '?amount=5&default_interval=m&currency=eur'
-        '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
-        '&utm_content=donation-screen',
+        DonationOffer.fromNews(_newsItem(currency: 'USD')).tier(5).url(),
+        '$_campaign?amount=5&default_interval=m&currency=usd'
+        '$_utm&utm_content=donation-screen',
       );
     });
+  });
 
-    test('10 EUR monthly', () {
-      expect(
-        buildDonationUrl(DonationTier.eur10),
-        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
-        '?amount=10&default_interval=m&currency=eur'
-        '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
-        '&utm_content=donation-screen',
-      );
-    });
+  group('DonationOffer.oneOffUrl', () {
+    test('omits the amount and the interval', () {
+      final String url = DonationOffer.fromNews(null).oneOffUrl();
 
-    test('one-off omits amount and default_interval', () {
-      final String url = buildDonationUrl(null);
-
-      expect(
-        url,
-        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
-        '?currency=eur'
-        '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
-        '&utm_content=donation-screen',
-      );
+      expect(url, '$_campaign?currency=eur$_utm&utm_content=donation-screen');
       expect(url.contains('amount'), isFalse);
       expect(url.contains('default_interval'), isFalse);
     });
@@ -85,21 +173,18 @@ void main() {
 
     test('rides along as utm_content on a tier URL', () {
       expect(
-        buildDonationUrl(DonationTier.eur3, source: DonationSource.settings),
-        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
-        '?amount=3&default_interval=m&currency=eur'
-        '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
-        '&utm_content=donation-screen-settings',
+        DonationOffer.fromNews(
+          null,
+        ).tier(3).url(source: DonationSource.settings),
+        '$_campaign?amount=3&default_interval=m&currency=eur'
+        '$_utm&utm_content=donation-screen-settings',
       );
     });
 
     test('rides along as utm_content on the one-off URL', () {
       expect(
-        buildDonationUrl(null, source: DonationSource.tagline),
-        'https://donorbox.org/embed/help-open-food-facts-stay-afloat'
-        '?currency=eur'
-        '&utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
-        '&utm_content=donation-screen-tagline',
+        DonationOffer.fromNews(null).oneOffUrl(source: DonationSource.tagline),
+        '$_campaign?currency=eur$_utm&utm_content=donation-screen-tagline',
       );
     });
 
@@ -112,34 +197,6 @@ void main() {
         AppRoutes.DONATE(DonationSource.tagline),
         '/_donate?source=tagline',
       );
-    });
-  });
-
-  group('isDonationNewsItem', () {
-    test('matches the live donation item', () {
-      expect(isDonationNewsItem(_newsItem('donation_campaign_2026')), isTrue);
-    });
-
-    test('is case insensitive and future-campaign proof', () {
-      expect(isDonationNewsItem(_newsItem('DONATION_CAMPAIGN_2027')), isTrue);
-      expect(isDonationNewsItem(_newsItem('donation_campaign_2027')), isTrue);
-      expect(isDonationNewsItem(_newsItem('donations-are-great')), isTrue);
-    });
-
-    test('does not match the other items live in the feed', () {
-      expect(
-        isDonationNewsItem(_newsItem('nutriscore_petition_2025')),
-        isFalse,
-      );
-      expect(
-        isDonationNewsItem(_newsItem('openprices_challenge_01_06')),
-        isFalse,
-      );
-      expect(isDonationNewsItem(_newsItem('divinfood_survey_2026')), isFalse);
-    });
-
-    test('matches a prefix, not a substring', () {
-      expect(isDonationNewsItem(_newsItem('campaign_donation_2026')), isFalse);
     });
   });
 }

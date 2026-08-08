@@ -1,25 +1,6 @@
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 
-/// Monthly donation tiers offered on the donation page.
-///
-/// [scans] is how many server-side scans a month of that tier covers, derived
-/// from Open Food Facts' published 2026 infrastructure budget and scan volume
-/// and rounded down.
-enum DonationTier {
-  eur3(monthlyAmount: 3, scans: 800),
-  eur5(monthlyAmount: 5, scans: 1300),
-  eur10(monthlyAmount: 10, scans: 2700);
-
-  const DonationTier({required this.monthlyAmount, required this.scans});
-
-  final int monthlyAmount;
-  final int scans;
-}
-
 /// Entry point the donation page was opened from.
-///
-/// Both entry points otherwise emit identical telemetry, which would make
-/// "did the home card drive donations?" unanswerable.
 enum DonationSource {
   settings(analyticsValue: 1),
   tagline(analyticsValue: 2);
@@ -29,41 +10,102 @@ enum DonationSource {
   final int analyticsValue;
 }
 
-/// The campaign's embedded form rather than its hosted campaign page.
-///
-/// Both render the same Donorbox campaign, but the hosted page puts the form
-/// below a full marketing layout, while `/embed/` opens on the amount step and
-/// is one step from the payment options. It is also what Open Food Facts' own
-/// donate page renders, through `donorbox.org/widgets.js`.
+/// `/embed/` rather than the hosted campaign page: same Donorbox campaign, but
+/// it opens on the amount step instead of below a full marketing layout, and it
+/// is what Open Food Facts' own donate page renders through `widgets.js`.
 const String _campaignUrl =
     'https://donorbox.org/embed/help-open-food-facts-stay-afloat';
 
-const String _utm =
-    'utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026';
+/// Built by hand rather than with [Uri]: the parameter order is part of the
+/// contract and [Uri] both reorders and re-encodes the query.
+String _utm(DonationSource? source) =>
+    'utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
+    '&utm_content=donation-screen${source == null ? '' : '-${source.name}'}';
 
-/// Donorbox URL preselecting [tier], or the plain one-off form when null.
+/// What the donation page offers, as the news feed declares it.
 ///
-/// [source] rides along as `utm_content` so the entry point survives into the
-/// campaign's own reporting, where the completed donation is recorded.
-///
-/// Concatenated rather than built with [Uri] because the parameter order is
-/// part of the contract and [Uri] both reorders and re-encodes the query.
-String buildDonationUrl(DonationTier? tier, {DonationSource? source}) {
-  final String utmContent = source == null
-      ? 'donation-screen'
-      : 'donation-screen-${source.name}';
-  final String suffix = '$_utm&utm_content=$utmContent';
+/// Donorbox charges in the campaign's own currency, so a non-Euro campaign is
+/// a change Open Food Facts makes on both sides at once: the feed says what the
+/// app shows, the campaign says what the donor is charged.
+class DonationOffer {
+  const DonationOffer({
+    required this.currency,
+    required this.amounts,
+    required this.scansPerUnit,
+    required this.whereItGoes,
+  });
 
-  return tier == null
-      ? '$_campaignUrl?currency=eur&$suffix'
-      : '$_campaignUrl?amount=${tier.monthlyAmount}&default_interval=m'
-            '&currency=eur&$suffix';
+  /// Falls back field by field, so a feed carrying none of this renders the
+  /// screen exactly as it shipped.
+  factory DonationOffer.fromNews(AppNewsItem? item) {
+    final String? currency = item?.currency;
+    final List<int>? amounts = item?.donationAmounts;
+    final int? scansPerUnit = item?.donationScansPerUnit;
+
+    return DonationOffer(
+      currency: currency != null && currency.length == 3
+          ? currency
+          : _fallbackCurrency,
+      amounts:
+          amounts != null &&
+              amounts.isNotEmpty &&
+              amounts.every((int amount) => amount > 0)
+          ? amounts
+          : _fallbackAmounts,
+      scansPerUnit: scansPerUnit != null && scansPerUnit > 0
+          ? scansPerUnit
+          : _fallbackScansPerUnit,
+      whereItGoes: item?.donationWhereItGoes ?? const <String>[],
+    );
+  }
+
+  static const String _fallbackCurrency = 'EUR';
+  static const List<int> _fallbackAmounts = <int>[3, 5, 10];
+
+  /// Scans a month of one currency unit covers, from Open Food Facts'
+  /// published 2026 infrastructure budget over their published scan volume.
+  static const int _fallbackScansPerUnit = 270;
+
+  final String currency;
+  final List<int> amounts;
+  final int scansPerUnit;
+
+  /// Empty when the feed says nothing, in which case the page keeps its own
+  /// translated lines.
+  final List<String> whereItGoes;
+
+  List<DonationTier> get tiers => amounts.map(tier).toList(growable: false);
+
+  DonationTier tier(int amount) => DonationTier(
+    amount: amount,
+    currency: currency,
+    scansPerUnit: scansPerUnit,
+  );
+
+  int get defaultAmount => amounts[amounts.length ~/ 2];
+
+  /// Donation form with no amount and no interval, so it opens on its own
+  /// one-time default.
+  String oneOffUrl({DonationSource? source}) =>
+      '$_campaignUrl?currency=${currency.toLowerCase()}&${_utm(source)}';
 }
 
-/// Whether [item] is the donation ask, and therefore opens the donation page
-/// instead of its own URL.
-///
-/// Keyed on the id prefix so it survives the ~22 localized campaign URLs; a
-/// renamed id simply falls back to the browser handoff.
-bool isDonationNewsItem(AppNewsItem item) =>
-    item.id.toLowerCase().startsWith('donation');
+class DonationTier {
+  const DonationTier({
+    required this.amount,
+    required this.currency,
+    required this.scansPerUnit,
+  });
+
+  final int amount;
+  final String currency;
+  final int scansPerUnit;
+
+  /// Rounded down to the hundred, so the figure reads as an order of magnitude
+  /// and always understates what the money covers.
+  int get scans => amount * scansPerUnit ~/ 100 * 100;
+
+  String url({DonationSource? source}) =>
+      '$_campaignUrl?amount=$amount&default_interval=m'
+      '&currency=${currency.toLowerCase()}&${_utm(source)}';
+}

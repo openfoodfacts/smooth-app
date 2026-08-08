@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/donation/donation_links.dart';
@@ -30,11 +34,24 @@ class DonationPage extends StatefulWidget {
 }
 
 class _DonationPageState extends State<DonationPage> {
-  DonationTier _selected = DonationTier.eur5;
+  final TextEditingController _customAmountController = TextEditingController();
+
+  /// Read once: a feed arriving mid-visit would move the ladder under the
+  /// donor's current selection.
+  late final DonationOffer _offer;
+
+  int? _selectedAmount;
+  int? _customAmount;
 
   @override
   void initState() {
     super.initState();
+
+    final AppNewsState? news = context.read<AppNewsProvider?>()?.state;
+    _offer = DonationOffer.fromNews(
+      news is AppNewsStateLoaded ? news.content.donation : null,
+    );
+
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationPageOpened,
       eventValue: widget.source?.analyticsValue,
@@ -42,10 +59,18 @@ class _DonationPageState extends State<DonationPage> {
   }
 
   @override
+  void dispose() {
+    _customAmountController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
+    final int ladderAmount = _selectedAmount ?? _offer.defaultAmount;
+    final int amount = _customAmount ?? ladderAmount;
 
     return SmoothScaffold2(
       backgroundColor: context.lightTheme() ? extension.primaryLight : null,
@@ -55,8 +80,6 @@ class _DonationPageState extends State<DonationPage> {
         productType: null,
       ),
       children: <Widget>[
-        // A single adapter, not a list: every block must be laid out, even the
-        // ones below the fold.
         SliverToBoxAdapter(
           child: Padding(
             padding: const EdgeInsetsDirectional.all(MEDIUM_SPACE),
@@ -68,18 +91,36 @@ class _DonationPageState extends State<DonationPage> {
                   appLocalizations.donation_page_headline,
                   style: Theme.of(context).textTheme.displayMedium,
                 ),
-                const _WhereItGoes(),
+                _WhereItGoes(labels: _offer.whereItGoes),
                 _TierList(
-                  selected: _selected,
-                  onSelected: (DonationTier tier) =>
-                      setState(() => _selected = tier),
+                  offer: _offer,
+                  ladderAmount: ladderAmount,
+                  selectedAmount: amount,
+                  customAmountController: _customAmountController,
+                  onSelected: _select,
+                  onCustomAmount: _setCustomAmount,
                 ),
-                _Ctas(selected: _selected, source: widget.source),
+                _Ctas(offer: _offer, amount: amount, source: widget.source),
               ],
             ),
           ),
         ),
       ],
+    );
+  }
+
+  void _select(int amount) {
+    _customAmountController.clear();
+    setState(() {
+      _selectedAmount = amount;
+      _customAmount = null;
+    });
+  }
+
+  void _setCustomAmount(String value) {
+    final int? amount = int.tryParse(value);
+    setState(
+      () => _customAmount = amount != null && amount > 0 ? amount : null,
     );
   }
 }
@@ -108,7 +149,16 @@ class _Block extends StatelessWidget {
 }
 
 class _WhereItGoes extends StatelessWidget {
-  const _WhereItGoes();
+  const _WhereItGoes({required this.labels});
+
+  static const List<Widget> _icons = <Widget>[
+    icons.Gears(),
+    icons.Programming(),
+    icons.Toolbox(),
+  ];
+
+  /// Empty unless the feed names the categories itself.
+  final List<String> labels;
 
   @override
   Widget build(BuildContext context) {
@@ -118,6 +168,13 @@ class _WhereItGoes extends StatelessWidget {
     final Color iconColor = context.lightTheme()
         ? extension.primarySemiDark
         : Colors.white;
+    final List<String> lines = labels.isEmpty
+        ? <String>[
+            appLocalizations.donation_where_it_goes_servers,
+            appLocalizations.donation_where_it_goes_engineer,
+            appLocalizations.donation_where_it_goes_services,
+          ]
+        : labels;
 
     return _Block(
       title: appLocalizations.donation_where_it_goes_title,
@@ -128,18 +185,8 @@ class _WhereItGoes extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: MEDIUM_SPACE,
           children: <Widget>[
-            _WhereItGoesRow(
-              icon: const icons.Gears(),
-              label: appLocalizations.donation_where_it_goes_servers,
-            ),
-            _WhereItGoesRow(
-              icon: const icons.Programming(),
-              label: appLocalizations.donation_where_it_goes_engineer,
-            ),
-            _WhereItGoesRow(
-              icon: const icons.Toolbox(),
-              label: appLocalizations.donation_where_it_goes_services,
-            ),
+            for (int i = 0; i < lines.length; i++)
+              _WhereItGoesRow(icon: _icons[i % _icons.length], label: lines[i]),
           ],
         ),
       ),
@@ -167,17 +214,29 @@ class _WhereItGoesRow extends StatelessWidget {
 }
 
 class _TierList extends StatelessWidget {
-  const _TierList({required this.selected, required this.onSelected});
+  const _TierList({
+    required this.offer,
+    required this.ladderAmount,
+    required this.selectedAmount,
+    required this.customAmountController,
+    required this.onSelected,
+    required this.onCustomAmount,
+  });
 
-  final DonationTier selected;
-  final ValueChanged<DonationTier> onSelected;
+  final DonationOffer offer;
+
+  /// Always one of [DonationOffer.amounts], where [selectedAmount] can also be
+  /// whatever was typed into the custom field.
+  final int ladderAmount;
+  final int selectedAmount;
+  final TextEditingController customAmountController;
+  final ValueChanged<int> onSelected;
+  final ValueChanged<String> onCustomAmount;
 
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-    // Both numbers are formatted here and injected as placeholders, so no
-    // translated string carries a currency symbol or a digit separator.
     // [AppLocalizations.localeName] rather than [ProductQuery]: it is the
     // locale the sentence itself is in. `intl` ships no number symbols for 46
     // of the app's 128 locales and both constructors throw there, so fall back
@@ -188,29 +247,64 @@ class _TierList extends StatelessWidget {
         : 'en';
     final NumberFormat amountFormat = NumberFormat.simpleCurrency(
       locale: numberLocale,
-      name: 'EUR',
+      name: offer.currency,
       decimalDigits: 0,
     );
     final NumberFormat scansFormat = NumberFormat.decimalPattern(numberLocale);
+    final List<DonationTier> tiers = offer.tiers;
 
     return _Block(
       title: appLocalizations.donation_tiers_title,
       child: Column(
         spacing: SMALL_SPACE,
-        children: DonationTier.values
-            .map(
-              (DonationTier tier) => _TierRow(
-                selected: tier == selected,
-                amount: appLocalizations.donation_tier_amount_monthly(
-                  amountFormat.format(tier.monthlyAmount),
-                ),
-                scans: appLocalizations.donation_tier_scans(
-                  scansFormat.format(tier.scans),
-                ),
-                onTap: () => onSelected(tier),
+        children: <Widget>[
+          if (tiers.length > 1)
+            Slider(
+              value: tiers
+                  .indexWhere(
+                    (DonationTier tier) => tier.amount == ladderAmount,
+                  )
+                  .toDouble(),
+              max: (tiers.length - 1).toDouble(),
+              divisions: tiers.length - 1,
+              label: amountFormat.format(ladderAmount),
+              semanticFormatterCallback: (double value) =>
+                  amountFormat.format(tiers[value.round()].amount),
+              onChanged: (double value) {
+                final int amount = tiers[value.round()].amount;
+                if (amount != ladderAmount) {
+                  SmoothHapticFeedback.click();
+                  onSelected(amount);
+                }
+              },
+            ),
+          for (final DonationTier tier in tiers)
+            _TierRow(
+              selected: tier.amount == selectedAmount,
+              amount: appLocalizations.donation_tier_amount_monthly(
+                amountFormat.format(tier.amount),
               ),
-            )
-            .toList(),
+              scans: appLocalizations.donation_tier_scans(
+                scansFormat.format(tier.scans),
+              ),
+              onTap: () => onSelected(tier.amount),
+            ),
+          SmoothTextFormField(
+            type: TextFieldTypes.PLAIN_TEXT,
+            controller: customAmountController,
+            hintText: appLocalizations.donation_custom_amount_hint,
+            textInputType: TextInputType.number,
+            maxLines: 1,
+            suffixIcon: Center(
+              widthFactor: 1.0,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
+                child: Text(amountFormat.currencySymbol),
+              ),
+            ),
+            onChanged: (String? value) => onCustomAmount(value ?? ''),
+          ),
+        ],
       ),
     );
   }
@@ -266,9 +360,14 @@ class _TierRow extends StatelessWidget {
 }
 
 class _Ctas extends StatelessWidget {
-  const _Ctas({required this.selected, required this.source});
+  const _Ctas({
+    required this.offer,
+    required this.amount,
+    required this.source,
+  });
 
-  final DonationTier selected;
+  final DonationOffer offer;
+  final int amount;
   final DonationSource? source;
 
   @override
@@ -280,10 +379,11 @@ class _Ctas extends StatelessWidget {
         SmoothLargeButtonWithIcon(
           text: appLocalizations.donation_cta_monthly,
           leadingIcon: const icons.Donate(),
-          onPressed: () => _openDonationForm(selected, source),
+          onPressed: () =>
+              _open(offer.tier(amount).url(source: source), amount),
         ),
         TextButton(
-          onPressed: () => _openDonationForm(null, source),
+          onPressed: () => _open(offer.oneOffUrl(source: source), 0),
           style: TextButton.styleFrom(
             minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
           ),
@@ -292,27 +392,25 @@ class _Ctas extends StatelessWidget {
       ],
     );
   }
-}
 
-/// Opens the donation form for [tier], or for a single gift when null.
-Future<void> _openDonationForm(
-  DonationTier? tier,
-  DonationSource? source,
-) async {
-  AnalyticsHelper.trackEvent(
-    AnalyticsEvent.donationHandoff,
-    eventValue: tier?.monthlyAmount ?? 0,
-  );
+  Future<void> _open(String url, int monthlyAmount) async {
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.donationHandoff,
+      eventValue: monthlyAmount,
+    );
 
-  // Apple Pay and Google Pay disappear inside a webview, and a device with no
-  // Custom Tabs provider silently gets url_launcher's own bundled one. Fall
-  // back to a real browser instead, which keeps every payment method.
-  final bool customTabs = await supportsLaunchMode(LaunchMode.inAppBrowserView);
+    // Apple Pay and Google Pay disappear inside a webview, and a device with no
+    // Custom Tabs provider silently gets url_launcher's own bundled one. Fall
+    // back to a real browser instead, which keeps every payment method.
+    final bool customTabs = await supportsLaunchMode(
+      LaunchMode.inAppBrowserView,
+    );
 
-  return LaunchUrlHelper.launchURL(
-    buildDonationUrl(tier, source: source),
-    mode: customTabs
-        ? LaunchMode.inAppBrowserView
-        : LaunchMode.externalApplication,
-  );
+    return LaunchUrlHelper.launchURL(
+      url,
+      mode: customTabs
+          ? LaunchMode.inAppBrowserView
+          : LaunchMode.externalApplication,
+    );
+  }
 }

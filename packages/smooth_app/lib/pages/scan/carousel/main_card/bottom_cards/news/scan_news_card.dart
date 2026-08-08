@@ -119,7 +119,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
                 currentNews.id,
               );
             }
-            if (isDonationNewsItem(currentNews)) {
+            if (currentNews.isDonation) {
               AppNavigator.of(
                 context,
               ).push(AppRoutes.DONATE(DonationSource.tagline));
