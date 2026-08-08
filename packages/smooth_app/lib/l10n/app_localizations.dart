@@ -11116,6 +11116,12 @@ abstract class AppLocalizations {
   /// **'about {scans} scans'**
   String donation_tier_scans(String scans);
 
+  /// Hint of the field where a donor types an amount of their own instead of picking one of the offered ones
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get donation_custom_amount_hint;
+
   /// Main button of the donation page, opens the donation form with the selected monthly amount
   ///
   /// In en, this message translates to:
