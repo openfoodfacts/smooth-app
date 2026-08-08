@@ -3,7 +3,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
@@ -43,6 +46,24 @@ final Finder _selectedCheckBox = find.byWidgetPredicate(
       widget.icon == const icons.CheckBox.filled().icon,
 );
 
+/// Serves one donation news item, so the feed-driven offer actually renders.
+/// The real fetch stops on its own: `ProductQuery` has no language under the
+/// test harness, which is the early return in [AppNewsProvider.loadLatestNews].
+class _FeedNewsProvider extends AppNewsProvider {
+  _FeedNewsProvider(super.preferences, this._donation);
+
+  final AppNewsItem _donation;
+
+  @override
+  AppNewsState get state => AppNewsStateLoaded(
+    AppNews(
+      news: const AppNewsList(<String, AppNewsItem>{}),
+      feed: AppNewsFeed(<AppNewsFeedItem>[AppNewsFeedItem(news: _donation)]),
+    ),
+    DateTime(2026),
+  );
+}
+
 /// Records what `SmoothHapticFeedback` asks the platform for.
 List<String> _recordHaptics() {
   final List<String> played = <String>[];
@@ -75,6 +96,7 @@ Future<void> _pumpDonationPage(
   WidgetTester tester, {
   String theme = 'Light',
   Locale? locale,
+  AppNewsItem? donation,
 }) async {
   tester.view.physicalSize = const Size(1080, 2424);
   tester.view.devicePixelRatio = 2.625;
@@ -105,6 +127,16 @@ Future<void> _pumpDonationPage(
   // initializes during onboarding.
   await ProductQuery.initCountry(userPreferences);
 
+  Widget page = const DonationPage();
+  if (donation != null) {
+    final AppNewsProvider news = _FeedNewsProvider(userPreferences, donation);
+    addTearDown(news.dispose);
+    page = ChangeNotifierProvider<AppNewsProvider?>.value(
+      value: news,
+      child: page,
+    );
+  }
+
   await tester.pumpWidget(
     MockSmoothApp(
       userPreferences,
@@ -113,7 +145,7 @@ Future<void> _pumpDonationPage(
       ThemeProvider(userPreferences),
       TextContrastProvider(userPreferences),
       ColorProvider(userPreferences),
-      const DonationPage(),
+      page,
       localDatabase: MockLocalDatabase(),
     ),
   );
@@ -235,6 +267,68 @@ void main() {
 
     expect(_selectedAmount(tester), _amounts.first);
     expect(find.widgetWithText(TextFormField, '10'), findsNothing);
+  });
+
+  testWidgets('DonationPage renders the offer the feed declares', (
+    WidgetTester tester,
+  ) async {
+    await _pumpDonationPage(
+      tester,
+      donation: const AppNewsItem(
+        id: 'donation_campaign_2026',
+        title: 'title',
+        message: 'message',
+        url: 'https://world.openfoodfacts.org/',
+        currency: 'USD',
+        donationAmounts: <num>[10, 5, 25, 50],
+        donationScansPerUnit: 200,
+        donationWhereItGoes: <String>['Servers', 'One engineer'],
+      ),
+    );
+
+    // The feed's own categories, not the three translated ones.
+    final Finder whereItGoesBlock = find.byKey(DonationPage.whereItGoesKey);
+    expect(
+      find.descendant(of: whereItGoesBlock, matching: find.byType(Text)),
+      findsNWidgets(2),
+    );
+    expect(find.text('One engineer'), findsOneWidget);
+
+    // Four tiers, in the feed's currency, sorted whatever order it sent.
+    expect(find.byType(PreferenceTile), findsNWidgets(4));
+    for (final String amount in <String>[
+      r'$5 a month',
+      r'$10 a month',
+      r'$25 a month',
+      r'$50 a month',
+    ]) {
+      expect(find.text(amount), findsOneWidget);
+    }
+    expect(find.text('about 1,000 scans'), findsOneWidget);
+    expect(tester.widget<Slider>(find.byType(Slider)).divisions, 3);
+    expect(_selectedAmount(tester), r'$25 a month');
+  });
+
+  testWidgets('DonationPage reads a custom amount in the locale digits', (
+    WidgetTester tester,
+  ) async {
+    await _pumpDonationPage(tester, locale: const Locale('fa'));
+
+    // Persian digits, which `int.tryParse` cannot read at all, and an ASCII 7,
+    // which `NumberFormat.decimalPattern('fa')` cannot read either.
+    for (final String seven in <String>['۷', '7']) {
+      await tester.enterText(find.byType(TextFormField), seven);
+      await tester.pump();
+
+      expect(find.text('Enter an amount'), findsNothing);
+      // 7 is on neither ladder, so no row claims to be what the CTA sends.
+      expect(_selectedCheckBox, findsNothing);
+    }
+
+    await tester.enterText(find.byType(TextFormField), 'seven');
+    await tester.pump();
+
+    expect(find.text('Enter an amount'), findsOneWidget);
   });
 
   testWidgets('DonationPage formats the amounts and the scan anchors', (
