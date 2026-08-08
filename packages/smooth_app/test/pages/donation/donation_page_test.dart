@@ -438,21 +438,47 @@ void main() {
     );
   });
 
-  testWidgets('nothing truncates in a long locale at textScaler 2.0', (
+  testWidgets('an amount stays typable in a long locale at textScaler 2.0', (
     WidgetTester tester,
   ) async {
     tester.platformDispatcher.textScaleFactorTestValue = 2.0;
     addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
 
-    // The suffix went from one glyph to a translated phrase, and a long
-    // compound locale is where it squeezes the input hardest. Soft-wrapping
-    // sets neither didExceedMaxLines nor an exception, so assert the field
-    // keeps a usable width rather than only that nothing threw.
     await _pumpDonationPage(tester, locale: const Locale('de'));
 
-    final double field = tester.getSize(find.byType(TextField)).width;
-    final double card = tester.getSize(find.byType(CustomScrollView)).width;
-    expect(field, greaterThan(card / 2));
+    // ⚠️ These keys are new, so Crowdin has not translated them and `de` still
+    // renders the English suffix. What this covers today is German number
+    // formatting at 2.0; it becomes a real test of a long translated suffix the
+    // moment translations land, which is why it is worth having now.
+    //
+    // The suffix lays out *inside* the field, so the field's own width never
+    // moves and asserting on it proves nothing. What a longer suffix eats is
+    // the editable box - 70.9 px here - so floor that.
+    expect(
+      tester.getSize(find.byType(EditableText)).width,
+      greaterThan(60.0),
+      reason: 'the suffix has squeezed the input too far to type an amount',
+    );
+
+    // Whatever language the suffix ends up in, it must not be what clips.
+    for (final Element element
+        in find
+            .descendant(
+              of: find.byType(TextField),
+              matching: find.byType(RichText),
+            )
+            .evaluate()) {
+      final RenderParagraph paragraph =
+          element.renderObject! as RenderParagraph;
+      if (paragraph.text.toPlainText() == _hint) {
+        continue;
+      }
+      expect(
+        paragraph.didExceedMaxLines,
+        isFalse,
+        reason: '"${paragraph.text.toPlainText()}" is truncated',
+      );
+    }
     expect(tester.takeException(), isNull);
   });
 
