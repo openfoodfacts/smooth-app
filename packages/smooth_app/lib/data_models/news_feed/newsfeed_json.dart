@@ -160,9 +160,7 @@ class _TagLineItemNewsItem {
       raised = json['raised'] as num?,
       goal = json['goal'] as num?,
       currency = json['currency'],
-      donationAmounts = (json['donation_amounts'] as Iterable<dynamic>?)
-          ?.whereType<num>()
-          .toList(growable: false),
+      donationAmounts = DonationOffer.feedList<num>(json['donation_amounts']),
       donationScansPerUnit = json['donation_scans_per_unit'] as num?,
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
@@ -302,10 +300,9 @@ class _TagLineItemNewsTranslation {
       darkImage = json['image_dark'] == null
           ? null
           : _TagLineNewsImage.fromJson(json['image_dark']),
-      donationWhereItGoes =
-          (json['donation_where_it_goes'] as Iterable<dynamic>?)
-              ?.whereType<String>()
-              .toList(growable: false);
+      donationWhereItGoes = DonationOffer.feedList<String>(
+        json['donation_where_it_goes'],
+      );
   final String? title;
   final String? message;
   final String? url;

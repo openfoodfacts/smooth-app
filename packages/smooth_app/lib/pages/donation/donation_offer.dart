@@ -54,6 +54,13 @@ class DonationOffer {
     );
   }
 
+  /// Tolerant of the container, not only of its elements: a cast in front of
+  /// `whereType` throws on `"donation_amounts": 5`, and the news parser answers
+  /// any throw with an empty feed for every user.
+  static List<T>? feedList<T>(dynamic value) => value is Iterable<dynamic>
+      ? value.whereType<T>().toList(growable: false)
+      : null;
+
   static const String _fallbackCurrency = 'EUR';
   static const List<int> _fallbackAmounts = <int>[3, 5, 10];
 

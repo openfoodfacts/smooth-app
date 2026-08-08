@@ -127,6 +127,88 @@ void main() {
     });
   });
 
+  // Raw decoded JSON, as the news parser hands it over: a throw here would
+  // empty the whole news feed, not just this screen.
+  group('DonationOffer.feedList', () {
+    DonationOffer offerFromAmounts(dynamic json) => DonationOffer.fromNews(
+      _newsItem(donationAmounts: DonationOffer.feedList<num>(json)),
+    );
+
+    test('keeps the elements that are of the expected type', () {
+      expect(DonationOffer.feedList<num>(<dynamic>[3, 5, 10]), <num>[3, 5, 10]);
+      expect(DonationOffer.feedList<num>(<dynamic>['3', true, 5]), <num>[5]);
+      expect(
+        DonationOffer.feedList<String>(<dynamic>['Servers', 7, null]),
+        <String>['Servers'],
+      );
+      expect(DonationOffer.feedList<num>(<dynamic>[]), isEmpty);
+    });
+
+    test('answers null for anything that is not a list', () {
+      for (final dynamic json in <dynamic>[
+        null,
+        5,
+        3.5,
+        'donation',
+        true,
+        <String, dynamic>{},
+        <String, dynamic>{'amount': 5},
+      ]) {
+        expect(DonationOffer.feedList<num>(json), isNull, reason: '$json');
+        expect(DonationOffer.feedList<String>(json), isNull, reason: '$json');
+      }
+    });
+
+    test('falls back to the shipped ladder for every unusable shape', () {
+      for (final dynamic json in <dynamic>[
+        null,
+        5,
+        <String, dynamic>{},
+        <dynamic>[],
+        <dynamic>['3', true],
+        <dynamic>[double.infinity],
+        <dynamic>[double.nan],
+        <dynamic>[-3, 5],
+        <dynamic>[0],
+      ]) {
+        expect(offerFromAmounts(json).amounts, <int>[
+          3,
+          5,
+          10,
+        ], reason: '$json');
+      }
+    });
+
+    test('takes a ladder written as whole-number doubles', () {
+      expect(offerFromAmounts(<dynamic>[3.0, 5.0]).amounts, <int>[3, 5]);
+    });
+
+    test('keeps the "where it goes" lines the feed writes', () {
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(
+            donationWhereItGoes: DonationOffer.feedList<String>(<dynamic>[
+              'Servers',
+              7,
+              'One engineer',
+            ]),
+          ),
+        ).whereItGoes,
+        <String>['Servers', 'One engineer'],
+      );
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(
+            donationWhereItGoes: DonationOffer.feedList<String>(
+              <String, dynamic>{},
+            ),
+          ),
+        ).whereItGoes,
+        isEmpty,
+      );
+    });
+  });
+
   group('DonationTier.scans', () {
     test('cross-multiplies the shipped ladder', () {
       final DonationOffer offer = DonationOffer.fromNews(null);
