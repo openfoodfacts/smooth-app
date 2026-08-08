@@ -5928,16 +5928,16 @@
       }
     }
   },
-  "donation_tier_scans": "about {scans} scans",
+  "donation_tier_scans": "pays for {scans} scans",
   "@donation_tier_scans": {
-    "description": "Approximate number of product scans that a monthly donation covers",
+    "description": "How many product scans a monthly donation covers, as an approximation",
     "placeholders": {
       "scans": {
         "type": "String"
       }
     }
   },
-  "donation_custom_amount_hint": "Amount",
+  "donation_custom_amount_hint": "Custom amount",
   "@donation_custom_amount_hint": {
     "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
   },

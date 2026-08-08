@@ -96,6 +96,7 @@ class _DonationPageState extends State<DonationPage> {
                   offer: _offer,
                   ladderAmount: ladderAmount,
                   selectedAmount: amount,
+                  customAmountActive: _customAmount != null,
                   customAmountController: _customAmountController,
                   onSelected: _select,
                   onCustomAmount: _setCustomAmount,
@@ -215,6 +216,7 @@ class _TierList extends StatelessWidget {
     required this.offer,
     required this.ladderAmount,
     required this.selectedAmount,
+    required this.customAmountActive,
     required this.customAmountController,
     required this.onSelected,
     required this.onCustomAmount,
@@ -226,6 +228,7 @@ class _TierList extends StatelessWidget {
   /// whatever was typed into the custom field.
   final int ladderAmount;
   final int selectedAmount;
+  final bool customAmountActive;
   final TextEditingController customAmountController;
   final ValueChanged<int> onSelected;
   final ValueChanged<int?> onCustomAmount;
@@ -286,27 +289,12 @@ class _TierList extends StatelessWidget {
               ),
               onTap: () => onSelected(tier.amount),
             ),
-          SmoothTextFormField(
-            type: TextFieldTypes.PLAIN_TEXT,
+          _CustomAmountField(
+            active: customAmountActive,
             controller: customAmountController,
-            hintText: appLocalizations.donation_custom_amount_hint,
-            textInputType: TextInputType.number,
-            maxLines: 1,
-            validator: (String? value) =>
-                value == null ||
-                    value.isEmpty ||
-                    _amountOf(numberFormat, value) != null
-                ? null
-                : appLocalizations.donation_custom_amount_error,
-            suffixIcon: Center(
-              widthFactor: 1.0,
-              child: Padding(
-                padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
-                child: Text(amountFormat.currencySymbol),
-              ),
-            ),
-            onChanged: (String? value) =>
-                onCustomAmount(_amountOf(numberFormat, value ?? '')),
+            currencySymbol: amountFormat.currencySymbol,
+            numberFormat: numberFormat,
+            onCustomAmount: onCustomAmount,
           ),
         ],
       ),
@@ -321,6 +309,82 @@ class _TierList extends StatelessWidget {
     return amount != null && amount.isFinite && amount > 0
         ? amount.toInt()
         : null;
+  }
+}
+
+/// Free-entry amount, skinned to read as one more row of the ladder.
+///
+/// The shared field hardcodes `filled: true` and takes its colour from the
+/// app's [InputDecorationTheme], which is the same fill as a primary button -
+/// so it read as an action rather than a choice. A nested [Theme] neutralises
+/// that fill for this one field instead of adding a parameter to a widget 50
+/// other screens use, and the outline then matches [_TierRow] token for token.
+class _CustomAmountField extends StatelessWidget {
+  const _CustomAmountField({
+    required this.active,
+    required this.controller,
+    required this.currencySymbol,
+    required this.numberFormat,
+    required this.onCustomAmount,
+  });
+
+  final bool active;
+  final TextEditingController controller;
+  final String currencySymbol;
+  final NumberFormat numberFormat;
+  final ValueChanged<int?> onCustomAmount;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ThemeData theme = Theme.of(context);
+
+    return ClipRRect(
+      borderRadius: ROUNDED_BORDER_RADIUS,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          border: Border.all(
+            width: 2.0,
+            color: theme.colorScheme.primary.withValues(
+              alpha: active ? 1.0 : 0.25,
+            ),
+          ),
+        ),
+        child: Theme(
+          data: theme.copyWith(
+            inputDecorationTheme: theme.inputDecorationTheme.copyWith(
+              fillColor: Colors.transparent,
+            ),
+          ),
+          child: SmoothTextFormField(
+            type: TextFieldTypes.PLAIN_TEXT,
+            controller: controller,
+            hintText: appLocalizations.donation_custom_amount_hint,
+            textInputType: TextInputType.number,
+            maxLines: 1,
+            borderRadius: ROUNDED_BORDER_RADIUS,
+            validator: (String? value) =>
+                value == null ||
+                    value.isEmpty ||
+                    _TierList._amountOf(numberFormat, value) != null
+                ? null
+                : appLocalizations.donation_custom_amount_error,
+            suffixIcon: Center(
+              widthFactor: 1.0,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(end: MEDIUM_SPACE),
+                child: Text(
+                  appLocalizations.donation_tier_amount_monthly(currencySymbol),
+                ),
+              ),
+            ),
+            onChanged: (String? value) =>
+                onCustomAmount(_TierList._amountOf(numberFormat, value ?? '')),
+          ),
+        ),
+      ),
+    );
   }
 }
 

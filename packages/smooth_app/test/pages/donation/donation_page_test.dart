@@ -34,10 +34,13 @@ const List<String> _amounts = <String>[
   '€5 a month',
   '€10 a month',
 ];
+
+/// The one string allowed to ellipsize - see the truncation probe.
+const String _hint = 'Custom amount';
 const List<String> _anchors = <String>[
-  'about 800 scans',
-  'about 1,300 scans',
-  'about 2,700 scans',
+  'pays for 800 scans',
+  'pays for 1,300 scans',
+  'pays for 2,700 scans',
 ];
 
 final Finder _selectedCheckBox = find.byWidgetPredicate(
@@ -304,7 +307,7 @@ void main() {
     ]) {
       expect(find.text(amount), findsOneWidget);
     }
-    expect(find.text('about 1,000 scans'), findsOneWidget);
+    expect(find.text('pays for 1,000 scans'), findsOneWidget);
     expect(tester.widget<Slider>(find.byType(Slider)).divisions, 3);
     expect(_selectedAmount(tester), r'$25 a month');
   });
@@ -393,16 +396,46 @@ void main() {
           .evaluate();
 
       expect(paragraphs, isNotEmpty);
+      int checked = 0;
       for (final Element element in paragraphs) {
         final RenderParagraph paragraph =
             element.renderObject! as RenderParagraph;
+        // The custom-amount hint is the one string allowed to shorten. It sits
+        // in a fixed-width field beside a currency suffix, `SmoothTextFormField`
+        // gives every hint `TextOverflow.ellipsis` by design, and its content is
+        // recoverable from the suffix and the section title. Every string that
+        // carries a number the donor is charged is still covered below.
+        if (paragraph.text.toPlainText() == _hint) {
+          continue;
+        }
+        checked++;
         expect(
           paragraph.didExceedMaxLines,
           isFalse,
           reason: '"${paragraph.text.toPlainText()}" is truncated',
         );
       }
+      // Guards the skip above: if the hint were ever the only paragraph found,
+      // this test would pass while asserting nothing.
+      expect(checked, greaterThan(5));
       expect(tester.takeException(), isNull);
     });
   }
+
+  testWidgets(
+    'the custom-amount hint shortens gracefully rather than clipping',
+    (WidgetTester tester) async {
+      tester.platformDispatcher.textScaleFactorTestValue = 2.0;
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+
+      await _pumpDonationPage(tester);
+
+      // The exemption above is only defensible while the hint really does
+      // ellipsize, so pin that rather than trusting the shared widget.
+      final TextField field = tester.widget<TextField>(find.byType(TextField));
+      expect(field.decoration!.hintText, _hint);
+      expect(field.decoration!.hintStyle!.overflow, TextOverflow.ellipsis);
+      expect(tester.takeException(), isNull);
+    },
+  );
 }

@@ -11110,16 +11110,16 @@ abstract class AppLocalizations {
   /// **'{amount} a month'**
   String donation_tier_amount_monthly(String amount);
 
-  /// Approximate number of product scans that a monthly donation covers
+  /// How many product scans a monthly donation covers, as an approximation
   ///
   /// In en, this message translates to:
-  /// **'about {scans} scans'**
+  /// **'pays for {scans} scans'**
   String donation_tier_scans(String scans);
 
   /// Hint of the field where a donor types an amount of their own instead of picking one of the offered ones
   ///
   /// In en, this message translates to:
-  /// **'Amount'**
+  /// **'Custom amount'**
   String get donation_custom_amount_hint;
 
   /// Error shown under the donation amount field when what the donor typed cannot be read as an amount
