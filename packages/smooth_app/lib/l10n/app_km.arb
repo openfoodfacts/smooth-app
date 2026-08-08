@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "មិនមែន​ពិត​ប្រាកដ​ទេ…",
   "tagline_app_review_button_later": "សួរខ្ញុំពេលក្រោយ",
   "tagline_feed_news_button": "ដឹងបន្ថែម",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "អ្នកមិនចូលចិត្តកម្មវិធីរបស់យើងទេ?",
   "app_review_negative_modal_text": "តើអ្នកអាចចំណាយពេលពីរបីវិនាទីដើម្បីប្រាប់យើងពីមូលហេតុបានទេ?",
   "app_review_negative_modal_positive_button": "មែនហើយ ពិតជាមែន!",
