@@ -160,10 +160,10 @@ class _TagLineItemNewsItem {
       raised = json['raised'] as num?,
       goal = json['goal'] as num?,
       currency = json['currency'],
-      donationAmounts = json['donation_amounts'] == null
-          ? null
-          : List<int>.from(json['donation_amounts'] as Iterable<dynamic>),
-      donationScansPerUnit = json['donation_scans_per_unit'] as int?,
+      donationAmounts = (json['donation_amounts'] as Iterable<dynamic>?)
+          ?.whereType<num>()
+          .toList(growable: false),
+      donationScansPerUnit = json['donation_scans_per_unit'] as num?,
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
       minVersion = json['min_version'],
@@ -184,8 +184,8 @@ class _TagLineItemNewsItem {
   final num? raised;
   final num? goal;
   final String? currency;
-  final List<int>? donationAmounts;
-  final int? donationScansPerUnit;
+  final List<num>? donationAmounts;
+  final num? donationScansPerUnit;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -248,8 +248,8 @@ class _TagLineItemNewsItem {
     num? raised,
     num? goal,
     String? currency,
-    List<int>? donationAmounts,
-    int? donationScansPerUnit,
+    List<num>? donationAmounts,
+    num? donationScansPerUnit,
   }) {
     return _TagLineItemNewsItem._(
       id: id,
@@ -302,11 +302,10 @@ class _TagLineItemNewsTranslation {
       darkImage = json['image_dark'] == null
           ? null
           : _TagLineNewsImage.fromJson(json['image_dark']),
-      donationWhereItGoes = json['donation_where_it_goes'] == null
-          ? null
-          : List<String>.from(
-              json['donation_where_it_goes'] as Iterable<dynamic>,
-            );
+      donationWhereItGoes =
+          (json['donation_where_it_goes'] as Iterable<dynamic>?)
+              ?.whereType<String>()
+              .toList(growable: false);
   final String? title;
   final String? message;
   final String? url;
@@ -367,6 +366,12 @@ class _TagLineItemNewsTranslationDefault extends _TagLineItemNewsTranslation {
                 .isNotEmpty,
       ),
       super.fromJson();
+
+  /// Ignored in `default`, honoured in a real locale block: unlike [title] and
+  /// [message] these lines replace strings the app already ships translated, so
+  /// a `default`-only edit would push one language over 127 translations.
+  @override
+  List<String>? get donationWhereItGoes => null;
 }
 
 class _TagLineNewsImage {
