@@ -3914,7 +3914,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produits disponibles pour une numérisation immédiate",
+  "available_for_download": "{num} produits disponibles pour une scan immediat",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
