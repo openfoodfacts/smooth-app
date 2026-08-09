@@ -45,8 +45,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
     _rotateNews();
   }
 
-  // initState() calls _rotateNews() directly, so _rotateNews() itself must
-  // never call setState: only the timer callback does.
+  // No setState here: initState() calls this directly.
   void _rotateNews() {
     _timer?.cancel();
 
@@ -75,9 +74,8 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
 
     final AppNewsItem currentNews = widget.news.elementAt(_index);
     final UserPreferences preferences = context.read<UserPreferences>();
-    // De-duplicated on the preferences rather than on this state: the card is
-    // the first page of the scan carousel, which disposes off-screen pages, so
-    // a swipe away and back would otherwise count the same id twice.
+    // Not on this State: the carousel disposes off-screen pages, so a swipe
+    // away and back would count the same id twice.
     if (!preferences.taglineFeedSessionImpressions.add(currentNews.id)) {
       return;
     }
@@ -111,8 +109,6 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
         body: InkWell(
           borderRadius: const BorderRadius.vertical(bottom: radius),
           onTap: () {
-            // Same session scope as the impression, so the click-through rate
-            // keeps a numerator and a denominator that are counted alike.
             final UserPreferences preferences = context.read<UserPreferences>();
             if (preferences.taglineFeedSessionClicks.add(currentNews.id)) {
               preferences.taglineFeedMarkNewsAsClicked(currentNews.id);
