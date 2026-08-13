@@ -53,7 +53,7 @@ dependencies:
   image: 4.9.1
   crop_image: 1.0.17
   shared_preferences: 2.5.5
-  intl: 0.20.2
+  intl: 0.20.3
   collection: 1.19.1
   path: 1.9.1
   path_provider: 2.1.6
