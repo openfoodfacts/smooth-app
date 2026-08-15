@@ -225,10 +225,9 @@ class ProductPageState extends State<ProductPage>
 
 class ProductPageCompatibility {
   ProductPageCompatibility({
-    required Color color,
+    required this._color,
     required MatchedProductV2 matchedProductV2,
-  }) : _color = color,
-       score = ProductCompatibilityHelper.product(
+  }) : score = ProductCompatibilityHelper.product(
          matchedProductV2,
        ).getFormattedScore();
 

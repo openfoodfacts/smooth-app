@@ -12,22 +12,23 @@ const List<String> SCORE_ATTRIBUTE_IDS = <String>[
   Attribute.ATTRIBUTE_ECOSCORE,
 ];
 
-// ignore: avoid_classes_with_only_static_members
 /// Creates the Size or flex for widgets that contains icons.
 class IconWidgetSizer {
+  IconWidgetSizer();
+
   /// Ratio of Widget size taken up by an icon.
   static const double _ICON_WIDGET_SIZE_RATIO = 1 / 10;
 
-  static double getIconSizeFromContext(BuildContext context) {
+  double getIconSizeFromContext(BuildContext context) {
     final Size screenSize = MediaQuery.sizeOf(context);
     return screenSize.width * _ICON_WIDGET_SIZE_RATIO;
   }
 
-  static int getIconFlex() {
+  int getIconFlex() {
     return (_ICON_WIDGET_SIZE_RATIO * 10).toInt();
   }
 
-  static int getRemainingWidgetFlex() {
+  int getRemainingWidgetFlex() {
     return (10 - _ICON_WIDGET_SIZE_RATIO * 10).toInt();
   }
 }

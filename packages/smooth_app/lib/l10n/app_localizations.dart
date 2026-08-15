@@ -2759,6 +2759,24 @@ abstract class AppLocalizations {
   /// **'Know more'**
   String get tagline_feed_news_button;
 
+  /// Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.
+  ///
+  /// In en, this message translates to:
+  /// **'of {goal}'**
+  String tagline_feed_funding_goal(String goal);
+
+  /// Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.
+  ///
+  /// In en, this message translates to:
+  /// **'{shortfall} short'**
+  String tagline_feed_funding_shortfall(String shortfall);
+
+  /// How long a funding campaign still runs, shown on the home news card next to the missing amount.
+  ///
+  /// In en, this message translates to:
+  /// **'{months,plural, =1{one month left} other{{months} months left}}'**
+  String tagline_feed_funding_months_left(int months);
+
   /// No description provided for @app_review_negative_modal_title.
   ///
   /// In en, this message translates to:

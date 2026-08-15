@@ -11,14 +11,14 @@ variations, and extensive testing infrastructure.
 
 ### Flutter Version Management
 
-- **CRITICAL**: This app requires Flutter version **3.41.8** exactly (as specified in
+- **CRITICAL**: This app requires Flutter version **3.44.8** exactly (as specified in
   `flutter-version.txt`)
 - **ALWAYS** use FVM (Flutter Version Management) for consistent Flutter versions:
   ```bash
   # Install FVM first: https://fvm.app/documentation/getting-started/installation
-  fvm install 3.41.8
-  fvm use 3.41.8
-  fvm flutter --version  # Should show Flutter 3.41.8
+  fvm install 3.44.8
+  fvm use 3.44.8
+  fvm flutter --version  # Should show Flutter 3.44.8
   ```
 - Export Flutter to PATH: `export PATH="$(fvm flutter sdk-path)/bin:$PATH"`
 
@@ -167,7 +167,7 @@ If you encounter build issues:
 
 ### Important Files
 
-- `flutter-version.txt` - Specifies required Flutter version (3.41.8)
+- `flutter-version.txt` - Specifies required Flutter version (3.44.8)
 - `packages/smooth_app/pubspec.yaml` - Main app dependencies
 - `packages/smooth_app/lib/entrypoints/` - Platform-specific entry points
 - `packages/smooth_app/integration_test/` - End-to-end test scenarios

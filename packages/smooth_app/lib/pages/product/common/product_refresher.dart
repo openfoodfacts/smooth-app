@@ -222,11 +222,11 @@ class ProductRefresher {
         );
       }
       final String host = uriProductHelper.host;
-      final PingData result = await Ping(host, count: 1).stream.first;
+      final PingEvent pingEvent = await Ping(host, count: 1).stream.first;
       return FetchedProduct.error(
         exceptionString: e.toString(),
         isConnected: true,
-        failedPingedHost: result.error == null ? null : host,
+        failedPingedHost: pingEvent is! PingError ? null : host,
       );
     }
   }

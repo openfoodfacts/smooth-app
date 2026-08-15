@@ -188,7 +188,7 @@ class _SmoothDraggableContentState extends State<_SmoothDraggableContent> {
       child: ChangeNotifierProvider<ScrollController>.value(
         value: widget.scrollController,
         child: CustomScrollView(
-          cacheExtent: widget.cacheExtent,
+          scrollCacheExtent: ScrollCacheExtent.pixels(widget.cacheExtent),
           key: _contentKey,
           controller: widget.scrollController,
           slivers: <Widget>[
