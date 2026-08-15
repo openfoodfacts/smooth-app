@@ -242,9 +242,12 @@ class AnalyticsHelper {
               'scanner': GlobalVars.scannerLabel.name,
             };
         };
-      // To set a uniform sample rate
+      // Configure trace sampling based on analytics and crash reporting opt-in
       options
-        ..tracesSampleRate = 1.0
+        ..tracesSampler = (SentrySamplingContext samplingContext) {
+          // Only sample traces if user has opted in to both analytics and crash reporting
+          return isTracingEnabled ? 1.0 : 0.0;
+        }
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
         ..environment =
@@ -274,6 +277,10 @@ class AnalyticsHelper {
   /// Returns true if analytics reporting is enabled.
   static bool get isEnabled =>
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
+
+  /// Returns true if both analytics and crash reporting are enabled.
+  /// This is used to determine whether to send HTTP traces to Sentry.
+  static bool get isTracingEnabled => isEnabled && _crashReports;
 
   static FutureOr<SentryEvent?> _beforeSend(
     SentryEvent event,

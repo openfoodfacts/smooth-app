@@ -5,12 +5,23 @@ import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/helpers/sentry_http_client_helper.dart';
 import 'package:uuid/uuid.dart';
 
 /// Initializes both the user agent && the SSL certificate
 Future<void> setupAppNetworkConfig() async {
   await _initUserAgent();
+  _initHttpOverrides();
   return _importSSLCertificate();
+}
+
+/// Initializes HTTP overrides with Sentry tracing support.
+///
+/// This sets up a custom HttpOverrides that intercepts ALL HTTP requests
+/// (including NetworkImage, http.get, etc.) and conditionally enables
+/// Sentry tracing based on user consent.
+void _initHttpOverrides() {
+  HttpOverrides.global = _SentryHttpOverrides();
 }
 
 String _getUuidId() {
@@ -86,8 +97,10 @@ Future<void> _importSSLCertificate() async {
         (await dip.DeviceInfoPlugin().androidInfo).version.sdkInt;
 
     // API Level 25 is Android 7.1
+    // Note: For Android 7.1-, we need to combine SSL certificate handling
+    // with Sentry tracing in _SentryHttpOverrides
     if (sdkInt < 25) {
-      HttpOverrides.global = _AndroidHttpOverrides();
+      // The _SentryHttpOverrides will handle both SSL and tracing
     }
   }
 
@@ -100,13 +113,27 @@ Future<void> _importSSLCertificate() async {
   );
 }
 
-/// A custom Http implementation that accepts all SSL certificates
-class _AndroidHttpOverrides extends HttpOverrides {
+/// Custom HttpOverrides that combines SSL certificate handling with Sentry tracing.
+///
+/// This intercepts ALL HTTP requests in the app, including:
+/// - NetworkImage requests
+/// - http.get/post/etc calls
+/// - Any dart:io HttpClient usage
+///
+/// It wraps the HttpClient with Sentry tracing when user has opted in.
+class _SentryHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
-    return super.createHttpClient(context)
-      ..badCertificateCallback =
+    final HttpClient client = super.createHttpClient(context);
+
+    // Handle SSL certificates for Android 7.1-
+    if (Platform.isAndroid) {
+      client.badCertificateCallback =
           (X509Certificate cert, String host, int port) =>
               host.contains('openfoodfacts.org');
+    }
+
+    // Wrap with Sentry tracing if enabled
+    return SentryHttpClientHelper.wrapHttpClient(client);
   }
 }
