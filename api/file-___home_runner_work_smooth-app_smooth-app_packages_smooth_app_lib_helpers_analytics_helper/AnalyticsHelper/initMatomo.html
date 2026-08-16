@@ -52,19 +52,29 @@
       
 
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
-<span class="name ">initMatomo</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initMatomo-param-screenshotMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshotMode</span></span></li>
+<span class="name ">initMatomo</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="initMatomo-param-screenshotMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshotMode</span>, </span></li>
+<li><span class="parameter" id="initMatomo-param-dispatchSettings">{<span class="type-annotation">dynamic</span> <span class="parameter-name">dispatchSettings</span> = <span class="default-value">const DispatchSettings.persistent()</span>}</span></li>
 </ol>)
 
       
 
     </section>
     
+<section class="desc markdown">
+  <p>Undispatched actions survive a restart for a day, and no longer: the
+default <code>PersistenceFilter</code> of <code>DispatchSettings.persistent</code> drops
+anything older than 23h59m59s when the queue is loaded.</p>
+</section>
 
 
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initMatomo(final bool screenshotMode) async {
+  <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initMatomo(
+  final bool screenshotMode, {
+  final DispatchSettings dispatchSettings =
+      const DispatchSettings.persistent(),
+}) async {
   _packageInfo = await PackageInfo.fromPlatform();
   if (screenshotMode) {
     _setCrashReports(false);
@@ -76,6 +86,7 @@
       url: &#39;https:&#47;&#47;analytics.openfoodfacts.org&#47;matomo.php&#39;,
       siteId: &#39;2&#39;,
       visitorId: _visitorId,
+      dispatchSettings: dispatchSettings,
     );
   } catch (err) {
     &#47;&#47; With Hot Reload, this may trigger a late field already initialized

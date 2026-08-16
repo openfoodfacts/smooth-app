@@ -65,6 +65,8 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; linkPreferences(UserPreferences userPreferences) async {
+  _uniqueRandom = await userPreferences.getUniqueRandom();
+
   &#47;&#47; Init the value
   _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
   _setCrashReports(userPreferences.onCrashReportingChanged.value);
@@ -77,8 +79,6 @@
   userPreferences.onCrashReportingChanged.addListener(() {
     _setCrashReports(userPreferences.onCrashReportingChanged.value);
   });
-
-  _uniqueRandom = await userPreferences.getUniqueRandom();
 }</code></pre>
 </section>
 

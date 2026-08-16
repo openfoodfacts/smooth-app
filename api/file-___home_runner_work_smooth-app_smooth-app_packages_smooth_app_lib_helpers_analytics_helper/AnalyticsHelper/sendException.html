@@ -66,7 +66,7 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static void sendException(dynamic throwable, {dynamic stackTrace}) {
-  Sentry.captureException(throwable, stackTrace: stackTrace);
+  unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
 }</code></pre>
 </section>
 

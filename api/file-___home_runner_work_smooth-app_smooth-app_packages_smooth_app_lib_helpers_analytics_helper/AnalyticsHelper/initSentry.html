@@ -70,15 +70,7 @@
     options
       ..dsn =
           &#39;https:&#47;&#47;22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io&#47;5376745&#39;
-      ..beforeSend = (SentryEvent event, Hint hint) async {
-        return event
-          ..tags = &lt;String, String&gt;{
-            &#39;store&#39;: GlobalVars.storeLabel.name,
-            &#39;scanner&#39;: GlobalVars.scannerLabel.name,
-          };
-      };
-    &#47;&#47; To set a uniform sample rate
-    options
+      &#47;&#47; To set a uniform sample rate
       ..tracesSampleRate = 1.0
       ..beforeSend = _beforeSend
       ..captureFailedRequests = false

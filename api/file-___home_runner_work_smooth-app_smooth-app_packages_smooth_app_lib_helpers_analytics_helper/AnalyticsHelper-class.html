@@ -197,14 +197,16 @@ Logging:</p>
     <h2>Static Methods</h2>
     <dl class="callables">
         <dt id="initMatomo" class="callable">
-  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initMatomo.html">initMatomo</a></span><span class="signature">(<wbr><span class="parameter" id="initMatomo-param-screenshotMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshotMode</span></span>)
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initMatomo.html">initMatomo</a></span><span class="signature">(<wbr><span class="parameter" id="initMatomo-param-screenshotMode"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">screenshotMode</span>, </span><span class="parameter" id="initMatomo-param-dispatchSettings">{<span class="type-annotation">dynamic</span> <span class="parameter-name">dispatchSettings</span> = <span class="default-value">const DispatchSettings.persistent()</span>}</span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
   </span>
   
 
 </dt>
 <dd>
-  
+  Undispatched actions survive a restart for a day, and no longer: the
+default <code>PersistenceFilter</code> of <code>DispatchSettings.persistent</code> drops
+anything older than 23h59m59s when the queue is loaded.
   
 
 </dd>
