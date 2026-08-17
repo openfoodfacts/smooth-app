@@ -1117,7 +1117,7 @@
   "tagline_app_review_button_negative": "Ani ne...",
   "tagline_app_review_button_later": "Zeptejte se mě později",
   "tagline_feed_news_button": "Více informací",
-  "tagline_feed_funding_goal": "of {goal}",
+  "tagline_feed_funding_goal": "z {goal}",
   "@tagline_feed_funding_goal": {
     "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
     "placeholders": {
