@@ -4749,23 +4749,23 @@
   "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_order_evaluation": "Partite",
+  "product_page_for_me_attributes_order_evaluation": "Valutazioni",
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_group_good_matches": "Buone partite",
+  "product_page_for_me_attributes_group_good_matches": "Valutazioni positive",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
   },
-  "product_page_for_me_attributes_group_average_matches": "Corrispondenze medie",
+  "product_page_for_me_attributes_group_average_matches": "Valutazioni nella media",
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
-  "product_page_for_me_attributes_group_bad_matches": "Cattive corrispondenze",
+  "product_page_for_me_attributes_group_bad_matches": "Valutazioni negative",
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
-  "product_page_for_me_attributes_group_unknown_matches": "Corrispondenze sconosciute",
+  "product_page_for_me_attributes_group_unknown_matches": "Valutazioni indeterminate",
   "@product_page_for_me_attributes_group_unknown_matches": {
     "description": "Title for the group of attributes that are unknown matches for the user"
   },
