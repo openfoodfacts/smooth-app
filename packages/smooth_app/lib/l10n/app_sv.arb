@@ -4567,7 +4567,7 @@
       }
     }
   },
-  "barcode_probably_invalid": "Probably invalid barcode",
+  "barcode_probably_invalid": "Troligtvis ogiltig streckkod",
   "@barcode_probably_invalid": {
     "description": "Warning message. Keep it short."
   },
