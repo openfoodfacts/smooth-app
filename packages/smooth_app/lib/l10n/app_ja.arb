@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "2018年以来、NutriNet-Santéの取り組みにより、**超加工食品の摂取とがん、心血管疾患、糖尿病のリスク増加との関連性が初めて明らかにされました**。現在、世界中で90件以上の研究でこれらの知見が確認されています。\n最も強い関連性は、**肥満、心血管疾患による死亡率、うつ症状**に関連しています。小児においては、主に体重と脂質の不均衡に影響が見られます。",
   "guide_nova_explanations_arg6_title": "各国は制限を推奨",
   "guide_nova_explanations_arg6_text": "一部の国では、食事のガイドラインや目標に NOVA グループを使用しています。例:\n\n- **🇧🇷ブラジル**の食事ガイドラインでは、**加工食品の消費を制限**し、超加工食品を避けることを推奨しています。\n\n- **🇫🇷フランス**の 2018～2022 年の公衆衛生栄養政策目標は、**グループ 4 の超加工食品の消費を 20% 削減**することを目指しています。",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-ja.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

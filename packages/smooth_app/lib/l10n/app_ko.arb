@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "2018년 NutriNet-Santé를 통해 **초가공식품 섭취와 암, 심혈관 질환, 당뇨병 위험 증가 사이의 연관성**이 처음으로 밝혀졌습니다. 현재 전 세계적으로 90건 이상의 연구에서 이러한 결과가 확인되었습니다.\n가장 강력한 연관성은 **비만, 심혈관 질환 사망률, 우울증 증상**과 관련이 있습니다. 어린이의 경우, 이러한 영향은 주로 체중과 지질 불균형에서 관찰됩니다.",
   "guide_nova_explanations_arg6_title": "국가들은 이를 제한할 것을 권고합니다.",
   "guide_nova_explanations_arg6_text": "일부 국가에서는 다음과 같이 NOVA 그룹을 식단 지침이나 목표로 사용합니다.\n\n- **🇧🇷 브라질**의 식단 지침은 가공 식품의 **소비를 제한**하고 고도 가공 식품을 피할 것을 권장합니다.\n\n- **🇫🇷 프랑스**의 2018-2022년 공중 보건 영양 정책 목표는 **그룹 4 고도 가공 식품의 소비를 20% 줄이는 것**입니다.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-ko.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

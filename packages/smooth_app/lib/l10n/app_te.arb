@@ -4333,7 +4333,7 @@
   "guide_open_prices_scrapping_paragraph2": "ఓపెన్ ప్రైసెస్ యొక్క భవిష్యత్తు వెర్షన్‌లో ధర స్క్రాపింగ్ అనేది పరిగణించబడే ఎంపిక, కానీ అది ఓపెన్ ప్రైసెస్ ద్వారానే చేయబడుతుంది, తద్వారా HTML పేజీ ఆధారంగా ధర యొక్క రుజువు మనకు లభిస్తుంది.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "మీరు మా API ని ఉపయోగించి ధరలను అందించవచ్చు.\nమీరు ధరలను స్కేల్‌గా అందించాలనుకుంటే, దయచేసి prices@openfoodfacts.org వద్ద మమ్మల్ని సంప్రదించండి.",
-  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about గురించి",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "ఓపెన్ ప్రొడక్ట్స్ వాస్తవాలకు స్వాగతం!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"

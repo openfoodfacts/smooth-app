@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Desde 2018, con NutriNet-Santé, se han identificado los primeros vínculos entre **el consumo de alimentos ultraprocesados y un mayor riesgo de cáncer, enfermedades cardiovasculares y diabetes**. Hoy en día, más de 90 estudios en todo el mundo confirman estos hallazgos.\nLas asociaciones más sólidas se relacionan con **la obesidad, la mortalidad cardiovascular y los síntomas depresivos**. En los niños, los efectos se observan principalmente en el peso y los desequilibrios lipídicos.",
   "guide_nova_explanations_arg6_title": "Los países recomiendan limitarlos.",
   "guide_nova_explanations_arg6_text": "Algunos países utilizan los grupos NOVA para sus guías o metas dietéticas; por ejemplo:\n\n- Las guías dietéticas de **🇧🇷 Brasil** recomiendan limitar el consumo de alimentos procesados y evitar los ultraprocesados.\n\n- Los objetivos de la política nutricional de salud pública de **🇫🇷 Francia** para el período 2018-2022 buscan reducir el consumo de alimentos ultraprocesados del grupo 4 en un 20 %.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-es.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

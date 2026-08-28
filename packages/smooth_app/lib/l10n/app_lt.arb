@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Nuo 2018 m., pasitelkus „NutriNet-Santé“, buvo pirmą kartą išryškinti ryšiai tarp **ultraperdirbtų maisto produktų vartojimo ir padidėjusios vėžio, širdies ir kraujagyslių ligų bei diabeto rizikos**. Šiandien šiuos rezultatus patvirtina daugiau nei 90 tyrimų visame pasaulyje.\nStipriausi ryšiai yra susiję su **nutukimu, mirtingumu nuo širdies ir kraujagyslių ligų bei depresijos simptomais**. Vaikams poveikis pirmiausia stebimas svorio ir lipidų disbalanso srityse.",
   "guide_nova_explanations_arg6_title": "Šalys rekomenduoja juos apriboti",
   "guide_nova_explanations_arg6_text": "Kai kurios šalys naudoja NOVA grupes savo mitybos gairėms ar tikslams nustatyti, pavyzdžiui:\n\n- **🇧🇷 Brazilijos** mitybos gairėse **rekomenduojama apriboti perdirbto maisto vartojimą** ir vengti itin perdirbto maisto.\n\n- **🇫🇷 Prancūzijos** visuomenės sveikatos mitybos politikos tikslai 2018–2022 m. siekia **20 % sumažinti 4 grupės itin perdirbtų maisto produktų vartojimą**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-lt.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

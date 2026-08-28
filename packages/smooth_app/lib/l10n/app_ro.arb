@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Din 2018, cu NutriNet-Santé, au fost evidențiate primele legături între **consumul de alimente ultra-procesate și riscurile crescute de cancer, boli cardiovasculare și diabet**. Astăzi, peste 90 de studii la nivel mondial confirmă aceste descoperiri.\nCele mai puternice asocieri se referă la **obezitate, mortalitate cardiovasculară și simptome depresive**. La copii, efectele sunt observate în principal asupra greutății și dezechilibrelor lipidice.",
   "guide_nova_explanations_arg6_title": "Țările recomandă limitarea acestora",
   "guide_nova_explanations_arg6_text": "Unele țări utilizează grupurile NOVA pentru ghidurile sau obiectivele lor alimentare, de exemplu:\n\n- **🇧🇷 Ghidurile alimentare ale Braziliei** **recomandă limitarea consumului** de alimente procesate și evitarea alimentelor ultra-procesate.\n\n- **🇫🇷 Obiectivele politicii nutriționale de sănătate publică a Franței** pentru perioada 2018-2022 vizează **reducerea consumului de alimente ultra-procesate din grupa 4 cu 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-ro.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

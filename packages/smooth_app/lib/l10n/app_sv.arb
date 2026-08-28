@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Sedan 2018 har de första sambanden mellan **konsumtion av ultrabearbetade livsmedel och ökade risker för cancer, hjärt-kärlsjukdomar och diabetes** uppmärksammats genom NutriNet-Santé. I dag bekräftar fler än 90 studier världen över dessa resultat.\nDe starkaste sambanden gäller **fetma, dödlighet i hjärt-kärlsjukdom och depressiva symtom**. Hos barn syns effekterna främst på vikt och blodfettsrubbningar.",
   "guide_nova_explanations_arg6_title": "Länder rekommenderar att de begränsas",
   "guide_nova_explanations_arg6_text": "Vissa länder använder NOVA-grupperna i sina kostriktlinjer eller mål, till exempel:\n\n- **🇧🇷 Brasiliens** kostriktlinjer **rekommenderar att begränsa konsumtionen** av bearbetade livsmedel och undvika ultrabearbetade livsmedel.\n\n- **🇫🇷 Frankrikes** folkhälsopolitiska nutritionsmål för 2018–2022 syftar till att **minska konsumtionen av ultrabearbetade livsmedel i grupp 4 med 20 %**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-sv.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

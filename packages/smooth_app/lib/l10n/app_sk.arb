@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Od roku 2018 boli vďaka projektu NutriNet-Santé zdôraznené prvé súvislosti medzi **konzumáciou ultraspracovaných potravín a zvýšeným rizikom rakoviny, kardiovaskulárnych ochorení a cukrovky**. Dnes tieto zistenia potvrdzuje viac ako 90 štúdií na celom svete.\nNajsilnejšie súvislosti sa týkajú **obezity, kardiovaskulárnej úmrtnosti a depresívnych symptómov**. U detí sa účinky pozorujú predovšetkým na hmotnosti a nerovnováhe lipidov.",
   "guide_nova_explanations_arg6_title": "Krajiny odporúčajú ich obmedzenie",
   "guide_nova_explanations_arg6_text": "Niektoré krajiny používajú skupiny NOVA pre svoje stravovacie odporúčania alebo ciele, napríklad:\n\n- **🇧🇷 Brazílske** stravovacie odporúčania **odporúčajú obmedziť** konzumáciu spracovaných potravín a vyhýbať sa ultraspracovaným potravinám.\n\n- **🇫🇷 Francúzsko** má za cieľ **znížiť konzumáciu ultraspracovaných potravín skupiny 4 o 20 %**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-sk.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

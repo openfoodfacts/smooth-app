@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "各国建议限制它们",
   "guide_nova_explanations_arg6_text": "一些国家在其膳食指南或目标中使用了 NOVA 分组，例如：\n\n- **🇧🇷 巴西**的膳食指南**建议限制加工食品的摄入量**，并避免食用超加工食品。\n\n- **🇫🇷 法国**2018-2022 年公共卫生营养政策目标旨在**将第 4 组超加工食品的摄入量减少 20%**。",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-zh.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4242,7 +4242,7 @@
   "guide_open_food_facts_scores_arg1_title": "营养质量评分",
   "guide_open_food_facts_scores_arg2_title": "避免食用超加工食品的评分",
   "guide_open_food_facts_scores_arg3_title": "为地球打分",
-  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-zh.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "欢迎来到“公开宠物食品真相”！",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"

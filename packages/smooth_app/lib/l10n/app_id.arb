@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Sejak 2018, dengan NutriNet-Santé, hubungan pertama antara **konsumsi makanan ultra-olahan dan peningkatan risiko kanker, penyakit kardiovaskular, dan diabetes telah disoroti**. Saat ini, lebih dari 90 studi di seluruh dunia mengkonfirmasi temuan ini.\nHubungan terkuat berkaitan dengan **obesitas, kematian akibat penyakit kardiovaskular, dan gejala depresi**. Pada anak-anak, efeknya terutama diamati pada berat badan dan ketidakseimbangan lipid.",
   "guide_nova_explanations_arg6_title": "Negara-negara merekomendasikan untuk membatasinya.",
   "guide_nova_explanations_arg6_text": "Beberapa negara menggunakan kelompok NOVA untuk pedoman atau tujuan diet mereka, misalnya:\n\n- Pedoman diet **🇧🇷 Brasil** merekomendasikan untuk membatasi konsumsi makanan olahan dan menghindari makanan ultra-olahan.\n\n- Tujuan kebijakan gizi kesehatan masyarakat **🇫🇷 Prancis** untuk tahun 2018-2022 bertujuan untuk **mengurangi konsumsi makanan ultra-olahan kelompok 4 sebesar 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-id.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

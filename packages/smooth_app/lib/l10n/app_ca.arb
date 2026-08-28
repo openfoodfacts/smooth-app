@@ -4242,7 +4242,7 @@
   "guide_open_food_facts_scores_arg1_title": "Una puntuació sobre la qualitat nutricional",
   "guide_open_food_facts_scores_arg2_title": "Una puntuació per evitar els aliments ultraprocessats",
   "guide_open_food_facts_scores_arg3_title": "Una puntuació per al planeta",
-  "guide_open_food_facts_share_link": "https://world-ca.openfoodfacts.org/descobrir",
+  "guide_open_food_facts_share_link": "https://world-ca.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Benvinguts a Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"

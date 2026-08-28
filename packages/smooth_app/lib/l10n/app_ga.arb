@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Ó 2018 i leith, le NutriNet-Santé, tá na chéad naisc idir **tomhaltas bianna sárphróiseáilte agus rioscaí méadaithe ailse, galair chardashoithíoch, agus diaibéiteas curtha chun cinn**. Inniu, dearbhaíonn breis is 90 staidéar ar fud an domhain na torthaí seo.\nBaineann na naisc is láidre le **murtall, básmhaireacht chardashoithíoch, agus comharthaí dúlagair**. Ar leanaí, breathnaítear na héifeachtaí go príomha ar mheáchan agus ar mhíchothromaíochtaí lipid.",
   "guide_nova_explanations_arg6_title": "Molann tíortha iad a theorannú",
   "guide_nova_explanations_arg6_text": "Úsáideann roinnt tíortha na grúpaí NOVA dá dtreoirlínte nó spriocanna aiste bia, mar shampla:\n\n- **🇧🇷 Molann treoirlínte aiste bia na Brasaíle** tomhaltas bia próiseáilte a theorannú** agus bia ultraphróiseáilte a sheachaint.\n\n- **🇫🇷 Tá sé mar aidhm ag spriocanna beartais chothaithe sláinte poiblí na Fraince** do 2018-2022 **tomhaltas bianna ultraphróiseáilte grúpa 4 a laghdú 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-ga.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

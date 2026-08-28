@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Kopš 2018. gada ar NutriNet-Santé palīdzību ir pirmās reizes atklātas saiknes starp **ultra apstrādātu pārtikas produktu patēriņu un paaugstinātu vēža, sirds un asinsvadu slimību un diabēta risku**. Šodien šos atklājumus apstiprina vairāk nekā 90 pētījumi visā pasaulē.\nVisspēcīgākās saistības ir saistītas ar **aptaukošanos, sirds un asinsvadu mirstību un depresijas simptomiem**. Bērniem ietekme galvenokārt ir novērota svara un lipīdu nelīdzsvarotības ziņā.",
   "guide_nova_explanations_arg6_title": "Valstis iesaka tos ierobežot",
   "guide_nova_explanations_arg6_text": "Dažas valstis izmanto NOVA grupas savām uztura vadlīnijām vai mērķiem, piemēram:\n\n- **🇧🇷 Brazīlijas** uztura vadlīnijas **iesaka ierobežot pārstrādātas pārtikas patēriņu** un izvairīties no īpaši pārstrādātas pārtikas.\n\n- **🇫🇷 Francijas** sabiedrības veselības uztura politikas mērķi 2018.–2022. gadam ir **samazināt 4. grupas īpaši pārstrādātu pārtikas produktu patēriņu par 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-lv.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

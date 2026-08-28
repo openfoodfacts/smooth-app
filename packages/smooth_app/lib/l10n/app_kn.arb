@@ -4333,7 +4333,7 @@
   "guide_open_prices_scrapping_paragraph2": "ಓಪನ್ ಪ್ರೈಸಸ್‌ನ ಭವಿಷ್ಯದ ಆವೃತ್ತಿಯಲ್ಲಿ ಪ್ರೈಸ್ ಸ್ಕ್ರ್ಯಾಪಿಂಗ್ ಒಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ ಆಯ್ಕೆಯಾಗಿದೆ, ಆದರೆ ಇದನ್ನು ಓಪನ್ ಪ್ರೈಸಸ್‌ನಿಂದಲೇ ಮಾಡಲಾಗುತ್ತದೆ ಇದರಿಂದ ನಾವು HTML ಪುಟವನ್ನು ಆಧರಿಸಿ ಬೆಲೆಯ ಪುರಾವೆಯನ್ನು ಪಡೆಯಬಹುದು.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "ನಮ್ಮ API ಬಳಸಿಕೊಂಡು ನೀವು ಬೆಲೆಗಳನ್ನು ಕೊಡುಗೆ ನೀಡಬಹುದು.\nನೀವು ಪ್ರಮಾಣದಲ್ಲಿ ಬೆಲೆಗಳನ್ನು ಕೊಡುಗೆ ನೀಡಲು ಬಯಸಿದರೆ, ದಯವಿಟ್ಟು prices@openfoodfacts.org ನಲ್ಲಿ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.",
-  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about ಬಗ್ಗೆ",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "ಮುಕ್ತ ಉತ್ಪನ್ನಗಳ ಸಂಗತಿಗಳಿಗೆ ಸುಸ್ವಾಗತ!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"

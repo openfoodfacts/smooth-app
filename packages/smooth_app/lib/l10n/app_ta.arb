@@ -4333,7 +4333,7 @@
   "guide_open_prices_scrapping_paragraph2": "ஓப்பன் பிரைஸ்களின் எதிர்கால பதிப்பில் விலை ஸ்க்ராப்பிங் ஒரு கருதப்படும் விருப்பமாகும், ஆனால் இது ஓப்பன் பிரைஸ்களால் செய்யப்படும், இதனால் HTML பக்கத்தின் அடிப்படையில் விலைக்கான ஆதாரத்தை நாம் பெற முடியும்.",
   "guide_open_prices_retailers_title": "நான் ஒரு சில்லறை விற்பனையாளர், விலைகளைப் பங்களிக்க விரும்புகிறேன். அதை நான் எப்படி செய்வது?",
   "guide_open_prices_retailers_paragraph1": "எங்கள் API ஐப் பயன்படுத்தி நீங்கள் விலைகளைப் பங்களிக்கலாம்.\nநீங்கள் அளவில் விலைகளைப் பங்களிக்க விரும்பினால், தயவுசெய்து prices@openfoodfacts.org என்ற மின்னஞ்சல் முகவரியில் எங்களைத் தொடர்பு கொள்ளவும்.",
-  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about பற்றி",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "திறந்த தயாரிப்புகள் உண்மைகளுக்கு வருக!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"

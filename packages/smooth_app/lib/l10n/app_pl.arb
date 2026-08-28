@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Od 2018 roku, dzięki NutriNet-Santé, po raz pierwszy zwrócono uwagę na powiązania między **spożywaniem żywności ultraprzetworzonej a zwiększonym ryzykiem zachorowania na raka, choroby układu krążenia i cukrzycę**. Obecnie ponad 90 badań na całym świecie potwierdza te ustalenia.\nNajsilniejsze powiązania dotyczą **otyłości, śmiertelności z przyczyn sercowo-naczyniowych i objawów depresji**. U dzieci wpływ ten obserwuje się przede wszystkim w zakresie masy ciała i zaburzeń lipidowych.",
   "guide_nova_explanations_arg6_title": "Kraje zalecają ich ograniczenie",
   "guide_nova_explanations_arg6_text": "Niektóre kraje wykorzystują grupy NOVA do ustalania swoich wytycznych lub celów żywieniowych, na przykład:\n\n- **🇧🇷 Wytyczne żywieniowe Brazylii** **zalecają ograniczenie spożycia** żywności przetworzonej i unikanie żywności ultraprzetworzonej.\n\n- **🇫🇷 Cele polityki żywieniowej zdrowia publicznego Francji** na lata 2018–2022 zakładają **zmniejszenie spożycia żywności ultraprzetworzonej z grupy 4 o 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-pl.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

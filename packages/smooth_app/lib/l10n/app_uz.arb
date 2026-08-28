@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "2018-yildan beri NutriNet-Santé bilan **ultra qayta ishlangan oziq-ovqat mahsulotlarini iste'mol qilish va saraton, yurak-qon tomir kasalliklari va diabet xavfining ortishi o'rtasidagi dastlabki bog'liqliklar ta'kidlandi**. Bugungi kunda butun dunyo bo'ylab 90 dan ortiq tadqiqotlar ushbu topilmalarni tasdiqlaydi.\nEng kuchli bog'liqliklar **semirish, yurak-qon tomir o'limi va depressiv alomatlar** bilan bog'liq. Bolalarga ta'siri asosan vazn va lipid nomutanosibligiga bog'liq.",
   "guide_nova_explanations_arg6_title": "Davlatlar ularni cheklashni tavsiya qiladi",
   "guide_nova_explanations_arg6_text": "Ba'zi mamlakatlar o'zlarining parhez ko'rsatmalari yoki maqsadlari uchun NOVA guruhlaridan foydalanadilar, masalan:\n\n- **🇧🇷 Braziliya** ning parhez ko'rsatmalari **qayta ishlangan oziq-ovqat iste'molini cheklashni** va o'ta qayta ishlangan oziq-ovqatlardan saqlanishni tavsiya qiladi.\n\n- **🇫🇷 Fransiya** ning 2018-2022 yillarga mo'ljallangan sog'liqni saqlash ovqatlanish siyosati maqsadlari **4-guruh o'ta qayta ishlangan oziq-ovqat iste'molini 20% ga kamaytirishga** qaratilgan.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-uz.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

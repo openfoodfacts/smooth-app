@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Od leta 2018 so bile z NutriNet-Santé poudarjene prve povezave med **uživanjem ultra predelane hrane in povečanim tveganjem za raka, bolezni srca in ožilja ter sladkorno boleznijo**. Danes te ugotovitve potrjuje več kot 90 študij po vsem svetu.\nNajmočnejše povezave so povezane z **debelostjo, umrljivostjo zaradi bolezni srca in ožilja ter depresivnimi simptomi**. Pri otrocih se učinki opažajo predvsem pri telesni teži in neravnovesju lipidov.",
   "guide_nova_explanations_arg6_title": "Države priporočajo njihovo omejitev",
   "guide_nova_explanations_arg6_text": "Nekatere države uporabljajo skupine NOVA za svoje prehranske smernice ali cilje, na primer:\n\n- **🇧🇷 Brazilske** prehranske smernice **priporočajo omejitev** uživanja predelane hrane in izogibanje ultra predelani hrani.\n\n- **🇫🇷 Francija** ima za cilj **zmanjšati uživanje ultra predelane hrane iz skupine 4 za 20 %**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-sl.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Tangu 2018, kupitia NutriNet-Santé, viungo vya kwanza kati ya **utumiaji wa vyakula vilivyochakatwa na kuongezeka kwa hatari za saratani, magonjwa ya moyo na mishipa na kisukari vimeangaziwa**. Leo, zaidi ya tafiti 90 ulimwenguni kote zinathibitisha matokeo haya.\nUhusiano thabiti zaidi unahusiana na **unene kupita kiasi, vifo vya moyo na mishipa, na dalili za mfadhaiko**. Kwa watoto, athari huzingatiwa hasa kwa uzito na usawa wa lipid.",
   "guide_nova_explanations_arg6_title": "Nchi zinapendekeza kuziwekea kikomo",
   "guide_nova_explanations_arg6_text": "Baadhi ya nchi hutumia vikundi vya NOVA kwa miongozo au malengo yao ya lishe, kwa mfano:\n\n- **🇧🇷 Miongozo ya lishe ya Brazil** **inapendekeza kupunguza matumizi** ya chakula kilichochakatwa na kuepuka vyakula vilivyochakatwa zaidi.\n\n- **🇫🇷 Malengo ya sera ya lishe ya afya ya umma ya Ufaransa** 2018-2022 yanalenga **kupunguza ulaji wa vyakula vya kundi la 4 vilivyosindikwa zaidi kwa 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-sw.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },

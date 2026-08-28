@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Siden 2018 har de første koblingene mellom **forbruk av ultraprosessert mat og økt risiko for kreft, hjerte- og karsykdommer og diabetes blitt fremhevet** med NutriNet-Santé. I dag bekrefter mer enn 90 studier over hele verden disse funnene.\nDe sterkeste assosiasjonene er knyttet til **fedme, hjerte- og kardødelighet og depressive symptomer**. Hos barn observeres effektene primært på vekt og lipidubalanser.",
   "guide_nova_explanations_arg6_title": "Land anbefaler å begrense dem",
   "guide_nova_explanations_arg6_text": "Noen land bruker NOVA-gruppene for sine kostholdsretningslinjer eller -mål, for eksempel:\n\n- **🇧🇷 Brasils** kostholdsretningslinjer **anbefaler å begrense forbruket** av bearbeidet mat og unngå ultrabearbeidet mat.\n\n- **🇫🇷 Frankrikes** ernæringspolitiske mål for folkehelse for 2018–2022 har som mål å **redusere forbruket av ultrabearbeidet mat i gruppe 4 med 20 %**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-nb.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
