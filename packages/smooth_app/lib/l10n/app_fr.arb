@@ -276,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Nom",
   "sign_up_page_display_name_error_empty": "Veuillez saisir le nom d'affichage que vous souhaitez utiliser",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_error_empty": "L'e-mail est requis",
   "sign_up_page_email_error_invalid": "E-mail invalide",
   "sign_up_page_username_hint": "Nom d'utilisateur : visible publiquement",
   "sign_up_page_username_error_empty": "Veuillez saisir un nom d'utilisateur",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Cette image peut être obsolète",
   "product_image_outdated_explanations_title": "Cette image peut être obsolète",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Cette image a été prise il y a plus d'un an.\n**Veuillez vérifier qu'elle est toujours à jour**.\n\nCeci est **juste un avertissement**. Si le contenu est toujours le même, vous pouvez ignorer ce message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Pas vraiment…",
   "tagline_app_review_button_later": "Me demander plus tard",
   "tagline_feed_news_button": "En savoir plus",
+  "tagline_feed_funding_goal": "de {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} court",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, one {}=1{Il reste un mois} other{{months} Il reste des mois}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Vous n'aimez pas notre application ?",
   "app_review_negative_modal_text": "Pourriez-vous prendre quelques secondes pour nous dire pourquoi ?",
   "app_review_negative_modal_positive_button": "Oui, absolument !",
@@ -2709,15 +2739,15 @@
   "prices_amount_no_product": "Il manque un produit !",
   "prices_amount_price_incorrect": "Valeur incorrecte",
   "prices_amount_price_mandatory": "Valeur obligatoire",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Mettre à jour la devise",
   "prices_currency_subtitle": "Devise",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Magasin",
   "prices_location_find": "Chercher un magasin",
   "prices_location_mandatory": "Vous devez choisir un magasin !",
   "prices_location_search_broader": "Vous n'avez pas trouvé ce que vous cherchiez ? Essayons une recherche plus large !",
-  "prices_location_open_map": "View the shop on the map",
-  "prices_location_edit": "Select another shop",
+  "prices_location_open_map": "Voir la boutique sur la carte",
+  "prices_location_edit": "Sélectionner une autre boutique",
   "prices_proof_subtitle": "Preuve",
   "prices_proof_empty_title": "Aucune preuve pour l'instant !",
   "prices_proof_empty_explanation": "Commencez par ajouter une photo d’un **reçu** ou d’une **étiquette de prix** !",
@@ -3724,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Veuillez nous envoyer manuellement un e-mail à",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copié dans le presse-papier !",
   "select_accent_color": "Sélectionnez la couleur d'accentuation",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3914,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} produits disponibles pour une numérisation immédiate",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3985,7 +4015,7 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Green Score inconnu",
+  "environmental_score_unknown_new": "Green-Score inconnu",
   "environmental_score_not_applicable_new": "Green-Score non applicable",
   "nova_group_generic_new": "Aliments ultra-transformés - Groupes NOVA",
   "nova_group_1": "Groupe NOVA 1",
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Métriques des prix d'ouverture",
+  "preferences_prices_metrics_title": "Métriques Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5568,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5776,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
+  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

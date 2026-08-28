@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -1563,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -3980,12 +4010,12 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "ຄະແນນສີຂຽວ A",
-  "environmental_score_b_new": "ຄະແນນສີຂຽວ B",
-  "environmental_score_c_new": "ຄະແນນສີຂຽວ C",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "ຄະແນນສີຂຽວ E",
-  "environmental_score_unknown_new": "ຄະແນນສີຂຽວທີ່ບໍ່ຮູ້ຈັກ",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score ທີ່ບໍ່ຮູ້ຈັກ",
   "environmental_score_not_applicable_new": "Green-Score ບໍ່ສາມາດໃຊ້ໄດ້",
   "nova_group_generic_new": "ອາຫານປຸງແຕ່ງພິເສດ - ກຸ່ມ NOVA",
   "nova_group_1": "NOVA Group 1",
@@ -5296,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "ຄົ້ນພົບຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດ",
+  "preferences_faq_discover_off_title": "ຄົ້ນພົບ Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5320,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "ອົງການ NGO ເປີດເຜີຍຄວາມຈິງກ່ຽວກັບອາຫານ",
+  "preferences_faq_off_ngo_title": "ອົງການ NGO Open Food Facts",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ຕົວຊີ້ວັດລາຄາເປີດ",
+  "preferences_prices_metrics_title": "ຕົວຊີ້ວັດ Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5768,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "ເປີດຫ້ອງທົດລອງຄວາມຈິງດ້ານອາຫານ",
+  "preferences_page_open_food_facts_labs_title": "ຫ້ອງທົດລອງ Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5776,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "ເອົາຄວາມຈິງກ່ຽວກັບອາຫານທີ່ເປີດເຜີຍໃຫ້ກັບພາສາຂອງເຈົ້າ",
+  "preferences_contribute_translate_header": "ເອົາ Open Food Facts ໃຫ້ກັບພາສາຂອງເຈົ້າ",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

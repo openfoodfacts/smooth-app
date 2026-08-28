@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -1563,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -3981,12 +4011,12 @@
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Viridis-Score B",
+  "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Punctum Viride Ignotum",
-  "environmental_score_not_applicable_new": "Punctum Viride non applicabile est.",
+  "environmental_score_unknown_new": "Green-Score Ignotum",
+  "environmental_score_not_applicable_new": "Green-Score non applicabile est.",
   "nova_group_generic_new": "Cibi ultra-processi - greges NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4138,7 +4168,7 @@
   "guide_greenscore_better_product_arg2_title": "Potestatem habes! (or) Tibi est potestas!",
   "guide_greenscore_better_product_arg2_text": "Bona nuntia sunt haec: hoc nobis viam potentem praebet ad mutationem efficiendam.\n**Unusquisque nostrum circiter mille cibos quotannis consumit**. Mille enim occasiones sunt ad **meliorem futurum pro planeta eligendum**!",
   "guide_greenscore_better_product_arg3_title": "Adiuvat ad responsabilem agendum et decernendum",
-  "guide_greenscore_better_product_arg3_text": "Eligendo cibum sustentabilem difficile videri potest. Etiquettae confusae sunt et informationes saepe desunt. Punctum Viride creatum est ut rem simplicem reddat, tibi aestimationem environmentalem **claram**, **scientificam**, et **perspicuam** pro cibis praebens, ubi eam desideras: dum emis.",
+  "guide_greenscore_better_product_arg3_text": "Eligendo cibum sustentabilem difficile videri potest. Etiquettae confusae sunt et informationes saepe desunt. Green-Score creatum est ut rem simplicem reddat, tibi aestimationem environmentalem **claram**, **scientificam**, et **perspicuam** pro cibis praebens, ubi eam desideras: dum emis.",
   "guide_greenscore_better_product_arg4_title": "Perspicuitas",
   "guide_greenscore_better_product_arg4_text": "Dissimilis notis propriis, computatio Green-Score **omnino aperta** est et ab quolibet **verificari** potest.",
   "guide_nova_title": "Ultra-processed foods",
@@ -4178,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
   "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-la.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -5296,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Facta de Cibo Aperto Invenite",
+  "preferences_faq_discover_off_title": "Open Food Facts Invenite",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5320,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "Consociatio Non-Governativa de Cibis Apertis Factis (vel Notitiae Ciborum Apertae)",
+  "preferences_faq_off_ngo_title": "Consociatio Non-Governativa Open Food Facts",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5344,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Diarium de rebus cibariis apertis",
+  "preferences_connect_blog_title": "Diarium Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5516,7 +5546,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Pretia recentissima a communitate Pretiorum Apertorum addita",
+  "preferences_prices_newest_subtitle": "Pretia recentissima a communitate Open Prices addita",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrica Pretiorum Apertorum",
+  "preferences_prices_metrics_title": "Metrica Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5768,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Laboratoria Aperta Factorum Ciborum",
+  "preferences_page_open_food_facts_labs_title": "Laboratoria Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5776,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Affer Facta Cibaria Aperta in Linguam Tuam",
+  "preferences_contribute_translate_header": "Affer Open Food Facts in Linguam Tuam",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

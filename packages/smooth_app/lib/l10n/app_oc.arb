@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -1563,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -3980,13 +4010,13 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Verd-Scor A",
-  "environmental_score_b_new": "Verd-Escore B",
-  "environmental_score_c_new": "C de puntuacion verda",
-  "environmental_score_d_new": "Verd-Score D",
-  "environmental_score_e_new": "Verd-Escore E",
-  "environmental_score_unknown_new": "Escòre verd desconegut",
-  "environmental_score_not_applicable_new": "La puntuacion verda es pas aplicabla",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score desconegut",
+  "environmental_score_not_applicable_new": "Lo Green-Score es pas aplicable",
   "nova_group_generic_new": "Aliments ultratransformats - grops NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4085,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "Qu es la Puntuacion Verda?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "Lo Verd-Score es un lògo que vòl vos informar de l' **impacte environamental de la noiridura**.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Lo Green-Score es un lògo que vòl vos informar de l' **impacte environamental de la noiridura**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4093,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Los lògos de la puntuacion verda",
+  "guide_greenscore_logos_caption": "Los lògos del Green-Score",
   "guide_greenscore_lca_title": "Lo còr: Avaloracion del cicle de vida (LCA)",
   "guide_greenscore_lca_arg1_title": "Una avaloracion scientifica de las categorias alimentàrias",
   "guide_greenscore_lca_arg1_text1": "Per cada categoria de produch, una nòta de **referéncia** es establida en utilizant de donadas de la basa de donadas environamentala Agribalyse (concebuda per ADEME e INRAE).",
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrics dels prètzs dobèrts",
+  "preferences_prices_metrics_title": "Metrics d'Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
