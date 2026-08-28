@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "คะแนนโภชนาการ, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -4009,7 +4009,7 @@
   "nutriscore_unknown_new_formula": "Nutri-Score ที่ไม่ทราบค่า (การคำนวณใหม่)",
   "nutriscore_not_applicable": "ไม่สามารถใช้ Nutri-Score ได้",
   "nutriscore_not_applicable_new_formula": "ไม่สามารถใช้ Nutri-Score ได้ (การคำนวณใหม่)",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "คะแนนสีเขียว",
   "environmental_score_a_new": "Green-Score เอ",
   "environmental_score_b_new": "Green-Score บี",
   "environmental_score_c_new": "Green-Score ซี",
@@ -4110,7 +4110,7 @@
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "คะแนนสีเขียว",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
