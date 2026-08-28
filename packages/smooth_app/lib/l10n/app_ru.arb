@@ -2841,7 +2841,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Переключение между pricing.openfoodfacts.org (PROD) и тестовой средой",
+  "dev_mode_openprices_switch_env_title": "Переключение между prices.openfoodfacts.org (PROD) и тестовой средой",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },

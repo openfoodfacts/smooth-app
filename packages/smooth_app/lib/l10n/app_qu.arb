@@ -2841,7 +2841,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Prices.openfoodfacts.org (PROD) kaqmanta chaymanta prueba env kaqmanta tikray",
+  "dev_mode_openprices_switch_env_title": "prices.openfoodfacts.org (PROD) kaqmanta chaymanta prueba env kaqmanta tikray",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },

@@ -2841,7 +2841,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Fetola fa gare ga ditlhwatlhwa.dintlha tsa dijo.org (PROD) le tikologo ya teko",
+  "dev_mode_openprices_switch_env_title": "Fetola fa gare ga prices.openfoodfacts.org (PROD) le tikologo ya teko",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
