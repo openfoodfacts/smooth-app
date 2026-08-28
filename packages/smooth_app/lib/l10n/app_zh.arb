@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "登录或注册加入 Open Food Facts 社区",
-  "user_profile_title_id_email": "Open Food Facts 登录： {email}",
+  "user_profile_title_id_email": "Open Food Facts 登录： {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {

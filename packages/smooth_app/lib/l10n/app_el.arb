@@ -4305,11 +4305,11 @@
   "guide_open_beauty_facts_scores_title": "Μια σημείωση για τη βαθμολογία",
   "guide_open_beauty_facts_scores_paragraph1": "Σε αντίθεση με τα τρόφιμα, ο κόσμος των καλλυντικών **δεν διαθέτει ένα παγκοσμίως αναγνωρισμένο, κυβερνητικά υποστηριζόμενο σύστημα βαθμολόγησης όπως το Nutri-Score**. Οι επιδράσεις των συστατικών μπορεί να είναι ιδιαίτερα προσωπικές και να εξαρτώνται από τον τύπο δέρματος, τις αλλεργίες και τις ατομικές ανησυχίες.",
   "guide_open_beauty_facts_share_link": "https://world-el.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Καλώς ορίσατε στις Ανοιχτές Τιμές!",
+  "guide_open_prices_title": "Καλώς ορίσατε στο Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Τι είναι οι τιμές ανοίγματος;",
+  "guide_open_prices_what_is_open_prices_title": "Τι είναι το Open Prices;",
   "guide_open_prices_what_is_open_prices_paragraph1": "Το Open Prices είναι ένα έργο για τη **συλλογή και κοινοποίηση τιμών προϊόντων σε όλο τον κόσμο**. Είναι ένα δημόσια διαθέσιμο σύνολο δεδομένων που μπορεί να χρησιμοποιηθεί για έρευνα, ανάλυση και πολλά άλλα. Το Open Prices αναπτύσσεται και συντηρείται από το Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4318,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Πώς λειτουργούν οι Ανοιχτές Τιμές;",
+  "guide_open_prices_how_title": "Πώς λειτουργεί το Open Prices;",
   "guide_open_prices_how_paragraph1": "**Αναζητούμε ένα σύνολο δεδομένων τιμών ανοιχτού κώδικα από το crowdsourcing**. Οι χρήστες μπορούν να προσθέσουν τιμές μέσω αυτής της διαδικτυακής εφαρμογής ή μέσω της επίσημης εφαρμογής Open Food Facts για κινητά. Οι λιανοπωλητές ή οι εφαρμογές τρίτων μπορούν επίσης να συνεισφέρουν χρησιμοποιώντας το API μας.",
   "guide_open_prices_how_arg1_title": "Συλλέξτε φωτογραφίες από τις ετικέτες τιμών στους διαδρόμους",
   "guide_open_prices_how_arg2_title": "Συλλέξτε φωτογραφίες αποδείξεων",
@@ -5338,7 +5338,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Ανακαλύψτε τις τιμές ανοίγματος",
+  "preferences_faq_discover_op_title": "Ανακαλύψτε το Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },

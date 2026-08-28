@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,8 +4015,8 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Белгісіз жасыл ұпай",
-  "environmental_score_not_applicable_new": "Жасыл ұпай қолданылмайды",
+  "environmental_score_unknown_new": "Белгісіз Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score қолданылмайды",
   "nova_group_generic_new": "Ультра өңделген тағамдар - NOVA топтары",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -5326,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Ашық азық-түлік фактілерін ашыңыз",
+  "preferences_faq_discover_off_title": "Open Food Facts ашыңыз",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5350,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "«Ашық азық-түлік фактілері» үкіметтік емес ұйымы",
+  "preferences_faq_off_ngo_title": "«Open Food Facts» үкіметтік емес ұйымы",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Ашық баға көрсеткіштері",
+  "preferences_prices_metrics_title": "Open Prices көрсеткіштері",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Азық-түлік фактілері зертханасын ашыңыз",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Ашық тағам фактілерін тіліңізге жеткізіңіз",
+  "preferences_contribute_translate_header": "Open Food Facts тіліңізге жеткізіңіз",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

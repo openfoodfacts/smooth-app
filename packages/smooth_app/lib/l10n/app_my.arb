@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,7 +4015,7 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "အမည်မသိ အစိမ်းရောင်-ရမှတ်",
+  "environmental_score_unknown_new": "အမည်မသိ Green-Score",
   "environmental_score_not_applicable_new": "Green-Score သည် မသက်ဆိုင်ပါ။",
   "nova_group_generic_new": "လွန်ကဲစွာ ပြုပြင်ထားသော အစားအစာများ - NOVA အုပ်စုများ",
   "nova_group_1": "NOVA Group 1",
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ပွင့်လင်းသော ဈေးနှုန်းများ မက်ထရစ်များ",
+  "preferences_prices_metrics_title": "Open Prices မက်ထရစ်များ",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5598,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Food Facts ကိုဖွင့်ရန် ရိုးရှင်းသောနည်းလမ်းများ",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts ကို ကူညီရန် ရိုးရှင်းသော နည်းလမ်းများ",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Food Facts Labs ကိုဖွင့်ပါ။",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

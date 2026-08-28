@@ -276,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -4015,7 +4015,7 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Green Score inconnu",
+  "environmental_score_unknown_new": "Green-Score inconnu",
   "environmental_score_not_applicable_new": "Green-Score non applicable",
   "nova_group_generic_new": "Aliments ultra-transformés - Groupes NOVA",
   "nova_group_1": "Groupe NOVA 1",
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Métriques des prix d'ouverture",
+  "preferences_prices_metrics_title": "Métriques Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5598,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
+  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

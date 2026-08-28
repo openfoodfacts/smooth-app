@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,8 +4015,8 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "অজ্ঞাত গ্ৰীণ-স্ক’ৰ",
-  "environmental_score_not_applicable_new": "গ্ৰীণ-স্ক’ৰ প্ৰযোজ্য নহয়",
+  "environmental_score_unknown_new": "অজ্ঞাত Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score প্ৰযোজ্য নহয়",
   "nova_group_generic_new": "আল্ট্ৰা-প্ৰচেছড খাদ্য - NOVA গোট",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4115,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "সেউজীয়া স্ক’ৰ কি?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "গ্ৰীণ-স্ক'ৰ হৈছে এটা ল'গ' যিয়ে আপোনাক **খাদ্যৰ পৰিৱেশ প্ৰভাৱ**ৰ বিষয়ে অৱগত কৰাৰ লক্ষ্য ৰাখে।",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score হৈছে এটা ল'গ' যিয়ে আপোনাক **খাদ্যৰ পৰিৱেশ প্ৰভাৱ**ৰ বিষয়ে অৱগত কৰাৰ লক্ষ্য ৰাখে।",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4123,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "গ্ৰীণ-স্ক’ৰৰ ল’গ’বোৰ",
+  "guide_greenscore_logos_caption": "Green-Score-ৰ ল’গ’বোৰ",
   "guide_greenscore_lca_title": "মূল: জীৱনচক্ৰৰ মূল্যায়ন (LCA)",
   "guide_greenscore_lca_arg1_title": "খাদ্যৰ শ্ৰেণীসমূহৰ বৈজ্ঞানিক মূল্যায়ন",
   "guide_greenscore_lca_arg1_text1": "প্ৰতিটো পণ্য শ্ৰেণীৰ বাবে, Agribalyse পৰিৱেশ ডাটাবেছৰ পৰা তথ্য ব্যৱহাৰ কৰি এটা **বেঞ্চমাৰ্ক** স্ক'ৰ স্থাপন কৰা হয় (ADEME আৰু INRAE দ্বাৰা ডিজাইন কৰা)।",
@@ -4168,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "আপোনাৰ হাতত শক্তি আছে!",
   "guide_greenscore_better_product_arg2_text": "The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!",
   "guide_greenscore_better_product_arg3_title": "দায়িত্বশীল হ’বলৈ আৰু সিদ্ধান্ত লোৱাত সহায় কৰে",
-  "guide_greenscore_better_product_arg3_text": "বহনক্ষম খাদ্য বাছনি কৰাটো জটিল অনুভৱ হ’ব পাৰে। লেবেলবোৰ বিভ্ৰান্তিকৰ আৰু তথ্য প্ৰায়ে নোহোৱা হয়। গ্ৰীণ-স্ক'ৰ ইয়াক সহজ কৰিবলৈ সৃষ্টি কৰা হৈছে, আপোনাক খাদ্য সামগ্ৰীৰ বাবে এটা **স্পষ্ট**, **বিজ্ঞান-ভিত্তিক**, আৰু **স্বচ্ছ** পৰিৱেশ ৰেটিং দিয়ে, ঠিক য'ত আপুনি ইয়াৰ প্ৰয়োজন হয়: আপুনি বজাৰ কৰাৰ সময়ত।",
+  "guide_greenscore_better_product_arg3_text": "বহনক্ষম খাদ্য বাছনি কৰাটো জটিল অনুভৱ হ’ব পাৰে। লেবেলবোৰ বিভ্ৰান্তিকৰ আৰু তথ্য প্ৰায়ে নোহোৱা হয়। Green-Score ইয়াক সহজ কৰিবলৈ সৃষ্টি কৰা হৈছে, আপোনাক খাদ্য সামগ্ৰীৰ বাবে এটা **স্পষ্ট**, **বিজ্ঞান-ভিত্তিক**, আৰু **স্বচ্ছ** পৰিৱেশ ৰেটিং দিয়ে, ঠিক য'ত আপুনি ইয়াৰ প্ৰয়োজন হয়: আপুনি বজাৰ কৰাৰ সময়ত।",
   "guide_greenscore_better_product_arg4_title": "স্বচ্ছতা",
-  "guide_greenscore_better_product_arg4_text": "মালিকানাধীন লেবেলৰ দৰে নহয়, সেউজ-স্ক'ৰ গণনা **সম্পূৰ্ণভাৱে মুকলি** আৰু ইয়াক **যিকোনো ব্যক্তিয়ে পৰীক্ষা কৰিব পাৰে**।",
+  "guide_greenscore_better_product_arg4_text": "মালিকানাধীন লেবেলৰ দৰে নহয়, Green-Score গণনা **সম্পূৰ্ণভাৱে মুকলি** আৰু ইয়াক **যিকোনো ব্যক্তিয়ে পৰীক্ষা কৰিব পাৰে**।",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5213,7 +5213,7 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "নতুন নিউট্ৰি-স্ক’ৰ আৱিষ্কাৰ কৰক",
+  "tips_discover_nutriscore": "নতুন Nutri-Score আৱিষ্কাৰ কৰক",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
@@ -5314,7 +5314,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "নিউট্ৰি-স্ক’ৰ কেনেকৈ গণনা কৰা হয় আৱিষ্কাৰ কৰক",
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score কেনেকৈ গণনা কৰা হয় আৱিষ্কাৰ কৰক",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5326,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "মুকলি খাদ্যৰ তথ্য আৱিষ্কাৰ কৰক",
+  "preferences_faq_discover_off_title": "Open Food Facts আৱিষ্কাৰ কৰক",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "মুক্ত মূল্যৰ মেট্ৰিক্স",
+  "preferences_prices_metrics_title": "Open Prices মেট্ৰিক্স",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "আপোনাৰ ভাষালৈ মুকলি খাদ্যৰ তথ্য আনিব",
+  "preferences_contribute_translate_header": "আপোনাৰ ভাষালৈ Open Food Facts আনিব",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Ak sa chcete pripojiť ku komunite Open Food Facts, prihláste sa alebo sa zaregistrujte",
-  "user_profile_title_id_email": "Open Food Facts prihlasovacie meno: {email}",
+  "user_profile_title_id_email": "Open Food Facts prihlasovacie meno: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2799,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Získajte viac informácií o otvorených cenách",
+  "prices_menu_know_more": "Získajte viac informácií o Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4015,7 +4015,7 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Neznáme zelené skóre",
+  "environmental_score_unknown_new": "Neznáme Green-Score",
   "environmental_score_not_applicable_new": "Green-Score sa nepoužije",
   "nova_group_generic_new": "Ultraspracované potraviny - skupiny NOVA",
   "nova_group_1": "Skupina NOVA 1",
@@ -4216,7 +4216,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Čo je to Otvorené fakty o jedle?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Čo je to Open Food Facts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts je **kolaboratívna**, **bezplatná** a **otvorená** databáza potravinárskych výrobkov z celého sveta.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4277,7 +4277,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Čo je to Otvorené fakty o kráse?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Čo je to Open Beauty Facts?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts je spoločná databáza **kozmetických produktov**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4305,11 +4305,11 @@
   "guide_open_beauty_facts_scores_title": "Poznámka k bodovaniu",
   "guide_open_beauty_facts_scores_paragraph1": "Na rozdiel od potravinárskych výrobkov, svet kozmetiky **nemá všeobecne uznávaný, vládou podporovaný systém hodnotenia ako Nutri-Score**. Účinky zložiek môžu byť veľmi individuálne a závisia od typu pleti, alergií a individuálnych obáv.",
   "guide_open_beauty_facts_share_link": "https://world-sk.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Vitajte v sekcii Otvorené ceny!",
+  "guide_open_prices_title": "Vitajte v Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Čo sú to otváracie ceny?",
+  "guide_open_prices_what_is_open_prices_title": "Čo je to Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt na **zhromažďovanie a zdieľanie cien produktov z celého sveta**. Ide o verejne dostupný súbor údajov, ktorý možno použiť na výskum, analýzu a ďalšie účely. Open Prices vyvíja a spravuje spoločnosť Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4318,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Ako fungujú otváracie ceny?",
+  "guide_open_prices_how_title": "Ako funguje Open Prices?",
   "guide_open_prices_how_paragraph1": "**Zhromažďujeme súbor údajov o cenách s otvoreným zdrojovým kódom**. Ceny môžu pridávať používatelia prostredníctvom tejto webovej aplikácie alebo prostredníctvom oficiálnej mobilnej aplikácie Open Food Facts. Prispieť môžu aj maloobchodníci alebo aplikácie tretích strán pomocou nášho API.",
   "guide_open_prices_how_arg1_title": "Zbierajte fotografie cenovok v uličkách",
   "guide_open_prices_how_arg2_title": "Zbierajte fotografie účteniek",
@@ -5326,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Objavte fakty o otvorenom jedle",
+  "preferences_faq_discover_off_title": "Objavte Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Objavte fakty o otvorenej kráse",
+  "preferences_faq_discover_obf_title": "Objavte Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Objavte fakty o krmive pre domáce zvieratá na Open Pet Food",
+  "preferences_faq_discover_opff_title": "Objavte Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Objavte otvorené ceny",
+  "preferences_faq_discover_op_title": "Objavte Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5374,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Blog Otvorené fakty o jedle",
+  "preferences_connect_blog_title": "Blog Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metriky otvorených cien",
+  "preferences_prices_metrics_title": "Metriky Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Otvorené laboratóriá faktov o potravinách",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Prineste fakty o otvorených potravinách do svojho jazyka",
+  "preferences_contribute_translate_header": "Prineste Open Food Facts do svojho jazyka",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

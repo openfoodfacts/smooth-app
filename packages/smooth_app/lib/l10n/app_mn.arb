@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,8 +4015,8 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Тодорхойгүй ногоон оноо",
-  "environmental_score_not_applicable_new": "Ногоон оноо хамаарахгүй",
+  "environmental_score_unknown_new": "Тодорхойгүй Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score хамаарахгүй",
   "nova_group_generic_new": "Хэт боловсруулсан хоол хүнс - NOVA бүлгүүд",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4123,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Ногоон онооны лого",
+  "guide_greenscore_logos_caption": "Green-Score лого",
   "guide_greenscore_lca_title": "Гол нь: Амьдралын мөчлөгийн үнэлгээ (LCA)",
   "guide_greenscore_lca_arg1_title": "Хүнсний ангиллын шинжлэх ухааны үнэлгээ",
   "guide_greenscore_lca_arg1_text1": "Бүтээгдэхүүний ангилал тус бүрийн хувьд Agribalyse байгаль орчны мэдээллийн сангаас (ADEME болон INRAE боловсруулсан) өгөгдлийг ашиглан **бенчмарк** оноог тогтоодог.",
@@ -4168,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "Танд хүч байна!",
   "guide_greenscore_better_product_arg2_text": "Энэ нь бидэнд өөрчлөлтийг бий болгох хүчирхэг арга замыг өгч байгаа нь сайн мэдээ юм.\n**Бидний хүн бүр жилд 1000 орчим удаа хоол иддэг**. Энэ бол **дэлхийн сайн сайхан ирээдүйг сонгох** 1000 боломж юм!",
   "guide_greenscore_better_product_arg3_title": "Хариуцлагатай байж, шийдвэр гаргахад тусалдаг",
-  "guide_greenscore_better_product_arg3_text": "Тогтвортой хоол хүнс сонгох нь төвөгтэй санагдаж магадгүй юм. Шошго нь төөрөгдүүлсэн, мэдээлэл дутуу байдаг. Ногоон оноог энгийн болгох зорилгоор бүтээгдсэн бөгөөд хүнсний бүтээгдэхүүнд **тодорхой**, **шинжлэх ухаанд тулгуурласан**, **ил тод** байгаль орчны үнэлгээг танд хэрэгтэй үед нь: дэлгүүр хэсч байхад нь өгдөг.",
+  "guide_greenscore_better_product_arg3_text": "Тогтвортой хоол хүнс сонгох нь төвөгтэй санагдаж магадгүй юм. Шошго нь төөрөгдүүлсэн, мэдээлэл дутуу байдаг. Green-Score-ийг энгийн болгох зорилгоор бүтээгдсэн бөгөөд хүнсний бүтээгдэхүүнд **тодорхой**, **шинжлэх ухаанд тулгуурласан**, **ил тод** байгаль орчны үнэлгээг танд хэрэгтэй үед нь: дэлгүүр хэсч байхад нь өгдөг.",
   "guide_greenscore_better_product_arg4_title": "Ил тод байдал",
-  "guide_greenscore_better_product_arg4_text": "Өмчлөлийн шошгуудаас ялгаатай нь Ногоон онооны тооцоолол нь **бүрэн нээлттэй** бөгөөд **бүх хүн баталгаажуулах боломжтой**.",
+  "guide_greenscore_better_product_arg4_text": "Өмчлөлийн шошгуудаас ялгаатай нь Green-Score тооцоолол нь **бүрэн нээлттэй** бөгөөд **бүх хүн баталгаажуулах боломжтой**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5326,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Нээлттэй хүнсний баримтуудыг олж мэдээрэй",
+  "preferences_faq_discover_off_title": "Open Food Facts-ийг олж мэдээрэй",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5350,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "Нээлттэй хүнсний баримт ТББ",
+  "preferences_faq_off_ngo_title": "Open Food Facts ТББ",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5374,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Нээлттэй хүнсний баримт блог",
+  "preferences_connect_blog_title": "Open Food Facts блог",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5546,7 +5546,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Нээлттэй үнийн нийгэмлэгийн нэмсэн хамгийн сүүлийн үнэ",
+  "preferences_prices_newest_subtitle": "Open Prices нийгэмлэгийн нэмсэн хамгийн сүүлийн үнэ",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Нээлттэй үнийн үзүүлэлтүүд",
+  "preferences_prices_metrics_title": "Open Prices үзүүлэлтүүд",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5598,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Нээлттэй хүнсний баримтуудад туслах энгийн аргууд",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts-д туслах энгийн аргууд",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Хүнсний баримтын лабораторийг нээнэ үү",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Нээлттэй хүнсний баримтуудыг хэл дээрээ авчир",
+  "preferences_contribute_translate_header": "Open Food Facts-ийг хэл дээрээ авчир",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

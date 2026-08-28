@@ -1229,7 +1229,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "Nutri-pisteytystä ei voi laskea. Syynä voi olla esimerkiksi epätavallinen luokka. Ota yhteyttä, mikäli oletat tämän olevan virhe.",
+  "product_improvement_categories_but_no_nutriscore": "Nutri-Scorea ei voi laskea. Syynä voi olla esimerkiksi epätavallinen luokka. Ota yhteyttä, mikäli oletat tämän olevan virhe.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -2799,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Lue lisää avoimista hinnoista",
+  "prices_menu_know_more": "Lue lisää Open Pricesista",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -4225,7 +4225,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Avoimen ruokatiedon ominaisuudet",
+  "guide_open_food_facts_features_title": "Open Food Factsin ominaisuudet",
   "guide_open_food_facts_features_arg1_title": "Saat ilmoituksia ei-toivotuista ainesosista",
   "guide_open_food_facts_tips_title": "Vinkkejä upeiden kuvien ottamiseen",
   "guide_open_food_facts_tips_arg1_title": "Älä tee niin",
@@ -4256,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Avoimen lemmikkieläinten ruokatietojen ominaisuudet",
+  "guide_open_pet_food_facts_features_title": "Open Pet Food Factsin ominaisuudet",
   "guide_open_pet_food_facts_features_arg1_title": "Saat ilmoituksia ei-toivotuista ainesosista",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Onko lemmikkisi allerginen jollekin ainesosalle? Voit asettaa sovelluksessa listan vältettävistä kosmeettisista ainesosista!",
   "guide_open_pet_food_facts_tips_title": "Vinkkejä upeiden kuvien ottamiseen",
@@ -4286,7 +4286,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Avointen kauneustietojen ominaisuudet",
+  "guide_open_beauty_facts_features_title": "Open Beauty Factsin ominaisuudet",
   "guide_open_beauty_facts_features_arg1_title": "Saat ilmoituksia ei-toivotuista ainesosista",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Oletko allerginen jollekin ainesosalle? Haluatko välttää komedogeenisia aineita? Haluatko pysyä erossa kiistanalaisista ainesosista? Voit asettaa listan vältettävistä kosmeettisista ainesosista suoraan sovelluksessa!",
   "guide_open_beauty_facts_tips_title": "Vinkkejä upeiden kuvien ottamiseen",
@@ -4305,11 +4305,11 @@
   "guide_open_beauty_facts_scores_title": "Huomautus pisteytyksestä",
   "guide_open_beauty_facts_scores_paragraph1": "Toisin kuin elintarvikkeilla, kosmetiikkamaailmassa **ei ole yleisesti tunnustettua, hallituksen tukemaa pisteytysjärjestelmää, kuten Nutri-Score**. Ainesosien vaikutukset voivat olla hyvin henkilökohtaisia ja riippua ihotyypistä, allergioista ja yksilöllisistä huolenaiheista.",
   "guide_open_beauty_facts_share_link": "https://world-fi.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Tervetuloa avoimiin hintoihin!",
+  "guide_open_prices_title": "Tervetuloa Open Pricesiin!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Mitä ovat avoimet hinnat?",
+  "guide_open_prices_what_is_open_prices_title": "Mikä on Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices on hanke, jonka tarkoituksena on **kerätä ja jakaa tuotteiden hintoja ympäri maailmaa**. Se on julkisesti saatavilla oleva tietojoukko, jota voidaan käyttää tutkimukseen, analyysiin ja moneen muuhun tarkoitukseen. Open Pricesin kehittäjä ja ylläpitäjä on Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4318,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Miten avoimet hinnat toimivat?",
+  "guide_open_prices_how_title": "Miten Open Prices toimii?",
   "guide_open_prices_how_paragraph1": "**Joukkoistamme avoimen lähdekoodin hintatietoaineistoa**. Käyttäjät voivat lisätä hintoja tämän verkkosovelluksen tai virallisen Open Food Facts -mobiilisovelluksen kautta. Jälleenmyyjät tai kolmannen osapuolen sovellukset voivat myös osallistua käyttämällä API-rajapintaamme.",
   "guide_open_prices_how_arg1_title": "Kerää kuvia hintalapuista käytävillä",
   "guide_open_prices_how_arg2_title": "Kerää kuvia kuiteista",
@@ -4329,7 +4329,7 @@
   "guide_open_prices_why_arg2_title": "Vertaile hintoja lähelläsi",
   "guide_open_prices_why_arg2_text": "Kun saamme lisää hintoja, voit paikantaa **halvimmat kaupat lähistöltä**.",
   "guide_open_prices_scrapping_title": "Oletko harkinnut hintojen kopioimista jälleenmyyjien verkkosivuilta?",
-  "guide_open_prices_scrapping_paragraph1": "Juridisista ja teknisistä syistä **emme pidä hintojen keräämistä jälleenmyyjien verkkosivustoilta pätevänä tapana osallistua avoimien hintojen keräämiseen**. Haluamme varmistaa, että keräämämme hinnat ovat tarkkoja ja ajantasaisia, emmekä voi tehdä sitä, koska saamme keräämiämme hintoja osallistujilta.",
+  "guide_open_prices_scrapping_paragraph1": "Juridisista ja teknisistä syistä **emme pidä hintojen keräämistä jälleenmyyjien verkkosivustoilta pätevänä tapana osallistua Open Pricesiin**. Haluamme varmistaa, että keräämämme hinnat ovat tarkkoja ja ajantasaisia, emmekä voi tehdä sitä, koska saamme keräämiämme hintoja osallistujilta.",
   "guide_open_prices_scrapping_paragraph2": "Hintakaapumista harkitaan tulevassa Open Prices -versiossa, mutta Open Prices tekisi sen itse, jotta meillä olisi HTML-sivun perusteella todiste hinnasta.",
   "guide_open_prices_retailers_title": "Olen jälleenmyyjä ja haluan osallistua hintoihin. Miten voin tehdä sen?",
   "guide_open_prices_retailers_paragraph1": "Voit osallistua hintojen kehittämiseen API:mme kautta.\nJos haluat osallistua hintojen kehittämiseen suuremmassa mittakaavassa, ota meihin yhteyttä osoitteessa prices@openfoodfacts.org.",
@@ -5326,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Tutustu avoimiin ruokatietoihin",
+  "preferences_faq_discover_off_title": "Tutustu Open Food Factsiin",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Tutustu avoimiin kauneustietoihin",
+  "preferences_faq_discover_obf_title": "Tutustu Open Beauty Factsiin",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Tutustu avoimeen lemmikkiruokatietoon",
+  "preferences_faq_discover_opff_title": "Tutustu Open Pet Food Factsiin",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Tutustu avoimiin hintoihin",
+  "preferences_faq_discover_op_title": "Tutustu Open Pricesiin",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Avaushintojen mittarit",
+  "preferences_prices_metrics_title": "Open Prices -mittarit",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Avoimet ruokatietolaboratoriot",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Tuo avoimet ruokatiedot omalle kielellesi",
+  "preferences_contribute_translate_header": "Tuo Open Food Facts omalle kielellesi",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

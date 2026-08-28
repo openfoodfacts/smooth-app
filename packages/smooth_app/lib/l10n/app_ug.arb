@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,8 +4015,8 @@
   "environmental_score_c_new": "Green-Score C.",
   "environmental_score_d_new": "Green-Score D.",
   "environmental_score_e_new": "Green-Score E.",
-  "environmental_score_unknown_new": "نامەلۇم يېشىل نومۇر",
-  "environmental_score_not_applicable_new": "يېشىل نومۇر قوللىنىلمايدۇ",
+  "environmental_score_unknown_new": "نامەلۇم Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score قوللىنىلمايدۇ",
   "nova_group_generic_new": "دەرىجىدىن تاشقىرى پىششىقلاپ ئىشلەنگەن يېمەكلىكلەر - NOVA گۇرۇپپىسى",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4115,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "يېشىل نومۇر دېگەن نېمە؟",
-  "guide_greenscore_what_is_greenscore_paragraph1": "يېشىل نومۇر بولسا سىزگە يېمەكلىكنىڭ ** مۇھىت تەسىرى ھەققىدە ئۇچۇر بېرىشنى مەقسەت قىلغان بەلگە.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score بولسا سىزگە يېمەكلىكنىڭ **مۇھىت تەسىرى** ھەققىدە ئۇچۇر بېرىشنى مەقسەت قىلغان بەلگە.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4123,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "يېشىل نومۇر بەلگىسى",
+  "guide_greenscore_logos_caption": "Green-Score بەلگىسى",
   "guide_greenscore_lca_title": "يادرولۇق: ھايات دەۋرىيلىكىنى باھالاش (LCA)",
   "guide_greenscore_lca_arg1_title": "يېمەكلىك تۈرلىرىنى ئىلمىي باھالاش",
   "guide_greenscore_lca_arg1_text1": "ھەر بىر مەھسۇلات تۈرىگە ، Agribalyse مۇھىت سانلىق مەلۇمات ئامبىرى (ADEME ۋە INRAE تەرىپىدىن لايىھەلەنگەن) سانلىق مەلۇماتلاردىن پايدىلىنىپ ** ئۆلچەم ** نومۇرى بېكىتىلىدۇ.",
@@ -4168,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "سىزدە كۈچ بار!",
   "guide_greenscore_better_product_arg2_text": "The good news is that this gives us a powerful way to create change.\n**Each of us eats around 1,000 meals every year**. That’s 1,000 opportunities to **choose a better future for the planet**!",
   "guide_greenscore_better_product_arg3_title": "مەسئۇلىيەتچان ۋە قارار چىقىرىشقا ياردەم بېرىدۇ",
-  "guide_greenscore_better_product_arg3_text": "سىجىل يېمەكلىكلەرنى تاللاش مۇرەككەپ ھېس قىلالايدۇ. بەلگىلەر قالايمىقان بولۇپ ، ئۇچۇرلار دائىم يوقاپ كېتىدۇ. يېشىل نومۇر ئۇنى ئاددىيلاشتۇرۇش ئۈچۈن ياسالغان بولۇپ ، سىزگە ئېھتىياجلىق بولغان جايدا: سىز مال سېتىۋالغاندا سىزگە ** ئېنىق ** ، ** ئىلىم-پەننى ئاساس قىلغان ** ۋە ** سۈزۈك ** مۇھىت دەرىجىسىنى بېرىدۇ.",
+  "guide_greenscore_better_product_arg3_text": "سىجىل يېمەكلىكلەرنى تاللاش مۇرەككەپ ھېس قىلالايدۇ. بەلگىلەر قالايمىقان بولۇپ ، ئۇچۇرلار دائىم يوقاپ كېتىدۇ. Green-Score ئۇنى ئاددىيلاشتۇرۇش ئۈچۈن ياسالған بولۇپ ، سىزگە ئېھتىياجلىق بولغان جايدا: سىز مال سېتىۋالغاندا سىزگە **ئېنىق** ، **ئىلىم-پەننى ئاساس قىلغان** ۋە **سۈزۈك** مۇھىت دەرىجىسىنى بېرىدۇ.",
   "guide_greenscore_better_product_arg4_title": "Transparency",
-  "guide_greenscore_better_product_arg4_text": "ئىگىدارلىق بەلگىسىگە ئوخشىمايدىغىنى ، يېشىل نومۇر ھېسابلاش ** پۈتۈنلەي ئوچۇق ** بولۇپ ، ** ھەر قانداق ئادەم تەرىپىدىن ** دەلىللىيەلەيدۇ.",
+  "guide_greenscore_better_product_arg4_text": "ئىگىدارلىق بەلگىسىگە ئوخشىمايدىغىنى ، Green-Score ھېسابلاش **پۈتۈنلەي ئوچۇق** بولۇپ ، **ھەر قانداق ئادەم تەرىپىدىن دەلىللىيەلەيدۇ**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5522,7 +5522,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "دۆلىتىڭىزدىكى ئوزۇقلۇق نومۇرى ۋە يېشىل نومۇرلارنى ھېسابلاشقا ياردەملىشىڭ",
+  "preferences_contributions_categorize_subtitle": "دۆلىتىڭىزدىكى Nutri-Score ۋە Green-Score ھېسابلاشقا ياردەملىشىڭ",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ئېچىلىش باھا كۆرسەتكۈچلىرى",
+  "preferences_prices_metrics_title": "Open Prices كۆرسەتكۈچلىرى",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },

@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,8 +4015,8 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Kaka-kaaka-Kakariki Kaore e mohiotia",
-  "environmental_score_not_applicable_new": "Karekau te Kakariki-Score e tika ana",
+  "environmental_score_unknown_new": "Green-Score Kaore e mohiotia",
+  "environmental_score_not_applicable_new": "Karekau te Green-Score e tika ana",
   "nova_group_generic_new": "Nga kai tino tukatuka - nga roopu NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4170,7 +4170,7 @@
   "guide_greenscore_better_product_arg3_title": "Ka awhina i te kawenga me te whakatau",
   "guide_greenscore_better_product_arg3_text": "Ko te kowhiri i te kai toiwhiua he uaua. Kei te rangirua nga tapanga, ka ngaro nga korero. I hangaia te Green-Score kia ngawari ake, ka hoatu he tohu mo te taiao **marama**, **maataiiao**, me te **marama** mo nga hua kai, kei hea e hiahia ana koe: i a koe e hokohoko ana.",
   "guide_greenscore_better_product_arg4_title": "Puataata",
-  "guide_greenscore_better_product_arg4_text": "Kare i rite ki nga tapanga rangatira, ko te tatauranga Kakariki-Score he **tuwhera rawa** ka taea **manatokohia e tetahi**.",
+  "guide_greenscore_better_product_arg4_text": "Kare i rite ki nga tapanga rangatira, ko te tatauranga Green-Score he **tuwhera rawa** ka taea **manatokohia e tetahi**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5326,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Tirohia nga Meka Kai Tuwhera",
+  "preferences_faq_discover_off_title": "Tirohia Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Ngā inenga Utu Tuwhera",
+  "preferences_prices_metrics_title": "Ngā inenga Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5598,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Nga huarahi ngawari hei awhina i nga Meka Kai Tuwhera",
+  "preferences_page_contribute_project_subtitle": "Nga huarahi ngawari hei awhina i Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Whakatuwherahia nga Waahanga Meka Kai",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Kawea mai nga Meka Kai Tuwhera ki to reo",
+  "preferences_contribute_translate_header": "Kawea mai Open Food Facts ki to reo",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

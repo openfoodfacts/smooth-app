@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,7 +4015,7 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Паллӑ мар симӗс-балл",
+  "environmental_score_unknown_new": "Паллӑ мар Green-Score",
   "environmental_score_not_applicable_new": "Green-Score юрӑхсӑр",
   "nova_group_generic_new": "Ультра-процессланӑ апат-ҫимӗҫ - NOVA ушкӑнӗсем",
   "nova_group_1": "NOVA Group 1",
@@ -5217,7 +5217,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "Уҫӑ апат-ҫимӗҫ факчӗсен сайтӗнче",
+  "preferences_on_off_website_subtitle": "Open Food Facts сайтӗнче",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5326,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Уҫӑ апат-ҫимӗҫ ҫинчен калакан фактсене уҫӑр",
+  "preferences_faq_discover_off_title": "Open Food Facts уҫӑр",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5350,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "«Уҫӑ апат-ҫимӗҫ факчӗсем» НПО",
+  "preferences_faq_off_ngo_title": "Open Food Facts НПО",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5374,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Уҫӑ апат-ҫимӗҫ факчӗсен блогӗ",
+  "preferences_connect_blog_title": "Open Food Facts блогӗ",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Уҫӑ хаксен кӑтартӑвӗсем",
+  "preferences_prices_metrics_title": "Open Prices кӑтартӑвӗсем",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Уҫӑ апат-ҫимӗҫ факчӗсен лабораторийӗ",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Хӑвӑрӑн чӗлхене уҫӑ апат-ҫимӗҫ факчӗсене илсе килӗр",
+  "preferences_contribute_translate_header": "Хӑвӑрӑн чӗлхене Open Food Facts илсе килӗр",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

@@ -4015,7 +4015,7 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Ukendt grøn score",
+  "environmental_score_unknown_new": "Ukendt Green-Score",
   "environmental_score_not_applicable_new": "Green-Score er ikke relevant",
   "nova_group_generic_new": "Ultraforarbejdede fødevarer - NOVA-grupper",
   "nova_group_1": "NOVA-gruppe 1",
@@ -4256,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Funktioner ved åbne kæledyrsfoderfakta",
+  "guide_open_pet_food_facts_features_title": "Funktioner ved Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Få advarsler om dine uønskede ingredienser",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Er dit kæledyr allergisk over for nogen ingredienser? Du kan oprette en liste over kosmetiske ingredienser, du skal undgå, direkte i appen!",
   "guide_open_pet_food_facts_tips_title": "Tips til at tage fantastiske billeder",
@@ -5326,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Opdag åbne fødevarefakta",
+  "preferences_faq_discover_off_title": "Opdag Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Åbne fødevarefakta-laboratorier",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts-laboratorier",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Få åbne fødevarefakta på dit sprog",
+  "preferences_contribute_translate_header": "Få Open Food Facts på dit sprog",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,8 +4015,8 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Escòre verd desconegut",
-  "environmental_score_not_applicable_new": "La puntuacion verda es pas aplicabla",
+  "environmental_score_unknown_new": "Green-Score desconegut",
+  "environmental_score_not_applicable_new": "Lo Green-Score es pas aplicable",
   "nova_group_generic_new": "Aliments ultratransformats - grops NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4115,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "Qu es la Puntuacion Verda?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "Lo Verd-Score es un lògo que vòl vos informar de l' **impacte environamental de la noiridura**.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Lo Green-Score es un lògo que vòl vos informar de l' **impacte environamental de la noiridura**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4123,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Los lògos de la puntuacion verda",
+  "guide_greenscore_logos_caption": "Los lògos del Green-Score",
   "guide_greenscore_lca_title": "Lo còr: Avaloracion del cicle de vida (LCA)",
   "guide_greenscore_lca_arg1_title": "Una avaloracion scientifica de las categorias alimentàrias",
   "guide_greenscore_lca_arg1_text1": "Per cada categoria de produch, una nòta de **referéncia** es establida en utilizant de donadas de la basa de donadas environamentala Agribalyse (concebuda per ADEME e INRAE).",
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrics dels prètzs dobèrts",
+  "preferences_prices_metrics_title": "Metrics d'Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },

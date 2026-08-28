@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Đăng nhập hoặc đăng ký để tham gia cộng đồng Open Food Facts",
-  "user_profile_title_id_email": "Mở thông tin đăng nhập Thực phẩm: {email}",
+  "user_profile_title_id_email": "Đăng nhập Open Food Facts: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Điểm số dinh dưỡng, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -4015,8 +4015,8 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Điểm xanh không xác định",
-  "environmental_score_not_applicable_new": "Điểm xanh không áp dụng",
+  "environmental_score_unknown_new": "Green-Score không xác định",
+  "environmental_score_not_applicable_new": "Green-Score không áp dụng",
   "nova_group_generic_new": "Thực phẩm siêu chế biến - Tập đoàn NOVA",
   "nova_group_1": "Nhóm NOVA 1",
   "nova_group_2": "Nhóm NOVA 2",
@@ -4156,7 +4156,7 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "Bao bì",
   "guide_greenscore_bonuses_penalties_arg4_text": "**Hình phạt** được tính toán dựa trên **tính tuần hoàn của bao bì** (sử dụng nguyên liệu thô tái chế và khả năng tái chế) và đóng gói quá mức.",
   "guide_greenscore_transparency_title": "Nhu cầu về sự minh bạch ngày càng tăng để có thể đo lường tốt hơn và giảm tác động môi trường",
-  "guide_greenscore_transparency_intro1": "Để tính toán chính xác Điểm Xanh, cần phải có **thông tin không nhất thiết phải được ghi trên bao bì** (chẳng hạn như nguồn gốc và tỷ lệ phần trăm chính xác của từng thành phần) hoặc hiếm khi có sẵn ở dạng có thể sử dụng (chẳng hạn như danh sách tất cả các thành phần của bao bì với các loại nhựa chính xác được sử dụng).",
+  "guide_greenscore_transparency_intro1": "Để tính toán chính xác Green-Score, cần phải có **thông tin không nhất thiết phải được ghi trên bao bì** (chẳng hạn như nguồn gốc và tỷ lệ phần trăm chính xác của từng thành phần) hoặc hiếm khi có sẵn ở dạng có thể sử dụng (chẳng hạn như danh sách tất cả các thành phần của bao bì với các loại nhựa chính xác được sử dụng).",
   "guide_greenscore_transparency_intro2": "**Giá trị trung bình được sử dụng khi thông tin này chưa có sẵn**, nhưng hiện chúng tôi đang kêu gọi mọi người giúp chúng tôi thu thập thông tin này, điều này sẽ rất hữu ích cho Green-Score cũng như nhiều mục đích sử dụng khác.",
   "guide_greenscore_transparency_arg1_title": "Người dân có thể giúp đỡ như thế nào?",
   "guide_greenscore_transparency_arg1_text": "Mọi công dân có thể giúp chúng tôi thu thập và cấu trúc thông tin có trên sản phẩm hoặc có thể suy ra từ sản phẩm, chẳng hạn như thông tin về **bao bì**: \"Mission Emballages\": một kho lưu trữ bao bì hợp tác quy mô lớn cho tất cả các sản phẩm thực phẩm (bằng tiếng Pháp).",
@@ -4168,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "Bạn có sức mạnh!",
   "guide_greenscore_better_product_arg2_text": "Tin tốt là điều này mang đến cho chúng ta một cách thức mạnh mẽ để tạo ra sự thay đổi.\n**Mỗi người chúng ta ăn khoảng 1.000 bữa ăn mỗi năm**. Đó là 1.000 cơ hội để **chọn một tương lai tốt đẹp hơn cho hành tinh**!",
   "guide_greenscore_better_product_arg3_title": "Giúp có trách nhiệm và quyết định",
-  "guide_greenscore_better_product_arg3_text": "Việc lựa chọn thực phẩm bền vững có thể khá phức tạp. Nhãn mác dễ gây nhầm lẫn và thông tin thường bị thiếu. Điểm Xanh được tạo ra để đơn giản hóa việc này, cung cấp cho bạn xếp hạng môi trường **rõ ràng**, **dựa trên khoa học** và **minh bạch** cho các sản phẩm thực phẩm, ngay tại nơi bạn cần: khi bạn mua sắm.",
+  "guide_greenscore_better_product_arg3_text": "Việc lựa chọn thực phẩm bền vững có thể khá phức tạp. Nhãn mác dễ gây nhầm lẫn và thông tin thường bị thiếu. Green-Score được tạo ra để đơn giản hóa việc này, cung cấp cho bạn xếp hạng môi trường **rõ ràng**, **dựa trên khoa học** và **minh bạch** cho các sản phẩm thực phẩm, ngay tại nơi bạn cần: khi bạn mua sắm.",
   "guide_greenscore_better_product_arg4_title": "Tính minh bạch",
-  "guide_greenscore_better_product_arg4_text": "Không giống như các nhãn hiệu độc quyền, phép tính Điểm Xanh **hoàn toàn mở** và có thể được **xác minh bởi bất kỳ ai**.",
+  "guide_greenscore_better_product_arg4_text": "Không giống như các nhãn hiệu độc quyền, phép tính Green-Score **hoàn toàn mở** và có thể được **xác minh bởi bất kỳ ai**.",
   "guide_nova_title": "Thức ăn siêu chế biến",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4256,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Đặc điểm của Thực phẩm cho thú cưng mở",
+  "guide_open_pet_food_facts_features_title": "Tính năng của Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Nhận cảnh báo về các thành phần không mong muốn của bạn",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Thú cưng của bạn có bị dị ứng với bất kỳ thành phần nào không? Bạn có thể thiết lập danh sách các thành phần mỹ phẩm cần tránh ngay trong ứng dụng!",
   "guide_open_pet_food_facts_tips_title": "Mẹo chụp ảnh đẹp",
@@ -5326,15 +5326,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Khám phá sự thật về thực phẩm mở",
+  "preferences_faq_discover_off_title": "Khám phá Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Khám phá sự thật về vẻ đẹp mở",
+  "preferences_faq_discover_obf_title": "Khám phá Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Khám phá sự thật về thức ăn cho thú cưng",
+  "preferences_faq_discover_opff_title": "Khám phá Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5374,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Blog Sự thật về Thực phẩm Mở",
+  "preferences_connect_blog_title": "Blog Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Các chỉ số giá mở",
+  "preferences_prices_metrics_title": "Các chỉ số Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Phòng thí nghiệm thông tin thực phẩm mở",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5806,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Mang Thông tin Thực phẩm Mở sang ngôn ngữ của bạn",
+  "preferences_contribute_translate_header": "Mang Open Food Facts sang ngôn ngữ của bạn",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

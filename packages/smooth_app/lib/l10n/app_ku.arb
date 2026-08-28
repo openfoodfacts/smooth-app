@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4015,8 +4015,8 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Xala Kesk a Nenas",
-  "environmental_score_not_applicable_new": "Kesk-Pûan nayê sepandin",
+  "environmental_score_unknown_new": "Green-Score a Nenas",
+  "environmental_score_not_applicable_new": "Green-Score nayê sepandin",
   "nova_group_generic_new": "Xwarinên pir-pêvajoyî - komên NOVA",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4168,7 +4168,7 @@
   "guide_greenscore_better_product_arg2_title": "Tu xwedî hêz î!",
   "guide_greenscore_better_product_arg2_text": "Mizgîniya baş ew e ku ev rêyek bihêz dide me ku em guhertinê biafirînin.\n**Her yek ji me her sal nêzîkî 1,000 xwarinan dixwe**. Ev 1,000 derfet in ji bo **hilbijartina paşerojek çêtir ji bo gerstêrkê**!",
   "guide_greenscore_better_product_arg3_title": "Alîkarî dike ku berpirsiyar be û biryar bide",
-  "guide_greenscore_better_product_arg3_text": "Hilbijartina xwarina domdar dikare tevlihev xuya bike. Etîket tevlihev in û agahî pir caran wenda ne. Pûana Kesk ji bo hêsankirina wê hat afirandin, û ji bo hilberên xwarinê rêjeyek jîngehê ya **zelal**, **zanist-bingeha**, û **şefaf** dide we, tam li cihê ku hûn hewce ne: dema ku hûn dikirin.",
+  "guide_greenscore_better_product_arg3_text": "Hilbijartina xwarina domdar dikare tevlihev xuya bike. Etîket tevlihev in û agahî pir caran wenda ne. Green-Score ji bo hêsankirina wê hat afirandin, û ji bo hilberên xwarinê rêjeyek jîngehê ya **zelal**, **zanist-bingeha**, û **şefaf** dide we, tam li cihê ku hûn hewce ne: dema ku hûn dikirin.",
   "guide_greenscore_better_product_arg4_title": "Şefafî",
   "guide_greenscore_better_product_arg4_text": "Berevajî etîketên taybet, hesabkirina Green-Score **bi tevahî vekirî** ye û dikare ji hêla **her kesî** ve were verast kirin.",
   "guide_nova_title": "Ultra-processed foods",
@@ -5350,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "Rêxistina Nehikûmî ya Rastiyên Xwarinê ya Vekirî",
+  "preferences_faq_off_ngo_title": "Rêxistina Nehikûmî ya Open Food Facts",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5546,7 +5546,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Bihayên herî dawî yên ji hêla civaka Buhayên Vekirî ve hatine zêdekirin",
+  "preferences_prices_newest_subtitle": "Bihayên herî dawî yên ji hêla civaka Open Prices ve hatine zêdekirin",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrîkên Bihayên Vekirî",
+  "preferences_prices_metrics_title": "Metrîkên Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Laboratuarên Agahiyên Xwarinê yên Vekirî",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
