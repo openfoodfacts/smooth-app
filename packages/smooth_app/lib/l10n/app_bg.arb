@@ -1117,8 +1117,6 @@
   "tagline_app_review_button_negative": "Не особено…",
   "tagline_app_review_button_later": "Попитай по-късно",
   "tagline_feed_news_button": "Научи повече",
-<<<<<<< Updated upstream
-=======
   "tagline_feed_funding_goal": "от {goal}",
   "@tagline_feed_funding_goal": {
     "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
@@ -1149,7 +1147,6 @@
       }
     }
   },
->>>>>>> Stashed changes
   "app_review_negative_modal_title": "Не харесваш приложението?",
   "app_review_negative_modal_text": "Бихте ли отделили няколко секунди, за да ни кажете защо?",
   "app_review_negative_modal_positive_button": "Да, абсолютно!",
@@ -4109,19 +4106,11 @@
   "guide_nutriscore_v2_where_title": "Къде да намеря новото изчисление на Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score се прилага в 7 страни: Франция, Германия, Белгия, Испания, Люксембург, Нидерландия и Швейцария.",
   "guide_nutriscore_v2_where_paragraph2": "Производителите имат най-много **2 години** след подписването на указа, за да заменят** старото изчисление с новото.",
-<<<<<<< Updated upstream
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Зелен-Резултат",
-=======
   "guide_nutriscore_v2_where_paragraph3": "Без да чакате, **вече ще намерите в приложението Open Food Facts** новото изчисление, включително ако производителите не са актуализирали резултата.",
   "guide_nutriscore_v2_unchanged_title": "Какво не се променя",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score е оценка, предназначена да **измерва хранителното качество**. Тя е **допълнение към групата NOVA** относно **ултра-преработените храни** (също присъстващи в приложението).",
   "guide_nutriscore_v2_unchanged_paragraph2": "За производителите показването на Nutri-Score **остава по желание**.",
   "guide_greenscore_title": "Green-Score",
->>>>>>> Stashed changes
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },

@@ -1117,8 +1117,6 @@
   "tagline_app_review_button_negative": "Non proprio…",
   "tagline_app_review_button_later": "Chiedimelo più tardi",
   "tagline_feed_news_button": "Scopri di più",
-<<<<<<< Updated upstream
-=======
   "tagline_feed_funding_goal": "di {goal}",
   "@tagline_feed_funding_goal": {
     "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
@@ -1149,7 +1147,6 @@
       }
     }
   },
->>>>>>> Stashed changes
   "app_review_negative_modal_title": "Non ti piace la nostra app?",
   "app_review_negative_modal_text": "Potrebbe dedicarci qualche secondo per dirci perché?",
   "app_review_negative_modal_positive_button": "Sì, assolutamente!",

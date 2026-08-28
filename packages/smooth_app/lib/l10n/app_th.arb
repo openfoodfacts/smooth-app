@@ -1117,8 +1117,6 @@
   "tagline_app_review_button_negative": "ไม่จริงเลย…",
   "tagline_app_review_button_later": "ถามฉันทีหลังนะ",
   "tagline_feed_news_button": "เรียนรู้เพิ่มเติม",
-<<<<<<< Updated upstream
-=======
   "tagline_feed_funding_goal": "จาก {goal}",
   "@tagline_feed_funding_goal": {
     "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
@@ -1149,7 +1147,6 @@
       }
     }
   },
->>>>>>> Stashed changes
   "app_review_negative_modal_title": "คุณไม่ชอบแอปของเราเหรอ?",
   "app_review_negative_modal_text": "คุณช่วยสละเวลาสักสองสามวินาทีเพื่อบอกเหตุผลให้เราฟังได้ไหม?",
   "app_review_negative_modal_positive_button": "ใช่เลย!",
@@ -4109,19 +4106,11 @@
   "guide_nutriscore_v2_where_title": "ประเทศที่มีการนำ Nutri-Score แบบใหม่ไปใช้",
   "guide_nutriscore_v2_where_paragraph1": "ระบบการให้คะแนนโภชนาการ (Nutri-Score) ถูกนำมาใช้ใน 7 ประเทศ ได้แก่ ฝรั่งเศส เยอรมนี เบลเยียม สเปน ลักเซมเบิร์ก เนเธอร์แลนด์ และสวิตเซอร์แลนด์",
   "guide_nutriscore_v2_where_paragraph2": "ผู้ผลิตมีเวลาอย่างมากที่สุด **2 ปี** นับจากวันที่ลงนามในพระราชกฤษฎีกา **เพื่อเปลี่ยน** วิธีการคำนวณแบบเก่าเป็นวิธีการคำนวณแบบใหม่",
-<<<<<<< Updated upstream
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "คะแนนสีเขียว",
-=======
   "guide_nutriscore_v2_where_paragraph3": "ไม่ต้องรอ คุณ**จะพบการคำนวณใหม่ในแอปพลิเคชัน Open Food Facts แล้ว** แม้ว่าผู้ผลิตจะยังไม่ได้อัปเดตคะแนนก็ตาม",
   "guide_nutriscore_v2_unchanged_title": "สิ่งที่ไม่เปลี่ยนแปลง",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score เป็นคะแนนที่ออกแบบมาเพื่อ**วัดคุณภาพทางโภชนาการ** โดยจะ**เสริมกับกลุ่ม NOVA** ที่เกี่ยวกับ**อาหารแปรรูปสูง** (ซึ่งมีอยู่ในแอปพลิเคชันด้วย)",
   "guide_nutriscore_v2_unchanged_paragraph2": "สำหรับผู้ผลิต การแสดง Nutri-Score **ยังคงเป็นทางเลือก**",
   "guide_greenscore_title": "Green-Score",
->>>>>>> Stashed changes
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4166,13 +4155,8 @@
   "guide_greenscore_bonuses_penalties_arg3_text": "ผลิตภัณฑ์ที่มีส่วนผสมที่ส่งผลกระทบเชิงลบอย่างมากต่อความหลากหลายทางชีวภาพและระบบนิเวศ เช่น น้ำมันปาล์ม ซึ่งการผลิตน้ำมันปาล์มเป็นสาเหตุของการทำลายป่าอย่างมหาศาล จะถูกลงโทษ **ปรับ**",
   "guide_greenscore_bonuses_penalties_arg4_title": "บรรจุภัณฑ์",
   "guide_greenscore_bonuses_penalties_arg4_text": "ค่าปรับจะถูกคำนวณโดยคำนึงถึงความยั่งยืนของบรรจุภัณฑ์ (การใช้วัตถุดิบรีไซเคิลและความสามารถในการรีไซเคิล) และการบรรจุสินค้าเกินความจำเป็น",
-<<<<<<< Updated upstream
-  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "ในการคำนวณคะแนนสีเขียวอย่างแม่นยำ จำเป็นต้องมี **ข้อมูลที่ไม่ได้ระบุไว้บนบรรจุภัณฑ์อย่างชัดเจน** (เช่น แหล่งที่มาและเปอร์เซ็นต์ที่แน่นอนของส่วนผสมแต่ละชนิด) หรือข้อมูลที่หาได้ยากในรูปแบบที่ใช้งานได้ (เช่น รายชื่อส่วนประกอบทั้งหมดของบรรจุภัณฑ์พร้อมประเภทพลาสติกที่ใช้โดยละเอียด)",
-=======
   "guide_greenscore_transparency_title": "ความต้องการที่เพิ่มขึ้นสำหรับความโปร่งใสเพื่อการวัดและลดผลกระทบต่อสิ่งแวดล้อมที่ดีขึ้น",
   "guide_greenscore_transparency_intro1": "ในการคำนวณ Green-Score อย่างแม่นยำ จำเป็นต้องมี **ข้อมูลที่ไม่ได้ระบุไว้บนบรรจุภัณฑ์อย่างชัดเจน** (เช่น แหล่งที่มาและเปอร์เซ็นต์ที่แน่นอนของส่วนผสมแต่ละชนิด) หรือข้อมูลที่หาได้ยากในรูปแบบที่ใช้งานได้ (เช่น รายชื่อส่วนประกอบทั้งหมดของบรรจุภัณฑ์พร้อมประเภทพลาสติกที่ใช้โดยละเอียด)",
->>>>>>> Stashed changes
   "guide_greenscore_transparency_intro2": "**ในกรณีที่ยังไม่มีข้อมูลนี้ จะใช้ค่าเฉลี่ย** แต่ขณะนี้เราขอความช่วยเหลือจากทุกท่านในการรวบรวมข้อมูลนี้ ซึ่งจะเป็นประโยชน์อย่างมากต่อคะแนนสีเขียว (Green-Score) และยังใช้ประโยชน์ได้อีกหลายด้าน",
   "guide_greenscore_transparency_arg1_title": "ประชาชนสามารถช่วยเหลือได้อย่างไร?",
   "guide_greenscore_transparency_arg1_text": "ประชาชนทุกคนสามารถช่วยเราในการรวบรวมและจัดโครงสร้างข้อมูลที่มีอยู่บนผลิตภัณฑ์ หรือที่สามารถอนุมานได้จากผลิตภัณฑ์เหล่านั้น เช่น ข้อมูลเกี่ยวกับ **บรรจุภัณฑ์**: \"ภารกิจบรรจุภัณฑ์\": การสำรวจบรรจุภัณฑ์อาหารทุกชนิดในวงกว้างโดยความร่วมมือ (เป็นภาษาฝรั่งเศส)",
