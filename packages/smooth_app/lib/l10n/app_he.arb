@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "מזל טוב! החשבון שלך נוצר.",
   "sign_up_page_display_name_hint": "שם",
   "sign_up_page_display_name_error_empty": "נא למלא את שם התצוגה המיועד",
-  "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_hint": "דוא״ל",
+  "sign_up_page_email_error_empty": "דוא״ל הכרחי",
   "sign_up_page_email_error_invalid": "דוא״ל שגוי",
   "sign_up_page_username_hint": "שם משתמש: גלוי לציבור",
   "sign_up_page_username_error_empty": "נא למלא שם משתמש",
@@ -539,7 +539,7 @@
   "myPreferences_profile_subtitle": "ניהול חשבון התרומה שלך ב־Open Food Facts.",
   "myPreferences_settings_title": "הגדרות היישומון",
   "myPreferences_settings_subtitle": "מצב כהה, שפות…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "לא הגדרת העדפה עדיין.",
   "myPreferences_food_title": "העדפות מזון",
   "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
   "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
@@ -981,7 +981,7 @@
   "@more_photos": {},
   "view_more_photo_button": "הצגת כל התמונות הקיימות עבור מוצר זה",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "לא נמצאו הגדרות",
   "@no_settings_found": {},
   "no_product_found": "לא נמצאו מוצרים",
   "@no_product_found": {},
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "ככה ככה…",
   "tagline_app_review_button_later": "אחר כך",
   "tagline_feed_news_button": "מידע נוסף",
+  "tagline_feed_funding_goal": "מתוך {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "חסרים {shortfall}",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, one {} two {נותרו חודשיים} many {נותרו {months} חודשים}=1{נותר חודש} other{נותרו {months} חודשים}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "לא אהבת את היישומון שלנו?",
   "app_review_negative_modal_text": "נוכל לבקש ממך להקדיש מספר שניות ולספר לנו למה?",
   "app_review_negative_modal_positive_button": "כן, כמובן!",
@@ -3724,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "נא לשלוח לנו הודעה ידנית בדוא״ל אל",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "כתובת הדוא״ל הועתקה ללוח הגזירים!",
   "select_accent_color": "בחירת צבע נושא",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3914,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} מוצרים זמינים לסריקה מיידית",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3980,13 +4010,13 @@
   "nutriscore_not_applicable": "Nutri-Score לא ניתן ליישום",
   "nutriscore_not_applicable_new_formula": "Nutri-Score לא תקף (נוסחה חדשה)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "ציון ירוק A",
-  "environmental_score_b_new": "ציון ירוק B",
-  "environmental_score_c_new": "גרין-סקור ג'",
-  "environmental_score_d_new": "גרין-סקור ד'",
-  "environmental_score_e_new": "גרין-סקור E",
-  "environmental_score_unknown_new": "ציון ירוק לא ידוע",
-  "environmental_score_not_applicable_new": "ציון ירוק אינו רלוונטי",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score לא ידוע",
+  "environmental_score_not_applicable_new": "Green-Score אינו רלוונטי",
   "nova_group_generic_new": "מזון מעובד במיוחד - קבוצות NOVA",
   "nova_group_1": "קבוצת NOVA‏ 1",
   "nova_group_2": "קבוצת NOVA‏ 2",
@@ -4093,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "הלוגואים של גרין-סקור",
+  "guide_greenscore_logos_caption": "הלוגואים של Green-Score",
   "guide_greenscore_lca_title": "הליבה: הערכת מחזור חיים (LCA)",
   "guide_greenscore_lca_arg1_title": "הערכה מדעית של קטגוריות מזון",
   "guide_greenscore_lca_arg1_text1": "עבור כל קטגוריית מוצרים, נקבע ציון **בנצ'מרק** באמצעות נתונים ממסד הנתונים הסביבתי Agribalyse (שעוצב על ידי ADEME ו-INRAE).",
@@ -4138,7 +4168,7 @@
   "guide_greenscore_better_product_arg2_title": "יש לך את הכוח!",
   "guide_greenscore_better_product_arg2_text": "החדשות הטובות הן שזה נותן לנו דרך עוצמתית ליצור שינוי.\n**כל אחד מאיתנו אוכל כ-1,000 ארוחות בכל שנה**. אלו 1,000 הזדמנויות **לבחור עתיד טוב יותר לכדור הארץ**!",
   "guide_greenscore_better_product_arg3_title": "עוזר לקחת אחריות ולקבל החלטות",
-  "guide_greenscore_better_product_arg3_text": "בחירת מזון בר-קיימא יכולה להרגיש מורכבת. תוויות מבלבלות ולעיתים קרובות חסר בהן מידע. הציון הירוק נוצר כדי לפשט את התהליך, ומעניק לכם דירוג סביבתי **ברור**, **מבוסס מדע** ו**שקוף** למוצרי מזון, בדיוק במקום בו אתם צריכים אותו: בזמן הקניות.",
+  "guide_greenscore_better_product_arg3_text": "בחירת מזון בר-קיימא יכולה להרגיש מורכבת. תוויות מבלבלות ולעיתים קרובות חסר בהן מידע. Green-Score נוצר כדי לפשט את התהליך, ומעניק לכם דירוג סביבתי **ברור**, **מבוסስ מדע** ו**שקוף** למוצרי מזון, בדיוק במקום בו אתם צሪכים אותו: בזמן הקניות.",
   "guide_greenscore_better_product_arg4_title": "שְׁקִיפוּת",
   "guide_greenscore_better_product_arg4_text": "בניגוד לתוויות קנייניות, חישוב ה-Green-Score הוא **פתוח לחלוטין** וניתן לאמת אותו על ידי כל אחד**.",
   "guide_nova_title": "מזון אולטרה מעובד",
@@ -4174,11 +4204,11 @@
   "guide_nova_explanations_arg3_text": "**A multitude of sequences of processes is used** to combine the usually many ingredients and to create the final product (hence 'ultra-processed'). The processes include several **with no domestic equivalents**, such as hydrogenation and hydrolysation, extrusion and moulding, and pre-processing for frying.",
   "guide_nova_explanations_arg4_title": "ההיבטים הטורפניים והפיננסיים של עיבוד אולטרה-",
   "guide_nova_explanations_arg4_text": "**The overall purpose of ultra-processing is to create branded**, **convenient** (durable, ready to consume), **attractive** (hyper-palatable) and **highly profitable** (low-cost ingredients) food products designed to displace all other food groups. Ultra-processed food products are usually packaged attractively and marketed intensively.",
-  "guide_nova_explanations_arg5_title": "A health hazard",
+  "guide_nova_explanations_arg5_title": "סכנה בריאותית",
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "Countries recommend limiting them",
   "guide_nova_explanations_arg6_text": "Some countries use the NOVA groups for their dietary guidelines or goals, for instance:\n\n- **🇧🇷 Brazil**'s dietary guidelines **recommend to limit consumption** of processed food and avoid ultra-processed food.\n\n- **🇫🇷 France**'s public health nutritional policy goals for 2018-2022 aims to **reduce consumption of group 4 ultra-processed foods by 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-he.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4197,7 +4227,7 @@
   },
   "guide_open_food_facts_features_title": "היכולות של Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "קבלת התראות על מרכיבים שאינם רצויים לך",
-  "guide_open_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_food_facts_tips_title": "עצות לצילום תמונות נהדרות",
   "guide_open_food_facts_tips_arg1_title": "מה לא לעשות",
   "guide_open_food_facts_tips_arg1_text1": "להימנע מצלליות וסנוורים.",
   "guide_open_food_facts_tips_arg1_text2": "בלי טקסט מטושטש או לא ממוקד.",
@@ -4229,7 +4259,7 @@
   "guide_open_pet_food_facts_features_title": "Features of Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "קבלת התראות על מרכיבים שאינם רצויים לך",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Is your pet allergic to any ingredients? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_pet_food_facts_tips_title": "Tips for taking great photos",
+  "guide_open_pet_food_facts_tips_title": "עצות לצילום תמונות נהדרות",
   "guide_open_pet_food_facts_tips_arg1_title": "מה לא לעשות",
   "guide_open_pet_food_facts_tips_arg1_text1": "להימנע מצלליות וסנוורים.",
   "guide_open_pet_food_facts_tips_arg1_text2": "בלי טקסט מטושטש או לא ממוקד.",
@@ -4256,10 +4286,10 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Features of Open Beauty Facts",
+  "guide_open_beauty_facts_features_title": "היכולות של Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "קבלת התראות על מרכיבים שאינם רצויים לך",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Are you allergic to any ingredients? Want to avoid comedogen substances? Want to steer away from controversial components ? You can set a list of cosmetic ingredients to avoid, right in the app!",
-  "guide_open_beauty_facts_tips_title": "Tips for taking great photos",
+  "guide_open_beauty_facts_tips_title": "עצות לצילום תמונות נהדרות",
   "guide_open_beauty_facts_tips_arg1_title": "מה לא לעשות",
   "guide_open_beauty_facts_tips_arg1_text1": "להימנע מצלליות וסנוורים.",
   "guide_open_beauty_facts_tips_arg1_text2": "בלי טקסט מטושטש או לא ממוקד.",
@@ -4290,13 +4320,13 @@
   },
   "guide_open_prices_how_title": "How does Open Prices work?",
   "guide_open_prices_how_paragraph1": "**We are crowdsourcing an open-source dataset of prices**. Prices can be added by users via this web app, or via the official Open Food Facts mobile app. Retailers or third-party apps can contribute as well by using our API.",
-  "guide_open_prices_how_arg1_title": "Collect photos of price tags in aisles",
-  "guide_open_prices_how_arg2_title": "Collect photos of receipts",
-  "guide_open_prices_why_title": "Why is Open Food Facts doing this ?",
+  "guide_open_prices_how_arg1_title": "לאסוף תמונות של תוויות מחיר במעברים",
+  "guide_open_prices_how_arg2_title": "לאסוף תמונות של קבלות",
+  "guide_open_prices_why_title": "למה מיזם Open Food Facts עושה את זה?",
   "guide_open_prices_why_paragraph1": "Price information is of paramount importance to understand food systems. It's a key factor in understanding the cost of food and to promote healthier diets. Opening price data is a way to make it easier for researchers, journalists, and citizens to **have a better understanding of how food prices vary geographically and in time**.",
   "guide_open_prices_why_arg1_title": "Track the evolution of prices over time",
   "guide_open_prices_why_arg1_text": "See the **evolution of prices**: shrinkflation, cheapflation, we can track them together!",
-  "guide_open_prices_why_arg2_title": "Compare prices near you",
+  "guide_open_prices_why_arg2_title": "השוואת מחירים בסביבה שלך",
   "guide_open_prices_why_arg2_text": "As we get more prices, you can spot **the cheapest stores around you**.",
   "guide_open_prices_scrapping_title": "Did you consider scraping prices from retailers' websites?",
   "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
@@ -4304,7 +4334,7 @@
   "guide_open_prices_retailers_title": "אני קמעונאי ואני רוצה לתרום מחירים. איך אפשר לעשות את זה?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
-  "guide_open_products_facts_title": "Welcome to Open Products Facts!",
+  "guide_open_products_facts_title": "ברוך בואך ל־Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4319,9 +4349,9 @@
   },
   "guide_open_products_facts_features_title": "Features of Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts aims to provide consumers to **extend the life of objects** by providing the circular solutions to maintain, **repair**, **recycle** their objects or give them a new owner.",
-  "guide_open_products_facts_features_arg1_title": "Carbon footprints for some products",
+  "guide_open_products_facts_features_arg1_title": "טביעות רגל פחמניות עבור מוצרים מסוימים",
   "guide_open_products_facts_features_arg1_text": "**Impact CO2** by French Environment Authority ADEME provides the **carbon impact** of many categories, make sure to categorize products precisely.",
-  "guide_open_products_facts_features_arg2_title": "Reparability index for many products",
+  "guide_open_products_facts_features_arg2_title": "מדד תיקון עבור מוצרים רבים",
   "guide_open_products_facts_features_arg2_text": "Whenever a French reparability index is available, we’ll display it. Moreover, **you can start collecting the variables using the Folksonomy Engine**; so that we can recompute it ourselves in the future, even in countries where it’s not available.",
   "guide_open_products_facts_features_arg3_title": "Find ways to donate/resell your product",
   "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
@@ -4333,7 +4363,7 @@
   "guide_open_products_facts_folksonomy_paragraph3": "You’ll get autosuggestion of possible properties, and you are very welcome to add and document new ones on your favorite kinds of products.",
   "guide_open_products_facts_share_link": "https://world-he.openproductsfacts.org/discover",
   "guide_open_preferences_button_title": "Open food preferences",
-  "guide_coming_soon_button_title": "Coming soon",
+  "guide_coming_soon_button_title": "בקרוב",
   "guide_learn_more_subtitle": "Tap to learn more",
   "preview_badge": "תצוגה מקדימה",
   "@preview_badge": {
@@ -4408,7 +4438,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "הצגת התמונה המקורית",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
@@ -4537,7 +4567,7 @@
       }
     }
   },
-  "barcode_probably_invalid": "Probably invalid barcode",
+  "barcode_probably_invalid": "כנראה ברקוד שגוי",
   "@barcode_probably_invalid": {
     "description": "Warning message. Keep it short."
   },
@@ -4748,7 +4778,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "למה מחירים?",
-  "prices_explanation_card_line1": "**Prices פתוחים** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Prices פתוחים פותח ומתוחזק על ידי Open Food Facts.",
+  "prices_explanation_card_line1": "**Open Prices** הוא פרויקט לאיסוף ושיתוף מחירים של מוצרים ברחבי העולם 🌍. Open Prices פותח ומתוחזק על ידי Open Food Facts.",
   "explanation_card_learn_more_button": "מידע נוסף",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4987,7 +5017,7 @@
   "@prices_stats_error": {
     "description": "Error message shown when price statistics fail to load"
   },
-  "product_edit_robotoff_question_answered": "Question answered!",
+  "product_edit_robotoff_question_answered": "שאלה נענתה!",
   "@product_edit_robotoff_question_answered": {
     "description": "Message displayed when a question from the Robotoff is answered"
   },
@@ -5296,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "גלה עובדות על אוכל פתוח",
+  "preferences_faq_discover_off_title": "גלה את Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5320,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "עמותת \"עובדות על אוכל פתוח\"",
+  "preferences_faq_off_ngo_title": "עמותת Open Food Facts",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5344,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "הבלוג של עובדות המזון הפתוחות",
+  "preferences_connect_blog_title": "הבלוג של Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "מדדי מחירי פתיחה",
+  "preferences_prices_metrics_title": "מדדי Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5776,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "הביאו עובדות פתוחות על מזון לשפה שלכם",
+  "preferences_contribute_translate_header": "הביאו את Open Food Facts לשפה שלכם",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5803,14 +5833,14 @@
       }
     }
   },
-  "location_map_details_title": "Location details",
+  "location_map_details_title": "פרטי מקום",
   "location_map_details_name": "שם",
-  "location_map_details_street": "Street",
-  "location_map_details_city": "City",
-  "location_map_details_postcode": "Postcode",
+  "location_map_details_street": "רחוב",
+  "location_map_details_city": "עיר",
+  "location_map_details_postcode": "מיקוד",
   "location_map_details_country": "מדינה",
-  "location_map_details_coordinates": "Coordinates",
-  "location_map_details_osm_id": "OSM ID",
+  "location_map_details_coordinates": "נקודות ציון",
+  "location_map_details_osm_id": "מזהה OSM",
   "homepage_scanner_back_to_home_button": "חזרה הביתה",
   "@homepage_scanner_back_to_home_button": {
     "description": "Button to go back to home from the scanner page"

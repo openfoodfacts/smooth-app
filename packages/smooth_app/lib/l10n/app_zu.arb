@@ -276,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Siza ukuthuthukisa amaqiniso okudla avulekile ezweni lakini",
+  "help_improve_country": "Siza ukuthuthukisa i-Open Food Facts ezweni lakini",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Akuyona ngempela…",
   "tagline_app_review_button_later": "Ngibuze kamuva",
   "tagline_feed_news_button": "Yazi okwengeziwe",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Awuwuthandi uhlelo lwethu lokusebenza?",
   "app_review_negative_modal_text": "Ungathatha imizuzwana embalwa usitshele ukuthi kungani?",
   "app_review_negative_modal_positive_button": "Yebo, impela!",
@@ -1563,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Ngena ngemvume noma ubhalise ukuze ujoyine umphakathi we-Open Food Facts",
-  "user_profile_title_id_email": "Vula i-Food Facts ungene ngemvume: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2769,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Yazi kabanzi ngamanani avulekile",
+  "prices_menu_know_more": "Yazi kabanzi nge-Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3995,7 +4025,7 @@
   "nova_group_unknown": "Iqembu le-NOVA elingaziwa",
   "nutrition_facts": "Amazinga Ezakhamzimba",
   "faq_title_partners": "Abalingani kanye nabaxhasi be-NGO",
-  "faq_title_vision": "Amaqiniso Okudla Avulekile Umbono, Umsebenzi, Izindinganiso kanye Nezinhlelo",
+  "faq_title_vision": "I-Open Food Facts Umbono, Umsebenzi, Izindinganiso kanye Nezinhlelo",
   "faq_title_install_beauty": "Faka i-Open Beauty Facts ukuze udale isizindalwazi sezimonyo",
   "faq_title_install_pet": "Faka i-Open Pet Food Facts ukuze udale isizindalwazi sokudla kwezilwane ezifuywayo",
   "faq_title_install_product": "Faka i-Open Products Facts ukuze udale isizindalwazi semikhiqizo ukuze wandise impilo yezinto",
@@ -4186,7 +4216,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Kuyini Amaqiniso Okudla Okuvulekile?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Kuyini i-Open Food Facts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "I-Open Food Facts iyisizindalwazi semikhiqizo yokudla esetshenziswa ngokubambisana, ekhululekile, futhi evulekile evela emhlabeni wonke.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4195,7 +4225,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Izici Zamaqiniso Okudla Avulekile",
+  "guide_open_food_facts_features_title": "Izici ze-Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "Thola izexwayiso zezithako zakho ezingafuneki",
   "guide_open_food_facts_tips_title": "Amathiphu okuthatha izithombe ezinhle",
   "guide_open_food_facts_tips_arg1_title": "Okungafanele ukwenze",
@@ -4217,7 +4247,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Iyini Imininingwane Yokudla Kwezilwane Ezivulekile?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Kuyini i-Open Pet Food Facts?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "I-Open Pet Food Facts idlulisela umsebenzi wethu kubangani bethu abanoboya! Iyi-**database yemikhiqizo yokudla kwezilwane ezifuywayo yamakati, izinja, kanye nabanye abangane**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4247,7 +4277,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Kuyini Amaqiniso Obuhle Ovulekile?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Kuyini i-Open Beauty Facts?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "I-Open Beauty Facts iyisizindalwazi esisebenzisanayo semikhiqizo yezimonyo **.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4275,11 +4305,11 @@
   "guide_open_beauty_facts_scores_title": "Inothi mayelana nokushaya amagoli",
   "guide_open_beauty_facts_scores_paragraph1": "Ngokungafani nemikhiqizo yokudla, umhlaba wezimonyo **awunalo uhlelo lokuthola amaphuzu oluqashelwa emhlabeni wonke, olusekelwa uhulumeni njenge-Nutri-Score**. Imiphumela yezithako ingaba ngeyomuntu siqu kakhulu futhi incike ohlotsheni lwesikhumba, ukungezwani komzimba, kanye nokukhathazeka komuntu ngamunye.",
   "guide_open_beauty_facts_share_link": "https://world-zu.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Siyakwamukela kumanani avulekile!",
+  "guide_open_prices_title": "Siyakwamukela ku-Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Ayini Amanani Avulekile?",
+  "guide_open_prices_what_is_open_prices_title": "Kuyini i-Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "I-Open Prices iphrojekthi yokuqoqa nokwabelana ngamanani emikhiqizo emhlabeni wonke**. Isethi yedatha etholakala emphakathini engasetshenziswa ocwaningweni, ekuhlaziyeni, nokuningi. I-Open Prices ithuthukiswa futhi igcinwe yi-Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4288,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Asebenza kanjani Amanani Avulekile?",
+  "guide_open_prices_how_title": "Isebenza kanjani i-Open Prices?",
   "guide_open_prices_how_paragraph1": "**Sisebenzisa idatha yamanani evulekile**. Amanani angangezwa abasebenzisi ngalolu hlelo lokusebenza lwewebhu, noma ngohlelo lokusebenza lweselula olusemthethweni lwe-Open Food Facts. Abathengisi noma izinhlelo zokusebenza zezinkampani zangaphandle nazo zinganikela ngokusebenzisa i-API yethu.",
   "guide_open_prices_how_arg1_title": "Qoqa izithombe zamathegi entengo ezindleleni",
   "guide_open_prices_how_arg2_title": "Qoqa izithombe zamarisidi",
@@ -4299,7 +4329,7 @@
   "guide_open_prices_why_arg2_title": "Qhathanisa amanani aseduze nawe",
   "guide_open_prices_why_arg2_text": "Njengoba sithola amanani engeziwe, ungabona izitolo ezishibhile eziseduze nawe**.",
   "guide_open_prices_scrapping_title": "Uke wacabanga yini ukususa amanani kumawebhusayithi abathengisi?",
-  "guide_open_prices_scrapping_paragraph1": "Ngenxa yezizathu zomthetho nezobuchwepheshe, **asikubheki ukukhipha amanani kumawebhusayithi abathengisi njengendlela evumelekile yokufaka isandla kumanani avulekile**. Sifuna ukuqinisekisa ukuthi amanani esiwaqoqayo anembile futhi asesikhathini, futhi ukuthola amanani asusiwe kubanikeli akusivumeli ukwenza lokho.",
+  "guide_open_prices_scrapping_paragraph1": "Ngenxa yezizathu zomthetho nezobuchwepheshe, **asikubheki ukukhipha amanani kumawebhusayithi abathengisi njengendlela evumelekile yokufaka isandla ku-Open Prices**. Sifuna ukuqinisekisa ukuthi amanani esiwaqoqayo anembile futhi asesikhathini, futhi ukuthola amanani asusiwe kubanikeli akusivumeli ukwenza lokho.",
   "guide_open_prices_scrapping_paragraph2": "Ukuklwebha amanani kuyindlela ecatshangelwayo enguqulweni yesikhathi esizayo ye-Open Prices, kodwa kuzokwenziwa yi-Open Prices uqobo ukuze sibe nobufakazi bentengo ngokusekelwe ekhasini le-HTML.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Unganikela ngamanani ngokusebenzisa i-API yethu.\nUma ufuna ukufaka amanani ngezinga elithile, sicela uxhumane nathi ku-prices@openfoodfacts.org.",
@@ -5300,15 +5330,15 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Thola Amaqiniso Obuhle Avulekile",
+  "preferences_faq_discover_obf_title": "Thola i-Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Thola Amaqiniso Okudla Kwezilwane Ezifuywayo Avulekile",
+  "preferences_faq_discover_opff_title": "Thola i-Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Thola Amanani Avulekile",
+  "preferences_faq_discover_op_title": "Thola i-Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Izilinganiso zamanani avulekile",
+  "preferences_prices_metrics_title": "Izilinganiso ze-Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5768,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Vula Amaqiniso Okudla Amalebhu",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5776,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Letha Amaqiniso Okudla Okuvulekile olimini lwakho",
+  "preferences_contribute_translate_header": "Letha i-Open Food Facts olimini lwakho",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

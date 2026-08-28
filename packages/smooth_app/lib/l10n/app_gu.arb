@@ -276,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "તમારા દેશમાં ઓપન ફૂડ ફેક્ટ્સને સુધારવામાં મદદ કરો",
+  "help_improve_country": "તમારા દેશમાં Open Food Facts ને સુધારવામાં મદદ કરો",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -486,7 +486,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "અનુવાદ એ પ્રોજેક્ટના મુખ્ય કાર્યોમાંનું એક છે.",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "ઓપન ફૂડ ફેક્ટ્સમાં તમારી કુશળતાનું યોગદાન આપો. કૌશલ્ય પૂલમાં જોડાઓ!",
+  "contribute_join_skill_pool": "Open Food Facts માં તમારી કુશળતાનું યોગદાન આપો. કૌશલ્ય પૂલમાં જોડાઓ!",
   "contribute_share_header": "તમારા મિત્રો સાથે ખુલ્લા ખોરાકના તથ્યો શેર કરો",
   "@contribute_share_header": {},
   "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -729,7 +729,7 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "અજાણ્યા ન્યુટ્રી-સ્કોર અને ગ્રીન સ્કોર સાથેનું ચિત્ર",
+  "new_product_dialog_illustration_description": "અજાણ્યા Nutri-Score અને ગ્રીન સ્કોર સાથેનું ચિત્ર",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -809,7 +809,7 @@
   "nutritional_facts_input_button_label": "પોષણ તથ્યો ભરો",
   "nutritional_facts_added": "પોષણ તથ્યો ઉમેર્યા",
   "categories_added": "શ્રેણીઓ ઉમેરી",
-  "new_product_title_nutriscore": "ન્યુટ્રી-સ્કોરની ગણતરી કરો",
+  "new_product_title_nutriscore": "Nutri-Score ની ગણતરી કરો",
   "new_product_subtitle_nutriscore": "ઓછામાં ઓછી એક શ્રેણી અને પોષક મૂલ્યો ભરીને અમને મદદ કરો.",
   "new_product_title_environmental_score": "ગ્રીન સ્કોરની ગણતરી કરો",
   "new_product_subtitle_environmental_score": "ઓછામાં ઓછી એક શ્રેણી ભરીને તે મેળવો",
@@ -835,7 +835,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "ન્યુટ્રી-સ્કોર, ગ્રીન સ્કોર અને અલ્ટ્રા-પ્રોસેસિંગ (NOVA) ની ગણતરી કરવા માટે હમણાં જ 3 પ્રશ્નોના જવાબ આપવા માટે ટેપ કરો!",
+  "hey_incomplete_product_message": "Nutri-Score, ગ્રીન સ્કોર અને અલ્ટ્રા-પ્રોસેસિંગ (NOVA) ની ગણતરી કરવા માટે હમણાં જ 3 પ્રશ્નોના જવાબ આપવા માટે ટેપ કરો!",
   "hey_incomplete_product_message_beauty": "આ કોસ્મેટિકનું વિશ્લેષણ કરવામાં મદદ કરવા માટે 2 પ્રશ્નોના જવાબ આપવા માટે હમણાં જ ટેપ કરો!",
   "hey_incomplete_product_message_pet_food": "આ પાલતુ ખોરાક ઉત્પાદનનું વિશ્લેષણ કરવામાં મદદ કરવા માટે 3 પ્રશ્નોના જવાબ આપવા માટે હમણાં જ ટેપ કરો!",
   "hey_incomplete_product_message_product": "આ ઉત્પાદન પૂર્ણ કરવામાં મદદ કરવા માટે હમણાં જ ટેપ કરો!",
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "ખરેખર નથી…",
   "tagline_app_review_button_later": "મને પછી પૂછો",
   "tagline_feed_news_button": "વધુ જાણો",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "તમને અમારી એપ પસંદ નથી?",
   "app_review_negative_modal_text": "શું તમે અમને શા માટે તે કહેવા માટે થોડી સેકન્ડનો સમય કાઢી શકો છો?",
   "app_review_negative_modal_positive_button": "હા, બિલકુલ!",
@@ -1187,19 +1217,19 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "ન્યુટ્રી-સ્કોરની ગણતરી કરવા માટે એક શ્રેણી ઉમેરો.",
+  "product_improvement_add_category": "Nutri-Score ની ગણતરી કરવા માટે એક શ્રેણી ઉમેરો.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "ન્યુટ્રી-સ્કોરની ગણતરી કરવા માટે પોષણ તથ્યો ઉમેરો.",
+  "product_improvement_add_nutrition_facts": "Nutri-Score ની ગણતરી કરવા માટે પોષણ તથ્યો ઉમેરો.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "ન્યુટ્રી-સ્કોરની ગણતરી કરવા માટે પોષણ તથ્યો અને શ્રેણી ઉમેરો.",
+  "product_improvement_add_nutrition_facts_and_category": "Nutri-Score ની ગણતરી કરવા માટે પોષણ તથ્યો અને શ્રેણી ઉમેરો.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "આ પ્રોડક્ટ માટે ન્યુટ્રી-સ્કોરની ગણતરી કરી શકાતી નથી, જે કદાચ બિન-માનક શ્રેણીને કારણે હોઈ શકે છે. જો આને ભૂલ માનવામાં આવે, તો કૃપા કરીને અમારો સંપર્ક કરો.",
+  "product_improvement_categories_but_no_nutriscore": "આ પ્રોડક્ટ માટે Nutri-Score ની ગણતરી કરી શકાતી નથી, જે કદાચ બિન-માનક શ્રેણીને કારણે હોઈ શકે છે. જો આને ભૂલ માનવામાં આવે, તો કૃપા કરીને અમારો સંપર્ક કરો.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1563,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "ઓપન ફૂડ ફેક્ટ્સ સમુદાયમાં જોડાવા માટે સાઇન-ઇન કરો અથવા સાઇન-અપ કરો.",
-  "user_profile_title_id_email": "ફૂડ ફેક્ટ્સ લોગિન ખોલો: {email}",
+  "user_profile_title_id_email": "Open Food Facts લોગિન: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1801,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "ન્યુટ્રી-સ્કોર, નોવા…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2729,10 +2759,10 @@
   "prices_add_validation_error": "માન્યતા ભૂલ",
   "prices_privacy_warning_title": "ગોપનીયતા ચેતવણી",
   "prices_unknown_product": "અજાણ્યું ઉત્પાદન",
-  "prices_privacy_warning_main_message": "કિંમતો **જાહેર** હશે, તેઓ જે સ્ટોરનો ઉલ્લેખ કરે છે તેની સાથે.\n\nતે તમારા ઓપન ફૂડ ફેક્ટ્સ ઉપનામ વિશે જાણતા લોકોને આની મંજૂરી આપી શકે છે:\n",
+  "prices_privacy_warning_main_message": "કિંમતો **જાહેર** હશે, તેઓ જે સ્ટોરનો ઉલ્લેખ કરે છે તેની સાથે.  તે તમારા Open Food Facts ઉપનામ વિશે જાણતા લોકોને આની મંજૂરી આપી શકે છે: ",
   "prices_privacy_warning_message_bullet_1": "તમે કયા વિસ્તારમાં રહો છો તે અનુમાન કરો.",
   "prices_privacy_warning_message_bullet_2": "તમે શું ખરીદી રહ્યા છો તે જાણો",
-  "prices_privacy_warning_sub_message": "જો તમને તેનાથી તકલીફ હોય, તો કૃપા કરીને તમારું ઉપનામ બદલો, અથવા એક નવું ઓપન ફૂડ ફેક્ટ્સ એકાઉન્ટ બનાવો અને તેની સાથે એપ્લિકેશનમાં લોગ ઇન કરો.",
+  "prices_privacy_warning_sub_message": "જો તમને તેનાથી તકલીફ હોય, તો કૃપા કરીને તમારું ઉપનામ બદલો, અથવા એક નવું Open Food Facts એકાઉન્ટ બનાવો અને તેની સાથે એપ્લિકેશનમાં લોગ ઇન કરો.",
   "i_refuse": "હું ના પાડું છું.",
   "i_accept": "હું સ્વીકારું છું",
   "prices_currency_change_proposal_title": "ચલણ બદલો?",
@@ -2769,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "ઓપન પ્રાઈસ વિશે વધુ જાણો",
+  "prices_menu_know_more": "Open Prices વિશે વધુ જાણો",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3975,32 +4005,32 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (નવી ગણતરી)",
-  "nutriscore_unknown": "અજ્ઞાત ન્યુટ્રી-સ્કોર",
-  "nutriscore_unknown_new_formula": "અજ્ઞાત ન્યુટ્રી-સ્કોર (નવી ગણતરી)",
-  "nutriscore_not_applicable": "ન્યુટ્રી-સ્કોર લાગુ પડતો નથી",
-  "nutriscore_not_applicable_new_formula": "ન્યુટ્રી-સ્કોર લાગુ પડતો નથી (નવી ગણતરી)",
+  "nutriscore_unknown": "અજ્ઞાત Nutri-Score",
+  "nutriscore_unknown_new_formula": "અજ્ઞાત Nutri-Score (નવી ગણતરી)",
+  "nutriscore_not_applicable": "Nutri-Score લાગુ પડતો નથી",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score લાગુ પડતો નથી (નવી ગણતરી)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "ગ્રીન-સ્કોર A",
-  "environmental_score_b_new": "લીલો-સ્કોર B",
-  "environmental_score_c_new": "ગ્રીન-સ્કોર સી",
-  "environmental_score_d_new": "ગ્રીન-સ્કોર ડી",
-  "environmental_score_e_new": "ગ્રીન-સ્કોર ઇ",
-  "environmental_score_unknown_new": "અજાણ્યો લીલો-સ્કોર",
-  "environmental_score_not_applicable_new": "ગ્રીન-સ્કોર લાગુ પડતો નથી",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "અજાણ્યો Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score લાગુ પડતો નથી",
   "nova_group_generic_new": "અલ્ટ્રા-પ્રોસેસ્ડ ફૂડ્સ - NOVA ગ્રુપ્સ",
-  "nova_group_1": "નોવા ગ્રુપ ૧",
-  "nova_group_2": "નોવા ગ્રુપ 2",
-  "nova_group_3": "નોવા ગ્રુપ ૩",
-  "nova_group_4": "નોવા ગ્રુપ ૪",
-  "nova_group_unknown": "અજાણ્યું નોવા ગ્રુપ",
+  "nova_group_1": "NOVA ગ્રુપ ૧",
+  "nova_group_2": "NOVA ગ્રુપ 2",
+  "nova_group_3": "NOVA ગ્રુપ ૩",
+  "nova_group_4": "NOVA ગ્રુપ ૪",
+  "nova_group_unknown": "અજાણ્યું NOVA ગ્રુપ",
   "nutrition_facts": "પોષક તત્વોનું સ્તર",
   "faq_title_partners": "NGO ના ભાગીદારો અને આશ્રયદાતાઓ",
-  "faq_title_vision": "ઓપન ફૂડ ફેક્ટ્સ વિઝન, મિશન, મૂલ્યો અને કાર્યક્રમો",
-  "faq_title_install_beauty": "કોસ્મેટિક ડેટાબેઝ બનાવવા માટે ઓપન બ્યુટી ફેક્ટ્સ ઇન્સ્ટોલ કરો",
-  "faq_title_install_pet": "પાલતુ ખોરાકનો ડેટાબેઝ બનાવવા માટે ઓપન પેટ ફૂડ ફેક્ટ્સ ઇન્સ્ટોલ કરો",
+  "faq_title_vision": "Open Food Facts વિઝન, મિશન, મૂલ્યો અને કાર્યક્રમો",
+  "faq_title_install_beauty": "કોસ્મેટિક ડેટાબેઝ બનાવવા માટે Open Beauty Facts ઇન્સ્ટોલ કરો",
+  "faq_title_install_pet": "પાલતુ ખોરાકનો ડેટાબેઝ બનાવવા માટે Open Pet Food Facts ઇન્સ્ટોલ કરો",
   "faq_title_install_product": "ઑબ્જેક્ટ્સનું આયુષ્ય વધારવા માટે પ્રોડક્ટ્સ ડેટાબેઝ બનાવવા માટે ઓપન પ્રોડક્ટ્સ ફેક્ટ્સ ઇન્સ્ટોલ કરો.",
-  "faq_nutriscore_nutriscore": "ન્યુટ્રી-સ્કોરની નવી ગણતરી: નવું શું છે?",
-  "contact_title_pro_page": "પ્રો? ઓપન ફૂડ ફેક્ટ્સમાં તમારા ઉત્પાદનો આયાત કરો",
+  "faq_nutriscore_nutriscore": "Nutri-Scoreની નવી ગણતરી: નવું શું છે?",
+  "contact_title_pro_page": "પ્રો? Open Food Factsમાં તમારા ઉત્પાદનો આયાત કરો",
   "contact_title_pro_email": "નિર્માતા સંપર્ક",
   "contact_title_press_page": "પેજ દબાવો",
   "contact_title_press_email": "સંપર્ક પ્રેસ કરો",
@@ -4044,12 +4074,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "શેર કરો",
-  "guide_nutriscore_v2_title": "ન્યુટ્રી-સ્કોર વિકસિત થઈ રહ્યો છે: સમજૂતીઓ!",
+  "guide_nutriscore_v2_title": "Nutri-Score વિકસિત થઈ રહ્યો છે: સમજૂતીઓ!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "ન્યુટ્રી-સ્કોર શું છે?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "ન્યુટ્રી-સ્કોર એ એક લોગો છે જેનો ઉદ્દેશ્ય તમને **ખોરાકની પોષક ગુણવત્તા** વિશે માહિતી આપવાનો છે.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score શું છે?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score એ એક લોગો છે જેનો ઉદ્દેશ્ય તમને **ખોરાકની પોષક ગુણવત્તા** વિશે માહિતી આપવાનો છે.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4057,9 +4087,9 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "ન્યુટ્રી-સ્કોર A લોગો",
-  "guide_nutriscore_v2_why_v2_title": "ન્યુટ્રી-સ્કોર શા માટે વિકસિત થઈ રહ્યો છે?",
-  "guide_nutriscore_v2_why_v2_intro": "ન્યુટ્રી-સ્કોર ફોર્મ્યુલા **બહેતર ભલામણો પૂરી પાડવા માટે** વિકસિત થઈ રહ્યું છે:",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A લોગો",
+  "guide_nutriscore_v2_why_v2_title": "Nutri-Score શા માટે વિકસિત થઈ રહ્યો છે?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score ફોર્મ્યુલા **બહેતર ભલામણો પૂરી પાડવા માટે** વિકસિત થઈ રહ્યું છે:",
   "guide_nutriscore_v2_why_v2_arg1_title": "બધા પીણાંનું વધુ સારું મૂલ્યાંકન કરો",
   "guide_nutriscore_v2_why_v2_arg1_text": "નવા અલ્ગોરિધમમાં **દૂધ**, **ડેરી પીણાં**, ખાંડ ઉમેરેલા અને **વનસ્પતિ** પીણાંની તુલનાત્મક નોંધો વધુ સારી રીતે અલગ પાડવામાં આવી હતી.",
   "guide_nutriscore_v2_why_v2_arg2_title": "પીણાંનું વધુ સારું રેન્કિંગ",
@@ -4070,22 +4100,22 @@
   "guide_nutriscore_v2_why_v2_arg4_text": "ચોક્કસ **ફેટી માછલી** અને **સારી ચરબીથી ભરપૂર તેલ** નું રેટિંગ સુધરશે.",
   "guide_nutriscore_v2_why_v2_arg5_title": "લાલ માંસ મર્યાદિત કરો",
   "guide_nutriscore_v2_why_v2_arg5_text": "**લાલ માંસનો વપરાશ મર્યાદિત** હોવો જોઈએ. આ જ કારણ છે કે **મરઘાં તુલનાત્મક રીતે વધુ સારા ક્રમે** રહેશે.",
-  "guide_nutriscore_v2_new_logo_title": "જૂના ન્યુટ્રી-સ્કોર અને નવી ગણતરીને કેવી રીતે અલગ પાડવી?",
+  "guide_nutriscore_v2_new_logo_title": "જૂના Nutri-Score અને નવી ગણતરીને કેવી રીતે અલગ પાડવી?",
   "guide_nutriscore_v2_new_logo_text": "હવેથી, લોગો \"**નવી ગણતરી**\" નો ઉલ્લેખ પ્રદર્શિત કરી શકે છે જેથી સ્પષ્ટ થાય કે આ ખરેખર નવી ગણતરી છે.",
-  "guide_nutriscore_v2_new_logo_image_caption": "નવા ન્યુટ્રી-સ્કોરનો લોગો",
-  "guide_nutriscore_v2_where_title": "નવી ન્યુટ્રી-સ્કોર ગણતરી ક્યાંથી મળશે?",
-  "guide_nutriscore_v2_where_paragraph1": "ન્યુટ્રી-સ્કોર 7 દેશોમાં લાગુ પડે છે: ફ્રાન્સ, જર્મની, બેલ્જિયમ, સ્પેન, લક્ઝમબર્ગ, નેધરલેન્ડ અને સ્વિટ્ઝર્લૅન્ડ.",
+  "guide_nutriscore_v2_new_logo_image_caption": "નવા Nutri-Scoreનો લોગો",
+  "guide_nutriscore_v2_where_title": "નવી Nutri-Score ગણતરી ક્યાંથી મળશે?",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score 7 દેશોમાં લાગુ પડે છે: ફ્રાન્સ, જર્મની, બેલ્જિયમ, સ્પેન, લક્ઝમબર્ગ, નેધરલેન્ડ અને સ્વિટ્ઝર્લૅન્ડ.",
   "guide_nutriscore_v2_where_paragraph2": "હુકમનામા પર હસ્તાક્ષર થયા પછી ઉત્પાદકો પાસે જૂની ગણતરીને નવી ગણતરી સાથે બદલવા માટે વધુમાં વધુ **2 વર્ષ** છે.",
   "guide_nutriscore_v2_where_paragraph3": "રાહ જોયા વિના, તમને **OpenFoodFacts એપ્લિકેશન** માં નવી ગણતરી મળી જશે, જેમાં ઉત્પાદકોએ સ્કોર અપડેટ ન કર્યો હોય તો તે પણ શામેલ છે.",
   "guide_nutriscore_v2_unchanged_title": "શું બદલાતું નથી",
-  "guide_nutriscore_v2_unchanged_paragraph1": "ન્યુટ્રી-સ્કોર એ એક સ્કોર છે જે **પોષણની ગુણવત્તા** માપવા માટે રચાયેલ છે. તે **અલ્ટ્રા-પ્રોસેસ્ડ ફૂડ્સ** (એપ્લિકેશનમાં પણ હાજર) પર NOVA ગ્રુપ** માટે **પૂરક** છે.",
-  "guide_nutriscore_v2_unchanged_paragraph2": "ઉત્પાદકો માટે, ન્યુટ્રી-સ્કોરનું પ્રદર્શન **વૈકલ્પિક** રહે છે.",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score એ એક સ્કોર છે જે **પોષણની ગુણવત્તા** માપવા માટે રચાયેલ છે. તે **અલ્ટ્રા-પ્રોસેસ્ડ ફૂડ્સ** (એપ્લિકેશનમાં પણ હાજર) પર NOVA ગ્રુપ** માટે **પૂરક** છે.",
+  "guide_nutriscore_v2_unchanged_paragraph2": "ઉત્પાદકો માટે, Nutri-Scoreનું પ્રદર્શન **વૈકલ્પિક** રહે છે.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "ગ્રીન સ્કોર શું છે?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "ગ્રીન-સ્કોર એ એક લોગો છે જેનો ઉદ્દેશ્ય તમને **ખોરાકની પર્યાવરણીય અસર** વિશે માહિતી આપવાનો છે.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score એ એક લોગો છે જેનો ઉદ્દેશ્ય તમને **ખોરાકની પર્યાવરણીય અસર** વિશે માહિતી આપવાનો છે.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4093,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "ગ્રીન-સ્કોર લોગો",
+  "guide_greenscore_logos_caption": "Green-Score લોગો",
   "guide_greenscore_lca_title": "મુખ્ય: જીવન ચક્ર મૂલ્યાંકન (LCA)",
   "guide_greenscore_lca_arg1_title": "ખાદ્ય શ્રેણીઓનું વૈજ્ઞાનિક મૂલ્યાંકન",
   "guide_greenscore_lca_arg1_text1": "દરેક ઉત્પાદન શ્રેણી માટે, એગ્રીબેલિઝ પર્યાવરણીય ડેટાબેઝ (ADEME અને INRAE દ્વારા ડિઝાઇન કરાયેલ) માંથી ડેટાનો ઉપયોગ કરીને **બેન્ચમાર્ક** સ્કોર સ્થાપિત કરવામાં આવે છે.",
@@ -4126,8 +4156,8 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
   "guide_greenscore_bonuses_penalties_arg4_text": "**પેકેજિંગની પરિપત્રતા** (રિસાયકલ કરેલા કાચા માલનો ઉપયોગ અને રિસાયક્લેબલિટી) અને ઓવરપેકિંગને ધ્યાનમાં રાખીને **દંડ** ગણવામાં આવે છે.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "ગ્રીન-સ્કોરની સચોટ ગણતરી કરવા માટે, **એવી માહિતી હોવી જરૂરી છે જે પેકેજિંગ પર સ્પષ્ટ ન હોય** (જેમ કે દરેક ઘટકનું મૂળ અને ચોક્કસ ટકાવારી) અથવા જે ભાગ્યે જ ઉપયોગી સ્વરૂપમાં ઉપલબ્ધ હોય (જેમ કે પેકેજિંગના તમામ ઘટકોની સૂચિ જેમાં ચોક્કસ પ્રકારના પ્લાસ્ટિકનો ઉપયોગ થાય છે).",
-  "guide_greenscore_transparency_intro2": "**જ્યારે આ માહિતી હજુ ઉપલબ્ધ ન હોય ત્યારે સરેરાશ મૂલ્યોનો ઉપયોગ કરવામાં આવે છે**, પરંતુ અમે હવે દરેકને આ માહિતી એકત્રિત કરવામાં મદદ કરવા હાકલ કરી રહ્યા છીએ જે ગ્રીન-સ્કોર માટે ખૂબ જ ઉપયોગી થશે પણ અન્ય ઘણા ઉપયોગો માટે પણ ઉપયોગી થશે.",
+  "guide_greenscore_transparency_intro1": "Green-Scoreની સચોટ ગણતરી કરવા માટે, **એવી માહિતી હોવી જરૂરી છે જે પેકેજિંગ પર સ્પષ્ટ ન હોય** (જેમ કે દરેક ઘટકનું મૂળ અને ચોક્કસ ટકાવારી) અથવા જે ભાગ્યે જ ઉપયોગી સ્વરૂપમાં ઉપલબ્ધ હોય (જેમ કે પેકેજિંગના તમામ ઘટકોની સૂચિ જેમાં ચોક્કસ પ્રકારના પ્લાસ્ટિકનો ઉપયોગ થાય છે).",
+  "guide_greenscore_transparency_intro2": "**જ્યારે આ માહિતી હજુ ઉપલબ્ધ ન હોય ત્યારે સરેરાશ મૂલ્યોનો ઉપયોગ કરવામાં આવે છે**, પરંતુ અમે હવે દરેકને આ માહિતી એકત્રિત કરવામાં મદદ કરવા હાકલ કરી રહ્યા છીએ જે Green-Score માટે ખૂબ જ ઉપયોગી થશે પણ અન્ય ઘણા ઉપયોગો માટે પણ ઉપયોગી થશે.",
   "guide_greenscore_transparency_arg1_title": "નાગરિકો કેવી રીતે મદદ કરી શકે?",
   "guide_greenscore_transparency_arg1_text": "બધા નાગરિકો અમને ઉત્પાદનો પર હાજર માહિતી એકત્રિત કરવામાં અને તેનું માળખું બનાવવામાં મદદ કરી શકે છે અથવા તેમાંથી મેળવી શકાય છે, જેમ કે **પેકેજિંગ**: \"મિશન એમ્બેલાજેસ\": બધા ખાદ્ય ઉત્પાદનો માટે પેકેજિંગની મોટા પાયે સહયોગી ઇન્વેન્ટરી (ફ્રેન્ચમાં).",
   "guide_greenscore_transparency_arg2_title": "ઉત્પાદકો કેવી રીતે મદદ કરી શકે છે",
@@ -4138,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "તમારી પાસે શક્તિ છે!",
   "guide_greenscore_better_product_arg2_text": "સારા સમાચાર એ છે કે આ આપણને પરિવર્તન લાવવાની એક શક્તિશાળી રીત આપે છે.\n**આપણે દરેક વ્યક્તિ દર વર્ષે લગભગ 1,000 ભોજન ખાઈએ છીએ**. આ ગ્રહ માટે વધુ સારું ભવિષ્ય પસંદ કરવાની **1,000 તકો છે**!",
   "guide_greenscore_better_product_arg3_title": "જવાબદાર બનવા અને નિર્ણય લેવામાં મદદ કરે છે",
-  "guide_greenscore_better_product_arg3_text": "ટકાઉ ખોરાક પસંદ કરવાનું જટિલ લાગી શકે છે. લેબલ્સ ગૂંચવણભર્યા હોય છે અને ઘણીવાર માહિતી ખૂટે છે. ગ્રીન-સ્કોર તેને સરળ બનાવવા માટે બનાવવામાં આવ્યો હતો, જે તમને ખાદ્ય ઉત્પાદનો માટે **સ્પષ્ટ**, **વિજ્ઞાન-આધારિત** અને **પારદર્શક** પર્યાવરણીય રેટિંગ આપે છે, જ્યાં તમને તેની જરૂર હોય ત્યાં: જ્યારે તમે ખરીદી કરો છો.",
+  "guide_greenscore_better_product_arg3_text": "ટકાઉ ખોરાક પસંદ કરવાનું જટિલ લાગી શકે છે. લેબલ્સ ગૂંચવણભર્યા હોય છે અને ઘણીવાર માહિતી ખૂટે છે. Green-Score તેને સરળ બનાવવા માટે બનાવવામાં આવ્યો હતો, જે તમને ખાદ્ય ઉત્પાદનો માટે **સ્પષ્ટ**, **વિજ્ઞાન-આધારિત** અને **પારદર્શક** પર્યાવરણીય રેટિંગ આપે છે, જ્યાં તમને તેની જરૂર હોય ત્યાં: જ્યારે તમે ખરીદી કરો છો.",
   "guide_greenscore_better_product_arg4_title": "પારદર્શિતા",
-  "guide_greenscore_better_product_arg4_text": "માલિકીના લેબલોથી વિપરીત, ગ્રીન-સ્કોર ગણતરી **સંપૂર્ણપણે ખુલ્લી** છે** અને તેને **કોઈપણ વ્યક્તિ દ્વારા ચકાસી શકાય છે**.",
+  "guide_greenscore_better_product_arg4_text": "માલિકીના લેબલોથી વિપરીત, Green-Score ગણતરી **સંપૂર્ણપણે ખુલ્લી** છે** અને તેને **કોઈપણ વ્યક્તિ દ્વારા ચકાસી શકાય છે**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4186,8 +4216,8 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "ઓપન ફૂડ ફેક્ટ્સ શું છે?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "ઓપન ફૂડ ફેક્ટ્સ એ વિશ્વભરના ખાદ્ય ઉત્પાદનોનો **સહયોગી**, **મફત** અને **ખુલ્લો** ડેટાબેઝ છે.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Open Food Facts શું છે?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts એ વિશ્વભરના ખાદ્ય ઉત્પાદનોનો **સહયોગી**, **મફત** અને **ખુલ્લો** ડેટાબેઝ છે.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4195,7 +4225,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "ઓપન ફૂડ ફેક્ટ્સની વિશેષતાઓ",
+  "guide_open_food_facts_features_title": "Open Food Factsની વિશેષતાઓ",
   "guide_open_food_facts_features_arg1_title": "તમારા અનિચ્છનીય ઘટકો માટે ચેતવણીઓ મેળવો",
   "guide_open_food_facts_tips_title": "ઉત્તમ ફોટા લેવા માટેની ટિપ્સ",
   "guide_open_food_facts_tips_arg1_title": "શું ન કરવું",
@@ -4217,8 +4247,8 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "ઓપન પેટ ફૂડ ફેક્ટ્સ શું છે?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "ઓપન પેટ ફૂડ ફેક્ટ્સ અમારા મિશનને અમારા રુંવાટીદાર મિત્રો સુધી વિસ્તૃત કરે છે! તે **બિલાડીઓ, કૂતરા અને અન્ય સાથીઓ માટે પાલતુ ખોરાક ઉત્પાદનોનો **ડેટાબેઝ છે**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Open Pet Food Facts શું છે?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts અમારા મિશનને અમારા રુંવાટીદાર મિત્રો સુધી વિસ્તૃત કરે છે! તે **બિલાડીઓ, કૂતરા અને અન્ય સાથીઓ માટે પાલતુ ખોરાક ઉત્પાદનોનો **ડેટાબેઝ છે**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4226,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "ઓપન પેટ ફૂડ ફેક્ટ્સની વિશેષતાઓ",
+  "guide_open_pet_food_facts_features_title": "Open Pet Food Factsની વિશેષતાઓ",
   "guide_open_pet_food_facts_features_arg1_title": "તમારા અનિચ્છનીય ઘટકો માટે ચેતવણીઓ મેળવો",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "શું તમારા પાલતુને કોઈપણ ઘટકોથી એલર્જી છે? તમે એપ્લિકેશનમાં જ ટાળવા માટે કોસ્મેટિક ઘટકોની સૂચિ સેટ કરી શકો છો!",
   "guide_open_pet_food_facts_tips_title": "ઉત્તમ ફોટા લેવા માટેની ટિપ્સ",
@@ -4247,8 +4277,8 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "ઓપન બ્યુટી ફેક્ટ્સ શું છે?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "ઓપન બ્યુટી ફેક્ટ્સ એ **કોસ્મેટિક ઉત્પાદનો**નો સહયોગી ડેટાબેઝ છે.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Open Beauty Facts શું છે?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts એ **કોસ્મેટિક ઉત્પાદનો**નો સહયોગી ડેટાબેઝ છે.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4256,7 +4286,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "ઓપન બ્યુટી ફેક્ટ્સની વિશેષતાઓ",
+  "guide_open_beauty_facts_features_title": "Open Beauty Factsની વિશેષતાઓ",
   "guide_open_beauty_facts_features_arg1_title": "તમારા અનિચ્છનીય ઘટકો માટે ચેતવણીઓ મેળવો",
   "guide_open_beauty_facts_features_arg1_paragraph1": "શું તમને કોઈ ઘટકોથી એલર્જી છે? શું તમે કોમેડોજન પદાર્થોથી દૂર રહેવા માંગો છો? શું તમે વિવાદાસ્પદ ઘટકોથી દૂર રહેવા માંગો છો? તમે એપ્લિકેશનમાં જ ટાળવા માટે કોસ્મેટિક ઘટકોની સૂચિ સેટ કરી શકો છો!",
   "guide_open_beauty_facts_tips_title": "ઉત્તમ ફોટા લેવા માટેની ટિપ્સ",
@@ -4273,14 +4303,14 @@
   "guide_open_beauty_facts_tips_arg2_text5": "ઘટકોની યાદી જોવા માટે તમારે લેબલ છોલવાની જરૂર પડી શકે છે.",
   "guide_open_beauty_facts_tips_arg2_text6": "ઉત્પાદનને સપાટ સપાટી પર રાખો.",
   "guide_open_beauty_facts_scores_title": "સ્કોરિંગ પર એક નોંધ",
-  "guide_open_beauty_facts_scores_paragraph1": "ખાદ્ય ઉત્પાદનોથી વિપરીત, સૌંદર્ય પ્રસાધનોની દુનિયામાં **ન્યુટ્રી-સ્કોર** જેવી સાર્વત્રિક રીતે માન્ય, સરકાર-સમર્થિત સ્કોરિંગ સિસ્ટમ નથી. ઘટકોની અસરો ખૂબ જ વ્યક્તિગત હોઈ શકે છે અને તે ત્વચાના પ્રકાર, એલર્જી અને વ્યક્તિગત ચિંતાઓ પર આધાર રાખે છે.",
+  "guide_open_beauty_facts_scores_paragraph1": "ખાદ્ય ઉત્પાદનોથી વિપરીત, સૌંદર્ય પ્રસાધનોની દુનિયામાં **Nutri-Score** જેવી સાર્વત્રિક રીતે માન્ય, સરકાર-સમર્થિત સ્કોરિંગ સિસ્ટમ નથી. ઘટકોની અસરો ખૂબ જ વ્યક્તિગત હોઈ શકે છે અને તે ત્વચાના પ્રકાર, એલર્જી અને વ્યક્તિગત ચિંતાઓ પર આધાર રાખે છે.",
   "guide_open_beauty_facts_share_link": "https://world-gu.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "ઓપન પ્રાઈસમાં આપનું સ્વાગત છે!",
+  "guide_open_prices_title": "Open Pricesમાં આપનું સ્વાગત છે!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ઓપન પ્રાઈસ શું છે?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "ઓપન પ્રાઈસીસ એ **વિશ્વભરના ઉત્પાદનોના ભાવ એકત્રિત કરવા અને શેર કરવા* માટેનો એક પ્રોજેક્ટ છે. તે એક સાર્વજનિક રીતે ઉપલબ્ધ ડેટાસેટ છે જેનો ઉપયોગ સંશોધન, વિશ્લેષણ અને વધુ માટે થઈ શકે છે. ઓપન પ્રાઈસીસ ઓપન ફૂડ ફેક્ટ્સ દ્વારા વિકસાવવામાં અને જાળવવામાં આવે છે.",
+  "guide_open_prices_what_is_open_prices_title": "Open Prices શું છે?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices એ **વિશ્વભરના ઉત્પાદનોના ભાવ એકત્રિત કરવા અને શેર કરવા* માટેનો એક પ્રોજેક્ટ છે. તે એક સાર્વજનિક રીતે ઉપલબ્ધ ડેટાસેટ છે જેનો ઉપયોગ સંશોધન, વિશ્લેષણ અને વધુ માટે થઈ શકે છે. Open Prices Open Food Facts દ્વારા વિકસાવવામાં અને જાળવવામાં આવે છે.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4288,19 +4318,19 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "ઓપન પ્રાઈસ કેવી રીતે કામ કરે છે?",
-  "guide_open_prices_how_paragraph1": "**અમે કિંમતોના ઓપન-સોર્સ ડેટાસેટને ક્રાઉડસોર્સ કરી રહ્યા છીએ**. વપરાશકર્તાઓ આ વેબ એપ્લિકેશન દ્વારા અથવા સત્તાવાર ઓપન ફૂડ ફેક્ટ્સ મોબાઇલ એપ્લિકેશન દ્વારા કિંમતો ઉમેરી શકે છે. રિટેલર્સ અથવા તૃતીય-પક્ષ એપ્લિકેશનો પણ અમારા API નો ઉપયોગ કરીને યોગદાન આપી શકે છે.",
+  "guide_open_prices_how_title": "Open Prices કેવી રીતે કામ કરે છે?",
+  "guide_open_prices_how_paragraph1": "**અમે કિંમતોના ઓપન-સોર્સ ડેટાસેટને ક્રાઉડસોર્સ કરી રહ્યા છીએ**. વપરાશકર્તાઓ આ વેબ એપ્લિકેશન દ્વારા અથવા સત્તાવાર Open Food Facts મોબાઇલ એપ્લિકેશન દ્વારા કિંમતો ઉમેરી શકે છે. રિટેલર્સ અથવા તૃતીય-પક્ષ એપ્લિકેશનો પણ અમારા API નો ઉપયોગ કરીને યોગદાન આપી શકે છે.",
   "guide_open_prices_how_arg1_title": "રસ્તાઓ પર કિંમત ટૅગના ફોટા એકત્રિત કરો",
   "guide_open_prices_how_arg2_title": "રસીદોના ફોટા એકત્રિત કરો",
-  "guide_open_prices_why_title": "ઓપન ફૂડ ફેક્ટ્સ આવું કેમ કરી રહ્યું છે?",
+  "guide_open_prices_why_title": "Open Food Facts આવું કેમ કરી રહ્યું છે?",
   "guide_open_prices_why_paragraph1": "ખાદ્ય પ્રણાલીઓને સમજવા માટે ભાવ માહિતી ખૂબ જ મહત્વપૂર્ણ છે. ખોરાકની કિંમત સમજવા અને સ્વસ્થ આહારને પ્રોત્સાહન આપવા માટે તે એક મુખ્ય પરિબળ છે. ભાવ ડેટા ખોલવાથી સંશોધકો, પત્રકારો અને નાગરિકો માટે **ભૌગોલિક અને સમયસર ખાદ્ય પદાર્થોના ભાવ કેવી રીતે બદલાય છે તેની વધુ સારી સમજ મેળવવાનું સરળ બને છે**.",
   "guide_open_prices_why_arg1_title": "સમય જતાં કિંમતોના ઉત્ક્રાંતિને ટ્રૅક કરો",
   "guide_open_prices_why_arg1_text": "**કિંમતોનો વિકાસ** જુઓ: સંકોચન, સસ્તુફુગાવો, આપણે તેમને એકસાથે ટ્રેક કરી શકીએ છીએ!",
   "guide_open_prices_why_arg2_title": "તમારી નજીકના ભાવોની તુલના કરો",
   "guide_open_prices_why_arg2_text": "જેમ જેમ અમને વધુ કિંમતો મળશે, તેમ તેમ તમે **તમારી આસપાસના સૌથી સસ્તા સ્ટોર્સ** શોધી શકશો.",
   "guide_open_prices_scrapping_title": "શું તમે રિટેલર્સની વેબસાઇટ પરથી કિંમતો સ્ક્રેપ કરવાનું વિચાર્યું હતું?",
-  "guide_open_prices_scrapping_paragraph1": "કાનૂની અને ટેકનિકલ કારણોસર, **અમે રિટેલર્સની વેબસાઇટ્સ પરથી કિંમતો સ્ક્રેપ કરવાને ઓપન પ્રાઇસમાં યોગદાન આપવાનો માન્ય માર્ગ માનતા નથી**. અમે ખાતરી કરવા માંગીએ છીએ કે અમે એકત્રિત કરીએ છીએ તે કિંમતો સચોટ અને અપ-ટૂ-ડેટ હોય, અને ફાળો આપનારાઓ પાસેથી સ્ક્રેપ કરેલી કિંમતો પ્રાપ્ત કરવાથી અમને તે કરવાની મંજૂરી મળતી નથી.",
-  "guide_open_prices_scrapping_paragraph2": "ઓપન પ્રાઇસના ભાવિ સંસ્કરણમાં પ્રાઇસ સ્ક્રેપિંગ એક વિચારણા હેઠળનો વિકલ્પ છે, પરંતુ તે ઓપન પ્રાઇસ દ્વારા જ કરવામાં આવશે જેથી HTML પેજના આધારે કિંમતનો પુરાવો મળી શકે.",
+  "guide_open_prices_scrapping_paragraph1": "કાનૂની અને ટેકનિકલ કારણોસર, **અમે રિટેલર્સની વેબસાઇટ્સ પરથી કિંમતો સ્ક્રેપ કરવાને Open Pricesમાં યોગદાન આપવાનો માન્ય માર્ગ માનતા નથી**. અમે ખાતરી કરવા માંગીએ છીએ કે અમે એકત્રિત કરીએ છીએ તે કિંમતો સચોટ અને અપ-ટૂ-ડેટ હોય, અને ફાળો આપનારાઓ પાસેથી સ્ક્રેપ કરેલી કિંમતો પ્રાપ્ત કરવાથી અમને તે કરવાની મંજૂરી મળતી નથી.",
+  "guide_open_prices_scrapping_paragraph2": "Open Pricesના ભાવિ સંસ્કરણમાં પ્રાઇસ સ્ક્રેપિંગ એક વિચારણા હેઠળનો વિકલ્પ છે, પરંતુ તે Open Prices દ્વારા જ કરવામાં આવશે જેથી HTML પેજના આધારે કિંમતનો પુરાવો મળી શકે.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "તમે અમારા API નો ઉપયોગ કરીને કિંમતોમાં યોગદાન આપી શકો છો.\nજો તમે સ્કેલ પર કિંમતોમાં યોગદાન આપવા માંગતા હો, તો કૃપા કરીને prices@openfoodfacts.org પર અમારો સંપર્ક કરો.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4640,8 +4670,8 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "આ ન્યુટ્રી-સ્કોર પેકેજ પરના સ્કોરથી કેમ અલગ છે?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "બે શક્ય સમજૂતીઓ છે:\nઘટકોની સૂચિ અને/અથવા પોષણ તથ્યો અપ-ટૂ-ડેટ નથી.\n\nઅમે ન્યુટ્રી-સ્કોર (અથવા V2) ની \"નવી ગણતરી\" પ્રદાન કરીએ છીએ. કૃપા કરીને તપાસો કે તમારી પાસે પેકેજ પર \"નવી ગણતરી\" બેનર છે.",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "આ Nutri-Score પેકેજ પરના સ્કોરથી કેમ અલગ છે?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "બે શક્ય સમજૂતીઓ છે: ઘટકોની સૂચિ અને/અથવા પોષણ તથ્યો અપ-ટૂ-ડેટ નથી.  અમે Nutri-Score (અથવા V2) ની \"નવી ગણતરી\" પ્રદાન કરીએ છીએ. કૃપા કરીને તપાસો કે તમારી પાસે પેકેજ પર \"નવી ગણતરી\" બેનર છે.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "ઘટકો તપાસો",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "પોષણ તથ્યો તપાસો",
   "url_not_supported": "કમનસીબે, અમે URL ખોલી શકતા નથી:\n{url}",
@@ -5087,7 +5117,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "સેટિંગ શોધો (દા.ત. ન્યુટ્રી-સ્કોર)",
+  "preferences_app_bar_search_hint": "સેટિંગ શોધો (દા.ત. Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -5183,7 +5213,7 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "નવા ન્યુટ્રી-સ્કોર શોધો",
+  "tips_discover_nutriscore": "નવા Nutri-Score શોધો",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
@@ -5284,7 +5314,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "ન્યુટ્રી-સ્કોરની ગણતરી કેવી રીતે થાય છે તે શોધો",
+  "preferences_faq_nutriscore_subtitle": "Nutri-Scoreની ગણતરી કેવી રીતે થાય છે તે શોધો",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5296,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Open Food તથ્યો શોધો.",
+  "preferences_faq_discover_off_title": "Open Food Facts શોધો.",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Open Beauty તથ્યો શોધો.",
+  "preferences_faq_discover_obf_title": "Open Beauty Facts શોધો.",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Open Pet Food તથ્યો શોધો.",
+  "preferences_faq_discover_opff_title": "Open Pet Food Facts શોધો.",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "ખુલ્લા ભાવ શોધો",
+  "preferences_faq_discover_op_title": "Open Prices શોધો",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5492,7 +5522,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "તમારા દેશમાં ન્યુટ્રી-સ્કોર અને ગ્રીન-સ્કોરની ગણતરી કરવામાં મદદ કરો",
+  "preferences_contributions_categorize_subtitle": "તમારા દેશમાં Nutri-Score અને Green-Scoreની ગણતરી કરવામાં મદદ કરો",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5516,7 +5546,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "ઓપન પ્રાઈસ સમુદાય દ્વારા ઉમેરવામાં આવેલી નવીનતમ કિંમતો",
+  "preferences_prices_newest_subtitle": "Open Prices સમુદાય દ્વારા ઉમેરવામાં આવેલી નવીનતમ કિંમતો",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ઓપન પ્રાઇસ મેટ્રિક્સ",
+  "preferences_prices_metrics_title": "Open Prices મેટ્રિક્સ",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5568,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "ખોરાકની હકીકતો ખોલવામાં મદદ કરવાની સરળ રીતો",
+  "preferences_page_contribute_project_subtitle": "Open Food Factsમાં મદદ કરવાની સરળ રીતો",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5768,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "ફૂડ ફેક્ટ્સ લેબ્સ ખોલો",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5776,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "તમારી ભાષામાં ખુલ્લા ખોરાકના તથ્યો લાવો",
+  "preferences_contribute_translate_header": "તમારી ભાષામાં Open Food Facts લાવો",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
