@@ -133,27 +133,27 @@
   "@food_preferences_page_description_diets": {
     "description": "Description for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "food_preferences_page_description_allergies": "Tentukan alergen yang harus dihindari demi keselamatan konsumsi Anda.",
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "food_preferences_page_description_unwanted_foods": "Pilih makanan atau ingredien yang Anda hindari.",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "food_preferences_page_description_foods_to_avoid": "Pilih makanan yang lebih baik Anda hindari, namun bukan larangan ketat.",
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "food_preferences_page_description_environment": "Indikasikan pilihan ramah lingkungan Anda agar mendapatkan saran yang lebih berkelanjutan.",
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "food_preferences_search_ingredients_hint": "Cari bahan",
   "@food_preferences_search_ingredients_hint": {
     "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
   },
-  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "food_preferences_ingredient_already_added": "Bahan sudah ditambahkan",
   "@food_preferences_ingredient_already_added": {
     "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Nama",
   "sign_up_page_display_name_error_empty": "Silakan masukkan nama panggilan yang Anda inginkan",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_error_empty": "E-mail diperlukan",
   "sign_up_page_email_error_invalid": "Surel tidak valid",
   "sign_up_page_username_hint": "Nama pengguna: Terlihat publik",
   "sign_up_page_username_error_empty": "Silakan masukkan nama pengguna Anda",
@@ -539,16 +539,16 @@
   "myPreferences_profile_subtitle": "Kelola akun kontributor OpenFoodFacts Anda.",
   "myPreferences_settings_title": "Pengaturan Aplikasi",
   "myPreferences_settings_subtitle": "Mode gelap, Bahasa…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "Anda belum mengatur preferensi apa pun.",
   "myPreferences_food_title": "Preferensi Makanan",
   "myPreferences_food_subtitle": "Pilih informasi tentang makanan yang paling penting bagi anda.",
   "myPreferences_food_comment": "Pilih informasi tentang makanan yang paling penting bagi anda, untuk memberi peringkat makanan sesuai preferensi anda, melihat informasi yang paling anda minati lebih dahulu dan dapatkan ringkasan kompatibilitas. Preferensi makanan tersebut tetap ada di perangkat anda, dan tidak terkait dengan akun kontributor OpenFoodFacts anda jika anda memilikinya.",
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
+  "myPreferences_beauty_title": "Preferensi untuk kosmetik",
+  "myPreferences_beauty_subtitle": "Tentukan data kosmetik yang paling relevan untuk Anda.",
+  "myPreferences_product_title": "Preferensi untuk produk lain",
+  "myPreferences_product_subtitle": "Pilih informasi produk lainnya yang paling penting bagi Anda.",
+  "myPreferences_pet_food_title": "Preferensi untuk makanan hewan peliharaan",
+  "myPreferences_pet_food_subtitle": "Pilih informasi tentang makanan hewan peliharaan yang paling penting bagi Anda.",
   "confirmResetPreferences": "Atur ulang preferensi makanan anda?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -981,7 +981,7 @@
   "@more_photos": {},
   "view_more_photo_button": "Lihat semua foto yang ada untuk produk ini",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "Tidak ada pengaturan yang ditemukan",
   "@no_settings_found": {},
   "no_product_found": "Produk tidak ditemukan",
   "@no_product_found": {},
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Gambar ini mungkin sudah terlalu lama",
   "product_image_outdated_explanations_title": "Gambar ini mungkin sudah terlalu lama",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Foto ini berumur lebih dari setahun.\n**Pastikan informasinya masih valid**.\n\nIni **bukan error**. Apabila isi produk belum berubah, abaikan saja notifikasi ini.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Tidak begitu…",
   "tagline_app_review_button_later": "Tanya lagi nanti",
   "tagline_feed_news_button": "Tahu lebih banyak",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Anda tidak menyukai aplikasi kami?",
   "app_review_negative_modal_text": "Bisakah Anda meluangkan waktu beberapa detik untuk memberi tahu kami alasannya?",
   "app_review_negative_modal_positive_button": "Ya, tentu saja!",
@@ -1563,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Masuk atau daftar untuk bergabung dengan komunitas OpenFoodFacts",
-  "user_profile_title_id_email": "OpenFoodFacts masuk: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2709,15 +2739,15 @@
   "prices_amount_no_product": "Ada satu produk yang hilang!",
   "prices_amount_price_incorrect": "Nilai tidak valid",
   "prices_amount_price_mandatory": "Nilai wajib",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Perbarui mata uang",
   "prices_currency_subtitle": "Mata uang",
   "prices_date_subtitle": "Tanggal",
   "prices_location_subtitle": "Toko",
   "prices_location_find": "Temukan toko",
   "prices_location_mandatory": "Anda harus memilih toko!",
   "prices_location_search_broader": "Tidak dapat menemukan apa yang Anda cari? Coba pencarian yang lebih luas!",
-  "prices_location_open_map": "View the shop on the map",
-  "prices_location_edit": "Select another shop",
+  "prices_location_open_map": "Lihat toko di peta",
+  "prices_location_edit": "Pilih toko lain",
   "prices_proof_subtitle": "Bukti",
   "prices_proof_empty_title": "Belum ada bukti!",
   "prices_proof_empty_explanation": "Mulailah dengan menambahkan foto **kwitansi** atau **label harga**!",
@@ -2769,12 +2799,12 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Pelajari lebih lanjut tentang Harga Terbuka",
+  "prices_menu_know_more": "Pelajari lebih lanjut tentang Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Jenis diskon",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Diskon kuantitas",
   "prices_discount_type_sale": "Diskon",
   "prices_discount_type_seasonal": "Musiman",
   "prices_discount_type_loyalty_program": "Program loyalti",
@@ -3724,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Mohon kirimkan kami email secara manual ke",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "Email disalin ke clipboard!",
   "select_accent_color": "Pilih Warna Aksen",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3914,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "Terdapat {num} produk yang dapat discan sekarang",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3980,13 +4010,13 @@
   "nutriscore_not_applicable": "Nutri-Score tidak dapat diterapkan",
   "nutriscore_not_applicable_new_formula": "Nutri-Score tidak bisa diterapkan (Perhitungan baru)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Skor Hijau A",
-  "environmental_score_b_new": "Skor Hijau B",
-  "environmental_score_c_new": "Skor Hijau C",
-  "environmental_score_d_new": "Skor Hijau D",
-  "environmental_score_e_new": "Skor Hijau E",
-  "environmental_score_unknown_new": "Skor Hijau Tidak Diketahui",
-  "environmental_score_not_applicable_new": "Skor Hijau tidak berlaku",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score tidak diketahui",
+  "environmental_score_not_applicable_new": "Green-Score tidak berlaku",
   "nova_group_generic_new": "Makanan ultra-olahan - Grup NOVA",
   "nova_group_1": "NOVA Kelompok 1",
   "nova_group_2": "NOVA Kelompok 2",
@@ -4093,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "Logo Skor Hijau",
+  "guide_greenscore_logos_caption": "Logo Green-Score",
   "guide_greenscore_lca_title": "Inti: Penilaian siklus hidup (LCA)",
   "guide_greenscore_lca_arg1_title": "Evaluasi ilmiah terhadap kategori makanan",
   "guide_greenscore_lca_arg1_text1": "Untuk setiap kategori produk, skor **patokan** ditetapkan menggunakan data dari basis data lingkungan Agribalyse (dirancang oleh ADEME dan INRAE).",
@@ -4178,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Sejak 2018, dengan NutriNet-Santé, hubungan pertama antara **konsumsi makanan ultra-olahan dan peningkatan risiko kanker, penyakit kardiovaskular, dan diabetes telah disoroti**. Saat ini, lebih dari 90 studi di seluruh dunia mengkonfirmasi temuan ini.\nHubungan terkuat berkaitan dengan **obesitas, kematian akibat penyakit kardiovaskular, dan gejala depresi**. Pada anak-anak, efeknya terutama diamati pada berat badan dan ketidakseimbangan lipid.",
   "guide_nova_explanations_arg6_title": "Negara-negara merekomendasikan untuk membatasinya.",
   "guide_nova_explanations_arg6_text": "Beberapa negara menggunakan kelompok NOVA untuk pedoman atau tujuan diet mereka, misalnya:\n\n- Pedoman diet **🇧🇷 Brasil** merekomendasikan untuk membatasi konsumsi makanan olahan dan menghindari makanan ultra-olahan.\n\n- Tujuan kebijakan gizi kesehatan masyarakat **🇫🇷 Prancis** untuk tahun 2018-2022 bertujuan untuk **mengurangi konsumsi makanan ultra-olahan kelompok 4 sebesar 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-id.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4226,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Fitur-fitur dari Informasi Fakta Makanan Hewan Peliharaan yang Terbuka",
+  "guide_open_pet_food_facts_features_title": "Fitur-fitur Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Dapatkan peringatan untuk bahan-bahan yang tidak diinginkan",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Apakah hewan peliharaan Anda alergi terhadap bahan-bahan tertentu? Anda dapat mengatur daftar bahan kosmetik yang harus dihindari, langsung di aplikasi!",
   "guide_open_pet_food_facts_tips_title": "Tips untuk mengambil foto yang bagus",
@@ -4279,7 +4309,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Apa itu Harga Terbuka?",
+  "guide_open_prices_what_is_open_prices_title": "Apa itu Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices adalah sebuah proyek untuk **mengumpulkan dan membagikan harga produk di seluruh dunia**. Ini adalah kumpulan data yang tersedia untuk umum yang dapat digunakan untuk penelitian, analisis, dan banyak lagi. Open Prices dikembangkan dan dikelola oleh Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4288,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Bagaimana cara kerja Open Price?",
+  "guide_open_prices_how_title": "Bagaimana cara kerja Open Prices?",
   "guide_open_prices_how_paragraph1": "**Kami sedang mengumpulkan data harga sumber terbuka melalui crowdsourcing.** Harga dapat ditambahkan oleh pengguna melalui aplikasi web ini, atau melalui aplikasi seluler resmi Open Food Facts. Peritel atau aplikasi pihak ketiga juga dapat berkontribusi dengan menggunakan API kami.",
   "guide_open_prices_how_arg1_title": "Kumpulkan foto label harga di lorong-lorong toko.",
   "guide_open_prices_how_arg2_title": "Kumpulkan foto-foto struk pembelian.",
@@ -4408,7 +4438,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "Lihat gambar asli",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
@@ -4537,7 +4567,7 @@
       }
     }
   },
-  "barcode_probably_invalid": "Probably invalid barcode",
+  "barcode_probably_invalid": "Kemungkinan kode batang tidak valid",
   "@barcode_probably_invalid": {
     "description": "Warning message. Keep it short."
   },
@@ -5300,15 +5330,15 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Temukan Fakta Kecantikan Terbuka",
+  "preferences_faq_discover_obf_title": "Temukan Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Temukan Fakta Makanan Hewan Peliharaan Terbuka",
+  "preferences_faq_discover_opff_title": "Temukan Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Temukan Harga Terbuka",
+  "preferences_faq_discover_op_title": "Temukan Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrik Harga Pembukaan",
+  "preferences_prices_metrics_title": "Metrik Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
