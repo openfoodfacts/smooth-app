@@ -4110,7 +4110,7 @@
   "guide_nutriscore_v2_unchanged_title": "哪些要素没有改变",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score 是一个旨在**衡量营养质量**的评分系统。它作为 NOVA 分组关于**超加工食品的补充**（也包含在应用中）。",
   "guide_nutriscore_v2_unchanged_paragraph2": "对于制造商来说，Nutri-Score 的显示**仍然是可选的**。",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "绿色评分",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
