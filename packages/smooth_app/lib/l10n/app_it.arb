@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Punteggio Nutrizionale, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -4010,13 +4010,13 @@
   "nutriscore_not_applicable": "Nutri-Score non applicabile",
   "nutriscore_not_applicable_new_formula": "Nutri-Score non è applicabile (Nuovo calcolo)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Green-Score sconosciuto",
-  "environmental_score_not_applicable_new": "Il Green-Score non è applicabile",
+  "environmental_score_a_new": "Punteggio verde A",
+  "environmental_score_b_new": "Punteggio verde B",
+  "environmental_score_c_new": "Punteggio verde C",
+  "environmental_score_d_new": "Punteggio verde D",
+  "environmental_score_e_new": "Punteggio verde E",
+  "environmental_score_unknown_new": "Punteggio verde sconosciuto",
+  "environmental_score_not_applicable_new": "Il punteggio verde non è applicabile",
   "nova_group_generic_new": "Alimenti ultra-processati - gruppi NOVA",
   "nova_group_1": "Gruppo NOVA 1",
   "nova_group_2": "Gruppo NOVA 2",
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metriche di Open Prices",
+  "preferences_prices_metrics_title": "Metriche dei prezzi aperti",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
