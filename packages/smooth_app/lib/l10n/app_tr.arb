@@ -149,11 +149,11 @@
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "food_preferences_search_ingredients_hint": "Malzemeleri ara",
   "@food_preferences_search_ingredients_hint": {
     "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
   },
-  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "food_preferences_ingredient_already_added": "Malzeme zaten eklendi",
   "@food_preferences_ingredient_already_added": {
     "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
@@ -307,7 +307,7 @@
   "@username_or_email": {
     "description": "Text field hint for password reset"
   },
-  "reset_password_done": "An e-mail with a link to reset your password has been sent to the e-mail address associated with your account. Also check your spam",
+  "reset_password_done": "Hesabınızla ilişkili e-posta adresine şifrenizi sıfırlamanız için bir bağlantı içeren bir e-posta gönderildi. Ayrıca spam klasörünüzü de kontrol edin",
   "send_reset_password_mail": "Parolayı değiştir",
   "@send_reset_password_mail": {
     "description": "Button label: Submit the password reset e-mail request"
@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Tebrikler! Hesabınız başarıyla oluşturuldu.",
   "sign_up_page_display_name_hint": "İsim",
   "sign_up_page_display_name_error_empty": "Lütfen kaydetmek istediğiniz başlığı girin",
-  "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_hint": "E-posta",
+  "sign_up_page_email_error_empty": "E-posta gereklidir",
   "sign_up_page_email_error_invalid": "Geçersiz e-posta",
   "sign_up_page_username_hint": "Kullanıcı adı: Herkese açık",
   "sign_up_page_username_error_empty": "Lütfen bir kullanıcı adı girin",
@@ -539,16 +539,16 @@
   "myPreferences_profile_subtitle": "Open Food Facts hesabını yönet.",
   "myPreferences_settings_title": "Uygulama Ayarları",
   "myPreferences_settings_subtitle": "Karanlık mod, Diller…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "Henüz herhangi bir tercih belirlemediniz.",
   "myPreferences_food_title": "Yiyecek tercihleri",
   "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
   "myPreferences_food_comment": "Yiyecekleri tercihlerinize göre sıralamak, önemsediğiniz bilgileri ilk önce görmek ve uyumluluk özeti almak için yiyeceklerle ilgili sizin için en önemli olan bilgileri seçin. Bu yemek tercihleri cihazınızda kalır ve varsa Open Food Facts hesabınızla ilişkilendirilmez.",
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
+  "myPreferences_beauty_title": "Kozmetik tercihleri",
+  "myPreferences_beauty_subtitle": "Kozmetik ürünleriyle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
+  "myPreferences_product_title": "Diğer ürünler için tercihler",
+  "myPreferences_product_subtitle": "Diğer ürünlerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
+  "myPreferences_pet_food_title": "Evcil hayvan maması tercihleri",
+  "myPreferences_pet_food_subtitle": "Evcil hayvan maması ile ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
   "confirmResetPreferences": "Yiyecek tercihleriniz sıfırlansın mı?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -981,7 +981,7 @@
   "@more_photos": {},
   "view_more_photo_button": "Bu ürüne ait mevcut tüm fotoğrafları görüntüle",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "Ayar bulunamadı",
   "@no_settings_found": {},
   "no_product_found": "Ürün bulunamadı",
   "@no_product_found": {},
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Bu görüntü güncelliğini yitirmiş olabilir",
   "product_image_outdated_explanations_title": "Bu görüntü güncelliğini yitirmiş olabilir",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Bu fotoğraf bir yıldan daha uzun bir süre önce çekildi.\n**Lütfen hala güncel olup olmadığını kontrol edin**.\n\nBu **sadece bir uyarıdır**. İçerik hala aynıysa, bu mesajı yoksayabilirsiniz.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,39 @@
   "tagline_app_review_button_negative": "Pek sayılmaz…",
   "tagline_app_review_button_later": "Daha sonra sor",
   "tagline_feed_news_button": "Daha fazla bilgi",
+<<<<<<< Updated upstream
+=======
+  "tagline_feed_funding_goal": "hedef {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} eksik",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{bir ay kaldı} other{{months} ay kaldı}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+>>>>>>> Stashed changes
   "app_review_negative_modal_title": "Uygulamamızı beğenmediniz mi?",
   "app_review_negative_modal_text": "Bize nedenini söylemek için birkaç saniyenizi ayırabilir misiniz?",
   "app_review_negative_modal_positive_button": "Evet kesinlikle!",
@@ -2709,15 +2742,15 @@
   "prices_amount_no_product": "Bir ürün eksik!",
   "prices_amount_price_incorrect": "Yanlış değer",
   "prices_amount_price_mandatory": "Zorunlu değer",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Para birimini güncelle",
   "prices_currency_subtitle": "Kur",
   "prices_date_subtitle": "Tarih",
   "prices_location_subtitle": "Mağaza",
   "prices_location_find": "Bir mağaza bul",
   "prices_location_mandatory": "Bir mağaza seçmeniz gerekiyor!",
   "prices_location_search_broader": "Aradığınızı bulamadınız mı? Daha kapsamlı bir arama yapalım!",
-  "prices_location_open_map": "View the shop on the map",
-  "prices_location_edit": "Select another shop",
+  "prices_location_open_map": "Mağazayı haritada görüntüle",
+  "prices_location_edit": "Başka bir mağaza seçin",
   "prices_proof_subtitle": "Kanıt",
   "prices_proof_empty_title": "Henüz bir kanıt yok!",
   "prices_proof_empty_explanation": "Öncelikle bir **fiş** veya **fiyat etiketi** fotoğrafı ekleyerek başlayın!",
@@ -2774,7 +2807,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "İndirim türü",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Miktar indirimi",
   "prices_discount_type_sale": "İndirim",
   "prices_discount_type_seasonal": "Mevsimsel",
   "prices_discount_type_loyalty_program": "Sadakat programı",
@@ -3724,7 +3757,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Lütfen bize manuel olarak şu adrese bir e-posta gönderin",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "E-posta panoya kopyalandı!",
   "select_accent_color": "Vurgu Rengini Seçin",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3914,7 +3947,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} ürün hemen tarama için mevcut",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4175,7 +4208,7 @@
   "guide_nova_explanations_arg4_title": "Ultra işleme sürecinin yırtıcı ve finansal yönleri",
   "guide_nova_explanations_arg4_text": "**Ultra işlenmiş gıdaların genel amacı, diğer tüm gıda gruplarının yerini alacak şekilde tasarlanmış, markalı, kullanışlı (dayanıklı, tüketime hazır), çekici (aşırı lezzetli) ve yüksek kârlı (düşük maliyetli içerikler) gıda ürünleri yaratmaktır. Ultra işlenmiş gıda ürünleri genellikle çekici bir şekilde paketlenir ve yoğun bir şekilde pazarlanır.**",
   "guide_nova_explanations_arg5_title": "Sağlık riski",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
+  "guide_nova_explanations_arg5_text": "2018'den beri NutriNet-Santé ile, **ultra işlenmiş gıdaların tüketimi ile kanser, kardiyovasküler hastalıklar ve diyabet risklerindeki artış arasındaki ilk bağlantılar vurgulandı**. Bugün, dünya çapında 90'dan fazla çalışma bu bulguları doğruluyor.\nEn güçlü ilişkiler **obezite, kardiyovasküler ölümler ve depresif belirtiler** ile ilgilidir. Çocuklarda etkiler öncelikle kilo ve lipit dengesizlikleri üzerinde gözlemlenmektedir.",
   "guide_nova_explanations_arg6_title": "Ülkeler bunların sınırlandırılmasını tavsiye ediyor.",
   "guide_nova_explanations_arg6_text": "Bazı ülkeler, beslenme kılavuzları veya hedefleri için NOVA gruplarını kullanmaktadır; örneğin:\n\n- **🇧🇷 Brezilya**'nın beslenme kılavuzları, işlenmiş gıdaların tüketimini sınırlandırmayı ve aşırı işlenmiş gıdalardan kaçınmayı önermektedir.\n\n- **🇫🇷 Fransa**'nın 2018-2022 yılları için kamu sağlığı beslenme politikası hedefleri, **4. grup aşırı işlenmiş gıdaların tüketimini %20 azaltmayı** amaçlamaktadır.",
   "guide_nova_share_link": "https://world-tr.openfoodfacts.org/nova",
@@ -4324,7 +4357,7 @@
   "guide_open_products_facts_features_arg2_title": "Birçok ürün için onarılabilirlik endeksi",
   "guide_open_products_facts_features_arg2_text": "Fransızca onarılabilirlik endeksi mevcut olduğunda, onu göstereceğiz. Dahası, **Folksonomi Motorunu kullanarak değişkenleri toplamaya başlayabilirsiniz**; böylece gelecekte, mevcut olmadığı ülkelerde bile, kendimiz yeniden hesaplayabiliriz.",
   "guide_open_products_facts_features_arg3_title": "Ürünlerinizi bağışlamanın/yeniden satmanın yollarını bulun.",
-  "guide_open_products_facts_features_arg3_text": "We provide links to **third party circular friendly services** that help you get the kind of product you’re looking for, as a second hand product, to be more gentle on planetary resources.\nNote that we’re not paid to do that, and that the system only works as an example for two websites in France. You can help expand this system by documenting more sites on the wiki.",
+  "guide_open_products_facts_features_arg3_text": "Gezegen kaynaklarına daha nazik olmak için, aradığınız ürün türünü ikinci el olarak bulmanıza yardımcı olacak **üçüncü taraf döngüsel dostu hizmetlere** bağlantılar sağlıyoruz.\nBunu yapmak için para almadığımızı ve sistemin yalnızca Fransa'daki iki web sitesi için örnek olarak çalıştığını unutmayın. Wiki'de daha fazla siteyi belgeleyerek bu sistemi genişletmeye yardımcı olabilirsiniz.",
   "guide_open_products_facts_information_title": "Hangi bilgiler faydalı?",
   "guide_open_products_facts_information_text": "Bu kadar geniş bir ürün yelpazesi için, **topladığımız veriler esnektir**. Bunu sağlamak için **Folksonomi Motorunu oluşturduk**.",
   "guide_open_products_facts_folksonomy_title": "Folksonomi Motoru",
@@ -4408,7 +4441,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "Orijinal resmi görüntüle",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
@@ -4537,7 +4570,7 @@
       }
     }
   },
-  "barcode_probably_invalid": "Probably invalid barcode",
+  "barcode_probably_invalid": "Muhtemelen geçersiz barkod",
   "@barcode_probably_invalid": {
     "description": "Warning message. Keep it short."
   },

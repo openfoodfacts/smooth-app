@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Nome",
   "sign_up_page_display_name_error_empty": "Por favor, escolha o nome que deseja usar",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_error_empty": "E-mail é obrigatório",
   "sign_up_page_email_error_invalid": "E-mail inválido",
   "sign_up_page_username_hint": "Nome de utilizador: público",
   "sign_up_page_username_error_empty": "Por favor introduza um nome de utilizador",
@@ -539,7 +539,7 @@
   "myPreferences_profile_subtitle": "Gerir a sua conta como colaborador do Open Food Facts.",
   "myPreferences_settings_title": "Configurações da aplicação",
   "myPreferences_settings_subtitle": "Modo escuro, idiomas…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "Ainda não configurou nenhuma preferência.",
   "myPreferences_food_title": "Preferências alimentares",
   "myPreferences_food_subtitle": "Escolha as informações sobre os alimentos que mais lhe interessam.",
   "myPreferences_food_comment": "Escolha as informações sobre alimentos que mais lhe interessam, para classificar os alimentos de acordo com as suas preferências, ver primeiro as informações que lhe interessam e obter um resumo de compatibilidade. Essas preferências alimentares permanecem no seu dispositivo e não estão associadas à sua conta de colaborador do Open Food Facts, caso tenha uma.",
@@ -981,7 +981,7 @@
   "@more_photos": {},
   "view_more_photo_button": "Ver todas as fotografias existentes para este produto",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "Nenhuma configuração encontrada",
   "@no_settings_found": {},
   "no_product_found": "Não foi encontrado nenhum produto",
   "@no_product_found": {},
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Esta imagem pode estar desatualizada",
   "product_image_outdated_explanations_title": "Esta imagem pode estar desatualizada",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Esta imagem foi tirada há mais de um ano.\n**Por favor, verifique se ainda está atualizada**.\n\nIsto é **apenas um aviso**. Se o conteúdo ainda for o mesmo, pode ignorar esta mensagem.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,39 @@
   "tagline_app_review_button_negative": "Nem por isso…",
   "tagline_app_review_button_later": "Perguntar depois",
   "tagline_feed_news_button": "Saber mais",
+<<<<<<< Updated upstream
+=======
+  "tagline_feed_funding_goal": "de {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "faltam {shortfall}",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{falta um mês} other{faltam {months} meses}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+>>>>>>> Stashed changes
   "app_review_negative_modal_title": "Não gosta da nossa aplicação?",
   "app_review_negative_modal_text": "Pode tirar uns segundos e dizer-nos o porquê por favor?",
   "app_review_negative_modal_positive_button": "Sim, absolutamente!",
@@ -2709,15 +2742,15 @@
   "prices_amount_no_product": "Falta um produto!",
   "prices_amount_price_incorrect": "Valor incorreto",
   "prices_amount_price_mandatory": "Valor obrigatório",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Atualizar moeda",
   "prices_currency_subtitle": "Moeda",
   "prices_date_subtitle": "Data",
   "prices_location_subtitle": "Loja",
   "prices_location_find": "Encontrar uma loja",
   "prices_location_mandatory": "Tem de selecionar uma loja!",
   "prices_location_search_broader": "Não encontrou o que estava à procura? Vamos tentar uma pesquisa mais avançada!",
-  "prices_location_open_map": "View the shop on the map",
-  "prices_location_edit": "Select another shop",
+  "prices_location_open_map": "Ver a loja no mapa",
+  "prices_location_edit": "Selecionar outra loja",
   "prices_proof_subtitle": "Comprovativo",
   "prices_proof_empty_title": "Nenhuma prova ainda!",
   "prices_proof_empty_explanation": "Comece por adicionar uma fotografia de um **recibo** ou de uma **etiqueta de preço**!",
@@ -3724,7 +3757,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Por favor envie-nos um email para",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copiado para a área de transferência!",
   "select_accent_color": "Selecionar cor de destaque",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3914,7 +3947,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} produtos disponíveis para digitalização imediata",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4537,7 +4570,7 @@
       }
     }
   },
-  "barcode_probably_invalid": "Probably invalid barcode",
+  "barcode_probably_invalid": "Provavelmente código de barras inválido",
   "@barcode_probably_invalid": {
     "description": "Warning message. Keep it short."
   },
