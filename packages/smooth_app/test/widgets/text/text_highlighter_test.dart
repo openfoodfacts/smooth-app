@@ -129,4 +129,28 @@ void main() {
       expect(_hasHighlightedSpan(tester), isFalse);
     });
   });
+
+  testWidgets('returns the whole text when the filter normalizes to empty', (
+    WidgetTester tester,
+  ) async {
+    // A lone combining accent (U+0301) is stripped to nothing by
+    // getComparisonSafeString, so there is nothing left to highlight.
+    await _pumpHighlighter(tester, text: 'Hello', filter: '\u0301');
+
+    expect(tester.takeException(), isNull);
+    expect(_renderedText(tester), 'Hello');
+    expect(_hasHighlightedSpan(tester), isFalse);
+  });
+
+  testWidgets('does not highlight a match inside a single expanded character', (
+    WidgetTester tester,
+  ) async {
+    // "þ" normalizes to the two-letter "th"; matching just "t" would fall
+    // inside that single character, so nothing is highlighted.
+    await _pumpHighlighter(tester, text: 'þ', filter: 't');
+
+    expect(tester.takeException(), isNull);
+    expect(_renderedText(tester), 'þ');
+    expect(_hasHighlightedSpan(tester), isFalse);
+  });
 }
