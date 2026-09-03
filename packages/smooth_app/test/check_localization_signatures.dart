@@ -1,4 +1,5 @@
 #!/usr/bin/env dart
+
 /// Script to check for inconsistent method signatures in generated localization files.
 /// This helps identify which ARB file has incorrect placeholder definitions.
 ///
@@ -22,7 +23,10 @@ void main() {
   final localizationFiles = libDir
       .listSync()
       .whereType<File>()
-      .where((f) => f.path.endsWith('.dart') && f.path.contains('app_localizations_'))
+      .where(
+        (f) =>
+            f.path.endsWith('.dart') && f.path.contains('app_localizations_'),
+      )
       .toList();
 
   print('Found ${localizationFiles.length} localization files\n');
@@ -95,7 +99,9 @@ void main() {
       for (final entry in signatures.entries) {
         print('   ${entry.key}');
         print('   Used by: ${entry.value.join(", ")}');
-        print('   ARB files to check: ${entry.value.map((l) => "app_$l.arb").join(", ")}');
+        print(
+          '   ARB files to check: ${entry.value.map((l) => "app_$l.arb").join(", ")}',
+        );
         print('');
       }
     } else {
@@ -106,10 +112,14 @@ void main() {
   print('');
   if (foundIssues) {
     print('❌ Found inconsistencies in localization files.');
-    print('   Check the ARB files listed above for incorrect placeholder definitions.');
+    print(
+      '   Check the ARB files listed above for incorrect placeholder definitions.',
+    );
     exit(1);
   } else {
-    print('✅ All checked methods have consistent signatures across all locales.');
+    print(
+      '✅ All checked methods have consistent signatures across all locales.',
+    );
     exit(0);
   }
 }
