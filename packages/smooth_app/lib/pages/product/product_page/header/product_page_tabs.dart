@@ -107,8 +107,14 @@ class ProductPageTabsGenerator {
   List<ProductPageTab> getTabs(BuildContext context, Product product) {
     final List<ProductPageTab> tabs = <ProductPageTab>[];
 
+    final bool simplifiedKP = KnowledgePanelsBuilder.supportsSimplifiedPanels(
+      product,
+    );
     final List<KnowledgePanelElement> roots =
-        KnowledgePanelsBuilder.getRootPanelElements(product, simplified: true);
+        KnowledgePanelsBuilder.getRootPanelElements(
+          product,
+          simplified: simplifiedKP,
+        );
 
     for (final KnowledgePanelElement root in roots) {
       final String? id = root.panelElement?.panelId;
@@ -128,19 +134,22 @@ class ProductPageTabsGenerator {
         continue;
       }
 
-      children.add(
-        TextButton(
-          onPressed: () => Navigator.of(context).push(
-            MaterialPageRoute<void>(
-              builder: (BuildContext context) => KnowledgePanelPage(
-                panelId: id.replaceAll('_simplified', ''),
-                product: product,
+      if (simplifiedKP) {
+        // open the un-simplified / standard KP in a page.
+        children.add(
+          TextButton(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => KnowledgePanelPage(
+                  panelId: id.replaceAll('_simplified', ''),
+                  product: product,
+                ),
               ),
             ),
+            child: Text(AppLocalizations.of(context).learnMore),
           ),
-          child: Text(AppLocalizations.of(context).learnMore),
-        ),
-      );
+        );
+      }
 
       final KnowledgePanelTitle knowledgePanelTitle =
           children.first as KnowledgePanelTitle;

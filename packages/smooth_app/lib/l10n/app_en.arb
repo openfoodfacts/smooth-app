@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -2517,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Optional",
+  "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "The category is mandatory",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
@@ -2707,12 +2739,15 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Currency",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "No proof yet!",
   "prices_proof_empty_explanation": "Start by adding a photo of a **receipt** or a **price tag**!",

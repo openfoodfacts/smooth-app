@@ -75,31 +75,31 @@
   "@food_preferences_page_title_introduction": {
     "description": "Title for the introduction page of the food preferences wizard"
   },
-  "food_preferences_page_title_diets": "Diets",
+  "food_preferences_page_title_diets": "Δίαιτες",
   "@food_preferences_page_title_diets": {
     "description": "Title for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_title_allergies": "Allergies",
+  "food_preferences_page_title_allergies": "Αλλεργίες",
   "@food_preferences_page_title_allergies": {
     "description": "Title for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "food_preferences_page_title_unwanted_foods": "Τι δεν τρώω",
   "@food_preferences_page_title_unwanted_foods": {
     "description": "Title for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "food_preferences_page_title_foods_to_avoid": "Τι προτιμώ να αποφύγω",
   "@food_preferences_page_title_foods_to_avoid": {
     "description": "Title for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_title_environment": "Environmental preferences",
+  "food_preferences_page_title_environment": "Περιβαλλοντικές προτιμήσεις",
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_page_title_summary": "Profile ready",
+  "food_preferences_page_title_summary": "Προφίλ έτοιμο",
   "@food_preferences_page_title_summary": {
     "description": "Title for the summary/confirmation page of the food preferences wizard"
   },
-  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "food_preferences_step_prefix": "Βήμα {stepNumber}: ",
   "@food_preferences_step_prefix": {
     "description": "Step number prefix shown before the page title in the food preferences wizard",
     "placeholders": {
@@ -109,11 +109,11 @@
       }
     }
   },
-  "food_preferences_no_selection": "No selection",
+  "food_preferences_no_selection": "Καμία επιλογή",
   "@food_preferences_no_selection": {
     "description": "Text shown when no preferences are selected in a category on the summary page"
   },
-  "food_preferences_empty_state": "No attributes available for this category.",
+  "food_preferences_empty_state": "Δεν υπάρχουν διαθέσιμα χαρακτηριστικά για αυτήν την κατηγορία.",
   "@food_preferences_empty_state": {
     "description": "Text shown when a preference category has no attributes available"
   },
@@ -121,7 +121,7 @@
   "@food_preferences_error_loading": {
     "description": "Error message shown when the food preferences fail to load from the server"
   },
-  "food_preferences_summary_description": "Here is your profile:",
+  "food_preferences_summary_description": "Εδώ είναι το προφίλ σας:",
   "@food_preferences_summary_description": {
     "description": "Description text shown at the top of the preferences summary page"
   },
@@ -133,27 +133,27 @@
   "@food_preferences_page_description_diets": {
     "description": "Description for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "food_preferences_page_description_allergies": "Επιλέξτε τα αλλεργιογόνα που πρέπει να αποφεύγετε για την ασφάλεια των τροφίμων σας.",
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "food_preferences_page_description_unwanted_foods": "Υποδείξτε τα τρόφιμα ή τα συστατικά που δεν τρώτε.",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "food_preferences_page_description_foods_to_avoid": "Επιλέξτε τα τρόφιμα που προτιμάτε να αποφεύγετε χωρίς αυτό να αποτελεί αυστηρή απαγόρευση.",
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "food_preferences_page_description_environment": "Υποδείξτε τις περιβαλλοντικές προτιμήσεις σας για πιο βιώσιμες συστάσεις.",
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "food_preferences_search_ingredients_hint": "Αναζήτηση συστατικών",
   "@food_preferences_search_ingredients_hint": {
     "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
   },
-  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "food_preferences_ingredient_already_added": "Το συστατικό έχει ήδη προστεθεί",
   "@food_preferences_ingredient_already_added": {
     "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Συγχαρητήρια! Ο λογαριασμός σας μόλις δημιουργήθηκε.",
   "sign_up_page_display_name_hint": "Όνομα",
   "sign_up_page_display_name_error_empty": "Παρακαλώ εισάγετε το όνομα εμφάνισης που θέλετε να χρησιμοποιήσετε",
-  "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "Απαιτείται e-mail",
+  "sign_up_page_email_hint": "Ηλεκτρονικό Ταχυδρομείο",
+  "sign_up_page_email_error_empty": "Απαιτείται ηλεκτρονικό ταχυδρομείο",
   "sign_up_page_email_error_invalid": "Μη έγκυρο e-mail",
   "sign_up_page_username_hint": "Όνομα χρήστη: Ορατό προς όλους",
   "sign_up_page_username_error_empty": "Παρακαλώ εισάγετε ένα όνομα χρήστη",
@@ -539,16 +539,16 @@
   "myPreferences_profile_subtitle": "Διαχειριστείτε τον λογαριασμό συνεργάτη Open Food Facts.",
   "myPreferences_settings_title": "Ρυθμίσεις Εφαρμογής",
   "myPreferences_settings_subtitle": "Σκοτεινή λειτουργία, Γλώσσες…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "Δεν έχετε ορίσει ακόμα κάποια προτίμηση.",
   "myPreferences_food_title": "Διατροφικές Προτιμήσεις",
   "myPreferences_food_subtitle": "Επιλέξτε ποιες πληροφορίες σχετικά με τα τρόφιμα έχουν μεγαλύτερη σημασία για εσάς.",
   "myPreferences_food_comment": "Επιλέξτε ποιες πληροφορίες σχετικά με τα τρόφιμα έχουν μεγαλύτερη σημασία για εσάς, προκειμένου να ταξινομηθούν τα τρόφιμα σύμφωνα με τις προτιμήσεις σας, να εμφανιστούν πρώτα οι πληροφορίες που σας ενδιαφέρουν και να λάβετε περίληψη συμβατότητας. Αυτές οι προτιμήσεις τροφίμων παραμένουν στη συσκευή σας και δεν συσχετίζονται με τον λογαριασμό συνεργάτη σας στο Open Food Facts, εάν έχετε.",
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
+  "myPreferences_beauty_title": "Προτιμήσεις για καλλυντικά",
+  "myPreferences_beauty_subtitle": "Επιλέξτε ποιες πληροφορίες σχετικά με τα καλλυντικά προϊόντα έχουν μεγαλύτερη σημασία για εσάς.",
+  "myPreferences_product_title": "Προτιμήσεις για άλλα προϊόντα",
+  "myPreferences_product_subtitle": "Επιλέξτε ποιες πληροφορίες σχετικά με άλλα προϊόντα έχουν μεγαλύτερη σημασία για εσάς.",
+  "myPreferences_pet_food_title": "Προτιμήσεις για τροφή για κατοικίδια",
+  "myPreferences_pet_food_subtitle": "Επιλέξτε ποιες πληροφορίες σχετικά με τις τροφές για κατοικίδια έχουν τη μεγαλύτερη σημασία για εσάς.",
   "confirmResetPreferences": "Επαναφορά των διατροφικών σας προτιμήσεων;",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -981,7 +981,7 @@
   "@more_photos": {},
   "view_more_photo_button": "Δείτε όλες τις υπάρχουσες φωτογραφίες για αυτό το προϊόν",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "Δεν βρέθηκαν ρυθμίσεις",
   "@no_settings_found": {},
   "no_product_found": "Δε βρέθηκε προϊόν",
   "@no_product_found": {},
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Μπα…",
   "tagline_app_review_button_later": "Ρωτήστε με αργότερα",
   "tagline_feed_news_button": "Μάθετε περισσότερα",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Δεν σας αρέσει η εφαρμογή μας;",
   "app_review_negative_modal_text": "Θα μπορούσατε να αφιερώσετε λίγο χρόνο να μας πείτε γιατί;",
   "app_review_negative_modal_positive_button": "Ναι, φυσικά!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Δεν υπάρχει προϊόν σε αυτή τη λίστα",
   "no_product_in_section": "Δεν υπάρχει προϊόν σε αυτήν την ενότητα",
   "recently_seen_products": "Όλα τα προβεβλημένα προϊόντα",
   "clear": "Εκκαθάριση",
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Κατηγορία",
   "prices_category_mandatory": "Υποχρεωτικό",
   "prices_category_optional": "Προαιρετικό",
+  "prices_origins_title": "Προελεύσεις",
   "prices_category_error_mandatory": "Η κατηγορία είναι υποχρεωτική",
   "prices_barcode_reader_action": "Αναγνώστης γραμμωτού κώδικα",
   "prices_view_prices": "Δείτε τις τιμές",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "Ένα προϊόν λείπει!",
   "prices_amount_price_incorrect": "Λάθος τιμή",
   "prices_amount_price_mandatory": "Υποχρεωτική τιμή",
+  "prices_amount_update_currency": "Ενημέρωση νομίσματος",
   "prices_currency_subtitle": "Νόμισμα",
   "prices_date_subtitle": "Ημερομηνία",
   "prices_location_subtitle": "Κατάστημα",
   "prices_location_find": "Βρείτε ένα κατάστημα",
   "prices_location_mandatory": "Πρέπει να επιλέξετε ένα κατάστημα!",
   "prices_location_search_broader": "Δεν βρήκατε αυτό που ψάχνατε; Ας δοκιμάσουμε μια ευρύτερη αναζήτηση!",
+  "prices_location_open_map": "Δείτε το κατάστημα στον χάρτη",
+  "prices_location_edit": "Επιλέξτε ένα άλλο κατάστημα",
   "prices_proof_subtitle": "Επαλήθευση",
   "prices_proof_empty_title": "Κανένα πειστήριο ακόμα!",
   "prices_proof_empty_explanation": "Ξεκινήστε προσθέτοντας μια φωτογραφία μιας **απόδειξης** ή μιας **ετικέτας τιμής**!",
@@ -2770,7 +2804,7 @@
     "description": "Menu item to open the Open Prices guide"
   },
   "prices_discount_type": "Τύπος έκπτωσης",
-  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_quantity": "Έκπτωση ποσότητας",
   "prices_discount_type_sale": "Έκπτωση",
   "prices_discount_type_seasonal": "Εποχιακή",
   "prices_discount_type_loyalty_program": "Πρόγραμμα επιβράβευσης",
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} προϊόντα διαθέσιμα για άμεση σάρωση",
+  "available_for_download": "{num} Προϊόντα διαθέσιμα για άμεση σάρωση",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3976,10 +4010,10 @@
   "nutriscore_not_applicable": "Το Nutri-Score δεν είναι εφαρμόσιμο",
   "nutriscore_not_applicable_new_formula": "Το Nutri-Score δεν είναι εφαρμόσιμο (Νέος υπολογισμός)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Πράσινη βαθμολογία Α",
-  "environmental_score_b_new": "Πράσινο-Βαθμολογία Β",
-  "environmental_score_c_new": "Πράσινη βαθμολογία C",
-  "environmental_score_d_new": "Πράσινο-Βαθμολογία D",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Άγνωστο Green-Score",
   "environmental_score_not_applicable_new": "Το Green-Score δεν ισχύει",
@@ -4174,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Από το 2018, με το NutriNet-Santé, έχουν επισημανθεί οι πρώτες συνδέσεις μεταξύ **της κατανάλωσης υπερεπεξεργασμένων τροφίμων και του αυξημένου κινδύνου καρκίνου, καρδιαγγειακών παθήσεων και διαβήτη**. Σήμερα, περισσότερες από 90 μελέτες παγκοσμίως επιβεβαιώνουν αυτά τα ευρήματα.\nΟι ισχυρότερες συσχετίσεις σχετίζονται με την **παχυσαρκία, την καρδιαγγειακή θνησιμότητα και τα συμπτώματα κατάθλιψης**. Στα παιδιά, οι επιπτώσεις παρατηρούνται κυρίως στο βάρος και στις λιπιδαιμικές ανισορροπίες.",
   "guide_nova_explanations_arg6_title": "Οι χώρες συνιστούν τον περιορισμό τους",
   "guide_nova_explanations_arg6_text": "Ορισμένες χώρες χρησιμοποιούν τις ομάδες NOVA για τις διατροφικές τους οδηγίες ή στόχους, για παράδειγμα:\n\n- Οι διατροφικές οδηγίες της **🇧🇷 Βραζιλίας συνιστούν τον περιορισμό της κατανάλωσης** επεξεργασμένων τροφίμων και την αποφυγή των υπερεπεξεργασμένων τροφίμων.\n\n- Οι στόχοι της διατροφικής πολιτικής δημόσιας υγείας της **🇫🇷 Γαλλίας** για την περίοδο 2018-2022 αποσκοπούν στη **μείωση της κατανάλωσης υπερεπεξεργασμένων τροφίμων της ομάδας 4 κατά 20%**.",
-  "guide_nova_share_link": "https://gr.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-el.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4271,11 +4305,11 @@
   "guide_open_beauty_facts_scores_title": "Μια σημείωση για τη βαθμολογία",
   "guide_open_beauty_facts_scores_paragraph1": "Σε αντίθεση με τα τρόφιμα, ο κόσμος των καλλυντικών **δεν διαθέτει ένα παγκοσμίως αναγνωρισμένο, κυβερνητικά υποστηριζόμενο σύστημα βαθμολόγησης όπως το Nutri-Score**. Οι επιδράσεις των συστατικών μπορεί να είναι ιδιαίτερα προσωπικές και να εξαρτώνται από τον τύπο δέρματος, τις αλλεργίες και τις ατομικές ανησυχίες.",
   "guide_open_beauty_facts_share_link": "https://world-el.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Καλώς ορίσατε στις Ανοιχτές Τιμές!",
+  "guide_open_prices_title": "Καλώς ορίσατε στο Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Τι είναι οι τιμές ανοίγματος;",
+  "guide_open_prices_what_is_open_prices_title": "Τι είναι το Open Prices;",
   "guide_open_prices_what_is_open_prices_paragraph1": "Το Open Prices είναι ένα έργο για τη **συλλογή και κοινοποίηση τιμών προϊόντων σε όλο τον κόσμο**. Είναι ένα δημόσια διαθέσιμο σύνολο δεδομένων που μπορεί να χρησιμοποιηθεί για έρευνα, ανάλυση και πολλά άλλα. Το Open Prices αναπτύσσεται και συντηρείται από το Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4284,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Πώς λειτουργούν οι Ανοιχτές Τιμές;",
+  "guide_open_prices_how_title": "Πώς λειτουργεί το Open Prices;",
   "guide_open_prices_how_paragraph1": "**Αναζητούμε ένα σύνολο δεδομένων τιμών ανοιχτού κώδικα από το crowdsourcing**. Οι χρήστες μπορούν να προσθέσουν τιμές μέσω αυτής της διαδικτυακής εφαρμογής ή μέσω της επίσημης εφαρμογής Open Food Facts για κινητά. Οι λιανοπωλητές ή οι εφαρμογές τρίτων μπορούν επίσης να συνεισφέρουν χρησιμοποιώντας το API μας.",
   "guide_open_prices_how_arg1_title": "Συλλέξτε φωτογραφίες από τις ετικέτες τιμών στους διαδρόμους",
   "guide_open_prices_how_arg2_title": "Συλλέξτε φωτογραφίες αποδείξεων",
@@ -4404,7 +4438,7 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
-  "photo_viewer_details_original_title": "View original image",
+  "photo_viewer_details_original_title": "Προβολή αρχικής εικόνας",
   "@photo_viewer_details_original_title": {
     "description": "Label for the button to view the original full resolution image in browser"
   },
@@ -4532,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Πιθανώς μη έγκυρος γραμμωτός κώδικας",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Αφαιρέστε αυτό το προϊόν από το καρουζέλ",
   "@carousel_close_tooltip": {
@@ -5300,7 +5338,7 @@
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Ανακαλύψτε τις τιμές ανοίγματος",
+  "preferences_faq_discover_op_title": "Ανακαλύψτε το Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },

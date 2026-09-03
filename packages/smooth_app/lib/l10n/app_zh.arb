@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "恭喜！您已經成功創建帳號。",
   "sign_up_page_display_name_hint": "名称",
   "sign_up_page_display_name_error_empty": "請輸入您想要使用的顯示名稱",
-  "sign_up_page_email_hint": "電子郵件",
-  "sign_up_page_email_error_empty": "電子郵件（必填）",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "電子信箱無效",
   "sign_up_page_username_hint": "使用者名稱：公開可見",
   "sign_up_page_username_error_empty": "請填入使用者名稱",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "此图片可能已过期",
   "product_image_outdated_explanations_title": "此图片可能已过期",
-  "product_image_outdated_explanations_content": "这张照片拍摄于一年多以前。\n请检查它是否仍为最新版本。\n\n这只是一个警告。如果内容和现在仍然相同，您可以忽略此消息。",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "不太喜欢",
   "tagline_app_review_button_later": "稍后再询问我",
   "tagline_feed_news_button": "了解更多",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "您不喜欢我们的应用程序吗？",
   "app_review_negative_modal_text": "您能花点时间告诉我们原因吗？",
   "app_review_negative_modal_positive_button": "绝对是这样没错！",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "此清單裡沒有任何產品",
   "no_product_in_section": "此部門仍未有產品",
   "recently_seen_products": "All viewed products",
   "clear": "清除",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "登录或注册加入 Open Food Facts 社区",
-  "user_profile_title_id_email": "Open Food Facts 登录： {email}",
+  "user_profile_title_id_email": "Open Food Facts 登录： {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "分類",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "選修的",
+  "prices_origins_title": "產地",
   "prices_category_error_mandatory": "此類別為必填項",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "错误值",
   "prices_amount_price_mandatory": "Mandatory value",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "货币",
   "prices_date_subtitle": "日期",
   "prices_location_subtitle": "商店",
   "prices_location_find": "查找商店",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "证明",
   "prices_proof_empty_title": "尚無證據！",
   "prices_proof_empty_explanation": "首先添加**收據**或**價格標籤**的照片！",
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "请手动向我们发送电子邮件至",
-  "email_copied_to_clip_board": "电子邮件地址已复制到剪贴板",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "选择强调色",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} 产品可供立即扫描",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3976,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "绿色评分 A",
-  "environmental_score_b_new": "绿色评分 B",
-  "environmental_score_c_new": "绿色评分 C",
-  "environmental_score_d_new": "绿色评分 D",
-  "environmental_score_e_new": "绿色评分 E",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "未知Green-Score",
   "environmental_score_not_applicable_new": "Green-Score不适用",
   "nova_group_generic_new": "超加工食品 - NOVA 集团",
@@ -4532,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "从轮播中移除该产品",
   "@carousel_close_tooltip": {

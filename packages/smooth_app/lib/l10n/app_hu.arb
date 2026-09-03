@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Név",
   "sign_up_page_display_name_error_empty": "Kérjük, adja meg felhasználónevét",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail cím megadása kötelező",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Érvénytelen e-mail cím",
   "sign_up_page_username_hint": "Felhasználónév: Nyilvánosan látható",
   "sign_up_page_username_error_empty": "Adjon meg egy felhasználónevet",
@@ -818,7 +818,7 @@
   "new_product_subtitle_nova": "Az élelmiszerkategória és az összetevők kitöltésével megtudhatja",
   "new_product_desc_nova_unknown": "Az élelmiszer-feldolgozottság szintje ismeretlen",
   "new_product_title_pictures": "Új termék",
-  "new_product_title_pictures_details": "Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!",
+  "new_product_title_pictures_details": "Készítse el az alábbi fotókat, és az Open Food Facts motorja elvégzi a többi munkát!",
   "new_product_title_misc": "És pár alapvető adat…",
   "new_product_done_msg": "Köszönjük a közreműködését, {username}!",
   "@new_product_done_msg": {
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Ez a kép elavult lehet",
   "product_image_outdated_explanations_title": "Ez a kép elavult lehet",
-  "product_image_outdated_explanations_content": "Ez a kép több mint egy éve készült.\n**Ellenőrizze, hogy még mindig naprakész-e**.\n\nEz **csak figyelmeztetés**. Ha a tartalom nem változott, figyelmen kívül hagyhatja ezt az üzenetet.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Nem igazán…",
   "tagline_app_review_button_later": "Kérdezzen rá később",
   "tagline_feed_news_button": "Tudjon meg többet",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Nem tetszik az alkalmazásunk?",
   "app_review_negative_modal_text": "Rászánna pár másodpercet, hogy elmondja nekünk, miért?",
   "app_review_negative_modal_positive_button": "Igen, feltétlenül!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Nincs termék ezen a listán",
   "no_product_in_section": "Nincs termék ebben a szekcióban",
   "recently_seen_products": "Összes megtekintett termék",
   "clear": "Törlés",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Jelentkezzen be vagy regisztráljon, és csatlakozzon az Open Food Facts közösséghez",
-  "user_profile_title_id_email": "Open Food Facts bejelentkezés: {email}",
+  "user_profile_title_id_email": "Open Food Facts bejelentkezés: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategória",
   "prices_category_mandatory": "Kötelező",
   "prices_category_optional": "Opcionális",
+  "prices_origins_title": "Származás",
   "prices_category_error_mandatory": "A kategória kitöltése kötelező",
   "prices_barcode_reader_action": "Vonalkódolvasó",
   "prices_view_prices": "Árak megtekintése",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "Egy termék hiányzik!",
   "prices_amount_price_incorrect": "Hibás érték",
   "prices_amount_price_mandatory": "Kötelező érték",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Pénznem",
   "prices_date_subtitle": "Dátum",
   "prices_location_subtitle": "Bolt",
   "prices_location_find": "Bolt keresése",
   "prices_location_mandatory": "Ki kell választani egy boltot!",
   "prices_location_search_broader": "Nem találta, amit keresett? Próbáljunk meg egy átfogóbb keresést!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bizonylat",
   "prices_proof_empty_title": "Még nincsenek bizonylatok!",
   "prices_proof_empty_explanation": "Kezdje egy **nyugta** vagy egy **árcédula** fotójának hozzáadásával!",
@@ -2765,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Tudjon meg többet a nyitott árakról",
+  "prices_menu_know_more": "Tudjon meg többet az Open Prices-ról",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Kérjük, manuálisan küldjön e-mailt a címre",
-  "email_copied_to_clip_board": "E-mail vágólapra másolva",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Kiemelt szín kiválasztása",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} termék elérhető azonnali leolvasáshoz",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Termék eltávolítása a lapozóból",
   "@carousel_close_tooltip": {
@@ -5292,15 +5330,15 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Fedezze fel a nyílt szépségápolási tényeket",
+  "preferences_faq_discover_obf_title": "Fedezze fel az Open Beauty Facts-ot",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Fedezze fel az Open állateledel-információkat",
+  "preferences_faq_discover_opff_title": "Fedezze fel az Open Pet Food Facts-ot",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Fedezze fel a nyitott árakat",
+  "preferences_faq_discover_op_title": "Fedezze fel az Open Prices-t",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },

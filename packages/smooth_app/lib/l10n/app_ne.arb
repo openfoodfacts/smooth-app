@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "This image may be outdated",
   "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "There is no product in this list",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "All viewed products",
   "clear": "Clear",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "वैकल्पिक",
+  "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "श्रेणी अनिवार्य छ",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Currency",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "अहिलेसम्म कुनै प्रमाण छैन!",
   "prices_proof_empty_explanation": "**रसिद** वा **मूल्य ट्याग** को फोटो थपेर सुरु गर्नुहोस्!",
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Please send us manually an email to",
-  "email_copied_to_clip_board": "Email copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Select Accent Color",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scaning",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3976,13 +4010,13 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "हरियो-स्कोर A",
-  "environmental_score_b_new": "हरियो-स्कोर B",
-  "environmental_score_c_new": "हरियो-स्कोर C",
-  "environmental_score_d_new": "हरियो-स्कोर D",
-  "environmental_score_e_new": "हरियो-स्कोर E",
-  "environmental_score_unknown_new": "अज्ञात हरियो-स्कोर",
-  "environmental_score_not_applicable_new": "हरियो-स्कोर लागू हुँदैन",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "अज्ञात Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score लागू हुँदैन",
   "nova_group_generic_new": "अति-प्रशोधित खानाहरू - NOVA समूहहरू",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4081,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "ग्रिन स्कोर के हो?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "ग्रीन-स्कोर एउटा लोगो हो जसले तपाईंलाई **खाद्य पदार्थको वातावरणीय प्रभाव** बारे जानकारी गराउने लक्ष्य राख्छ।",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score एउटा लोगो हो जसले तपाईंलाई **खाद्य पदार्थको वातावरणीय प्रभाव** बारे जानकारी गराउने लक्ष्य राख्छ।",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4089,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "ग्रीन-स्कोर लोगोहरू",
+  "guide_greenscore_logos_caption": "Green-Score लोगोहरू",
   "guide_greenscore_lca_title": "मूल कुरा: जीवन चक्र मूल्याङ्कन (LCA)",
   "guide_greenscore_lca_arg1_title": "खाद्य वर्गहरूको वैज्ञानिक मूल्याङ्कन",
   "guide_greenscore_lca_arg1_text1": "प्रत्येक उत्पादन वर्गको लागि, Agribalyse वातावरणीय डाटाबेस (ADEME र INRAE द्वारा डिजाइन गरिएको) बाट डेटा प्रयोग गरेर **बेन्चमार्क** स्कोर स्थापित गरिन्छ।",
@@ -4134,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "तपाईंसँग शक्ति छ!",
   "guide_greenscore_better_product_arg2_text": "खुशीको खबर यो हो कि यसले हामीलाई परिवर्तन सिर्जना गर्ने शक्तिशाली तरिका दिन्छ।\n**हामी प्रत्येकले वर्षमा लगभग १,००० खाना खान्छौं**। त्यो १,००० अवसरहरू हुन् **ग्रहको लागि राम्रो भविष्य छनौट गर्ने**!",
   "guide_greenscore_better_product_arg3_title": "जिम्मेवार हुन र निर्णय लिन मद्दत गर्छ",
-  "guide_greenscore_better_product_arg3_text": "दिगो खाना छनौट गर्नु जटिल लाग्न सक्छ। लेबलहरू भ्रामक हुन्छन् र जानकारी प्रायः हराउँछ। ग्रीन-स्कोर यसलाई सरल बनाउनको लागि सिर्जना गरिएको थियो, जसले तपाईंलाई खाद्य उत्पादनहरूको लागि **स्पष्ट**, **विज्ञानमा आधारित**, र **पारदर्शी** वातावरणीय मूल्याङ्कन दिन्छ, जहाँ तपाईंलाई आवश्यक पर्दछ: जब तपाईं किनमेल गर्नुहुन्छ।",
+  "guide_greenscore_better_product_arg3_text": "दिगो खाना छनौट गर्नु जटिल लाग्न सक्छ। लेबलहरू भ्रामक हुन्छन् र जानकारी प्रायः हराउँछ। Green-Score यसलाई सरल बनाउनको लागि सिर्जना गरिएको थियो, जसले तपाईंलाई खाद्य उत्पादनहरूको लागि **स्पष्ट**, **विज्ञानमा आधारित**, र **पारदर्शी** वातावरणीय मूल्याङ्कन दिन्छ, जहाँ तपाईंलाई आवश्यक पर्दछ: जब तपाईं किनमेल गर्नुहुन्छ।",
   "guide_greenscore_better_product_arg4_title": "पारदर्शिता",
-  "guide_greenscore_better_product_arg4_text": "स्वामित्व लेबलहरू भन्दा फरक, ग्रीन-स्कोर गणना **पूर्ण रूपमा खुला** छ** र **जो कोही पनि द्वारा प्रमाणित** गर्न सकिन्छ।",
+  "guide_greenscore_better_product_arg4_text": "स्वामित्व लेबलहरू भन्दा फरक, Green-Score गणना **पूर्ण रूपमा खुला** छ र **जो कोही पनि द्वारा प्रमाणित** गर्न सकिन्छ।",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4533,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Remove this product from the carousel",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4740,7 +4778,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "किन मूल्यहरू?",
-  "prices_explanation_card_line1": "**ओपन प्राइस** विश्वभरका उत्पादनहरूको मूल्य सङ्कलन र साझेदारी गर्ने परियोजना हो 🌍। ओपन प्राइस ओपन फूड फ्याक्ट्सद्वारा विकसित र मर्मत गरिएको हो।",
+  "prices_explanation_card_line1": "**Open Prices** विश्वभरका उत्पादनहरूको मूल्य सङ्कलन र साझेदारी गर्ने परियोजना हो 🌍। Open Prices Open Food Facts द्वारा विकसित र मर्मत गरिएको हो।",
   "explanation_card_learn_more_button": "Learn more",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5079,7 +5117,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "सेटिङ खोज्नुहोस् (जस्तै न्यूट्री-स्कोर)",
+  "preferences_app_bar_search_hint": "सेटिङ खोज्नुहोस् (जस्तै Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -5115,7 +5153,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "ओपन फूड फ्याक्ट्स भनेको **सबैले बनाएको, सबैका लागि** खाद्य उत्पादनहरूको डाटाबेस हो।\nतपाईं यसलाई राम्रो खाना छनौट गर्न प्रयोग गर्न सक्नुहुन्छ, र यो **खुला डाटा** भएकोले, जो कोहीले पनि **कुनै पनि उद्देश्यका लागि पुन: प्रयोग गर्न सक्छन्**।",
+  "preferences_legal_header": "Open Food Facts भनेको **सबैले बनाएको, सबैका लागि** खाद्य उत्पादनहरूको डाटाबेस हो। तपाईं यसलाई राम्रो खाना छनौट गर्न प्रयोग गर्न सक्नुहुन्छ, र यो **खुला डाटा** भएकोले, जो कोहीले पनि **कुनै पनि उद्देश्यका लागि पुन: प्रयोग गर्न सक्छन्**।",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -5179,7 +5217,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "ओपन फूड फ्याक्ट्स वेबसाइटमा",
+  "preferences_on_off_website_subtitle": "Open Food Facts वेबसाइटमा",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5276,7 +5314,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "न्यूट्री-स्कोर कसरी गणना गरिन्छ पत्ता लगाउनुहोस्",
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score कसरी गणना गरिन्छ पत्ता लगाउनुहोस्",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5288,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Open Food तथ्यहरू पत्ता लगाउनुहोस्।",
+  "preferences_faq_discover_off_title": "Open Food Facts पत्ता लगाउनुहोस्",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5312,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "द ओपन फूड फ्याक्ट्स एनजीओ",
+  "preferences_faq_off_ngo_title": "Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5456,7 +5494,7 @@
   "@preferences_contributions_products_added_title": {
     "description": "Title for new products added tile"
   },
-  "preferences_contributions_new_products_subtitle": "ओपन फूड फ्याक्ट्समा मैले थपेका नयाँ उत्पादनहरू",
+  "preferences_contributions_new_products_subtitle": "Open Food Facts मा मैले थपेका नयाँ उत्पादनहरू",
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
@@ -5484,7 +5522,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "तपाईंको देशमा न्यूट्री-स्कोर र ग्रीन-स्कोर गणना गर्न मद्दत गर्नुहोस्",
+  "preferences_contributions_categorize_subtitle": "तपाईंको देशमा Nutri-Score र Green-Score गणना गर्न मद्दत गर्नुहोस्",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5508,7 +5546,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "खुला मूल्य समुदायद्वारा थपिएका नवीनतम मूल्यहरू",
+  "preferences_prices_newest_subtitle": "Open Prices समुदायद्वारा थपिएका नवीनतम मूल्यहरू",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5516,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "खुला मूल्य मेट्रिक्स",
+  "preferences_prices_metrics_title": "Open Prices मेट्रिक्स",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5560,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "खानाको तथ्यहरू खोल्न मद्दत गर्ने सरल तरिकाहरू",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts लाई मद्दत गर्ने सरल तरिकाहरू",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5760,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "खाद्य तथ्य प्रयोगशालाहरू खोल्नुहोस्",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5768,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "आफ्नो भाषामा खुला खानाका तथ्यहरू ल्याउनुहोस्",
+  "preferences_contribute_translate_header": "आफ्नो भाषामा Open Food Facts ल्याउनुहोस्",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

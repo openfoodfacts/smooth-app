@@ -75,7 +75,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
     if (knowledgePanelTitleElement.iconUrl != null) {
       iconWidget = <Widget>[
         Expanded(
-          flex: IconWidgetSizer.getIconFlex(),
+          flex: IconWidgetSizer().getIconFlex(),
           child: _KnowledgePanelTitleIcon(
             url: knowledgePanelTitleElement.iconUrl!,
             backgroundColor: backgroundIconColor,
@@ -108,7 +108,7 @@ class KnowledgePanelTitleCard extends StatelessWidget {
             else
               const SizedBox(width: VERY_SMALL_SPACE),
             Expanded(
-              flex: IconWidgetSizer.getRemainingWidgetFlex(),
+              flex: IconWidgetSizer().getRemainingWidgetFlex(),
               child: LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
                   final bool hasSubtitle =

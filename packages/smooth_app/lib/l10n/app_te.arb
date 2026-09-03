@@ -276,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "మీ దేశంలో ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ మెరుగుపరచడంలో సహాయపడండి",
+  "help_improve_country": "మీ దేశంలో Open Food Facts మెరుగుపరచడంలో సహాయపడండి",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "అభినందనలు! మీ ఖాతా ఇప్పుడే సృష్టించబడింది.",
   "sign_up_page_display_name_hint": "పేరు",
   "sign_up_page_display_name_error_empty": "దయచేసి మీరు ఉపయోగించాలనుకుంటున్న డిస్‌ప్లే పేరును నమోదు చేయండి.",
-  "sign_up_page_email_hint": "ఇ-మెయిల్",
-  "sign_up_page_email_error_empty": "ఈ-మెయిల్ అవసరం",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "చెల్లని ఈ-మెయిల్",
   "sign_up_page_username_hint": "యూజర్ పేరు: పబ్లిక్‌గా కనిపిస్తుంది",
   "sign_up_page_username_error_empty": "దయచేసి వినియోగదారు పేరును నమోదు చేయండి.",
@@ -486,7 +486,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "అనువాదాలు ఈ ప్రాజెక్టు యొక్క కీలకమైన పనులలో ఒకటి.",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ కు మీ నైపుణ్యాలను అందించండి. స్కిల్ పూల్ లో చేరండి!",
+  "contribute_join_skill_pool": "Open Food Facts కు మీ నైపుణ్యాలను అందించండి. స్కిల్ పూల్ లో చేరండి!",
   "contribute_share_header": "మీ స్నేహితులతో ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ పంచుకోండి",
   "@contribute_share_header": {},
   "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -729,7 +729,7 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "తెలియని న్యూట్రి-స్కోర్ మరియు గ్రీన్ స్కోర్‌తో ఒక దృష్టాంతం",
+  "new_product_dialog_illustration_description": "తెలియని Nutri-Score మరియు గ్రీన్ స్కోర్‌తో ఒక దృష్టాంతం",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -809,7 +809,7 @@
   "nutritional_facts_input_button_label": "పోషకాహార వాస్తవాలను పూరించండి",
   "nutritional_facts_added": "పోషకాహార వాస్తవాలు జోడించబడ్డాయి",
   "categories_added": "వర్గాలు జోడించబడ్డాయి",
-  "new_product_title_nutriscore": "న్యూట్రి-స్కోర్‌ను లెక్కించండి",
+  "new_product_title_nutriscore": "Nutri-Scoreను లెక్కించండి",
   "new_product_subtitle_nutriscore": "కనీసం ఒక వర్గం మరియు పోషక విలువలను పూరించడం ద్వారా మాకు సహాయం చేయండి.",
   "new_product_title_environmental_score": "గ్రీన్ స్కోర్‌ను లెక్కించండి",
   "new_product_subtitle_environmental_score": "కనీసం ఒక వర్గాన్ని పూరించడం ద్వారా దాన్ని పొందండి.",
@@ -818,7 +818,7 @@
   "new_product_subtitle_nova": "ఆహార వర్గం మరియు పదార్థాలను పూరించడం ద్వారా దాన్ని పొందండి",
   "new_product_desc_nova_unknown": "ఆహార ప్రాసెసింగ్ స్థాయి తెలియదు",
   "new_product_title_pictures": "కొత్త ఉత్పత్తి",
-  "new_product_title_pictures_details": "దయచేసి ఈ క్రింది ఫోటోలను తీయండి, ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ ఇంజిన్ మిగిలిన వాటిని సరిచేయగలదు!",
+  "new_product_title_pictures_details": "దయచేసి ఈ క్రింది ఫోటోలను తీయండి, Open Food Facts ఇంజిన్ మిగిలిన వాటిని సరిచేయగలదు!",
   "new_product_title_misc": "మరియు కొన్ని ప్రాథమిక డేటా…",
   "new_product_done_msg": "“{username}” కి మీ సహకారానికి ధన్యవాదాలు!",
   "@new_product_done_msg": {
@@ -835,7 +835,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "న్యూట్రి-స్కోర్, గ్రీన్ స్కోర్ & అల్ట్రా-ప్రాసెసింగ్ (NOVA) లను గణించడానికి ఇప్పుడే 3 ప్రశ్నలకు సమాధానం ఇవ్వడానికి నొక్కండి!",
+  "hey_incomplete_product_message": "Nutri-Score, గ్రీన్ స్కోర్ & అల్ట్రా-ప్రాసెసింగ్ (NOVA) లను గణించడానికి ఇప్పుడే 3 ప్రశ్నలకు సమాధానం ఇవ్వడానికి నొక్కండి!",
   "hey_incomplete_product_message_beauty": "ఈ సౌందర్య సాధనాన్ని విశ్లేషించడంలో సహాయపడే 2 ప్రశ్నలకు సమాధానం ఇవ్వడానికి ఇప్పుడే నొక్కండి!",
   "hey_incomplete_product_message_pet_food": "ఈ పెంపుడు జంతువుల ఆహార ఉత్పత్తిని విశ్లేషించడంలో సహాయపడే 3 ప్రశ్నలకు సమాధానం ఇవ్వడానికి ఇప్పుడే నొక్కండి!",
   "hey_incomplete_product_message_product": "ఈ ఉత్పత్తిని పూర్తి చేయడంలో సహాయపడటానికి ఇప్పుడే నొక్కండి!",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "ఈ చిత్రం పాతది కావచ్చు.",
   "product_image_outdated_explanations_title": "ఈ చిత్రం పాతది కావచ్చు.",
-  "product_image_outdated_explanations_content": "ఈ చిత్రం ఒక సంవత్సరం కంటే ఎక్కువ కాలం క్రితం తీయబడింది.\n**దయచేసి ఇది ఇంకా తాజాగా ఉందో లేదో తనిఖీ చేయండి**.\n\nఇది **కేవలం హెచ్చరిక**. కంటెంట్ ఇప్పటికీ అలాగే ఉంటే, మీరు ఈ సందేశాన్ని విస్మరించవచ్చు.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "నిజంగా కాదు…",
   "tagline_app_review_button_later": "నన్ను తర్వాత అడుగు.",
   "tagline_feed_news_button": "మరింత తెలుసుకోండి",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "మీకు మా యాప్ నచ్చలేదా?",
   "app_review_negative_modal_text": "కొన్ని సెకన్లు తీసుకుని ఎందుకో చెప్పగలరా?",
   "app_review_negative_modal_positive_button": "అవును, ఖచ్చితంగా!",
@@ -1187,19 +1217,19 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "న్యూట్రి-స్కోర్‌ను లెక్కించడానికి ఒక వర్గాన్ని జోడించండి.",
+  "product_improvement_add_category": "Nutri-Scoreను లెక్కించడానికి ఒక వర్గాన్ని జోడించండి.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "న్యూట్రి-స్కోర్‌ను లెక్కించడానికి పోషకాహార వాస్తవాలను జోడించండి.",
+  "product_improvement_add_nutrition_facts": "Nutri-Scoreను లెక్కించడానికి పోషకాహార వాస్తవాలను జోడించండి.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "న్యూట్రి-స్కోర్‌ను లెక్కించడానికి పోషకాహార వాస్తవాలు మరియు ఒక వర్గాన్ని జోడించండి.",
+  "product_improvement_add_nutrition_facts_and_category": "Nutri-Scoreను లెక్కించడానికి పోషకాహార వాస్తవాలు మరియు ఒక వర్గాన్ని జోడించండి.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "ఈ ఉత్పత్తికి న్యూట్రి-స్కోర్‌ను లెక్కించలేము, ఇది ప్రామాణికం కాని వర్గం వల్ల కావచ్చు. ఇది ఒక లోపంగా పరిగణించబడితే, దయచేసి మమ్మల్ని సంప్రదించండి.",
+  "product_improvement_categories_but_no_nutriscore": "ఈ ఉత్పత్తికి Nutri-Scoreను లెక్కించలేము, ఇది ప్రామాణికం కాని వర్గం వల్ల కావచ్చు. ఇది ఒక లోపంగా పరిగణించబడితే, దయచేసి మమ్మల్ని సంప్రదించండి.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "ఈ జాబితాలో ఏ ఉత్పత్తి లేదు.",
   "no_product_in_section": "ఈ విభాగంలో ఏ ఉత్పత్తి లేదు.",
   "recently_seen_products": "చూసిన అన్ని ఉత్పత్తులు",
   "clear": "తొలగింపు పూర్తయింది",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ కమ్యూనిటీలో చేరడానికి సైన్-ఇన్ చేయండి లేదా సైన్-అప్ చేయండి",
-  "user_profile_title_id_email": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ లాగిన్: {email}",
+  "user_profile_title_id_email": "Open Food Facts లాగిన్: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1802,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "న్యూట్రి-స్కోర్, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "విభాగాలు",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ఐచ్ఛికం",
+  "prices_origins_title": "మూలాలు",
   "prices_category_error_mandatory": "వర్గం తప్పనిసరి",
   "prices_barcode_reader_action": "బార్‌కోడ్ రీడర్",
   "prices_view_prices": "ధరలను చూడండి",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "ఒక ఉత్పత్తి లేదు!",
   "prices_amount_price_incorrect": "తప్పు విలువ",
   "prices_amount_price_mandatory": "తప్పనిసరి విలువ",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "కరెన్సీ",
   "prices_date_subtitle": "తేదీ",
   "prices_location_subtitle": "షాప్",
   "prices_location_find": "దుకాణాన్ని కనుగొనండి",
   "prices_location_mandatory": "మీరు ఒక దుకాణాన్ని ఎంచుకోవాలి!",
   "prices_location_search_broader": "మీరు వెతుకుతున్నది దొరకలేదా? విస్తృత శోధనను ప్రయత్నిద్దాం!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "రుజువు",
   "prices_proof_empty_title": "ఇంకా రుజువు లేదు!",
   "prices_proof_empty_explanation": "**రసీదు** యొక్క ఫోటో లేదా **ధర ట్యాగ్** జోడించడం ద్వారా ప్రారంభించండి!",
@@ -2725,10 +2759,10 @@
   "prices_add_validation_error": "ధ్రువీకరణ లోపం",
   "prices_privacy_warning_title": "గోప్యతా హెచ్చరిక",
   "prices_unknown_product": "తెలియని ఉత్పత్తి",
-  "prices_privacy_warning_main_message": "ధరలు **వారు సూచించే స్టోర్‌తో పాటు పబ్లిక్‌గా ఉంటాయి**.\n\nఅది మీ ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ మారుపేరు గురించి తెలిసిన వ్యక్తులకు వీటిని అనుమతించవచ్చు:\n",
+  "prices_privacy_warning_main_message": "ధరలు **వారు సూచించే స్టోర్‌తో పాటు పబ్లిక్‌గా ఉంటాయి**.  అది మీ Open Food Facts మారుపేరు గురించి తెలిసిన వ్యక్తులకు వీటిని అనుమతించవచ్చు: ",
   "prices_privacy_warning_message_bullet_1": "మీరు ఏ ప్రాంతంలో నివసిస్తున్నారో ఊహించండి",
   "prices_privacy_warning_message_bullet_2": "మీరు ఏమి కొంటున్నారో తెలుసుకోండి",
-  "prices_privacy_warning_sub_message": "మీకు అది ఇబ్బందిగా ఉంటే, దయచేసి మీ మారుపేరును మార్చుకోండి లేదా కొత్త ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ ఖాతాను సృష్టించి దానితో యాప్‌లోకి లాగిన్ అవ్వండి.",
+  "prices_privacy_warning_sub_message": "మీకు అది ఇబ్బందిగా ఉంటే, దయచేసి మీ మారుపేరును మార్చుకోండి లేదా కొత్త Open Food Facts ఖాతాను సృష్టించి దానితో యాప్‌లోకి లాగిన్ అవ్వండి.",
   "i_refuse": "నేను నిరాకరిస్తున్నాను",
   "i_accept": "నేను అంగీకరిస్తున్నాను",
   "prices_currency_change_proposal_title": "కరెన్సీ మార్చాలా?",
@@ -2765,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "ఓపెన్ ధరల గురించి మరింత తెలుసుకోండి",
+  "prices_menu_know_more": "Open Prices గురించి మరింత తెలుసుకోండి",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "దయచేసి మాకు మాన్యువల్‌గా ఇమెయిల్ పంపండి",
-  "email_copied_to_clip_board": "ఇమెయిల్ క్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "యాక్సెంట్ రంగును ఎంచుకోండి",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "తక్షణ స్కానింగ్ కోసం అందుబాటులో ఉన్న {num} ఉత్పత్తులు",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3956,12 +3990,12 @@
     "description": "Button description to create a new list (long sentence)"
   },
   "nutriscore_generic": "Nutri-Score",
-  "nutriscore_a": "న్యూట్రి-స్కోర్ A",
-  "nutriscore_b": "న్యూట్రి-స్కోర్ బి",
-  "nutriscore_c": "న్యూట్రి-స్కోర్ సి",
-  "nutriscore_d": "న్యూట్రి-స్కోర్ డి",
-  "nutriscore_e": "న్యూట్రి-స్కోర్ E",
-  "nutriscore_new_formula": "న్యూట్రి-స్కోర్ {letter} (కొత్త గణన)",
+  "nutriscore_a": "Nutri-Score A",
+  "nutriscore_b": "Nutri-Score B",
+  "nutriscore_c": "Nutri-Score C",
+  "nutriscore_d": "Nutri-Score D",
+  "nutriscore_e": "Nutri-Score E",
+  "nutriscore_new_formula": "Nutri-Score {letter} (కొత్త గణన)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -3970,33 +4004,33 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "న్యూట్రి-స్కోర్ (కొత్త గణన)",
-  "nutriscore_unknown": "తెలియని న్యూట్రి-స్కోర్",
-  "nutriscore_unknown_new_formula": "తెలియని న్యూట్రి-స్కోర్ (కొత్త గణన)",
-  "nutriscore_not_applicable": "న్యూట్రి-స్కోర్ వర్తించదు",
-  "nutriscore_not_applicable_new_formula": "న్యూట్రి-స్కోర్ వర్తించదు (కొత్త గణన)",
+  "nutriscore_new_formula_title": "Nutri-Score (కొత్త గణన)",
+  "nutriscore_unknown": "తెలియని Nutri-Score",
+  "nutriscore_unknown_new_formula": "తెలియని Nutri-Score (కొత్త గణన)",
+  "nutriscore_not_applicable": "Nutri-Score వర్తించదు",
+  "nutriscore_not_applicable_new_formula": "Nutri-Score వర్తించదు (కొత్త గణన)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "గ్రీన్-స్కోర్ A",
-  "environmental_score_b_new": "గ్రీన్-స్కోర్ బి",
-  "environmental_score_c_new": "గ్రీన్-స్కోర్ సి",
-  "environmental_score_d_new": "గ్రీన్-స్కోర్ D",
-  "environmental_score_e_new": "గ్రీన్-స్కోర్ E",
-  "environmental_score_unknown_new": "తెలియని గ్రీన్-స్కోర్",
-  "environmental_score_not_applicable_new": "గ్రీన్-స్కోర్ వర్తించదు",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "తెలియని Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score వర్తించదు",
   "nova_group_generic_new": "అల్ట్రా-ప్రాసెస్డ్ ఆహారాలు - NOVA సమూహాలు",
-  "nova_group_1": "నోవా గ్రూప్ 1",
-  "nova_group_2": "నోవా గ్రూప్ 2",
-  "nova_group_3": "నోవా గ్రూప్ 3",
-  "nova_group_4": "నోవా గ్రూప్ 4",
+  "nova_group_1": "NOVA గ్రూప్ 1",
+  "nova_group_2": "NOVA గ్రూప్ 2",
+  "nova_group_3": "NOVA గ్రూప్ 3",
+  "nova_group_4": "NOVA గ్రూప్ 4",
   "nova_group_unknown": "తెలియని NOVA గ్రూప్",
   "nutrition_facts": "పోషక స్థాయిలు",
   "faq_title_partners": "NGO భాగస్వాములు & పోషకులు",
-  "faq_title_vision": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ విజన్, మిషన్, విలువలు మరియు కార్యక్రమాలు",
-  "faq_title_install_beauty": "కాస్మెటిక్ డేటాబేస్ సృష్టించడానికి ఓపెన్ బ్యూటీ ఫ్యాక్ట్స్‌ను ఇన్‌స్టాల్ చేయండి.",
-  "faq_title_install_pet": "పెంపుడు జంతువుల ఆహార డేటాబేస్‌ను సృష్టించడానికి ఓపెన్ పెట్ ఫుడ్ ఫ్యాక్ట్‌లను ఇన్‌స్టాల్ చేయండి.",
+  "faq_title_vision": "Open Food Facts విజన్, మిషన్, విలువలు మరియు కార్యక్రమాలు",
+  "faq_title_install_beauty": "కాస్మెటిక్ డేటాబేస్ సృష్టించడానికి Open Beauty Factsను ఇన్‌స్టాల్ చేయండి.",
+  "faq_title_install_pet": "పెంపుడు జంతువుల ఆహార డేటాబేస్‌ను సృష్టించడానికి Open Pet Food Factsను ఇన్‌స్టాల్ చేయండి.",
   "faq_title_install_product": "వస్తువుల జీవితకాలాన్ని పొడిగించడానికి ఉత్పత్తుల డేటాబేస్‌ను రూపొందించడానికి ఓపెన్ ప్రొడక్ట్స్ ఫ్యాక్ట్‌లను ఇన్‌స్టాల్ చేయండి.",
-  "faq_nutriscore_nutriscore": "న్యూట్రి-స్కోర్ యొక్క కొత్త గణన: కొత్తగా ఏమి ఉంది?",
-  "contact_title_pro_page": "ప్రో? ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్‌లో మీ ఉత్పత్తులను దిగుమతి చేసుకోండి",
+  "faq_nutriscore_nutriscore": "Nutri-Score యొక్క కొత్త గణన: కొత్తగా ఏమి ఉంది?",
+  "contact_title_pro_page": "ప్రో? Open Food Factsలో మీ ఉత్పత్తులను దిగుమతి చేసుకోండి",
   "contact_title_pro_email": "నిర్మాత సంప్రదించండి",
   "contact_title_press_page": "పేజీని నొక్కండి",
   "contact_title_press_email": "కాంటాక్ట్ నొక్కండి",
@@ -4069,8 +4103,8 @@
   "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
   "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
-  "guide_nutriscore_v2_where_title": "కొత్త న్యూట్రి-స్కోర్ గణనను ఎక్కడ కనుగొనాలి?",
-  "guide_nutriscore_v2_where_paragraph1": "న్యూట్రి-స్కోర్ 7 దేశాలలో వర్తించబడుతుంది: ఫ్రాన్స్, జర్మనీ, బెల్జియం, స్పెయిన్, లక్సెంబర్గ్, నెదర్లాండ్స్ మరియు స్విట్జర్లాండ్.",
+  "guide_nutriscore_v2_where_title": "కొత్త Nutri-Score గణనను ఎక్కడ కనుగొనాలి?",
+  "guide_nutriscore_v2_where_paragraph1": "Nutri-Score 7 దేశాలలో వర్తించబడుతుంది: ఫ్రాన్స్, జర్మనీ, బెల్జియం, స్పెయిన్, లక్సెంబర్గ్, నెదర్లాండ్స్ మరియు స్విట్జర్లాండ్.",
   "guide_nutriscore_v2_where_paragraph2": "డిక్రీ సంతకం చేసిన తర్వాత తయారీదారులు పాత గణనను కొత్త దానితో భర్తీ చేయడానికి **గరిష్టంగా **2 సంవత్సరాలు** సమయం ఇస్తారు.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
   "guide_nutriscore_v2_unchanged_title": "What doesn't change",
@@ -4081,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "గ్రీన్ స్కోర్ అంటే ఏమిటి?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "గ్రీన్-స్కోర్ అనేది ఆహారం యొక్క **పర్యావరణ ప్రభావం** గురించి మీకు తెలియజేయడానికి ఉద్దేశించిన లోగో.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score అనేది ఆహారం యొక్క **పర్యావరణ ప్రభావం** గురించి మీకు తెలియజేయడానికి ఉద్దేశించిన లోగో.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4089,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "గ్రీన్-స్కోర్ లోగోలు",
+  "guide_greenscore_logos_caption": "Green-Score లోగోలు",
   "guide_greenscore_lca_title": "ముఖ్యాంశం: జీవిత చక్ర అంచనా (LCA)",
   "guide_greenscore_lca_arg1_title": "ఆహార వర్గాల శాస్త్రీయ మూల్యాంకనం",
   "guide_greenscore_lca_arg1_text1": "ప్రతి ఉత్పత్తి వర్గానికి, అగ్రిబాలిస్ పర్యావరణ డేటాబేస్ (ADEME మరియు INRAE చే రూపొందించబడినది) నుండి డేటాను ఉపయోగించి **బెంచ్‌మార్క్** స్కోర్ ఏర్పాటు చేయబడింది.",
@@ -4122,8 +4156,8 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
   "guide_greenscore_bonuses_penalties_arg4_text": "**ప్యాకేజింగ్ యొక్క **వృత్తాకారం** (రీసైకిల్ చేయబడిన ముడి పదార్థాల వాడకం మరియు పునర్వినియోగపరచదగినది) మరియు ఓవర్‌ప్యాకింగ్‌ను పరిగణనలోకి తీసుకోవడానికి **జరిమానా** లెక్కించబడుతుంది.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "గ్రీన్-స్కోర్‌ను ఖచ్చితంగా లెక్కించడానికి, **ప్యాకేజింగ్‌లో తప్పనిసరిగా పేర్కొనబడని సమాచారం** (ప్రతి పదార్ధం యొక్క మూలం మరియు ఖచ్చితమైన శాతం వంటివి) లేదా అరుదుగా ఉపయోగపడే రూపంలో లభించే సమాచారం (ఉపయోగించిన ప్లాస్టిక్‌ల యొక్క ఖచ్చితమైన రకాలతో ప్యాకేజింగ్‌లోని అన్ని భాగాల జాబితా వంటివి) కలిగి ఉండటం అవసరం.",
-  "guide_greenscore_transparency_intro2": "**ఈ సమాచారం ఇంకా అందుబాటులో లేనప్పుడు సగటు విలువలు ఉపయోగించబడతాయి**, కానీ గ్రీన్-స్కోర్‌కి మరియు అనేక ఇతర ఉపయోగాలకు కూడా చాలా ఉపయోగకరంగా ఉండే ఈ సమాచారాన్ని సేకరించడంలో మాకు సహాయం చేయమని మేము ఇప్పుడు అందరినీ కోరుతున్నాము.",
+  "guide_greenscore_transparency_intro1": "Green-Scoreను ఖచ్చితంగా లెక్కించడానికి, **ప్యాకేజింగ్‌లో తప్పనిసరిగా పేర్కొనబడని సమాచారం** (ప్రతి పదార్ధం యొక్క మూలం మరియు ఖచ్చితమైన శాతం వంటివి) లేదా అరుదుగా ఉపయోగపడే రూపంలో లభించే సమాచారం (ఉపయోగించిన ప్లాస్టిక్‌ల యొక్క ఖచ్చితమైన రకాలతో ప్యాకేజింగ్‌లోని అన్ని భాగాల జాబితా వంటివి) కలిగి ఉండటం అవసరం.",
+  "guide_greenscore_transparency_intro2": "**ఈ సమాచారం ఇంకా అందుబాటులో లేనప్పుడు సగటు విలువలు ఉపయోగించబడతాయి**, కానీ Green-Scoreకి మరియు అనేక ఇతర ఉపయోగాలకు కూడా చాలా ఉపయోగకరంగా ఉండే ఈ సమాచారాన్ని సేకరించడంలో మాకు సహాయం చేయమని మేము ఇప్పుడు అందరినీ కోరుతున్నాము.",
   "guide_greenscore_transparency_arg1_title": "పౌరులు ఎలా సహాయపడగలరు?",
   "guide_greenscore_transparency_arg1_text": "ఉత్పత్తులపై ఉన్న లేదా వాటి నుండి తీసుకోగల సమాచారాన్ని సేకరించి, నిర్మాణం చేయడంలో అందరు పౌరులు మాకు సహాయం చేయగలరు, **ప్యాకేజింగ్**పై సమాచారం: \"మిషన్ ఎంబాలేజెస్\": అన్ని ఆహార ఉత్పత్తుల కోసం ప్యాకేజింగ్ యొక్క పెద్ద-స్థాయి సహకార జాబితా (ఫ్రెంచ్‌లో).",
   "guide_greenscore_transparency_arg2_title": "తయారీదారులు ఎలా సహాయపడగలరు",
@@ -4134,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "మీకు శక్తి ఉంది!",
   "guide_greenscore_better_product_arg2_text": "శుభవార్త ఏమిటంటే ఇది మార్పును సృష్టించడానికి మనకు శక్తివంతమైన మార్గాన్ని అందిస్తుంది.\n**మనలో ప్రతి ఒక్కరూ ప్రతి సంవత్సరం 1,000 భోజనం తింటాము**. అంటే **గ్రహం కోసం మంచి భవిష్యత్తును ఎంచుకోవడానికి** 1,000 అవకాశాలు!",
   "guide_greenscore_better_product_arg3_title": "బాధ్యతాయుతంగా ఉండటానికి మరియు నిర్ణయం తీసుకోవడానికి సహాయపడుతుంది",
-  "guide_greenscore_better_product_arg3_text": "స్థిరమైన ఆహారాన్ని ఎంచుకోవడం సంక్లిష్టంగా అనిపించవచ్చు. లేబుల్‌లు గందరగోళంగా ఉంటాయి మరియు సమాచారం తరచుగా కనిపించదు. గ్రీన్-స్కోర్‌ను సులభతరం చేయడానికి రూపొందించారు, మీకు అవసరమైన చోట: మీరు షాపింగ్ చేస్తున్నప్పుడు ఆహార ఉత్పత్తులకు **స్పష్టమైన**, **సైన్స్ ఆధారిత** మరియు **పారదర్శక** పర్యావరణ రేటింగ్‌ను అందిస్తారు.",
+  "guide_greenscore_better_product_arg3_text": "స్థిరమైన ఆహారాన్ని ఎంచుకోవడం సంక్లిష్టంగా అనిపించవచ్చు. లేబుల్‌లు గందరగోళంగా ఉంటాయి మరియు సమాచారం తరచుగా కనిపించదు. Green-Scoreను సులభతరం చేయడానికి రూపొందించారు, మీకు అవసరమైన చోట: మీరు షాపింగ్ చేస్తున్నప్పుడు ఆహార ఉత్పత్తులకు **స్పష్టమైన**, **సైన్స్ ఆధారిత** మరియు **పారదర్శక** పర్యావరణ రేటింగ్‌ను అందిస్తారు.",
   "guide_greenscore_better_product_arg4_title": "పారదర్శకత",
-  "guide_greenscore_better_product_arg4_text": "యాజమాన్య లేబుల్‌ల మాదిరిగా కాకుండా, గ్రీన్-స్కోర్ గణన **పూర్తిగా తెరిచి ఉంటుంది** మరియు ఎవరైనా **ధృవీకరించవచ్చు**.",
+  "guide_greenscore_better_product_arg4_text": "యాజమాన్య లేబుల్‌ల మాదిరిగా కాకుండా, Green-Score గణన **పూర్తిగా తెరిచి ఉంటుంది** మరియు ఎవరైనా **ధృవీకరించవచ్చు**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4182,8 +4216,8 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అంటే ఏమిటి?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అనేది ప్రపంచవ్యాప్తంగా ఉన్న ఆహార ఉత్పత్తుల యొక్క **సహకార**, **ఉచిత** మరియు **ఓపెన్** డేటాబేస్.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Open Food Facts అంటే ఏమిటి?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts అనేది ప్రపంచవ్యాప్తంగా ఉన్న ఆహార ఉత్పత్తుల యొక్క **సహకార**, **ఉచిత** మరియు **ఓపెన్** డేటాబేస్.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4191,7 +4225,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ యొక్క లక్షణాలు",
+  "guide_open_food_facts_features_title": "Open Food Facts యొక్క లక్షణాలు",
   "guide_open_food_facts_features_arg1_title": "మీ అవాంఛిత పదార్థాల కోసం హెచ్చరికలను పొందండి",
   "guide_open_food_facts_tips_title": "గొప్ప ఫోటోలు తీయడానికి చిట్కాలు",
   "guide_open_food_facts_tips_arg1_title": "చేయకూడనివి",
@@ -4213,8 +4247,8 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "ఓపెన్ పెట్ ఫుడ్ ఫ్యాక్ట్స్ అంటే ఏమిటి?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "ఓపెన్ పెట్ ఫుడ్ ఫ్యాక్ట్స్ మా లక్ష్యాన్ని మా బొచ్చుగల స్నేహితులకు విస్తరిస్తుంది! ఇది **పిల్లులు, కుక్కలు మరియు ఇతర సహచరుల కోసం పెంపుడు జంతువుల ఆహార ఉత్పత్తుల డేటాబేస్**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Open Pet Food Facts అంటే ఏమిటి?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts మా లక్ష్యాన్ని మా బొచ్చుగల స్నేహితులకు విస్తరిస్తుంది! ఇది **పిల్లులు, కుక్కలు మరియు ఇతర సహచరుల కోసం పెంపుడు జంతువుల ఆహార ఉత్పత్తుల డేటాబేస్**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4222,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "ఓపెన్ పెట్ ఫుడ్ వాస్తవాల లక్షణాలు",
+  "guide_open_pet_food_facts_features_title": "Open Pet Food Facts యొక్క లక్షణాలు",
   "guide_open_pet_food_facts_features_arg1_title": "మీ అవాంఛిత పదార్థాల కోసం హెచ్చరికలను పొందండి",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "మీ పెంపుడు జంతువుకు ఏవైనా పదార్థాలకు అలెర్జీ ఉందా? మీరు యాప్‌లోనే నివారించాల్సిన కాస్మెటిక్ పదార్థాల జాబితాను సెట్ చేయవచ్చు!",
   "guide_open_pet_food_facts_tips_title": "గొప్ప ఫోటోలు తీయడానికి చిట్కాలు",
@@ -4243,8 +4277,8 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "ఓపెన్ బ్యూటీ ఫ్యాక్ట్స్ అంటే ఏమిటి?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "ఓపెన్ బ్యూటీ ఫ్యాక్ట్స్ అనేది **కాస్మెటిక్ ఉత్పత్తుల** యొక్క సహకార డేటాబేస్.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Open Beauty Facts అంటే ఏమిటి?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts అనేది **కాస్మెటిక్ ఉత్పత్తుల** యొక్క సహకార డేటాబేస్.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4252,7 +4286,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "ఓపెన్ బ్యూటీ ఫ్యాక్ట్స్ యొక్క లక్షణాలు",
+  "guide_open_beauty_facts_features_title": "Open Beauty Facts యొక్క లక్షణాలు",
   "guide_open_beauty_facts_features_arg1_title": "మీ అవాంఛిత పదార్థాల కోసం హెచ్చరికలను పొందండి",
   "guide_open_beauty_facts_features_arg1_paragraph1": "మీకు ఏవైనా పదార్థాలకు అలెర్జీ ఉందా? కామెడోజెన్ పదార్థాలను నివారించాలనుకుంటున్నారా? వివాదాస్పద భాగాలకు దూరంగా ఉండాలనుకుంటున్నారా? మీరు యాప్‌లోనే నివారించాల్సిన కాస్మెటిక్ పదార్థాల జాబితాను సెట్ చేయవచ్చు!",
   "guide_open_beauty_facts_tips_title": "గొప్ప ఫోటోలు తీయడానికి చిట్కాలు",
@@ -4269,14 +4303,14 @@
   "guide_open_beauty_facts_tips_arg2_text5": "పదార్థాల జాబితాను చూడటానికి మీరు లేబుల్ పై తొక్క తీయవలసి రావచ్చు.",
   "guide_open_beauty_facts_tips_arg2_text6": "ఉత్పత్తిని చదునైన ఉపరితలంపై ఉంచండి.",
   "guide_open_beauty_facts_scores_title": "స్కోరింగ్ పై ఒక గమనిక",
-  "guide_open_beauty_facts_scores_paragraph1": "ఆహార ఉత్పత్తుల మాదిరిగా కాకుండా, సౌందర్య సాధనాల ప్రపంచంలో **న్యూట్రి-స్కోర్** వంటి సార్వత్రికంగా గుర్తింపు పొందిన, ప్రభుత్వ మద్దతు గల స్కోరింగ్ వ్యవస్థ లేదు. పదార్థాల ప్రభావాలు చాలా వ్యక్తిగతమైనవి మరియు చర్మ రకం, అలెర్జీలు మరియు వ్యక్తిగత ఆందోళనలపై ఆధారపడి ఉంటాయి.",
+  "guide_open_beauty_facts_scores_paragraph1": "ఆహార ఉత్పత్తుల మాదిరిగా కాకుండా, సౌందర్య సాధనాల ప్రపంచంలో **Nutri-Score** వంటి సార్వత్రికంగా గుర్తింపు పొందిన, ప్రభుత్వ మద్దతు గల స్కోరింగ్ వ్యవస్థ లేదు. పదార్థాల ప్రభావాలు చాలా వ్యక్తిగతమైనవి మరియు చర్మ రకం, అలెర్జీలు మరియు వ్యక్తిగత ఆందోళనలపై ఆధారపడి ఉంటాయి.",
   "guide_open_beauty_facts_share_link": "https://world-te.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "ఓపెన్ ధరలకు స్వాగతం!",
+  "guide_open_prices_title": "Open Prices కు స్వాగతం!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "ఓపెన్ ధరలు అంటే ఏమిటి?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "ఓపెన్ ప్రైసెస్ అనేది **ప్రపంచవ్యాప్తంగా ఉత్పత్తుల ధరలను సేకరించి పంచుకునే** ప్రాజెక్ట్. ఇది పరిశోధన, విశ్లేషణ మరియు మరిన్నింటి కోసం ఉపయోగించగల బహిరంగంగా అందుబాటులో ఉన్న డేటాసెట్. ఓపెన్ ప్రైసెస్‌ను ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ అభివృద్ధి చేసి నిర్వహిస్తుంది.",
+  "guide_open_prices_what_is_open_prices_title": "Open Prices అంటే ఏమిటి?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices అనేది **ప్రపంచవ్యాప్తంగా ఉత్పత్తుల ధరలను సేకరించి పంచుకునే** ప్రాజెక్ట్. ఇది పరిశోధన, విశ్లేషణ మరియు మరిన్నింటి కోసం ఉపయోగించగల బహిరంగంగా అందుబాటులో ఉన్న డేటాసెట్. Open Pricesను Open Food Facts అభివృద్ధి చేసి నిర్వహిస్తుంది.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4284,22 +4318,22 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "ఓపెన్ ప్రైసెస్ ఎలా పని చేస్తాయి?",
-  "guide_open_prices_how_paragraph1": "**మేము ధరల ఓపెన్-సోర్స్ డేటాసెట్‌ను క్రౌడ్‌సోర్స్ చేస్తున్నాము**. ఈ వెబ్ యాప్ ద్వారా లేదా అధికారిక ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ మొబైల్ యాప్ ద్వారా వినియోగదారులు ధరలను జోడించవచ్చు. రిటైలర్లు లేదా థర్డ్-పార్టీ యాప్‌లు మా APIని ఉపయోగించడం ద్వారా కూడా సహకరించవచ్చు.",
+  "guide_open_prices_how_title": "Open Prices ఎలా పని చేస్తాయి?",
+  "guide_open_prices_how_paragraph1": "**మేము ధరల ఓపెన్-సోర్స్ డేటాసెట్‌ను క్రౌడ్‌సోర్స్ చేస్తున్నాము**. ఈ వెబ్ యాప్ ద్వారా లేదా అధికారిక Open Food Facts మొబైల్ యాప్ ద్వారా వినియోగదారులు ధరలను జోడించవచ్చు. రిటైలర్లు లేదా థర్డ్-పార్టీ యాప్‌లు మా APIని ఉపయోగించడం ద్వారా కూడా సహకరించవచ్చు.",
   "guide_open_prices_how_arg1_title": "నడవలలో ధర ట్యాగ్‌ల ఫోటోలను సేకరించండి",
   "guide_open_prices_how_arg2_title": "రసీదుల ఫోటోలను సేకరించండి",
-  "guide_open_prices_why_title": "ఓపెన్ ఫుడ్ ఫ్యాక్ట్స్ ఇలా ఎందుకు చేస్తోంది?",
+  "guide_open_prices_why_title": "Open Food Facts ఇలా ఎందుకు చేస్తోంది?",
   "guide_open_prices_why_paragraph1": "ఆహార వ్యవస్థలను అర్థం చేసుకోవడానికి ధరల సమాచారం చాలా ముఖ్యమైనది. ఆహార ధరను అర్థం చేసుకోవడంలో మరియు ఆరోగ్యకరమైన ఆహారాన్ని ప్రోత్సహించడంలో ఇది కీలకమైన అంశం. ధరల డేటాను తెరవడం అనేది పరిశోధకులు, జర్నలిస్టులు మరియు పౌరులు **భౌగోళికంగా మరియు కాలక్రమేణా ఆహార ధరలు ఎలా మారుతాయో బాగా అర్థం చేసుకోవడానికి** ఒక మార్గం.",
   "guide_open_prices_why_arg1_title": "కాలక్రమేణా ధరల పరిణామాన్ని ట్రాక్ చేయండి",
   "guide_open_prices_why_arg1_text": "**ధరల పరిణామాన్ని** చూడండి: కుంచించు ద్రవ్యోల్బణం, చౌక ద్రవ్యోల్బణం, మనం వాటిని కలిసి ట్రాక్ చేయవచ్చు!",
   "guide_open_prices_why_arg2_title": "మీకు సమీపంలోని ధరలను సరిపోల్చండి",
   "guide_open_prices_why_arg2_text": "మేము మరిన్ని ధరలను పొందుతున్నందున, మీరు **మీ చుట్టూ ఉన్న చౌకైన దుకాణాలను** గుర్తించవచ్చు.",
   "guide_open_prices_scrapping_title": "రిటైలర్ల వెబ్‌సైట్‌ల నుండి ధరలను తగ్గించాలని మీరు ఆలోచించారా?",
-  "guide_open_prices_scrapping_paragraph1": "చట్టపరమైన మరియు సాంకేతిక కారణాల దృష్ట్యా, **రిటైలర్ల వెబ్‌సైట్‌ల నుండి ధరలను స్క్రాప్ చేయడం అనేది ఓపెన్ ధరలకు దోహదపడే చెల్లుబాటు అయ్యే మార్గంగా మేము పరిగణించము**. మేము సేకరించే ధరలు ఖచ్చితమైనవి మరియు తాజాగా ఉన్నాయని మరియు సహకారుల నుండి స్క్రాప్ చేసిన ధరలను స్వీకరించడం వలన మేము అలా చేయడానికి అనుమతించబడదని మేము నిర్ధారించుకోవాలనుకుంటున్నాము.",
-  "guide_open_prices_scrapping_paragraph2": "ఓపెన్ ప్రైసెస్ యొక్క భవిష్యత్తు వెర్షన్‌లో ధర స్క్రాపింగ్ అనేది పరిగణించబడే ఎంపిక, కానీ అది ఓపెన్ ప్రైసెస్ ద్వారానే చేయబడుతుంది, తద్వారా HTML పేజీ ఆధారంగా ధర యొక్క రుజువు మనకు లభిస్తుంది.",
+  "guide_open_prices_scrapping_paragraph1": "చట్టపరమైన మరియు సాంకేతిక కారణాల దృష్ట్యా, **రిటైలర్ల వెబ్‌సైట్‌ల నుండి ధరలను స్క్రాప్ చేయడం అనేది Open Pricesకు దోహదపడే చెల్లుబాటు అయ్యే మార్గంగా మేము పరిగణించము**. మేము సేకరించే ధరలు ఖచ్చితమైనవి మరియు తాజాగా ఉన్నాయని మరియు సహకారుల నుండి స్క్రాప్ చేసిన ధరలను స్వీకరించడం వలన మేము అలా చేయడానికి అనుమతించబడదని మేము నిర్ధారించుకోవాలనుకుంటున్నాము.",
+  "guide_open_prices_scrapping_paragraph2": "Open Prices యొక్క భవిష్యత్తు వెర్షన్‌లో ధర స్క్రాపింగ్ అనేది పరిగణించబడే ఎంపిక, కానీ అది Open Prices ద్వారానే చేయబడుతుంది, తద్వారా HTML పేజీ ఆధారంగా ధర యొక్క రుజువు మనకు లభిస్తుంది.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "మీరు మా API ని ఉపయోగించి ధరలను అందించవచ్చు.\nమీరు ధరలను స్కేల్‌గా అందించాలనుకుంటే, దయచేసి prices@openfoodfacts.org వద్ద మమ్మల్ని సంప్రదించండి.",
-  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about గురించి",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "ఓపెన్ ప్రొడక్ట్స్ వాస్తవాలకు స్వాగతం!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4533,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "ఈ ఉత్పత్తిని కారౌసెల్ నుండి తీసివేయండి",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4632,8 +4670,8 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "ఈ న్యూట్రి-స్కోర్ ప్యాకేజీలోని దానికంటే ఎందుకు భిన్నంగా ఉంటుంది?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "దీనికి రెండు వివరణలు ఉన్నాయి:\nపదార్థాల జాబితా మరియు/లేదా పోషకాహార వాస్తవాలు తాజాగా లేవు.\n\nమేము న్యూట్రి-స్కోర్ (లేదా V2) యొక్క \"కొత్త గణన\"ను అందిస్తాము. దయచేసి ప్యాకేజీపై \"కొత్త గణన\" అనే బ్యానర్ ఉందో లేదో తనిఖీ చేయండి.",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "ఈ Nutri-Score ప్యాకేజీలోని దానికంటే ఎందుకు భిన్నంగా ఉంటుంది?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "దీనికి రెండు వివరణలు ఉన్నాయి: పదార్థాల జాబితా మరియు/లేదా పోషకాహార వాస్తవాలు తాజాగా లేవు.  మేము Nutri-Score (లేదా V2) యొక్క \"కొత్త గణన\"ను అందిస్తాము. దయచేసి ప్యాకేజీపై \"కొత్త గణన\" అనే బ్యానర్ ఉందో లేదో తనిఖీ చేయండి.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "పదార్థాలను తనిఖీ చేయండి",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "పోషకాహార వాస్తవాలను తనిఖీ చేయండి",
   "url_not_supported": "దురదృష్టవశాత్తు, మేము URL ని తెరవలేము:\n{url}",
@@ -5079,7 +5117,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "సెట్టింగ్ కోసం శోధించండి (ఉదా. న్యూట్రి-స్కోర్)",
+  "preferences_app_bar_search_hint": "సెట్టింగ్ కోసం శోధించండి (ఉదా. Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -5175,7 +5213,7 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "కొత్త న్యూట్రి-స్కోర్‌ను కనుగొనండి",
+  "tips_discover_nutriscore": "కొత్త Nutri-Scoreను కనుగొనండి",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
@@ -5276,7 +5314,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "న్యూట్రి-స్కోర్ ఎలా గణించబడుతుందో కనుగొనండి",
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score ఎలా గణించబడుతుందో కనుగొనండి",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5288,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "ఓపెన్ ఫుడ్ వాస్తవాలను కనుగొనండి",
+  "preferences_faq_discover_off_title": "Open Food Factsను కనుగొనండి",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "డిస్కవర్ ఓపెన్ బ్యూటీ వాస్తవాలు",
+  "preferences_faq_discover_obf_title": "డిస్కవర్ Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "ఓపెన్ పెట్ ఫుడ్ వాస్తవాలను కనుగొనండి",
+  "preferences_faq_discover_opff_title": "Open Pet Food Factsను కనుగొనండి",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "బహిరంగ ధరలను కనుగొనండి",
+  "preferences_faq_discover_op_title": "Open Pricesను కనుగొనండి",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5484,7 +5522,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "మీ దేశంలో న్యూట్రి-స్కోర్ & గ్రీన్-స్కోర్‌ను లెక్కించడంలో సహాయం చేయండి",
+  "preferences_contributions_categorize_subtitle": "మీ దేశంలో Nutri-Score & Green-Scoreను లెక్కించడంలో సహాయం చేయండి",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5516,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ఓపెన్ ధరల కొలమానాలు",
+  "preferences_prices_metrics_title": "Open Prices కొలమానాలు",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },

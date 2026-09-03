@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Congratulazioni! Il tuo profilo è appena stato creato.",
   "sign_up_page_display_name_hint": "Nome",
   "sign_up_page_display_name_error_empty": "Sei pregato di inserire il nome visualizzato che desideri usare",
-  "sign_up_page_email_hint": "Email",
-  "sign_up_page_email_error_empty": "L'email è obbligatoria",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Email non valida",
   "sign_up_page_username_hint": "Nome utente: Visibile pubblicamente",
   "sign_up_page_username_error_empty": "Inserisci un nome utente",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Questa immagine potrebbe essere obsoleta",
   "product_image_outdated_explanations_title": "Questa immagine potrebbe essere obsoleta",
-  "product_image_outdated_explanations_content": "Questa immagine è stata scattata più di un anno fa.\n**Controlla che sia ancora aggiornata**.\n\nQuesto è **solo un avviso**. Se il contenuto è ancora lo stesso, puoi ignorare questo messaggio.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Non proprio…",
   "tagline_app_review_button_later": "Chiedimelo più tardi",
   "tagline_feed_news_button": "Scopri di più",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Non ti piace la nostra app?",
   "app_review_negative_modal_text": "Potrebbe dedicarci qualche secondo per dirci perché?",
   "app_review_negative_modal_positive_button": "Sì, assolutamente!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Non ci sono prodotti nella tua lista.",
   "no_product_in_section": "Non ci sono prodotti in questa sezione",
   "recently_seen_products": "Tutti i prodotti visualizzati",
   "clear": "Cancella",
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Categoria",
   "prices_category_mandatory": "Obbligatorio",
   "prices_category_optional": "Opzionale",
+  "prices_origins_title": "Origini",
   "prices_category_error_mandatory": "La categoria è obbligatoria",
   "prices_barcode_reader_action": "Lettore del codice a barre",
   "prices_view_prices": "Guarda i prezzi",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "Manca un prodotto!",
   "prices_amount_price_incorrect": "Valore non corretto",
   "prices_amount_price_mandatory": "Valore obbligatorio",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Moneta",
   "prices_date_subtitle": "Data",
   "prices_location_subtitle": "Negozio",
   "prices_location_find": "Trova un negozio",
   "prices_location_mandatory": "Devi selezionare un negozio!",
   "prices_location_search_broader": "Impossibile trovare quello che stavi cercando? Proviamo una ricerca più ampia!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Prova",
   "prices_proof_empty_title": "Nessuna prova ancora!",
   "prices_proof_empty_explanation": "Inizia aggiungendo una foto di una **scontrino** o di un **cartellino del prezzo**!",
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Per favore inviaci manualmente un'e-mail a",
-  "email_copied_to_clip_board": "Email copiata negli appunti!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Seleziona il Colore Secondario",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} prodotti disponibili per la scansione immediata",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4533,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Rimuovi questo prodotto dal carosello",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4711,23 +4749,23 @@
   "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_order_evaluation": "Partite",
+  "product_page_for_me_attributes_order_evaluation": "Abbinamenti",
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_group_good_matches": "Buone partite",
+  "product_page_for_me_attributes_group_good_matches": "Abbinamenti positivi",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
   },
-  "product_page_for_me_attributes_group_average_matches": "Corrispondenze medie",
+  "product_page_for_me_attributes_group_average_matches": "Abbinamenti nella media",
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
-  "product_page_for_me_attributes_group_bad_matches": "Cattive corrispondenze",
+  "product_page_for_me_attributes_group_bad_matches": "Abbinamenti negativi",
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
-  "product_page_for_me_attributes_group_unknown_matches": "Corrispondenze sconosciute",
+  "product_page_for_me_attributes_group_unknown_matches": "Abbinamenti indeterminati",
   "@product_page_for_me_attributes_group_unknown_matches": {
     "description": "Title for the group of attributes that are unknown matches for the user"
   },

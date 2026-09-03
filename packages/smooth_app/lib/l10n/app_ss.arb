@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "This image may be outdated",
   "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "There is no product in this list",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "All viewed products",
   "clear": "Clear",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Kukhetsa ngekutsandza",
+  "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "Lesigaba siphocelelekile",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Currency",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "Kute bufakazi!",
   "prices_proof_empty_explanation": "Cala ngekufaka sitfombe se **risidi** noma **ithegi yentsengo**!",
@@ -2807,7 +2841,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Shintja emkhatsini wemanani.vula emaciniso ekudla.org (PROD) kanye nekuhlola env",
+  "dev_mode_openprices_switch_env_title": "Shintja emkhatsini prices.openfoodfacts.org (PROD) kanye nekuhlola env",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Please send us manually an email to",
-  "email_copied_to_clip_board": "Email copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Select Accent Color",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scaning",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4208,7 +4242,7 @@
   "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
   "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
   "guide_open_food_facts_scores_arg3_title": "A score for the planet",
-  "guide_open_food_facts_share_link": "https://mhlaba-si.emaciniso ekudla lavulekile.org/tfola",
+  "guide_open_food_facts_share_link": "https://world-ss.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4532,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Remove this product from the carousel",
   "@carousel_close_tooltip": {
@@ -5179,7 +5217,7 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "Kuwebhusayithi yeMaciniso Ekudla Lokuvulekile .",
+  "preferences_on_off_website_subtitle": "Kuwebhusayithi ye-Open Food Facts.",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
@@ -5312,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "I-NGO yeMaciniso Ekudla Lokuvulekile",
+  "preferences_faq_off_ngo_title": "I-NGO ye-Open Food Facts",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5336,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Ibhulogi Yemaciniso Ekudla Lokuvulekile",
+  "preferences_connect_blog_title": "Ibhulogi ye-Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5516,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Vula emamethrikhi emanani",
+  "preferences_prices_metrics_title": "Emamethrikhi e-Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5560,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Tindlela letilula tekusita Vula Emaciniso Ekudla .",
+  "preferences_page_contribute_project_subtitle": "Tindlela letilula tekusita Open Food Facts.",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5760,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Vula Emalabs Emaciniso Ekudla",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -15,17 +15,14 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 /// Price Model (checks and background task call) for price adding.
 class PriceModel with ChangeNotifier {
   PriceModel({
-    required final ProofType proofType,
-    required final Currency currency,
+    required this._proofType,
+    required this._currency,
     required this.multipleProducts,
     final PriceMetaProduct? initialProduct,
-    final bool readyForPriceTagValidation = false,
+    this._readyForPriceTagValidation = false,
   }) : _proof = null,
        existingPrices = null,
-       _proofType = proofType,
        _date = DateTime.now(),
-       _currency = currency,
-       _readyForPriceTagValidation = readyForPriceTagValidation,
        _priceAmountModels = <PriceAmountModel>[
          if (initialProduct != null) PriceAmountModel(product: initialProduct),
        ];
@@ -114,11 +111,14 @@ class PriceModel with ChangeNotifier {
 
   void removeAt(final int index) {
     _hasChanged = true;
+    _priceAmountModels[index].dispose();
     _priceAmountModels.removeAt(index);
     notifyListeners();
   }
 
   PriceAmountModel elementAt(final int index) => _priceAmountModels[index];
+
+  List<PriceAmountModel> get priceAmountModels => _priceAmountModels;
 
   int get length => _priceAmountModels.length;
 
@@ -281,5 +281,13 @@ class PriceModel with ChangeNotifier {
       readyForPriceTagValidation: readyForPriceTagValidation,
       discountTypes: discountTypes,
     );
+  }
+
+  @override
+  void dispose() {
+    for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
+      priceAmountModel.dispose();
+    }
+    super.dispose();
   }
 }

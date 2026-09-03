@@ -14,7 +14,7 @@ class KnowledgePanelCard extends StatelessWidget {
     required this.panelId,
     required this.product,
     required this.isClickable,
-    this.simplified = false,
+    required this.simplified,
   });
 
   final String panelId;

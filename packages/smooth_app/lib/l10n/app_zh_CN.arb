@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "恭喜! 您的账户已经被创建。",
   "sign_up_page_display_name_hint": "名称",
   "sign_up_page_display_name_error_empty": "请输入您想使用的显示名称",
-  "sign_up_page_email_hint": "电子邮件",
-  "sign_up_page_email_error_empty": "电子邮件是必需的",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "无效电子邮件",
   "sign_up_page_username_hint": "用户名: 公开可见",
   "sign_up_page_username_error_empty": "请输入用户名",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "此图片可能已过期",
   "product_image_outdated_explanations_title": "此图片可能已过期",
-  "product_image_outdated_explanations_content": "这张照片拍摄于一年多以前。\n请检查它是否仍为最新版本。\n\n这只是一个警告。如果内容和现在仍然相同，您可以忽略此消息。",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "不太喜欢",
   "tagline_app_review_button_later": "稍后再询问我",
   "tagline_feed_news_button": "了解更多",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "您不喜欢我们的应用程序吗？",
   "app_review_negative_modal_text": "您能花点时间告诉我们原因吗？",
   "app_review_negative_modal_positive_button": "绝对是这样没错！",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "这个列表中没有产品",
   "no_product_in_section": "这个区域没有产品",
   "recently_seen_products": "所有浏览过的产品",
   "clear": "清除",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "登录或注册加入 Open Food Facts 社区",
-  "user_profile_title_id_email": "Open Food Facts 登录： {email}",
+  "user_profile_title_id_email": "Open Food Facts 登录： {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "类别",
   "prices_category_mandatory": "强制性的",
   "prices_category_optional": "选修的",
+  "prices_origins_title": "起源",
   "prices_category_error_mandatory": "此类别为必填项",
   "prices_barcode_reader_action": "条形码阅读器",
   "prices_view_prices": "查看价格",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "缺少一件商品！",
   "prices_amount_price_incorrect": "错误值",
   "prices_amount_price_mandatory": "强制性价值",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "货币",
   "prices_date_subtitle": "日期",
   "prices_location_subtitle": "商店",
   "prices_location_find": "查找商店",
   "prices_location_mandatory": "您需要选择一家店铺！",
   "prices_location_search_broader": "没找到您要找的内容？我们来扩大搜索范围吧！",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "证明",
   "prices_proof_empty_title": "尚无证据！",
   "prices_proof_empty_explanation": "首先添加**收据**或**价格标签**的照片！",
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "请手动向我们发送电子邮件至",
-  "email_copied_to_clip_board": "电子邮件地址已复制到剪贴板",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "选择强调色",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} 产品可供立即扫描",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4076,7 +4110,7 @@
   "guide_nutriscore_v2_unchanged_title": "哪些要素没有改变",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score 是一个旨在**衡量营养质量**的评分系统。它作为 NOVA 分组关于**超加工食品的补充**（也包含在应用中）。",
   "guide_nutriscore_v2_unchanged_paragraph2": "对于制造商来说，Nutri-Score 的显示**仍然是可选的**。",
-  "guide_greenscore_title": "绿色评分",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4155,7 +4189,7 @@
   "guide_nova_groups_intro": "NOVA 有 4 个组，有问题的是第 4 组 - 超加工食品。",
   "guide_nova_groups_arg1_title": "低度加工或未加工食品",
   "guide_nova_groups_arg1_text": "未加工（或天然）食品是指从自然界分离出来的**植物的可食用部分**（种子、果实、叶子、茎、根）**或**动物的**可食用部分**（肌肉、内脏、蛋、奶），以及真菌、藻类和水。",
-  "guide_nova_groups_arg2_title": "加工过的烹饪原料",
+  "guide_nova_groups_arg2_title": "2. 加工过的烹饪原料",
   "guide_nova_groups_arg2_text": "加工烹饪原料，如**油、黄油、糖和盐**，是从第 1 类食品或自然界通过压榨、精炼、研磨、碾磨和干燥等工艺获得的物质。",
   "guide_nova_groups_arg3_title": "加工食品",
   "guide_nova_groups_arg3_text": "加工食品，例如瓶装蔬菜、罐装鱼、糖水水果、奶酪和新鲜面包，**主要是通过向第一类食品中添加盐、油、糖或其他第二类物质**制成的。加工过程包括各种保鲜或烹饪方法，面包和奶酪的加工过程还包括非酒精发酵。大多数加工食品含有两到三种成分，可以识别为第一类食品的改良版本。它们可以单独食用，但更常见的是与其他食物搭配食用。",
@@ -4174,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
   "guide_nova_explanations_arg6_title": "各国建议限制它们",
   "guide_nova_explanations_arg6_text": "一些国家在其膳食指南或目标中使用了 NOVA 分组，例如：\n\n- **🇧🇷 巴西**的膳食指南**建议限制加工食品的摄入量**，并避免食用超加工食品。\n\n- **🇫🇷 法国**2018-2022 年公共卫生营养政策目标旨在**将第 4 组超加工食品的摄入量减少 20%**。",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-zh.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4208,7 +4242,7 @@
   "guide_open_food_facts_scores_arg1_title": "营养质量评分",
   "guide_open_food_facts_scores_arg2_title": "避免食用超加工食品的评分",
   "guide_open_food_facts_scores_arg3_title": "为地球打分",
-  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-zh.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "欢迎来到“公开宠物食品真相”！",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4532,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "从轮播中移除该产品",
   "@carousel_close_tooltip": {
@@ -5516,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "开盘价指标",
+  "preferences_prices_metrics_title": "Open Prices 指标",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },

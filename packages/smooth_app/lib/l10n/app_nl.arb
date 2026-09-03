@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Naam",
   "sign_up_page_display_name_error_empty": "Voer de weergavenaam in die u wilt gebruiken",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is vereist",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
   "sign_up_page_username_hint": "Gebruikersnaam: Openbaar zichtbaar",
   "sign_up_page_username_error_empty": "Voer aub. een gebruikersnaam in",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Deze afbeelding is mogelijk verouderd",
   "product_image_outdated_explanations_title": "Deze afbeelding is mogelijk verouderd",
-  "product_image_outdated_explanations_content": "Deze afbeelding is meer dan een jaar geleden gemaakt.\n**Controleer of deze nog up-to-date is**.\n\nDit is **gewoon een waarschuwing**. Als de inhoud nog steeds hetzelfde is, kunt u dit bericht negeren.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Niet echt…",
   "tagline_app_review_button_later": "Vraag me later nog eens",
   "tagline_feed_news_button": "Meer weten",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Vind je onze app niet leuk?",
   "app_review_negative_modal_text": "Kunt u een paar seconden de tijd nemen om ons te vertellen waarom?",
   "app_review_negative_modal_positive_button": "Ja, absoluut!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Er is geen product in deze lijst",
   "no_product_in_section": "Er is geen product in deze sectie",
   "recently_seen_products": "Alle bekeken producten",
   "clear": "Wissen",
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Categorie",
   "prices_category_mandatory": "Verplicht",
   "prices_category_optional": "Optioneel",
+  "prices_origins_title": "Oorsprong",
   "prices_category_error_mandatory": "De categorie is verplicht",
   "prices_barcode_reader_action": "Streepjescodelezer",
   "prices_view_prices": "Bekijk de prijzen",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "Er ontbreekt één product!",
   "prices_amount_price_incorrect": "Onjuiste waarde",
   "prices_amount_price_mandatory": "Verplichte waarde",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Winkel",
   "prices_location_find": "Zoek een winkel",
   "prices_location_mandatory": "Je moet een winkel selecteren!",
   "prices_location_search_broader": "Niet gevonden wat u zocht? Probeer een bredere zoekopdracht!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bewijs",
   "prices_proof_empty_title": "Nog geen bewijs!",
   "prices_proof_empty_explanation": "Begin met het toevoegen van een foto van een **bon** of een **prijskaartje**!",
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Stuur ons handmatig een e-mail naar",
-  "email_copied_to_clip_board": "E-mail gekopieerd naar klembord!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Selecteer een accentkleur",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} producten beschikbaar om onmiddellijk te scannen",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4532,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Waarschijnlijk ongeldige barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Verwijder dit product uit de carrousel",
   "@carousel_close_tooltip": {

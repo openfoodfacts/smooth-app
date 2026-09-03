@@ -2,7 +2,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -83,7 +83,7 @@ class ProductPageTableRow extends TableRow {
             spacing: VERY_SMALL_SPACE,
             children: <Widget>[
               Expanded(child: child),
-              const ExternalLink(size: 10.0),
+              const icons.ExternalLink(size: 10.0),
             ],
           );
         }

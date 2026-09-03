@@ -120,14 +120,17 @@ class _TagLineItemNewsItem {
   const _TagLineItemNewsItem._({
     required this.id,
     required this.url,
-    required _TagLineItemNewsTranslations translations,
+    required this._translations,
+    required this.raised,
+    required this.goal,
+    required this.currency,
     this.minLaunches,
     this.startDate,
     this.endDate,
     this.minVersion,
     this.maxVersion,
     this.style,
-  }) : _translations = translations;
+  });
 
   _TagLineItemNewsItem.fromJson(this.id, Map<dynamic, dynamic> json)
     : assert((json['url'] as String).isNotEmpty),
@@ -151,7 +154,10 @@ class _TagLineItemNewsItem {
           );
         }
       }),
-      minLaunches = json['min_launches'] is int ? json['min_launches'] : null,
+      minLaunches = json['min_launches'] as int?,
+      raised = json['raised'] as num?,
+      goal = json['goal'] as num?,
+      currency = json['currency'],
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
       minVersion = json['min_version'],
@@ -169,6 +175,9 @@ class _TagLineItemNewsItem {
   final String? minVersion;
   final String? maxVersion;
   final _TagLineNewsStyle? style;
+  final num? raised;
+  final num? goal;
+  final String? currency;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -204,6 +213,9 @@ class _TagLineItemNewsItem {
       minAppVersion: minVersion,
       maxAppVersion: maxVersion,
       style: style?.toTagLineStyle(),
+      raised: raised,
+      goal: goal,
+      currency: currency,
       image: translation.image?.overridesContent == true
           ? translation.image?.toTagLineImage()
           : null,
@@ -222,6 +234,9 @@ class _TagLineItemNewsItem {
     String? minVersion,
     String? maxVersion,
     _TagLineNewsStyle? style,
+    num? raised,
+    num? goal,
+    String? currency,
   }) {
     return _TagLineItemNewsItem._(
       id: id,
@@ -234,6 +249,9 @@ class _TagLineItemNewsItem {
       minVersion: minVersion ?? this.minVersion,
       maxVersion: maxVersion ?? this.maxVersion,
       style: style ?? this.style,
+      raised: raised ?? this.raised,
+      goal: goal ?? this.goal,
+      currency: currency ?? this.currency,
     );
   }
 }

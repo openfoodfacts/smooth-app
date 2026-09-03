@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Name",
   "sign_up_page_display_name_error_empty": "Please enter the display name you want to use",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "ଇ-ମେଲ୍ ଆଵଶ୍ୟକ ଅଟେ",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "ଅଵୈଧ ଇ-ମେଲ୍",
   "sign_up_page_username_hint": "Username: Publicly visible",
   "sign_up_page_username_error_empty": "Please enter a username",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "This image may be outdated",
   "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "There is no product in this list",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "All viewed products",
   "clear": "Clear",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "ଇଚ୍ଛାଧୀନ",
+  "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "ବର୍ଗଟି ବାଧ୍ୟତାମୂଳକ ଅଟେ",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Currency",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ପ୍ରମାଣ ନାହିଁ!",
   "prices_proof_empty_explanation": "ଏକ **ରସିଦ** କିମ୍ବା **ମୂଲ୍ୟ ଟ୍ୟାଗ୍** ର ଫଟୋ ଯୋଡି ଆରମ୍ଭ କରନ୍ତୁ!",
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Please send us manually an email to",
-  "email_copied_to_clip_board": "Email copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Select Accent Color",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scaning",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3976,13 +4010,13 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "ସବୁଜ-ସ୍କୋର A",
-  "environmental_score_b_new": "ସବୁଜ-ସ୍କୋର୍ B",
-  "environmental_score_c_new": "ସବୁଜ-ସ୍କୋର୍ C",
-  "environmental_score_d_new": "ସବୁଜ-ସ୍କୋର୍ D",
-  "environmental_score_e_new": "ଗ୍ରୀନ୍-ସ୍କୋର୍ E",
-  "environmental_score_unknown_new": "ଅଜଣା ସବୁଜ-ସ୍କୋର୍",
-  "environmental_score_not_applicable_new": "ସବୁଜ-ସ୍କୋର୍ ପ୍ରଯୁଜ୍ୟ ନୁହେଁ",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "ଅଜଣା Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score ପ୍ରଯୁଜ୍ୟ ନୁହେଁ",
   "nova_group_generic_new": "ଅଲ୍ଟ୍ରା-ପ୍ରକ୍ରିୟାକୃତ ଖାଦ୍ୟ - NOVA ଗୋଷ୍ଠୀ",
   "nova_group_1": "NOVA Group 1",
   "nova_group_2": "NOVA Group 2",
@@ -4081,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "ଗ୍ରୀନ୍ ସ୍କୋର କ’ଣ?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "ଗ୍ରୀନ୍-ସ୍କୋର୍ ହେଉଛି ଏକ ଲୋଗୋ ଯାହା ଆପଣଙ୍କୁ **ଖାଦ୍ୟର ପରିବେଶଗତ ପ୍ରଭାବ** ବିଷୟରେ ସୂଚନା ଦେବା ପାଇଁ ଉଦ୍ଦିଷ୍ଟ।",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score ହେଉଛି ଏକ ଲୋଗୋ ଯାହା ଆପଣଙ୍କୁ **ଖାଦ୍ୟର ପରିବେଶଗତ ପ୍ରଭାବ** ବିଷୟରେ ସୂଚନା ଦେବା ପାଇଁ ଉଦ୍ଦିଷ୍ଟ।",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4089,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "ସବୁଜ-ସ୍କୋର ଲୋଗୋଗୁଡ଼ିକ",
+  "guide_greenscore_logos_caption": "Green-Score ଲୋଗୋଗୁଡ଼ିକ",
   "guide_greenscore_lca_title": "ମୂଳ: ଜୀବନଚକ୍ର ମୂଲ୍ୟାଙ୍କନ (LCA)",
   "guide_greenscore_lca_arg1_title": "ଖାଦ୍ୟ ବର୍ଗଗୁଡ଼ିକର ଏକ ବୈଜ୍ଞାନିକ ମୂଲ୍ୟାଙ୍କନ",
   "guide_greenscore_lca_arg1_text1": "ପ୍ରତ୍ୟେକ ଉତ୍ପାଦ ବର୍ଗ ପାଇଁ, Agribalyse ପରିବେଶଗତ ଡାଟାବେସ୍ (ADEME ଏବଂ INRAE ଦ୍ୱାରା ଡିଜାଇନ୍ କରାଯାଇଥିବା) ରୁ ତଥ୍ୟ ବ୍ୟବହାର କରି ଏକ **ବେଞ୍ଚମାର୍କ** ସ୍କୋର ସ୍ଥାପନ କରାଯାଏ।",
@@ -4134,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "ତୁମ ପାଖରେ ଶକ୍ତି ଅଛି!",
   "guide_greenscore_better_product_arg2_text": "ଭଲ ଖବର ହେଉଛି ଏହା ଆମକୁ ପରିବର୍ତ୍ତନ ଆଣିବାର ଏକ ଶକ୍ତିଶାଳୀ ଉପାୟ ପ୍ରଦାନ କରେ।\n**ଆମେ ପ୍ରତ୍ୟେକେ ପ୍ରତିବର୍ଷ ପ୍ରାୟ 1,000 ଥର ଖାଦ୍ୟ ଖାଉ**। ଏହା ହେଉଛି ଗ୍ରହ ପାଇଁ ଏକ ଭଲ ଭବିଷ୍ୟତ ବାଛିବା ପାଇଁ 1,000 ସୁଯୋଗ**!",
   "guide_greenscore_better_product_arg3_title": "ଦାୟିତ୍ବବାନ ହେବା ଏବଂ ନିଷ୍ପତ୍ତି ନେବାରେ ସାହାଯ୍ୟ କରେ",
-  "guide_greenscore_better_product_arg3_text": "ସ୍ଥାୟୀ ଖାଦ୍ୟ ବାଛିବା ଜଟିଳ ମନେ ହୋଇପାରେ। ଲେବଲ୍ ଦ୍ୱନ୍ଦ୍ୱପୂର୍ଣ୍ଣ ଏବଂ ସୂଚନା ପ୍ରାୟତଃ ଅନୁପସ୍ଥିତ ଥାଏ। ଏହାକୁ ସରଳ କରିବା ପାଇଁ ଗ୍ରୀନ୍-ସ୍କୋର୍ ସୃଷ୍ଟି କରାଯାଇଥିଲା, ଯାହା ଆପଣଙ୍କୁ ଖାଦ୍ୟ ଉତ୍ପାଦ ପାଇଁ ଏକ **ସ୍ପଷ୍ଟ**, **ବିଜ୍ଞାନ-ଆଧାରିତ**, ଏବଂ **ସ୍ୱଚ୍ଛ** ପରିବେଶଗତ ମୂଲ୍ୟାଙ୍କନ ପ୍ରଦାନ କରିଥାଏ, ଠିକ୍ ଯେଉଁଠାରେ ଆପଣଙ୍କୁ ଏହା ଆବଶ୍ୟକ: ଯେତେବେଳେ ଆପଣ କିଣାକାଟା କରନ୍ତି।",
+  "guide_greenscore_better_product_arg3_text": "ସ୍ଥାୟୀ ଖାଦ୍ୟ ବାଛିବା ଜଟିଳ ମନେ ହୋଇପାରେ। ଲେବଲ୍ ଦ୍ୱନ୍ଦ୍ୱପୂର୍ଣ୍ଣ ଏବଂ ସୂଚନା ପ୍ରାୟତଃ ଅନୁପସ୍ଥିତ ଥାଏ। ଏହାକୁ ସରଳ କରିବା ପାଇଁ Green-Score ସୃଷ୍ଟି କରାଯାଇଥିଲା, ଯାହା ଆପଣଙ୍କୁ ଖାଦ୍ୟ ଉତ୍ପାଦ ପାଇଁ ଏକ **ସ୍ପଷ୍ଟ**, **ବିଜ୍ଞାନ-ଆଧାରିତ**, ଏବଂ **ସ୍ୱଚ୍ଛ** ପରିବେଶଗତ ମୂଲ୍ୟାଙ୍କନ ପ୍ରଦାନ କରିଥାଏ, ଠିକ୍ ଯେଉଁଠାରେ ଆପଣଙ୍କୁ ଏହା ଆବଶ୍ୟକ: ଯେତେବେଳେ ଆପଣ କିଣାକାଟା କରନ୍ତି।",
   "guide_greenscore_better_product_arg4_title": "ସ୍ୱଚ୍ଛତା",
-  "guide_greenscore_better_product_arg4_text": "ମାଲିକାନା ଲେବଲଗୁଡ଼ିକ ପରି ନୁହେଁ, ସବୁଜ-ସ୍କୋର ଗଣନା **ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ଖୋଲା** ଏବଂ ଏହାକୁ **ଯେକୌଣସି ବ୍ୟକ୍ତିଙ୍କ ଦ୍ୱାରା ଯାଞ୍ଚ କରାଯାଇପାରିବ**।",
+  "guide_greenscore_better_product_arg4_text": "ମାଲିକାନା ଲେବଲଗୁଡ଼ିକ ପରି ନୁହେଁ, Green-Score ଗଣନା **ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ଖୋଲା** ଏବଂ ଏହାକୁ **ଯେକୌଣସି ବ୍ୟକ୍ତିଙ୍କ ଦ୍ୱାରା ଯାଞ୍ଚ କରାଯାଇପାରିବ**।",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4533,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Remove this product from the carousel",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4740,7 +4778,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "ଦାମ କାହିଁକି?",
-  "prices_explanation_card_line1": "**ଓପନ୍ ପ୍ରାଇସେସ୍** ହେଉଛି ସାରା ବିଶ୍ୱରେ ଉତ୍ପାଦଗୁଡ଼ିକର ମୂଲ୍ୟ ସଂଗ୍ରହ ଏବଂ ଅଂଶୀଦାର କରିବା ପାଇଁ ଏକ ପ୍ରକଳ୍ପ 🌍। ଓପନ୍ ପ୍ରାଇସେସ୍ Open Food Facts ଦ୍ୱାରା ବିକଶିତ ଏବଂ ରକ୍ଷଣାବେକ୍ଷଣ କରାଯାଏ।",
+  "prices_explanation_card_line1": "**Open Prices** ହେଉଛି ସାରା ବିଶ୍ୱରେ ଉତ୍ପାଦଗୁଡ଼ିକର ମୂଲ୍ୟ ସଂଗ୍ରହ ଏବଂ ଅଂଶୀଦାର କରିବା ପାଇଁ ଏକ ପ୍ରକଳ୍ପ 🌍। Open Prices Open Food Facts ଦ୍ୱାରା ବିକଶିତ ଏବଂ ରକ୍ଷଣାବେକ୍ଷଣ କରାଯାଏ।",
   "explanation_card_learn_more_button": "ଅଧିକ ଜାଣନ୍ତୁ",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -5079,7 +5117,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "ଏକ ସେଟିଂ ଖୋଜନ୍ତୁ (ଯଥା ନ୍ୟୁଟ୍ରି-ସ୍କୋର)",
+  "preferences_app_bar_search_hint": "ଏକ ସେଟିଂ ଖୋଜନ୍ତୁ (ଯଥା Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -5175,7 +5213,7 @@
   "@preferences_tips": {
     "description": "Title for the preferences tips header"
   },
-  "tips_discover_nutriscore": "ନୂଆ ନ୍ୟୁଟ୍ରି-ସ୍କୋର ଆବିଷ୍କାର କରନ୍ତୁ",
+  "tips_discover_nutriscore": "ନୂଆ Nutri-Score ଆବିଷ୍କାର କରନ୍ତୁ",
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
@@ -5276,7 +5314,7 @@
   "@preferences_faq_scores_methodologies_title": {
     "description": "Title for scores and methodologies card in FAQ"
   },
-  "preferences_faq_nutriscore_subtitle": "ନ୍ୟୁଟ୍ରି-ସ୍କୋର କିପରି ଗଣନା କରାଯାଏ ତାହା ଜାଣନ୍ତୁ",
+  "preferences_faq_nutriscore_subtitle": "Nutri-Score କିପରି ଗଣନା କରାଯାଏ ତାହା ଜାଣନ୍ତୁ",
   "@preferences_faq_nutriscore_subtitle": {
     "description": "Subtitle for Nutri-Score in FAQ"
   },
@@ -5484,7 +5522,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "ଆପଣଙ୍କ ଦେଶରେ ନ୍ୟୁଟ୍ରି-ସ୍କୋର୍ ଏବଂ ଗ୍ରୀନ୍-ସ୍କୋର୍ ଗଣନା କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ",
+  "preferences_contributions_categorize_subtitle": "ଆପଣଙ୍କ ଦେଶରେ Nutri-Score ଏବଂ Green-Score ଗଣନା କରିବାରେ ସାହାଯ୍ୟ କରନ୍ତୁ",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5516,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ଖୋଲନ୍ତୁ ମୂଲ୍ୟ ମେଟ୍ରିକ୍ସ",
+  "preferences_prices_metrics_title": "Open Prices ମେଟ୍ରିକ୍ସ",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5560,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "ଖାଦ୍ୟ ତଥ୍ୟ ଖୋଲିବାରେ ସାହାଯ୍ୟ କରିବାର ସରଳ ଉପାୟ",
+  "preferences_page_contribute_project_subtitle": "Open Food Facts କୁ ସାହାଯ୍ୟ କରିବାର ସରଳ ଉପାୟ",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5760,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "ଖାଦ୍ୟ ତଥ୍ୟ ଲ୍ୟାବ ଖୋଲନ୍ତୁ",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

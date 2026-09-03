@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Til hamingju! Aðgangurinn þinn hefur verið stofnaður.",
   "sign_up_page_display_name_hint": "Nafn",
   "sign_up_page_display_name_error_empty": "Vinsamlegast sláðu inn birtingarheitið sem þú vilt nota",
-  "sign_up_page_email_hint": "Netfang",
-  "sign_up_page_email_error_empty": "Netfang er krafist",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ógilt netfang",
   "sign_up_page_username_hint": "Notandanafn: Sýnilegt opinberlega",
   "sign_up_page_username_error_empty": "Vinsamlegast sláðu inn notandanafn",
@@ -729,7 +729,7 @@
   "@new_product_dialog_description": {
     "description": "Please keep it short, like less than 100 characters. Explanatory text of the dialog when the user searched for an unknown barcode."
   },
-  "new_product_dialog_illustration_description": "Myndskreyting með óþekktum næringarstigum og grænum stigum",
+  "new_product_dialog_illustration_description": "Myndskreyting með óþekktum Nutri-Score og Green-Score",
   "@new_product_dialog_illustration_description": {
     "description": "A description for accessibility of two images side by side: a Nutri-Score and an Green Score."
   },
@@ -809,7 +809,7 @@
   "nutritional_facts_input_button_label": "Fylltu út næringargildi",
   "nutritional_facts_added": "Næringarupplýsingar bættar við",
   "categories_added": "Flokkar bætt við",
-  "new_product_title_nutriscore": "Reiknaðu næringarstigið",
+  "new_product_title_nutriscore": "Reiknaðu Nutri-Score",
   "new_product_subtitle_nutriscore": "Hjálpaðu okkur með því að fylla út að minnsta kosti einn flokk og næringargildi",
   "new_product_title_environmental_score": "Reiknaðu út græna stigið",
   "new_product_subtitle_environmental_score": "Fáðu það með því að fylla út að minnsta kosti einn flokk",
@@ -835,7 +835,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Ýttu til að svara 3 spurningum NÚNA til að reikna út næringarstig, grænt stig og öfgavinnslu (NOVA)!",
+  "hey_incomplete_product_message": "Ýttu til að svara 3 spurningum NÚNA til að reikna út Nutri-Score, Green-Score og öfgavinnslu (NOVA)!",
   "hey_incomplete_product_message_beauty": "Ýttu núna til að svara tveimur spurningum til að hjálpa þér að greina þessa snyrtivöru!",
   "hey_incomplete_product_message_pet_food": "Ýttu núna til að svara 3 spurningum til að hjálpa þér að greina þessa gæludýrafóðurvöru!",
   "hey_incomplete_product_message_product": "Ýttu núna til að hjálpa til við að klára þessa vöru!",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Þessi mynd gæti verið úrelt",
   "product_image_outdated_explanations_title": "Þessi mynd gæti verið úrelt",
-  "product_image_outdated_explanations_content": "Þessi mynd var tekin fyrir meira en ári síðan.\n**Vinsamlegast athugið hvort hún sé enn uppfærð**.\n\nÞetta er **bara viðvörun**. Ef efnið er enn það sama geturðu hunsað þessi skilaboð.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Ekki alveg…",
   "tagline_app_review_button_later": "Spyrðu mig síðar",
   "tagline_feed_news_button": "Vita meira",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Líkar þér ekki appið okkar?",
   "app_review_negative_modal_text": "Gætirðu tekið þér nokkrar sekúndur til að segja okkur af hverju?",
   "app_review_negative_modal_positive_button": "Já, klárlega!",
@@ -1187,19 +1217,19 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Bættu við flokki til að reikna út næringarstigið.",
+  "product_improvement_add_category": "Bættu við flokki til að reikna út Nutri-Score.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Bætið við næringarupplýsingum til að reikna út næringarstigið.",
+  "product_improvement_add_nutrition_facts": "Bætið við næringarupplýsingum til að reikna út Nutri-Score.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Bættu við næringarupplýsingum og flokki til að reikna út næringarstigið.",
+  "product_improvement_add_nutrition_facts_and_category": "Bættu við næringarupplýsingum og flokki til að reikna út Nutri-Score.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "Ekki er hægt að reikna út næringargildi þessarar vöru, sem gæti til dæmis stafað af óstaðlaðri flokkun. Ef þetta er talið vera villa, vinsamlegast hafið samband við okkur.",
+  "product_improvement_categories_but_no_nutriscore": "Ekki er hægt að reikna út Nutri-Score fyrir þessa vöru, sem gæti til dæmis stafað af óstaðlaðri flokkun. Ef þetta er talið vera villa, vinsamlegast hafið samband við okkur.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Það er engin vara á þessum lista",
   "no_product_in_section": "Það er engin vara í þessum hluta",
   "recently_seen_products": "Allar skoðaðar vörur",
   "clear": "Hreinsa",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Skráðu þig inn eða skráðu þig til að taka þátt í Open Food Facts samfélaginu",
-  "user_profile_title_id_email": "Opna innskráningu á Food Facts: {email}",
+  "user_profile_title_id_email": "Open Food Facts innskráning: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1802,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Næringarstig, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Valfrjálst",
+  "prices_origins_title": "Uppruni",
   "prices_category_error_mandatory": "Flokkurinn er skyldubundinn",
   "prices_barcode_reader_action": "Strikamerkjalesari",
   "prices_view_prices": "Skoða verðin",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "Ein vara vantar!",
   "prices_amount_price_incorrect": "Rangt gildi",
   "prices_amount_price_mandatory": "Skyldubundið gildi",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Gjaldmiðill",
   "prices_date_subtitle": "Dagsetning",
   "prices_location_subtitle": "Verslun",
   "prices_location_find": "Finndu verslun",
   "prices_location_mandatory": "Þú þarft að velja búð!",
   "prices_location_search_broader": "Fannstu ekki það sem þú varst að leita að? Prófum víðtækari leit!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Sönnun",
   "prices_proof_empty_title": "Engin sönnun ennþá!",
   "prices_proof_empty_explanation": "Byrjaðu á að bæta við mynd af **kvittun** eða **verðmiða**!",
@@ -2765,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Fáðu frekari upplýsingar um opið verð",
+  "prices_menu_know_more": "Fáðu frekari upplýsingar um Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Vinsamlegast sendið okkur tölvupóst handvirkt á",
-  "email_copied_to_clip_board": "Tölvupóstur afritaður á klippiborð!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Veldu áherslulit",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} vörur tiltækar til tafarlausrar skönnunar",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3976,13 +4010,13 @@
   "nutriscore_not_applicable": "Nutri-Score á ekki við",
   "nutriscore_not_applicable_new_formula": "Nutri-Score á ekki við (nýr útreikningur)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Grænt stig A",
-  "environmental_score_b_new": "Grænt stig B",
-  "environmental_score_c_new": "Grænt stig C",
-  "environmental_score_d_new": "Grænt stig D",
-  "environmental_score_e_new": "Grænt stig E",
-  "environmental_score_unknown_new": "Óþekkt grænt stig",
-  "environmental_score_not_applicable_new": "Grænt stig gildir ekki",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Óþekkt Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score gildir ekki",
   "nova_group_generic_new": "Ofurunninn matur - NOVA hópar",
   "nova_group_1": "NOVA hópur 1",
   "nova_group_2": "NOVA hópur 2",
@@ -4081,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "Hvað er Græna stigagjöfin?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "Græna stigið er lógó sem miðar að því að upplýsa þig um **umhverfisáhrif matvæla**.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score er lógó sem miðar að því að upplýsa þig um **umhverfisáhrif matvæla**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4122,7 +4156,7 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
   "guide_greenscore_bonuses_penalties_arg4_text": "**Sekt** er reiknuð út frá því að taka tillit til **hringrásar umbúða** (notkun endurunnins hráefnis og endurvinnanleika) og ofpökkunar.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Til að reikna út Græna stigið nákvæmlega er nauðsynlegt að hafa upplýsingar sem eru ekki endilega tilgreindar á umbúðunum (eins og uppruni og nákvæmt hlutfall hvers innihaldsefnis) eða sem eru sjaldan tiltækar í nothæfu formi (eins og listi yfir alla íhluti umbúðanna ásamt nákvæmum tegundum plasts sem notaðar eru).",
+  "guide_greenscore_transparency_intro1": "Til að reikna út Green-Score nákvæmlega er nauðsynlegt að hafa upplýsingar sem eru ekki endilega tilgreindar á umbúðunum (eins og uppruni og nákvæmt hlutfall hvers innihaldsefnis) eða sem eru sjaldan tiltækar í nothæfu formi (eins og listi yfir alla íhluti umbúðanna ásamt nákvæmum tegundum plasts sem notaðar eru).",
   "guide_greenscore_transparency_intro2": "**Meðalgildi eru notuð þegar þessar upplýsingar eru ekki enn tiltækar**, en við erum nú að kalla eftir því að allir hjálpi okkur að safna þessum upplýsingum sem verða mjög gagnlegar fyrir Green-Score en einnig til margra annarra nota.",
   "guide_greenscore_transparency_arg1_title": "Hvernig geta borgarar hjálpað til?",
   "guide_greenscore_transparency_arg1_text": "Allir borgarar geta hjálpað okkur að safna og skipuleggja upplýsingar sem eru til staðar á vörum eða sem hægt er að álykta út frá þeim, svo sem upplýsingar um **umbúðir**: „Mission Emballages“: stórfelld samstarfsskráning á umbúðum fyrir allar matvæli (á frönsku).",
@@ -4134,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "Þú hefur völdin!",
   "guide_greenscore_better_product_arg2_text": "Góðu fréttirnar eru þær að þetta gefur okkur öfluga leið til að skapa breytingar.\n**Hvert og eitt okkar borðar um 1.000 máltíðir á hverju ári**. Það eru 1.000 tækifæri til að **velja betri framtíð fyrir plánetuna**!",
   "guide_greenscore_better_product_arg3_title": "Hjálpar til við að taka ábyrgð og taka ákvarðanir",
-  "guide_greenscore_better_product_arg3_text": "Það getur virst flókið að velja sjálfbæran mat. Merkingar eru ruglingslegar og upplýsingar vantar oft. Græna einkunnin var búin til til að einfalda þetta og gefa þér **skýra**, **vísindalega** og **gagnsæja** umhverfismat fyrir matvæli, nákvæmlega þar sem þú þarft á því að halda: þegar þú verslar.",
+  "guide_greenscore_better_product_arg3_text": "Það getur virst flókið að velja sjálfbæran mat. Merkingar eru ruglingslegar og upplýsingar vantar oft. Green-Score var búið til til að einfalda þetta og gefa þér **skýra**, **vísindalega** og **gagnsæja** umhverfismat fyrir matvæli, nákvæmlega þar sem þú þarft á því að halda: þegar þú verslar.",
   "guide_greenscore_better_product_arg4_title": "Gagnsæi",
-  "guide_greenscore_better_product_arg4_text": "Ólíkt einkaleyfisvernduðum merkjum er útreikningur Græna stigsins **algjörlega opinn** og hver sem er getur **staðfest hann**.",
+  "guide_greenscore_better_product_arg4_text": "Ólíkt einkaleyfisvernduðum merkjum er útreikningur Green-Score **algjörlega opinn** og hver sem er getur **staðfest hann**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4213,7 +4247,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Hvað eru staðreyndir um opið gæludýrafóður?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Hvað er Open Pet Food Facts?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts útvíkkar markmið okkar til loðinna vina okkar! Þetta er **gagnagrunnur með gæludýrafóðri fyrir ketti, hunda og aðra félaga**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4271,11 +4305,11 @@
   "guide_open_beauty_facts_scores_title": "Athugasemd um stigagjöf",
   "guide_open_beauty_facts_scores_paragraph1": "Ólíkt matvörum hefur snyrtivöruheimurinn **ekki almennt viðurkennt, ríkisstyrkt stigakerfi eins og Nutri-Score**. Áhrif innihaldsefna geta verið mjög persónuleg og háð húðgerð, ofnæmi og einstaklingsbundnum áhyggjum.",
   "guide_open_beauty_facts_share_link": "https://world-is.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Velkomin á Opið Verð!",
+  "guide_open_prices_title": "Velkomin í Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Hvað er opið verð?",
+  "guide_open_prices_what_is_open_prices_title": "Hvað er Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices er verkefni sem safnar og deilir verði á vörum um allan heim. Þetta er opinbert gagnasafn sem hægt er að nota til rannsókna, greininga og fleira. Open Prices er þróað og viðhaldið af Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4284,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Hvernig virkar opið verð?",
+  "guide_open_prices_how_title": "Hvernig virkar Open Prices?",
   "guide_open_prices_how_paragraph1": "**Við erum að safna saman opnum gagnasafni um verð.** Notendur geta bætt við verðum í gegnum þetta vefforrit eða í gegnum opinbera Open Food Facts smáforritið. Smásalar eða forrit frá þriðja aðila geta einnig lagt sitt af mörkum með því að nota API-ið okkar.",
   "guide_open_prices_how_arg1_title": "Safnaðu myndum af verðmiðum í göngum",
   "guide_open_prices_how_arg2_title": "Safnaðu myndum af kvittunum",
@@ -4295,7 +4329,7 @@
   "guide_open_prices_why_arg2_title": "Berðu saman verð nálægt þér",
   "guide_open_prices_why_arg2_text": "Þegar við fáum fleiri verð geturðu fundið **ódýrustu verslanirnar í kringum þig**.",
   "guide_open_prices_scrapping_title": "Hefurðu íhugað að skafa verð af vefsíðum smásala?",
-  "guide_open_prices_scrapping_paragraph1": "Af lagalegum og tæknilegum ástæðum **teljum við ekki að það sé gild leið til að leggja sitt af mörkum til opinna verðskráa að safna verðskrám af vefsíðum smásala.** Við viljum tryggja að verðin sem við söfnum séu nákvæm og uppfærð, og það er ekki hægt að fá verðskrár frá þátttakendum sem leggja sitt af mörkum.",
+  "guide_open_prices_scrapping_paragraph1": "Af lagalegum og tæknilegum ástæðum **teljum við ekki að það sé gild leið til að leggja sitt af mörkum til Open Prices að safna verðskrám af vefsíðum smásala.** Við viljum tryggja að verðin sem við söfnum séu nákvæm og uppfærð, og það er ekki hægt að fá verðskrár frá þátttakendum sem leggja sitt af mörkum.",
   "guide_open_prices_scrapping_paragraph2": "Verðskrapun er íhugaður möguleiki í framtíðarútgáfu af Open Prices, en það yrði gert af Open Prices sjálfu svo við getum haft sönnun fyrir verðinu út frá HTML síðunni.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Þú getur lagt fram verðlagningu með því að nota API-ið okkar.\nEf þú vilt leggja fram verðlagningu í stórum stíl, vinsamlegast hafðu samband við okkur á prices@openfoodfacts.org.",
@@ -4533,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Fjarlægðu þessa vöru úr hringekjunni",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4632,8 +4670,8 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Hvers vegna er þessi næringargildi frábrugðin þeirri sem er á umbúðunum?",
-  "knowledge_panel_nutriscore_banner_incorrect_score_message": "Tvær mögulegar skýringar eru fyrir hendi:\nInnihaldslisti og/eða næringarupplýsingar eru ekki uppfærðar.\n\nVið birtum „Nýja útreikninginn“ á næringarstiginu (eða V2). Vinsamlegast athugið að þú sjáir borðann „Nýja útreikninginn“ á umbúðunum.",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Hvers vegna er þetta Nutri-Score frábrugðið því sem er á umbúðunum?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_message": "Tvær mögulegar skýringar eru fyrir hendi: Innihaldslisti og/eða næringarupplýsingar eru ekki uppfærðar.  Við birtum „Nýja útreikninginn“ á Nutri-Score (eða V2). Vinsamlegast athugið að þú sjáir borðann „Nýja útreikninginn“ á umbúðunum.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Athugaðu innihaldsefnin",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Athugaðu næringargildi",
   "url_not_supported": "Því miður getum við ekki opnað slóðina:\n{url}",
@@ -5079,7 +5117,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "Leita að stillingu (t.d. næringarstig)",
+  "preferences_app_bar_search_hint": "Leita að stillingu (t.d. Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -5288,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Uppgötvaðu staðreyndir um matvæli í opnum mæli",
+  "preferences_faq_discover_off_title": "Uppgötvaðu Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Uppgötvaðu staðreyndir um fegurð í opnum skápum",
+  "preferences_faq_discover_obf_title": "Uppgötvaðu Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Uppgötvaðu staðreyndir um gæludýrafóður",
+  "preferences_faq_discover_opff_title": "Uppgötvaðu Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Uppgötvaðu opin verð",
+  "preferences_faq_discover_op_title": "Uppgötvaðu Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5484,7 +5522,7 @@
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
-  "preferences_contributions_categorize_subtitle": "Hjálpaðu til við að reikna út næringargildið og græna gildið í þínu landi",
+  "preferences_contributions_categorize_subtitle": "Hjálpaðu til við að reikna út Nutri-Score og Green-Score í þínu landi",
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
@@ -5516,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Mælingar á opnum verðum",
+  "preferences_prices_metrics_title": "Open Prices mælikvarðar",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5760,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Opna rannsóknarstofur um matvælaupplýsingar",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:scanner_shared/scanner_shared.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/attribute_icons.dart';
 import 'package:smooth_app/resources/app_icons.dart';
 

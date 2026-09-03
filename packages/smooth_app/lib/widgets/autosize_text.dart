@@ -164,26 +164,17 @@ class _AutoSizeTextRenderWidget extends LeafRenderObjectWidget {
 
 class _AutoSizeTextRenderBox extends RenderBox {
   _AutoSizeTextRenderBox({
-    required String text,
-    required TextStyle style,
-    required double minFontSize,
-    required double maxFontSize,
-    required TextAlign textAlign,
-    required TextDirection textDirection,
-    required TextScaler textScaler,
-    required ValueChanged<double> onFontSizeCalculated,
-    int? maxLines,
-    double? groupFontSize,
-  }) : _text = text,
-       _style = style,
-       _minFontSize = minFontSize,
-       _maxFontSize = maxFontSize,
-       _textAlign = textAlign,
-       _textDirection = textDirection,
-       _textScaler = textScaler,
-       _maxLines = maxLines,
-       _groupFontSize = groupFontSize,
-       _onFontSizeCalculated = onFontSizeCalculated;
+    required this._text,
+    required this._style,
+    required this._minFontSize,
+    required this._maxFontSize,
+    required this._textAlign,
+    required this._textDirection,
+    required this._textScaler,
+    required this._onFontSizeCalculated,
+    this._maxLines,
+    this._groupFontSize,
+  });
 
   String _text;
   TextStyle _style;

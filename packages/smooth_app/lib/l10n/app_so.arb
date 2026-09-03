@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "This image may be outdated",
   "product_image_outdated_explanations_title": "This image may be outdated",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that's it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Not really…",
   "tagline_app_review_button_later": "Ask me later",
   "tagline_feed_news_button": "Know more",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "You don't like our app?",
   "app_review_negative_modal_text": "Could you take a few seconds to tell us why?",
   "app_review_negative_modal_positive_button": "Yes, absolutely!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "There is no product in this list",
   "no_product_in_section": "There is no product in this section",
   "recently_seen_products": "All viewed products",
   "clear": "Clear",
@@ -1564,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Category",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Ikhtiyaari",
+  "prices_origins_title": "Origins",
   "prices_category_error_mandatory": "Qaybta waa qasab",
   "prices_barcode_reader_action": "Barcode reader",
   "prices_view_prices": "View the prices",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "One product is missing!",
   "prices_amount_price_incorrect": "Incorrect value",
   "prices_amount_price_mandatory": "Mandatory value",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Currency",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Shop",
   "prices_location_find": "Find a shop",
   "prices_location_mandatory": "You need to select a shop!",
   "prices_location_search_broader": "Couldn't find what you were looking for? Let's try a broader search!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Proof",
   "prices_proof_empty_title": "Wax caddayn ah weli ma jirto!",
   "prices_proof_empty_explanation": "Ka bilow inaad ku darto sawirka **rasiidh** ama **qiimaha sumadda**!",
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Please send us manually an email to",
-  "email_copied_to_clip_board": "Email copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Select Accent Color",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scaning",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3976,12 +4010,12 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Cagaaran-Dhibcaha A",
-  "environmental_score_b_new": "Cagaaran-Dhibcaha B",
-  "environmental_score_c_new": "Cagaaran-Dhibcaha C",
-  "environmental_score_d_new": "Cagaaran-Dhibcaha D",
-  "environmental_score_e_new": "Cagaaran-Dhibcaha E",
-  "environmental_score_unknown_new": "Cagaaran-Dhibcaha Aan La Aqoon",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score Aan La Aqoon",
   "environmental_score_not_applicable_new": "Green-Score ma khuseyso",
   "nova_group_generic_new": "Cuntooyinka aadka loo habeeyey - kooxaha NOVA",
   "nova_group_1": "NOVA Group 1",
@@ -4081,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "Waa maxay Dhibcaha Cagaaran?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "Dhibcaha cagaaran waa calaamad ujeedadeedu tahay in lagu ogeysiiyo **saamaynta deegaanka ee cuntada**.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score waa calaamad ujeedadeedu tahay in lagu ogeysiiyo **saamaynta deegaanka ee cuntada**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4134,7 +4168,7 @@
   "guide_greenscore_better_product_arg2_title": "Awood baad leedahay!",
   "guide_greenscore_better_product_arg2_text": "Warka fiicani waa in tani ay ina siinayso hab awood leh oo aan ku abuurno isbeddel.\n**Mid kasta oo naga mid ah waxa uu cunaa ku dhawaad 1,000 cunto sanadkiiba**. Taasi waa 1,000 fursadood oo ** loo doorto mustaqbal wanaagsan meeraha ***!",
   "guide_greenscore_better_product_arg3_title": "Wuxuu caawiyaa inuu masuul ka noqdo oo uu go'aansado",
-  "guide_greenscore_better_product_arg3_text": "Doorashada cunto waara waxay dareemi kartaa mid adag. Calaamaduhu waa jahawareer oo macluumaadka inta badan waa la la'yahay. Dhibcaha Cagaaran waxaa loo sameeyay si uu u fududeeyo, isaga oo ku siinaya ** cad ***, ** saynis ku saleysan ***, iyo ** daah-furnaanta** qiimeynta deegaanka ee alaabta cuntada, isla meesha aad uga baahan tahay: marka aad wax iibsaneyso.",
+  "guide_greenscore_better_product_arg3_text": "Doorashada cunto waara waxay dareemi kartaa mid adag. Calaamaduhu waa jahawareer oo macluumaadka inta badan waa la la'yahay. Green-Score waxaa loo sameeyay si uu u fududeeyo, isaga oo ku siinaya **cad**, **saynis ku saleysan**, iyo **daah-furnaanta** qiimeynta deegaanka ee alaabta cuntada, isla meesha aad uga baahan tahay: marka aad wax iibsaneyso.",
   "guide_greenscore_better_product_arg4_title": "Hufnaan",
   "guide_greenscore_better_product_arg4_text": "Si ka duwan calaamadaha lahaanshaha, xisaabinta Green-Score waa ** si buuxda u furan *** oo waxaa xaqiijin kara *** qof kasta.",
   "guide_nova_title": "Ultra-processed foods",
@@ -4532,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Remove this product from the carousel",
   "@carousel_close_tooltip": {
@@ -5516,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Halbeegyada Qiimaha Furan",
+  "preferences_prices_metrics_title": "Halbeegyada Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5560,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Siyaabaha fudud ee lagu caawin karo Furitaanka Xaqiiqooyinka Cuntada",
+  "preferences_page_contribute_project_subtitle": "Siyaabaha fudud ee lagu caawin karo Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5760,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Fur shaybaadhka Xaqiiqooyinka Cuntada",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5768,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Keen Xaqiiqo Cunno Furan luqadaada",
+  "preferences_contribute_translate_header": "Keen Open Food Facts luqadaada",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

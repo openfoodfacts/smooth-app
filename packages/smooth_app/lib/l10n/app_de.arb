@@ -331,8 +331,8 @@
   "sign_up_page_action_ok": "Herzlichen Glückwunsch! Ihr Konto wurde erstellt.",
   "sign_up_page_display_name_hint": "Name",
   "sign_up_page_display_name_error_empty": "Bitte geben Sie den zu verwendenden Anzeigenamen ein",
-  "sign_up_page_email_hint": "E-Mail-Adresse",
-  "sign_up_page_email_error_empty": "E-Mail-Adresse erforderlich",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ungültige E-Mail-Adresse",
   "sign_up_page_username_hint": "Benutzername: Öffentlich sichtbar",
   "sign_up_page_username_error_empty": "Bitte geben Sie einen Benutzernamen ein",
@@ -486,7 +486,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Übersetzungen sind eine der Hauptaufgaben des Projekts",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu OpenFoodFacts bei. Treten Sie dem Kompetenzpool bei!",
+  "contribute_join_skill_pool": "Tragen Sie mit Ihren Fähigkeiten zu Open Food Facts bei. Treten Sie dem Kompetenzpool bei!",
   "contribute_share_header": "Teilen Sie Open Food Facts mit Ihren Freunden",
   "@contribute_share_header": {},
   "contribute_share_content": "Ich möchte Ihnen die App OpenFoodFacts vorstellen, mit der Sie die Gesundheits- und Umweltauswirkungen Ihrer Lebensmittel auf personalisierte Weise ermitteln können. Es funktioniert durch das Einlesen der Barcodes auf den Verpackungen. Es ist kostenlos, erfordert keine Registrierung und Sie können sogar dazu beitragen, die Zahl der entschlüsselten Produkte zu erhöhen. Hier ist der Link, über den Sie die Software für Ihr Handy erhalten: https://openfoodfacts.app",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Dieses Bild ist möglicherweise veraltet",
   "product_image_outdated_explanations_title": "Dieses Bild ist möglicherweise veraltet",
-  "product_image_outdated_explanations_content": "Dieses Bild wurde vor mehr als einem Jahr aufgenommen.\n**Bitte prüfen Sie, ob es noch aktuell ist**.\n\nDies ist **nur ein Warnhinweis**. Wenn der Inhalt immer noch derselbe ist, können Sie diese Meldung ignorieren.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Nicht wirklich …",
   "tagline_app_review_button_later": "Später erneut fragen",
   "tagline_feed_news_button": "Mehr erfahren",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Gefällt Ihnen diese App?",
   "app_review_negative_modal_text": "Könnten Sie sich ein paar Sekunden Zeit nehmen und uns sagen, warum?",
   "app_review_negative_modal_positive_button": "Ja, natürlich!",
@@ -1274,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Liste enthält noch keine Produkte",
   "no_product_in_section": "Bereich enthält noch kein Produkt",
   "recently_seen_products": "Alle angesehenen Produkte",
   "clear": "Leeren",
@@ -2518,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategorie",
   "prices_category_mandatory": "Pflichtfeld",
   "prices_category_optional": "Optional",
+  "prices_origins_title": "Herkunft",
   "prices_category_error_mandatory": "Die Kategorie ist verpflichtend",
   "prices_barcode_reader_action": "Barcodelesegerät",
   "prices_view_prices": "Preise anzeigen",
@@ -2708,12 +2739,15 @@
   "prices_amount_no_product": "Ein Produkt fehlt!",
   "prices_amount_price_incorrect": "Ungültiger Wert",
   "prices_amount_price_mandatory": "Notwendiger Wert",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Währung",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Laden",
   "prices_location_find": "Einen Laden finden",
   "prices_location_mandatory": "Sie müssen einen Laden auswählen!",
   "prices_location_search_broader": "Sie haben nicht gefunden, wonach Sie gesucht haben? Versuchen Sie es mit einer allgemeineren Suchanfrage!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Nachweis",
   "prices_proof_empty_title": "Noch keine Beweise!",
   "prices_proof_empty_explanation": "Fügen Sie zunächst ein Foto der **Quittung** oder des **Preisschilds** hinzu!",
@@ -3720,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Bitte senden Sie uns manuell eine E-Mail an",
-  "email_copied_to_clip_board": "E-Mail-Adresse in Zwischenablage kopiert!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Akzentfarbe auswählen",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3910,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} Produkte zum sofortigen Scannen verfügbar",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3976,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score nicht zutreffend",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ist nicht anwendbar (neue Berechnung)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Grün-Score A",
-  "environmental_score_b_new": "Grün-Score B",
-  "environmental_score_c_new": "Grüner Score C",
-  "environmental_score_d_new": "Grün-Punktzahl D",
-  "environmental_score_e_new": "Grün-Score E",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Unbekannter Green-Score",
   "environmental_score_not_applicable_new": "Green-Score ist nicht anwendbar",
   "nova_group_generic_new": "Ultra-verarbeitete Lebensmittel – NOVA-Gruppen",
@@ -4532,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Dieses Produkt aus dem Karussell entfernen",
   "@carousel_close_tooltip": {
@@ -5516,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Offene Preismetriken",
+  "preferences_prices_metrics_title": "Open Prices-Metriken",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },

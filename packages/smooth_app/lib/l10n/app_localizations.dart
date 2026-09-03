@@ -987,7 +987,7 @@ abstract class AppLocalizations {
   /// No description provided for @sign_up_page_email_error_empty.
   ///
   /// In en, this message translates to:
-  /// **'E-post is required'**
+  /// **'E-mail is required'**
   String get sign_up_page_email_error_empty;
 
   /// No description provided for @sign_up_page_email_error_invalid.
@@ -2624,7 +2624,7 @@ abstract class AppLocalizations {
   /// Please keep the ** syntax to make the text bold
   ///
   /// In en, this message translates to:
-  /// **'This image was taken more than a year ago.\n**Please check that\'s it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.'**
+  /// **'This image was taken more than a year ago.\n**Please check that it\'s still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.'**
   String get product_image_outdated_explanations_content;
 
   /// Action on the photo gallery to replace an existing picture
@@ -2758,6 +2758,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Know more'**
   String get tagline_feed_news_button;
+
+  /// Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.
+  ///
+  /// In en, this message translates to:
+  /// **'of {goal}'**
+  String tagline_feed_funding_goal(String goal);
+
+  /// Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.
+  ///
+  /// In en, this message translates to:
+  /// **'{shortfall} short'**
+  String tagline_feed_funding_shortfall(String shortfall);
+
+  /// How long a funding campaign still runs, shown on the home news card next to the missing amount.
+  ///
+  /// In en, this message translates to:
+  /// **'{months,plural, =1{one month left} other{{months} months left}}'**
+  String tagline_feed_funding_months_left(int months);
 
   /// No description provided for @app_review_negative_modal_title.
   ///
@@ -5034,6 +5052,12 @@ abstract class AppLocalizations {
   /// **' / unit'**
   String get prices_per_unit_short;
 
+  /// No description provided for @prices_category_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get prices_category_title;
+
   /// No description provided for @prices_category_mandatory.
   ///
   /// In en, this message translates to:
@@ -5045,6 +5069,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Optional'**
   String get prices_category_optional;
+
+  /// No description provided for @prices_origins_title.
+  ///
+  /// In en, this message translates to:
+  /// **'Origins'**
+  String get prices_origins_title;
 
   /// No description provided for @prices_category_error_mandatory.
   ///
@@ -5309,6 +5339,12 @@ abstract class AppLocalizations {
   /// **'Mandatory value'**
   String get prices_amount_price_mandatory;
 
+  /// No description provided for @prices_amount_update_currency.
+  ///
+  /// In en, this message translates to:
+  /// **'Update currency'**
+  String get prices_amount_update_currency;
+
   /// No description provided for @prices_currency_subtitle.
   ///
   /// In en, this message translates to:
@@ -5344,6 +5380,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t find what you were looking for? Let\'s try a broader search!'**
   String get prices_location_search_broader;
+
+  /// No description provided for @prices_location_open_map.
+  ///
+  /// In en, this message translates to:
+  /// **'View the shop on the map'**
+  String get prices_location_open_map;
+
+  /// No description provided for @prices_location_edit.
+  ///
+  /// In en, this message translates to:
+  /// **'Select another shop'**
+  String get prices_location_edit;
 
   /// No description provided for @prices_proof_subtitle.
   ///

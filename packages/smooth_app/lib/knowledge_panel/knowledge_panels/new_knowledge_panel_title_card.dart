@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -69,7 +69,7 @@ class SimplifiedKnowledgePanelTitleCard extends StatelessWidget {
           ),
           const SizedBox(width: LARGE_SPACE),
           if (iconUrl != null && iconUrl!.isNotEmpty)
-            SvgCache(iconUrl, height: 42.0),
+            AbstractCache.best(iconUrl: iconUrl, height: 42.0),
         ],
       ),
     );
