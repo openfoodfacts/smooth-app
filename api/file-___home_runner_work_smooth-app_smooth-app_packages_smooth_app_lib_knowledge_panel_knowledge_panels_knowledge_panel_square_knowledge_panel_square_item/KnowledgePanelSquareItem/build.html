@@ -84,20 +84,24 @@ Widget build(BuildContext context) {
         &#39;&#39;,
   );
 
+  final bool worthAClick =
+      panelId != null &amp;&amp;
+      KnowledgePanelsBuilder.hasSomethingToDisplay(
+        context.read&lt;Product&gt;(),
+        panelId!,
+      );
   return Expanded(
     child: InkWell(
-      onTap: panelId != null
-          ? () {
-              showKnowledgePanelSquareModalSheet(
-                context,
-                title: title,
-                value: value,
-                panelId: panelId!,
-                product: context.read&lt;Product&gt;(),
-                valueColor: indicatorColor,
-              );
-            }
-          : null,
+      onTap: !worthAClick
+          ? null
+          : () async =&gt; showKnowledgePanelSquareModalSheet(
+              context,
+              title: title,
+              value: value,
+              panelId: panelId!,
+              product: context.read&lt;Product&gt;(),
+              valueColor: indicatorColor,
+            ),
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(
           horizontal: VERY_LARGE_SPACE,
@@ -119,14 +123,17 @@ Widget build(BuildContext context) {
                         fontWeight: FontWeight.bold,
                         fontSize: 15.0,
                       ),
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ),
-                icons.Chevron.horizontalDirectional(
-                  context,
-                  size: 12.0,
-                  color: theme.greyMedium,
-                ),
+                if (worthAClick)
+                  icons.Chevron.horizontalDirectional(
+                    context,
+                    size: 12.0,
+                    color: theme.greyMedium,
+                  ),
               ],
             ),
             const SizedBox(height: SMALL_SPACE),

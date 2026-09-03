@@ -83,17 +83,14 @@ Widget build(BuildContext context) {
         UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
       ) ??
       false) {
-    iconData = _getIconDataFromEvaluation(evaluation);
+    iconData = evaluation.getIconData();
   }
   if (!(userPreferences.getFlag(
         UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
       ) ??
       false)) {
     if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-      colorFromEvaluation = KnowledgePanelsBuilder.getColorFromEvaluation(
-        context,
-        evaluation,
-      );
+      colorFromEvaluation = evaluation.getColor(context);
       backgroundIconColor = colorFromEvaluation;
 
       iconColor = colorFromEvaluation ?? theme.primaryDark;

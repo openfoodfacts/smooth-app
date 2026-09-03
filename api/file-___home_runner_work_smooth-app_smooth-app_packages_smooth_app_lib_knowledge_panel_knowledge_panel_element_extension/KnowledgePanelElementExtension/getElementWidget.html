@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getElementWidget method from the KnowledgePanelElementExtension extension, for the Dart programming language.">
+  <title>getElementWidget method - KnowledgePanelElementExtension extension - knowledge_panel_element_extension library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension-library.html">knowledge_panel_element_extension</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/KnowledgePanelElementExtension.html">KnowledgePanelElementExtension</a></li>
+    <li class="self-crumb">getElementWidget method</li>
+  </ol>
+  <div class="self-name">getElementWidget</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">getElementWidget</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+
+<span class="returntype">dynamic</span>
+<span class="name ">getElementWidget</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="getElementWidget-param-product">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">product</span>, </span></li>
+<li><span class="parameter" id="getElementWidget-param-isInitiallyExpanded"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isInitiallyExpanded</span>, </span></li>
+<li><span class="parameter" id="getElementWidget-param-isClickable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isClickable</span>, </span></li>
+<li><span class="parameter" id="getElementWidget-param-isTextSelectable"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">isTextSelectable</span>, </span></li>
+<li><span class="parameter" id="getElementWidget-param-position"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">position</span>, </span></li>
+<li><span class="parameter" id="getElementWidget-param-simplified"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">simplified</span>}</span></li>
+</ol>)
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Returns the widget that displays the KP element, or rarely null.</p>
+<p>cf. <a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/KnowledgePanelElementExtension/hasSomethingToDisplay.html">hasSomethingToDisplay</a>.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Widget? getElementWidget({
+  required final Product product,
+  required final bool isInitiallyExpanded,
+  required final bool isClickable,
+  required final bool isTextSelectable,
+  required final int position,
+  required final bool simplified,
+}) {
+  switch (elementType) {
+    case KnowledgePanelElementType.TEXT:
+      return KnowledgePanelTextCard(textElement: textElement!);
+
+    case KnowledgePanelElementType.IMAGE:
+      return KnowledgePanelImageCard(imageElement: imageElement!);
+
+    case KnowledgePanelElementType.PANEL:
+      final String panelId = panelElement!.panelId;
+      final KnowledgePanel? panel = KnowledgePanelsBuilder.getKnowledgePanel(
+        product,
+        panelId,
+      );
+      if (panel == null) {
+        &#47;&#47; happened in https:&#47;&#47;github.com&#47;openfoodfacts&#47;smooth-app&#47;issues&#47;2682
+        &#47;&#47; due to some inconsistencies in the data sent by the server
+        if (panelId == &#39;ecoscore&#39; &amp;&amp;
+            (product.productType ?? ProductType.food) != ProductType.food) {
+          &#47;&#47; just ignore
+        } else {
+          Logs.w(&#39;unknown panel &quot;$panelId&quot; for barcode &quot;${product.barcode}&quot;&#39;);
+        }
+        return null;
+      }
+      return KnowledgePanelCard(
+        panelId: panelId,
+        product: product,
+        isClickable: isClickable,
+        simplified: simplified,
+      );
+
+    case KnowledgePanelElementType.PANEL_GROUP:
+      if (simplified) {
+        final List&lt;KnowledgePanel&gt; squarePanels = &lt;KnowledgePanel&gt;[];
+        for (final String panelId in panelGroupElement!.panelIds) {
+          final KnowledgePanel? panel =
+              KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+          if (panel != null &amp;&amp; (panel.halfWidthOnMobile ?? false)) {
+            squarePanels.add(panel);
+          }
+        }
+
+        if (squarePanels.isNotEmpty) {
+          return KnowledgePanelSquareCard(
+            panels: squarePanels,
+            panelsIds: panelGroupElement?.panelIds,
+            product: product,
+          );
+        }
+      }
+
+      return KnowledgePanelGroupCard(
+        groupElement: panelGroupElement!,
+        product: product,
+        isClickable: isClickable,
+        isTextSelectable: isTextSelectable,
+        position: position,
+        simplified: simplified,
+      );
+
+    case KnowledgePanelElementType.TABLE:
+      return KnowledgePanelTableCard(
+        tableElement: tableElement!,
+        isInitiallyExpanded: isInitiallyExpanded,
+        product: product,
+      );
+
+    case KnowledgePanelElementType.MAP:
+      return KnowledgePanelWorldMapCard(mapElement!);
+
+    case KnowledgePanelElementType.UNKNOWN:
+      return null;
+
+    case KnowledgePanelElementType.ACTION:
+      return KnowledgePanelActionCard(actionElement!, product);
+  }
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">smooth_app</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension-library.html">knowledge_panel_element_extension</a></li>
+  <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/KnowledgePanelElementExtension.html">KnowledgePanelElementExtension</a></li>
+  <li class="self-crumb">getElementWidget method</li>
+</ol>
+
+
+    <h5>KnowledgePanelElementExtension extension</h5>
+    <ol>
+
+
+
+
+
+    <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/KnowledgePanelElementExtension.html#instance-methods">Methods</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/KnowledgePanelElementExtension/getElementWidget.html">getElementWidget</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/KnowledgePanelElementExtension/hasSomethingToDisplay.html">hasSomethingToDisplay</a></li>
+    <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_knowledge_panel_knowledge_panel_element_extension/KnowledgePanelElementExtension/lookForSquarePanels.html">lookForSquarePanels</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
