@@ -7,7 +7,7 @@ import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/knowledge_panel/evaluation_extension.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -42,17 +42,14 @@ class KnowledgePanelTitleCard extends StatelessWidget {
           UserPreferencesDevMode.userPreferencesFlagAccessibilityEmoji,
         ) ??
         false) {
-      iconData = _getIconDataFromEvaluation(evaluation);
+      iconData = evaluation.getIconData();
     }
     if (!(userPreferences.getFlag(
           UserPreferencesDevMode.userPreferencesFlagAccessibilityNoColor,
         ) ??
         false)) {
       if (knowledgePanelTitleElement.iconColorFromEvaluation ?? false) {
-        colorFromEvaluation = KnowledgePanelsBuilder.getColorFromEvaluation(
-          context,
-          evaluation,
-        );
+        colorFromEvaluation = evaluation.getColor(context);
         backgroundIconColor = colorFromEvaluation;
 
         iconColor = colorFromEvaluation ?? theme.primaryDark;
@@ -169,21 +166,6 @@ class KnowledgePanelTitleCard extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  IconData? _getIconDataFromEvaluation(Evaluation? evaluation) {
-    switch (evaluation) {
-      case Evaluation.BAD:
-        return Icons.sentiment_very_dissatisfied;
-      case Evaluation.AVERAGE:
-        return Icons.sentiment_satisfied;
-      case Evaluation.GOOD:
-        return Icons.sentiment_very_satisfied;
-      case null:
-      case Evaluation.NEUTRAL:
-      case Evaluation.UNKNOWN:
-        return null;
-    }
   }
 
   String _generateSemanticsValue(BuildContext context) {
