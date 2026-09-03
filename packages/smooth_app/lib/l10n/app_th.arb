@@ -276,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "ช่วยปรับปรุงข้อมูลอาหารแบบเปิดเผยในประเทศของคุณ",
+  "help_improve_country": "ช่วยปรับปรุง Open Food Facts ในประเทศของคุณ",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -809,7 +809,7 @@
   "nutritional_facts_input_button_label": "กรอกข้อมูลโภชนาการ",
   "nutritional_facts_added": "เพิ่มข้อมูลโภชนาการ",
   "categories_added": "เพิ่มหมวดหมู่แล้ว",
-  "new_product_title_nutriscore": "คำนวณคะแนนโภชนาการ",
+  "new_product_title_nutriscore": "คำนวณ Nutri-Score",
   "new_product_subtitle_nutriscore": "โปรดช่วยเราด้วยการกรอกข้อมูลอย่างน้อยหนึ่งหมวดหมู่และข้อมูลโภชนาการ",
   "new_product_title_environmental_score": "คำนวณคะแนนสีเขียว",
   "new_product_subtitle_environmental_score": "รับสิทธิ์โดยการกรอกข้อมูลอย่างน้อยหนึ่งหมวดหมู่",
@@ -835,7 +835,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "แตะเพื่อตอบ 3 คำถามตอนนี้ เพื่อคำนวณคะแนนโภชนาการ คะแนนความเขียว และคะแนนการประมวลผลขั้นสูง (NOVA)!",
+  "hey_incomplete_product_message": "แตะเพื่อตอบ 3 คำถามตอนนี้ เพื่อคำนวณ Nutri-Score, Green-Score และคะแนนการประมวลผลขั้นสูง (NOVA)!",
   "hey_incomplete_product_message_beauty": "แตะเลยเพื่อตอบคำถาม 2 ข้อที่จะช่วยวิเคราะห์เครื่องสำอางชิ้นนี้!",
   "hey_incomplete_product_message_pet_food": "แตะเลยเพื่อตอบคำถาม 3 ข้อที่จะช่วยวิเคราะห์ผลิตภัณฑ์อาหารสัตว์เลี้ยงนี้!",
   "hey_incomplete_product_message_product": "แตะเลยเพื่อช่วยให้ผลิตภัณฑ์นี้เสร็จสมบูรณ์!",
@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "คะแนนโภชนาการ, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2799,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "เรียนรู้เพิ่มเติมเกี่ยวกับราคาเปิด",
+  "prices_menu_know_more": "เรียนรู้เพิ่มเติมเกี่ยวกับ Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3995,7 +3995,7 @@
   "nutriscore_c": "Nutri-Score C",
   "nutriscore_d": "Nutri-Score D",
   "nutriscore_e": "Nutri-Score E",
-  "nutriscore_new_formula": "คะแนนโภชนาการ {letter} (การคำนวณใหม่)",
+  "nutriscore_new_formula": "Nutri-Score {letter} (การคำนวณใหม่)",
   "@nutriscore_new_formula": {
     "description": "A generic string to define a Nutri-Score V2 with a letter [eg: \"Nutri-Score A (New calculation)\"]",
     "placeholders": {
@@ -4004,12 +4004,12 @@
       }
     }
   },
-  "nutriscore_new_formula_title": "คะแนนโภชนาการ (การคำนวณแบบใหม่)",
+  "nutriscore_new_formula_title": "Nutri-Score (การคำนวณแบบใหม่)",
   "nutriscore_unknown": "ไม่ทราบค่า Nutri-Score",
-  "nutriscore_unknown_new_formula": "ค่าโภชนาการที่ไม่ทราบค่า (การคำนวณใหม่)",
+  "nutriscore_unknown_new_formula": "Nutri-Score ที่ไม่ทราบค่า (การคำนวณใหม่)",
   "nutriscore_not_applicable": "ไม่สามารถใช้ Nutri-Score ได้",
   "nutriscore_not_applicable_new_formula": "ไม่สามารถใช้ Nutri-Score ได้ (การคำนวณใหม่)",
-  "environmental_score_generic_new": "คะแนนสีเขียว",
+  "environmental_score_generic_new": "Green-Score",
   "environmental_score_a_new": "Green-Score เอ",
   "environmental_score_b_new": "Green-Score บี",
   "environmental_score_c_new": "Green-Score ซี",
@@ -4029,7 +4029,7 @@
   "faq_title_install_beauty": "ติดตั้ง Open Beauty Facts เพื่อสร้างฐานข้อมูลเครื่องสำอาง",
   "faq_title_install_pet": "ติดตั้ง Open Pet Food Facts เพื่อสร้างฐานข้อมูลอาหารสัตว์เลี้ยง",
   "faq_title_install_product": "ติดตั้ง Open Products Facts เพื่อสร้างฐานข้อมูลผลิตภัณฑ์เพื่อยืดอายุการใช้งานของวัตถุ",
-  "faq_nutriscore_nutriscore": "วิธีการคำนวณคะแนนโภชนาการแบบใหม่: มีอะไรใหม่บ้าง?",
+  "faq_nutriscore_nutriscore": "วิธีการคำนวณ Nutri-Score แบบใหม่: มีอะไรใหม่บ้าง?",
   "contact_title_pro_page": "มืออาชีพ? นำเข้าผลิตภัณฑ์ของคุณใน Open Food Facts",
   "contact_title_pro_email": "ติดต่อผู้ผลิต",
   "contact_title_press_page": "หน้าข่าวประชาสัมพันธ์",
@@ -4208,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "ตั้งแต่ปี 2018 ด้วย NutriNet-Santé ความเชื่อมโยงแรกระหว่าง**การบริโภคอาหารแปรรูปสูงและความเสี่ยงที่เพิ่มขึ้นของโรคมะเร็ง โรคหัวใจและหลอดเลือด และโรคเบาหวาน ได้ถูกเน้นย้ำ** ปัจจุบันมีการศึกษามากกว่า 90 ชิ้นทั่วโลกที่ยืนยันการค้นพบเหล่านี้\nความเชื่อมโยงที่แข็งแกร่งที่สุดเกี่ยวข้องกับ**โรคอ้วน การเสียชีวิตจากโรคหัวใจและหลอดเลือด และอาการซึมเศร้า** ในเด็ก ผลกระทบจะเห็นได้ชัดเจนที่น้ำหนักและความไม่สมดุลของไขมัน",
   "guide_nova_explanations_arg6_title": "ประเทศต่างๆ แนะนำให้จำกัดจำนวน",
   "guide_nova_explanations_arg6_text": "บางประเทศใช้กลุ่ม NOVA สำหรับแนวทางหรือเป้าหมายด้านโภชนาการของตน ตัวอย่างเช่น:\n\n- **🇧🇷 บราซิล** มีแนวทางด้านโภชนาการที่ **แนะนำให้จำกัดการบริโภค** อาหารแปรรูปและหลีกเลี่ยงอาหารแปรรูปขั้นสูง\n\n- **🇫🇷 ฝรั่งเศส** มีเป้าหมายนโยบายด้านโภชนาการสาธารณะสำหรับปี 2018-2022 ที่ **ลดการบริโภคอาหารแปรรูปขั้นสูงกลุ่ม 4 ลง 20%**",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/โนวา",
+  "guide_nova_share_link": "https://world-th.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4256,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "คุณสมบัติของข้อมูลอาหารสัตว์เลี้ยงแบบเปิดเผย",
+  "guide_open_pet_food_facts_features_title": "คุณสมบัติของ Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "รับการแจ้งเตือนสำหรับส่วนผสมที่ไม่ต้องการ",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "สัตว์เลี้ยงของคุณแพ้ส่วนผสมใดบ้างหรือไม่? คุณสามารถตั้งรายการส่วนผสมเครื่องสำอางที่ควรหลีกเลี่ยงได้โดยตรงในแอป!",
   "guide_open_pet_food_facts_tips_title": "เคล็ดลับการถ่ายภาพให้สวยงาม",
@@ -4286,7 +4286,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "คุณสมบัติของข้อมูลความงามแบบเปิดเผย",
+  "guide_open_beauty_facts_features_title": "คุณสมบัติของ Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "รับการแจ้งเตือนสำหรับส่วนผสมที่ไม่ต้องการ",
   "guide_open_beauty_facts_features_arg1_paragraph1": "คุณแพ้ส่วนผสมใดบ้างหรือไม่? ต้องการหลีกเลี่ยงสารที่ก่อให้เกิดสิวอุดตันหรือไม่? ต้องการหลีกเลี่ยงส่วนประกอบที่เป็นที่ถกเถียงหรือไม่? คุณสามารถตั้งค่ารายการส่วนผสมเครื่องสำอางที่ต้องการหลีกเลี่ยงได้โดยตรงในแอป!",
   "guide_open_beauty_facts_tips_title": "เคล็ดลับการถ่ายภาพให้สวยงาม",
@@ -5330,15 +5330,15 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "ค้นพบข้อเท็จจริงเกี่ยวกับ Open Beauty",
+  "preferences_faq_discover_obf_title": "ค้นพบ Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "ค้นพบข้อมูลอาหารสัตว์เลี้ยงแบบเปิดเผย",
+  "preferences_faq_discover_opff_title": "ค้นพบ Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "ค้นพบราคาแบบเปิด",
+  "preferences_faq_discover_op_title": "ค้นพบ Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5554,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "ตัวชี้วัดราคาเปิด",
+  "preferences_prices_metrics_title": "ตัวชี้วัด Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },

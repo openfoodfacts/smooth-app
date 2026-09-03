@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Ne ravno…",
   "tagline_app_review_button_later": "Vprašaj me pozneje",
   "tagline_feed_news_button": "Več informacij",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Vam ni všeč naša aplikacija?",
   "app_review_negative_modal_text": "Bi si lahko vzeli nekaj sekund in nam povedali, zakaj?",
   "app_review_negative_modal_positive_button": "Ja, absolutno!",
@@ -2769,7 +2799,7 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Več o odprtih cenah",
+  "prices_menu_know_more": "Več o Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
@@ -3975,18 +4005,18 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (nov izračun)",
-  "nutriscore_unknown": "Neznana hranilna vrednost",
+  "nutriscore_unknown": "Neznan Nutri-Score",
   "nutriscore_unknown_new_formula": "Neznan Nutri-Score (nov izračun)",
   "nutriscore_not_applicable": "Nutri-Score se ne uporablja.",
   "nutriscore_not_applicable_new_formula": "Nutri-Score se ne uporablja (nov izračun)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Zelena ocena A",
-  "environmental_score_b_new": "Zelena ocena B",
-  "environmental_score_c_new": "Zelena ocena C",
-  "environmental_score_d_new": "Zelena ocena D",
-  "environmental_score_e_new": "Zelena ocena E",
-  "environmental_score_unknown_new": "Neznan zeleni rezultat",
-  "environmental_score_not_applicable_new": "Zelena ocena ni uporabna",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Neznan Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score se ne uporablja",
   "nova_group_generic_new": "Ultra predelana živila - skupine NOVA",
   "nova_group_1": "Skupina NOVA 1",
   "nova_group_2": "Skupina NOVA 2",
@@ -3995,7 +4025,7 @@
   "nova_group_unknown": "Neznana skupina NOVA",
   "nutrition_facts": "Ravni hranil",
   "faq_title_partners": "Partnerji in pokrovitelji nevladne organizacije",
-  "faq_title_vision": "Vizija, poslanstvo, vrednote in programi Odprtega programa za živila",
+  "faq_title_vision": "Vizija, poslanstvo, vrednote in programi Open Food Facts",
   "faq_title_install_beauty": "Namestite Open Beauty Facts za ustvarjanje kozmetične baze podatkov",
   "faq_title_install_pet": "Namestite Open Pet Food Facts, da ustvarite bazo podatkov o hrani za hišne ljubljenčke",
   "faq_title_install_product": "Namestite Open Products Facts, da ustvarite podatkovno zbirko izdelkov in podaljšate življenjsko dobo predmetov.",
@@ -4085,7 +4115,7 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "Kaj je zeleni rezultat?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "Zeleni rezultat je logotip, katerega cilj je obveščati vas o **vplivu hrane na okolje**.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score je logotip, katerega cilj je obveščati vas o **vplivu hrane na okolje**.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4178,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Od leta 2018 so bile z NutriNet-Santé poudarjene prve povezave med **uživanjem ultra predelane hrane in povečanim tveganjem za raka, bolezni srca in ožilja ter sladkorno boleznijo**. Danes te ugotovitve potrjuje več kot 90 študij po vsem svetu.\nNajmočnejše povezave so povezane z **debelostjo, umrljivostjo zaradi bolezni srca in ožilja ter depresivnimi simptomi**. Pri otrocih se učinki opažajo predvsem pri telesni teži in neravnovesju lipidov.",
   "guide_nova_explanations_arg6_title": "Države priporočajo njihovo omejitev",
   "guide_nova_explanations_arg6_text": "Nekatere države uporabljajo skupine NOVA za svoje prehranske smernice ali cilje, na primer:\n\n- **🇧🇷 Brazilske** prehranske smernice **priporočajo omejitev** uživanja predelane hrane in izogibanje ultra predelani hrani.\n\n- **🇫🇷 Francija** ima za cilj **zmanjšati uživanje ultra predelane hrane iz skupine 4 za 20 %**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-sl.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4186,7 +4216,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Kaj so odprta dejstva o hrani?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Kaj je Open Food Facts?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts je **sodelovalna**, **brezplačna** in **odprta** baza podatkov o živilih z vsega sveta.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4195,7 +4225,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Značilnosti odprtih dejstev o hrani",
+  "guide_open_food_facts_features_title": "Značilnosti Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "Prejemajte opozorila o neželenih sestavinah",
   "guide_open_food_facts_tips_title": "Nasveti za odlične fotografije",
   "guide_open_food_facts_tips_arg1_title": "Česa ne smete storiti",
@@ -4226,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Značilnosti odprtih dejstev o hrani za hišne ljubljenčke",
+  "guide_open_pet_food_facts_features_title": "Značilnosti Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Prejemajte opozorila o neželenih sestavinah",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Je vaš ljubljenček alergičen na katero od sestavin? Seznam kozmetičnih sestavin, ki se jim je treba izogniti, lahko nastavite kar v aplikaciji!",
   "guide_open_pet_food_facts_tips_title": "Nasveti za odlične fotografije",
@@ -4247,7 +4277,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Kaj so odprta dejstva o lepoti?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Kaj je Open Beauty Facts?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts je skupna baza podatkov o **kozmetičnih izdelkih**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4275,11 +4305,11 @@
   "guide_open_beauty_facts_scores_title": "Opomba o točkovanju",
   "guide_open_beauty_facts_scores_paragraph1": "Za razliko od živilskih izdelkov svet kozmetike **nima splošno priznanega, vladno podprtega sistema ocenjevanja, kot je Nutri-Score**. Učinki sestavin so lahko zelo osebni in odvisni od tipa kože, alergij in individualnih težav.",
   "guide_open_beauty_facts_share_link": "https://world-sl.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Dobrodošli na Odprtih cenah!",
+  "guide_open_prices_title": "Dobrodošli na Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "Kaj so odprte cene?",
+  "guide_open_prices_what_is_open_prices_title": "Kaj je Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices je projekt za **zbiranje in deljenje cen izdelkov po vsem svetu**. Gre za javno dostopen nabor podatkov, ki ga je mogoče uporabiti za raziskave, analize in drugo. Open Prices razvija in vzdržuje Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4288,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "Kako delujejo odprte cene?",
+  "guide_open_prices_how_title": "Kako deluje Open Prices?",
   "guide_open_prices_how_paragraph1": "**Zbiramo odprtokodne podatke o cenah prek množičnega financiranja.** Cene lahko uporabniki dodajo prek te spletne aplikacije ali prek uradne mobilne aplikacije Open Food Facts. Prispevajo lahko tudi trgovci na drobno ali aplikacije tretjih oseb z uporabo našega API-ja.",
   "guide_open_prices_how_arg1_title": "Zbirajte fotografije cenovnih etiket v hodnikih",
   "guide_open_prices_how_arg2_title": "Zberite fotografije računov",
@@ -5296,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Odkrijte dejstva o odprti hrani",
+  "preferences_faq_discover_off_title": "Odkrijte Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Odkrijte odprta dejstva o lepoti",
+  "preferences_faq_discover_obf_title": "Odkrijte Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Odkrijte dejstva o hrani za hišne ljubljenčke na Open",
+  "preferences_faq_discover_opff_title": "Odkrijte Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Odkrijte odprte cene",
+  "preferences_faq_discover_op_title": "Odkrijte Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Metrike odprtih cen",
+  "preferences_prices_metrics_title": "Metrike Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5768,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Odprti laboratoriji za dejstva o hrani",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5776,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Prinesite odprta dejstva o hrani v svoj jezik",
+  "preferences_contribute_translate_header": "Prinesite Open Food Facts v svoj jezik",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },

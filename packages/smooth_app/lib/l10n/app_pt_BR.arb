@@ -46,7 +46,7 @@
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
   "go_back_to_top": "Voltar ao topo",
-  "save": "Guardar",
+  "save": "Salvar",
   "save_confirmation": "Você tem certeza de que deseja salvar?",
   "skip": "Pular",
   "cancel": "Cancelar",
@@ -75,31 +75,31 @@
   "@food_preferences_page_title_introduction": {
     "description": "Title for the introduction page of the food preferences wizard"
   },
-  "food_preferences_page_title_diets": "Diets",
+  "food_preferences_page_title_diets": "Dietas",
   "@food_preferences_page_title_diets": {
     "description": "Title for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_title_allergies": "Allergies",
+  "food_preferences_page_title_allergies": "Alergias",
   "@food_preferences_page_title_allergies": {
     "description": "Title for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "food_preferences_page_title_unwanted_foods": "O que eu não como",
   "@food_preferences_page_title_unwanted_foods": {
     "description": "Title for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "food_preferences_page_title_foods_to_avoid": "O que eu prefiro evitar",
   "@food_preferences_page_title_foods_to_avoid": {
     "description": "Title for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_title_environment": "Environmental preferences",
+  "food_preferences_page_title_environment": "Preferências ambientais",
   "@food_preferences_page_title_environment": {
     "description": "Title for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_page_title_summary": "Profile ready",
+  "food_preferences_page_title_summary": "Perfil pronto",
   "@food_preferences_page_title_summary": {
     "description": "Title for the summary/confirmation page of the food preferences wizard"
   },
-  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "food_preferences_step_prefix": "Passo {stepNumber}: ",
   "@food_preferences_step_prefix": {
     "description": "Step number prefix shown before the page title in the food preferences wizard",
     "placeholders": {
@@ -109,11 +109,11 @@
       }
     }
   },
-  "food_preferences_no_selection": "No selection",
+  "food_preferences_no_selection": "Nenhuma seleção",
   "@food_preferences_no_selection": {
     "description": "Text shown when no preferences are selected in a category on the summary page"
   },
-  "food_preferences_empty_state": "No attributes available for this category.",
+  "food_preferences_empty_state": "Nenhum atributo disponível para esta categoria.",
   "@food_preferences_empty_state": {
     "description": "Text shown when a preference category has no attributes available"
   },
@@ -121,7 +121,7 @@
   "@food_preferences_error_loading": {
     "description": "Error message shown when the food preferences fail to load from the server"
   },
-  "food_preferences_summary_description": "Here is your profile:",
+  "food_preferences_summary_description": "Aqui está o seu perfil:",
   "@food_preferences_summary_description": {
     "description": "Description text shown at the top of the preferences summary page"
   },
@@ -133,27 +133,27 @@
   "@food_preferences_page_description_diets": {
     "description": "Description for the diets page of the food preferences wizard"
   },
-  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "food_preferences_page_description_allergies": "Selecione os alérgenos que você precisa evitar para garantir a segurança alimentar.",
   "@food_preferences_page_description_allergies": {
     "description": "Description for the allergies page of the food preferences wizard"
   },
-  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "food_preferences_page_description_unwanted_foods": "Indique os alimentos ou ingredientes que você não come.",
   "@food_preferences_page_description_unwanted_foods": {
     "description": "Description for the unwanted foods page of the food preferences wizard"
   },
-  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "food_preferences_page_description_foods_to_avoid": "Selecione os alimentos que prefere evitar, sem que isso signifique uma proibição estrita.",
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "food_preferences_page_description_environment": "Indique suas preferências ambientais para receber recomendações mais sustentáveis.",
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
-  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "food_preferences_search_ingredients_hint": "Procure os ingredientes",
   "@food_preferences_search_ingredients_hint": {
     "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
   },
-  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "food_preferences_ingredient_already_added": "Ingrediente já adicionado",
   "@food_preferences_ingredient_already_added": {
     "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
@@ -250,7 +250,7 @@
   "incorrect_credentials": "Nome do usuário ou senha incorretos.",
   "password_lost_incorrect_credentials": "Este endereço eletrónico ou este nome de utilizador não existe. Por favor, verifique as suas credenciais.",
   "password_lost_server_unavailable": "Estamos atualmente a sofrer lentidão nos nossos servidores e pedimos desculpa por isso. Por favor, tente novamente mais tarde.",
-  "login": "Login",
+  "login": "Entrar",
   "@login": {
     "description": "Text field hint: unified name for either username or e-mail address"
   },
@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Nome",
   "sign_up_page_display_name_error_empty": "Por favor, escolha o nome que deseja usar",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_error_empty": "O e-mail é obrigatório",
   "sign_up_page_email_error_invalid": "E-mail inválido",
   "sign_up_page_username_hint": "Nome de utilizador: público",
   "sign_up_page_username_error_empty": "Por favor introduza um nome de utilizador",
@@ -376,7 +376,7 @@
   "sign_up_page_email_already_exists": "já existe, inicie sessão nessa conta ou tente com outro e-mail.",
   "sign_up_page_provide_valid_email": "Por favor, indique um endereço de email válido.",
   "sign_up_page_server_busy": "Pedimos desculpa, estamos com algumas dificuldades técnicas para criar a sua conta. Por favor, tente mais tarde.",
-  "settingsTitle": "Definições",
+  "settingsTitle": "Configurações",
   "@settingsTitle": {
     "description": "The title of the Settings page"
   },
@@ -539,16 +539,16 @@
   "myPreferences_profile_subtitle": "Gerir a sua conta como colaborador do Open Food Facts.",
   "myPreferences_settings_title": "Configurações da aplicação",
   "myPreferences_settings_subtitle": "Modo escuro, idiomas…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "Você ainda não definiu nenhuma preferência.",
   "myPreferences_food_title": "Preferências alimentares",
   "myPreferences_food_subtitle": "Escolha as informações sobre os alimentos que mais lhe interessam.",
   "myPreferences_food_comment": "Escolha as informações sobre alimentos que mais lhe interessam, para classificar os alimentos de acordo com as suas preferências, ver primeiro as informações que lhe interessam e obter um resumo de compatibilidade. Essas preferências alimentares permanecem no seu dispositivo e não estão associadas à sua conta de colaborador do Open Food Facts, caso tenha uma.",
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
+  "myPreferences_beauty_title": "Preferências por cosméticos",
+  "myPreferences_beauty_subtitle": "Escolha as informações sobre produtos cosméticos mais importantes para você.",
+  "myPreferences_product_title": "Preferências por outros produtos",
+  "myPreferences_product_subtitle": "Escolha as informações sobre outros produtos mais importantes para você.",
+  "myPreferences_pet_food_title": "Preferências sobre alimentos para animais de estimação",
+  "myPreferences_pet_food_subtitle": "Escolha as informações sobre alimentos para animais de estimação que te importam mais.",
   "confirmResetPreferences": "Redefinir suas preferências alimentares?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -981,7 +981,7 @@
   "@more_photos": {},
   "view_more_photo_button": "Veja todas as fotos existentes para este produto",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "Nenhuma configuração encontrada",
   "@no_settings_found": {},
   "no_product_found": "Não foi encontrado nenhum produto",
   "@no_product_found": {},
@@ -1117,6 +1117,36 @@
   "tagline_app_review_button_negative": "Nem por isso…",
   "tagline_app_review_button_later": "Perguntar depois",
   "tagline_feed_news_button": "Saber mais",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Não gosta da nossa aplicação?",
   "app_review_negative_modal_text": "Pode tirar uns segundos e dizer-nos o porquê por favor?",
   "app_review_negative_modal_positive_button": "Sim, absolutamente!",
@@ -4212,7 +4242,7 @@
   "guide_open_food_facts_scores_arg1_title": "Uma pontuação sobre a qualidade nutricional",
   "guide_open_food_facts_scores_arg2_title": "Uma pontuação para evitar alimentos ultraprocessados",
   "guide_open_food_facts_scores_arg3_title": " Uma pontuação para o planeta",
-  "guide_open_food_facts_share_link": "https://world-en.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-pt.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Bem-vindo ao Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5524,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Métricas de preços de abertura",
+  "preferences_prices_metrics_title": "Métricas do Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
