@@ -72,13 +72,13 @@ class _CropPageState extends State<CropPage> {
   int? _cacheImageWidth;
   int? _cacheImageHeight;
 
-  /// The screen size, used as a maximum size for the transient image.
+  /// The longest screen side, used as a maximum size for the transient image.
   ///
   /// We need this info:
   /// * we experienced performance issues when cropping the full size
   /// * it's much faster to create a smaller file
   /// * the size of the screen is a good approximation of "how big is enough?"
-  late Size _screenSize;
+  late double _longestSide;
 
   /// Progress text, if we are processing data. `null` means we're done.
   String? _progress = '';
@@ -181,9 +181,12 @@ class _CropPageState extends State<CropPage> {
 
   @override
   Widget build(final BuildContext context) {
-    _screenSize = MediaQuery.sizeOf(context);
     if (_progress == null && _cacheImageWidth == null) {
-      final int longestSide = _screenSize.longestSide.floor();
+      final Size screenSize = MediaQuery.sizeOf(context);
+      final double pixelRatio = MediaQuery.devicePixelRatioOf(context);
+      _longestSide = screenSize.longestSide * pixelRatio;
+
+      final int longestSide = _longestSide.floor();
       if (_fullImageWidth > _fullImageHeight) {
         _cacheImageWidth = min(_fullImageWidth, longestSide);
         _cacheImageHeight =
@@ -382,25 +385,28 @@ class _CropPageState extends State<CropPage> {
     final String croppedPath = '${directory.path}/cropped_$sequenceNumber.bmp';
     final File result = File(croppedPath);
     setState(() => _progress = appLocalizations.crop_page_action_cropping);
-    final ui.Image image = await _loadFullImage();
-    final ui.Image cropped = await CropController.getCroppedBitmap(
-      image: image,
-      maxSize: _screenSize.longestSide,
-      crop: _controller.crop,
-      rotation: _controller.rotation,
-      overlayPainter: !widget.cropHelper.enableEraser
-          ? null
-          : EraserPainter(
-              eraserModel: EraserModel(
-                rotation: _controller.rotation,
-                offsets: _eraserModel.offsets,
-              ),
-              cropRect: _controller.crop,
-            ),
-    );
-    setState(() => _progress = appLocalizations.crop_page_action_local);
-
+    ui.Image? image;
+    ui.Image? cropped;
     try {
+      // TODO(monsieurtanuki): optim - we may even load a smaller image
+      image = await _loadFullImage();
+      cropped = await CropController.getCroppedBitmap(
+        image: image,
+        maxSize: _longestSide,
+        crop: _controller.crop,
+        rotation: _controller.rotation,
+        overlayPainter: !widget.cropHelper.enableEraser
+            ? null
+            : EraserPainter(
+                eraserModel: EraserModel(
+                  rotation: _controller.rotation,
+                  offsets: _eraserModel.offsets,
+                ),
+                cropRect: _controller.crop,
+              ),
+      );
+      setState(() => _progress = appLocalizations.crop_page_action_local);
+
       await saveBmp(
         file: result,
         source: cropped,
@@ -408,6 +414,9 @@ class _CropPageState extends State<CropPage> {
     } catch (e, trace) {
       AnalyticsHelper.sendException(e, stackTrace: trace);
       rethrow;
+    } finally {
+      image?.dispose();
+      cropped?.dispose();
     }
 
     return result;
