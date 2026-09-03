@@ -126,8 +126,28 @@ class TextHighlighter extends StatelessWidget {
     final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
     int lastOriginalIndex = 0;
     for (final RegExpMatch match in highlightedParts) {
-      final int startPosition = normalizedToOriginal[match.start];
-      final int endPosition = normalizedToOriginal[match.end];
+      // Only accept matches whose start and end land on real character
+      // boundaries of the original text. A boundary is the first normalized
+      // code unit of an original character (or the very end of the text); an
+      // edge that falls *inside* an expanded character — e.g. between the "t"
+      // and "h" that "þ" normalizes to — cannot be highlighted consistently,
+      // so the whole match is skipped.
+      final int start = match.start;
+      final int end = match.end;
+      final bool startOnBoundary =
+          start == 0 ||
+          normalizedToOriginal[start] != normalizedToOriginal[start - 1];
+      final bool endOnBoundary =
+          end == normalizedToOriginal.length - 1 ||
+          normalizedToOriginal[end] != normalizedToOriginal[end - 1];
+      if (!startOnBoundary || !endOnBoundary) {
+        continue;
+      }
+
+      final int startPosition = normalizedToOriginal[start];
+      final int endPosition = normalizedToOriginal[end];
+
+      // Extra safety: never emit an empty or backwards range.
 
       // Skip matches that would produce an empty or backwards range, e.g. when
       // the match falls entirely inside a single expanded character.
