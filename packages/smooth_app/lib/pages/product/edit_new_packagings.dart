@@ -20,7 +20,7 @@ import 'package:smooth_app/pages/product/edit_product_image_viewer.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
@@ -231,7 +231,7 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
                 if (!_imageVisible)
                   IconButton(
                     icon: hasPackagingImages
-                        ? const Picture.open()
+                        ? const icons.Picture.open()
                         : const Icon(Icons.add_a_photo),
                     tooltip: ImageField.PACKAGING.getProductImageButtonText(
                       appLocalizations,

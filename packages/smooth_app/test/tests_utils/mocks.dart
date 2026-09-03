@@ -184,6 +184,21 @@ class _MockHttpClientSVGResponse extends Mock implements HttpClientResponse {
 }
 
 Future<void> mockMatomo() async {
+  mockMatomoPlatformChannels();
+
+  // Non persistent on purpose: the persistent queue saves through a
+  // zero-duration timer, and the fake clock in a widget test never fires it, so
+  // initialization would never return.
+  await AnalyticsHelper.initMatomo(
+    false,
+    dispatchSettings: const DispatchSettings.nonPersistent(),
+  );
+  await MatomoTracker.instance.setOptOut(optOut: true);
+  MatomoTracker.instance.dequeueTimer.cancel();
+  MatomoTracker.instance.pingTimer?.cancel();
+}
+
+void mockMatomoPlatformChannels() {
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(
         const MethodChannel('dev.fluttercommunity.plus/device_info'),
@@ -222,9 +237,4 @@ Future<void> mockMatomo() async {
           return null;
         },
       );
-
-  await AnalyticsHelper.initMatomo(false);
-  MatomoTracker.instance.setOptOut(optOut: true);
-  MatomoTracker.instance.dequeueTimer.cancel();
-  MatomoTracker.instance.pingTimer?.cancel();
 }

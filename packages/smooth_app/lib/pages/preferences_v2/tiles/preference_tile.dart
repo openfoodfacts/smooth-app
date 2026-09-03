@@ -20,6 +20,7 @@ class PreferenceTile extends StatelessWidget {
     this.icon,
     this.subtitleText,
     this.subtitle,
+    this.boldPostScriptum,
     this.trailing,
     this.onTap,
     this.padding,
@@ -42,6 +43,7 @@ class PreferenceTile extends StatelessWidget {
   final String title;
   final String? subtitleText;
   final Widget? subtitle;
+  final String? boldPostScriptum;
   final Widget? trailing;
   final Function()? onTap;
   final EdgeInsetsDirectional? padding;
@@ -124,8 +126,14 @@ class PreferenceTile extends StatelessWidget {
                                 subtitle ??
                                 _PreferenceTileSubtitle(
                                   subtitle: subtitleText!,
+                                  bold: false,
                                 ),
                           ),
+                        ),
+                      if (boldPostScriptum != null)
+                        _PreferenceTileSubtitle(
+                          subtitle: boldPostScriptum!,
+                          bold: true,
                         ),
                     ],
                   ),
@@ -179,9 +187,10 @@ class _PreferenceTileTitle extends StatelessWidget {
 }
 
 class _PreferenceTileSubtitle extends StatelessWidget {
-  const _PreferenceTileSubtitle({required this.subtitle});
+  const _PreferenceTileSubtitle({required this.subtitle, required this.bold});
 
   final String subtitle;
+  final bool bold;
 
   @override
   Widget build(BuildContext context) {
@@ -189,10 +198,17 @@ class _PreferenceTileSubtitle extends StatelessWidget {
         .watch<PreferencesRootSearchController?>()
         ?.query;
 
+    final TextStyle? style = !bold
+        ? null
+        : const TextStyle(fontWeight: FontWeight.bold);
     if (query == null || query.isEmpty) {
-      return Text(subtitle);
-    } else {
-      return TextHighlighter(text: subtitle, filter: query, softWrap: true);
+      return Text(subtitle, style: style);
     }
+    return TextHighlighter(
+      text: subtitle,
+      textStyle: style,
+      filter: query,
+      softWrap: true,
+    );
   }
 }

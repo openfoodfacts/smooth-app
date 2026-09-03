@@ -122,7 +122,6 @@ class AccountRoot extends PreferencesRoot {
 
     return showSmoothListOfChoicesModalSheet<bool>(
       context: context,
-      safeArea: true,
       title: appLocalizations.sign_out,
       header: Align(
         alignment: AlignmentDirectional.topStart,

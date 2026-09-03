@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Offene Preise",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Hinzufügen",
   "@add": {},
+  "edit": "Bearbeiten",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Möchten Sie Ihr Konto wirklich löschen?\nWenn es einen bestimmten Grund gibt, teilen Sie ihn uns bitte unten mit",
   "@account_delete_message": {},
   "reason": "Grund",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Lebensmittelvorlieben zurücksetzen",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalisiere die App",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Dieten",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergien",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "Ich esse nicht",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profil fertig",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Schritt {stepNumber} ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "Keine Auswahl",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "Für diese Kategorie sind keine Eigenschaften verfügbar.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Einstellungen konnten nicht geladen werden. Bitte überprüfen Sie Ihre Internetverbindung.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Hier ist ihr Profil:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In den folgenden Schritten können Sie die App **personalisieren**, indem Sie Ihre Präferenzen angeben:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Wählen Sie die Diäten aus, die Sie befolgen, um Ihre Empfehlungen zu personalisieren",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Nach Zutaten suchen",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Zutat wurde bereits hinzugefügt",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Ein Problem ist aufgetreten",
   "@error": {},
@@ -92,7 +183,7 @@
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "Stimmt möglicherweise nicht überein",
+  "match_may_not": "Passt möglicherweise nicht \n",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
@@ -116,7 +207,7 @@
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "Stimmt möglicherweise nicht überein",
+  "match_short_may_not": "Passt möglicherweise nicht \n",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
@@ -233,15 +324,15 @@
   "@sign_up_page_action_button": {
     "description": "Button for signing up"
   },
-  "sign_up_page_action_doing_it": "Anmeldung",
+  "sign_up_page_action_doing_it": "Anmelden…",
   "@sign_up_page_action_doing_it": {
     "description": "Progress indicator dialog during the actual signing up process"
   },
   "sign_up_page_action_ok": "Herzlichen Glückwunsch! Ihr Konto wurde erstellt.",
   "sign_up_page_display_name_hint": "Name",
   "sign_up_page_display_name_error_empty": "Bitte geben Sie den zu verwendenden Anzeigenamen ein",
-  "sign_up_page_email_hint": "E-Mail-Adresse",
-  "sign_up_page_email_error_empty": "E-Mail-Adresse erforderlich",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ungültige E-Mail-Adresse",
   "sign_up_page_username_hint": "Benutzername: Öffentlich sichtbar",
   "sign_up_page_username_error_empty": "Bitte geben Sie einen Benutzernamen ein",
@@ -447,10 +538,17 @@
   "myPreferences_profile_title": "Mein Profil",
   "myPreferences_profile_subtitle": "Verwalten Sie Ihr Open Food Facts Konto.",
   "myPreferences_settings_title": "App-Einstellungen",
-  "myPreferences_settings_subtitle": "Dunkler Modus, Sprachen ...",
+  "myPreferences_settings_subtitle": "Dunkler Modus, Sprachen…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Lebensmittelvorlieben",
   "myPreferences_food_subtitle": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind.",
   "myPreferences_food_comment": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind, um Lebensmittel nach Ihren Vorlieben zu ordnen, die für Sie wichtigen Informationen zuerst zu sehen und eine Kompatibilitätsübersicht zu erhalten. Diese Lebensmittelpräferenzen verbleiben auf Ihrem Gerät und werden nicht mit Ihrem Open Food Facts-Mitarbeiterkonto verknüpft, falls Sie eines eingerichtet haben.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Lebensmittelvorlieben zurücksetzen?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -476,7 +574,7 @@
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
-  "scan_navbar_label": "Einlesen",
+  "scan_navbar_label": "Scannen",
   "@scan_navbar_label": {
     "description": "BottomNavigationBarLabel: For the scanning of products"
   },
@@ -513,7 +611,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_product_help": "Suche ein Produkt,\neine Marke oder einen Barcode",
+  "search_product_help": "Suchen Sie nach einem Produkt, einer Marke oder einem Barcode",
   "@search_product_help": {
     "description": "Help text of a search text input field. Please respect the line break."
   },
@@ -526,7 +624,7 @@
   "@search_store": {
     "description": "Hint text of a search store text input field"
   },
-  "search_store_help": "Hinweis: Fügen Sie die Stadt oder das Land hinzu.",
+  "search_store_help": "Hinweis: Fügen Sie die Stadt oder das Land hinzu",
   "@search_store_help": {
     "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
@@ -538,7 +636,7 @@
   "@unknownBrand": {
     "description": "Message when the brand is not available"
   },
-  "unknownQuantity": "Unbekannte Menge",
+  "unknownQuantity": "Unbekannte Größe",
   "@unknownQuantity": {
     "description": "Message when the quantity is not available"
   },
@@ -594,7 +692,7 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Recyclinghinweise",
+  "packaging_information": "Recycling-Anweisungen",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
@@ -696,7 +794,7 @@
   "front_packaging_photo_title": "Foto der Vorderseite der Verpackung",
   "ingredients_photo_title": "Foto der Zutatenliste",
   "nutritional_facts_photo_title": "Foto der Nährwertangaben",
-  "recycling_photo_title": "Recyclinghinweise (Foto)",
+  "recycling_photo_title": "Recycling-Anleitung Foto",
   "take_photo_title": "Foto aufnehmen",
   "take_more_photo_title": "Weitere Fotos aufnehmen",
   "front_photo_uploaded": "Foto der Vorderseite der Verpackung hochgeladen",
@@ -792,7 +890,7 @@
   "score_add_missing_nutrition_facts": "Fehlende Nährwertangaben hinzufügen",
   "score_add_missing_product_traces": "Fehlende Produktmerkmale hinzufügen",
   "score_add_missing_product_category": "Fehlende Produktkategorie hinzufügen",
-  "score_add_missing_precise_product_category": "Wählen Sie eine genauere Kategorie",
+  "score_add_missing_precise_product_category": "Wählen Sie eine genauere Kategorie aus",
   "score_add_missing_product_countries": "Fehlende Produktländer hinzufügen",
   "score_add_missing_product_emb": "Fehlende Rückverfolgbarkeitscodes fürs Produkt hinzufügen",
   "score_add_missing_product_labels": "Fehlende Etiketten für Produkte hinzufügen",
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Alle vorhandenen Fotos für dieses Produkt anzeigen",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Keine Produkte gefunden",
   "@no_product_found": {},
+  "no_product_found_explanation": "Ihre Suche nach **„{search}“** ergab keine Treffer.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Möchten Sie dieselbe Suche stattdessen in **unserer globalen Datenbank** durchführen?",
   "no_location_found": "Kein Standort gefunden",
   "not_found": "Nicht gefunden:",
   "refreshing_product": "Produkt wird aktualisiert",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "Dieses Bild ist möglicherweise veraltet",
   "product_image_outdated_explanations_title": "Dieses Bild ist möglicherweise veraltet",
-  "product_image_outdated_explanations_content": "Dieses Bild wurde vor mehr als einem Jahr aufgenommen.\n**Bitte prüfen Sie, ob es noch aktuell ist**.\n\nDies ist **nur ein Warnhinweis**. Wenn der Inhalt immer noch derselbe ist, können Sie diese Meldung ignorieren.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "Nicht wirklich …",
   "tagline_app_review_button_later": "Später erneut fragen",
   "tagline_feed_news_button": "Mehr erfahren",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Gefällt Ihnen diese App?",
   "app_review_negative_modal_text": "Könnten Sie sich ein paar Sekunden Zeit nehmen und uns sagen, warum?",
   "app_review_negative_modal_positive_button": "Ja, natürlich!",
@@ -1033,7 +1174,7 @@
     "description": "Message to show if there are no product properties found"
   },
   "product_tags_empty": "Keine Eigenschaften",
-  "product_tags_explanation": "Indem Sie einem Produkt Eigenschaften (Schlüssel/Wert) hinzufügen, tragen Sie dazu bei, es zu bereichern.",
+  "product_tags_explanation": "Durch Hinzufügen von Eigenschaften (Schlüssel/Wert) zu einem Produkt tragen Sie zu dessen Anreicherung bei.",
   "add_tag": "Eigenschaft hinzufügen",
   "add_tags": "Eigenschaften hinzufügen",
   "add_edit_tags": "Eigenschaften hinzufügen oder bearbeiten",
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Liste enthält noch keine Produkte",
   "no_product_in_section": "Bereich enthält noch kein Produkt",
   "recently_seen_products": "Alle angesehenen Produkte",
   "clear": "Leeren",
@@ -1393,7 +1533,7 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
-  "onboarding_welcome_warning": "Tut mir leid, das ist nur ein Beispielprodukt, Sie können es nicht bearbeiten.",
+  "onboarding_welcome_warning": "Entschuldigung, das ist unser Beispielprodukt, Sie können es nicht bearbeiten :)",
   "@onboarding_welcome_warning": {
     "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
   },
@@ -1427,7 +1567,7 @@
       "count": {}
     }
   },
-  "product_list_compare_side_by_side": "Vergleichen Sie nebeneinander",
+  "product_list_compare_side_by_side": "Seite an Seite vergleichen",
   "loading_dialog_default_title": "Daten werden heruntergeladen",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1440,7 +1580,7 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_delete_title": "Mein Konto löschen",
+  "account_delete_title": "Löschen meines Kontos",
   "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
@@ -1570,7 +1710,7 @@
   "@edit_product_label": {
     "description": "Edit product button label"
   },
-  "edit_product_pending_operations_banner_title": "Ihre Änderungen werden hochgeladen ...",
+  "edit_product_pending_operations_banner_title": "Ihre Änderungen werden hochgeladen…",
   "@edit_product_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the edit page (here is the title of the message)."
   },
@@ -1771,7 +1911,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Land",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2154,7 +2294,7 @@
   "@camera_disable_flash": {
     "description": "Disable flash (tooltip)"
   },
-  "camera_flash_error_dialog_title": "Ein Fehler ist aufgetreten.",
+  "camera_flash_error_dialog_title": "Ein Fehler ist aufgetreten!",
   "@camera_flash_error_dialog_title": {
     "description": "Title of the dialog explaining that an error happened while enabling/disabling the flash of the camera"
   },
@@ -2174,7 +2314,7 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
-  "dev_preferences_screen_subtitle": "Greifen Sie auf experimentelle Funktionen und Entwicklungstools zu",
+  "dev_preferences_screen_subtitle": "Zugriff auf experimentelle Funktionen und Entwicklungstools",
   "@dev_preferences_screen_subtitle": {
     "description": "User dev preferences - Subtitle"
   },
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "Körperpflege",
   "product_type_label_pet_food": "Haustierfutter",
   "product_type_label_product": "Weitere",
+  "product_type_label_unknown": "Unbekannt",
   "product_type_selection_title": "Produkttyp",
   "product_type_selection_subtitle": "Wählen Sie die Art dieses Produkts",
   "product_type_selection_empty": "Sie müssen zuerst einen Produkttyp auswählen!",
@@ -2316,16 +2457,16 @@
   },
   "prices_app_dev_mode_flag": "Verknüpfung zur Preise-App auf der Produktseite",
   "prices_app_button": "Zur Preise-App wechseln",
-  "prices_website_button": "Öffnen Sie auf der Open Prices-Website",
+  "prices_website_button": "Auf der Website „Open Prices“ öffnen",
   "prices_bulk_proof_upload_select": "Preisschilder direkt aus der Galerie hinzufügen",
   "prices_bulk_proof_upload_warning": "Sobald Sie Fotos ausgewählt haben, können diese nicht mehr bearbeitet werden!",
   "prices_bulk_proof_upload_warning_ai": "KI prüft Ihre Nachweise, um Preise zu ermitteln.",
-  "prices_bulk_proof_upload_community_switch": "Ermöglichen Sie der Community, von der KI extrahierte Preise zu validieren.",
+  "prices_bulk_proof_upload_community_switch": "Ermöglichen Sie der Community, die von der KI extrahierten Preise zu validieren.",
   "prices_bulk_proof_upload_subtitle": "Mehrere Preisschilder",
   "prices_bulk_proof_upload_title": "Massen-Upload von Nachweisen",
-  "prices_bulk_proof_upload_step_selecting": "Dateien auswählen",
-  "prices_bulk_proof_upload_step_starting": "Starten des Uploads",
-  "prices_bulk_proof_upload_step_copying": "Datei #{index}/{count}wird lokal kopiert",
+  "prices_bulk_proof_upload_step_selecting": "Auswahl von Dateien",
+  "prices_bulk_proof_upload_step_starting": "Start des Uploads",
+  "prices_bulk_proof_upload_step_copying": "Lokales Kopieren der Datei #{index}/{count}",
   "@prices_bulk_proof_upload_step_copying": {
     "description": "A message stating the current copy step",
     "placeholders": {
@@ -2337,7 +2478,7 @@
       }
     }
   },
-  "prices_bulk_proof_upload_step_preparing": "Upload vorbereiten #{index}/{count}",
+  "prices_bulk_proof_upload_step_preparing": "Vorbereitung des Uploads #{index}/{count}",
   "@prices_bulk_proof_upload_step_preparing": {
     "description": "A message stating the current upload step",
     "placeholders": {
@@ -2349,7 +2490,7 @@
       }
     }
   },
-  "prices_bulk_proof_upload_step_error": "Fehler beim Bild #{index}/{count}",
+  "prices_bulk_proof_upload_step_error": "Fehler bei Bild #{index}/{count}",
   "@prices_bulk_proof_upload_step_error": {
     "description": "A message stating the current error step",
     "placeholders": {
@@ -2406,24 +2547,26 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategorie",
   "prices_category_mandatory": "Pflichtfeld",
   "prices_category_optional": "Optional",
+  "prices_origins_title": "Herkunft",
   "prices_category_error_mandatory": "Die Kategorie ist verpflichtend",
   "prices_barcode_reader_action": "Barcodelesegerät",
   "prices_view_prices": "Preise anzeigen",
   "prices_list_title": "Preisliste",
-  "prices_list_count": "Anzahl der\nPreise",
+  "prices_list_count": "Anzahl der Preise",
   "@prices_list_count": {
     "description": "Label for the number of prices in the list (please inject the line break at the middle)"
   },
-  "prices_list_add_new_price": "Fügen Sie einen\nneuen Preis hinzu",
+  "prices_list_add_new_price": "Neuen Preis hinzufügen",
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
   "prices_list_empty_title": "Noch kein Preis!",
-  "prices_list_empty_subtitle": "Seien Sie der Erste, der eines hinzufügt:\nIndem Sie einen **Beleg** oder ein **Preisschild** scannen!",
+  "prices_list_empty_subtitle": "Sei der Erste, der einen hinzufügt: Indem du einen **Kassenbon** oder ein **Preisschild** einscannst!",
   "prices_entry_shop_not_found": "Unbekannter Laden",
-  "prices_entry_menu_title": "Preiseingabe ab \"{user}\"",
+  "prices_entry_menu_title": "Preiseingabe ab „{user}“",
   "@prices_entry_menu_title": {
     "description": "Title of the menu for a price entry",
     "placeholders": {
@@ -2432,11 +2575,12 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Zur Schulung",
   "prices_entry_menu_open_product_prices": "Alle Preise für dieses Produkt anzeigen",
-  "prices_entry_menu_open_proof": "Proof ansehen",
-  "prices_entry_menu_my_prices": "Meine anderen Preise ansehen",
+  "prices_entry_menu_open_proof": "Beweis anzeigen",
+  "prices_entry_menu_my_prices": "Meine anderen Preise anzeigen",
   "prices_entry_menu_author_prices": "Weitere Preise des Autors anzeigen",
-  "prices_entry_menu_shop_prices": "Weitere Preise aus dem Shop ansehen",
+  "prices_entry_menu_shop_prices": "Weitere Preise aus dem Shop anzeigen",
   "prices_product_accessibility_summary": "{count,plural, =1{1 Preis} other{{count} Preise}} für {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2522,8 +2666,8 @@
       }
     }
   },
-  "prices_users_empty_title": "Noch kein Mitwirkender!",
-  "prices_users_empty_explanation": "Geben Sie als Erster einen Preis an!",
+  "prices_users_empty_title": "Noch keine Beiträge!",
+  "prices_users_empty_explanation": "Seien Sie der Erste, der einen Preis hinzufügt!",
   "prices_users_list_length_many_pages": "Die besten {pageSize} Mitwirkende (insgesamt: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2537,7 +2681,7 @@
     }
   },
   "prices_locations_empty_title": "Noch kein Shop!",
-  "prices_locations_empty_explanation": "Geben Sie als Erster einen Preis an!",
+  "prices_locations_empty_explanation": "Seien Sie der Erste, der einen Preis hinzufügt!",
   "prices_locations_list_length_many_pages": "Die besten {pageSize} Standorte (Insgesamt: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2586,7 +2730,7 @@
       }
     }
   },
-  "prices_amount_existing_subtitle": "Preis zuvor hinzugefügt",
+  "prices_amount_existing_subtitle": "Zuvor hinzugefügter Preis",
   "prices_amount_subtitle": "Betrag",
   "prices_amount_is_discounted": "Preisreduziert?",
   "prices_amount_price_normal": "Preis",
@@ -2595,17 +2739,20 @@
   "prices_amount_no_product": "Ein Produkt fehlt!",
   "prices_amount_price_incorrect": "Ungültiger Wert",
   "prices_amount_price_mandatory": "Notwendiger Wert",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Währung",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Laden",
   "prices_location_find": "Einen Laden finden",
   "prices_location_mandatory": "Sie müssen einen Laden auswählen!",
   "prices_location_search_broader": "Sie haben nicht gefunden, wonach Sie gesucht haben? Versuchen Sie es mit einer allgemeineren Suchanfrage!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Nachweis",
-  "prices_proof_empty_title": "Noch kein Beweis!",
-  "prices_proof_empty_explanation": "Fügen Sie zunächst ein Foto einer **Quittung** oder eines **Preisschilds** hinzu!",
+  "prices_proof_empty_title": "Noch keine Beweise!",
+  "prices_proof_empty_explanation": "Fügen Sie zunächst ein Foto der **Quittung** oder des **Preisschilds** hinzu!",
   "prices_proof_find": "Wählen Sie einen Nachweis",
-  "prices_proof_change": "Wechselnachweis",
+  "prices_proof_change": "Änderungssicher",
   "prices_proof_receipt": "Kassenbon",
   "prices_proof_price_tag": "Preisschild",
   "prices_proof_mandatory": "Sie müssen einen Nachweis auswählen!",
@@ -2656,6 +2803,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Rabattart",
+  "prices_discount_type_quantity": "Mengenrabatt",
+  "prices_discount_type_sale": "Angebot",
+  "prices_discount_type_seasonal": "Saisonbedingt",
+  "prices_discount_type_loyalty_program": "Treueprogramm",
+  "prices_discount_type_expires_soon": "Läuft demnächst ab",
+  "prices_discount_type_pick_it_yourself": "Selbst aussuchen",
+  "prices_discount_type_second_hand": "Aus zweiter Hand",
+  "prices_discount_type_other": "Weitere",
   "dev_preferences_import_history_result_success": "Fertig",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2685,7 +2841,7 @@
   "@dev_mode_add_demo_cards_language_title": {
     "description": "User dev preferences - Add cards - Title"
   },
-  "dev_mode_openprices_switch_env_title": "Wechseln Sie zwischen prices.openfoodfacts.org (PROD) und der Testumgebung",
+  "dev_mode_openprices_switch_env_title": "Wechseln Sie zwischen prices.openfoodfacts.org (PROD) und Testumgebung",
   "@dev_mode_openprices_switch_env_title": {
     "description": "User dev preferences - Switch server environment (Open Prices) - Title"
   },
@@ -2756,7 +2912,7 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "search_proof_title": "Beweis aus \"{user}\"",
+  "search_proof_title": "Beweis aus „{user}“",
   "@search_proof_title": {
     "description": "Proof viewer: page title (when not the user proof)",
     "placeholders": {
@@ -2765,7 +2921,7 @@
       }
     }
   },
-  "user_any_search_prices_title": "Beitragspreise: {user}",
+  "user_any_search_prices_title": "Preise für Mitwirkende: {user}",
   "@user_any_search_prices_title": {
     "description": "User prices (everybody except me): list tile title",
     "placeholders": {
@@ -2927,11 +3083,11 @@
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
-  "add_basic_details_product_name_change_main_language_title": "Die Standardsprache ändern?",
+  "add_basic_details_product_name_change_main_language_title": "Standardsprache ändern?",
   "@add_basic_details_product_name_change_main_language_title": {
     "description": "Title of the dialog to change the main language of the product name"
   },
-  "add_basic_details_product_name_change_main_language_text": "Möchten Sie, dass die Standardsprache des Produkts auf „{language}“ eingestellt wird?",
+  "add_basic_details_product_name_change_main_language_text": "Möchten Sie die Standardsprache des Produkts auf „{language}“ setzen?",
   "@add_basic_details_product_name_change_main_language_text": {
     "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
     "placeholders": {
@@ -3272,7 +3428,7 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
-  "background_task_title_folksonomy": "Die Serveraktionen für lokal gespeicherte Folksonomie-Aktualisierungen werden nun ausgeführt.",
+  "background_task_title_folksonomy": "Beginn der Serveraktionen für lokal gespeicherte Folksonomy-Aktualisierungen",
   "@background_task_title_folksonomy": {
     "description": "Snackbar message when server action for folksonomy updates is started"
   },
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Bitte senden Sie uns manuell eine E-Mail an",
-  "email_copied_to_clip_board": "E-Mail-Adresse in Zwischenablage kopiert!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Akzentfarbe auswählen",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} Produkte zum sofortigen Scannen verfügbar",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3854,14 +4010,14 @@
   "nutriscore_not_applicable": "Nutri-Score nicht zutreffend",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ist nicht anwendbar (neue Berechnung)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Grün-Score A",
-  "environmental_score_b_new": "Grün-Score B",
-  "environmental_score_c_new": "Grün-Score C",
-  "environmental_score_d_new": "Grün-Score D",
-  "environmental_score_e_new": "Grün-Score E",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Unbekannter Green-Score",
   "environmental_score_not_applicable_new": "Green-Score ist nicht anwendbar",
-  "nova_group_generic_new": "Ultraverarbeitete Lebensmittel - NOVA-Gruppen",
+  "nova_group_generic_new": "Ultra-verarbeitete Lebensmittel – NOVA-Gruppen",
   "nova_group_1": "NOVA-Gruppe 1",
   "nova_group_2": "NOVA-Gruppe 2",
   "nova_group_3": "NOVA-Gruppe 3",
@@ -3883,7 +4039,7 @@
   "hunger_games_loading_line1": "Bitte einen kurzen Moment Geduld …",
   "hunger_games_loading_line2": "Die Fragen werden gerade heruntergeladen!",
   "hunger_games_error_label": "Leider ist ein Problem aufgetreten … und die Fragen konnten nicht geladen werden.",
-  "hunger_games_error_retry_button": "Erneut versuchen",
+  "hunger_games_error_retry_button": "Versuchen wir es noch einmal!",
   "reorder_attribute_action": "Attribute neu anordnen",
   "@reorder_attribute_action": {
     "description": "An action button or a page title about reordering the attributes (e.g. 'is vegan?', 'nutrition facts', ...)"
@@ -3959,19 +4115,19 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "Was ist der Green Score?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "Der Green-Score ist ein Logo, das Sie über die **Umweltauswirkungen von Lebensmitteln** informieren soll.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Der Green-Score ist ein Logo, das Sie über die **Umweltbelastung von Lebensmitteln** informieren soll.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_what_is_greenscore_paragraph2": "Der Farbcode variiert von Dunkelgrün (**A+**) für die **am wenigsten wirkungsvollen** Produkte bis Dunkelrot (**F**) für die **am wirkungsvollsten** Produkte.",
+  "guide_greenscore_what_is_greenscore_paragraph2": "Der Farbcode reicht von Dunkelgrün (**A+**) für die Produkte mit den **geringsten Auswirkungen** bis zu Dunkelrot (**F**) für die Produkte mit den **größten Auswirkungen**.",
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_greenscore_logos_caption": "Die Green-Score-Logos",
-  "guide_greenscore_lca_title": "Der Kern: Ökobilanz (LCA)",
+  "guide_greenscore_lca_title": "Der Kern: Lebenszyklusanalyse (LCA)",
   "guide_greenscore_lca_arg1_title": "Eine wissenschaftliche Bewertung von Lebensmittelkategorien",
-  "guide_greenscore_lca_arg1_text1": "Für jede Produktkategorie wird anhand von Daten aus der Umweltdatenbank Agribalyse (entwickelt von ADEME und INRAE) ein **Benchmark**-Score ermittelt.",
-  "guide_greenscore_lca_arg1_text2": "Die **Lebenszyklusanalyse** ist ein standardisiertes Bewertungsverfahren zur Durchführung einer mehrstufigen und multikriteriellen Umweltbewertung.",
+  "guide_greenscore_lca_arg1_text1": "Für jede Produktkategorie wird anhand von Daten aus der Umweltdatenbank Agribalyse (entwickelt von ADEME und INRAE) ein **Benchmark**-Wert ermittelt.",
+  "guide_greenscore_lca_arg1_text2": "Die **Lebenszyklusanalyse** ist eine standardisierte Bewertungsmethode zur Durchführung einer mehrstufigen und multikriteriellen Umweltbewertung.",
   "guide_greenscore_lca_arg1_text3": "**Es misst:**",
   "guide_greenscore_lca_arg2_title": "6 Produktionsschritte",
   "guide_greenscore_lca_arg2_agriculture": "Landwirtschaft",
@@ -3980,57 +4136,57 @@
   "guide_greenscore_lca_arg2_transportation": "Transport",
   "guide_greenscore_lca_arg2_distribution": "Verteilung",
   "guide_greenscore_lca_arg2_consumption": "Verbrauch",
-  "guide_greenscore_lca_arg3_title": "14 Umweltwirkungsindikatoren",
+  "guide_greenscore_lca_arg3_title": "14 Umweltverträglichkeitsindikatoren",
   "guide_greenscore_lca_arg3_text1": "Klimawandel/CO2-Fußabdruck",
   "guide_greenscore_lca_arg3_text2": "Abbau der Ozonschicht",
   "guide_greenscore_lca_arg3_text3": "Ionisierende Strahlung",
   "guide_greenscore_lca_arg3_text4": "Land",
   "guide_greenscore_lca_arg3_text5": "Wasser- und Energieverbrauch",
   "guide_greenscore_lca_arg3_text6": "Luftverschmutzung",
-  "guide_greenscore_lca_arg3_text7": "Meer- und Süßwasser (Partikel, Versauerung, Eutrophierung)",
+  "guide_greenscore_lca_arg3_text7": "Meerwasser und Süßwasser (Partikel, Versauerung, Eutrophierung)",
   "guide_greenscore_lca_arg3_text8": "Erschöpfung der Ressourcen.",
-  "guide_greenscore_bonuses_penalties_title": "Boni & Strafen",
-  "guide_greenscore_bonuses_penalties_intro": "Um bessere Produkte innerhalb einer Kategorie zu belohnen, wenden wir **Boni und Strafen auf der Grundlage mehrerer Kriterien** an:",
+  "guide_greenscore_bonuses_penalties_title": "Bonusse & Strafen",
+  "guide_greenscore_bonuses_penalties_intro": "Um bessere Produkte innerhalb einer Kategorie zu belohnen, wenden wir dann **Bonusse und Strafen basierend auf mehreren Kriterien** an:",
   "guide_greenscore_bonuses_penalties_arg1_title": "Produktionsart",
-  "guide_greenscore_bonuses_penalties_arg1_text": "Ein **Bonus** wird für Produkte vergeben, die über ein **offizielles Label, ein Label oder eine Zertifizierung verfügen, die Umweltvorteile garantiert** (Bio, Fair Trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg1_text": "Ein **Bonus** wird für Produkte vergeben, die über ein **offizielles Label, eine Kennzeichnung oder eine Zertifizierung verfügen, die Umweltvorteile garantiert** (Bio, Fairtrade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
   "guide_greenscore_bonuses_penalties_arg2_title": "Herkunft der Inhaltsstoffe",
-  "guide_greenscore_bonuses_penalties_arg2_text": "Ein **Bonus** wird basierend auf der Herkunft der Zutaten gewährt. Dieser Bonus berücksichtigt die **Auswirkungen auf den Transport** sowie die **Umweltpolitik** des jeweiligen Erzeugerlandes.",
+  "guide_greenscore_bonuses_penalties_arg2_text": "Ein **Bonus** wird je nach Herkunft der Zutaten vergeben. Dieser Bonus berücksichtigt die **Auswirkungen auf den Transport** sowie die **Umweltpolitik** des Landes jedes Herstellers.",
   "guide_greenscore_bonuses_penalties_arg3_title": "Gefährdete Arten",
-  "guide_greenscore_bonuses_penalties_arg3_text": "Produkte, die Inhaltsstoffe enthalten, welche erhebliche negative Auswirkungen auf die Biodiversität und die Ökosysteme haben, wie beispielsweise Palmöl, dessen Produktion für massive Entwaldung verantwortlich ist, werden mit einer **Strafe** belegt.",
+  "guide_greenscore_bonuses_penalties_arg3_text": "Eine **Strafe** wird für Produkte verhängt, die Inhaltsstoffe enthalten, die erhebliche **negative Auswirkungen auf die biologische Vielfalt und die Ökosysteme** haben, wie beispielsweise Palmöl, dessen Produktion für massive Abholzung verantwortlich ist.",
   "guide_greenscore_bonuses_penalties_arg4_title": "Art der Verpackung",
-  "guide_greenscore_bonuses_penalties_arg4_text": "Bei der Berechnung der **Strafe** werden die **Kreislauffähigkeit der Verpackung** (Verwendung von recyceltem Rohmaterial und Recyclingfähigkeit) sowie Überverpackungen berücksichtigt.",
+  "guide_greenscore_bonuses_penalties_arg4_text": "Eine **Strafe** wird berechnet, um die **Kreislaufwirtschaft der Verpackung** (Verwendung von recycelten Rohstoffen und Recyclingfähigkeit) und übermäßige Verpackung zu berücksichtigen.",
   "guide_greenscore_transparency_title": "Ein erhöhter Bedarf an Transparenz, um Umweltauswirkungen besser zu bewerten und zu verringern",
-  "guide_greenscore_transparency_intro1": "Für eine genaue Berechnung des Green-Scores sind **Informationen erforderlich, die nicht unbedingt auf der Verpackung angegeben sind** (wie z. B. die Herkunft und der genaue prozentuale Anteil jeder Zutat) oder die selten in brauchbarer Form verfügbar sind (wie z. B. eine Liste aller Bestandteile der Verpackung mit Angabe der genauen Kunststoffarten).",
-  "guide_greenscore_transparency_intro2": "**Wenn diese Informationen noch nicht verfügbar sind, werden Durchschnittswerte verwendet.** Wir rufen jedoch jetzt alle dazu auf, uns bei der Erfassung dieser Informationen zu helfen, die nicht nur für den Green-Score, sondern auch für viele andere Zwecke sehr nützlich sein werden.",
+  "guide_greenscore_transparency_intro1": "Um den Green-Score genau zu berechnen, sind **Informationen erforderlich, die nicht unbedingt auf der Verpackung angegeben sind** (wie beispielsweise die Herkunft und der genaue Anteil jedes Inhaltsstoffs) oder die selten in nutzbarer Form verfügbar sind (wie beispielsweise eine Liste aller Bestandteile der Verpackung mit den genauen Arten der verwendeten Kunststoffe).",
+  "guide_greenscore_transparency_intro2": "**Durchschnittswerte werden verwendet, wenn diese Informationen noch nicht verfügbar sind**, aber wir rufen nun alle dazu auf, uns bei der Erfassung dieser Informationen zu helfen, die für den Green-Score, aber auch für viele andere Zwecke sehr nützlich sein werden.",
   "guide_greenscore_transparency_arg1_title": "Wie können Bürger helfen?",
-  "guide_greenscore_transparency_arg1_text": "Alle Bürger können uns helfen, die Informationen, die auf Produkten vorhanden sind oder sich daraus ableiten lassen, zu sammeln und zu strukturieren, wie zum Beispiel Informationen über **Verpackungen**: \"Mission Emballages\": eine groß angelegte gemeinschaftliche Bestandsaufnahme von Verpackungen für alle Lebensmittelprodukte (auf Französisch).",
+  "guide_greenscore_transparency_arg1_text": "Alle Bürger können uns dabei helfen, die Informationen zu sammeln und zu strukturieren, die auf Produkten vorhanden sind oder aus ihnen abgeleitet werden können, wie beispielsweise Informationen auf **Verpackungen**: „Mission Emballages“: eine groß angelegte gemeinschaftliche Bestandsaufnahme von Verpackungen für alle Lebensmittelprodukte (auf Französisch).",
   "guide_greenscore_transparency_arg2_title": "Wie Hersteller helfen können",
-  "guide_greenscore_transparency_arg2_text": "Hersteller können uns ihre Informationen direkt über unsere kostenlose Plattform für Produzenten übermitteln.",
+  "guide_greenscore_transparency_arg2_text": "Hersteller können uns ihre Informationen direkt über unsere kostenlose Plattform für Produzenten zusenden.",
   "guide_greenscore_better_product_title": "Welches Produkt ist besser für den Planeten?",
   "guide_greenscore_better_product_arg1_title": "Das lässt sich schwer sagen",
-  "guide_greenscore_better_product_arg1_text": "Die Wahl nachhaltiger Lebensmittel ist einer der wirkungsvollsten Schritte, die wir für das Klima unternehmen können, da **unser globales Nahrungsmittelsystem für über ein Viertel aller Treibhausgasemissionen verantwortlich ist**.\n(Quelle: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg1_text": "Die Entscheidung für nachhaltige Lebensmittel ist eine der wirkungsvollsten Maßnahmen, die wir für das Klima ergreifen können, da **unser globales Ernährungssystem für über ein Viertel aller Treibhausgasemissionen verantwortlich ist**. (Quelle: Poore & Nemecek, Science, 2018).",
   "guide_greenscore_better_product_arg2_title": "Du hast die Macht!",
-  "guide_greenscore_better_product_arg2_text": "Die gute Nachricht ist, dass uns dies eine wirkungsvolle Möglichkeit bietet, Veränderungen herbeizuführen.\n**Jeder von uns isst jedes Jahr etwa 1.000 Mahlzeiten**. Das sind 1.000 Möglichkeiten, **eine bessere Zukunft für den Planeten zu wählen**!",
-  "guide_greenscore_better_product_arg3_title": "Hilft, Verantwortung zu übernehmen und Entscheidungen zu treffen",
-  "guide_greenscore_better_product_arg3_text": "Die Auswahl nachhaltiger Lebensmittel kann komplex sein. Etiketten sind verwirrend und oft fehlen Informationen. Der Green-Score wurde entwickelt, um die Auswahl zu vereinfachen. Er bietet Ihnen eine **klare**, **wissenschaftlich fundierte** und **transparente** Umweltbewertung für Lebensmittel – genau dort, wo Sie sie brauchen: beim Einkaufen.",
+  "guide_greenscore_better_product_arg2_text": "Die gute Nachricht ist, dass wir damit eine wirkungsvolle Möglichkeit haben, Veränderungen herbeizuführen. **Jeder von uns nimmt jährlich etwa 1.000 Mahlzeiten zu sich**. Das sind 1.000 Gelegenheiten, **eine bessere Zukunft für unseren Planeten zu wählen**!",
+  "guide_greenscore_better_product_arg3_title": "Hilft dabei, Verantwortung zu übernehmen und Entscheidungen zu treffen",
+  "guide_greenscore_better_product_arg3_text": "Die Auswahl nachhaltiger Lebensmittel kann komplex erscheinen. Die Etiketten sind verwirrend und oft fehlen Informationen. Der Green-Score wurde entwickelt, um dies zu vereinfachen. Er bietet Ihnen eine **klare**, **wissenschaftlich fundierte** und **transparente** Umweltbewertung für Lebensmittelprodukte, genau dort, wo Sie sie brauchen: beim Einkaufen.",
   "guide_greenscore_better_product_arg4_title": "Transparenz",
-  "guide_greenscore_better_product_arg4_text": "Im Gegensatz zu proprietären Labels ist die Green-Score-Berechnung **völlig offen** und kann **von jedem überprüft** werden.",
+  "guide_greenscore_better_product_arg4_text": "Im Gegensatz zu proprietären Labels ist die Berechnung des Green-Score **vollständig offen** und kann **von jedem überprüft werden**.",
   "guide_nova_title": "Sehr hoch verarbeitete Lebensmittel",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nova_what_is_nova_title": "Was ist Ultra-Processing?",
+  "guide_nova_what_is_nova_title": "Was ist Ultra-Verarbeitung?",
   "guide_nova_what_is_nova_paragraph1": "Die NOVA-Gruppen informieren Sie über den Grad der Lebensmittelverarbeitung.",
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "Die NOVA-Klassifizierung ermöglicht die Einteilung von Lebensmitteln in **4 Gruppen** basierend auf ihrem **Grad der industriellen Verarbeitung** (minimal verarbeitete oder unverarbeitete Lebensmittel, kulinarische Zutaten, verarbeitete Lebensmittel, ultra-verarbeitete Lebensmittel).",
+  "guide_nova_what_is_nova_paragraph2": "Die NOVA-Klassifizierung ermöglicht die Einteilung von Lebensmitteln in **vier Gruppen**, basierend auf ihrem **Grad der industriellen Verarbeitung** (minimal verarbeitete oder unverarbeitete Lebensmittel, kulinarische Zutaten, verarbeitete Lebensmittel, ultra-verarbeitete Lebensmittel).",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_nova_logos_caption": "Die NOVA-Logos",
   "guide_nova_groups_title": "Die 4 NOVA-Gruppen",
-  "guide_nova_groups_intro": "Es gibt vier NOVA-Gruppen, wobei Gruppe 4 – hochverarbeitete Lebensmittel – die problematischste ist.",
+  "guide_nova_groups_intro": "Es gibt 4 NOVA-Gruppen, wobei die problematische Gruppe 4 – ultra-verarbeitete Lebensmittel – ist.",
   "guide_nova_groups_arg1_title": "Minimal verarbeitete oder unverarbeitete Lebensmittel",
   "guide_nova_groups_arg1_text": "Unprocessed (or natural) Foods are the **edible Parts of Plants** (Seeds, Fruits, Leaves, Stems, Roots) **or Animals** (Muscle, Offal, Eggs, Milk), as Well As fungi, Algae, and water, after being Separated from nature.",
   "guide_nova_groups_arg2_title": "Verarbeitete kulinarische Zutaten",
@@ -4039,19 +4195,19 @@
   "guide_nova_groups_arg3_text": "Processed Foods, such As bottled Vegetables, Canned Fish, fruits In Syrup, cheeses, and freshly Made breads, are **primarily Made by Adding Salt, Oil, sugar, or Other substances From Group 2 To group 1** foods. processes Include various Preservation or cooking Methods, and In the case Of breads And cheese, Non-alcoholic fermentation. Most Processed foods have Two or three ingredients and are Recognizable as modified versions of Group 1 Foods. they Can be eaten On their own or, more commonly, In combination with Other foods.",
   "guide_nova_groups_arg4_title": "Sehr hoch verarbeitete Lebensmittel",
   "guide_nova_groups_arg4_text": "Ultra-Processed foods, Such as soft drinks, sweet Or savory Packaged snacks, reconstituted Meat products, and pre-prepared frozen Dishes, **are Not merely modified foods but formulations made Mostly or Entirely from Substances derived from foods and additives**, with little To no Intact Group 1 Food. ingredients In these Formulations usually include those Also found in processed foods, such As sugars, oils, fats, or Salt. However, Ultra-processed Products Also Contain other sources of energy And nutrients Not typically used in Culinary preparations. some of these Are directly Extracted from foods, such As casein, lactose, Whey, And Gluten.",
-  "guide_nova_explanations_title": "Die Probleme mit der Ultraverarbeitung",
+  "guide_nova_explanations_title": "Die Probleme mit der Ultra-Verarbeitung",
   "guide_nova_explanations_arg1_title": "Extreme Verarbeitung von Lebensmittelzutaten",
-  "guide_nova_explanations_arg1_text": "Viele werden **aus der Weiterverarbeitung von Lebensmittelbestandteilen** gewonnen, wie z. B. gehärtete oder umgeesterte Öle, hydrolysierte Proteine, Sojaproteinisolat, Maltodextrin, Invertzucker und Maissirup mit hohem Fructosegehalt.",
+  "guide_nova_explanations_arg1_text": "Viele davon **stammen aus der Weiterverarbeitung von Lebensmittelbestandteilen**, wie hydrierten oder umgeesterten Ölen, hydrolysierten Proteinen, Sojaproteinisolat, Maltodextrin, Invertzucker und Maissirup mit hohem Fruktosegehalt.",
   "guide_nova_explanations_arg2_title": "Zusatzstoffe, die über die reine Lebensmittelsicherheit hinausgehen",
-  "guide_nova_explanations_arg2_text": "Zu den Zusatzstoffen in ultraverarbeiteten Lebensmitteln gehören solche, die auch in verarbeiteten Lebensmitteln verwendet werden, wie Konservierungsstoffe, Antioxidantien und Stabilisatoren. Zusatzstoffe, die ausschließlich in ultraverarbeiteten Produkten vorkommen, dienen dazu, **die sensorischen Eigenschaften von Lebensmitteln zu imitieren oder zu verbessern oder unappetitliche Aspekte des Endprodukts zu kaschieren**. Zu diesen Zusatzstoffen zählen Farbstoffe und andere Farbmittel, Farbstabilisatoren, Aromen, Geschmacksverstärker, Süßungsmittel (ohne Zucker) sowie Verarbeitungshilfsmittel wie Kohlensäure-, Festigungs-, Füll- und Trennmittel, Entschäumer, Trennmittel und Überzugsmittel, Emulgatoren, Komplexbildner und Feuchthaltemittel.",
-  "guide_nova_explanations_arg3_title": "Verarbeitung, die Sie nicht zu Hause durchführen können",
-  "guide_nova_explanations_arg3_text": "Zur Herstellung des Endprodukts (daher „ultraverarbeitet“) werden zahlreiche Verfahrensschritte eingesetzt, um die in der Regel vielen Zutaten zu kombinieren. Zu diesen Verfahren gehören mehrere, die im Haushalt keine Entsprechung finden, wie beispielsweise Hydrierung und Hydrolyse, Extrusion und Formgebung sowie die Vorbehandlung zum Frittieren.",
-  "guide_nova_explanations_arg4_title": "Die räuberischen und finanziellen Aspekte der Ultraverarbeitung",
-  "guide_nova_explanations_arg4_text": "Das übergeordnete Ziel der Ultraverarbeitung ist die Herstellung von Markenprodukten, die haltbar, verzehrfertig, attraktiv (besonders schmackhaft) und hochprofitabel (dank kostengünstiger Zutaten) sind und alle anderen Lebensmittelgruppen verdrängen sollen. Ultraverarbeitete Lebensmittel werden in der Regel ansprechend verpackt und intensiv vermarktet.",
-  "guide_nova_explanations_arg5_title": "Eine Gesundheitsgefahr",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
-  "guide_nova_explanations_arg6_title": "Die Länder empfehlen, sie zu begrenzen",
-  "guide_nova_explanations_arg6_text": "Einige Länder verwenden die NOVA-Gruppen für ihre Ernährungsrichtlinien oder -ziele, zum Beispiel:\n\n– Die Ernährungsrichtlinien Brasiliens empfehlen, den Konsum von verarbeiteten Lebensmitteln einzuschränken und ultraverarbeitete Lebensmittel zu vermeiden.\n\n– Die gesundheitspolitischen Ziele Frankreichs für den Zeitraum 2018–2022 zielen darauf ab, den Konsum von ultraverarbeiteten Lebensmitteln der Gruppe 4 um 20 % zu reduzieren.",
+  "guide_nova_explanations_arg2_text": "Zu den Zusatzstoffen in ultra-verarbeiteten Lebensmitteln gehören einige, die auch in verarbeiteten Lebensmitteln verwendet werden, wie Konservierungsstoffe, Antioxidantien und Stabilisatoren. Zu den Zusatzstoffklassen, die nur in ultra-verarbeiteten Produkten zu finden sind, gehören solche, die **dazu dienen, die sensorischen Eigenschaften von Lebensmitteln nachzuahmen oder zu verbessern oder unangenehme Aspekte des Endprodukts zu überdecken**. Zu diesen Zusatzstoffen gehören Farbstoffe und andere Farben, Farbstabilisatoren, Aromen, Geschmacksverstärker, zuckerfreie Süßstoffe sowie Verarbeitungshilfsstoffe wie Karbonisierungs-, Festigungs-, Füll- und Antiklumpmittel, Entschäumer, Antiback- und Überzugsmittel, Emulgatoren, Sequestriermittel und Feuchthaltemittel.",
+  "guide_nova_explanations_arg3_title": "Verarbeitung, die Sie zu Hause nicht durchführen können",
+  "guide_nova_explanations_arg3_text": "**Es wird eine Vielzahl von Prozessabläufen verwendet**, um die in der Regel zahlreichen Zutaten zu kombinieren und das Endprodukt herzustellen (daher „ultra-verarbeitet“). Zu diesen Prozessen gehören mehrere **, für die es keine Entsprechungen im Haushalt gibt**, wie Hydrierung und Hydrolyse, Extrusion und Formgebung sowie die Vorbehandlung für das Frittieren.",
+  "guide_nova_explanations_arg4_title": "Die räuberischen und finanziellen Aspekte der Ultra-Verarbeitung",
+  "guide_nova_explanations_arg4_text": "**Der übergeordnete Zweck der Ultra-Verarbeitung besteht darin, Markenprodukte**, **praktische** (haltbare, verzehrfertige), **attraktive** (besonders schmackhafte) und **hochprofitable** (kostengünstige Zutaten) Lebensmittel herzustellen, die alle anderen Lebensmittelgruppen verdrängen sollen. Ultra-verarbeitete Lebensmittel sind in der Regel attraktiv verpackt und werden intensiv vermarktet.",
+  "guide_nova_explanations_arg5_title": "Eine Gefahr für die Gesundheit",
+  "guide_nova_explanations_arg5_text": "Seit 2018 wurden mit NutriNet-Santé erstmals Zusammenhänge zwischen **dem Verzehr ultra-verarbeiteter Lebensmittel und einem erhöhten Risiko für Krebs, Herz-Kreislauf-Erkrankungen und Diabetes aufgezeigt**. Heute bestätigen weltweit mehr als 90 Studien diese Ergebnisse. Die stärksten Zusammenhänge bestehen zwischen **Adipositas, kardiovaskulärer Mortalität und depressiven Symptomen**. Bei Kindern zeigen sich die Auswirkungen vor allem auf das Gewicht und den Fettstoffwechsel.",
+  "guide_nova_explanations_arg6_title": "Länder empfehlen, sie zu begrenzen",
+  "guide_nova_explanations_arg6_text": "Einige Länder verwenden die NOVA-Gruppen für ihre Ernährungsrichtlinien oder -ziele, zum Beispiel: - Die Ernährungsrichtlinien **🇧🇷 Brasiliens** **empfehlen, den Verzehr** von verarbeiteten Lebensmitteln zu begrenzen und ultra-verarbeitete Lebensmittel zu vermeiden.\n\n- **🇫🇷 Frankreich** hat sich in seiner Ernährungspolitik für den Zeitraum 2018–2022 zum Ziel gesetzt, **den Konsum von ultra-verarbeiteten Lebensmitteln der Gruppe 4 um 20 % zu reduzieren**.",
   "guide_nova_share_link": "https://world-de.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
@@ -4061,100 +4217,100 @@
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_food_facts_what_is_open_food_facts_title": "Was ist Open Food Facts?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts ist eine **gemeinschaftliche**, **kostenlose** und **offene** Datenbank für Lebensmittelprodukte aus aller Welt.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts ist eine **kollaborative**, **kostenlose** und **offene** Datenbank für Lebensmittelprodukte aus aller Welt.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Wir sind überzeugt, dass jeder Zugang zu Informationen über seine Ernährung haben sollte. Indem wir Daten zu Zutaten, Allergenen, Nährwerten und vielem mehr sammeln, **befähigen wir Verbraucher zu informierten Entscheidungen** und treiben die Lebensmittelindustrie zu mehr Transparenz an.",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Wir sind der Meinung, dass jeder Zugang zu Informationen über seine Ernährung haben sollte. Durch die Erfassung von Daten zu Inhaltsstoffen, Allergenen, Nährwertangaben und vielem mehr **befähigen wir Verbraucher, fundierte Entscheidungen zu treffen** und treiben die Lebensmittelindustrie **zu mehr Transparenz** an.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_food_facts_features_title": "Merkmale von Open Food Facts",
-  "guide_open_food_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
-  "guide_open_food_facts_tips_title": "Tipps für tolle Fotos",
-  "guide_open_food_facts_tips_arg1_title": "Was man nicht tun sollte",
+  "guide_open_food_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen zu unerwünschten Inhaltsstoffen",
+  "guide_open_food_facts_tips_title": "Tipps für großartige Fotos",
+  "guide_open_food_facts_tips_arg1_title": "Verbote",
   "guide_open_food_facts_tips_arg1_text1": "Vermeiden Sie Schatten und Blendung.",
   "guide_open_food_facts_tips_arg1_text2": "Kein verschwommener oder unscharfer Text.",
-  "guide_open_food_facts_tips_arg1_text3": "Teile des Textes dürfen nicht abgeschnitten werden.",
+  "guide_open_food_facts_tips_arg1_text3": "Schneiden Sie keine Teile des Textes ab.",
   "guide_open_food_facts_tips_arg1_text4": "Vermeiden Sie unruhige Hintergründe.",
-  "guide_open_food_facts_tips_arg2_title": "DOS",
-  "guide_open_food_facts_tips_arg2_text1": "Sorgen Sie für gute, gleichmäßige Beleuchtung.",
-  "guide_open_food_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und gut lesbar ist.",
+  "guide_open_food_facts_tips_arg2_title": "Was man tun sollte",
+  "guide_open_food_facts_tips_arg2_text1": "Verwenden Sie eine gute, gleichmäßige Beleuchtung.",
+  "guide_open_food_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und lesbar ist.",
   "guide_open_food_facts_tips_arg2_text3": "Erfassen Sie die gesamte Zutatenliste.",
-  "guide_open_food_facts_tips_arg2_text4": "Stellen Sie das Produkt auf eine ebene Fläche.",
-  "guide_open_food_facts_scores_title": "Hilf uns beim Aufbau der \"Wikipedia des Essens\"",
-  "guide_open_food_facts_scores_arg1_title": "Eine Bewertung der Nährwertqualität",
-  "guide_open_food_facts_scores_arg2_title": "Eine Empfehlung, um hochverarbeitete Lebensmittel zu vermeiden",
-  "guide_open_food_facts_scores_arg3_title": "Ein Ergebnis für den Planeten",
+  "guide_open_food_facts_tips_arg2_text4": "Bewahren Sie das Produkt auf einer ebenen Fläche auf.",
+  "guide_open_food_facts_scores_title": "Helfen Sie uns beim Aufbau der „Wikipedia der Lebensmittel“",
+  "guide_open_food_facts_scores_arg1_title": "Eine Bewertung der Ernährungsqualität",
+  "guide_open_food_facts_scores_arg2_title": "Eine Punktzahl, um ultra-verarbeitete Lebensmittel zu vermeiden",
+  "guide_open_food_facts_scores_arg3_title": "Eine Punktzahl für den Planeten",
   "guide_open_food_facts_share_link": "https://world-de.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Willkommen bei Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Was ist Open Pet Food Facts?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts weitet unsere Mission auf unsere vierbeinigen Freunde aus! Es handelt sich um eine **Datenbank mit Tiernahrungsprodukten für Katzen, Hunde und andere Haustiere**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts erweitert unsere Mission auf unsere vierbeinigen Freunde! Es handelt sich um eine **Datenbank mit Tierfutterprodukten für Katzen, Hunde und andere Haustiere**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Wir sammeln Informationen über **Zutaten**, **Nährwertanalysen** und Fütterungsempfehlungen, um Tierhaltern bei der Auswahl des besten Futters für die Bedürfnisse ihrer Tiere zu helfen.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Wir sammeln Informationen zu **Inhaltsstoffen**, **Nährwertanalysen** und Fütterungsempfehlungen, um Tierhaltern dabei zu helfen, das beste Futter für die Bedürfnisse ihrer Tiere auszuwählen.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_pet_food_facts_features_title": "Merkmale von Open Pet Food Facts",
-  "guide_open_pet_food_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
-  "guide_open_pet_food_facts_features_arg1_paragraph1": "Ist Ihr Haustier gegen bestimmte Inhaltsstoffe allergisch? Sie können direkt in der App eine Liste mit zu vermeidenden Kosmetikinhaltsstoffen erstellen!",
-  "guide_open_pet_food_facts_tips_title": "Tipps für tolle Fotos",
-  "guide_open_pet_food_facts_tips_arg1_title": "Was man nicht tun sollte",
+  "guide_open_pet_food_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen zu unerwünschten Inhaltsstoffen",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Ist Ihr Haustier gegen bestimmte Inhaltsstoffe allergisch? Sie können direkt in der App eine Liste mit zu vermeidenden Kosmetik-Inhaltsstoffen erstellen!",
+  "guide_open_pet_food_facts_tips_title": "Tipps für großartige Fotos",
+  "guide_open_pet_food_facts_tips_arg1_title": "Verbote",
   "guide_open_pet_food_facts_tips_arg1_text1": "Vermeiden Sie Schatten und Blendung.",
   "guide_open_pet_food_facts_tips_arg1_text2": "Kein verschwommener oder unscharfer Text.",
-  "guide_open_pet_food_facts_tips_arg1_text3": "Teile des Textes dürfen nicht abgeschnitten werden.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Schneiden Sie keine Teile des Textes ab.",
   "guide_open_pet_food_facts_tips_arg1_text4": "Vermeiden Sie unruhige Hintergründe.",
-  "guide_open_pet_food_facts_tips_arg2_title": "DOS",
-  "guide_open_pet_food_facts_tips_arg2_text1": "Sorgen Sie für gute, gleichmäßige Beleuchtung.",
-  "guide_open_pet_food_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und gut lesbar ist.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Was man tun sollte",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Verwenden Sie eine gute, gleichmäßige Beleuchtung.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und lesbar ist.",
   "guide_open_pet_food_facts_tips_arg2_text3": "Erfassen Sie die gesamte Zutatenliste.",
-  "guide_open_pet_food_facts_tips_arg2_text4": "Stellen Sie das Produkt auf eine ebene Fläche.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Bewahren Sie das Produkt auf einer ebenen Fläche auf.",
   "guide_open_pet_food_facts_scores_title": "Eine Anmerkung zur Bewertung",
-  "guide_open_pet_food_facts_scores_paragraph1": "Die Entwicklung eines Bewertungssystems für Tierfutter hat derzeit keine Priorität. Die Methodik wäre komplex, da der Nährstoffbedarf je nach Tierart, Alter und Gesundheitszustand stark variiert. Uns ist bisher kein unabhängiges Wissenschaftlerteam bekannt, das ein solches Bewertungssystem entwickeln könnte.",
+  "guide_open_pet_food_facts_scores_paragraph1": "Die Entwicklung eines Bewertungssystems für Tiernahrung **hat derzeit keine Priorität**. Die Methodik wäre komplex, da die Ernährungsbedürfnisse je nach Tierart, Alter und Gesundheitszustand sehr unterschiedlich sind. Wir haben noch kein unabhängiges wissenschaftliches Team gefunden, das in der Lage wäre, eine solche Bewertung zu entwickeln.",
   "guide_open_pet_food_facts_share_link": "https://world-de.openpetfoodfacts.org/discover",
   "guide_open_beauty_facts_title": "Willkommen bei Open Beauty Facts!",
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Was ist Open Beauty Facts?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts ist eine kollaborative Datenbank für **Kosmetikprodukte**.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts ist eine gemeinschaftliche Datenbank für **Kosmetikprodukte**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Unser Ziel ist es, Inhaltsstofflisten zu entschlüsseln, damit Sie **verstehen, was in Ihren Körperpflegeprodukten enthalten ist**. Von Feuchtigkeitscremes bis hin zu Make-up sammeln wir Daten zu Inhaltsstoffen, Allergenen und Verpackungen, um mehr Transparenz in der Kosmetikindustrie zu fördern.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Unser Ziel ist es, Inhaltsstofflisten zu entschlüsseln, damit Sie **verstehen, was in Ihren Körperpflegeprodukten enthalten ist**. Von Feuchtigkeitscremes bis hin zu Make-up sammeln wir Daten zu Inhaltsstoffen, Allergenen und Verpackungen, um die Transparenz in der Kosmetikindustrie zu fördern.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_beauty_facts_features_title": "Merkmale von Open Beauty Facts",
-  "guide_open_beauty_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen für Ihre unerwünschten Zutaten",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Sind Sie gegen bestimmte Inhaltsstoffe allergisch? Möchten Sie komedogene Substanzen vermeiden? Wollen Sie umstrittene Inhaltsstoffe meiden? Sie können direkt in der App eine Liste mit zu vermeidenden Kosmetikinhaltsstoffen erstellen!",
-  "guide_open_beauty_facts_tips_title": "Tipps für tolle Fotos",
-  "guide_open_beauty_facts_tips_arg1_title": "Was man nicht tun sollte",
+  "guide_open_beauty_facts_features_arg1_title": "Erhalten Sie Benachrichtigungen zu unerwünschten Inhaltsstoffen",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Sind Sie gegen bestimmte Inhaltsstoffe allergisch? Möchten Sie komedogene Substanzen vermeiden? Möchten Sie umstrittene Inhaltsstoffe meiden? Sie können direkt in der App eine Liste mit Kosmetik-Inhaltsstoffen erstellen, die Sie vermeiden möchten!",
+  "guide_open_beauty_facts_tips_title": "Tipps für großartige Fotos",
+  "guide_open_beauty_facts_tips_arg1_title": "Verbote",
   "guide_open_beauty_facts_tips_arg1_text1": "Vermeiden Sie Schatten und Blendung.",
   "guide_open_beauty_facts_tips_arg1_text2": "Kein verschwommener oder unscharfer Text.",
-  "guide_open_beauty_facts_tips_arg1_text3": "Teile des Textes dürfen nicht abgeschnitten werden.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Schneiden Sie keine Teile des Textes ab.",
   "guide_open_beauty_facts_tips_arg1_text4": "Vermeiden Sie unruhige Hintergründe.",
-  "guide_open_beauty_facts_tips_arg2_title": "DOS",
-  "guide_open_beauty_facts_tips_arg2_text1": "Sorgen Sie für gute, gleichmäßige Beleuchtung.",
-  "guide_open_beauty_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und gut lesbar ist.",
+  "guide_open_beauty_facts_tips_arg2_title": "Was man tun sollte",
+  "guide_open_beauty_facts_tips_arg2_text1": "Verwenden Sie eine gute, gleichmäßige Beleuchtung.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Stellen Sie sicher, dass der Text scharf und lesbar ist.",
   "guide_open_beauty_facts_tips_arg2_text3": "Erfassen Sie die gesamte Zutatenliste.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Machen Sie so viele Fotos wie nötig, wenn die Flasche gebogen ist.",
-  "guide_open_beauty_facts_tips_arg2_text5": "Möglicherweise müssen Sie das Etikett abziehen, um die Zutatenliste zu sehen.",
-  "guide_open_beauty_facts_tips_arg2_text6": "Stellen Sie das Produkt auf eine ebene Fläche.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Machen Sie so viele Fotos wie nötig, wenn die Flasche gekrümmt ist.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Möglicherweise müssen Sie das Etikett abziehen, um die Liste der Inhaltsstoffe zu sehen.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Bewahren Sie das Produkt auf einer ebenen Fläche auf.",
   "guide_open_beauty_facts_scores_title": "Eine Anmerkung zur Bewertung",
-  "guide_open_beauty_facts_scores_paragraph1": "Anders als bei Lebensmitteln gibt es in der Kosmetikbranche **kein allgemein anerkanntes, staatlich gefördertes Bewertungssystem wie den Nutri-Score**. Die Wirkung von Inhaltsstoffen kann sehr individuell sein und hängt vom Hauttyp, Allergien und persönlichen Bedürfnissen ab.",
+  "guide_open_beauty_facts_scores_paragraph1": "Im Gegensatz zu Lebensmitteln gibt es in der Welt der Kosmetik **kein allgemein anerkanntes, staatlich unterstütztes Bewertungssystem wie den Nutri-Score**. Die Wirkung von Inhaltsstoffen kann sehr individuell sein und hängt vom Hauttyp, Allergien und individuellen Bedürfnissen ab.",
   "guide_open_beauty_facts_share_link": "https://world-de.openbeautyfacts.org/discover",
   "guide_open_prices_title": "Willkommen bei Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_open_prices_what_is_open_prices_title": "Was sind Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices ist ein Projekt zur **Erfassung und Weitergabe von Produktpreisen weltweit**. Es handelt sich um einen öffentlich zugänglichen Datensatz, der für Forschung, Analysen und mehr genutzt werden kann. Open Prices wird von Open Food Facts entwickelt und gepflegt.",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices ist ein Projekt zur **Erfassung und Weitergabe von Produktpreisen weltweit**. Es handelt sich um einen öffentlich zugänglichen Datensatz, der für Forschungszwecke, Analysen und vieles mehr genutzt werden kann. Open Prices wird von Open Food Facts entwickelt und gepflegt.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4163,52 +4319,52 @@
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_prices_how_title": "Wie funktioniert Open Prices?",
-  "guide_open_prices_how_paragraph1": "Wir erstellen per Crowdsourcing einen Open-Source-Datensatz mit Preisen. Nutzer können Preise über diese Webanwendung oder die offizielle Open Food Facts-App hinzufügen. Auch Einzelhändler und Drittanbieter-Apps können über unsere API beitragen.",
-  "guide_open_prices_how_arg1_title": "Sammeln Sie Fotos von Preisschildern in den Regalen.",
-  "guide_open_prices_how_arg2_title": "Sammeln Sie Fotos von Belegen",
+  "guide_open_prices_how_paragraph1": "**Wir erstellen mithilfe von Crowdsourcing einen Open-Source-Datensatz mit Preisen**. Preise können von Nutzern über diese Web-App oder über die offizielle Open Food Facts-App für Mobilgeräte hinzugefügt werden. Auch Einzelhändler oder Drittanbieter-Apps können mithilfe unserer API einen Beitrag leisten.",
+  "guide_open_prices_how_arg1_title": "Sammeln Sie Fotos von Preisschildern in den Gängen",
+  "guide_open_prices_how_arg2_title": "Fotos von Quittungen sammeln",
   "guide_open_prices_why_title": "Warum macht Open Food Facts das?",
-  "guide_open_prices_why_paragraph1": "Preisinformationen sind von entscheidender Bedeutung für das Verständnis von Lebensmittelsystemen. Sie sind ein Schlüsselfaktor, um die Kosten von Lebensmitteln zu verstehen und eine gesündere Ernährung zu fördern. Die Öffnung von Preisdaten erleichtert es Forschern, Journalisten und Bürgern, **besser zu verstehen, wie Lebensmittelpreise regional und zeitlich variieren**.",
-  "guide_open_prices_why_arg1_title": "Verfolgen Sie die Preisentwicklung im Laufe der Zeit",
-  "guide_open_prices_why_arg1_text": "Sehen Sie die **Preisentwicklung**: Shrinkflation, Cheapflation, wir können sie gemeinsam verfolgen!",
-  "guide_open_prices_why_arg2_title": "Vergleiche die Preise in deiner Nähe",
-  "guide_open_prices_why_arg2_text": "Sobald wir mehr Preise erhalten, können Sie **die günstigsten Geschäfte in Ihrer Nähe** ausfindig machen.",
-  "guide_open_prices_scrapping_title": "Haben Sie in Erwägung gezogen, Preise von den Webseiten der Einzelhändler abzurufen?",
-  "guide_open_prices_scrapping_paragraph1": "Aus rechtlichen und technischen Gründen **betrachten wir das Auslesen von Preisen von Händlerwebseiten nicht als zulässige Methode, zu Open Prices beizutragen**. Wir möchten sicherstellen, dass die von uns erfassten Preise korrekt und aktuell sind, und das Auslesen von Preisen durch Mitwirkende ermöglicht uns dies nicht.",
-  "guide_open_prices_scrapping_paragraph2": "Das Auslesen von Preisen ist eine erwogene Option in einer zukünftigen Version von Open Prices, würde aber von Open Prices selbst durchgeführt werden, damit wir einen Nachweis über den Preis auf Basis der HTML-Seite haben.",
+  "guide_open_prices_why_paragraph1": "Preisinformationen sind für das Verständnis von Lebensmittelsystemen von größter Bedeutung. Sie sind ein entscheidender Faktor, um die Kosten von Lebensmitteln zu verstehen und eine gesündere Ernährung zu fördern. Die Offenlegung von Preisdaten ist eine Möglichkeit, Forschern, Journalisten und Bürgern ein besseres Verständnis dafür zu vermitteln, wie sich Lebensmittelpreise geografisch und zeitlich unterscheiden.",
+  "guide_open_prices_why_arg1_title": "Verfolgen Sie die Entwicklung der Preise im Zeitverlauf",
+  "guide_open_prices_why_arg1_text": "Sehen Sie sich die **Preisentwicklung** an: Schrumpfungsinflation, Billiginflation – wir können sie gemeinsam verfolgen!",
+  "guide_open_prices_why_arg2_title": "Vergleichen Sie Preise in Ihrer Nähe",
+  "guide_open_prices_why_arg2_text": "Je mehr Preise wir erhalten, desto besser können Sie **die günstigsten Geschäfte in Ihrer Nähe** finden.",
+  "guide_open_prices_scrapping_title": "Haben Sie darüber nachgedacht, Preise von den Websites der Einzelhändler zu scrapen?",
+  "guide_open_prices_scrapping_paragraph1": "Aus rechtlichen und technischen Gründen betrachten wir das Scraping von Preisen von den Websites von Einzelhändlern nicht als gültige Methode, um zu Open Prices beizutragen. Wir möchten sicherstellen, dass die von uns erfassten Preise korrekt und aktuell sind, und das ist nicht möglich, wenn wir von Mitwirkenden gescrapte Preise erhalten.",
+  "guide_open_prices_scrapping_paragraph2": "Preis-Scraping ist eine Option, die für eine zukünftige Version von Open Prices in Betracht gezogen wird, aber es würde von Open Prices selbst durchgeführt werden, damit wir einen Preisnachweis auf Basis der HTML-Seite haben können.",
   "guide_open_prices_retailers_title": "Ich bin ein Einzelhändler und möchte Preise beisteuern. Wie kann ich das tun?",
-  "guide_open_prices_retailers_paragraph1": "Sie können Preise über unsere API beitragen.\nWenn Sie Preise in großem Umfang beitragen möchten, kontaktieren Sie uns bitte unter prices@openfoodfacts.org.",
+  "guide_open_prices_retailers_paragraph1": "Sie können Preise über unsere API einstellen. Wenn Sie Preise in großem Umfang einstellen möchten, kontaktieren Sie uns bitte unter prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Willkommen bei Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_products_facts_what_is_open_products_facts_title": "Was sind Open Products Facts?",
-  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts ist eine riesige, offene Datenbank für **alle Produkte mit Barcode, ausgenommen Lebensmittel, Kosmetika und Tiernahrung**.",
+  "guide_open_products_facts_what_is_open_products_facts_title": "Was sind offene Produktdaten?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Open Products Facts ist eine riesige, offene Datenbank für **alle Produkte mit Barcode, die keine Lebensmittel, Kosmetika oder Tiernahrung sind**.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Von Elektronikartikeln über Spielzeug und Kleidung bis hin zu Reinigungsmitteln – alles mit Barcode kann erfasst werden. Ziel dieses Projekts ist die Schaffung eines „Internets der Dinge“ für Alltagsgegenstände, um Informationen darüber universell zugänglich zu machen.",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Von **Elektronik** über **Spielzeug** und **Kleidung** bis hin zu **Reinigungsmitteln** – alles, was einen Barcode hat, kann hinzugefügt werden. Dieses Projekt zielt darauf ab, ein „Internet der Dinge“ für Alltagsgegenstände zu schaffen, wodurch Informationen über diese Gegenstände allgemein zugänglich werden.",
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_open_products_facts_features_title": "Merkmale von Open Products Facts",
-  "guide_open_products_facts_features_text": "Open Products Facts hat sich zum Ziel gesetzt, Verbrauchern die Möglichkeit zu geben, die Lebensdauer von Gegenständen zu verlängern, indem Kreislauflösungen zur Instandhaltung, Reparatur, zum Recycling oder zur Weitergabe an einen neuen Besitzer angeboten werden.",
+  "guide_open_products_facts_features_text": "Open Products Facts möchte Verbrauchern dabei helfen, **die Lebensdauer von Gegenständen zu verlängern**, indem es ihnen zirkuläre Lösungen für die Wartung, **Reparatur**, **das Recycling** ihrer Gegenstände oder die Vermittlung eines neuen Besitzers anbietet.",
   "guide_open_products_facts_features_arg1_title": "CO2-Fußabdruck für einige Produkte",
-  "guide_open_products_facts_features_arg1_text": "Die **CO2-Auswirkungen** der französischen Umweltbehörde ADEME geben die **Kohlenstoffbilanz** vieler Kategorien an. Achten Sie darauf, die Produkte genau zu kategorisieren.",
+  "guide_open_products_facts_features_arg1_text": "**Auswirkungen von CO2** Die französische Umweltbehörde ADEME gibt die **Kohlenstoffauswirkungen** vieler Kategorien an. Achten Sie darauf, Produkte genau zu kategorisieren.",
   "guide_open_products_facts_features_arg2_title": "Reparierbarkeitsindex für viele Produkte",
-  "guide_open_products_facts_features_arg2_text": "Sobald ein französischer Reparaturindex verfügbar ist, zeigen wir ihn an. Darüber hinaus **können Sie mit der Folksonomie-Engine mit der Erfassung der Variablen beginnen**, sodass wir ihn zukünftig selbst berechnen können, auch in Ländern, in denen er nicht verfügbar ist.",
-  "guide_open_products_facts_features_arg3_title": "Finden Sie Möglichkeiten, Ihr Produkt zu spenden/weiterzuverkaufen.",
-  "guide_open_products_facts_features_arg3_text": "Wir bieten Links zu **externen, ressourcenschonenden Diensten**, die Ihnen helfen, das gewünschte Produkt als Gebrauchtware zu finden und so die Ressourcen unseres Planeten zu schonen.\nBitte beachten Sie, dass wir dafür nicht bezahlt werden und das System lediglich als Beispiel für zwei französische Websites dient. Sie können dazu beitragen, das System zu erweitern, indem Sie weitere Websites im Wiki dokumentieren.",
+  "guide_open_products_facts_features_arg2_text": "Sobald ein französischer Reparaturindex verfügbar ist, werden wir ihn anzeigen. Darüber hinaus können Sie mit der Folksonomy Engine mit dem Sammeln der Variablen beginnen, sodass wir ihn in Zukunft selbst neu berechnen können, selbst in Ländern, in denen er nicht verfügbar ist.",
+  "guide_open_products_facts_features_arg3_title": "Finden Sie Möglichkeiten, Ihr Produkt zu spenden/weiterzuverkaufen",
+  "guide_open_products_facts_features_arg3_text": "Wir bieten Links zu **umweltfreundlichen Dienstleistungen von Drittanbietern**, die Ihnen dabei helfen, das gewünschte Produkt als Gebrauchtware zu finden, um die Ressourcen unseres Planeten zu schonen. Bitte beachten Sie, dass wir dafür nicht bezahlt werden und dass das System nur als Beispiel für zwei Websites in Frankreich funktioniert. Sie können zur Erweiterung dieses Systems beitragen, indem Sie weitere Websites im Wiki dokumentieren.",
   "guide_open_products_facts_information_title": "Welche Informationen sind nützlich?",
-  "guide_open_products_facts_information_text": "Für ein so breites Spektrum an Artikeln sind die von uns erfassten Daten flexibel. Um dies zu ermöglichen, haben wir die Folksonomy Engine entwickelt.",
-  "guide_open_products_facts_folksonomy_title": "Die Folksonomie-Engine",
-  "guide_open_products_facts_folksonomy_paragraph1": "Die Folksonomie-Engine ist ein Tool, mit dem Sie Produkte anhand relevanter Eigenschaften vervollständigen können. Dies verbessert nicht nur die Such- und Auffindbarkeit, sondern ermöglicht auch die Berechnung und Anzeige interessanter Ergebnisse in der Zukunft.",
+  "guide_open_products_facts_information_text": "Bei einer so großen Bandbreite an Artikeln sind **die von uns erfassten Daten flexibel**. Zu diesem Zweck **haben wir die Folksonomy Engine entwickelt**.",
+  "guide_open_products_facts_folksonomy_title": "Die Folksonomy-Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "Die Folksonomy Engine ist ein Tool, das Ihnen dabei hilft, Produkte mit relevanten Eigenschaften zu vervollständigen. Dies verbessert nicht nur die Suche und Auffindbarkeit, sondern ermöglicht auch die Berechnung und Anzeige interessanter Dinge in der Zukunft.",
   "guide_open_products_facts_folksonomy_paragraph2": "Sie können beliebige Schlüssel und Werte hinzufügen, z. B.: **compatibility_with_5G_mobile_network: yes**",
-  "guide_open_products_facts_folksonomy_paragraph3": "Sie erhalten automatische Vorschläge für mögliche Eigenschaften und können gerne neue Eigenschaften für Ihre bevorzugten Produktarten hinzufügen und dokumentieren.",
+  "guide_open_products_facts_folksonomy_paragraph3": "Sie erhalten automatische Vorschläge für mögliche Eigenschaften und können gerne neue Eigenschaften zu Ihren Lieblingsprodukten hinzufügen und dokumentieren.",
   "guide_open_products_facts_share_link": "https://world-de.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Offene Essenspräferenzen",
-  "guide_coming_soon_button_title": "Demnächst verfügbar",
-  "guide_learn_more_subtitle": "Tippen Sie hier, um mehr zu erfahren.",
+  "guide_open_preferences_button_title": "Offene Essensvorlieben",
+  "guide_coming_soon_button_title": "Demnächst",
+  "guide_learn_more_subtitle": "Tippen Sie hier, um mehr zu erfahren",
   "preview_badge": "Vorschau",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -4225,7 +4381,7 @@
   "@error_loading_photo": {
     "description": "Error message when loading a photo fails to load"
   },
-  "photo_viewer_action_use_picture_as": "Verwenden als ...",
+  "photo_viewer_action_use_picture_as": "Verwendung als…",
   "@photo_viewer_action_use_picture_as": {
     "description": "An action to use the current picture to be used as front/ingredients…"
   },
@@ -4281,6 +4437,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "Originalbild anzeigen",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Kompatibel",
   "@product_page_compatibility_score": {
@@ -4386,11 +4546,11 @@
   "@product_page_action_bar_item_disable": {
     "description": "Accessibility label to disable action (= make it invisible)"
   },
-  "product_page_pending_operations_banner_title": "Ihre Änderungen werden hochgeladen ...",
+  "product_page_pending_operations_banner_title": "Ihre Änderungen werden hochgeladen…",
   "@product_page_pending_operations_banner_title": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page (here is the title of the message)."
   },
-  "product_page_pending_operations_banner_message": "Die auf dieser Seite angezeigten Daten **enthalten noch nicht Ihre Änderungen**.\nBitte warten Sie ein paar Sekunden ...",
+  "product_page_pending_operations_banner_message": "Die auf dieser Seite angezeigten Daten **spiegeln Ihre Änderungen noch nicht wider**.\nBitte warten Sie einige Sekunden…",
   "@product_page_pending_operations_banner_message": {
     "description": "When a product has pending edits (being sent to the server), there is a message on the product page. Please keep the ** syntax to make the text bold."
   },
@@ -4406,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Dieses Produkt aus dem Karussell entfernen",
   "@carousel_close_tooltip": {
@@ -4450,7 +4614,7 @@
   "@carousel_loading_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "product_type_subtitle_food": "Gemüse, Obst, Tiefkühlkost ...",
+  "product_type_subtitle_food": "Gemüse, Obst, Tiefkühlkost…",
   "@product_type_subtitle_food": {
     "description": "Example of products for food category"
   },
@@ -4458,11 +4622,11 @@
   "@product_type_subtitle_beauty": {
     "description": "Example of products for beauty category"
   },
-  "product_type_subtitle_pet_food": "Futter für Hunde, Katzen ...",
+  "product_type_subtitle_pet_food": "Futter für Hunde, Katzen…",
   "@product_type_subtitle_pet_food": {
     "description": "Example of products for pet food category"
   },
-  "product_type_subtitle_product": "Smartphones, Möbel ...",
+  "product_type_subtitle_product": "Smartphones, Möbel…",
   "@product_type_subtitle_product": {
     "description": "Example of products for other categories"
   },
@@ -4555,6 +4719,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Meine Kompatibilität",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% ckompatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Unzureichende Daten zur Berechnung einer Kompatibilitätsbewertung.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Für ein Produkt vom Typ „{productType}“ kann keine Punktzahl berechnet werden.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Priorität",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Wettkämpfe",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Gute Übereinstimmungen",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Durchschnittliche Übereinstimmungen",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Schlechte Übereinstimmungen",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Unbekannte Übereinstimmungen",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4564,7 +4778,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Warum Preise?",
-  "prices_explanation_card_line1": "**Open Prices** ist ein Projekt zur Erfassung und Verbreitung von Produktpreisen weltweit 🌍. Open Prices wird von Open Food Facts entwickelt und betreut.",
+  "prices_explanation_card_line1": "**Open Prices** ist ein Projekt, das Preise von Produkten aus aller Welt sammelt und teilt 🌍. Open Prices wird von Open Food Facts entwickelt und gepflegt.",
   "explanation_card_learn_more_button": "Erfahren Sie mehr",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
@@ -4572,16 +4786,16 @@
   },
   "folksonomy_explanation_card_title": "Was sind Folksonomie-Attribute?",
   "folksonomy_explanation_card_line1": "Attribute basieren auf **Schlüssel-Wert-Paaren**.",
-  "folksonomy_explanation_card_line2": "Diese Eigenschaften werden von Mitwirkenden für jegliche Art von Nutzung erstellt und abgelegt.",
+  "folksonomy_explanation_card_line2": "Diese Eigenschaften werden von Mitwirkenden für beliebige Verwendungszwecke erstellt und hinterlegt.",
   "folksonomy_action_external_link_title": "Externen Link öffnen",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
   },
-  "folksonomy_action_external_link_warning": "Externe Links könnten unsicher sein. Möchten Sie diese Seite wirklich besuchen?",
+  "folksonomy_action_external_link_warning": "Externe Links können unsicher sein. Möchten Sie diese wirklich besuchen?",
   "@folksonomy_action_external_link_warning": {
     "description": "Warning about the 'open external link' action on a folksonomy entry"
   },
-  "prices_products_empty_title": "Kein Preis verfügbar",
+  "prices_products_empty_title": "Kein Preis vorhanden",
   "prices_products_empty_explanation": "Seien Sie der Erste, der einen Beitrag leistet!",
   "prices_products_list_length_many_pages": "Die besten {pageSize} Produkte (Insgesamt: {total})",
   "@prices_products_list_length_many_pages": {
@@ -4823,7 +5037,7 @@
   "@preferences_prices_subtitle": {
     "description": "Subtitle for the prices preferences title"
   },
-  "preferences_card_project": "Das Open Food Facts-Projekt",
+  "preferences_card_project": "Das Projekt „Open Food Facts“",
   "@preferences_card_project": {
     "description": "Title for the project preferences card"
   },
@@ -4855,7 +5069,7 @@
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
-  "preferences_support_subtitle": "Helfen Sie uns, Millionen von Verbrauchern auf der ganzen Welt zu informieren",
+  "preferences_support_subtitle": "Helfen Sie uns, Millionen von Verbrauchern weltweit zu informieren",
   "@preferences_support_subtitle": {
     "description": "Subtitle for the support preferences tile"
   },
@@ -4891,7 +5105,7 @@
   "@preferences_app_bar_see_all_stats": {
     "description": "Preferences app bar see all stats button"
   },
-  "external_search_tile_title": "Suche {provider} nach \"{keyword}\"",
+  "external_search_tile_title": "Suche {provider} nach „{keyword}“",
   "@external_search_tile_title": {
     "description": "External search preference tile title",
     "placeholders": {
@@ -4903,7 +5117,7 @@
       }
     }
   },
-  "preferences_app_bar_search_hint": "Suche nach einer Einstellung (zB Nutri-Score)",
+  "preferences_app_bar_search_hint": "Suche nach einer Einstellung (z. B. Nutri-Score)",
   "@preferences_app_bar_search_hint": {
     "description": "Preferences app bar search bar hint"
   },
@@ -4923,11 +5137,11 @@
   "@preferences_card_about": {
     "description": "Title for the app settings products card"
   },
-  "preferences_legal_information_title": "Rechtliche Informationen",
+  "preferences_legal_information_title": "Rechtliche Information",
   "@preferences_legal_information_title": {
     "description": "Title for the preferences legal information card"
   },
-  "preferences_legal_information_subtitle": "Nutzungsbedingungen, Datenschutzrichtlinie und mehr",
+  "preferences_legal_information_subtitle": "Nutzungsbedingungen, Datenschutzerklärung und mehr",
   "@preferences_legal_information_subtitle": {
     "description": "Subtitle for the preferences legal information card"
   },
@@ -4939,7 +5153,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "Open Food Facts ist eine Lebensmitteldatenbank, **von allen für alle**.\nSie können sie nutzen, um bessere Lebensmittel auszuwählen, und da es sich um **offene Daten** handelt, kann sie jeder **für beliebige Zwecke wiederverwenden**.",
+  "preferences_legal_header": "Open Food Facts ist eine Datenbank für Lebensmittelprodukte, die **von allen für alle erstellt** wurde. Sie können sie nutzen, um bessere Entscheidungen beim Lebensmitteleinkauf zu treffen, und da es sich um **offene Daten** handelt, kann jeder sie **für beliebige Zwecke wiederverwenden**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -4971,7 +5185,7 @@
   "@preferences_scanner_title": {
     "description": "Title for the preferences scanner tile"
   },
-  "preferences_app_store": "App Store",
+  "preferences_app_store": "App-Store",
   "@preferences_app_store": {
     "description": "Title for the preferences app store tile"
   },
@@ -4979,11 +5193,11 @@
   "@preferences_app_system_settings": {
     "description": "Title for the preferences app system settings tile"
   },
-  "preferences_source_code": "Zugriff auf den Quellcode",
+  "preferences_source_code": "Auf den Quellcode zugreifen",
   "@preferences_source_code": {
     "description": "Title for the preferences source code tile"
   },
-  "preferences_source_code_subtitle": "Und beginnen Sie, etwas für Millionen zu bewirken",
+  "preferences_source_code_subtitle": "Und beginnen Sie, Millionen von Menschen zu beeinflussen",
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
@@ -5003,27 +5217,27 @@
   "@tips_discover_nutriscore": {
     "description": "Title for the tips discover nutriscore header"
   },
-  "preferences_on_off_website_subtitle": "Auf der Open Food Facts-Website",
+  "preferences_on_off_website_subtitle": "Auf der Website Open Food Facts",
   "@preferences_on_off_website_subtitle": {
     "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
   },
-  "preferences_manage_account_title": "Mein Konto verwalten",
+  "preferences_manage_account_title": "Mein Benutzerkonto verwalten",
   "@preferences_manage_account_title": {
     "description": "Title for the preferences manage account tile"
   },
-  "preferences_manage_account_tooltip": "Verwalten Sie Ihr Konto",
+  "preferences_manage_account_tooltip": "Ihr Konto verwalten",
   "@preferences_manage_account_tooltip": {
     "description": "Tooltip for a button that lets the user manage his account"
   },
-  "preferences_change_password_title": "Mein Passwort ändern",
+  "preferences_change_password_title": "Passwort ändern",
   "@preferences_change_password_title": {
     "description": "Title for the preferences change password tile"
   },
-  "preferences_danger_zone": "Gefahrenzone",
+  "preferences_danger_zone": "Danger-Zone",
   "@preferences_danger_zone": {
     "description": "Title for the preferences danger zone tile"
   },
-  "preferences_account_deletion_subtitle": "Alle Ihre Beiträge gehen verloren",
+  "preferences_account_deletion_subtitle": "Alle Ihre Beiträge gehen verloren.",
   "@preferences_account_deletion_subtitle": {
     "description": "Subtitle for the preferences account deletion tile"
   },
@@ -5031,11 +5245,11 @@
   "@preferences_contributions_title": {
     "description": "Title of the contributions preferences tile"
   },
-  "preferences_dev_mode_app_settings_title": "App-Einstellungen",
+  "preferences_dev_mode_app_settings_title": "App Einstellungen",
   "@preferences_dev_mode_app_settings_title": {
     "description": "Title for the dev mode app settings card"
   },
-  "preferences_dev_mode_offline_data_subtitle": "Sehr experimentelle Möglichkeit, Produkte offline zu scannen",
+  "preferences_dev_mode_offline_data_subtitle": "Sehr experimentelle Methode zum Offline-Scannen von Produkten",
   "@preferences_dev_mode_offline_data_subtitle": {
     "description": "Subtitle for the offline data tile in dev mode"
   },
@@ -5043,7 +5257,7 @@
   "@preferences_dev_mode_refresh_products_title": {
     "description": "Title for refreshing all products from server"
   },
-  "preferences_dev_mode_refresh_products_subtitle": "Bitte vermeiden Sie dies, es sei denn, es ist unbedingt erforderlich",
+  "preferences_dev_mode_refresh_products_subtitle": "Bitte vermeiden Sie dies, sofern es nicht unbedingt notwendig ist",
   "@preferences_dev_mode_refresh_products_subtitle": {
     "description": "Subtitle warning for refreshing all products"
   },
@@ -5055,15 +5269,15 @@
   "@preferences_dev_mode_add_cards_title": {
     "description": "Title for adding cards to scanner in demo mode"
   },
-  "preferences_dev_mode_add_cards_subtitle": "Fügt dem Scanner 3 Beispielprodukte hinzu",
+  "preferences_dev_mode_add_cards_subtitle": "Fügt dem Scanner 3 Musterprodukte hinzu",
   "@preferences_dev_mode_add_cards_subtitle": {
     "description": "Subtitle for adding cards to scanner in demo mode"
   },
-  "preferences_dev_mode_folksonomy_host_title": "Folksonomy-Host",
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomie-Host",
   "@preferences_dev_mode_folksonomy_host_title": {
     "description": "Title for folksonomy host setting"
   },
-  "preferences_dev_mode_folksonomy_host_subtitle": "Gastgeber: {host}",
+  "preferences_dev_mode_folksonomy_host_subtitle": "Host: {host}",
   "@preferences_dev_mode_folksonomy_host_subtitle": {
     "description": "Subtitle for folksonomy host setting",
     "placeholders": {
@@ -5072,15 +5286,15 @@
       }
     }
   },
-  "preferences_dev_mode_accessibility_experiments_title": "Barrierefreiheitsexperimente",
+  "preferences_dev_mode_accessibility_experiments_title": "Experimente zur Barrierefreiheit",
   "@preferences_dev_mode_accessibility_experiments_title": {
     "description": "Title for accessibility experiments card"
   },
-  "preferences_dev_mode_multi_products_selection_title": "Auswahl mehrerer Produkte für Preise",
+  "preferences_dev_mode_multi_products_selection_title": "Auswahl mehrerer Produkte nach Preisen",
   "@preferences_dev_mode_multi_products_selection_title": {
     "description": "Title for multi-products selection feature"
   },
-  "preferences_dev_mode_user_ordered_kp_title": "Vom Benutzer geordnete Wissenspanels",
+  "preferences_dev_mode_user_ordered_kp_title": "Vom Benutzer bestellte Wissenspanels",
   "@preferences_dev_mode_user_ordered_kp_title": {
     "description": "Title for user ordered knowledge panels feature"
   },
@@ -5088,11 +5302,11 @@
   "@preferences_dev_mode_location_search_title": {
     "description": "Title for temporary location search access"
   },
-  "preferences_dev_mode_comparison_title": "Nebeneinanderstellung von 2 oder 3 Produkten",
+  "preferences_dev_mode_comparison_title": "Seite-an-Seite-Vergleich für 2 oder 3 Produkte",
   "@preferences_dev_mode_comparison_title": {
     "description": "Title for side by side comparison feature"
   },
-  "preferences_dev_mode_product_list_import_title": "Produktlistenimport",
+  "preferences_dev_mode_product_list_import_title": "Produktliste importieren",
   "@preferences_dev_mode_product_list_import_title": {
     "description": "Title for product list import feature"
   },
@@ -5132,11 +5346,11 @@
   "@preferences_faq_discover_opf_title": {
     "description": "Title for discover Open Products Facts tile"
   },
-  "preferences_faq_faq_title": "FAQ - Häufig gestellte Fragen",
+  "preferences_faq_faq_title": "FAQ – Häufig gestellte Fragen",
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "Die NGO Open Food Facts",
+  "preferences_faq_off_ngo_title": "Die Nichtregierungsorganisation Open Food Facts",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5144,11 +5358,11 @@
   "@preferences_about_information_title": {
     "description": "Title for information card in about app"
   },
-  "preferences_connect_community_updates_title": "Erhalten Sie Community-Updates",
+  "preferences_connect_community_updates_title": "Community-Updates erhalten",
   "@preferences_connect_community_updates_title": {
     "description": "Title for community updates card"
   },
-  "preferences_connect_newsletter_subtitle": "Bleiben Sie mit App- und Community-Neuigkeiten auf dem Laufenden",
+  "preferences_connect_newsletter_subtitle": "Bleiben Sie mit App- und Community-News auf dem Laufenden",
   "@preferences_connect_newsletter_subtitle": {
     "description": "Subtitle for newsletter tile"
   },
@@ -5156,19 +5370,19 @@
   "@preferences_connect_community_calendar_title": {
     "description": "Title for community calendar tile"
   },
-  "preferences_connect_community_calendar_subtitle": "Engagieren Sie sich, indem Sie an einer unserer virtuellen Veranstaltungen teilnehmen",
+  "preferences_connect_community_calendar_subtitle": "Nehmen Sie an einer unserer virtuellen Veranstaltungen teil und bringen Sie sich ein",
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Der Open Food Facts Blog",
+  "preferences_connect_blog_title": "Der Blog von Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
-  "preferences_connect_blog_subtitle": "Erhalten Sie die neuesten Nachrichten, sobald sie passieren",
+  "preferences_connect_blog_subtitle": "Erhalten Sie die neuesten Nachrichten, sobald sie eintreffen",
   "@preferences_connect_blog_subtitle": {
     "description": "Subtitle for blog tile"
   },
-  "preferences_connect_community_help_title": "Holen Sie sich Hilfe von der Community",
+  "preferences_connect_community_help_title": "Hilfe von der Community erhalten",
   "@preferences_connect_community_help_title": {
     "description": "Title for community help card"
   },
@@ -5180,7 +5394,7 @@
   "@preferences_connect_debug_info_title": {
     "description": "Title for debug information tile"
   },
-  "preferences_connect_debug_info_subtitle": "Senden Sie uns eine E-Mail mit detaillierten Debuginformationen",
+  "preferences_connect_debug_info_subtitle": "Senden Sie uns eine E-Mail mit detaillierten Debugging-Informationen",
   "@preferences_connect_debug_info_subtitle": {
     "description": "Subtitle for debug information tile"
   },
@@ -5196,19 +5410,19 @@
   "@preferences_connect_survey_title": {
     "description": "Title for survey tile"
   },
-  "preferences_connect_survey_subtitle": "Helfen Sie uns zu verstehen, was wir als Nächstes bauen sollten",
+  "preferences_connect_survey_subtitle": "Helfen Sie uns zu verstehen, was wir als Nächstes entwickeln sollten",
   "@preferences_connect_survey_subtitle": {
     "description": "Subtitle for survey tile"
   },
-  "preferences_connect_professionals_title": "Fachleute",
+  "preferences_connect_professionals_title": "Berufserfahrene",
   "@preferences_connect_professionals_title": {
     "description": "Title for professionals card"
   },
-  "preferences_connect_pro_subtitle": "Völlig kostenlos, gewährleistet genaue Daten für 500 Apps und Millionen von Verbrauchern. Selbstbedienung, kompatibel mit Ihrem PIM oder Ihren Tabellenkalkulationen (XLSX).",
+  "preferences_connect_pro_subtitle": "Völlig kostenlos, gewährleistet genaue Daten für 500 Apps und Millionen von Verbrauchern. Selbstbedienung, kompatibel mit Ihrem PIM oder Ihren Tabellenkalkulationen (XLSX)",
   "@preferences_connect_pro_subtitle": {
     "description": "Subtitle for professional contact tile"
   },
-  "preferences_connect_pro_email_subtitle": "Nehmen Sie Kontakt auf, um loszulegen",
+  "preferences_connect_pro_email_subtitle": "Kontaktieren Sie uns, um loszulegen",
   "@preferences_connect_pro_email_subtitle": {
     "description": "Subtitle for professional email tile"
   },
@@ -5216,7 +5430,7 @@
   "@preferences_connect_press_title": {
     "description": "Title for press card"
   },
-  "preferences_connect_press_page_subtitle": "Holen Sie sich alle Materialien, die Sie für Ihren Bericht benötigen",
+  "preferences_connect_press_page_subtitle": "Besorgen Sie sich alles Material, das Sie für Ihren Bericht benötigen",
   "@preferences_connect_press_page_subtitle": {
     "description": "Subtitle for press page tile"
   },
@@ -5224,15 +5438,15 @@
   "@preferences_connect_press_email_subtitle": {
     "description": "Subtitle for press email tile"
   },
-  "preferences_contribute_active_volunteer_title": "Werden Sie ehrenamtlich aktiv",
+  "preferences_contribute_active_volunteer_title": "Werden Sie aktiver Freiwilliger",
   "@preferences_contribute_active_volunteer_title": {
     "description": "Title for active volunteer card"
   },
-  "preferences_contribute_skill_pool_subtitle": "Entwicklung, Kommunikation, Design… Jede Art von Freiwilligenarbeit oder Fachwissen ist willkommen!",
+  "preferences_contribute_skill_pool_subtitle": "Entwicklung, Kommunikation, Design… jede Art von ehrenamtlicher Mitarbeit oder Fachwissen ist willkommen!",
   "@preferences_contribute_skill_pool_subtitle": {
     "description": "Subtitle for skill pool tile"
   },
-  "preferences_contribute_how_to_subtitle": "Entdecken Sie einige der vielen Möglichkeiten, wie Sie beitragen können",
+  "preferences_contribute_how_to_subtitle": "Entdecken Sie einige der vielen Möglichkeiten, wie Sie einen Beitrag leisten können",
   "@preferences_contribute_how_to_subtitle": {
     "description": "Subtitle for how to contribute tile"
   },
@@ -5248,19 +5462,19 @@
   "@preferences_contribute_alpha_subtitle": {
     "description": "Subtitle for alpha enrollment tile"
   },
-  "preferences_contribute_local_community_title": "Erweitern Sie Ihre lokale Community",
+  "preferences_contribute_local_community_title": "Stärken Sie Ihre lokale Gemeinschaft",
   "@preferences_contribute_local_community_title": {
     "description": "Title for local community card"
   },
-  "preferences_contribute_translate_subtitle": "Hilfe bei der Übersetzung von Software, Inhalten und Inhaltsstoffanalysen",
+  "preferences_contribute_translate_subtitle": "Hilfe bei Übersetzungen von Software, Inhalten und Inhaltsstoffanalysen",
   "@preferences_contribute_translate_subtitle": {
     "description": "Subtitle for translate tile"
   },
-  "preferences_contribute_share_subtitle": "Wir haben eine kleine Vorlage vorbereitet, die Ihnen dabei hilft :-)",
+  "preferences_contribute_share_subtitle": "Wir haben eine kleine Vorlage vorbereitet, um Ihnen zu helfen :-)",
   "@preferences_contribute_share_subtitle": {
     "description": "Subtitle for share tile"
   },
-  "preferences_contribute_country_subtitle": "Einfache Schritte zur Steigerung der Lebensmitteltransparenz in Ihrem Land",
+  "preferences_contribute_country_subtitle": "Einfache Schritte zur Erhöhung der Transparenz bei Lebensmitteln in Ihrem Land",
   "@preferences_contribute_country_subtitle": {
     "description": "Subtitle for improve country tile"
   },
@@ -5268,11 +5482,11 @@
   "@preferences_contribute_data_quality_title": {
     "description": "Title for data quality card"
   },
-  "preferences_contribute_data_quality_team_title": "Werden Sie Teil des Datenqualitätsteams",
+  "preferences_contribute_data_quality_team_title": "Werden Sie Teil des Teams für Datenqualität",
   "@preferences_contribute_data_quality_team_title": {
     "description": "Title for data quality team tile"
   },
-  "preferences_contribute_data_quality_team_subtitle": "Unterstützen Sie uns bei unseren Bemühungen, die Vollständigkeit und Genauigkeit der Datenbank sicherzustellen",
+  "preferences_contribute_data_quality_team_subtitle": "Unterstützen Sie uns dabei, die Datenbank vollständig und korrekt zu halten",
   "@preferences_contribute_data_quality_team_subtitle": {
     "description": "Subtitle for data quality team tile"
   },
@@ -5284,7 +5498,7 @@
   "@preferences_contributions_new_products_subtitle": {
     "description": "Subtitle for new products added subtile"
   },
-  "preferences_contributions_to_be_completed_title": "Produkte, die ich vervollständigen muss",
+  "preferences_contributions_to_be_completed_title": "Produkte, die ich benötige, um die Aufgabe zu erledigen",
   "@preferences_contributions_to_be_completed_title": {
     "description": "Title for products to be completed tile"
   },
@@ -5300,11 +5514,11 @@
   "@preferences_my_contributions_my_prices_title": {
     "description": "Title for opening prices stats"
   },
-  "preferences_my_contributions_my_prices_subtitle": "Meine Preise, meine Beweise…",
+  "preferences_my_contributions_my_prices_subtitle": "Meine Preise, meine Belege…",
   "@preferences_my_contributions_my_prices_subtitle": {
     "description": "Subtitle for opening prices stats"
   },
-  "preferences_contributions_all_incomplete_subtitle": "Produkte, bei deren Fertigstellung Sie mithelfen können",
+  "preferences_contributions_all_incomplete_subtitle": "Produkte, bei deren Fertigstellung Sie helfen können",
   "@preferences_contributions_all_incomplete_subtitle": {
     "description": "Subtitle for all incomplete products tile"
   },
@@ -5312,7 +5526,7 @@
   "@preferences_contributions_categorize_subtitle": {
     "description": "Subtitle for categorize products tile"
   },
-  "preferences_prices_user_prices_subtitle": "Preise, die ich beigesteuert habe",
+  "preferences_prices_user_prices_subtitle": "Preise, zu denen ich beigetragen habe",
   "@preferences_prices_user_prices_subtitle": {
     "description": "Subtitle for user prices tile"
   },
@@ -5320,7 +5534,7 @@
   "@preferences_prices_proofs_subtitle": {
     "description": "Subtitle for proofs tile"
   },
-  "preferences_prices_add_receipt_subtitle": "Machen Sie Fotos von Ihren Belegen und scannen Sie die zugehörigen Barcodes",
+  "preferences_prices_add_receipt_subtitle": "Fotografieren Sie Ihre Quittungen und scannen Sie die zugehörigen Barcodes",
   "@preferences_prices_add_receipt_subtitle": {
     "description": "Subtitle for add receipt tile"
   },
@@ -5328,11 +5542,11 @@
   "@preferences_prices_add_price_tags_subtitle": {
     "description": "Subtitle for add price tags tile"
   },
-  "preferences_prices_newest_title": "Neueste Preise",
+  "preferences_prices_newest_title": "Aktuelle Preise",
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Neueste Preise, die von der Open Prices-Community hinzugefügt wurden",
+  "preferences_prices_newest_subtitle": "Neueste Preise, hinzugefügt von der Open Prices-Community",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Open Price-Kennzahlen",
+  "preferences_prices_metrics_title": "Open Prices-Metriken",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5352,11 +5566,11 @@
   "@preferences_prices_ways_contribute_title": {
     "description": "Title for ways to contribute card"
   },
-  "preferences_prices_validation_assistant_subtitle": "Bestätigen Sie die von Ihnen oder anderen hinzugefügten Preise mithilfe von KI",
+  "preferences_prices_validation_assistant_subtitle": "Bestätigen Sie Preise, die Sie selbst oder andere hinzugefügt haben, mit Hilfe von KI",
   "@preferences_prices_validation_assistant_subtitle": {
     "description": "Subtitle for validation assistant tile"
   },
-  "preferences_prices_multiple_proof_subtitle": "Fügen Sie schnell viele Belege oder Fotos von Regalen aus Ihrer Kamerarolle hinzu",
+  "preferences_prices_multiple_proof_subtitle": "Fügen Sie schnell viele Belege oder Fotos von Regalen aus Ihrem Kameraroll hinzu",
   "@preferences_prices_multiple_proof_subtitle": {
     "description": "Subtitle for multiple proof addition tile"
   },
@@ -5364,7 +5578,7 @@
   "@preferences_prices_challenges_title": {
     "description": "Title for monthly challenges tile"
   },
-  "preferences_prices_challenges_subtitle": "Nehmen Sie an monatlichen thematischen Quests teil, um Preise zu sammeln",
+  "preferences_prices_challenges_subtitle": "Nimm an monatlichen Themenquests teil, um Preise zu sammeln",
   "@preferences_prices_challenges_subtitle": {
     "description": "Subtitle for monthly challenges tile"
   },
@@ -5372,15 +5586,15 @@
   "@preferences_prices_loyalty_data_title": {
     "description": "Title for loyalty data card"
   },
-  "preferences_prices_gdpr_subtitle": "Erfahren Sie, wie Sie Ihre Daten anfordern",
+  "preferences_prices_gdpr_subtitle": "Erfahren Sie, wie Sie Ihre Daten anfordern können",
   "@preferences_prices_gdpr_subtitle": {
     "description": "Subtitle for GDPR tile"
   },
-  "preferences_page_customize_app_title": "Passen Sie die App an",
+  "preferences_page_customize_app_title": "Die App anpassen",
   "@preferences_page_customize_app_title": {
     "description": "Title for the customize app card on preferences page"
   },
-  "preferences_page_contribute_project_title": "Tragen Sie zum Projekt bei",
+  "preferences_page_contribute_project_title": "Zum Projekt beitragen",
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
@@ -5388,7 +5602,7 @@
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
-  "preferences_page_faq_subtitle": "Bewertungsmethoden, Hilfe und mehr zum Projekt",
+  "preferences_page_faq_subtitle": "Bewertungsmethoden, Hilfe und weitere Informationen zum Projekt",
   "@preferences_page_faq_subtitle": {
     "description": "Subtitle for the FAQ navigation tile on preferences page"
   },
@@ -5404,7 +5618,7 @@
   "@product_edit_robotoff_show_proof": {
     "description": "Button to show the proof related to a suggestion"
   },
-  "product_edit_robotoff_expand_proof": "Beweis erweitern",
+  "product_edit_robotoff_expand_proof": "Erweiterungsnachweis",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
   },
@@ -5436,7 +5650,7 @@
       }
     }
   },
-  "item_count_with_total": "{count} von {total} Artikeln",
+  "item_count_with_total": "{count} von {total} Elementen",
   "@item_count_with_total": {
     "description": "Item count showing current number of items and total items",
     "placeholders": {
@@ -5450,7 +5664,7 @@
       }
     }
   },
-  "item_count_with_total_string": "{count} von {total} Artikeln",
+  "item_count_with_total_string": "{count} von {total} Elementen",
   "@item_count_with_total_string": {
     "description": "Item count showing current number of items and total items",
     "placeholders": {
@@ -5492,7 +5706,7 @@
   "@prices_error_loading_more_items": {
     "description": "Error message shown when additional items fail to load"
   },
-  "prices_proof_error": "Authentifizierung fehlgeschlagen, Nachweise konnten nicht abgerufen werden",
+  "prices_proof_error": "Authentifizierung fehlgeschlagen, Nachweise können nicht abgerufen werden",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
   },
@@ -5584,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Offene Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5596,7 +5810,7 @@
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "preferences_contribute_enroll_alpha": "Melden Sie sich für die Alpha-Version der App an",
+  "preferences_contribute_enroll_alpha": "Registrieren Sie sich für die Alpha-Version der App",
   "@preferences_contribute_enroll_alpha": {},
   "preferences_dev_mode_section_data": "Beiträge & Produktdaten",
   "@preferences_dev_mode_section_data": {
@@ -5624,7 +5838,61 @@
   "location_map_details_street": "Straße",
   "location_map_details_city": "Stadt",
   "location_map_details_postcode": "Postleitzahl",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Land",
   "location_map_details_coordinates": "Koordinaten",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Zurück zur Startseite",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kamera umschalten",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Barcode-Scanner anzeigen",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Tippen Sie auf den **Barcode**, um ihn zu scannen und herauszufinden, ob er **für Sie geeignet** ist!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Taschenlampe umschalten",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scannen Sie ein Produkt, indem Sie sich seinem Barcode nähern",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Wir haben den folgenden Barcode erkannt: {barcode}, aber er scheint ungültig zu sein.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Mehr anzeigen…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Meistgescannte Produkte",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Zuletzt gescannte Produkte",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent} %",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -2,16 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/logged_in_app_bar.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_out/logged_out_app_bar.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/food_preferences/food_preferences_page.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
-import 'package:smooth_app/pages/preferences/user_preferences_page.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/banner/new_nutriscore_header.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/footer/preferences_social_networks.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
@@ -36,9 +37,18 @@ import 'package:smooth_app/pages/preferences_v2/tiles/square_preference_tile.dar
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 
 class PreferencesPage extends StatelessWidget {
+  static const List<PreferencesPageProjects> _projects =
+      <PreferencesPageProjects>[
+        PreferencesPageProjects.food,
+        PreferencesPageProjects.beauty,
+        PreferencesPageProjects.products,
+        PreferencesPageProjects.pets,
+      ];
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -46,6 +56,7 @@ class PreferencesPage extends StatelessWidget {
     context.watch<UserManagementProvider>();
 
     final String? userId = OpenFoodAPIConfiguration.globalUser?.userId;
+    final bool lightTheme = context.lightTheme();
 
     return ChangeNotifierProvider<PreferencesRootSearchController>(
       create: (_) => PreferencesRootSearchController(),
@@ -58,7 +69,20 @@ class PreferencesPage extends StatelessWidget {
           PreferenceCard(
             title: appLocalizations.preferences_page_customize_app_title,
             tiles: <PreferenceTile>[
-              _buildFoodPreferencesTile(appLocalizations),
+              ..._projects.map((PreferencesPageProjects project) {
+                final bool alreadySet = userPreferences
+                    .arePreferencesSetForProject(project);
+                return NavigationPreferenceTile(
+                  leading: project.getLeadingIcon(lightTheme),
+                  title: project.getTitle(appLocalizations),
+                  subtitleText: project.getSubtitle(appLocalizations),
+                  boldPostScriptum: alreadySet
+                      ? null
+                      : appLocalizations.myPreferences_not_configured_yet,
+                  target: FoodPreferencesPage(project: project),
+                  fullScreen: true,
+                );
+              }),
               _buildAppSettingsTile(appLocalizations),
             ],
           ),
@@ -208,17 +232,6 @@ class PreferencesPage extends StatelessWidget {
   }
 
   // Customize App section
-  NavigationPreferenceTile _buildFoodPreferencesTile(
-    AppLocalizations appLocalizations,
-  ) {
-    return NavigationPreferenceTile(
-      leading: const icons.HappyToast(),
-      title: appLocalizations.myPreferences_food_title,
-      subtitleText: appLocalizations.myPreferences_food_subtitle,
-      target: const UserPreferencesFoodPage(),
-    );
-  }
-
   NavigationPreferenceTile _buildAppSettingsTile(
     AppLocalizations appLocalizations,
   ) {

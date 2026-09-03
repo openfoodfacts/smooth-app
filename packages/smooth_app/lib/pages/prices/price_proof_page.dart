@@ -132,7 +132,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
                     ),
                     child: _PriceProofCounter(count: widget.proof.priceCount),
                   ),
-                  const Spacer(),
+                  const SizedBox(width: SMALL_SPACE),
                   Offstage(
                     offstage: !_imageLoaded,
                     child: const _PriceProofChildContainer(
@@ -162,7 +162,7 @@ class _PriceProofPageState extends State<PriceProofPage> {
                 if (!context.mounted) {
                   return;
                 }
-                await Navigator.of(context).push(
+                await Navigator.of(context, rootNavigator: true).push(
                   MaterialPageRoute<void>(
                     builder: (BuildContext context) => ProductPriceAddPage(
                       PriceModel.proof(

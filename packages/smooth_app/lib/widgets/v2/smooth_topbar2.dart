@@ -12,6 +12,7 @@ import 'package:vector_graphics/vector_graphics.dart';
 class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
   const SmoothTopBar2({
     required this.title,
+    required this.productType,
     this.subTitle,
     this.topWidget,
     this.leadingAction,
@@ -22,7 +23,6 @@ class SmoothTopBar2 extends StatefulWidget implements PreferredSizeWidget {
     this.elevationOnScroll = true,
     this.foregroundColor,
     this.backgroundColor,
-    this.productType,
     this.theme,
     super.key,
   }) : assert(title.length > 0),
@@ -78,7 +78,10 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
   }
 
   void _onScroll() {
-    final double offset = PrimaryScrollController.of(context).offset;
+    final double? offset = PrimaryScrollController.maybeOf(context)?.offset;
+    if (offset == null) {
+      return;
+    }
     final double newProgress = offset.progressAndClamp(
       0.0,
       HEADER_ROUNDED_RADIUS.x * 2.0,

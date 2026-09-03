@@ -266,13 +266,13 @@ class ScanProductBaseCardText extends StatelessWidget {
 class ScanProductBaseCardBarcode extends StatelessWidget {
   const ScanProductBaseCardBarcode({
     required this.barcode,
-    this.height,
+    required this.height,
     this.padding,
     super.key,
-  }) : assert(height == null || height > 0);
+  });
 
   final String barcode;
-  final double? height;
+  final double height;
   final EdgeInsetsDirectional? padding;
 
   @override
@@ -301,15 +301,12 @@ class ScanProductBaseCardBarcode extends StatelessWidget {
         child: Center(
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: dense ? 75.0 : 100.0),
-            child: SmoothBarcodeWidget(
-              height: height ?? 100.0,
+            child: Padding(
               padding: EdgeInsetsDirectional.symmetric(
                 horizontal: 30.0,
                 vertical: dense ? SMALL_SPACE : MEDIUM_SPACE,
               ),
-              color: Colors.black,
-              backgroundColor: lightTheme ? Colors.white : Colors.transparent,
-              barcode: barcode,
+              child: SmoothBarcodeWidget(barcode: barcode, height: height),
             ),
           ),
         ),

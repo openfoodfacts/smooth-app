@@ -4,7 +4,6 @@ import 'package:flutter/material.dart' hide Listener;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -209,25 +208,16 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
     String? value,
   }) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final FolksonomyProvider folksonomyProvider = context
-        .read<FolksonomyProvider>();
-    final FolksonomyTag? res = await showSmoothModalSheetForTextField(
-      context: context,
-      header: SmoothModalSheetHeader(
-        title: appLocalizations.add_tag,
-        prefix: const SmoothModalSheetHeaderPrefixIndicator(),
+
+    final FolksonomyTag? res = await Navigator.of(context).push<FolksonomyTag>(
+      MaterialPageRoute<FolksonomyTag>(
+        builder: (BuildContext context) => FolksonomyEditTagContent(
+          action: action,
+          existingKeys: existingKeys,
+          oldKey: key,
+          oldValue: value,
+        ),
       ),
-      bodyBuilder: (BuildContext context) {
-        return ChangeNotifierProvider<FolksonomyProvider>.value(
-          value: folksonomyProvider,
-          child: FolksonomyEditTagContent(
-            action: action,
-            existingKeys: existingKeys,
-            oldKey: key,
-            oldValue: value,
-          ),
-        );
-      },
     );
 
     if (res != null && mounted) {
@@ -328,6 +318,7 @@ class _FolksonomyContentState extends State<_FolksonomyContent> {
       key: _listKey,
       controller: _scrollController,
       initialItemCount: _tags.length,
+      padding: const EdgeInsets.only(bottom: kFloatingActionButtonHeight * 2),
       itemBuilder:
           (BuildContext context, int index, Animation<double> animation) {
             final ProductTag entry = _tags[index];

@@ -15,9 +15,9 @@ jobs:
             working-directory: ./packages/smooth_app
         steps:
             - name: Checkout code	
-              uses: actions/checkout@v6	
+              uses: actions/checkout@v7	
             - name: Setup Flutter	
-              uses: actions/cache@v5	
+              uses: actions/cache@v6	
               with:	
                 path: ${{ runner.tool_cache }}/flutter	
                 key: flutter-2.5.0-stable	
@@ -34,7 +34,7 @@ jobs:
             - name: Build documentation using mkdocs
               run: mkdocs build
             - name: Deploy smooth_app documentation to Github Pages
-              uses: JamesIves/github-pages-deploy-action@v4.8.0	
+              uses: JamesIves/github-pages-deploy-action@v4.9.0	
               with:
                 BRANCH: gh-pages
                 FOLDER: packages/smooth_app/gh_pages/

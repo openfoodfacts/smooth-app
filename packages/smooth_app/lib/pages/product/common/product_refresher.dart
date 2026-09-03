@@ -8,6 +8,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_folksonomy.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -77,8 +78,9 @@ class ProductRefresher {
   /// Returns the standard configuration for barcode product query.
   ProductQueryConfiguration getBarcodeQueryConfiguration(
     final String barcode,
-    final OpenFoodFactsLanguage language,
-  ) => ProductQueryConfiguration(
+    final OpenFoodFactsLanguage language, {
+    final IngredientsUnwantedParameter? unwantedIngredients,
+  }) => ProductQueryConfiguration(
     barcode,
     fields: ProductQuery.fields,
     language: language,
@@ -86,19 +88,22 @@ class ProductRefresher {
     version: ProductQuery.productQueryVersion,
     productTypeFilter: ProductTypeFilter.all,
     activateKnowledgePanelsSimplified: true,
+    unwantedIngredients: unwantedIngredients,
   );
 
   /// Returns the standard configuration for several barcodes product query.
   ProductSearchQueryConfiguration getBarcodeListQueryConfiguration(
     final List<String> barcodes,
-    final OpenFoodFactsLanguage language,
-  ) => ProductSearchQueryConfiguration(
+    final OpenFoodFactsLanguage language, {
+    final IngredientsUnwantedParameter? unwantedIngredients,
+  }) => ProductSearchQueryConfiguration(
     fields: ProductQuery.fields,
     language: language,
     country: ProductQuery.getCountry(),
     parametersList: <Parameter>[
       BarcodeParameter.list(barcodes),
       PageSize(size: barcodes.length),
+      ?unwantedIngredients,
     ],
     version: ProductQuery.productQueryVersion,
     activateKnowledgePanelsSimplified: true,
@@ -179,9 +184,19 @@ class ProductRefresher {
       productType: productType,
     );
     try {
+      final List<String> unwantedIngredients =
+          (await UserPreferences.getUserPreferences())
+              .getUnwantedIngredientTags();
+
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
       final ProductResultV3 result = await OpenFoodAPIClient.getProductV3(
-        getBarcodeQueryConfiguration(barcode, language),
+        getBarcodeQueryConfiguration(
+          barcode,
+          language,
+          unwantedIngredients: IngredientsUnwantedParameter(
+            unwantedIngredients,
+          ),
+        ),
         uriHelper: uriProductHelper,
         user: ProductQuery.getReadUser(),
       );
@@ -207,11 +222,11 @@ class ProductRefresher {
         );
       }
       final String host = uriProductHelper.host;
-      final PingData result = await Ping(host, count: 1).stream.first;
+      final PingEvent pingEvent = await Ping(host, count: 1).stream.first;
       return FetchedProduct.error(
         exceptionString: e.toString(),
         isConnected: true,
-        failedPingedHost: result.error == null ? null : host,
+        failedPingedHost: pingEvent is! PingError ? null : host,
       );
     }
   }
@@ -227,10 +242,21 @@ class ProductRefresher {
   ) async {
     try {
       final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
+
+      final List<String> unwantedIngredients =
+          (await UserPreferences.getUserPreferences())
+              .getUnwantedIngredientTags();
+
       final SearchResult searchResult =
           await SearchProductsManager.searchProducts(
             ProductQuery.getReadUser(),
-            getBarcodeListQueryConfiguration(barcodes, language),
+            getBarcodeListQueryConfiguration(
+              barcodes,
+              language,
+              unwantedIngredients: IngredientsUnwantedParameter(
+                unwantedIngredients,
+              ),
+            ),
             uriHelper: ProductQuery.getUriProductHelper(
               productType: productType,
             ),

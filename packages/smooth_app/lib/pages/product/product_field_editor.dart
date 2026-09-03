@@ -42,7 +42,7 @@ class ProductFieldSimpleEditor extends ProductFieldEditor {
 
   @override
   String getLabel(final AppLocalizations appLocalizations) =>
-      helper.getAddButtonLabel(appLocalizations);
+      helper.getStandardAddButtonLabel(appLocalizations);
 
   @override
   Future<void> edit({

@@ -49,6 +49,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required super.pricesAreDiscounted,
     required super.prices,
     required super.pricesWithoutDiscount,
+    required super.discountTypes,
   });
 
   BackgroundTaskAddPrice.fromJson(super.json)
@@ -127,6 +128,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<double?> pricesWithoutDiscount,
     required final bool displaySnackbar,
     required final bool readyForPriceTagValidation,
+    required final List<String> discountTypes,
   }) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(localDatabase);
@@ -148,6 +150,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       pricesWithoutDiscount: pricesWithoutDiscount,
       displaySnackbar: displaySnackbar,
       readyForPriceTagValidation: readyForPriceTagValidation,
+      discountTypes: discountTypes,
     );
     if (!context.mounted) {
       return;
@@ -178,6 +181,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     required final List<double?> pricesWithoutDiscount,
     required final bool displaySnackbar,
     required final bool readyForPriceTagValidation,
+    required final List<String> discountTypes,
   }) => BackgroundTaskAddPrice._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -208,6 +212,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     ),
     displaySnackbar: displaySnackbar,
     readyForPriceTagValidation: readyForPriceTagValidation,
+    discountTypes: discountTypes,
   );
 
   @override
@@ -245,7 +250,6 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
           cropY1: cropY1,
           cropX2: cropX2,
           cropY2: cropY2,
-          compressQuality: 80,
           forceCompression: true,
           eraserCoordinates: eraserCoordinates,
         );
@@ -294,6 +298,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      discountTypes: discountTypes,
     );
   }
 }

@@ -16,7 +16,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
@@ -24,6 +23,22 @@ import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+
+/// Image picker constants.
+///
+/// In order to avoid OOM. And for performances too.
+class ImagePickerConstants {
+  /// Notoriously good enough.
+  static const int imageQuality = 80;
+
+  /// Good enough for 8"x10" prints (something like A4 sheet).
+  ///
+  /// cf. https://www.adobe.com/fr/creativecloud/photography/discover/standard-photo-sizes.html?msockid=0619d51777586f491e57c06c76ec6e77
+  static const num maxSize = 3000;
+
+  /// In case [maxSize] was too big.
+  static const num maxSizeFallback = 2000;
+}
 
 /// Safely picks an image file from gallery or camera, regarding access denied.
 Future<XFile?> pickImageFile(
@@ -47,7 +62,12 @@ Future<XFile?> pickImageFile(
     final ImagePicker picker = ImagePicker();
     if (source == UserPictureSource.GALLERY) {
       try {
-        return picker.pickImage(source: ImageSource.gallery);
+        return picker.pickImage(
+          imageQuality: ImagePickerConstants.imageQuality,
+          maxHeight: ImagePickerConstants.maxSize.toDouble(),
+          maxWidth: ImagePickerConstants.maxSize.toDouble(),
+          source: ImageSource.gallery,
+        );
       } on PlatformException catch (e) {
         // On debug builds this catch won't work.
         // Please run on profile/release modes to test it
@@ -60,7 +80,12 @@ Future<XFile?> pickImageFile(
         }
       }
     }
-    return picker.pickImage(source: ImageSource.camera);
+    return picker.pickImage(
+      imageQuality: ImagePickerConstants.imageQuality,
+      maxHeight: ImagePickerConstants.maxSize.toDouble(),
+      maxWidth: ImagePickerConstants.maxSize.toDouble(),
+      source: ImageSource.camera,
+    );
   }
 
   try {
@@ -397,8 +422,7 @@ Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
 
   const String CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
 
-  final int sequenceNumber = await getNextSequenceNumber(
-    daoInt,
+  final int sequenceNumber = await daoInt.getNextSequenceNumber(
     CROP_IMAGE_SEQUENCE_KEY,
   );
 

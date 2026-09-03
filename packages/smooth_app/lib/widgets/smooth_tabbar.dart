@@ -157,7 +157,7 @@ class _SmoothTab<T> extends StatelessWidget {
         ),
         child: Row(
           children: <Widget>[
-            if (leading != null) leading!,
+            ?leading,
             Padding(
               padding: EdgeInsetsDirectional.only(
                 start: leading != null ? SMALL_SPACE : 0.0,
@@ -165,7 +165,7 @@ class _SmoothTab<T> extends StatelessWidget {
               ),
               child: Text(item.label),
             ),
-            if (trailing != null) trailing!,
+            ?trailing,
           ],
         ),
       );

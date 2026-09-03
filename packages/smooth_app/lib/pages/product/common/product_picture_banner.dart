@@ -112,6 +112,7 @@ Future<PhotoRowActions?> _showPhotoBanner({
   final PhotoRowActions? action =
       await showSmoothListOfChoicesModalSheet<PhotoRowActions>(
         context: context,
+        dynamicSize: true,
         title: imageAvailable
             ? appLocalizations.product_image_action_replace_photo(
                 imageField.getProductImageTitle(appLocalizations),

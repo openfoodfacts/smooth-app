@@ -4,6 +4,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/knowledge_panel/evaluation_extension.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 
@@ -13,9 +15,9 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     required this.product,
     required this.isInitiallyExpanded,
     required this.isClickable,
+    required this.simplified,
     this.roundedIcons = true,
     this.overrideStyle = true,
-    this.simplified = false,
   });
 
   final Product product;
@@ -50,6 +52,7 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
           isClickable: isClickable,
           isTextSelectable: true,
           position: i,
+          simplified: false,
         );
         if (elementWidget != null) {
           elementWidgets.add(
@@ -72,11 +75,10 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   }
 
   List<Widget>? _getSummary(KnowledgePanel panel) {
-    final Widget? summary = KnowledgePanelsBuilder.getPanelSummaryWidget(
-      panel,
+    final Widget? summary = panel.getPanelSummaryWidget(
       product,
       ignoreEvaluation: true,
-      textStyleOverride: overrideStyle && _hasValidEvaluation(panel.evaluation)
+      textStyleOverride: overrideStyle && panel.evaluation.isValid()
           ? const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15.0,
@@ -106,12 +108,6 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
 
     return null;
   }
-
-  bool _hasValidEvaluation(Evaluation? evaluation) => <Evaluation>[
-    Evaluation.GOOD,
-    Evaluation.AVERAGE,
-    Evaluation.BAD,
-  ].contains(evaluation);
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {

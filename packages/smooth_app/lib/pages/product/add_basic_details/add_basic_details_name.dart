@@ -425,7 +425,6 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
       ],
       labels: <String>[appLocalizations.yes, appLocalizations.cancel],
       values: <bool>[true, false],
-      safeArea: true,
     );
 
     if (mounted && res == true) {

@@ -1,3 +1,10 @@
+## ⚠️ Acceptance Requirements
+**This Pull Request will only be accepted if:**
+- ✅ It is linked to an issue (using linking keywords like `Fixes`, `Closes`, or `Resolves`)
+- ✅ The linked issue is assigned to the author of this PR
+
+---
+
 ### What
 <!-- description of the PR -->
 - <!-- Changed x to achieve y -->
@@ -11,8 +18,9 @@ Following `type`s are allowed:
   - `refactor`, for code Refactoring
   - `chore`, for Miscellaneous things
 -->
-### Screenshot
-<!-- Insert a screenshot to provide visual record of your changes, if visible -->
+
+### Screenshot or video
+<!-- Insert a screenshot or a video to provide visual record of your changes (if visible) -->
 
 ### Fixes bug(s)
 <!-- change by appropriate issues. -->
