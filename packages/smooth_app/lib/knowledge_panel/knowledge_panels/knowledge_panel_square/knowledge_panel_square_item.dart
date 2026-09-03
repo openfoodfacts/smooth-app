@@ -6,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_evaluation_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_indicator.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_square_modal_sheet.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -36,20 +37,24 @@ class KnowledgePanelSquareItem extends StatelessWidget {
           '',
     );
 
+    final bool worthAClick =
+        panelId != null &&
+        KnowledgePanelsBuilder.hasSomethingToDisplay(
+          context.read<Product>(),
+          panelId!,
+        );
     return Expanded(
       child: InkWell(
-        onTap: panelId != null
-            ? () {
-                showKnowledgePanelSquareModalSheet(
-                  context,
-                  title: title,
-                  value: value,
-                  panelId: panelId!,
-                  product: context.read<Product>(),
-                  valueColor: indicatorColor,
-                );
-              }
-            : null,
+        onTap: !worthAClick
+            ? null
+            : () async => showKnowledgePanelSquareModalSheet(
+                context,
+                title: title,
+                value: value,
+                panelId: panelId!,
+                product: context.read<Product>(),
+                valueColor: indicatorColor,
+              ),
         child: Padding(
           padding: const EdgeInsetsDirectional.symmetric(
             horizontal: VERY_LARGE_SPACE,
@@ -71,14 +76,17 @@ class KnowledgePanelSquareItem extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontSize: 15.0,
                         ),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
                       ),
                     ),
                   ),
-                  icons.Chevron.horizontalDirectional(
-                    context,
-                    size: 12.0,
-                    color: theme.greyMedium,
-                  ),
+                  if (worthAClick)
+                    icons.Chevron.horizontalDirectional(
+                      context,
+                      size: 12.0,
+                      color: theme.greyMedium,
+                    ),
                 ],
               ),
               const SizedBox(height: SMALL_SPACE),
