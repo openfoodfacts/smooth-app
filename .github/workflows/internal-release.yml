@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 env:
- RUBY_VERSION: 3.4.12
+ RUBY_VERSION: 3.4.10
 
 jobs:
   tag-commit:
