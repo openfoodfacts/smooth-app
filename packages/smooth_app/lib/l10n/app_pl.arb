@@ -474,7 +474,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Jakość Danych",
+  "contribute_data_quality": "Data Quality",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -570,7 +570,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Społeczność",
+  "profile_navbar_label": "Community",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -2460,7 +2460,7 @@
   "prices_website_button": "Otwórz na stronie internetowej Open Prices",
   "prices_bulk_proof_upload_select": "Dodawaj metki cenowe bezpośrednio z galerii",
   "prices_bulk_proof_upload_warning": "Po wybraniu obrazów nie będzie można ich edytować!",
-  "prices_bulk_proof_upload_warning_ai": "Sztuczna inteligencja przeanalizuje twoje dowody, aby wyodrębnić ceny.",
+  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
   "prices_bulk_proof_upload_community_switch": "Pozwól społeczności weryfikować ceny wyodrębnione przez sztuczną inteligencję.",
   "prices_bulk_proof_upload_subtitle": "Wiele metek cenowych",
   "prices_bulk_proof_upload_title": "Masowe przesyłanie dowodów",
@@ -2803,14 +2803,14 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
-  "prices_discount_type": "Typ zniżki",
+  "prices_discount_type": "Discount type",
   "prices_discount_type_quantity": "Zniżka ilościowa",
-  "prices_discount_type_sale": "Wyprzedaż",
-  "prices_discount_type_seasonal": "Sezonowa",
-  "prices_discount_type_loyalty_program": "Program lojalnościowy",
-  "prices_discount_type_expires_soon": "Wkrótce wygasa",
-  "prices_discount_type_pick_it_yourself": "Zbierz sam",
-  "prices_discount_type_second_hand": "Z drugiej ręki",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
   "prices_discount_type_other": "Inne",
   "dev_preferences_import_history_result_success": "Gotowe",
   "@dev_preferences_import_history_result_success": {
@@ -2947,7 +2947,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Wyzwania",
+  "prices_challenges_page": "Challenges",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4096,20 +4096,20 @@
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Sól i cukier są karane",
   "guide_nutriscore_v2_why_v2_arg3_text": "**Za słodkie** lub za **słone produkty** będą**oceniane niżej**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchia olejów i ryb",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
   "guide_nutriscore_v2_why_v2_arg4_text": "Ocena poszczególnych **tłustych ryb** i **olejów bogatych** w odżywcze tłuszcze się poprawi.",
   "guide_nutriscore_v2_why_v2_arg5_title": "Ogranicz czerwone mięso",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Spożycie **czerwonego mięsa powinno być ograniczone**. Dlatego **drób będzie zajmował stosunkowo wyższe miejsce**.",
-  "guide_nutriscore_v2_new_logo_title": "Jak odróżnić stary Nutri-Score od nowego obliczenia?",
-  "guide_nutriscore_v2_new_logo_text": "Od teraz, logo może wyświetlać wzmiankę \"**Nowe obliczenie**\", aby wyjaśnić, że jest to rzeczywiście nowe obliczenie.",
-  "guide_nutriscore_v2_new_logo_image_caption": "Logo nowego Nutri-Score",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
+  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
+  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
+  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
   "guide_nutriscore_v2_where_title": "Gdzie znajdę nowe narzędzie do obliczania wskaźnika Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score stosowany jest w 7 krajach: Francji, Niemczech, Belgii, Hiszpanii, Luksemburgu, Holandii i Szwajcarii.",
   "guide_nutriscore_v2_where_paragraph2": "Producenci mają najpóźniej **2 lata** od daty podpisania dekretu na **zastąpienie** starego sposobu obliczania nowym.",
-  "guide_nutriscore_v2_where_paragraph3": "Bez czekania, **już teraz znajdziesz w aplikacji Open Food Facts** nowe obliczenie, nawet jeśli producenci nie zaktualizowali wyniku.",
-  "guide_nutriscore_v2_unchanged_title": "Co się nie zmienia",
-  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score to wynik mający na celu **pomiar jakości odżywczej**. Jest **uzupełnieniem grupy NOVA** dotyczącej **żywności ultraprzetworzonej** (również obecnej w aplikacji).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "Dla producentów wyświetlanie Nutri-Score **pozostaje opcjonalne**.",
+  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
+  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
+  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4331,7 +4331,7 @@
   "guide_open_prices_scrapping_title": "Czy rozważałeś możliwość pobierania cen ze stron internetowych sprzedawców detalicznych?",
   "guide_open_prices_scrapping_paragraph1": "Ze względów prawnych i technicznych **nie uważamy, aby pozyskiwanie cen ze stron internetowych sprzedawców detalicznych było właściwym sposobem na dodawanie danych do Open Prices**. Chcemy mieć pewność, że zbierane przez nas ceny są dokładne i aktualne, a otrzymywanie zeskanowanych cen od osób, które je udostępniają, nam na to nie pozwala.",
   "guide_open_prices_scrapping_paragraph2": "Funkcja scrapowania cen jest rozważana w przyszłej wersji Open Prices, ale będzie ona wykonywana przez samą Open Prices, abyśmy mogli uzyskać dowód ceny na podstawie strony HTML.",
-  "guide_open_prices_retailers_title": "Jestem sprzedawcą detalicznym i chcę przyczynić się do cen. Jak mogę to zrobić?",
+  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Możesz przekazać ceny korzystając z naszego interfejsu API.\nJeśli chcesz przekazać ceny na dużą skalę, skontaktuj się z nami pod adresem prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Witamy w Open Products Facts!",
@@ -4885,7 +4885,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Dowody",
+  "prices_stats_proofs_section": "Proofs",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4893,7 +4893,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Eksperymenty",
+  "prices_stats_experiments_section": "Experiments",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4905,19 +4905,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "Z kodem kreskowym",
+  "prices_stats_with_barcode": "With a barcode",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "Z kategorią",
+  "prices_stats_with_category": "With a category",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "Ze zniżką",
+  "prices_stats_with_discount": "With a discount",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Społeczność",
+  "prices_stats_community": "Community",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4965,31 +4965,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "Żądanie RODO",
+  "prices_stats_gdpr_request": "GDPR request",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Import sklepu",
+  "prices_stats_shop_import": "Shop import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Wyzwania",
+  "prices_stats_challenges": "Challenges",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Ceny połączone z metką cenową",
+  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Waluty",
+  "prices_stats_currencies": "Currencies",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Lata",
+  "prices_stats_years": "Years",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Ceny i dowody według źródła",
+  "prices_stats_by_source_title": "Prices and proofs per source",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4997,7 +4997,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Aplikacja mobilna",
+  "prices_stats_mobile_app": "Mobile app",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -5097,7 +5097,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Dodane ceny",
+  "preferences_app_bar_prices_added": "Prices added",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5201,7 +5201,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Dodaj ceny",
+  "preferences_add_prices": "Add prices",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5794,7 +5794,7 @@
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
-  "preferences_about_app_development_title": "Rozwój",
+  "preferences_about_app_development_title": "Development",
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
