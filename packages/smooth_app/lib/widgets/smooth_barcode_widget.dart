@@ -2,80 +2,81 @@ import 'package:barcode_widget/barcode_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/services/smooth_services.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// A widget showing a barcode on screen
 /// It simplifies the call to [BarcodeWidget]
 class SmoothBarcodeWidget extends StatelessWidget {
   const SmoothBarcodeWidget({
     required this.barcode,
-    this.errorBuilder,
-    this.backgroundColor,
-    this.color,
-    this.height,
-    this.padding,
-    this.onInvalidBarcode,
+    required this.height,
     super.key,
   }) : assert(barcode.length > 0);
 
   final String barcode;
-  final Color? color;
-  final Color? backgroundColor;
-  final double? height;
-  final WidgetBuilder? errorBuilder;
-  final EdgeInsetsGeometry? padding;
-  final VoidCallback? onInvalidBarcode;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
-    final Color contentColor =
-        color ?? (context.lightTheme() ? Colors.black : Colors.white);
-
+    const Color color = Colors.black;
+    const Color backgroundColor = Colors.white;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return Semantics(
-      label: AppLocalizations.of(context).barcode_accessibility_label(barcode),
+      label: appLocalizations.barcode_accessibility_label(barcode),
       excludeSemantics: true,
-      child: Padding(
-        padding: padding ?? EdgeInsets.zero,
-        child: ColoredBox(
-          color: backgroundColor ?? Colors.transparent,
-          child: BarcodeWidget(
-            padding: EdgeInsets.zero,
-            data: barcode,
-            barcode: _barcodeType,
-            color: color ?? Colors.black,
-            style: TextStyle(color: contentColor),
-            errorBuilder: (final BuildContext context, String? error) {
-              onInvalidBarcode?.call();
-
-              Logs.e('Error with barcode: $barcode', ex: error);
-
-              if (errorBuilder != null) {
-                return errorBuilder!(context);
-              }
-
-              return Center(
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: SMALL_SPACE,
-                    vertical: SMALL_SPACE,
+      child: Container(
+        color: backgroundColor,
+        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+        child: BarcodeWidget(
+          padding: EdgeInsets.zero,
+          data: barcode,
+          barcode: _barcodeType,
+          color: color,
+          style: const TextStyle(color: color),
+          errorBuilder: (final BuildContext context, String? error) {
+            return Container(
+              width: double.infinity,
+              height: height,
+              padding: const EdgeInsets.symmetric(
+                horizontal: SMALL_SPACE,
+                vertical: SMALL_SPACE,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      const icons.Warning(color: color),
+                      const SizedBox(width: SMALL_SPACE),
+                      Expanded(
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: Text(
+                            appLocalizations.barcode_probably_invalid,
+                            style: const TextStyle(color: color),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                  color: Colors.grey.withValues(alpha: 0.2),
-                  child: Text(
+                  Text(
                     '<$barcode>',
-                    style: TextStyle(
+                    style: const TextStyle(
                       letterSpacing: 6.0,
-                      fontFeatures: const <FontFeature>[
-                        FontFeature.tabularFigures(),
-                      ],
-                      color: contentColor,
+                      fontFeatures: <FontFeature>[FontFeature.tabularFigures()],
+                      color: color,
                     ),
                   ),
-                ),
-              );
-            },
-            height: height,
-          ),
+                ],
+              ),
+            );
+          },
+          height: height,
         ),
       ),
     );

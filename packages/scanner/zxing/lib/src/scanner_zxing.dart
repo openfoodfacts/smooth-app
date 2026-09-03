@@ -1,12 +1,10 @@
 import 'dart:async';
-import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+// TODO(monsieurtanuki): obviously needs to be implemented.
 /// Scanner implementation using ZXing
 class ScannerZXing extends Scanner {
   const ScannerZXing();
@@ -83,150 +81,19 @@ class _SmoothBarcodeScannerZXing extends StatefulWidget {
 
 class _SmoothBarcodeScannerZXingState
     extends State<_SmoothBarcodeScannerZXing> {
-  static const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
-    BarcodeFormat.code39,
-    BarcodeFormat.code93,
-    BarcodeFormat.code128,
-    BarcodeFormat.ean8,
-    BarcodeFormat.ean13,
-    BarcodeFormat.itf,
-    BarcodeFormat.upcA,
-    BarcodeFormat.upcE,
-    // 2D formats for GS1 Sunrise 2027
-    BarcodeFormat.dataMatrix,
-    BarcodeFormat.qrcode,
-  ];
-
-  bool _visible = false;
-  final GlobalKey _qrKey = GlobalKey(debugLabel: 'QR');
-  QRViewController? _controller;
-
-  // In order to get hot reload to work we need to pause the camera if the platform
-  // is android, or resume the camera if the platform is iOS.
-  @override
-  void reassemble() {
-    super.reassemble();
-    if (Platform.isAndroid) {
-      _controller?.pauseCamera();
-    }
-    _controller?.resumeCamera();
-  }
-
-  bool get _showFlipCameraButton => widget.hasMoreThanOneCamera;
-
-  static bool _isApple() =>
-      defaultTargetPlatform == TargetPlatform.iOS ||
-      defaultTargetPlatform == TargetPlatform.macOS;
-
-  IconData getCameraFlip() =>
-      _isApple() ? Icons.flip_camera_ios : Icons.flip_camera_android;
-
   @override
   Widget build(BuildContext context) => VisibilityDetector(
     key: const ValueKey<String>('VisibilityDetector'),
-    onVisibilityChanged: (final VisibilityInfo info) {
-      if (info.visibleBounds.height > 0.0) {
-        if (_visible) {
-          return;
-        }
-        _visible = true;
-        _controller?.resumeCamera();
-        return;
-      }
-      if (!_visible) {
-        return;
-      }
-      _visible = false;
-      _controller?.pauseCamera();
-    },
+    onVisibilityChanged: (final VisibilityInfo info) {},
     child: Stack(
       children: <Widget>[
-        QRView(
-          key: _qrKey,
-          onQRViewCreated: _onQRViewCreated,
-          formatsAllowed: _barcodeFormats,
-        ),
         Center(
           child: SmoothBarcodeScannerVisor(
             icon: widget.barcodeScannerIcon,
             contentPadding: widget.contentPadding,
           ),
         ),
-        Align(
-          alignment: Alignment.bottomCenter,
-          child: Padding(
-            padding: const EdgeInsets.all(
-              SmoothBarcodeScannerVisor.CORNER_PADDING,
-            ),
-            child: Row(
-              mainAxisAlignment: _showFlipCameraButton
-                  ? MainAxisAlignment.spaceBetween
-                  : MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                if (_showFlipCameraButton)
-                  VisorButton(
-                    tooltip:
-                        widget.toggleCameraModeTooltip ??
-                        'Switch between back and front camera',
-                    onTap: () async {
-                      widget.hapticFeedback.call();
-                      await _controller?.flipCamera();
-                      setState(() {});
-                    },
-                    child: Icon(getCameraFlip()),
-                  ),
-                FutureBuilder<bool?>(
-                  future: _controller?.getFlashStatus(),
-                  builder: (_, final AsyncSnapshot<bool?> snapshot) {
-                    final bool? flashOn = snapshot.data;
-                    if (flashOn == null) {
-                      return EMPTY_WIDGET;
-                    }
-                    return VisorButton(
-                      tooltip:
-                          widget.toggleFlashModeTooltip ??
-                          'Turn ON or OFF the flash of the camera',
-                      onTap: () async {
-                        widget.hapticFeedback.call();
-
-                        try {
-                          await _controller?.toggleFlash();
-                          setState(() {});
-                        } catch (err) {
-                          if (context.mounted) {
-                            widget.onCameraFlashError?.call(context);
-                          }
-                        }
-                      },
-                      child: switch (flashOn) {
-                        true => widget.torchOnIcon,
-                        false => widget.torchOffIcon,
-                      },
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
       ],
     ),
   );
-
-  void _onQRViewCreated(final QRViewController controller) {
-    setState(() => _controller = controller);
-    controller.scannedDataStream.listen((final Barcode scanData) {
-      final String? barcode = scanData.code;
-      if (barcode != null) {
-        widget.onScan(barcode);
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
-  }
 }

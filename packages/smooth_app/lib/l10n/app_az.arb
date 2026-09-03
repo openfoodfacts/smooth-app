@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Əlavə eləyin",
   "@add": {},
+  "edit": "Düzəliş etmək",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Hesabınızı silmək istədiyinizə əminsiniz?\nƏgər konkret bir səbəb varsa, zəhmət olmasa aşağıda paylaşın",
   "@account_delete_message": {},
   "reason": "Səbəb",
@@ -36,7 +41,7 @@
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
-  "previous_label": "Previous",
+  "previous_label": "Əvvəlki",
   "@previous_label": {
     "description": "A label on a button that says 'Previous', pressing the button takes the user to the previous screen."
   },
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Qida seçimlərini sıfırlayın",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Nəsə səhv getdi",
   "@error": {},
@@ -185,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Ölkənizdə Open Food Facts-i təkmilləşdirməyə kömək edin",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -240,8 +331,8 @@
   "sign_up_page_action_ok": "Təbrik edirik! Hesabınız yeni yaradıldı.",
   "sign_up_page_display_name_hint": "Ad",
   "sign_up_page_display_name_error_empty": "İstifadə etmək istədiyiniz ekran adını daxil edin",
-  "sign_up_page_email_hint": "E-poçt",
-  "sign_up_page_email_error_empty": "E-poçt tələb olunur",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Yanlış e-poçt",
   "sign_up_page_username_hint": "İstifadəçi adı: Hamıya görünür",
   "sign_up_page_username_error_empty": "Zəhmət olmasa, istifadəçi adı daxil edin",
@@ -395,7 +486,7 @@
   "@contribute_translate_text": {},
   "contribute_translate_text_2": "Tərcümələr layihənin əsas vəzifələrindən biridir",
   "@contribute_translate_text_2": {},
-  "contribute_join_skill_pool": "Contribute your skills to Open Food Facts. Join the skill pool!",
+  "contribute_join_skill_pool": "Bacarıqlarınızı Open Food Facts-ə töhfə verin. Bacarıq hovuzuna qoşulun!",
   "contribute_share_header": "Açıq Qida Faktlarını Dostlarınızla Paylaşın",
   "@contribute_share_header": {},
   "contribute_share_content": "I wanted to let you know about the app I've been using, Open Food Facts, which allows you to get the health and environmental impacts of your food, in a personalized way. It works by scanning the barcodes on the packaging. Finally it's free, does not require registration, and you can even help increase the number of products decyphered. Here's the link to get it for your phone: https://openfoodfacts.app",
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Açıq Qida Faktları töhfəçi hesabınızı idarə edin.",
   "myPreferences_settings_title": "Tətbiq Parametrləri",
   "myPreferences_settings_subtitle": "Qaranlıq rejim, Dillər…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Yemək Seçimləri",
   "myPreferences_food_subtitle": "Qida ilə bağlı hansı məlumatların sizin üçün ən vacib olduğunu seçin.",
   "myPreferences_food_comment": "Qida haqqında hansı məlumatların sizin üçün ən vacib olduğunu seçin ki, qidaları seçimlərinizə görə sıralayasınız, əvvəlcə maraqlandığınız məlumata baxın və uyğunluq xülasəsini əldə edin. Həmin qida seçimləri cihazınızda qalır və əgər varsa, Açıq Qida Faktları töhfəçi hesabınızla əlaqələndirilmir.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Yemək seçimlərinizi sıfırlayın?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -697,7 +795,7 @@
   "ingredients_photo_title": "Tərkibi Şəkil",
   "nutritional_facts_photo_title": "Qidalanma Faktları Şəkil",
   "recycling_photo_title": "Təkrar emal təlimatları Şəkil",
-  "take_photo_title": "Take a picture",
+  "take_photo_title": "Şəkil çəkin",
   "take_more_photo_title": "Take more photos",
   "front_photo_uploaded": "Ön şəkil yükləndi",
   "@front_photo_uploaded": {},
@@ -711,7 +809,7 @@
   "nutritional_facts_input_button_label": "Qidalanma faktlarını doldurun",
   "nutritional_facts_added": "Qidalanma faktları əlavə edildi",
   "categories_added": "Kateqoriyalar əlavə edildi",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "Nutri-Score-u hesablayın",
   "new_product_subtitle_nutriscore": "Ən azı bir kateqoriya və qida dəyərlərini dolduraraq bizə kömək edin",
   "new_product_title_environmental_score": "Yaşıl Hesabı Hesablayın",
   "new_product_subtitle_environmental_score": "Ən azı bir kateqoriya dolduraraq əldə edin",
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Bu məhsul üçün bütün mövcud şəkillərə baxın",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Heç bir məhsul tapılmadı",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\nüçün axtarışınız heç bir nəticə vermədi.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Bunun əvəzinə eyni axtarışı **qlobal verilənlər bazamızda** işlətmək istəyirsiniz?",
   "no_location_found": "Yer tapılmadı",
   "not_found": "tapılmadı:",
   "refreshing_product": "Təravətləndirici məhsul",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "Bu şəkil köhnəlmiş ola bilər",
   "product_image_outdated_explanations_title": "Bu şəkil köhnəlmiş ola bilər",
-  "product_image_outdated_explanations_content": "Bu şəkil bir ildən çox əvvəl çəkilib.\n**Zəhmət olmasa, hələ də yenilənib-yenilənmədiyini yoxlayın**.\n\nBu, **sadəcə bir xəbərdarlıqdır**. Məzmun hələ də eynidirsə, bu mesajı qulaqardına vura bilərsiniz.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -943,7 +1054,7 @@
   "@product_image_action_take_new_picture": {
     "description": "Replace the existing picture with a new one"
   },
-  "product_image_action_take_picture": "Take a picture",
+  "product_image_action_take_picture": "Şəkil çəkin",
   "@product_image_action_take_picture": {
     "description": "Take a picture (eg: for ingredients) when there is no one"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "Əslində…deyil",
   "tagline_app_review_button_later": "Daha sonra soruşun",
   "tagline_feed_news_button": "Daha çox məlumat əldə edin",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Tətbiqimizi bəyənmirsiniz?",
   "app_review_negative_modal_text": "Səbəbini bizə izah etmək üçün bir neçə saniyə vaxt ayıra bilərsinizmi?",
   "app_review_negative_modal_positive_button": "Bəli, mütləq!",
@@ -1076,15 +1217,15 @@
   "@product_search_same_category_error": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
-  "product_improvement_add_category": "Add a category to calculate the Nutri-Score.",
+  "product_improvement_add_category": "Nutri-Score-u hesablamaq üçün bir kateqoriya əlavə edin.",
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "Nutri-Score-u hesablamaq üçün qidalanma faktlarını əlavə edin.",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "Nutri-Score-u hesablamaq üçün qidalanma faktları və kateqoriya əlavə edin.",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Bu siyahıda heç bir məhsul yoxdur",
   "no_product_in_section": "Bu bölmədə məhsul yoxdur",
   "recently_seen_products": "Bütün baxılan məhsullar",
   "clear": "Təmizlə",
@@ -1453,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Açıq Qida Faktları icmasına qoşulmaq üçün daxil olun və ya qeydiyyatdan keçin",
-  "user_profile_title_id_email": "Açıq Qida Məlumatları girişi: {email}",
+  "user_profile_title_id_email": "Open Food Facts girişi: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1839,7 +1979,7 @@
   "@edit_product_form_item_traces_title": {
     "description": "Product edition - Traces - Title"
   },
-  "edit_product_form_item_traces_hint": "trace",
+  "edit_product_form_item_traces_hint": "iz",
   "@edit_product_form_item_traces_hint": {
     "description": "Product edition - Traces - input textfield hint"
   },
@@ -2298,7 +2438,8 @@
   "product_type_label_food": "Yemək",
   "product_type_label_beauty": "Şəxsi qulluq",
   "product_type_label_pet_food": "Ev heyvanları üçün yem",
-  "product_type_label_product": "Other",
+  "product_type_label_product": "Digər",
+  "product_type_label_unknown": "Naməlum",
   "product_type_selection_title": "Məhsul növü",
   "product_type_selection_subtitle": "Bu məhsulun növünü seçin",
   "product_type_selection_empty": "Əvvəlcə məhsul növünü seçməlisiniz!",
@@ -2377,7 +2518,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "Məhsul tapılmadı",
   "prices_barcode_search_none_yet": "Hələ məhsul yoxdur",
   "prices_barcode_search_running": "{barcode}axtarılır",
   "@prices_barcode_search_running": {
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
-  "prices_category_mandatory": "Mandatory",
+  "prices_category_title": "Category",
+  "prices_category_mandatory": "Məcburi",
   "prices_category_optional": "Könüllü",
+  "prices_origins_title": "Mənşəyi",
   "prices_category_error_mandatory": "Kateqoriya məcburidir",
   "prices_barcode_reader_action": "Barkod oxuyucusu",
   "prices_view_prices": "Qiymətlərə baxın",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Məhsul detallarına baxın",
   "prices_entry_menu_open_product_prices": "Bu məhsulun bütün qiymətlərinə baxın",
   "prices_entry_menu_open_proof": "sübuta baxın",
   "prices_entry_menu_my_prices": "Digər qiymətlərimə baxın",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "Bir məhsul çatışmır!",
   "prices_amount_price_incorrect": "Yanlış dəyər",
   "prices_amount_price_mandatory": "Məcburi dəyər",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valyuta",
   "prices_date_subtitle": "Tarix",
   "prices_location_subtitle": "Mağaza",
   "prices_location_find": "Mağaza tapın",
   "prices_location_mandatory": "Mağaza seçməlisiniz!",
   "prices_location_search_broader": "Axtardığınızı tapa bilmədiniz? Daha geniş axtarışa cəhd edək!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Sübut",
   "prices_proof_empty_title": "Hələ sübut yoxdur!",
   "prices_proof_empty_explanation": "**qəbz** və ya **qiymət etiketinin** şəklini əlavə etməklə başlayın!",
@@ -2612,7 +2759,7 @@
   "prices_add_validation_error": "Doğrulama xətası",
   "prices_privacy_warning_title": "Məxfilik xəbərdarlığı",
   "prices_unknown_product": "Naməlum məhsul",
-  "prices_privacy_warning_main_message": "Qiymətlər **istinad etdikləri mağaza ilə birlikdə açıqlanacaq**.\n\nBu, Açıq Qida Faktları təxəllüsünüz haqqında məlumatı olan insanlara aşağıdakıları etməyə imkan verə bilər:\n",
+  "prices_privacy_warning_main_message": "Qiymətlər **istinad etdikləri mağaza ilə birlikdə açıqlanacaq**.  Bu, Open Food Facts təxəllüsünüz haqqında məlumatı olan insanlara aşağıdakıları etməyə imkan verə bilər: ",
   "prices_privacy_warning_message_bullet_1": "Hansı ərazidə yaşadığınızı təxmin edin",
   "prices_privacy_warning_message_bullet_2": "Nə aldığınızı bilin",
   "prices_privacy_warning_sub_message": "Əgər bundan narahatsınızsa, xahiş edirik təxəllüsünüzü dəyişdirin və ya yeni Open Food Facts hesabı yaradın və tətbiqə daxil olun.",
@@ -2652,10 +2799,19 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Open Prices haqqında daha çox məlumat əldə edin",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Digər",
   "dev_preferences_import_history_result_success": "Hazırdır",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3252,7 +3408,7 @@
   "@capture": {
     "description": "Button label for taking a new photo (= there's already one)"
   },
-  "capture_new_picture": "Take a picture",
+  "capture_new_picture": "Şəkil çəkin",
   "@capture_new_picture": {
     "description": "Button label for taking a new photo (= the first one)"
   },
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Zəhmət olmasa, bizə əl ilə bir e-poçt göndərin",
-  "email_copied_to_clip_board": "E-poçt panoya kopyalandı!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Vurğu Rəngini Seçin",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} məhsullar dərhal skan edilə bilər",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3849,18 +4005,18 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Yeni hesablama)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "Naməlum Nutri-Score",
+  "nutriscore_unknown_new_formula": "Naməlum Nutri-Score (Yeni hesablama)",
   "nutriscore_not_applicable": "Nutri-Score tətbiq olunmur",
   "nutriscore_not_applicable_new_formula": "Nutri-Score tətbiq olunmur (Yeni hesablama)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Yaşıl xal A",
-  "environmental_score_b_new": "Yaşıl xal B",
-  "environmental_score_c_new": "Yaşıl xal C",
-  "environmental_score_d_new": "Yaşıl xal D",
-  "environmental_score_e_new": "Yaşıl xal E",
-  "environmental_score_unknown_new": "Naməlum Yaşıl Hesab",
-  "environmental_score_not_applicable_new": "Yaşıl-Xal tətbiq edilmir",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Naməlum Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score tətbiq edilmir",
   "nova_group_generic_new": "Ultra işlənmiş qidalar - NOVA qrupları",
   "nova_group_1": "NOVA Qrup 1",
   "nova_group_2": "NOVA Qrupu 2",
@@ -3869,16 +4025,16 @@
   "nova_group_unknown": "Naməlum NOVA Qrupu",
   "nutrition_facts": "Qida Səviyyələri",
   "faq_title_partners": "QHT-nin Tərəfdaşları və Himayədarları",
-  "faq_title_vision": "Açıq Qida Faktları Vizyonu, Missiyası, Dəyərləri və Proqramları",
-  "faq_title_install_beauty": "Kosmetik verilənlər bazası yaratmaq üçün Açıq Gözəllik Faktlarını quraşdırın",
-  "faq_title_install_pet": "Ev heyvanları üçün qida bazası yaratmaq üçün Açıq Ev Heyvanları Yeməyi Faktlarını quraşdırın",
+  "faq_title_vision": "Open Food Facts Vizyonu, Missiyası, Dəyərləri və Proqramları",
+  "faq_title_install_beauty": "Kosmetik verilənlər bazası yaratmaq üçün Open Beauty Facts-i quraşdırın",
+  "faq_title_install_pet": "Ev heyvanları üçün qida bazası yaratmaq üçün Open Pet Food Facts-i quraşdırın",
   "faq_title_install_product": "Obyektlərin ömrünü uzatmaq üçün məhsullar verilənlər bazası yaratmaq məqsədilə Açıq Məhsullar Faktlarını quraşdırın",
   "faq_nutriscore_nutriscore": "Nutri-Score-un yeni hesablanması: yeniliklər nələrdir?",
-  "contact_title_pro_page": "Pro? Məhsullarınızı Açıq Qida Faktları bölməsindən idxal edin",
+  "contact_title_pro_page": "Pro? Məhsullarınızı Open Food Facts-ə idxal edin",
   "contact_title_pro_email": "İstehsalçı ilə əlaqə",
   "contact_title_press_page": "Mətbuat Səhifəsi",
   "contact_title_press_email": "Mətbuatla Əlaqə",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "Bülletenimizə abunə olun",
   "contact_title_calendar": "İcma təqvimimizə abunə olun",
   "hunger_games_loading_line1": "Zəhmət olmasa, bizə bir neçə saniyə vaxt verin…",
   "hunger_games_loading_line2": "Sualları yükləyirik!",
@@ -3922,7 +4078,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score nədir?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3974,12 +4130,12 @@
   "guide_greenscore_lca_arg1_text2": "**Həyat dövrünün təhlili** çoxmərhələli və çoxmeyarlı ətraf mühitin qiymətləndirilməsini həyata keçirmək üçün standartlaşdırılmış qiymətləndirmə metodudur.",
   "guide_greenscore_lca_arg1_text3": "**Ölçülər:**",
   "guide_greenscore_lca_arg2_title": "6 istehsal addımı",
-  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
-  "guide_greenscore_lca_arg2_processing": "Processing",
+  "guide_greenscore_lca_arg2_agriculture": "Kənd təsərrüfatı",
+  "guide_greenscore_lca_arg2_processing": "Emal olunur",
   "guide_greenscore_lca_arg2_packaging": "Packaging",
-  "guide_greenscore_lca_arg2_transportation": "Transportation",
-  "guide_greenscore_lca_arg2_distribution": "Distribution",
-  "guide_greenscore_lca_arg2_consumption": "Consumption",
+  "guide_greenscore_lca_arg2_transportation": "Nəqliyyat",
+  "guide_greenscore_lca_arg2_distribution": "Dağıtım",
+  "guide_greenscore_lca_arg2_consumption": "İstehlak",
   "guide_greenscore_lca_arg3_title": "14 ətraf mühitə təsir göstəricisi",
   "guide_greenscore_lca_arg3_text1": "İqlim dəyişikliyi/karbon izi",
   "guide_greenscore_lca_arg3_text2": "Ozon qatının deşilməsi",
@@ -4000,8 +4156,8 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "Packaging",
   "guide_greenscore_bonuses_penalties_arg4_text": "Qablaşdırmanın **dairəviliyini** (təkrar emal olunmuş xammaldan istifadə və təkrar emal oluna bilmə qabiliyyəti) və həddindən artıq qablaşdırmanı nəzərə almaq üçün **cərimə** hesablanır.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "Yaşıl Balın dəqiq hesablanması üçün, qablaşdırmada mütləq göstərilməyən məlumatlara** (məsələn, mənşəyi və hər bir tərkib hissəsinin dəqiq faizi) və ya nadir hallarda istifadəyə yararlı formada (məsələn, istifadə olunan plastik növləri ilə qablaşdırmanın bütün komponentlərinin siyahısı) sahib olmaq lazımdır.",
-  "guide_greenscore_transparency_intro2": "**Bu məlumat hələ mövcud olmadıqda orta dəyərlərdən istifadə olunur**, lakin indi hər kəsi Yaşıl Hesab üçün, eləcə də bir çox digər məqsədlər üçün çox faydalı olacaq bu məlumatı toplamağımıza kömək etməyə çağırırıq.",
+  "guide_greenscore_transparency_intro1": "Green-Score-un dəqiq hesablanması üçün, **qablaşdırmada mütləq göstərilməyən məlumatlara** (məsələn, mənşəyi və hər bir tərkib hissəsinin dəqiq faizi) və ya nadir hallarda istifadəyə yararlı formada (məsələn, istifadə olunan plastik növləri ilə qablaşdırmanın bütün komponentlərinin siyahısı) sahib olmaq lazımdır.",
+  "guide_greenscore_transparency_intro2": "**Bu məlumat hələ mövcud olmadıqda orta dəyərlərdən istifadə olunur**, lakin indi hər kəsi Green-Score üçün, eləcə də bir çox digər məqsədlər üçün çox faydalı olacaq bu məlumatı toplamağımıza kömək etməyə çağırırıq.",
   "guide_greenscore_transparency_arg1_title": "Vətəndaşlar necə kömək edə bilərlər?",
   "guide_greenscore_transparency_arg1_text": "Bütün vətəndaşlar məhsullarda mövcud olan və ya onlardan çıxarıla bilən məlumatların, məsələn, **qablaşdırma** haqqında məlumatların toplanmasına və strukturlaşdırılmasına kömək edə bilərlər: \"Missiya Emballages\": bütün qida məhsulları üçün qablaşdırmanın genişmiqyaslı birgə inventarı (fransız dilində).",
   "guide_greenscore_transparency_arg2_title": "İstehsalçılar necə kömək edə bilər",
@@ -4014,7 +4170,7 @@
   "guide_greenscore_better_product_arg3_title": "Məsuliyyətli olmağa və qərar verməyə kömək edir",
   "guide_greenscore_better_product_arg3_text": "Davamlı qida seçimi kompleks hiss edə bilər. Etiketlər çaşdırıcıdır və məlumat tez-tez çatışmır. Green-Score bunu sadə etmək üçün yaradılmışdır, sizə ərzaq məhsulları üçün **aydın**, **elmə əsaslanan** və **şəffaf** ekoloji reytinq verir, sizə lazım olan yerdə: alış-veriş edərkən.",
   "guide_greenscore_better_product_arg4_title": "Şəffaflıq",
-  "guide_greenscore_better_product_arg4_text": "Mülkiyyət etiketlərindən fərqli olaraq, Yaşıl Xal hesablanması **tamamilə açıqdır** və **hər kəs tərəfindən təsdiqlənə bilər**.",
+  "guide_greenscore_better_product_arg4_text": "Mülkiyyət etiketlərindən fərqli olaraq, Green-Score hesablanması **tamamilə açıqdır** və **hər kəs tərəfindən təsdiqlənə bilər**.",
   "guide_nova_title": "Ultra-processed foods",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4060,7 +4216,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "Açıq Qida Faktları nədir?",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Open Food Facts nədir?",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts dünyanın hər yerindən qida məhsullarının **əməkdaşlıq**, **pulsuz** və **açıq** verilənlər bazasıdır.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4069,7 +4225,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Açıq Qida Faktlarının Xüsusiyyətləri",
+  "guide_open_food_facts_features_title": "Open Food Facts-in Xüsusiyyətləri",
   "guide_open_food_facts_features_arg1_title": "İstənməyən maddələriniz üçün bildirişlər alın",
   "guide_open_food_facts_tips_title": "Əla şəkillər çəkmək üçün məsləhətlər",
   "guide_open_food_facts_tips_arg1_title": "Edilməməli şeylər",
@@ -4091,8 +4247,8 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Açıq Ev Heyvanları Yeməyi Faktları nədir?",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Açıq Ev Heyvanları Yeməyi Faktları missiyamızı tüklü dostlarımıza da şamil edir! Bu, **pişiklər, itlər və digər yoldaşlar üçün ev heyvanları yemi məhsullarının məlumat bazasıdır**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Open Pet Food Facts nədir?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts missiyamızı tüklü dostlarımıza da şamil edir! Bu, **pişiklər, itlər və digər yoldaşlar üçün ev heyvanları yemi məhsullarının məlumat bazasıdır**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4100,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Açıq Ev Heyvanları Yeməyi Faktlarının Xüsusiyyətləri",
+  "guide_open_pet_food_facts_features_title": "Open Pet Food Facts-in Xüsusiyyətləri",
   "guide_open_pet_food_facts_features_arg1_title": "İstənməyən maddələriniz üçün bildirişlər alın",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Ev heyvanınız hər hansı bir tərkib hissəsinə allergiyası varmı? Tətbiqdə qarşısını almaq üçün kosmetik maddələrin siyahısını təyin edə bilərsiniz!",
   "guide_open_pet_food_facts_tips_title": "Əla şəkillər çəkmək üçün məsləhətlər",
@@ -4121,7 +4277,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Açıq Gözəllik Faktları nədir?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Open Beauty Facts nədir?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts, **kosmetik məhsulların** birgə verilənlər bazasıdır.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4130,7 +4286,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Açıq Gözəllik Faktlarının Xüsusiyyətləri",
+  "guide_open_beauty_facts_features_title": "Open Beauty Facts-in Xüsusiyyətləri",
   "guide_open_beauty_facts_features_arg1_title": "İstənməyən maddələriniz üçün bildirişlər alın",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Hər hansı tərkib hissəsinə qarşı allergiyanız varmı? Komedogen maddələrdən qaçınmaq istəyirsiniz? Mübahisəli komponentlərdən uzaq durmaq istəyirsiniz? Tətbiqdə qaçınmaq istədiyiniz kosmetik maddələrin siyahısını təyin edə bilərsiniz!",
   "guide_open_beauty_facts_tips_title": "Əla şəkillər çəkmək üçün məsləhətlər",
@@ -4149,12 +4305,12 @@
   "guide_open_beauty_facts_scores_title": "Qol vurmaqla bağlı qeyd",
   "guide_open_beauty_facts_scores_paragraph1": "Qida məhsullarından fərqli olaraq, kosmetika dünyasında **Nutri-Score** kimi universal olaraq qəbul edilmiş, hökumət tərəfindən dəstəklənən qiymətləndirmə sistemi yoxdur. Tərkib hissələrinin təsiri olduqca fərdi ola bilər və dəri tipindən, allergiyadan və fərdi narahatlıqlardan asılıdır.",
   "guide_open_beauty_facts_share_link": "https://world-az.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Open Prices-ə Xoş Gəlmisiniz!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "Open Prices nədir?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices, **dünya üzrə məhsulların qiymətlərini toplamaq və paylaşmaq** üçün bir layihədir. Bu, tədqiqat, təhlil və daha çox məqsəd üçün istifadə edilə bilən ictimaiyyətə açıq məlumat dəstidir. Open Prices Open Food Facts tərəfindən hazırlanır və saxlanılır.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Open Prices necə işləyir?",
   "guide_open_prices_how_paragraph1": "**Biz açıq mənbəli qiymətlər məlumat dəstini kütləvi mənbələrdən əldə edirik**. Qiymətlər istifadəçilər tərəfindən bu veb tətbiq və ya rəsmi Open Food Facts mobil tətbiqi vasitəsilə əlavə edilə bilər. Pərakəndə satıcılar və ya üçüncü tərəf tətbiqləri də API-mizdən istifadə edərək töhfə verə bilərlər.",
   "guide_open_prices_how_arg1_title": "Dəhlizlərdə qiymət etiketlərinin şəkillərini toplayın",
   "guide_open_prices_how_arg2_title": "Qəbzlərin şəkillərini toplayın",
@@ -4173,8 +4329,8 @@
   "guide_open_prices_why_arg2_title": "Yaxınlığınızdakı qiymətləri müqayisə edin",
   "guide_open_prices_why_arg2_text": "Daha çox qiymət əldə etdikcə, ətrafınızdakı **ən ucuz mağazaları** görə bilərsiniz.",
   "guide_open_prices_scrapping_title": "Pərakəndə satış saytlarından qiymətləri silməyi düşündünüzmü?",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
-  "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
+  "guide_open_prices_scrapping_paragraph1": "Hüquqi və texniki səbəblərə görə, **pərakəndə satış şirkətlərinin veb saytlarından qiymətlərin götürülməsini Open Prices-ə töhfə vermək üçün etibarlı bir yol hesab etmirik**. Topladığımız qiymətlərin dəqiq və yenilənmiş olduğundan əmin olmaq istəyirik və töhfə verənlərdən qiymətlərin götürülməsi bizə bunu etməyə imkan vermir.",
+  "guide_open_prices_scrapping_paragraph2": "Open Prices-in gələcək versiyasında qiymətlərin hesablanması nəzərdən keçirilən bir seçimdir, lakin HTML səhifəsinə əsaslanan qiymətin sübutuna sahib ola bilməyimiz üçün bu, Open Prices-in özü tərəfindən ediləcək.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "API-mizdən istifadə edərək qiymətlər təklif edə bilərsiniz.\nƏgər miqyaslı qiymətlər təklif etmək istəyirsinizsə, zəhmət olmasa, prices@openfoodfacts.org ünvanı vasitəsilə bizimlə əlaqə saxlayın.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
@@ -4282,6 +4438,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "Uyğundur",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4299,11 +4459,11 @@
       }
     }
   },
-  "product_image_front_accessibility_label": "Front picture",
+  "product_image_front_accessibility_label": "Ön şəkil",
   "@product_image_front_accessibility_label": {
     "description": "Accessibility label for the image on the product page"
   },
-  "product_image_ingredients_accessibility_label": "Ingredients picture",
+  "product_image_ingredients_accessibility_label": "Tərkibi şəkli",
   "@product_image_ingredients_accessibility_label": {
     "description": "Accessibility label for the image of ingredients"
   },
@@ -4407,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Bu məhsulu karuseldən silin",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4473,11 +4637,11 @@
   "photo_already_exists": "Bu foto artıq mövcuddur",
   "photo_missing": "Bu foto yoxdur",
   "date": "Tarix",
-  "photo_rotate_left": "Rotate left",
+  "photo_rotate_left": "Sola çevirin",
   "@photo_rotate_left": {
     "description": "Button to rotate a photo to the left"
   },
-  "photo_rotate_right": "Rotate right",
+  "photo_rotate_right": "Sağa çevirin",
   "@photo_rotate_right": {
     "description": "Button to rotate a photo to the right"
   },
@@ -4554,6 +4718,56 @@
   "product_page_tab_for_me": "mənim üçün",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Uyğunluğum",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% uyğun",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Uyğunluq balını hesablamaq üçün kifayət qədər məlumat yoxdur.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" tipli hasil üçün bal hesablana bilməz.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Əhəmiyyət",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Matçlar",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Yaxşı uyğunluqlar",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Orta uyğunluqlar",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Pis uyğunluqlar",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Naməlum uyğunluqlar",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Veb sayt",
   "@product_page_tab_website": {
@@ -4687,7 +4901,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "Cəmi",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4707,7 +4921,7 @@
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "Consumption",
+  "prices_stats_consumption": "İstehlak",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
@@ -4719,7 +4933,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Gözəllik",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4791,7 +5005,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "Other",
+  "prices_stats_other": "Digər",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -4879,7 +5093,7 @@
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
-  "preferences_app_bar_products_modified": "Products modified",
+  "preferences_app_bar_products_modified": "Məhsullar dəyişdirilib",
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
@@ -5116,15 +5330,15 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Açıq Gözəllik Faktlarını Kəşf Edin",
+  "preferences_faq_discover_obf_title": "Open Beauty Facts kəşf edin",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Açıq Ev Heyvanları Yeməyi Faktlarını Kəşf Edin",
+  "preferences_faq_discover_opff_title": "Open Pet Food Facts kəşf edin",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Open Prices kəşf edin",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Açıq Qiymət ölçüləri",
+  "preferences_prices_metrics_title": "Open Prices metrikaları",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5584,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Qida Faktları Laboratoriyalarını açın",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Laboratoriyaları",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5626,5 +5840,59 @@
   "location_map_details_postcode": "Poçt kodu",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Koordinatlar",
-  "location_map_details_osm_id": "OSM ID-si"
+  "location_map_details_osm_id": "OSM ID-si",
+  "homepage_scanner_back_to_home_button": "Evə qayıt",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kameranı aç/bağla",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Barkod skanerini göstər",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "**Barkod**\nskan etmək və onun sizin üçün **yaxşı** olub olmadığını öyrənmək üçün toxunun!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Fənəri aç/bağla",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Məhsulu barkoduna yaxınlaşdıraraq skan edin",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Aşağıdakı barkod aşkar etdik: {barcode}, amma görünür, etibarsızdır.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Daha çoxuna baxın…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Ən çox skan edilmiş məhsullar",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Son skan edilmiş məhsullar",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

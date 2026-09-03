@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Afegeix",
   "@add": {},
+  "edit": "Edita",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Segur que voleu suprimir el vostre compte?\nSi hi ha una raó específica, compartiu-la a continuació",
   "@account_delete_message": {},
   "reason": "Raó",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Restableix les preferències d'aliments",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Alguna cosa ha anat malament",
   "@error": {},
@@ -185,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "Ajudeu a millorar Open Food Facts al vostre país",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -240,8 +331,8 @@
   "sign_up_page_action_ok": "Felicitats! S'acaba de crear el vostre compte.",
   "sign_up_page_display_name_hint": "Nom",
   "sign_up_page_display_name_error_empty": "Introduïu el nom que voleu que es mostri",
-  "sign_up_page_email_hint": "Adreça electrònica",
-  "sign_up_page_email_error_empty": "Cal una adreça electrònica",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Adreça no vàlida",
   "sign_up_page_username_hint": "Usuari: visible públicament",
   "sign_up_page_username_error_empty": "Si us plau, introduïu un usuari",
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Gestiona el teu compte de col·laborador d'Open Food Facts.",
   "myPreferences_settings_title": "Configuració de l'App",
   "myPreferences_settings_subtitle": "Mode fosc, Idiomes…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Preferències alimentàries",
   "myPreferences_food_subtitle": "Triau quina informació dels aliments us importa més.",
   "myPreferences_food_comment": "Trieu quina informació sobre els aliments us importa més per classificar els aliments segons les vostres preferències, veure primer la informació que us interessa i obtenir un resum de compatibilitat. Aquestes preferències alimentàries es queden al vostre dispositiu i no estan associades al vostre compte de col·laborador d'Open Food Facts si en teniu un.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Voleu restablir les vostres preferències alimentàries?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Veure totes les fotos existents d'aquest producte",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Cap producte trobat",
   "@no_product_found": {},
+  "no_product_found_explanation": "La cerca de\n**\"{search}\"**\nno ha trobat cap resultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Voleu executar aquesta mateixa cerca a la **nostra base de dades global**?",
   "no_location_found": "No s'ha trobat cap ubicació",
   "not_found": "no trobat:",
   "refreshing_product": "Producte refrescant",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "Aquesta imatge pot estar desactualitzada",
   "product_image_outdated_explanations_title": "Aquesta imatge pot estar desactualitzada",
-  "product_image_outdated_explanations_content": "Aquesta imatge es va fer fa més d'un any.\n**Si us plau, comproveu que encara estigui actualitzada**.\n\nAixò **només és un avís**. Si el contingut continua sent el mateix, podeu ignorar aquest missatge.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "No gaire…",
   "tagline_app_review_button_later": "Pregunta-m'ho després",
   "tagline_feed_news_button": "Més informació",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "No us agrada, la nostra aplicació?",
   "app_review_negative_modal_text": "Podríeu emprar uns minuts per a dir-nos el per què?",
   "app_review_negative_modal_positive_button": "I tant!",
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "No hi ha cap producte en aquesta llista",
   "no_product_in_section": "No hi ha cap producte en aquesta secció",
   "recently_seen_products": "Tots els productes vistos",
   "clear": "Esborra",
@@ -1771,7 +1911,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "País",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "Cura personal",
   "product_type_label_pet_food": "Menjar per a mascotes",
   "product_type_label_product": "Altres",
+  "product_type_label_unknown": "Desconegut",
   "product_type_selection_title": "Tipus de producte",
   "product_type_selection_subtitle": "Seleccioneu el tipus d'aquest producte",
   "product_type_selection_empty": "Primer has de seleccionar un tipus de producte!",
@@ -2316,7 +2457,7 @@
   },
   "prices_app_dev_mode_flag": "Drecera a l'aplicació Preus a la pàgina del producte",
   "prices_app_button": "Ves a l'aplicació Preus",
-  "prices_website_button": "Obre al lloc web de Preus Oberts",
+  "prices_website_button": "Obre al lloc web de Open Prices",
   "prices_bulk_proof_upload_select": "Afegeix etiquetes de preu directament des de la galeria",
   "prices_bulk_proof_upload_warning": "Un cop hagis seleccionat les imatges, no les podràs editar!",
   "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Categoria",
   "prices_category_mandatory": "Obligatori",
   "prices_category_optional": "Opcional",
+  "prices_origins_title": "Orígens",
   "prices_category_error_mandatory": "La categoria és obligatòria",
   "prices_barcode_reader_action": "Lector de codis de barres",
   "prices_view_prices": "Veure els preus",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Veure detalls del producte",
   "prices_entry_menu_open_product_prices": "Veure tots els preus d'aquest producte",
   "prices_entry_menu_open_proof": "Veure prova",
   "prices_entry_menu_my_prices": "Veure els meus altres preus",
@@ -2497,7 +2641,7 @@
       }
     }
   },
-  "prices_open_proof": "Prova de preu obert",
+  "prices_open_proof": "Prova de Open Prices",
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "Falta un producte!",
   "prices_amount_price_incorrect": "Valor incorrecte",
   "prices_amount_price_mandatory": "Valor obligatori",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Moneda",
   "prices_date_subtitle": "Data",
   "prices_location_subtitle": "Botiga",
   "prices_location_find": "Troba una botiga",
   "prices_location_mandatory": "Has de triar una botiga!",
   "prices_location_search_broader": "No has trobat el que buscaves? Provem una cerca més àmplia!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Prova",
   "prices_proof_empty_title": "Encara no hi ha proves!",
   "prices_proof_empty_explanation": "Comença afegint una foto d'un **rebut** o una **etiqueta de preu**!",
@@ -2652,10 +2799,19 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Més informació sobre Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Altres",
   "dev_preferences_import_history_result_success": "Fet",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Envieu-nos manualment un correu electrònic a",
-  "email_copied_to_clip_board": "S'ha copiat el correu electrònic al porta-retalls!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Seleccioneu Color d'accent",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} productes disponibles per a l'exploració immediata",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3854,13 +4010,13 @@
   "nutriscore_not_applicable": "La puntuació Nutri-Score no és aplicable.",
   "nutriscore_not_applicable_new_formula": "Nutri-Score no és aplicable (nou càlcul)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Puntuació verda A",
+  "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Puntuació verda desconeguda",
-  "environmental_score_not_applicable_new": "La puntuació verda no és aplicable",
+  "environmental_score_unknown_new": "Green-Score desconegut",
+  "environmental_score_not_applicable_new": "El Green-Score no és aplicable",
   "nova_group_generic_new": "Aliments ultraprocessats - Grups NOVA",
   "nova_group_1": "Grup NOVA 1",
   "nova_group_2": "Grup NOVA 2",
@@ -4086,7 +4242,7 @@
   "guide_open_food_facts_scores_arg1_title": "Una puntuació sobre la qualitat nutricional",
   "guide_open_food_facts_scores_arg2_title": "Una puntuació per evitar els aliments ultraprocessats",
   "guide_open_food_facts_scores_arg3_title": "Una puntuació per al planeta",
-  "guide_open_food_facts_share_link": "https://world-ca.openfoodfacts.org/descobrir",
+  "guide_open_food_facts_share_link": "https://world-ca.openfoodfacts.org/discover",
   "guide_open_pet_food_facts_title": "Benvinguts a Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4100,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Característiques dels aliments oberts per a mascotes",
+  "guide_open_pet_food_facts_features_title": "Característiques d'Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Rep alertes sobre els ingredients no desitjats",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "La teva mascota és al·lèrgica a algun ingredient? Pots definir una llista d'ingredients cosmètics que cal evitar, directament a l'aplicació!",
   "guide_open_pet_food_facts_tips_title": "Consells per fer bones fotos",
@@ -4149,11 +4305,11 @@
   "guide_open_beauty_facts_scores_title": "Una nota sobre la puntuació",
   "guide_open_beauty_facts_scores_paragraph1": "A diferència dels productes alimentaris, el món dels cosmètics **no té un sistema de puntuació universalment reconegut i avalat pel govern com el Nutri-Score**. Els efectes dels ingredients poden ser molt personals i depenen del tipus de pell, les al·lèrgies i les preocupacions individuals.",
   "guide_open_beauty_facts_share_link": "https://world-ca.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Benvinguts a Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Què és Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices és un projecte per **recopilar i compartir preus de productes a tot el món**. És un conjunt de dades disponible públicament que es pot utilitzar per a la recerca, l'anàlisi i més. Open Prices està desenvolupat i mantingut per Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4282,6 +4438,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "Compatible",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4406,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Elimina aquest producte del carrusel",
   "@carousel_close_tooltip": {
@@ -4554,6 +4718,56 @@
   "product_page_tab_for_me": "Per a mi",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "La meva compatibilitat",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatible",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Dades insuficients per calcular una puntuació de compatibilitat.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "No es pot calcular una puntuació per a un producte del tipus \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Importància",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Partits",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Bons partits",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Partides mitjanes",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Males coincidències",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Coincidències desconegudes",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Lloc web",
   "@product_page_tab_website": {
@@ -5112,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Descobreix els fets sobre menjar obert",
+  "preferences_faq_discover_off_title": "Descobreix Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Descobreix els fets de bellesa oberts",
+  "preferences_faq_discover_obf_title": "Descobreix Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Descobreix els fets sobre aliments per a mascotes oberts",
+  "preferences_faq_discover_opff_title": "Descobreix Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Descobreix Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Mètriques de preu d'obertura",
+  "preferences_prices_metrics_title": "Mètriques d'Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5584,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Laboratoris oberts d'informació sobre aliments",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5624,7 +5838,61 @@
   "location_map_details_street": "Carrer",
   "location_map_details_city": "Ciutat",
   "location_map_details_postcode": "Codi postal",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "País",
   "location_map_details_coordinates": "Coordenades",
-  "location_map_details_osm_id": "ID d'OSM"
+  "location_map_details_osm_id": "ID d'OSM",
+  "homepage_scanner_back_to_home_button": "Tornada a casa",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Activa/desactiva la càmera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Mostra l'escàner de codis de barres",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Toca per escanejar un **codi de barres**\ni descobrir si és **bo per a tu**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Torxa d'activació/desactivació",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Escaneja un producte acostant-te al seu codi de barres",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Hem detectat el següent codi de barres: {barcode}, però sembla que no és vàlid.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Veure més…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Productes més escanejats",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Productes escanejats per última vegada",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

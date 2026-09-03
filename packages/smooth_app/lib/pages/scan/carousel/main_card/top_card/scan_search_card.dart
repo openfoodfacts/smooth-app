@@ -17,7 +17,7 @@ import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_icon.dart';
 import 'package:smooth_app/pages/search/search_page.dart';
 import 'package:smooth_app/pages/search/search_product_helper.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
@@ -153,7 +153,7 @@ class _ScanSearchBar extends StatelessWidget {
                         padding: const EdgeInsetsDirectional.symmetric(
                           horizontal: SMALL_SPACE,
                         ),
-                        child: AppIconTheme(
+                        child: icons.AppIconTheme(
                           color: context.lightTheme()
                               ? theme.primaryBlack
                               : theme.primaryUltraBlack,

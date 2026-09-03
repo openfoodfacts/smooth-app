@@ -124,7 +124,6 @@ class PriceAddHelper {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
     return showSmoothListOfChoicesModalSheet<bool>(
-      safeArea: true,
       context: context,
       headerBackgroundColor: color,
       header: Padding(

@@ -214,6 +214,8 @@ class AnalyticsHelper {
   static late int _uniqueRandom;
 
   static Future<void> linkPreferences(UserPreferences userPreferences) async {
+    _uniqueRandom = await userPreferences.getUniqueRandom();
+
     // Init the value
     _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
     _setCrashReports(userPreferences.onCrashReportingChanged.value);
@@ -226,8 +228,6 @@ class AnalyticsHelper {
     userPreferences.onCrashReportingChanged.addListener(() {
       _setCrashReports(userPreferences.onCrashReportingChanged.value);
     });
-
-    _uniqueRandom = await userPreferences.getUniqueRandom();
   }
 
   static Future<void> initSentry({required Function()? appRunner}) async {
@@ -235,15 +235,7 @@ class AnalyticsHelper {
       options
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
-        ..beforeSend = (SentryEvent event, Hint hint) async {
-          return event
-            ..tags = <String, String>{
-              'store': GlobalVars.storeLabel.name,
-              'scanner': GlobalVars.scannerLabel.name,
-            };
-        };
-      // To set a uniform sample rate
-      options
+        // To set a uniform sample rate
         ..tracesSampleRate = 1.0
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
@@ -259,7 +251,7 @@ class AnalyticsHelper {
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static Future<void> _setAnalyticsReports(final bool allow) async {
+  static void _setAnalyticsReports(final bool allow) {
     if (allow) {
       _analyticsReporting = _AnalyticsTrackingMode.enabled;
     } else {
@@ -275,19 +267,28 @@ class AnalyticsHelper {
   static bool get isEnabled =>
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
-  static FutureOr<SentryEvent?> _beforeSend(
-    SentryEvent event,
-    dynamic hint,
-  ) async {
+  static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
     if (!_crashReports) {
       return null;
     }
-    return event;
+    return event
+      ..tags = <String, String>{
+        ...?event.tags,
+        'store': GlobalVars.storeLabel.name,
+        'scanner': GlobalVars.scannerLabel.name,
+      };
   }
 
   static late PackageInfo _packageInfo;
 
-  static Future<void> initMatomo(final bool screenshotMode) async {
+  /// Undispatched actions survive a restart for a day, and no longer: the
+  /// default [PersistenceFilter] of [DispatchSettings.persistent] drops
+  /// anything older than 23h59m59s when the queue is loaded.
+  static Future<void> initMatomo(
+    final bool screenshotMode, {
+    final DispatchSettings dispatchSettings =
+        const DispatchSettings.persistent(),
+  }) async {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
       _setCrashReports(false);
@@ -299,6 +300,7 @@ class AnalyticsHelper {
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: '2',
         visitorId: _visitorId,
+        dispatchSettings: dispatchSettings,
       );
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized
@@ -441,7 +443,7 @@ class AnalyticsHelper {
   }
 
   static void sendException(dynamic throwable, {dynamic stackTrace}) {
-    Sentry.captureException(throwable, stackTrace: stackTrace);
+    unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
   }
 
   static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;

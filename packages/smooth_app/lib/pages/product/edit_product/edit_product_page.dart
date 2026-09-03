@@ -22,6 +22,7 @@ import 'package:smooth_app/pages/product/nutrition_page/nutrition_page_loader.da
 import 'package:smooth_app/pages/product/product_field_editor.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_country_helper.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_trace_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;

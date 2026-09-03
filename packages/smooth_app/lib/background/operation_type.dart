@@ -18,7 +18,6 @@ import 'package:smooth_app/background/background_task_unselect.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/local_database.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// Type of a transient operation.
@@ -63,10 +62,9 @@ enum OperationType {
     final String? work,
     final ProductType? productType,
   }) async {
-    final int sequentialId = await getNextSequenceNumber(
-      DaoInt(localDatabase),
-      _uniqueSequenceKey,
-    );
+    final int sequentialId = await DaoInt(
+      localDatabase,
+    ).getNextSequenceNumber(_uniqueSequenceKey);
     return '$header'
         '$_transientHeaderSeparator$sequentialId'
         '$_transientHeaderSeparator$barcode'

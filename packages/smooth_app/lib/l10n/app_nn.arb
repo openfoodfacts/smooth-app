@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Åpne priser",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Legg til",
   "@add": {},
+  "edit": "Edit",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Er du sikker på at du vil slette kontoen din?\nHvis det er en spesifikk grunn, vennligst del den nedenfor.",
   "@account_delete_message": {},
   "reason": "Grunn",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Tilbakestill matpreferanser",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Noe gikk galt",
   "@error": {},
@@ -240,8 +331,8 @@
   "sign_up_page_action_ok": "Gratulerer! Kontoen din er nettopp opprettet.",
   "sign_up_page_display_name_hint": "Navn",
   "sign_up_page_display_name_error_empty": "Vennligst skriv inn visningsnavnet du vil bruke",
-  "sign_up_page_email_hint": "E-post",
-  "sign_up_page_email_error_empty": "E-post er påkrevd",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ugyldig e-post",
   "sign_up_page_username_hint": "Brukernavn: Offentlig synlig",
   "sign_up_page_username_error_empty": "Vennligst skriv inn et brukernavn",
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Administrer din Open Food Facts-bidragsyterkonto.",
   "myPreferences_settings_title": "Appinnstillinger",
   "myPreferences_settings_subtitle": "Mørk modus, Språk…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Matpreferanser",
   "myPreferences_food_subtitle": "Velg hvilken informasjon om mat som er viktigst for deg.",
   "myPreferences_food_comment": "Velg hvilken informasjon om mat som er viktigst for deg, for å rangere mat i henhold til dine preferanser, se informasjonen du bryr deg om først, og få et kompatibilitetssammendrag. Disse matpreferansene forblir på enheten din, og er ikke knyttet til din Open Food Facts-bidragsyterkonto hvis du har en.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Tilbakestille matpreferansene dine?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -711,7 +809,7 @@
   "nutritional_facts_input_button_label": "Fyll inn næringsinnhold",
   "nutritional_facts_added": "Næringsinnhold lagt til",
   "categories_added": "Kategorier lagt til",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "Beregn Nutri-Score",
   "new_product_subtitle_nutriscore": "Hjelp oss ved å fylle ut minst én kategori og næringsverdier",
   "new_product_title_environmental_score": "Beregn den grønne poengsummen",
   "new_product_subtitle_environmental_score": "Få det ved å fylle ut minst én kategori",
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Se alle eksisterende bilder for dette produktet",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Ingen produkt funnet",
   "@no_product_found": {},
+  "no_product_found_explanation": "Søket ditt etter\n**\"{search}\"**\nga ingen resultater.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vil du kjøre det samme søket i **vår globale database** i stedet?",
   "no_location_found": "Ingen plassering funnet",
   "not_found": "ikke funnet:",
   "refreshing_product": "Forfriskende produkt",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "Dette bildet kan være utdatert",
   "product_image_outdated_explanations_title": "Dette bildet kan være utdatert",
-  "product_image_outdated_explanations_content": "Dette bildet ble tatt for over et år siden.\n**Sjekk at det fortsatt er oppdatert**.\n\nDette er **bare en advarsel**. Hvis innholdet fortsatt er det samme, kan du ignorere denne meldingen.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "Ikke egentlig…",
   "tagline_app_review_button_later": "Spør meg senere",
   "tagline_feed_news_button": "Lær mer",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Liker du ikke appen vår?",
   "app_review_negative_modal_text": "Kan du bruke noen sekunder på å fortelle oss hvorfor?",
   "app_review_negative_modal_positive_button": "Ja, absolutt!",
@@ -1088,7 +1229,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "Næringspoengsummen for dette produktet kan ikke beregnes, noe som for eksempel kan skyldes en ikke-standard kategori. Hvis dette anses som en feil, vennligst kontakt oss.",
+  "product_improvement_categories_but_no_nutriscore": "Nutri-Score for dette produktet kan ikke beregnes, noe som for eksempel kan skyldes en ikke-standard kategori. Hvis dette anses som en feil, vennligst kontakt oss.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Det finnes ikke noe produkt i denne listen",
   "no_product_in_section": "Det finnes ikke noe produkt i denne seksjonen",
   "recently_seen_products": "Alle viste produkter",
   "clear": "Tøm",
@@ -1453,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Logg inn eller registrer deg for å bli med i Open Food Facts-fellesskapet",
-  "user_profile_title_id_email": "Åpne Matfakta-innlogging: {email}",
+  "user_profile_title_id_email": "Open Food Facts-innlogging: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "Personlig pleie",
   "product_type_label_pet_food": "Kjæledyrfôr",
   "product_type_label_product": "Other",
+  "product_type_label_unknown": "Ukjent",
   "product_type_selection_title": "Produkttype",
   "product_type_selection_subtitle": "Velg typen av dette produktet",
   "product_type_selection_empty": "Du må velge en produkttype først!",
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategori",
   "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "Valgfri",
+  "prices_origins_title": "Opprinnelse",
   "prices_category_error_mandatory": "Kategorien er obligatorisk",
   "prices_barcode_reader_action": "Strekkodeleser",
   "prices_view_prices": "Se prisene",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Se produktdetaljer",
   "prices_entry_menu_open_product_prices": "Se alle priser for dette produktet",
   "prices_entry_menu_open_proof": "Se bevis",
   "prices_entry_menu_my_prices": "Se mine andre priser",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "Ett produkt mangler!",
   "prices_amount_price_incorrect": "Feil verdi",
   "prices_amount_price_mandatory": "Obligatorisk verdi",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Dato",
   "prices_location_subtitle": "Butikk",
   "prices_location_find": "Finn en butikk",
   "prices_location_mandatory": "Du må velge en butikk!",
   "prices_location_search_broader": "Fant du ikke det du lette etter? La oss prøve et bredere søk!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bevis",
   "prices_proof_empty_title": "Ingen bevis ennå!",
   "prices_proof_empty_explanation": "Start med å legge til et bilde av en **kvittering** eller en **prislapp**!",
@@ -2656,6 +2803,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "Ferdig",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2791,7 +2947,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Utfordringer",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Send oss en e-post manuelt til",
-  "email_copied_to_clip_board": "E-post kopiert til utklippstavlen!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Velg aksentfarge",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produkter tilgjengelig for umiddelbar skanning",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3849,18 +4005,18 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score (Ny beregning)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
-  "nutriscore_unknown_new_formula": "Unknown Nutri-Score (New calculation)",
+  "nutriscore_unknown": "Ukjent Nutri-Score",
+  "nutriscore_unknown_new_formula": "Ukjent Nutri-Score (Ny beregning)",
   "nutriscore_not_applicable": "Nutri-Score er ikke aktuelt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke aktuelt (ny beregning)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Grønn poengsum A",
-  "environmental_score_b_new": "Grønn poengsum B",
-  "environmental_score_c_new": "Grønn-Score C",
-  "environmental_score_d_new": "Grønn-Score D",
-  "environmental_score_e_new": "Grønn-Score E",
-  "environmental_score_unknown_new": "Ukjent grønn poengsum",
-  "environmental_score_not_applicable_new": "Grønn score gjelder ikke",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Ukjent Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score gjelder ikke",
   "nova_group_generic_new": "Ultrabearbeidet mat - NOVA-grupper",
   "nova_group_1": "NOVA Gruppe 1",
   "nova_group_2": "NOVA Gruppe 2",
@@ -3918,23 +4074,23 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Del",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score er i utvikling: forklaringer!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Hva er Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score er en logo som har som mål å informere deg om **næringsmessig kvalitet på matvarer**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Fargekoden varierer fra mørkegrønn (**A**) for de **sunneste** produktene til mørkerød (**E**) for de **mindre sunne**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A-logoen",
+  "guide_nutriscore_v2_why_v2_title": "Hvorfor er Nutri-Score i utvikling?",
+  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score-formelen **utvikles** for å gi bedre anbefalinger:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Vurder alle drinker bedre",
   "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
   "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
@@ -3951,8 +4107,8 @@
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score brukes i 7 land: Frankrike, Tyskland, Belgia, Spania, Luxembourg, Nederland og Sveits.",
   "guide_nutriscore_v2_where_paragraph2": "Produsentene har maksimalt **2 år** etter at dekretet er undertegnet **til å erstatte** den gamle beregningen med den nye.",
   "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
+  "guide_nutriscore_v2_unchanged_title": "Det som ikke endrer seg",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en skåre som er utformet for å **måle næringskvalitet**. Den er **komplementær til NOVA-gruppen** på **ultraprosessert mat** (også tilgjengelig i applikasjonen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
@@ -4091,7 +4247,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Hva er åpne fakta om kjæledyrfôr?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Hva er Open Pet Food Facts?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts utvider vårt oppdrag til våre pelskledde venner! Det er en **database med kjæledyrfôrprodukter for katter, hunder og andre følgesvenner**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4100,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Funksjoner ved åpne kjæledyrfôrfakta",
+  "guide_open_pet_food_facts_features_title": "Funksjoner ved Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Få varsler om uønskede ingredienser",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Er kjæledyret ditt allergisk mot noen ingredienser? Du kan sette opp en liste over kosmetiske ingredienser du bør unngå, rett i appen!",
   "guide_open_pet_food_facts_tips_title": "Tips for å ta flotte bilder",
@@ -4121,7 +4277,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Hva er åpne skjønnhetsfakta?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Hva er Open Beauty Facts?",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts er en samarbeidende database med **kosmetikkprodukter**.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4130,7 +4286,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "Funksjoner ved åpne skjønnhetsfakta",
+  "guide_open_beauty_facts_features_title": "Funksjoner ved Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "Få varsler om uønskede ingredienser",
   "guide_open_beauty_facts_features_arg1_paragraph1": "Er du allergisk mot noen ingredienser? Vil du unngå komedogene stoffer? Vil du unngå kontroversielle komponenter? Du kan angi en liste over kosmetiske ingredienser du vil unngå, rett i appen!",
   "guide_open_beauty_facts_tips_title": "Tips for å ta flotte bilder",
@@ -4149,16 +4305,16 @@
   "guide_open_beauty_facts_scores_title": "En merknad om poengberegning",
   "guide_open_beauty_facts_scores_paragraph1": "I motsetning til matvarer har ikke kosmetikkverdenen et universelt anerkjent, myndighetsstøttet poengsystem som Nutri-Score. Ingrediensenes effekt kan være svært personlig og avhenge av hudtype, allergier og individuelle bekymringer.",
   "guide_open_beauty_facts_share_link": "https://world-nn.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "Velkommen til Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Hva er Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices er et prosjekt for å **samle inn og dele priser på produkter over hele verden**. Det er et offentlig tilgjengelig datasett som kan brukes til forskning, analyse og mer. Open Prices er utviklet og vedlikeholdt av Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "Det er for tiden få selskaper som eier store databaser med produktpriser på strekkodenivå. Disse prisene er ikke fritt tilgjengelige, men selges til en høy pris til private aktører, forskere og andre organisasjoner som har råd til dem.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4175,7 +4331,7 @@
   "guide_open_prices_scrapping_title": "Har du vurdert å hente priser fra forhandlernes nettsider?",
   "guide_open_prices_scrapping_paragraph1": "Av juridiske og tekniske årsaker **anser vi ikke det å hente priser fra forhandlernes nettsteder som en gyldig måte å bidra til Open Prices**. Vi ønsker å sørge for at prisene vi samler inn er nøyaktige og oppdaterte, og det å motta hentede priser fra bidragsytere tillater oss ikke å gjøre det.",
   "guide_open_prices_scrapping_paragraph2": "Prisskraping er et vurdert alternativ i en fremtidig versjon av Open Prices, men det vil bli gjort av Open Prices selv, slik at vi kan ha et bevis på prisen basert på HTML-siden.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Jeg er en forhandler og ønsker å bidra med priser. Hvordan kan jeg gjøre det?",
   "guide_open_prices_retailers_paragraph1": "Du kan bidra med priser ved å bruke API-et vårt.\nHvis du ønsker å bidra med priser i stor skala, kan du ta kontakt med oss på prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Velkommen til fakta om åpne produkter!",
@@ -4281,6 +4437,10 @@
   "photo_viewer_details_url_title": "URL-adresse",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Kompatibel",
   "@product_page_compatibility_score": {
@@ -4407,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Fjern dette produktet fra karusellen",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4506,7 +4670,7 @@
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
-  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Hvorfor er denne næringsverdien forskjellig fra den på pakken?",
+  "knowledge_panel_nutriscore_banner_incorrect_score_title": "Hvorfor er denne Nutri-Score forskjellig fra den på pakken?",
   "knowledge_panel_nutriscore_banner_incorrect_score_message": "Det er to mulige forklaringer:\nListen over ingredienser og/eller næringsinnholdet er ikke oppdatert.\n\nVi tilbyr den «nye beregningen» av Nutri-Score (eller V2). Sjekk at du har banneret «Ny beregning» på pakken.",
   "knowledge_panel_nutriscore_banner_incorrect_score_button1": "Sjekk ingrediensene",
   "knowledge_panel_nutriscore_banner_incorrect_score_button2": "Sjekk næringsinnholdet",
@@ -4555,6 +4719,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Min kompatibilitet",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Utilstrekkelige data til å beregne en kompatibilitetspoengsum.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "En poengsum kan ikke beregnes for et produkt av typen «{productType}».",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Betydning",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Kamper",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Gode kamper",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Gjennomsnittlige treff",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Dårlige treff",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Ukjente treff",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Nettsted",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4564,7 +4778,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Hvorfor priser?",
-  "prices_explanation_card_line1": "**Åpne priser** er et prosjekt for å samle inn og dele priser på produkter over hele verden 🌍. Åpne priser er utviklet og vedlikeholdt av Open Food Facts.",
+  "prices_explanation_card_line1": "**Open Prices** er et prosjekt for å samle inn og dele priser på produkter over hele verden 🌍. Open Prices er utviklet og vedlikeholdt av Open Food Facts.",
   "explanation_card_learn_more_button": "Lær mer",
   "product_page_tab_folksonomy": "Folkesonomi",
   "@product_page_tab_folksonomy": {
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Åpen prisberegning",
+  "preferences_prices_metrics_title": "Open Prices-beregninger",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5384,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Enkle måter å hjelpe på Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5584,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Åpne matfakta-laboratorier",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5626,5 +5840,59 @@
   "location_map_details_postcode": "Postnummer",
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Koordinater",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Tilbake til hjemmet",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Veksle kamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Vis strekkodeskanneren",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Trykk for å skanne en **strekkode**\nog finn ut om den er **bra for deg**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Slå av/på lommelykt",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Skann et produkt ved å nærme seg strekkoden",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Vi har oppdaget følgende strekkode: {barcode}, men den ser ut til å være ugyldig.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Vis mer…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Most scanned products",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Sist skannede produkter",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

@@ -8,7 +8,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/physics.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
@@ -51,7 +50,7 @@ class GuidesPage extends StatelessWidget {
         create: (_) => headerType,
         child: _GuidesPageBody(
           pageName: pageName,
-          slivers: <Widget>[header, ...body, if (footer != null) footer!],
+          slivers: <Widget>[header, ...body, ?footer],
         ),
       ),
     );
@@ -151,7 +150,7 @@ class GuidesParagraph extends StatelessWidget {
         ),
         DefaultTextStyle.merge(
           style: const TextStyle(fontSize: 15.0, height: 1.75),
-          child: AppIconTheme(
+          child: icons.AppIconTheme(
             size: 21.0,
             color: Colors.white,
             child: SliverPadding(
@@ -235,7 +234,7 @@ class _GuidesParagraphArrow extends StatelessWidget {
           color: colors.secondaryVibrant,
           shape: BoxShape.circle,
         ),
-        child: const Arrow.right(color: Colors.white, size: 12.0),
+        child: const icons.Arrow.right(color: Colors.white, size: 12.0),
       ),
     );
   }
@@ -421,7 +420,7 @@ class GuidesTitleWithBulletPoints extends StatelessWidget {
                   children: <Widget>[
                     switch (type) {
                       BulletPointType.arrow => icons.CircledArrow.right(
-                        type: CircledArrowType.normal,
+                        type: icons.CircledArrowType.normal,
                         circleColor: colors.primarySemiDark,
                       ),
                       BulletPointType.number => Container(

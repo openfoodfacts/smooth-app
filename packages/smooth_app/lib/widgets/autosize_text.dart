@@ -164,26 +164,17 @@ class _AutoSizeTextRenderWidget extends LeafRenderObjectWidget {
 
 class _AutoSizeTextRenderBox extends RenderBox {
   _AutoSizeTextRenderBox({
-    required String text,
-    required TextStyle style,
-    required double minFontSize,
-    required double maxFontSize,
-    required TextAlign textAlign,
-    required TextDirection textDirection,
-    required TextScaler textScaler,
-    required ValueChanged<double> onFontSizeCalculated,
-    int? maxLines,
-    double? groupFontSize,
-  }) : _text = text,
-       _style = style,
-       _minFontSize = minFontSize,
-       _maxFontSize = maxFontSize,
-       _textAlign = textAlign,
-       _textDirection = textDirection,
-       _textScaler = textScaler,
-       _maxLines = maxLines,
-       _groupFontSize = groupFontSize,
-       _onFontSizeCalculated = onFontSizeCalculated;
+    required this._text,
+    required this._style,
+    required this._minFontSize,
+    required this._maxFontSize,
+    required this._textAlign,
+    required this._textDirection,
+    required this._textScaler,
+    required this._onFontSizeCalculated,
+    this._maxLines,
+    this._groupFontSize,
+  });
 
   String _text;
   TextStyle _style;
@@ -337,8 +328,8 @@ class _AutoSizeTextRenderBox extends RenderBox {
     while (maxSize - minSize > epsilon) {
       final double midSize = (minSize + maxSize) / 2;
       final TextPainter painter = _createTextPainter(midSize);
-      // DO NOT pass the maxWidth here, as we want to check the full size
-      painter.layout();
+      // Layout with maxWidth to allow text wrapping when maxLines is set
+      painter.layout(maxWidth: constraints.maxWidth);
 
       if (_textFits(painter, constraints)) {
         minSize = midSize;
@@ -362,7 +353,8 @@ class _AutoSizeTextRenderBox extends RenderBox {
   /// Check if the text fits within the given constraints
   bool _textFits(TextPainter painter, BoxConstraints constraints) =>
       painter.width <= constraints.maxWidth &&
-      painter.height <= constraints.maxHeight;
+      painter.height <= constraints.maxHeight &&
+      !painter.didExceedMaxLines;
 
   TextPainter _createTextPainter(double fontSize) => TextPainter(
     text: TextSpan(
@@ -378,7 +370,17 @@ class _AutoSizeTextRenderBox extends RenderBox {
 
   @override
   void paint(PaintingContext context, Offset offset) {
-    _textPainter?.paint(context.canvas, offset);
+    double translationX = 0.0;
+    if (_textAlign == TextAlign.center) {
+      translationX = (size.width - _textPainter!.width) / 2;
+    } else if ((_textDirection == TextDirection.ltr &&
+            _textAlign == TextAlign.right) ||
+        (_textDirection == TextDirection.rtl && _textAlign == TextAlign.left) ||
+        _textAlign == TextAlign.end) {
+      translationX = size.width - _textPainter!.width;
+    }
+
+    _textPainter?.paint(context.canvas, offset.translate(translationX, 0));
   }
 
   @override

@@ -1,5 +1,6 @@
 library;
 
+export 'src/mobile_scanner_controller.dart';
 export 'src/scanner.dart';
 export 'src/scanner_mocked.dart';
 export 'src/scanner_visor.dart';
