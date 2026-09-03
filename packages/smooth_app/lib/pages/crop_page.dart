@@ -407,16 +407,20 @@ class _CropPageState extends State<CropPage> {
       );
       setState(() => _progress = appLocalizations.crop_page_action_local);
 
-      await saveBmp(
-        file: result,
-        source: cropped,
-      ).timeout(const Duration(seconds: 10));
+      Future<void> safeSaveBmp() async {
+        try {
+          await saveBmp(file: result, source: cropped!);
+        } finally {
+          cropped!.dispose();
+        }
+      }
+
+      await safeSaveBmp().timeout(const Duration(seconds: 10));
     } catch (e, trace) {
       AnalyticsHelper.sendException(e, stackTrace: trace);
       rethrow;
     } finally {
       image?.dispose();
-      cropped?.dispose();
     }
 
     return result;
