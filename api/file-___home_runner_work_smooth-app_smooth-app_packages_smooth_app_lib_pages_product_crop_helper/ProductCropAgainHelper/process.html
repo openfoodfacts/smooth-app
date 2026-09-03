@@ -59,8 +59,9 @@
 <span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a></span>
 <span class="name ">process</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="process-param-context">{<span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">context</span>, </span></li>
 <li><span class="parameter" id="process-param-controller"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">controller</span>, </span></li>
-<li><span class="parameter" id="process-param-image"><span>required</span> <span class="type-annotation">dynamic</span> <span class="parameter-name">image</span>, </span></li>
 <li><span class="parameter" id="process-param-inputFile"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">inputFile</span>, </span></li>
+<li><span class="parameter" id="process-param-inputFullWidth"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">inputFullWidth</span>, </span></li>
+<li><span class="parameter" id="process-param-inputFullHeight"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">inputFullHeight</span>, </span></li>
 <li><span class="parameter" id="process-param-smallCroppedFile"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/File-class.html">File</a></span> <span class="parameter-name">smallCroppedFile</span>, </span></li>
 <li><span class="parameter" id="process-param-directory"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-io/Directory-class.html">Directory</a></span> <span class="parameter-name">directory</span>, </span></li>
 <li><span class="parameter" id="process-param-sequenceNumber"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">sequenceNumber</span>, </span></li>
@@ -80,8 +81,9 @@
 Future&lt;CropParameters?&gt; process({
   required final BuildContext context,
   required final CropController controller,
-  required final ui.Image image,
   required final File inputFile,
+  required final int inputFullWidth,
+  required final int inputFullHeight,
   required final File smallCroppedFile,
   required final Directory directory,
   required final int sequenceNumber,
@@ -91,7 +93,11 @@ Future&lt;CropParameters?&gt; process({
   &#47;&#47; we let the server do everything: better performance, and no privacy
   &#47;&#47; issue here (we&#39;re cropping from an allegedly already privacy compliant
   &#47;&#47; picture).
-  final Rect cropRect = _getServerCropRect(controller, image);
+  final Rect cropRect = _getServerCropRect(
+    controller,
+    inputFullWidth,
+    inputFullHeight,
+  );
   await BackgroundTaskCrop.addTask(
     barcode,
     productType: productType,
