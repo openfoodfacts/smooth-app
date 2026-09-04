@@ -1,5 +1,44 @@
 # Changelog
 
+## [4.25.0](https://github.com/openfoodfacts/smooth-app/compare/v4.24.0...v4.25.0) (2026-09-04)
+
+
+### 🚀 Features
+
+* 7722 - memory optimization in crop page ([#7727](https://github.com/openfoodfacts/smooth-app/issues/7727)) ([5252e51](https://github.com/openfoodfacts/smooth-app/commit/5252e51a6761d6535b49adf03065ace91a6bb1d6))
+
+
+### 🐛 Bug Fixes
+
+* 7683 - no click if no extra KP info ([#7730](https://github.com/openfoodfacts/smooth-app/issues/7730)) ([f0510e3](https://github.com/openfoodfacts/smooth-app/commit/f0510e34b76bdd50dec4babbd28cc79dbf7b23aa))
+* 7711 ([#7716](https://github.com/openfoodfacts/smooth-app/issues/7716)) ([6a317da](https://github.com/openfoodfacts/smooth-app/commit/6a317da846aca737bd741904ca26b69977ac6658))
+* Additional translations ([#7731](https://github.com/openfoodfacts/smooth-app/issues/7731)) ([cfcceee](https://github.com/openfoodfacts/smooth-app/commit/cfcceeeb620238212a5b3af0c804005b950a8d97))
+* translation checks ([#7739](https://github.com/openfoodfacts/smooth-app/issues/7739)) ([c6c31e0](https://github.com/openfoodfacts/smooth-app/commit/c6c31e04bf729a0978ac7aae26d30f89402ec826))
+
+
+### 🤖 Automation
+
+* Bump version from 4.24.0 to 4.25.0 ([386aef4](https://github.com/openfoodfacts/smooth-app/commit/386aef42b0443bb0cec61493d237f57bbdd545ad))
+* Update Ruby setup action version and print steps ([e9faf02](https://github.com/openfoodfacts/smooth-app/commit/e9faf0296b849af92e9bd3e6dcab5964357d4e85))
+* Update Ruby version from 3.2.0 to 3.3.0 ([5d41b08](https://github.com/openfoodfacts/smooth-app/commit/5d41b087096997fd0fa39f1d0e2094e8072baadd))
+* Update Ruby version in internal release workflow ([4e07b6c](https://github.com/openfoodfacts/smooth-app/commit/4e07b6c668bb02b6b167e79d2e26979e43c9ee5c))
+* Update Ruby version to 3.3.0 in workflow ([da7d064](https://github.com/openfoodfacts/smooth-app/commit/da7d064f765886b489d9605a502bdb27552daf5b))
+* Update Ruby version to 3.4.10 ([d91bda1](https://github.com/openfoodfacts/smooth-app/commit/d91bda1aea92ae1f2f5a180cff953cae33f369b0))
+* Update Ruby version to 3.4.10 ([388bcfa](https://github.com/openfoodfacts/smooth-app/commit/388bcfa055ccc09408e2a8f7ed4ae3b8a451b4e2))
+* Update Ruby version to 3.4.12 in workflow ([2b2e4d1](https://github.com/openfoodfacts/smooth-app/commit/2b2e4d148740c0cf43bf6547a374f443f6bff20a))
+
+
+### 🛠 Miscellaneous
+
+* Add localization signature checks with GitHub Actions annotations ([#7198](https://github.com/openfoodfacts/smooth-app/issues/7198)) ([45e46f1](https://github.com/openfoodfacts/smooth-app/commit/45e46f100ca729e21ae9158a2cc3f4a19fbbeed9))
+* **deps:** bump actions/checkout from 6 to 7 ([#7743](https://github.com/openfoodfacts/smooth-app/issues/7743)) ([8c5fef9](https://github.com/openfoodfacts/smooth-app/commit/8c5fef9e1de25b83f2b359949215e6d11b7783e1))
+* **deps:** bump actions/setup-java from 5.7.0 to 6.0.0 ([#7726](https://github.com/openfoodfacts/smooth-app/issues/7726)) ([73e60b9](https://github.com/openfoodfacts/smooth-app/commit/73e60b9132ea38a48b76530fcc439ba13af8b4da))
+* **deps:** bump actions/setup-python from 6 to 7 ([#7741](https://github.com/openfoodfacts/smooth-app/issues/7741)) ([1b62e6f](https://github.com/openfoodfacts/smooth-app/commit/1b62e6f80001235f39b07472a996cb182786efab))
+* **deps:** bump crowdin/github-action from 2.17.0 to 2.17.1 ([#7708](https://github.com/openfoodfacts/smooth-app/issues/7708)) ([8c6e0c5](https://github.com/openfoodfacts/smooth-app/commit/8c6e0c5345047d332b6676b1c4953d6b753c0a2b))
+* **deps:** bump crowdin/github-action from 2.17.1 to 3.0.0 ([#7734](https://github.com/openfoodfacts/smooth-app/issues/7734)) ([d3bf9fd](https://github.com/openfoodfacts/smooth-app/commit/d3bf9fdd8f38348d64b4e6d83ea564cedb53f9ab))
+* **deps:** bump crowdin/github-action from 3.0.0 to 3.0.1 ([#7742](https://github.com/openfoodfacts/smooth-app/issues/7742)) ([b91dbd9](https://github.com/openfoodfacts/smooth-app/commit/b91dbd9bea2ea1993ea703d38c7ff17cc4e831f5))
+* New translations to review and merge ([#7662](https://github.com/openfoodfacts/smooth-app/issues/7662)) ([75f3caa](https://github.com/openfoodfacts/smooth-app/commit/75f3caa545e7a25df48c559021039ca66019e89d))
+
 ## [4.24.0](https://github.com/openfoodfacts/smooth-app/compare/v4.23.0...v4.24.0) (2026-08-24)
 
 
