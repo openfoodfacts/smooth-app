@@ -4,12 +4,13 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 
 AppNewsItem _newsItem({
+  String id = 'donation_campaign_2026',
   DateTime? endDate,
   num? raised,
   num? goal,
   String? currency,
 }) => AppNewsItem(
-  id: 'donation_campaign_2026',
+  id: id,
   title: 'Our application needs you!',
   message: 'Help us inform millions of consumers on what they eat!',
   url: 'https://world.openfoodfacts.org/donate-to-open-food-facts',
@@ -164,6 +165,54 @@ void main() {
 
     test('floors at 0 for a past end date', () {
       expect(endingIn(-2).monthsLeft, 0);
+    });
+  });
+
+  group('AppNewsItem.isDonation', () {
+    test('matches the live donation item', () {
+      expect(_newsItem().isDonation, isTrue);
+    });
+
+    test('is case insensitive and future-campaign proof', () {
+      expect(_newsItem(id: 'DONATION_CAMPAIGN_2027').isDonation, isTrue);
+      expect(_newsItem(id: 'donation_campaign_2027').isDonation, isTrue);
+      expect(_newsItem(id: 'donations-are-great').isDonation, isTrue);
+    });
+
+    test('does not match the other items live in the feed', () {
+      expect(_newsItem(id: 'nutriscore_petition_2025').isDonation, isFalse);
+      expect(_newsItem(id: 'openprices_challenge_01_06').isDonation, isFalse);
+      expect(_newsItem(id: 'divinfood_survey_2026').isDonation, isFalse);
+    });
+
+    test('matches a prefix, not a substring', () {
+      expect(_newsItem(id: 'campaign_donation_2026').isDonation, isFalse);
+    });
+  });
+
+  group('AppNews.donation', () {
+    AppNews newsWith(List<String> ids) => AppNews(
+      news: const AppNewsList(<String, AppNewsItem>{}),
+      feed: AppNewsFeed(
+        ids
+            .map((String id) => AppNewsFeedItem(news: _newsItem(id: id)))
+            .toList(),
+      ),
+    );
+
+    test('finds the donation item wherever it sits in the feed', () {
+      expect(
+        newsWith(<String>[
+          'divinfood_survey_2026',
+          'donation_campaign_2026',
+        ]).donation?.id,
+        'donation_campaign_2026',
+      );
+    });
+
+    test('is null when the feed has no donation ask', () {
+      expect(newsWith(<String>['divinfood_survey_2026']).donation, isNull);
+      expect(newsWith(<String>[]).donation, isNull);
     });
   });
 }

@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -10,6 +11,8 @@ import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/barcode_utils.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
+import 'package:smooth_app/pages/donation/donation_page.dart';
 import 'package:smooth_app/pages/guides/guide/guide_green_score.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nova.dart';
 import 'package:smooth_app/pages/guides/guide/guide_nutriscore_v2.dart';
@@ -110,6 +113,7 @@ class AppNavigator extends InheritedWidget {
 /// -   _preferences          User preferences
 /// -   _search               Search for a product
 /// -   _guides/              List of guides
+/// -   _donate               Donation screen
 /// -   _external             Open an external link on the OFF website
 ///
 /// All our routes are prefixed with an underscore, as the [redirect] method
@@ -311,6 +315,15 @@ class _SmoothGoRouter {
               path: _InternalAppRoutes.SIGNUP_PAGE,
               builder: (_, _) => const SignUpPage(),
             ),
+            GoRoute(
+              path: _InternalAppRoutes.DONATE_PAGE,
+              builder: (_, GoRouterState state) => DonationPage(
+                source: DonationSource.values.firstWhereOrNull(
+                  (DonationSource source) =>
+                      source.name == state.uri.queryParameters['source'],
+                ),
+              ),
+            ),
           ],
         ),
         GoRoute(
@@ -495,6 +508,7 @@ class _InternalAppRoutes {
   static const String EXTERNAL_PAGE = '_external';
   static const String EXTERNAL_WEBVIEW_PAGE = '_external_webview';
   static const String SIGNUP_PAGE = '_signup';
+  static const String DONATE_PAGE = '_donate';
 
   static const String _GUIDES = '_guides';
   static const String GUIDE_NUTRISCORE_V2_PAGE = '_nutriscore-v2';
@@ -595,6 +609,10 @@ class AppRoutes {
       '/${_InternalAppRoutes._GUIDES}/${_InternalAppRoutes.GUIDE_OPEN_PRICES_PAGE}';
 
   static String get SIGNUP => '/${_InternalAppRoutes.SIGNUP_PAGE}';
+
+  // Donation screen, keeping the entry point attributable
+  static String DONATE(DonationSource source) =>
+      '/${_InternalAppRoutes.DONATE_PAGE}?source=${source.name}';
 
   // Open an external link in the browser or custom tabs
   static String EXTERNAL(String path) =>
