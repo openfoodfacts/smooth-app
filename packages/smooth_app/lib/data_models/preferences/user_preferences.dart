@@ -386,6 +386,10 @@ class UserPreferences extends ChangeNotifier {
   String? get userCurrencyCode =>
       _sharedPreferences.getString(_TAG_USER_CURRENCY_CODE);
 
+  /// ⚠️ This reports the onboarding funnel, so it must stay AFTER consent.
+  /// It is today: the first call comes from the welcome page's tap handler,
+  /// which awaits `setUserTracking(true)` first. A new entry point that
+  /// navigated before that tap would report before consent.
   Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async {
     await _sharedPreferences.setInt(
       _TAG_LAST_VISITED_ONBOARDING_PAGE,
