@@ -1503,8 +1503,14 @@ abstract class AppLocalizations {
   /// No description provided for @myPreferences_food_comment.
   ///
   /// In en, this message translates to:
-  /// **'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.'**
+  /// **'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary.'**
   String get myPreferences_food_comment;
+
+  /// Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page
+  ///
+  /// In en, this message translates to:
+  /// **'Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.'**
+  String get myPreferences_food_privacy;
 
   /// No description provided for @myPreferences_beauty_title.
   ///
