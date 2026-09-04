@@ -11002,6 +11002,42 @@ abstract class AppLocalizations {
   /// **'OSM ID'**
   String get location_map_details_osm_id;
 
+  /// Message shown when there are no prices available to display
+  ///
+  /// In en, this message translates to:
+  /// **'No prices found.'**
+  String get prices_not_found;
+
+  /// Title for the prices dashboard page
+  ///
+  /// In en, this message translates to:
+  /// **'My dashboard'**
+  String get prices_dashboard_title;
+
+  /// Subtitle for the prices dashboard tile
+  ///
+  /// In en, this message translates to:
+  /// **'View your contributions and statistics'**
+  String get prices_dashboard_subtitle;
+
+  /// Button to open the prices dashboard in the browser
+  ///
+  /// In en, this message translates to:
+  /// **'Open in browser'**
+  String get prices_dashboard_open_in_browser;
+
+  /// Title for the receipts and GDPR requests tile in the prices dashboard
+  ///
+  /// In en, this message translates to:
+  /// **'Receipts and GDPR requests'**
+  String get prices_dashboard_receipts_and_gdpr_requests;
+
+  /// Title for the price labels tile in the prices dashboard
+  ///
+  /// In en, this message translates to:
+  /// **'Price labels'**
+  String get prices_dashboard_price_labels;
+
   /// Button to go back to home from the scanner page
   ///
   /// In en, this message translates to:

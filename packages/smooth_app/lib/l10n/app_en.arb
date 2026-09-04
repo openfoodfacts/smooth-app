@@ -5841,6 +5841,30 @@
   "location_map_details_country": "Country",
   "location_map_details_coordinates": "Coordinates",
   "location_map_details_osm_id": "OSM ID",
+  "prices_not_found": "No prices found.",
+  "@prices_not_found": {
+    "description": "Message shown when there are no prices available to display"
+  },
+  "prices_dashboard_title": "My dashboard",
+  "@prices_dashboard_title": {
+    "description": "Title for the prices dashboard page"
+  },
+  "prices_dashboard_subtitle": "View your contributions and statistics",
+  "@prices_dashboard_subtitle": {
+    "description": "Subtitle for the prices dashboard tile"
+  },
+  "prices_dashboard_open_in_browser": "Open in browser",
+  "@prices_dashboard_open_in_browser": {
+    "description": "Button to open the prices dashboard in the browser"
+  },
+  "prices_dashboard_receipts_and_gdpr_requests": "Receipts and GDPR requests",
+  "@prices_dashboard_receipts_and_gdpr_requests": {
+    "description": "Title for the receipts and GDPR requests tile in the prices dashboard"
+  },
+  "prices_dashboard_price_labels": "Price labels",
+  "@prices_dashboard_price_labels": {
+    "description": "Title for the price labels tile in the prices dashboard"
+  },
   "homepage_scanner_back_to_home_button": "Back to home",
   "@homepage_scanner_back_to_home_button": {
     "description": "Button to go back to home from the scanner page"
