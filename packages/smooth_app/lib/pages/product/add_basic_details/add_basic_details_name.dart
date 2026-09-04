@@ -342,6 +342,7 @@ class _ProductNameInputWidgetState extends State<_ProductNameInputWidget> {
                     ),
                     allowEmojis: false,
                     maxLines: 1,
+                    spellCheckConfiguration: const SpellCheckConfiguration(),
                   ),
                 ),
                 const SizedBox(width: 2.0),
