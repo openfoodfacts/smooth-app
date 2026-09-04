@@ -165,6 +165,8 @@ class UserPreferences extends ChangeNotifier {
     if (_sharedPreferences.getBool(_TAG_FIRST_OPEN_TRACKED) == true) {
       return;
     }
+    // `setBool` writes the in-memory cache before it awaits the platform, so
+    // the undebounced consent button cannot get two events out of a double tap.
     await _sharedPreferences.setBool(_TAG_FIRST_OPEN_TRACKED, true);
     AnalyticsHelper.trackEvent(AnalyticsEvent.appFirstOpen);
   }
