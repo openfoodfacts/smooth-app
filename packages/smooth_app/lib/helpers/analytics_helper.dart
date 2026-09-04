@@ -23,7 +23,8 @@ enum AnalyticsCategory {
   list(tag: 'list'),
   deepLink(tag: 'deep link'),
   hungerGame(tag: 'hunger game'),
-  appRating(tag: 'app rating');
+  appRating(tag: 'app rating'),
+  taglineFeed(tag: 'tagline feed');
 
   const AnalyticsCategory({required this.tag});
 
@@ -152,6 +153,14 @@ enum AnalyticsEvent {
   appRatingNotSatisfied(
     tag: 'not satisfied',
     category: AnalyticsCategory.appRating,
+  ),
+  taglineNewsDisplayed(
+    tag: 'tagline news displayed',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  taglineNewsClicked(
+    tag: 'tagline news clicked',
+    category: AnalyticsCategory.taglineFeed,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -405,6 +414,9 @@ class AnalyticsHelper {
     barcode: product.barcode,
     productType: product.productType ?? ProductType.food,
   );
+
+  static void trackTaglineNewsEvent(AnalyticsEvent msg, String newsId) =>
+      trackCustomEvent(msg.name, msg.category.tag, action: newsId);
 
   static void trackSearch({
     required String search,
