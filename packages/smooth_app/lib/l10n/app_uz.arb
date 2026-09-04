@@ -4010,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score qo'llanilmaydi",
   "nutriscore_not_applicable_new_formula": "Nutri-Score qo'llanilmaydi (Yangi hisob-kitob)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "Yashil ball A",
+  "environmental_score_b_new": "Yashil ball - B",
+  "environmental_score_c_new": "Yashil ball C",
+  "environmental_score_d_new": "Yashil ball D",
+  "environmental_score_e_new": "Yashil ball E",
   "environmental_score_unknown_new": "Noma'lum Green-Score",
   "environmental_score_not_applicable_new": "Green-Score qo'llanilmaydi",
   "nova_group_generic_new": "Ultra qayta ishlangan ovqatlar - NOVA guruhlari",
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Oziq-ovqat faktlari laboratoriyasini oching",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

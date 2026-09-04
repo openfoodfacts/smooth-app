@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4010,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "ቀጠልያ-ነጥቢ ሀ",
+  "environmental_score_b_new": "ቀጠልያ-ነጥቢ ለ",
+  "environmental_score_c_new": "ቀጠልያ-ነጥቢ ሐ",
+  "environmental_score_d_new": "ቀጠልያ-ነጥቢ መ",
+  "environmental_score_e_new": "ቀጠልያ-ነጥቢ E",
   "environmental_score_unknown_new": "ዘይፍለጥ Green-Score",
   "environmental_score_not_applicable_new": "Green-Score ተግባራዊ ኣይኮነን።",
   "nova_group_generic_new": "ኣዝዩ ዝተመስርሑ መግብታት - ጉጅለታት NOVA",
@@ -4242,7 +4242,7 @@
   "guide_open_food_facts_scores_arg1_title": "A score on the nutritional quality",
   "guide_open_food_facts_scores_arg2_title": "A score to avoid ultra-processed foods",
   "guide_open_food_facts_scores_arg3_title": "A score for the planet",
-  "guide_open_food_facts_share_link": "https://world-ti.openfoodfacts.org/discover",
+  "guide_open_food_facts_share_link": "https://world-ti.openfoodfacts.org/discover ዝብል ጽሑፍ ንምርካብ ኣብዚ ንጠውቅ",
   "guide_open_pet_food_facts_title": "Welcome to Open Pet Food Facts!",
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4333,7 +4333,7 @@
   "guide_open_prices_scrapping_paragraph2": "Price scraping is a considered option in a future version of Open Prices, but it would be done by Open Prices itself so that we can have a proof of the price based on the HTML page.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "You can contribute prices by using our API.\nIf you want to contribute prices at scale, please get in touch with us at prices@openfoodfacts.org.",
-  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/ብዛዕባ...",
   "guide_open_products_facts_title": "Welcome to Open Products Facts!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
