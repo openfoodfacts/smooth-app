@@ -4,6 +4,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/html_extension.dart';
@@ -52,11 +53,15 @@ class TableCell {
     required this.color,
     required this.isHeader,
     this.columnGroup,
+    this.iconUrl,
+    this.percent,
   });
 
   final String text;
   final Color? color;
   final bool isHeader;
+  final String? iconUrl;
+  final double? percent;
 
   // [columnGroup] is set only for cells that have [isHeader = true]. This is used
   // to show a dropdown of other column headers in the group for this column.
@@ -164,6 +169,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
               cell.evaluation ?? Evaluation.UNKNOWN,
             ),
             isHeader: false,
+            iconUrl: cell.iconUrl,
+            percent: cell.percent,
           ),
         );
       }
@@ -496,8 +503,55 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
           ''');
     }
 
+    const double height = 24;
+    const double percentageWidth = 100;
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
+    final Color? foreground, background;
+    if (isDark) {
+      foreground = Colors.white.withAlpha(192);
+      background = Colors.black.withAlpha(192);
+    } else {
+      foreground = Colors.black.withAlpha(192);
+      background = Colors.grey.withAlpha(64);
+    }
+
+    final Widget? iconWidget = widget.cell.iconUrl == null
+        ? null
+        : Padding(
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+            child: AbstractCache.best(
+              iconUrl: widget.cell.iconUrl,
+              height: height,
+              color: foreground,
+            ),
+          );
+    final Widget? percentWidget = widget.cell.percent == null
+        ? null
+        : Padding(
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+            child: Row(
+              children: <Widget>[
+                Container(
+                  height: height,
+                  width: widget.cell.percent! * percentageWidth / 100,
+                  color: foreground,
+                ),
+                Container(
+                  height: height,
+                  width: (100 - widget.cell.percent!) * percentageWidth / 100,
+                  color: background,
+                ),
+              ],
+            ),
+          );
+
     final String cellText =
-        '<div style="text-align:${alignment.toHTMLTextAlign()}">${widget.cell.text}</div>';
+        '<div style="$styleBuilder">${widget.cell.text}</div>';
+    final Widget textWidget = SmoothHtmlWidget(
+      cellText,
+      textStyle: style,
+      isSelectable: isSelectable,
+    );
 
     final Widget child = GestureDetector(
       onTap: () => setState(() {
@@ -507,20 +561,19 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
         padding: padding,
         child: Align(
           alignment: alignment,
-          child: SmoothHtmlWidget(
-            cellText,
-            textStyle: style,
-            isSelectable: isSelectable,
-          ),
+          child: iconWidget == null && percentWidget == null
+              ? textWidget
+              : Row(
+                  children: <Widget>[?iconWidget, ?percentWidget, textWidget],
+                ),
         ),
       ),
     );
 
     if (backgroundColor != null) {
       return ColoredBox(color: backgroundColor, child: child);
-    } else {
-      return child;
     }
+    return child;
   }
 
   Widget _buildDropDownColumnHeader(
