@@ -125,6 +125,19 @@ void main() {
           ),
           hasLength(1),
         );
+
+        // And a double tap on the undebounced consent button: two calls
+        // interleaving on the stored flag before either has written it.
+        await Future.wait(<Future<void>>[
+          userPreferences.trackFirstOpenAfterConsent(),
+          userPreferences.trackFirstOpenAfterConsent(),
+        ]);
+        expect(
+          MatomoTracker.instance.queue.where(
+            (Map<String, String> event) => event['e_n'] == 'appFirstOpen',
+          ),
+          hasLength(1),
+        );
       },
     );
 
