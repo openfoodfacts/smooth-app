@@ -159,7 +159,7 @@ void main() {
 
     Widget wrapSquare(String? panelId) => wrap(
       Provider<Product>.value(
-        value: Product(barcode: '0000000000000'),
+        value: buildProductWithPanels(),
         child: Row(
           children: <Widget>[
             KnowledgePanelSquareItem(panelId: panelId, panel: panel),
@@ -172,6 +172,19 @@ void main() {
       WidgetTester tester,
     ) async {
       await tester.pumpWidget(wrapSquare(null));
+      await tester.pump();
+
+      final InkWell inkWell = tester.widget<InkWell>(find.byType(InkWell));
+      expect(inkWell.onTap, isNull);
+      expect(knowledgePanelOpenEvents(), isEmpty);
+    });
+
+    testWidgets('a square with nothing to display fires nothing either', (
+      WidgetTester tester,
+    ) async {
+      // Upstream gates both routes on `hasSomethingToDisplay` - a panel that
+      // renders nothing is not an open, so it must not be counted as one.
+      await tester.pumpWidget(wrapSquare('unclickable'));
       await tester.pump();
 
       final InkWell inkWell = tester.widget<InkWell>(find.byType(InkWell));
