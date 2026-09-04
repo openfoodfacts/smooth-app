@@ -90,34 +90,43 @@ void main() {
   });
 
   group('UserPreferences analytics', () {
-    test('appFirstOpen fires exactly once per install, '
-        'a later init() on the same instance fires none', () async {
-      final ProductPreferences productPreferences = ProductPreferences(
-        ProductPreferencesSelection(
-          setImportance: userPreferences.setImportance,
-          getImportance: userPreferences.getImportance,
-          notify: () {},
-        ),
-      );
+    test(
+      'init() reports nothing: the first launch happens before consent',
+      () async {
+        final ProductPreferences productPreferences = ProductPreferences(
+          ProductPreferencesSelection(
+            setImportance: userPreferences.setImportance,
+            getImportance: userPreferences.getImportance,
+            notify: () {},
+          ),
+        );
 
-      await userPreferences.init(productPreferences);
-      expect(
-        MatomoTracker.instance.queue.where(
-          (Map<String, String> event) => event['e_n'] == 'appFirstOpen',
-        ),
-        hasLength(1),
-      );
+        await userPreferences.init(productPreferences);
+        expect(MatomoTracker.instance.queue, isEmpty);
+      },
+    );
 
-      // Second launch / upgrade from an older build: `_TAG_INIT` is now
-      // set, so `init()` returns early and fires nothing new.
-      await userPreferences.init(productPreferences);
-      expect(
-        MatomoTracker.instance.queue.where(
-          (Map<String, String> event) => event['e_n'] == 'appFirstOpen',
-        ),
-        hasLength(1),
-      );
-    });
+    test(
+      'appFirstOpen fires once, at the consent tap, and never twice',
+      () async {
+        await userPreferences.trackFirstOpenAfterConsent();
+        expect(
+          MatomoTracker.instance.queue.where(
+            (Map<String, String> event) => event['e_n'] == 'appFirstOpen',
+          ),
+          hasLength(1),
+        );
+
+        // A second consent tap, or a relaunch mid-onboarding: nothing new.
+        await userPreferences.trackFirstOpenAfterConsent();
+        expect(
+          MatomoTracker.instance.queue.where(
+            (Map<String, String> event) => event['e_n'] == 'appFirstOpen',
+          ),
+          hasLength(1),
+        );
+      },
+    );
 
     test('onboardingPageVisited fires once per call, '
         'and again (replayably) after resetOnboarding', () async {

@@ -87,6 +87,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_USER_TRACKING = 'user_tracking';
+  static const String _TAG_FIRST_OPEN_TRACKED = 'firstOpenTracked';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
@@ -153,6 +154,18 @@ class UserPreferences extends ChangeNotifier {
     }
     await productPreferences.resetImportances();
     await _sharedPreferences.setBool(_TAG_INIT, true);
+  }
+
+  /// Tracks the first app open, once the user has given tracking consent.
+  ///
+  /// Deliberately not called by [init]: on a brand new install [init] runs
+  /// before the onboarding consent tap, and we do not track before consent.
+  /// Called from the onboarding welcome page, right after consent is stored.
+  Future<void> trackFirstOpenAfterConsent() async {
+    if (_sharedPreferences.getBool(_TAG_FIRST_OPEN_TRACKED) == true) {
+      return;
+    }
+    await _sharedPreferences.setBool(_TAG_FIRST_OPEN_TRACKED, true);
     AnalyticsHelper.trackEvent(AnalyticsEvent.appFirstOpen);
   }
 
