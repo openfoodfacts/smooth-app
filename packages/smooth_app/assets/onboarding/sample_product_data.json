@@ -267,7 +267,7 @@
                   "id" : "additives",
                   "match" : 100,
                   "name" : "Additives",
-                  "panel_id" : "additives",
+                  "panel_id" : "ingredients_analysis",
                   "status" : "known",
                   "title" : "Without additives"
                }
@@ -279,15 +279,15 @@
             "attributes" : [
                {
                   "description" : "",
-                  "description_short" : "Very low environmental impact",
-                  "grade" : "a",
-                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg",
+                  "description_short" : "High environmental impact",
+                  "grade" : "d",
+                  "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg",
                   "id" : "ecoscore",
-                  "match" : 100,
+                  "match" : 37,
                   "name" : "Green-Score",
                   "panel_id" : "environmental_score",
                   "status" : "known",
-                  "title" : "Green-Score A+"
+                  "title" : "Green-Score D"
                },
                {
                   "description" : "",
@@ -336,12 +336,15 @@
       ],
       "brands" : "Open Food Facts",
       "categories_tags_en" : [
-         "Plant-based foods and beverages",
-         "Plant-based foods",
-         "Fruits and vegetables based foods",
-         "Meals",
-         "Soups",
-         "Vegetable soups"
+         "Meats and their products",
+         "Meats",
+         "Chicken and its products",
+         "Poultries",
+         "Chickens",
+         "Cooked poultries",
+         "Cooked chicken",
+         "Chicken breasts",
+         "Cooked chicken breast without skin"
       ],
       "code" : "93270067481501",
       "ecoscore_data" : {
@@ -349,9 +352,9 @@
             "origins_of_ingredients" : {
                "aggregated_origins" : [
                   {
-                     "epi_score" : 93,
-                     "origin" : "en:france",
-                     "percent" : 69.78,
+                     "epi_score" : 57,
+                     "origin" : "en:portugal",
+                     "percent" : 69.8,
                      "transportation_score" : 0
                   }
                ],
@@ -361,205 +364,205 @@
                   "en:unknown"
                ],
                "origins_from_origins_field" : [
-                  "en:france"
+                  "en:portugal"
                ],
                "transportation_score" : 0,
                "transportation_scores" : {
-                  "ad" : 39.7746,
-                  "al" : 0,
-                  "at" : 26.5164,
-                  "ax" : 46.7526,
-                  "ba" : 9.7692,
-                  "be" : 59.313,
-                  "bg" : 14.6538,
-                  "ch" : 48.1482,
-                  "cy" : 27.912,
-                  "cz" : 33.4944,
-                  "de" : 42.5658,
-                  "dk" : 27.2142,
-                  "dz" : 31.401,
-                  "ee" : 49.5438,
-                  "eg" : 24.423,
-                  "es" : 25.8186,
-                  "fi" : 48.1482,
-                  "fo" : 43.2636,
-                  "fr" : 69.78,
-                  "gg" : 54.4284,
-                  "gi" : 2.7912,
-                  "gr" : 34.1922,
-                  "hr" : 20.934,
-                  "hu" : 18.1428,
-                  "ie" : 32.7966,
-                  "il" : 23.7252,
-                  "im" : 34.89,
-                  "is" : 36.9834,
-                  "it" : 32.7966,
-                  "je" : 53.0328,
-                  "lb" : 27.2142,
-                  "li" : 44.6592,
-                  "lt" : 43.9614,
-                  "lu" : 57.2196,
-                  "lv" : 49.5438,
-                  "ly" : 39.0768,
-                  "ma" : 41.868,
-                  "mc" : 36.2856,
-                  "md" : 20.2362,
-                  "me" : 25.8186,
-                  "mk" : 20.2362,
-                  "mt" : 39.7746,
-                  "nl" : 53.7306,
-                  "no" : 13.956,
-                  "pl" : 17.445,
-                  "ps" : 29.3076,
-                  "pt" : 9.0714,
-                  "ro" : 21.6318,
-                  "rs" : 4.8846,
-                  "se" : 10.467,
-                  "si" : 26.5164,
-                  "sj" : 36.9834,
-                  "sk" : 16.7472,
-                  "sm" : 27.912,
-                  "sy" : 18.1428,
-                  "tn" : 6.2802,
-                  "tr" : 4.8846,
-                  "ua" : 27.912,
-                  "uk" : 47.4504,
+                  "ad" : 26.524,
+                  "al" : 39.786,
+                  "at" : 20.94,
+                  "ax" : 38.39,
+                  "ba" : 23.732,
+                  "be" : 49.558,
+                  "bg" : 25.826,
+                  "ch" : 36.994,
+                  "cy" : 38.39,
+                  "cz" : 9.074,
+                  "de" : 49.558,
+                  "dk" : 36.296,
+                  "dz" : 42.578,
+                  "ee" : 41.182,
+                  "eg" : 34.9,
+                  "es" : 48.162,
+                  "fi" : 40.484,
+                  "fo" : 35.598,
+                  "fr" : 32.108,
+                  "gg" : 39.088,
+                  "gi" : 61.424,
+                  "gr" : 45.37,
+                  "hr" : 32.108,
+                  "hu" : 18.148,
+                  "ie" : 53.746,
+                  "il" : 34.9,
+                  "im" : 32.806,
+                  "is" : 34.202,
+                  "it" : 41.88,
+                  "je" : 36.994,
+                  "lb" : 37.692,
+                  "li" : 38.39,
+                  "lt" : 35.598,
+                  "lu" : 43.276,
+                  "lv" : 41.88,
+                  "ly" : 50.256,
+                  "ma" : 35.598,
+                  "mc" : 5.584,
+                  "md" : 30.712,
+                  "me" : 36.296,
+                  "mk" : 30.712,
+                  "mt" : 50.256,
+                  "nl" : 49.558,
+                  "no" : 8.376,
+                  "pl" : 32.108,
+                  "ps" : 39.786,
+                  "pt" : 69.8,
+                  "ro" : 32.806,
+                  "rs" : 23.732,
+                  "se" : 36.994,
+                  "si" : 33.504,
+                  "sj" : 0,
+                  "sk" : 11.866,
+                  "sm" : 37.692,
+                  "sy" : 28.618,
+                  "tn" : 53.048,
+                  "tr" : 16.054,
+                  "ua" : 38.39,
+                  "uk" : 46.068,
                   "us" : 0,
-                  "va" : 20.2362,
+                  "va" : 27.222,
                   "world" : 0,
-                  "xk" : 19.5384
+                  "xk" : 30.014
                },
                "transportation_value" : 0,
                "transportation_values" : {
-                  "ad" : 6,
-                  "al" : 0,
-                  "at" : 4,
-                  "ax" : 7,
-                  "ba" : 1,
-                  "be" : 9,
-                  "bg" : 2,
-                  "ch" : 7,
-                  "cy" : 4,
-                  "cz" : 5,
-                  "de" : 6,
-                  "dk" : 4,
-                  "dz" : 5,
-                  "ee" : 7,
-                  "eg" : 4,
-                  "es" : 4,
-                  "fi" : 7,
-                  "fo" : 6,
-                  "fr" : 10,
-                  "gg" : 8,
-                  "gi" : 0,
-                  "gr" : 5,
-                  "hr" : 3,
+                  "ad" : 4,
+                  "al" : 6,
+                  "at" : 3,
+                  "ax" : 6,
+                  "ba" : 4,
+                  "be" : 7,
+                  "bg" : 4,
+                  "ch" : 6,
+                  "cy" : 6,
+                  "cz" : 1,
+                  "de" : 7,
+                  "dk" : 5,
+                  "dz" : 6,
+                  "ee" : 6,
+                  "eg" : 5,
+                  "es" : 7,
+                  "fi" : 6,
+                  "fo" : 5,
+                  "fr" : 5,
+                  "gg" : 6,
+                  "gi" : 9,
+                  "gr" : 7,
+                  "hr" : 5,
                   "hu" : 3,
-                  "ie" : 5,
-                  "il" : 4,
+                  "ie" : 8,
+                  "il" : 5,
                   "im" : 5,
-                  "is" : 6,
-                  "it" : 5,
-                  "je" : 8,
-                  "lb" : 4,
-                  "li" : 7,
-                  "lt" : 7,
-                  "lu" : 9,
-                  "lv" : 7,
-                  "ly" : 6,
-                  "ma" : 6,
-                  "mc" : 5,
-                  "md" : 3,
-                  "me" : 4,
-                  "mk" : 3,
-                  "mt" : 6,
-                  "nl" : 8,
-                  "no" : 2,
-                  "pl" : 3,
-                  "ps" : 4,
-                  "pt" : 1,
-                  "ro" : 3,
-                  "rs" : 1,
-                  "se" : 2,
-                  "si" : 4,
-                  "sj" : 6,
-                  "sk" : 3,
-                  "sm" : 4,
-                  "sy" : 3,
-                  "tn" : 1,
-                  "tr" : 1,
-                  "ua" : 4,
+                  "is" : 5,
+                  "it" : 6,
+                  "je" : 6,
+                  "lb" : 6,
+                  "li" : 6,
+                  "lt" : 5,
+                  "lu" : 6,
+                  "lv" : 6,
+                  "ly" : 8,
+                  "ma" : 5,
+                  "mc" : 1,
+                  "md" : 5,
+                  "me" : 5,
+                  "mk" : 5,
+                  "mt" : 8,
+                  "nl" : 7,
+                  "no" : 1,
+                  "pl" : 5,
+                  "ps" : 6,
+                  "pt" : 10,
+                  "ro" : 5,
+                  "rs" : 4,
+                  "se" : 6,
+                  "si" : 5,
+                  "sj" : 0,
+                  "sk" : 2,
+                  "sm" : 6,
+                  "sy" : 4,
+                  "tn" : 8,
+                  "tr" : 2,
+                  "ua" : 6,
                   "uk" : 7,
                   "us" : 0,
-                  "va" : 3,
+                  "va" : 4,
                   "world" : 0,
-                  "xk" : 3
+                  "xk" : 5
                },
                "value" : 0,
                "values" : {
-                  "ad" : 6,
-                  "al" : 0,
-                  "at" : 4,
-                  "ax" : 7,
-                  "ba" : 1,
-                  "be" : 9,
-                  "bg" : 2,
-                  "ch" : 7,
-                  "cy" : 4,
-                  "cz" : 5,
-                  "de" : 6,
-                  "dk" : 4,
-                  "dz" : 5,
-                  "ee" : 7,
-                  "eg" : 4,
-                  "es" : 4,
-                  "fi" : 7,
-                  "fo" : 6,
-                  "fr" : 10,
-                  "gg" : 8,
-                  "gi" : 0,
-                  "gr" : 5,
-                  "hr" : 3,
+                  "ad" : 4,
+                  "al" : 6,
+                  "at" : 3,
+                  "ax" : 6,
+                  "ba" : 4,
+                  "be" : 7,
+                  "bg" : 4,
+                  "ch" : 6,
+                  "cy" : 6,
+                  "cz" : 1,
+                  "de" : 7,
+                  "dk" : 5,
+                  "dz" : 6,
+                  "ee" : 6,
+                  "eg" : 5,
+                  "es" : 7,
+                  "fi" : 6,
+                  "fo" : 5,
+                  "fr" : 5,
+                  "gg" : 6,
+                  "gi" : 9,
+                  "gr" : 7,
+                  "hr" : 5,
                   "hu" : 3,
-                  "ie" : 5,
-                  "il" : 4,
+                  "ie" : 8,
+                  "il" : 5,
                   "im" : 5,
-                  "is" : 6,
-                  "it" : 5,
-                  "je" : 8,
-                  "lb" : 4,
-                  "li" : 7,
-                  "lt" : 7,
-                  "lu" : 9,
-                  "lv" : 7,
-                  "ly" : 6,
-                  "ma" : 6,
-                  "mc" : 5,
-                  "md" : 3,
-                  "me" : 4,
-                  "mk" : 3,
-                  "mt" : 6,
-                  "nl" : 8,
-                  "no" : 2,
-                  "pl" : 3,
-                  "ps" : 4,
-                  "pt" : 1,
-                  "ro" : 3,
-                  "rs" : 1,
-                  "se" : 2,
-                  "si" : 4,
-                  "sj" : 6,
-                  "sk" : 3,
-                  "sm" : 4,
-                  "sy" : 3,
-                  "tn" : 1,
-                  "tr" : 1,
-                  "ua" : 4,
+                  "is" : 5,
+                  "it" : 6,
+                  "je" : 6,
+                  "lb" : 6,
+                  "li" : 6,
+                  "lt" : 5,
+                  "lu" : 6,
+                  "lv" : 6,
+                  "ly" : 8,
+                  "ma" : 5,
+                  "mc" : 1,
+                  "md" : 5,
+                  "me" : 5,
+                  "mk" : 5,
+                  "mt" : 8,
+                  "nl" : 7,
+                  "no" : 1,
+                  "pl" : 5,
+                  "ps" : 6,
+                  "pt" : 10,
+                  "ro" : 5,
+                  "rs" : 4,
+                  "se" : 6,
+                  "si" : 5,
+                  "sj" : 0,
+                  "sk" : 2,
+                  "sm" : 6,
+                  "sy" : 4,
+                  "tn" : 8,
+                  "tr" : 2,
+                  "ua" : 6,
                   "uk" : 7,
                   "us" : 0,
-                  "va" : 3,
+                  "va" : 4,
                   "world" : 0,
-                  "xk" : 3
+                  "xk" : 5
                }
             },
             "packaging" : {
@@ -568,6 +571,7 @@
                   {
                      "environmental_score_material_score" : 81,
                      "environmental_score_shape_ratio" : 1,
+                     "food_contact" : 1,
                      "material" : "en:glass",
                      "number_of_units" : 1,
                      "recycling" : "en:recycle",
@@ -577,6 +581,7 @@
                   {
                      "environmental_score_material_score" : 76,
                      "environmental_score_shape_ratio" : 0.1,
+                     "food_contact" : 1,
                      "material" : "en:steel",
                      "number_of_units" : 1,
                      "recycling" : "en:recycle",
@@ -596,94 +601,94 @@
             "threatened_species" : {}
          },
          "agribalyse" : {
-            "agribalyse_proxy_food_code" : "25903",
-            "co2_agriculture" : 0.0874,
-            "co2_consumption" : 0.0113,
-            "co2_distribution" : 0.0167,
-            "co2_packaging" : 0.0964,
-            "co2_processing" : 0.151,
-            "co2_total" : 0.504,
-            "co2_transportation" : 0.142,
-            "code" : "25903",
-            "dqr" : "1.6899016265830376",
-            "ef_agriculture" : 0.0151,
-            "ef_consumption" : 0.00428,
-            "ef_distribution" : 0.00462,
-            "ef_packaging" : 0.00836,
-            "ef_processing" : 0.0289,
-            "ef_total" : 0.0721,
-            "ef_transportation" : 0.0109,
+            "agribalyse_food_code" : "36018",
+            "co2_agriculture" : 4.97,
+            "co2_consumption" : 0.0969,
+            "co2_distribution" : 0.0537,
+            "co2_packaging" : 0.5,
+            "co2_processing" : 1.44,
+            "co2_total" : 7.48,
+            "co2_transportation" : 0.42,
+            "code" : "36018",
+            "dqr" : "2.3061759995537763",
+            "ef_agriculture" : 1.03,
+            "ef_consumption" : 0.0367,
+            "ef_distribution" : 0.0128,
+            "ef_packaging" : 0.0346,
+            "ef_processing" : 0.134,
+            "ef_total" : 1.28,
+            "ef_transportation" : 0.0315,
             "is_beverage" : 0,
-            "name_en" : "Soup, mixed vegetables, prepacked, to be reheated",
-            "name_fr" : "Soupe aux légumes variés, préemballée à réchauffer",
-            "score" : 98,
+            "name_en" : "Chicken, breast, without skin, cooked",
+            "name_fr" : "Poulet, filet, sans peau, cuit",
+            "score" : 24,
             "version" : "3.2"
          },
-         "grade" : "a-plus",
+         "grade" : "d",
          "grades" : {
-            "ad" : "a-plus",
-            "al" : "a-plus",
-            "at" : "a-plus",
-            "ax" : "a-plus",
-            "ba" : "a-plus",
-            "be" : "a-plus",
-            "bg" : "a-plus",
-            "ch" : "a-plus",
-            "cy" : "a-plus",
-            "cz" : "a-plus",
-            "de" : "a-plus",
-            "dk" : "a-plus",
-            "dz" : "a-plus",
-            "ee" : "a-plus",
-            "eg" : "a-plus",
-            "es" : "a-plus",
-            "fi" : "a-plus",
-            "fo" : "a-plus",
-            "fr" : "a-plus",
-            "gg" : "a-plus",
-            "gi" : "a-plus",
-            "gr" : "a-plus",
-            "hr" : "a-plus",
-            "hu" : "a-plus",
-            "ie" : "a-plus",
-            "il" : "a-plus",
-            "im" : "a-plus",
-            "is" : "a-plus",
-            "it" : "a-plus",
-            "je" : "a-plus",
-            "lb" : "a-plus",
-            "li" : "a-plus",
-            "lt" : "a-plus",
-            "lu" : "a-plus",
-            "lv" : "a-plus",
-            "ly" : "a-plus",
-            "ma" : "a-plus",
-            "mc" : "a-plus",
-            "md" : "a-plus",
-            "me" : "a-plus",
-            "mk" : "a-plus",
-            "mt" : "a-plus",
-            "nl" : "a-plus",
-            "no" : "a-plus",
-            "pl" : "a-plus",
-            "ps" : "a-plus",
-            "pt" : "a-plus",
-            "ro" : "a-plus",
-            "rs" : "a-plus",
-            "se" : "a-plus",
-            "si" : "a-plus",
-            "sj" : "a-plus",
-            "sk" : "a-plus",
-            "sm" : "a-plus",
-            "sy" : "a-plus",
-            "tn" : "a-plus",
-            "tr" : "a-plus",
-            "ua" : "a-plus",
-            "uk" : "a-plus",
-            "us" : "a-plus",
-            "va" : "a-plus",
-            "world" : "a-plus",
-            "xk" : "a-plus"
+            "ad" : "d",
+            "al" : "d",
+            "at" : "d",
+            "ax" : "d",
+            "ba" : "d",
+            "be" : "d",
+            "bg" : "d",
+            "ch" : "d",
+            "cy" : "d",
+            "cz" : "d",
+            "de" : "d",
+            "dk" : "d",
+            "dz" : "d",
+            "ee" : "d",
+            "eg" : "d",
+            "es" : "d",
+            "fi" : "d",
+            "fo" : "d",
+            "fr" : "d",
+            "gg" : "d",
+            "gi" : "c",
+            "gr" : "d",
+            "hr" : "d",
+            "hu" : "d",
+            "ie" : "c",
+            "il" : "d",
+            "im" : "d",
+            "is" : "d",
+            "it" : "d",
+            "je" : "d",
+            "lb" : "d",
+            "li" : "d",
+            "lt" : "d",
+            "lu" : "d",
+            "lv" : "d",
+            "ly" : "c",
+            "ma" : "d",
+            "mc" : "d",
+            "md" : "d",
+            "me" : "d",
+            "mk" : "d",
+            "mt" : "c",
+            "nl" : "d",
+            "no" : "d",
+            "pl" : "d",
+            "ps" : "d",
+            "pt" : "c",
+            "ro" : "d",
+            "rs" : "d",
+            "se" : "d",
+            "si" : "d",
+            "sj" : "d",
+            "sk" : "d",
+            "sm" : "d",
+            "sy" : "d",
+            "tn" : "c",
+            "tr" : "d",
+            "ua" : "d",
+            "uk" : "d",
+            "us" : "d",
+            "va" : "d",
+            "world" : "d",
+            "xk" : "d"
          },
          "previous_data" : {
             "agribalyse" : {
@@ -713,76 +718,76 @@
             "grade" : "a-plus",
             "score" : 123
          },
-         "score" : 111,
+         "score" : 37,
          "scores" : {
-            "ad" : 117,
-            "al" : 111,
-            "at" : 115,
-            "ax" : 118,
-            "ba" : 112,
-            "be" : 120,
-            "bg" : 113,
-            "ch" : 118,
-            "cy" : 115,
-            "cz" : 116,
-            "de" : 117,
-            "dk" : 115,
-            "dz" : 116,
-            "ee" : 118,
-            "eg" : 115,
-            "es" : 115,
-            "fi" : 118,
-            "fo" : 117,
-            "fr" : 121,
-            "gg" : 119,
-            "gi" : 111,
-            "gr" : 116,
-            "hr" : 114,
-            "hu" : 114,
-            "ie" : 116,
-            "il" : 115,
-            "im" : 116,
-            "is" : 117,
-            "it" : 116,
-            "je" : 119,
-            "lb" : 115,
-            "li" : 118,
-            "lt" : 118,
-            "lu" : 120,
-            "lv" : 118,
-            "ly" : 117,
-            "ma" : 117,
-            "mc" : 116,
-            "md" : 114,
-            "me" : 115,
-            "mk" : 114,
-            "mt" : 117,
-            "nl" : 119,
-            "no" : 113,
-            "pl" : 114,
-            "ps" : 115,
-            "pt" : 112,
-            "ro" : 114,
-            "rs" : 112,
-            "se" : 113,
-            "si" : 115,
-            "sj" : 117,
-            "sk" : 114,
-            "sm" : 115,
-            "sy" : 114,
-            "tn" : 112,
-            "tr" : 112,
-            "ua" : 115,
-            "uk" : 118,
-            "us" : 111,
-            "va" : 114,
-            "world" : 111,
-            "xk" : 114
+            "ad" : 41,
+            "al" : 43,
+            "at" : 40,
+            "ax" : 43,
+            "ba" : 41,
+            "be" : 44,
+            "bg" : 41,
+            "ch" : 43,
+            "cy" : 43,
+            "cz" : 38,
+            "de" : 44,
+            "dk" : 42,
+            "dz" : 43,
+            "ee" : 43,
+            "eg" : 42,
+            "es" : 44,
+            "fi" : 43,
+            "fo" : 42,
+            "fr" : 42,
+            "gg" : 43,
+            "gi" : 46,
+            "gr" : 44,
+            "hr" : 42,
+            "hu" : 40,
+            "ie" : 45,
+            "il" : 42,
+            "im" : 42,
+            "is" : 42,
+            "it" : 43,
+            "je" : 43,
+            "lb" : 43,
+            "li" : 43,
+            "lt" : 42,
+            "lu" : 43,
+            "lv" : 43,
+            "ly" : 45,
+            "ma" : 42,
+            "mc" : 38,
+            "md" : 42,
+            "me" : 42,
+            "mk" : 42,
+            "mt" : 45,
+            "nl" : 44,
+            "no" : 38,
+            "pl" : 42,
+            "ps" : 43,
+            "pt" : 47,
+            "ro" : 42,
+            "rs" : 41,
+            "se" : 43,
+            "si" : 42,
+            "sj" : 37,
+            "sk" : 39,
+            "sm" : 43,
+            "sy" : 41,
+            "tn" : 45,
+            "tr" : 39,
+            "ua" : 43,
+            "uk" : 44,
+            "us" : 37,
+            "va" : 41,
+            "world" : 37,
+            "xk" : 42
          },
          "status" : "known"
       },
-      "ecoscore_grade" : "a-plus",
-      "ecoscore_score" : 111,
+      "ecoscore_grade" : "d",
+      "ecoscore_score" : 37,
       "image_front_small_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.200.jpg",
       "image_front_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/front_en.2607.400.jpg",
       "image_ingredients_url" : "https://images.openfoodfacts.org/images/products/932/700/674/81501/ingredients_en.2613.400.jpg",
@@ -806,7 +811,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    (Source: ADEME Agribalyse Database)\n                    </p>\n                    ",
+                     "html" : "\n                    <p>The carbon emission figure comes from ADEME's Agribalyse database, for the category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/36018\">Chicken, breast, without skin, cooked</a>\n                    (Source: ADEME Agribalyse Database)\n                    </p>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -833,8 +838,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 17.3412698412698,
-                                 "text" : "17.3 %"
+                                 "percent" : 66.4438502673797,
+                                 "text" : "66.4 %"
                               }
                            ]
                         },
@@ -846,8 +851,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 29.9603174603175,
-                                 "text" : "30.0 %"
+                                 "percent" : 19.2513368983957,
+                                 "text" : "19.3 %"
                               }
                            ]
                         },
@@ -859,8 +864,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 19.1269841269841,
-                                 "text" : "19.1 %"
+                                 "percent" : 6.68449197860962,
+                                 "text" : "6.7 %"
                               }
                            ]
                         },
@@ -872,8 +877,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 28.1746031746032,
-                                 "text" : "28.2 %"
+                                 "percent" : 5.61497326203208,
+                                 "text" : "5.6 %"
                               }
                            ]
                         },
@@ -885,8 +890,8 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 3.31349206349206,
-                                 "text" : "3.3 %"
+                                 "percent" : 0.717914438502674,
+                                 "text" : "0.7 %"
                               }
                            ]
                         },
@@ -898,8 +903,8 @@
                                  "text" : "Consumption"
                               },
                               {
-                                 "percent" : 2.24206349206349,
-                                 "text" : "2.2 %"
+                                 "percent" : 1.29545454545455,
+                                 "text" : "1.3 %"
                               }
                            ]
                         }
@@ -909,14 +914,14 @@
                   }
                }
             ],
-            "evaluation" : "good",
+            "evaluation" : "bad",
             "expanded" : false,
             "level" : "info",
             "title_element" : {
                "icon_color_from_evaluation" : true,
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/car.svg",
-               "subtitle" : "50 g CO₂e per 100g of product",
-               "title" : "Equal to driving 0.3 km in a petrol car"
+               "subtitle" : "748 g CO₂e per 100g of product",
+               "title" : "Equal to driving 3.9 km in a petrol car"
             },
             "topics" : [
                "environment"
@@ -1053,11 +1058,11 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a_plus",
-               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg",
+               "grade" : "d",
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg",
                "name" : "Green-Score",
-               "subtitle" : "Very low environmental impact",
-               "title" : "Green-Score A+",
+               "subtitle" : "High environmental impact",
+               "title" : "Green-Score D",
                "type" : "grade"
             },
             "topics" : [
@@ -1089,7 +1094,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/25903\">Soup, mixed vegetables, prepacked, to be reheated</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 0.07\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 0.50\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
+                     "html" : "\n                    <p>Category: \n                    <a href=\"https://agribalyse.ademe.fr/app/aliments/36018\">Chicken, breast, without skin, cooked</a>\n                    </p>\n                    <ul>\n                        <li>\n                            PEF environmental score: 1.28\n                            (the lower the score, the lower the impact)\n                        </li>\n                        <li>\n                            including impact on climate change: 7.48\n                            kg CO2 eq/kg of product\n                        </li>\n                    </ul>\n                    ",
                      "type" : "summary"
                   }
                },
@@ -1116,8 +1121,8 @@
                                  "text" : "Agriculture"
                               },
                               {
-                                 "percent" : 20.9431345353675,
-                                 "text" : "20.9 %"
+                                 "percent" : 80.46875,
+                                 "text" : "80.5 %"
                               }
                            ]
                         },
@@ -1129,8 +1134,8 @@
                                  "text" : "Processing"
                               },
                               {
-                                 "percent" : 40.0832177531207,
-                                 "text" : "40.1 %"
+                                 "percent" : 10.46875,
+                                 "text" : "10.5 %"
                               }
                            ]
                         },
@@ -1142,8 +1147,8 @@
                                  "text" : "Packaging"
                               },
                               {
-                                 "percent" : 11.5950069348128,
-                                 "text" : "11.6 %"
+                                 "percent" : 2.703125,
+                                 "text" : "2.7 %"
                               }
                            ]
                         },
@@ -1155,8 +1160,8 @@
                                  "text" : "Transportation"
                               },
                               {
-                                 "percent" : 15.1178918169209,
-                                 "text" : "15.1 %"
+                                 "percent" : 2.4609375,
+                                 "text" : "2.5 %"
                               }
                            ]
                         },
@@ -1168,8 +1173,8 @@
                                  "text" : "Distribution"
                               },
                               {
-                                 "percent" : 6.40776699029126,
-                                 "text" : "6.4 %"
+                                 "percent" : 1,
+                                 "text" : "1.0 %"
                               }
                            ]
                         },
@@ -1181,8 +1186,8 @@
                                  "text" : "Consumption"
                               },
                               {
-                                 "percent" : 5.93619972260749,
-                                 "text" : "5.9 %"
+                                 "percent" : 2.8671875,
+                                 "text" : "2.9 %"
                               }
                            ]
                         }
@@ -1194,12 +1199,12 @@
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a_plus",
+               "grade" : "e",
                "icon_color_from_evaluation" : true,
                "icon_size" : "small",
                "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/lca.svg",
-               "subtitle" : "Category: Soup, mixed vegetables, prepacked, to be reheated",
-               "title" : "Average impact of products of the same category: A+ (Score: 98/100)",
+               "subtitle" : "Category: Chicken, breast, without skin, cooked",
+               "title" : "Average impact of products of the same category: E (Score: 24/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1237,7 +1242,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "France"
+                                 "text" : "Portugal"
                               },
                               {
                                  "evaluation" : "neutral",
@@ -1387,17 +1392,17 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n                Life cycle analysis score: 98<br>\n                Sum of bonuses and maluses:\n                    \n                        +13\n                    <br><br>\n                Final score: 100/100\n                ",
+                     "html" : "\n                Life cycle analysis score: 24<br>\n                Sum of bonuses and maluses:\n                    \n                        +13\n                    <br><br>\n                Final score: 37/100\n                ",
                      "type" : "summary"
                   }
                }
             ],
             "level" : "info",
             "title_element" : {
-               "grade" : "a_plus",
-               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-a-plus.svg",
+               "grade" : "d",
+               "icon_url" : "https://static.openfoodfacts.org/images/attributes/dist/green-score-d.svg",
                "subtitle" : "Product: A good product for you – Open Food Facts – 200 gr",
-               "title" : "Impact for this product: A+ (Score: 100/100)",
+               "title" : "Impact for this product: D (Score: 37/100)",
                "type" : "grade"
             },
             "topics" : [
@@ -1904,7 +1909,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Category: Meals</li>\n            \n                <li>Ingredient: salt</li>\n            \n            </ul>\n        \n    \n\n"
+                     "html" : "\n\n    \n        \n            <p>Elements that indicate the product is in the 3 - Processed foods group:</p>\n            <ul>\n            \n                <li>Ingredient: salt</li>\n            \n            </ul>\n        \n    \n\n"
                   }
                },
                {
@@ -2410,7 +2415,7 @@
                         {
                            "column_group_id" : "comparisons",
                            "shown_by_default" : true,
-                           "text" : "Compared to: Vegetable soups",
+                           "text" : "Compared to: Cooked chicken",
                            "type" : "text"
                         }
                      ],
@@ -2427,7 +2432,7 @@
                                  "text" : "120 kJ<br>(30 kcal)"
                               },
                               {
-                                 "text" : "312.711 kj (65 kcal) (-62%)"
+                                 "text" : "823.162 kj (193 kcal) (-85%)"
                               }
                            ]
                         },
@@ -2442,7 +2447,7 @@
                                  "text" : "0.5 g"
                               },
                               {
-                                 "text" : "1.865 g (-73%)"
+                                 "text" : "9.183 g (-95%)"
                               }
                            ]
                         },
@@ -2457,7 +2462,7 @@
                                  "text" : "0.2 g"
                               },
                               {
-                                 "text" : "0.468 g (-57%)"
+                                 "text" : "1.757 g (-89%)"
                               }
                            ]
                         },
@@ -2472,7 +2477,7 @@
                                  "text" : "0.4 g"
                               },
                               {
-                                 "text" : "0.711 g (-44%)"
+                                 "text" : "1.317 g (-70%)"
                               }
                            ]
                         },
@@ -2487,7 +2492,7 @@
                                  "text" : "0.16 g"
                               },
                               {
-                                 "text" : "0.297 g (-46%)"
+                                 "text" : "0.513 g (-69%)"
                               }
                            ]
                         },
@@ -2517,7 +2522,7 @@
                                  "text" : "3 g"
                               },
                               {
-                                 "text" : "1.607 g (+87%)"
+                                 "text" : "0.335 g (+795%)"
                               }
                            ]
                         },
@@ -2532,7 +2537,7 @@
                                  "text" : "0.5 g"
                               },
                               {
-                                 "text" : "3.005 g (-83%)"
+                                 "text" : "0.716 g (-30%)"
                               }
                            ]
                         },
@@ -2547,7 +2552,7 @@
                                  "text" : "1 g"
                               },
                               {
-                                 "text" : "2.641 g (-62%)"
+                                 "text" : "17.765 g (-94%)"
                               }
                            ]
                         },
@@ -2577,7 +2582,7 @@
                                  "text" : "~ 60.19 %"
                               },
                               {
-                                 "text" : "40.425 % (+49%)"
+                                 "text" : "1.37 % (+4,293%)"
                               }
                            ]
                         },
@@ -2592,7 +2597,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "9.522 g (-58%)"
+                                 "text" : "9.911 g (-60%)"
                               }
                            ]
                         }
@@ -2663,7 +2668,7 @@
                                  "text" : "120 kJ<br>(29 kcal)"
                               },
                               {
-                                 "text" : "~ 65.7308 kJ<br>(15 kcal)"
+                                 "text" : "~ 65.7503 kJ<br>(15 kcal)"
                               }
                            ]
                         },
@@ -2681,7 +2686,7 @@
                                  "text" : "0.5 g"
                               },
                               {
-                                 "text" : "~ 0.075176 g"
+                                 "text" : "~ 0.075196 g"
                               }
                            ]
                         },
@@ -2699,7 +2704,7 @@
                                  "text" : "0.2 g"
                               },
                               {
-                                 "text" : "~ 0.009252 g"
+                                 "text" : "~ 0.0092554 g"
                               }
                            ]
                         },
@@ -2717,7 +2722,7 @@
                                  "text" : "0.4 g"
                               },
                               {
-                                 "text" : "~ 0.2143522 g"
+                                 "text" : "~ 0.214359 g"
                               }
                            ]
                         },
@@ -2735,7 +2740,7 @@
                                  "text" : "0.16 g"
                               },
                               {
-                                 "text" : "~ 0.08524696 g"
+                                 "text" : "~ 0.08524956 g"
                               }
                            ]
                         },
@@ -2771,7 +2776,7 @@
                                  "text" : "3 g"
                               },
                               {
-                                 "text" : "~ 0.769886 g"
+                                 "text" : "~ 0.770086 g"
                               }
                            ]
                         },
@@ -2789,7 +2794,7 @@
                                  "text" : "0.5 g"
                               },
                               {
-                                 "text" : "~ 1.528711 g"
+                                 "text" : "~ 1.529087 g"
                               }
                            ]
                         },
@@ -2807,7 +2812,7 @@
                                  "text" : "1 g"
                               },
                               {
-                                 "text" : "~ 0.34408 g"
+                                 "text" : "~ 0.34419 g"
                               }
                            ]
                         },
@@ -2861,7 +2866,7 @@
                                  "text" : "4 g"
                               },
                               {
-                                 "text" : "~ 3.09778 g"
+                                 "text" : "~ 3.0987 g"
                               }
                            ]
                         }
@@ -2904,7 +2909,7 @@
                         {
                            "values" : [
                               {
-                                 "text" : "France"
+                                 "text" : "Portugal"
                               },
                               {
                                  "evaluation" : "neutral",
@@ -2970,7 +2975,7 @@
                   "element_type" : "text",
                   "text_element" : {
                      "evaluation" : "good",
-                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass: 300 g)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel: 3 g)\n                                    \n                                    \n                                        - In contact with food\n                                    \n                                    <br>\n                            \n                        \n                        ",
+                     "html" : "\n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle\n                                    \n                                </strong>\n                                    \n                                        (Glass: 300 g)\n                                    \n                                    \n                                        \n                                            - In contact with food\n                                        \n                                    \n                                    <br>\n                            \n                        \n                            \n                                1 × \n                                <strong>\n                                    Bottle cap\n                                    \n                                </strong>\n                                    \n                                        (Steel: 3 g)\n                                    \n                                    \n                                        \n                                            - In contact with food\n                                        \n                                    \n                                    <br>\n                            \n                        \n                        ",
                      "icon_alt" : "recycle",
                      "icon_color_from_evaluation" : true,
                      "icon_url" : "https://static.openfoodfacts.org/images/icons/dist/recycle-variant.svg",
@@ -3204,7 +3209,7 @@
                {
                   "element_type" : "text",
                   "text_element" : {
-                     "html" : "\n        <ul>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/origins/France\">France</a></li>\n            \n        </ul>\n        "
+                     "html" : "\n        <ul>\n            \n                <li><a href=\"https://us.openfoodfacts.org/facets/origins/Portugal\">Portugal</a></li>\n            \n        </ul>\n        "
                   }
                }
             ],
@@ -3396,39 +3401,39 @@
          "sugars_value" : 0.5
       },
       "nutriments_estimated" : {
-         "beta-carotene_100g" : 0.0009390136,
-         "calcium_100g" : 0.012409937,
+         "beta-carotene_100g" : 0.0009390734,
+         "calcium_100g" : 0.012413597,
          "cholesterol_100g" : 0,
-         "copper_100g" : 3.87573e-05,
-         "fructose_100g" : 0.483926,
+         "copper_100g" : 3.87699e-05,
+         "fructose_100g" : 0.484084,
          "galactose_100g" : 0,
-         "glucose_100g" : 0.458345,
-         "iodine_100g" : 4.74094e-06,
-         "iron_100g" : 0.000246094,
-         "lactose_100g" : 0.05952,
-         "magnesium_100g" : 0.004283255,
-         "maltose_100g" : 0.0596625,
-         "manganese_100g" : 9.61205e-05,
-         "pantothenic-acid_100g" : 0.000115368,
-         "phosphorus_100g" : 0.01149541,
-         "phylloquinone_100g" : 2.805462e-06,
-         "polyols_100g" : 0.1489064,
-         "potassium_100g" : 0.14129206,
-         "selenium_100g" : 2.17448e-06,
-         "starch_100g" : 0.567682,
-         "sucrose_100g" : 0.436157,
+         "glucose_100g" : 0.458485,
+         "iodine_100g" : 4.74104e-06,
+         "iron_100g" : 0.00024618,
+         "lactose_100g" : 0.05954,
+         "magnesium_100g" : 0.004284505,
+         "maltose_100g" : 0.0596825,
+         "manganese_100g" : 9.61545e-05,
+         "pantothenic-acid_100g" : 0.000115406,
+         "phosphorus_100g" : 0.01149907,
+         "phylloquinone_100g" : 2.806434e-06,
+         "polyols_100g" : 0.1489564,
+         "potassium_100g" : 0.14133906,
+         "selenium_100g" : 2.174946e-06,
+         "starch_100g" : 0.567872,
+         "sucrose_100g" : 0.436177,
          "vitamin-a_100g" : 0,
          "vitamin-b12_100g" : 0,
-         "vitamin-b1_100g" : 7.9356e-06,
-         "vitamin-b2_100g" : 2.16449e-05,
-         "vitamin-b6_100g" : 5.83172e-05,
-         "vitamin-b9_100g" : 2.684919e-05,
-         "vitamin-c_100g" : 0.002540928,
+         "vitamin-b1_100g" : 7.9376e-06,
+         "vitamin-b2_100g" : 2.16533e-05,
+         "vitamin-b6_100g" : 5.83364e-05,
+         "vitamin-b9_100g" : 2.685759e-05,
+         "vitamin-c_100g" : 0.002541848,
          "vitamin-d_100g" : 0,
-         "vitamin-e_100g" : 0.000107601,
-         "vitamin-pp_100g" : 0.000229075,
-         "water_100g" : 65.0031413,
-         "zinc_100g" : 0.0001245132
+         "vitamin-e_100g" : 0.000107633,
+         "vitamin-pp_100g" : 0.000229163,
+         "water_100g" : 65.0218013,
+         "zinc_100g" : 0.0001245552
       },
       "nutrition_data" : "on",
       "nutrition_data_per" : "100g",
