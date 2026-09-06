@@ -4761,7 +4761,7 @@
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
-  "product_page_for_me_attributes_group_bad_matches": "Dårlige kampe",
+  "product_page_for_me_attributes_group_bad_matches": "Dårlige matches",
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
