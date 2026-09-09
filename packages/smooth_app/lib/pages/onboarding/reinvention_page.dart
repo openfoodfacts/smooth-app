@@ -39,6 +39,9 @@ class OnboardingHomePage extends StatelessWidget {
                   await userPreferences.setCrashReports(true);
                   await userPreferences.setUserTracking(true);
 
+                  /// Consent now exists, so the first open can be reported.
+                  await userPreferences.trackFirstOpenAfterConsent();
+
                   if (context.mounted) {
                     await OnboardingLoader(
                       localDatabase,

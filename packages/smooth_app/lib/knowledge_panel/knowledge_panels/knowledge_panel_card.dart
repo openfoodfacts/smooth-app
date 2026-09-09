@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
@@ -61,15 +62,26 @@ class KnowledgePanelCard extends StatelessWidget {
       borderRadius: ANGULAR_BORDER_RADIUS,
       onTap: !improvedIsClickable
           ? null
-          : () async => Navigator.push<Widget>(
-              context,
-              MaterialPageRoute<Widget>(
-                builder: (BuildContext context) => SmoothBrightnessOverride(
-                  brightness: SmoothBrightnessOverride.of(context)?.brightness,
-                  child: KnowledgePanelPage(panelId: panelId, product: product),
+          : () async {
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.knowledgePanelOpen,
+                action: panelId,
+              );
+              await Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => SmoothBrightnessOverride(
+                    brightness: SmoothBrightnessOverride.of(
+                      context,
+                    )?.brightness,
+                    child: KnowledgePanelPage(
+                      panelId: panelId,
+                      product: product,
+                    ),
+                  ),
                 ),
-              ),
-            ),
+              );
+            },
       child:
           panel.getPanelSummaryWidget(
             product,

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -86,6 +87,7 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_USER_TRACKING = 'user_tracking';
+  static const String _TAG_FIRST_OPEN_TRACKED = 'firstOpenTracked';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
@@ -152,6 +154,21 @@ class UserPreferences extends ChangeNotifier {
     }
     await productPreferences.resetImportances();
     await _sharedPreferences.setBool(_TAG_INIT, true);
+  }
+
+  /// Tracks the first app open, once the user has given tracking consent.
+  ///
+  /// Deliberately not called by [init]: on a brand new install [init] runs
+  /// before the onboarding consent tap, and we do not track before consent.
+  /// Called from the onboarding welcome page, right after consent is stored.
+  Future<void> trackFirstOpenAfterConsent() async {
+    if (_sharedPreferences.getBool(_TAG_FIRST_OPEN_TRACKED) == true) {
+      return;
+    }
+    // `setBool` writes the in-memory cache before it awaits the platform, so
+    // the undebounced consent button cannot get two events out of a double tap.
+    await _sharedPreferences.setBool(_TAG_FIRST_OPEN_TRACKED, true);
+    AnalyticsHelper.trackEvent(AnalyticsEvent.appFirstOpen);
   }
 
   /// Allow to migrate between versions
@@ -371,10 +388,18 @@ class UserPreferences extends ChangeNotifier {
   String? get userCurrencyCode =>
       _sharedPreferences.getString(_TAG_USER_CURRENCY_CODE);
 
+  /// ⚠️ This reports the onboarding funnel, so it must stay AFTER consent.
+  /// It is today: the first call comes from the welcome page's tap handler,
+  /// which awaits `setUserTracking(true)` first. A new entry point that
+  /// navigated before that tap would report before consent.
   Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async {
     await _sharedPreferences.setInt(
       _TAG_LAST_VISITED_ONBOARDING_PAGE,
       page.index,
+    );
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.onboardingPageVisited,
+      action: page.name,
     );
     notifyListeners();
   }
