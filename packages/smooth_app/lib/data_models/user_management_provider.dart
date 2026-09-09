@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -13,6 +14,9 @@ class UserManagementProvider with ChangeNotifier {
   static const String _USER_ID = 'user_id';
   static const String _PASSWORD = 'pasword';
   static const String _COOKIE = 'user_cookie';
+  static const String _USER_DETAILS = 'user_details';
+
+  static UserDetails? globalUserDetails;
 
   /// Checks credentials and conditionally saves them.
   Future<LoginResult> login(
@@ -27,16 +31,31 @@ class UserManagementProvider with ChangeNotifier {
       return loginResult;
     }
     await putUser(loginResult.user!);
+    await _saveUserDetails(loginResult.userDetails);
     await credentialsInStorage();
     return loginResult;
+  }
+
+  /// Saves user details to storage
+  Future<void> _saveUserDetails(UserDetails? userDetails) async {
+    globalUserDetails = userDetails;
+    if (userDetails != null) {
+      final String jsonString = jsonEncode(userDetails.toJson());
+      await DaoSecuredString.put(key: _USER_DETAILS, value: jsonString);
+    } else {
+      DaoSecuredString.remove(key: _USER_DETAILS);
+    }
+    notifyListeners();
   }
 
   /// Deletes saved credentials from storage
   Future<bool> logout() async {
     OpenFoodAPIConfiguration.globalUser = null;
+    globalUserDetails = null;
     DaoSecuredString.remove(key: _USER_ID);
     DaoSecuredString.remove(key: _PASSWORD);
     DaoSecuredString.remove(key: _COOKIE);
+    DaoSecuredString.remove(key: _USER_DETAILS);
     notifyListeners();
     final bool contains = await credentialsInStorage();
     return !contains;
@@ -52,17 +71,20 @@ class UserManagementProvider with ChangeNotifier {
     String? effectiveUserId;
     String? effectivePassword;
     String? effectiveCookie;
+    String? userDetailsJson;
 
     try {
       effectiveUserId = userId ?? await DaoSecuredString.get(_USER_ID);
       effectivePassword = password ?? await DaoSecuredString.get(_PASSWORD);
       effectiveCookie = await DaoSecuredString.get(_COOKIE);
+      userDetailsJson = await DaoSecuredString.get(_USER_DETAILS);
     } on PlatformException {
       /// Decrypting the values can go wrong if, for example, the app was
       /// manually overwritten from an external apk.
       DaoSecuredString.remove(key: _USER_ID);
       DaoSecuredString.remove(key: _PASSWORD);
       DaoSecuredString.remove(key: _COOKIE);
+      DaoSecuredString.remove(key: _USER_DETAILS);
       Logs.e('Credentials query failed, you have been logged out');
     }
 
@@ -76,6 +98,17 @@ class UserManagementProvider with ChangeNotifier {
       cookie: effectiveCookie,
     );
     OpenFoodAPIConfiguration.globalUser = user;
+
+    // Restore complete UserDetails from JSON
+    if (userDetailsJson != null && userDetailsJson.isNotEmpty) {
+      try {
+        final Map<String, dynamic> json = jsonDecode(userDetailsJson);
+        globalUserDetails = UserDetails.fromJson(json);
+      } catch (e) {
+        Logs.e('Failed to parse UserDetails: $e');
+        DaoSecuredString.remove(key: _USER_DETAILS);
+      }
+    }
   }
 
   /// Checks if any credentials exist in storage
@@ -117,9 +150,10 @@ class UserManagementProvider with ChangeNotifier {
       return;
     }
 
-    /// Save the cookie if necessary
+    /// Save the cookie and user details if necessary
     if (user.cookie == null && loginResult.user?.cookie != null) {
-      putUser(loginResult.user!);
+      await putUser(loginResult.user!);
+      await _saveUserDetails(loginResult.userDetails);
     }
   }
 }
