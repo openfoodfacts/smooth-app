@@ -5894,5 +5894,63 @@
         "type": "String"
       }
     }
+  },
+  "donation_page_headline": "Open Food Facts is funded by the people who use it",
+  "@donation_page_headline": {
+    "description": "Headline at the top of the donation page"
+  },
+  "donation_where_it_goes_title": "Where it goes",
+  "@donation_where_it_goes_title": {
+    "description": "Title of the block listing what a donation pays for"
+  },
+  "donation_where_it_goes_servers": "Servers and storage",
+  "@donation_where_it_goes_servers": {
+    "description": "First thing a donation pays for"
+  },
+  "donation_where_it_goes_engineer": "One full-time engineer",
+  "@donation_where_it_goes_engineer": {
+    "description": "Second thing a donation pays for"
+  },
+  "donation_where_it_goes_services": "Services and tooling",
+  "@donation_where_it_goes_services": {
+    "description": "Third thing a donation pays for"
+  },
+  "donation_tiers_title": "Monthly, cancel any time",
+  "@donation_tiers_title": {
+    "description": "Title of the block listing the monthly donation amounts"
+  },
+  "donation_tier_amount_monthly": "{amount} a month",
+  "@donation_tier_amount_monthly": {
+    "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_tier_scans": "pays for {scans} scans",
+  "@donation_tier_scans": {
+    "description": "How many product scans a monthly donation covers, as an approximation",
+    "placeholders": {
+      "scans": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_custom_amount_hint": "Custom amount",
+  "@donation_custom_amount_hint": {
+    "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
+  },
+  "donation_custom_amount_error": "Enter an amount",
+  "@donation_custom_amount_error": {
+    "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
+  },
+  "donation_cta_monthly": "Support monthly",
+  "@donation_cta_monthly": {
+    "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
+  },
+  "donation_cta_one_off": "Give once instead",
+  "@donation_cta_one_off": {
+    "description": "Secondary link of the donation page, opens the donation form for a single gift"
   }
 }
