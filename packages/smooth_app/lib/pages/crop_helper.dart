@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
@@ -26,8 +25,9 @@ abstract class CropHelper {
   Future<CropParameters?> process({
     required final BuildContext context,
     required final CropController controller,
-    required final ui.Image image,
     required final File inputFile,
+    required final int inputFullWidth,
+    required final int inputFullHeight,
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,

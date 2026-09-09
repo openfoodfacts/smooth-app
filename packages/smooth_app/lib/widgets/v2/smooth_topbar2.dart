@@ -78,7 +78,10 @@ class _SmoothTopBar2State extends State<SmoothTopBar2> {
   }
 
   void _onScroll() {
-    final double offset = PrimaryScrollController.of(context).offset;
+    final double? offset = PrimaryScrollController.maybeOf(context)?.offset;
+    if (offset == null) {
+      return;
+    }
     final double newProgress = offset.progressAndClamp(
       0.0,
       HEADER_ROUNDED_RADIUS.x * 2.0,
