@@ -1137,7 +1137,7 @@
       }
     }
   },
-  "tagline_feed_funding_months_left": "{months,plural, one {} two {נותרו חודשיים} many {נותרו {months} חודשים}=1{נותר חודש} other{נותרו {months} חודשים}}",
+  "tagline_feed_funding_months_left": "{months,plural, two {נותרו חודשיים} many {נותרו {months} חודשים}=1{נותר חודש} other{נותרו {months} חודשים}}",
   "@tagline_feed_funding_months_left": {
     "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
     "placeholders": {
