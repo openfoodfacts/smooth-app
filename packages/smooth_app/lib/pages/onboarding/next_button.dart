@@ -49,13 +49,22 @@ class NextButton extends StatelessWidget {
             ),
       rightButton: OnboardingBottomButton(
         onPressed: () async {
-          await OnboardingLoader(
-            localDatabase,
-          ).runAtNextTime(currentPage, context);
-          if (context.mounted) {
-            await navigator.navigateToPage(context, currentPage.getNextPage());
-          }
-        },
+  try {
+    await OnboardingLoader(
+      localDatabase,
+    ).runAtNextTime(currentPage, context);
+  } catch (_) {
+    // Prevent async preload from blocking onboarding navigation
+  }
+
+  if (context.mounted) {
+    await navigator.navigateToPage(
+      context,
+      currentPage.getNextPage(),
+    );
+  }
+},
+
         backgroundColor: Colors.black,
         foregroundColor: Colors.white,
         label: appLocalizations.next_label,
