@@ -79,87 +79,97 @@ class TextHighlighter extends StatelessWidget {
     );
   }
 
-  /// Returns a List containing parts of the text with the right style
-  /// according to the [filter]
+  /// Returns a List containing parts of the [text] with the right style
+  /// according to the [filter].
+  ///
+  /// Matching is case and diacritic insensitive. Normalizing a character
+  /// (lower-casing it and removing its diacritics) can change its length —
+  /// for instance "ß" becomes "ss" — so positions found on the normalized
+  /// text cannot be reused directly on the original [text]. To stay correct,
+  /// we build the normalized text together with a mapping back to the original
+  /// indices, which guarantees every [String.substring] call below stays in
+  /// bounds instead of throwing a `RangeError`.
+  ///
+  /// See https://github.com/openfoodfacts/smooth-app/issues/7714.
   List<(String, TextStyle?)> _getParts({
     required TextStyle? defaultStyle,
     required TextStyle? highlightedStyle,
   }) {
-    final String filterWithoutDiacritics = filter.getComparisonSafeString();
-    final String textWithoutDiacritics = text.getComparisonSafeString();
+    final String safeFilter = filter.getComparisonSafeString().trim();
+    if (safeFilter.isEmpty) {
+      return <(String, TextStyle?)>[(text, defaultStyle)];
+    }
+
+    // [normalizedToOriginal[i]] is the index in [text] that produced the i-th
+    // code unit of [normalizedText]. A trailing entry equal to [text.length]
+    // lets a match ending at the very end of the text map back correctly.
+    final StringBuffer normalizedBuffer = StringBuffer();
+    final List<int> normalizedToOriginal = <int>[];
+    for (int i = 0; i < text.length; i++) {
+      final String normalizedChar = text[i].getComparisonSafeString();
+      for (int j = 0; j < normalizedChar.length; j++) {
+        normalizedToOriginal.add(i);
+      }
+      normalizedBuffer.write(normalizedChar);
+    }
+    normalizedToOriginal.add(text.length);
+    final String normalizedText = normalizedBuffer.toString();
 
     final Iterable<RegExpMatch> highlightedParts = RegExp(
-      RegExp.escape(filterWithoutDiacritics.trim()),
-    ).allMatches(textWithoutDiacritics);
-
-    final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
+      RegExp.escape(safeFilter),
+    ).allMatches(normalizedText);
 
     if (highlightedParts.isEmpty) {
-      parts.add((text, defaultStyle));
-    } else {
-      parts.add((
-        text.substring(0, highlightedParts.first.start),
-        defaultStyle,
-      ));
-      int diff = 0;
+      return <(String, TextStyle?)>[(text, defaultStyle)];
+    }
 
-      for (int i = 0; i != highlightedParts.length; i++) {
-        final RegExpMatch subPart = highlightedParts.elementAt(i);
-        final int startPosition = subPart.start - diff;
-        final int endPosition = _computeEndPosition(
-          startPosition,
-          subPart.end - diff,
-          subPart,
-          textWithoutDiacritics,
-          filterWithoutDiacritics,
-        );
-        diff = subPart.end - endPosition;
+    final List<(String, TextStyle?)> parts = <(String, TextStyle?)>[];
+    int lastOriginalIndex = 0;
+    for (final RegExpMatch match in highlightedParts) {
+      // Only accept matches whose start and end land on real character
+      // boundaries of the original text. A boundary is the first normalized
+      // code unit of an original character (or the very end of the text); an
+      // edge that falls *inside* an expanded character — e.g. between the "t"
+      // and "h" that "þ" normalizes to — cannot be highlighted consistently,
+      // so the whole match is skipped.
+      final int start = match.start;
+      final int end = match.end;
+      final bool startOnBoundary =
+          start == 0 ||
+          normalizedToOriginal[start] != normalizedToOriginal[start - 1];
+      final bool endOnBoundary =
+          end == normalizedToOriginal.length - 1 ||
+          normalizedToOriginal[end] != normalizedToOriginal[end - 1];
+      if (!startOnBoundary || !endOnBoundary) {
+        continue;
+      }
 
+      final int startPosition = normalizedToOriginal[start];
+      final int endPosition = normalizedToOriginal[end];
+
+      // Extra safety: never emit an empty or backwards range.
+
+      // Skip matches that would produce an empty or backwards range, e.g. when
+      // the match falls entirely inside a single expanded character.
+      if (endPosition <= startPosition || startPosition < lastOriginalIndex) {
+        continue;
+      }
+
+      if (startPosition > lastOriginalIndex) {
         parts.add((
-          text.substring(startPosition, endPosition),
-          highlightedStyle,
+          text.substring(lastOriginalIndex, startPosition),
+          defaultStyle,
         ));
-
-        if (i < highlightedParts.length - 1) {
-          parts.add((
-            text.substring(
-              endPosition,
-              highlightedParts.elementAt(i + 1).start - diff,
-            ),
-            defaultStyle,
-          ));
-        } else if (endPosition < text.length) {
-          parts.add((text.substring(endPosition, text.length), defaultStyle));
-        }
       }
+      parts.add((text.substring(startPosition, endPosition), highlightedStyle));
+      lastOriginalIndex = endPosition;
     }
+
+    if (lastOriginalIndex < text.length) {
+      parts.add((text.substring(lastOriginalIndex), defaultStyle));
+    }
+
     return parts;
-  }
-
-  int _computeEndPosition(
-    int startPosition,
-    int endPosition,
-    RegExpMatch subPart,
-    String textWithoutDiacritics,
-    String filterWithoutDiacritics,
-  ) {
-    final String subText = text.substring(startPosition);
-    if (subText.startsWith(filterWithoutDiacritics)) {
-      return endPosition;
-    }
-
-    int diff = 0;
-    for (int pos = 0; pos < endPosition; pos++) {
-      if (pos == subText.length - 1) {
-        diff = pos - subText.length;
-        break;
-      }
-
-      final int charLength = subText[pos].removeDiacritics().length;
-      diff -= charLength > 1 ? charLength - 1 : 0;
-    }
-
-    return endPosition + diff;
   }
 }
 
