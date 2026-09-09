@@ -4,19 +4,15 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
 import 'package:smooth_app/helpers/html_extension.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_cell_width_computer.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-
-/// Cells with a lot of text can get very large, we don't want to allocate
-/// most of [availableWidth] to columns with large cells. So we cap the cell length
-/// considered for width allocation to [kMaxCellLengthInARow]. Cells with
-/// text larger than this limit will be wrapped in multiple rows.
-const int kMaxCellLengthInARow = 40;
 
 /// Minimum length of a cell, without this a column may look unnaturally small
 /// when put next to larger columns.
@@ -52,11 +48,15 @@ class TableCell {
     required this.color,
     required this.isHeader,
     this.columnGroup,
+    this.iconUrl,
+    this.percent,
   });
 
   final String text;
   final Color? color;
   final bool isHeader;
+  final String? iconUrl;
+  final double? percent;
 
   // [columnGroup] is set only for cells that have [isHeader = true]. This is used
   // to show a dropdown of other column headers in the group for this column.
@@ -81,18 +81,27 @@ class KnowledgePanelTableCard extends StatefulWidget {
 
 class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
   final List<ColumnGroup> _columnGroups = <ColumnGroup>[];
-  final List<int> _columnsMaxLength = <int>[];
+  final List<double> _columnsMaxLength = <double>[];
   final List<_TableCellType> _columnsType = <_TableCellType>[];
 
-  @override
-  void initState() {
-    super.initState();
-    _initColumnGroups();
-    _initColumnsMaxLength();
-  }
+  bool _init = true;
 
   @override
   Widget build(BuildContext context) {
+    if (_init) {
+      _init = false;
+      final KnowledgePanelTableCellWidthComputer computer =
+          KnowledgePanelTableCellWidthComputer(
+            textScaler: MediaQuery.textScalerOf(context),
+            textStyle: DefaultTextStyle.of(context).style,
+            headerTextStyle: DefaultTextStyle.of(
+              context,
+            ).style.merge(const TextStyle(fontWeight: FontWeight.bold)),
+          );
+      _initColumnGroups();
+      _initColumnsMaxLength(computer);
+    }
+
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         final List<List<Widget>> rowsWidgets = _buildRowWidgets(
@@ -136,7 +145,6 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           );
           break;
         case KnowledgePanelColumnType.PERCENT:
-          // TODO(jasmeet): Implement percent knowledge panels.
           rows[0].add(
             TableCell(
               text: text,
@@ -164,6 +172,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
               cell.evaluation ?? Evaluation.UNKNOWN,
             ),
             isHeader: false,
+            iconUrl: cell.iconUrl,
+            percent: cell.percent,
           ),
         );
       }
@@ -179,8 +189,8 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     final double availableWidth = constraints.maxWidth - LARGE_SPACE;
     // We now allocate width to each column as follows:
     // [availableWidth] / [column's largest cell width] * [totalMaxColumnWidth].
-    final int totalMaxColumnWidth = _columnsMaxLength.reduce(
-      (int sum, int width) => sum + width,
+    final double totalMaxColumnWidth = _columnsMaxLength.reduce(
+      (double sum, double width) => sum + width,
     );
 
     final List<List<Widget>> rowsWidgets = <List<Widget>>[];
@@ -293,14 +303,21 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     }
   }
 
-  void _initColumnsMaxLength() {
+  void _initColumnsMaxLength(
+    final KnowledgePanelTableCellWidthComputer computer,
+  ) {
+    // TODO(monsieurtanuki): use computer more often, instead of using that default character width?
+    final double lousyLetterWidth = computer
+        .computeTextSize('0', computer.textStyle)
+        .width;
+
     final List<List<TableCell>> rows = _buildRowCells();
 
     for (final List<TableCell> row in rows) {
       int index = 0;
       for (final TableCell cell in row) {
         if (cell.isHeader) {
-          _TableCellType type;
+          final _TableCellType type;
           if (cell.text == '100g') {
             type = _TableCellType.PER_100G;
           } else if (cell.text == '%') {
@@ -312,10 +329,10 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           // Set value for the header row.
           _columnsMaxLength.add(
             math.max(
-              cell.text.length,
+              cell.text.length * lousyLetterWidth,
               type != _TableCellType.TEXT
-                  ? kMinCellLengthInARowValue
-                  : kMinCellLengthInARow,
+                  ? kMinCellLengthInARowValue * lousyLetterWidth
+                  : kMinCellLengthInARow * lousyLetterWidth,
             ),
           );
 
@@ -325,12 +342,24 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
           if (_columnsType[index] != _TableCellType.TEXT) {
             _columnsMaxLength[index] = math.max(
               _columnsMaxLength[index],
-              cell.text.split('(')[0].length,
+              cell.text.split('(')[0].length * lousyLetterWidth,
             );
           } else {
+            double cellWidth =
+                cell.text.split(' ')[0].length * lousyLetterWidth;
+            if (cell.iconUrl != null) {
+              cellWidth +=
+                  _TableCellWidget.cellItemSize +
+                  2 * _TableCellWidget.cellItemPadding;
+            }
+            if (cell.percent != null) {
+              cellWidth +=
+                  _TableCellWidget.cellPercentageWidth +
+                  2 * _TableCellWidget.cellItemPadding;
+            }
             _columnsMaxLength[index] = math.max(
               _columnsMaxLength[index],
-              cell.text.split(' ')[0].length,
+              cellWidth,
             );
           }
         }
@@ -339,13 +368,16 @@ class _KnowledgePanelTableCardState extends State<KnowledgePanelTableCard> {
     }
 
     /// Ensure the columns are not too wide or too narrow.
-    final int sum = _columnsMaxLength.sum;
-    final int maxWidth = math.max((sum ~/ _columnsMaxLength.length) - 4, 1);
-    final int minWidth = math.max(maxWidth ~/ 4, 1);
+    final double sum = _columnsMaxLength.sum;
+    final double maxWidth = math.max((sum / _columnsMaxLength.length) - 4, 1);
+    final double minWidth = math.max(maxWidth / 4, 1);
 
     for (int i = 0; i < _columnsMaxLength.length; i++) {
       if (_columnsType[i] == _TableCellType.PERCENT) {
-        _columnsMaxLength[i] = math.max(_columnsMaxLength[i] + 2, minWidth);
+        _columnsMaxLength[i] = math.max(
+          _columnsMaxLength[i] + 2 * lousyLetterWidth,
+          minWidth,
+        );
       } else if (_columnsType[i] == _TableCellType.PER_100G) {
         _columnsMaxLength[i] = math.max(_columnsMaxLength[i], minWidth);
       } else if (_columnsMaxLength[i] > maxWidth) {
@@ -397,6 +429,10 @@ class _TableCellWidget extends StatefulWidget {
   final KnowledgePanelTableElement tableElement;
   final void Function(VoidCallback fn) rebuildTable;
   final bool isInitiallyExpanded;
+
+  static const double cellItemSize = DEFAULT_ICON_SIZE;
+  static const double cellItemPadding = VERY_SMALL_SPACE;
+  static const double cellPercentageWidth = 4 * cellItemSize;
 
   @override
   State<_TableCellWidget> createState() => _TableCellWidgetState();
@@ -496,8 +532,63 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
           ''');
     }
 
+    final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
+    final Color? foreground, background;
+    if (isDark) {
+      foreground = Colors.white.withAlpha(192);
+      background = Colors.black.withAlpha(192);
+    } else {
+      foreground = Colors.black.withAlpha(192);
+      background = Colors.grey.withAlpha(64);
+    }
+
+    final Widget? iconWidget = widget.cell.iconUrl == null
+        ? null
+        : Padding(
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+            child: AbstractCache.best(
+              iconUrl: widget.cell.iconUrl,
+              width: _TableCellWidget.cellItemSize,
+              height: _TableCellWidget.cellItemSize,
+              color: foreground,
+            ),
+          );
+    final double? clampedPercent = widget.cell.percent == null
+        ? null
+        : clampDouble(widget.cell.percent!, 0, 100);
+    final Widget? percentWidget = clampedPercent == null
+        ? null
+        : Padding(
+            padding: const EdgeInsets.all(VERY_SMALL_SPACE),
+            child: Row(
+              children: <Widget>[
+                Container(
+                  height: _TableCellWidget.cellItemSize,
+                  width:
+                      _TableCellWidget.cellPercentageWidth *
+                      clampedPercent /
+                      100,
+                  color: foreground,
+                ),
+                Container(
+                  height: _TableCellWidget.cellItemSize,
+                  width:
+                      _TableCellWidget.cellPercentageWidth *
+                      (100 - clampedPercent) /
+                      100,
+                  color: background,
+                ),
+              ],
+            ),
+          );
+
     final String cellText =
-        '<div style="text-align:${alignment.toHTMLTextAlign()}">${widget.cell.text}</div>';
+        '<div style="$styleBuilder">${widget.cell.text}</div>';
+    final Widget textWidget = SmoothHtmlWidget(
+      cellText,
+      textStyle: style,
+      isSelectable: isSelectable,
+    );
 
     final Widget child = GestureDetector(
       onTap: () => setState(() {
@@ -507,20 +598,19 @@ class _TableCellWidgetState extends State<_TableCellWidget> {
         padding: padding,
         child: Align(
           alignment: alignment,
-          child: SmoothHtmlWidget(
-            cellText,
-            textStyle: style,
-            isSelectable: isSelectable,
-          ),
+          child: iconWidget == null && percentWidget == null
+              ? textWidget
+              : Row(
+                  children: <Widget>[?iconWidget, ?percentWidget, textWidget],
+                ),
         ),
       ),
     );
 
     if (backgroundColor != null) {
       return ColoredBox(color: backgroundColor, child: child);
-    } else {
-      return child;
     }
+    return child;
   }
 
   Widget _buildDropDownColumnHeader(
