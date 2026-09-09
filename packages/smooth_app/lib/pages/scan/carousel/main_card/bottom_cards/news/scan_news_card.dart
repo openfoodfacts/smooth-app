@@ -5,9 +5,11 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
@@ -17,6 +19,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 class ScanNewsCard extends StatefulWidget {
   const ScanNewsCard({required this.news});
@@ -30,9 +33,11 @@ class ScanNewsCard extends StatefulWidget {
 class _ScanNewsCardState extends State<ScanNewsCard> {
   // Default values seem weird
   static const Radius radius = Radius.circular(16.0);
+  static const Key _visibilityKey = Key('scan_news_card');
 
   Timer? _timer;
   int _index = -1;
+  bool _visible = false;
 
   @override
   void initState() {
@@ -40,6 +45,7 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
     _rotateNews();
   }
 
+  // No setState here: initState() calls this directly.
   void _rotateNews() {
     _timer?.cancel();
 
@@ -48,7 +54,41 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
       _index = 0;
     }
 
-    _timer = Timer(const Duration(minutes: 30), () => _rotateNews());
+    _timer = Timer(const Duration(minutes: 30), _onRotationTimer);
+  }
+
+  void _onRotationTimer() {
+    setState(_rotateNews);
+    _trackImpression();
+  }
+
+  void _onVisibilityChanged(VisibilityInfo info) {
+    _visible = info.visibleFraction >= 0.5;
+    _trackImpression();
+  }
+
+  void _trackImpression() {
+    if (!_visible) {
+      return;
+    }
+
+    final AppNewsItem currentNews = widget.news.elementAt(_index);
+    final UserPreferences preferences = context.read<UserPreferences>();
+    // Not on this State: the carousel disposes off-screen pages, so a swipe
+    // away and back would count the same id twice.
+    if (!preferences.taglineFeedSessionImpressions.add(currentNews.id)) {
+      return;
+    }
+
+    // Marking as displayed also removes the id from the clicked list, which
+    // would demote an already-clicked item back to the middle sort tier.
+    if (!preferences.taglineFeedClickedNews.contains(currentNews.id)) {
+      preferences.taglineFeedMarkNewsAsDisplayed(currentNews.id);
+    }
+    AnalyticsHelper.trackTaglineNewsEvent(
+      AnalyticsEvent.taglineNewsDisplayed,
+      currentNews.id,
+    );
   }
 
   @override
@@ -58,49 +98,63 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
       (ScanBottomCardDensity density) => density == ScanBottomCardDensity.dense,
     );
 
-    return ScanBottomCardContainer(
-      title: currentNews.title,
-      titleBackgroundColor: currentNews.style?.titleBackground,
-      titleIndicatorColor: currentNews.style?.titleIndicatorColor,
-      titleColor: currentNews.style?.titleTextColor,
-      body: InkWell(
-        borderRadius: const BorderRadius.vertical(bottom: radius),
-        onTap: () => LaunchUrlHelper.launchURLAndFollowDeepLinks(
-          context,
-          currentNews.url,
-        ),
-        child: Padding(
-          padding: EdgeInsetsDirectional.symmetric(
-            vertical: dense ? 6.0 : SMALL_SPACE,
-            horizontal: MEDIUM_SPACE,
-          ),
-          child: Column(
-            children: <Widget>[
-              _TagLineContentBody(
-                message: currentNews.message,
-                textColor: currentNews.style?.messageTextColor,
-                image: currentNews.image,
-                darkImage: currentNews.darkImage,
-                dense: dense,
-              ),
-              if (currentNews.funding != null)
-                _TagLineFundingMeter(
-                  funding: currentNews.funding!,
-                  monthsLeft: currentNews.monthsLeft,
+    return VisibilityDetector(
+      key: _visibilityKey,
+      onVisibilityChanged: _onVisibilityChanged,
+      child: ScanBottomCardContainer(
+        title: currentNews.title,
+        titleBackgroundColor: currentNews.style?.titleBackground,
+        titleIndicatorColor: currentNews.style?.titleIndicatorColor,
+        titleColor: currentNews.style?.titleTextColor,
+        body: InkWell(
+          borderRadius: const BorderRadius.vertical(bottom: radius),
+          onTap: () {
+            final UserPreferences preferences = context.read<UserPreferences>();
+            if (preferences.taglineFeedSessionClicks.add(currentNews.id)) {
+              preferences.taglineFeedMarkNewsAsClicked(currentNews.id);
+              AnalyticsHelper.trackTaglineNewsEvent(
+                AnalyticsEvent.taglineNewsClicked,
+                currentNews.id,
+              );
+            }
+            LaunchUrlHelper.launchURLAndFollowDeepLinks(
+              context,
+              currentNews.url,
+            );
+          },
+          child: Padding(
+            padding: EdgeInsetsDirectional.symmetric(
+              vertical: dense ? 6.0 : SMALL_SPACE,
+              horizontal: MEDIUM_SPACE,
+            ),
+            child: Column(
+              children: <Widget>[
+                _TagLineContentBody(
+                  message: currentNews.message,
                   textColor: currentNews.style?.messageTextColor,
-                  barColor: currentNews.style?.titleIndicatorColor,
-                ),
-              SizedBox(height: dense ? VERY_SMALL_SPACE : SMALL_SPACE),
-              Align(
-                alignment: AlignmentDirectional.bottomEnd,
-                child: _TagLineContentButton(
-                  label: currentNews.buttonLabel,
-                  backgroundColor: currentNews.style?.buttonBackground,
-                  foregroundColor: currentNews.style?.buttonTextColor,
+                  image: currentNews.image,
+                  darkImage: currentNews.darkImage,
                   dense: dense,
                 ),
-              ),
-            ],
+                if (currentNews.funding != null)
+                  _TagLineFundingMeter(
+                    funding: currentNews.funding!,
+                    monthsLeft: currentNews.monthsLeft,
+                    textColor: currentNews.style?.messageTextColor,
+                    barColor: currentNews.style?.titleIndicatorColor,
+                  ),
+                SizedBox(height: dense ? VERY_SMALL_SPACE : SMALL_SPACE),
+                Align(
+                  alignment: AlignmentDirectional.bottomEnd,
+                  child: _TagLineContentButton(
+                    label: currentNews.buttonLabel,
+                    backgroundColor: currentNews.style?.buttonBackground,
+                    foregroundColor: currentNews.style?.buttonTextColor,
+                    dense: dense,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -110,6 +164,10 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
   @override
   void dispose() {
     _timer?.cancel();
+    // The key is process-wide and the package keeps the last reported
+    // visibility in a static map, so without this a card remounted at the same
+    // geometry would never get a first callback.
+    VisibilityDetectorController.instance.forget(_visibilityKey);
     super.dispose();
   }
 }
