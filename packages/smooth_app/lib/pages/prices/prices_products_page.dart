@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
@@ -99,19 +100,27 @@ class _InfiniteScrollProductManager
     required BuildContext context,
     required PriceProduct item,
   }) {
-    return SmoothCard(
-      child: InkWell(
-        onTap: () async => Navigator.of(context).push<void>(
-          MaterialPageRoute<void>(
-            builder: (BuildContext context) => PricesPage(
-              GetPricesModel.product(
-                product: PriceMetaProduct.priceProduct(item),
-                context: context,
+    return buildProductSmoothCard(
+      margin: const EdgeInsetsDirectional.only(
+        start: SMALL_SPACE,
+        end: SMALL_SPACE,
+        top: VERY_LARGE_SPACE,
+      ),
+      body: Padding(
+        padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+        child: InkWell(
+          onTap: () async => Navigator.of(context).push<void>(
+            MaterialPageRoute<void>(
+              builder: (BuildContext context) => PricesPage(
+                GetPricesModel.product(
+                  product: PriceMetaProduct.priceProduct(item),
+                  context: context,
+                ),
               ),
             ),
           ),
+          child: PriceProductWidget(item),
         ),
-        child: PriceProductWidget(item),
       ),
     );
   }

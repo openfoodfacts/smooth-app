@@ -4,8 +4,8 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
+import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
@@ -95,45 +95,55 @@ class _InfiniteScrollLocationManager extends InfiniteScrollManager<Location> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final int priceCount = item.priceCount ?? 0;
 
-    return SmoothCard(
-      child: Wrap(
-        spacing: VERY_SMALL_SPACE,
-        children: <Widget>[
-          PriceLocationWidget(item),
-          PriceCountWidget(
-            count: priceCount,
-            onPressed: () async => PriceLocationWidget.showLocationPrices(
-              locationId: item.locationId,
-              context: context,
+    return buildProductSmoothCard(
+      margin: const EdgeInsetsDirectional.only(
+        start: SMALL_SPACE,
+        end: SMALL_SPACE,
+        top: VERY_LARGE_SPACE,
+      ),
+      body: Padding(
+        padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+        child: Wrap(
+          spacing: VERY_SMALL_SPACE,
+          children: <Widget>[
+            PriceLocationWidget(item),
+            PriceCountWidget(
+              count: priceCount,
+              onPressed: () async => PriceLocationWidget.showLocationPrices(
+                locationId: item.locationId,
+                context: context,
+              ),
             ),
-          ),
-          PriceButton(
-            onPressed: () {},
-            title: '${item.userCount}',
-            iconData: PriceButton.userIconData,
-            tooltip: item.userCount == null
-                ? null
-                : appLocalizations.prices_button_count_user(item.userCount!),
-          ),
-          PriceButton(
-            onPressed: () {},
-            title: '${item.productCount}',
-            iconData: PriceButton.productIconData,
-            tooltip: item.productCount == null
-                ? null
-                : appLocalizations.prices_button_count_product(
-                    item.productCount!,
-                  ),
-          ),
-          PriceButton(
-            onPressed: () {},
-            title: '${item.proofCount}',
-            iconData: PriceButton.proofIconData,
-            tooltip: item.proofCount == null
-                ? null
-                : appLocalizations.prices_button_count_proof(item.proofCount!),
-          ),
-        ],
+            PriceButton(
+              onPressed: () {},
+              title: '${item.userCount}',
+              iconData: PriceButton.userIconData,
+              tooltip: item.userCount == null
+                  ? null
+                  : appLocalizations.prices_button_count_user(item.userCount!),
+            ),
+            PriceButton(
+              onPressed: () {},
+              title: '${item.productCount}',
+              iconData: PriceButton.productIconData,
+              tooltip: item.productCount == null
+                  ? null
+                  : appLocalizations.prices_button_count_product(
+                      item.productCount!,
+                    ),
+            ),
+            PriceButton(
+              onPressed: () {},
+              title: '${item.proofCount}',
+              iconData: PriceButton.proofIconData,
+              tooltip: item.proofCount == null
+                  ? null
+                  : appLocalizations.prices_button_count_proof(
+                      item.proofCount!,
+                    ),
+            ),
+          ],
+        ),
       ),
     );
   }
