@@ -570,7 +570,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Comunitate",
+  "profile_navbar_label": "Community",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -1229,7 +1229,7 @@
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
-  "product_improvement_categories_but_no_nutriscore": "Nutri-Score pentru acest produs nu poate fi calculat, ceea ce se poate datora, de exemplu, unei categorii nestandard. Dacă aceasta este considerată o eroare, vă rugăm să ne contactați.",
+  "product_improvement_categories_but_no_nutriscore": "Scorul Nutritiv pentru acest produs nu poate fi calculat, ceea ce se poate datora, de exemplu, unei categorii nestandard. Dacă aceasta este considerată o eroare, vă rugăm să ne contactați.",
   "@product_improvement_categories_but_no_nutriscore": {
     "description": "Message for ProductImprovement.CATEGORIES_BUT_NO_NUTRISCORE"
   },
@@ -2460,7 +2460,7 @@
   "prices_website_button": "Deschideți pe site-ul Open Prices",
   "prices_bulk_proof_upload_select": "Adăugați etichete de preț direct din galerie",
   "prices_bulk_proof_upload_warning": "După ce ați selectat imagini, nu le veți mai putea edita!",
-  "prices_bulk_proof_upload_warning_ai": "AI-ul va analiza dovezile pentru a extrage prețurile.",
+  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
   "prices_bulk_proof_upload_community_switch": "Permite comunității să valideze prețurile extrase de inteligența artificială.",
   "prices_bulk_proof_upload_subtitle": "Etichete de preț multiple",
   "prices_bulk_proof_upload_title": "Încărcare în bloc a dovezilor",
@@ -2535,7 +2535,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "Preț per unitate",
+  "prices_per_unit": "Price per unit",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
@@ -2803,14 +2803,14 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
-  "prices_discount_type": "Tip reducere",
+  "prices_discount_type": "Discount type",
   "prices_discount_type_quantity": "Reducere de cantitate",
-  "prices_discount_type_sale": "Promoție",
-  "prices_discount_type_seasonal": "Sezonier",
-  "prices_discount_type_loyalty_program": "Program de loialitate",
-  "prices_discount_type_expires_soon": "Expiră în curând",
-  "prices_discount_type_pick_it_yourself": "Culege-l singur",
-  "prices_discount_type_second_hand": "La mâna a doua",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
   "prices_discount_type_other": "Altele",
   "dev_preferences_import_history_result_success": "Terminat",
   "@dev_preferences_import_history_result_success": {
@@ -2947,7 +2947,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Provocări",
+  "prices_challenges_page": "Challenges",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4069,7 +4069,7 @@
       }
     }
   },
-  "guide_title": "Ghid",
+  "guide_title": "Guide",
   "@guide_title": {
     "description": "A title for a guide"
   },
@@ -4090,24 +4090,24 @@
   "guide_nutriscore_v2_nutriscore_a_caption": "Sigla Nutri-Score A",
   "guide_nutriscore_v2_why_v2_title": "De ce evoluează Nutri-Score?",
   "guide_nutriscore_v2_why_v2_intro": "Formula Nutri-Score **este în continuă evoluție** pentru a oferi recomandări mai bune:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Evaluează mai bine toate băuturile",
-  "guide_nutriscore_v2_why_v2_arg1_text": "Notele comparative pentru **lapte**, **băuturi lactate** cu zahăr adăugat și băuturi **vegetale** au fost mai bine diferențiate în noul algoritm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Clasament mai bun al băuturilor",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
+  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Produsele **prea dulci** sau **prea sărate** vor avea **evaluarea și mai mult declasată**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Ierarhie în rândul uleiurilor și peștelui",
-  "guide_nutriscore_v2_why_v2_arg4_text": "Evaluarea pentru anumiți **pești grași** și **uleiuri bogate în grăsimi bune** se va îmbunătăți.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limitează carnea roșie",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumul de **carne roșie ar trebui limitat**. De aceea **carnea de pasăre va fi mai bine clasată comparativ**.",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
+  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
   "guide_nutriscore_v2_new_logo_title": "Cum se diferențiază vechiul Nutri-Score de noul calcul?",
-  "guide_nutriscore_v2_new_logo_text": "De acum înainte, logo-ul poate afișa mențiunea \"**Calcul nou**\" pentru a clarifica faptul că acesta este într-adevăr noul calcul.",
+  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
   "guide_nutriscore_v2_new_logo_image_caption": "Logo-ul noului Nutri-Score",
   "guide_nutriscore_v2_where_title": "Unde găsesc noul calcul Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score este aplicat în 7 țări: Franța, Germania, Belgia, Spania, Luxemburg, Olanda și Elveția.",
   "guide_nutriscore_v2_where_paragraph2": "Producătorii au la dispoziție cel mult **2 ani** de la semnarea decretului **pentru a înlocui** vechiul calcul cu cel nou.",
-  "guide_nutriscore_v2_where_paragraph3": "Fără să mai aștepți, vei **găsi deja în aplicația Open Food Facts**, noul calcul, inclusiv dacă producătorii nu au actualizat scorul.",
-  "guide_nutriscore_v2_unchanged_title": "Ce nu se schimbă",
+  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
+  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score este un scor conceput pentru a **măsura calitatea nutrițională**. Este **complementar grupului NOVA** privind **alimentele ultra-procesate** (prezent și în aplicație).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Pentru producători, afișarea Nutri-Score **rămâne opțională**.",
   "guide_greenscore_title": "Green-Score",
@@ -4331,7 +4331,7 @@
   "guide_open_prices_scrapping_title": "Te-ai gândit să extragi prețurile de pe site-urile comercianților cu amănuntul?",
   "guide_open_prices_scrapping_paragraph1": "Din motive legale și tehnice, **nu considerăm extragerea prețurilor de pe site-urile comercianților cu amănuntul ca o modalitate validă de a contribui la Open Prices**. Vrem să ne asigurăm că prețurile pe care le colectăm sunt corecte și actualizate, iar primirea de prețuri extrase de la contribuitori nu ne permite să facem acest lucru.",
   "guide_open_prices_scrapping_paragraph2": "Extragerea datelor de preț este o opțiune luată în considerare într-o versiune viitoare a Open Prices, dar va fi făcută chiar de Open Prices, astfel încât să putem avea o dovadă a prețului pe baza paginii HTML.",
-  "guide_open_prices_retailers_title": "Sunt un comerciant și vreau să contribui cu prețuri. Cum pot face asta?",
+  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "Puteți contribui cu prețuri folosind API-ul nostru.\nDacă doriți să contribuiți cu prețuri la scară largă, vă rugăm să ne contactați la prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Bine ați venit la Open Products Facts!",
@@ -4861,7 +4861,7 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "Reducere",
+  "prices_discount": "Discount",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
@@ -4881,11 +4881,11 @@
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "Locații",
+  "prices_stats_locations_section": "Locations",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Dovezi",
+  "prices_stats_proofs_section": "Proofs",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4893,7 +4893,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experimente",
+  "prices_stats_experiments_section": "Experiments",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4905,19 +4905,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "Cu cod de bare",
+  "prices_stats_with_barcode": "With a barcode",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "Cu o categorie",
+  "prices_stats_with_category": "With a category",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "Cu reducere",
+  "prices_stats_with_discount": "With a discount",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Comunitate",
+  "prices_stats_community": "Community",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4925,7 +4925,7 @@
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
-  "prices_stats_with_price": "Cu preț",
+  "prices_stats_with_price": "With a price",
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
@@ -4965,31 +4965,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "Cerere GDPR",
+  "prices_stats_gdpr_request": "GDPR request",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Import magazin",
+  "prices_stats_shop_import": "Shop import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Provocări",
+  "prices_stats_challenges": "Challenges",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prețuri legate de o etichetă de preț",
+  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Monede",
+  "prices_stats_currencies": "Currencies",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Ani",
+  "prices_stats_years": "Years",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prețuri și dovezi pe sursă",
+  "prices_stats_by_source_title": "Prices and proofs per source",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4997,7 +4997,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Aplicație mobilă",
+  "prices_stats_mobile_app": "Mobile app",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -5097,7 +5097,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prețuri adăugate",
+  "preferences_app_bar_prices_added": "Prices added",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5201,7 +5201,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Adaugă prețuri",
+  "preferences_add_prices": "Add prices",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5724,7 +5724,7 @@
       }
     }
   },
-  "proof_count": "{count} dovezi",
+  "proof_count": "{count} proofs",
   "@proof_count": {
     "description": "Number of proofs (when we don't know the total)",
     "placeholders": {
@@ -5748,7 +5748,7 @@
       }
     }
   },
-  "contributors_count": "{count} contribuitori",
+  "contributors_count": "{count} contributors",
   "@contributors_count": {
     "description": "Number of contributors (when we don't know the total)",
     "placeholders": {
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratoare Deschise de Informații Alimentare",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

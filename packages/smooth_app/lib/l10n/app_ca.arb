@@ -4010,7 +4010,7 @@
   "nutriscore_not_applicable": "La puntuació Nutri-Score no és aplicable.",
   "nutriscore_not_applicable_new_formula": "Nutri-Score no és aplicable (nou càlcul)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_a_new": "Puntuació verda A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratoris oberts d'informació sobre aliments",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

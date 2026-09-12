@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4010,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "हरित-अङ्क A",
+  "environmental_score_b_new": "हरित-अङ्क B",
+  "environmental_score_c_new": "हरित-अङ्क C",
+  "environmental_score_d_new": "हरित-अङ्क D",
+  "environmental_score_e_new": "हरित-स्कोर ई",
   "environmental_score_unknown_new": "अज्ञात Green-Score",
   "environmental_score_not_applicable_new": "Green-Score न प्रयोज्यम्",
   "nova_group_generic_new": "अति-संसाधित खाद्यपदार्थाः - NOVA समूहाः",
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "खाद्यतथ्यप्रयोगशालाः उद्घाटयन्तु",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

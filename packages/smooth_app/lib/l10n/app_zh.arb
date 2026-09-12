@@ -37,7 +37,7 @@
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
-  "exit_label": "退出",
+  "exit_label": "Exit",
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
@@ -474,7 +474,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "数据质量",
+  "contribute_data_quality": "Data Quality",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -513,7 +513,7 @@
   "@saving_answer": {
     "description": "Dialog shown to users after they have answered a question, while the answer is being saved in the BE."
   },
-  "contribute_to_get_rewards": "成为食品透明度的参与者",
+  "contribute_to_get_rewards": "Become an actor of food transparency",
   "@contribute_to_get_rewards": {
     "description": "Button description shown on a product, clicking the button opens a card with unanswered product questions, users can answer these to contribute to Open Food Facts."
   },
@@ -570,7 +570,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "社区",
+  "profile_navbar_label": "Community",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -704,7 +704,7 @@
   "@add_product_take_photos": {},
   "add_product_take_photos_descriptive": "请您先拍几张照片，你可以在以后完成操作",
   "@add_product_take_photos_descriptive": {},
-  "add_product_information_button_label": "添加产品信息",
+  "add_product_information_button_label": "Add product information",
   "@add_product_information_button_label": {},
   "new_product": "新的產品",
   "@new_product": {},
@@ -1185,7 +1185,7 @@
   "tag_key_uneditable": "属性（不可编辑）",
   "tag_key_input_hint": "输入一个属性",
   "tag_value": "值",
-  "tag_values": "值",
+  "tag_values": "Values",
   "tag_value_input_hint": "输入一个值",
   "tag_key_item": "属性：",
   "tag_value_item": "值：",
@@ -1388,7 +1388,7 @@
   "@select_none_products_mode": {
     "description": "Button to switch to 'select no products'"
   },
-  "compare_products_appbar_title": "比较产品",
+  "compare_products_appbar_title": "Compare products",
   "@compare_products_appbar_title": {
     "description": "AppBar title when in comparison mode "
   },
@@ -2438,7 +2438,7 @@
   "product_type_label_food": "食物",
   "product_type_label_beauty": "个人护理",
   "product_type_label_pet_food": "寵物食品",
-  "product_type_label_product": "其他",
+  "product_type_label_product": "Other",
   "product_type_label_unknown": "未知",
   "product_type_selection_title": "产品类型",
   "product_type_selection_subtitle": "选择此产品的类型",
@@ -2460,7 +2460,7 @@
   "prices_website_button": "在公開價格網站上打開",
   "prices_bulk_proof_upload_select": "直接从图库添加价格标签",
   "prices_bulk_proof_upload_warning": "一旦您选择了图像，您将无法对其进行编辑！",
-  "prices_bulk_proof_upload_warning_ai": "AI 将对您的证明运行以提取价格。",
+  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
   "prices_bulk_proof_upload_community_switch": "允許社群驗證人工智慧提取的價格。",
   "prices_bulk_proof_upload_subtitle": "多个价格标签",
   "prices_bulk_proof_upload_title": "批量上传证明",
@@ -2518,7 +2518,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "未找到产品",
+  "prices_barcode_search_not_found": "Product not found",
   "prices_barcode_search_none_yet": "目前没有产品",
   "prices_barcode_search_running": "正在寻找 {barcode}",
   "@prices_barcode_search_running": {
@@ -2535,7 +2535,7 @@
   "@prices_per_kilogram": {
     "description": "Title for PricePer.kilogram"
   },
-  "prices_per_unit": "单价",
+  "prices_per_unit": "Price per unit",
   "@prices_per_unit": {
     "description": "Title for PricePer.unit"
   },
@@ -2548,7 +2548,7 @@
     "description": "Short title for PricePer.unit"
   },
   "prices_category_title": "分類",
-  "prices_category_mandatory": "必填项",
+  "prices_category_mandatory": "Mandatory",
   "prices_category_optional": "選修的",
   "prices_origins_title": "產地",
   "prices_category_error_mandatory": "此類別為必填項",
@@ -2803,15 +2803,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
-  "prices_discount_type": "折扣类型",
+  "prices_discount_type": "Discount type",
   "prices_discount_type_quantity": "数量折扣",
-  "prices_discount_type_sale": "促销",
-  "prices_discount_type_seasonal": "季节性",
-  "prices_discount_type_loyalty_program": "忠诚度计划",
-  "prices_discount_type_expires_soon": "即将过期",
-  "prices_discount_type_pick_it_yourself": "自己挑选",
-  "prices_discount_type_second_hand": "二手",
-  "prices_discount_type_other": "其他",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Other",
   "dev_preferences_import_history_result_success": "已完成",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2947,7 +2947,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "挑战",
+  "prices_challenges_page": "Challenges",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3480,7 +3480,7 @@
   "@language_picker_label": {
     "description": "Choose Application Language"
   },
-  "country_picker_label": "您的国家",
+  "country_picker_label": "您的国家/地区",
   "@country_picker_label": {
     "description": "Choose Application Country"
   },
@@ -3601,7 +3601,7 @@
   "@upload_image": {
     "description": "Message shown on asking to upload image"
   },
-  "word_separator_char": "，",
+  "word_separator_char": ",",
   "@word_separator_char": {
     "description": "Word separator character. In English language, this is a comma: ','"
   },
@@ -3985,7 +3985,7 @@
   "@product_list_create": {
     "description": "Button label to create a new list (short word)"
   },
-  "product_list_create_tooltip": "创建新列表",
+  "product_list_create_tooltip": "创建一个新列表",
   "@product_list_create_tooltip": {
     "description": "Button description to create a new list (long sentence)"
   },
@@ -4010,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score 不适用",
   "nutriscore_not_applicable_new_formula": "Nutri-Score 不适用（新计算方法）",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "绿色评分 A",
+  "environmental_score_b_new": "绿色评分 B",
+  "environmental_score_c_new": "绿色评分 C",
+  "environmental_score_d_new": "绿色评分 D",
+  "environmental_score_e_new": "绿色评分 E",
   "environmental_score_unknown_new": "未知Green-Score",
   "environmental_score_not_applicable_new": "Green-Score不适用",
   "nova_group_generic_new": "超加工食品 - NOVA 集团",
@@ -4034,7 +4034,7 @@
   "contact_title_pro_email": "生产商联系方式",
   "contact_title_press_page": "媒体页面",
   "contact_title_press_email": "媒体联系方式",
-  "contact_title_newsletter": "订阅我们的时事通讯",
+  "contact_title_newsletter": "Subscribe to our newsletter",
   "contact_title_calendar": "订阅我们的社区日历",
   "hunger_games_loading_line1": "请给我们几秒钟…",
   "hunger_games_loading_line2": "我们正在下载问题！",
@@ -4069,17 +4069,17 @@
       }
     }
   },
-  "guide_title": "指南",
+  "guide_title": "Guide",
   "@guide_title": {
     "description": "A title for a guide"
   },
   "guide_share_label": "推荐给好友",
-  "guide_nutriscore_v2_title": "Nutri-Score 正在演变：为您解释！",
+  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "什么是 Nutri-Score？",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score 是一个旨在通知您有关**食品营养质量**的标志。",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4087,29 +4087,29 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A 标志",
-  "guide_nutriscore_v2_why_v2_title": "为什么 Nutri-Score 要演变？",
-  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score 公式**正在演变**以提供更好的建议：",
-  "guide_nutriscore_v2_why_v2_arg1_title": "更好地评估所有饮料",
-  "guide_nutriscore_v2_why_v2_arg1_text": "在新算法中，添加糖的**牛奶**、**乳制饮品**和**植物**饮品的对比评分有了更好的区分。",
-  "guide_nutriscore_v2_why_v2_arg2_title": "更好的饮料排名",
+  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
+  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
+  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
+  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "**太甜**或**太咸**的产品其**评级将进一步下调**。",
-  "guide_nutriscore_v2_why_v2_arg4_title": "油和鱼内的分级",
-  "guide_nutriscore_v2_why_v2_arg4_text": "某些**高脂鱼类**和**富含好脂肪的油**的评级将会提高。",
-  "guide_nutriscore_v2_why_v2_arg5_title": "限制红肉",
-  "guide_nutriscore_v2_why_v2_arg5_text": "**应该限制红肉**的消费。这就是为什么**家禽在比较中将获得更好的排名**。",
-  "guide_nutriscore_v2_new_logo_title": "如何区分旧版 Nutri-Score 和新版计算？",
-  "guide_nutriscore_v2_new_logo_text": "从现在起，徽标可以显示“**新计算**”字样，以澄清这确实是新的计算方法。",
-  "guide_nutriscore_v2_new_logo_image_caption": "新 Nutri-Score 的标志",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
+  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
+  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
+  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
+  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
   "guide_nutriscore_v2_where_title": "在哪里可以找到新的 Nutri-Score 计算？",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score 在7个国家实行：法国、德国、比利时、西班牙、卢森堡、荷兰和瑞士。",
   "guide_nutriscore_v2_where_paragraph2": "制造商在法令签署后最迟有**2年时间****用新计算方法**取代旧计算方法。",
-  "guide_nutriscore_v2_where_paragraph3": "无需等待，您**现在就可以在 OpenFoodFacts 应用程序中**找到新的计算方法，即使制造商尚未更新评分。",
-  "guide_nutriscore_v2_unchanged_title": "没有改变的是什么",
-  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score 是一项旨在**衡量营养质量**的评分。它是有关**超加工食品**的 **NOVA 分类系统的补充**（在应用程序中也有提供）。",
-  "guide_nutriscore_v2_unchanged_paragraph2": "对于制造商，Nutri-Score 的显示**仍然是可选的**。",
+  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
+  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
+  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4130,12 +4130,12 @@
   "guide_greenscore_lca_arg1_text2": "**生命週期分析**是一種進行多階段、多標準環境評估的標準化評估方法。",
   "guide_greenscore_lca_arg1_text3": "**其測量：**",
   "guide_greenscore_lca_arg2_title": "6個生產步驟",
-  "guide_greenscore_lca_arg2_agriculture": "农业",
-  "guide_greenscore_lca_arg2_processing": "加工",
+  "guide_greenscore_lca_arg2_agriculture": "Agriculture",
+  "guide_greenscore_lca_arg2_processing": "Processing",
   "guide_greenscore_lca_arg2_packaging": "包装",
-  "guide_greenscore_lca_arg2_transportation": "运输",
-  "guide_greenscore_lca_arg2_distribution": "分销",
-  "guide_greenscore_lca_arg2_consumption": "消费",
+  "guide_greenscore_lca_arg2_transportation": "Transportation",
+  "guide_greenscore_lca_arg2_distribution": "Distribution",
+  "guide_greenscore_lca_arg2_consumption": "Consumption",
   "guide_greenscore_lca_arg3_title": "14項環境影響指標",
   "guide_greenscore_lca_arg3_text1": "氣候變遷/碳足跡",
   "guide_greenscore_lca_arg3_text2": "臭氧層損耗",
@@ -4147,15 +4147,15 @@
   "guide_greenscore_lca_arg3_text8": "資源枯竭。",
   "guide_greenscore_bonuses_penalties_title": "獎金和罰款",
   "guide_greenscore_bonuses_penalties_intro": "为了奖励某类产品中较好的产品，我们然后**根据几个标准应用奖金和惩罚**：",
-  "guide_greenscore_bonuses_penalties_arg1_title": "生产方式",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
   "guide_greenscore_bonuses_penalties_arg1_text": "对于拥有**保证环境效益的官方标签、标记或认证**（有机、公平贸易、HVE、Label Rouge、Bleu Blanc Cœur、MSC/ASC）的产品，将获得**奖金**。",
   "guide_greenscore_bonuses_penalties_arg2_title": "成分來源",
   "guide_greenscore_bonuses_penalties_arg2_text": "根据成分的原产地颁发**奖金**。此奖金考虑到**对运输的影响**以及每个生产国的**环境政策**。",
-  "guide_greenscore_bonuses_penalties_arg3_title": "濒危物种",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
   "guide_greenscore_bonuses_penalties_arg3_text": "对包含对**生物多样性和生态系统造成重大负面影响**的成分的产品（例如棕榈油，其生产导致大规模的森林砍伐）给予**惩罚**。",
   "guide_greenscore_bonuses_penalties_arg4_title": "包装",
   "guide_greenscore_bonuses_penalties_arg4_text": "计算**惩罚**以考虑**包装的循环性**（使用可回收原材料和可回收性）以及过度包装。",
-  "guide_greenscore_transparency_title": "需要提高透明度以更好地衡量和减少环境影响",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
   "guide_greenscore_transparency_intro1": "为了准确计算 Green-Score，必须获得**包装上可能没有注明的**（例如原产地和每种成分的确切百分比）或很少能以可用形式提供的信息（例如包含所用特定塑料类型的所有包装组件列表）。",
   "guide_greenscore_transparency_intro2": "**当这些信息尚不可用时使用平均值**，但我们现在呼吁大家帮助我们收集这些信息，这对于 Green-Score 以及许多其他用途将非常有用。",
   "guide_greenscore_transparency_arg1_title": "公民如何提供帮助？",
@@ -4331,7 +4331,7 @@
   "guide_open_prices_scrapping_title": "您是否考虑过从零售商的网站上抓取价格？",
   "guide_open_prices_scrapping_paragraph1": "出于法律和技术原因，**我们不认为从零售商网站抓取价格是向 Open Prices 贡献的有效方式**。我们想确保我们收集的价格准确且最新，而从贡献者那里收到抓取的价格不允许我们这样做。",
   "guide_open_prices_scrapping_paragraph2": "价格抓取是未来版 Open Prices 中考虑的一个选项，但将由 Open Prices 本身完成，这样我们就可以基于 HTML 页面提供价格证明。",
-  "guide_open_prices_retailers_title": "我是一名零售商，我想贡献价格。我该怎么做？",
+  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "您可以使用我们的 API 贡献价格。\n如果您想大规模贡献价格，请通过 prices@openfoodfacts.org 与我们取得联系。",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "欢迎来到 Open Products Facts！",
@@ -4881,11 +4881,11 @@
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "地点",
+  "prices_stats_locations_section": "Locations",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "证明",
+  "prices_stats_proofs_section": "Proofs",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4893,7 +4893,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "实验",
+  "prices_stats_experiments_section": "Experiments",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4901,31 +4901,31 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "总计",
+  "prices_stats_total": "Total",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "带条形码的",
+  "prices_stats_with_barcode": "With a barcode",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "带类别的",
+  "prices_stats_with_category": "With a category",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "带折扣的",
+  "prices_stats_with_discount": "With a discount",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "社区",
+  "prices_stats_community": "Community",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
-  "prices_stats_consumption": "消费",
+  "prices_stats_consumption": "Consumption",
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
-  "prices_stats_with_price": "带价格的",
+  "prices_stats_with_price": "With a price",
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
@@ -4933,7 +4933,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "美容",
+  "prices_stats_beauty": "Beauty",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4949,7 +4949,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "在线的",
+  "prices_stats_online": "Online",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4965,31 +4965,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR 请求",
+  "prices_stats_gdpr_request": "GDPR request",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "商店导入",
+  "prices_stats_shop_import": "Shop import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "挑战",
+  "prices_stats_challenges": "Challenges",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "关联到价格标签的价格",
+  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "货币",
+  "prices_stats_currencies": "Currencies",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "年份",
+  "prices_stats_years": "Years",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "按来源划分的价格和证明",
+  "prices_stats_by_source_title": "Prices and proofs per source",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4997,7 +4997,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "移动应用程序",
+  "prices_stats_mobile_app": "Mobile app",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -5005,7 +5005,7 @@
   "@prices_stats_api": {
     "description": "Label for API source"
   },
-  "prices_stats_other": "其他",
+  "prices_stats_other": "Other",
   "@prices_stats_other": {
     "description": "Label for other sources"
   },
@@ -5045,7 +5045,7 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
-  "preferences_my_contributions_title": "我的贡献",
+  "preferences_my_contributions_title": "My contributions",
   "@preferences_my_contributions_title": {
     "description": "Title for my contributions preferences tile"
   },
@@ -5093,11 +5093,11 @@
   "@preferences_app_bar_message": {
     "description": "Message to show in the preferences app bar when the user is logged in"
   },
-  "preferences_app_bar_products_modified": "已修改产品",
+  "preferences_app_bar_products_modified": "Products modified",
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "已添加价格",
+  "preferences_app_bar_prices_added": "Prices added",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5149,7 +5149,7 @@
   "@preferences_terms_of_use": {
     "description": "Title for the terms of use tile "
   },
-  "preferences_legal_mentions": "法律声明",
+  "preferences_legal_mentions": "Legal mentions",
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
@@ -5201,11 +5201,11 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "添加价格",
+  "preferences_add_prices": "Add prices",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
-  "preferences_complete_products": "完善产品",
+  "preferences_complete_products": "Complete products",
   "@preferences_complete_products": {
     "description": "Title for the preferences complete products contribution tile"
   },
@@ -5724,7 +5724,7 @@
       }
     }
   },
-  "proof_count": "{count} 个证明",
+  "proof_count": "{count} proofs",
   "@proof_count": {
     "description": "Number of proofs (when we don't know the total)",
     "placeholders": {
@@ -5748,7 +5748,7 @@
       }
     }
   },
-  "contributors_count": "{count} 名贡献者",
+  "contributors_count": "{count} contributors",
   "@contributors_count": {
     "description": "Number of contributors (when we don't know the total)",
     "placeholders": {
@@ -5794,7 +5794,7 @@
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
-  "preferences_about_app_development_title": "开发",
+  "preferences_about_app_development_title": "Development",
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
@@ -5878,7 +5878,7 @@
   "@homepage_horizontal_list_view_more_button": {
     "description": "Button to see all items in a horizontal list on the homepage"
   },
-  "homepage_list_most_scanned_title": "扫描最多的产品",
+  "homepage_list_most_scanned_title": "Most scanned products",
   "@homepage_list_most_scanned_title": {
     "description": "Title for the most scanned products horizontal list on the homepage"
   },

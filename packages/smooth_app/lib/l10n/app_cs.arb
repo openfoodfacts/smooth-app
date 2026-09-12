@@ -4010,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score nelze použít",
   "nutriscore_not_applicable_new_formula": "Nutri-Score nelze použít (Nový výpočet)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_a_new": "Zelené skóre A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_e_new": "Zelené skóre E",
   "environmental_score_unknown_new": "Neznámé Green-Score",
   "environmental_score_not_applicable_new": "Green-Score se nepoužije",
   "nova_group_generic_new": "Ultra zpracované potraviny - skupiny NOVA",
@@ -4749,11 +4749,11 @@
   "@product_page_for_me_attributes_order_importance": {
     "description": "Button to order the attributes by importance in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_order_evaluation": "Zápasy",
+  "product_page_for_me_attributes_order_evaluation": "Shody",
   "@product_page_for_me_attributes_order_evaluation": {
     "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
   },
-  "product_page_for_me_attributes_group_good_matches": "Dobré zápasy",
+  "product_page_for_me_attributes_group_good_matches": "Dobré shody",
   "@product_page_for_me_attributes_group_good_matches": {
     "description": "Title for the group of attributes that are good matches for the user"
   },
@@ -4761,7 +4761,7 @@
   "@product_page_for_me_attributes_group_average_matches": {
     "description": "Title for the group of attributes that are average matches for the user"
   },
-  "product_page_for_me_attributes_group_bad_matches": "Špatné zápasy",
+  "product_page_for_me_attributes_group_bad_matches": "Špatné shody",
   "@product_page_for_me_attributes_group_bad_matches": {
     "description": "Title for the group of attributes that are bad matches for the user"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Otevřené laboratoře faktů o potravinách",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
