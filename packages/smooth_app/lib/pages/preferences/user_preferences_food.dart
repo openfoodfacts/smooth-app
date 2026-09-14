@@ -133,7 +133,6 @@ class UserPreferencesFood {
         labels: <String>[appLocalizations.myPreferences_food_comment],
         builder: (_) => ListTile(
           title: Text(
-            appLocalizations.myPreferences_food_comment,
         labels: <String>[appLocalizations.myPreferences_food_compatibility_explainer],
         builder: (_) => ListTile(
           title: Text(
