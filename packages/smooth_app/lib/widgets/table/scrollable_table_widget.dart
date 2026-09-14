@@ -81,7 +81,7 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
               Tooltip(
                 message: cell.text,
                 child: SizedBox(
-                  width: widths[colIndex] + 2 * _padding,
+                  width: widths[colIndex],
                   height: 48,
                   child: Container(
                     color: color,
