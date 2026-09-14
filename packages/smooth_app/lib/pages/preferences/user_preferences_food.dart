@@ -130,9 +130,6 @@ class UserPreferencesFood {
     );
     final List<UserPreferencesItem> result = <UserPreferencesItem>[
       UserPreferencesItemSimple(
-        labels: <String>[appLocalizations.myPreferences_food_comment],
-        builder: (_) => ListTile(
-          title: Text(
         labels: <String>[appLocalizations.myPreferences_food_compatibility_explainer],
         builder: (_) => ListTile(
           title: Text(
