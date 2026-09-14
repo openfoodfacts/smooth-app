@@ -1365,7 +1365,7 @@
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, one {}=0{Žádný vybraný produkt} =1{Jeden vybraný produkt} few{{count} vybrané produkty} many{{count} vybraných produktů} other{{count} vybraných produktů}}",
+  "multiselect_title": "{count,plural, =0{Žádný vybraný produkt} =1{Jeden vybraný produkt} few{{count} vybrané produkty} many{{count} vybraných produktů} other{{count} vybraných produktů}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
@@ -2503,8 +2503,8 @@
     }
   },
   "prices_generic_title": "Ceny",
-  "prices_add_n_prices": "{count,plural, one {}=1{Přidat jednu cenu} few{Přidat {count} ceny} many {Přidat {count} cen} other{Přidat {count} cen}}",
-  "prices_send_n_prices": "{count,plural, one {}=1{Přidat jednu cenu} few{Přidat {count} ceny} many {Přidat {count} cen} other{Přidat {count} cen}}",
+  "prices_add_n_prices": "{count,plural, =1{Přidat jednu cenu} few{Přidat {count} ceny} many {Přidat {count} cen} other{Přidat {count} cen}}",
+  "prices_send_n_prices": "{count,plural, =1{Přidat jednu cenu} few{Přidat {count} ceny} many {Přidat {count} cen} other{Přidat {count} cen}}",
   "prices_add_an_item": "Přidat položku",
   "prices_add_a_price": "Přidat cenu",
   "prices_add_a_receipt": "Přidat účtenku",
