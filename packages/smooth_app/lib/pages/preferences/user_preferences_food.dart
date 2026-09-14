@@ -134,11 +134,11 @@ class UserPreferencesFood {
         builder: (_) => ListTile(
           title: Text(
             appLocalizations.myPreferences_food_comment,
-labels: <String>[appLocalizations.myPreferences_food_compatibility_explainer],
-builder: (_) => ListTile(
-title: Text(
-appLocalizations.myPreferences_food_compatibility_explainer,
-style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+        labels: <String>[appLocalizations.myPreferences_food_compatibility_explainer],
+        builder: (_) => ListTile(
+          title: Text(
+            appLocalizations.myPreferences_food_compatibility_explainer,
+            style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
           ),
         ),
       ),
