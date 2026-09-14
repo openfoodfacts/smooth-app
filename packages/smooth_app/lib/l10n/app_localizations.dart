@@ -1504,7 +1504,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary.'**
-  String get myPreferences_food_comment;
+  String get myPreferences_food_compatibility_explainer;
 
   /// Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page
   ///
