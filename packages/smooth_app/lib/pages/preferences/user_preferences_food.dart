@@ -10,6 +10,7 @@ import 'package:smooth_app/pages/preferences/user_preferences_attribute_group.da
 import 'package:smooth_app/pages/preferences/user_preferences_food_search_helper.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_item.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
+import 'package:smooth_app/resources/app_icons.dart';
 import 'package:smooth_app/widgets/text/text_style_extensions.dart';
 
 /// Collapsed/expanded display of attribute groups for the preferences page.
@@ -129,10 +130,22 @@ class UserPreferencesFood {
     );
     final List<UserPreferencesItem> result = <UserPreferencesItem>[
       UserPreferencesItemSimple(
-        labels: <String>[appLocalizations.myPreferences_food_comment],
+        labels: <String>[
+          appLocalizations.myPreferences_food_compatibility_explainer
+        ],
         builder: (_) => ListTile(
           title: Text(
-            appLocalizations.myPreferences_food_comment,
+            appLocalizations.myPreferences_food_compatibility_explainer,
+            style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
+          ),
+        ),
+      ),
+      UserPreferencesItemSimple(
+        labels: <String>[appLocalizations.myPreferences_food_privacy],
+        builder: (_) => ListTile(
+          leading: const Password.lock(),
+          title: Text(
+            appLocalizations.myPreferences_food_privacy,
             style: WellSpacedTextHelper.TEXT_STYLE_WITH_WELL_SPACED,
           ),
         ),
@@ -165,7 +178,8 @@ class UserPreferencesFood {
     if (helper.matches(<String?>[
       appLocalizations.myPreferences_food_title,
       appLocalizations.myPreferences_food_subtitle,
-      appLocalizations.myPreferences_food_comment,
+      appLocalizations.myPreferences_food_compatibility_explainer,
+      appLocalizations.myPreferences_food_privacy,
     ])) {
       result.add(
         helper.getPreferenceTile(
