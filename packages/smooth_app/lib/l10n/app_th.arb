@@ -1,5 +1,5 @@
 {
-  "app_name": "Open Food Facts",
+  "app_name": "Open Food Facts",
   "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
@@ -19,7 +19,7 @@
   "@reason": {},
   "okay": "โอเค",
   "@okay": {},
-  "validate": "ตรวจสอบความถูกต้อง",
+  "validate": "Validate",
   "@validate": {
     "description": "Button label: Validate the input"
   },
@@ -37,7 +37,7 @@
   "@continue_label": {
     "description": "A label on a button that says 'Continue', pressing the button takes the user to the next screen."
   },
-  "exit_label": "ออก",
+  "exit_label": "Exit",
   "@exit_label": {
     "description": "A label on a button that says 'Exit', pressing the button takes the user to the next screen."
   },
@@ -48,7 +48,7 @@
   "go_back_to_top": "กลับขึ้นไปด้านบน",
   "save": "บันทึก",
   "save_confirmation": "คุณแน่ใจว่าต้องการจะบันทึกใช่มั้ย",
-  "skip": "ข้าม",
+  "skip": "Skip",
   "cancel": "ยกเลิก",
   "@cancel": {},
   "ignore": "ละเว้น",
@@ -401,7 +401,7 @@
   "@contributors_label": {
     "description": "Button label: Opens a pop up window where all contributors of this app are shown"
   },
-  "contributors_dialog_title": "ผู้ร่วมสมทบ",
+  "contributors_dialog_title": "Contributors",
   "@contributors_dialog_title": {
     "description": "Dialog title: A list of all contributors of this app"
   },
@@ -570,7 +570,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "ชุมชน",
+  "profile_navbar_label": "Community",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -1074,7 +1074,7 @@
   "@product_image_details_from_producer": {
     "description": "Text to indicate that the image was taken by the producer"
   },
-  "product_image_details_contributor": "ผู้ร่วมสมทบ",
+  "product_image_details_contributor": "Contributor",
   "@product_image_details_contributor": {
     "description": "The name of the contributor who uploaded the image"
   },
@@ -1184,8 +1184,8 @@
   "tag_keys": "คุณสมบัติ",
   "tag_key_uneditable": "คุณสมบัติ (แก้ไขไม่ได้)",
   "tag_key_input_hint": "ป้อนคุณสมบัติ",
-  "tag_value": "มูลค่า",
-  "tag_values": "มูลค่า",
+  "tag_value": "Value",
+  "tag_values": "Values",
   "tag_value_input_hint": "ป้อนค่า",
   "tag_key_item": "คุณสมบัติ:",
   "tag_value_item": "ค่า:",
@@ -1209,7 +1209,7 @@
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
-  "product_search_same_category_short": "เปรียบเทียบ",
+  "product_search_same_category_short": "Compare",
   "@product_search_same_category_short": {
     "description": "Button looking for the other products within the same category. Just the verb compare"
   },
@@ -1819,7 +1819,7 @@
   "@edit_product_form_item_labels_hint": {
     "description": "Product edition - Labels - input textfield hint"
   },
-  "edit_product_form_item_labels_type": "ฉลาก",
+  "edit_product_form_item_labels_type": "label",
   "@edit_product_form_item_labels_type": {
     "description": "Product edition - Labels - input textfield label"
   },
@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "คะแนนโภชนาการ, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1911,7 +1911,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "ประเทศ",
+  "edit_product_form_item_countries_title": "Country",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2803,14 +2803,14 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
-  "prices_discount_type": "ประเภทส่วนลด",
+  "prices_discount_type": "Discount type",
   "prices_discount_type_quantity": "ส่วนลดตามปริมาณ",
-  "prices_discount_type_sale": "ลดราคา",
-  "prices_discount_type_seasonal": "ตามฤดูกาล",
-  "prices_discount_type_loyalty_program": "โปรแกรมลูกค้าประจำ",
-  "prices_discount_type_expires_soon": "ใกล้หมดอายุ",
-  "prices_discount_type_pick_it_yourself": "เลือกเอง",
-  "prices_discount_type_second_hand": "มือสอง",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
   "prices_discount_type_other": "อื่น",
   "dev_preferences_import_history_result_success": "เสร็จแล้ว",
   "@dev_preferences_import_history_result_success": {
@@ -2947,7 +2947,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "ความท้าทาย",
+  "prices_challenges_page": "Challenges",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3928,7 +3928,7 @@
       }
     }
   },
-  "loading": "กำลังโหลด…",
+  "loading": "Loading…",
   "@loading": {
     "description": "Loading…"
   },
@@ -4009,7 +4009,7 @@
   "nutriscore_unknown_new_formula": "Nutri-Score ที่ไม่ทราบค่า (การคำนวณใหม่)",
   "nutriscore_not_applicable": "ไม่สามารถใช้ Nutri-Score ได้",
   "nutriscore_not_applicable_new_formula": "ไม่สามารถใช้ Nutri-Score ได้ (การคำนวณใหม่)",
-  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_generic_new": "คะแนนสีเขียว",
   "environmental_score_a_new": "Green-Score เอ",
   "environmental_score_b_new": "Green-Score บี",
   "environmental_score_c_new": "Green-Score ซี",
@@ -4069,7 +4069,7 @@
       }
     }
   },
-  "guide_title": "คู่มือ",
+  "guide_title": "Guide",
   "@guide_title": {
     "description": "A title for a guide"
   },
@@ -4095,22 +4095,22 @@
   "guide_nutriscore_v2_why_v2_arg2_title": "การจัดอันดับเครื่องดื่มที่ดีขึ้น",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
   "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "ผลิตภัณฑ์ที่**หวานเกินไป**หรือ**เค็มเกินไป**จะถูก**ลดคะแนนลงอีก**",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
   "guide_nutriscore_v2_why_v2_arg4_title": "ลำดับชั้นภายในน้ำมันและปลา",
   "guide_nutriscore_v2_why_v2_arg4_text": "คะแนนความน่าเชื่อถือของ **ปลาที่มีไขมันสูง** บางชนิด และ **น้ำมันที่มีไขมันดีสูง** จะดีขึ้น",
   "guide_nutriscore_v2_why_v2_arg5_title": "ลดการบริโภคเนื้อแดง",
   "guide_nutriscore_v2_why_v2_arg5_text": "ควรจำกัดการบริโภคเนื้อแดง นี่จึงเป็นเหตุผลว่าทำไมเนื้อสัตว์ปีกจึงได้รับการจัดอันดับที่ดีกว่าเมื่อเปรียบเทียบกัน",
   "guide_nutriscore_v2_new_logo_title": "จะแยกความแตกต่างระหว่างค่า Nutri-Score แบบเก่ากับการคำนวณแบบใหม่ได้อย่างไร?",
-  "guide_nutriscore_v2_new_logo_text": "จากนี้ไป โลโก้สามารถแสดงข้อความ \"**การคำนวณใหม่**\" เพื่อความชัดเจนว่านี่คือการคำนวณใหม่จริงๆ",
-  "guide_nutriscore_v2_new_logo_image_caption": "โลโก้ของ Nutri-Score ใหม่",
+  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
+  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
   "guide_nutriscore_v2_where_title": "ประเทศที่มีการนำ Nutri-Score แบบใหม่ไปใช้",
   "guide_nutriscore_v2_where_paragraph1": "ระบบการให้คะแนนโภชนาการ (Nutri-Score) ถูกนำมาใช้ใน 7 ประเทศ ได้แก่ ฝรั่งเศส เยอรมนี เบลเยียม สเปน ลักเซมเบิร์ก เนเธอร์แลนด์ และสวิตเซอร์แลนด์",
   "guide_nutriscore_v2_where_paragraph2": "ผู้ผลิตมีเวลาอย่างมากที่สุด **2 ปี** นับจากวันที่ลงนามในพระราชกฤษฎีกา **เพื่อเปลี่ยน** วิธีการคำนวณแบบเก่าเป็นวิธีการคำนวณแบบใหม่",
-  "guide_nutriscore_v2_where_paragraph3": "ไม่ต้องรอ คุณ**จะพบการคำนวณใหม่ในแอปพลิเคชัน Open Food Facts แล้ว** แม้ว่าผู้ผลิตจะยังไม่ได้อัปเดตคะแนนก็ตาม",
-  "guide_nutriscore_v2_unchanged_title": "สิ่งที่ไม่เปลี่ยนแปลง",
-  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score เป็นคะแนนที่ออกแบบมาเพื่อ**วัดคุณภาพทางโภชนาการ** โดยจะ**เสริมกับกลุ่ม NOVA** ที่เกี่ยวกับ**อาหารแปรรูปสูง** (ซึ่งมีอยู่ในแอปพลิเคชันด้วย)",
-  "guide_nutriscore_v2_unchanged_paragraph2": "สำหรับผู้ผลิต การแสดง Nutri-Score **ยังคงเป็นทางเลือก**",
-  "guide_greenscore_title": "Green-Score",
+  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
+  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
+  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_greenscore_title": "คะแนนสีเขียว",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4147,15 +4147,15 @@
   "guide_greenscore_lca_arg3_text8": "การหมดสิ้นของทรัพยากร",
   "guide_greenscore_bonuses_penalties_title": "โบนัสและค่าปรับ",
   "guide_greenscore_bonuses_penalties_intro": "เพื่อเป็นการให้รางวัลแก่ผลิตภัณฑ์ที่ดีกว่าในแต่ละหมวดหมู่ เราจึงใช้ **โบนัสและบทลงโทษโดยพิจารณาจากเกณฑ์หลายประการ**:",
-  "guide_greenscore_bonuses_penalties_arg1_title": "โหมดการผลิต",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Mode of production",
   "guide_greenscore_bonuses_penalties_arg1_text": "จะมีการมอบ **โบนัส** ให้แก่ผลิตภัณฑ์ที่มี **ฉลากอย่างเป็นทางการ ฉลาก หรือใบรับรองที่รับประกันประโยชน์ด้านสิ่งแวดล้อม** (เช่น ออร์แกนิก การค้าที่เป็นธรรม HVE Label Rouge Bleu Blanc Cœur MSC/ASC)",
   "guide_greenscore_bonuses_penalties_arg2_title": "แหล่งที่มาของวัตถุดิบ",
   "guide_greenscore_bonuses_penalties_arg2_text": "จะมีการให้ **โบนัส** โดยพิจารณาจากแหล่งที่มาของส่วนผสม โบนัสนี้จะคำนึงถึง **ผลกระทบจากการขนส่ง** และ **นโยบายด้านสิ่งแวดล้อม** ของประเทศผู้ผลิตแต่ละรายด้วย",
-  "guide_greenscore_bonuses_penalties_arg3_title": "สัตว์ป่าใกล้สูญพันธุ์",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Endangered species",
   "guide_greenscore_bonuses_penalties_arg3_text": "ผลิตภัณฑ์ที่มีส่วนผสมที่ส่งผลกระทบเชิงลบอย่างมากต่อความหลากหลายทางชีวภาพและระบบนิเวศ เช่น น้ำมันปาล์ม ซึ่งการผลิตน้ำมันปาล์มเป็นสาเหตุของการทำลายป่าอย่างมหาศาล จะถูกลงโทษ **ปรับ**",
   "guide_greenscore_bonuses_penalties_arg4_title": "บรรจุภัณฑ์",
   "guide_greenscore_bonuses_penalties_arg4_text": "ค่าปรับจะถูกคำนวณโดยคำนึงถึงความยั่งยืนของบรรจุภัณฑ์ (การใช้วัตถุดิบรีไซเคิลและความสามารถในการรีไซเคิล) และการบรรจุสินค้าเกินความจำเป็น",
-  "guide_greenscore_transparency_title": "ความต้องการที่เพิ่มขึ้นสำหรับความโปร่งใสเพื่อการวัดและลดผลกระทบต่อสิ่งแวดล้อมที่ดีขึ้น",
+  "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
   "guide_greenscore_transparency_intro1": "ในการคำนวณ Green-Score อย่างแม่นยำ จำเป็นต้องมี **ข้อมูลที่ไม่ได้ระบุไว้บนบรรจุภัณฑ์อย่างชัดเจน** (เช่น แหล่งที่มาและเปอร์เซ็นต์ที่แน่นอนของส่วนผสมแต่ละชนิด) หรือข้อมูลที่หาได้ยากในรูปแบบที่ใช้งานได้ (เช่น รายชื่อส่วนประกอบทั้งหมดของบรรจุภัณฑ์พร้อมประเภทพลาสติกที่ใช้โดยละเอียด)",
   "guide_greenscore_transparency_intro2": "**ในกรณีที่ยังไม่มีข้อมูลนี้ จะใช้ค่าเฉลี่ย** แต่ขณะนี้เราขอความช่วยเหลือจากทุกท่านในการรวบรวมข้อมูลนี้ ซึ่งจะเป็นประโยชน์อย่างมากต่อคะแนนสีเขียว (Green-Score) และยังใช้ประโยชน์ได้อีกหลายด้าน",
   "guide_greenscore_transparency_arg1_title": "ประชาชนสามารถช่วยเหลือได้อย่างไร?",
@@ -4331,7 +4331,7 @@
   "guide_open_prices_scrapping_title": "คุณเคยพิจารณาที่จะดึงราคาจากเว็บไซต์ของผู้ค้าปลีกหรือไม่?",
   "guide_open_prices_scrapping_paragraph1": "ด้วยเหตุผลทางกฎหมายและทางเทคนิค **เราไม่ถือว่าการดึงราคาจากเว็บไซต์ของผู้ค้าปลีกเป็นวิธีการที่ถูกต้องในการนำข้อมูลมาลงใน Open Prices** เราต้องการให้แน่ใจว่าราคาที่เราเก็บรวบรวมนั้นถูกต้องและเป็นปัจจุบัน และการรับราคาที่ถูกดึงมาจากผู้ร่วมให้ข้อมูลไม่เอื้ออำนวยให้เราทำเช่นนั้นได้",
   "guide_open_prices_scrapping_paragraph2": "การดึงข้อมูลราคาเป็นหนึ่งในตัวเลือกที่พิจารณาในเวอร์ชันต่อไปของ Open Prices แต่จะดำเนินการโดย Open Prices เอง เพื่อให้เราสามารถมีหลักฐานยืนยันราคาจากหน้าเว็บ HTML ได้",
-  "guide_open_prices_retailers_title": "ฉันเป็นผู้ค้าปลีกและต้องการมีส่วนร่วมเรื่องราคา ฉันจะทำได้อย่างไร?",
+  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "คุณสามารถส่งข้อมูลราคาผ่าน API ของเราได้\nหากคุณต้องการส่งข้อมูลราคาในปริมาณมาก โปรดติดต่อเราได้ที่ prices@openfoodfacts.org",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "ยินดีต้อนรับสู่ Open Products Facts!",
@@ -4410,7 +4410,7 @@
   "@photo_viewer_details_title": {
     "description": "Title of the photo details dialog"
   },
-  "photo_viewer_details_contributor_title": "ผู้ร่วมสมทบ",
+  "photo_viewer_details_contributor_title": "Contributor",
   "@photo_viewer_details_contributor_title": {
     "description": "Label for the author of a photo"
   },
@@ -4604,7 +4604,7 @@
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_unknown_product_button": "เพิ่มผลิตภัณฑ์นี้",
+  "carousel_unknown_product_button": "Add this product",
   "carousel_loading_header": "กำลังโหลดข้อมูล...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
@@ -4666,7 +4666,7 @@
   "@not_applicable_short": {
     "description": "Acronym for Not Applicable"
   },
-  "knowledge_panel_warning_text": "คำเตือน",
+  "knowledge_panel_warning_text": "Warning",
   "@knowledge_panel_warning_text": {
     "description": "Warning text at the beginning of a sentence in the knowledge panel (you can find this word on the NutriScore KP of 3033491279300)"
   },
@@ -4861,7 +4861,7 @@
   "@nutrition_facts_extract_failed": {
     "description": "Message to indicate that the extraction of nutrients from a picture failed"
   },
-  "prices_discount": "ส่วนลด",
+  "prices_discount": "Discount",
   "@prices_discount": {
     "description": "Label for the discount on prices"
   },
@@ -4881,19 +4881,19 @@
   "@prices_stats_products_section": {
     "description": "Title for the products section"
   },
-  "prices_stats_locations_section": "สถานที่ตั้ง",
+  "prices_stats_locations_section": "Locations",
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "หลักฐาน",
+  "prices_stats_proofs_section": "Proofs",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
-  "prices_stats_contributors_section": "ผู้ร่วมสมทบ",
+  "prices_stats_contributors_section": "Contributors",
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "การทดลอง",
+  "prices_stats_experiments_section": "Experiments",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4905,19 +4905,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "มีบาร์โค้ด",
+  "prices_stats_with_barcode": "With a barcode",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "มีหมวดหมู่",
+  "prices_stats_with_category": "With a category",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "มีส่วนลด",
+  "prices_stats_with_discount": "With a discount",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "ชุมชน",
+  "prices_stats_community": "Community",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4925,7 +4925,7 @@
   "@prices_stats_consumption": {
     "description": "Label for consumption count"
   },
-  "prices_stats_with_price": "มีราคา",
+  "prices_stats_with_price": "With a price",
   "@prices_stats_with_price": {
     "description": "Label for count with price"
   },
@@ -4949,7 +4949,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "ออนไลน์",
+  "prices_stats_online": "Online",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4965,31 +4965,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "คำขอ GDPR",
+  "prices_stats_gdpr_request": "GDPR request",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "นำเข้าร้านค้า",
+  "prices_stats_shop_import": "Shop import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "ความท้าทาย",
+  "prices_stats_challenges": "Challenges",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "ราคาที่เชื่อมโยงกับป้ายราคา",
+  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "สกุลเงิน",
+  "prices_stats_currencies": "Currencies",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "ปี",
+  "prices_stats_years": "Years",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "ราคาและหลักฐานตามแหล่งที่มา",
+  "prices_stats_by_source_title": "Prices and proofs per source",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -5025,7 +5025,7 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
-  "preferences_card_general": "ทั่วไป",
+  "preferences_card_general": "General",
   "@preferences_card_general": {
     "description": "Title for the general preferences card"
   },
@@ -5045,7 +5045,7 @@
   "@preferences_contribute_title": {
     "description": "Title for the contribution preferences tile"
   },
-  "preferences_my_contributions_title": "ผลงานของฉัน",
+  "preferences_my_contributions_title": "My contributions",
   "@preferences_my_contributions_title": {
     "description": "Title for my contributions preferences tile"
   },
@@ -5065,7 +5065,7 @@
   "@preferences_connect_subtitle": {
     "description": "Subtitle for the contribution preferences tile"
   },
-  "preferences_support_title": "บริจาค",
+  "preferences_support_title": "Make a donation",
   "@preferences_support_title": {
     "description": "Title for the support preferences tile"
   },
@@ -5097,7 +5097,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "เพิ่มราคาแล้ว",
+  "preferences_app_bar_prices_added": "Prices added",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -5133,7 +5133,7 @@
   "@preferences_app_settings_products": {
     "description": "Title for the app settings products card"
   },
-  "preferences_card_about": "เกี่ยวกับ",
+  "preferences_card_about": "About",
   "@preferences_card_about": {
     "description": "Title for the app settings products card"
   },
@@ -5149,7 +5149,7 @@
   "@preferences_terms_of_use": {
     "description": "Title for the terms of use tile "
   },
-  "preferences_legal_mentions": "ข้อความทางกฎหมาย",
+  "preferences_legal_mentions": "Legal mentions",
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
@@ -5201,7 +5201,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "เพิ่มราคา",
+  "preferences_add_prices": "Add prices",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5724,7 +5724,7 @@
       }
     }
   },
-  "proof_count": "หลักฐาน {count} รายการ",
+  "proof_count": "{count} proofs",
   "@proof_count": {
     "description": "Number of proofs (when we don't know the total)",
     "placeholders": {
@@ -5748,7 +5748,7 @@
       }
     }
   },
-  "contributors_count": "ผู้ร่วมสมทบ {count} คน",
+  "contributors_count": "{count} contributors",
   "@contributors_count": {
     "description": "Number of contributors (when we don't know the total)",
     "placeholders": {
@@ -5794,7 +5794,7 @@
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
-  "preferences_about_app_development_title": "การพัฒนา",
+  "preferences_about_app_development_title": "Development",
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
@@ -5838,7 +5838,7 @@
   "location_map_details_street": "ถนน",
   "location_map_details_city": "เมือง",
   "location_map_details_postcode": "รหัสไปรษณีย์",
-  "location_map_details_country": "ประเทศ",
+  "location_map_details_country": "Country",
   "location_map_details_coordinates": "พิกัด",
   "location_map_details_osm_id": "OSM ID",
   "homepage_scanner_back_to_home_button": "กลับสู่หน้าแรก",

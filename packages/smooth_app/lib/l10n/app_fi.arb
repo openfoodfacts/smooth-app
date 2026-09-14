@@ -2460,7 +2460,7 @@
   "prices_website_button": "Avaa Open Prices -verkkosivustolla",
   "prices_bulk_proof_upload_select": "Lisää hintalaput suoraan galleriasta",
   "prices_bulk_proof_upload_warning": "Kun olet valinnut kuvat, et voi muokata niitä!",
-  "prices_bulk_proof_upload_warning_ai": "Tekoäly käsittelee kuittejasi hintojen poimimiseksi.",
+  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
   "prices_bulk_proof_upload_community_switch": "Salli yhteisön vahvistaa tekoälyn laskemat hinnat.",
   "prices_bulk_proof_upload_subtitle": "Useita hintalappuja",
   "prices_bulk_proof_upload_title": "Joukkovedosten lataus",
@@ -2803,14 +2803,14 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
-  "prices_discount_type": "Alennustyyppi",
+  "prices_discount_type": "Discount type",
   "prices_discount_type_quantity": "Määräalennus",
-  "prices_discount_type_sale": "Alennusmyynti",
-  "prices_discount_type_seasonal": "Kausittainen",
-  "prices_discount_type_loyalty_program": "Kanta-asiakasohjelma",
-  "prices_discount_type_expires_soon": "Vanhenee pian",
-  "prices_discount_type_pick_it_yourself": "Kerää itse",
-  "prices_discount_type_second_hand": "Käytetty",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
   "prices_discount_type_other": "Muu",
   "dev_preferences_import_history_result_success": "Valmis",
   "@dev_preferences_import_history_result_success": {
@@ -2947,7 +2947,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Haasteet",
+  "prices_challenges_page": "Challenges",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -4013,7 +4013,7 @@
   "environmental_score_a_new": "Green-Score A",
   "environmental_score_b_new": "Green-Score B",
   "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_d_new": "Vihreä pistemäärä D",
   "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Green-Score ei tiedossa",
   "environmental_score_not_applicable_new": "Green-Scorea ei voida laskea",
@@ -4905,11 +4905,11 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "Viivakoodilla",
+  "prices_stats_with_barcode": "With a barcode",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "Kategorialla",
+  "prices_stats_with_category": "With a category",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
@@ -4949,7 +4949,7 @@
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
-  "prices_stats_online": "Verkossa",
+  "prices_stats_online": "Online",
   "@prices_stats_online": {
     "description": "Label for online count"
   },
@@ -4969,11 +4969,11 @@
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Kaupan tuonti",
+  "prices_stats_shop_import": "Shop import",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Haasteet",
+  "prices_stats_challenges": "Challenges",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
@@ -4981,15 +4981,15 @@
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Valuutat",
+  "prices_stats_currencies": "Currencies",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Vuodet",
+  "prices_stats_years": "Years",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Hinnat ja kuitit lähdettä kohden",
+  "prices_stats_by_source_title": "Prices and proofs per source",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4997,7 +4997,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobiilisovellus",
+  "prices_stats_mobile_app": "Mobile app",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -5201,7 +5201,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Lisää hintoja",
+  "preferences_add_prices": "Add prices",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Avoimet ruokatietolaboratoriot",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

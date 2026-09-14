@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "뉴트리스코어, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -4009,12 +4009,12 @@
   "nutriscore_unknown_new_formula": "알 수 없는 Nutri-Score(새로운 계산)",
   "nutriscore_not_applicable": "Nutri-Score가 적용되지 않습니다",
   "nutriscore_not_applicable_new_formula": "Nutri-Score가 적용되지 않습니다. (새로운 계산)",
-  "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_generic_new": "친환경 점수",
+  "environmental_score_a_new": "그린 스코어 A",
+  "environmental_score_b_new": "그린 스코어 B",
+  "environmental_score_c_new": "그린 스코어 C",
+  "environmental_score_d_new": "그린 스코어 D",
+  "environmental_score_e_new": "그린 스코어 E",
   "environmental_score_unknown_new": "알 수 없는 Green-Score",
   "environmental_score_not_applicable_new": "Green-Score는 적용되지 않습니다",
   "nova_group_generic_new": "초가공식품 - NOVA 그룹",
@@ -4078,7 +4078,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score란 무엇인가요?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "뉴트리스코어란 무엇인가요?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score는 **식품의 영양적 품질**에 대한 정보를 제공하는 하는 로고입니다.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4110,7 +4110,7 @@
   "guide_nutriscore_v2_unchanged_title": "변하지 않는 것",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "제조업체의 경우 Nutri-Score 표시 여부는 **선택 사항**입니다.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "친환경 점수",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "오픈 푸드 팩츠 랩스",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

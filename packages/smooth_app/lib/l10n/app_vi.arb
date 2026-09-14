@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Điểm số dinh dưỡng, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -4009,12 +4009,12 @@
   "nutriscore_unknown_new_formula": "Nutri-Score chưa biết (Tính toán mới)",
   "nutriscore_not_applicable": "Nutri-Score không áp dụng",
   "nutriscore_not_applicable_new_formula": "Nutri-Score không áp dụng (Tính toán mới)",
-  "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_generic_new": "Điểm sinh thái",
+  "environmental_score_a_new": "Điểm xanh A",
+  "environmental_score_b_new": "Điểm xanh B",
+  "environmental_score_c_new": "Điểm xanh C",
+  "environmental_score_d_new": "Điểm xanh lá cây D",
+  "environmental_score_e_new": "Điểm xanh E",
   "environmental_score_unknown_new": "Green-Score không xác định",
   "environmental_score_not_applicable_new": "Green-Score không áp dụng",
   "nova_group_generic_new": "Thực phẩm siêu chế biến - Tập đoàn NOVA",
@@ -4110,7 +4110,7 @@
   "guide_nutriscore_v2_unchanged_title": "Điều không thay đổi",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score là một hệ thống chấm điểm được thiết kế để **đo lường chất lượng dinh dưỡng**. Hệ thống này **bổ sung cho nhóm NOVA** về **thực phẩm siêu chế biến** (cũng có trong ứng dụng).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Đối với các nhà sản xuất, việc hiển thị điểm Nutri-Score **vẫn là tùy chọn**.",
-  "guide_greenscore_title": "Green-Score",
+  "guide_greenscore_title": "Điểm sinh thái",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Phòng thí nghiệm thông tin thực phẩm mở",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

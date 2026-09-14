@@ -1831,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "ન્યુટ્રી-સ્કોર, નોવા…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -4010,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score લાગુ પડતો નથી",
   "nutriscore_not_applicable_new_formula": "Nutri-Score લાગુ પડતો નથી (નવી ગણતરી)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "ગ્રીન-સ્કોર A",
+  "environmental_score_b_new": "લીલો-સ્કોર B",
+  "environmental_score_c_new": "ગ્રીન-સ્કોર સી",
+  "environmental_score_d_new": "ગ્રીન-સ્કોર ડી",
+  "environmental_score_e_new": "ગ્રીન-સ્કોર ઇ",
   "environmental_score_unknown_new": "અજાણ્યો Green-Score",
   "environmental_score_not_applicable_new": "Green-Score લાગુ પડતો નથી",
   "nova_group_generic_new": "અલ્ટ્રા-પ્રોસેસ્ડ ફૂડ્સ - NOVA ગ્રુપ્સ",
@@ -4074,12 +4074,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "શેર કરો",
-  "guide_nutriscore_v2_title": "Nutri-Score વિકસિત થઈ રહ્યો છે: સમજૂતીઓ!",
+  "guide_nutriscore_v2_title": "ન્યુટ્રી-સ્કોર વિકસિત થઈ રહ્યો છે: સમજૂતીઓ!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score શું છે?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score એ એક લોગો છે જેનો ઉદ્દેશ્ય તમને **ખોરાકની પોષક ગુણવત્તા** વિશે માહિતી આપવાનો છે.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "ન્યુટ્રી-સ્કોર શું છે?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "ન્યુટ્રી-સ્કોર એ એક લોગો છે જેનો ઉદ્દેશ્ય તમને **ખોરાકની પોષક ગુણવત્તા** વિશે માહિતી આપવાનો છે.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4087,9 +4087,9 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score A લોગો",
-  "guide_nutriscore_v2_why_v2_title": "Nutri-Score શા માટે વિકસિત થઈ રહ્યો છે?",
-  "guide_nutriscore_v2_why_v2_intro": "Nutri-Score ફોર્મ્યુલા **બહેતર ભલામણો પૂરી પાડવા માટે** વિકસિત થઈ રહ્યું છે:",
+  "guide_nutriscore_v2_nutriscore_a_caption": "ન્યુટ્રી-સ્કોર A લોગો",
+  "guide_nutriscore_v2_why_v2_title": "ન્યુટ્રી-સ્કોર શા માટે વિકસિત થઈ રહ્યો છે?",
+  "guide_nutriscore_v2_why_v2_intro": "ન્યુટ્રી-સ્કોર ફોર્મ્યુલા **બહેતર ભલામણો પૂરી પાડવા માટે** વિકસિત થઈ રહ્યું છે:",
   "guide_nutriscore_v2_why_v2_arg1_title": "બધા પીણાંનું વધુ સારું મૂલ્યાંકન કરો",
   "guide_nutriscore_v2_why_v2_arg1_text": "નવા અલ્ગોરિધમમાં **દૂધ**, **ડેરી પીણાં**, ખાંડ ઉમેરેલા અને **વનસ્પતિ** પીણાંની તુલનાત્મક નોંધો વધુ સારી રીતે અલગ પાડવામાં આવી હતી.",
   "guide_nutriscore_v2_why_v2_arg2_title": "પીણાંનું વધુ સારું રેન્કિંગ",
@@ -4100,16 +4100,16 @@
   "guide_nutriscore_v2_why_v2_arg4_text": "ચોક્કસ **ફેટી માછલી** અને **સારી ચરબીથી ભરપૂર તેલ** નું રેટિંગ સુધરશે.",
   "guide_nutriscore_v2_why_v2_arg5_title": "લાલ માંસ મર્યાદિત કરો",
   "guide_nutriscore_v2_why_v2_arg5_text": "**લાલ માંસનો વપરાશ મર્યાદિત** હોવો જોઈએ. આ જ કારણ છે કે **મરઘાં તુલનાત્મક રીતે વધુ સારા ક્રમે** રહેશે.",
-  "guide_nutriscore_v2_new_logo_title": "જૂના Nutri-Score અને નવી ગણતરીને કેવી રીતે અલગ પાડવી?",
+  "guide_nutriscore_v2_new_logo_title": "જૂના ન્યુટ્રી-સ્કોર અને નવી ગણતરીને કેવી રીતે અલગ પાડવી?",
   "guide_nutriscore_v2_new_logo_text": "હવેથી, લોગો \"**નવી ગણતરી**\" નો ઉલ્લેખ પ્રદર્શિત કરી શકે છે જેથી સ્પષ્ટ થાય કે આ ખરેખર નવી ગણતરી છે.",
-  "guide_nutriscore_v2_new_logo_image_caption": "નવા Nutri-Scoreનો લોગો",
+  "guide_nutriscore_v2_new_logo_image_caption": "નવા ન્યુટ્રી-સ્કોરનો લોગો",
   "guide_nutriscore_v2_where_title": "નવી Nutri-Score ગણતરી ક્યાંથી મળશે?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score 7 દેશોમાં લાગુ પડે છે: ફ્રાન્સ, જર્મની, બેલ્જિયમ, સ્પેન, લક્ઝમબર્ગ, નેધરલેન્ડ અને સ્વિટ્ઝર્લૅન્ડ.",
   "guide_nutriscore_v2_where_paragraph2": "હુકમનામા પર હસ્તાક્ષર થયા પછી ઉત્પાદકો પાસે જૂની ગણતરીને નવી ગણતરી સાથે બદલવા માટે વધુમાં વધુ **2 વર્ષ** છે.",
   "guide_nutriscore_v2_where_paragraph3": "રાહ જોયા વિના, તમને **OpenFoodFacts એપ્લિકેશન** માં નવી ગણતરી મળી જશે, જેમાં ઉત્પાદકોએ સ્કોર અપડેટ ન કર્યો હોય તો તે પણ શામેલ છે.",
   "guide_nutriscore_v2_unchanged_title": "શું બદલાતું નથી",
-  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score એ એક સ્કોર છે જે **પોષણની ગુણવત્તા** માપવા માટે રચાયેલ છે. તે **અલ્ટ્રા-પ્રોસેસ્ડ ફૂડ્સ** (એપ્લિકેશનમાં પણ હાજર) પર NOVA ગ્રુપ** માટે **પૂરક** છે.",
-  "guide_nutriscore_v2_unchanged_paragraph2": "ઉત્પાદકો માટે, Nutri-Scoreનું પ્રદર્શન **વૈકલ્પિક** રહે છે.",
+  "guide_nutriscore_v2_unchanged_paragraph1": "ન્યુટ્રી-સ્કોર એ એક સ્કોર છે જે **પોષણની ગુણવત્તા** માપવા માટે રચાયેલ છે. તે **અલ્ટ્રા-પ્રોસેસ્ડ ફૂડ્સ** (એપ્લિકેશનમાં પણ હાજર) પર NOVA ગ્રુપ** માટે **પૂરક** છે.",
+  "guide_nutriscore_v2_unchanged_paragraph2": "ઉત્પાદકો માટે, ન્યુટ્રી-સ્કોરનું પ્રદર્શન **વૈકલ્પિક** રહે છે.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "ફૂડ ફેક્ટ્સ લેબ્સ ખોલો",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

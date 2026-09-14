@@ -4010,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score não aplicável",
   "nutriscore_not_applicable_new_formula": "O Nutri-Score não é aplicável (novo cálculo)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "Pontuação Verde A",
+  "environmental_score_b_new": "Pontuação Verde B",
+  "environmental_score_c_new": "Pontuação Verde C",
+  "environmental_score_d_new": "Pontuação Verde D",
+  "environmental_score_e_new": "Pontuação Verde E",
   "environmental_score_unknown_new": "Green-Score Desconhecida",
   "environmental_score_not_applicable_new": "O Green-Score não é aplicável",
   "nova_group_generic_new": "Alimentos ultraprocessados - Grupos NOVA",
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Laboratórios Abertos de Informação Alimentar",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

@@ -1593,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Sign-in or sign-up to join the Open Food Facts community",
-  "user_profile_title_id_email": "Open Food Facts login: {email}",
+  "user_profile_title_id_email": "Open Food Facts login: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -4010,10 +4010,10 @@
   "nutriscore_not_applicable": "Nutri-Score is not applicable",
   "nutriscore_not_applicable_new_formula": "Nutri-Score is not applicable (New calculation)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_a_new": "Green-Amanqaku A",
+  "environmental_score_b_new": "Amanqaku aluhlaza B",
   "environmental_score_c_new": "iGreen-Score C",
-  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_d_new": "Inqaku eliluhlaza D",
   "environmental_score_e_new": "Green-Score E",
   "environmental_score_unknown_new": "Green-Score engaziwayo",
   "environmental_score_not_applicable_new": "Green-Score ayisebenzi",
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Vula iiLebhu zoKutya iiFayile",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

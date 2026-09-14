@@ -4010,11 +4010,11 @@
   "nutriscore_not_applicable": "Nutri-Score se ne uporablja.",
   "nutriscore_not_applicable_new_formula": "Nutri-Score se ne uporablja (nov izračun)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "Zelena ocena A",
+  "environmental_score_b_new": "Zelena ocena B",
+  "environmental_score_c_new": "Zelena ocena C",
+  "environmental_score_d_new": "Zelena ocena D",
+  "environmental_score_e_new": "Zelena ocena E",
   "environmental_score_unknown_new": "Neznan Green-Score",
   "environmental_score_not_applicable_new": "Green-Score se ne uporablja",
   "nova_group_generic_new": "Ultra predelana živila - skupine NOVA",
@@ -5798,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "preferences_page_open_food_facts_labs_title": "Odprti laboratoriji za dejstva o hrani",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },

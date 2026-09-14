@@ -332,7 +332,7 @@
   "sign_up_page_display_name_hint": "Naam",
   "sign_up_page_display_name_error_empty": "Voer de weergavenaam in die u wilt gebruiken",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_error_empty": "E-mail is vereist",
   "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
   "sign_up_page_username_hint": "Gebruikersnaam: Openbaar zichtbaar",
   "sign_up_page_username_error_empty": "Voer aub. een gebruikersnaam in",
@@ -1026,7 +1026,7 @@
   },
   "product_image_outdated": "Deze afbeelding is mogelijk verouderd",
   "product_image_outdated_explanations_title": "Deze afbeelding is mogelijk verouderd",
-  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
+  "product_image_outdated_explanations_content": "Deze foto is meer dan een jaar geleden genomen.\n**Controleer of deze nog actueel is**.\n\nDit is **slechts een waarschuwing**. Als de inhoud nog hetzelfde is, kan je dit bericht negeren.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1117,7 +1117,7 @@
   "tagline_app_review_button_negative": "Niet echt…",
   "tagline_app_review_button_later": "Vraag me later nog eens",
   "tagline_feed_news_button": "Meer weten",
-  "tagline_feed_funding_goal": "of {goal}",
+  "tagline_feed_funding_goal": "van {goal}",
   "@tagline_feed_funding_goal": {
     "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
     "placeholders": {
@@ -1127,7 +1127,7 @@
       }
     }
   },
-  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "tagline_feed_funding_shortfall": "{shortfall} tekort",
   "@tagline_feed_funding_shortfall": {
     "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
     "placeholders": {
@@ -1137,7 +1137,7 @@
       }
     }
   },
-  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "tagline_feed_funding_months_left": "{months,plural, =1{een maand resterend} other{{months} maanden resterend}}",
   "@tagline_feed_funding_months_left": {
     "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
     "placeholders": {
@@ -2739,15 +2739,15 @@
   "prices_amount_no_product": "Er ontbreekt één product!",
   "prices_amount_price_incorrect": "Onjuiste waarde",
   "prices_amount_price_mandatory": "Verplichte waarde",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Update valuta",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Winkel",
   "prices_location_find": "Zoek een winkel",
   "prices_location_mandatory": "Je moet een winkel selecteren!",
   "prices_location_search_broader": "Niet gevonden wat u zocht? Probeer een bredere zoekopdracht!",
-  "prices_location_open_map": "View the shop on the map",
-  "prices_location_edit": "Select another shop",
+  "prices_location_open_map": "Bekijk de winkel op de kaart",
+  "prices_location_edit": "Selecteer een andere winkel",
   "prices_proof_subtitle": "Bewijs",
   "prices_proof_empty_title": "Nog geen bewijs!",
   "prices_proof_empty_explanation": "Begin met het toevoegen van een foto van een **bon** of een **prijskaartje**!",
@@ -3754,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Stuur ons handmatig een e-mail naar",
-  "email_copied_to_clip_board": "E-mail copied to clipboard!",
+  "email_copied_to_clip_board": "E-mail gekopieerd naar het klembord!",
   "select_accent_color": "Selecteer een accentkleur",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3944,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} products available for immediate scanning",
+  "available_for_download": "{num} producten beschikbaar om te scannen",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
