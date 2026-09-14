@@ -9,11 +9,12 @@ enum LoginResultType { successful, unsuccessful, serverIssue, exception }
 
 /// Result of a log in attempt, more subtle than a `bool`.
 class LoginResult {
-  const LoginResult(this.type, {this.user, this.text});
+  const LoginResult(this.type, {this.user, this.userDetails, this.text});
 
   final LoginResultType type;
   final User? user;
   final String? text;
+  final UserDetails? userDetails;
 
   String getErrorMessage(final AppLocalizations appLocalizations) =>
       switch (type) {
@@ -62,6 +63,7 @@ class LoginResult {
           password: user.password,
           cookie: loginStatus.cookie,
         ),
+        userDetails: loginStatus.userDetails,
       );
     } catch (e) {
       return LoginResult(LoginResultType.exception, text: e.toString());
