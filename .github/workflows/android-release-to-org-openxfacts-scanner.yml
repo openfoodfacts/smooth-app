@@ -130,6 +130,7 @@ jobs:
       - name: Build app
         run: echo $SIGN_STORE_PATH && pwd && cd ./packages/smooth_app/ && pwd && flutter build ${{ inputs.BUILD_TYPE }} --release -t lib/entrypoints/android/${{ inputs.FLAVOR }}.dart --target-platform android-arm,android-arm64
         env:
+         PACKAGE_NAME: ${{ inputs.PACKAGE_NAME }}
          SIGN_STORE_PATH: ./../fastlane/envfiles/${{ inputs.KEYSTORE_FILE }}
          SIGN_STORE_PASSWORD: ${{ secrets.SIGN_STORE_PASSWORD }}
          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
