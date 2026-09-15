@@ -35,7 +35,7 @@ void main() {
         AppLocalizations.localizationsDelegates;
 
     for (final Locale locale in locales) {
-      testWidgets('plural test $locale', (WidgetTester tester) async {
+      test('plural test $locale', () {
         for (final LocalizationsDelegate<dynamic> delegate in delegates) {
           if (!delegate.isSupported(locale)) {
             continue;

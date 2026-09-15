@@ -7,7 +7,7 @@
 # This script respects lockfiles for reproducible builds.
 set -e
 
-if [[ -n '$CI' ]]; then
+if [[ -n "$CI" ]]; then
   export PATH="$FLUTTER_ROOT/bin:$FLUTTER_ROOT/bin/cache/dart-sdk/bin:$PATH"
 fi
 
@@ -19,10 +19,10 @@ function pub_get() {
   local dir="$1"
   if [[ -e "$dir/pubspec.yaml" ]]; then
     echo "Running 'flutter pub get' in $dir"
-    (cd $dir; flutter pub get)
+    (cd "$dir" && flutter pub get)
   fi
 }
 
-for dir in $(find "$REPO_DIR" -type d -not -path "*/.dart_tool/*"); do
-  pub_get "$dir"
+for file in $(find "$REPO_DIR/packages" -maxdepth 3 -name "pubspec.yaml" -not -path "*/.*"); do
+  pub_get "$(dirname "$file")"
 done

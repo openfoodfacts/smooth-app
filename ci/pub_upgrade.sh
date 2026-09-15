@@ -9,7 +9,7 @@
 # This script is intended for manual dependency updates by developers.
 set -e
 
-if [[ -n '$CI' ]]; then
+if [[ -n "$CI" ]]; then
   export PATH="$FLUTTER_ROOT/bin:$FLUTTER_ROOT/bin/cache/dart-sdk/bin:$PATH"
 fi
 
@@ -21,11 +21,11 @@ function pub_upgrade() {
   local dir="$1"
   if [[ -e "$dir/pubspec.yaml" ]]; then
     echo "Running 'flutter pub upgrade' in $dir"
-    (cd $dir; flutter pub upgrade)
+    (cd "$dir" && flutter pub upgrade)
   fi
 }
 
-for dir in $(find "$REPO_DIR" -type d -not -path "*/.dart_tool/*"); do
-  pub_upgrade "$dir"
+for file in $(find "$REPO_DIR/packages" -maxdepth 3 -name "pubspec.yaml" -not -path "*/.*"); do
+  pub_upgrade "$(dirname "$file")"
 done
 

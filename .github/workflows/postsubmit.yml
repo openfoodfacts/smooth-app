@@ -6,12 +6,98 @@ on:
       - "develop"
     
 jobs:
-  build:
+  format:
+    name: 'Check formatting'
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-    steps:   
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v7
+
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+
+      - name: Check for formatting issues
+        run: dart format --set-exit-if-changed .
+
+  analyze:
+    name: 'Analyze code'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v7
+
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          pub-cache: true
+          pub-cache-key: "flutter-pub-${{ runner.os }}-${{ steps.flutter-version.outputs.FLUTTER_VERSION }}-${{ hashFiles('packages/**/pubspec.lock') }}"
+
+      - run: flutter --version
+
+      - name: Get dependencies
+        run: ci/pub_get.sh
+
+      - name: Analyze code
+        run: flutter analyze --fatal-infos --fatal-warnings .
+
+  test:
+    name: 'Run tests'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v7
+
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          pub-cache: true
+          pub-cache-key: "flutter-pub-${{ runner.os }}-${{ steps.flutter-version.outputs.FLUTTER_VERSION }}-${{ hashFiles('packages/**/pubspec.lock') }}"
+
+      - run: flutter --version
+
+      - name: Get dependencies
+        run: ci/pub_get.sh
+
+      - name: Run Tests with coverage
+        run: ci/testing.sh
+
+      - name: Upload coverage to codecov
+        uses: codecov/codecov-action@v7
+        with:
+          fail_ci_if_error: false
+
+  build_apk:
+    name: 'Build APK'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
       - name: "Checkout code"
         uses: actions/checkout@v7
 
@@ -20,48 +106,28 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 21
+          cache: 'gradle'
 
-      # Get the flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
         id: flutter-version
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          #channel: stable
           cache: true
           flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
-          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
-        
+          pub-cache: true
+          pub-cache-key: "flutter-pub-${{ runner.os }}-${{ steps.flutter-version.outputs.FLUTTER_VERSION }}-${{ hashFiles('packages/**/pubspec.lock') }}"
+
       - run: flutter --version
-      
-      # Get dependencies.
+
       - name: Get dependencies
         run: ci/pub_get.sh
 
-      # Check for formatting issues
-      - name: Check for formatting issues (run "dart format . ")
-        run: dart format --set-exit-if-changed .
-
-      # analyze Dart for errors
-      - name: Analyze code
-        run: flutter analyze --fatal-infos --fatal-warnings .
-      
-      # Run tests
-      - name: Run Tests with coverage
-        run: ci/testing.sh
-            
-      # Build apk.
       - name: Build APK
         run: flutter build apk --debug -t lib/entrypoints/android/main_google_play.dart
         working-directory: ./packages/smooth_app
 
-      - name: Upload coverage to codecov
-        uses: codecov/codecov-action@v7
-        with:
-          fail_ci_if_error: false
-
-      # Upload generated apk to the artifacts.
       - name: Upload APK
         uses: actions/upload-artifact@v7
         with:

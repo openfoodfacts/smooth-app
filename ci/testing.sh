@@ -19,16 +19,24 @@ SHARD="${SHARD:-${1:-test}}"
 if [[ "$SHARD" == "test" ]]; then
   echo "Running tests."
 
-  # Ignore scanner/ folder and navigate instead to the sub-folders
-  for file in "$REPO_DIR/packages/"*; do
-    if [[ "$file" == *app_store || "$file" == *scanner ]]; then
-      for file in "$file/"*; do
-        if [[ -d $file ]]; then
-          (cd "$file" && flutter test --coverage)
+  # Run main application tests with coverage
+  echo "Testing packages/smooth_app with coverage..."
+  (cd "$REPO_DIR/packages/smooth_app" && flutter test --coverage)
+
+  # Run tests in other packages if they have real tests (not just dummy tests)
+  for pkg_group in "$REPO_DIR/packages/app_store" "$REPO_DIR/packages/scanner"; do
+    if [[ -d "$pkg_group" ]]; then
+      for pkg in "$pkg_group/"*; do
+        if [[ -d "$pkg/test" ]]; then
+          # Skip packages that only contain the placeholder dummy 'Fake test'
+          if grep -rq "Fake test" "$pkg/test" && [[ $(find "$pkg/test" -name "*_test.dart" | wc -l) -eq 1 ]]; then
+            echo "Skipping dummy tests in $(basename "$pkg_group")/$(basename "$pkg")"
+          else
+            echo "Testing $(basename "$pkg_group")/$(basename "$pkg")..."
+            (cd "$pkg" && flutter test)
+          fi
         fi
       done
-    elif [[ -d $file ]]; then
-      (cd "$file" && flutter test --coverage)
     fi
   done
 fi

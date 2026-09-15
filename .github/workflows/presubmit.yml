@@ -10,45 +10,83 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: 'Analyze and test'
-
+  format:
+    name: 'Check formatting'
     runs-on: ubuntu-latest
     defaults:
       run:
         shell: bash
-
     steps:
       - name: 📂 Checkout code
         uses: actions/checkout@v7
 
-      # Get the Flutter version from ./flutter-version.txt
       - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
         id: flutter-version
 
       - name: 🪺 Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          #channel: stable
           cache: true
           flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
-          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+
+      - name: 🧹 Check for formatting issues (run "dart format .")
+        run: dart format --set-exit-if-changed .
+
+  analyze:
+    name: 'Analyze code'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: 📂 Checkout code
+        uses: actions/checkout@v7
+
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: 🪺 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          pub-cache: true
+          pub-cache-key: "flutter-pub-${{ runner.os }}-${{ steps.flutter-version.outputs.FLUTTER_VERSION }}-${{ hashFiles('packages/**/pubspec.lock') }}"
 
       - run: flutter --version
 
-      # Get dependencies
       - name: 📦 Get dependencies
         run: ci/pub_get.sh
 
-      # Check for formatting issues
-      - name: 🧹 Check for formatting issues (run "dart format . ")
-        run: dart format --set-exit-if-changed .
-
-      # Analyze Dart for errors
-      - name: Analyze code
+      - name: 🔍 Analyze code
         run: flutter analyze --fatal-infos --fatal-warnings .
 
-      # Run tests
+  test:
+    name: 'Run tests'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: 📂 Checkout code
+        uses: actions/checkout@v7
+
+      - run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: 🪺 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          pub-cache: true
+          pub-cache-key: "flutter-pub-${{ runner.os }}-${{ steps.flutter-version.outputs.FLUTTER_VERSION }}-${{ hashFiles('packages/**/pubspec.lock') }}"
+
+      - run: flutter --version
+
+      - name: 📦 Get dependencies
+        run: ci/pub_get.sh
+
       - name: 🧪 Run Tests with coverage
         run: ci/testing.sh
 
@@ -56,3 +94,17 @@ jobs:
         uses: codecov/codecov-action@v7
         with:
           fail_ci_if_error: false
+
+  build:
+    name: 'Analyze and test'
+    needs: [format, analyze, test]
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: Evaluate status
+        run: |
+          if [[ "${{ needs.format.result }}" != "success" || "${{ needs.analyze.result }}" != "success" || "${{ needs.test.result }}" != "success" ]]; then
+            echo "One or more checks failed: format=${{ needs.format.result }}, analyze=${{ needs.analyze.result }}, test=${{ needs.test.result }}"
+            exit 1
+          fi
+          echo "All checks passed successfully"

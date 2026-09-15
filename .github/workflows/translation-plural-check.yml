@@ -7,9 +7,15 @@ on:
   push:
     branches:
       - '**'
+    paths:
+      - 'packages/smooth_app/lib/l10n/**.arb'
+      - '.github/workflows/translation-plural-check.yml'
   pull_request:
     branches:
       - '**'
+    paths:
+      - 'packages/smooth_app/lib/l10n/**.arb'
+      - '.github/workflows/translation-plural-check.yml'
 
 jobs:
   check-empty-braces:
