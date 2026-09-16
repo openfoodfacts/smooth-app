@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/app_bar_constanst.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -16,11 +18,27 @@ class LoggedInAppBarHeader extends StatelessWidget {
 
   final String userId;
 
+  String _getGreeting(AppLocalizations appLocalizations, String name) {
+    final int hour = DateTime.now().hour;
+    if (hour < 12) {
+      return appLocalizations.greet_good_morning(name);
+    } else if (hour < 17) {
+      return appLocalizations.greet_good_afternoon(name);
+    } else if (hour < 21) {
+      return appLocalizations.greet_good_evening(name);
+    } else {
+      return appLocalizations.greet_good_night(name);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final SmoothColorsThemeExtension themeExtension = context
         .extension<SmoothColorsThemeExtension>();
+
+    final UserDetails? userDetails = UserManagementProvider.globalUserDetails;
+    final String name = userDetails?.name ?? userId;
 
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: PROFILE_PICTURE_SIZE),
@@ -33,8 +51,8 @@ class LoggedInAppBarHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               spacing: VERY_SMALL_SPACE,
               children: <Widget>[
-                Text(
-                  userId,
+                AutoSizeText(
+                  _getGreeting(appLocalizations, name),
                   style: TextStyle(
                     color: themeExtension.secondaryNormal,
                     fontSize: 18.0,
