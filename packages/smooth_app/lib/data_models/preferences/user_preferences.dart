@@ -625,6 +625,9 @@ class UserPreferences extends ChangeNotifier {
       _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_CLICKED) ??
       <String>[];
 
+  final Set<String> taglineFeedSessionImpressions = <String>{};
+  final Set<String> taglineFeedSessionClicks = <String>{};
+
   // This method voluntarily does not notify listeners (not needed)
   Future<void> taglineFeedMarkNewsAsDisplayed(final String ids) async {
     final List<String> displayedNews = taglineFeedDisplayedNews;
