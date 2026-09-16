@@ -2383,7 +2383,7 @@
   "@dev_preferences_export_history_dialog_title": {
     "description": "User dev preferences - Export history - Dialog title"
   },
-  "dev_preferences_button_positive": "OK",
+  "dev_preferences_button_positive": "Ok",
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
@@ -3928,7 +3928,7 @@
       }
     }
   },
-  "loading": "Loading…",
+  "loading": "Loading...",
   "@loading": {
     "description": "Loading…"
   },
