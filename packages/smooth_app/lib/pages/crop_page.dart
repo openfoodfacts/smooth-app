@@ -1,11 +1,13 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
+import 'package:image_size_getter/file_input.dart';
+import 'package:image_size_getter/image_size_getter.dart' as size_getter;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_image.dart';
@@ -65,15 +67,18 @@ class CropPage extends StatefulWidget {
 
 class _CropPageState extends State<CropPage> {
   late CropController _controller;
-  late ui.Image _image;
+  late final int _fullImageWidth;
+  late final int _fullImageHeight;
+  int? _cacheImageWidth;
+  int? _cacheImageHeight;
 
-  /// The screen size, used as a maximum size for the transient image.
+  /// The longest screen side, used as a maximum size for the transient image.
   ///
   /// We need this info:
   /// * we experienced performance issues when cropping the full size
   /// * it's much faster to create a smaller file
   /// * the size of the screen is a good approximation of "how big is enough?"
-  late Size _screenSize;
+  late double _longestSide;
 
   /// Progress text, if we are processing data. `null` means we're done.
   String? _progress = '';
@@ -81,15 +86,13 @@ class _CropPageState extends State<CropPage> {
   late Rect _initialCrop;
   late CropRotation _initialRotation;
 
-  late Uint8List _data;
-
   /// True if we switched to the "erase" mode, and not the "crop grid" mode.
   bool _isErasing = false;
 
   final EraserModel _eraserModel = EraserModel();
 
-  Future<void> _load(final Uint8List list) async {
-    _image = await BackgroundTaskImage.loadUiImage(list);
+  Future<void> _load() async {
+    await _retrieveSize();
     _initialCrop = _getInitialRect();
     _initialRotation = widget.initialRotation ?? CropRotation.up;
     _controller = CropController(
@@ -101,6 +104,31 @@ class _CropPageState extends State<CropPage> {
       return;
     }
     setState(() {});
+  }
+
+  Future<ui.Image> _loadFullImage() async =>
+      BackgroundTaskImage.loadUiImage(await widget.inputFile.readAsBytes());
+
+  Future<void> _retrieveSize() async {
+    try {
+      // may fail, cf. https://github.com/fluttercandies/dart_image_size_getter/pull/56
+      final size_getter.Size imageSize =
+          size_getter.ImageSizeGetter.getSizeResult(
+            FileInput(widget.inputFile),
+          ).size;
+      if (imageSize.needRotate) {
+        _fullImageWidth = imageSize.height;
+        _fullImageHeight = imageSize.width;
+      } else {
+        _fullImageWidth = imageSize.width;
+        _fullImageHeight = imageSize.height;
+      }
+    } catch (e) {
+      // as a fallback; should take more memory and a bit longer (syllepsis)
+      final ui.Image image = await _loadFullImage();
+      _fullImageWidth = image.width;
+      _fullImageHeight = image.height;
+    }
   }
 
   Rect _getInitialRect() {
@@ -120,19 +148,19 @@ class _CropPageState extends State<CropPage> {
       case CropRotation.up:
       case CropRotation.down:
         result = Rect.fromLTRB(
-          widget.initialCropRect!.left / _image.width,
-          widget.initialCropRect!.top / _image.height,
-          widget.initialCropRect!.right / _image.width,
-          widget.initialCropRect!.bottom / _image.height,
+          widget.initialCropRect!.left / _fullImageWidth,
+          widget.initialCropRect!.top / _fullImageHeight,
+          widget.initialCropRect!.right / _fullImageWidth,
+          widget.initialCropRect!.bottom / _fullImageHeight,
         );
         break;
       case CropRotation.right:
       case CropRotation.left:
         result = Rect.fromLTRB(
-          widget.initialCropRect!.left / _image.height,
-          widget.initialCropRect!.top / _image.width,
-          widget.initialCropRect!.right / _image.height,
-          widget.initialCropRect!.bottom / _image.width,
+          widget.initialCropRect!.left / _fullImageHeight,
+          widget.initialCropRect!.top / _fullImageWidth,
+          widget.initialCropRect!.right / _fullImageHeight,
+          widget.initialCropRect!.bottom / _fullImageWidth,
         );
         break;
     }
@@ -148,17 +176,28 @@ class _CropPageState extends State<CropPage> {
   @override
   void initState() {
     super.initState();
-    _initLoad();
-  }
-
-  Future<void> _initLoad() async {
-    _data = await widget.inputFile.readAsBytes();
-    await _load(_data);
+    unawaited(_load());
   }
 
   @override
   Widget build(final BuildContext context) {
-    _screenSize = MediaQuery.sizeOf(context);
+    if (_progress == null && _cacheImageWidth == null) {
+      final Size screenSize = MediaQuery.sizeOf(context);
+      final double pixelRatio = MediaQuery.devicePixelRatioOf(context);
+      _longestSide = screenSize.longestSide * pixelRatio;
+
+      final int longestSide = _longestSide.floor();
+      if (_fullImageWidth > _fullImageHeight) {
+        _cacheImageWidth = min(_fullImageWidth, longestSide);
+        _cacheImageHeight =
+            (_cacheImageWidth! * _fullImageHeight) ~/ _fullImageWidth;
+      } else {
+        _cacheImageHeight = min(_fullImageHeight, longestSide);
+        _cacheImageWidth =
+            (_cacheImageHeight! * _fullImageWidth) ~/ _fullImageHeight;
+      }
+    }
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope2(
       onWillPop: _onWillPop,
@@ -262,7 +301,11 @@ class _CropPageState extends State<CropPage> {
                             ignoring: _isErasing,
                             child: CropImage(
                               controller: _controller,
-                              image: Image.memory(_data),
+                              image: Image.file(
+                                widget.inputFile,
+                                cacheWidth: _cacheImageWidth,
+                                cacheHeight: _cacheImageHeight,
+                              ),
                               minimumImageSize: MINIMUM_TOUCH_SIZE,
                               gridCornerSize: MINIMUM_TOUCH_SIZE * .75,
                               touchSize: MINIMUM_TOUCH_SIZE,
@@ -342,31 +385,42 @@ class _CropPageState extends State<CropPage> {
     final String croppedPath = '${directory.path}/cropped_$sequenceNumber.bmp';
     final File result = File(croppedPath);
     setState(() => _progress = appLocalizations.crop_page_action_cropping);
-    final ui.Image cropped = await CropController.getCroppedBitmap(
-      image: _image,
-      maxSize: _screenSize.longestSide,
-      crop: _controller.crop,
-      rotation: _controller.rotation,
-      overlayPainter: !widget.cropHelper.enableEraser
-          ? null
-          : EraserPainter(
-              eraserModel: EraserModel(
-                rotation: _controller.rotation,
-                offsets: _eraserModel.offsets,
-              ),
-              cropRect: _controller.crop,
-            ),
-    );
-    setState(() => _progress = appLocalizations.crop_page_action_local);
-
+    ui.Image? image;
+    ui.Image? cropped;
     try {
-      await saveBmp(
-        file: result,
-        source: cropped,
-      ).timeout(const Duration(seconds: 10));
+      // TODO(monsieurtanuki): optim - we may even load a smaller image
+      image = await _loadFullImage();
+      cropped = await CropController.getCroppedBitmap(
+        image: image,
+        maxSize: _longestSide,
+        crop: _controller.crop,
+        rotation: _controller.rotation,
+        overlayPainter: !widget.cropHelper.enableEraser
+            ? null
+            : EraserPainter(
+                eraserModel: EraserModel(
+                  rotation: _controller.rotation,
+                  offsets: _eraserModel.offsets,
+                ),
+                cropRect: _controller.crop,
+              ),
+      );
+      setState(() => _progress = appLocalizations.crop_page_action_local);
+
+      Future<void> safeSaveBmp() async {
+        try {
+          await saveBmp(file: result, source: cropped!);
+        } finally {
+          cropped!.dispose();
+        }
+      }
+
+      await safeSaveBmp().timeout(const Duration(seconds: 10));
     } catch (e, trace) {
       AnalyticsHelper.sendException(e, stackTrace: trace);
       rethrow;
+    } finally {
+      image?.dispose();
     }
 
     return result;
@@ -383,14 +437,14 @@ class _CropPageState extends State<CropPage> {
           case CropRotation.up:
           case CropRotation.down:
             return Size(
-              _controller.crop.width * _image.width,
-              _controller.crop.height * _image.height,
+              _controller.crop.width * _fullImageWidth,
+              _controller.crop.height * _fullImageHeight,
             );
           case CropRotation.left:
           case CropRotation.right:
             return Size(
-              _controller.crop.width * _image.height,
-              _controller.crop.height * _image.width,
+              _controller.crop.width * _fullImageHeight,
+              _controller.crop.height * _fullImageWidth,
             );
         }
       }
@@ -447,7 +501,8 @@ class _CropPageState extends State<CropPage> {
     return widget.cropHelper.process(
       context: context,
       controller: _controller,
-      image: _image,
+      inputFullWidth: _fullImageWidth,
+      inputFullHeight: _fullImageHeight,
       smallCroppedFile: smallCroppedFile,
       directory: directory,
       inputFile: widget.inputFile,
