@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/gs1_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
@@ -38,7 +39,17 @@ class ProductDialogHelper {
   final LocalDatabase localDatabase;
 
   Future<FetchedProduct> openBestChoice() async {
-    final Product? product = await DaoProduct(localDatabase).get(barcode);
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    Product? product = await daoProduct.get(barcode);
+    if (product == null) {
+      // GS1 barcodes are stored locally under their normalized GTIN.
+      final String? normalizedGtin = tryParseGs1Barcode(
+        barcode,
+      )?.normalizedGtin;
+      if (normalizedGtin != null) {
+        product = await daoProduct.get(normalizedGtin);
+      }
+    }
     if (product != null) {
       return FetchedProduct.found(product);
     }
