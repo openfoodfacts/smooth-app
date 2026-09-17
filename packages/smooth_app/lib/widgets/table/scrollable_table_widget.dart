@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_cell_width_computer.dart';
@@ -54,7 +56,13 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
       builder: (final BuildContext context, final BoxConstraints constraints) {
         final List<double> widths = SmoothTable.clampWidths(
           _columnsMaxLength,
-          maxColWidth: constraints.maxWidth * .45,
+          maxColWidth: max(
+            constraints.maxWidth * .45,
+            // at least an icon + a percentage should be visible
+            SmoothTableCell.iconWidth +
+                SmoothTableCell.percentageWidth +
+                2 * _padding,
+          ),
           minColWidth: LARGE_SPACE,
           colPadding: _padding,
         );

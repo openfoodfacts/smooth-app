@@ -31,13 +31,17 @@ class SmoothTableCell {
   TextStyle _getStyle(final KnowledgePanelTableCellWidthComputer computer) =>
       isHeader ? computer.headerTextStyle : computer.textStyle;
 
+  static const double iconWidth = _cellItemSize + 2 * _cellItemPadding;
+  static const double percentageWidth =
+      _cellPercentageWidth + 2 * _cellItemPadding;
+
   double getWidth(final KnowledgePanelTableCellWidthComputer computer) {
     double result = computer.computeTextSize(text, _getStyle(computer)).width;
     if (iconUrl != null) {
-      result += _cellItemSize + 2 * _cellItemPadding;
+      result += iconWidth;
     }
     if (percent != null) {
-      result += _cellPercentageWidth + 2 * _cellItemPadding;
+      result += percentageWidth;
     }
     return result;
   }
