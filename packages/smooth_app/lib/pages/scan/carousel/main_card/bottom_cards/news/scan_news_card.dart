@@ -12,6 +12,8 @@ import 'package:smooth_app/generic_lib/widgets/smooth_app_logo.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
+import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -117,10 +119,16 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
                 currentNews.id,
               );
             }
-            LaunchUrlHelper.launchURLAndFollowDeepLinks(
-              context,
-              currentNews.url,
-            );
+            if (currentNews.isDonation) {
+              AppNavigator.of(
+                context,
+              ).push(AppRoutes.DONATE(DonationSource.tagline));
+            } else {
+              LaunchUrlHelper.launchURLAndFollowDeepLinks(
+                context,
+                currentNews.url,
+              );
+            }
           },
           child: Padding(
             padding: EdgeInsetsDirectional.symmetric(

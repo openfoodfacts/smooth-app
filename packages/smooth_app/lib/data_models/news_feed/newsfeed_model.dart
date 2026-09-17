@@ -8,6 +8,15 @@ class AppNews {
 
   bool get hasContent => news._news.isNotEmpty && feed.news.isNotEmpty;
 
+  AppNewsItem? get donation {
+    for (final AppNewsFeedItem item in feed.news) {
+      if (item.news.isDonation) {
+        return item.news;
+      }
+    }
+    return null;
+  }
+
   @override
   String toString() {
     return 'AppNews{news: $news, feed: $feed}';
@@ -45,6 +54,9 @@ class AppNewsItem {
     this.raised,
     this.goal,
     this.currency,
+    this.donationAmounts,
+    this.donationScansPerUnit,
+    this.donationWhereItGoes,
   });
 
   final String id;
@@ -63,8 +75,13 @@ class AppNewsItem {
   final num? raised;
   final num? goal;
   final String? currency;
+  final List<num>? donationAmounts;
+  final num? donationScansPerUnit;
+  final List<String>? donationWhereItGoes;
 
   AppNewsFunding? get funding => AppNewsFunding.tryFrom(raised, goal, currency);
+
+  bool get isDonation => id.toLowerCase().startsWith('donation');
 
   int? get monthsLeft {
     final DateTime? end = endDate;
@@ -94,7 +111,10 @@ class AppNewsItem {
         ',style:$style'
         ',raised:$raised'
         ',goal:$goal'
-        ',currency:$currency)';
+        ',currency:$currency'
+        ',donationAmounts:$donationAmounts'
+        ',donationScansPerUnit:$donationScansPerUnit'
+        ',donationWhereItGoes:$donationWhereItGoes)';
   }
 }
 
