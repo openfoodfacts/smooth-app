@@ -24,7 +24,10 @@ enum AnalyticsCategory {
   deepLink(tag: 'deep link'),
   hungerGame(tag: 'hunger game'),
   appRating(tag: 'app rating'),
-  taglineFeed(tag: 'tagline feed');
+  taglineFeed(tag: 'tagline feed'),
+  lifecycle(tag: 'lifecycle'),
+  onboarding(tag: 'onboarding'),
+  knowledgePanel(tag: 'knowledge panel');
 
   const AnalyticsCategory({required this.tag});
 
@@ -161,6 +164,15 @@ enum AnalyticsEvent {
   taglineNewsClicked(
     tag: 'tagline news clicked',
     category: AnalyticsCategory.taglineFeed,
+  ),
+  appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
+  onboardingPageVisited(
+    tag: 'onboarding page visited',
+    category: AnalyticsCategory.onboarding,
+  ),
+  knowledgePanelOpen(
+    tag: 'knowledge panel open',
+    category: AnalyticsCategory.knowledgePanel,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -344,11 +356,13 @@ class AnalyticsHelper {
     AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
+    String? action,
   }) => trackCustomEvent(
     msg.name,
     msg.category.tag,
     eventValue: eventValue,
     barcode: barcode,
+    action: action,
   );
 
   // Used by code which is outside of the core:smooth_app code
@@ -361,6 +375,11 @@ class AnalyticsHelper {
     String? action,
     ProductType? productType,
   }) {
+    // Screenshot mode skips [MatomoTracker.initialize], which leaves its
+    // `queue` an unassigned `late final`.
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final Map<String, String> dimensions = <String, String>{
       'dimension1': ProductQuery.getLanguage().offTag,
       'dimension2': ProductQuery.getCountry().offTag,
