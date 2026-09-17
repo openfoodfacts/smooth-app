@@ -110,11 +110,7 @@ void visitElement(Element node) {
   if (isTh) {
     _addThText = false;
     _currentRow.add(
-      SmoothTableCell(
-        text: _buffer.toString(),
-        isHeader: true,
-        leftAlign: true,
-      ),
+      SmoothTableCell(text: _buffer.toString(), isHeader: true),
     );
   }
 }</code></pre>

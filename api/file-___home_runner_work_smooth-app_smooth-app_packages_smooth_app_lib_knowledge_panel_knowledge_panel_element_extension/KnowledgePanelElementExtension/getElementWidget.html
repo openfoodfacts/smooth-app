@@ -142,11 +142,7 @@
       );
 
     case KnowledgePanelElementType.TABLE:
-      return KnowledgePanelTableCard(
-        tableElement: tableElement!,
-        isInitiallyExpanded: isInitiallyExpanded,
-        product: product,
-      );
+      return ScrollableTableWidget(SmoothTable.fromKP(tableElement!));
 
     case KnowledgePanelElementType.MAP:
       return KnowledgePanelWorldMapCard(mapElement!);

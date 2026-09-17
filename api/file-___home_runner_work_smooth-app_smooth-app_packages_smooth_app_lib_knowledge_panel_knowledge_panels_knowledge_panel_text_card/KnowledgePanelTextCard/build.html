@@ -84,7 +84,7 @@ Widget build(BuildContext context) {
       text: textElement.html.replaceFirst(regExp, &#39;&#39;).trim(),
     );
   } else if (textElement.html.startsWith(&#39;&lt;table&#39;)) {
-    return ScrollableTableWidget(textElement.html);
+    return ScrollableTableWidget.fromHtml(textElement.html);
   } else {
     text = Padding(
       padding: const EdgeInsetsDirectional.only(
