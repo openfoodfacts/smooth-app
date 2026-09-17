@@ -296,6 +296,10 @@ class AnalyticsHelper {
   static bool get isEnabled =>
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
+  /// Returns true if both analytics and crash reporting are enabled.
+  /// This is used to determine whether to send HTTP traces to Sentry.
+  static bool get isTracingEnabled => isEnabled && _crashReports;
+
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
     if (!_crashReports) {
       return null;
