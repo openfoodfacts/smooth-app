@@ -253,15 +253,6 @@ class AnalyticsHelper {
       options
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
-        ..beforeSend = (SentryEvent event, Hint hint) async {
-          return event
-            ..tags = <String, String>{
-              'store': GlobalVars.storeLabel.name,
-              'scanner': GlobalVars.scannerLabel.name,
-            };
-        };
-      // Configure trace sampling based on analytics and crash reporting opt-in
-      options
         ..tracesSampler = (SentrySamplingContext samplingContext) {
           // Only sample traces if user has opted in to both analytics and crash reporting
           return isTracingEnabled ? 1.0 : 0.0;
