@@ -15,12 +15,22 @@ Future<void> setupAppNetworkConfig() async {
   return _importSSLCertificate();
 }
 
+HttpOverrides? _previousOverrides;
+
 /// Initializes HTTP overrides with Sentry tracing support.
 ///
 /// This sets up a custom HttpOverrides that intercepts ALL HTTP requests
 /// (including NetworkImage, http.get, etc.) and conditionally enables
 /// Sentry tracing based on user consent.
+///
+/// Preserves any existing [HttpOverrides.global] (e.g. set by tests or
+/// plugins) by chaining to it instead of clobbering.
 void _initHttpOverrides() {
+  final HttpOverrides? existing = HttpOverrides.global;
+  if (existing is _SentryHttpOverrides) {
+    return;
+  }
+  _previousOverrides = existing;
   HttpOverrides.global = _SentryHttpOverrides();
 }
 
@@ -129,7 +139,8 @@ bool _isTrustedOFFHost(String host) =>
 class _SentryHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
-    final HttpClient client = super.createHttpClient(context);
+    final HttpClient client = _previousOverrides?.createHttpClient(context) ??
+        super.createHttpClient(context);
 
     // Only for Android 7.1 and below (API <25) fall back to permissive
     // callback for OFF hosts. Modern Android uses default validation +
