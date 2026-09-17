@@ -32,13 +32,12 @@ class SentryHttpClientHelper {
   ///
   /// This is used by HttpOverrides to intercept ALL HTTP requests in the app,
   /// including NetworkImage requests and any direct dart:io HttpClient usage.
+  ///
+  /// Always wraps; consent is re-checked per-request inside
+  /// [_SentryWrappedHttpClient._wrapRequest] so toggling preferences takes
+  /// effect immediately without recreating the cached HttpClient.
   static HttpClient wrapHttpClient(HttpClient client) {
-    if (AnalyticsHelper.isTracingEnabled) {
-      // Return a custom wrapper that adds Sentry tracing
-      return _SentryWrappedHttpClient(client);
-    } else {
-      return client;
-    }
+    return _SentryWrappedHttpClient(client);
   }
 }
 
@@ -116,6 +115,11 @@ class _SentryWrappedHttpClient implements HttpClient {
     Uri url,
     String method,
   ) async {
+    // Check consent per-request so opt-out is immediate even for cached clients.
+    if (!AnalyticsHelper.isTracingEnabled) {
+      return requestFactory();
+    }
+
     // Start a Sentry span for this request
     final ISentrySpan? span = Sentry.getSpan()?.startChild(
       'http.client',
