@@ -155,6 +155,37 @@ class _SentryWrappedHttpClient implements HttpClient {
     try {
       final HttpClientRequest request = await requestFactory();
 
+      // Propagate distributed-tracing headers so backends can correlate
+      // spans. Mirrors Sentry's TracingClient: only when the URL matches
+      // tracePropagationTargets, from the child span if present, else from
+      // the scope propagation context. Never breaks the request on failure.
+      if (_shouldPropagateTrace(url)) {
+        try {
+          if (span != null) {
+            final SentryTraceHeader traceHeader = span.toSentryTrace();
+            request.headers.set(traceHeader.name, traceHeader.value);
+            final SentryBaggageHeader? baggage = span.toBaggageHeader();
+            if (baggage != null) {
+              request.headers.set(baggage.name, baggage.value);
+            }
+          } else {
+            final dynamic propagationContext =
+                Sentry.currentHub.scope.propagationContext;
+            final dynamic traceHeader =
+                propagationContext.toSentryTrace() as SentryTraceHeader;
+            request.headers.set(traceHeader.name, traceHeader.value);
+            final dynamic baggage =
+                propagationContext.toBaggageHeader() as SentryBaggageHeader?;
+            if (baggage != null) {
+              request.headers.set(baggage.name, baggage.value);
+            }
+          }
+        } catch (_) {
+          // Tracing must never break the request.
+        }
+      }
+      span?.setData('http.request.method', method);
+
       // Wrap the request to finish the span when done
       return _SentryWrappedHttpClientRequest(request, span);
     } catch (e) {
@@ -163,6 +194,33 @@ class _SentryWrappedHttpClient implements HttpClient {
       await span?.finish();
       rethrow;
     }
+  }
+
+  /// Returns true if [url] matches Sentry's tracePropagationTargets.
+  ///
+  /// Duplicates SDK logic in `containsTargetOrMatchesRegExp`: empty list
+  /// means no propagation; otherwise substring or case-insensitive RegExp
+  /// match. Defaults to `['.*']` (propagate everywhere).
+  static bool _shouldPropagateTrace(Uri url) {
+    final List<String> targets =
+        Sentry.currentHub.options.tracePropagationTargets;
+    if (targets.isEmpty) {
+      return false;
+    }
+    final String urlString = url.toString();
+    for (final String target in targets) {
+      if (urlString.contains(target)) {
+        return true;
+      }
+      try {
+        if (RegExp(target, caseSensitive: false).hasMatch(urlString)) {
+          return true;
+        }
+      } on FormatException {
+        continue;
+      }
+    }
+    return false;
   }
 
   // Delegate all other properties and methods to the inner client
