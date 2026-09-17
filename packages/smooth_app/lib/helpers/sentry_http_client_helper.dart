@@ -225,26 +225,46 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
 
   final HttpClientRequest _request;
   final ISentrySpan? _span;
+  bool _spanFinished = false;
+
+  Future<void> _finishWithStatus(SpanStatus status) async {
+    if (_spanFinished) {
+      return;
+    }
+    _spanFinished = true;
+    _span?.status = status;
+    await _span?.finish();
+  }
+
+  // Fire-and-forget for synchronous abort path.
+  void _finishWithStatusSync(SpanStatus status) {
+    if (_spanFinished) {
+      return;
+    }
+    _spanFinished = true;
+    _span?.status = status;
+    // abort() is synchronous by dart:io contract
+    _span?.finish();
+  }
 
   @override
   Future<HttpClientResponse> close() async {
     try {
       final HttpClientResponse response = await _request.close();
-      _span?.status = SpanStatus.fromHttpStatusCode(response.statusCode);
-      await _span?.finish();
+      await _finishWithStatus(
+        SpanStatus.fromHttpStatusCode(response.statusCode),
+      );
       return response;
     } catch (e) {
       _span?.throwable = e;
-      _span?.status = const SpanStatus.internalError();
-      await _span?.finish();
+      await _finishWithStatus(const SpanStatus.internalError());
       rethrow;
     }
   }
 
   @override
   void abort([Object? exception, StackTrace? stackTrace]) {
-    _span?.status = const SpanStatus.aborted();
-    _span?.finish();
+    _finishWithStatusSync(const SpanStatus.aborted());
     _request.abort(exception, stackTrace);
   }
 
@@ -315,13 +335,13 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
   Future<HttpClientResponse> get done async {
     try {
       final HttpClientResponse response = await _request.done;
-      _span?.status = SpanStatus.fromHttpStatusCode(response.statusCode);
-      await _span?.finish();
+      await _finishWithStatus(
+        SpanStatus.fromHttpStatusCode(response.statusCode),
+      );
       return response;
     } catch (e) {
       _span?.throwable = e;
-      _span?.status = const SpanStatus.internalError();
-      await _span?.finish();
+      await _finishWithStatus(const SpanStatus.internalError());
       rethrow;
     }
   }
