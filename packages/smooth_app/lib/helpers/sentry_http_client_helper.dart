@@ -111,6 +111,31 @@ class _SentryWrappedHttpClient implements HttpClient {
     String path,
   ) => openUrl(method, Uri(scheme: 'http', host: host, port: port, path: path));
 
+  /// Returns a sanitized URL for Sentry span descriptions.
+  ///
+  /// Mirrors Sentry's own [HttpSanitizer] convention: strips query, fragment
+  /// and redacts userinfo so PII (search terms, credentials) never lands in
+  /// Sentry. Only scheme://host[:port]/path is kept.
+  static String sanitizedDescription(String method, Uri url) {
+    final StringBuffer buffer = StringBuffer();
+    if (url.scheme.isNotEmpty) {
+      buffer.write('${url.scheme}://');
+    }
+    if (url.userInfo.isNotEmpty) {
+      buffer.write(
+        url.userInfo.contains(':') ? '[Filtered]:[Filtered]@' : '[Filtered]@',
+      );
+    }
+    buffer.write(url.host);
+    if (url.hasPort) {
+      buffer.write(':${url.port}');
+    }
+    if (url.path.isNotEmpty) {
+      buffer.write(url.path);
+    }
+    return '$method $buffer';
+  }
+
   Future<HttpClientRequest> _wrapRequest(
     Future<HttpClientRequest> Function() requestFactory,
     Uri url,
@@ -121,10 +146,10 @@ class _SentryWrappedHttpClient implements HttpClient {
       return requestFactory();
     }
 
-    // Start a Sentry span for this request
+    // Start a Sentry span for this request (sanitized: no query/fragment/userinfo).
     final ISentrySpan? span = Sentry.getSpan()?.startChild(
       'http.client',
-      description: '$method $url',
+      description: sanitizedDescription(method, url),
     );
 
     try {
