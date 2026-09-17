@@ -79,29 +79,58 @@ class _SentryWrappedHttpClient implements HttpClient {
   Future<HttpClientRequest> openUrl(String method, Uri url) =>
       _wrapRequest(() => _innerClient.openUrl(method, url), url, method);
 
+  // Legacy host/port/path family: delegate directly to the inner client.
+  // Do NOT round-trip via getUrl(Uri(scheme:..., path: path)) because
+  // Uri(path: path) percent-encodes '?'/'#' while SDK HttpClient.open parses
+  // them as query/fragment separators. Delegating preserves SDK semantics;
+  // _legacyDescUri is for span description only (query/fragment stripped).
   @override
   Future<HttpClientRequest> get(String host, int port, String path) =>
-      getUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.get(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'GET',
+      );
 
   @override
   Future<HttpClientRequest> post(String host, int port, String path) =>
-      postUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.post(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'POST',
+      );
 
   @override
   Future<HttpClientRequest> put(String host, int port, String path) =>
-      putUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.put(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'PUT',
+      );
 
   @override
   Future<HttpClientRequest> delete(String host, int port, String path) =>
-      deleteUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.delete(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'DELETE',
+      );
 
   @override
   Future<HttpClientRequest> head(String host, int port, String path) =>
-      headUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.head(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'HEAD',
+      );
 
   @override
   Future<HttpClientRequest> patch(String host, int port, String path) =>
-      patchUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.patch(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'PATCH',
+      );
 
   @override
   Future<HttpClientRequest> open(
@@ -109,7 +138,34 @@ class _SentryWrappedHttpClient implements HttpClient {
     String host,
     int port,
     String path,
-  ) => openUrl(method, Uri(scheme: 'http', host: host, port: port, path: path));
+  ) => _wrapRequest(
+    () => _innerClient.open(method, host, port, path),
+    _legacyDescUri('http', host, port, path),
+    method.toUpperCase(),
+  );
+
+  /// Builds a description-only Uri for legacy host/port/path calls.
+  ///
+  /// Mirrors SDK `HttpClient.open` parsing: '?' starts query, '#' starts
+  /// fragment. They are stripped here because [sanitizedDescription] never
+  /// sends them to Sentry anyway; the actual request uses the raw [path].
+  static Uri _legacyDescUri(
+    String scheme,
+    String host,
+    int port,
+    String path,
+  ) {
+    String pathPart = path;
+    final int hashIndex = pathPart.indexOf('#');
+    if (hashIndex != -1) {
+      pathPart = pathPart.substring(0, hashIndex);
+    }
+    final int queryIndex = pathPart.indexOf('?');
+    if (queryIndex != -1) {
+      pathPart = pathPart.substring(0, queryIndex);
+    }
+    return Uri(scheme: scheme, host: host, port: port, path: pathPart);
+  }
 
   /// Returns a sanitized URL for Sentry span descriptions.
   ///
