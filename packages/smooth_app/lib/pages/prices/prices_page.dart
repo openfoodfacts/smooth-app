@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -10,9 +9,10 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/prices_page_header.dart';
 import 'package:smooth_app/pages/prices/product_prices_list.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/v2/smooth_leading_button.dart';
 import 'package:smooth_app/widgets/v2/smooth_scaffold2.dart';
 import 'package:smooth_app/widgets/v2/smooth_topbar2.dart';
@@ -43,6 +43,7 @@ class PricesPage extends StatelessWidget {
         title: appLocalizations.prices_list_title,
         subTitle: model.title,
         elevationOnScroll: true,
+        productType: null,
       ),
       injectPaddingInBody: model.displayEachProduct,
       belowTopBar: !model.displayEachProduct,
@@ -122,7 +123,7 @@ class _PricesFeedbackForm extends StatelessWidget {
                         ),
                         child: const AspectRatio(
                           aspectRatio: 1.0,
-                          child: Lab(color: Colors.white, size: 13.0),
+                          child: icons.Lab(color: Colors.white, size: 13.0),
                         ),
                       ),
                     ),

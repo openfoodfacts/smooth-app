@@ -1,10 +1,10 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/all_statistics_button.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/statistics_cards/contribution_statistics_card.dart';
 import 'package:smooth_app/generic_lib/widgets/app_bars/logged_in/statistics_cards/prices_statistics_card.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 
 /// 2 statistics cards + button to all statistics.
 class LoggedInAppBarBody extends StatelessWidget {

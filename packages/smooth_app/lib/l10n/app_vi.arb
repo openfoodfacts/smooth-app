@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Giá mở",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Thêm vào",
   "@add": {},
+  "edit": "Chỉnh sửa",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Bạn có chắc rằng bạn muốn xóa tài khoản của bạn?\nNếu có lý do cụ thể hãy chia sẻ bên dưới",
   "@account_delete_message": {},
   "reason": "Lý do",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Đặt lại sở thích ăn uống",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Đã xảy ra lỗi",
   "@error": {},
@@ -241,7 +332,7 @@
   "sign_up_page_display_name_hint": "Tên",
   "sign_up_page_display_name_error_empty": "Vui lòng nhập tên hiển thị bạn muốn sử dụng",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "Email là bắt buộc",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Email không hợp lệ",
   "sign_up_page_username_hint": "Tên người dùng: Hiển thị công khai",
   "sign_up_page_username_error_empty": "Vui lòng nhập tên đăng nhập",
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Quản lý tài khoản cộng tác viên Open Food Facts của bạn.",
   "myPreferences_settings_title": "Cài đặt ứng dụng",
   "myPreferences_settings_subtitle": "Chế độ tối, Ngôn ngữ…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Sở thích ăn uống",
   "myPreferences_food_subtitle": "Chọn loại thông tin về thực phẩm quan trọng nhất đối với bạn.",
   "myPreferences_food_comment": "Chọn thông tin về thực phẩm quan trọng nhất với bạn để xếp hạng thực phẩm theo sở thích, xem thông tin bạn quan tâm trước và nhận tóm tắt về khả năng tương thích. Những sở thích về thực phẩm đó sẽ được lưu trên thiết bị của bạn và không được liên kết với tài khoản cộng tác viên Open Food Facts của bạn (nếu có).",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Đặt lại sở thích ăn uống của bạn?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Xem tất cả ảnh hiện có cho sản phẩm này",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Không tìm thấy sản phẩm",
   "@no_product_found": {},
+  "no_product_found_explanation": "Tìm kiếm của bạn cho\n**\"{search}\"**\nkhông khớp với bất kỳ kết quả nào.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Bạn có muốn thực hiện tìm kiếm tương tự trong **cơ sở dữ liệu toàn cầu của chúng tôi** không?",
   "no_location_found": "Không tìm thấy vị trí",
   "not_found": "không tìm thấy:",
   "refreshing_product": "Làm mới sản phẩm",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "Hình ảnh này có thể đã lỗi thời",
   "product_image_outdated_explanations_title": "Hình ảnh này có thể đã lỗi thời",
-  "product_image_outdated_explanations_content": "Hình ảnh này được chụp cách đây hơn một năm.\n**Vui lòng kiểm tra xem hình ảnh có còn được cập nhật không**.\n\nĐây **chỉ là một cảnh báo**. Nếu nội dung vẫn như cũ, bạn có thể bỏ qua thông báo này.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "Không hẳn vậy…",
   "tagline_app_review_button_later": "Hỏi tôi sau nhé",
   "tagline_feed_news_button": "Tìm hiểu thêm",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Bạn không thích ứng dụng của chúng tôi?",
   "app_review_negative_modal_text": "Bạn có thể dành vài giây để cho chúng tôi biết lý do không?",
   "app_review_negative_modal_positive_button": "Có, chắc chắn rồi!",
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Không có sản phẩm nào trong danh sách này",
   "no_product_in_section": "Không có sản phẩm nào trong phần này",
   "recently_seen_products": "Tất cả sản phẩm đã xem",
   "clear": "Xóa",
@@ -1453,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Đăng nhập hoặc đăng ký để tham gia cộng đồng Open Food Facts",
-  "user_profile_title_id_email": "Mở thông tin đăng nhập Thực phẩm: {email}",
+  "user_profile_title_id_email": "Đăng nhập Open Food Facts: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1691,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Điểm số dinh dưỡng, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1771,7 +1911,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Quốc gia",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "Chăm sóc cá nhân",
   "product_type_label_pet_food": "Thức ăn cho thú cưng",
   "product_type_label_product": "Khác",
+  "product_type_label_unknown": "Không biết",
   "product_type_selection_title": "Loại sản phẩm",
   "product_type_selection_subtitle": "Chọn loại sản phẩm này",
   "product_type_selection_empty": "Trước tiên, bạn cần chọn loại sản phẩm!",
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Danh mục",
   "prices_category_mandatory": "Bắt buộc",
   "prices_category_optional": "Không bắt buộc",
+  "prices_origins_title": "Nguồn gốc",
   "prices_category_error_mandatory": "Thể loại này là bắt buộc",
   "prices_barcode_reader_action": "Máy đọc mã vạch",
   "prices_view_prices": "Xem giá",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Xem chi tiết sản phẩm",
   "prices_entry_menu_open_product_prices": "Xem tất cả giá cho sản phẩm này",
   "prices_entry_menu_open_proof": "Xem bằng chứng",
   "prices_entry_menu_my_prices": "Xem giá khác của tôi",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "Thiếu một sản phẩm!",
   "prices_amount_price_incorrect": "Giá trị không chính xác",
   "prices_amount_price_mandatory": "Giá trị bắt buộc",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Tiền tệ",
   "prices_date_subtitle": "Ngày",
   "prices_location_subtitle": "Cửa hàng",
   "prices_location_find": "Tìm một cửa hàng",
   "prices_location_mandatory": "Bạn cần phải chọn một cửa hàng!",
   "prices_location_search_broader": "Không tìm thấy thông tin bạn cần? Hãy thử tìm kiếm rộng hơn!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bằng chứng",
   "prices_proof_empty_title": "Chưa có bằng chứng!",
   "prices_proof_empty_explanation": "Bắt đầu bằng cách thêm ảnh **biên lai** hoặc **nhãn giá**!",
@@ -2656,6 +2803,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Khác",
   "dev_preferences_import_history_result_success": "Xong",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Vui lòng gửi cho email cho chúng tôi đến địa chỉ",
-  "email_copied_to_clip_board": "Email được sao chép vào clipboard!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Chọn màu chủ đề",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} sản phẩm có sẵn để quét ngay lập tức",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3853,14 +4009,14 @@
   "nutriscore_unknown_new_formula": "Nutri-Score chưa biết (Tính toán mới)",
   "nutriscore_not_applicable": "Nutri-Score không áp dụng",
   "nutriscore_not_applicable_new_formula": "Nutri-Score không áp dụng (Tính toán mới)",
-  "environmental_score_generic_new": "Điểm sinh thái",
-  "environmental_score_a_new": "Điểm xanh A",
-  "environmental_score_b_new": "Điểm xanh B",
-  "environmental_score_c_new": "Điểm xanh C",
-  "environmental_score_d_new": "Điểm xanh lá cây D",
-  "environmental_score_e_new": "Điểm xanh E",
-  "environmental_score_unknown_new": "Điểm xanh không xác định",
-  "environmental_score_not_applicable_new": "Điểm xanh không áp dụng",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score không xác định",
+  "environmental_score_not_applicable_new": "Green-Score không áp dụng",
   "nova_group_generic_new": "Thực phẩm siêu chế biến - Tập đoàn NOVA",
   "nova_group_1": "Nhóm NOVA 1",
   "nova_group_2": "Nhóm NOVA 2",
@@ -3918,43 +4074,43 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Chia sẻ",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Chỉ số Nutri-Score đang được cải tiến: đã có lời giải thích!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score là gì?",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score là một biểu tượng nhằm mục đích cung cấp thông tin về **chất lượng dinh dưỡng của thực phẩm**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Mã màu thay đổi từ xanh đậm (**A**) cho các sản phẩm **tốt cho sức khỏe nhất** đến đỏ đậm (**E**) cho các sản phẩm **kém tốt cho sức khỏe hơn**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Logo Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "Vì sao Nutri-Score lại đang phát triển?",
+  "guide_nutriscore_v2_why_v2_intro": "Công thức Nutri-Score **đang được cải tiến** để đưa ra những khuyến nghị tốt hơn:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Đánh giá kỹ hơn tất cả các loại đồ uống.",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Thuật toán mới đã phân biệt rõ hơn các thành phần so sánh giữa **sữa**, **đồ uống từ sữa** có thêm đường và **đồ uống từ rau củ**.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Xếp hạng đồ uống tốt hơn",
+  "guide_nutriscore_v2_why_v2_arg2_text": "Hàm lượng đường được xem xét kỹ hơn và ưu tiên các loại đồ uống ít đường.\\n**Chất tạo ngọt cũng sẽ bị trừ điểm**: nước ngọt ăn kiêng sẽ bị hạ điểm từ hạng B xuống hạng C đến E. Nước vẫn là thức uống được khuyến nghị.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Muối và đường bị phạt",
+  "guide_nutriscore_v2_why_v2_arg3_text": "Các sản phẩm **quá ngọt** hoặc **quá mặn** sẽ bị **hạ điểm xếp hạng thêm**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Thứ bậc trong ngành dầu ăn và đánh bắt cá",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Xếp hạng chất lượng của một số loại **cá béo** và **dầu giàu chất béo tốt** sẽ được cải thiện.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Hạn chế thịt đỏ",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Nên hạn chế tiêu thụ thịt đỏ. Đó là lý do tại sao thịt gia cầm sẽ được xếp hạng cao hơn.",
+  "guide_nutriscore_v2_new_logo_title": "Làm thế nào để phân biệt giữa chỉ số Nutri-Score cũ và cách tính toán mới?",
+  "guide_nutriscore_v2_new_logo_text": "Từ nay trở đi, logo có thể hiển thị dòng chữ \"**Phương pháp tính toán mới**\" để làm rõ rằng đây thực sự là phương pháp tính toán mới.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Logo của Nutri-Score mới",
   "guide_nutriscore_v2_where_title": "Tìm cách tính điểm Nutri-Score mới ở đâu?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score được áp dụng tại 7 quốc gia: Pháp, Đức, Bỉ, Tây Ban Nha, Luxembourg, Hà Lan và Thụy Sĩ.",
   "guide_nutriscore_v2_where_paragraph2": "Các nhà sản xuất có tối đa **2 năm** kể từ ngày ký quyết định **để thay thế** cách tính cũ bằng cách tính mới.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "Điểm sinh thái",
+  "guide_nutriscore_v2_where_paragraph3": "Không cần chờ đợi, bạn **sẽ tìm thấy ngay trong ứng dụng OpenFoodFacts** cách tính toán mới, kể cả khi nhà sản xuất chưa cập nhật điểm số.",
+  "guide_nutriscore_v2_unchanged_title": "Điều không thay đổi",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score là một hệ thống chấm điểm được thiết kế để **đo lường chất lượng dinh dưỡng**. Hệ thống này **bổ sung cho nhóm NOVA** về **thực phẩm siêu chế biến** (cũng có trong ứng dụng).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Đối với các nhà sản xuất, việc hiển thị điểm Nutri-Score **vẫn là tùy chọn**.",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4000,7 +4156,7 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "Bao bì",
   "guide_greenscore_bonuses_penalties_arg4_text": "**Hình phạt** được tính toán dựa trên **tính tuần hoàn của bao bì** (sử dụng nguyên liệu thô tái chế và khả năng tái chế) và đóng gói quá mức.",
   "guide_greenscore_transparency_title": "Nhu cầu về sự minh bạch ngày càng tăng để có thể đo lường tốt hơn và giảm tác động môi trường",
-  "guide_greenscore_transparency_intro1": "Để tính toán chính xác Điểm Xanh, cần phải có **thông tin không nhất thiết phải được ghi trên bao bì** (chẳng hạn như nguồn gốc và tỷ lệ phần trăm chính xác của từng thành phần) hoặc hiếm khi có sẵn ở dạng có thể sử dụng (chẳng hạn như danh sách tất cả các thành phần của bao bì với các loại nhựa chính xác được sử dụng).",
+  "guide_greenscore_transparency_intro1": "Để tính toán chính xác Green-Score, cần phải có **thông tin không nhất thiết phải được ghi trên bao bì** (chẳng hạn như nguồn gốc và tỷ lệ phần trăm chính xác của từng thành phần) hoặc hiếm khi có sẵn ở dạng có thể sử dụng (chẳng hạn như danh sách tất cả các thành phần của bao bì với các loại nhựa chính xác được sử dụng).",
   "guide_greenscore_transparency_intro2": "**Giá trị trung bình được sử dụng khi thông tin này chưa có sẵn**, nhưng hiện chúng tôi đang kêu gọi mọi người giúp chúng tôi thu thập thông tin này, điều này sẽ rất hữu ích cho Green-Score cũng như nhiều mục đích sử dụng khác.",
   "guide_greenscore_transparency_arg1_title": "Người dân có thể giúp đỡ như thế nào?",
   "guide_greenscore_transparency_arg1_text": "Mọi công dân có thể giúp chúng tôi thu thập và cấu trúc thông tin có trên sản phẩm hoặc có thể suy ra từ sản phẩm, chẳng hạn như thông tin về **bao bì**: \"Mission Emballages\": một kho lưu trữ bao bì hợp tác quy mô lớn cho tất cả các sản phẩm thực phẩm (bằng tiếng Pháp).",
@@ -4012,9 +4168,9 @@
   "guide_greenscore_better_product_arg2_title": "Bạn có sức mạnh!",
   "guide_greenscore_better_product_arg2_text": "Tin tốt là điều này mang đến cho chúng ta một cách thức mạnh mẽ để tạo ra sự thay đổi.\n**Mỗi người chúng ta ăn khoảng 1.000 bữa ăn mỗi năm**. Đó là 1.000 cơ hội để **chọn một tương lai tốt đẹp hơn cho hành tinh**!",
   "guide_greenscore_better_product_arg3_title": "Giúp có trách nhiệm và quyết định",
-  "guide_greenscore_better_product_arg3_text": "Việc lựa chọn thực phẩm bền vững có thể khá phức tạp. Nhãn mác dễ gây nhầm lẫn và thông tin thường bị thiếu. Điểm Xanh được tạo ra để đơn giản hóa việc này, cung cấp cho bạn xếp hạng môi trường **rõ ràng**, **dựa trên khoa học** và **minh bạch** cho các sản phẩm thực phẩm, ngay tại nơi bạn cần: khi bạn mua sắm.",
+  "guide_greenscore_better_product_arg3_text": "Việc lựa chọn thực phẩm bền vững có thể khá phức tạp. Nhãn mác dễ gây nhầm lẫn và thông tin thường bị thiếu. Green-Score được tạo ra để đơn giản hóa việc này, cung cấp cho bạn xếp hạng môi trường **rõ ràng**, **dựa trên khoa học** và **minh bạch** cho các sản phẩm thực phẩm, ngay tại nơi bạn cần: khi bạn mua sắm.",
   "guide_greenscore_better_product_arg4_title": "Tính minh bạch",
-  "guide_greenscore_better_product_arg4_text": "Không giống như các nhãn hiệu độc quyền, phép tính Điểm Xanh **hoàn toàn mở** và có thể được **xác minh bởi bất kỳ ai**.",
+  "guide_greenscore_better_product_arg4_text": "Không giống như các nhãn hiệu độc quyền, phép tính Green-Score **hoàn toàn mở** và có thể được **xác minh bởi bất kỳ ai**.",
   "guide_nova_title": "Thức ăn siêu chế biến",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4100,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Đặc điểm của Thực phẩm cho thú cưng mở",
+  "guide_open_pet_food_facts_features_title": "Tính năng của Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Nhận cảnh báo về các thành phần không mong muốn của bạn",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Thú cưng của bạn có bị dị ứng với bất kỳ thành phần nào không? Bạn có thể thiết lập danh sách các thành phần mỹ phẩm cần tránh ngay trong ứng dụng!",
   "guide_open_pet_food_facts_tips_title": "Mẹo chụp ảnh đẹp",
@@ -4282,6 +4438,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "Tương thích",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4406,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Xóa sản phẩm này khỏi vòng quay",
   "@carousel_close_tooltip": {
@@ -4555,6 +4719,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Khả năng tương thích của tôi",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% tương thích",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Không đủ dữ liệu để tính điểm tương thích.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Không thể tính điểm cho sản phẩm có kiểu \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Tầm quan trọng",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Các trận đấu",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Những trận đấu hay",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Các trận đấu trung bình",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Trận đấu tệ",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Các trận đấu không xác định",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Trang web",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4687,7 +4901,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "Tổng cộng",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4719,7 +4933,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Sắc đẹp",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -5112,15 +5326,15 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Khám phá sự thật về thực phẩm mở",
+  "preferences_faq_discover_off_title": "Khám phá Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Khám phá sự thật về vẻ đẹp mở",
+  "preferences_faq_discover_obf_title": "Khám phá Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Khám phá sự thật về thức ăn cho thú cưng",
+  "preferences_faq_discover_opff_title": "Khám phá Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
@@ -5160,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "Blog Sự thật về Thực phẩm Mở",
+  "preferences_connect_blog_title": "Blog Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Số liệu giá mở",
+  "preferences_prices_metrics_title": "Các chỉ số Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5584,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Phòng thí nghiệm thông tin thực phẩm mở",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5592,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Mang Thông tin Thực phẩm Mở sang ngôn ngữ của bạn",
+  "preferences_contribute_translate_header": "Mang Open Food Facts sang ngôn ngữ của bạn",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5624,7 +5838,61 @@
   "location_map_details_street": "Đường phố",
   "location_map_details_city": "Thành phố",
   "location_map_details_postcode": "Mã bưu chính",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Quốc gia",
   "location_map_details_coordinates": "Tọa độ",
-  "location_map_details_osm_id": "Mã OSM"
+  "location_map_details_osm_id": "Mã OSM",
+  "homepage_scanner_back_to_home_button": "Trở về trang chủ",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Bật/tắt camera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Hiển thị máy quét mã vạch",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Chạm để quét **mã vạch**\nvà khám phá xem nó có **tốt cho bạn** hay không!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Bật/tắt đèn pin",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Quét mã vạch sản phẩm bằng cách đưa sản phẩm lại gần.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Chúng tôi đã phát hiện mã vạch sau: {barcode}, nhưng có vẻ như nó không hợp lệ.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Xem thêm…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Sản phẩm được quét nhiều nhất",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Sản phẩm được quét gần đây nhất",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

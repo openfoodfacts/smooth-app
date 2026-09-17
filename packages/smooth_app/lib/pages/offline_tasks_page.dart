@@ -62,9 +62,12 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                     taskId,
                   ),
                 );
-                final int? failureCount = daoInt.get(
-                  BackgroundTaskManager.taskIdToCountDaoIntKey(taskId),
-                );
+                final String failureCountKey =
+                    BackgroundTaskManager.taskIdToCountDaoIntKey(taskId);
+                final String staleStatusKey =
+                    BackgroundTaskManager.taskIdToStaleStatusDaoIntKey(taskId);
+                final int? failureCount = daoInt.get(failureCountKey);
+                final int? staleStatus = daoInt.get(staleStatusKey);
                 final String barcode = OperationType.getBarcode(taskId);
                 final int? totalSize = OperationType.getTotalSize(taskId);
                 final int? soFarSize = OperationType.getSoFarSize(taskId);
@@ -92,25 +95,45 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
                             body: Text(
                               appLocalizations.background_task_question_stop,
                             ),
-                            negativeAction: SmoothActionButton(
-                              text: appLocalizations.no,
-                              onPressed: () => Navigator.of(context).pop(false),
-                            ),
+                            actionsAxis: Axis.vertical,
+                            negativeAction: staleStatus == null
+                                ? null
+                                : SmoothActionButton(
+                                    // TODO(monsieurtanuki): localize
+                                    text: 'un-stale',
+                                    onPressed: () =>
+                                        Navigator.of(context).pop(false),
+                                  ),
                             positiveAction: SmoothActionButton(
-                              text: appLocalizations.yes,
+                              // TODO(monsieurtanuki): localize
+                              text: 'stop',
                               onPressed: () => Navigator.of(context).pop(true),
+                            ),
+                            neutralAction: SmoothActionButton(
+                              text: appLocalizations.cancel,
+                              onPressed: () => Navigator.of(context).pop(null),
                             ),
                           ),
                     );
-                    if (stopTask == true) {
-                      await BackgroundTaskManager.getInstance(
-                        localDatabase,
-                        queue: queue,
-                      ).removeTaskAsap(taskId);
+                    switch (stopTask) {
+                      case null:
+                        return;
+                      case true:
+                        await BackgroundTaskManager.getInstance(
+                          localDatabase,
+                          queue: queue,
+                        ).removeTaskAsap(taskId);
+                        return;
+                      case false:
+                        await daoInt.put(failureCountKey, null);
+                        await daoInt.put(staleStatusKey, null);
+                        return;
                     }
                   },
                   title: Badge(
-                    backgroundColor: Colors.red,
+                    backgroundColor: staleStatus == null
+                        ? Colors.red
+                        : Colors.grey,
                     textColor: Colors.white,
                     label: failureCount == null ? null : Text('$failureCount'),
                     child: Text(

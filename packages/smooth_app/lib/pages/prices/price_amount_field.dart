@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/prices/currency_extension.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
+import 'package:smooth_app/pages/prices/price_model.dart';
 
 /// Text field that displays a single amount for price adding.
 class PriceAmountField extends StatelessWidget {
@@ -31,6 +34,17 @@ class PriceAmountField extends StatelessWidget {
           ? appLocalizations.prices_amount_price_discounted
           : appLocalizations.prices_amount_price_normal,
       textInputType: _priceTextInputType,
+      suffixIcon: SizedBox(
+        height: kMinInteractiveDimension,
+        width: 10.0,
+        child: Center(
+          child: Text(
+            context.watch<PriceModel>().currency.symbol,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
+      ),
+      maxLines: 1,
       onChanged: (final String? value) {
         if (isPaidPrice) {
           model.paidPrice = value ?? '';

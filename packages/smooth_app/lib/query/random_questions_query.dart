@@ -13,10 +13,13 @@ class RandomQuestionsQuery extends QuestionsQuery {
   ) async {
     final RobotoffQuestionResult result = await RobotoffAPIClient.getQuestions(
       ProductQuery.getLanguage(),
+      deviceId: OpenFoodAPIConfiguration.uuid,
       user: ProductQuery.getReadUser(),
       countries: <OpenFoodFactsCountry>[ProductQuery.getCountry()],
       count: count,
       questionOrder: RobotoffQuestionOrder.popularity,
+      serverType: ServerType.openFoodFacts,
+      uriHelper: ProductQuery.uriRobotoffHelper,
     );
 
     if (result.questions?.isNotEmpty != true) {
@@ -28,11 +31,13 @@ class RandomQuestionsQuery extends QuestionsQuery {
         barcodes.add(question.barcode!);
       }
     }
-    await ProductRefresher().silentFetchAndRefreshList(
-      barcodes: barcodes,
-      localDatabase: localDatabase,
-      productType: ProductType.food,
-    );
-    return result.questions ?? <RobotoffQuestion>[];
+    if (barcodes.isNotEmpty) {
+      await ProductRefresher().silentFetchAndRefreshList(
+        barcodes: barcodes,
+        localDatabase: localDatabase,
+        productType: ProductType.food,
+      );
+    }
+    return result.questions!;
   }
 }

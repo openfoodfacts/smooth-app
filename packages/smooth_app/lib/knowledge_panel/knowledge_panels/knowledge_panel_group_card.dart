@@ -13,7 +13,7 @@ class KnowledgePanelGroupCard extends StatelessWidget {
     required this.isClickable,
     required this.isTextSelectable,
     required this.position,
-    this.simplified = false,
+    required this.simplified,
   });
 
   final KnowledgePanelPanelGroupElement groupElement;

@@ -4,16 +4,15 @@ version: 1.0.0
 publish_to: "none"
 
 environment:
-  sdk: ^3.10.4
+  sdk: ^3.12.2
 
 dependencies:
   flutter:
     sdk: flutter
 
-  visibility_detector: 0.4.0+2
+  visibility_detector: ^0.4.0+2
   scanner_shared:
     path: ../shared
-  qr_code_scanner: 1.0.1
 
 dev_dependencies:
   flutter_test:

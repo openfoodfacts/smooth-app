@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Otwarte ceny",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Dodaj",
   "@add": {},
+  "edit": "Edytuj",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Czy na pewno chcesz usunąć swoje konto?\nJeśli istnieje konkretny powód, podziel się nim poniżej",
   "@account_delete_message": {},
   "reason": "Powód",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Zresetuj preferencje żywieniowe",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diety",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Alergie",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "Czego nie jem",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "Czego wolałbym unikać",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Preferencje środowiskowe",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profil gotowy",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Krok {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "Brak wyboru",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "Brak dostępnych atrybutów dla tej kategorii.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Oto twój profil:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Wybierz alergeny, których musisz unikać ze względu na bezpieczeństwo.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Wskaż pokarmy lub składniki, których nie jesz.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Wybierz pokarmy, których wolisz unikać, chociaż nie są surowo zabronione.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Wskaż preferencje środowiskowe dla bardziej zrównoważonych rekomendacji.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Szukaj składników",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Składnik został już dodany",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Coś poszło nie tak",
   "@error": {},
@@ -383,7 +474,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "Jakość Danych",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Zarządzaj swoim kontem współautora Open Food Facts.",
   "myPreferences_settings_title": "Ustawienia",
   "myPreferences_settings_subtitle": "Tryb ciemny, Języki…",
+  "myPreferences_not_configured_yet": "Nie ustawiłeś jeszcze żadnych preferencji.",
   "myPreferences_food_title": "Preferencje żywieniowe",
   "myPreferences_food_subtitle": "Wybierz, które preferencje żywieniowe są dla Ciebie najważniejsze.",
   "myPreferences_food_comment": "Wybierz, które informacje o jedzeniu są dla Ciebie najważniejsze, aby uporządkować je według Twoich preferencji, wyświetlić informacje, które Cię interesują, w pierwszej kolejności i uzyskać podsumowanie zgodności. Te preferencje żywieniowe pozostają na Twoim urządzeniu i nie są powiązane z Twoim kontem Open Food Facts, jeśli je posiadasz.",
+  "myPreferences_beauty_title": "Preferencje dotyczące kosmetyków",
+  "myPreferences_beauty_subtitle": "Wybierz, jakie informacje o kosmetykach mają dla ciebie największe znaczenie.",
+  "myPreferences_product_title": "Preferencje dotyczące innych produktów",
+  "myPreferences_product_subtitle": "Wybierz, jakie informacje o innych produktach mają dla ciebie największe znaczenie.",
+  "myPreferences_pet_food_title": "Preferencje dotyczące karmy dla zwierząt domowych",
+  "myPreferences_pet_food_subtitle": "Wybierz, jakie informacje o karmie dla zwierząt mają dla ciebie największe znaczenie.",
   "confirmResetPreferences": "Zresetować preferencje żywieniowe?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -472,7 +570,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Community",
+  "profile_navbar_label": "Społeczność",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Zobacz wszystkie istniejące zdjęcia tego produktu",
   "@view_more_photo_button": {},
+  "no_settings_found": "Nie znaleziono ustawień",
+  "@no_settings_found": {},
   "no_product_found": "Nie znaleziono produktu",
   "@no_product_found": {},
+  "no_product_found_explanation": "Twoje wyszukiwanie dla\n**\"{search}\"**\nnie dało żadnych wyników.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Czy chcesz zamiast tego przeprowadzić to samo wyszukiwanie w **naszej globalnej bazie danych**?",
   "no_location_found": "Nie znaleziono lokalizacji",
   "not_found": "nie znaleziono:",
   "refreshing_product": "Odświeżanie produktu",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "To zdjęcie może być nieaktualne",
   "product_image_outdated_explanations_title": "To zdjęcie może być nieaktualne",
-  "product_image_outdated_explanations_content": "To zdjęcie zostało zrobione ponad rok temu.\n**Proszę, sprawdź, czy jest ono dalej aktualne**\n\nTo jest **tylko ostrzeżenie**. Jeśli zawartość dalej jest taka sama, możesz zignorować tę wiadomość.",
+  "product_image_outdated_explanations_content": "To zdjęcie zostało zrobione ponad rok temu.\n**Sprawdź, czy nadal jest aktualne**.\n\nTo jest **tylko ostrzeżenie**. Jeśli zawartość jest nadal taka sama, możesz zignorować tę wiadomość.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "Nie za bardzo…",
   "tagline_app_review_button_later": "Zapytaj mnie później",
   "tagline_feed_news_button": "Dowiedz się więcej",
+  "tagline_feed_funding_goal": "z {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "brakuje {shortfall}",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{pozostał jeden miesiąc} few{pozostały {months} miesiące} many{pozostało {months} miesięcy} other{pozostało {months} miesięcy}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Nie podoba Ci się nasza aplikacja?",
   "app_review_negative_modal_text": "Czy mógłbyś poświęcić kilka sekund, żeby nam wyjaśnić dlaczego?",
   "app_review_negative_modal_positive_button": "Tak, oczywiście!",
@@ -1044,7 +1185,7 @@
   "tag_key_uneditable": "Właściwość (nieedytowalna)",
   "tag_key_input_hint": "Wprowadź właściwość",
   "tag_value": "Wartość",
-  "tag_values": "Values",
+  "tag_values": "Wartości",
   "tag_value_input_hint": "Wprowadź wartość",
   "tag_key_item": "Właściwość:",
   "tag_value_item": "Wartość:",
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Na tej liście nie ma produktu",
   "no_product_in_section": "W tej sekcji nie ma produktu",
   "recently_seen_products": "Wszystkie przeglądane produkty",
   "clear": "Wyczyść",
@@ -1453,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Zaloguj się lub zarejestruj, aby dołączyć do społeczności Open Food Facts",
-  "user_profile_title_id_email": "Otwórz logowanie do Food Facts: {email}",
+  "user_profile_title_id_email": "Logowanie Open Food Facts: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1771,7 +1911,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "Kraj",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "Opieka osobista",
   "product_type_label_pet_food": "Karma dla zwierząt",
   "product_type_label_product": "Inne",
+  "product_type_label_unknown": "Nieznany",
   "product_type_selection_title": "Typ produktu",
   "product_type_selection_subtitle": "Wybierz typ tego produktu",
   "product_type_selection_empty": "Najpierw musisz wybrać typ produktu!",
@@ -2319,7 +2460,7 @@
   "prices_website_button": "Otwórz na stronie internetowej Open Prices",
   "prices_bulk_proof_upload_select": "Dodawaj metki cenowe bezpośrednio z galerii",
   "prices_bulk_proof_upload_warning": "Po wybraniu obrazów nie będzie można ich edytować!",
-  "prices_bulk_proof_upload_warning_ai": "AI will run on your proofs to extract prices.",
+  "prices_bulk_proof_upload_warning_ai": "Sztuczna inteligencja przeanalizuje twoje dowody, aby wyodrębnić ceny.",
   "prices_bulk_proof_upload_community_switch": "Pozwól społeczności weryfikować ceny wyodrębnione przez sztuczną inteligencję.",
   "prices_bulk_proof_upload_subtitle": "Wiele metek cenowych",
   "prices_bulk_proof_upload_title": "Masowe przesyłanie dowodów",
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategoria",
   "prices_category_mandatory": "Obowiązkowe",
   "prices_category_optional": "Fakultatywny",
+  "prices_origins_title": "Pochodzenie",
   "prices_category_error_mandatory": "Kategoria jest obowiązkowa",
   "prices_barcode_reader_action": "Czytnik kodów kreskowych",
   "prices_view_prices": "Zobacz ceny",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Zobacz szczegóły produktu",
   "prices_entry_menu_open_product_prices": "Zobacz wszystkie ceny tego produktu",
   "prices_entry_menu_open_proof": "Zobacz dowód",
   "prices_entry_menu_my_prices": "Zobacz moje inne ceny",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "Brakuje jednego produktu!",
   "prices_amount_price_incorrect": "Nieprawidłowa wartość",
   "prices_amount_price_mandatory": "Wartość obowiązkowa",
+  "prices_amount_update_currency": "Zaktualizuj walutę",
   "prices_currency_subtitle": "Waluta",
   "prices_date_subtitle": "Data",
   "prices_location_subtitle": "Sklep",
   "prices_location_find": "Znajdź sklep",
   "prices_location_mandatory": "Musisz wybrać sklep!",
   "prices_location_search_broader": "Nie udało Ci się znaleźć tego, czego szukasz? Spróbujmy szerszego zakresu wyszukiwania!",
+  "prices_location_open_map": "Zobacz sklep na mapie",
+  "prices_location_edit": "Wybierz inny sklep",
   "prices_proof_subtitle": "Dowód",
   "prices_proof_empty_title": "Brak dowodów!",
   "prices_proof_empty_explanation": "Zacznij od dodania zdjęcia **paragonu** lub **metki z ceną**!",
@@ -2652,10 +2799,19 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "Dowiedz się więcej o Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Typ zniżki",
+  "prices_discount_type_quantity": "Zniżka ilościowa",
+  "prices_discount_type_sale": "Wyprzedaż",
+  "prices_discount_type_seasonal": "Sezonowa",
+  "prices_discount_type_loyalty_program": "Program lojalnościowy",
+  "prices_discount_type_expires_soon": "Wkrótce wygasa",
+  "prices_discount_type_pick_it_yourself": "Zbierz sam",
+  "prices_discount_type_second_hand": "Z drugiej ręki",
+  "prices_discount_type_other": "Inne",
   "dev_preferences_import_history_result_success": "Gotowe",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2787,11 +2943,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Asystent ds. wkładu cenowego",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Asystent weryfikacji cen",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Wyzwania",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Wyślij nam ręcznie wiadomość e-mail na adres",
-  "email_copied_to_clip_board": "E-mail został skopiowany do schowka!",
+  "email_copied_to_clip_board": "E-mail skopiowany do schowka!",
   "select_accent_color": "Wybierz kolor akcentu",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "Dostępnych jest {num} produktów do natychmiastowego skanowania",
+  "available_for_download": "{num} produktów dostępnych do natychmiastowego skanowania",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3854,13 +4010,13 @@
   "nutriscore_not_applicable": "Wynik Nutri-Score nie ma zastosowania",
   "nutriscore_not_applicable_new_formula": "Wynik Nutri-Score nie ma zastosowania (nowe obliczenie)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Zielony-Wynik A",
-  "environmental_score_b_new": "Zielony-Wynik B",
-  "environmental_score_c_new": "Zielony-Wynik C",
-  "environmental_score_d_new": "Zielony-Wynik D",
-  "environmental_score_e_new": "Zielony wynik E",
-  "environmental_score_unknown_new": "Nieznany wynik zielony",
-  "environmental_score_not_applicable_new": "Wynik zielony nie ma zastosowania",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Nieznany Green-Score",
+  "environmental_score_not_applicable_new": "Green-Score nie ma zastosowania",
   "nova_group_generic_new": "Żywność ultraprzetworzona - grupy NOVA",
   "nova_group_1": "Grupa NOVA 1",
   "nova_group_2": "Grupa NOVA 2",
@@ -3913,47 +4069,47 @@
       }
     }
   },
-  "guide_title": "Guide",
+  "guide_title": "Przewodnik",
   "@guide_title": {
     "description": "A title for a guide"
   },
   "guide_share_label": "Udostępnij",
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "Nutri-Score ewoluuje: wyjaśnienia!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Czym jest Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score to logo, które ma na celu poinformowanie cię o **jakości odżywczej jedzenia**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "Kolor zmienia się z ciemnozielonego (**A**) dla *najbardziej odżywczych* produktów do ciemnoczerwonego (**E**) dla *mniej odżywczych*.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
+  "guide_nutriscore_v2_nutriscore_a_caption": "Nutri-Score Logo",
+  "guide_nutriscore_v2_why_v2_title": "Dlaczego Nutri-Score ewoluuje?",
+  "guide_nutriscore_v2_why_v2_intro": "Formuła Nutri-Score **ewoluuje**, by dawać lepsze rekomendacje:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Lepiej ocenia wszystkie napoje",
+  "guide_nutriscore_v2_why_v2_arg1_text": "Nowy algorytm lepiej rozróżnia noty porównawcze **mleka**, **napojów mlecznych** z dodatkiem cukru i napojów **roślinnych**.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Lepszy ranking napojów",
   "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Sól i cukier są karane",
+  "guide_nutriscore_v2_why_v2_arg3_text": "**Za słodkie** lub za **słone produkty** będą**oceniane niżej**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchia olejów i ryb",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Ocena poszczególnych **tłustych ryb** i **olejów bogatych** w odżywcze tłuszcze się poprawi.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Ogranicz czerwone mięso",
+  "guide_nutriscore_v2_why_v2_arg5_text": "Spożycie **czerwonego mięsa powinno być ograniczone**. Dlatego **drób będzie zajmował stosunkowo wyższe miejsce**.",
+  "guide_nutriscore_v2_new_logo_title": "Jak odróżnić stary Nutri-Score od nowego obliczenia?",
+  "guide_nutriscore_v2_new_logo_text": "Od teraz, logo może wyświetlać wzmiankę \"**Nowe obliczenie**\", aby wyjaśnić, że jest to rzeczywiście nowe obliczenie.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Logo nowego Nutri-Score",
   "guide_nutriscore_v2_where_title": "Gdzie znajdę nowe narzędzie do obliczania wskaźnika Nutri-Score?",
   "guide_nutriscore_v2_where_paragraph1": "Nutri-Score stosowany jest w 7 krajach: Francji, Niemczech, Belgii, Hiszpanii, Luksemburgu, Holandii i Szwajcarii.",
   "guide_nutriscore_v2_where_paragraph2": "Producenci mają najpóźniej **2 lata** od daty podpisania dekretu na **zastąpienie** starego sposobu obliczania nowym.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
+  "guide_nutriscore_v2_where_paragraph3": "Bez czekania, **już teraz znajdziesz w aplikacji Open Food Facts** nowe obliczenie, nawet jeśli producenci nie zaktualizowali wyniku.",
+  "guide_nutriscore_v2_unchanged_title": "Co się nie zmienia",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score to wynik mający na celu **pomiar jakości odżywczej**. Jest **uzupełnieniem grupy NOVA** dotyczącej **żywności ultraprzetworzonej** (również obecnej w aplikacji).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "Dla producentów wyświetlanie Nutri-Score **pozostaje opcjonalne**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -4012,7 +4168,7 @@
   "guide_greenscore_better_product_arg2_title": "Masz moc!",
   "guide_greenscore_better_product_arg2_text": "Dobra wiadomość jest taka, że daje nam to potężny sposób na wprowadzenie zmian.\n**Każdy z nas spożywa około 1000 posiłków rocznie**. To 1000 okazji, by **wybrać lepszą przyszłość dla planety**!",
   "guide_greenscore_better_product_arg3_title": "Pomaga być odpowiedzialnym i podejmować decyzje",
-  "guide_greenscore_better_product_arg3_text": "Wybór zrównoważonej żywności może wydawać się skomplikowany. Etykiety są mylące, a informacji często brakuje. Zielony Wynik został stworzony, aby to uprościć, zapewniając **jasną**, **opartą na badaniach naukowych** i **transparentną** ocenę ekologiczną produktów spożywczych, dokładnie tam, gdzie jej potrzebujesz: podczas zakupów.",
+  "guide_greenscore_better_product_arg3_text": "Wybór zrównoważonej żywności może wydawać się skomplikowany. Etykiety są mylące, a informacji często brakuje. Green-Score został stworzony, aby to uprościć, zapewniając **jasną**, **opartą na badaniach naukowych** i **transparentną** ocenę ekologiczną produktów spożywczych, dokładnie tam, gdzie jej potrzebujesz: podczas zakupów.",
   "guide_greenscore_better_product_arg4_title": "Przezroczystość",
   "guide_greenscore_better_product_arg4_text": "W przeciwieństwie do zastrzeżonych etykiet, sposób obliczania Green-Score jest **całkowicie otwarty** i może zostać **zweryfikowany przez każdego**.",
   "guide_nova_title": "Żywność wysoko przetworzona",
@@ -4052,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "Od 2018 roku, dzięki NutriNet-Santé, po raz pierwszy zwrócono uwagę na powiązania między **spożywaniem żywności ultraprzetworzonej a zwiększonym ryzykiem zachorowania na raka, choroby układu krążenia i cukrzycę**. Obecnie ponad 90 badań na całym świecie potwierdza te ustalenia.\nNajsilniejsze powiązania dotyczą **otyłości, śmiertelności z przyczyn sercowo-naczyniowych i objawów depresji**. U dzieci wpływ ten obserwuje się przede wszystkim w zakresie masy ciała i zaburzeń lipidowych.",
   "guide_nova_explanations_arg6_title": "Kraje zalecają ich ograniczenie",
   "guide_nova_explanations_arg6_text": "Niektóre kraje wykorzystują grupy NOVA do ustalania swoich wytycznych lub celów żywieniowych, na przykład:\n\n- **🇧🇷 Wytyczne żywieniowe Brazylii** **zalecają ograniczenie spożycia** żywności przetworzonej i unikanie żywności ultraprzetworzonej.\n\n- **🇫🇷 Cele polityki żywieniowej zdrowia publicznego Francji** na lata 2018–2022 zakładają **zmniejszenie spożycia żywności ultraprzetworzonej z grupy 4 o 20%**.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-pl.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4069,7 +4225,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "Cechy otwartych informacji o żywności",
+  "guide_open_food_facts_features_title": "Cechy Open Food Facts",
   "guide_open_food_facts_features_arg1_title": "Otrzymuj powiadomienia o niepożądanych składnikach",
   "guide_open_food_facts_tips_title": "Wskazówki dotyczące robienia świetnych zdjęć",
   "guide_open_food_facts_tips_arg1_title": "Czego nie robić",
@@ -4100,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Cechy otwartych informacji o karmie dla zwierząt",
+  "guide_open_pet_food_facts_features_title": "Cechy Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Otrzymuj powiadomienia o niepożądanych składnikach",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Czy Twój pupil ma alergię na któryś ze składników? Możesz ustawić listę składników kosmetycznych, których należy unikać, bezpośrednio w aplikacji!",
   "guide_open_pet_food_facts_tips_title": "Wskazówki dotyczące robienia świetnych zdjęć",
@@ -4153,7 +4309,7 @@
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
+  "guide_open_prices_what_is_open_prices_title": "Czym jest Open Prices?",
   "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices to projekt mający na celu **gromadzenie i udostępnianie cen produktów na całym świecie**. To publicznie dostępny zbiór danych, który można wykorzystać do badań, analiz i nie tylko. Open Prices jest rozwijany i utrzymywany przez Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4162,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "Jak działa Open Prices?",
   "guide_open_prices_how_paragraph1": "**Opracowujemy zbiór danych cenowych w modelu open source oparty na crowdsourcingu**. Użytkownicy mogą dodawać ceny za pośrednictwem tej aplikacji internetowej lub oficjalnej aplikacji mobilnej Open Food Facts. Sprzedawcy detaliczni i aplikacje innych firm również mogą się do tego przyczynić, korzystając z naszego interfejsu API.",
   "guide_open_prices_how_arg1_title": "Zbierz zdjęcia metek cenowych w alejkach",
   "guide_open_prices_how_arg2_title": "Zbierz zdjęcia paragonów",
@@ -4175,7 +4331,7 @@
   "guide_open_prices_scrapping_title": "Czy rozważałeś możliwość pobierania cen ze stron internetowych sprzedawców detalicznych?",
   "guide_open_prices_scrapping_paragraph1": "Ze względów prawnych i technicznych **nie uważamy, aby pozyskiwanie cen ze stron internetowych sprzedawców detalicznych było właściwym sposobem na dodawanie danych do Open Prices**. Chcemy mieć pewność, że zbierane przez nas ceny są dokładne i aktualne, a otrzymywanie zeskanowanych cen od osób, które je udostępniają, nam na to nie pozwala.",
   "guide_open_prices_scrapping_paragraph2": "Funkcja scrapowania cen jest rozważana w przyszłej wersji Open Prices, ale będzie ona wykonywana przez samą Open Prices, abyśmy mogli uzyskać dowód ceny na podstawie strony HTML.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "Jestem sprzedawcą detalicznym i chcę przyczynić się do cen. Jak mogę to zrobić?",
   "guide_open_prices_retailers_paragraph1": "Możesz przekazać ceny korzystając z naszego interfejsu API.\nJeśli chcesz przekazać ceny na dużą skalę, skontaktuj się z nami pod adresem prices@openfoodfacts.org.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "Witamy w Open Products Facts!",
@@ -4281,6 +4437,10 @@
   "photo_viewer_details_url_title": "Adres URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "Zobacz oryginalne zdjęcie",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Zgodny",
   "@product_page_compatibility_score": {
@@ -4407,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Prawdopodobnie nieprawidłowy kod kreskowy",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Usuń ten produkt z karuzeli",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4523,7 +4687,7 @@
   "@product_list_export": {
     "description": "Product list popup menu item to export the list"
   },
-  "product_list_import": "Import",
+  "product_list_import": "Importuj",
   "@product_list_import": {
     "description": "Product list popup menu item to import a list"
   },
@@ -4554,6 +4718,56 @@
   "product_page_tab_for_me": "Dla mnie",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Moja zgodność",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% zgodności",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Za mało danych do obliczenia wyniku zgodności.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Nie można obliczyć wyniku dla produktu typu „{productType}”.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Znaczenie",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Zapałki",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Dobre mecze",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Średnia liczba dopasowań",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Złe dopasowania",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Nieznane dopasowania",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Strona",
   "@product_page_tab_website": {
@@ -4671,7 +4885,7 @@
   "@prices_stats_locations_section": {
     "description": "Title for the locations section"
   },
-  "prices_stats_proofs_section": "Proofs",
+  "prices_stats_proofs_section": "Dowody",
   "@prices_stats_proofs_section": {
     "description": "Title for the proofs section"
   },
@@ -4679,7 +4893,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Eksperymenty",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4691,19 +4905,19 @@
   "@prices_stats_total": {
     "description": "Label for total count"
   },
-  "prices_stats_with_barcode": "With a barcode",
+  "prices_stats_with_barcode": "Z kodem kreskowym",
   "@prices_stats_with_barcode": {
     "description": "Label for count with barcode"
   },
-  "prices_stats_with_category": "With a category",
+  "prices_stats_with_category": "Z kategorią",
   "@prices_stats_with_category": {
     "description": "Label for count with category"
   },
-  "prices_stats_with_discount": "With a discount",
+  "prices_stats_with_discount": "Ze zniżką",
   "@prices_stats_with_discount": {
     "description": "Label for count with discount"
   },
-  "prices_stats_community": "Community",
+  "prices_stats_community": "Społeczność",
   "@prices_stats_community": {
     "description": "Label for community count"
   },
@@ -4719,7 +4933,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "Uroda",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4751,31 +4965,31 @@
   "@prices_stats_receipt": {
     "description": "Label for receipt count"
   },
-  "prices_stats_gdpr_request": "GDPR request",
+  "prices_stats_gdpr_request": "Żądanie RODO",
   "@prices_stats_gdpr_request": {
     "description": "Label for GDPR request count"
   },
-  "prices_stats_shop_import": "Shop import",
+  "prices_stats_shop_import": "Import sklepu",
   "@prices_stats_shop_import": {
     "description": "Label for shop import count"
   },
-  "prices_stats_challenges": "Challenges",
+  "prices_stats_challenges": "Wyzwania",
   "@prices_stats_challenges": {
     "description": "Label for challenges count"
   },
-  "prices_stats_linked_to_price_tag": "Prices linked to a price tag",
+  "prices_stats_linked_to_price_tag": "Ceny połączone z metką cenową",
   "@prices_stats_linked_to_price_tag": {
     "description": "Label for prices linked to a price tag count"
   },
-  "prices_stats_currencies": "Currencies",
+  "prices_stats_currencies": "Waluty",
   "@prices_stats_currencies": {
     "description": "Label for currencies count"
   },
-  "prices_stats_years": "Years",
+  "prices_stats_years": "Lata",
   "@prices_stats_years": {
     "description": "Label for years count"
   },
-  "prices_stats_by_source_title": "Prices and proofs per source",
+  "prices_stats_by_source_title": "Ceny i dowody według źródła",
   "@prices_stats_by_source_title": {
     "description": "Title for prices and proofs per source section"
   },
@@ -4783,7 +4997,7 @@
   "@prices_stats_website": {
     "description": "Label for website source"
   },
-  "prices_stats_mobile_app": "Mobile app",
+  "prices_stats_mobile_app": "Aplikacja mobilna",
   "@prices_stats_mobile_app": {
     "description": "Label for mobile app source"
   },
@@ -4883,7 +5097,7 @@
   "@preferences_app_bar_products_modified": {
     "description": "Preferences app bar products modified card"
   },
-  "preferences_app_bar_prices_added": "Prices added",
+  "preferences_app_bar_prices_added": "Dodane ceny",
   "@preferences_app_bar_prices_added": {
     "description": "Preferences app bar prices added card"
   },
@@ -4987,7 +5201,7 @@
   "@preferences_source_code_subtitle": {
     "description": "Subtitle for the preferences source code tile"
   },
-  "preferences_add_prices": "Add prices",
+  "preferences_add_prices": "Dodaj ceny",
   "@preferences_add_prices": {
     "description": "Title for the preferences add prices contribution tile"
   },
@@ -5112,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Odkryj fakty dotyczące żywności",
+  "preferences_faq_discover_off_title": "Odkryj Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "Odkryj fakty dotyczące otwartego piękna",
+  "preferences_faq_discover_obf_title": "Odkryj Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "Odkryj fakty dotyczące karmy dla zwierząt",
+  "preferences_faq_discover_opff_title": "Odkryj Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Odkryj Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Wskaźniki ceny otwartej",
+  "preferences_prices_metrics_title": "Wskaźniki Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5384,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Simple ways to help Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Proste sposoby na pomoc Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5580,11 +5794,11 @@
   "@preferences_app_settings_media_title": {
     "description": "Title for the media preferences card in app settings"
   },
-  "preferences_about_app_development_title": "Development",
+  "preferences_about_app_development_title": "Rozwój",
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Otwarte Laboratoria Faktów Żywnościowych",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5592,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Przenieś Open Food Fakty do swojego języka",
+  "preferences_contribute_translate_header": "Przenieś Open Food Facts do swojego języka",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5624,7 +5838,61 @@
   "location_map_details_street": "Ulica",
   "location_map_details_city": "Miasto",
   "location_map_details_postcode": "Kod pocztowy",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "Kraj",
   "location_map_details_coordinates": "Współrzędne",
-  "location_map_details_osm_id": "Identyfikator OSM"
+  "location_map_details_osm_id": "Identyfikator OSM",
+  "homepage_scanner_back_to_home_button": "Powrót do domu",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Przełącz kamerę",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Pokaż skaner kodów kreskowych",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Kliknij, aby zeskanować **kod kreskowy**\ni dowiedz się, czy jest to **dobre dla Ciebie**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Przełącz latarkę",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Zeskanuj produkt, zbliżając się do jego kodu kreskowego",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Wykryliśmy następujący kod kreskowy: {barcode}, ale wydaje się, że jest on nieprawidłowy.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Zobacz więcej…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Najczęściej skanowane produkty",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Ostatnio zeskanowane produkty",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

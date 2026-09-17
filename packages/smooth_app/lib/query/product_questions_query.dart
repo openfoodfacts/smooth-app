@@ -21,6 +21,7 @@ class ProductQuestionsQuery extends QuestionsQuery {
           barcode,
           ProductQuery.getLanguage(),
           count: count,
+          uriHelper: ProductQuery.uriRobotoffHelper,
         );
     if (result.questions?.isNotEmpty != true) {
       return <RobotoffQuestion>[];

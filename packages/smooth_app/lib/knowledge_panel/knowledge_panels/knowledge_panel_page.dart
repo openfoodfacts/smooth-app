@@ -25,10 +25,17 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Detail page of knowledge panels (if you click on the forward/more button).
 class KnowledgePanelPage extends StatefulWidget {
-  const KnowledgePanelPage({required this.panelId, required this.product});
+  const KnowledgePanelPage({
+    required this.panelId,
+    required this.product,
+    this.title,
+  });
 
   final String panelId;
   final Product product;
+
+  /// Override used for squared panels
+  final String? title;
 
   @override
   State<KnowledgePanelPage> createState() => _KnowledgePanelPageState();
@@ -134,6 +141,10 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
   }
 
   String _getTitle() {
+    if (widget.title != null && widget.title!.isNotEmpty) {
+      return widget.title!;
+    }
+
     final KnowledgePanelPanelGroupElement? groupElement = _groupElementOf(
       context,
     );
@@ -141,6 +152,7 @@ class _KnowledgePanelPageState extends State<KnowledgePanelPage>
         groupElement?.title!.isNotEmpty == true) {
       return groupElement!.title!;
     }
+
     final KnowledgePanel? panel = KnowledgePanelsBuilder.getKnowledgePanel(
       upToDateProduct,
       widget.panelId,

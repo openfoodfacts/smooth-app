@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
 import 'package:smooth_app/pages/product/query_results_banner.dart';
@@ -25,6 +24,7 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   late final ScrollController _scrollController;
   Object? _error;
   bool _isInitialLoading = false;
+  bool _isLoadingMore = false;
 
   @override
   void initState() {
@@ -61,31 +61,33 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   }
 
   void _scrollListener() {
-    if (!widget.manager.canLoadMore()) {
+    if (_isLoadingMore || !widget.manager.canLoadMore()) {
       return;
     }
 
     final double maxScroll = _scrollController.position.maxScrollExtent;
     final double currentScroll = _scrollController.position.pixels;
 
-    if (currentScroll > maxScroll - _loadMoreTriggerOffset) {
+    if (currentScroll >= maxScroll - _loadMoreTriggerOffset) {
       unawaited(_loadMoreItems());
     }
   }
 
   Future<void> _loadMoreItems() async {
-    if (!mounted) {
+    if (_isLoadingMore || !mounted) {
       return;
     }
-    setState(() {});
+    setState(() => _isLoadingMore = true);
     await widget.manager.loadMore(context);
     if (!mounted) {
       return;
     }
-    setState(() {});
-    ScaffoldMessenger.of(context).showSnackBar(
-      SmoothFloatingSnackbar(content: Text(_getItemCount(context))),
-    );
+    setState(() => _isLoadingMore = false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _scrollListener();
+      }
+    });
   }
 
   String _getItemCount(BuildContext context) =>

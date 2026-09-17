@@ -30,6 +30,7 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
     required super.pricesAreDiscounted,
     required super.prices,
     required super.pricesWithoutDiscount,
+    required super.discountTypes,
   });
 
   BackgroundTaskAddOtherPrice.fromJson(super.json)
@@ -65,6 +66,7 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
     required final List<bool> pricesAreDiscounted,
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
+    required final List<String> discountTypes,
     LocalDatabase? localDatabase,
   }) async {
     assert(context != null || localDatabase != null);
@@ -93,6 +95,7 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      discountTypes: discountTypes,
     );
     if (context != null && context.mounted) {
       return task.addToManager(
@@ -126,6 +129,7 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
     required final List<bool> pricesAreDiscounted,
     required final List<double> prices,
     required final List<double?> pricesWithoutDiscount,
+    required final List<String> discountTypes,
   }) => BackgroundTaskAddOtherPrice._(
     uniqueId: uniqueId,
     processName: _operationType.processName,
@@ -147,6 +151,7 @@ class BackgroundTaskAddOtherPrice extends BackgroundTaskPrice {
       locationOSMId: locationOSMId,
       locationOSMType: locationOSMType,
     ),
+    discountTypes: discountTypes,
   );
 
   @override

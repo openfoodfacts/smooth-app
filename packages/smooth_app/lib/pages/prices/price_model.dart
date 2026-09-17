@@ -15,17 +15,14 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 /// Price Model (checks and background task call) for price adding.
 class PriceModel with ChangeNotifier {
   PriceModel({
-    required final ProofType proofType,
-    required final Currency currency,
+    required this._proofType,
+    required this._currency,
     required this.multipleProducts,
     final PriceMetaProduct? initialProduct,
-    final bool readyForPriceTagValidation = false,
+    this._readyForPriceTagValidation = false,
   }) : _proof = null,
        existingPrices = null,
-       _proofType = proofType,
        _date = DateTime.now(),
-       _currency = currency,
-       _readyForPriceTagValidation = readyForPriceTagValidation,
        _priceAmountModels = <PriceAmountModel>[
          if (initialProduct != null) PriceAmountModel(product: initialProduct),
        ];
@@ -114,11 +111,14 @@ class PriceModel with ChangeNotifier {
 
   void removeAt(final int index) {
     _hasChanged = true;
+    _priceAmountModels[index].dispose();
     _priceAmountModels.removeAt(index);
     notifyListeners();
   }
 
   PriceAmountModel elementAt(final int index) => _priceAmountModels[index];
+
+  List<PriceAmountModel> get priceAmountModels => _priceAmountModels;
 
   int get length => _priceAmountModels.length;
 
@@ -224,6 +224,7 @@ class PriceModel with ChangeNotifier {
     final List<bool> pricesAreDiscounted = <bool>[];
     final List<double> prices = <double>[];
     final List<double?> pricesWithoutDiscount = <double?>[];
+    final List<String> discountTypes = <String>[];
     for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
       barcodes.add(priceAmountModel.product.barcode);
       categories.add(priceAmountModel.product.categoryTag);
@@ -234,6 +235,7 @@ class PriceModel with ChangeNotifier {
       pricesAreDiscounted.add(priceAmountModel.promo);
       prices.add(priceAmountModel.checkedPaidPrice);
       pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
+      discountTypes.add(priceAmountModel.discountType?.offTag ?? '');
     }
     if (proof != null) {
       return BackgroundTaskAddOtherPrice.addTask(
@@ -253,6 +255,7 @@ class PriceModel with ChangeNotifier {
         pricesAreDiscounted: pricesAreDiscounted,
         prices: prices,
         pricesWithoutDiscount: pricesWithoutDiscount,
+        discountTypes: discountTypes,
       );
     }
     return BackgroundTaskAddPrice.addTask(
@@ -276,6 +279,15 @@ class PriceModel with ChangeNotifier {
       pricesWithoutDiscount: pricesWithoutDiscount,
       displaySnackbar: displaySnackbar,
       readyForPriceTagValidation: readyForPriceTagValidation,
+      discountTypes: discountTypes,
     );
+  }
+
+  @override
+  void dispose() {
+    for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
+      priceAmountModel.dispose();
+    }
+    super.dispose();
   }
 }

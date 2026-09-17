@@ -9,12 +9,18 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
     this.keywords, {
     required super.productType,
     super.world,
+    this.unwantedIngredients = const <String>[],
   });
 
   final String keywords;
+  final List<String> unwantedIngredients;
 
   @override
   Parameter getParameter() => SearchTerms(terms: <String>[keywords]);
+
+  @override
+  IngredientsUnwantedParameter getUnwantedIngredientsParameter() =>
+      IngredientsUnwantedParameter(unwantedIngredients);
 
   @override
   ProductList getProductList() => ProductList.keywordSearch(

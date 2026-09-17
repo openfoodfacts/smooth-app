@@ -12,14 +12,12 @@ abstract class InfiniteScrollManager<T> {
   /// Creates an [InfiniteScrollManager] with optional initial state.
   InfiniteScrollManager({
     final List<T>? initialItems,
-    final int? totalItems,
-    final int? totalPages,
+    this._totalItems,
+    this._totalPages,
   }) : _items = List<T>.from(initialItems ?? <T>[]),
        _currentPage = initialItems != null && initialItems.isNotEmpty
            ? _initialPage
-           : 0,
-       _totalPages = totalPages,
-       _totalItems = totalItems;
+           : 0;
 
   static const int _initialPage = 1;
 

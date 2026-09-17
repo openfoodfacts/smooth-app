@@ -7,10 +7,9 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
+import 'package:smooth_app/pages/prices/add_product/price_add_product_card.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
-import 'package:smooth_app/pages/prices/price_add_product_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_card.dart';
-import 'package:smooth_app/pages/prices/price_currency_card.dart';
 import 'package:smooth_app/pages/prices/price_date_card.dart';
 import 'package:smooth_app/pages/prices/price_existing_amount_card.dart';
 import 'package:smooth_app/pages/prices/price_location_card.dart';
@@ -54,7 +53,7 @@ class ProductPriceAddPage extends StatefulWidget {
 
     final bool multipleProducts = product == null;
 
-    await Navigator.of(context).push(
+    await Navigator.of(context, rootNavigator: true).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
           PriceModel(
@@ -92,6 +91,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
       builder: (final BuildContext context, final Widget? child) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final PriceModel model = Provider.of<PriceModel>(context);
+
         return ChangeNotifierListener<PriceModel>(
           listener: (BuildContext context, PriceModel model) {
             _willPopScope2Controller.canPop(!model.hasChanged);
@@ -124,46 +124,77 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                           .extension<SmoothColorsThemeExtension>()
                           .primaryLight
                     : null,
-                body: SingleChildScrollView(
+                body: CustomScrollView(
                   controller: _scrollController,
-                  padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-                  child: Column(
-                    children: <Widget>[
-                      const PriceProofCard(),
-                      const SizedBox(height: LARGE_SPACE),
-                      const PriceDateCard(),
-                      const SizedBox(height: LARGE_SPACE),
-                      PriceLocationCard(
-                        onLocationChanged: (OsmLocation location) =>
-                            PriceAddHelper(
-                              context,
-                            ).updateCurrency(location, model),
+                  slivers: <Widget>[
+                    SliverPadding(
+                      padding: const EdgeInsetsDirectional.only(
+                        start: LARGE_SPACE,
+                        end: LARGE_SPACE,
+                        top: LARGE_SPACE,
                       ),
-                      const SizedBox(height: LARGE_SPACE),
-                      const PriceCurrencyCard(),
-                      const SizedBox(height: LARGE_SPACE),
-                      if (model.existingPrices != null)
-                        for (final Price price in model.existingPrices!)
-                          PriceExistingAmountCard(price),
-                      for (int i = 0; i < model.length; i++)
-                        PriceAmountCard(key: UniqueKey(), index: i),
-                      const SizedBox(height: LARGE_SPACE),
-                      if (model.multipleProducts) const PriceAddProductCard(),
-                      // so that the last items don't get hidden by the FAB
-                      const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
-                    ],
-                  ),
+                      sliver: SliverToBoxAdapter(
+                        child: Column(
+                          children: <Widget>[
+                            const PriceProofCard(),
+                            const SizedBox(height: LARGE_SPACE),
+                            const PriceDateCard(),
+                            const SizedBox(height: LARGE_SPACE),
+                            PriceLocationCard(
+                              onLocationChanged: (OsmLocation location) =>
+                                  PriceAddHelper(
+                                    context,
+                                  ).updateCurrency(location, model),
+                            ),
+
+                            if (model.existingPrices != null) ...<Widget>[
+                              const SizedBox(height: LARGE_SPACE),
+                              for (final Price price in model.existingPrices!)
+                                PriceExistingAmountCard(price),
+                            ],
+                          ],
+                        ),
+                      ),
+                    ),
+                    if (model.length > 0)
+                      SliverPadding(
+                        padding: const EdgeInsetsDirectional.symmetric(
+                          horizontal: LARGE_SPACE,
+                        ),
+                        sliver: PriceAmountCard(key: UniqueKey()),
+                      ),
+                    if (model.multipleProducts)
+                      const SliverPadding(
+                        padding: EdgeInsetsDirectional.only(
+                          top: LARGE_SPACE,
+                          start: LARGE_SPACE,
+                          end: LARGE_SPACE,
+                        ),
+                        sliver: SliverToBoxAdapter(
+                          child: PriceAddProductCard(),
+                        ),
+                      ),
+                    // so that the last items don't get hidden by the FAB
+                    const SliverPadding(
+                      padding: EdgeInsetsDirectional.only(
+                        bottom: MINIMUM_TOUCH_SIZE * 2,
+                      ),
+                    ),
+                  ],
                 ),
                 floatingActionButton: SmoothExpandableFloatingActionButton(
                   scrollController: _scrollController,
                   onPressed: () async =>
                       _exitPage(await _mayExitPage(saving: true, model: model)),
-                  icon: const Icon(Icons.send),
-                  label: Text(
-                    appLocalizations.prices_send_n_prices(model.length),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.0,
+                  icon: const icons.Send(size: 18.0),
+                  label: Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 2.0),
+                    child: Text(
+                      appLocalizations.prices_send_n_prices(model.length),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15.0,
+                      ),
                     ),
                   ),
                 ),

@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Toevoegen",
   "@add": {},
+  "edit": "Bewerken",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Weet je zeker dat je je account wilt verwijderen?\nAls er een specifieke reden is, deel deze dan hieronder",
   "@account_delete_message": {},
   "reason": "Reden",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Voedselvoorkeuren resetten",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personaliseer de app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diëten",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergieën",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "Wat ik niet eet",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "Wat ik graag wil vermijden",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Milieuvoorkeuren",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profiel klaar",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Stap {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "Geen selectie",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "Geen attributen beschikbaar voor deze categorie.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Het laden van de voorkeuren is mislukt. Controleer uw internetverbinding.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Hier is je profiel:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In de volgende stappen kunt u de app **personaliseren** door uw voorkeuren aan te geven:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Selecteer de diëten die u volgt om uw aanbevelingen te personaliseren.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Selecteer de allergenen die u moet vermijden voor uw voedselveiligheid.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Geef aan welke voedingsmiddelen of ingrediënten u niet eet.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Selecteer de voedingsmiddelen die u liever vermijdt, zonder dat het een strikt verbod hoeft te zijn.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Geef uw milieuvoorkeuren aan voor duurzamere aanbevelingen.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Zoek naar ingrediënten",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Reeds toegevoegde ingrediënten",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Er ging iets mis",
   "@error": {},
@@ -92,7 +183,7 @@
   "@match_poor": {
     "description": "Label for product page regarding product compatibility with the user preferences: poor match"
   },
-  "match_may_not": "Komt mogelijk niet overeen",
+  "match_may_not": "Komt mogelijk niet overeen\n",
   "@match_may_not": {
     "description": "Label for product page regarding product compatibility with the user preferences: may not match"
   },
@@ -116,7 +207,7 @@
   "@match_short_poor": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: poor match"
   },
-  "match_short_may_not": "Komt mogelijk niet overeen",
+  "match_short_may_not": "Komt mogelijk niet overeen\n",
   "@match_short_may_not": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: may not match"
   },
@@ -241,12 +332,12 @@
   "sign_up_page_display_name_hint": "Naam",
   "sign_up_page_display_name_error_empty": "Voer de weergavenaam in die u wilt gebruiken",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail is vereist",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ongeldig e-mailadres",
   "sign_up_page_username_hint": "Gebruikersnaam: Openbaar zichtbaar",
   "sign_up_page_username_error_empty": "Voer aub. een gebruikersnaam in",
   "sign_up_page_username_error_invalid": "Vul a. u. b. een geldige gebruikersnaam in",
-  "sign_up_page_username_description": "Gebruikersnaam mag geen spaties, hoofdletters of speciale tekens bevatten.",
+  "sign_up_page_username_description": "De gebruikersnaam mag geen spaties, hoofdletters of speciale tekens bevatten.",
   "sign_up_page_username_length_invalid": "De gebruikersnaam mag niet langer zijn dan {value} tekens",
   "@sign_up_page_username_length_invalid": {
     "placeholders": {
@@ -398,7 +489,7 @@
   "contribute_join_skill_pool": "Draag uw vaardigheden bij aan Open Food Facts. Sluit je aan bij de vaardighedenpool!",
   "contribute_share_header": "Deel Open Food Facts met je vrienden",
   "@contribute_share_header": {},
-  "contribute_share_content": "Ik wil je laten weten dat ik de app Open Food Facts gebruik, waarmee je op een gepersonaliseerde manier de gezondheids- en milieueffecten van je eten kunt zien. Het werkt door de barcodes op de verpakking te scannen. Het is gratis, vereist geen registratie en je kunt zelfs helpen het aantal ontcijferde producten te vergroten. Download de app voor jouw telefoon via deze link: https://openfoodfacts.app",
+  "contribute_share_content": "Ik wilde jullie graag vertellen over de app die ik gebruik, Open Food Facts. Met deze app kun je op een persoonlijke manier de gezondheids- en milieueffecten van je eten bekijken. Het werkt door de barcodes op de verpakking te scannen. Bovendien is de app gratis, hoef je je niet te registreren en kun je zelfs helpen om het aantal producten dat ontcijferd wordt te vergroten. Hier is de link om de app voor je telefoon te downloaden: https://openfoodfacts.app",
   "@contribute_share_content": {
     "description": "Content that will be shared, don't forget to include the URL"
   },
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Beheer je Open Food Facts-bijdragersaccount.",
   "myPreferences_settings_title": "App-instellingen",
   "myPreferences_settings_subtitle": "Donkere modus, Talen…",
+  "myPreferences_not_configured_yet": "Je hebt nog geen voorkeuren ingesteld.",
   "myPreferences_food_title": "Voedselvoorkeuren",
   "myPreferences_food_subtitle": "Kies welke informatie over voedsel voor u het belangrijkst is.",
   "myPreferences_food_comment": "Kies welke informatie over voedsel voor u het belangrijkst is, om voedsel te rangschikken volgens uw voorkeuren, bekijk eerst de informatie die u belangrijk vindt en ontvang een compatibiliteitsoverzicht. Die voedselvoorkeuren blijven op uw apparaat staan en zijn niet gekoppeld aan uw Open Food Facts-bijdragersaccount, als u er een heeft.",
+  "myPreferences_beauty_title": "Voorkeuren voor cosmetica",
+  "myPreferences_beauty_subtitle": "Kies welke informatie over cosmetische producten voor jou het belangrijkst is.",
+  "myPreferences_product_title": "Voorkeuren voor andere producten",
+  "myPreferences_product_subtitle": "Kies welke informatie over andere producten voor u het belangrijkst is.",
+  "myPreferences_pet_food_title": "Voorkeuren voor dierenvoeding",
+  "myPreferences_pet_food_subtitle": "Kies welke informatie over dierenvoeding voor u het belangrijkst is.",
   "confirmResetPreferences": "Voedselvoorkeuren resetten?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -513,7 +611,7 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
-  "search_product_help": "Zoek een product,\neen merk of een streepjescode",
+  "search_product_help": "Zoek een product, een merk of een barcode",
   "@search_product_help": {
     "description": "Help text of a search text input field. Please respect the line break."
   },
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Bekijk alle bestaande foto's voor dit product",
   "@view_more_photo_button": {},
+  "no_settings_found": "Geen instellingen gevonden",
+  "@no_settings_found": {},
   "no_product_found": "Geen product gevonden",
   "@no_product_found": {},
+  "no_product_found_explanation": "Je zoekopdracht naar\n**\"{search}\"**\nleverde geen resultaten op.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Wilt u deze zoekopdracht liever uitvoeren in **onze wereldwijde database**?",
   "no_location_found": "Geen locatie gevonden",
   "not_found": "niet gevonden:",
   "refreshing_product": "Product herladen",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "Deze afbeelding is mogelijk verouderd",
   "product_image_outdated_explanations_title": "Deze afbeelding is mogelijk verouderd",
-  "product_image_outdated_explanations_content": "Deze afbeelding is meer dan een jaar geleden gemaakt.\n**Controleer of deze nog up-to-date is**.\n\nDit is **gewoon een waarschuwing**. Als de inhoud nog steeds hetzelfde is, kunt u dit bericht negeren.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "Niet echt…",
   "tagline_app_review_button_later": "Vraag me later nog eens",
   "tagline_feed_news_button": "Meer weten",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Vind je onze app niet leuk?",
   "app_review_negative_modal_text": "Kunt u een paar seconden de tijd nemen om ons te vertellen waarom?",
   "app_review_negative_modal_positive_button": "Ja, absoluut!",
@@ -1033,7 +1174,7 @@
     "description": "Message to show if there are no product properties found"
   },
   "product_tags_empty": "Geen eigenschappen",
-  "product_tags_explanation": "Door eigenschappen (sleutel/waarde) aan een product toe te voegen, draagt u bij aan de verrijking ervan.",
+  "product_tags_explanation": "Door eigenschappen (sleutel/waarde) aan een product toe te voegen, help je het te verrijken.",
   "add_tag": "Eigenschap toevoegen",
   "add_tags": "Eigenschappen toevoegen",
   "add_edit_tags": "Eigenschappen toevoegen of bewerken",
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Er is geen product in deze lijst",
   "no_product_in_section": "Er is geen product in deze sectie",
   "recently_seen_products": "Alle bekeken producten",
   "clear": "Wissen",
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "Persoonlijke verzorging",
   "product_type_label_pet_food": "Dierenvoeding",
   "product_type_label_product": "Andere",
+  "product_type_label_unknown": "Onbekend",
   "product_type_selection_title": "Producttype",
   "product_type_selection_subtitle": "Selecteer het type van dit product",
   "product_type_selection_empty": "U moet eerst een producttype selecteren!",
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Categorie",
   "prices_category_mandatory": "Verplicht",
   "prices_category_optional": "Optioneel",
+  "prices_origins_title": "Oorsprong",
   "prices_category_error_mandatory": "De categorie is verplicht",
   "prices_barcode_reader_action": "Streepjescodelezer",
   "prices_view_prices": "Bekijk de prijzen",
@@ -2421,7 +2564,7 @@
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
   "prices_list_empty_title": "Nog geen prijs!",
-  "prices_list_empty_subtitle": "Wees de eerste om er een toe te voegen:\nDoor een **bon** of een **prijskaartje** te scannen!",
+  "prices_list_empty_subtitle": "Wees de eerste om er een toe te voegen: door een **kassabon** of een **prijskaartje** te scannen!",
   "prices_entry_shop_not_found": "Onbekende winkel",
   "prices_entry_menu_title": "Prijsinvoer van \"{user}\"",
   "@prices_entry_menu_title": {
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Bekijk productdetails",
   "prices_entry_menu_open_product_prices": "Bekijk alle prijzen voor dit product",
   "prices_entry_menu_open_proof": "Bekijk het bewijs",
   "prices_entry_menu_my_prices": "Bekijk mijn andere prijzen",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "Er ontbreekt één product!",
   "prices_amount_price_incorrect": "Onjuiste waarde",
   "prices_amount_price_mandatory": "Verplichte waarde",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Winkel",
   "prices_location_find": "Zoek een winkel",
   "prices_location_mandatory": "Je moet een winkel selecteren!",
   "prices_location_search_broader": "Niet gevonden wat u zocht? Probeer een bredere zoekopdracht!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bewijs",
   "prices_proof_empty_title": "Nog geen bewijs!",
   "prices_proof_empty_explanation": "Begin met het toevoegen van een foto van een **bon** of een **prijskaartje**!",
@@ -2656,6 +2803,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Soort korting",
+  "prices_discount_type_quantity": "Kwantumkorting",
+  "prices_discount_type_sale": "Uitverkoop",
+  "prices_discount_type_seasonal": "Seizoensgebonden",
+  "prices_discount_type_loyalty_program": "Loyaliteitsprogramma",
+  "prices_discount_type_expires_soon": "Vervalt binnenkort",
+  "prices_discount_type_pick_it_yourself": "Zelf plukken",
+  "prices_discount_type_second_hand": "Tweedehands",
+  "prices_discount_type_other": "Andere",
   "dev_preferences_import_history_result_success": "Voltooid",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Stuur ons handmatig een e-mail naar",
-  "email_copied_to_clip_board": "E-mail gekopieerd naar klembord!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Selecteer een accentkleur",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} producten beschikbaar om onmiddellijk te scannen",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -4034,18 +4190,18 @@
   "guide_nova_groups_arg1_title": "Minimaal bewerkte of onbewerkte voedingsmiddelen",
   "guide_nova_groups_arg1_text": "Onbewerkte (of natuurlijke) voedingsmiddelen zijn de **eetbare delen van planten** (zaden, vruchten, bladeren, stengels, wortels) **of dieren** (spiervlees, slachtafval, eieren, melk), evenals schimmels, algen en water, nadat ze uit de natuur zijn gehaald.",
   "guide_nova_groups_arg2_title": "Berwerkte ingrediënten",
-  "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
+  "guide_nova_groups_arg2_text": "Verwerkte culinaire ingrediënten, zoals **oliën, boter, suiker en zout**, zijn stoffen die afkomstig zijn van voedingsmiddelen uit groep 1 of uit de natuur en die zijn verkregen door middel van processen zoals persen, raffineren, malen, vermalen en drogen.",
   "guide_nova_groups_arg3_title": "Bewerkte voedingsmiddelen",
-  "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from Group 2 to group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed Foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on Their own or, more commonly, in combination with other foods.",
+  "guide_nova_groups_arg3_text": "Bewerkte voedingsmiddelen, zoals groenten in pot, vis in blik, fruit op siroop, kaas en versgebakken brood, worden **voornamelijk gemaakt door zout, olie, suiker of andere stoffen uit groep 2 toe te voegen aan voedingsmiddelen uit groep 1**. De bewerkingsprocessen omvatten verschillende conserverings- of kookmethodes en, in het geval van brood en kaas, niet-alcoholische fermentatie. De meeste bewerkte voedingsmiddelen hebben twee of drie ingrediënten en zijn herkenbaar als aangepaste versies van voedingsmiddelen uit groep 1. Ze kunnen op zichzelf worden gegeten of, wat vaker voorkomt, in combinatie met andere voedingsmiddelen.",
   "guide_nova_groups_arg4_title": "Ultra-verwerkte voedingsmiddelen",
-  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or Salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in Culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
+  "guide_nova_groups_arg4_text": "Ultraverwerkte voedingsmiddelen, zoals frisdranken, zoete of hartige verpakte snacks, gereconstitueerde vleesproducten en kant-en-klare diepvriesmaaltijden, **zijn niet alleen gemodificeerde voedingsmiddelen, maar ook samenstellingen die grotendeels of volledig bestaan uit stoffen afkomstig van voedingsmiddelen en additieven**, met weinig tot geen intacte voedingsmiddelen uit groep 1. Ingrediënten in deze samenstellingen zijn meestal dezelfde als die in bewerkte voedingsmiddelen, zoals suikers, oliën, vetten of zout. Ultraverwerkte producten bevatten echter ook andere bronnen van energie en voedingsstoffen die doorgaans niet in culinaire bereidingen worden gebruikt. Sommige daarvan worden rechtstreeks uit voedingsmiddelen gewonnen, zoals caseïne, lactose, wei en gluten.",
   "guide_nova_explanations_title": "De problemen met ultra-bewerking",
   "guide_nova_explanations_arg1_title": "Extreme bewerking van voedselingrediënten",
   "guide_nova_explanations_arg1_text": "Veel daarvan zijn **afgeleid van verdere verwerking van voedingsbestanddelen**, zoals gehydrogeneerde of geïnteresterificeerde oliën, gehydrolyseerde eiwitten, soja-eiwitisolaat, maltodextrine, invertsuiker en fructoserijke glucosestroop.",
   "guide_nova_explanations_arg2_title": "Additieven die verder gaan dan pure voedselveiligheid",
-  "guide_nova_explanations_arg2_text": "Additieven in ultraverwerkte voedingsmiddelen omvatten sommige die ook in verwerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultraverwerkte producten voorkomen, zijn onder meer additieven die worden gebruikt **om de sensorische eigenschappen van voedingsmiddelen na te bootsen of te verbeteren of om onaangename aspecten van het eindproduct te maskeren**. Deze additieven omvatten kleurstoffen en andere kleurmiddelen, kleurstabilisatoren, smaakstoffen, smaakversterkers, niet-suikerhoudende zoetstoffen en technische hulpstoffen zoals koolzuur, verstevigingsmiddelen, vulstoffen en antiklontermiddelen, ontschuimers, antiklontermiddelen en glansmiddelen, emulgatoren, sekwestranten en bevochtigingsmiddelen.",
+  "guide_nova_explanations_arg2_text": "Additieven in ultraverwerkte voedingsmiddelen omvatten sommige die ook in verwerkte voedingsmiddelen worden gebruikt, zoals conserveermiddelen, antioxidanten en stabilisatoren. Additieven die alleen in ultraverwerkte producten voorkomen, zijn onder meer additieven die worden gebruikt **om de sensorische eigenschappen van voedingsmiddelen na te bootsen of te verbeteren of om onaangename aspecten van het eindproduct te maskeren**. Deze additieven omvatten kleurstoffen en andere kleurmiddelen, kleurstabilisatoren, smaakstoffen, smaakversterkers, niet-suikerhoudende zoetstoffen en technische hulpstoffen zoals koolzuur, verstevigingsmiddelen, vulstoffen en antiklontermiddelen, ontschuimers, glansmiddelen, emulgatoren, sekwestranten en bevochtigingsmiddelen.",
   "guide_nova_explanations_arg3_title": "Bewerking die je niet thuis kan uitvoeren",
-  "guide_nova_explanations_arg3_text": "**Er wordt een veelheid aan processtappen gebruikt** om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar 'ultraverwerkt'). De processen omvatten verschillende **stappen die geen huishoudelijke equivalenten hebben**, zoals hydrogenering en hydrolyse, extrusie en vormgeving, en voorbewerking voor frituren.",
+  "guide_nova_explanations_arg3_text": "**Er wordt een veelheid aan processtappen gebruikt** om de doorgaans vele ingrediënten te combineren en het eindproduct te creëren (vandaar 'ultraverwerkt'). De processen omvatten verschillende **stappen die geen huishoudelijke equivalenten hebben**, zoals hydrogenering en hydrolyse, extrusie en vormgeving en voorbewerking voor frituren.",
   "guide_nova_explanations_arg4_title": "De roofzuchtige en financiële aspecten van ultra-bewerking",
   "guide_nova_explanations_arg4_text": "**Het algemene doel van ultraverwerking is het creëren van merkproducten**, **gemakkelijke** (houdbaar, klaar voor consumptie), **aantrekkelijke** (zeer smakelijk) en **zeer winstgevende** (goedkope ingrediënten) voedingsmiddelen die zijn ontworpen om alle andere voedingsmiddelen te verdringen. Ultraverwerkte voedingsmiddelen worden meestal aantrekkelijk verpakt en intensief op de markt gebracht.",
   "guide_nova_explanations_arg5_title": "Een gezondheidsrisico",
@@ -4132,7 +4288,7 @@
   },
   "guide_open_beauty_facts_features_title": "Kenmerken van Open Beauty Facts",
   "guide_open_beauty_facts_features_arg1_title": "Ontvang meldingen voor uw ongewenste ingrediënten",
-  "guide_open_beauty_facts_features_arg1_paragraph1": "Ben je allergisch voor bepaalde ingrediënten? Wil je comedogene stoffen vermijden? Wil je controversiële ingrediënten vermijden? Je kunt een lijst met cosmetische ingrediënten die je wilt vermijden rechtstreeks in de app instellen!",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Ben je allergisch voor bepaalde ingrediënten? Wil je comedogeen stoffen voorkomen? Wil je ze wegsturen van controversiële onderdelen? Je kunt een lijst van cosmetische ingrediënten instellen om te vermijden, direct in de app!",
   "guide_open_beauty_facts_tips_title": "Tips voor het maken van geweldige foto's",
   "guide_open_beauty_facts_tips_arg1_title": "Wat je niet moet doen",
   "guide_open_beauty_facts_tips_arg1_text1": "Vermijd schaduwen en schittering.",
@@ -4143,7 +4299,7 @@
   "guide_open_beauty_facts_tips_arg2_text1": "Zorg voor goede, gelijkmatige verlichting.",
   "guide_open_beauty_facts_tips_arg2_text2": "Zorg ervoor dat de tekst scherp en leesbaar is.",
   "guide_open_beauty_facts_tips_arg2_text3": "Leg de gehele ingrediëntenlijst vast.",
-  "guide_open_beauty_facts_tips_arg2_text4": "Maak zoveel foto's als nodig is als de fles gebogen is.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Neem zoveel foto als nodig is als de fles gebogen is.",
   "guide_open_beauty_facts_tips_arg2_text5": "Het kan zijn dat u het etiket moet verwijderen om de lijst met ingrediënten te kunnen zien.",
   "guide_open_beauty_facts_tips_arg2_text6": "Plaats het product op een vlakke ondergrond.",
   "guide_open_beauty_facts_scores_title": "Een opmerking over het scoren",
@@ -4169,7 +4325,7 @@
   "guide_open_prices_why_title": "Waarom doet Open Food Facts dit?",
   "guide_open_prices_why_paragraph1": "Prijsinformatie is van cruciaal belang om voedselsystemen te begrijpen. Het is een belangrijke factor om inzicht te krijgen in de kosten van voedsel en om gezondere voedingspatronen te bevorderen. Het openbaar maken van prijsgegevens is een manier om het voor onderzoekers, journalisten en burgers gemakkelijker te maken om **een beter inzicht te krijgen in hoe voedselprijzen geografisch en in de tijd variëren**.",
   "guide_open_prices_why_arg1_title": "Volg de evolutie van de prijzen in de loop van de tijd",
-  "guide_open_prices_why_arg1_text": "Bekijk de **evolutie van de prijzen**: krimpende inflatie, goedkope inflatie, we kunnen ze samen volgen!",
+  "guide_open_prices_why_arg1_text": "Bekijk de **evolutie van de prijzen**: shrinkflation, cheapflation, we kunnen ze samen volgen!",
   "guide_open_prices_why_arg2_title": "Vergelijk prijzen bij u in de buurt",
   "guide_open_prices_why_arg2_text": "Naarmate we meer prijzen verzamelen, kun je **de goedkoopste winkels in je omgeving** vinden.",
   "guide_open_prices_scrapping_title": "Heb je overwogen om prijzen van websites van retailers te scrapen?",
@@ -4191,7 +4347,7 @@
   "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_products_facts_features_title": "Features of Open Products Facts",
+  "guide_open_products_facts_features_title": "Kenmerken van Open Products Facts",
   "guide_open_products_facts_features_text": "Open Products Facts wil consumenten helpen **de levensduur van voorwerpen te verlengen** door circulaire oplossingen aan te bieden voor het onderhoud, **de reparatie** en **de recycling** van hun voorwerpen, of door ze aan een nieuwe eigenaar te geven.",
   "guide_open_products_facts_features_arg1_title": "Koolstofvoetafdrukken voor sommige producten",
   "guide_open_products_facts_features_arg1_text": "**Impact CO2** van de Franse milieuautoriteit ADEME geeft de **koolstofimpact** van vele categorieën weer. Zorg ervoor dat u producten nauwkeurig categoriseert.",
@@ -4206,7 +4362,7 @@
   "guide_open_products_facts_folksonomy_paragraph2": "U kunt alle gewenste sleutels en waarden toevoegen, zoals: **compatibility_with_5G_mobile_network: yes**",
   "guide_open_products_facts_folksonomy_paragraph3": "U krijgt automatische suggesties voor mogelijke eigenschappen en u bent van harte welkom om nieuwe eigenschappen toe te voegen en te documenteren voor uw favoriete soorten producten.",
   "guide_open_products_facts_share_link": "https://world-nl.openproductsfacts.org/discover",
-  "guide_open_preferences_button_title": "Open food preferences",
+  "guide_open_preferences_button_title": "Open food voorkeuren",
   "guide_coming_soon_button_title": "Binnenkort beschikbaar",
   "guide_learn_more_subtitle": "Tik om meer te weten te komen",
   "preview_badge": "Voorbeeld",
@@ -4281,6 +4437,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "Bekijk de originele afbeelding",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Compatibel",
   "@product_page_compatibility_score": {
@@ -4406,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Waarschijnlijk ongeldige barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Verwijder dit product uit de carrousel",
   "@carousel_close_tooltip": {
@@ -4555,6 +4719,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "Mijn compatibiliteit",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Onvoldoende gegevens om een compatibiliteitsscore te berekenen.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Er kan geen score worden berekend voor een product van het type \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Belang",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Overeenkomsten",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Goede overeenkomsten",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Gemiddelde overeenkomsten",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Slechte overeenkomsten",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Onbekende overeenkomsten",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "Website",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4564,15 +4778,15 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "Waarom prijzen?",
-  "prices_explanation_card_line1": "**Open Prices** is een project om productprijzen wereldwijd te verzamelen en te delen 🌍. Open Prices wordt ontwikkeld en onderhouden door Open Food Facts.",
+  "prices_explanation_card_line1": "**Open Prices** is een project om prijzen van producten over de hele wereld te verzamelen en te delen 🌍. Open Prices wordt ontwikkeld en onderhouden door Open Food Facts.",
   "explanation_card_learn_more_button": "Meer informatie",
   "product_page_tab_folksonomy": "Folksonomy",
   "@product_page_tab_folksonomy": {
     "description": "Label of the folksonomy tab on the product page"
   },
-  "folksonomy_explanation_card_title": "Wat zijn Folksonomy-attributen?",
-  "folksonomy_explanation_card_line1": "Attributen zijn **sleutel-waarde** gebaseerd.",
-  "folksonomy_explanation_card_line2": "Deze eigenschappen worden door bijdragers gemaakt en opgeslagen voor allerlei doeleinden.",
+  "folksonomy_explanation_card_title": "Wat zijn folksonomie-attributen?",
+  "folksonomy_explanation_card_line1": "Attributen zijn gebaseerd op **sleutel-waarde**.",
+  "folksonomy_explanation_card_line2": "Deze eigenschappen worden door bijdragers aangemaakt en gearchiveerd voor allerlei soorten gebruik.",
   "folksonomy_action_external_link_title": "Externe link openen",
   "@folksonomy_action_external_link_title": {
     "description": "Label of the 'open external link' action on a folksonomy entry"
@@ -4939,7 +5153,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "Open Food Facts is een database met voedselproducten **gemaakt door iedereen, voor iedereen**.\nU kunt het gebruiken om betere voedselkeuzes te maken, en omdat het **open data** is, kan iedereen het **hergebruiken voor welk doel dan ook**.",
+  "preferences_legal_header": "Open Food Facts is een database met voedingsmiddelen **gemaakt door iedereen, voor iedereen**. Je kunt deze gebruiken om betere voedingskeuzes te maken, en omdat het **open data** is, kan iedereen **deze voor elk doel hergebruiken**.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Open Price-metrieken",
+  "preferences_prices_metrics_title": "Open Prices-statistieken",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5626,5 +5840,59 @@
   "location_map_details_postcode": "Postcode",
   "location_map_details_country": "Land",
   "location_map_details_coordinates": "Coördinaten",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Terug naar de homepage",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Camera aan/uit",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Laat de barcodescanner zien",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Tik om een **barcode**\nte scannen en ontdek of het **goed voor je is**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Schakel de zaklamp in/uit",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scan een product door de barcode te benaderen",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "We hebben de volgende barcode gedetecteerd: {barcode}, maar deze lijkt ongeldig te zijn.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Bekijk meer…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Meest gescande producten",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Laatst gescande producten",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

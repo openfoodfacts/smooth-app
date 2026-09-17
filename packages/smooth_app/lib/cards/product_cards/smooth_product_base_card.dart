@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/pages/product/hideable_container.dart';
 import 'package:smooth_app/pages/scan/carousel/scan_carousel.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_barcode_widget.dart';
 import 'package:smooth_app/widgets/smooth_close_button.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
@@ -266,13 +266,13 @@ class ScanProductBaseCardText extends StatelessWidget {
 class ScanProductBaseCardBarcode extends StatelessWidget {
   const ScanProductBaseCardBarcode({
     required this.barcode,
-    this.height,
+    required this.height,
     this.padding,
     super.key,
-  }) : assert(height == null || height > 0);
+  });
 
   final String barcode;
-  final double? height;
+  final double height;
   final EdgeInsetsDirectional? padding;
 
   @override
@@ -301,15 +301,12 @@ class ScanProductBaseCardBarcode extends StatelessWidget {
         child: Center(
           child: ConstrainedBox(
             constraints: BoxConstraints(minHeight: dense ? 75.0 : 100.0),
-            child: SmoothBarcodeWidget(
-              height: height ?? 100.0,
+            child: Padding(
               padding: EdgeInsetsDirectional.symmetric(
                 horizontal: 30.0,
                 vertical: dense ? SMALL_SPACE : MEDIUM_SPACE,
               ),
-              color: Colors.black,
-              backgroundColor: lightTheme ? Colors.white : Colors.transparent,
-              barcode: barcode,
+              child: SmoothBarcodeWidget(barcode: barcode, height: height),
             ),
           ),
         ),

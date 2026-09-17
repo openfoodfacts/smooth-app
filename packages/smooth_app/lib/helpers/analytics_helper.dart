@@ -23,7 +23,9 @@ enum AnalyticsCategory {
   list(tag: 'list'),
   deepLink(tag: 'deep link'),
   hungerGame(tag: 'hunger game'),
-  appRating(tag: 'app rating');
+  appRating(tag: 'app rating'),
+  taglineFeed(tag: 'tagline feed'),
+  donation(tag: 'donation');
 
   const AnalyticsCategory({required this.tag});
 
@@ -152,6 +154,22 @@ enum AnalyticsEvent {
   appRatingNotSatisfied(
     tag: 'not satisfied',
     category: AnalyticsCategory.appRating,
+  ),
+  taglineNewsDisplayed(
+    tag: 'tagline news displayed',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  taglineNewsClicked(
+    tag: 'tagline news clicked',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  donationPageOpened(
+    tag: 'donation page opened',
+    category: AnalyticsCategory.donation,
+  ),
+  donationHandoff(
+    tag: 'donation handoff',
+    category: AnalyticsCategory.donation,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -214,6 +232,8 @@ class AnalyticsHelper {
   static late int _uniqueRandom;
 
   static Future<void> linkPreferences(UserPreferences userPreferences) async {
+    _uniqueRandom = await userPreferences.getUniqueRandom();
+
     // Init the value
     _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
     _setCrashReports(userPreferences.onCrashReportingChanged.value);
@@ -226,8 +246,6 @@ class AnalyticsHelper {
     userPreferences.onCrashReportingChanged.addListener(() {
       _setCrashReports(userPreferences.onCrashReportingChanged.value);
     });
-
-    _uniqueRandom = await userPreferences.getUniqueRandom();
   }
 
   static Future<void> initSentry({required Function()? appRunner}) async {
@@ -262,7 +280,7 @@ class AnalyticsHelper {
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static Future<void> _setAnalyticsReports(final bool allow) async {
+  static void _setAnalyticsReports(final bool allow) {
     if (allow) {
       _analyticsReporting = _AnalyticsTrackingMode.enabled;
     } else {
@@ -278,23 +296,28 @@ class AnalyticsHelper {
   static bool get isEnabled =>
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
-  /// Returns true if both analytics and crash reporting are enabled.
-  /// This is used to determine whether to send HTTP traces to Sentry.
-  static bool get isTracingEnabled => isEnabled && _crashReports;
-
-  static FutureOr<SentryEvent?> _beforeSend(
-    SentryEvent event,
-    dynamic hint,
-  ) async {
+  static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
     if (!_crashReports) {
       return null;
     }
-    return event;
+    return event
+      ..tags = <String, String>{
+        ...?event.tags,
+        'store': GlobalVars.storeLabel.name,
+        'scanner': GlobalVars.scannerLabel.name,
+      };
   }
 
   static late PackageInfo _packageInfo;
 
-  static Future<void> initMatomo(final bool screenshotMode) async {
+  /// Undispatched actions survive a restart for a day, and no longer: the
+  /// default [PersistenceFilter] of [DispatchSettings.persistent] drops
+  /// anything older than 23h59m59s when the queue is loaded.
+  static Future<void> initMatomo(
+    final bool screenshotMode, {
+    final DispatchSettings dispatchSettings =
+        const DispatchSettings.persistent(),
+  }) async {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
       _setCrashReports(false);
@@ -306,6 +329,7 @@ class AnalyticsHelper {
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: '2',
         visitorId: _visitorId,
+        dispatchSettings: dispatchSettings,
       );
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized
@@ -411,6 +435,9 @@ class AnalyticsHelper {
     productType: product.productType ?? ProductType.food,
   );
 
+  static void trackTaglineNewsEvent(AnalyticsEvent msg, String newsId) =>
+      trackCustomEvent(msg.name, msg.category.tag, action: newsId);
+
   static void trackSearch({
     required String search,
     String? searchCategory,
@@ -448,7 +475,7 @@ class AnalyticsHelper {
   }
 
   static void sendException(dynamic throwable, {dynamic stackTrace}) {
-    Sentry.captureException(throwable, stackTrace: stackTrace);
+    unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
   }
 
   static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;

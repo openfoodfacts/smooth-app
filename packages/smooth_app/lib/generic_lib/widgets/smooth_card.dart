@@ -464,6 +464,7 @@ class SmoothCardHeaderButton extends StatelessWidget {
     required this.tooltip,
     required this.child,
     required this.onTap,
+    this.circled = false,
     this.padding,
     super.key,
   });
@@ -471,10 +472,26 @@ class SmoothCardHeaderButton extends StatelessWidget {
   final String tooltip;
   final Widget child;
   final VoidCallback onTap;
+  final bool circled;
   final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
+    Widget child = Padding(
+      padding: padding ?? const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+      child: this.child,
+    );
+
+    if (circled) {
+      child = Material(
+        color: Colors.transparent,
+        shape: const CircleBorder(
+          side: BorderSide(width: 1.0, color: Colors.white),
+        ),
+        child: child,
+      );
+    }
+
     return Material(
       type: MaterialType.transparency,
       child: Semantics(
@@ -486,10 +503,7 @@ class SmoothCardHeaderButton extends StatelessWidget {
           child: InkWell(
             customBorder: const CircleBorder(),
             onTap: onTap,
-            child: Padding(
-              padding: padding ?? const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-              child: child,
-            ),
+            child: child,
           ),
         ),
       ),

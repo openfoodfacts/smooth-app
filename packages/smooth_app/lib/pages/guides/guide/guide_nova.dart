@@ -168,7 +168,7 @@ class _NOVASection2 extends StatelessWidget {
         GuidesTitleWithText(
           title: appLocalizations.guide_nova_groups_arg1_title,
           icon: const icons.FoodIcons.nova1(),
-          text: appLocalizations.guide_nova_groups_arg2_text,
+          text: appLocalizations.guide_nova_groups_arg1_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nova_groups_arg2_title,

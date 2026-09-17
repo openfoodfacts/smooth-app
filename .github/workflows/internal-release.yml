@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 env:
- RUBY_VERSION: 3.2.0
+ RUBY_VERSION: 3.4.10
 
 jobs:
   tag-commit:
@@ -18,9 +18,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@v1.321.0
         with:
           bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
@@ -44,15 +44,15 @@ jobs:
       # in order for Sentry and other tools to work properly
       # Outputs env: VERSION_CODE (integer)
       - name: Get latest VERSION_CODE
-        uses: maierj/fastlane-action@v3.1.0
+        uses: maierj/fastlane-action@v3.2.0
         with:
           lane: getOldVersionCode
           subdirectory: packages/smooth_app/android
 
-      - name: Version
+      - name: Print version
         run: echo "${{ env.VERSION_NAME }}+${{ env.VERSION_CODE }}"
 
-      - name: Normalized tag
+      - name: Print normalized tag
         id: normalized_tag
         run: echo "NORMALIZED_TAG=$(echo "internal_${{ env.VERSION_NAME }}_${{ env.VERSION_CODE }}" | tr "." "_")" >> $GITHUB_ENV
 

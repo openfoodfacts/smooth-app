@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:app_store_shared/app_store_shared.dart';
-import 'package:dart_ping_ios/dart_ping_ios.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,6 +22,7 @@ import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/animations/rive_animation.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/entry_points_helper.dart';
@@ -40,6 +40,7 @@ import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/smooth_view_padding.dart';
 
 void main() {
   debugPrint('--------');
@@ -128,7 +129,6 @@ Future<bool> _init1() async {
     return false;
   }
 
-  DartPingIOS.register();
   await SmoothServices().init(GlobalVars.appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
@@ -276,26 +276,28 @@ class _SmoothAppState extends State<SmoothApp> {
       (UserPreferences up) => up.appLanguageCode,
     );
 
-    return SentryScreenshotWidget(
-      child: MaterialApp.router(
-        locale: languageCode != null ? Locale(languageCode) : null,
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
-        theme: SmoothTheme.getThemeData(
-          Brightness.light,
-          themeProvider,
-          () => context.watch<ColorProvider>(),
-          () => context.watch<TextContrastProvider>(),
+    return SmoothViewPadding(
+      child: SentryScreenshotWidget(
+        child: MaterialApp.router(
+          locale: languageCode != null ? Locale(languageCode) : null,
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          debugShowCheckedModeBanner: !(kReleaseMode || _screenshots),
+          theme: SmoothTheme.getThemeData(
+            Brightness.light,
+            themeProvider,
+            () => context.watch<ColorProvider>(),
+            () => context.watch<TextContrastProvider>(),
+          ),
+          darkTheme: SmoothTheme.getThemeData(
+            Brightness.dark,
+            themeProvider,
+            () => context.watch<ColorProvider>(),
+            () => context.watch<TextContrastProvider>(),
+          ),
+          themeMode: themeProvider.currentThemeMode,
+          routerConfig: AppNavigator.of(context).router,
         ),
-        darkTheme: SmoothTheme.getThemeData(
-          Brightness.dark,
-          themeProvider,
-          () => context.watch<ColorProvider>(),
-          () => context.watch<TextContrastProvider>(),
-        ),
-        themeMode: themeProvider.currentThemeMode,
-        routerConfig: AppNavigator.of(context).router,
       ),
     );
   }

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/homepage/camera/view/ui/camera_view.dart';
 import 'package:smooth_app/pages/homepage/homepage.dart';
 import 'package:smooth_app/resources/app_animations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -84,9 +85,9 @@ class _TorchIcon extends StatefulWidget {
 class _TorchIconState extends State<_TorchIcon> {
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<bool?>(
+    return ValueListenableBuilder<TorchState?>(
       valueListenable: context.watch<CustomScannerController>().hasTorchState,
-      builder: (BuildContext context, bool? hasTorch, _) {
+      builder: (BuildContext context, TorchState? hasTorch, _) {
         if (hasTorch == null) {
           return EMPTY_WIDGET;
         }

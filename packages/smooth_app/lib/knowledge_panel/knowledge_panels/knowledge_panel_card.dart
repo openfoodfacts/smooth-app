@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
@@ -14,7 +15,7 @@ class KnowledgePanelCard extends StatelessWidget {
     required this.panelId,
     required this.product,
     required this.isClickable,
-    this.simplified = false,
+    required this.simplified,
   });
 
   final String panelId;
@@ -70,8 +71,7 @@ class KnowledgePanelCard extends StatelessWidget {
               ),
             ),
       child:
-          KnowledgePanelsBuilder.getPanelSummaryWidget(
-            panel,
+          panel.getPanelSummaryWidget(
             product,
             isClickable: improvedIsClickable,
             margin: EdgeInsetsDirectional.zero,

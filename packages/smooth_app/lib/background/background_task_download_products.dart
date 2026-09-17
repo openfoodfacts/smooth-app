@@ -4,6 +4,7 @@ import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_progressing.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:smooth_app/database/local_database.dart';
@@ -119,6 +120,11 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
     if (downloadFlag & flagMaskExcludeKP != 0) {
       fields.remove(ProductField.KNOWLEDGE_PANELS);
     }
+
+    final List<String> unwantedIngredients =
+        (await UserPreferences.getUserPreferences())
+            .getUnwantedIngredientTags();
+
     final OpenFoodFactsLanguage language = ProductQuery.getLanguage();
     final SearchResult searchResult =
         await SearchProductsManager.searchProducts(
@@ -129,6 +135,7 @@ class BackgroundTaskDownloadProducts extends BackgroundTaskProgressing {
               PageSize(size: pageSize),
               const PageNumber(page: 1),
               BarcodeParameter.list(barcodes),
+              IngredientsUnwantedParameter(unwantedIngredients),
             ],
             language: language,
             country: ProductQuery.getCountry(),

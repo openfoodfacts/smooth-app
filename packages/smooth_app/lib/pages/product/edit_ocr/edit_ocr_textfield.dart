@@ -128,7 +128,7 @@ class EditOCRTextField extends StatelessWidget {
                     );
                   },
             ),
-            if (extraButton != null) extraButton!,
+            ?extraButton,
           ],
         ),
       ),

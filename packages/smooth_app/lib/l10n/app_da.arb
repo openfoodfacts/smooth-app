@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Tilføj",
   "@add": {},
+  "edit": "Redigér",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Sikker på, at du vil slette din konto?\nEr der en specifik grund, så del venligst nedenfor",
   "@account_delete_message": {},
   "reason": "Årsag",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Nulstil fødevarepræferencer",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Noget gik galt",
   "@error": {},
@@ -241,7 +332,7 @@
   "sign_up_page_display_name_hint": "Navn",
   "sign_up_page_display_name_error_empty": "Angiv det navn, der ønskes vist",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail er obligatorisk",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "Ugyldig e-mail",
   "sign_up_page_username_hint": "Brugernavn: Offentligt synligt",
   "sign_up_page_username_error_empty": "Indtast et brugernavn",
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Administrer din Open Food Facts bidragyderkonto.",
   "myPreferences_settings_title": "App-indstillinger",
   "myPreferences_settings_subtitle": "Mørk tilstand, Sprog…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Fødevarepræferencer",
   "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
   "myPreferences_food_comment": "Vælg de fødevareoplysninger med størst betydning for dig, for at kunne rangere dem efter dine præferencer, se de oplysninger, du finder interessante først, samt få en kompatibilitetsoversigt. Disse fødevarepræferencer forbliver lokale og tilknyttes ikke OpenFoodFacts-bidragsyderkontoen, såfremt du har én.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Nulstil dine fødevarepræferencer?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Se alle eksisterende billeder for dette produkt",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Intet produkt fundet",
   "@no_product_found": {},
+  "no_product_found_explanation": "Din søgning efter\n**\"{search}\"**\ngav ingen resultater.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Vil du i stedet køre den samme søgning i **vores globale database**?",
   "no_location_found": "Ingen placering fundet",
   "not_found": "ikke fundet:",
   "refreshing_product": "Opfrisker produkt",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "Dette billede kan være forældet",
   "product_image_outdated_explanations_title": "Dette billede kan være forældet",
-  "product_image_outdated_explanations_content": "Dette billede er taget for mere end et år siden.\n**Tjek venligst, at den stadig er opdateret**.\n\nDette er **bare en advarsel**. Hvis indholdet stadig er det samme, kan du ignorere denne besked.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "Ikke rigtigt…",
   "tagline_app_review_button_later": "Spørg mig senere",
   "tagline_feed_news_button": "Lær mere",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Kan du ikke lide vores app?",
   "app_review_negative_modal_text": "Vil du bruge et par sekunder på at fortælle os hvorfor?",
   "app_review_negative_modal_positive_button": "Ja, selvfølgelig!",
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Der er intet produkt på denne liste",
   "no_product_in_section": "Der er intet produkt i dette afsnit",
   "recently_seen_products": "Alle sete produkter",
   "clear": "Ryd",
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "Personlig pleje",
   "product_type_label_pet_food": "Foder til kæledyr",
   "product_type_label_product": "Andet",
+  "product_type_label_unknown": "Ukendt",
   "product_type_selection_title": "Produkttype",
   "product_type_selection_subtitle": "Vælg typen af dette produkt",
   "product_type_selection_empty": "Du skal først vælge en produkttype!",
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Kategori",
   "prices_category_mandatory": "Obligatorisk",
   "prices_category_optional": "Valgfri",
+  "prices_origins_title": "Oprindelser",
   "prices_category_error_mandatory": "Kategorien er obligatorisk",
   "prices_barcode_reader_action": "Stregkodelæser",
   "prices_view_prices": "Se priserne",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Se produktoplysninger",
   "prices_entry_menu_open_product_prices": "Se alle priser for dette produkt",
   "prices_entry_menu_open_proof": "Se bevis",
   "prices_entry_menu_my_prices": "Se mine andre priser",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "Et produkt mangler!",
   "prices_amount_price_incorrect": "Forkert værdi",
   "prices_amount_price_mandatory": "Obligatorisk værdi",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Valuta",
   "prices_date_subtitle": "Dato",
   "prices_location_subtitle": "Butik",
   "prices_location_find": "Find en butik",
   "prices_location_mandatory": "Du skal vælge en butik!",
   "prices_location_search_broader": "Kunne du ikke finde det, du ledte efter? Lad os prøve en bredere søgning!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bevis",
   "prices_proof_empty_title": "Intet bevis endnu!",
   "prices_proof_empty_explanation": "Start med at tilføje et billede af en **kvittering** eller et **prisskilt**!",
@@ -2656,6 +2803,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Rabattype",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Udsalg",
+  "prices_discount_type_seasonal": "Sæson",
+  "prices_discount_type_loyalty_program": "Loyalitetsprogram",
+  "prices_discount_type_expires_soon": "Udløber snart",
+  "prices_discount_type_pick_it_yourself": "Vælg det selv",
+  "prices_discount_type_second_hand": "Brugt",
+  "prices_discount_type_other": "Andet",
   "dev_preferences_import_history_result_success": "Færdiggjort",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Send os manuelt en e-mail til",
-  "email_copied_to_clip_board": "E-mail kopieret til udklipsholder!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Vælg fremhævningsfarve",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produkter tilgængelige til omgående skanning",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3853,13 +4009,13 @@
   "nutriscore_unknown_new_formula": "Ukendt Nutri-Score (Ny beregning)",
   "nutriscore_not_applicable": "Nutri-Score er ikke tilgængeligt",
   "nutriscore_not_applicable_new_formula": "Nutri-Score er ikke tilgængeligt (Ny beregning)",
-  "environmental_score_generic_new": "Øko-Score",
-  "environmental_score_a_new": "Grøn-Score A",
-  "environmental_score_b_new": "Grøn-Score B",
-  "environmental_score_c_new": "Grøn-Score C",
-  "environmental_score_d_new": "Grøn-Score D",
-  "environmental_score_e_new": "Grøn-Score E",
-  "environmental_score_unknown_new": "Ukendt grøn score",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Ukendt Green-Score",
   "environmental_score_not_applicable_new": "Green-Score er ikke relevant",
   "nova_group_generic_new": "Ultraforarbejdede fødevarer - NOVA-grupper",
   "nova_group_1": "NOVA-gruppe 1",
@@ -3954,7 +4110,7 @@
   "guide_nutriscore_v2_unchanged_title": "Hvad ændrer sig ikke",
   "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score er en score designet til at **måle ernæringskvalitet**. Den er **supplerende til NOVA-gruppen** om **ultraforarbejdede fødevarer** (også til stede i ansøgningen).",
   "guide_nutriscore_v2_unchanged_paragraph2": "For producenter er visningen af Nutri-Score ** fortsat valgfri**.",
-  "guide_greenscore_title": "Øko-Score",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4100,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "Funktioner ved åbne kæledyrsfoderfakta",
+  "guide_open_pet_food_facts_features_title": "Funktioner ved Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "Få advarsler om dine uønskede ingredienser",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "Er dit kæledyr allergisk over for nogen ingredienser? Du kan oprette en liste over kosmetiske ingredienser, du skal undgå, direkte i appen!",
   "guide_open_pet_food_facts_tips_title": "Tips til at tage fantastiske billeder",
@@ -4282,6 +4438,10 @@
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
   },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
+  },
   "product_page_compatibility_score": "Kompatibel",
   "@product_page_compatibility_score": {
     "description": "Compatibility score on top of the product page. The sentence is \"100%\" Compatible"
@@ -4406,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "Fjern dette produkt fra karrusellen",
   "@carousel_close_tooltip": {
@@ -4554,6 +4718,56 @@
   "product_page_tab_for_me": "For mig",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Min kompatibilitet",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibel",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Utilstrækkelige data til at beregne en kompatibilitetsscore.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Der kan ikke beregnes en score for et produkt af typen \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Betydning",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Kampe",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Gode kampe",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Gennemsnitlige kampe",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Dårlige kampe",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Ukendte matches",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Websted",
   "@product_page_tab_website": {
@@ -5112,7 +5326,7 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "Opdag åbne fødevarefakta",
+  "preferences_faq_discover_off_title": "Opdag Open Food Facts",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "Åbningsprismålinger",
+  "preferences_prices_metrics_title": "Åbningspriser-målinger",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5584,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "Åbne fødevarefakta-laboratorier",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts-laboratorier",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5592,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Få åbne fødevarefakta på dit sprog",
+  "preferences_contribute_translate_header": "Få Open Food Facts på dit sprog",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5626,5 +5840,59 @@
   "location_map_details_postcode": "Postnummer",
   "location_map_details_country": "Land",
   "location_map_details_coordinates": "Koordinater",
-  "location_map_details_osm_id": "OSM-ID"
+  "location_map_details_osm_id": "OSM-ID",
+  "homepage_scanner_back_to_home_button": "Tilbage til hjemmet",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Skift kamera",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Vis stregkodescanneren",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Tryk for at scanne en **stregkode**\nog find ud af, om den er **god for dig**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Slå lommelygte til/fra",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scan et produkt ved at nærme sig dets stregkode",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Vi har fundet følgende stregkode: {barcode}, men den ser ud til at være ugyldig.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Se mere…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Mest skannede produkter",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Sidst scannede produkter",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

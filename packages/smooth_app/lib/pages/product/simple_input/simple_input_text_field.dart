@@ -26,6 +26,8 @@ class SimpleInputTextField extends StatefulWidget {
     this.borderRadius,
     this.textCapitalization,
     this.allowEmojis,
+    this.maxLines = 1,
+    this.enabled,
   });
 
   final FocusNode focusNode;
@@ -47,6 +49,8 @@ class SimpleInputTextField extends StatefulWidget {
   final BorderRadius? borderRadius;
   final TextCapitalization? textCapitalization;
   final bool? allowEmojis;
+  final int? maxLines;
+  final bool? enabled;
 
   @override
   State<SimpleInputTextField> createState() => _SimpleInputTextFieldState();
@@ -103,6 +107,8 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
               suffixIcon: widget.suffixIcon,
               borderRadius: widget.borderRadius,
               padding: widget.padding,
+              enabled: widget.enabled,
+              maxLines: widget.maxLines,
             ),
           ),
           if (widget.withClearButton)

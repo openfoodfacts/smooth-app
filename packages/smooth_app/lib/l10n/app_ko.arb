@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "공개 가격",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "추가하기",
   "@add": {},
+  "edit": "수정",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "계정을 삭제하시겠습니까?\n특별한 이유가 있다면 아래에 공유해주세요.",
   "@account_delete_message": {},
   "reason": "사유",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "식품 설정 초기화",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "문제가 발생했습니다",
   "@error": {},
@@ -240,8 +331,8 @@
   "sign_up_page_action_ok": "축하합니다! 귀하의 계정이 방금 생성되었습니다.",
   "sign_up_page_display_name_hint": "이름",
   "sign_up_page_display_name_error_empty": "사용하고자 하는 이름을 입력하십시오",
-  "sign_up_page_email_hint": "이메일",
-  "sign_up_page_email_error_empty": "이메일이 필요합니다",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "이메일이 올바르지 않습니다",
   "sign_up_page_username_hint": "사용자 이름: 모두가 볼 수 있어요",
   "sign_up_page_username_error_empty": "사용자 이름을 입력하십시오",
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Open Food Facts 기고자 계정을 관리하세요.",
   "myPreferences_settings_title": "앱 설정",
   "myPreferences_settings_subtitle": "다크 모드, 언어…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "식품 설정",
   "myPreferences_food_subtitle": "당신에게 가장 중요한 음식 정보를 선택하십시오.",
   "myPreferences_food_comment": "음식에 대한 가장 중요한 정보를 선택하여 선호도에 따라 음식을 순위를 매기고, 관심 있는 정보를 먼저 확인하고, 호환성 요약을 받아보세요. 선택한 음식 선호도는 기기에 저장되며, Open Food Facts 기여자 계정이 있는 경우 해당 계정과 연결되지 않습니다.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "식품 설정을 초기화하시겠습니까?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "이 제품에 대한 모든 기존 사진 보기",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "상품 없음",
   "@no_product_found": {},
+  "no_product_found_explanation": "\n**\"{search}\"**\n검색 결과가 없습니다.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "이 검색을 **당사의 글로벌 데이터베이스**에서 실행하시겠습니까?",
   "no_location_found": "위치를 찾을 수 없습니다",
   "not_found": "찾을 수 없음:",
   "refreshing_product": "상품 새로고치는 중...",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "이 이미지는 오래되었을 수 있습니다.",
   "product_image_outdated_explanations_title": "이 이미지는 오래되었을 수 있습니다.",
-  "product_image_outdated_explanations_content": "이 이미지는 1년 이상 전에 촬영되었습니다.\n**아직 최신 상태인지 확인해 주세요.**\n\n**경고**입니다. 내용이 동일하다면 이 메시지를 무시해도 됩니다.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "별로...",
   "tagline_app_review_button_later": "나중에 물어봐 주세요",
   "tagline_feed_news_button": "더 알아보세요",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "저희 앱이 맘에 안드세요?",
   "app_review_negative_modal_text": "잠시 시간을 내어 이유를 말씀해 주실래요?",
   "app_review_negative_modal_positive_button": "예, 물론입니다!",
@@ -1080,11 +1221,11 @@
   "@product_improvement_add_category": {
     "description": "Message for ProductImprovement.ADD_CATEGORY"
   },
-  "product_improvement_add_nutrition_facts": "Add nutrition facts to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts": "영양 성분을 추가하여 Nutri-Score 계산",
   "@product_improvement_add_nutrition_facts": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS"
   },
-  "product_improvement_add_nutrition_facts_and_category": "Add nutrition facts and a category to calculate the Nutri-Score.",
+  "product_improvement_add_nutrition_facts_and_category": "영양 성분과 카테고리를 추가하여 Nutri-Score 계산",
   "@product_improvement_add_nutrition_facts_and_category": {
     "description": "Message for ProductImprovement.ADD_NUTRITION_FACTS_AND_CATEGORY"
   },
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "목록에 상품이 없습니다",
   "no_product_in_section": "이 섹션에는 상품이 없습니다",
   "recently_seen_products": "본 모든 상품",
   "clear": "지우기",
@@ -1453,7 +1593,7 @@
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Open Food Facts 커뮤니티에 가입하려면 로그인하거나 가입하세요.",
-  "user_profile_title_id_email": "오픈 푸드 팩트 로그인: {email}",
+  "user_profile_title_id_email": "Open Food Facts 로그인: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -1691,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "뉴트리스코어, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -1771,7 +1911,7 @@
   "@edit_product_form_item_origins_explanation_good_examples_2": {
     "description": "Product edition - Origins - input explainer, part 2"
   },
-  "edit_product_form_item_countries_title": "Country",
+  "edit_product_form_item_countries_title": "국가",
   "@edit_product_form_item_countries_title": {
     "description": "Product edition - Countries - Title"
   },
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "개인 관리",
   "product_type_label_pet_food": "반려동물 사료",
   "product_type_label_product": "기타",
+  "product_type_label_unknown": "알 수 없음",
   "product_type_selection_title": "제품 유형",
   "product_type_selection_subtitle": "이 제품의 유형을 선택하세요",
   "product_type_selection_empty": "먼저 제품 유형을 선택해야 합니다!",
@@ -2377,7 +2518,7 @@
       }
     }
   },
-  "prices_barcode_search_not_found": "Product not found",
+  "prices_barcode_search_not_found": "제품을 찾을 수 없습니다",
   "prices_barcode_search_none_yet": "아직 상품이 없습니다",
   "prices_barcode_search_running": "{barcode}을(를) 찾고 있습니다",
   "@prices_barcode_search_running": {
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "카테고리",
   "prices_category_mandatory": "필수",
   "prices_category_optional": "선택 과목",
+  "prices_origins_title": "근원",
   "prices_category_error_mandatory": "카테고리는 필수입니다",
   "prices_barcode_reader_action": "바코드 리더기",
   "prices_view_prices": "가격 보기",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "제품 상세 정보 보기",
   "prices_entry_menu_open_product_prices": "이 제품의 모든 가격 보기",
   "prices_entry_menu_open_proof": "증거 보기",
   "prices_entry_menu_my_prices": "다른 가격 보기",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "제품 하나가 빠졌습니다!",
   "prices_amount_price_incorrect": "잘못된 값",
   "prices_amount_price_mandatory": "필수 값",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "통화",
   "prices_date_subtitle": "날짜",
   "prices_location_subtitle": "가게",
   "prices_location_find": "가게 찾기",
   "prices_location_mandatory": "가게를 선택해야 합니다!",
   "prices_location_search_broader": "원하시는 내용을 찾지 못하셨나요? 더 광범위하게 검색해 보세요!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "증거",
   "prices_proof_empty_title": "아직 증거가 없습니다!",
   "prices_proof_empty_explanation": "**영수증**이나 **가격표** 사진을 첨부하여 시작하세요!",
@@ -2656,6 +2803,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "기타",
   "dev_preferences_import_history_result_success": "완료",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2791,7 +2947,7 @@
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "도전 과제",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "수동으로 이메일을 보내주세요.",
-  "email_copied_to_clip_board": "이메일이 클립보드에 복사되었습니다!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "강조색 선택",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} 개 제품을 즉시 스캔할 수 있습니다.",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3849,17 +4005,17 @@
     }
   },
   "nutriscore_new_formula_title": "Nutri-Score(새로운 계산)",
-  "nutriscore_unknown": "Unknown Nutri-Score",
+  "nutriscore_unknown": "알 수 없는 Nutri-Score",
   "nutriscore_unknown_new_formula": "알 수 없는 Nutri-Score(새로운 계산)",
   "nutriscore_not_applicable": "Nutri-Score가 적용되지 않습니다",
   "nutriscore_not_applicable_new_formula": "Nutri-Score가 적용되지 않습니다. (새로운 계산)",
-  "environmental_score_generic_new": "친환경 점수",
-  "environmental_score_a_new": "그린 스코어 A",
-  "environmental_score_b_new": "그린 스코어 B",
-  "environmental_score_c_new": "그린 스코어 C",
-  "environmental_score_d_new": "그린 스코어 D",
-  "environmental_score_e_new": "그린 스코어 E",
-  "environmental_score_unknown_new": "알 수 없는 그린 스코어",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "알 수 없는 Green-Score",
   "environmental_score_not_applicable_new": "Green-Score는 적용되지 않습니다",
   "nova_group_generic_new": "초가공식품 - NOVA 그룹",
   "nova_group_1": "NOVA 그룹 1",
@@ -3878,7 +4034,7 @@
   "contact_title_pro_email": "프로듀서 연락처",
   "contact_title_press_page": "보도 페이지",
   "contact_title_press_email": "언론 연락처",
-  "contact_title_newsletter": "Subscribe to our newsletter",
+  "contact_title_newsletter": "뉴스레터를 구독하세요",
   "contact_title_calendar": "커뮤니티 캘린더 구독하기",
   "hunger_games_loading_line1": "몇 초만 기다려주세요…",
   "hunger_games_loading_line2": "질문을 다운로드 중입니다!",
@@ -3922,7 +4078,7 @@
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "Nutri-Score란 무엇인가요?",
   "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score는 **식품의 영양적 품질**에 대한 정보를 제공하는 하는 로고입니다.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -3954,12 +4110,12 @@
   "guide_nutriscore_v2_unchanged_title": "변하지 않는 것",
   "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
   "guide_nutriscore_v2_unchanged_paragraph2": "제조업체의 경우 Nutri-Score 표시 여부는 **선택 사항**입니다.",
-  "guide_greenscore_title": "친환경 점수",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_greenscore_what_is_greenscore_title": "그린 스코어란 무엇인가요?",
-  "guide_greenscore_what_is_greenscore_paragraph1": "그린스코어는 **식품의 환경적 영향**에 대한 정보를 제공하기 위해 만들어진 로고입니다.",
+  "guide_greenscore_what_is_greenscore_paragraph1": "Green-Score는 **식품의 환경적 영향**에 대한 정보를 제공하기 위해 만들어진 로고입니다.",
   "@guide_greenscore_what_is_greenscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3967,7 +4123,7 @@
   "@guide_greenscore_what_is_greenscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_greenscore_logos_caption": "그린스코어 로고",
+  "guide_greenscore_logos_caption": "Green-Score 로고",
   "guide_greenscore_lca_title": "핵심: 수명주기평가(LCA)",
   "guide_greenscore_lca_arg1_title": "식품 카테고리에 대한 과학적 평가",
   "guide_greenscore_lca_arg1_text1": "각 제품 카테고리에 대해 **벤치마크** 점수는 Agribalyse 환경 데이터베이스(ADEME 및 INRAE에서 설계)의 데이터를 사용하여 설정됩니다.",
@@ -4000,7 +4156,7 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "포장",
   "guide_greenscore_bonuses_penalties_arg4_text": "**포장의 순환성**(재활용 원료 사용 및 재활용 가능성)과 과도한 포장을 고려하여 **벌금**이 계산됩니다.",
   "guide_greenscore_transparency_title": "An increased need for transparency to better measure and reduce environmental impacts",
-  "guide_greenscore_transparency_intro1": "그린 스코어를 정확하게 계산하려면 **포장에 반드시 명시되어 있지 않은 정보**(예: 원산지 및 각 성분의 정확한 비율) 또는 사용 가능한 형태로 거의 제공되지 않는 정보(예: 사용된 플라스틱의 정확한 유형이 포함된 모든 포장 구성 요소 목록)가 필요합니다.",
+  "guide_greenscore_transparency_intro1": "Green-Score를 정확하게 계산하려면 **포장에 반드시 명시되어 있지 않은 정보**(예: 원산지 및 각 성분의 정확한 비율) 또는 사용 가능한 형태로 거의 제공되지 않는 정보(예: 사용된 플라스틱의 정확한 유형이 포함된 모든 포장 구성 요소 목록)가 필요합니다.",
   "guide_greenscore_transparency_intro2": "**이 정보가 아직 제공되지 않을 경우 평균값을 사용합니다.** 하지만 이제 우리는 모든 분들의 도움을 받아 이 정보를 수집하고 있습니다. 이 정보는 Green-Score뿐만 아니라 다른 여러 용도에도 매우 유용할 것입니다.",
   "guide_greenscore_transparency_arg1_title": "시민들은 어떻게 도움을 줄 수 있나요?",
   "guide_greenscore_transparency_arg1_text": "모든 시민은 제품에 표시되어 있거나 제품에서 추론할 수 있는 정보(예: **포장**에 대한 정보)를 수집하고 구성하는 데 도움을 줄 수 있습니다. \"Mission Emballages\"는 모든 식품에 대한 대규모 협업 포장 목록입니다(프랑스어).",
@@ -4012,7 +4168,7 @@
   "guide_greenscore_better_product_arg2_title": "당신에게 힘이 있어요!",
   "guide_greenscore_better_product_arg2_text": "좋은 소식은 이것이 우리에게 변화를 만들어낼 강력한 방법을 제공한다는 것입니다.\n**우리는 각자 매년 약 1,000끼의 식사를 합니다.** 이는 **지구의 더 나은 미래를 선택할 수 있는** 1,000번의 기회입니다!",
   "guide_greenscore_better_product_arg3_title": "책임감을 갖고 결정하는 데 도움이 됩니다.",
-  "guide_greenscore_better_product_arg3_text": "지속 가능한 식품을 선택하는 것은 복잡하게 느껴질 수 있습니다. 라벨은 헷갈리고 정보는 종종 누락됩니다. 그린스코어는 이러한 과정을 간소화하기 위해 만들어졌으며, 식품에 대한 **명확하고**, **과학에 기반하며**, **투명한** 환경 등급을 쇼핑하는 순간에 바로 확인할 수 있도록 설계되었습니다.",
+  "guide_greenscore_better_product_arg3_text": "지속 가능한 식품을 선택하는 것은 복잡하게 느껴질 수 있습니다. 라벨은 헷갈리고 정보는 종종 누락됩니다. Green-Score는 이러한 과정을 간소화하기 위해 만들어졌으며, 식품에 대한 **명확하고**, **과학에 기반하며**, **투명한** 환경 등급을 쇼핑하는 순간에 바로 확인할 수 있도록 설계되었습니다.",
   "guide_greenscore_better_product_arg4_title": "투명도",
   "guide_greenscore_better_product_arg4_text": "독점 라벨과 달리 Green-Score 계산은 **완전히 공개**되어 **누구나 검증**할 수 있습니다.",
   "guide_nova_title": "가공 식품",
@@ -4052,7 +4208,7 @@
   "guide_nova_explanations_arg5_text": "2018년 NutriNet-Santé를 통해 **초가공식품 섭취와 암, 심혈관 질환, 당뇨병 위험 증가 사이의 연관성**이 처음으로 밝혀졌습니다. 현재 전 세계적으로 90건 이상의 연구에서 이러한 결과가 확인되었습니다.\n가장 강력한 연관성은 **비만, 심혈관 질환 사망률, 우울증 증상**과 관련이 있습니다. 어린이의 경우, 이러한 영향은 주로 체중과 지질 불균형에서 관찰됩니다.",
   "guide_nova_explanations_arg6_title": "국가들은 이를 제한할 것을 권고합니다.",
   "guide_nova_explanations_arg6_text": "일부 국가에서는 다음과 같이 NOVA 그룹을 식단 지침이나 목표로 사용합니다.\n\n- **🇧🇷 브라질**의 식단 지침은 가공 식품의 **소비를 제한**하고 고도 가공 식품을 피할 것을 권장합니다.\n\n- **🇫🇷 프랑스**의 2018-2022년 공중 보건 영양 정책 목표는 **그룹 4 고도 가공 식품의 소비를 20% 줄이는 것**입니다.",
-  "guide_nova_share_link": "https://world.openfoodfacts.org/nova",
+  "guide_nova_share_link": "https://world-ko.openfoodfacts.org/nova",
   "@guide_nova_share_link": {
     "comment": "Make sure the link exists before adding a translation"
   },
@@ -4060,8 +4216,8 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "오픈푸드팩트란 무엇인가요?",
-  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "오픈 푸드 팩츠는 전 세계 식품 제품에 대한 **협업적**, **무료**, **개방형** 데이터베이스입니다.",
+  "guide_open_food_facts_what_is_open_food_facts_title": "Open Food Facts란 무엇인가요?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts는 전 세계 식품 제품에 대한 **협업적**, **무료**, **개방형** 데이터베이스입니다.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4069,7 +4225,7 @@
   "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_food_facts_features_title": "오픈푸드팩트의 특징",
+  "guide_open_food_facts_features_title": "Open Food Facts의 특징",
   "guide_open_food_facts_features_arg1_title": "원치 않는 재료에 대한 알림을 받으세요",
   "guide_open_food_facts_tips_title": "멋진 사진을 찍기 위한 팁",
   "guide_open_food_facts_tips_arg1_title": "하지 말아야 할 것",
@@ -4091,7 +4247,7 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "오픈 펫 푸드 팩트란 무엇인가요?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Open Pet Food Facts란 무엇인가요?",
   "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts는 우리의 소중한 반려동물에게까지 그 사명을 확장합니다! **고양이, 강아지, 그리고 다른 반려동물들을 위한 반려동물 사료 데이터베이스**입니다.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4100,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "오픈 펫푸드 팩트의 특징",
+  "guide_open_pet_food_facts_features_title": "Open Pet Food Facts의 특징",
   "guide_open_pet_food_facts_features_arg1_title": "원치 않는 재료에 대한 알림을 받으세요",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "반려동물이 특정 성분에 알레르기가 있나요? 앱에서 바로 피해야 할 화장품 성분 목록을 설정할 수 있습니다!",
   "guide_open_pet_food_facts_tips_title": "멋진 사진을 찍기 위한 팁",
@@ -4121,8 +4277,8 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "오픈 뷰티 팩트란 무엇인가요?",
-  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "오픈 뷰티 팩츠는 **화장품**에 대한 협업 데이터베이스입니다.",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Open Beauty Facts란 무엇인가요?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts는 **화장품**에 대한 협업 데이터베이스입니다.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4130,7 +4286,7 @@
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_beauty_facts_features_title": "오픈 뷰티 팩트의 특징",
+  "guide_open_beauty_facts_features_title": "Open Beauty Facts의 특징",
   "guide_open_beauty_facts_features_arg1_title": "원치 않는 재료에 대한 알림을 받으세요",
   "guide_open_beauty_facts_features_arg1_paragraph1": "특정 성분에 알레르기가 있으신가요? 코메도 유발 성분을 피하고 싶으신가요? 논란의 여지가 있는 성분을 피하고 싶으신가요? 앱에서 바로 피해야 할 화장품 성분 목록을 설정할 수 있습니다!",
   "guide_open_beauty_facts_tips_title": "멋진 사진을 찍기 위한 팁",
@@ -4158,7 +4314,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_what_is_open_prices_paragraph2": "There are currently few companies that own large databases of product prices at the barcode level. These prices are not freely available, but sold at a high price to private actors, researchers and other organizations that can afford them.",
+  "guide_open_prices_what_is_open_prices_paragraph2": "현재 바코드 수준의 제품 가격 데이터베이스를 보유한 기업은 소수에 불과합니다. 이러한 가격 정보는 자유롭게 이용할 수 없고, 구매 여력이 있는 민간 기업, 연구 기관 및 기타 단체에 고가로 판매되고 있습니다.",
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4175,7 +4331,7 @@
   "guide_open_prices_scrapping_title": "소매업체 웹사이트에서 가격을 스크래핑하는 것을 고려해 보셨나요?",
   "guide_open_prices_scrapping_paragraph1": "법적 및 기술적 이유로, **소매업체 웹사이트에서 가격을 스크래핑하는 것은 Open Prices에 기여하는 유효한 방법으로 간주하지 않습니다**. 수집하는 가격이 정확하고 최신인지 확인해야 하며, 기여자들로부터 스크래핑된 가격을 받는 것만으로는 이를 보장할 수 없습니다.",
   "guide_open_prices_scrapping_paragraph2": "Open Prices의 향후 버전에서는 가격 스크래핑을 고려한 옵션이지만, HTML 페이지를 기반으로 가격 증명을 얻을 수 있도록 Open Prices에서 직접 수행할 것입니다.",
-  "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
+  "guide_open_prices_retailers_title": "저는 소매업자인데 가격 정보를 제공하고 싶습니다. 어떻게 하면 될까요?",
   "guide_open_prices_retailers_paragraph1": "API를 사용하여 가격을 제공할 수 있습니다.\n대규모로 가격을 제공하고 싶으시다면 prices@openfoodfacts.org로 연락해 주세요.",
   "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
   "guide_open_products_facts_title": "오픈 프로덕츠 팩트에 오신 것을 환영합니다!",
@@ -4281,6 +4437,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "호환 가능",
   "@product_page_compatibility_score": {
@@ -4406,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "이 제품을 캐러셀에서 제거하세요",
   "@carousel_close_tooltip": {
@@ -4555,6 +4719,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "내 호환성",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% 호환 가능",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "호환성 점수를 계산하기에 데이터가 부족합니다.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "\"{productType}\" 유형의 제품에 대해서는 점수를 계산할 수 없습니다.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "중요성",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "성냥",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "좋은 매치",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "평균 일치",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "잘못된 매치",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "알 수 없는 일치 항목",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "웹사이트",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4564,7 +4778,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "왜 가격인가?",
-  "prices_explanation_card_line1": "**Open Prices**는 전 세계 제품 가격을 수집하고 공유하는 프로젝트입니다. 🌍 Open Prices는 오픈 푸드 팩츠에서 개발 및 관리합니다.",
+  "prices_explanation_card_line1": "**Open Prices**는 전 세계 제품 가격을 수집하고 공유하는 프로젝트입니다. 🌍 Open Prices는 Open Food Facts에서 개발 및 관리합니다.",
   "explanation_card_learn_more_button": "더보기",
   "product_page_tab_folksonomy": "포크소노미",
   "@product_page_tab_folksonomy": {
@@ -4687,7 +4901,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "총",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4719,7 +4933,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "아름다움",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4731,7 +4945,7 @@
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
-  "prices_stats_osm": "오픈스트리트맵",
+  "prices_stats_osm": "OpenStreetMap",
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
@@ -4939,7 +5153,7 @@
   "@preferences_legal_mentions": {
     "description": "Title for the preferences legal mentions card"
   },
-  "preferences_legal_header": "오픈 푸드 팩츠는 **모든 사람이 만들고, 모든 사람을 위해** 만든 식품 데이터베이스입니다.\n더 나은 식품 선택을 하는 데 활용할 수 있으며, **오픈 데이터**이므로 누구나 **어떤 목적으로든 재사용**할 수 있습니다.",
+  "preferences_legal_header": "Open Food Facts는 **모든 사람이 만들고, 모든 사람을 위해** 만든 식품 데이터베이스입니다. 더 나은 식품 선택을 하는 데 활용할 수 있으며, **오픈 데이터**이므로 누구나 **어떤 목적으로든 재사용**할 수 있습니다.",
   "@preferences_legal_header": {
     "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
   },
@@ -5112,19 +5326,19 @@
   "@preferences_faq_discover_project_title": {
     "description": "Title for discover the project card in FAQ"
   },
-  "preferences_faq_discover_off_title": "공개 식품 정보를 알아보세요",
+  "preferences_faq_discover_off_title": "Open Food Facts 알아보기",
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "공개된 뷰티 정보를 확인하세요",
+  "preferences_faq_discover_obf_title": "Open Beauty Facts 알아보기",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "공개된 반려동물 사료 정보를 확인하세요",
+  "preferences_faq_discover_opff_title": "Open Pet Food Facts 알아보기",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "Open Prices 알아보기",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5136,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "오픈 푸드 팩츠 NGO",
+  "preferences_faq_off_ngo_title": "Open Food Facts NGO",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5160,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "오픈 푸드 팩츠 블로그",
+  "preferences_connect_blog_title": "Open Food Facts 블로그",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5332,7 +5546,7 @@
   "@preferences_prices_newest_title": {
     "description": "Title for newest prices tile"
   },
-  "preferences_prices_newest_subtitle": "Latest prices added by the Open Prices community",
+  "preferences_prices_newest_subtitle": "Open Prices 커뮤니티에서 추가한 최신 가격",
   "@preferences_prices_newest_subtitle": {
     "description": "Subtitle for newest prices tile"
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "오픈 가격 지표",
+  "preferences_prices_metrics_title": "Open Prices 지표",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5584,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "오픈 푸드 팩츠 랩스",
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5592,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "공개 식품 정보를 귀하의 언어로 제공하세요",
+  "preferences_contribute_translate_header": "Open Food Facts를 귀하의 언어로 제공하세요",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5624,7 +5838,61 @@
   "location_map_details_street": "거리",
   "location_map_details_city": "도시",
   "location_map_details_postcode": "우편번호",
-  "location_map_details_country": "Country",
+  "location_map_details_country": "국가",
   "location_map_details_coordinates": "좌표",
-  "location_map_details_osm_id": "OSM ID"
+  "location_map_details_osm_id": "OSM ID",
+  "homepage_scanner_back_to_home_button": "홈으로 돌아가기",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "카메라 전환",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "바코드 스캐너를 보여주세요",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "탭하여 **바코드**\n를 스캔하고 **본인에게 적합한지** 확인해 보세요!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "토치 토글",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "제품의 바코드에 가까이 다가가 스캔하세요.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "다음과 같은 바코드 {barcode}가 감지되었지만, 유효하지 않은 것으로 보입니다.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "더 보기…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "가장 많이 본 상품",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "최근 스캔한 제품",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

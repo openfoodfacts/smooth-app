@@ -32,23 +32,23 @@ class WillPopScope2 extends StatelessWidget {
               }
 
               final (bool shouldClose, dynamic res) = await onWillPop.call();
-              if (shouldClose == true) {
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  try {
-                    GoRouter.of(context).pop(res);
-                  } on GoError catch (error) {
-                    if (error.message == 'There is nothing to pop') {
-                      try {
-                        // Using regular Navigator as fallback
-                        Navigator.of(context).pop(res);
-                      } catch (navigatorError) {
-                        // Force to kill the app
-                        SystemNavigator.pop();
-                      }
-                    }
-                  }
-                });
+              if (!shouldClose) {
+                return;
               }
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                final GoRouter goRouter = GoRouter.of(context);
+                if (goRouter.canPop()) {
+                  goRouter.pop(res);
+                  return;
+                }
+                final NavigatorState navigatorState = Navigator.of(context);
+                if (navigatorState.canPop()) {
+                  navigatorState.pop(res);
+                  return;
+                }
+                // Force to kill the app
+                SystemNavigator.pop();
+              });
             },
             child: child,
           );

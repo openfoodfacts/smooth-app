@@ -64,7 +64,7 @@ class ScoreCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double iconHeight = IconWidgetSizer.getIconSizeFromContext(context);
+    final double iconHeight = IconWidgetSizer().getIconSizeFromContext(context);
     final ThemeData themeData = Theme.of(context);
     final double opacity = themeData.brightness == Brightness.light
         ? 1

@@ -87,6 +87,7 @@ class _KnowledgePanelPageTemplateState
         )!,
         product: _product,
         onboardingMode: true,
+        simplified: false,
       );
       return ColoredBox(
         color: widget.backgroundColor,

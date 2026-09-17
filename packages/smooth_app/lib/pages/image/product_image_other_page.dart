@@ -398,6 +398,12 @@ class _ProductImageDetailsButton extends StatelessWidget {
     AppLocalizations appLocalizations,
     String url,
   ) {
+    final String originalUrl = image.getUrl(
+      barcode,
+      uriHelper: ProductQuery.getUriProductHelper(productType: productType),
+      imageSize: ImageSize.ORIGINAL,
+    );
+
     return showSmoothListOfItemsModalSheet(
       context: context,
       title: appLocalizations.photo_viewer_details_title,
@@ -419,23 +425,13 @@ class _ProductImageDetailsButton extends StatelessWidget {
               : '-',
           leading: const icons.Calendar(),
         ),
-        ModalSheetItem(
-          title: appLocalizations.photo_viewer_details_size_title,
-          subTitle: image.width != null && image.height != null
-              ? appLocalizations.photo_viewer_details_size_value(
-                  image.width!,
-                  image.height!,
-                )
-              : '-',
-          leading: const icons.Move(),
-        ),
-        if (url.isNotEmpty)
+        if (originalUrl.isNotEmpty)
           ModalSheetItem(
-            title: appLocalizations.photo_viewer_details_url_title,
-            subTitle: url,
+            title: appLocalizations.photo_viewer_details_original_title,
+            subTitle: originalUrl,
             leading: const icons.ImageGallery(),
             trailing: const icons.ExternalLink(),
-            onTap: () => LaunchUrlHelper.launchURL(url),
+            onTap: () => LaunchUrlHelper.launchURL(originalUrl),
           ),
       ],
     );

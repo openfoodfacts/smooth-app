@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/product/add_packaging_button.dart';
 import 'package:smooth_app/pages/product/add_simple_input_button.dart';
 import 'package:smooth_app/pages/product/edit_product/edit_product_page.dart';
 import 'package:smooth_app/pages/product/product_field_editor.dart';
+import 'package:smooth_app/pages/product/simple_input/simple_input_page_country_helper.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 

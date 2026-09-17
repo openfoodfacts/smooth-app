@@ -9,10 +9,12 @@ class CategoryProductQuery extends PagedSearchProductQuery {
     this.categoryTag, {
     required super.productType,
     super.world,
+    this.unwantedIngredients = const <String>[],
   });
 
   // e.g. 'en:unsweetened-natural-soy-milks'
   final String categoryTag;
+  final List<String> unwantedIngredients;
 
   @override
   Parameter getParameter() => TagFilter.fromType(
@@ -20,6 +22,10 @@ class CategoryProductQuery extends PagedSearchProductQuery {
     contains: true,
     tagName: categoryTag,
   );
+
+  @override
+  IngredientsUnwantedParameter getUnwantedIngredientsParameter() =>
+      IngredientsUnwantedParameter(unwantedIngredients);
 
   @override
   ProductList getProductList() => ProductList.categorySearch(

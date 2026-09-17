@@ -181,6 +181,9 @@ abstract class ProductQuery {
   /// Product helper only for Folksonomy.
   static late UriHelper uriFolksonomyHelper;
 
+  /// Helper only for Robotoff.
+  static late UriHelper uriRobotoffHelper;
+
   static bool isLoggedIn() => OpenFoodAPIConfiguration.globalUser != null;
 
   /// Sets the query type according to the current [UserPreferences]
@@ -203,6 +206,13 @@ abstract class ProductQuery {
           ) ??
           uriHelperFolksonomyProd.host,
     );
+    uriRobotoffHelper =
+        userPreferences.getFlag(
+              UserPreferencesDevMode.userPreferencesFlagProd,
+            ) ??
+            true
+        ? uriHelperRobotoffProd
+        : uriHelperRobotoffTest;
   }
 
   /// Returns the standard test env, or the custom test env if relevant.

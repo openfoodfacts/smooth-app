@@ -55,18 +55,11 @@ class _CountrySelectorProvider extends PreferencesSelectorProvider<Country> {
     return countries;
   }
 
-  /// Reorder countries alphabetically, bring user's locale country to top.
-  void _reorderCountries(List<Country> countries) {
-    countries.sort((final Country a, final Country b) {
-      if (a.offTag == userCountryCode) {
-        return -1;
-      }
-      if (b.offTag == userCountryCode) {
-        return 1;
-      }
-      return a.name.compareTo(b.name);
-    });
-  }
+  void _reorderCountries(List<Country> countries) =>
+      OpenFoodFactsCountryLocalization.reorderCountries(
+        countries,
+        userCountryCode,
+      );
 
   @override
   Country getSelectedValue(List<Country> countries) {

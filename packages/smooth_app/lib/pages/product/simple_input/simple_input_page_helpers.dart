@@ -4,13 +4,11 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
-import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
-import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/product/multilingual_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -38,6 +36,9 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
 
   /// If at least one call to [reInit] was done.
   bool _initialized = false;
+
+  @protected
+  bool containsTerm(final String term) => _terms.contains(term);
 
   /// Starts from scratch with a new (or refreshed) [Product].
   void reInit(final Product product, {final bool backgroundTask = false}) {
@@ -88,7 +89,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
     if (term.isEmpty) {
       return false;
     }
-    if (_terms.contains(term)) {
+    if (containsTerm(term)) {
       return false;
     }
 
@@ -141,6 +142,13 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
         (final InsightAnnotation? annotation) => annotation != null,
       ) ||
       !const DeepCollectionEquality().equals(_terms, _initTerms);
+
+  /// Returns the label of the corresponding standard "add" button.
+  ///
+  /// Typical use case: for category, that have a distinct label when the values
+  /// are already set.
+  String getStandardAddButtonLabel(final AppLocalizations appLocalizations) =>
+      getAddButtonLabel(appLocalizations);
 
   /// Returns the title on the main "edit product" page.
   String getTitle(final AppLocalizations appLocalizations);
@@ -347,6 +355,7 @@ abstract class AbstractSimpleInputPageHelper extends ChangeNotifier {
             product.barcode!,
             getLanguage(),
             insightTypes: <InsightType>[type],
+            uriHelper: ProductQuery.uriRobotoffHelper,
           )).questions ??
           <RobotoffQuestion>[];
 
@@ -979,6 +988,10 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   }
 
   @override
+  String getStandardAddButtonLabel(final AppLocalizations appLocalizations) =>
+      appLocalizations.score_add_missing_product_category;
+
+  @override
   String? getAddExplanationsTitle(AppLocalizations appLocalizations) =>
       appLocalizations.edit_product_form_item_categories_explanation_title;
 
@@ -1034,7 +1047,7 @@ class SimpleInputPageCategoryHelper extends AbstractSimpleInputPageHelper {
   TagType? getTagType() => TagType.CATEGORIES;
 
   @override
-  Widget getIcon() => const Icon(Icons.restaurant);
+  Widget getIcon() => const icons.Ingredients();
 
   @override
   BackgroundTaskDetailsStamp getStamp() =>
@@ -1051,146 +1064,4 @@ class SimpleInputPageCategoryNotFoodHelper
     extends SimpleInputPageCategoryHelper {
   @override
   Widget getIcon() => const Icon(Icons.edit);
-}
-
-/// Implementation for "Countries" of an [AbstractSimpleInputPageHelper].
-class SimpleInputPageCountryHelper extends AbstractSimpleInputPageHelper {
-  SimpleInputPageCountryHelper(UserPreferences? userPreferences)
-    : _userCountryCode = userPreferences?.userCountryCode ?? 'fr';
-
-  final String _userCountryCode;
-
-  ValueNotifier<SimpleInputSuggestionsState> _suggestionsNotifier =
-      ValueNotifier<SimpleInputSuggestionsState>(
-        const SimpleInputSuggestionsLoading(),
-      );
-  final List<Country> _countries = OpenFoodFactsCountry.values;
-
-  @override
-  List<String> initTerms(final Product product) =>
-      product.countriesTagsInLanguages?[getLanguage()] ?? <String>[];
-
-  @override
-  void reInit(final Product product, {final bool backgroundTask = false}) {
-    super.reInit(product);
-
-    if (backgroundTask) {
-      return;
-    }
-
-    try {
-      _suggestionsNotifier.notifyListeners();
-    } catch (_) {
-      // The Notifier was disposed
-      _suggestionsNotifier = ValueNotifier<SimpleInputSuggestionsState>(
-        const SimpleInputSuggestionsLoading(),
-      );
-    }
-
-    _reloadSuggestions();
-  }
-
-  @override
-  bool addItemsFromController(
-    final TextEditingController controller, {
-    bool clearController = true,
-  }) {
-    final bool result = super.addItemsFromController(
-      controller,
-      clearController: clearController,
-    );
-    if (result) {
-      _reloadSuggestions();
-    }
-    return result;
-  }
-
-  @override
-  void changeProduct(final Product changedProduct) {
-    // for the temporary local change
-    changedProduct.countriesTagsInLanguages =
-        <OpenFoodFactsLanguage, List<String>>{getLanguage(): terms};
-    // for the server - write-only
-    changedProduct.countries = terms.join(separator);
-  }
-
-  @override
-  ValueNotifier<SimpleInputSuggestionsState> getSuggestions() =>
-      _suggestionsNotifier;
-
-  Future<void> _reloadSuggestions() async {
-    final Country? country = _countries.firstWhereOrNull(
-      (Country country) => country.offTag == _userCountryCode,
-    );
-
-    if (country == null || _terms.contains(country.name) == true) {
-      _suggestionsNotifier.value = const SimpleInputSuggestionsLoaded(
-        suggestions: <String>[],
-      );
-      return;
-    }
-
-    _suggestionsNotifier.value = SimpleInputSuggestionsLoaded(
-      suggestions: <String>[country.name],
-    );
-  }
-
-  @override
-  String getTitle(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_countries_title;
-
-  @override
-  String getAddButtonLabel(final AppLocalizations appLocalizations) =>
-      appLocalizations.score_add_missing_product_countries;
-
-  @override
-  String getAddHint(final AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_countries_hint;
-
-  @override
-  String getAddTooltip(AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_add_action_country;
-
-  @override
-  TextCapitalization? getTextCapitalization() => TextCapitalization.sentences;
-
-  @override
-  String getTypeLabel(AppLocalizations appLocalizations) =>
-      appLocalizations.edit_product_form_item_countries_explanations_title;
-
-  @override
-  @override
-  WidgetBuilder? getAddExplanationsContent() => (BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    return ExplanationBodyInfo(
-      text:
-          appLocalizations.edit_product_form_item_countries_explanations_info1,
-      safeArea: true,
-    );
-  };
-
-  @override
-  TagType? getTagType() => TagType.COUNTRIES;
-
-  @override
-  Widget getIcon() => const icons.Countries(size: 20.0);
-
-  @override
-  BackgroundTaskDetailsStamp getStamp() => BackgroundTaskDetailsStamp.countries;
-
-  @override
-  AnalyticsEditEvents getAnalyticsEditEvent() => AnalyticsEditEvents.country;
-
-  @override
-  InsightType? get robotoffInsightType => null;
-
-  @override
-  void dispose() {
-    try {
-      _suggestionsNotifier.dispose();
-    } catch (_) {
-      // The Notifier was already disposed
-    }
-    super.dispose();
-  }
 }

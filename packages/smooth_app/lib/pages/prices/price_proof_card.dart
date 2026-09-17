@@ -14,6 +14,7 @@ import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
+import 'package:smooth_app/pages/prices/price_currency_button.dart';
 import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/prices_proofs_page.dart';
 import 'package:smooth_app/pages/prices/proof_type_extensions.dart';
@@ -40,6 +41,7 @@ class PriceProofCard extends StatelessWidget {
     return SmoothCardWithRoundedHeader(
       title: appLocalizations.prices_proof_subtitle,
       leading: const icons.PriceReceipt(),
+      trailing: const PriceCurrencyButton(),
       contentPadding: const EdgeInsetsDirectional.only(
         top: BALANCED_SPACE,
         bottom: MEDIUM_SPACE,
@@ -102,7 +104,7 @@ class PriceProofCard extends StatelessWidget {
               if (!context.mounted) {
                 return;
               }
-              return proofSource.process(context, model);
+              return proofSource.process(context);
             },
           ),
         ],
@@ -128,10 +130,9 @@ enum _ProofSource {
     _ProofSource.history => const icons.PriceReceipt().icon,
   };
 
-  Future<void> process(
-    final BuildContext context,
-    final PriceModel model,
-  ) async {
+  Future<void> process(final BuildContext context) async {
+    final PriceModel model = context.read<PriceModel>();
+
     switch (this) {
       case _ProofSource.history:
         final Proof? proof = await Navigator.of(context).push<Proof>(

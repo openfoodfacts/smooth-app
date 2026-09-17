@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -10,9 +9,10 @@ import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_news_card.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_news_provider.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_app_review_card.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 
 class ScanBottomCard extends StatelessWidget {
   const ScanBottomCard({required this.dense, super.key});
@@ -242,7 +242,7 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                     ).closeButtonTooltip,
                     child: Padding(
                       padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                      child: Close.bold(
+                      child: icons.Close.bold(
                         size: 11.0,
                         color: titleColor ?? Colors.white,
                       ),

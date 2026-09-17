@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "إضافة",
   "@add": {},
+  "edit": "تحرير",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "هل انت متأكد انك تريد حذف حسابك؟\nإذا كان هناك سبب محدد ، يرجى المشاركة بالأسفل",
   "@account_delete_message": {},
   "reason": "السبب",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "إعادة تعيين تفضيلات الطعام",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "قم بتخصيص التطبيق",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "الحميات الغذائية",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "أنواع الحساسية",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "ما لا آكله",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "ما أفضل تجنبه",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "التفضيلات البيئية",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "الملف الشخصي جاهز",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "الخطوة {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "بدون تحديد",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "لا توجد سمات متاحة لهذه الفئة.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "تعذر تحميل الإعدادات. يرجى التحقق من اتصالك بالإنترنت.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "هذا هو ملفك الشخصي:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "في الخطوات التالية، يمكنك **تخصيص التطبيق** من خلال تحديد تفضيلاتك:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "اختر الأنظمة الغذائية التي تتبعها لتخصيص توصياتك.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "حدد المواد المسببة للحساسية التي تحتاج إلى تجنبها لضمان سلامة طعامك.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "حدد الأطعمة أو المكونات التي لا تتناولها.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "اختر الأطعمة التي تفضل تجنبها دون أن يكون ذلك حظراً صارماً.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "حدد تفضيلاتك البيئية للحصول على توصيات أكثر استدامة.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "ابحث عن المكونات",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "تم إضافة المكون مسبقاً",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "حدث خطأ ما",
   "@error": {},
@@ -185,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Help improve Open Food Facts in your country",
+  "help_improve_country": "ساعد في تحسين Open Food Facts في بلدك",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -240,8 +331,8 @@
   "sign_up_page_action_ok": "تهانينا! تم إنشاء حسابك للتو.",
   "sign_up_page_display_name_hint": "اﻹسم",
   "sign_up_page_display_name_error_empty": "يرجاء إدخال الإسم العرض الذي تود استخدامه",
-  "sign_up_page_email_hint": "البريد الإلكتروني",
-  "sign_up_page_email_error_empty": "البريد الإلكتروني مطلوب",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
   "sign_up_page_email_error_invalid": "بريد إلكتروني غير صالح",
   "sign_up_page_username_hint": "اسم المستخدم: مرئي للعامة",
   "sign_up_page_username_error_empty": "برجاء إدخال اسم المستخدم",
@@ -383,7 +474,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "جودة البيانات",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "قم بإدارة حساب المساهم الخاص بك في Open Food Facts.",
   "myPreferences_settings_title": "إعدادات التطبيق",
   "myPreferences_settings_subtitle": "الوضع الداكن، اللغات…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "أضف تفضيلات غذائية",
   "myPreferences_food_subtitle": "اختر المعلومات التي تهمك أكثر عن الطعام.",
   "myPreferences_food_comment": "اختر المعلومات الغذائية الأكثر أهمية بالنسبة لك، لتصنيف الطعام حسب تفضيلاتك، واطلع على المعلومات التي تهمك أولًا، واحصل على ملخص التوافق. تبقى هذه التفضيلات الغذائية على جهازك، وليست مرتبطة بحساب مساهمك في Open Food Facts، إن كان لديك حساب.",
+  "myPreferences_beauty_title": "تفضيلات مستحضرات التجميل",
+  "myPreferences_beauty_subtitle": "اختر ما هي المعلومات عن منتجات مستحضرات التجميل التي تهمك أكثر من غيرها.",
+  "myPreferences_product_title": "تفضيلات المنتجات الأخرى",
+  "myPreferences_product_subtitle": "اختر المعلومات المتعلقة بالمنتجات الأخرى التي تهمك أكثر.",
+  "myPreferences_pet_food_title": "تفضيلات طعام الحيوانات الأليفة",
+  "myPreferences_pet_food_subtitle": "اختر المعلومات المتعلقة بأغذية الحيوانات الأليفة التي تهمك أكثر.",
   "confirmResetPreferences": "إعادة تعيين تفضيلات التطبيق؟",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -711,7 +809,7 @@
   "nutritional_facts_input_button_label": "املأ حقائق التغذية",
   "nutritional_facts_added": "تمت إضافة حقائق التغذية",
   "categories_added": "تمت إضافة الفئات",
-  "new_product_title_nutriscore": "Compute the Nutri-Score",
+  "new_product_title_nutriscore": "حساب Nutri-Score",
   "new_product_subtitle_nutriscore": "ساعدنا عن طريق ملء فئة واحدة على الأقل والقيم الغذائية",
   "new_product_title_environmental_score": "حساب النتيجة الخضراء",
   "new_product_subtitle_environmental_score": "احصل عليه عن طريق ملء فئة واحدة على الأقل",
@@ -720,7 +818,7 @@
   "new_product_subtitle_nova": "احصل عليه عن طريق ملء فئة الطعام والمكونات",
   "new_product_desc_nova_unknown": "مستوى معالجة الطعام غير معروف",
   "new_product_title_pictures": "منتج جديد",
-  "new_product_title_pictures_details": "Please take the following photos and the Open Food Facts engine can work out the rest!",
+  "new_product_title_pictures_details": "يرجى التقاط الصور التالية وسيتمكن محرك Open Food Facts من معرفة الباقي!",
   "new_product_title_misc": "وبعض البيانات الأساسية…",
   "new_product_done_msg": "شكرًا على مساهمتك “{username}”!",
   "@new_product_done_msg": {
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "عرض جميع الصور الموجودة لهذا المنتج",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "لم يتم العثور على أي منتج",
   "@no_product_found": {},
+  "no_product_found_explanation": "لم تتطابق نتائج بحثك عن\n**\"{search}\"**\nمع أي نتائج.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "هل تريد تشغيل نفس البحث في **قاعدة بياناتنا العالمية** بدلاً من ذلك؟",
   "no_location_found": "لم يتم العثور على الموقع",
   "not_found": "لم يتم العثور على نتائج:",
   "refreshing_product": "تحديث المنتج",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "قد تكون هذه الصورة قديمة",
   "product_image_outdated_explanations_title": "قد تكون هذه الصورة قديمة",
-  "product_image_outdated_explanations_content": "التُقطت هذه الصورة منذ أكثر من عام.\n**يرجى التأكد من أنها لا تزال مُحدَّثة**.\n\nهذا **مجرد تحذير**. إذا ظل المحتوى كما هو، يُمكنك تجاهل هذه الرسالة.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "ليس حقا…",
   "tagline_app_review_button_later": "اسألني لاحقا",
   "tagline_feed_news_button": "اعرف المزيد",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "هل لا يعجبك تطبيقنا؟",
   "app_review_negative_modal_text": "هل يمكنك أن تأخذ بضع ثوان لتخبرنا لماذا؟",
   "app_review_negative_modal_positive_button": "نعم بالتأكيد!",
@@ -1044,7 +1185,7 @@
   "tag_key_uneditable": "الملكية (غير قابلة للتعديل)",
   "tag_key_input_hint": "إدخال خاصية",
   "tag_value": "القيمة",
-  "tag_values": "Values",
+  "tag_values": "القيم",
   "tag_value_input_hint": "أدخل قيمة",
   "tag_key_item": "ملكية:",
   "tag_value_item": "قيمة:",
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "لا يوجد منتج في هذه القائمة",
   "no_product_in_section": "لا يوجد منتج في هذا القسم",
   "recently_seen_products": "جميع المنتجات التي تم عرضها",
   "clear": "محو",
@@ -1691,7 +1831,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "نيوتري سكور، نوفا…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score، NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "العناية الشخصية",
   "product_type_label_pet_food": "طعام الحيوانات الأليفة",
   "product_type_label_product": "أخرى",
+  "product_type_label_unknown": "غير معروف",
   "product_type_selection_title": "نوع المنتج",
   "product_type_selection_subtitle": "حدد نوع هذا المنتج",
   "product_type_selection_empty": "يجب عليك تحديد نوع المنتج أولاً!",
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "فئة",
   "prices_category_mandatory": "ضروري",
   "prices_category_optional": "خياري",
+  "prices_origins_title": "أصلي",
   "prices_category_error_mandatory": "الفئة إلزامية",
   "prices_barcode_reader_action": "قارئ الباركود",
   "prices_view_prices": "عرض الأسعار",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "عرض تفاصيل المنتج",
   "prices_entry_menu_open_product_prices": "عرض جميع الأسعار لهذا المنتج",
   "prices_entry_menu_open_proof": "عرض الدليل",
   "prices_entry_menu_my_prices": "عرض أسعاري الأخرى",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "منتج واحد مفقود!",
   "prices_amount_price_incorrect": "قيمة غير صحيحة",
   "prices_amount_price_mandatory": "القيمة الإلزامية",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "عملة",
   "prices_date_subtitle": "تاريخ",
   "prices_location_subtitle": "محل",
   "prices_location_find": "ابحث عن متجر",
   "prices_location_mandatory": "يجب عليك اختيار متجر!",
   "prices_location_search_broader": "لم تجد ما تبحث عنه؟ لنجرب بحثًا أوسع!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "دليل",
   "prices_proof_empty_title": "لا يوجد دليل حتى الآن!",
   "prices_proof_empty_explanation": "ابدأ بإضافة صورة **الإيصال** أو **بطاقة السعر**!",
@@ -2652,10 +2799,19 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
-  "prices_menu_know_more": "Know more about Open Prices",
+  "prices_menu_know_more": "تعرف على المزيد حول Open Prices",
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "نوع الخصم",
+  "prices_discount_type_quantity": "خصم على الكمية",
+  "prices_discount_type_sale": "أُوكَازيُون",
+  "prices_discount_type_seasonal": "موسمي",
+  "prices_discount_type_loyalty_program": "برنامج الولاء",
+  "prices_discount_type_expires_soon": "ينتهي قريباً",
+  "prices_discount_type_pick_it_yourself": "اخترها بنفسك",
+  "prices_discount_type_second_hand": "اليد الثانية",
+  "prices_discount_type_other": "أخرى",
   "dev_preferences_import_history_result_success": "تم",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "يرجى إرسال بريد إلكتروني إلينا يدويًا إلى",
-  "email_copied_to_clip_board": "تم نسخ البريد الإلكتروني إلى الحافظة!",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "حدد لون التمييز",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} منتجات متاحة للمسح الفوري",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3853,13 +4009,13 @@
   "nutriscore_unknown_new_formula": "Nutri-Score غير المعروفة (حساب جديد)",
   "nutriscore_not_applicable": "Nutri-Score غير قابل للتطبيق",
   "nutriscore_not_applicable_new_formula": "Nutri-Score غير قابل للتطبيق (حساب جديد)",
-  "environmental_score_generic_new": "النتيجة البيئية",
-  "environmental_score_a_new": "النتيجة الخضراء أ",
-  "environmental_score_b_new": "النتيجة الخضراء ب",
-  "environmental_score_c_new": "جرين-سكور سي",
-  "environmental_score_d_new": "النتيجة الخضراء د",
-  "environmental_score_e_new": "النتيجة الخضراء E",
-  "environmental_score_unknown_new": "نتيجة خضراء غير معروفة",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Green-Score غير معروف",
   "environmental_score_not_applicable_new": "لا ينطبق Green-Score",
   "nova_group_generic_new": "الأطعمة فائقة المعالجة - مجموعة NOVA",
   "nova_group_1": "مجموعة NOVA 1",
@@ -3918,12 +4074,12 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "مشاركة",
-  "guide_nutriscore_v2_title": "الدرجة الغذائية في تطور: تفسيرات!",
+  "guide_nutriscore_v2_title": "Nutri-Score في تطور: تفسيرات!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_nutriscore_v2_what_is_nutriscore_title": "What is the Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "الدرجة الغذائية هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
+  "guide_nutriscore_v2_what_is_nutriscore_title": "ما هو مؤشر التغذية (Nutri-Score)؟",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "Nutri-Score هو شعار يهدف إلى إعلامك **بالجودة الغذائية للأطعمة**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -3931,30 +4087,30 @@
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "شعار Nutri-Score A",
+  "guide_nutriscore_v2_why_v2_title": "لماذا يتطور نظام Nutri-Score؟",
+  "guide_nutriscore_v2_why_v2_intro": "تتطور صيغة Nutri-Score لتقديم توصيات أفضل:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "من الأفضل تقييم جميع المشروبات",
+  "guide_nutriscore_v2_why_v2_arg1_text": "تم تمييز الملاحظات المقارنة بين **الحليب** و**مشروبات الألبان** مع إضافة السكر و**مشروبات الخضار** بشكل أفضل في الخوارزمية الجديدة.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "تصنيف أفضل للمشروبات",
+  "guide_nutriscore_v2_why_v2_arg2_text": "يُفضّل مراعاة محتوى السكر، مما يُشجع على اختيار المشروبات قليلة الحلاوة.\\nكما سيتمّ تخفيض تصنيف المشروبات الغازية الدايت من B إلى ما بين C و E. ويبقى الماء المشروب المُوصى به.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "تم فرض عقوبة على الملح والسكر",
+  "guide_nutriscore_v2_why_v2_arg3_text": "المنتجات **حلوة جداً** أو **مرتبة جداً** سوف ترى **تصنيفها أكثر انخفاضاً**.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "التسلسل الهرمي في صناعة الزيوت والأسماك",
+  "guide_nutriscore_v2_why_v2_arg4_text": "سيتحسن تصنيف بعض أنواع **الأسماك الدهنية** و**الزيوت الغنية بالدهون الجيدة**.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "قلل من تناول اللحوم الحمراء",
+  "guide_nutriscore_v2_why_v2_arg5_text": "ينبغي الحد من استهلاك اللحوم الحمراء. ولهذا السبب، ستكون الدواجن في مرتبة أفضل نسبياً.",
+  "guide_nutriscore_v2_new_logo_title": "كيف يمكن التمييز بين نظام Nutri-Score القديم والحساب الجديد؟",
+  "guide_nutriscore_v2_new_logo_text": "من الآن فصاعدًا، يمكن للشعار أن يعرض عبارة \"**حساب جديد**\" لتوضيح أن هذا هو الحساب الجديد بالفعل.",
+  "guide_nutriscore_v2_new_logo_image_caption": "شعار Nutri-Score الجديد",
   "guide_nutriscore_v2_where_title": "أين يمكنني العثور على حساب Nutri-Score الجديد؟",
   "guide_nutriscore_v2_where_paragraph1": "يتم تطبيق نظام Nutri-Score في 7 دول: فرنسا، ألمانيا، بلجيكا، إسبانيا، لوكسمبورج، هولندا وسويسرا.",
   "guide_nutriscore_v2_where_paragraph2": "لدى المصنعين مهلة لا تتجاوز **سنتين** بعد توقيع المرسوم **لاستبدال** الحساب القديم بالحساب الجديد.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_greenscore_title": "النتيجة البيئية",
+  "guide_nutriscore_v2_where_paragraph3": "ستجدون **في تطبيق OpenFoodFacts** الحساب الجديد، بما في ذلك ما إذا كان المصنعون لم يقوموا بتحديث النتيجة أم لا، دون انتظار.",
+  "guide_nutriscore_v2_unchanged_title": "ما الذي لا يتغير",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Nutri-Score هو مؤشر مصمم لقياس الجودة الغذائية. وهو مكمل لمجموعة NOVA الخاصة بالأطعمة فائقة المعالجة (الموجودة أيضاً في التطبيق).",
+  "guide_nutriscore_v2_unchanged_paragraph2": "بالنسبة للمصنعين، يظل عرض Nutri-Score اختياريًا.",
+  "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4000,7 +4156,7 @@
   "guide_greenscore_bonuses_penalties_arg4_title": "التغليف",
   "guide_greenscore_bonuses_penalties_arg4_text": "يتم حساب **العقوبة** مع الأخذ في الاعتبار **دائرية التغليف** (استخدام المواد الخام المعاد تدويرها وإمكانية إعادة التدوير) والإفراط في التغليف.",
   "guide_greenscore_transparency_title": "الحاجة المتزايدة إلى الشفافية لقياس التأثيرات البيئية والحد منها بشكل أفضل",
-  "guide_greenscore_transparency_intro1": "لحساب الدرجة الخضراء بشكل دقيق، من الضروري الحصول على **معلومات غير محددة بالضرورة على العبوة** (مثل المنشأ والنسبة المئوية الدقيقة لكل مكون) أو التي نادراً ما تكون متاحة في شكل قابل للاستخدام (مثل قائمة بجميع مكونات العبوة مع الأنواع الدقيقة من البلاستيك المستخدمة).",
+  "guide_greenscore_transparency_intro1": "لحساب Green-Score بشكل دقيق، من الضروري الحصول على **معلومات غير محددة بالضرورة على العبوة** (مثل المنشأ والنسبة المئوية الدقيقة لكل مكون) أو التي نادراً ما تكون متاحة في شكل قابل للاستخدام (مثل قائمة بجميع مكونات العبوة مع الأنواع الدقيقة من البلاستيك المستخدمة).",
   "guide_greenscore_transparency_intro2": "**يتم استخدام القيم المتوسطة عندما لا تكون هذه المعلومات متاحة بعد**، ولكننا ندعو الجميع الآن لمساعدتنا في جمع هذه المعلومات التي ستكون مفيدة للغاية بالنسبة لـ Green-Score ولكن أيضًا للعديد من الاستخدامات الأخرى.",
   "guide_greenscore_transparency_arg1_title": "كيف يمكن للمواطنين المساعدة؟",
   "guide_greenscore_transparency_arg1_text": "يمكن لجميع المواطنين مساعدتنا في جمع وتنظيم المعلومات الموجودة على المنتجات أو التي يمكن استنتاجها منها، مثل المعلومات المتعلقة بالتغليف: \"Mission Emballages\": جرد تعاوني واسع النطاق للتغليف لجميع المنتجات الغذائية (باللغة الفرنسية).",
@@ -4012,10 +4168,10 @@
   "guide_greenscore_better_product_arg2_title": "لديك القوة!",
   "guide_greenscore_better_product_arg2_text": "الخبر السار هو أن هذا يمنحنا وسيلة فعّالة لإحداث التغيير.\n**يتناول كلٌّ منا حوالي ١٠٠٠ وجبة سنويًا**. وهذا يعني ١٠٠٠ فرصة **لاختيار مستقبل أفضل لكوكبنا**!",
   "guide_greenscore_better_product_arg3_title": "يساعد على تحمل المسؤولية واتخاذ القرار",
-  "guide_greenscore_better_product_arg3_text": "قد يبدو اختيار الطعام المستدام معقدًا. فالملصقات مُربكة، والمعلومات غالبًا ما تكون ناقصة. صُممت \"الدرجة الخضراء\" لتبسيط الأمر، حيث تمنحك تقييمًا بيئيًا واضحًا، وواضحًا، وشفافًا، للمنتجات الغذائية، أينما كنت: أثناء التسوق.",
+  "guide_greenscore_better_product_arg3_text": "قد يبدو اختيار الطعام المستدام معقدًا. فالملصقات مُربكة، والمعلومات غالبًا ما تكون ناقصة. صُمم Green-Score لتبسيط الأمر، حيث تمنحك تقييمًا بيئيًا واضحًا، وواضحًا، وشفافًا، للمنتجات الغذائية، أينما كنت: أثناء التسوق.",
   "guide_greenscore_better_product_arg4_title": "الشفافية",
   "guide_greenscore_better_product_arg4_text": "على عكس العلامات التجارية المسجلة الملكية، فإن حساب Green-Score هو **مفتوح تمامًا** ويمكن **التحقق منه من قبل أي شخص**.",
-  "guide_nova_title": "Ultra-processed foods",
+  "guide_nova_title": "أغذية فائقة التجهيز",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4037,7 +4193,7 @@
   "guide_nova_groups_arg2_text": "processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "المجموعة ٣ المجموعة ٣ Processed foods",
   "guide_nova_groups_arg3_text": "processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to group 1** foods. processes include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten on their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "Ultra-processed foods",
+  "guide_nova_groups_arg4_title": "أغذية فائقة التجهيز",
   "guide_nova_groups_arg4_text": "ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "مشاكل المعالجة الفائقة",
   "guide_nova_explanations_arg1_title": "المعالجة المتطرفة لمكونات الطعام",
@@ -4049,7 +4205,7 @@
   "guide_nova_explanations_arg4_title": "الجوانب المفترسة والمالية للمعالجة الفائقة",
   "guide_nova_explanations_arg4_text": "**الغرض العام من المعالجة الفائقة هو إنتاج منتجات غذائية تحمل علامة تجارية**، و**مريحة** (متينة، وجاهزة للاستهلاك)، و**جذابة** (شهية للغاية) و**مربحة للغاية** (بمكونات منخفضة التكلفة)، مصممة لتحل محل جميع المجموعات الغذائية الأخرى. عادةً ما تُعبأ المنتجات الغذائية فائقة المعالجة بشكل جذاب وتُسوّق بشكل مكثف.",
   "guide_nova_explanations_arg5_title": "خطر على الصحة",
-  "guide_nova_explanations_arg5_text": "Since 2018, with NutriNet-Santé, the first links between **the consumption of ultra-processed foods and increased risks of cancer, cardiovascular diseases, and diabetes have been highlighted**. Today, more than 90 studies worldwide confirm these findings.\nThe strongest associations relate to **obesity, cardiovascular mortality, and depressive symptoms**. On children, the effects are primarily observed on weight and lipid imbalances.",
+  "guide_nova_explanations_arg5_text": "منذ عام 2018، مع NutriNet-Santé، تم إبراز الروابط الأولى بين **استهلاك الأطعمة المعالجة بشكل واسع والنقصان في مخاطر سرطان، وأمراض القلب والأوعية الدموية، والسكري**. اليوم، أكثر من 90 دراسة في جميع أنحاء العالم تؤكد هذه النتائج.\nأقوى الارتباطات تتعلق **بالسمنة، ووفيات أمراض القلب والأوعية الدموية، وأعراض الاكتئاب**. بالنسبة للأطفال، يتم ملاحظة الآثار بشكل أساسي على الوزن وعدم توازن الدهون.",
   "guide_nova_explanations_arg6_title": "توصي الدول بالحد منها",
   "guide_nova_explanations_arg6_text": "تستخدم بعض البلدان مجموعات NOVA لإرشاداتها أو أهدافها الغذائية، على سبيل المثال:\n\n- **🇧🇷 توصي الإرشادات الغذائية للبرازيل بالحد من استهلاك** الأطعمة المصنعة وتجنب الأطعمة فائقة المعالجة.\n\n- **🇫🇷 تهدف أهداف السياسة الغذائية الصحية العامة في فرنسا للفترة 2018-2022 إلى **تقليل استهلاك الأطعمة فائقة المعالجة من المجموعة 4 بنسبة 20%**.",
   "guide_nova_share_link": "https://world-ar.openfoodfacts.org/nova",
@@ -4060,7 +4216,7 @@
   "@guide_open_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_food_facts_what_is_open_food_facts_title": "ما هي حقائق الغذاء المفتوحة؟",
+  "guide_open_food_facts_what_is_open_food_facts_title": "ما هو Open Food Facts؟",
   "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Open Food Facts عبارة عن قاعدة بيانات **تعاونية** و**مجانية** و**مفتوحة** للمنتجات الغذائية من جميع أنحاء العالم.",
   "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4091,8 +4247,8 @@
   "@guide_open_pet_food_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "ما هي حقائق طعام الحيوانات الأليفة المفتوحة؟",
-  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "حقائق طعام الحيوانات الأليفة المفتوحة تُوسّع نطاق مهمتها لتشمل حيواناتنا الأليفة! إنها **قاعدة بيانات لمنتجات طعام الحيوانات الأليفة للقطط والكلاب وغيرها من الحيوانات الأليفة**.",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "ما هو Open Pet Food Facts؟",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Open Pet Food Facts يُوسّع نطاق مهمتنا لتشمل أصدقاءنا من الحيوانات الأليفة! إنها **قاعدة بيانات لمنتجات طعام الحيوانات الأليفة للقطط والكلاب وغيرها من الحيوانات الأليفة**.",
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4100,7 +4256,7 @@
   "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_pet_food_facts_features_title": "مميزات حقائق طعام الحيوانات الأليفة المفتوحة",
+  "guide_open_pet_food_facts_features_title": "مميزات Open Pet Food Facts",
   "guide_open_pet_food_facts_features_arg1_title": "احصل على تنبيهات بشأن المكونات غير المرغوب فيها",
   "guide_open_pet_food_facts_features_arg1_paragraph1": "هل يعاني حيوانك الأليف من حساسية تجاه أي من مكونات مستحضرات التجميل؟ يمكنك تحديد قائمة بالمكونات التي يجب تجنبها مباشرةً من التطبيق!",
   "guide_open_pet_food_facts_tips_title": "نصائح لالتقاط صور رائعة",
@@ -4121,7 +4277,7 @@
   "@guide_open_beauty_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "ما هي حقائق الجمال المفتوحة؟",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "ما هو Open Beauty Facts؟",
   "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Open Beauty Facts عبارة عن قاعدة بيانات تعاونية لمنتجات التجميل.",
   "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
@@ -4149,12 +4305,12 @@
   "guide_open_beauty_facts_scores_title": "ملاحظة حول التسجيل",
   "guide_open_beauty_facts_scores_paragraph1": "على عكس المنتجات الغذائية، لا يعتمد عالم مستحضرات التجميل نظام تقييم معتمد عالميًا ومدعوم حكوميًا مثل نظام Nutri-Score. قد تختلف تأثيرات المكونات باختلاف نوع البشرة والحساسية والمخاوف الشخصية.",
   "guide_open_beauty_facts_share_link": "https://world-ar.openbeautyfacts.org/discover",
-  "guide_open_prices_title": "Welcome to Open Prices!",
+  "guide_open_prices_title": "مرحباً بكم في Open Prices!",
   "@guide_open_prices_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
-  "guide_open_prices_what_is_open_prices_title": "What is Open Prices?",
-  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices is a project to **collect and share prices of products around the world**. It's a publicly available dataset that can be used for research, analysis, and more. Open Prices is developed and maintained by Open Food Facts.",
+  "guide_open_prices_what_is_open_prices_title": "ما هو Open Prices؟",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Open Prices مشروع لجمع ومشاركة أسعار المنتجات حول العالم. وهي قاعدة بيانات متاحة للعامة، ويمكن استخدامها للبحث والتحليل وغيرها. طُوّر Open Prices وصيانته بواسطة Open Food Facts.",
   "@guide_open_prices_what_is_open_prices_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
@@ -4162,7 +4318,7 @@
   "@guide_open_prices_what_is_open_prices_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_open_prices_how_title": "How does Open Prices work?",
+  "guide_open_prices_how_title": "كيف يعمل Open Prices؟",
   "guide_open_prices_how_paragraph1": "**نعمل على جمع بيانات أسعار مفتوحة المصدر من الجمهور**. يمكن للمستخدمين إضافة الأسعار عبر تطبيق الويب هذا، أو عبر تطبيق Open Food Facts الرسمي للهواتف المحمولة. كما يمكن لتجار التجزئة أو تطبيقات الجهات الخارجية المساهمة باستخدام واجهة برمجة التطبيقات الخاصة بنا.",
   "guide_open_prices_how_arg1_title": "جمع صور لعلامات الأسعار في الممرات",
   "guide_open_prices_how_arg2_title": "جمع صور الإيصالات",
@@ -4173,7 +4329,7 @@
   "guide_open_prices_why_arg2_title": "قارن الأسعار بالقرب منك",
   "guide_open_prices_why_arg2_text": "مع حصولنا على المزيد من الأسعار، يمكنك تحديد **المتاجر الأرخص حولك**.",
   "guide_open_prices_scrapping_title": "هل فكرت في استخراج الأسعار من مواقع الويب الخاصة بالمتاجر؟",
-  "guide_open_prices_scrapping_paragraph1": "For legal and technical reasons, **we don't consider scraping prices from retailers' websites as a valid way to contribute to Open Prices**. We want to make sure that the prices we collect are accurate and up-to-date, and receiving scraped prices from contributors doesn't allow us to do that.",
+  "guide_open_prices_scrapping_paragraph1": "لأسباب قانونية وفنية، **لا نعتبر جمع الأسعار من مواقع تجار التجزئة طريقةً صالحةً للمساهمة في Open Prices**. نحرص على دقة الأسعار التي نجمعها وتحديثها، وتلقينا أسعارًا من المساهمين لا يسمح لنا بذلك.",
   "guide_open_prices_scrapping_paragraph2": "يعد استخراج الأسعار خيارًا مدروسًا في الإصدار المستقبلي من Open Prices، ولكن سيتم ذلك بواسطة Open Prices نفسها حتى نتمكن من الحصول على دليل على السعر استنادًا إلى صفحة HTML.",
   "guide_open_prices_retailers_title": "أنا بائع تجزئة وأرغب في المساهمة في تحديد الأسعار. كيف يمكنني فعل ذلك؟",
   "guide_open_prices_retailers_paragraph1": "يمكنك المساهمة في الأسعار باستخدام واجهة برمجة التطبيقات الخاصة بنا.\nإذا كنت ترغب في المساهمة في الأسعار على نطاق واسع، فيرجى التواصل معنا على prices@openfoodfacts.org.",
@@ -4281,6 +4437,10 @@
   "photo_viewer_details_url_title": "عنوان URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "عرض الصورة الأصلية",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "متناسق",
   "@product_page_compatibility_score": {
@@ -4406,6 +4566,10 @@
         "type": "String"
       }
     }
+  },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
   },
   "carousel_close_tooltip": "إزالة هذا المنتج من الدوارة",
   "@carousel_close_tooltip": {
@@ -4555,6 +4719,56 @@
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
   },
+  "product_page_for_me_compatibility_score_title": "توافقي",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% متوافق",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "البيانات غير كافية لحساب درجة التوافق.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "لا يمكن حساب النتيجة لمنتج من النوع \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "أهمية",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "مباريات",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "مباريات جيدة",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "متوسط عدد المباريات",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "مباريات سيئة",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "مباريات غير معروفة",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
   "product_page_tab_website": "موقع إلكتروني",
   "@product_page_tab_website": {
     "description": "Label of the website tab on the product page"
@@ -4564,7 +4778,7 @@
     "description": "Label of the prices tab on the product page"
   },
   "prices_explanation_card_title": "لماذا الاسعار؟",
-  "prices_explanation_card_line1": "**الأسعار المفتوحة** مشروع لجمع ومشاركة أسعار المنتجات حول العالم 🌍. تم تطوير \"الأسعار المفتوحة\" وصيانتها بواسطة Open Food Facts.",
+  "prices_explanation_card_line1": "**Open Prices** مشروع لجمع ومشاركة أسعار المنتجات حول العالم 🌍. تم تطوير Open Prices وصيانته بواسطة Open Food Facts.",
   "explanation_card_learn_more_button": "لمعرفة المزيد",
   "product_page_tab_folksonomy": "علم اللغة الشعبية",
   "@product_page_tab_folksonomy": {
@@ -4687,7 +4901,7 @@
   "@prices_stats_misc_section": {
     "description": "Title for the miscellaneous section"
   },
-  "prices_stats_total": "Total",
+  "prices_stats_total": "المجموع",
   "@prices_stats_total": {
     "description": "Label for total count"
   },
@@ -4719,7 +4933,7 @@
   "@prices_stats_food": {
     "description": "Label for food count"
   },
-  "prices_stats_beauty": "Beauty",
+  "prices_stats_beauty": "جمال",
   "@prices_stats_beauty": {
     "description": "Label for beauty count"
   },
@@ -4731,7 +4945,7 @@
   "@prices_stats_pet_food": {
     "description": "Label for pet food count"
   },
-  "prices_stats_osm": "خريطة الشارع المفتوحة",
+  "prices_stats_osm": "OpenStreetMap",
   "@prices_stats_osm": {
     "description": "Label for OpenStreetMap count"
   },
@@ -5116,15 +5330,15 @@
   "@preferences_faq_discover_off_title": {
     "description": "Title for discover Open Food Facts tile"
   },
-  "preferences_faq_discover_obf_title": "اكتشف حقائق الجمال المفتوحة",
+  "preferences_faq_discover_obf_title": "اكتشف Open Beauty Facts",
   "@preferences_faq_discover_obf_title": {
     "description": "Title for discover Open Beauty Facts tile"
   },
-  "preferences_faq_discover_opff_title": "اكتشف حقائق طعام الحيوانات الأليفة المفتوحة",
+  "preferences_faq_discover_opff_title": "اكتشف Open Pet Food Facts",
   "@preferences_faq_discover_opff_title": {
     "description": "Title for discover Open Pet Food Facts tile"
   },
-  "preferences_faq_discover_op_title": "Discover Open Prices",
+  "preferences_faq_discover_op_title": "اكتشف Open Prices",
   "@preferences_faq_discover_op_title": {
     "description": "Title for discover Open Prices tile"
   },
@@ -5136,7 +5350,7 @@
   "@preferences_faq_faq_title": {
     "description": "Title for FAQ tile"
   },
-  "preferences_faq_off_ngo_title": "منظمة حقائق الغذاء المفتوحة غير الحكومية",
+  "preferences_faq_off_ngo_title": "منظمة Open Food Facts غير الحكومية",
   "@preferences_faq_off_ngo_title": {
     "description": "Title for Open Food Facts NGO card"
   },
@@ -5160,7 +5374,7 @@
   "@preferences_connect_community_calendar_subtitle": {
     "description": "Subtitle for community calendar tile"
   },
-  "preferences_connect_blog_title": "مدونة حقائق الغذاء المفتوحة",
+  "preferences_connect_blog_title": "مدونة Open Food Facts",
   "@preferences_connect_blog_title": {
     "description": "Title for blog tile"
   },
@@ -5340,7 +5554,7 @@
   "@preferences_prices_top_contributors_title": {
     "description": "Title for top contributors tile"
   },
-  "preferences_prices_metrics_title": "مقاييس سعر الافتتاح",
+  "preferences_prices_metrics_title": "مؤشرات Open Prices",
   "@preferences_prices_metrics_title": {
     "description": "Title for price metrics tile"
   },
@@ -5584,7 +5798,7 @@
   "@preferences_about_app_development_title": {
     "description": "Title for the development preferences card in about app section"
   },
-  "preferences_page_open_food_facts_labs_title": "مختبرات حقائق الغذاء المفتوحة",
+  "preferences_page_open_food_facts_labs_title": "مختبرات Open Food Facts",
   "@preferences_page_open_food_facts_labs_title": {
     "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
   },
@@ -5626,5 +5840,59 @@
   "location_map_details_postcode": "شفرة البريد",
   "location_map_details_country": "بلد",
   "location_map_details_coordinates": "الإحداثيات",
-  "location_map_details_osm_id": "معرف OSM"
+  "location_map_details_osm_id": "معرف OSM",
+  "homepage_scanner_back_to_home_button": "العودة إلى الصفحة الرئيسية",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "تبديل الكاميرا",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "أظهر ماسح الباركود",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "انقر لمسح **الباركود**\nواكتشف ما إذا كان **مفيدًا لك**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "تشغيل المصباح",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "امسح المنتج ضوئيًا عن طريق تقريب الرمز الشريطي الخاص به.",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "لقد اكتشفنا الرمز الشريطي التالي: {barcode}، ولكن يبدو أنه غير صالح.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "عرض المزيد…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "المنتجات الأكثر فحصا",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "آخر المنتجات التي تم مسحها ضوئيًا",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

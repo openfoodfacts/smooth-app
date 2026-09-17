@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/operation_type.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -125,6 +126,11 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
     if (barcodes.isEmpty) {
       return;
     }
+
+    final List<String> unwantedIngredients =
+        (await UserPreferences.getUserPreferences())
+            .getUnwantedIngredientTags();
+
     final SearchResult searchResult =
         await SearchProductsManager.searchProducts(
           getUser(),
@@ -134,6 +140,7 @@ class BackgroundTaskLanguageRefresh extends BackgroundTask {
               const PageSize(size: _pageSize),
               const PageNumber(page: 1),
               BarcodeParameter.list(barcodes),
+              IngredientsUnwantedParameter(unwantedIngredients),
             ],
             language: language,
             country: ProductQuery.getCountry(),

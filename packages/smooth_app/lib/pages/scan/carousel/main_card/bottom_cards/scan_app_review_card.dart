@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +13,7 @@ import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 import 'package:vector_graphics/vector_graphics.dart';
 
@@ -27,51 +27,56 @@ class ScanAppReview extends StatelessWidget {
     return ScanBottomCardContainer(
       title: appLocalizations.app_review_title,
       onClose: () => context.read<AppReviewProvider>().hide(),
-      body: Row(
-        children: <Widget>[
-          Expanded(
-            child: _AppReviewItem(
-              asset: 'assets/misc/tagline_0.svg.vec',
-              text: appLocalizations.app_review_low,
-              backgroundColor: const Color(0xFFD44C29),
-              borderRadius: BorderRadiusHelper.fromDirectional(
-                context: context,
-                bottomStart: ScanBottomCardContainer.radius,
-              ),
-              onTap: () => _showUserFeedBackModalSheet(
-                context,
-                AppReviewResult.unsatisfied,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
+        child: Row(
+          children: <Widget>[
+            Expanded(
+              child: _AppReviewItem(
+                asset: 'assets/misc/tagline_0.svg.vec',
+                text: appLocalizations.app_review_low,
+                backgroundColor: const Color(0xFFD44C29),
+                borderRadius: BorderRadiusHelper.fromDirectional(
+                  context: context,
+                  bottomStart: ScanBottomCardContainer.radius,
+                ),
+                onTap: () => _showUserFeedBackModalSheet(
+                  context,
+                  AppReviewResult.unsatisfied,
+                ),
               ),
             ),
-          ),
-          Expanded(
-            child: _AppReviewItem(
-              asset: 'assets/misc/tagline_1.svg.vec',
-              text: appLocalizations.app_review_medium,
-              backgroundColor: const Color(0xFFFF8C14),
-              borderRadius: BorderRadius.zero,
-              onTap: () =>
-                  _showUserFeedBackModalSheet(context, AppReviewResult.neutral),
-            ),
-          ),
-          Expanded(
-            child: _AppReviewItem(
-              asset: 'assets/misc/tagline_2.svg.vec',
-              text: appLocalizations.app_review_high,
-              backgroundColor: const Color(0xFF6CB564),
-              borderRadius: BorderRadiusHelper.fromDirectional(
-                context: context,
-                bottomEnd: ScanBottomCardContainer.radius,
+            Expanded(
+              child: _AppReviewItem(
+                asset: 'assets/misc/tagline_1.svg.vec',
+                text: appLocalizations.app_review_medium,
+                backgroundColor: const Color(0xFFFF8C14),
+                borderRadius: BorderRadius.zero,
+                onTap: () => _showUserFeedBackModalSheet(
+                  context,
+                  AppReviewResult.neutral,
+                ),
               ),
-              onTap: () async {
-                final AppReviewProvider appReview = context
-                    .read<AppReviewProvider>();
-                await ApplicationStore.openAppReview();
-                appReview.markAsReviewed(AppReviewResult.satisfied);
-              },
             ),
-          ),
-        ],
+            Expanded(
+              child: _AppReviewItem(
+                asset: 'assets/misc/tagline_2.svg.vec',
+                text: appLocalizations.app_review_high,
+                backgroundColor: const Color(0xFF6CB564),
+                borderRadius: BorderRadiusHelper.fromDirectional(
+                  context: context,
+                  bottomEnd: ScanBottomCardContainer.radius,
+                ),
+                onTap: () async {
+                  final AppReviewProvider appReview = context
+                      .read<AppReviewProvider>();
+                  await ApplicationStore.openAppReview();
+                  appReview.markAsReviewed(AppReviewResult.satisfied);
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

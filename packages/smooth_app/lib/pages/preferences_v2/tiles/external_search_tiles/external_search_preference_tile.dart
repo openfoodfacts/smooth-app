@@ -4,7 +4,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 abstract class ExternalSearchPreferenceTile extends PreferenceTile {
   const ExternalSearchPreferenceTile({required super.icon}) : super(title: '');
@@ -22,7 +22,7 @@ abstract class ExternalSearchPreferenceTile extends PreferenceTile {
         ? PreferenceTile(
             icon: icon,
             title: buildTitle(context, keyword),
-            trailing: const ExternalLink.bold(size: 16.0),
+            trailing: const icons.ExternalLink.bold(size: 16.0),
             onTap: () {
               LaunchUrlHelper.launchURLInWebViewOrBrowser(
                 context,

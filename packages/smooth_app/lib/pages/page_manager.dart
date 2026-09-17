@@ -40,25 +40,8 @@ class PageManagerState extends State<PageManager> {
   };
 
   BottomNavigationTab? _currentPage;
-
-  static final List<Widget> tabs = <Widget>[
-    TabNavigator(
-      navigatorKey: _navigatorKeys[BottomNavigationTab.Profile]!,
-      tabItem: BottomNavigationTab.Profile,
-    ),
-    TabNavigator(
-      navigatorKey: _navigatorKeys[BottomNavigationTab.Scan]!,
-      tabItem: BottomNavigationTab.Scan,
-    ),
-    TabNavigator(
-      navigatorKey: _navigatorKeys[BottomNavigationTab.HomePage]!,
-      tabItem: BottomNavigationTab.HomePage,
-    ),
-    TabNavigator(
-      navigatorKey: _navigatorKeys[BottomNavigationTab.List]!,
-      tabItem: BottomNavigationTab.List,
-    ),
-  ];
+  bool? _useNewHomePage;
+  late List<Widget> _tabs;
 
   void _selectTab(BottomNavigationTab tabItem, int index) {
     if (tabItem == _currentPage) {
@@ -72,11 +55,43 @@ class PageManagerState extends State<PageManager> {
     }
   }
 
+  void _generateTabsIfNecessary(bool showNewHomePage) {
+    if (_useNewHomePage == showNewHomePage) {
+      return;
+    }
+
+    _useNewHomePage = showNewHomePage;
+
+    _tabs = <Widget>[
+      TabNavigator(
+        navigatorKey: _navigatorKeys[BottomNavigationTab.Profile]!,
+        tabItem: BottomNavigationTab.Profile,
+      ),
+      TabNavigator(
+        navigatorKey: _navigatorKeys[BottomNavigationTab.Scan]!,
+        tabItem: BottomNavigationTab.Scan,
+        visible: !showNewHomePage,
+      ),
+      TabNavigator(
+        navigatorKey: _navigatorKeys[BottomNavigationTab.HomePage]!,
+        tabItem: BottomNavigationTab.HomePage,
+        visible: showNewHomePage,
+      ),
+      TabNavigator(
+        navigatorKey: _navigatorKeys[BottomNavigationTab.List]!,
+        tabItem: BottomNavigationTab.List,
+      ),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     final bool showNewHomePage = _showNewHomePage(
       context.watch<UserPreferences>(),
     );
+
+    /// Temp fix
+    _generateTabsIfNecessary(showNewHomePage);
 
     _currentPage ??= showNewHomePage
         ? BottomNavigationTab.HomePage
@@ -166,7 +181,7 @@ class PageManagerState extends State<PageManager> {
       child: Scaffold(
         body: Provider<BottomNavigationTab>.value(
           value: _currentPage!,
-          child: IndexedStack(index: _currentPage!.index, children: tabs),
+          child: IndexedStack(index: _currentPage!.index, children: _tabs),
         ),
         bottomNavigationBar: ConsumerFilter<UserPreferences>(
           buildWhen:

@@ -1,5 +1,6 @@
 {
   "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": " ",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Ajouter",
   "@add": {},
+  "edit": "Modifier",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Êtes-vous sûr de vouloir supprimer votre compte ?\nS'il y a une raison spécifique, veuillez la partager ci-dessous",
   "@account_delete_message": {},
   "reason": "Raison",
@@ -63,8 +68,94 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Réinitialiser les préférences alimentaires",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personnaliser l'application",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Régimes",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "Ce que je ne mange pas",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "Ce que je préfère éviter",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Préférences environnementales",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profil prêt",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Étape {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "Aucune sélection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "Aucun attribut disponible pour cette catégorie.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Impossible de charger les préférences. Veuillez vérifier votre connexion Internet.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Voici votre profil :",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "Dans les étapes suivantes, vous pouvez **personnaliser l'application** en indiquant vos préférences :",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Sélectionnez les régimes alimentaires que vous suivez pour personnaliser vos recommandations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Sélectionnez les allergènes à éviter pour votre sécurité alimentaire.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indiquez les aliments ou les ingrédients que vous ne mangez pas.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Sélectionnez les aliments que vous préférez éviter sans que cela soit une interdiction stricte.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indiquez vos préférences environnementales pour des recommandations plus durables.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Rechercher des ingrédients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingrédient déjà ajouté",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Une erreur s'est produite",
   "@error": {},
@@ -185,7 +276,7 @@
   "@sign_in_mandatory": {
     "description": "Error message: for some features like product edits you need to be signed in"
   },
-  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
+  "help_improve_country": "Aidez-nous à améliorer Open Food Facts dans votre pays",
   "@help_improve_country": {
     "description": "label for a tile that is on the contribute tile"
   },
@@ -240,8 +331,8 @@
   "sign_up_page_action_ok": "Toutes nos félicitations ! Votre compte vient d'être créé.",
   "sign_up_page_display_name_hint": "Nom",
   "sign_up_page_display_name_error_empty": "Veuillez saisir le nom d'affichage que vous souhaitez utiliser",
-  "sign_up_page_email_hint": "Courriel",
-  "sign_up_page_email_error_empty": "Une adresse est requise",
+  "sign_up_page_email_hint": "E-mail",
+  "sign_up_page_email_error_empty": "L'e-mail est requis",
   "sign_up_page_email_error_invalid": "E-mail invalide",
   "sign_up_page_username_hint": "Nom d'utilisateur : visible publiquement",
   "sign_up_page_username_error_empty": "Veuillez saisir un nom d'utilisateur",
@@ -448,9 +539,16 @@
   "myPreferences_profile_subtitle": "Gérez votre compte contributeur Open Food Facts.",
   "myPreferences_settings_title": "Paramètres de l'application",
   "myPreferences_settings_subtitle": "Mode sombre, statistiques, ...",
+  "myPreferences_not_configured_yet": "Vous n'avez encore défini aucune préférence.",
   "myPreferences_food_title": "Préférences alimentaires",
   "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
   "myPreferences_food_comment": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité. Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
+  "myPreferences_beauty_title": "Préférences en matière de cosmétiques",
+  "myPreferences_beauty_subtitle": "Choisissez les informations sur les produits cosmétiques qui vous importent le plus.",
+  "myPreferences_product_title": "Préférences pour d'autres produits",
+  "myPreferences_product_subtitle": "Choisissez les informations sur les autres produits qui vous importent le plus.",
+  "myPreferences_pet_food_title": "Préférences en matière d'alimentation pour animaux de compagnie",
+  "myPreferences_pet_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
   "confirmResetPreferences": "Réinitialiser vos préférences alimentaires ?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -883,8 +981,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Voir toutes les photos existantes pour ce produit",
   "@view_more_photo_button": {},
+  "no_settings_found": "Aucun paramètre trouvé",
+  "@no_settings_found": {},
   "no_product_found": "Aucun produit trouvé",
   "@no_product_found": {},
+  "no_product_found_explanation": "Votre recherche pour\n**\"{search}\"**\nn'a donné aucun résultat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Souhaitez-vous plutôt effectuer cette même recherche dans **notre base de données mondiale** ?",
   "no_location_found": "Aucun magasin trouvé",
   "not_found": "non trouvé :",
   "refreshing_product": "Actualisation du produit",
@@ -915,7 +1026,7 @@
   },
   "product_image_outdated": "Cette image peut être obsolète",
   "product_image_outdated_explanations_title": "Cette image peut être obsolète",
-  "product_image_outdated_explanations_content": "Cette image a été prise il y a plus d'un an.\n**Merci de vérifier qu'elle est toujours d'actualité**.\n\nIl s'agit **uniquement d'une alerte**. Si le contenu n'a pas changé, vous pouvez ignorer ce message.",
+  "product_image_outdated_explanations_content": "Cette image a été prise il y a plus d'un an.\n**Veuillez vérifier qu'elle est toujours à jour**.\n\nCeci est **juste un avertissement**. Si le contenu est toujours le même, vous pouvez ignorer ce message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -1006,6 +1117,36 @@
   "tagline_app_review_button_negative": "Pas vraiment…",
   "tagline_app_review_button_later": "Me demander plus tard",
   "tagline_feed_news_button": "En savoir plus",
+  "tagline_feed_funding_goal": "de {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} court",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, one {}=1{Il reste un mois} other{{months} Il reste des mois}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Vous n'aimez pas notre application ?",
   "app_review_negative_modal_text": "Pourriez-vous prendre quelques secondes pour nous dire pourquoi ?",
   "app_review_negative_modal_positive_button": "Oui, absolument !",
@@ -1163,7 +1304,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Il n'y a aucun produit dans cette liste",
   "no_product_in_section": "Il n'y a aucun produit dans cette section",
   "recently_seen_products": "Historique des produits consultés",
   "clear": "Effacer",
@@ -2299,6 +2439,7 @@
   "product_type_label_beauty": "Hygiène personnelle",
   "product_type_label_pet_food": "Nourriture pour animaux de compagnie",
   "product_type_label_product": "Autre",
+  "product_type_label_unknown": "Inconnu",
   "product_type_selection_title": "Type de produit",
   "product_type_selection_subtitle": "Sélectionnez le type de ce produit",
   "product_type_selection_empty": "Vous devez d'abord sélectionner un type de produit !",
@@ -2406,8 +2547,10 @@
   "@prices_per_unit_short": {
     "description": "Short title for PricePer.unit"
   },
+  "prices_category_title": "Catégorie",
   "prices_category_mandatory": "Obligatoire",
   "prices_category_optional": "Facultatif",
+  "prices_origins_title": "Origines",
   "prices_category_error_mandatory": "La catégorie est obligatoire",
   "prices_barcode_reader_action": "Lecteur de code-barres",
   "prices_view_prices": "Voir les prix",
@@ -2432,6 +2575,7 @@
       }
     }
   },
+  "prices_entry_menu_open_product": "Voir les détails du produit",
   "prices_entry_menu_open_product_prices": "Voir tous les prix du produit",
   "prices_entry_menu_open_proof": "Voir la preuve",
   "prices_entry_menu_my_prices": "Voir mes autres prix",
@@ -2595,12 +2739,15 @@
   "prices_amount_no_product": "Il manque un produit !",
   "prices_amount_price_incorrect": "Valeur incorrecte",
   "prices_amount_price_mandatory": "Valeur obligatoire",
+  "prices_amount_update_currency": "Mettre à jour la devise",
   "prices_currency_subtitle": "Devise",
   "prices_date_subtitle": "Date",
   "prices_location_subtitle": "Magasin",
   "prices_location_find": "Chercher un magasin",
   "prices_location_mandatory": "Vous devez choisir un magasin !",
   "prices_location_search_broader": "Vous n'avez pas trouvé ce que vous cherchiez ? Essayons une recherche plus large !",
+  "prices_location_open_map": "Voir la boutique sur la carte",
+  "prices_location_edit": "Sélectionner une autre boutique",
   "prices_proof_subtitle": "Preuve",
   "prices_proof_empty_title": "Aucune preuve pour l'instant !",
   "prices_proof_empty_explanation": "Commencez par ajouter une photo d’un **reçu** ou d’une **étiquette de prix** !",
@@ -2656,6 +2803,15 @@
   "@prices_menu_know_more": {
     "description": "Menu item to open the Open Prices guide"
   },
+  "prices_discount_type": "Type de réduction",
+  "prices_discount_type_quantity": "Remise sur la quantité",
+  "prices_discount_type_sale": "Offres",
+  "prices_discount_type_seasonal": "Saisonnier",
+  "prices_discount_type_loyalty_program": "Programme de fidélité",
+  "prices_discount_type_expires_soon": "Se termine bientôt",
+  "prices_discount_type_pick_it_yourself": "Cueillez-les vous-même",
+  "prices_discount_type_second_hand": "Occasion",
+  "prices_discount_type_other": "Autre",
   "dev_preferences_import_history_result_success": "Fait",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -3598,7 +3754,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Veuillez nous envoyer manuellement un e-mail à",
-  "email_copied_to_clip_board": "E-mail copié dans le presse-papiers !",
+  "email_copied_to_clip_board": "E-mail copié dans le presse-papier !",
   "select_accent_color": "Sélectionnez la couleur d'accentuation",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3788,7 +3944,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} produits disponibles pour un scan immédiat",
+  "available_for_download": "{num} produits disponibles pour une numérisation immédiate",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3859,7 +4015,7 @@
   "environmental_score_c_new": "Green-Score C",
   "environmental_score_d_new": "Green-Score D",
   "environmental_score_e_new": "Green-Score E",
-  "environmental_score_unknown_new": "Green Score inconnu",
+  "environmental_score_unknown_new": "Green-Score inconnu",
   "environmental_score_not_applicable_new": "Green-Score non applicable",
   "nova_group_generic_new": "Aliments ultra-transformés - Groupes NOVA",
   "nova_group_1": "Groupe NOVA 1",
@@ -4199,8 +4355,8 @@
   "guide_open_products_facts_features_arg2_text": "Dès qu'un indice de réparabilité français sera disponible, nous l'afficherons. De plus, **vous pouvez commencer à collecter les variables à l'aide du moteur de folksonomie** ; ainsi, nous pourrons le recalculer nous-mêmes ultérieurement, même dans les pays où il n'est pas disponible.",
   "guide_open_products_facts_features_arg3_title": "Trouvez des moyens de donner/revendre votre produit",
   "guide_open_products_facts_features_arg3_text": "Nous vous proposons des liens vers des **services tiers éco-responsables** qui vous permettent de trouver le produit que vous recherchez d'occasion, afin de préserver les ressources de la planète.\nVeuillez noter que ce service est entièrement gratuit et que le système n'est présenté qu'à titre d'exemple pour deux sites web en France. Vous pouvez contribuer à son développement en répertoriant d'autres sites sur le wiki.",
-  "guide_open_products_facts_information_title": "What information is useful?",
-  "guide_open_products_facts_information_text": "For such a wide range of items, **the data we collect is flexible**. To do that, **we created the Folksonomy Engine**.",
+  "guide_open_products_facts_information_title": "Quelles informations sont utiles ?",
+  "guide_open_products_facts_information_text": "Pour une telle variété d'articles, **les données que nous collectons sont flexibles**. Pour cela **nous avons créé le Folksonomy Engine**.",
   "guide_open_products_facts_folksonomy_title": "Le moteur de folksonomie",
   "guide_open_products_facts_folksonomy_paragraph1": "Le moteur de folksonomie est un outil qui vous aide à compléter vos produits avec des propriétés pertinentes. Cela permet d'améliorer la recherche et la visibilité, mais aussi de calculer et d'afficher des informations intéressantes à l'avenir.",
   "guide_open_products_facts_folksonomy_paragraph2": "Vous pouvez ajouter des clés et des valeurs comme : **compatibilité_avec_réseau_mobile_5G : oui** (veuillez les rentrer en anglais, le système n'est pas multilingue)",
@@ -4281,6 +4437,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "Afficher l'image originale",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "Compatible",
   "@product_page_compatibility_score": {
@@ -4407,6 +4567,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Code-barres probablement invalide",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Supprimer ce produit du carrousel",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4469,7 +4633,7 @@
   "photo_field_front": "Photo du produit",
   "photo_field_ingredients": "Photo des ingrédients",
   "photo_field_nutrition": "Informations nutritionnelles",
-  "photo_field_packaging": "Photo des consignes de tri/recyclage",
+  "photo_field_packaging": "Photo des informations de recyclage",
   "photo_already_exists": "Cette photo existe déjà",
   "photo_missing": "Cette photo est manquante",
   "date": "Date",
@@ -4554,6 +4718,56 @@
   "product_page_tab_for_me": "Pour moi",
   "@product_page_tab_for_me": {
     "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "Ma compatibilité",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}% compatible",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Données insuffisantes pour calculer un score de compatibilité.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "Il est impossible de calculer un score pour un produit de type \"{productType}\".",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Importance",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Correspond",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Bonnes correspondances",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Matchs moyens",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Mauvaises correspondances",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Correspondances inconnues",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
   },
   "product_page_tab_website": "Site Web",
   "@product_page_tab_website": {
@@ -5384,7 +5598,7 @@
   "@preferences_page_contribute_project_title": {
     "description": "Title for the contribute to project navigation tile"
   },
-  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
+  "preferences_page_contribute_project_subtitle": "Des moyens simples pour aider Open Food Facts",
   "@preferences_page_contribute_project_subtitle": {
     "description": "Subtitle for the contribute to project navigation tile"
   },
@@ -5592,7 +5806,7 @@
   "@preferences_root_account_title": {
     "description": "Title for the account preferences root"
   },
-  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
+  "preferences_contribute_translate_header": "Traduire Open Food Facts dans votre langue",
   "@preferences_contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
@@ -5626,5 +5840,59 @@
   "location_map_details_postcode": "Code postal",
   "location_map_details_country": "Pays",
   "location_map_details_coordinates": "Coordonnées",
-  "location_map_details_osm_id": "ID OSM"
+  "location_map_details_osm_id": "ID OSM",
+  "homepage_scanner_back_to_home_button": "Retour à l'accueil",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Activer/désactiver la caméra",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Afficher le lecteur de codes-barres",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Appuyez pour scanner un **code-barres**\net découvrez si c'est **bon pour vous** !",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Lampe torche",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Scannez un produit en vous approchant de son code-barres",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "Nous avons détecté le code-barres suivant : {barcode}, mais il semble être invalide.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Voir plus…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Produits les plus scannés",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Derniers produits scannés",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
+  }
 }

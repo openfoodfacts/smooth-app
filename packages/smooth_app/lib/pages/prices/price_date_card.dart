@@ -27,7 +27,7 @@ class PriceDateCard extends StatelessWidget {
       child: SmoothLargeButtonWithIcon(
         text: MaterialLocalizations.of(context).formatCompactDate(model.date),
         leadingIcon: const icons.Calendar.edit(size: 18.0),
-        trailingIcon: const icons.Chevron.right(size: 10.0),
+        trailingIcon: const icons.Edit(size: 10.0),
         onPressed: model.proof != null
             ? null
             : () async {

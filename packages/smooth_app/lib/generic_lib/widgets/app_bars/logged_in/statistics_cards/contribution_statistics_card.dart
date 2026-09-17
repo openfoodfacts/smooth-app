@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/query/paged_user_product_query.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 
 class ContributionStatisticsCard extends StatelessWidget {
   const ContributionStatisticsCard({super.key});

@@ -14,7 +14,7 @@ import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product_list_user_dialog_helper.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_checkbox.dart';
@@ -93,7 +93,7 @@ class _AddToProductListNoListAvailable extends StatelessWidget {
                         .secondaryLight,
                   ),
                   padding: const EdgeInsets.all(VERY_LARGE_SPACE),
-                  child: const Milk(size: 40.0, color: Colors.white),
+                  child: const icons.Milk(size: 40.0, color: Colors.white),
                 ),
               ),
               const SizedBox(height: VERY_LARGE_SPACE),

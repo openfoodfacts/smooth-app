@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 
 /// Model for the price of a single product.
-class PriceAmountModel {
+class PriceAmountModel extends ChangeNotifier {
   PriceAmountModel({required this.product});
 
   final PriceMetaProduct product;
@@ -19,6 +20,7 @@ class PriceAmountModel {
   set paidPrice(final String value) {
     _hasChanged = true;
     _paidPrice = value;
+    notifyListeners();
   }
 
   String _priceWithoutDiscount = '';
@@ -28,6 +30,7 @@ class PriceAmountModel {
   set priceWithoutDiscount(final String value) {
     _hasChanged = true;
     _priceWithoutDiscount = value;
+    notifyListeners();
   }
 
   late double _checkedPaidPrice;
@@ -44,6 +47,16 @@ class PriceAmountModel {
   set promo(final bool value) {
     _hasChanged = true;
     _promo = value;
+    notifyListeners();
+  }
+
+  DiscountType? _discountType;
+
+  DiscountType? get discountType => _discountType;
+
+  set discountType(final DiscountType? value) {
+    _hasChanged = true;
+    _discountType = value;
   }
 
   /// Returns the value as a valid strictly positive `double`, or `null`.
