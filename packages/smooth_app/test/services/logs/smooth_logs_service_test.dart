@@ -12,7 +12,7 @@ class FakeAppLogService implements AppLogService {
   @override
   void log(
     LogLevel level,
-     String message, {
+    String message, {
     dynamic ex,
     StackTrace? stacktrace,
     String? tag,
@@ -22,57 +22,33 @@ class FakeAppLogService implements AppLogService {
   }
 
   @override
-  void d(
-     String message, {
-    dynamic ex,
-    StackTrace? stacktrace,
-    String? tag,
-  }) {}
+  void d(String message, {dynamic ex, StackTrace? stacktrace, String? tag}) {}
 
   @override
-  void e(
-     String message, {
-    dynamic ex,
-    StackTrace? stacktrace,
-    String? tag,
-  }) {}
+  void e(String message, {dynamic ex, StackTrace? stacktrace, String? tag}) {}
 
   @override
-  void i(
-     String message, {
-    dynamic ex,
-    StackTrace? stacktrace,
-    String? tag,
-  }) {}
+  void i(String message, {dynamic ex, StackTrace? stacktrace, String? tag}) {}
 
   @override
-  void v(
-    String message, {
-    dynamic ex,
-    StackTrace? stacktrace,
-    String? tag,
-  }) {}
+  void v(String message, {dynamic ex, StackTrace? stacktrace, String? tag}) {}
 
   @override
-  void w(
-    String message, {
-    dynamic ex,
-    StackTrace? stacktrace,
-    String? tag,
-  }) {}
+  void w(String message, {dynamic ex, StackTrace? stacktrace, String? tag}) {}
 
   @override
   List<String> get logFilesPaths => [];
-} 
+}
+
 void main() {
   late LogsService logsService;
   late FakeAppLogService fakeLogService;
 
-  setUp(() {
+  setUp(() async {
     logsService = LogsService();
     fakeLogService = FakeAppLogService();
 
-    logsService.attach(fakeLogService);
+    await logsService.attach(fakeLogService);
   });
 
   test('forwards verbose messages with LogLevel.verbose', () {
