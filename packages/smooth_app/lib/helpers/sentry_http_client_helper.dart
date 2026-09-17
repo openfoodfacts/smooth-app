@@ -22,7 +22,7 @@ class SentryHttpClientHelper {
   /// has explicitly consented to both types of data collection.
   static http.Client createClient() {
     if (AnalyticsHelper.isTracingEnabled) {
-      return SentryHttpClient();
+      return SentryHttpClient(client: http.Client());
     } else {
       return http.Client();
     }
