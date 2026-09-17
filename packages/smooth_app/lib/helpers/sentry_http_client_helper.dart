@@ -1,4 +1,5 @@
 // dart:convert is required for Encoding type on HttpClientRequest.encoding
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -392,14 +393,19 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
   }
 
   // Fire-and-forget for synchronous abort path.
+  // abort() is synchronous by dart:io contract, so the Future from finish()
+  // is intentionally not awaited; unawaited makes that explicit and satisfies
+  // the unawaited_futures lint. Errors from finish() must not break abort().
   void _finishWithStatusSync(SpanStatus status) {
     if (_spanFinished) {
       return;
     }
     _spanFinished = true;
     _span?.status = status;
-    // abort() is synchronous by dart:io contract
-    _span?.finish();
+    final Future<void>? future = _span?.finish();
+    if (future != null) {
+      unawaited(future.catchError((Object _) {}));
+    }
   }
 
   @override
