@@ -21,6 +21,14 @@ class SentryHttpClientHelper {
   ///
   /// This ensures that no traces are sent to Sentry unless the user
   /// has explicitly consented to both types of data collection.
+  ///
+  /// NOTE: consent is captured at creation time. There are currently no
+  /// production callers (tests only); if adopted for long-lived/cached
+  /// `package:http` clients, the caller MUST recreate the client after
+  /// analytics/crash-reporting preferences change, otherwise toggling takes
+  /// effect only on recreation. For `dart:io` traffic prefer the
+  /// [HttpOverrides] path via [wrapHttpClient], which re-checks consent
+  /// per-request.
   static http.Client createClient() {
     if (AnalyticsHelper.isTracingEnabled) {
       return SentryHttpClient(client: http.Client());
@@ -35,8 +43,11 @@ class SentryHttpClientHelper {
   /// including NetworkImage requests and any direct dart:io HttpClient usage.
   ///
   /// Always wraps; consent is re-checked per-request inside
-  /// [_SentryWrappedHttpClient._wrapRequest] so toggling preferences takes
-  /// effect immediately without recreating the cached HttpClient.
+  /// [_SentryWrappedHttpClient._wrapRequest] so opt-out takes effect
+  /// immediately without recreating the cached HttpClient. Note: opt-in
+  /// creates new child spans immediately, but if the parent transaction was
+  /// sampled `0.0` by `tracesSampler` before opt-in, those children stay
+  /// dropped until a new sampled transaction starts (e.g. navigation/restart).
   static HttpClient wrapHttpClient(HttpClient client) {
     return _SentryWrappedHttpClient(client);
   }
