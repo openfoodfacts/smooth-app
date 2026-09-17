@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smooth_app/cards/category_cards/abstract_cache.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_widget.dart';
+import 'package:smooth_app/helpers/html_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_cell_width_computer.dart';
 
 /// Represents the data in a single cell in this table.
@@ -27,13 +28,11 @@ class SmoothTableCell {
   static const double _cellItemPadding = VERY_SMALL_SPACE;
   static const double _cellPercentageWidth = 4 * _cellItemSize;
 
+  TextStyle _getStyle(final KnowledgePanelTableCellWidthComputer computer) =>
+      isHeader ? computer.headerTextStyle : computer.textStyle;
+
   double getWidth(final KnowledgePanelTableCellWidthComputer computer) {
-    double result = computer
-        .computeTextSize(
-          text,
-          isHeader ? computer.headerTextStyle : computer.textStyle,
-        )
-        .width;
+    double result = computer.computeTextSize(text, _getStyle(computer)).width;
     if (iconUrl != null) {
       result += _cellItemSize + 2 * _cellItemPadding;
     }
@@ -47,27 +46,6 @@ class SmoothTableCell {
     required final BuildContext context,
     required final KnowledgePanelTableCellWidthComputer computer,
   }) {
-    final TextStyle style = isHeader
-        ? computer.headerTextStyle
-        : computer.textStyle;
-
-    final StringBuffer styleBuilder = StringBuffer(
-      'text-overflow: ellipsis;'
-      'overflow: hidden;'
-      'max-lines: 2;',
-    );
-
-    if (color != null) {
-      styleBuilder.write(
-        'color: rgba('
-        '${(color!.r * 255.0).round().clamp(0, 255)},'
-        '${(color!.g * 255.0).round().clamp(0, 255)},'
-        '${(color!.b * 255.0).round().clamp(0, 255)},'
-        '${color!.a}'
-        ');',
-      );
-    }
-
     final bool isDark = Theme.brightnessOf(context) == Brightness.dark;
     final Color foreground, background;
     if (isDark) {
@@ -97,6 +75,7 @@ class SmoothTableCell {
         : Padding(
             padding: const EdgeInsets.all(_cellItemPadding),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 Container(
                   height: _cellItemSize,
@@ -112,15 +91,45 @@ class SmoothTableCell {
             ),
           );
 
-    final String cellText = '<div style="$styleBuilder">$text</div>';
-    final Widget textWidget = SmoothHtmlWidget(
-      cellText,
-      textStyle: style,
-      isSelectable: false,
-    );
+    Widget getTextWidget(final int maxLines) {
+      final AlignmentDirectional textAlignment = leftAlign
+          ? AlignmentDirectional.centerStart
+          : AlignmentDirectional.centerEnd;
 
-    return iconWidget == null && percentWidget == null
-        ? textWidget
-        : Row(children: <Widget>[?iconWidget, ?percentWidget, textWidget]);
+      final StringBuffer styleBuilder = StringBuffer(
+        'text-align:${textAlignment.toHTMLTextAlign()};'
+        'text-overflow: ellipsis;'
+        'overflow: hidden;'
+        'max-lines: $maxLines;',
+      );
+
+      if (color != null) {
+        styleBuilder.write(
+          'color: rgba('
+          '${(color!.r * 255.0).round().clamp(0, 255)},'
+          '${(color!.g * 255.0).round().clamp(0, 255)},'
+          '${(color!.b * 255.0).round().clamp(0, 255)},'
+          '${color!.a}'
+          ');',
+        );
+      }
+      return SmoothHtmlWidget(
+        '<div style="$styleBuilder">$text</div>',
+        textStyle: _getStyle(computer),
+        isSelectable: false,
+      );
+    }
+
+    if (iconWidget == null && percentWidget == null) {
+      return getTextWidget(2);
+    }
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        ?iconWidget,
+        ?percentWidget,
+        Expanded(child: getTextWidget(1)),
+      ],
+    );
   }
 }

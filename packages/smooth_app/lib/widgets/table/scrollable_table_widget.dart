@@ -41,6 +41,14 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
   }
 
   @override
+  void didUpdateWidget(covariant ScrollableTableWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.smoothTable != oldWidget.smoothTable) {
+      _columnsMaxLength = widget.smoothTable.getColumnsMaxLength(_computer);
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (final BuildContext context, final BoxConstraints constraints) {
