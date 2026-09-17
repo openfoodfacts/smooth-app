@@ -110,7 +110,7 @@ Widget build(BuildContext context) {
           title: appLocalizations.preferences_card_project,
           tiles: &lt;PreferenceTile&gt;[
             _buildContributeProjectTile(appLocalizations),
-            _buildSupportTile(appLocalizations),
+            _buildSupportTile(context, appLocalizations),
           ],
         ),
         PreferenceCard(
