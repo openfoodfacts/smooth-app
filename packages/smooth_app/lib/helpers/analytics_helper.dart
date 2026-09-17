@@ -248,13 +248,19 @@ class AnalyticsHelper {
     });
   }
 
+  /// Initializes Sentry. Must be called after [GlobalVars] are set
+  /// (see [launchSmoothApp] in main.dart) because [SentryOptions.environment]
+  /// and [_beforeSend] read [GlobalVars.storeLabel]/[GlobalVars.scannerLabel].
   static Future<void> initSentry({required Function()? appRunner}) async {
     await SentryFlutter.init((SentryOptions options) {
       options
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         ..tracesSampler = (SentrySamplingContext samplingContext) {
-          // Only sample traces if user has opted in to both analytics and crash reporting
+          // Only sample traces if user has opted in to both analytics and crash reporting.
+          // samplingContext is currently unused; if URL-based sampling is needed
+          // (e.g. exclude image CDN) inspect samplingContext.transactionContext
+          // or custom samplingContext.custom.
           return isTracingEnabled ? 1.0 : 0.0;
         }
         ..beforeSend = _beforeSend
@@ -289,7 +295,11 @@ class AnalyticsHelper {
 
   /// Returns true if both analytics and crash reporting are enabled.
   /// This is used to determine whether to send HTTP traces to Sentry.
-  static bool get isTracingEnabled => isEnabled && _crashReports;
+  @visibleForTesting
+  static bool Function()? debugIsTracingEnabledOverride;
+
+  static bool get isTracingEnabled =>
+      debugIsTracingEnabledOverride?.call() ?? (isEnabled && _crashReports);
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
     if (!_crashReports) {
