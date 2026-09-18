@@ -542,7 +542,6 @@
   "myPreferences_not_configured_yet": "Et ole vielä asettanut yhtään asetusta.",
   "myPreferences_food_title": "Ruokamieltymykset",
   "myPreferences_food_subtitle": "Valitse, mikä ruoan tieto kiinnostaa eniten.",
-  "myPreferences_food_comment": "Valitse, mitkä tiedot ruoasta ovat sinulle tärkeimpiä, jotta voit luokitella ruoat mieltymystesi mukaan, nähdä sinulle tärkeät tiedot ensin ja saada yhteensopivuusyhteenveto. Nämä ruokamieltymykset pysyvät laitteessasi, eikä niitä yhdistetä Open Food Facts -avustajatiliisi, jos sinulla on sellainen.",
   "myPreferences_beauty_title": "Kosmetiikan asetukset",
   "myPreferences_beauty_subtitle": "Valitse, mitkä tiedot kosmetiikkatuotteista ovat sinulle tärkeimpiä.",
   "myPreferences_product_title": "Muiden tuotteiden asetukset",

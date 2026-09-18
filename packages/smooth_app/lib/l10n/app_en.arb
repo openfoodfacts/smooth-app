@@ -543,6 +543,9 @@
   "myPreferences_food_title": "Food Preferences",
   "myPreferences_food_subtitle": "Choose what information about food matters most to you.",
   "myPreferences_food_compatibility_explainer": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary.",
+  "@myPreferences_food_compatibility_explainer": {
+    "description": "Explanation shown above the food preference sliders, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_food_privacy": "Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
   "@myPreferences_food_privacy": {
     "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"

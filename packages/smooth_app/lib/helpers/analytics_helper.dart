@@ -248,15 +248,31 @@ class AnalyticsHelper {
     });
   }
 
+  /// Initializes Sentry. Must be called after [GlobalVars] are set
+  /// (see [launchSmoothApp] in main.dart) because [SentryOptions.environment]
+  /// and [_beforeSend] read [GlobalVars.storeLabel]/[GlobalVars.scannerLabel].
   static Future<void> initSentry({required Function()? appRunner}) async {
     await SentryFlutter.init((SentryOptions options) {
       options
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
-        // To set a uniform sample rate
-        ..tracesSampleRate = 1.0
+        ..tracesSampler = (SentrySamplingContext samplingContext) {
+          // HTTP traces are sent only when the user consented to both
+          // analytics and crash reporting (see isTracingEnabled).
+          // samplingContext is currently unused; if URL-based sampling is needed
+          // (e.g. exclude image CDN) inspect samplingContext.transactionContext
+          // or custom samplingContext.custom.
+          return isTracingEnabled ? 1.0 : 0.0;
+        }
         ..beforeSend = _beforeSend
+        ..beforeSendTransaction = _beforeSendTransaction
         ..captureFailedRequests = false
+        // Enable W3C Trace Context propagation so SDK package:http clients
+        // emit the standard `traceparent` header for OTel-compatible
+        // backends. Our custom dart:io wrapper injects `traceparent` manually
+        // (W3C-only, no `sentry-trace`/`baggage`) because sentry-dart ships
+        // no dart:io wrapper.
+        ..propagateTraceparent = true
         ..environment =
             '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
     }, appRunner: appRunner);
@@ -282,11 +298,42 @@ class AnalyticsHelper {
   }
 
   /// Returns true if analytics reporting is enabled.
+  @visibleForTesting
+  static bool Function()? debugIsAnalyticsEnabledOverride;
+
   static bool get isEnabled =>
+      debugIsAnalyticsEnabledOverride?.call() ??
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
+  @visibleForTesting
+  static bool Function()? debugIsCrashEnabledOverride;
+
+  static bool get _crashReportsEffective =>
+      debugIsCrashEnabledOverride?.call() ?? _crashReports;
+
+  /// Returns true only when the user consented to both analytics and crash
+  /// reporting. HTTP performance traces follow this gate, so disabling
+  /// either consent stops all Sentry trace traffic.
+  static bool get isTracingEnabled => isEnabled && _crashReportsEffective;
+
+  @visibleForTesting
+  static bool get debugCrashReportsEnabled => _crashReportsEffective;
+
+  /// Drops transactions sampled before consent was revoked: [tracesSampler]
+  /// decides at transaction start, so an in-flight transaction would
+  /// otherwise still be sent after opt-out.
+  static FutureOr<SentryTransaction?> _beforeSendTransaction(
+    SentryTransaction transaction,
+    Hint hint,
+  ) {
+    if (!isTracingEnabled) {
+      return null;
+    }
+    return transaction;
+  }
+
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
-    if (!_crashReports) {
+    if (!_crashReportsEffective) {
       return null;
     }
     return event

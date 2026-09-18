@@ -1500,7 +1500,7 @@ abstract class AppLocalizations {
   /// **'Choose what information about food matters most to you.'**
   String get myPreferences_food_subtitle;
 
-  /// No description provided for @myPreferences_food_comment.
+  /// Explanation shown above the food preference sliders, both in the onboarding and in the food preferences page
   ///
   /// In en, this message translates to:
   /// **'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary.'**
