@@ -320,6 +320,50 @@ class AnalyticsHelper {
   /// either consent stops all Sentry trace traffic.
   static bool get isTracingEnabled => isEnabled && _crashReportsEffective;
 
+  /// Runs [action] inside a Sentry span for a user-facing feature.
+  ///
+  /// If a span is already active, creates an `app.feature` child so HTTP
+  /// calls made by [action] nest under it (e.g. "Hunger Games answer
+  /// question" -> `http.client` child). Otherwise starts a standalone
+  /// transaction bound to the scope for the duration of [action] (finished
+  /// automatically, unbinding itself).
+  /// No-op (just runs [action]) when tracing consent is off.
+  /// Never throws itself: tracing failures degrade to running [action]
+  /// directly, and [action]'s own errors are rethrown unchanged.
+  static Future<T> traceFeature<T>(
+    String name,
+    Future<T> Function() action,
+  ) async {
+    if (!isTracingEnabled) {
+      return action();
+    }
+    // Guarded separately so a throwing span factory can never break [action]:
+    // [span] simply stays null and every use below is null-aware.
+    ISentrySpan? span;
+    try {
+      span =
+          Sentry.getSpan()?.startChild('app.feature', description: name) ??
+          Sentry.startTransaction(name, 'app.feature', bindToScope: true);
+    } catch (_) {
+      span = null;
+    }
+    try {
+      final T result = await action();
+      try {
+        span?.status = const SpanStatus.ok();
+        await span?.finish();
+      } catch (_) {}
+      return result;
+    } catch (e) {
+      try {
+        span?.throwable = e;
+        span?.status = const SpanStatus.internalError();
+        await span?.finish();
+      } catch (_) {}
+      rethrow;
+    }
+  }
+
   @visibleForTesting
   static bool get debugCrashReportsEnabled => _crashReportsEffective;
 
