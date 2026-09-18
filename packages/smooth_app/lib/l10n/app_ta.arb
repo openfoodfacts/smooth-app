@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "உணவு விருப்பத்தேர்வுகள்",
   "myPreferences_food_subtitle": "உணவு பற்றிய எந்தத் தகவல் உங்களுக்கு மிகவும் முக்கியமானது என்பதைத் தேர்வுசெய்யவும்.",
-  "myPreferences_food_comment": "உங்கள் விருப்பங்களுக்கு ஏற்ப உணவை தரவரிசைப்படுத்த, முதலில் நீங்கள் அக்கறை கொள்ளும் தகவலைப் பார்த்து, பொருந்தக்கூடிய சுருக்கத்தைப் பெற, உணவைப் பற்றிய எந்தத் தகவல் உங்களுக்கு மிகவும் முக்கியமானது என்பதைத் தேர்வுசெய்யவும். அந்த உணவு விருப்பத்தேர்வுகள் உங்கள் சாதனத்திலேயே இருக்கும், மேலும் உங்களிடம் Open Food Facts பங்களிப்பாளர் கணக்கு இருந்தால் அதனுடன் தொடர்புடையதாக இருக்காது.",
+  "myPreferences_food_compatibility_explainer": "உங்கள் விருப்பங்களுக்கு ஏற்ப உணவை தரவரிசைப்படுத்த, முதலில் நீங்கள் அக்கறை கொள்ளும் தகவலைப் பார்த்து, பொருந்தக்கூடிய சுருக்கத்தைப் பெற, உணவைப் பற்றிய எந்தத் தகவல் உங்களுக்கு மிகவும் முக்கியமானது என்பதைத் தேர்வுசெய்யவும்.",
+  "myPreferences_food_privacy": "அந்த உணவு விருப்பத்தேர்வுகள் உங்கள் சாதனத்திலேயே இருக்கும், மேலும் உங்களிடம் Open Food Facts பங்களிப்பாளர் கணக்கு இருந்தால் அதனுடன் தொடர்புடையதாக இருக்காது.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
