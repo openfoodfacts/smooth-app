@@ -91,6 +91,7 @@ class ContinuousScanModel with ChangeNotifier {
       _apiBarcodes.clear();
       _latestScannedBarcode = null;
       await refreshProductList();
+      _apiBarcodes.addAll(_productList.apiBarcodes);
       for (final String barcode in _productList.barcodes) {
         _barcodes.add(barcode);
         _states[barcode] = ScannedProductState.CACHED;
@@ -118,7 +119,7 @@ class ContinuousScanModel with ChangeNotifier {
   /// key): for GS1 barcodes this is the full raw string, otherwise the key
   /// itself.
   String _getApiBarcode(final String barcode) =>
-      _apiBarcodes[barcode] ?? barcode;
+      _apiBarcodes[barcode] ?? _productList.getApiBarcode(barcode) ?? barcode;
 
   /// Adds a barcode
   /// Will return [true] if this barcode is successfully added
@@ -301,7 +302,11 @@ class ContinuousScanModel with ChangeNotifier {
   ) async {
     if (_latestFoundBarcode != barcode) {
       _latestFoundBarcode = barcode;
-      await _daoProductList.push(productList, _latestFoundBarcode!);
+      await _daoProductList.push(
+        productList,
+        _latestFoundBarcode!,
+        apiBarcode: _getApiBarcode(barcode),
+      );
       await _daoProductList.push(_scanHistory, _latestFoundBarcode!);
       await _daoProductList.push(_history, _latestFoundBarcode!);
       _daoProductList.localDatabase.notifyListeners();
