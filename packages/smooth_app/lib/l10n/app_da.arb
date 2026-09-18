@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Fødevarepræferencer",
   "myPreferences_food_subtitle": "Vælg, hvilke oplysninger om fødevarer, som betyder mest.",
-  "myPreferences_food_comment": "Vælg de fødevareoplysninger med størst betydning for dig, for at kunne rangere dem efter dine præferencer, se de oplysninger, du finder interessante først, samt få en kompatibilitetsoversigt. Disse fødevarepræferencer forbliver lokale og tilknyttes ikke OpenFoodFacts-bidragsyderkontoen, såfremt du har én.",
+  "myPreferences_food_compatibility_explainer": "Vælg de fødevareoplysninger med størst betydning for dig, for at kunne rangere dem efter dine præferencer, se de oplysninger, du finder interessante først, samt få en kompatibilitetsoversigt.",
+  "myPreferences_food_privacy": "Disse fødevarepræferencer forbliver lokale og tilknyttes ikke OpenFoodFacts-bidragsyderkontoen, såfremt du har én.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
