@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Élelmiszer-preferenciák",
   "myPreferences_food_subtitle": "Válassza ki, hogy mely élelmiszerekkel kapcsolatos információk a legfontosabbak az Ön számára.",
-  "myPreferences_food_comment": "Válassza ki, hogy az élelmiszerekkel kapcsolatban mely információk a legfontosabbak az Ön számára, hogy az élelmiszereket a preferenciái szerint rangsorolja, az Ön számára fontos információkat lássa elsőként, és kapjon egy megfelelőségi összefoglalót. Ezek az élelmiszer-preferenciák az Ön készülékén maradnak, és nem kapcsolódnak az Open Food Facts közreműködői fiókjához, ha rendelkezik ilyennel.",
+  "myPreferences_food_compatibility_explainer": "Válassza ki, hogy az élelmiszerekkel kapcsolatban mely információk a legfontosabbak az Ön számára, hogy az élelmiszereket a preferenciái szerint rangsorolja, az Ön számára fontos információkat lássa elsőként, és kapjon egy megfelelőségi összefoglalót.",
+  "myPreferences_food_privacy": "Ezek az élelmiszer-preferenciák az Ön készülékén maradnak, és nem kapcsolódnak az Open Food Facts közreműködői fiókjához, ha rendelkezik ilyennel.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
