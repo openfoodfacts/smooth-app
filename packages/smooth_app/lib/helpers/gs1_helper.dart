@@ -3,21 +3,6 @@ import 'package:gs1_barcode_parser_plus/gs1_barcode_parser.dart';
 /// GS1 Application Identifier of the Global Trade Item Number (GTIN).
 const String GS1_AI_GTIN = '01';
 
-/// GS1 Application Identifier of the batch/lot number.
-const String GS1_AI_BATCH_LOT = '10';
-
-/// GS1 Application Identifier of the production date.
-const String GS1_AI_PRODUCTION_DATE = '11';
-
-/// GS1 Application Identifier of the best-before date.
-const String GS1_AI_BEST_BEFORE = '15';
-
-/// GS1 Application Identifier of the expiry date.
-const String GS1_AI_EXPIRY = '17';
-
-/// GS1 Application Identifier of the serial number.
-const String GS1_AI_SERIAL = '21';
-
 /// Tries to parse [input] as a GS1 barcode, returning null when it isn't one.
 ///
 /// The underlying parser handles raw GS1 element strings (with optional FNC1
@@ -123,8 +108,7 @@ String fixTraditionalBarcode(final String code) {
   return result;
 }
 
-/// Convenient accessors to the GS1 Application Identifiers most relevant to
-/// the app.
+/// Convenient accessors to the GTIN (AI 01) of a parsed GS1 barcode.
 extension GS1BarcodeHelper on GS1Barcode {
   /// The raw GTIN value (AI 01), or null if not present.
   String? get gtin => getAIRawData(GS1_AI_GTIN);
@@ -144,47 +128,4 @@ extension GS1BarcodeHelper on GS1Barcode {
     }
     return value;
   }
-
-  /// The batch/lot number (AI 10), or null if not present.
-  String? get batchLot => getAIRawData(GS1_AI_BATCH_LOT);
-
-  /// The serial number (AI 21), or null if not present.
-  String? get serial => getAIRawData(GS1_AI_SERIAL);
-
-  /// The production date (AI 11), or null if not present.
-  DateTime? get productionDate => _data(GS1_AI_PRODUCTION_DATE);
-
-  /// The best-before date (AI 15), or null if not present.
-  DateTime? get bestBefore => _data(GS1_AI_BEST_BEFORE);
-
-  /// The expiry date (AI 17), or null if not present.
-  DateTime? get expiry => _data(GS1_AI_EXPIRY);
-
-  /// The net weight in kilograms (AI 3100-3105), or null if not present.
-  double? get netWeightKg {
-    for (int decimals = 0; decimals <= 5; decimals++) {
-      final dynamic value = getAIData('310$decimals');
-      if (value is double) {
-        return value;
-      }
-    }
-    return null;
-  }
-
-  DateTime? _data(final String ai) {
-    final dynamic value = getAIData(ai);
-    if (value is DateTime) {
-      return value;
-    }
-    return null;
-  }
-}
-
-/// Extensions to detect and access GS1 barcodes from a raw string.
-extension GS1StringHelper on String {
-  /// The parsed GS1 barcode, or null if this string is not a GS1 barcode.
-  GS1Barcode? get gs1Barcode => tryParseGs1Barcode(this);
-
-  /// Whether this string is a parseable GS1 barcode.
-  bool get isGs1Barcode => gs1Barcode != null;
 }

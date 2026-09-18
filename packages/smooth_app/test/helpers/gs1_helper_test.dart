@@ -40,7 +40,7 @@ void main() {
       expect(barcode.hasAI(GS1_AI_GTIN), isTrue);
       expect(barcode.gtin, '04260392550101');
       expect(barcode.normalizedGtin, '4260392550101');
-      expect(barcode.expiry, DateTime(2027, 1, 1));
+      expect(barcode.hasAI('17'), isTrue);
     });
 
     test('Raw element string with GS separators', () {
@@ -50,8 +50,8 @@ void main() {
       expect(parsed, isNotNull);
       final GS1Barcode barcode = parsed!;
       expect(barcode.normalizedGtin, '4260392550101');
-      expect(barcode.expiry, DateTime(2027, 1, 1));
-      expect(barcode.batchLot, 'ABC123');
+      expect(barcode.hasAI('17'), isTrue);
+      expect(barcode.hasAI('10'), isTrue);
     });
 
     test('Raw element string with FNC1 prefix', () {
@@ -75,7 +75,7 @@ void main() {
         '0104260392550101\x1D21ABC-123',
       );
       expect(barcode, isNotNull);
-      expect(barcode!.serial, 'ABC-123');
+      expect(barcode!.hasAI('21'), isTrue);
     });
 
     test('Raw element string with net weight', () {
@@ -83,7 +83,7 @@ void main() {
         '0104260392550101172601013103000526',
       );
       expect(barcode, isNotNull);
-      expect(barcode!.netWeightKg, 0.526);
+      expect(barcode!.hasAI('3103'), isTrue);
     });
 
     test('GTIN-14 without leading zero is kept as-is', () {
@@ -101,7 +101,7 @@ void main() {
       expect(parsed, isNotNull);
       final GS1Barcode barcode = parsed!;
       expect(barcode.normalizedGtin, '4260392550101');
-      expect(barcode.expiry, DateTime(2027, 1, 1));
+      expect(barcode.hasAI('17'), isTrue);
     });
   });
 
@@ -113,7 +113,7 @@ void main() {
       expect(parsed, isNotNull);
       final GS1Barcode barcode = parsed!;
       expect(barcode.normalizedGtin, '4260392550101');
-      expect(barcode.expiry, DateTime(2027, 1, 1));
+      expect(barcode.hasAI('17'), isTrue);
     });
   });
 
@@ -183,20 +183,6 @@ void main() {
 
     test('Keeps EAN-13 unchanged', () {
       expect(fixTraditionalBarcode('7622210631111'), '7622210631111');
-    });
-  });
-
-  group('GS1StringHelper', () {
-    test('isGs1Barcode is true for GS1 barcodes', () {
-      expect('010426039255010117270101'.isGs1Barcode, isTrue);
-    });
-
-    test('isGs1Barcode is false for traditional barcodes', () {
-      expect('7622210631111'.isGs1Barcode, isFalse);
-    });
-
-    test('gs1Barcode getter parses the string', () {
-      expect('010426039255010117270101'.gs1Barcode, isNotNull);
     });
   });
 }

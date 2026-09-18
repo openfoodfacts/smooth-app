@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gs1_barcode_parser_plus/gs1_barcode_parser.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -40,10 +39,6 @@ class ContinuousScanModel with ChangeNotifier {
   /// For GS1 barcodes, maps the local key (normalized GTIN) to the raw value
   /// sent to the API.
   final Map<String, String> _apiBarcodes = <String, String>{};
-
-  /// For GS1 barcodes, maps the local key (normalized GTIN) to the parsed GS1
-  /// barcode, when the scanned value was a GS1 barcode.
-  final Map<String, GS1Barcode> _gs1Barcodes = <String, GS1Barcode>{};
 
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
@@ -94,7 +89,6 @@ class ContinuousScanModel with ChangeNotifier {
       _barcodes.clear();
       _states.clear();
       _apiBarcodes.clear();
-      _gs1Barcodes.clear();
       _latestScannedBarcode = null;
       await refreshProductList();
       for (final String barcode in _productList.barcodes) {
@@ -119,10 +113,6 @@ class ContinuousScanModel with ChangeNotifier {
 
   ScannedProductState? getBarcodeState(final String barcode) =>
       _states[barcode];
-
-  /// Returns the parsed [GS1Barcode] associated with [barcode] (its
-  /// normalized GTIN key), or null if the barcode wasn't a GS1 barcode.
-  GS1Barcode? getGs1Barcode(final String barcode) => _gs1Barcodes[barcode];
 
   /// Returns the raw barcode to send to the API for [barcode] (its normalized
   /// key): for GS1 barcodes this is the full raw string, otherwise the key
@@ -162,14 +152,11 @@ class ContinuousScanModel with ChangeNotifier {
     return _addBarcode(normalized.key);
   }
 
-  /// Normalizes [code] and stores the mappings needed to resolve the API
+  /// Normalizes [code] and stores the mapping needed to resolve the API
   /// barcode later on.
   NormalizedBarcode _normalizeAndStore(final String code) {
     final NormalizedBarcode normalized = normalizeScannedBarcode(code);
     _apiBarcodes[normalized.key] = normalized.apiBarcode;
-    if (normalized.gs1Barcode != null) {
-      _gs1Barcodes[normalized.key] = normalized.gs1Barcode!;
-    }
     return normalized;
   }
 
@@ -333,7 +320,6 @@ class ContinuousScanModel with ChangeNotifier {
     _barcodes.remove(barcode);
     _states.remove(barcode);
     _apiBarcodes.remove(barcode);
-    _gs1Barcodes.remove(barcode);
 
     if (barcode == _latestScannedBarcode) {
       _latestScannedBarcode = null;
