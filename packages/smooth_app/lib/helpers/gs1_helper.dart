@@ -31,6 +31,10 @@ GS1Barcode? tryParseGs1Barcode(final String input) {
     normalized = normalized.substring(1);
   }
 
+  // Some scanners output U+241D ("symbol for FNC1") instead of the GS
+  // separator: normalize it before parsing.
+  normalized = normalized.replaceAll('\u241D', '\x1D');
+
   if (normalized.isEmpty) {
     return null;
   }
@@ -39,7 +43,12 @@ GS1Barcode? tryParseGs1Barcode(final String input) {
     return GS1BarcodeParser.defaultParser().parse(normalized);
   } on GS1Exception catch (_) {
     // The parser only throws GS1Exception subclasses (GS1ParseException,
-    // GS1DataException). We return null for any parsing failure.
+    // GS1DataException) for invalid data. We return null for any failure.
+    return null;
+  } on RangeError catch (_) {
+    // The parser does not guard short inputs when identifying AIs
+    // (unconditional substring(0, 3) and substring(0, 4)): 2-3 character
+    // inputs that are not barcodes throw a RangeError instead.
     return null;
   }
 }

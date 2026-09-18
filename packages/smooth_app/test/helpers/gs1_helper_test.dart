@@ -30,6 +30,21 @@ void main() {
       'Non numeric string',
       () => expect(tryParseGs1Barcode('ABCD'), isNull),
     );
+
+    test(
+      'Very short string (2 chars)',
+      () => expect(tryParseGs1Barcode('AB'), isNull),
+    );
+
+    test(
+      'Very short string (3 chars)',
+      () => expect(tryParseGs1Barcode('ABC'), isNull),
+    );
+
+    test(
+      'Floating point number string',
+      () => expect(tryParseGs1Barcode('12345678.90'), isNull),
+    );
   });
 
   group('tryParseGs1Barcode - GS1 raw element strings', () {
