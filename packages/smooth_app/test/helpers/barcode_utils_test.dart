@@ -109,13 +109,13 @@ void main() {
     );
 
     test(
-      'Bracketed format with missing closing bracket still parses as GS1',
-      () => expect('(01)04044782317112(17270101'.isBarcode, isTrue),
+      'Invalid bracketed format - missing closing bracket',
+      () => expect('(01)04044782317112(17270101'.isBarcode, isFalse),
     );
 
     test(
-      'Bracketed format with missing opening bracket still parses as GS1',
-      () => expect('01)04044782317112(17)270101'.isBarcode, isTrue),
+      'Invalid bracketed format - missing opening bracket',
+      () => expect('01)04044782317112(17)270101'.isBarcode, isFalse),
     );
 
     test(
@@ -129,8 +129,8 @@ void main() {
     );
 
     test(
-      'Single digit bracketed value parses as GS1 data',
-      () => expect('(1)04044782317112'.isBarcode, isTrue),
+      'Invalid bracketed format - single digit AI',
+      () => expect('(1)04044782317112'.isBarcode, isFalse),
     );
 
     test(
@@ -247,8 +247,8 @@ void main() {
     test('String with tabs', () => expect('12345\t678'.isBarcode, isFalse));
 
     test(
-      'Mixed format - numeric followed by bracketed AI parses as GS1',
-      () => expect('12345678(01)12345678901234'.isBarcode, isTrue),
+      'Mixed format - numeric followed by bracketed',
+      () => expect('12345678(01)12345678901234'.isBarcode, isFalse),
     );
 
     test(

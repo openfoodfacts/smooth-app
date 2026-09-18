@@ -194,7 +194,14 @@ class ProductList {
 
   List<String> get barcodes => _barcodes;
 
-  Map<String, String> get apiBarcodes => _apiBarcodes;
+  /// Maps normalized barcodes to the full values sent to the API (e.g. raw
+  /// GS1 strings).
+  ///
+  /// Only the scan session and the history lists carry these mappings. Other
+  /// lists (including user-created ones) are keyed by normalized product
+  /// codes and query the API with them. The returned map is unmodifiable.
+  Map<String, String> get apiBarcodes =>
+      Map<String, String>.unmodifiable(_apiBarcodes);
 
   String? getApiBarcode(final String barcode) => _apiBarcodes[barcode];
 

@@ -128,7 +128,7 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
 
-    final NormalizedBarcode normalized = _normalizeAndStore(code);
+    final NormalizedBarcode normalized = normalizeScannedBarcode(code);
     final String barcode = normalized.key;
     if (barcode.length < 4) {
       return false;
@@ -141,6 +141,11 @@ class ContinuousScanModel with ChangeNotifier {
 
     AnalyticsHelper.trackEvent(AnalyticsEvent.scanAction, barcode: barcode);
 
+    // Only store the API barcode once the deduplication gate above has
+    // passed, so that rescanning the same product with different Application
+    // Identifiers does not overwrite the raw value already stored.
+    _storeApiBarcode(normalized);
+
     _latestScannedBarcode = barcode;
     return _addBarcode(barcode);
   }
@@ -149,16 +154,14 @@ class ContinuousScanModel with ChangeNotifier {
     if (barcode == null) {
       return false;
     }
-    final NormalizedBarcode normalized = _normalizeAndStore(barcode);
+    final NormalizedBarcode normalized = normalizeScannedBarcode(barcode);
+    _storeApiBarcode(normalized);
     return _addBarcode(normalized.key);
   }
 
-  /// Normalizes [code] and stores the mapping needed to resolve the API
-  /// barcode later on.
-  NormalizedBarcode _normalizeAndStore(final String code) {
-    final NormalizedBarcode normalized = normalizeScannedBarcode(code);
+  /// Stores the mapping needed to resolve the API barcode later on.
+  void _storeApiBarcode(final NormalizedBarcode normalized) {
     _apiBarcodes[normalized.key] = normalized.apiBarcode;
-    return normalized;
   }
 
   Future<void> retryBarcodeFetch(String barcode) async {
@@ -302,13 +305,22 @@ class ContinuousScanModel with ChangeNotifier {
   ) async {
     if (_latestFoundBarcode != barcode) {
       _latestFoundBarcode = barcode;
+      final String apiBarcode = _getApiBarcode(barcode);
       await _daoProductList.push(
         productList,
         _latestFoundBarcode!,
-        apiBarcode: _getApiBarcode(barcode),
+        apiBarcode: apiBarcode,
       );
-      await _daoProductList.push(_scanHistory, _latestFoundBarcode!);
-      await _daoProductList.push(_history, _latestFoundBarcode!);
+      await _daoProductList.push(
+        _scanHistory,
+        _latestFoundBarcode!,
+        apiBarcode: apiBarcode,
+      );
+      await _daoProductList.push(
+        _history,
+        _latestFoundBarcode!,
+        apiBarcode: apiBarcode,
+      );
       _daoProductList.localDatabase.notifyListeners();
     }
     _setBarcodeState(barcode, state);

@@ -35,7 +35,7 @@ class _BarcodeList {
         LocalDatabase.nowInMillis(),
         productList.barcodes,
         productList.totalSize,
-        productList.apiBarcodes,
+        Map<String, String>.of(productList.apiBarcodes),
       );
 
   /// Freshness indicator: last time the list was updated.
@@ -205,6 +205,9 @@ class DaoProductList extends AbstractDao {
   /// One barcode duplicate is potentially removed:
   /// * If the barcode was already there, it's moved to the end of the list.
   /// * If the barcode wasn't there, it's added to the end of the list.
+  ///
+  /// [apiBarcode] is the full value sent to the API (e.g. the raw GS1
+  /// string); when null or equal to [barcode], no mapping is stored.
   Future<void> push(
     final ProductList productList,
     final String barcode, {
