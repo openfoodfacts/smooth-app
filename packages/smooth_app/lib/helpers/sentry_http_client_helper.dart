@@ -73,8 +73,11 @@ class _SentryWrappedHttpClient implements HttpClient {
       _wrapRequest(() => _innerClient.patchUrl(url), url, 'PATCH');
 
   @override
-  Future<HttpClientRequest> openUrl(String method, Uri url) =>
-      _wrapRequest(() => _innerClient.openUrl(method, url), url, method);
+  Future<HttpClientRequest> openUrl(String method, Uri url) => _wrapRequest(
+    () => _innerClient.openUrl(method, url),
+    url,
+    method.toUpperCase(),
+  );
 
   // Legacy host/port/path family: delegate directly to the inner client.
   // Do NOT round-trip via getUrl(Uri(scheme:..., path: path)) because
