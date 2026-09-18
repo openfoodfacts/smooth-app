@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -22,48 +21,8 @@ void main() {
 
         expect(AnalyticsHelper.debugCrashReportsEnabled, isFalse);
         expect(AnalyticsHelper.isTracingEnabled, isTrue);
-
-        final http.Client client = SentryHttpClientHelper.createClient();
-        expect(client, isA<SentryHttpClient>());
-
-        client.close();
       },
     );
-
-    test('creates standard Client when tracing is disabled', () {
-      AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => false;
-
-      final http.Client client = SentryHttpClientHelper.createClient();
-
-      expect(client, isNotNull);
-      expect(client, isNot(isA<SentryHttpClient>()));
-
-      client.close();
-    });
-
-    test('smoke: creates client with default (disabled) tracing', () {
-      // Without override, isTracingEnabled is false in test env (no UserPreferences)
-      final http.Client client = SentryHttpClientHelper.createClient();
-
-      expect(client, isNotNull);
-      expect(client, isNot(isA<SentryHttpClient>()));
-
-      client.close();
-    });
-
-    test('can create multiple clients', () {
-      AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => false;
-
-      final http.Client client1 = SentryHttpClientHelper.createClient();
-      final http.Client client2 = SentryHttpClientHelper.createClient();
-
-      expect(client1, isNotNull);
-      expect(client2, isNotNull);
-      expect(client1, isNot(same(client2)));
-
-      client1.close();
-      client2.close();
-    });
 
     test(
       'propagates traceparent and finishes span with response status',

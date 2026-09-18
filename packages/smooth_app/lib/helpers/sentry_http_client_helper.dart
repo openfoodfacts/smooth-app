@@ -4,44 +4,24 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 
-/// Helper class for creating HTTP clients with optional Sentry tracing.
+/// Helper for Sentry tracing of `dart:io` HTTP traffic with W3C propagation.
 ///
-/// This class provides factory methods to create HTTP clients that conditionally
-/// enable Sentry tracing based on analytics consent.
+/// NOTE: there is intentionally no `package:http` factory here. The SDK's
+/// [SentryHttpClient] always sends Sentry-proprietary `sentry-trace`/
+/// `baggage` headers, which contradicts this feature's W3C-only intent, and
+/// a creation-time consent check would go stale for cached clients. All
+/// app traffic (including `package:http` `IOClient` and `NetworkImage`)
+/// funnels through `dart:io` `HttpClient` via `HttpOverrides`, so the
+/// per-request path below is the single canonical tracing point.
 class SentryHttpClientHelper {
   const SentryHttpClientHelper._();
 
   @visibleForTesting
   static ISentrySpan? Function(String operation, String description)?
   debugSpanFactory;
-
-  /// Creates an HTTP client that conditionally uses Sentry tracing.
-  ///
-  /// If the user has opted in to analytics, returns a [SentryHttpClient] that
-  /// traces HTTP requests.
-  /// Otherwise, returns a standard [http.Client].
-  ///
-  /// This ensures that no traces are sent to Sentry unless the user has
-  /// explicitly consented to analytics.
-  ///
-  /// NOTE: consent is captured at creation time. There are currently no
-  /// production callers (tests only); if adopted for long-lived/cached
-  /// `package:http` clients, the caller MUST recreate the client after
-  /// analytics preferences change, otherwise toggling takes
-  /// effect only on recreation. For `dart:io` traffic prefer the
-  /// [HttpOverrides] path via [wrapHttpClient], which re-checks consent
-  /// per-request.
-  static http.Client createClient() {
-    if (AnalyticsHelper.isTracingEnabled) {
-      return SentryHttpClient(client: http.Client());
-    } else {
-      return http.Client();
-    }
-  }
 
   /// Wraps a dart:io HttpClient with Sentry tracing.
   ///
