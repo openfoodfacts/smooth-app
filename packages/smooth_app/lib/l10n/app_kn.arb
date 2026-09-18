@@ -1832,7 +1832,7 @@
   "@edit_product_form_item_labels_explanation_info1": {
     "description": "Product edition - Labels - explanation"
   },
-  "edit_product_form_item_labels_explanation_good_examples_1": "Nutri-Score, NOVA…",
+  "edit_product_form_item_labels_explanation_good_examples_1": "ನ್ಯೂಟ್ರಿ-ಸ್ಕೋರ್, NOVA…",
   "@edit_product_form_item_labels_explanation_good_examples_1": {
     "description": "Product edition - Labels - explanation"
   },
@@ -4011,11 +4011,11 @@
   "nutriscore_not_applicable": "Nutri-Score ಅನ್ವಯಿಸುವುದಿಲ್ಲ",
   "nutriscore_not_applicable_new_formula": "Nutri-Score ಅನ್ವಯಿಸುವುದಿಲ್ಲ (ಹೊಸ ಲೆಕ್ಕಾಚಾರ)",
   "environmental_score_generic_new": "Green-Score",
-  "environmental_score_a_new": "Green-Score A",
-  "environmental_score_b_new": "Green-Score B",
-  "environmental_score_c_new": "Green-Score C",
-  "environmental_score_d_new": "Green-Score D",
-  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_a_new": "ಹಸಿರು-ಅಂಕ A",
+  "environmental_score_b_new": "ಗ್ರೀನ್-ಸ್ಕೋರ್ ಬಿ",
+  "environmental_score_c_new": "ಹಸಿರು-ಸ್ಕೋರ್ ಸಿ",
+  "environmental_score_d_new": "ಗ್ರೀನ್-ಸ್ಕೋರ್ ಡಿ",
+  "environmental_score_e_new": "ಗ್ರೀನ್-ಸ್ಕೋರ್ ಇ",
   "environmental_score_unknown_new": "ಅಜ್ಞಾತ Green-Score",
   "environmental_score_not_applicable_new": "Green-Score ಅನ್ವಯಿಸುವುದಿಲ್ಲ",
   "nova_group_generic_new": "ಅತಿ-ಸಂಸ್ಕರಿಸಿದ ಆಹಾರಗಳು - NOVA ಗುಂಪುಗಳು",
@@ -4334,7 +4334,7 @@
   "guide_open_prices_scrapping_paragraph2": "Open Prices ನ ಭವಿಷ್ಯದ ಆವೃತ್ತಿಯಲ್ಲಿ ಪ್ರೈಸ್ ಸ್ಕ್ರ್ಯಾಪಿಂಗ್ ಒಂದು ಪರಿಗಣಿಸಲಾಗುತ್ತದೆ ಆಯ್ಕೆಯಾಗಿದೆ, ಆದರೆ ಇದನ್ನು Open Prices ನಿಂದಲೇ ಮಾಡಲಾಗುತ್ತದೆ ಇದರಿಂದ ನಾವು HTML ಪುಟವನ್ನು ಆಧರಿಸಿ ಬೆಲೆಯ ಪುರಾವೆಯನ್ನು ಪಡೆಯಬಹುದು.",
   "guide_open_prices_retailers_title": "I'm a retailer and I want to contribute prices. How can I do that?",
   "guide_open_prices_retailers_paragraph1": "ನಮ್ಮ API ಬಳಸಿಕೊಂಡು ನೀವು ಬೆಲೆಗಳನ್ನು ಕೊಡುಗೆ ನೀಡಬಹುದು.\nನೀವು ಪ್ರಮಾಣದಲ್ಲಿ ಬೆಲೆಗಳನ್ನು ಕೊಡುಗೆ ನೀಡಲು ಬಯಸಿದರೆ, ದಯವಿಟ್ಟು prices@openfoodfacts.org ನಲ್ಲಿ ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.",
-  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about ಬಗ್ಗೆ",
   "guide_open_products_facts_title": "ಮುಕ್ತ ಉತ್ಪನ್ನಗಳ ಸಂಗತಿಗಳಿಗೆ ಸುಸ್ವಾಗತ!",
   "@guide_open_products_facts_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
@@ -5895,5 +5895,63 @@
         "type": "String"
       }
     }
+  },
+  "donation_page_headline": "Open Food Facts is funded by the people who use it",
+  "@donation_page_headline": {
+    "description": "Headline at the top of the donation page"
+  },
+  "donation_where_it_goes_title": "Where it goes",
+  "@donation_where_it_goes_title": {
+    "description": "Title of the block listing what a donation pays for"
+  },
+  "donation_where_it_goes_servers": "Servers and storage",
+  "@donation_where_it_goes_servers": {
+    "description": "First thing a donation pays for"
+  },
+  "donation_where_it_goes_engineer": "One full-time engineer",
+  "@donation_where_it_goes_engineer": {
+    "description": "Second thing a donation pays for"
+  },
+  "donation_where_it_goes_services": "Services and tooling",
+  "@donation_where_it_goes_services": {
+    "description": "Third thing a donation pays for"
+  },
+  "donation_tiers_title": "Monthly, cancel any time",
+  "@donation_tiers_title": {
+    "description": "Title of the block listing the monthly donation amounts"
+  },
+  "donation_tier_amount_monthly": "{amount} a month",
+  "@donation_tier_amount_monthly": {
+    "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_tier_scans": "pays for {scans} scans",
+  "@donation_tier_scans": {
+    "description": "How many product scans a monthly donation covers, as an approximation",
+    "placeholders": {
+      "scans": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_custom_amount_hint": "Custom amount",
+  "@donation_custom_amount_hint": {
+    "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
+  },
+  "donation_custom_amount_error": "Enter an amount",
+  "@donation_custom_amount_error": {
+    "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
+  },
+  "donation_cta_monthly": "Support monthly",
+  "@donation_cta_monthly": {
+    "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
+  },
+  "donation_cta_one_off": "Give once instead",
+  "@donation_cta_one_off": {
+    "description": "Secondary link of the donation page, opens the donation form for a single gift"
   }
 }

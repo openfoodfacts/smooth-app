@@ -5895,5 +5895,63 @@
         "type": "String"
       }
     }
+  },
+  "donation_page_headline": "Open Food Facts finansieras av människorna som använder det",
+  "@donation_page_headline": {
+    "description": "Headline at the top of the donation page"
+  },
+  "donation_where_it_goes_title": "Vart det går",
+  "@donation_where_it_goes_title": {
+    "description": "Title of the block listing what a donation pays for"
+  },
+  "donation_where_it_goes_servers": "Servrar och lagring",
+  "@donation_where_it_goes_servers": {
+    "description": "First thing a donation pays for"
+  },
+  "donation_where_it_goes_engineer": "En heltidsanställd ingenjör",
+  "@donation_where_it_goes_engineer": {
+    "description": "Second thing a donation pays for"
+  },
+  "donation_where_it_goes_services": "Tjänster och verktyg",
+  "@donation_where_it_goes_services": {
+    "description": "Third thing a donation pays for"
+  },
+  "donation_tiers_title": "Månadsvis, säg upp när som helst",
+  "@donation_tiers_title": {
+    "description": "Title of the block listing the monthly donation amounts"
+  },
+  "donation_tier_amount_monthly": "{amount} i månaden",
+  "@donation_tier_amount_monthly": {
+    "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_tier_scans": "betalar för {scans} skanningar",
+  "@donation_tier_scans": {
+    "description": "How many product scans a monthly donation covers, as an approximation",
+    "placeholders": {
+      "scans": {
+        "type": "String"
+      }
+    }
+  },
+  "donation_custom_amount_hint": "Anpassat belopp",
+  "@donation_custom_amount_hint": {
+    "description": "Hint of the field where a donor types an amount of their own instead of picking one of the offered ones"
+  },
+  "donation_custom_amount_error": "Ange ett belopp",
+  "@donation_custom_amount_error": {
+    "description": "Error shown under the donation amount field when what the donor typed cannot be read as an amount"
+  },
+  "donation_cta_monthly": "Månatlig support",
+  "@donation_cta_monthly": {
+    "description": "Main button of the donation page, opens the donation form with the selected monthly amount"
+  },
+  "donation_cta_one_off": "Ge en gång istället",
+  "@donation_cta_one_off": {
+    "description": "Secondary link of the donation page, opens the donation form for a single gift"
   }
 }
