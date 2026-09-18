@@ -265,6 +265,11 @@ class AnalyticsHelper {
         }
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
+        // Enable W3C Trace Context propagation so outgoing requests carry
+        // the standard `traceparent` header (in addition to Sentry's
+        // `sentry-trace`/`baggage`) for OTel-compatible backends. Our custom
+        // dart:io wrapper mirrors SDK TracingClient behavior manually.
+        ..propagateTraceparent = true
         ..environment =
             '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
     }, appRunner: appRunner);

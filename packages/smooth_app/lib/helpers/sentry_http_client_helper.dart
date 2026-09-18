@@ -199,6 +199,17 @@ class _SentryWrappedHttpClient implements HttpClient {
     return '$method $buffer';
   }
 
+  /// Formats a W3C Trace Context `traceparent` value from a Sentry trace.
+  ///
+  /// Mirrors SDK `formatAsW3CHeader`: `00-{traceId}-{spanId}-{flag}` where
+  /// flag is `01` when sampled, else `00`. Requires
+  /// `SentryOptions.propagateTraceparent` (enabled in `initSentry`).
+  static String _w3cTraceparentValue(SentryTraceHeader traceHeader) {
+    final String sampledBit =
+        traceHeader.sampled != null && traceHeader.sampled! ? '01' : '00';
+    return '00-${traceHeader.traceId}-${traceHeader.spanId}-$sampledBit';
+  }
+
   Future<HttpClientRequest> _wrapRequest(
     Future<HttpClientRequest> Function() requestFactory,
     Uri url,
@@ -219,17 +230,20 @@ class _SentryWrappedHttpClient implements HttpClient {
       final HttpClientRequest request = await requestFactory();
 
       // Propagate distributed-tracing headers so backends can correlate
-      // spans. Uses only public Sentry API (span.toSentryTrace /
-      // toBaggageHeader). Matches the SDK default tracePropagationTargets
-      // of ['.*'] (propagate everywhere); custom targets and scope-based
-      // propagation (no active span) are intentionally not read here because
-      // Sentry.currentHub/options/scope are @internal in sentry 9.26 and
-      // trip invalid_use_of_internal_member under --fatal-warnings.
-      // Never breaks the request on failure.
+      // spans. Mirrors SDK TracingClient with propagateTraceparent enabled:
+      // W3C `traceparent` (standard, for OTel-compatible backends) plus
+      // Sentry's `sentry-trace`/`baggage` (for Sentry). Uses only public
+      // Sentry API (span.toSentryTrace / toBaggageHeader). Matches the SDK
+      // default tracePropagationTargets of ['.*'] (propagate everywhere);
+      // custom targets and scope-based propagation (no active span) are
+      // intentionally not read here because Sentry.currentHub/options/scope
+      // are @internal in sentry 9.26 and trip invalid_use_of_internal_member
+      // under --fatal-warnings. Never breaks the request on failure.
       if (span != null) {
         try {
           final SentryTraceHeader traceHeader = span.toSentryTrace();
           request.headers.set(traceHeader.name, traceHeader.value);
+          request.headers.set('traceparent', _w3cTraceparentValue(traceHeader));
           final SentryBaggageHeader? baggage = span.toBaggageHeader();
           if (baggage != null) {
             request.headers.set(baggage.name, baggage.value);
