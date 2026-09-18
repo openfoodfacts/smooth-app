@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Roghanna Bia",
   "myPreferences_food_subtitle": "Roghnaigh cén fhaisnéis faoi bhia is tábhachtaí duit.",
-  "myPreferences_food_comment": "Roghnaigh an fhaisnéis faoi bhia is tábhachtaí duit, chun bia a rangú de réir do chuid sainroghanna, an fhaisnéis is tábhachtaí duit a fheiceáil ar dtús, agus achoimre comhoiriúnachta a fháil. Fanann na roghanna bia sin ar do ghléas, agus níl siad bainteach le do chuntas rannpháirtí Open Food Facts má tá ceann agat.",
+  "myPreferences_food_compatibility_explainer": "Roghnaigh an fhaisnéis faoi bhia is tábhachtaí duit, chun bia a rangú de réir do chuid sainroghanna, an fhaisnéis is tábhachtaí duit a fheiceáil ar dtús, agus achoimre comhoiriúnachta a fháil.",
+  "myPreferences_food_privacy": "Fanann na roghanna bia sin ar do ghléas, agus níl siad bainteach le do chuntas rannpháirtí Open Food Facts má tá ceann agat.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
