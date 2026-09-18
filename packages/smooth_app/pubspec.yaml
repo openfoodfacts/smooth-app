@@ -108,6 +108,12 @@ dependencies:
   # openfoodfacts:
   #   path: ../../../openfoodfacts-dart
 
+  # Local parsing of GS1 barcodes (GS1 Sunrise 2027 support)
+  gs1_barcode_parser_plus:
+    git:
+      url: https://github.com/AlbusKavaliro/gs1_barcode_parser.git
+      ref: dev
+
 dev_dependencies:
   integration_test:
     sdk: flutter

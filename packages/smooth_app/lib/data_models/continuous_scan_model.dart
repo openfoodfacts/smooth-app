@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
+import 'package:gs1_barcode_parser_plus/gs1_barcode_parser.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/data_models/product_list.dart';
@@ -11,6 +12,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/helpers/gs1_helper.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
@@ -34,6 +36,14 @@ class ContinuousScanModel with ChangeNotifier {
   final ProductList _productList = ProductList.scanSession();
   final ProductList _scanHistory = ProductList.scanHistory();
   final ProductList _history = ProductList.history();
+
+  /// For GS1 barcodes, maps the local key (normalized GTIN) to the raw value
+  /// sent to the API.
+  final Map<String, String> _apiBarcodes = <String, String>{};
+
+  /// For GS1 barcodes, maps the local key (normalized GTIN) to the parsed GS1
+  /// barcode, when the scanned value was a GS1 barcode.
+  final Map<String, GS1Barcode> _gs1Barcodes = <String, GS1Barcode>{};
 
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
@@ -83,6 +93,8 @@ class ContinuousScanModel with ChangeNotifier {
       _latestFoundBarcode = null;
       _barcodes.clear();
       _states.clear();
+      _apiBarcodes.clear();
+      _gs1Barcodes.clear();
       _latestScannedBarcode = null;
       await refreshProductList();
       for (final String barcode in _productList.barcodes) {
@@ -108,6 +120,16 @@ class ContinuousScanModel with ChangeNotifier {
   ScannedProductState? getBarcodeState(final String barcode) =>
       _states[barcode];
 
+  /// Returns the parsed [GS1Barcode] associated with [barcode] (its
+  /// normalized GTIN key), or null if the barcode wasn't a GS1 barcode.
+  GS1Barcode? getGs1Barcode(final String barcode) => _gs1Barcodes[barcode];
+
+  /// Returns the raw barcode to send to the API for [barcode] (its normalized
+  /// key): for GS1 barcodes this is the full raw string, otherwise the key
+  /// itself.
+  String _getApiBarcode(final String barcode) =>
+      _apiBarcodes[barcode] ?? barcode;
+
   /// Adds a barcode
   /// Will return [true] if this barcode is successfully added
   Future<bool> onScan(String? code) async {
@@ -115,27 +137,40 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
 
-    code = _fixBarcodeIfNecessary(code);
-    if (code.length < 4) {
+    final NormalizedBarcode normalized = _normalizeAndStore(code);
+    final String barcode = normalized.key;
+    if (barcode.length < 4) {
       return false;
     }
 
-    if (_latestScannedBarcode == code || _barcodes.contains(code)) {
-      lastConsultedBarcode = code;
+    if (_latestScannedBarcode == barcode || _barcodes.contains(barcode)) {
+      lastConsultedBarcode = barcode;
       return false;
     }
 
-    AnalyticsHelper.trackEvent(AnalyticsEvent.scanAction, barcode: code);
+    AnalyticsHelper.trackEvent(AnalyticsEvent.scanAction, barcode: barcode);
 
-    _latestScannedBarcode = code;
-    return _addBarcode(code);
+    _latestScannedBarcode = barcode;
+    return _addBarcode(barcode);
   }
 
   Future<bool> onCreateProduct(String? barcode) async {
     if (barcode == null) {
       return false;
     }
-    return _addBarcode(barcode);
+    final NormalizedBarcode normalized = _normalizeAndStore(barcode);
+    return _addBarcode(normalized.key);
+  }
+
+  /// Normalizes [code] and stores the mappings needed to resolve the API
+  /// barcode later on.
+  NormalizedBarcode _normalizeAndStore(final String code) {
+    final NormalizedBarcode normalized = normalizeScannedBarcode(code);
+    _apiBarcodes[normalized.key] = normalized.apiBarcode;
+    if (normalized.gs1Barcode != null) {
+      _gs1Barcodes[normalized.key] = normalized.gs1Barcode!;
+    }
+    return normalized;
   }
 
   Future<void> retryBarcodeFetch(String barcode) async {
@@ -181,10 +216,11 @@ class ContinuousScanModel with ChangeNotifier {
   Future<bool> _cachedBarcode(final String barcode) async {
     final Product? product = await _daoProduct.get(barcode);
     if (product != null) {
+      final String apiBarcode = _getApiBarcode(barcode);
       try {
         // We try to load the fresh copy of product from the server
         final FetchedProduct fetchedProduct = await _queryBarcode(
-          barcode,
+          apiBarcode,
         ).timeout(SnackBarDuration.long);
         if (fetchedProduct.product != null) {
           if (fetchedProduct.isValid) {
@@ -219,7 +255,9 @@ class ContinuousScanModel with ChangeNotifier {
       ).getFetchedProduct();
 
   Future<void> _loadBarcode(final String barcode) async {
-    final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
+    final FetchedProduct fetchedProduct = await _queryBarcode(
+      _getApiBarcode(barcode),
+    );
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
         if (fetchedProduct.isValid) {
@@ -244,7 +282,9 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<void> _updateBarcode(final String barcode) async {
-    final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
+    final FetchedProduct fetchedProduct = await _queryBarcode(
+      _getApiBarcode(barcode),
+    );
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
         if (fetchedProduct.isValid) {
@@ -292,6 +332,8 @@ class ContinuousScanModel with ChangeNotifier {
 
     _barcodes.remove(barcode);
     _states.remove(barcode);
+    _apiBarcodes.remove(barcode);
+    _gs1Barcodes.remove(barcode);
 
     if (barcode == _latestScannedBarcode) {
       _latestScannedBarcode = null;
@@ -303,18 +345,6 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> refresh() async {
     await _refresh();
     notifyListeners();
-  }
-
-  /// Sometimes the scanner may fail, this is a simple fix for now
-  /// But could be improved in the future
-  String _fixBarcodeIfNecessary(String code) {
-    code = code.replaceAll('-', '').trim();
-
-    if (code.length == 12) {
-      return '0$code';
-    } else {
-      return code;
-    }
   }
 
   /// Whether we can show the user an interface to compare products
