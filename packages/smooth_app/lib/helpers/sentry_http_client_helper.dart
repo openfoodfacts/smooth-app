@@ -205,16 +205,20 @@ class _SentryWrappedHttpClient implements HttpClient {
       return requestFactory();
     }
 
-    // Start a Sentry span for this request (sanitized: no query/fragment/userinfo).
-    final String description = sanitizedDescription(method, url);
-    final ISentrySpan? span =
-        SentryHttpClientHelper.debugSpanFactory?.call(
-          'http.client',
-          description,
-        ) ??
-        Sentry.getSpan()?.startChild('http.client', description: description);
-
+    // Declared outside the try so the catch below can reference it; stays
+    // null when span creation itself throws, degrading to an untraced
+    // request instead of breaking the image/API call it observes.
+    ISentrySpan? span;
     try {
+      // Start a Sentry span for this request (sanitized: no query/fragment/userinfo).
+      final String description = sanitizedDescription(method, url);
+      span =
+          SentryHttpClientHelper.debugSpanFactory?.call(
+            'http.client',
+            description,
+          ) ??
+          Sentry.getSpan()?.startChild('http.client', description: description);
+
       final HttpClientRequest request = await requestFactory();
 
       // Propagate W3C Trace Context only (`traceparent`). This is a new
