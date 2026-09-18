@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "Vous n'avez encore défini aucune préférence.",
   "myPreferences_food_title": "Préférences alimentaires",
   "myPreferences_food_subtitle": "Choisissez les informations sur la nourriture qui vous importent le plus.",
-  "myPreferences_food_comment": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité. Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
+  "myPreferences_food_compatibility_explainer": "Choisissez les informations sur les aliments qui vous intéressent le plus, afin de classer les aliments en fonction de vos préférences, de voir les informations qui vous intéressent en premier et d'obtenir un résumé de compatibilité.",
+  "myPreferences_food_privacy": "Ces préférences alimentaires restent sur votre appareil et ne sont pas associées à votre compte contributeur Open Food Facts si vous en avez un.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Préférences en matière de cosmétiques",
   "myPreferences_beauty_subtitle": "Choisissez les informations sur les produits cosmétiques qui vous importent le plus.",
   "myPreferences_product_title": "Préférences pour d'autres produits",
