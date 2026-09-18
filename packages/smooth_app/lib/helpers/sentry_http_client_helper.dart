@@ -244,9 +244,13 @@ class _SentryWrappedHttpClient implements HttpClient {
       // Wrap the request to finish the span when done
       return _SentryWrappedHttpClientRequest(request, span);
     } catch (e) {
-      span?.throwable = e;
-      span?.status = const SpanStatus.internalError();
-      await span?.finish();
+      try {
+        span?.throwable = e;
+        span?.status = const SpanStatus.internalError();
+        await span?.finish();
+      } catch (_) {
+        // Never mask the original request error with a tracing error.
+      }
       rethrow;
     }
   }
@@ -377,8 +381,16 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
       );
       return response;
     } catch (e) {
-      _span?.throwable = e;
-      await _finishWithStatus(const SpanStatus.internalError());
+      // Don't mutate an already-finished span, and never mask the original
+      // network error with a tracing error.
+      if (!_spanFinished) {
+        _span?.throwable = e;
+      }
+      try {
+        await _finishWithStatus(const SpanStatus.internalError());
+      } catch (_) {
+        // Never mask the original network error with a tracing error.
+      }
       rethrow;
     }
   }
@@ -461,8 +473,16 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
       );
       return response;
     } catch (e) {
-      _span?.throwable = e;
-      await _finishWithStatus(const SpanStatus.internalError());
+      // Don't mutate an already-finished span, and never mask the original
+      // network error with a tracing error.
+      if (!_spanFinished) {
+        _span?.throwable = e;
+      }
+      try {
+        await _finishWithStatus(const SpanStatus.internalError());
+      } catch (_) {
+        // Never mask the original network error with a tracing error.
+      }
       rethrow;
     }
   }
