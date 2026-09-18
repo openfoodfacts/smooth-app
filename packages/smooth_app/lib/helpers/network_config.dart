@@ -20,8 +20,18 @@ Future<void> setupAppNetworkConfig() async {
 /// This sets up a custom HttpOverrides that intercepts ALL HTTP requests
 /// (including NetworkImage, http.get, etc.) and conditionally enables
 /// Sentry tracing based on user consent.
+///
+/// Preserves any existing [HttpOverrides.global] (e.g. set by tests or
+/// plugins) by chaining to it instead of clobbering. The previous overrides
+/// are captured immutably per-instance (not in a mutable top-level) so a
+/// later replacement of [HttpOverrides.global] cannot silently corrupt the
+/// chain; re-call [_initHttpOverrides] after such replacement to re-chain.
 void _initHttpOverrides() {
-  HttpOverrides.global = _SentryHttpOverrides();
+  final HttpOverrides? existing = HttpOverrides.global;
+  if (existing is _SentryHttpOverrides) {
+    return;
+  }
+  HttpOverrides.global = _SentryHttpOverrides(previous: existing);
 }
 
 String _getUuidId() {
@@ -88,6 +98,10 @@ String _getAppInfoComment({
   return appInfo;
 }
 
+/// Cached Android SDK int for use in sync [HttpOverrides.createHttpClient].
+/// Null on non-Android or before [_importSSLCertificate] has run.
+int? _cachedAndroidSdkInt;
+
 /// Imports the OFF SSL certificate (for Android 7.1+ / iOS devices)
 /// or accepts all certificates
 Future<void> _importSSLCertificate() async {
@@ -95,13 +109,7 @@ Future<void> _importSSLCertificate() async {
     await dip.loadLibrary();
     final int sdkInt =
         (await dip.DeviceInfoPlugin().androidInfo).version.sdkInt;
-
-    // API Level 25 is Android 7.1
-    // Note: For Android 7.1-, we need to combine SSL certificate handling
-    // with Sentry tracing in _SentryHttpOverrides
-    if (sdkInt < 25) {
-      // The _SentryHttpOverrides will handle both SSL and tracing
-    }
+    _cachedAndroidSdkInt = sdkInt;
   }
 
   final ByteData data = await PlatformAssetBundle().load(
@@ -113,6 +121,21 @@ Future<void> _importSSLCertificate() async {
   );
 }
 
+/// Returns true for trusted OFF hosts.
+///
+/// Previously checked with `host.contains('openfoodfacts.org')`, which also
+/// matched `evil-openfoodfacts.org` or `openfoodfacts.org.evil.com`.
+/// DNS names are case-insensitive and may carry a trailing-dot FQDN form
+/// (`openfoodfacts.org.`), so normalize both before comparison.
+bool _isTrustedOFFHost(String host) {
+  String normalized = host.toLowerCase();
+  if (normalized.endsWith('.')) {
+    normalized = normalized.substring(0, normalized.length - 1);
+  }
+  return normalized == 'openfoodfacts.org' ||
+      normalized.endsWith('.openfoodfacts.org');
+}
+
 /// Custom HttpOverrides that combines SSL certificate handling with Sentry tracing.
 ///
 /// This intercepts ALL HTTP requests in the app, including:
@@ -122,15 +145,32 @@ Future<void> _importSSLCertificate() async {
 ///
 /// It wraps the HttpClient with Sentry tracing when user has opted in.
 class _SentryHttpOverrides extends HttpOverrides {
+  _SentryHttpOverrides({HttpOverrides? previous}) : _previous = previous;
+
+  final HttpOverrides? _previous;
+
   @override
   HttpClient createHttpClient(SecurityContext? context) {
-    final HttpClient client = super.createHttpClient(context);
+    final HttpClient client =
+        _previous?.createHttpClient(context) ?? super.createHttpClient(context);
 
-    // Handle SSL certificates for Android 7.1-
-    if (Platform.isAndroid) {
+    // Only for Android 7.1 and below (API <25) fall back to permissive
+    // callback for OFF hosts. Modern Android uses default validation +
+    // the custom CA added via setTrustedCertificatesBytes.
+    // _cachedAndroidSdkInt is set during _importSSLCertificate; before that
+    // (early HttpClients) default to strict validation (null => 25).
+    //
+    // NOTE: dart:io HttpClient exposes badCertificateCallback as setter-only
+    // (no getter in Dart 3.44.8 lib/_http/http.dart), so a callback installed
+    // by [_previous] cannot be read back and chained via
+    // `previous(...) || _isTrustedOFFHost(...)`. On legacy Android the OFF
+    // fallback therefore supersedes any previous callback; this is acceptable
+    // because the legacy path only runs on Android 7.1- (tests/host never hit
+    // it) and strict validation remains the default everywhere else.
+    if (Platform.isAndroid && (_cachedAndroidSdkInt ?? 25) < 25) {
       client.badCertificateCallback =
           (X509Certificate cert, String host, int port) =>
-              host.contains('openfoodfacts.org');
+              _isTrustedOFFHost(host);
     }
 
     // Wrap with Sentry tracing if enabled

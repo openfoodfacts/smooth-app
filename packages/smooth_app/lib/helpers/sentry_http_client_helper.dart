@@ -1,3 +1,5 @@
+// dart:convert is required for Encoding type on HttpClientRequest.encoding
+import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
@@ -20,9 +22,17 @@ class SentryHttpClientHelper {
   ///
   /// This ensures that no traces are sent to Sentry unless the user
   /// has explicitly consented to both types of data collection.
+  ///
+  /// NOTE: consent is captured at creation time. There are currently no
+  /// production callers (tests only); if adopted for long-lived/cached
+  /// `package:http` clients, the caller MUST recreate the client after
+  /// analytics/crash-reporting preferences change, otherwise toggling takes
+  /// effect only on recreation. For `dart:io` traffic prefer the
+  /// [HttpOverrides] path via [wrapHttpClient], which re-checks consent
+  /// per-request.
   static http.Client createClient() {
     if (AnalyticsHelper.isTracingEnabled) {
-      return SentryHttpClient();
+      return SentryHttpClient(client: http.Client());
     } else {
       return http.Client();
     }
@@ -32,13 +42,15 @@ class SentryHttpClientHelper {
   ///
   /// This is used by HttpOverrides to intercept ALL HTTP requests in the app,
   /// including NetworkImage requests and any direct dart:io HttpClient usage.
+  ///
+  /// Always wraps; consent is re-checked per-request inside
+  /// [_SentryWrappedHttpClient._wrapRequest] so opt-out takes effect
+  /// immediately without recreating the cached HttpClient. Note: opt-in
+  /// creates new child spans immediately, but if the parent transaction was
+  /// sampled `0.0` by `tracesSampler` before opt-in, those children stay
+  /// dropped until a new sampled transaction starts (e.g. navigation/restart).
   static HttpClient wrapHttpClient(HttpClient client) {
-    if (AnalyticsHelper.isTracingEnabled) {
-      // Return a custom wrapper that adds Sentry tracing
-      return _SentryWrappedHttpClient(client);
-    } else {
-      return client;
-    }
+    return _SentryWrappedHttpClient(client);
   }
 }
 
@@ -79,29 +91,58 @@ class _SentryWrappedHttpClient implements HttpClient {
   Future<HttpClientRequest> openUrl(String method, Uri url) =>
       _wrapRequest(() => _innerClient.openUrl(method, url), url, method);
 
+  // Legacy host/port/path family: delegate directly to the inner client.
+  // Do NOT round-trip via getUrl(Uri(scheme:..., path: path)) because
+  // Uri(path: path) percent-encodes '?'/'#' while SDK HttpClient.open parses
+  // them as query/fragment separators. Delegating preserves SDK semantics;
+  // _legacyDescUri is for span description only (query/fragment stripped).
   @override
   Future<HttpClientRequest> get(String host, int port, String path) =>
-      getUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.get(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'GET',
+      );
 
   @override
   Future<HttpClientRequest> post(String host, int port, String path) =>
-      postUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.post(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'POST',
+      );
 
   @override
   Future<HttpClientRequest> put(String host, int port, String path) =>
-      putUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.put(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'PUT',
+      );
 
   @override
   Future<HttpClientRequest> delete(String host, int port, String path) =>
-      deleteUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.delete(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'DELETE',
+      );
 
   @override
   Future<HttpClientRequest> head(String host, int port, String path) =>
-      headUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.head(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'HEAD',
+      );
 
   @override
   Future<HttpClientRequest> patch(String host, int port, String path) =>
-      patchUrl(Uri(scheme: 'http', host: host, port: port, path: path));
+      _wrapRequest(
+        () => _innerClient.patch(host, port, path),
+        _legacyDescUri('http', host, port, path),
+        'PATCH',
+      );
 
   @override
   Future<HttpClientRequest> open(
@@ -109,21 +150,109 @@ class _SentryWrappedHttpClient implements HttpClient {
     String host,
     int port,
     String path,
-  ) => openUrl(method, Uri(scheme: 'http', host: host, port: port, path: path));
+  ) => _wrapRequest(
+    () => _innerClient.open(method, host, port, path),
+    _legacyDescUri('http', host, port, path),
+    method.toUpperCase(),
+  );
+
+  /// Builds a description-only Uri for legacy host/port/path calls.
+  ///
+  /// Mirrors SDK `HttpClient.open` parsing: '?' starts query, '#' starts
+  /// fragment. They are stripped here because [sanitizedDescription] never
+  /// sends them to Sentry anyway; the actual request uses the raw [path].
+  static Uri _legacyDescUri(
+    String scheme,
+    String host,
+    int port,
+    String path,
+  ) {
+    String pathPart = path;
+    final int hashIndex = pathPart.indexOf('#');
+    if (hashIndex != -1) {
+      pathPart = pathPart.substring(0, hashIndex);
+    }
+    final int queryIndex = pathPart.indexOf('?');
+    if (queryIndex != -1) {
+      pathPart = pathPart.substring(0, queryIndex);
+    }
+    return Uri(scheme: scheme, host: host, port: port, path: pathPart);
+  }
+
+  /// Returns a sanitized URL for Sentry span descriptions.
+  ///
+  /// Mirrors Sentry's own [HttpSanitizer] convention: strips query, fragment
+  /// and redacts userinfo so PII (search terms, credentials) never lands in
+  /// Sentry. Only scheme://host[:port]/path is kept.
+  static String sanitizedDescription(String method, Uri url) {
+    final StringBuffer buffer = StringBuffer();
+    if (url.scheme.isNotEmpty) {
+      buffer.write('${url.scheme}://');
+    }
+    if (url.userInfo.isNotEmpty) {
+      buffer.write(
+        url.userInfo.contains(':') ? '[Filtered]:[Filtered]@' : '[Filtered]@',
+      );
+    }
+    buffer.write(url.host);
+    if (url.hasPort) {
+      buffer.write(':${url.port}');
+    }
+    if (url.path.isNotEmpty) {
+      buffer.write(url.path);
+    }
+    return '$method $buffer';
+  }
 
   Future<HttpClientRequest> _wrapRequest(
     Future<HttpClientRequest> Function() requestFactory,
     Uri url,
     String method,
   ) async {
-    // Start a Sentry span for this request
+    // Check consent per-request so opt-out is immediate even for cached clients.
+    if (!AnalyticsHelper.isTracingEnabled) {
+      return requestFactory();
+    }
+
+    // Start a Sentry span for this request (sanitized: no query/fragment/userinfo).
     final ISentrySpan? span = Sentry.getSpan()?.startChild(
       'http.client',
-      description: '$method $url',
+      description: sanitizedDescription(method, url),
     );
 
     try {
       final HttpClientRequest request = await requestFactory();
+
+      // Propagate distributed-tracing headers so backends can correlate
+      // spans. Mirrors Sentry's TracingClient: only when the URL matches
+      // tracePropagationTargets, from the child span if present, else from
+      // the scope propagation context. Never breaks the request on failure.
+      if (_shouldPropagateTrace(url)) {
+        try {
+          if (span != null) {
+            final SentryTraceHeader traceHeader = span.toSentryTrace();
+            request.headers.set(traceHeader.name, traceHeader.value);
+            final SentryBaggageHeader? baggage = span.toBaggageHeader();
+            if (baggage != null) {
+              request.headers.set(baggage.name, baggage.value);
+            }
+          } else {
+            final dynamic propagationContext =
+                Sentry.currentHub.scope.propagationContext;
+            final dynamic traceHeader =
+                propagationContext.toSentryTrace() as SentryTraceHeader;
+            request.headers.set(traceHeader.name, traceHeader.value);
+            final dynamic baggage =
+                propagationContext.toBaggageHeader() as SentryBaggageHeader?;
+            if (baggage != null) {
+              request.headers.set(baggage.name, baggage.value);
+            }
+          }
+        } catch (_) {
+          // Tracing must never break the request.
+        }
+      }
+      span?.setData('http.request.method', method);
 
       // Wrap the request to finish the span when done
       return _SentryWrappedHttpClientRequest(request, span);
@@ -133,6 +262,33 @@ class _SentryWrappedHttpClient implements HttpClient {
       await span?.finish();
       rethrow;
     }
+  }
+
+  /// Returns true if [url] matches Sentry's tracePropagationTargets.
+  ///
+  /// Duplicates SDK logic in `containsTargetOrMatchesRegExp`: empty list
+  /// means no propagation; otherwise substring or case-insensitive RegExp
+  /// match. Defaults to `['.*']` (propagate everywhere).
+  static bool _shouldPropagateTrace(Uri url) {
+    final List<String> targets =
+        Sentry.currentHub.options.tracePropagationTargets;
+    if (targets.isEmpty) {
+      return false;
+    }
+    final String urlString = url.toString();
+    for (final String target in targets) {
+      if (urlString.contains(target)) {
+        return true;
+      }
+      try {
+        if (RegExp(target, caseSensitive: false).hasMatch(urlString)) {
+          return true;
+        }
+      } on FormatException {
+        continue;
+      }
+    }
+    return false;
   }
 
   // Delegate all other properties and methods to the inner client
@@ -225,26 +381,51 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
 
   final HttpClientRequest _request;
   final ISentrySpan? _span;
+  bool _spanFinished = false;
+
+  Future<void> _finishWithStatus(SpanStatus status) async {
+    if (_spanFinished) {
+      return;
+    }
+    _spanFinished = true;
+    _span?.status = status;
+    await _span?.finish();
+  }
+
+  // Fire-and-forget for synchronous abort path.
+  // abort() is synchronous by dart:io contract, so the Future from finish()
+  // is intentionally not awaited; unawaited makes that explicit and satisfies
+  // the unawaited_futures lint. Errors from finish() must not break abort().
+  void _finishWithStatusSync(SpanStatus status) {
+    if (_spanFinished) {
+      return;
+    }
+    _spanFinished = true;
+    _span?.status = status;
+    final Future<void>? future = _span?.finish();
+    if (future != null) {
+      unawaited(future.catchError((Object _) {}));
+    }
+  }
 
   @override
   Future<HttpClientResponse> close() async {
     try {
       final HttpClientResponse response = await _request.close();
-      _span?.status = SpanStatus.fromHttpStatusCode(response.statusCode);
-      await _span?.finish();
+      await _finishWithStatus(
+        SpanStatus.fromHttpStatusCode(response.statusCode),
+      );
       return response;
     } catch (e) {
       _span?.throwable = e;
-      _span?.status = const SpanStatus.internalError();
-      await _span?.finish();
+      await _finishWithStatus(const SpanStatus.internalError());
       rethrow;
     }
   }
 
   @override
   void abort([Object? exception, StackTrace? stackTrace]) {
-    _span?.status = const SpanStatus.aborted();
-    _span?.finish();
+    _finishWithStatusSync(const SpanStatus.aborted());
     _request.abort(exception, stackTrace);
   }
 
@@ -315,13 +496,13 @@ class _SentryWrappedHttpClientRequest implements HttpClientRequest {
   Future<HttpClientResponse> get done async {
     try {
       final HttpClientResponse response = await _request.done;
-      _span?.status = SpanStatus.fromHttpStatusCode(response.statusCode);
-      await _span?.finish();
+      await _finishWithStatus(
+        SpanStatus.fromHttpStatusCode(response.statusCode),
+      );
       return response;
     } catch (e) {
       _span?.throwable = e;
-      _span?.status = const SpanStatus.internalError();
-      await _span?.finish();
+      await _finishWithStatus(const SpanStatus.internalError());
       rethrow;
     }
   }
