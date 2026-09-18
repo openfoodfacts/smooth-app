@@ -146,43 +146,29 @@ class _SentryWrappedHttpClient implements HttpClient {
 
   /// Builds a description-only Uri for legacy host/port/path calls.
   ///
-  /// Mirrors SDK `HttpClient.open` parsing: '?' starts query, '#' starts
-  /// fragment. They are stripped here because [sanitizedDescription] never
-  /// sends them to Sentry anyway; the actual request uses the raw [path].
+  /// Only scheme/host/port reach the span description ([sanitizedDescription]
+  /// is origin-only); the path is dropped there, and the actual request uses
+  /// the raw [path] untouched to preserve SDK `HttpClient.open` semantics.
   static Uri _legacyDescUri(String scheme, String host, int port, String path) {
-    String pathPart = path;
-    final int hashIndex = pathPart.indexOf('#');
-    if (hashIndex != -1) {
-      pathPart = pathPart.substring(0, hashIndex);
-    }
-    final int queryIndex = pathPart.indexOf('?');
-    if (queryIndex != -1) {
-      pathPart = pathPart.substring(0, queryIndex);
-    }
-    return Uri(scheme: scheme, host: host, port: port, path: pathPart);
+    return Uri(scheme: scheme, host: host, port: port);
   }
 
-  /// Returns a sanitized URL for Sentry span descriptions.
+  /// Returns a sanitized URL origin for Sentry span descriptions.
   ///
-  /// Mirrors Sentry's own [HttpSanitizer] convention: strips query, fragment
-  /// and redacts userinfo so PII (search terms, credentials) never lands in
-  /// Sentry. Only scheme://host[:port]/path is kept.
+  /// Only `METHOD scheme://host[:port]` is kept. Query, fragment and userinfo
+  /// are stripped (as in Sentry's own `HttpSanitizer`), and the path is
+  /// dropped entirely: paths carry product-provided segments (barcodes,
+  /// IDs), which would both leak scanned-product data and explode Sentry
+  /// grouping cardinality. There is no route template available at the
+  /// `HttpClient` layer, so origin-only is the safe description.
   static String sanitizedDescription(String method, Uri url) {
     final StringBuffer buffer = StringBuffer();
     if (url.scheme.isNotEmpty) {
       buffer.write('${url.scheme}://');
     }
-    if (url.userInfo.isNotEmpty) {
-      buffer.write(
-        url.userInfo.contains(':') ? '[Filtered]:[Filtered]@' : '[Filtered]@',
-      );
-    }
     buffer.write(url.host);
     if (url.hasPort) {
       buffer.write(':${url.port}');
-    }
-    if (url.path.isNotEmpty) {
-      buffer.write(url.path);
     }
     return '$method $buffer';
   }
