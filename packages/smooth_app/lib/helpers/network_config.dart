@@ -171,13 +171,13 @@ class _SentryHttpOverrides extends HttpOverrides {
     // (early HttpClients) default to strict validation (null => 25).
     //
     // NOTE: dart:io HttpClient exposes badCertificateCallback as setter-only
-    // (no getter in Dart 3.44.8 lib/_http/http.dart), so a callback installed
-    // by [_previous] cannot be read back and chained via
-    // `previous(...) || _isTrustedOFFHost(...)`. On legacy Android the OFF
-    // fallback therefore supersedes any previous callback; this is acceptable
-    // because the legacy path only runs on Android 7.1- (tests/host never hit
-    // it) and strict validation remains the default everywhere else.
-    if (Platform.isAndroid && (_cachedAndroidSdkInt ?? 25) < 25) {
+    // (no getter in Dart 3.44 lib/_http/http.dart), so a callback installed
+    // by [_previous] cannot be read back and composed. The fallback is
+    // therefore applied only to clients created by this override
+    // (_previous == null); a parent policy, when present, is preserved as-is.
+    if (Platform.isAndroid &&
+        (_cachedAndroidSdkInt ?? 25) < 25 &&
+        _previous == null) {
       client.badCertificateCallback =
           (X509Certificate cert, String host, int port) =>
               _isTrustedOFFHost(host);
