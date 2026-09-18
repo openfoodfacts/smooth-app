@@ -23,6 +23,79 @@ class SentryHttpClientHelper {
   static ISentrySpan? Function(String operation, String description)?
   debugSpanFactory;
 
+  /// Query keys whose values are redacted in span descriptions.
+  ///
+  /// Credentials travel in headers (never in descriptions), but legacy
+  /// endpoints may still carry secrets in the query string, so these match
+  /// case-insensitively by substring.
+  static const List<String> _sensitiveQueryKeys = <String>[
+    'password',
+    'passwd',
+    'secret',
+    'token',
+    'session',
+    'auth',
+    'cookie',
+    'credential',
+  ];
+
+  /// Returns the sanitized URL origin (`scheme://host[:port]`).
+  ///
+  /// Userinfo is redacted; used for low-cardinality transaction names.
+  static String sanitizedOrigin(Uri url) {
+    final StringBuffer buffer = StringBuffer();
+    if (url.scheme.isNotEmpty) {
+      buffer.write('${url.scheme}://');
+    }
+    if (url.userInfo.isNotEmpty) {
+      buffer.write('[Filtered]@');
+    }
+    buffer.write(url.host);
+    if (url.hasPort) {
+      buffer.write(':${url.port}');
+    }
+    return buffer.toString();
+  }
+
+  /// Returns a sanitized URL for Sentry span descriptions.
+  ///
+  /// Origin and path are kept for debuggability (product data, prices,
+  /// search terms are fine to see); userinfo, fragment and the values of
+  /// sensitive query keys are redacted so passwords and tokens never land
+  /// in Sentry. POST bodies are never logged at all.
+  static String sanitizedDescription(String method, Uri url) {
+    final StringBuffer buffer = StringBuffer(sanitizedOrigin(url));
+    if (url.path.isNotEmpty) {
+      buffer.write(url.path);
+    }
+    final String query = _sanitizedQuery(url);
+    if (query.isNotEmpty) {
+      buffer.write('?$query');
+    }
+    return '$method $buffer';
+  }
+
+  /// Rebuilds the query string with sensitive values replaced by `[Filtered]`.
+  static String _sanitizedQuery(Uri url) {
+    if (!url.hasQuery) {
+      return '';
+    }
+    final List<String> parts = <String>[];
+    url.queryParametersAll.forEach((String key, List<String> values) {
+      final String lowerKey = key.toLowerCase();
+      final bool sensitive = _sensitiveQueryKeys.any(
+        (String banned) => lowerKey.contains(banned),
+      );
+      for (final String value in values) {
+        parts.add(
+          '${Uri.encodeQueryComponent(key)}='
+          '${sensitive ? '[Filtered]' : Uri.encodeQueryComponent(value)}',
+        );
+      }
+    });
+    return parts.join('&');
+  }
+
   /// Wraps a dart:io HttpClient with Sentry tracing.
   ///
   /// This is used by HttpOverrides to intercept ALL HTTP requests in the app,
@@ -147,52 +220,26 @@ class _SentryWrappedHttpClient implements HttpClient {
   /// Builds a description-only Uri for legacy host/port/path calls.
   ///
   /// Mirrors SDK `HttpClient.open` parsing: '?' starts query, '#' starts
-  /// fragment. They are stripped here because [sanitizedDescription] never
-  /// sends them to Sentry anyway; the actual request uses the raw [path].
+  /// fragment. The fragment is stripped ([sanitizedDescription] never sends
+  /// it); the query is preserved so it can be sanitized like any other URL.
+  /// The actual request uses the raw [path] untouched.
   static Uri _legacyDescUri(String scheme, String host, int port, String path) {
     String pathPart = path;
+    String? queryPart;
     final int hashIndex = pathPart.indexOf('#');
     if (hashIndex != -1) {
       pathPart = pathPart.substring(0, hashIndex);
     }
     final int queryIndex = pathPart.indexOf('?');
     if (queryIndex != -1) {
+      queryPart = pathPart.substring(queryIndex + 1);
       pathPart = pathPart.substring(0, queryIndex);
     }
-    return Uri(scheme: scheme, host: host, port: port, path: pathPart);
-  }
-
-  /// Returns the sanitized URL origin (`scheme://host[:port]`).
-  ///
-  /// Userinfo is redacted; used for low-cardinality transaction names.
-  static String sanitizedOrigin(Uri url) {
-    final StringBuffer buffer = StringBuffer();
-    if (url.scheme.isNotEmpty) {
-      buffer.write('${url.scheme}://');
+    Uri uri = Uri(scheme: scheme, host: host, port: port, path: pathPart);
+    if (queryPart != null && queryPart.isNotEmpty) {
+      uri = uri.replace(query: queryPart);
     }
-    if (url.userInfo.isNotEmpty) {
-      buffer.write('[Filtered]@');
-    }
-    buffer.write(url.host);
-    if (url.hasPort) {
-      buffer.write(':${url.port}');
-    }
-    return buffer.toString();
-  }
-
-  /// Returns a sanitized URL for Sentry span descriptions.
-  ///
-  /// Same convention as the SDK's own `TracingClient`/`HttpSanitizer`: path
-  /// is kept for debuggability, while query, fragment and userinfo are
-  /// stripped so search terms and credentials never land in Sentry. Note the
-  /// path may contain product-provided segments (barcodes, IDs); accepted
-  /// trade-off for this debug-oriented tracing, consistent with SDK behavior.
-  static String sanitizedDescription(String method, Uri url) {
-    final StringBuffer buffer = StringBuffer(sanitizedOrigin(url));
-    if (url.path.isNotEmpty) {
-      buffer.write(url.path);
-    }
-    return '$method $buffer';
+    return uri;
   }
 
   /// Formats a W3C Trace Context `traceparent` value from a Sentry trace.
@@ -221,8 +268,12 @@ class _SentryWrappedHttpClient implements HttpClient {
     // request instead of breaking the image/API call it observes.
     ISentrySpan? span;
     try {
-      // Start a Sentry span for this request (sanitized: no query/fragment/userinfo).
-      final String description = sanitizedDescription(method, url);
+      // Start a Sentry span for this request (sanitized: query kept with
+      // secrets redacted, no fragment/userinfo).
+      final String description = SentryHttpClientHelper.sanitizedDescription(
+        method,
+        url,
+      );
       span =
           SentryHttpClientHelper.debugSpanFactory?.call(
             'http.client',
@@ -238,7 +289,7 @@ class _SentryWrappedHttpClient implements HttpClient {
           // sanitized path lives in the description. Not bound to the scope
           // to avoid leaking into unrelated later spans.
           Sentry.startTransaction(
-            '$method ${sanitizedOrigin(url)}',
+            '$method ${SentryHttpClientHelper.sanitizedOrigin(url)}',
             'http.client',
             description: description,
             bindToScope: false,

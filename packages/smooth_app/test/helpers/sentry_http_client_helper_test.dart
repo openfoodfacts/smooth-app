@@ -138,6 +138,44 @@ void main() {
       },
     );
 
+    test('sanitizedDescription keeps product data, redacts secrets', () {
+      // Query with product data stays readable.
+      expect(
+        SentryHttpClientHelper.sanitizedDescription(
+          'GET',
+          Uri.parse(
+            'https://world.openfoodfacts.org/cgi/search.pl?search_terms=cola&page=2',
+          ),
+        ),
+        'GET https://world.openfoodfacts.org/cgi/search.pl?search_terms=cola&page=2',
+      );
+      // Password/token values are redacted, other params untouched.
+      expect(
+        SentryHttpClientHelper.sanitizedDescription(
+          'POST',
+          Uri.parse(
+            'https://world.openfoodfacts.org/cgi/session.pl?user_id=me&password=s3cret',
+          ),
+        ),
+        'POST https://world.openfoodfacts.org/cgi/session.pl?user_id=me&password=[Filtered]',
+      );
+      expect(
+        SentryHttpClientHelper.sanitizedDescription(
+          'GET',
+          Uri.parse('https://world.openfoodfacts.org/api?token_auth=abc'),
+        ),
+        'GET https://world.openfoodfacts.org/api?token_auth=[Filtered]',
+      );
+      // Fragment and userinfo never reach Sentry.
+      expect(
+        SentryHttpClientHelper.sanitizedDescription(
+          'GET',
+          Uri.parse('https://user:pass@world.openfoodfacts.org/a?x=1#frag'),
+        ),
+        'GET https://[Filtered]@world.openfoodfacts.org/a?x=1',
+      );
+    });
+
     test(
       'finishes span with an error when opening the request fails',
       () async {
