@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "Henüz herhangi bir tercih belirlemediniz.",
   "myPreferences_food_title": "Yiyecek tercihleri",
   "myPreferences_food_subtitle": "Yiyeceklerle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
-  "myPreferences_food_comment": "Yiyecekleri tercihlerinize göre sıralamak, önemsediğiniz bilgileri ilk önce görmek ve uyumluluk özeti almak için yiyeceklerle ilgili sizin için en önemli olan bilgileri seçin. Bu yemek tercihleri cihazınızda kalır ve varsa Open Food Facts hesabınızla ilişkilendirilmez.",
+  "myPreferences_food_compatibility_explainer": "Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary.",
+  "myPreferences_food_privacy": "Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Kozmetik tercihleri",
   "myPreferences_beauty_subtitle": "Kozmetik ürünleriyle ilgili hangi bilgilerin sizin için en önemli olduğunu seçin.",
   "myPreferences_product_title": "Diğer ürünler için tercihler",
