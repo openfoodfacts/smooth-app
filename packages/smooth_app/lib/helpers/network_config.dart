@@ -25,7 +25,7 @@ Future<void> setupAppNetworkConfig() async {
 /// plugins) by chaining to it instead of clobbering. The previous overrides
 /// are captured immutably per-instance (not in a mutable top-level) so a
 /// later replacement of [HttpOverrides.global] cannot silently corrupt the
-/// chain; re-call [_initHttpOverrides] after such replacement to re-chain.
+/// chain; call [rechainSentryHttpOverrides] after such a replacement.
 void _initHttpOverrides() {
   // NOTE: HttpOverrides.global is setter-only in Dart 3.44 (getter is
   // HttpOverrides.current), so read via current to preserve existing
@@ -36,6 +36,13 @@ void _initHttpOverrides() {
   }
   HttpOverrides.global = _SentryHttpOverrides(parent: existing);
 }
+
+/// Re-applies the Sentry-tracing [HttpOverrides] on top of the current global.
+///
+/// If a plugin or test replaces [HttpOverrides.global] after
+/// [setupAppNetworkConfig] ran, Sentry tracing is silently dropped (no error
+/// is thrown). Call this to re-chain it. No-op when already installed.
+void rechainSentryHttpOverrides() => _initHttpOverrides();
 
 String _getUuidId() {
   if (OpenFoodAPIConfiguration.uuid != null) {
