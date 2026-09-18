@@ -3,18 +3,65 @@ import 'package:gs1_barcode_parser_plus/gs1_barcode_parser.dart';
 /// GS1 Application Identifier of the Global Trade Item Number (GTIN).
 const String GS1_AI_GTIN = '01';
 
-/// Well-formed bracketed human-readable GS1 format, e.g.
-/// `(01)04044782317112(17)270101`.
-final RegExp _gs1BracketedRegExp = RegExp(r'^(\(\d{2,4}\)[^()]+)+$');
+/// One `(AI)value` group of bracketed human-readable GS1 input, e.g.
+/// `(17)270101`, capturing the AI and its value.
+final RegExp _gs1BracketedGroupRegExp = RegExp(r'\((\d{2,4})\)([^()]+)');
 
-/// Cleans [input] for GS1 parsing, returning null when it cannot be a GS1
-/// barcode.
+/// Converts well-formed bracketed human-readable GS1 input (e.g.
+/// `(01)04044782317112(17)270101`) into a raw element string, returning null
+/// when [input] is not fully covered by `(AI)value` groups.
 ///
-/// This trims whitespace, removes the parentheses of well-formed bracketed
-/// human-readable input (except for URLs, where parentheses are likely part
-/// of a query) and normalizes FNC1 markers (leading carets, U+241D) to the
-/// GS separator. Malformed bracketed input is rejected instead of being
-/// stripped into something that accidentally parses as different data.
+/// Group boundaries reinsert the GS separator (`\x1D`) where a non-final
+/// variable-length AI requires one; without it the parser would swallow the
+/// following AIs into the variable-length value.
+String? _bracketedHriToElementString(final String input) {
+  final List<RegExpMatch> matches = _gs1BracketedGroupRegExp
+      .allMatches(input)
+      .toList();
+  final StringBuffer buffer = StringBuffer();
+  int position = 0;
+  for (int i = 0; i < matches.length; i++) {
+    final RegExpMatch match = matches[i];
+    if (match.start != position) {
+      return null;
+    }
+    position = match.end;
+    final String? ai = match.group(1);
+    final String? value = match.group(2);
+    if (ai == null || value == null) {
+      return null;
+    }
+    buffer.write(ai);
+    buffer.write(value);
+    if (i < matches.length - 1 && _isVariableLengthAi(ai)) {
+      buffer.write('\x1D');
+    }
+  }
+  if (matches.isEmpty || position != input.length) {
+    return null;
+  }
+  return buffer.toString();
+}
+
+/// Whether the GS1 Application Identifier [ai] has a variable-length value,
+/// requiring a GS separator before the next element (except in final
+/// position). Unknown AIs are treated as fixed-length: the subsequent parse
+/// rejects them anyway.
+bool _isVariableLengthAi(final String ai) {
+  final AIFormatType? type = AI.AIS[ai]?.type;
+  return type == AIFormatType.VARIABLE_LENGTH ||
+      type == AIFormatType.VARIABLE_LENGTH_WITH_ISO_NUMBERS ||
+      type == AIFormatType.VARIABLE_LENGTH_WITH_ISO_CHARS ||
+      type == AIFormatType.VARIABLE_LENGTH_MEASURE;
+}
+
+/// Cleans [input] for GS1 parsing, returning null for empty input.
+///
+/// This trims whitespace, converts well-formed bracketed human-readable input
+/// into a raw element string (except for URLs, where parentheses are likely
+/// part of a query) and normalizes FNC1 markers (leading carets, U+241D) to
+/// the GS separator. Anything else, including raw element strings with
+/// parentheses in AI values, is left unchanged.
 String? _cleanGs1Input(final String input) {
   String normalized = input.trim();
   if (normalized.isEmpty) {
@@ -23,10 +70,10 @@ String? _cleanGs1Input(final String input) {
 
   if (!normalized.startsWith('http://') && !normalized.startsWith('https://')) {
     if (normalized.contains('(') || normalized.contains(')')) {
-      if (!_gs1BracketedRegExp.hasMatch(normalized)) {
-        return null;
+      final String? elementString = _bracketedHriToElementString(normalized);
+      if (elementString != null) {
+        normalized = elementString;
       }
-      normalized = normalized.replaceAll('(', '').replaceAll(')', '');
     }
   }
 

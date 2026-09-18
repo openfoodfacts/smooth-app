@@ -138,6 +138,31 @@ void main() {
     test('Single digit bracketed AI is rejected', () {
       expect(tryParseGs1Barcode('(1)04044782317112'), isNull);
     });
+
+    test('Non-final variable-length AI keeps following AIs', () {
+      final GS1Barcode? parsed = tryParseGs1Barcode('(10)ABC123(17)270101');
+      expect(parsed, isNotNull);
+      final GS1Barcode barcode = parsed!;
+      expect(barcode.getAIRawData('10'), 'ABC123');
+      expect(barcode.hasAI('17'), isTrue);
+    });
+
+    test('Complex bracketed format keeps all AIs', () {
+      final GS1Barcode? parsed = tryParseGs1Barcode(
+        '(01)04044782317112(17)270101(10)ABC123(21)SERIAL',
+      );
+      expect(parsed, isNotNull);
+      final GS1Barcode barcode = parsed!;
+      expect(barcode.gtin, '04044782317112');
+      expect(barcode.getAIRawData('10'), 'ABC123');
+      expect(barcode.getAIRawData('21'), 'SERIAL');
+    });
+
+    test('Raw element string with parentheses in AI value', () {
+      final GS1Barcode? parsed = tryParseGs1Barcode('21AB(CD');
+      expect(parsed, isNotNull);
+      expect(parsed!.getAIRawData('21'), 'AB(CD');
+    });
   });
 
   group('tryParseGs1Barcode - GS1 Digital Links', () {
