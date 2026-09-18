@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Gwellvezioù boued",
   "myPreferences_food_subtitle": "Dibabit peseurt titouroù diwar-benn ar boued a zo pouezusañ evidoc'h.",
-  "myPreferences_food_comment": "Dibabit peseurt titouroù diwar-benn ar boued a zo pouezusañ evidoc'h, evit renkañ ar boued hervez ho c'hoantoù, gwelit an titouroù a blij deoc'h da gentañ, ha kaout un diverrañ eus ar c'hevredigezh. Chom a ra an dibaboù boued-se war ho trevnad, ha n'int ket liammet ouzh ho kont kenlabourer Open Food Facts ma'z eus unan ganeoc'h.",
+  "myPreferences_food_compatibility_explainer": "Dibabit peseurt titouroù diwar-benn ar boued a zo pouezusañ evidoc'h, evit renkañ ar boued hervez ho c'hoantoù, gwelit an titouroù a blij deoc'h da gentañ, ha kaout un diverrañ eus ar c'hevredigezh.",
+  "myPreferences_food_privacy": "Chom a ra an dibaboù boued-se war ho trevnad, ha n'int ket liammet ouzh ho kont kenlabourer Open Food Facts ma'z eus unan ganeoc'h.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
