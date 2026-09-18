@@ -27,11 +27,14 @@ Future<void> setupAppNetworkConfig() async {
 /// later replacement of [HttpOverrides.global] cannot silently corrupt the
 /// chain; re-call [_initHttpOverrides] after such replacement to re-chain.
 void _initHttpOverrides() {
-  final HttpOverrides? existing = HttpOverrides.global;
+  // NOTE: HttpOverrides.global is setter-only in Dart 3.44 (getter is
+  // HttpOverrides.current), so read via current to preserve existing
+  // overrides (e.g. tests/plugins) by chaining.
+  final HttpOverrides? existing = HttpOverrides.current;
   if (existing is _SentryHttpOverrides) {
     return;
   }
-  HttpOverrides.global = _SentryHttpOverrides(previous: existing);
+  HttpOverrides.global = _SentryHttpOverrides(parent: existing);
 }
 
 String _getUuidId() {
@@ -145,7 +148,7 @@ bool _isTrustedOFFHost(String host) {
 ///
 /// It wraps the HttpClient with Sentry tracing when user has opted in.
 class _SentryHttpOverrides extends HttpOverrides {
-  _SentryHttpOverrides({HttpOverrides? previous}) : _previous = previous;
+  _SentryHttpOverrides({HttpOverrides? parent}) : _previous = parent;
 
   final HttpOverrides? _previous;
 
