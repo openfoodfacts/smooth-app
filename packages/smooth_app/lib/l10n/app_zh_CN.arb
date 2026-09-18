@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "食物偏好",
   "myPreferences_food_subtitle": "选择对您最重要的食物信息.",
-  "myPreferences_food_comment": "选择对您而言最重要的食品信息，以便根据您的个人偏好对食品排序、优先展示您关注的内容，并获取匹配度摘要。这些偏好设置仅保存在您的设备中，不会与您的 Open Food Facts 贡献者账户关联（若您有的话）。",
+  "myPreferences_food_compatibility_explainer": "选择对您而言最重要的食品信息，以便根据您的个人偏好对食品排序、优先展示您关注的内容，并获取匹配度摘要。",
+  "myPreferences_food_privacy": "这些偏好设置仅保存在您的设备中，不会与您的 Open Food Facts 贡献者账户关联（若您有的话）。",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "化妆品偏好",
   "myPreferences_beauty_subtitle": "选择对您而言最重要的化妆品信息。",
   "myPreferences_product_title": "其他产品偏好",
