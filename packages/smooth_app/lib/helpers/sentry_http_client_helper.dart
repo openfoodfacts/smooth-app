@@ -161,12 +161,7 @@ class _SentryWrappedHttpClient implements HttpClient {
   /// Mirrors SDK `HttpClient.open` parsing: '?' starts query, '#' starts
   /// fragment. They are stripped here because [sanitizedDescription] never
   /// sends them to Sentry anyway; the actual request uses the raw [path].
-  static Uri _legacyDescUri(
-    String scheme,
-    String host,
-    int port,
-    String path,
-  ) {
+  static Uri _legacyDescUri(String scheme, String host, int port, String path) {
     String pathPart = path;
     final int hashIndex = pathPart.indexOf('#');
     if (hashIndex != -1) {

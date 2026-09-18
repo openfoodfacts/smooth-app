@@ -57,23 +57,28 @@ void main() {
       client2.close();
     });
 
-    test('wrapHttpClient always wraps but per-request check respects consent', () async {
-      // This is a smoke test: wrapHttpClient now always returns a wrapper
-      // that checks isTracingEnabled per-request. Verify no throw.
-      AnalyticsHelper.debugIsTracingEnabledOverride = () => false;
-      final HttpClient inner = HttpClient();
-      final HttpClient wrapped = SentryHttpClientHelper.wrapHttpClient(inner);
-      expect(wrapped, isNotNull);
-      // When tracing disabled, wrapper delegates without creating a span
-      // (no network call needed to verify).
+    test(
+      'wrapHttpClient always wraps but per-request check respects consent',
+      () async {
+        // This is a smoke test: wrapHttpClient now always returns a wrapper
+        // that checks isTracingEnabled per-request. Verify no throw.
+        AnalyticsHelper.debugIsTracingEnabledOverride = () => false;
+        final HttpClient inner = HttpClient();
+        final HttpClient wrapped = SentryHttpClientHelper.wrapHttpClient(inner);
+        expect(wrapped, isNotNull);
+        // When tracing disabled, wrapper delegates without creating a span
+        // (no network call needed to verify).
 
-      // With tracing enabled, wrapper should still be non-null
-      AnalyticsHelper.debugIsTracingEnabledOverride = () => true;
-      final HttpClient wrapped2 = SentryHttpClientHelper.wrapHttpClient(inner);
-      expect(wrapped2, isNotNull);
+        // With tracing enabled, wrapper should still be non-null
+        AnalyticsHelper.debugIsTracingEnabledOverride = () => true;
+        final HttpClient wrapped2 = SentryHttpClientHelper.wrapHttpClient(
+          inner,
+        );
+        expect(wrapped2, isNotNull);
 
-      inner.close();
-      // wrapped clients delegate close to inner; closing inner suffices for smoke
-    });
+        inner.close();
+        // wrapped clients delegate close to inner; closing inner suffices for smoke
+      },
+    );
   });
 }
