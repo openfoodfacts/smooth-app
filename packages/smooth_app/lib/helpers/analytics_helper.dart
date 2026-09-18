@@ -265,6 +265,7 @@ class AnalyticsHelper {
           return isTracingEnabled ? 1.0 : 0.0;
         }
         ..beforeSend = _beforeSend
+        ..beforeSendTransaction = _beforeSendTransaction
         ..captureFailedRequests = false
         // Enable W3C Trace Context propagation so SDK package:http clients
         // emit the standard `traceparent` header for OTel-compatible
@@ -317,6 +318,19 @@ class AnalyticsHelper {
 
   @visibleForTesting
   static bool get debugCrashReportsEnabled => _crashReportsEffective;
+
+  /// Drops transactions sampled before consent was revoked: [tracesSampler]
+  /// decides at transaction start, so an in-flight transaction would
+  /// otherwise still be sent after opt-out.
+  static FutureOr<SentryTransaction?> _beforeSendTransaction(
+    SentryTransaction transaction,
+    Hint hint,
+  ) {
+    if (!isTracingEnabled) {
+      return null;
+    }
+    return transaction;
+  }
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
     if (!_crashReportsEffective) {
