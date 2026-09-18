@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "לא הגדרת העדפה עדיין.",
   "myPreferences_food_title": "העדפות מזון",
   "myPreferences_food_subtitle": "נא לבחור איזה מידע על מזון הכי חשוב לך.",
-  "myPreferences_food_comment": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות. העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
+  "myPreferences_food_compatibility_explainer": "נא לבחור איזה מידע על מזון מעניין אותך, כדי לדרג מזון לפי העדפותיך, לראות את המידע שמעניין אותך תחילה ולקבל תקציר תאימות.",
+  "myPreferences_food_privacy": "העדפות המזון האלו נשארות במכשיר שלך ואינן משויכות לחשבון התרומה שלך ל־Open Food Facts, אם יש לך חשבון כזה.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "העדפות למוצרי טיפוח",
   "myPreferences_beauty_subtitle": "נא לבחור איזה מידע על מוצרי טיפוח הכי חשוב לך.",
   "myPreferences_product_title": "העדפות למוצרים אחרים",
