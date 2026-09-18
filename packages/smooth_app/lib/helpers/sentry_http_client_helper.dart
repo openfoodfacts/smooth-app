@@ -229,25 +229,24 @@ class _SentryWrappedHttpClient implements HttpClient {
     try {
       final HttpClientRequest request = await requestFactory();
 
-      // Propagate distributed-tracing headers so backends can correlate
-      // spans. Mirrors SDK TracingClient with propagateTraceparent enabled:
-      // W3C `traceparent` (standard, for OTel-compatible backends) plus
-      // Sentry's `sentry-trace`/`baggage` (for Sentry). Uses only public
-      // Sentry API (span.toSentryTrace / toBaggageHeader). Matches the SDK
+      // Propagate W3C Trace Context only (`traceparent`). This is a new
+      // feature and receiving backends speak W3C/OTel, so Sentry-proprietary
+      // `sentry-trace`/`baggage` headers are intentionally NOT sent.
+      // Uses only public Sentry API (span.toSentryTrace). Matches the SDK
       // default tracePropagationTargets of ['.*'] (propagate everywhere);
       // custom targets and scope-based propagation (no active span) are
       // intentionally not read here because Sentry.currentHub/options/scope
       // are @internal in sentry 9.26 and trip invalid_use_of_internal_member
       // under --fatal-warnings. Never breaks the request on failure.
+      // NOTE: sentry-dart provides no dart:io HttpClient wrapper (only
+      // package:http TracingClient/SentryHttpClient), so this slim manual
+      // header injection stays necessary: package:http IOClient and
+      // NetworkImage both funnel through dart:io HttpClient via
+      // HttpOverrides, which the SDK client cannot intercept.
       if (span != null) {
         try {
           final SentryTraceHeader traceHeader = span.toSentryTrace();
-          request.headers.set(traceHeader.name, traceHeader.value);
           request.headers.set('traceparent', _w3cTraceparentValue(traceHeader));
-          final SentryBaggageHeader? baggage = span.toBaggageHeader();
-          if (baggage != null) {
-            request.headers.set(baggage.name, baggage.value);
-          }
         } catch (_) {
           // Tracing must never break the request.
         }
