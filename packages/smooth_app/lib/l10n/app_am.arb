@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "የምግብ ምርጫዎች",
   "myPreferences_food_subtitle": "ስለ ምግብ በጣም አስፈላጊ የሆነውን መረጃ ይምረጡ።",
-  "myPreferences_food_comment": "ምግብን እንደ ምርጫዎ ደረጃ ለመስጠት፣ ቅድሚያ የሚሰጧቸውን መረጃዎች ለማየት እና የተኳሃኝነት ማጠቃለያ ለማግኘት ስለ ምግብ ምን አይነት መረጃ ለእርስዎ በጣም አስፈላጊ እንደሆነ ይምረጡ፣ ይህም በመሳሪያዎ ላይ ይቆያል፣ እና ካለዎት ከክፍት የምግብ እውነታዎች አስተዋጽዖ አበርካች መለያዎ ጋር አይቆራኙም።",
+  "myPreferences_food_compatibility_explainer": "ምግብን እንደ ምርጫዎ ደረጃ ለመስጠት፣ ቅድሚያ የሚሰጧቸውን መረጃዎች ለማየት እና የተኳሃኝነት ማጠቃለያ ለማግኘት ስለ ምግብ ምን አይነት መረጃ ለእርስዎ በጣም አስፈላጊ እንደሆነ ይምረጡ።",
+  "myPreferences_food_privacy": "ይህም በመሳሪያዎ ላይ ይቆያል፣ እና ካለዎት ከክፍት የምግብ እውነታዎች አስተዋጽዖ አበርካች መለያዎ ጋር አይቆራኙም።",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
