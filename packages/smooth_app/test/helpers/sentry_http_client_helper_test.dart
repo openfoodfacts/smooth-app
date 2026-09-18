@@ -82,6 +82,60 @@ void main() {
     );
 
     test(
+      'one wrapped client respects consent toggled between requests',
+      () async {
+        AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
+        AnalyticsHelper.debugIsCrashEnabledOverride = () => true;
+        int factoryCalls = 0;
+        SentryHttpClientHelper.debugSpanFactory =
+            (String operation, String description) {
+              factoryCalls++;
+              return _RecordingSpan();
+            };
+
+        final List<String?> traceparents = <String?>[];
+        final HttpServer server = await HttpServer.bind(
+          InternetAddress.loopbackIPv4,
+          0,
+        );
+        final StreamSubscription<HttpRequest> subscription = server.listen((
+          HttpRequest request,
+        ) {
+          traceparents.add(request.headers.value('traceparent'));
+          request.response.statusCode = HttpStatus.noContent;
+          unawaited(request.response.close());
+        });
+        final HttpClient client = SentryHttpClientHelper.wrapHttpClient(
+          HttpClient(),
+        );
+        addTearDown(() async {
+          client.close(force: true);
+          await subscription.cancel();
+          await server.close(force: true);
+        });
+
+        Future<void> fetch() async {
+          final HttpClientRequest request = await client.getUrl(
+            Uri.parse('http://127.0.0.1:${server.port}/product/123'),
+          );
+          final HttpClientResponse response = await request.close();
+          await response.drain<void>();
+        }
+
+        await fetch();
+        expect(traceparents, hasLength(1));
+        expect(traceparents.single, isNotNull);
+        expect(factoryCalls, 1);
+
+        AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => false;
+        await fetch();
+        expect(traceparents, hasLength(2));
+        expect(traceparents[1], isNull);
+        expect(factoryCalls, 1);
+      },
+    );
+
+    test(
       'finishes span with an error when opening the request fails',
       () async {
         AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
