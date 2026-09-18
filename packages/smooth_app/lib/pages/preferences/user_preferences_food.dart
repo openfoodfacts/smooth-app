@@ -131,7 +131,7 @@ class UserPreferencesFood {
     final List<UserPreferencesItem> result = <UserPreferencesItem>[
       UserPreferencesItemSimple(
         labels: <String>[
-          appLocalizations.myPreferences_food_compatibility_explainer,
+          appLocalizations.myPreferences_food_compatibility_explainer
         ],
         builder: (_) => ListTile(
           title: Text(

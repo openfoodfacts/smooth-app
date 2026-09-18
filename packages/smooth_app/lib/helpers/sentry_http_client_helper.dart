@@ -3,6 +3,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
@@ -10,23 +11,27 @@ import 'package:smooth_app/helpers/analytics_helper.dart';
 /// Helper class for creating HTTP clients with optional Sentry tracing.
 ///
 /// This class provides factory methods to create HTTP clients that conditionally
-/// enable Sentry tracing based on user consent for both analytics and crash reporting.
+/// enable Sentry tracing based on analytics consent.
 class SentryHttpClientHelper {
   const SentryHttpClientHelper._();
 
+  @visibleForTesting
+  static ISentrySpan? Function(String operation, String description)?
+  debugSpanFactory;
+
   /// Creates an HTTP client that conditionally uses Sentry tracing.
   ///
-  /// If the user has opted in to both analytics and crash reporting,
-  /// returns a [SentryHttpClient] that traces HTTP requests.
+  /// If the user has opted in to analytics, returns a [SentryHttpClient] that
+  /// traces HTTP requests.
   /// Otherwise, returns a standard [http.Client].
   ///
-  /// This ensures that no traces are sent to Sentry unless the user
-  /// has explicitly consented to both types of data collection.
+  /// This ensures that no traces are sent to Sentry unless the user has
+  /// explicitly consented to analytics.
   ///
   /// NOTE: consent is captured at creation time. There are currently no
   /// production callers (tests only); if adopted for long-lived/cached
   /// `package:http` clients, the caller MUST recreate the client after
-  /// analytics/crash-reporting preferences change, otherwise toggling takes
+  /// analytics preferences change, otherwise toggling takes
   /// effect only on recreation. For `dart:io` traffic prefer the
   /// [HttpOverrides] path via [wrapHttpClient], which re-checks consent
   /// per-request.
@@ -221,10 +226,13 @@ class _SentryWrappedHttpClient implements HttpClient {
     }
 
     // Start a Sentry span for this request (sanitized: no query/fragment/userinfo).
-    final ISentrySpan? span = Sentry.getSpan()?.startChild(
-      'http.client',
-      description: sanitizedDescription(method, url),
-    );
+    final String description = sanitizedDescription(method, url);
+    final ISentrySpan? span =
+        SentryHttpClientHelper.debugSpanFactory?.call(
+          'http.client',
+          description,
+        ) ??
+        Sentry.getSpan()?.startChild('http.client', description: description);
 
     try {
       final HttpClientRequest request = await requestFactory();
