@@ -112,7 +112,7 @@ dependencies:
   gs1_barcode_parser_plus:
     git:
       url: https://github.com/AlbusKavaliro/gs1_barcode_parser.git
-      ref: dev
+      ref: bac912b6ea1464ff2d5e03bae69237447752852e
 
 dev_dependencies:
   integration_test:

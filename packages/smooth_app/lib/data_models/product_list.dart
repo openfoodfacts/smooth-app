@@ -190,8 +190,13 @@ class ProductList {
   int totalSize = 0;
 
   final List<String> _barcodes = <String>[];
+  final Map<String, String> _apiBarcodes = <String, String>{};
 
   List<String> get barcodes => _barcodes;
+
+  Map<String, String> get apiBarcodes => _apiBarcodes;
+
+  String? getApiBarcode(final String barcode) => _apiBarcodes[barcode];
 
   bool isEmpty() => _barcodes.isEmpty;
 
@@ -204,6 +209,7 @@ class ProductList {
       return false;
     }
     _barcodes.remove(barcode);
+    _apiBarcodes.remove(barcode);
     return true;
   }
 
@@ -217,9 +223,15 @@ class ProductList {
     set(barcodes);
   }
 
-  void set(final Iterable<String> barcodes) {
+  void set(
+    final Iterable<String> barcodes, {
+    final Map<String, String> apiBarcodes = const <String, String>{},
+  }) {
     _barcodes.clear();
     _barcodes.addAll(barcodes);
+    _apiBarcodes
+      ..clear()
+      ..addAll(apiBarcodes);
   }
 
   List<String> getList() {

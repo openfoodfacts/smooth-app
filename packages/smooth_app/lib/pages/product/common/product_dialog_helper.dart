@@ -40,21 +40,14 @@ class ProductDialogHelper {
 
   Future<FetchedProduct> openBestChoice() async {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    Product? product = await daoProduct.get(barcode);
-    if (product == null) {
-      // GS1 barcodes are stored locally under their normalized GTIN.
-      final String? normalizedGtin = tryParseGs1Barcode(
-        barcode,
-      )?.normalizedGtin;
-      if (normalizedGtin != null) {
-        product = await daoProduct.get(normalizedGtin);
-      }
-    }
+    final String localBarcode =
+        tryParseGs1Barcode(barcode)?.normalizedGtin ?? barcode;
+    final Product? product = await daoProduct.get(localBarcode);
     if (product != null) {
       return FetchedProduct.found(product);
     }
-    if (localDatabase.upToDate.hasPendingChanges(barcode)) {
-      return FetchedProduct.found(Product(barcode: barcode));
+    if (localDatabase.upToDate.hasPendingChanges(localBarcode)) {
+      return FetchedProduct.found(Product(barcode: localBarcode));
     }
     return openUniqueProductSearch();
   }

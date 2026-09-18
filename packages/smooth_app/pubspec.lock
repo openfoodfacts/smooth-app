@@ -775,7 +775,7 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: dev
+      ref: bac912b6ea1464ff2d5e03bae69237447752852e
       resolved-ref: bac912b6ea1464ff2d5e03bae69237447752852e
       url: "https://github.com/AlbusKavaliro/gs1_barcode_parser.git"
     source: git
