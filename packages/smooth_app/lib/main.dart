@@ -88,13 +88,12 @@ Future<void> launchSmoothApp({
 
   _enableEdgeToEdgeMode();
 
-  if (kReleaseMode) {
-    await AnalyticsHelper.initSentry(
-      appRunner: () => runApp(const SmoothApp()),
-    );
-  } else {
-    runApp(const SmoothApp());
-  }
+  // Sentry is initialized in every mode: in debug builds error/trace
+  // pipelines stay consent-gated (off by default), while Sentry Logs
+  // (enableLogs) forward Fimber app logs so debug builds are observable
+  // in Sentry. Previously debug builds skipped init entirely, so nothing
+  // reached Sentry.
+  await AnalyticsHelper.initSentry(appRunner: () => runApp(const SmoothApp()));
 }
 
 void _enableEdgeToEdgeMode() {

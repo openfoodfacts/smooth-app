@@ -266,6 +266,10 @@ class AnalyticsHelper {
         }
         ..beforeSend = _beforeSend
         ..beforeSendTransaction = _beforeSendTransaction
+        // Debug-only: forward Fimber app logs to Sentry Logs for branch
+        // debugging. Release builds keep the no-op logger. Error/trace
+        // pipelines stay consent-gated in both modes.
+        ..enableLogs = kDebugMode
         ..captureFailedRequests = false
         // Enable W3C Trace Context propagation so SDK package:http clients
         // emit the standard `traceparent` header for OTel-compatible
