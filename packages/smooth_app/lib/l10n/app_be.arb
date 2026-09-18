@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Перавагі ў харчаванні",
   "myPreferences_food_subtitle": "Выберыце, якая інфармацыя пра харчаванне для вас найбольш важная.",
-  "myPreferences_food_comment": "Выберыце найбольш важную для вас інфармацыю пра ежу, каб ранжыраваць ежу ў адпаведнасці з вашымі перавагамі, бачыць інфармацыю, якая вас цікавіць у першую чаргу, і атрымліваць зводку па сумяшчальнасці. Гэтыя перавагі ў ежы застаюцца на вашай прыладзе і не звязаны з вашым уліковым запісам аўтара Open Food Facts, калі ён у вас ёсць.",
+  "myPreferences_food_compatibility_explainer": "Выберыце найбольш важную для вас інфармацыю пра ежу, каб ранжыраваць ежу ў адпаведнасці з вашымі перавагамі, бачыць інфармацыю, якая вас цікавіць у першую чаргу, і атрымліваць зводку па сумяшчальнасці.",
+  "myPreferences_food_privacy": "Гэтыя перавагі ў ежы застаюцца на вашай прыладзе і не звязаны з вашым уліковым запісам аўтара Open Food Facts, калі ён у вас ёсць.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
