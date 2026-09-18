@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Najljubša hrana",
   "myPreferences_food_subtitle": "Izberite katere informacije o hrani so vam najbolj pomembne.",
-  "myPreferences_food_comment": "Izberite, katere informacije o hrani so vam najpomembnejše, da boste hrano razvrstili glede na svoje preference, si ogledali informacije, ki vas najprej zanimajo, in dobili povzetek združljivosti. Te preference glede hrane ostanejo v vaši napravi in niso povezane z vašim računom za sodelavce Open Food Facts, če ga imate.",
+  "myPreferences_food_compatibility_explainer": "Izberite, katere informacije o hrani so vam najpomembnejše, da boste hrano razvrstili glede na svoje preference, si ogledali informacije, ki vas najprej zanimajo, in dobili povzetek združljivosti.",
+  "myPreferences_food_privacy": "Te preference glede hrane ostanejo v vaši napravi in niso povezane z vašim računom za sodelavce Open Food Facts, če ga imate.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
