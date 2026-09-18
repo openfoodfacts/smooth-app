@@ -37,8 +37,7 @@ GS1Barcode? tryParseGs1Barcode(final String input) {
   // The bracketed AI format is the "human readable" representation: removing
   // the parentheses turns it back into a raw GS1 element string. We don't do
   // it for URLs, where parentheses are likely part of a query.
-  if (!normalized.startsWith('http://') &&
-      !normalized.startsWith('https://')) {
+  if (!normalized.startsWith('http://') && !normalized.startsWith('https://')) {
     normalized = normalized.replaceAll('(', '').replaceAll(')', '');
   }
 
@@ -53,9 +52,9 @@ GS1Barcode? tryParseGs1Barcode(final String input) {
 
   try {
     return GS1BarcodeParser.defaultParser().parse(normalized);
-  } catch (_) {
-    // The GS1 exceptions are not exported by the parser package, so we catch
-    // everything defensively.
+  } on GS1Exception catch (_) {
+    // The parser only throws GS1Exception subclasses (GS1ParseException,
+    // GS1DataException). We return null for any parsing failure.
     return null;
   }
 }

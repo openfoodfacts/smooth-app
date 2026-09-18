@@ -771,6 +771,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
+  gs1_barcode_parser_plus:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: dev
+      resolved-ref: bac912b6ea1464ff2d5e03bae69237447752852e
+      url: "https://github.com/AlbusKavaliro/gs1_barcode_parser.git"
+    source: git
+    version: "1.1.2"
   hashcodes:
     dependency: transitive
     description:

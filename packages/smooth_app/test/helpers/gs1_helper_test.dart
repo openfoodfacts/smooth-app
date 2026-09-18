@@ -6,17 +6,25 @@ void main() {
   group('tryParseGs1Barcode - non-GS1 input', () {
     test('Empty string', () => expect(tryParseGs1Barcode(''), isNull));
 
-    test('String with only spaces', () =>
-        expect(tryParseGs1Barcode('   '), isNull));
+    test(
+      'String with only spaces',
+      () => expect(tryParseGs1Barcode('   '), isNull),
+    );
 
-    test('Traditional EAN-13 barcode', () =>
-        expect(tryParseGs1Barcode('7622210631111'), isNull));
+    test(
+      'Traditional EAN-13 barcode',
+      () => expect(tryParseGs1Barcode('7622210631111'), isNull),
+    );
 
-    test('Traditional UPC-A barcode', () =>
-        expect(tryParseGs1Barcode('762220123456'), isNull));
+    test(
+      'Traditional UPC-A barcode',
+      () => expect(tryParseGs1Barcode('762220123456'), isNull),
+    );
 
-    test('Truncated GTIN (13 digits)', () =>
-        expect(tryParseGs1Barcode('0426039255010'), isNull));
+    test(
+      'Truncated GTIN (13 digits)',
+      () => expect(tryParseGs1Barcode('0426039255010'), isNull),
+    );
 
     test(
       'Non numeric string',
@@ -47,15 +55,17 @@ void main() {
     });
 
     test('Raw element string with FNC1 prefix', () {
-      final GS1Barcode? barcode =
-          tryParseGs1Barcode(']C1010426039255010117270101');
+      final GS1Barcode? barcode = tryParseGs1Barcode(
+        ']C1010426039255010117270101',
+      );
       expect(barcode, isNotNull);
       expect(barcode!.normalizedGtin, '4260392550101');
     });
 
     test('Raw element string with leading caret FNC1', () {
-      final GS1Barcode? barcode =
-          tryParseGs1Barcode('^010426039255010117270101');
+      final GS1Barcode? barcode = tryParseGs1Barcode(
+        '^010426039255010117270101',
+      );
       expect(barcode, isNotNull);
       expect(barcode!.normalizedGtin, '4260392550101');
     });
@@ -109,8 +119,9 @@ void main() {
 
   group('normalizeScannedBarcode', () {
     test('GS1 barcode is keyed by normalized GTIN and sends the raw value', () {
-      final NormalizedBarcode normalized =
-          normalizeScannedBarcode('010426039255010117270101');
+      final NormalizedBarcode normalized = normalizeScannedBarcode(
+        '010426039255010117270101',
+      );
       expect(normalized.key, '4260392550101');
       expect(normalized.apiBarcode, '010426039255010117270101');
       expect(normalized.gs1Barcode, isNotNull);
