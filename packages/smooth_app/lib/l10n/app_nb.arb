@@ -542,7 +542,11 @@
   "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Matpreferanser",
   "myPreferences_food_subtitle": "Velg den informasjonen om mat som er viktigst for deg.",
-  "myPreferences_food_comment": "Velg hvilken informasjon om mat som er viktigst for deg, for å rangere mat i henhold til dine preferanser, se informasjonen du bryr deg om først, og få et kompatibilitetssammendrag. Disse matpreferansene forblir på enheten din, og er ikke knyttet til din Open Food Facts-bidragsyterkonto hvis du har en.",
+  "myPreferences_food_compatibility_explainer": "Velg hvilken informasjon om mat som er viktigst for deg, for å rangere mat i henhold til dine preferanser, se informasjonen du bryr deg om først, og få et kompatibilitetssammendrag.",
+  "myPreferences_food_privacy": "Disse matpreferansene forblir på enheten din, og er ikke knyttet til din Open Food Facts-bidragsyterkonto hvis du har en.",
+  "@myPreferences_food_privacy": {
+    "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
+  },
   "myPreferences_beauty_title": "Preferences for cosmetics",
   "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
   "myPreferences_product_title": "Preferences for other products",
