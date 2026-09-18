@@ -11,23 +11,32 @@ void main() {
   group('SentryHttpClientHelper', () {
     tearDown(() {
       AnalyticsHelper.debugIsAnalyticsEnabledOverride = null;
+      AnalyticsHelper.debugIsCrashEnabledOverride = null;
       SentryHttpClientHelper.debugSpanFactory = null;
     });
 
-    test(
-      'analytics opt-in enables tracing when crash reporting is disabled',
-      () {
-        AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
+    test('tracing requires both analytics and crash reporting consent', () {
+      AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
+      AnalyticsHelper.debugIsCrashEnabledOverride = () => false;
 
-        expect(AnalyticsHelper.debugCrashReportsEnabled, isFalse);
-        expect(AnalyticsHelper.isTracingEnabled, isTrue);
-      },
-    );
+      expect(AnalyticsHelper.debugCrashReportsEnabled, isFalse);
+      expect(AnalyticsHelper.isTracingEnabled, isFalse);
+
+      AnalyticsHelper.debugIsCrashEnabledOverride = () => true;
+
+      expect(AnalyticsHelper.debugCrashReportsEnabled, isTrue);
+      expect(AnalyticsHelper.isTracingEnabled, isTrue);
+
+      AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => false;
+
+      expect(AnalyticsHelper.isTracingEnabled, isFalse);
+    });
 
     test(
       'propagates traceparent and finishes span with response status',
       () async {
         AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
+        AnalyticsHelper.debugIsCrashEnabledOverride = () => true;
         final _RecordingSpan span = _RecordingSpan();
         SentryHttpClientHelper.debugSpanFactory =
             (String operation, String description) {
@@ -76,6 +85,7 @@ void main() {
       'finishes span with an error when opening the request fails',
       () async {
         AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
+        AnalyticsHelper.debugIsCrashEnabledOverride = () => true;
         final _RecordingSpan span = _RecordingSpan();
         SentryHttpClientHelper.debugSpanFactory =
             (String operation, String description) => span;

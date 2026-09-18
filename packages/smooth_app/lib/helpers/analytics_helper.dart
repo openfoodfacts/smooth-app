@@ -257,8 +257,8 @@ class AnalyticsHelper {
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         ..tracesSampler = (SentrySamplingContext samplingContext) {
-          // HTTP tracing follows analytics consent. Crash reports remain
-          // independently gated in _beforeSend.
+          // HTTP traces are sent only when the user consented to both
+          // analytics and crash reporting (see isTracingEnabled).
           // samplingContext is currently unused; if URL-based sampling is needed
           // (e.g. exclude image CDN) inspect samplingContext.transactionContext
           // or custom samplingContext.custom.
@@ -304,17 +304,22 @@ class AnalyticsHelper {
       debugIsAnalyticsEnabledOverride?.call() ??
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
-  /// Returns true when analytics consent allows HTTP tracing.
-  ///
-  /// Crash reporting consent is intentionally separate: it gates error events
-  /// in [_beforeSend], while HTTP performance traces follow analytics consent.
-  static bool get isTracingEnabled => isEnabled;
+  @visibleForTesting
+  static bool Function()? debugIsCrashEnabledOverride;
+
+  static bool get _crashReportsEffective =>
+      debugIsCrashEnabledOverride?.call() ?? _crashReports;
+
+  /// Returns true only when the user consented to both analytics and crash
+  /// reporting. HTTP performance traces follow this gate, so disabling
+  /// either consent stops all Sentry trace traffic.
+  static bool get isTracingEnabled => isEnabled && _crashReportsEffective;
 
   @visibleForTesting
-  static bool get debugCrashReportsEnabled => _crashReports;
+  static bool get debugCrashReportsEnabled => _crashReportsEffective;
 
   static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
-    if (!_crashReports) {
+    if (!_crashReportsEffective) {
       return null;
     }
     return event
