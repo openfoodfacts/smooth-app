@@ -146,29 +146,51 @@ class _SentryWrappedHttpClient implements HttpClient {
 
   /// Builds a description-only Uri for legacy host/port/path calls.
   ///
-  /// Only scheme/host/port reach the span description ([sanitizedDescription]
-  /// is origin-only); the path is dropped there, and the actual request uses
-  /// the raw [path] untouched to preserve SDK `HttpClient.open` semantics.
+  /// Mirrors SDK `HttpClient.open` parsing: '?' starts query, '#' starts
+  /// fragment. They are stripped here because [sanitizedDescription] never
+  /// sends them to Sentry anyway; the actual request uses the raw [path].
   static Uri _legacyDescUri(String scheme, String host, int port, String path) {
-    return Uri(scheme: scheme, host: host, port: port);
+    String pathPart = path;
+    final int hashIndex = pathPart.indexOf('#');
+    if (hashIndex != -1) {
+      pathPart = pathPart.substring(0, hashIndex);
+    }
+    final int queryIndex = pathPart.indexOf('?');
+    if (queryIndex != -1) {
+      pathPart = pathPart.substring(0, queryIndex);
+    }
+    return Uri(scheme: scheme, host: host, port: port, path: pathPart);
   }
 
-  /// Returns a sanitized URL origin for Sentry span descriptions.
+  /// Returns the sanitized URL origin (`scheme://host[:port]`).
   ///
-  /// Only `METHOD scheme://host[:port]` is kept. Query, fragment and userinfo
-  /// are stripped (as in Sentry's own `HttpSanitizer`), and the path is
-  /// dropped entirely: paths carry product-provided segments (barcodes,
-  /// IDs), which would both leak scanned-product data and explode Sentry
-  /// grouping cardinality. There is no route template available at the
-  /// `HttpClient` layer, so origin-only is the safe description.
-  static String sanitizedDescription(String method, Uri url) {
+  /// Userinfo is redacted; used for low-cardinality transaction names.
+  static String sanitizedOrigin(Uri url) {
     final StringBuffer buffer = StringBuffer();
     if (url.scheme.isNotEmpty) {
       buffer.write('${url.scheme}://');
     }
+    if (url.userInfo.isNotEmpty) {
+      buffer.write('[Filtered]@');
+    }
     buffer.write(url.host);
     if (url.hasPort) {
       buffer.write(':${url.port}');
+    }
+    return buffer.toString();
+  }
+
+  /// Returns a sanitized URL for Sentry span descriptions.
+  ///
+  /// Same convention as the SDK's own `TracingClient`/`HttpSanitizer`: path
+  /// is kept for debuggability, while query, fragment and userinfo are
+  /// stripped so search terms and credentials never land in Sentry. Note the
+  /// path may contain product-provided segments (barcodes, IDs); accepted
+  /// trade-off for this debug-oriented tracing, consistent with SDK behavior.
+  static String sanitizedDescription(String method, Uri url) {
+    final StringBuffer buffer = StringBuffer(sanitizedOrigin(url));
+    if (url.path.isNotEmpty) {
+      buffer.write(url.path);
     }
     return '$method $buffer';
   }
@@ -206,7 +228,21 @@ class _SentryWrappedHttpClient implements HttpClient {
             'http.client',
             description,
           ) ??
-          Sentry.getSpan()?.startChild('http.client', description: description);
+          Sentry.getSpan()?.startChild(
+            'http.client',
+            description: description,
+          ) ??
+          // No active transaction (e.g. requests fired outside navigation):
+          // start a standalone one so the call stays visible. Named by
+          // origin only to keep transaction cardinality low; the full
+          // sanitized path lives in the description. Not bound to the scope
+          // to avoid leaking into unrelated later spans.
+          Sentry.startTransaction(
+            '$method ${sanitizedOrigin(url)}',
+            'http.client',
+            description: description,
+            bindToScope: false,
+          );
 
       final HttpClientRequest request = await requestFactory();
 
@@ -224,15 +260,15 @@ class _SentryWrappedHttpClient implements HttpClient {
       // header injection stays necessary: package:http IOClient and
       // NetworkImage both funnel through dart:io HttpClient via
       // HttpOverrides, which the SDK client cannot intercept.
-      if (span != null) {
-        try {
-          final SentryTraceHeader traceHeader = span.toSentryTrace();
-          request.headers.set('traceparent', _w3cTraceparentValue(traceHeader));
-        } catch (_) {
-          // Tracing must never break the request.
-        }
+      // span is non-null here: the chain above ends in startTransaction,
+      // which never returns null (only throws, handled by the outer catch).
+      try {
+        final SentryTraceHeader traceHeader = span.toSentryTrace();
+        request.headers.set('traceparent', _w3cTraceparentValue(traceHeader));
+      } catch (_) {
+        // Tracing must never break the request.
       }
-      span?.setData('http.request.method', method);
+      span.setData('http.request.method', method);
 
       // Wrap the request to finish the span when done
       return _SentryWrappedHttpClientRequest(request, span);

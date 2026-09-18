@@ -38,18 +38,21 @@ void main() {
         AnalyticsHelper.debugIsAnalyticsEnabledOverride = () => true;
         AnalyticsHelper.debugIsCrashEnabledOverride = () => true;
         final _RecordingSpan span = _RecordingSpan();
-        SentryHttpClientHelper.debugSpanFactory =
-            (String operation, String description) {
-              expect(operation, 'http.client');
-              expect(description, startsWith('GET http://127.0.0.1:'));
-              return span;
-            };
-
-        final Completer<String?> traceparent = Completer<String?>();
         final HttpServer server = await HttpServer.bind(
           InternetAddress.loopbackIPv4,
           0,
         );
+        SentryHttpClientHelper.debugSpanFactory =
+            (String operation, String description) {
+              expect(operation, 'http.client');
+              expect(
+                description,
+                'GET http://127.0.0.1:${server.port}/product/123',
+              );
+              return span;
+            };
+
+        final Completer<String?> traceparent = Completer<String?>();
         final StreamSubscription<HttpRequest> subscription = server.listen((
           HttpRequest request,
         ) {
