@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
@@ -476,7 +478,33 @@ class _Ctas extends StatelessWidget {
           ),
           child: Text(appLocalizations.donation_cta_one_off),
         ),
+        TextButton(
+          onPressed: () => _alreadyDonated(context),
+          style: TextButton.styleFrom(
+            minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
+          ),
+          child: Text(appLocalizations.donation_already_donated),
+        ),
       ],
+    );
+  }
+
+  Future<void> _alreadyDonated(BuildContext context) async {
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.donationAlreadyDonated,
+      eventValue: source?.analyticsValue,
+    );
+    await context.read<UserPreferences>().muteDonationAsks(
+      const Duration(days: 365),
+    );
+    if (!context.mounted) {
+      return;
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SmoothFloatingSnackbar.positive(
+        context: context,
+        text: AppLocalizations.of(context).donation_already_donated_thanks,
+      ),
     );
   }
 
