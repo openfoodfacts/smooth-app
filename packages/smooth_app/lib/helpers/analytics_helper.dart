@@ -377,6 +377,9 @@ class AnalyticsHelper {
       'dimension4': _packageInfo.version,
       'dimension5': productType?.offTag ?? '',
     };
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     MatomoTracker.instance.trackEvent(
       eventInfo: EventInfo(
         name: msg,
@@ -440,6 +443,9 @@ class AnalyticsHelper {
 
     latestSearch = searchString;
 
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     MatomoTracker.instance.trackSearch(
       searchKeyword: search,
       searchCount: searchCount,
@@ -447,8 +453,12 @@ class AnalyticsHelper {
     );
   }
 
-  static void trackOutlink({required String url}) =>
-      MatomoTracker.instance.trackOutlink(link: url);
+  static void trackOutlink({required String url}) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
+    MatomoTracker.instance.trackOutlink(link: url);
+  }
 
   static int? _formatBarcode(String? barcode) {
     if (barcode == null) {
@@ -466,8 +476,6 @@ class AnalyticsHelper {
   static void sendException(dynamic throwable, {dynamic stackTrace}) {
     unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
   }
-
-  static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
 }
 
 enum _AnalyticsTrackingMode {
