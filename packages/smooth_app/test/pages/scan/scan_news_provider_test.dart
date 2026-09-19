@@ -109,8 +109,6 @@ Future<ScanNewsFeedProvider> _pumpProvider(
   return provider;
 }
 
-/// The home card with everything it reads from context, so a test can push
-/// the Support screen on top of it and come back.
 Future<void> _pumpBottomCard(
   WidgetTester tester,
   UserPreferences userPreferences,
@@ -157,7 +155,6 @@ Future<void> _pumpBottomCard(
   await tester.pump();
 }
 
-/// Settings → Support → "I already donated" → back to the home screen.
 Future<void> _alreadyDonateFromSupport(WidgetTester tester) async {
   final NavigatorState navigator = Navigator.of(
     tester.element(find.byType(ScanBottomCard)),
