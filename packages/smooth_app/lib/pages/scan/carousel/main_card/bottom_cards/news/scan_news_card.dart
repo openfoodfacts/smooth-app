@@ -74,6 +74,10 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
       return;
     }
 
+    if (widget.news.isEmpty) {
+      return;
+    }
+
     final AppNewsItem currentNews = widget.news.elementAt(_index);
     final UserPreferences preferences = context.read<UserPreferences>();
     // Not on this State: the carousel disposes off-screen pages, so a swipe
@@ -95,6 +99,10 @@ class _ScanNewsCardState extends State<ScanNewsCard> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.news.isEmpty) {
+      return EMPTY_WIDGET;
+    }
+
     final AppNewsItem currentNews = widget.news.elementAt(_index);
     final bool dense = context.select<ScanBottomCardDensity, bool>(
       (ScanBottomCardDensity density) => density == ScanBottomCardDensity.dense,

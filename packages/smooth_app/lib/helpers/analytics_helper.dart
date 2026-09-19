@@ -370,6 +370,9 @@ class AnalyticsHelper {
     String? action,
     ProductType? productType,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final Map<String, String> dimensions = <String, String>{
       'dimension1': ProductQuery.getLanguage().offTag,
       'dimension2': ProductQuery.getCountry().offTag,
@@ -432,14 +435,14 @@ class AnalyticsHelper {
     String? searchCategory,
     int? searchCount,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final String searchString = '$search,$searchCategory,$searchCount';
-
     if (searchString == latestSearch) {
       return;
     }
-
     latestSearch = searchString;
-
     MatomoTracker.instance.trackSearch(
       searchKeyword: search,
       searchCount: searchCount,
@@ -447,8 +450,12 @@ class AnalyticsHelper {
     );
   }
 
-  static void trackOutlink({required String url}) =>
-      MatomoTracker.instance.trackOutlink(link: url);
+  static void trackOutlink({required String url}) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
+    MatomoTracker.instance.trackOutlink(link: url);
+  }
 
   static int? _formatBarcode(String? barcode) {
     if (barcode == null) {
@@ -466,8 +473,6 @@ class AnalyticsHelper {
   static void sendException(dynamic throwable, {dynamic stackTrace}) {
     unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
   }
-
-  static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
 }
 
 enum _AnalyticsTrackingMode {
