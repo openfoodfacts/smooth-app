@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -11,6 +12,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_page.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -27,6 +29,8 @@ const String _whereItGoesTitle = 'Where it goes';
 const String _tiersTitle = 'Monthly, cancel any time';
 const String _ctaMonthly = 'Support monthly';
 const String _ctaOneOff = 'Give once instead';
+const String _alreadyDonated = 'I already donated';
+const String _alreadyDonatedThanks = "Thank you! We won't ask again for a year.";
 
 /// Pinned formats: whole euros, and a grouped scan count.
 const List<String> _amounts = <String>[
@@ -86,6 +90,12 @@ List<String> _recordHaptics() {
   return played;
 }
 
+List<Map<String, String>> _eventsNamed(String name) => MatomoTracker
+    .instance
+    .queue
+    .where((Map<String, String> event) => event['e_n'] == name)
+    .toList();
+
 String _selectedAmount(WidgetTester tester) => tester
     .widget<PreferenceTile>(
       find.ancestor(
@@ -100,6 +110,7 @@ Future<void> _pumpDonationPage(
   String theme = 'Light',
   Locale? locale,
   AppNewsItem? donation,
+  DonationSource? source,
 }) async {
   tester.view.physicalSize = const Size(1080, 2424);
   tester.view.devicePixelRatio = 2.625;
@@ -109,8 +120,6 @@ Future<void> _pumpDonationPage(
     tester.platformDispatcher.localesTestValue = <Locale>[locale];
     addTearDown(tester.platformDispatcher.clearLocalesTestValue);
   }
-
-  SharedPreferences.setMockInitialValues(mockSharedPreferences());
 
   final UserPreferences userPreferences =
       await UserPreferences.getUserPreferences();
@@ -130,7 +139,7 @@ Future<void> _pumpDonationPage(
   // initializes during onboarding.
   await ProductQuery.initCountry(userPreferences);
 
-  Widget page = const DonationPage();
+  Widget page = DonationPage(source: source);
   if (donation != null) {
     final AppNewsProvider news = _FeedNewsProvider(userPreferences, donation);
     addTearDown(news.dispose);
@@ -156,6 +165,19 @@ Future<void> _pumpDonationPage(
 }
 
 void main() {
+  // Once, before anything reads a preference: `UserPreferences` memoizes one
+  // instance per isolate, so a later `setMockInitialValues` reaches nothing.
+  setUpAll(() async {
+    SharedPreferences.setMockInitialValues(mockSharedPreferences());
+    await mockMatomo();
+  });
+
+  setUp(() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('donationAsksMutedUntil');
+    MatomoTracker.instance.dropActions();
+  });
+
   for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
     testWidgets('DonationPage is complete in $theme', (
       WidgetTester tester,
@@ -172,11 +194,15 @@ void main() {
           .getTopLeft(find.byType(SmoothLargeButtonWithIcon))
           .dy;
       final double secondaryCta = tester.getTopLeft(find.text(_ctaOneOff)).dy;
+      final double alreadyDonated = tester
+          .getTopLeft(find.text(_alreadyDonated))
+          .dy;
 
       expect(headline, lessThan(whereItGoes));
       expect(whereItGoes, lessThan(tiers));
       expect(tiers, lessThan(primaryCta));
       expect(primaryCta, lessThan(secondaryCta));
+      expect(secondaryCta, lessThan(alreadyDonated));
 
       // Three categories, and not a single euro figure among them.
       final Finder whereItGoesBlock = find.byKey(DonationPage.whereItGoesKey);
@@ -209,9 +235,41 @@ void main() {
       );
       expect(find.widgetWithText(TextButton, _ctaOneOff), findsOneWidget);
       expect(find.widgetWithText(ElevatedButton, _ctaOneOff), findsNothing);
+      expect(find.widgetWithText(TextButton, _alreadyDonated), findsOneWidget);
 
       expect(tester, meetsGuideline(textContrastGuideline));
       expect(tester, meetsGuideline(labeledTapTargetGuideline));
+    });
+  }
+
+  for (final DonationSource source in DonationSource.values) {
+    testWidgets('"I already donated" from ${source.name} mutes for a year', (
+      WidgetTester tester,
+    ) async {
+      await _pumpDonationPage(tester, source: source);
+      final UserPreferences prefs = await UserPreferences.getUserPreferences();
+      expect(prefs.donationAsksMutedUntil, isNull);
+
+      final DateTime before = DateTime.now();
+      await tester.ensureVisible(find.text(_alreadyDonated));
+      await tester.pump();
+      await tester.tap(find.text(_alreadyDonated));
+      await tester.pump();
+
+      expect(
+        prefs.donationAsksMutedUntil!
+            .difference(before.add(const Duration(days: 365)))
+            .abs(),
+        lessThan(const Duration(seconds: 5)),
+      );
+      expect(find.text(_alreadyDonatedThanks), findsOneWidget);
+      expect(find.byType(DonationPage), findsOneWidget);
+      final List<Map<String, String>> events = _eventsNamed(
+        'donationAlreadyDonated',
+      );
+      expect(events, hasLength(1));
+      expect(events.single['e_v'], '${source.analyticsValue}');
+      expect(tester, meetsGuideline(textContrastGuideline));
     });
   }
 
