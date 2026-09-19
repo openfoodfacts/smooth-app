@@ -174,6 +174,10 @@ enum AnalyticsEvent {
     tag: 'donation handoff',
     category: AnalyticsCategory.donation,
   ),
+  donationAlreadyDonated(
+    tag: 'donation already donated',
+    category: AnalyticsCategory.donation,
+  ),
   appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
   onboardingPageVisited(
     tag: 'onboarding page visited',
