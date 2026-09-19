@@ -88,9 +88,9 @@
     if (source == UserPictureSource.GALLERY) {
       try {
         return picker.pickImage(
-          imageQuality: ImagePickerConstants.imageQuality,
-          maxHeight: ImagePickerConstants.maxSize.toDouble(),
-          maxWidth: ImagePickerConstants.maxSize.toDouble(),
+          imageQuality: ImagePickerConstants.imagePickerQuality,
+          maxHeight: ImagePickerConstants.imagePickerMaxSize,
+          maxWidth: ImagePickerConstants.imagePickerMaxSize,
           source: ImageSource.gallery,
         );
       } on PlatformException catch (e) {
@@ -106,9 +106,9 @@
       }
     }
     return picker.pickImage(
-      imageQuality: ImagePickerConstants.imageQuality,
-      maxHeight: ImagePickerConstants.maxSize.toDouble(),
-      maxWidth: ImagePickerConstants.maxSize.toDouble(),
+      imageQuality: ImagePickerConstants.imagePickerQuality,
+      maxHeight: ImagePickerConstants.imagePickerMaxSize,
+      maxWidth: ImagePickerConstants.imagePickerMaxSize,
       source: ImageSource.camera,
     );
   }
