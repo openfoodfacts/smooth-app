@@ -14,13 +14,5 @@ class HtmlTagRemover extends TreeVisitor {
   final StringBuffer _buffer = StringBuffer();
 
   @override
-  void visitText(Text node) {
-    final String trimmed = node.data.trim();
-    // we want to remove empty strings...
-    if (trimmed.isEmpty) {
-      return;
-    }
-    // ... but keep spaces for "interesting" strings
-    _buffer.write(node.data);
-  }
+  void visitText(Text node) => _buffer.write(node.data);
 }
