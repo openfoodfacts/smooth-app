@@ -190,8 +190,20 @@ class ProductList {
   int totalSize = 0;
 
   final List<String> _barcodes = <String>[];
+  final Map<String, String> _apiBarcodes = <String, String>{};
 
   List<String> get barcodes => _barcodes;
+
+  /// Maps normalized barcodes to the full values sent to the API (e.g. raw
+  /// GS1 strings).
+  ///
+  /// Only the scan session and the history lists carry these mappings. Other
+  /// lists (including user-created ones) are keyed by normalized product
+  /// codes and query the API with them. The returned map is unmodifiable.
+  Map<String, String> get apiBarcodes =>
+      Map<String, String>.unmodifiable(_apiBarcodes);
+
+  String? getApiBarcode(final String barcode) => _apiBarcodes[barcode];
 
   bool isEmpty() => _barcodes.isEmpty;
 
@@ -204,6 +216,7 @@ class ProductList {
       return false;
     }
     _barcodes.remove(barcode);
+    _apiBarcodes.remove(barcode);
     return true;
   }
 
@@ -217,9 +230,15 @@ class ProductList {
     set(barcodes);
   }
 
-  void set(final Iterable<String> barcodes) {
+  void set(
+    final Iterable<String> barcodes, {
+    final Map<String, String> apiBarcodes = const <String, String>{},
+  }) {
     _barcodes.clear();
     _barcodes.addAll(barcodes);
+    _apiBarcodes
+      ..clear()
+      ..addAll(apiBarcodes);
   }
 
   List<String> getList() {

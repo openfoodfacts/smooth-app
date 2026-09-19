@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/gs1_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
@@ -37,13 +38,20 @@ class ProductDialogHelper {
   final BuildContext context;
   final LocalDatabase localDatabase;
 
+  /// Barcode used for local operations (database lookups, barcode widget,
+  /// product creation): the normalized GTIN for GS1 barcodes, the raw value
+  /// otherwise.
+  String get localBarcode =>
+      tryParseGs1Barcode(barcode)?.normalizedGtin ?? barcode;
+
   Future<FetchedProduct> openBestChoice() async {
-    final Product? product = await DaoProduct(localDatabase).get(barcode);
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? product = await daoProduct.get(localBarcode);
     if (product != null) {
       return FetchedProduct.found(product);
     }
-    if (localDatabase.upToDate.hasPendingChanges(barcode)) {
-      return FetchedProduct.found(Product(barcode: barcode));
+    if (localDatabase.upToDate.hasPendingChanges(localBarcode)) {
+      return FetchedProduct.found(Product(barcode: localBarcode));
     }
     return openUniqueProductSearch();
   }
@@ -52,6 +60,9 @@ class ProductDialogHelper {
       await LoadingDialog.run<FetchedProduct>(
         context: context,
         future: BarcodeProductQuery(
+          // The full scanned value is sent to the API (same as the scan
+          // flow's apiBarcode), so that the server can process GS1
+          // Application Identifiers; local lookups use [localBarcode].
           barcode: barcode,
           daoProduct: DaoProduct(localDatabase),
           isScanned: false,
@@ -122,7 +133,7 @@ class ProductDialogHelper {
                         horizontal: VERY_LARGE_SPACE,
                       ),
                       child: SmoothBarcodeWidget(
-                        barcode: barcode,
+                        barcode: localBarcode,
                         height: 75.0,
                       ),
                     ),
@@ -135,7 +146,7 @@ class ProductDialogHelper {
                       onTap: () async {
                         await AppNavigator.of(
                           context,
-                        ).push(AppRoutes.PRODUCT_CREATOR(barcode));
+                        ).push(AppRoutes.PRODUCT_CREATOR(localBarcode));
                         if (context.mounted) {
                           Navigator.of(context).pop();
                         }
