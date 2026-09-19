@@ -77,6 +77,9 @@
   String? action,
   ProductType? productType,
 }) {
+  if (!MatomoTracker.instance.initialized) {
+    return;
+  }
   final Map&lt;String, String&gt; dimensions = &lt;String, String&gt;{
     &#39;dimension1&#39;: ProductQuery.getLanguage().offTag,
     &#39;dimension2&#39;: ProductQuery.getCountry().offTag,
@@ -136,7 +139,6 @@
         <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-properties">Static properties</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/isEnabled.html">isEnabled</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/latestSearch.html">latestSearch</a></li>
-          <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/matomoVisitorId.html">matomoVisitorId</a></li>
 
         <li class="section-title"><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper-class.html#static-methods">Static methods</a></li>
           <li><a href="../../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_helpers_analytics_helper/AnalyticsHelper/initMatomo.html">initMatomo</a></li>
