@@ -370,6 +370,9 @@ class AnalyticsHelper {
     String? action,
     ProductType? productType,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final Map<String, String> dimensions = <String, String>{
       'dimension1': ProductQuery.getLanguage().offTag,
       'dimension2': ProductQuery.getCountry().offTag,
@@ -377,9 +380,6 @@ class AnalyticsHelper {
       'dimension4': _packageInfo.version,
       'dimension5': productType?.offTag ?? '',
     };
-    if (!MatomoTracker.instance.initialized) {
-      return;
-    }
     MatomoTracker.instance.trackEvent(
       eventInfo: EventInfo(
         name: msg,
@@ -435,17 +435,14 @@ class AnalyticsHelper {
     String? searchCategory,
     int? searchCount,
   }) {
-    final String searchString = '$search,$searchCategory,$searchCount';
-
-    if (searchString == latestSearch) {
-      return;
-    }
-
-    latestSearch = searchString;
-
     if (!MatomoTracker.instance.initialized) {
       return;
     }
+    final String searchString = '$search,$searchCategory,$searchCount';
+    if (searchString == latestSearch) {
+      return;
+    }
+    latestSearch = searchString;
     MatomoTracker.instance.trackSearch(
       searchKeyword: search,
       searchCount: searchCount,
