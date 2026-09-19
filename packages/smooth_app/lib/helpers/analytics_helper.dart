@@ -170,6 +170,10 @@ enum AnalyticsEvent {
   donationHandoff(
     tag: 'donation handoff',
     category: AnalyticsCategory.donation,
+  ),
+  donationAlreadyDonated(
+    tag: 'donation already donated',
+    category: AnalyticsCategory.donation,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});

@@ -1500,7 +1500,7 @@ abstract class AppLocalizations {
   /// **'Choose what information about food matters most to you.'**
   String get myPreferences_food_subtitle;
 
-  /// No description provided for @myPreferences_food_comment.
+  /// No description provided for @myPreferences_food_compatibility_explainer.
   ///
   /// In en, this message translates to:
   /// **'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary.'**
@@ -11145,6 +11145,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Give once instead'**
   String get donation_cta_one_off;
+
+  /// Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year
+  ///
+  /// In en, this message translates to:
+  /// **'I already donated'**
+  String get donation_already_donated;
+
+  /// Confirmation shown after tapping 'I already donated'
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you! We won\'t ask again for a year.'**
+  String get donation_already_donated_thanks;
 }
 
 class _AppLocalizationsDelegate
