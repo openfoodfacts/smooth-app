@@ -14,6 +14,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/preference_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/url_preference_tile.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
+import 'package:smooth_app/pages/prices/prices_dashboard_page.dart';
 import 'package:smooth_app/pages/prices/prices_locations_page.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/pages/prices/prices_products_page.dart';
@@ -57,6 +58,12 @@ class PricesRoot extends PreferencesRoot {
 
     return <PreferenceCard>[
       if (isConnected) ...<PreferenceCard>[
+        PreferenceCard(
+          title: appLocalizations.prices_dashboard_title,
+          tiles: <PreferenceTile>[
+            _buildDashboardTile(context, appLocalizations),
+          ],
+        ),
         PreferenceCard(
           title: appLocalizations.user_search_prices_title,
           tiles: <PreferenceTile>[
@@ -167,6 +174,23 @@ class PricesRoot extends PreferencesRoot {
       onTap: () async => ProductPriceAddPage.showProductPage(
         context: context,
         proofType: ProofType.priceTag,
+      ),
+    );
+  }
+
+  // Dashboard section
+  PreferenceTile _buildDashboardTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      leading: const Icon(Icons.dashboard),
+      title: appLocalizations.prices_dashboard_title,
+      subtitleText: appLocalizations.prices_dashboard_subtitle,
+      onTap: () async => Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => PricesDashboardPage(),
+        ),
       ),
     );
   }
