@@ -139,11 +139,23 @@ void main() {
       expect(tryParseGs1Barcode('(1)04044782317112'), isNull);
     });
 
+    test('Bracketed AI with an empty value is rejected', () {
+      expect(tryParseGs1Barcode('(21)(17)270101'), isNull);
+    });
+
     test('Non-final variable-length AI keeps following AIs', () {
       final GS1Barcode? parsed = tryParseGs1Barcode('(10)ABC123(17)270101');
       expect(parsed, isNotNull);
       final GS1Barcode barcode = parsed!;
       expect(barcode.getAIRawData('10'), 'ABC123');
+      expect(barcode.hasAI('17'), isTrue);
+    });
+
+    test('Parentheses in variable-length AI values keep following AIs', () {
+      final GS1Barcode? parsed = tryParseGs1Barcode('(21)AB(CD(17)270101');
+      expect(parsed, isNotNull);
+      final GS1Barcode barcode = parsed!;
+      expect(barcode.getAIRawData('21'), 'AB(CD');
       expect(barcode.hasAI('17'), isTrue);
     });
 

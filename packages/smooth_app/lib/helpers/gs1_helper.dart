@@ -5,7 +5,9 @@ const String GS1_AI_GTIN = '01';
 
 /// One `(AI)value` group of bracketed human-readable GS1 input, e.g.
 /// `(17)270101`, capturing the AI and its value.
-final RegExp _gs1BracketedGroupRegExp = RegExp(r'\((\d{2,4})\)([^()]+)');
+final RegExp _gs1BracketedGroupRegExp = RegExp(
+  r'\((\d{2,4})\)((?!\(\d{2,4}\)|$).+?)(?=\(\d{2,4}\)|$)',
+);
 
 /// Converts well-formed bracketed human-readable GS1 input (e.g.
 /// `(01)04044782317112(17)270101`) into a raw element string, returning null
