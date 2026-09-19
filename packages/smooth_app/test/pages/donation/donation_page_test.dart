@@ -30,7 +30,8 @@ const String _tiersTitle = 'Monthly, cancel any time';
 const String _ctaMonthly = 'Support monthly';
 const String _ctaOneOff = 'Give once instead';
 const String _alreadyDonated = 'I already donated';
-const String _alreadyDonatedThanks = "Thank you! We won't ask again for a year.";
+const String _alreadyDonatedThanks =
+    "Thank you! We won't ask again for a year.";
 
 /// Pinned formats: whole euros, and a grouped scan count.
 const List<String> _amounts = <String>[

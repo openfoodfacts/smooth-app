@@ -209,7 +209,10 @@ void main() {
         <AppNewsItem>[_donation, _other],
       );
 
-      expect(_ids(provider), unorderedEquals(<String>[_donation.id, _other.id]));
+      expect(
+        _ids(provider),
+        unorderedEquals(<String>[_donation.id, _other.id]),
+      );
     });
 
     testWidgets('muted drops the donation item and nothing else', (
