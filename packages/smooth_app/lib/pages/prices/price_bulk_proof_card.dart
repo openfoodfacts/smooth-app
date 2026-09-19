@@ -111,9 +111,9 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
 
     _setText(appLocalizations.prices_bulk_proof_upload_step_selecting);
     final List<XFile> xFiles = await ImagePicker().pickMultiImage(
-      imageQuality: ImagePickerConstants.imageQuality,
-      maxHeight: ImagePickerConstants.maxSize.toDouble(),
-      maxWidth: ImagePickerConstants.maxSize.toDouble(),
+      imageQuality: ImagePickerConstants.imagePickerQuality,
+      maxHeight: ImagePickerConstants.imagePickerMaxSize,
+      maxWidth: ImagePickerConstants.imagePickerMaxSize,
       requestFullMetadata: false,
     );
     if (xFiles.isEmpty) {
