@@ -244,7 +244,7 @@ void main() {
       expect(provider.value, isA<ScanTagLineStateNoContent>());
     });
 
-    testWidgets('the list follows the flag without a feed reload', (
+    testWidgets('the list follows the mute without a feed reload', (
       WidgetTester tester,
     ) async {
       final ScanNewsFeedProvider provider = await _pumpProvider(
@@ -258,13 +258,7 @@ void main() {
       await tester.pump();
       expect(_ids(provider), <String>[_other.id]);
 
-      // Expired, then any preference change re-evaluates it.
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt(
-        _tagMutedUntil,
-        DateTime.now().subtract(const Duration(days: 1)).millisecondsSinceEpoch,
-      );
-      userPreferences.setTheme('Light');
+      await userPreferences.muteDonationAsks(const Duration(days: -1));
       await tester.pump();
       expect(_ids(provider), hasLength(2));
     });
