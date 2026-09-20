@@ -137,7 +137,7 @@ void main() {
 
   group('DonationOffer.reminderEvery', () {
     test('falls back to 10 for every unusable value', () {
-      for (final num? value in <num?>[null, 0, -3, double.infinity]) {
+      for (final num? value in <num?>[null, 0, -3, 0.5, double.infinity]) {
         expect(
           DonationOffer.fromNews(
             _newsItem(donationReminderEvery: value),
@@ -166,7 +166,9 @@ void main() {
 
   group('DonationOffer.donorCount', () {
     test('is null for every unusable value', () {
-      for (final num? value in <num?>[null, 0, -1, double.infinity]) {
+      // 0.5 in particular: `> 0` would accept it and `.toInt()` truncates it
+      // to a displayed 0, so the boundary has to be `>= 1`.
+      for (final num? value in <num?>[null, 0, -1, 0.5, double.infinity]) {
         expect(
           DonationOffer.fromNews(_newsItem(count: value)).donorCount,
           isNull,
