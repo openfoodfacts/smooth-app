@@ -11157,6 +11157,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Thank you! We won\'t ask again for a year.'**
   String get donation_already_donated_thanks;
+
+  /// Headline of the donation reminder sheet, with the number of donors from the feed
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{Join the {count} person keeping Open Food Facts free.} other{Join the {count} people keeping Open Food Facts free.}}'**
+  String donation_reminder_title(int count);
+
+  /// Headline of the donation reminder sheet when the feed carries no usable donor count
+  ///
+  /// In en, this message translates to:
+  /// **'Join the people keeping Open Food Facts free.'**
+  String get donation_reminder_title_generic;
+
+  /// Body line of the donation reminder sheet
+  ///
+  /// In en, this message translates to:
+  /// **'A non-profit, built by volunteers, with no ads and no investors. A small monthly gift keeps it free for everyone.'**
+  String get donation_reminder_body;
+
+  /// Quiet button on the donation reminder sheet that closes it without changing anything
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get donation_reminder_not_now;
+
+  /// Quiet link on the donation reminder sheet that permanently stops the reminder
+  ///
+  /// In en, this message translates to:
+  /// **'Don\'t ask again'**
+  String get donation_reminder_never_again;
 }
 
 class _AppLocalizationsDelegate
