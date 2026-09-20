@@ -161,60 +161,63 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
 
     return SmoothModalSheet(
       title: appLocalizations.contribute_donate_header,
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        spacing: MEDIUM_SPACE,
-        children: <Widget>[
-          Text(
-            donorCount == null
-                ? appLocalizations.donation_reminder_title_generic
-                : appLocalizations.donation_reminder_title(donorCount),
-            style: Theme.of(context).textTheme.headlineMedium,
-          ),
-          Text(appLocalizations.donation_reminder_body),
-          for (final DonationTier tier in offer.tiers)
-            DonationTierRow(
-              selected: tier.amount == _selected,
-              amount: appLocalizations.donation_tier_amount_monthly(
-                amountFormat.format(tier.amount),
-              ),
-              scans: appLocalizations.donation_tier_scans(
-                numberFormat.format(tier.scans),
-              ),
-              onTap: () => setState(() => _selected = tier.amount),
+      bodyPadding: EdgeInsetsDirectional.zero,
+      body: SmoothModalSheetBodyContainer(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: MEDIUM_SPACE,
+          children: <Widget>[
+            Text(
+              donorCount == null
+                  ? appLocalizations.donation_reminder_title_generic
+                  : appLocalizations.donation_reminder_title(donorCount),
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
-          SmoothLargeButtonWithIcon(
-            text: appLocalizations.donation_cta_monthly,
-            leadingIcon: const icons.Donate(),
-            onPressed: () => _handoff(context),
-          ),
-          TextButton(
-            onPressed: () => _notNow(context),
-            style: TextButton.styleFrom(
-              minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
+            Text(appLocalizations.donation_reminder_body),
+            for (final DonationTier tier in offer.tiers)
+              DonationTierRow(
+                selected: tier.amount == _selected,
+                amount: appLocalizations.donation_tier_amount_monthly(
+                  amountFormat.format(tier.amount),
+                ),
+                scans: appLocalizations.donation_tier_scans(
+                  numberFormat.format(tier.scans),
+                ),
+                onTap: () => setState(() => _selected = tier.amount),
+              ),
+            SmoothLargeButtonWithIcon(
+              text: appLocalizations.donation_cta_monthly,
+              leadingIcon: const icons.Donate(),
+              onPressed: () => _handoff(context),
             ),
-            child: Text(appLocalizations.donation_reminder_not_now),
-          ),
-          Wrap(
-            spacing: MEDIUM_SPACE,
-            children: <Widget>[
-              TextButton(
-                onPressed: () => _alreadyDonated(context),
-                style: TextButton.styleFrom(
-                  minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
-                ),
-                child: Text(appLocalizations.donation_already_donated),
+            TextButton(
+              onPressed: () => _notNow(context),
+              style: TextButton.styleFrom(
+                minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
               ),
-              TextButton(
-                onPressed: () => _neverAgain(context),
-                style: TextButton.styleFrom(
-                  minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
+              child: Text(appLocalizations.donation_reminder_not_now),
+            ),
+            Wrap(
+              spacing: MEDIUM_SPACE,
+              children: <Widget>[
+                TextButton(
+                  onPressed: () => _alreadyDonated(context),
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(0, MINIMUM_TOUCH_SIZE),
+                  ),
+                  child: Text(appLocalizations.donation_already_donated),
                 ),
-                child: Text(appLocalizations.donation_reminder_never_again),
-              ),
-            ],
-          ),
-        ],
+                TextButton(
+                  onPressed: () => _neverAgain(context),
+                  style: TextButton.styleFrom(
+                    minimumSize: const Size(0, MINIMUM_TOUCH_SIZE),
+                  ),
+                  child: Text(appLocalizations.donation_reminder_never_again),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
