@@ -11193,6 +11193,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{scans} scans'**
   String donation_tier_scans_short(String scans);
+
+  /// Small suffix after the amount on a tier chip of the donation reminder sheet, e.g. '€5 /month'
+  ///
+  /// In en, this message translates to:
+  /// **'/month'**
+  String get donation_tier_per_month;
 }
 
 class _AppLocalizationsDelegate

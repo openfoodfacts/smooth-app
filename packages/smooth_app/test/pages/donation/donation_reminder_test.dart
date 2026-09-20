@@ -11,7 +11,6 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_reminder.dart';
 import 'package:smooth_app/pages/donation/donation_tier_row.dart';
@@ -491,9 +490,7 @@ void main() {
       );
 
       final DateTime before = DateTime.now();
-      // The CTA's own label renders through `AutoSizeText`, not a plain
-      // `Text` `find.text` can see, so tap the button by its type.
-      await tester.tap(find.byType(SmoothLargeButtonWithIcon));
+      await tester.tap(find.byType(ElevatedButton));
       await tester.pumpAndSettle();
 
       _expectPoppedOnce(tester);
@@ -631,9 +628,7 @@ void main() {
         tester.getTopLeft(tiers.at(1)),
         tester.getTopLeft(tiers.at(2)),
       ];
-      final double cta = tester
-          .getTopLeft(find.byType(SmoothLargeButtonWithIcon))
-          .dy;
+      final double cta = tester.getTopLeft(find.byType(ElevatedButton)).dy;
       final double notNow = tester.getCenter(find.text(_notNow)).dy;
       final double alreadyDonated = tester
           .getCenter(find.text(_alreadyDonated))
@@ -700,18 +695,13 @@ void main() {
       await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
       await tester.pump();
 
-      // The CTA renders through `AutoSizeText`, invisible to `find.text`.
-      String cta() => tester
-          .widget<SmoothLargeButtonWithIcon>(
-            find.byType(SmoothLargeButtonWithIcon),
-          )
-          .text;
-      expect(cta(), 'Give €5 a month');
+      expect(find.text('Give €5 a month'), findsOneWidget);
 
-      await tester.tap(find.text('€10'));
+      await tester.tap(find.text('€10 /month'));
       await tester.pump();
 
-      expect(cta(), 'Give €10 a month');
+      expect(find.text('Give €10 a month'), findsOneWidget);
+      expect(find.text('Give €5 a month'), findsNothing);
     });
 
     testWidgets('a usable donor count renders the plural headline', (
@@ -785,7 +775,7 @@ void main() {
           of: find.byWidget(
             tiers.singleWhere((DonationLadderOutline tier) => tier.active),
           ),
-          matching: find.text('€5'),
+          matching: find.text('€5 /month'),
         ),
         findsOneWidget,
       );

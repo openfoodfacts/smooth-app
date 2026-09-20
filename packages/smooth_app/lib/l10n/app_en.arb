@@ -6006,5 +6006,9 @@
         "example": "1,300"
       }
     }
+  },
+  "donation_tier_per_month": "/month",
+  "@donation_tier_per_month": {
+    "description": "Small suffix after the amount on a tier chip of the donation reminder sheet, e.g. '€5 /month'"
   }
 }

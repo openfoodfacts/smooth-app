@@ -7,7 +7,6 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
@@ -161,6 +160,7 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final ColorScheme colorScheme = Theme.of(context).colorScheme;
     final DonationOffer offer = widget.offer;
     final int? donorCount = offer.donorCount;
     final AppNewsFunding? funding = offer.funding;
@@ -177,24 +177,25 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
       body: SmoothModalSheetBodyContainer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          spacing: MEDIUM_SPACE,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
-              child: Text(
-                donorCount == null
-                    ? appLocalizations.donation_reminder_title_generic
-                    : appLocalizations.donation_reminder_title(donorCount),
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
+            const SizedBox(height: LARGE_SPACE),
+            Text(
+              donorCount == null
+                  ? appLocalizations.donation_reminder_title_generic
+                  : appLocalizations.donation_reminder_title(donorCount),
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const SizedBox(height: MEDIUM_SPACE),
             Text(appLocalizations.donation_reminder_body),
-            if (funding != null)
+            if (funding != null) ...<Widget>[
+              const SizedBox(height: LARGE_SPACE),
               _CampaignMeter(
                 funding: funding,
                 monthsLeft: offer.monthsLeft,
                 amountFormat: amountFormat,
               ),
+            ],
+            const SizedBox(height: VERY_LARGE_SPACE),
             IntrinsicHeight(
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -212,12 +213,38 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
                 ],
               ),
             ),
-            SmoothLargeButtonWithIcon(
-              text: appLocalizations.donation_reminder_cta(
-                amountFormat.format(_selected),
+            const SizedBox(height: VERY_LARGE_SPACE),
+            ElevatedButton.icon(
+              icon: icons.Donate(color: colorScheme.onSecondary),
+              label: Text(
+                appLocalizations.donation_reminder_cta(
+                  amountFormat.format(_selected),
+                ),
               ),
-              leadingIcon: const icons.Donate(),
-              onPressed: () => _handoff(context),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: colorScheme.secondary,
+                foregroundColor: colorScheme.onSecondary,
+                minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: ROUNDED_BORDER_RADIUS,
+                ),
+              ),
+              onPressed: () => _handoff(
+                context,
+                offer.tier(_selected).url(source: DonationSource.reminder),
+                _selected,
+              ),
+            ),
+            TextButton(
+              onPressed: () => _handoff(
+                context,
+                offer.oneOffUrl(source: DonationSource.reminder),
+                0,
+              ),
+              style: TextButton.styleFrom(
+                minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
+              ),
+              child: Text(appLocalizations.donation_cta_one_off),
             ),
             Center(
               child: Wrap(
@@ -246,16 +273,18 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
   }
 
   /// Pops before launching, so Donorbox returns to the product list rather
-  /// than a stale sheet.
-  Future<void> _handoff(BuildContext context) async {
+  /// than a stale sheet. [monthlyAmount] is 0 for a one-off, as on the
+  /// Support screen.
+  Future<void> _handoff(
+    BuildContext context,
+    String url,
+    int monthlyAmount,
+  ) async {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationReminderHandoff,
-      eventValue: _selected,
+      eventValue: monthlyAmount,
     );
     final UserPreferences preferences = context.read<UserPreferences>();
-    final String url = widget.offer
-        .tier(_selected)
-        .url(source: DonationSource.reminder);
     Navigator.of(context).pop();
     unawaited(LaunchUrlHelper.launchURLInBrowserView(url));
     await preferences.muteDonationAsks(const Duration(days: 90));
@@ -374,9 +403,17 @@ class _TierChip extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text(
-                  amount,
-                  style: textTheme.headlineMedium,
+                Text.rich(
+                  TextSpan(
+                    text: amount,
+                    style: textTheme.headlineMedium,
+                    children: <InlineSpan>[
+                      TextSpan(
+                        text: ' ${appLocalizations.donation_tier_per_month}',
+                        style: textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 Text(
