@@ -144,8 +144,6 @@ class UserPreferences extends ChangeNotifier {
 
   /// Donation asks (home card, reminders)
   static const String _TAG_DONATION_ASKS_MUTED_UNTIL = 'donationAsksMutedUntil';
-  static const String _TAG_DONATION_REMINDERS_DISABLED =
-      'donationRemindersDisabled';
 
   /// Info messages
   static const String _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME =
@@ -717,22 +715,9 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool get donationRemindersDisabled =>
-      _sharedPreferences.getBool(_TAG_DONATION_REMINDERS_DISABLED) ?? false;
-
-  Future<void> setDonationRemindersDisabled(final bool disabled) async {
-    await _sharedPreferences.setBool(
-      _TAG_DONATION_REMINDERS_DISABLED,
-      disabled,
-    );
-    notifyListeners();
-  }
-
-  /// The only place the two donation flags are combined.
   bool donationAsksMuted(final DateTime now) {
     final DateTime? mutedUntil = donationAsksMutedUntil;
-    return donationRemindersDisabled ||
-        (mutedUntil != null && now.isBefore(mutedUntil));
+    return mutedUntil != null && now.isBefore(mutedUntil);
   }
 
   bool showInputProductNameBanner() =>

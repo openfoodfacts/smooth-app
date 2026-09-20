@@ -30,7 +30,6 @@ import '../../tests_utils/mocks.dart';
 // `UserPreferences` is a per-isolate singleton, so each test clears the keys
 // it can leave behind on the shared `SharedPreferences` instance.
 const String _tagMutedUntil = 'donationAsksMutedUntil';
-const String _tagRemindersDisabled = 'donationRemindersDisabled';
 const String _tagDisplayed = 'taglineFeedNewsDisplayed';
 const String _tagClicked = 'taglineFeedNewsClicked';
 
@@ -190,7 +189,6 @@ void main() {
   setUp(() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove(_tagMutedUntil);
-    await prefs.remove(_tagRemindersDisabled);
     await prefs.setStringList(_tagDisplayed, <String>[]);
     await prefs.setStringList(_tagClicked, <String>[]);
     userPreferences.taglineFeedSessionImpressions.clear();
@@ -246,21 +244,6 @@ void main() {
       expect(provider.value, isA<ScanTagLineStateNoContent>());
     });
 
-    testWidgets('disabled reminders drop the donation item too', (
-      WidgetTester tester,
-    ) async {
-      await userPreferences.setDonationRemindersDisabled(true);
-
-      final ScanNewsFeedProvider provider = await _pumpProvider(
-        tester,
-        userPreferences,
-        <AppNewsItem>[_donation, _other],
-      );
-
-      expect(userPreferences.donationAsksMutedUntil, isNull);
-      expect(_ids(provider), <String>[_other.id]);
-    });
-
     testWidgets('the list follows the flag without a feed reload', (
       WidgetTester tester,
     ) async {
@@ -281,7 +264,7 @@ void main() {
         _tagMutedUntil,
         DateTime.now().subtract(const Duration(days: 1)).millisecondsSinceEpoch,
       );
-      await userPreferences.setDonationRemindersDisabled(false);
+      userPreferences.setTheme('Light');
       await tester.pump();
       expect(_ids(provider), hasLength(2));
     });

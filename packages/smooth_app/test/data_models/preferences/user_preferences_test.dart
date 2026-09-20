@@ -5,7 +5,6 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import '../../tests_utils/mocks.dart';
 
 const String _tagMutedUntil = 'donationAsksMutedUntil';
-const String _tagRemindersDisabled = 'donationRemindersDisabled';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +20,6 @@ void main() {
 
   setUp(() async {
     await sharedPreferences.remove(_tagMutedUntil);
-    await sharedPreferences.remove(_tagRemindersDisabled);
   });
 
   group('donationAsksMuted', () {
@@ -29,7 +27,6 @@ void main() {
 
     test('is false with nothing set', () {
       expect(userPreferences.donationAsksMutedUntil, isNull);
-      expect(userPreferences.donationRemindersDisabled, isFalse);
       expect(userPreferences.donationAsksMuted(now), isFalse);
     });
 
@@ -45,13 +42,6 @@ void main() {
         now.subtract(const Duration(seconds: 1)).millisecondsSinceEpoch,
       );
       expect(userPreferences.donationAsksMuted(now), isFalse);
-    });
-
-    test('is true when reminders are disabled, whatever the date', () async {
-      await userPreferences.setDonationRemindersDisabled(true);
-
-      expect(userPreferences.donationAsksMutedUntil, isNull);
-      expect(userPreferences.donationAsksMuted(now), isTrue);
     });
   });
 
