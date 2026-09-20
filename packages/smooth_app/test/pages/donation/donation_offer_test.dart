@@ -8,6 +8,8 @@ AppNewsItem _newsItem({
   List<num>? donationAmounts,
   num? donationScansPerUnit,
   List<String>? donationWhereItGoes,
+  num? donationReminderEvery,
+  num? count,
 }) => AppNewsItem(
   id: 'donation_campaign_2026',
   title: 'title',
@@ -17,6 +19,8 @@ AppNewsItem _newsItem({
   donationAmounts: donationAmounts,
   donationScansPerUnit: donationScansPerUnit,
   donationWhereItGoes: donationWhereItGoes,
+  donationReminderEvery: donationReminderEvery,
+  count: count,
 );
 
 const String _campaign =
@@ -34,6 +38,8 @@ void main() {
       expect(offer.scansPerUnit, 270);
       expect(offer.whereItGoes, isEmpty);
       expect(offer.defaultAmount, 5);
+      expect(offer.reminderEvery, 10);
+      expect(offer.donorCount, isNull);
     });
 
     test('falls back field by field when the feed carries none of it', () {
@@ -43,6 +49,8 @@ void main() {
       expect(offer.amounts, <int>[3, 5, 10]);
       expect(offer.scansPerUnit, 270);
       expect(offer.whereItGoes, isEmpty);
+      expect(offer.reminderEvery, 10);
+      expect(offer.donorCount, isNull);
     });
 
     test('takes what the feed declares', () {
@@ -124,6 +132,52 @@ void main() {
         ).scansPerUnit,
         270,
       );
+    });
+  });
+
+  group('DonationOffer.reminderEvery', () {
+    test('falls back to 10 for every unusable value', () {
+      for (final num? value in <num?>[null, 0, -3, double.infinity]) {
+        expect(
+          DonationOffer.fromNews(
+            _newsItem(donationReminderEvery: value),
+          ).reminderEvery,
+          10,
+          reason: '$value',
+        );
+      }
+    });
+
+    test('takes what the feed declares, whole or as a whole-number double', () {
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(donationReminderEvery: 15),
+        ).reminderEvery,
+        15,
+      );
+      expect(
+        DonationOffer.fromNews(
+          _newsItem(donationReminderEvery: 15.0),
+        ).reminderEvery,
+        15,
+      );
+    });
+  });
+
+  group('DonationOffer.donorCount', () {
+    test('is null for every unusable value', () {
+      for (final num? value in <num?>[null, 0, -1, double.infinity]) {
+        expect(
+          DonationOffer.fromNews(_newsItem(count: value)).donorCount,
+          isNull,
+          reason: '$value',
+        );
+      }
+    });
+
+    test('takes a whole-number double, and the boundary value 1', () {
+      expect(DonationOffer.fromNews(_newsItem(count: 768.0)).donorCount, 768);
+      expect(DonationOffer.fromNews(_newsItem(count: 1)).donorCount, 1);
     });
   });
 
@@ -269,6 +323,21 @@ void main() {
     });
   });
 
+  group('DonationOffer.amountFormat / numberFormat', () {
+    test('falls back to en for a locale intl ships no symbols for', () {
+      final DonationOffer offer = DonationOffer.fromNews(null);
+
+      expect(offer.amountFormat('brx').format(3), '€3');
+      expect(offer.numberFormat('brx').format(1300), '1,300');
+    });
+
+    test('uses the locale intl does support', () {
+      final DonationOffer offer = DonationOffer.fromNews(null);
+
+      expect(offer.numberFormat('de').format(1300), '1.300');
+    });
+  });
+
   group('DonationOffer.oneOffUrl', () {
     test('omits the amount and the interval', () {
       final String url = DonationOffer.fromNews(null).oneOffUrl();
@@ -285,7 +354,7 @@ void main() {
         DonationSource.values
             .map((DonationSource source) => source.analyticsValue)
             .toList(),
-        <int>[1, 2],
+        <int>[1, 2, 3],
       );
     });
 
@@ -306,6 +375,20 @@ void main() {
       );
     });
 
+    test('the reminder source rides along on both URL shapes', () {
+      expect(
+        DonationOffer.fromNews(
+          null,
+        ).tier(3).url(source: DonationSource.reminder),
+        '$_campaign?amount=3&default_interval=m&currency=eur'
+        '$_utm&utm_content=donation-screen-reminder',
+      );
+      expect(
+        DonationOffer.fromNews(null).oneOffUrl(source: DonationSource.reminder),
+        '$_campaign?currency=eur$_utm&utm_content=donation-screen-reminder',
+      );
+    });
+
     test('is carried by the route', () {
       expect(
         AppRoutes.DONATE(DonationSource.settings),
@@ -314,6 +397,10 @@ void main() {
       expect(
         AppRoutes.DONATE(DonationSource.tagline),
         '/_donate?source=tagline',
+      );
+      expect(
+        AppRoutes.DONATE(DonationSource.reminder),
+        '/_donate?source=reminder',
       );
     });
   });
