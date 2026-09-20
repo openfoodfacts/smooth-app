@@ -226,17 +226,13 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
       AnalyticsEvent.donationReminderHandoff,
       eventValue: _selected,
     );
+    final UserPreferences preferences = context.read<UserPreferences>();
     final String url = widget.offer
         .tier(_selected)
         .url(source: DonationSource.reminder);
-    await context.read<UserPreferences>().muteDonationAsks(
-      const Duration(days: 90),
-    );
-    if (!context.mounted) {
-      return;
-    }
     Navigator.of(context).pop();
     unawaited(LaunchUrlHelper.launchURLInBrowserView(url));
+    await preferences.muteDonationAsks(const Duration(days: 90));
   }
 
   void _notNow(BuildContext context) {
@@ -249,21 +245,15 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
       AnalyticsEvent.donationAlreadyDonated,
       eventValue: DonationSource.reminder.analyticsValue,
     );
-    await context.read<UserPreferences>().muteDonationAsks(
-      const Duration(days: 365),
-    );
-    if (!context.mounted) {
-      return;
-    }
+    final UserPreferences preferences = context.read<UserPreferences>();
     Navigator.of(context).pop();
+    await preferences.muteDonationAsks(const Duration(days: 365));
   }
 
   Future<void> _neverAgain(BuildContext context) async {
     AnalyticsHelper.trackEvent(AnalyticsEvent.donationReminderNeverAgain);
-    await context.read<UserPreferences>().setDonationRemindersDisabled(true);
-    if (!context.mounted) {
-      return;
-    }
+    final UserPreferences preferences = context.read<UserPreferences>();
     Navigator.of(context).pop();
+    await preferences.setDonationRemindersDisabled(true);
   }
 }
