@@ -80,8 +80,6 @@ class DonationOffer {
   /// published 2026 infrastructure budget over their published scan volume.
   static const int _fallbackScansPerUnit = 270;
 
-  /// How many looked-up products trigger the reminder sheet when the feed
-  /// says nothing.
   static const int _fallbackReminderEvery = 10;
 
   /// Sorted and deduplicated: the slider walks the ladder by index, so an
@@ -111,8 +109,6 @@ class DonationOffer {
   /// translated lines.
   final List<String> whereItGoes;
 
-  /// How many product pages a user looks up before the reminder sheet is
-  /// eligible again.
   final int reminderEvery;
 
   /// Donors so far, for the reminder sheet's headline. Null when the feed
