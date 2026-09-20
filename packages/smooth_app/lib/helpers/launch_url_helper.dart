@@ -45,6 +45,22 @@ class LaunchUrlHelper {
     }
   }
 
+  /// Apple Pay and Google Pay disappear inside a webview, and a device with no
+  /// Custom Tabs provider silently gets url_launcher's own bundled one. Fall
+  /// back to a real browser instead, which keeps every payment method.
+  static Future<void> launchURLInBrowserView(String url) async {
+    final bool customTabs = await supportsLaunchMode(
+      LaunchMode.inAppBrowserView,
+    );
+
+    return launchURL(
+      url,
+      mode: customTabs
+          ? LaunchMode.inAppBrowserView
+          : LaunchMode.externalApplication,
+    );
+  }
+
   /// Launches the URL in a WebView if it's an OFF link or an external browser.
   static Future<void> launchURLInWebViewOrBrowser(
     BuildContext context,
