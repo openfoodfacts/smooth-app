@@ -514,6 +514,38 @@ void main() {
         lessThan(const Duration(seconds: 5)),
       );
     });
+    testWidgets('"Give once instead" hands off to the one-off form, value 0', (
+      WidgetTester tester,
+    ) async {
+      final List<Map<Object?, Object?>> launches = _recordLaunches();
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
+        tester,
+      );
+
+      final DateTime before = DateTime.now();
+      await tester.tap(find.text('Give once instead'));
+      await tester.pumpAndSettle();
+
+      _expectPoppedOnce(tester);
+
+      final List<Map<String, String>> events = _eventsNamed(
+        'donationReminderHandoff',
+      );
+      expect(events, hasLength(1));
+      expect(events.single['e_v'], '0');
+
+      expect(launches, hasLength(1));
+      final String url = launches.single['url']! as String;
+      expect(url, isNot(contains('amount=')));
+      expect(url, isNot(contains('default_interval=')));
+      expect(url, endsWith('utm_content=donation-screen-reminder'));
+      expect(
+        userPreferences.donationAsksMutedUntil!
+            .difference(before.add(const Duration(days: 90)))
+            .abs(),
+        lessThan(const Duration(seconds: 5)),
+      );
+    });
   });
 
   group('not eligible', () {
