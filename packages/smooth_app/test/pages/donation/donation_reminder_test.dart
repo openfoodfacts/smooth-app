@@ -199,6 +199,45 @@ Future<void> _leaveProductPage(WidgetTester tester) async {
   await tester.pumpAndSettle();
 }
 
+/// Reaches the 10th product page (campaign live, 2nd launch, never shown)
+/// and leaves it, so the reminder sheet is showing - the setup every test in
+/// `group('leaving an eligible product page')` needs before its own
+/// assertions. [extraSetup] runs after the products-looked-up counter is
+/// seeded but before the product page is pushed.
+Future<(UserPreferences, ProductPreferences, NavigatorState)>
+_reachEligibleSheet(
+  WidgetTester tester, {
+  AppNewsItem? donation,
+  Widget child = const _Marker('PRODUCT'),
+  Future<void> Function(SharedPreferences prefs)? extraSetup,
+}) async {
+  final (
+    UserPreferences userPreferences,
+    ProductPreferences productPreferences,
+  ) = await _preparePreferences();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setInt(_tagProductsLookedUp, 9);
+  if (extraSetup != null) {
+    await extraSetup(prefs);
+  }
+
+  final NavigatorState navigator = await _pumpHomeAndFiller(
+    tester,
+    userPreferences: userPreferences,
+    productPreferences: productPreferences,
+    donation: donation ?? _donationItem(),
+  );
+  await _pushProductPage(
+    tester,
+    navigator,
+    barcode: 'barcode_10',
+    child: child,
+  );
+  await _leaveProductPage(tester);
+
+  return (userPreferences, productPreferences, navigator);
+}
+
 void _expectPoppedOnce(WidgetTester tester) {
   expect(find.text('PRODUCT'), findsNothing);
   expect(find.text('FILLER'), findsOneWidget);
@@ -211,6 +250,10 @@ Future<Widget> _sheetOnly(
   required DonationOffer offer,
   String theme = 'Light',
 }) async {
+  tester.view.physicalSize = const Size(1080, 2424);
+  tester.view.devicePixelRatio = 2.625;
+  addTearDown(tester.view.reset);
+
   final (
     UserPreferences userPreferences,
     ProductPreferences productPreferences,
@@ -316,23 +359,12 @@ void main() {
     testWidgets('shows the sheet, prefs updated before it renders', (
       WidgetTester tester,
     ) async {
-      final (
-        UserPreferences userPreferences,
-        ProductPreferences productPreferences,
-      ) = await _preparePreferences();
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt(_tagProductsLookedUp, 9);
-      await prefs.setString(_tagLastCountedBarcode, 'barcode_9');
-
-      final NavigatorState navigator = await _pumpHomeAndFiller(
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
         tester,
-        userPreferences: userPreferences,
-        productPreferences: productPreferences,
         donation: _donationItem(count: 768),
+        extraSetup: (SharedPreferences prefs) =>
+            prefs.setString(_tagLastCountedBarcode, 'barcode_9'),
       );
-      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
-
-      await _leaveProductPage(tester);
 
       expect(find.byType(DonationReminderSheet), findsOneWidget);
       // The 10th lookup landed and the reminder was marked shown before the
@@ -350,27 +382,7 @@ void main() {
     testWidgets('no product data leaks into the sheet', (
       WidgetTester tester,
     ) async {
-      final (
-        UserPreferences userPreferences,
-        ProductPreferences productPreferences,
-      ) = await _preparePreferences();
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt(_tagProductsLookedUp, 9);
-
-      final NavigatorState navigator = await _pumpHomeAndFiller(
-        tester,
-        userPreferences: userPreferences,
-        productPreferences: productPreferences,
-        donation: _donationItem(),
-      );
-      await _pushProductPage(
-        tester,
-        navigator,
-        barcode: 'barcode_10',
-        child: const _Marker('Zzz Brand'),
-      );
-
-      await _leaveProductPage(tester);
+      await _reachEligibleSheet(tester, child: const _Marker('Zzz Brand'));
 
       expect(
         find.descendant(
@@ -399,21 +411,7 @@ void main() {
       testWidgets('"$action" closes the sheet, product pops exactly once', (
         WidgetTester tester,
       ) async {
-        final (
-          UserPreferences userPreferences,
-          ProductPreferences productPreferences,
-        ) = await _preparePreferences();
-        final SharedPreferences prefs = await SharedPreferences.getInstance();
-        await prefs.setInt(_tagProductsLookedUp, 9);
-
-        final NavigatorState navigator = await _pumpHomeAndFiller(
-          tester,
-          userPreferences: userPreferences,
-          productPreferences: productPreferences,
-          donation: _donationItem(),
-        );
-        await _pushProductPage(tester, navigator, barcode: 'barcode_10');
-        await _leaveProductPage(tester);
+        await _reachEligibleSheet(tester);
         expect(find.byType(DonationReminderSheet), findsOneWidget);
 
         switch (action) {
@@ -446,21 +444,9 @@ void main() {
     testWidgets('"Not now" changes nothing beyond the show itself', (
       WidgetTester tester,
     ) async {
-      final (
-        UserPreferences userPreferences,
-        ProductPreferences productPreferences,
-      ) = await _preparePreferences();
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt(_tagProductsLookedUp, 9);
-
-      final NavigatorState navigator = await _pumpHomeAndFiller(
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
         tester,
-        userPreferences: userPreferences,
-        productPreferences: productPreferences,
-        donation: _donationItem(),
       );
-      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
-      await _leaveProductPage(tester);
 
       await tester.tap(find.text(_notNow));
       await tester.pumpAndSettle();
@@ -473,21 +459,9 @@ void main() {
     testWidgets('"Don\'t ask again" sets the permanent flag', (
       WidgetTester tester,
     ) async {
-      final (
-        UserPreferences userPreferences,
-        ProductPreferences productPreferences,
-      ) = await _preparePreferences();
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt(_tagProductsLookedUp, 9);
-
-      final NavigatorState navigator = await _pumpHomeAndFiller(
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
         tester,
-        userPreferences: userPreferences,
-        productPreferences: productPreferences,
-        donation: _donationItem(),
       );
-      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
-      await _leaveProductPage(tester);
 
       await tester.tap(find.text(_neverAgain));
       await tester.pumpAndSettle();
@@ -499,21 +473,9 @@ void main() {
     testWidgets('"I already donated" mutes for a year, value 3', (
       WidgetTester tester,
     ) async {
-      final (
-        UserPreferences userPreferences,
-        ProductPreferences productPreferences,
-      ) = await _preparePreferences();
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt(_tagProductsLookedUp, 9);
-
-      final NavigatorState navigator = await _pumpHomeAndFiller(
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
         tester,
-        userPreferences: userPreferences,
-        productPreferences: productPreferences,
-        donation: _donationItem(),
       );
-      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
-      await _leaveProductPage(tester);
 
       final DateTime before = DateTime.now();
       await tester.tap(find.text(_alreadyDonated));
@@ -536,21 +498,9 @@ void main() {
       WidgetTester tester,
     ) async {
       final List<Map<Object?, Object?>> launches = _recordLaunches();
-      final (
-        UserPreferences userPreferences,
-        ProductPreferences productPreferences,
-      ) = await _preparePreferences();
-      final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt(_tagProductsLookedUp, 9);
-
-      final NavigatorState navigator = await _pumpHomeAndFiller(
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
         tester,
-        userPreferences: userPreferences,
-        productPreferences: productPreferences,
-        donation: _donationItem(),
       );
-      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
-      await _leaveProductPage(tester);
 
       final DateTime before = DateTime.now();
       // The CTA's own label renders through `AutoSizeText`, not a plain
@@ -645,14 +595,12 @@ void main() {
       );
       await _pushProductPage(tester, navigator, barcode: 'barcode_10');
 
-      // Pushing forward (e.g. the edit page) must not show the sheet.
       navigator.push(
         MaterialPageRoute<void>(builder: (_) => const _Marker('EDIT')),
       );
       await tester.pumpAndSettle();
       expect(find.byType(DonationReminderSheet), findsNothing);
 
-      // Back to the product page, then leaving it does show the sheet.
       await _leaveProductPage(tester);
       expect(find.text('PRODUCT'), findsOneWidget);
       expect(find.byType(DonationReminderSheet), findsNothing);
@@ -672,8 +620,6 @@ void main() {
       await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
       await tester.pump();
 
-      // `contribute_donate_header`'s own translation uses narrow no-break
-      // spaces (U+202F) between the three words, not plain ASCII ones.
       final double header = tester
           .getTopLeft(find.text('Donate to Open Food Facts'))
           .dy;
@@ -817,10 +763,15 @@ void main() {
       await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
       await tester.pump();
 
+      // Scoped to the scrollable body, not the whole sheet: the header bar
+      // above it is `SmoothModalSheetHeader`, shared by a dozen other
+      // screens, with its own `maxLines: 2` + ellipsis contract - it
+      // gracefully clips by design and is outside this file's control, so
+      // AC10's "scrolls rather than overflows" claim is about the body only.
       for (final Element element
           in find
               .descendant(
-                of: find.byType(DonationReminderSheet),
+                of: find.byType(SingleChildScrollView),
                 matching: find.byType(RichText),
               )
               .evaluate()) {
