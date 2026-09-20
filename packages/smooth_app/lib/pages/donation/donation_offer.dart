@@ -37,6 +37,8 @@ class DonationOffer {
     required this.whereItGoes,
     required this.reminderEvery,
     required this.donorCount,
+    required this.funding,
+    required this.monthsLeft,
   });
 
   /// Falls back field by field, so a feed carrying none of this renders the
@@ -63,6 +65,8 @@ class DonationOffer {
       donorCount: donorCount != null && _isUsableCount(donorCount)
           ? donorCount.toInt()
           : null,
+      funding: item?.funding,
+      monthsLeft: item?.monthsLeft,
     );
   }
 
@@ -114,6 +118,11 @@ class DonationOffer {
   /// Donors so far, for the reminder sheet's headline. Null when the feed
   /// carries nothing usable, which falls back to a generic headline.
   final int? donorCount;
+
+  /// The campaign meter as the home card shows it; null when the feed carries
+  /// no usable figures, and the reminder sheet then shows no meter.
+  final AppNewsFunding? funding;
+  final int? monthsLeft;
 
   List<DonationTier> get tiers => amounts.map(tier).toList(growable: false);
 

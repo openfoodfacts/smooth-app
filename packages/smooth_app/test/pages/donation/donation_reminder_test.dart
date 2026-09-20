@@ -24,22 +24,30 @@ import '../../tests_utils/local_database_mock.dart';
 import '../../tests_utils/mocks.dart';
 
 const String _tagMutedUntil = 'donationAsksMutedUntil';
-const String _tagRemindersDisabled = 'donationRemindersDisabled';
 const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
 const String _tagLastCountedBarcode = 'lastCountedBarcode';
 const String _tagLastReminderShownAt = 'lastReminderShownAt';
 const String _tagAppLaunches = 'appLaunches';
 
 const String _notNow = 'Not now';
-const String _neverAgain = "Don't ask again";
 const String _alreadyDonated = 'I already donated';
 
-AppNewsItem _donationItem({num? count}) => AppNewsItem(
+AppNewsItem _donationItem({
+  num? count,
+  num? raised,
+  num? goal,
+  String? currency,
+  DateTime? endDate,
+}) => AppNewsItem(
   id: 'donation_campaign_2026',
   title: 'title',
   message: 'message',
   url: 'https://world.openfoodfacts.org/',
   count: count,
+  raised: raised,
+  goal: goal,
+  currency: currency,
+  endDate: endDate,
 );
 
 /// Serves one donation news item, mirroring `donation_page_test.dart`'s
@@ -282,7 +290,6 @@ void main() {
   setUp(() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove(_tagMutedUntil);
-    await prefs.remove(_tagRemindersDisabled);
     await prefs.remove(_tagProductsLookedUp);
     await prefs.remove(_tagLastCountedBarcode);
     await prefs.remove(_tagLastReminderShownAt);
@@ -405,7 +412,6 @@ void main() {
       'scrim tap',
       'system back',
       'not now',
-      'never again',
       'already donated',
     ]) {
       testWidgets('"$action" closes the sheet, product pops exactly once', (
@@ -423,8 +429,6 @@ void main() {
             await _leaveProductPage(tester);
           case 'not now':
             await tester.tap(find.text(_notNow));
-          case 'never again':
-            await tester.tap(find.text(_neverAgain));
           case 'already donated':
             await tester.tap(find.text(_alreadyDonated));
         }
@@ -435,7 +439,6 @@ void main() {
             action == 'scrim tap' ||
             action == 'system back') {
           expect(_eventsNamed('donationReminderNotNow'), isEmpty);
-          expect(_eventsNamed('donationReminderNeverAgain'), isEmpty);
           expect(_eventsNamed('donationAlreadyDonated'), isEmpty);
         }
       });
@@ -452,22 +455,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(_eventsNamed('donationReminderNotNow'), hasLength(1));
-      expect(userPreferences.donationRemindersDisabled, isFalse);
       expect(userPreferences.donationAsksMutedUntil, isNull);
-    });
-
-    testWidgets('"Don\'t ask again" sets the permanent flag', (
-      WidgetTester tester,
-    ) async {
-      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
-        tester,
-      );
-
-      await tester.tap(find.text(_neverAgain));
-      await tester.pumpAndSettle();
-
-      expect(userPreferences.donationRemindersDisabled, isTrue);
-      expect(_eventsNamed('donationReminderNeverAgain'), hasLength(1));
     });
 
     testWidgets('"I already donated" mutes for a year, value 3', (
@@ -537,7 +525,7 @@ void main() {
         UserPreferences userPreferences,
         ProductPreferences productPreferences,
       ) = await _preparePreferences();
-      await userPreferences.setDonationRemindersDisabled(true);
+      await userPreferences.muteDonationAsks(const Duration(days: 365));
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setInt(_tagProductsLookedUp, 9);
 
@@ -636,31 +624,94 @@ void main() {
             ),
           )
           .dy;
-      final Finder tierRows = find.byType(DonationTierRow);
-      expect(tierRows, findsNWidgets(3));
-      final List<double> tiers = <double>[
-        tester.getTopLeft(tierRows.at(0)).dy,
-        tester.getTopLeft(tierRows.at(1)).dy,
-        tester.getTopLeft(tierRows.at(2)).dy,
+      final Finder tiers = find.byType(DonationLadderOutline);
+      expect(tiers, findsNWidgets(3));
+      final List<Offset> tierOrigins = <Offset>[
+        tester.getTopLeft(tiers.at(0)),
+        tester.getTopLeft(tiers.at(1)),
+        tester.getTopLeft(tiers.at(2)),
       ];
       final double cta = tester
           .getTopLeft(find.byType(SmoothLargeButtonWithIcon))
           .dy;
-      final double notNow = tester.getTopLeft(find.text(_notNow)).dy;
+      final double notNow = tester.getCenter(find.text(_notNow)).dy;
       final double alreadyDonated = tester
-          .getTopLeft(find.text(_alreadyDonated))
+          .getCenter(find.text(_alreadyDonated))
           .dy;
-      final double neverAgain = tester.getTopLeft(find.text(_neverAgain)).dy;
 
       expect(header, lessThan(headline));
       expect(headline, lessThan(body));
-      expect(body, lessThan(tiers[0]));
-      expect(tiers[0], lessThan(tiers[1]));
-      expect(tiers[1], lessThan(tiers[2]));
-      expect(tiers[2], lessThan(cta));
-      expect(cta, lessThan(notNow));
-      expect(notNow, lessThan(alreadyDonated));
-      expect(notNow, lessThan(neverAgain));
+      expect(body, lessThan(tierOrigins[0].dy));
+      // One row of three, left to right.
+      expect(tierOrigins[1].dy, tierOrigins[0].dy);
+      expect(tierOrigins[2].dy, tierOrigins[0].dy);
+      expect(tierOrigins[0].dx, lessThan(tierOrigins[1].dx));
+      expect(tierOrigins[1].dx, lessThan(tierOrigins[2].dx));
+      expect(tierOrigins[0].dy, lessThan(cta));
+      expect(cta, lessThan(alreadyDonated));
+      // One row of two links, "I already donated" first.
+      expect(notNow, alreadyDonated);
+      expect(
+        tester.getTopLeft(find.text(_alreadyDonated)).dx,
+        lessThan(tester.getTopLeft(find.text(_notNow)).dx),
+      );
+    });
+
+    testWidgets('a feed with figures renders the campaign meter', (
+      WidgetTester tester,
+    ) async {
+      final DonationOffer offer = DonationOffer.fromNews(
+        _donationItem(
+          count: 768,
+          raised: 47673,
+          goal: 170000,
+          currency: 'EUR',
+          endDate: DateTime.now().add(const Duration(days: 122)),
+        ),
+      );
+      await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
+      await tester.pump();
+
+      expect(find.text('€47,673'), findsOneWidget);
+      expect(find.text('of €170,000'), findsOneWidget);
+      expect(find.text('4 months left'), findsOneWidget);
+      final LinearProgressIndicator bar = tester.widget(
+        find.byType(LinearProgressIndicator),
+      );
+      expect(bar.value, closeTo(0.28, 0.001));
+    });
+
+    testWidgets('a feed without figures renders no meter', (
+      WidgetTester tester,
+    ) async {
+      final DonationOffer offer = DonationOffer.fromNews(
+        _donationItem(count: 768),
+      );
+      await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
+      await tester.pump();
+
+      expect(find.byType(LinearProgressIndicator), findsNothing);
+    });
+
+    testWidgets('the button carries the selected amount', (
+      WidgetTester tester,
+    ) async {
+      final DonationOffer offer = DonationOffer.fromNews(null);
+      await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
+      await tester.pump();
+
+      // The CTA renders through `AutoSizeText`, invisible to `find.text`.
+      String cta() => tester
+          .widget<SmoothLargeButtonWithIcon>(
+            find.byType(SmoothLargeButtonWithIcon),
+          )
+          .text;
+      expect(cta(), 'Give €5 a month');
+
+      await tester.tap(find.text('€10'));
+      await tester.pump();
+
+      expect(cta(), 'Give €10 a month');
     });
 
     testWidgets('a usable donor count renders the plural headline', (
@@ -721,15 +772,24 @@ void main() {
       await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
       await tester.pump();
 
-      final List<DonationTierRow> rows = tester
-          .widgetList<DonationTierRow>(find.byType(DonationTierRow))
+      final List<DonationLadderOutline> tiers = tester
+          .widgetList<DonationLadderOutline>(find.byType(DonationLadderOutline))
           .toList();
-      expect(rows, hasLength(3));
-      expect(rows.where((DonationTierRow row) => row.selected), hasLength(1));
+      expect(tiers, hasLength(3));
       expect(
-        rows.singleWhere((DonationTierRow row) => row.selected).amount,
-        '€5 a month',
+        tiers.where((DonationLadderOutline tier) => tier.active),
+        hasLength(1),
       );
+      expect(
+        find.descendant(
+          of: find.byWidget(
+            tiers.singleWhere((DonationLadderOutline tier) => tier.active),
+          ),
+          matching: find.text('€5'),
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('1,300 scans'), findsOneWidget);
     });
   });
 

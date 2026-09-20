@@ -15,6 +15,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/donation/donation_tier_row.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// The five conditions that gate the donation reminder sheet, computed once
 /// per product page so [PopScope.canPop] never re-evaluates mid-visit.
@@ -126,9 +127,10 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
   }
 }
 
-/// The reminder itself: donor count, a body line, the three tiers, and the
-/// three ways to close it. Never reads a [Product] - a donation ask must read
-/// as support for Open Food Facts, not for whatever brand is on screen.
+/// The reminder itself: headline, one body line, the campaign meter, the
+/// tiers, and the ways to close it. Never reads a [Product] - a donation ask
+/// must read as support for Open Food Facts, not for whatever brand is on
+/// screen.
 class DonationReminderSheet extends StatefulWidget {
   const DonationReminderSheet({required this.offer});
 
@@ -139,6 +141,15 @@ class DonationReminderSheet extends StatefulWidget {
 }
 
 class _DonationReminderSheetState extends State<DonationReminderSheet> {
+  static final ButtonStyle _linkStyle = TextButton.styleFrom(
+    minimumSize: const Size(0, MINIMUM_TOUCH_SIZE),
+    padding: const EdgeInsets.symmetric(horizontal: SMALL_SPACE),
+    textStyle: const TextStyle(
+      fontSize: 13.0,
+      decoration: TextDecoration.underline,
+    ),
+  );
+
   late int _selected;
 
   @override
@@ -152,6 +163,7 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final DonationOffer offer = widget.offer;
     final int? donorCount = offer.donorCount;
+    final AppNewsFunding? funding = offer.funding;
     final NumberFormat amountFormat = offer.amountFormat(
       appLocalizations.localeName,
     );
@@ -167,54 +179,65 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: MEDIUM_SPACE,
           children: <Widget>[
-            Text(
-              donorCount == null
-                  ? appLocalizations.donation_reminder_title_generic
-                  : appLocalizations.donation_reminder_title(donorCount),
-              style: Theme.of(context).textTheme.headlineMedium,
+            Padding(
+              padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
+              child: Text(
+                donorCount == null
+                    ? appLocalizations.donation_reminder_title_generic
+                    : appLocalizations.donation_reminder_title(donorCount),
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
             ),
             Text(appLocalizations.donation_reminder_body),
-            for (final DonationTier tier in offer.tiers)
-              DonationTierRow(
-                selected: tier.amount == _selected,
-                amount: appLocalizations.donation_tier_amount_monthly(
-                  amountFormat.format(tier.amount),
-                ),
-                scans: appLocalizations.donation_tier_scans(
-                  numberFormat.format(tier.scans),
-                ),
-                onTap: () => setState(() => _selected = tier.amount),
+            if (funding != null)
+              _CampaignMeter(
+                funding: funding,
+                monthsLeft: offer.monthsLeft,
+                amountFormat: amountFormat,
               ),
+            IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                spacing: SMALL_SPACE,
+                children: <Widget>[
+                  for (final DonationTier tier in offer.tiers)
+                    Expanded(
+                      child: _TierChip(
+                        selected: tier.amount == _selected,
+                        amount: amountFormat.format(tier.amount),
+                        scans: numberFormat.format(tier.scans),
+                        onTap: () => setState(() => _selected = tier.amount),
+                      ),
+                    ),
+                ],
+              ),
+            ),
             SmoothLargeButtonWithIcon(
-              text: appLocalizations.donation_cta_monthly,
+              text: appLocalizations.donation_reminder_cta(
+                amountFormat.format(_selected),
+              ),
               leadingIcon: const icons.Donate(),
               onPressed: () => _handoff(context),
             ),
-            TextButton(
-              onPressed: () => _notNow(context),
-              style: TextButton.styleFrom(
-                minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
+            Center(
+              child: Wrap(
+                alignment: WrapAlignment.center,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: SMALL_SPACE,
+                children: <Widget>[
+                  TextButton(
+                    onPressed: () => _alreadyDonated(context),
+                    style: _linkStyle,
+                    child: Text(appLocalizations.donation_already_donated),
+                  ),
+                  const Text('·'),
+                  TextButton(
+                    onPressed: () => _notNow(context),
+                    style: _linkStyle,
+                    child: Text(appLocalizations.donation_reminder_not_now),
+                  ),
+                ],
               ),
-              child: Text(appLocalizations.donation_reminder_not_now),
-            ),
-            Wrap(
-              spacing: MEDIUM_SPACE,
-              children: <Widget>[
-                TextButton(
-                  onPressed: () => _alreadyDonated(context),
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(0, MINIMUM_TOUCH_SIZE),
-                  ),
-                  child: Text(appLocalizations.donation_already_donated),
-                ),
-                TextButton(
-                  onPressed: () => _neverAgain(context),
-                  style: TextButton.styleFrom(
-                    minimumSize: const Size(0, MINIMUM_TOUCH_SIZE),
-                  ),
-                  child: Text(appLocalizations.donation_reminder_never_again),
-                ),
-              ],
             ),
           ],
         ),
@@ -252,11 +275,120 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
     Navigator.of(context).pop();
     await preferences.muteDonationAsks(const Duration(days: 365));
   }
+}
 
-  Future<void> _neverAgain(BuildContext context) async {
-    AnalyticsHelper.trackEvent(AnalyticsEvent.donationReminderNeverAgain);
-    final UserPreferences preferences = context.read<UserPreferences>();
-    Navigator.of(context).pop();
-    await preferences.setDonationRemindersDisabled(true);
+/// Raised over goal, the bar, and the months left - the home card's meter
+/// without its shortfall line.
+class _CampaignMeter extends StatelessWidget {
+  const _CampaignMeter({
+    required this.funding,
+    required this.monthsLeft,
+    required this.amountFormat,
+  });
+
+  final AppNewsFunding funding;
+  final int? monthsLeft;
+  final NumberFormat amountFormat;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final TextStyle? small = Theme.of(context).textTheme.bodySmall;
+    final int? months = monthsLeft;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      spacing: VERY_SMALL_SPACE,
+      children: <Widget>[
+        Row(
+          spacing: VERY_SMALL_SPACE,
+          children: <Widget>[
+            Text(
+              amountFormat.format(funding.raised),
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            Expanded(
+              child: Text(
+                appLocalizations.tagline_feed_funding_goal(
+                  amountFormat.format(funding.goal),
+                ),
+                style: small,
+              ),
+            ),
+            if (months != null && months >= 1 && months <= 12)
+              Text(
+                appLocalizations.tagline_feed_funding_months_left(months),
+                style: small,
+              ),
+          ],
+        ),
+        LinearProgressIndicator(
+          value: funding.progress,
+          semanticsValue: (funding.ratio * 100).round().toString(),
+          minHeight: SMALL_SPACE,
+          borderRadius: MAX_BORDER_RADIUS,
+          color: context
+              .extension<SmoothColorsThemeExtension>()
+              .secondaryVibrant,
+        ),
+      ],
+    );
+  }
+}
+
+/// One tier of the ladder, sized for three in a row: the amount and the scans
+/// it covers. "A month" is on the button below, not repeated three times.
+class _TierChip extends StatelessWidget {
+  const _TierChip({
+    required this.selected,
+    required this.amount,
+    required this.scans,
+    required this.onTap,
+  });
+
+  final bool selected;
+  final String amount;
+  final String scans;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
+    return Semantics(
+      selected: selected,
+      button: true,
+      label: appLocalizations.donation_tier_amount_monthly(amount),
+      excludeSemantics: true,
+      child: DonationLadderOutline(
+        active: selected,
+        child: InkWell(
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          onTap: onTap,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: SMALL_SPACE,
+              horizontal: VERY_SMALL_SPACE,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  amount,
+                  style: textTheme.headlineMedium,
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  appLocalizations.donation_tier_scans_short(scans),
+                  style: textTheme.bodySmall,
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }

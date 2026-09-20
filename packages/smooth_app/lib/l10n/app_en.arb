@@ -5987,8 +5987,24 @@
   "@donation_reminder_not_now": {
     "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
   },
-  "donation_reminder_never_again": "Don't ask again",
-  "@donation_reminder_never_again": {
-    "description": "Quiet link on the donation reminder sheet that permanently stops the reminder"
+  "donation_reminder_cta": "Give {amount} a month",
+  "@donation_reminder_cta": {
+    "description": "Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_tier_scans_short": "{scans} scans",
+  "@donation_tier_scans_short": {
+    "description": "Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers",
+    "placeholders": {
+      "scans": {
+        "type": "String",
+        "example": "1,300"
+      }
+    }
   }
 }

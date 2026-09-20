@@ -11182,11 +11182,17 @@ abstract class AppLocalizations {
   /// **'Not now'**
   String get donation_reminder_not_now;
 
-  /// Quiet link on the donation reminder sheet that permanently stops the reminder
+  /// Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency
   ///
   /// In en, this message translates to:
-  /// **'Don\'t ask again'**
-  String get donation_reminder_never_again;
+  /// **'Give {amount} a month'**
+  String donation_reminder_cta(String amount);
+
+  /// Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers
+  ///
+  /// In en, this message translates to:
+  /// **'{scans} scans'**
+  String donation_tier_scans_short(String scans);
 }
 
 class _AppLocalizationsDelegate
