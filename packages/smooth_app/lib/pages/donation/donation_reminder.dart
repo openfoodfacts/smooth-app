@@ -126,10 +126,8 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
   }
 }
 
-/// The reminder itself: headline, one body line, the campaign meter, the
-/// tiers, and the ways to close it. Never reads a [Product] - a donation ask
-/// must read as support for Open Food Facts, not for whatever brand is on
-/// screen.
+/// Never reads a [Product] - a donation ask must read as support for Open
+/// Food Facts, not for whatever brand is on screen.
 class DonationReminderSheet extends StatefulWidget {
   const DonationReminderSheet({required this.offer});
 
@@ -257,7 +255,7 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
                     style: _linkStyle,
                     child: Text(appLocalizations.donation_already_donated),
                   ),
-                  const Text('·'),
+                  const ExcludeSemantics(child: Text('·')),
                   TextButton(
                     onPressed: () => _notNow(context),
                     style: _linkStyle,
@@ -306,8 +304,7 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
   }
 }
 
-/// Raised over goal, the bar, and the months left - the home card's meter
-/// without its shortfall line.
+/// The home card's meter without its shortfall line.
 class _CampaignMeter extends StatelessWidget {
   const _CampaignMeter({
     required this.funding,
@@ -329,19 +326,23 @@ class _CampaignMeter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       spacing: VERY_SMALL_SPACE,
       children: <Widget>[
-        Row(
-          spacing: VERY_SMALL_SPACE,
+        Wrap(
+          alignment: WrapAlignment.spaceBetween,
+          crossAxisAlignment: WrapCrossAlignment.end,
+          spacing: SMALL_SPACE,
+          runSpacing: VERY_SMALL_SPACE,
           children: <Widget>[
-            Text(
-              amountFormat.format(funding.raised),
-              style: const TextStyle(fontWeight: FontWeight.bold),
-            ),
-            Expanded(
-              child: Text(
-                appLocalizations.tagline_feed_funding_goal(
-                  amountFormat.format(funding.goal),
-                ),
-                style: small,
+            Text.rich(
+              TextSpan(
+                text: amountFormat.format(funding.raised),
+                style: const TextStyle(fontWeight: FontWeight.bold),
+                children: <InlineSpan>[
+                  TextSpan(
+                    text:
+                        ' ${appLocalizations.tagline_feed_funding_goal(amountFormat.format(funding.goal))}',
+                    style: small,
+                  ),
+                ],
               ),
             ),
             if (months != null && months >= 1 && months <= 12)
@@ -365,8 +366,6 @@ class _CampaignMeter extends StatelessWidget {
   }
 }
 
-/// One tier of the ladder, sized for three in a row: the amount and the scans
-/// it covers. "A month" is on the button below, not repeated three times.
 class _TierChip extends StatelessWidget {
   const _TierChip({
     required this.selected,
@@ -389,6 +388,7 @@ class _TierChip extends StatelessWidget {
       selected: selected,
       button: true,
       label: appLocalizations.donation_tier_amount_monthly(amount),
+      onTap: onTap,
       excludeSemantics: true,
       child: DonationLadderOutline(
         active: selected,

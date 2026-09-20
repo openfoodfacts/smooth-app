@@ -31,6 +31,15 @@ const String _tagAppLaunches = 'appLaunches';
 const String _notNow = 'Not now';
 const String _alreadyDonated = 'I already donated';
 
+/// Every optional field set, so a probe covers the meter too.
+AppNewsItem _fullDonationItem() => _donationItem(
+  count: 768,
+  raised: 47673,
+  goal: 170000,
+  currency: 'EUR',
+  endDate: DateTime.now().add(const Duration(days: 122)),
+);
+
 AppNewsItem _donationItem({
   num? count,
   num? raised,
@@ -669,14 +678,12 @@ void main() {
       expect(header, lessThan(headline));
       expect(headline, lessThan(body));
       expect(body, lessThan(tierOrigins[0].dy));
-      // One row of three, left to right.
       expect(tierOrigins[1].dy, tierOrigins[0].dy);
       expect(tierOrigins[2].dy, tierOrigins[0].dy);
       expect(tierOrigins[0].dx, lessThan(tierOrigins[1].dx));
       expect(tierOrigins[1].dx, lessThan(tierOrigins[2].dx));
       expect(tierOrigins[0].dy, lessThan(cta));
       expect(cta, lessThan(alreadyDonated));
-      // One row of two links, "I already donated" first.
       expect(notNow, alreadyDonated);
       expect(
         tester.getTopLeft(find.text(_alreadyDonated)).dx,
@@ -687,20 +694,11 @@ void main() {
     testWidgets('a feed with figures renders the campaign meter', (
       WidgetTester tester,
     ) async {
-      final DonationOffer offer = DonationOffer.fromNews(
-        _donationItem(
-          count: 768,
-          raised: 47673,
-          goal: 170000,
-          currency: 'EUR',
-          endDate: DateTime.now().add(const Duration(days: 122)),
-        ),
-      );
+      final DonationOffer offer = DonationOffer.fromNews(_fullDonationItem());
       await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
       await tester.pump();
 
-      expect(find.text('€47,673'), findsOneWidget);
-      expect(find.text('of €170,000'), findsOneWidget);
+      expect(find.text('€47,673 of €170,000'), findsOneWidget);
       expect(find.text('4 months left'), findsOneWidget);
       final LinearProgressIndicator bar = tester.widget(
         find.byType(LinearProgressIndicator),
@@ -734,6 +732,36 @@ void main() {
 
       expect(find.text('Give €10 a month'), findsOneWidget);
       expect(find.text('Give €5 a month'), findsNothing);
+    });
+
+    testWidgets('a tier chip is a tappable, selectable button to a reader', (
+      WidgetTester tester,
+    ) async {
+      final DonationOffer offer = DonationOffer.fromNews(null);
+      await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
+      await tester.pump();
+
+      expect(
+        tester.getSemantics(find.bySemanticsLabel('€10 a month')),
+        matchesSemantics(
+          label: '€10 a month',
+          isButton: true,
+          hasTapAction: true,
+          hasSelectedState: true,
+          isSelected: false,
+        ),
+      );
+      expect(
+        tester.getSemantics(find.bySemanticsLabel('€5 a month')),
+        matchesSemantics(
+          label: '€5 a month',
+          isButton: true,
+          hasTapAction: true,
+          hasSelectedState: true,
+          isSelected: true,
+        ),
+      );
+      expect(find.bySemanticsLabel('·'), findsNothing);
     });
 
     testWidgets('a usable donor count renders the plural headline', (
@@ -819,9 +847,7 @@ void main() {
     testWidgets('the sheet meets accessibility guidelines in $theme', (
       WidgetTester tester,
     ) async {
-      final DonationOffer offer = DonationOffer.fromNews(
-        _donationItem(count: 768),
-      );
+      final DonationOffer offer = DonationOffer.fromNews(_fullDonationItem());
       await tester.pumpWidget(
         await _sheetOnly(tester, offer: offer, theme: theme),
       );
@@ -839,17 +865,13 @@ void main() {
       tester.platformDispatcher.textScaleFactorTestValue = textScale;
       addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
 
-      final DonationOffer offer = DonationOffer.fromNews(
-        _donationItem(count: 768),
-      );
+      final DonationOffer offer = DonationOffer.fromNews(_fullDonationItem());
       await tester.pumpWidget(await _sheetOnly(tester, offer: offer));
       await tester.pump();
 
-      // Scoped to the scrollable body, not the whole sheet: the header bar
-      // above it is `SmoothModalSheetHeader`, shared by a dozen other
-      // screens, with its own `maxLines: 2` + ellipsis contract - it
-      // gracefully clips by design and is outside this file's control, so
-      // AC10's "scrolls rather than overflows" claim is about the body only.
+      // The header bar above the body is `SmoothModalSheetHeader`, shared by
+      // other sheets, with its own `maxLines: 2` + ellipsis; only the body is
+      // this file's.
       for (final Element element
           in find
               .descendant(
