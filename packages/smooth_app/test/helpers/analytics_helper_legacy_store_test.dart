@@ -22,7 +22,7 @@ void main() {
       .where((Map<String, String> event) => event['e_n'] == 'appFirstOpen');
 
   test(
-    'an upgrade reports no first open, and the consent tap reports one',
+    'an upgrade reports no first open, nor does a consent tap after it',
     () async {
       SharedPreferences.setMockInitialValues(mockSharedPreferences());
       await mockMatomo();
@@ -46,13 +46,11 @@ void main() {
       await userPreferences.init(productPreferences);
       expect(MatomoTracker.instance.queue, isEmpty);
 
-      // Only reachable if this install never got past the welcome screen, and
-      // then it has never been counted - so one event is the right answer.
+      // The migration latched the store: this install opened the app before
+      // the event existed, so a consent tap after the upgrade (a sign-up or
+      // dev-mode reset re-runs the onboarding) must not count as a first open.
       await userPreferences.trackFirstOpenAfterConsent();
-      expect(appFirstOpenEvents(), hasLength(1));
-
-      await userPreferences.trackFirstOpenAfterConsent();
-      expect(appFirstOpenEvents(), hasLength(1));
+      expect(appFirstOpenEvents(), isEmpty);
     },
   );
 }

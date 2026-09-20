@@ -72,7 +72,7 @@ class UserPreferences extends ChangeNotifier {
 
   /// The current version of preferences
   static const String _TAG_VERSION = 'prefs_version';
-  static const int _PREFS_CURRENT_VERSION = 3;
+  static const int _PREFS_CURRENT_VERSION = 4;
   static const String _TAG_APP_LAUNCHES = 'appLaunches';
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
