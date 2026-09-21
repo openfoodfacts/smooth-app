@@ -249,12 +249,13 @@ class AnalyticsHelper {
   }
 
   static Future<void> initSentry({required Function()? appRunner}) async {
-    await SentryFlutter.init((SentryOptions options) {
+    await SentryFlutter.init((SentryFlutterOptions options) {
       options
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         // To set a uniform sample rate
         ..tracesSampleRate = 1.0
+        ..enableTombstone = true
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
         ..environment =
