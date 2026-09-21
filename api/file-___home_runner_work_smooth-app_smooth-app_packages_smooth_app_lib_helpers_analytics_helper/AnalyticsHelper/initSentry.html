@@ -66,12 +66,13 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; initSentry({required Function()? appRunner}) async {
-  await SentryFlutter.init((SentryOptions options) {
+  await SentryFlutter.init((SentryFlutterOptions options) {
     options
       ..dsn =
           &#39;https:&#47;&#47;22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io&#47;5376745&#39;
       &#47;&#47; To set a uniform sample rate
       ..tracesSampleRate = 1.0
+      ..enableTombstone = true
       ..beforeSend = _beforeSend
       ..captureFailedRequests = false
       ..environment =
