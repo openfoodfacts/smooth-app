@@ -10,6 +10,8 @@ class TextEditingControllerWithHistory extends TextEditingController {
   final String? _initialValue;
   String? _previousValue;
 
+  bool _valid = true;
+
   String? get initialValue => _initialValue;
 
   String? get previousValue => _previousValue;
@@ -24,6 +26,13 @@ class TextEditingControllerWithHistory extends TextEditingController {
       text = _initialValue;
     }
   }
+
+  set valid(bool valid) {
+    _valid = valid;
+    notifyListeners();
+  }
+
+  bool get valid => _valid;
 
   @override
   set text(String newText) {
