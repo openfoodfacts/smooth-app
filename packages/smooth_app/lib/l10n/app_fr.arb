@@ -5956,5 +5956,13 @@
   "donation_cta_one_off": "Donner une fois à la place",
   "@donation_cta_one_off": {
     "description": "Secondary link of the donation page, opens the donation form for a single gift"
+  },
+  "donation_already_donated": "I already donated",
+  "@donation_already_donated": {
+    "description": "Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year"
+  },
+  "donation_already_donated_thanks": "Thank you! We won't ask again for a year.",
+  "@donation_already_donated_thanks": {
+    "description": "Confirmation shown after tapping 'I already donated'"
   }
 }
