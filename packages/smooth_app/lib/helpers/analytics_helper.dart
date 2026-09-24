@@ -257,7 +257,6 @@ class AnalyticsHelper {
         ..tracesSampleRate = 1.0
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
-        ..enableTombstone = true
         ..environment =
             '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
     }, appRunner: appRunner);
