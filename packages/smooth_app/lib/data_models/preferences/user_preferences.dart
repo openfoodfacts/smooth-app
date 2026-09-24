@@ -142,6 +142,9 @@ class UserPreferences extends ChangeNotifier {
       'taglineFeedNewsDisplayed';
   static const String _TAG_TAGLINE_FEED_NEWS_CLICKED = 'taglineFeedNewsClicked';
 
+  /// Donation asks (home card, reminders)
+  static const String _TAG_DONATION_ASKS_MUTED_UNTIL = 'donationAsksMutedUntil';
+
   /// Info messages
   static const String _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME =
       'bannerInputProductName';
@@ -695,6 +698,26 @@ class UserPreferences extends ChangeNotifier {
         clickedNews,
       );
     }
+  }
+
+  DateTime? get donationAsksMutedUntil {
+    final int? millis = _sharedPreferences.getInt(
+      _TAG_DONATION_ASKS_MUTED_UNTIL,
+    );
+    return millis == null ? null : DateTime.fromMillisecondsSinceEpoch(millis);
+  }
+
+  Future<void> muteDonationAsks(final Duration duration) async {
+    await _sharedPreferences.setInt(
+      _TAG_DONATION_ASKS_MUTED_UNTIL,
+      DateTime.now().add(duration).millisecondsSinceEpoch,
+    );
+    notifyListeners();
+  }
+
+  bool donationAsksMuted(final DateTime now) {
+    final DateTime? mutedUntil = donationAsksMutedUntil;
+    return mutedUntil != null && now.isBefore(mutedUntil);
   }
 
   bool showInputProductNameBanner() =>
