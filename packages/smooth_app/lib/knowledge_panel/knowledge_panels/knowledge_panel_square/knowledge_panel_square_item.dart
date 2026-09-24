@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_evaluation_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_indicator.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_square_modal_sheet.dart';
@@ -47,14 +48,20 @@ class KnowledgePanelSquareItem extends StatelessWidget {
       child: InkWell(
         onTap: !worthAClick
             ? null
-            : () async => showKnowledgePanelSquareModalSheet(
-                context,
-                title: title,
-                value: value,
-                panelId: panelId!,
-                product: context.read<Product>(),
-                valueColor: indicatorColor,
-              ),
+            : () async {
+                AnalyticsHelper.trackEvent(
+                  AnalyticsEvent.knowledgePanelOpen,
+                  action: panelId,
+                );
+                await showKnowledgePanelSquareModalSheet(
+                  context,
+                  title: title,
+                  value: value,
+                  panelId: panelId!,
+                  product: context.read<Product>(),
+                  valueColor: indicatorColor,
+                );
+              },
         child: Padding(
           padding: const EdgeInsetsDirectional.symmetric(
             horizontal: VERY_LARGE_SPACE,
