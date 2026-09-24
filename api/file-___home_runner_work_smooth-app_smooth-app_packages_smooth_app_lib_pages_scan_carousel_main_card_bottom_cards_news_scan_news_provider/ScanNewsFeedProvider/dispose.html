@@ -71,6 +71,7 @@
   <pre class="language-dart"><code class="language-dart">@override
 void dispose() {
   _newsFeedProvider.removeListener(_onNewsFeedStateChanged);
+  _userPreferences.removeListener(_onPreferencesChanged);
   super.dispose();
 }</code></pre>
 </section>

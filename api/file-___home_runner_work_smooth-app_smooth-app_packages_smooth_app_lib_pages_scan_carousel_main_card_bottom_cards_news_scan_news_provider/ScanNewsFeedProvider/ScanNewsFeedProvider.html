@@ -64,6 +64,7 @@
     _userPreferences = context.read&lt;UserPreferences&gt;(),
     super(const ScanTagLineStateLoading()) {
   _newsFeedProvider.addListener(_onNewsFeedStateChanged);
+  _userPreferences.addListener(_onPreferencesChanged);
   &#47;&#47; Refresh with the current state
   _onNewsFeedStateChanged();
 }</code></pre>

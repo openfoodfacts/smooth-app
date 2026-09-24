@@ -104,7 +104,12 @@ Widget build(BuildContext context) {
             return switch (state) {
               ScanTagLineStateLoading() =&gt; const ScanBottomCardLoading(),
               ScanTagLineStateNoContent() =&gt; EMPTY_WIDGET,
-              ScanTagLineStateLoaded() =&gt; ScanNewsCard(news: state.tagLine),
+              &#47;&#47; Keyed on the state: the card keeps its rotation index across
+              &#47;&#47; rebuilds, and a shorter list would index past its end.
+              ScanTagLineStateLoaded() =&gt; KeyedSubtree(
+                key: ObjectKey(state),
+                child: ScanNewsCard(news: state.tagLine),
+              ),
             };
           },
     ),
