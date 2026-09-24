@@ -1179,7 +1179,7 @@
   },
   "product_tags_empty": "Nessuna proprietà",
   "product_tags_explanation": "Aggiungendo proprietà (chiave/valore) a un prodotto, contribuisci ad arricchirlo.",
-  "add_tag": "Aggiungi proprietà",
+  "add_tag": "Aggiungi una proprietà",
   "add_tags": "Aggiungi proprietà",
   "add_edit_tags": "Aggiungi o modifica proprietà",
   "edit_tag": "Modifica proprietà",
@@ -2563,7 +2563,7 @@
   "@prices_list_count": {
     "description": "Label for the number of prices in the list (please inject the line break at the middle)"
   },
-  "prices_list_add_new_price": "Aggiungi un nuovo prezzo di\n",
+  "prices_list_add_new_price": "Aggiungi un\nnuovo prezzo",
   "@prices_list_add_new_price": {
     "description": "Button to add a new price in the list (please inject the line break at the middle)"
   },
@@ -4175,7 +4175,7 @@
   "guide_greenscore_better_product_arg3_text": "Scegliere alimenti sostenibili può sembrare complicato. Le etichette sono confuse e spesso mancano informazioni. Il Green-Score è stato creato per semplificare le cose, fornendo una valutazione ambientale **chiara**, **basata sulla scienza** e **trasparente** per i prodotti alimentari, proprio dove serve: mentre fai la spesa.",
   "guide_greenscore_better_product_arg4_title": "Trasparenza",
   "guide_greenscore_better_product_arg4_text": "A differenza delle etichette proprietarie, il calcolo del Green-Score è **completamente aperto** e può essere **verificato da chiunque**.",
-  "guide_nova_title": "Prodotti alimentari ultra-elaborati",
+  "guide_nova_title": "Prodotti alimentari ultra-processati",
   "@guide_nova_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
@@ -4197,7 +4197,7 @@
   "guide_nova_groups_arg2_text": "Processed culinary ingredients, such as **oils, butter, sugar, and salt**, are substances derived from group 1 Foods or from nature through processes that include pressing, refining, grinding, milling, and drying.",
   "guide_nova_groups_arg3_title": "Alimenti trasformati",
   "guide_nova_groups_arg3_text": "Processed foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances From Group 2 to group 1** foods. PROCESSES include various preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most Processed foods have two or three ingredients and are recognizable as modified versions of group 1 foods. they can be Eaten on Their own or, more commonly, in combination with other foods.",
-  "guide_nova_groups_arg4_title": "Prodotti alimentari ultra-elaborati",
+  "guide_nova_groups_arg4_title": "Prodotti alimentari ultra-processati",
   "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually Include those Also found in processed foods, such as sugars, oils, fats, or salt. however, ultra-processed products also contain other Sources of energy and nutrients not typically used in culinary preparations. some of these are directly extracted from foods, Such as casein, lactose, whey, and gluten.",
   "guide_nova_explanations_title": "I problemi con l'ultra-elaborazione",
   "guide_nova_explanations_arg1_title": "Elaborazione estrema degli ingredienti alimentari",
