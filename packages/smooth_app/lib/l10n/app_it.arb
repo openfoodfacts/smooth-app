@@ -4112,7 +4112,7 @@
   "guide_nutriscore_v2_where_paragraph2": "I produttori hanno al massimo **2 anni** dalla firma del decreto **per sostituire** il vecchio calcolo con quello nuovo.",
   "guide_nutriscore_v2_where_paragraph3": "Senza dover aspettare, **troverai già nell'applicazione OpenFoodFacts**, il nuovo calcolo, anche se i produttori non hanno aggiornato il punteggio.",
   "guide_nutriscore_v2_unchanged_title": "Cosa non cambia",
-  "guide_nutriscore_v2_unchanged_paragraph1": "Il Nutri-Score è un punteggio progettato per **misurare la qualità nutrizionale**. È **complementare al gruppo NOVA** sugli **alimenti ultra-trasformati** (anch'esso presente nell'applicazione).",
+  "guide_nutriscore_v2_unchanged_paragraph1": "Il Nutri-Score è un punteggio progettato per **misurare la qualità nutrizionale**. È **complementare al gruppo NOVA** sugli **alimenti ultra-processati** (anch'esso presente nell'applicazione).",
   "guide_nutriscore_v2_unchanged_paragraph2": "Per i produttori, l'esposizione del Nutri-Score **rimane facoltativa**.",
   "guide_greenscore_title": "Green-Score",
   "@guide_greenscore_title": {
@@ -4184,13 +4184,13 @@
   "@guide_nova_what_is_nova_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nova_what_is_nova_paragraph2": "La classificazione NOVA consente di suddividere gli alimenti in **4 gruppi** in base al loro **grado di lavorazione industriale** (alimenti minimamente lavorati o non lavorati, ingredienti culinari, alimenti lavorati, alimenti ultra-lavorati).",
+  "guide_nova_what_is_nova_paragraph2": "La classificazione NOVA consente di suddividere gli alimenti in **4 gruppi** in base al loro **grado di lavorazione industriale** (alimenti minimamente lavorati o non lavorati, ingredienti culinari, alimenti lavorati, alimenti ultra-processati).",
   "@guide_nova_what_is_nova_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
   "guide_nova_logos_caption": "I loghi NOVA",
   "guide_nova_groups_title": "I 4 gruppi NOVA",
-  "guide_nova_groups_intro": "Esistono 4 gruppi NOVA, il più problematico dei quali è il Gruppo 4: Alimenti ultra-processati.",
+  "guide_nova_groups_intro": "Esistono 4 gruppi NOVA, il più problematico dei quali è il Gruppo 4 - Alimenti ultra-processati.",
   "guide_nova_groups_arg1_title": "Alimenti minimamente lavorati o non lavorati",
   "guide_nova_groups_arg1_text": "Gli alimenti non trasformati (o naturali) sono le **parti commestibili delle piante** (semi, frutti, foglie, steli, radici) **o degli animali** (muscoli, frattaglie, uova, latte), nonché funghi, alghe e acqua, dopo essere stati separati dalla natura.",
   "guide_nova_groups_arg2_title": "Ingredienti culinari elaborati",
