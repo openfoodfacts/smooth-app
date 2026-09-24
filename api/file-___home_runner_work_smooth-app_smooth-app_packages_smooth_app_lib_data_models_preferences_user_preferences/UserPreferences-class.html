@@ -928,7 +928,10 @@ Use this when making API calls that require canonical tags.
 
 </dt>
 <dd>
-  
+  ⚠️ This reports the onboarding funnel, so it must stay AFTER consent.
+It is today: the first call comes from the welcome page's tap handler,
+which awaits <code>setUserTracking(true)</code> first. A new entry point that
+navigated before that tap would report before consent.
   
 
 </dd>
@@ -1169,6 +1172,19 @@ canonical tags.
 
 </dd>
 
+        <dt id="trackFirstOpenAfterConsent" class="callable">
+  <span class="name"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/trackFirstOpenAfterConsent.html">trackFirstOpenAfterConsent</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Tracks the first app open, once the user has given tracking consent.
+  
+
+</dd>
+
     </dl>
   </section>
     
@@ -1383,6 +1399,7 @@ canonical tags.
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/taglineFeedMarkNewsAsClicked.html">taglineFeedMarkNewsAsClicked</a></li>
     <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/taglineFeedMarkNewsAsDisplayed.html">taglineFeedMarkNewsAsDisplayed</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></li>
+    <li><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences/trackFirstOpenAfterConsent.html">trackFirstOpenAfterConsent</a></li>
 
     <li class="section-title inherited"><a href="../file-___home_runner_work_smooth-app_smooth-app_packages_smooth_app_lib_data_models_preferences_user_preferences/UserPreferences-class.html#operators">Operators</a></li>
     <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></li>

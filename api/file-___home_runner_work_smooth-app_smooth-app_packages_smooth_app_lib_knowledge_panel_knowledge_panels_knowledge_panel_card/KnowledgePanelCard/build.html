@@ -101,15 +101,26 @@ Widget build(BuildContext context) {
     borderRadius: ANGULAR_BORDER_RADIUS,
     onTap: !improvedIsClickable
         ? null
-        : () async =&gt; Navigator.push&lt;Widget&gt;(
-            context,
-            MaterialPageRoute&lt;Widget&gt;(
-              builder: (BuildContext context) =&gt; SmoothBrightnessOverride(
-                brightness: SmoothBrightnessOverride.of(context)?.brightness,
-                child: KnowledgePanelPage(panelId: panelId, product: product),
+        : () async {
+            AnalyticsHelper.trackEvent(
+              AnalyticsEvent.knowledgePanelOpen,
+              action: panelId,
+            );
+            await Navigator.push&lt;Widget&gt;(
+              context,
+              MaterialPageRoute&lt;Widget&gt;(
+                builder: (BuildContext context) =&gt; SmoothBrightnessOverride(
+                  brightness: SmoothBrightnessOverride.of(
+                    context,
+                  )?.brightness,
+                  child: KnowledgePanelPage(
+                    panelId: panelId,
+                    product: product,
+                  ),
+                ),
               ),
-            ),
-          ),
+            );
+          },
     child:
         panel.getPanelSummaryWidget(
           product,

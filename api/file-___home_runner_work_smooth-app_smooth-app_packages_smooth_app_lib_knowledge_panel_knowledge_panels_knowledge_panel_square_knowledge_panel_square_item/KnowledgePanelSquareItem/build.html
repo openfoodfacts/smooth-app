@@ -94,14 +94,20 @@ Widget build(BuildContext context) {
     child: InkWell(
       onTap: !worthAClick
           ? null
-          : () async =&gt; showKnowledgePanelSquareModalSheet(
-              context,
-              title: title,
-              value: value,
-              panelId: panelId!,
-              product: context.read&lt;Product&gt;(),
-              valueColor: indicatorColor,
-            ),
+          : () async {
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.knowledgePanelOpen,
+                action: panelId,
+              );
+              await showKnowledgePanelSquareModalSheet(
+                context,
+                title: title,
+                value: value,
+                panelId: panelId!,
+                product: context.read&lt;Product&gt;(),
+                valueColor: indicatorColor,
+              );
+            },
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(
           horizontal: VERY_LARGE_SPACE,
