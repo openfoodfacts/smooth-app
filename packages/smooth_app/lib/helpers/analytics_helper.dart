@@ -25,7 +25,10 @@ enum AnalyticsCategory {
   hungerGame(tag: 'hunger game'),
   appRating(tag: 'app rating'),
   taglineFeed(tag: 'tagline feed'),
-  donation(tag: 'donation');
+  donation(tag: 'donation'),
+  lifecycle(tag: 'lifecycle'),
+  onboarding(tag: 'onboarding'),
+  knowledgePanel(tag: 'knowledge panel');
 
   const AnalyticsCategory({required this.tag});
 
@@ -170,6 +173,15 @@ enum AnalyticsEvent {
   donationHandoff(
     tag: 'donation handoff',
     category: AnalyticsCategory.donation,
+  ),
+  appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
+  onboardingPageVisited(
+    tag: 'onboarding page visited',
+    category: AnalyticsCategory.onboarding,
+  ),
+  knowledgePanelOpen(
+    tag: 'knowledge panel open',
+    category: AnalyticsCategory.knowledgePanel,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -354,11 +366,13 @@ class AnalyticsHelper {
     AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
+    String? action,
   }) => trackCustomEvent(
     msg.name,
     msg.category.tag,
     eventValue: eventValue,
     barcode: barcode,
+    action: action,
   );
 
   // Used by code which is outside of the core:smooth_app code
