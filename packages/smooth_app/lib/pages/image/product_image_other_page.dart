@@ -130,13 +130,17 @@ class ProductImageOtherPage extends StatefulWidget {
 }
 
 class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
-  late PageController _pageController;
+  late final PageController _pageController;
+  late final ValueNotifier<int> _pageNotifier;
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(
       initialPage: widget.images.indexOf(widget.currentImage),
+    );
+    _pageNotifier = ValueNotifier<int>(
+      widget.images.indexOf(widget.currentImage),
     );
   }
 
@@ -159,32 +163,43 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
             ),
           ],
         ),
-        body: Stack(
-          alignment: Alignment.bottomCenter,
-          children: <Widget>[
-            Positioned.fill(
-              child: PageView(
-                controller: _pageController,
-                children: widget.images
-                    .map((final ProductImage image) {
-                      return _ProductImageViewer(
-                        image: image,
-                        barcode: widget.product.barcode!,
-                        language: widget.language,
-                        heroTag: widget.currentImage == image
-                            ? widget.heroTag
-                            : null,
-                        productType: widget.product.productType,
-                      );
-                    })
-                    .toList(growable: false),
-              ),
-            ),
-            Positioned(
-              top: SMALL_SPACE,
-              child: _ProductImagePageIndicator(items: widget.images.length),
-            ),
-          ],
+        body: ValueListenableBuilder<int>(
+          valueListenable: _pageNotifier,
+          builder: (_, int pageIndex, _) {
+            return Stack(
+              alignment: Alignment.bottomCenter,
+              children: <Widget>[
+                Positioned.fill(
+                  child: PageView(
+                    controller: _pageController,
+                    onPageChanged: (int value) {
+                      _pageNotifier.value = value;
+                    },
+                    children: widget.images
+                        .map((final ProductImage image) {
+                          return _ProductImageViewer(
+                            image: image,
+                            barcode: widget.product.barcode!,
+                            language: widget.language,
+                            heroTag: widget.currentImage == image
+                                ? widget.heroTag
+                                : null,
+                            productType: widget.product.productType,
+                          );
+                        })
+                        .toList(growable: false),
+                  ),
+                ),
+                Positioned(
+                  top: SMALL_SPACE,
+                  child: _ProductImagePageIndicator(
+                    items: widget.images.length,
+                    initialPageIndex: pageIndex,
+                  ),
+                ),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -439,9 +454,13 @@ class _ProductImageDetailsButton extends StatelessWidget {
 }
 
 class _ProductImagePageIndicator extends StatelessWidget {
-  const _ProductImagePageIndicator({required this.items});
+  const _ProductImagePageIndicator({
+    required this.items,
+    required this.initialPageIndex,
+  });
 
   final int items;
+  final int initialPageIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -474,7 +493,7 @@ class _ProductImagePageIndicator extends StatelessWidget {
           shouldRebuild: (int previous, int next) => previous != next,
           builder: (BuildContext context, int progress, _) {
             return Text(
-              '${progress + 1} / $items',
+              '${initialPageIndex + 1} / $items',
               style: const TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w600,
