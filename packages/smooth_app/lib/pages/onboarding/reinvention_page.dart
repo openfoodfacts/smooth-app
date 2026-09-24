@@ -159,33 +159,31 @@ class _SunAndCloudState extends State<_SunAndCloud>
   Widget build(BuildContext context) {
     final TextDirection textDirection = Directionality.of(context);
 
-    return RepaintBoundary(
-      child: LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
-          return Stack(
-            children: <Widget>[
-              Positioned.directional(
-                top: constraints.maxHeight * 0.3,
-                bottom: constraints.maxHeight * 0.2,
-                start: (_animation.value * 161.0) * 0.3,
-                textDirection: textDirection,
-                child: SvgPicture.asset('assets/onboarding/cloud.svg'),
-              ),
-              const Align(
-                alignment: Alignment.center,
-                child: SunAnimation(type: SunAnimationType.loop),
-              ),
-              Positioned.directional(
-                top: constraints.maxHeight * 0.22,
-                bottom: constraints.maxHeight * 0.35,
-                end: (_animation.value * 40.0) - 31,
-                textDirection: textDirection,
-                child: SvgPicture.asset('assets/onboarding/cloud.svg'),
-              ),
-            ],
-          );
-        },
-      ),
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        return Stack(
+          children: <Widget>[
+            Positioned.directional(
+              top: constraints.maxHeight * 0.3,
+              bottom: constraints.maxHeight * 0.2,
+              start: (_animation.value * 161.0) * 0.3,
+              textDirection: textDirection,
+              child: SvgPicture.asset('assets/onboarding/cloud.svg'),
+            ),
+            const Align(
+              alignment: Alignment.center,
+              child: SunAnimation(type: SunAnimationType.loop),
+            ),
+            Positioned.directional(
+              top: constraints.maxHeight * 0.22,
+              bottom: constraints.maxHeight * 0.35,
+              end: (_animation.value * 40.0) - 31,
+              textDirection: textDirection,
+              child: SvgPicture.asset('assets/onboarding/cloud.svg'),
+            ),
+          ],
+        );
+      },
     );
   }
 

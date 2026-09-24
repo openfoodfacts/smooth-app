@@ -7,6 +7,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/services/smooth_services.dart';
 
 /// "Total size" fake value for lists that are not partial/paged.
 const int _uselessTotalSizeValue = 0;
@@ -100,22 +101,29 @@ class DaoProductList extends AbstractDao {
       '$_keySeparator'
       '${base64.encode(utf8.encode(productList.getParametersKey()))}';
 
-  static String getProductListParameters(final String key) {
+  static String? getProductListParameters(final String key) {
     final int pos = key.indexOf(_keySeparator);
     if (pos < 0) {
-      throw Exception('Unknown key format without "$_keySeparator": $key');
+      Logs.w('Unknown key format without "$_keySeparator": $key');
+      return null;
     }
     if (pos + _keySeparator.length == key.length) {
       return '';
     }
     final String tmp = key.substring(pos + _keySeparator.length);
-    return utf8.decode(base64.decode(tmp));
+    try {
+      return utf8.decode(base64.decode(tmp));
+    } catch (e) {
+      Logs.w('Failed to decode product list parameters from "$key"', ex: e);
+      return null;
+    }
   }
 
-  static ProductListType getProductListType(final String key) {
+  static ProductListType? getProductListType(final String key) {
     final int pos = key.indexOf(_keySeparator);
     if (pos < 0) {
-      throw Exception('Unknown key format without "$_keySeparator": $key');
+      Logs.w('Unknown key format without "$_keySeparator": $key');
+      return null;
     }
     final String value = key.substring(0, pos);
     for (final ProductListType productListType in ProductListType.values) {
@@ -123,7 +131,8 @@ class DaoProductList extends AbstractDao {
         return productListType;
       }
     }
-    throw Exception('Unknown product list type: "$value" from "$key"');
+    Logs.w('Unknown product list type: "$value" from "$key"');
+    return null;
   }
 
   Future<void> _put(final String key, final _BarcodeList barcodeList) async {
@@ -298,11 +307,14 @@ class DaoProductList extends AbstractDao {
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
       final String tmp = key.toString();
-      final ProductListType productListType = getProductListType(tmp);
+      final ProductListType? productListType = getProductListType(tmp);
       if (productListType != ProductListType.USER) {
         continue;
       }
-      result.add(getProductListParameters(tmp));
+      final String? parameters = getProductListParameters(tmp);
+      if (parameters != null) {
+        result.add(parameters);
+      }
     }
     return result;
   }
@@ -314,7 +326,7 @@ class DaoProductList extends AbstractDao {
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
       final String tmp = key.toString();
-      final ProductListType productListType = getProductListType(tmp);
+      final ProductListType? productListType = getProductListType(tmp);
       if (productListType != ProductListType.USER) {
         continue;
       }
@@ -327,7 +339,10 @@ class DaoProductList extends AbstractDao {
           break;
         }
         if (withBarcodes.last == barcode) {
-          result.add(getProductListParameters(tmp));
+          final String? parameters = getProductListParameters(tmp);
+          if (parameters != null) {
+            result.add(parameters);
+          }
           break;
         }
       }
