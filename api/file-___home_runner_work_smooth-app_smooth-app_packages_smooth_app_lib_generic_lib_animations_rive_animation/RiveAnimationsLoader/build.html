@@ -74,7 +74,7 @@ Widget build(BuildContext context) {
   return Provider&lt;FileLoader&gt;(
     create: (_) =&gt; FileLoader.fromAsset(
       &#39;assets&#47;animations&#47;off.riv&#39;,
-      riveFactory: Factory.rive,
+      riveFactory: Factory.flutter,
     ),
     dispose: (_, FileLoader fileLoader) =&gt; fileLoader.dispose(),
     child: child,
