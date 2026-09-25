@@ -84,7 +84,7 @@ class ScanProductCardNotFound extends StatelessWidget {
               spacer,
               ScanProductBaseCardButton(
                 text: appLocalizations.carousel_unknown_product_button,
-                onTap: null, // The InkWell below handles the tap
+                onTap: null,
               ),
             ],
           );
