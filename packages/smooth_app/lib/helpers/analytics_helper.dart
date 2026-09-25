@@ -25,7 +25,10 @@ enum AnalyticsCategory {
   hungerGame(tag: 'hunger game'),
   appRating(tag: 'app rating'),
   taglineFeed(tag: 'tagline feed'),
-  donation(tag: 'donation');
+  donation(tag: 'donation'),
+  lifecycle(tag: 'lifecycle'),
+  onboarding(tag: 'onboarding'),
+  knowledgePanel(tag: 'knowledge panel');
 
   const AnalyticsCategory({required this.tag});
 
@@ -170,6 +173,19 @@ enum AnalyticsEvent {
   donationHandoff(
     tag: 'donation handoff',
     category: AnalyticsCategory.donation,
+  ),
+  donationAlreadyDonated(
+    tag: 'donation already donated',
+    category: AnalyticsCategory.donation,
+  ),
+  appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
+  onboardingPageVisited(
+    tag: 'onboarding page visited',
+    category: AnalyticsCategory.onboarding,
+  ),
+  knowledgePanelOpen(
+    tag: 'knowledge panel open',
+    category: AnalyticsCategory.knowledgePanel,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -249,12 +265,13 @@ class AnalyticsHelper {
   }
 
   static Future<void> initSentry({required Function()? appRunner}) async {
-    await SentryFlutter.init((SentryOptions options) {
+    await SentryFlutter.init((SentryFlutterOptions options) {
       options
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         // To set a uniform sample rate
         ..tracesSampleRate = 1.0
+        ..enableTombstone = true
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
         ..environment =
@@ -353,11 +370,13 @@ class AnalyticsHelper {
     AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
+    String? action,
   }) => trackCustomEvent(
     msg.name,
     msg.category.tag,
     eventValue: eventValue,
     barcode: barcode,
+    action: action,
   );
 
   // Used by code which is outside of the core:smooth_app code
