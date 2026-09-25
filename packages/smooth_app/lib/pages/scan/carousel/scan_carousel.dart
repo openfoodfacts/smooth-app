@@ -147,7 +147,7 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         return Provider<ScanCardDensity>.value(
-          value: ScanCardDensityExtension.getDensity(context, constraints),
+          value: ScanCardDensity.getDensity(context, constraints),
           child: _cardWidget(barcode),
         );
       },
@@ -200,9 +200,10 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
   }
 }
 
-enum ScanCardDensity { DENSE, NORMAL }
+enum ScanCardDensity {
+  DENSE,
+  NORMAL;
 
-extension ScanCardDensityExtension on ScanCardDensity {
   static ScanCardDensity getDensity(
     BuildContext context,
     BoxConstraints constraints,

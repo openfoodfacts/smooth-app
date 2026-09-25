@@ -129,7 +129,7 @@ class _MessageOverlay extends StatelessWidget {
         );
 
         return Provider<ScanCardDensity>.value(
-          value: ScanCardDensityExtension.getDensity(context, constraints),
+          value: ScanCardDensity.getDensity(context, constraints),
           child: ConstrainedBox(
             constraints: constraints,
             child: FractionallySizedBox(
