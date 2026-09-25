@@ -237,6 +237,9 @@ android_keys.zip
 # Flutter version manager
 .fvm/
 
+# Kilo
+.kilo/
+
 # Unsupported locales
 packages/smooth_app/lib/l10n/intl_en.arb
 packages/smooth_app/lib/l10n/app_ach.arb
