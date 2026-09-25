@@ -18,7 +18,7 @@ class HomePageScannerPeakView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final double height = MediaQuery.heightOf(context);
     return Offstage(
       offstage: progress == 1.0 || progress == 0.0,
       child: Opacity(
@@ -26,7 +26,7 @@ class HomePageScannerPeakView extends StatelessWidget {
         child: InkWell(
           onTap: opacity > 0.0 ? onTap : null,
           child: SizedBox(
-            height: size.height * HomePage.CAMERA_PEAK,
+            height: height * HomePage.CAMERA_PEAK,
             child: SafeArea(
               bottom: false,
               child: Column(
