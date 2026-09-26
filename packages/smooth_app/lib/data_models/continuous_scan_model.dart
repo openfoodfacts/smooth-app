@@ -11,6 +11,7 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/collections_helper.dart';
+import 'package:smooth_app/helpers/gs1_helper.dart';
 import 'package:smooth_app/query/barcode_product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
@@ -115,27 +116,27 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
 
-    code = _fixBarcodeIfNecessary(code);
-    if (code.length < 4) {
+    final String barcode = normalizeScannedBarcode(code).key;
+    if (barcode.length < 4) {
       return false;
     }
 
-    if (_latestScannedBarcode == code || _barcodes.contains(code)) {
-      lastConsultedBarcode = code;
+    if (_latestScannedBarcode == barcode || _barcodes.contains(barcode)) {
+      lastConsultedBarcode = barcode;
       return false;
     }
 
-    AnalyticsHelper.trackEvent(AnalyticsEvent.scanAction, barcode: code);
+    AnalyticsHelper.trackEvent(AnalyticsEvent.scanAction, barcode: barcode);
 
-    _latestScannedBarcode = code;
-    return _addBarcode(code);
+    _latestScannedBarcode = barcode;
+    return _addBarcode(barcode);
   }
 
   Future<bool> onCreateProduct(String? barcode) async {
     if (barcode == null) {
       return false;
     }
-    return _addBarcode(barcode);
+    return _addBarcode(normalizeScannedBarcode(barcode).key);
   }
 
   Future<void> retryBarcodeFetch(String barcode) async {
@@ -303,18 +304,6 @@ class ContinuousScanModel with ChangeNotifier {
   Future<void> refresh() async {
     await _refresh();
     notifyListeners();
-  }
-
-  /// Sometimes the scanner may fail, this is a simple fix for now
-  /// But could be improved in the future
-  String _fixBarcodeIfNecessary(String code) {
-    code = code.replaceAll('-', '').trim();
-
-    if (code.length == 12) {
-      return '0$code';
-    } else {
-      return code;
-    }
   }
 
   /// Whether we can show the user an interface to compare products
