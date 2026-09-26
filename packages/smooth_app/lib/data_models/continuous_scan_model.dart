@@ -36,10 +36,6 @@ class ContinuousScanModel with ChangeNotifier {
   final ProductList _scanHistory = ProductList.scanHistory();
   final ProductList _history = ProductList.history();
 
-  /// For GS1 barcodes, maps the local key (normalized GTIN) to the raw value
-  /// sent to the API.
-  final Map<String, String> _apiBarcodes = <String, String>{};
-
   String? _latestScannedBarcode;
   String? _latestFoundBarcode;
   String? _latestConsultedBarcode;
@@ -88,10 +84,8 @@ class ContinuousScanModel with ChangeNotifier {
       _latestFoundBarcode = null;
       _barcodes.clear();
       _states.clear();
-      _apiBarcodes.clear();
       _latestScannedBarcode = null;
       await refreshProductList();
-      _apiBarcodes.addAll(_productList.apiBarcodes);
       for (final String barcode in _productList.barcodes) {
         _barcodes.add(barcode);
         _states[barcode] = ScannedProductState.CACHED;
@@ -115,12 +109,6 @@ class ContinuousScanModel with ChangeNotifier {
   ScannedProductState? getBarcodeState(final String barcode) =>
       _states[barcode];
 
-  /// Returns the raw barcode to send to the API for [barcode] (its normalized
-  /// key): for GS1 barcodes this is the full raw string, otherwise the key
-  /// itself.
-  String _getApiBarcode(final String barcode) =>
-      _apiBarcodes[barcode] ?? _productList.getApiBarcode(barcode) ?? barcode;
-
   /// Adds a barcode
   /// Will return [true] if this barcode is successfully added
   Future<bool> onScan(String? code) async {
@@ -128,8 +116,7 @@ class ContinuousScanModel with ChangeNotifier {
       return false;
     }
 
-    final NormalizedBarcode normalized = normalizeScannedBarcode(code);
-    final String barcode = normalized.key;
+    final String barcode = normalizeScannedBarcode(code).key;
     if (barcode.length < 4) {
       return false;
     }
@@ -141,11 +128,6 @@ class ContinuousScanModel with ChangeNotifier {
 
     AnalyticsHelper.trackEvent(AnalyticsEvent.scanAction, barcode: barcode);
 
-    // Only store the API barcode once the deduplication gate above has
-    // passed, so that rescanning the same product with different Application
-    // Identifiers does not overwrite the raw value already stored.
-    _storeApiBarcode(normalized);
-
     _latestScannedBarcode = barcode;
     return _addBarcode(barcode);
   }
@@ -154,14 +136,7 @@ class ContinuousScanModel with ChangeNotifier {
     if (barcode == null) {
       return false;
     }
-    final NormalizedBarcode normalized = normalizeScannedBarcode(barcode);
-    _storeApiBarcode(normalized);
-    return _addBarcode(normalized.key);
-  }
-
-  /// Stores the mapping needed to resolve the API barcode later on.
-  void _storeApiBarcode(final NormalizedBarcode normalized) {
-    _apiBarcodes[normalized.key] = normalized.apiBarcode;
+    return _addBarcode(normalizeScannedBarcode(barcode).key);
   }
 
   Future<void> retryBarcodeFetch(String barcode) async {
@@ -207,11 +182,10 @@ class ContinuousScanModel with ChangeNotifier {
   Future<bool> _cachedBarcode(final String barcode) async {
     final Product? product = await _daoProduct.get(barcode);
     if (product != null) {
-      final String apiBarcode = _getApiBarcode(barcode);
       try {
         // We try to load the fresh copy of product from the server
         final FetchedProduct fetchedProduct = await _queryBarcode(
-          apiBarcode,
+          barcode,
         ).timeout(SnackBarDuration.long);
         if (fetchedProduct.product != null) {
           if (fetchedProduct.isValid) {
@@ -246,9 +220,7 @@ class ContinuousScanModel with ChangeNotifier {
       ).getFetchedProduct();
 
   Future<void> _loadBarcode(final String barcode) async {
-    final FetchedProduct fetchedProduct = await _queryBarcode(
-      _getApiBarcode(barcode),
-    );
+    final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
         if (fetchedProduct.isValid) {
@@ -273,9 +245,7 @@ class ContinuousScanModel with ChangeNotifier {
   }
 
   Future<void> _updateBarcode(final String barcode) async {
-    final FetchedProduct fetchedProduct = await _queryBarcode(
-      _getApiBarcode(barcode),
-    );
+    final FetchedProduct fetchedProduct = await _queryBarcode(barcode);
     switch (fetchedProduct.status) {
       case FetchedProductStatus.ok:
         if (fetchedProduct.isValid) {
@@ -305,22 +275,9 @@ class ContinuousScanModel with ChangeNotifier {
   ) async {
     if (_latestFoundBarcode != barcode) {
       _latestFoundBarcode = barcode;
-      final String apiBarcode = _getApiBarcode(barcode);
-      await _daoProductList.push(
-        productList,
-        _latestFoundBarcode!,
-        apiBarcode: apiBarcode,
-      );
-      await _daoProductList.push(
-        _scanHistory,
-        _latestFoundBarcode!,
-        apiBarcode: apiBarcode,
-      );
-      await _daoProductList.push(
-        _history,
-        _latestFoundBarcode!,
-        apiBarcode: apiBarcode,
-      );
+      await _daoProductList.push(productList, _latestFoundBarcode!);
+      await _daoProductList.push(_scanHistory, _latestFoundBarcode!);
+      await _daoProductList.push(_history, _latestFoundBarcode!);
       _daoProductList.localDatabase.notifyListeners();
     }
     _setBarcodeState(barcode, state);
@@ -336,7 +293,6 @@ class ContinuousScanModel with ChangeNotifier {
 
     _barcodes.remove(barcode);
     _states.remove(barcode);
-    _apiBarcodes.remove(barcode);
 
     if (barcode == _latestScannedBarcode) {
       _latestScannedBarcode = null;

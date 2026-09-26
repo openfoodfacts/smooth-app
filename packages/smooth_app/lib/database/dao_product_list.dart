@@ -13,29 +13,16 @@ const int _uselessTotalSizeValue = 0;
 
 /// An immutable barcode list; e.g. my search yesterday about "Nutella"
 class _BarcodeList {
-  const _BarcodeList(
-    this.timestamp,
-    this.barcodes,
-    this.totalSize,
-    this.apiBarcodes,
-  );
+  const _BarcodeList(this.timestamp, this.barcodes, this.totalSize);
 
-  _BarcodeList.now(
-    final List<String> barcodes, [
-    final Map<String, String> apiBarcodes = const <String, String>{},
-  ]) : this(
-         LocalDatabase.nowInMillis(),
-         barcodes,
-         _uselessTotalSizeValue,
-         apiBarcodes,
-       );
+  _BarcodeList.now(final List<String> barcodes)
+    : this(LocalDatabase.nowInMillis(), barcodes, _uselessTotalSizeValue);
 
   _BarcodeList.fromProductList(final ProductList productList)
     : this(
         LocalDatabase.nowInMillis(),
         productList.barcodes,
         productList.totalSize,
-        Map<String, String>.of(productList.apiBarcodes),
       );
 
   /// Freshness indicator: last time the list was updated.
@@ -44,7 +31,6 @@ class _BarcodeList {
   /// Can be used to decide if the data is recent enough or deprecated.
   final int timestamp;
   final List<String> barcodes;
-  final Map<String, String> apiBarcodes;
 
   /// Total size of server query results (or 0).
   final int totalSize;
@@ -65,19 +51,13 @@ class _BarcodeListAdapter extends TypeAdapter<_BarcodeList> {
     } catch (e) {
       totalSize = _uselessTotalSizeValue;
     }
-    Map<String, String> apiBarcodes = <String, String>{};
     try {
-      final Object? decoded = json.decode(reader.readString());
-      if (decoded is Map<String, dynamic>) {
-        apiBarcodes = decoded.map(
-          (final String key, final dynamic value) =>
-              MapEntry<String, String>(key, value as String),
-        );
-      }
+      // Discard legacy API barcodes written by older versions.
+      reader.readString();
     } catch (e) {
       // Older records don't contain API barcodes.
     }
-    return _BarcodeList(timestamp, barcodes, totalSize, apiBarcodes);
+    return _BarcodeList(timestamp, barcodes, totalSize);
   }
 
   @override
@@ -85,7 +65,6 @@ class _BarcodeListAdapter extends TypeAdapter<_BarcodeList> {
     writer.writeInt(obj.timestamp);
     writer.writeStringList(obj.barcodes);
     writer.writeInt(obj.totalSize);
-    writer.writeString(json.encode(obj.apiBarcodes));
   }
 }
 
@@ -184,7 +163,7 @@ class DaoProductList extends AbstractDao {
       productList.set(barcodes);
       return;
     }
-    productList.set(list.barcodes, apiBarcodes: list.apiBarcodes);
+    productList.set(list.barcodes);
   }
 
   /// Checks if a list exists in the database.
@@ -205,34 +184,17 @@ class DaoProductList extends AbstractDao {
   /// One barcode duplicate is potentially removed:
   /// * If the barcode was already there, it's moved to the end of the list.
   /// * If the barcode wasn't there, it's added to the end of the list.
-  ///
-  /// [apiBarcode] is the full value sent to the API (e.g. the raw GS1
-  /// string); when null or equal to [barcode], no mapping is stored.
-  Future<void> push(
-    final ProductList productList,
-    final String barcode, {
-    final String? apiBarcode,
-  }) async {
+  Future<void> push(final ProductList productList, final String barcode) async {
     final _BarcodeList? list = await _get(productList);
     final List<String> barcodes;
-    final Map<String, String> apiBarcodes;
     if (list == null) {
       barcodes = <String>[];
-      apiBarcodes = <String, String>{};
     } else {
       barcodes = _getSafeBarcodeListCopy(list.barcodes);
-      apiBarcodes = Map<String, String>.of(list.apiBarcodes);
     }
     barcodes.remove(barcode); // removes a potential duplicate
     barcodes.add(barcode);
-    if (apiBarcode != null) {
-      if (apiBarcode == barcode) {
-        apiBarcodes.remove(barcode);
-      } else {
-        apiBarcodes[barcode] = apiBarcode;
-      }
-    }
-    final _BarcodeList newList = _BarcodeList.now(barcodes, apiBarcodes);
+    final _BarcodeList newList = _BarcodeList.now(barcodes);
     await _put(getKey(productList), newList);
   }
 
@@ -251,27 +213,23 @@ class DaoProductList extends AbstractDao {
   ) async {
     final _BarcodeList? list = await _get(productList);
     final List<String> barcodes;
-    final Map<String, String> apiBarcodes;
     if (list == null) {
       barcodes = <String>[];
-      apiBarcodes = <String, String>{};
     } else {
       barcodes = _getSafeBarcodeListCopy(list.barcodes);
-      apiBarcodes = Map<String, String>.of(list.apiBarcodes);
     }
     if (barcodes.contains(barcode)) {
       if (include) {
         return false;
       }
       barcodes.remove(barcode);
-      apiBarcodes.remove(barcode);
     } else {
       if (!include) {
         return false;
       }
       barcodes.add(barcode);
     }
-    final _BarcodeList newList = _BarcodeList.now(barcodes, apiBarcodes);
+    final _BarcodeList newList = _BarcodeList.now(barcodes);
     await _put(getKey(productList), newList);
     return true;
   }
@@ -290,9 +248,6 @@ class DaoProductList extends AbstractDao {
     } else {
       allBarcodes = _getSafeBarcodeListCopy(list.barcodes);
     }
-    final Map<String, String> apiBarcodes = list == null
-        ? <String, String>{}
-        : Map<String, String>.of(list.apiBarcodes);
 
     for (final String barcode in barcodes) {
       if (include) {
@@ -302,12 +257,11 @@ class DaoProductList extends AbstractDao {
       } else {
         if (allBarcodes.contains(barcode)) {
           allBarcodes.remove(barcode);
-          apiBarcodes.remove(barcode);
         }
       }
     }
 
-    final _BarcodeList newList = _BarcodeList.now(allBarcodes, apiBarcodes);
+    final _BarcodeList newList = _BarcodeList.now(allBarcodes);
     await _put(getKey(productList), newList);
   }
 

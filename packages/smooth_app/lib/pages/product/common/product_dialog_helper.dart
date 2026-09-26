@@ -38,8 +38,8 @@ class ProductDialogHelper {
   final BuildContext context;
   final LocalDatabase localDatabase;
 
-  /// Barcode used for local operations (database lookups, barcode widget,
-  /// product creation): the normalized GTIN for GS1 barcodes, the raw value
+  /// Barcode used for lookups, API queries, barcode widget and
+  /// product creation: the normalized GTIN for GS1 barcodes, the raw value
   /// otherwise.
   String get localBarcode =>
       tryParseGs1Barcode(barcode)?.normalizedGtin ?? barcode;
@@ -60,14 +60,11 @@ class ProductDialogHelper {
       await LoadingDialog.run<FetchedProduct>(
         context: context,
         future: BarcodeProductQuery(
-          // The full scanned value is sent to the API (same as the scan
-          // flow's apiBarcode), so that the server can process GS1
-          // Application Identifiers; local lookups use [localBarcode].
-          barcode: barcode,
+          barcode: localBarcode,
           daoProduct: DaoProduct(localDatabase),
           isScanned: false,
         ).getFetchedProduct(),
-        title: '${AppLocalizations.of(context).looking_for}: $barcode',
+        title: '${AppLocalizations.of(context).looking_for}: $localBarcode',
       ) ??
       const FetchedProduct.userCancelled();
 

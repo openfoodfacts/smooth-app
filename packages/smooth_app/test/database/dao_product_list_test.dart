@@ -39,34 +39,27 @@ void main() {
     await hiveDirectory.delete(recursive: true);
   });
 
-  test('restores the API barcode stored with a scan session', () async {
+  test('persists barcodes of a scan session', () async {
     const String barcode = '4260392550101';
-    const String apiBarcode = '010426039255010117270101';
     final ProductList scanSession = ProductList.scanSession();
 
-    await daoProductList.push(scanSession, barcode, apiBarcode: apiBarcode);
+    await daoProductList.push(scanSession, barcode);
 
     final ProductList restoredScanSession = ProductList.scanSession();
     await daoProductList.get(restoredScanSession);
 
     expect(restoredScanSession.barcodes, <String>[barcode]);
-    expect(restoredScanSession.getApiBarcode(barcode), apiBarcode);
   });
 
-  test('removes a stored API barcode with its normalized barcode', () async {
+  test('removes a barcode from a scan session', () async {
     const String barcode = '4260392550101';
     final ProductList scanSession = ProductList.scanSession();
-    await daoProductList.push(
-      scanSession,
-      barcode,
-      apiBarcode: '010426039255010117270101',
-    );
+    await daoProductList.push(scanSession, barcode);
 
     await daoProductList.set(scanSession, barcode, false);
 
     final ProductList restoredScanSession = ProductList.scanSession();
     await daoProductList.get(restoredScanSession);
     expect(restoredScanSession.barcodes, isEmpty);
-    expect(restoredScanSession.apiBarcodes, isEmpty);
   });
 }

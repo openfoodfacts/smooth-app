@@ -190,12 +190,11 @@ void main() {
   });
 
   group('normalizeScannedBarcode', () {
-    test('GS1 barcode is keyed by normalized GTIN and sends the raw value', () {
+    test('GS1 barcode is keyed by normalized GTIN', () {
       final NormalizedBarcode normalized = normalizeScannedBarcode(
         '010426039255010117270101',
       );
       expect(normalized.key, '4260392550101');
-      expect(normalized.apiBarcode, '010426039255010117270101');
       expect(normalized.gs1Barcode, isNotNull);
     });
 
@@ -204,7 +203,6 @@ void main() {
         '7622210631111',
       );
       expect(normalized.key, '7622210631111');
-      expect(normalized.apiBarcode, '7622210631111');
       expect(normalized.gs1Barcode, isNull);
     });
 
@@ -213,7 +211,6 @@ void main() {
         '762220-123456',
       );
       expect(normalized.key, '0762220123456');
-      expect(normalized.apiBarcode, '0762220123456');
     });
 
     test('UPC-A barcode is padded to EAN-13', () {
@@ -233,36 +230,29 @@ void main() {
     test('GS1 barcode without GTIN keeps the raw value', () {
       final NormalizedBarcode normalized = normalizeScannedBarcode('10ABC123');
       expect(normalized.key, '10ABC123');
-      expect(normalized.apiBarcode, '10ABC123');
       expect(normalized.gs1Barcode, isNotNull);
     });
 
-    test('Bracketed GS1 barcode sends the stripped element string', () {
+    test('Bracketed GS1 barcode is keyed by normalized GTIN', () {
       final NormalizedBarcode normalized = normalizeScannedBarcode(
         '(01)04260392550101(17)270101',
       );
       expect(normalized.key, '4260392550101');
-      expect(normalized.apiBarcode, '010426039255010117270101');
       expect(normalized.gs1Barcode, isNotNull);
     });
 
-    test(
-      'GS1 barcode with FNC1 markers and spaces sends the cleaned value',
-      () {
-        final NormalizedBarcode normalized = normalizeScannedBarcode(
-          '  ^010426039255010117270101  ',
-        );
-        expect(normalized.key, '4260392550101');
-        expect(normalized.apiBarcode, '010426039255010117270101');
-      },
-    );
+    test('GS1 barcode with FNC1 markers and spaces is normalized', () {
+      final NormalizedBarcode normalized = normalizeScannedBarcode(
+        '  ^010426039255010117270101  ',
+      );
+      expect(normalized.key, '4260392550101');
+    });
 
     test('GS1 barcode without GTIN uses the cleaned value as key', () {
       final NormalizedBarcode normalized = normalizeScannedBarcode(
         '(10)ABC123',
       );
       expect(normalized.key, '10ABC123');
-      expect(normalized.apiBarcode, '10ABC123');
       expect(normalized.gs1Barcode, isNotNull);
     });
   });

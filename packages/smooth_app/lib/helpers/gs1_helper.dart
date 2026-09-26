@@ -127,31 +127,17 @@ GS1Barcode? tryParseGs1Barcode(final String input) {
   }
 }
 
-/// The result of normalizing a scanned barcode into a local key and an API
-/// barcode.
+/// The result of normalizing a scanned barcode into a local key.
 class NormalizedBarcode {
-  const NormalizedBarcode({
-    required this.key,
-    required this.apiBarcode,
-    this.gs1Barcode,
-  });
+  const NormalizedBarcode({required this.key, this.gs1Barcode});
 
-  /// Barcode used as the local key: session deduplication, scan lists and
-  /// local database lookups.
+  /// Barcode used as key: session deduplication, scan lists and
+  /// local database lookups, as well as API queries.
   ///
   /// For GS1 barcodes it's the normalized GTIN (AI 01), so that barcodes
   /// encoding the same product with different Application Identifiers are
   /// deduplicated. For "traditional" barcodes it's the fixed barcode.
   final String key;
-
-  /// Barcode sent to the API.
-  ///
-  /// For GS1 barcodes we deliberately send the cleaned element string (same
-  /// Application Identifiers as scanned, without whitespace, brackets or
-  /// FNC1 markers apart from GS separators), so that the server can process
-  /// the additional Application Identifiers. For Digital Links the URL itself
-  /// is sent. For "traditional" barcodes it's the same as [key].
-  final String apiBarcode;
 
   /// The parsed GS1 barcode, when the scanned value was a GS1 barcode.
   final GS1Barcode? gs1Barcode;
@@ -161,28 +147,18 @@ class NormalizedBarcode {
 NormalizedBarcode normalizeScannedBarcode(final String code) {
   final GS1Barcode? gs1Barcode = tryParseGs1Barcode(code);
   if (gs1Barcode != null) {
-    // Send the cleaned element string rather than the raw scanner output.
-    // Cleaning cannot fail here, as parsing succeeded.
-    final String apiBarcode = _cleanGs1Input(code) ?? code;
     final String? gtin = gs1Barcode.normalizedGtin;
     if (gtin != null) {
-      return NormalizedBarcode(
-        key: gtin,
-        apiBarcode: apiBarcode,
-        gs1Barcode: gs1Barcode,
-      );
+      return NormalizedBarcode(key: gtin, gs1Barcode: gs1Barcode);
     }
     // A GS1 barcode without a GTIN (e.g. a logistics label): the cleaned
     // value is used as key, so that different formatting of the same label
     // still deduplicates.
-    return NormalizedBarcode(
-      key: apiBarcode,
-      apiBarcode: apiBarcode,
-      gs1Barcode: gs1Barcode,
-    );
+    final String cleaned = _cleanGs1Input(code) ?? code;
+    return NormalizedBarcode(key: cleaned, gs1Barcode: gs1Barcode);
   }
   final String key = fixTraditionalBarcode(code);
-  return NormalizedBarcode(key: key, apiBarcode: key);
+  return NormalizedBarcode(key: key);
 }
 
 /// Fixes a "traditional" numeric barcode.
