@@ -104,14 +104,13 @@ Future<image.Image> _convertImageFromUI(
   final ByteData rawData,
   final int width,
   final int height,
-) async =>
-    image.Image.fromBytes(
-      width: width,
-      height: height,
-      bytes: rawData.buffer,
-      format: image.Format.uint8,
-      order: image.ChannelOrder.rgba,
-    );
+) async => image.Image.fromBytes(
+  width: width,
+  height: height,
+  bytes: rawData.buffer,
+  format: image.Format.uint8,
+  order: image.ChannelOrder.rgba,
+);
 
 /// Saves an image to a BMP file. As BMP for better performances.
 Future<void> _saveBmp(
@@ -126,10 +125,7 @@ Future<void> _saveBmp(
     container.width,
     container.height,
   );
-  await container.file.writeAsBytes(
-    image.encodeBmp(rawImage),
-    flush: true,
-  );
+  await container.file.writeAsBytes(image.encodeBmp(rawImage), flush: true);
 }
 
 /// Saves an image to a JPEG file.

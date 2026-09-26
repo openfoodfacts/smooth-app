@@ -3,8 +3,10 @@ import 'package:smooth_app/services/smooth_service.dart';
 
 class AppStoreService extends SmoothService<AppStoreWrapper> {
   Future<void> openAppDetails() {
-    assert(impls.isNotEmpty,
-        'Please attach an [AppStore] before calling this method!');
+    assert(
+      impls.isNotEmpty,
+      'Please attach an [AppStore] before calling this method!',
+    );
     return impls.first.openAppDetails();
   }
 

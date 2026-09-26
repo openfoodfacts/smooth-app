@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
-  const ForgotPasswordPage();
+  const ForgotPasswordPage({this.initialEmail});
+
+  final String? initialEmail;
 
   @override
   State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
@@ -19,11 +21,17 @@ class ForgotPasswordPage extends StatefulWidget {
 class _ForgotPasswordPageState extends State<ForgotPasswordPage>
     with TraceableClientMixin {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _userIdController = TextEditingController();
+  late final TextEditingController _userIdController;
 
   bool _send = false;
   bool _runningQuery = false;
   String _message = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _userIdController = TextEditingController(text: widget.initialEmail);
+  }
 
   Future<void> _resetPassword() async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
@@ -62,25 +70,13 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
   String get actionName => 'Opened forgot_password_page';
 
   @override
-  void dispose() {
-    _userIdController.dispose();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final Size size = MediaQuery.sizeOf(context);
 
     return SmoothScaffold(
-      appBar: SmoothAppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        iconTheme: IconThemeData(
-          color: Theme.of(context).colorScheme.primary,
-        ),
-      ),
+      appBar: SmoothAppBar(title: Text(appLocalizations.reset_password)),
       body: Form(
         key: _formKey,
         child: Container(
@@ -92,15 +88,6 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  const Spacer(flex: 4),
-                  Text(
-                    appLocalizations.reset_password,
-                    textAlign: TextAlign.center,
-                    style: theme.textTheme.displayLarge?.copyWith(
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
                   const Spacer(flex: 1),
                   if (!_send)
                     Text(
@@ -111,13 +98,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
                   const Spacer(flex: 2),
                   if (_message != '') ...<Widget>[
                     SmoothCard(
-                      padding: const EdgeInsets.all(BALANCED_SPACE),
+                      padding: const EdgeInsetsDirectional.all(BALANCED_SPACE),
                       color: _send ? Colors.green : Colors.red,
                       child: Text(_message),
                     ),
-                    const Spacer(
-                      flex: 1,
-                    )
+                    const Spacer(flex: 1),
                   ],
                   if (!_send)
                     SmoothTextFormField(
@@ -178,5 +163,11 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage>
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _userIdController.dispose();
+    super.dispose();
   }
 }

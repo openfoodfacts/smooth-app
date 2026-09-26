@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_list_helper.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -53,9 +53,8 @@ class _ProductFooterAddToListButtonState
         title: appLocalizations.user_list_title,
         suffix: const SmoothModalSheetHeaderCloseButton(),
       ),
-      bodyBuilder: (BuildContext context) => AddProductToListContainer(
-        barcode: product.barcode!,
-      ),
+      bodyBuilder: (BuildContext context) =>
+          AddProductToListContainer(barcode: product.barcode!),
     );
 
     if (context.mounted) {
@@ -67,10 +66,7 @@ class _ProductFooterAddToListButtonState
 }
 
 class _ProductUserListsProvider extends ValueNotifier<int> {
-  _ProductUserListsProvider(
-    this.dao,
-    this.barcode,
-  ) : super(0) {
+  _ProductUserListsProvider(this.dao, this.barcode) : super(0) {
     reload();
   }
 

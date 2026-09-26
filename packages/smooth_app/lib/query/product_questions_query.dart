@@ -18,10 +18,11 @@ class ProductQuestionsQuery extends QuestionsQuery {
   ) async {
     final RobotoffQuestionResult result =
         await RobotoffAPIClient.getProductQuestions(
-      barcode,
-      ProductQuery.getLanguage(),
-      count: count,
-    );
+          barcode,
+          ProductQuery.getLanguage(),
+          count: count,
+          uriHelper: ProductQuery.uriRobotoffHelper,
+        );
     if (result.questions?.isNotEmpty != true) {
       return <RobotoffQuestion>[];
     }

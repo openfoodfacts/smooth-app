@@ -4,10 +4,10 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/knowledge_panel/evaluation_extension.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
-import 'package:smooth_app/themes/smooth_theme_colors.dart';
-import 'package:smooth_app/themes/theme_provider.dart';
 
 class KnowledgePanelExpandedCard extends StatelessWidget {
   const KnowledgePanelExpandedCard({
@@ -15,12 +15,18 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     required this.product,
     required this.isInitiallyExpanded,
     required this.isClickable,
+    required this.simplified,
+    this.roundedIcons = true,
+    this.overrideStyle = true,
   });
 
   final Product product;
   final String panelId;
   final bool isInitiallyExpanded;
   final bool isClickable;
+  final bool roundedIcons;
+  final bool overrideStyle;
+  final bool simplified;
 
   @override
   Widget build(BuildContext context) {
@@ -46,15 +52,12 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
           isClickable: isClickable,
           isTextSelectable: true,
           position: i,
+          simplified: false,
         );
         if (elementWidget != null) {
           elementWidgets.add(
-            Padding(
-              padding: EdgeInsetsDirectional.only(
-                top: VERY_SMALL_SPACE,
-                start: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
-                end: isInitiallyExpanded ? MEDIUM_SPACE : 0.0,
-              ),
+            Provider<KnowledgePanelTitleConfig>.value(
+              value: KnowledgePanelTitleConfig(roundedIcon: roundedIcons),
               child: elementWidget,
             ),
           );
@@ -72,9 +75,18 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
   }
 
   List<Widget>? _getSummary(KnowledgePanel panel) {
-    final Widget? summary = KnowledgePanelsBuilder.getPanelSummaryWidget(
-      panel,
+    final Widget? summary = panel.getPanelSummaryWidget(
+      product,
+      ignoreEvaluation: true,
+      textStyleOverride: overrideStyle && panel.evaluation.isValid()
+          ? const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 15.0,
+              color: Colors.white,
+            )
+          : null,
       isClickable: false,
+      simplified: simplified,
     );
 
     if (summary != null) {
@@ -87,13 +99,6 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
               ),
               child: summary,
             ),
-          ];
-        } else {
-          return <Widget>[
-            _KnowledgePanelSummaryCardTitle(
-              child: summary,
-            ),
-            const SizedBox(height: SMALL_SPACE)
           ];
         }
       } else {
@@ -109,49 +114,8 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
     super.debugFillProperties(properties);
     properties.add(StringProperty('panelId', panelId));
     properties.add(
-      DiagnosticsProperty<bool>(
-        'initiallyExpanded',
-        isInitiallyExpanded,
-      ),
+      DiagnosticsProperty<bool>('initiallyExpanded', isInitiallyExpanded),
     );
     properties.add(DiagnosticsProperty<bool>('clickable', isClickable));
-  }
-}
-
-/// Force a background around a summary Widget
-class _KnowledgePanelSummaryCardTitle extends StatelessWidget {
-  const _KnowledgePanelSummaryCardTitle({
-    required this.child,
-  });
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
-
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: context.lightTheme()
-            ? extension.primaryMedium
-            : extension.primaryUltraBlack,
-        borderRadius: const BorderRadius.vertical(
-          top: ROUNDED_RADIUS,
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsetsDirectional.symmetric(
-          vertical: SMALL_SPACE,
-          horizontal: MEDIUM_SPACE,
-        ),
-        child: DefaultTextStyle.merge(
-          child: child,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
   }
 }

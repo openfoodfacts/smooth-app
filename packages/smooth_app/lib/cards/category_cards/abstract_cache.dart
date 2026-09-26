@@ -7,11 +7,7 @@ import 'package:smooth_app/cards/category_cards/svg_cache.dart';
 /// Widget that displays an image from network (and cache while waiting).
 abstract class AbstractCache extends StatelessWidget {
   @protected
-  const AbstractCache(
-    this.iconUrl, {
-    this.width,
-    this.height,
-  });
+  const AbstractCache(this.iconUrl, {this.width, this.height});
 
   /// Returns the best cache possibility: none, svg or png/jpeg
   factory AbstractCache.best({
@@ -68,9 +64,6 @@ abstract class AbstractCache extends StatelessWidget {
   }
 
   @protected
-  Widget getDefaultUnknown() => Icon(
-        CupertinoIcons.question,
-        size: width ?? height,
-        color: Colors.red,
-      );
+  Widget getDefaultUnknown() =>
+      Icon(CupertinoIcons.question, size: width ?? height, color: Colors.red);
 }

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_image_data.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/product/gallery_view/product_image_gallery_view.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -64,28 +64,24 @@ class _ProductImageCarouselItemState extends State<ProductImageCarouselItem> {
           image: imageProvider,
           fit: BoxFit.cover,
           height: 1000,
-          errorBuilder: (
-            BuildContext context,
-            Object exception,
-            StackTrace? stackTrace,
-          ) =>
-              Column(
-            children: <Widget>[
-              Icon(
-                Icons.cloud_off_sharp,
-                size: screenSize.width / 4,
+          errorBuilder:
+              (
+                BuildContext context,
+                Object exception,
+                StackTrace? stackTrace,
+              ) => Column(
+                children: <Widget>[
+                  Icon(Icons.cloud_off_sharp, size: screenSize.width / 4),
+                  Text(appLocalizations.no_internet_connection),
+                ],
               ),
-              Text(appLocalizations.no_internet_connection),
-            ],
-          ),
         ),
       ),
       onTap: () async => Navigator.push<void>(
         context,
         MaterialPageRoute<bool>(
-          builder: (BuildContext context) => ProductImageGalleryView(
-            product: widget.product,
-          ),
+          builder: (BuildContext context) =>
+              ProductImageGalleryView(product: widget.product),
         ),
       ),
     );

@@ -1,5 +1,7 @@
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 extension ProductTypeExtension on ProductType {
   String getTitle(AppLocalizations appLocalizations) {
@@ -22,26 +24,35 @@ extension ProductTypeExtension on ProductType {
 
   String getIllustration() {
     return switch (this) {
-      ProductType.food => 'assets/misc/logo_off_half.svg',
-      ProductType.beauty => 'assets/misc/logo_obf_half.svg',
-      ProductType.petFood => 'assets/misc/logo_opff_half.svg',
-      ProductType.product => 'assets/misc/logo_opf_half.svg',
+      ProductType.food => 'assets/misc/logo_off_half.svg.vec',
+      ProductType.beauty => 'assets/misc/logo_obf_half.svg.vec',
+      ProductType.petFood => 'assets/misc/logo_opff_half.svg.vec',
+      ProductType.product => 'assets/misc/logo_opf_half.svg.vec',
+    };
+  }
+
+  Widget getIcon() {
+    return switch (this) {
+      ProductType.food => const icons.Logo.openFoodFacts(),
+      ProductType.beauty => const icons.Logo.openBeautyFacts(),
+      ProductType.petFood => const icons.Logo.openPetFoodFacts(),
+      ProductType.product => const icons.Logo.openProductsFacts(),
     };
   }
 
   String getDomain() => switch (this) {
-        ProductType.food => 'openfoodfacts',
-        ProductType.beauty => 'openbeautyfacts',
-        ProductType.petFood => 'openpetfoodfacts',
-        ProductType.product => 'openproductsfacts',
-      };
+    ProductType.food => 'openfoodfacts',
+    ProductType.beauty => 'openbeautyfacts',
+    ProductType.petFood => 'openpetfoodfacts',
+    ProductType.product => 'openproductsfacts',
+  };
 
   String getLabel(final AppLocalizations appLocalizations) => switch (this) {
-        ProductType.food => appLocalizations.product_type_label_food,
-        ProductType.beauty => appLocalizations.product_type_label_beauty,
-        ProductType.petFood => appLocalizations.product_type_label_pet_food,
-        ProductType.product => appLocalizations.product_type_label_product,
-      };
+    ProductType.food => appLocalizations.product_type_label_food,
+    ProductType.beauty => appLocalizations.product_type_label_beauty,
+    ProductType.petFood => appLocalizations.product_type_label_pet_food,
+    ProductType.product => appLocalizations.product_type_label_product,
+  };
 
   String getRoadToScoreLabel(final AppLocalizations appLocalizations) =>
       switch (this) {
@@ -57,19 +68,10 @@ extension ProductTypeExtension on ProductType {
   String getShareProductLabel(
     final AppLocalizations appLocalizations,
     final String url,
-  ) =>
-      switch (this) {
-        ProductType.food => appLocalizations.share_product_text(
-            url,
-          ),
-        ProductType.beauty => appLocalizations.share_product_text_beauty(
-            url,
-          ),
-        ProductType.petFood => appLocalizations.share_product_text_pet_food(
-            url,
-          ),
-        ProductType.product => appLocalizations.share_product_text_product(
-            url,
-          ),
-      };
+  ) => switch (this) {
+    ProductType.food => appLocalizations.share_product_text(url),
+    ProductType.beauty => appLocalizations.share_product_text_beauty(url),
+    ProductType.petFood => appLocalizations.share_product_text_pet_food(url),
+    ProductType.product => appLocalizations.share_product_text_product(url),
+  };
 }

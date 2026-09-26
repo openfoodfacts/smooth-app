@@ -52,36 +52,36 @@ class _SvgAsyncAssetState extends State<SvgAsyncAsset> {
 
   @override
   Widget build(BuildContext context) => FutureBuilder<String>(
-        future: _loading,
-        builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.data != null) {
-              return SvgPicture.string(
-                snapshot.data!,
-                width: widget.assetCacheHelper.width,
-                height: widget.assetCacheHelper.height,
-                colorFilter: widget.assetCacheHelper.color == null
-                    ? null
-                    : ui.ColorFilter.mode(
-                        widget.assetCacheHelper.color!,
-                        ui.BlendMode.srcIn,
-                      ),
-                fit: BoxFit.contain,
-                placeholderBuilder: (BuildContext context) =>
-                    widget.assetCacheHelper.getEmptySpace(),
-              );
-            } else {
-              widget.assetCacheHelper.notFound();
-              if (widget.errorBuilder != null) {
-                return widget.errorBuilder!(context, Exception('Not found'));
-              }
-            }
+    future: _loading,
+    builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+      if (snapshot.connectionState == ConnectionState.done) {
+        if (snapshot.data != null) {
+          return SvgPicture.string(
+            snapshot.data!,
+            width: widget.assetCacheHelper.width,
+            height: widget.assetCacheHelper.height,
+            colorFilter: widget.assetCacheHelper.color == null
+                ? null
+                : ui.ColorFilter.mode(
+                    widget.assetCacheHelper.color!,
+                    ui.BlendMode.srcIn,
+                  ),
+            fit: BoxFit.contain,
+            placeholderBuilder: (BuildContext context) =>
+                widget.assetCacheHelper.getEmptySpace(),
+          );
+        } else {
+          widget.assetCacheHelper.notFound();
+          if (widget.errorBuilder != null) {
+            return widget.errorBuilder!(context, Exception('Not found'));
           }
+        }
+      }
 
-          if (widget.loadingBuilder != null) {
-            return widget.loadingBuilder!(context);
-          }
-          return widget.assetCacheHelper.getEmptySpace();
-        },
-      );
+      if (widget.loadingBuilder != null) {
+        return widget.loadingBuilder!(context);
+      }
+      return widget.assetCacheHelper.getEmptySpace();
+    },
+  );
 }

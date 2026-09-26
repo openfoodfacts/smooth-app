@@ -1,26 +1,22 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/resources/app_animations.dart';
-import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
 
 class EditProductFooter extends StatefulWidget {
-  const EditProductFooter({
-    required this.uploadIndicator,
-    super.key,
-  });
+  const EditProductFooter({required this.uploadIndicator, super.key});
 
   final bool uploadIndicator;
 
@@ -37,42 +33,45 @@ class _EditProductFooterState extends State<EditProductFooter>
   late AnimationController _menuController;
   late AnimationController _loadingController;
   late Animation<double> _menuAnimation;
-  late Animation<double> _loadingAnimation;
-  late double _menuOffsetX = -1.0;
-  late double _loadingOffsetY;
-  late double _height = 0.0;
+  Animation<double>? _loadingAnimation;
+  double _menuOffsetX = -1.0;
+  double? _loadingOffsetY;
+  double _height = 0.0;
   late DragStartDetails _dragStartDetails;
 
   @override
   void initState() {
     super.initState();
-    _menuController = AnimationController(
-      vsync: this,
-      duration: SmoothAnimationsDuration.medium,
-    )
-      ..addListener(() {
-        setState(() {
-          _menuOffsetX = _menuAnimation.value;
+    _menuController =
+        AnimationController(
+            vsync: this,
+            duration: SmoothAnimationsDuration.medium,
+          )
+          ..addListener(() {
+            setState(() {
+              _menuOffsetX = _menuAnimation.value;
 
-          /// Also move the upload indicator
-          if (widget.uploadIndicator) {
-            _loadingOffsetY = _height *
-                (1 - _menuOffsetX.progressAndClamp(0.0, _maxOffsetX, 1.0));
-          }
+              /// Also move the upload indicator
+              if (widget.uploadIndicator) {
+                _loadingOffsetY =
+                    _height *
+                    (1 - _menuOffsetX.progressAndClamp(0.0, _maxOffsetX, 1.0));
+              }
+            });
+          })
+          ..addStatusListener((AnimationStatus status) {
+            if (status == AnimationStatus.completed && _menuOffsetX > 0.0) {
+              _scrollController.jumpTo(0.0);
+            }
+          });
+
+    _loadingController =
+        AnimationController(
+          vsync: this,
+          duration: SmoothAnimationsDuration.long,
+        )..addListener(() {
+          setState(() => _loadingOffsetY = _loadingAnimation?.value);
         });
-      })
-      ..addStatusListener((AnimationStatus status) {
-        if (status == AnimationStatus.completed && _menuOffsetX > 0.0) {
-          _scrollController.jumpTo(0.0);
-        }
-      });
-
-    _loadingController = AnimationController(
-      vsync: this,
-      duration: SmoothAnimationsDuration.long,
-    )..addListener(() {
-        setState(() => _loadingOffsetY = _loadingAnimation.value);
-      });
 
     if (widget.uploadIndicator) {
       _loadingOffsetY = 0.0;
@@ -81,9 +80,7 @@ class _EditProductFooterState extends State<EditProductFooter>
       _loadingOffsetY = double.infinity;
     }
 
-    onNextFrame(() => setState(
-          () => _menuOffsetX = _maxOffsetX,
-        ));
+    onNextFrame(() => setState(() => _menuOffsetX = _maxOffsetX));
   }
 
   @override
@@ -108,6 +105,7 @@ class _EditProductFooterState extends State<EditProductFooter>
 
     final double width = MediaQuery.sizeOf(context).width;
 
+    final double loadingOffsetY = _loadingOffsetY ?? 0;
     return Stack(
       children: <Widget>[
         PositionedDirectional(
@@ -116,14 +114,11 @@ class _EditProductFooterState extends State<EditProductFooter>
           end: BUTTON_WIDTH - 20.0,
           bottom: 0.0,
           child: Offstage(
-            offstage: _loadingOffsetY == _height,
+            offstage: loadingOffsetY == _height,
             child: Opacity(
-              opacity: 1 - _loadingOffsetY.progressAndClamp(0.0, _height, 1.0),
+              opacity: 1 - loadingOffsetY.progressAndClamp(0.0, _height, 1.0),
               child: Transform.translate(
-                offset: Offset(
-                  0.0,
-                  _loadingOffsetY,
-                ),
+                offset: Offset(0.0, loadingOffsetY),
                 child: const _EditPageLoadingIndicator(),
               ),
             ),
@@ -158,11 +153,11 @@ class _EditProductFooterState extends State<EditProductFooter>
                         ),
                         color: context.lightTheme()
                             ? context
-                                .extension<SmoothColorsThemeExtension>()
-                                .primaryBlack
+                                  .extension<SmoothColorsThemeExtension>()
+                                  .primaryBlack
                             : context
-                                .extension<SmoothColorsThemeExtension>()
-                                .primarySemiDark,
+                                  .extension<SmoothColorsThemeExtension>()
+                                  .primarySemiDark,
                       ),
                       child: SizedBox(
                         width: BUTTON_WIDTH,
@@ -173,13 +168,15 @@ class _EditProductFooterState extends State<EditProductFooter>
                             bottom: MediaQuery.viewPaddingOf(context).bottom,
                           ),
                           child: Transform.rotate(
-                            angle: math.pi *
+                            angle:
+                                math.pi *
                                 (1 -
                                     _menuOffsetX.progressAndClamp(
-                                        0.0, width - BUTTON_WIDTH, 1.0)),
-                            child: const Drag.start(
-                              color: Colors.white,
-                            ),
+                                      0.0,
+                                      width - BUTTON_WIDTH,
+                                      1.0,
+                                    )),
+                            child: const icons.Drag.start(color: Colors.white),
                           ),
                         ),
                       ),
@@ -214,14 +211,8 @@ class _EditProductFooterState extends State<EditProductFooter>
         _loadingOffsetY = _height;
       }
 
-      _loadingAnimation = Tween<double>(
-        begin: 0.0,
-        end: _height,
-      ).animate(
-        CurvedAnimation(
-          parent: _loadingController,
-          curve: Curves.easeOutQuint,
-        ),
+      _loadingAnimation = Tween<double>(begin: 0.0, end: _height).animate(
+        CurvedAnimation(parent: _loadingController, curve: Curves.easeOutQuint),
       );
 
       setState(() {});
@@ -230,15 +221,9 @@ class _EditProductFooterState extends State<EditProductFooter>
 
   void _onTapMenu(double width) {
     if (_menuOffsetX == 0.0) {
-      _startMenuAnimation(
-        from: 0.0,
-        to: width - BUTTON_WIDTH,
-      );
+      _startMenuAnimation(from: 0.0, to: width - BUTTON_WIDTH);
     } else {
-      _startMenuAnimation(
-        from: width - BUTTON_WIDTH,
-        to: 0.0,
-      );
+      _startMenuAnimation(from: width - BUTTON_WIDTH, to: 0.0);
     }
   }
 
@@ -253,7 +238,8 @@ class _EditProductFooterState extends State<EditProductFooter>
       }
 
       if (widget.uploadIndicator) {
-        _loadingOffsetY = _height *
+        _loadingOffsetY =
+            _height *
             (1 - _menuOffsetX.progressAndClamp(0.0, _maxOffsetX, 1.0));
       }
     });
@@ -262,25 +248,16 @@ class _EditProductFooterState extends State<EditProductFooter>
   /// Snap to the closest edge
   void _onHorizontalDragEnd(DragEndDetails details, double width) {
     if (_dragStartDetails.localPosition.dx - details.localPosition.dx > 0) {
-      _startMenuAnimation(
-        from: _menuOffsetX,
-        to: 0.0,
-      );
+      _startMenuAnimation(from: _menuOffsetX, to: 0.0);
     } else {
-      _startMenuAnimation(
-        from: _menuOffsetX,
-        to: width - BUTTON_WIDTH,
-      );
+      _startMenuAnimation(from: _menuOffsetX, to: width - BUTTON_WIDTH);
     }
   }
 
   double get _maxOffsetX => MediaQuery.sizeOf(context).width - BUTTON_WIDTH;
 
   void _startMenuAnimation({required double from, required double to}) {
-    _menuAnimation = Tween<double>(
-      begin: from,
-      end: to,
-    ).animate(
+    _menuAnimation = Tween<double>(begin: from, end: to).animate(
       CurvedAnimation(parent: _menuController, curve: Curves.easeOutQuint),
     );
     _menuController.forward(from: 0.0);
@@ -309,8 +286,8 @@ class _EditPageLoadingIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool lightTheme = context.lightTheme();
 
@@ -318,8 +295,9 @@ class _EditPageLoadingIndicator extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: <BoxShadow>[
           BoxShadow(
-            color:
-                context.lightTheme() ? Colors.black12 : const Color(0x10FFFFFF),
+            color: context.lightTheme()
+                ? Colors.black12
+                : const Color(0x10FFFFFF),
             blurRadius: 6.0,
             offset: const Offset(0.0, -4.0),
           ),
@@ -365,9 +343,7 @@ class _EditPageLoadingIndicator extends StatelessWidget {
                 child: TextWithBoldParts(
                   text: appLocalizations
                       .edit_product_pending_operations_banner_short_message,
-                  textStyle: const TextStyle(
-                    fontSize: 14.5,
-                  ),
+                  textStyle: const TextStyle(fontSize: 14.5),
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),

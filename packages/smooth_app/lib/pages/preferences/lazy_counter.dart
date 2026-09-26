@@ -19,12 +19,7 @@ abstract class LazyCounter {
     final int value,
     final UserPreferences userPreferences, {
     required final bool notify,
-  }) =>
-      userPreferences.setLazyCount(
-        value,
-        getSuffixTag(),
-        notify: notify,
-      );
+  }) => userPreferences.setLazyCount(value, getSuffixTag(), notify: notify);
 
   /// Returns the suffix tag used to cache the value locally;
   @protected
@@ -47,11 +42,11 @@ class LazyCounterPrices extends LazyCounter {
   Future<int?> getServerCount() async {
     final MaybeError<GetPricesResult> result =
         await OpenPricesAPIClient.getPrices(
-      GetPricesParameters()
-        ..owner = owner
-        ..pageSize = 1,
-      uriHelper: ProductQuery.uriPricesHelper,
-    );
+          GetPricesParameters()
+            ..owner = owner
+            ..pageSize = 1,
+          uriHelper: ProductQuery.uriPricesHelper,
+        );
     if (result.isError) {
       return null;
     }

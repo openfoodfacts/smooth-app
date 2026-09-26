@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -15,12 +14,13 @@ class SmoothCard extends StatelessWidget {
   const SmoothCard({
     required this.child,
     this.color,
-    this.margin = const EdgeInsets.symmetric(
+    this.margin = const EdgeInsetsDirectional.symmetric(
       horizontal: SMALL_SPACE,
       vertical: VERY_SMALL_SPACE,
     ),
-    this.padding = const EdgeInsets.all(5.0),
+    this.padding = const EdgeInsetsDirectional.all(5.0),
     this.elevation = 8.0,
+    this.elevationColor,
     this.borderRadius,
     this.ignoreDefaultSemantics = false,
     this.clipBehavior,
@@ -29,12 +29,13 @@ class SmoothCard extends StatelessWidget {
   const SmoothCard.angular({
     required this.child,
     this.color,
-    this.margin = const EdgeInsets.symmetric(
+    this.margin = const EdgeInsetsDirectional.symmetric(
       horizontal: SMALL_SPACE,
       vertical: VERY_SMALL_SPACE,
     ),
-    this.padding = const EdgeInsets.all(5.0),
+    this.padding = const EdgeInsetsDirectional.all(5.0),
     this.elevation = 8.0,
+    this.elevationColor,
     this.ignoreDefaultSemantics = false,
     this.clipBehavior,
   }) : borderRadius = ANGULAR_BORDER_RADIUS;
@@ -48,12 +49,12 @@ class SmoothCard extends StatelessWidget {
       top: VERY_SMALL_SPACE,
       bottom: VERY_SMALL_SPACE,
     ),
-    this.padding = const EdgeInsets.all(5.0),
+    this.padding = const EdgeInsetsDirectional.all(5.0),
     this.elevation = 0.0,
     this.borderRadius,
     this.ignoreDefaultSemantics = false,
     this.clipBehavior,
-  });
+  }) : elevationColor = null;
 
   final Widget child;
   final Color? color;
@@ -61,6 +62,7 @@ class SmoothCard extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final BorderRadiusGeometry? borderRadius;
   final double elevation;
+  final Color? elevationColor;
   final bool ignoreDefaultSemantics;
   final Clip? clipBehavior;
 
@@ -69,10 +71,7 @@ class SmoothCard extends StatelessWidget {
     Widget result = child;
 
     if (padding != null) {
-      result = Padding(
-        padding: padding!,
-        child: result,
-      );
+      result = Padding(padding: padding!, child: result);
     }
 
     if (ignoreDefaultSemantics) {
@@ -85,9 +84,10 @@ class SmoothCard extends StatelessWidget {
 
     result = Material(
       elevation: elevation,
-      shadowColor: const Color.fromARGB(25, 0, 0, 0),
+      shadowColor: elevationColor ?? const Color.fromARGB(25, 0, 0, 0),
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-      color: color ??
+      color:
+          color ??
           (Theme.of(context).brightness == Brightness.light
               ? Colors.white
               : Colors.black),
@@ -95,46 +95,49 @@ class SmoothCard extends StatelessWidget {
       child: result,
     );
 
-    return margin == null
-        ? result
-        : Padding(
-            padding: margin!,
-            child: result,
-          );
+    return margin == null ? result : Padding(padding: margin!, child: result);
   }
 }
 
 class SmoothCardWithRoundedHeader extends StatelessWidget {
   const SmoothCardWithRoundedHeader({
-    required this.title,
     required this.child,
+    this.title,
     this.leading,
     this.leadingIconSize,
+    this.leadingMargin,
     this.leadingPadding,
     this.trailing,
     this.titleTextStyle,
     this.titlePadding,
+    this.titleSpacing,
     this.contentPadding,
     this.titleBackgroundColor,
     this.contentBackgroundColor,
     this.borderRadius,
     this.includeShadow = true,
+    this.banner,
+    this.clipBehavior,
     super.key,
   });
 
-  final String title;
+  final String? title;
   final Widget? leading;
   final double? leadingIconSize;
+  final EdgeInsetsGeometry? leadingMargin;
   final EdgeInsetsGeometry? leadingPadding;
   final Widget? trailing;
   final Widget child;
   final TextStyle? titleTextStyle;
   final EdgeInsetsGeometry? titlePadding;
+  final double? titleSpacing;
   final EdgeInsetsGeometry? contentPadding;
   final Color? titleBackgroundColor;
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
   final bool includeShadow;
+  final Widget? banner;
+  final Clip? clipBehavior;
 
   @override
   Widget build(BuildContext context) {
@@ -154,21 +157,26 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          SmoothCardWithRoundedHeaderTop(
-            title: title,
-            titleBackgroundColor: titleBackgroundColor,
-            leading: leading,
-            leadingIconSize: leadingIconSize,
-            leadingPadding: leadingPadding,
-            trailing: trailing,
-            titleTextStyle: titleTextStyle,
-            titlePadding: titlePadding,
-            borderRadius: borderRadius,
-          ),
+          if (title != null)
+            SmoothCardWithRoundedHeaderTop(
+              title: title!,
+              titleBackgroundColor: titleBackgroundColor,
+              titleSpacing: titleSpacing,
+              leading: leading,
+              leadingIconSize: leadingIconSize,
+              leadingMargin: leadingMargin,
+              leadingPadding: leadingPadding,
+              trailing: trailing,
+              titleTextStyle: titleTextStyle,
+              titlePadding: titlePadding,
+              borderRadius: borderRadius,
+              banner: banner,
+            ),
           SmoothCardWithRoundedHeaderBody(
             contentBackgroundColor: contentBackgroundColor,
             contentPadding: contentPadding,
             borderRadius: borderRadius,
+            clipBehavior: clipBehavior,
             child: child,
           ),
         ],
@@ -178,16 +186,14 @@ class SmoothCardWithRoundedHeader extends StatelessWidget {
 }
 
 class SmoothCardWithRoundedHeaderBanner extends StatelessWidget {
-  const SmoothCardWithRoundedHeaderBanner({
-    required this.child,
-  });
+  const SmoothCardWithRoundedHeaderBanner({required this.child});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return CustomPaint(
       painter: _SmoothCardWithRoundedHeaderBackgroundPainter(
@@ -195,7 +201,7 @@ class SmoothCardWithRoundedHeaderBanner extends StatelessWidget {
         radius: ROUNDED_RADIUS,
         shadowElevation:
             SmoothCardWithRoundedHeaderTopShadowProvider.of(context)?.shadow ??
-                0.0,
+            0.0,
       ),
       child: child,
     );
@@ -206,8 +212,10 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
   const SmoothCardWithRoundedHeaderTop({
     required this.title,
     this.titleBackgroundColor,
+    this.titleSpacing,
     this.leading,
     this.leadingIconSize,
+    this.leadingMargin,
     this.leadingPadding,
     this.trailing,
     this.titleTextStyle,
@@ -218,8 +226,10 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
 
   final String title;
   final Color? titleBackgroundColor;
+  final double? titleSpacing;
   final Widget? leading;
   final double? leadingIconSize;
+  final EdgeInsetsGeometry? leadingMargin;
   final EdgeInsetsGeometry? leadingPadding;
   final Widget? trailing;
   final TextStyle? titleTextStyle;
@@ -244,12 +254,14 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
               color: color,
               radius: borderRadius?.topRight ?? ROUNDED_RADIUS,
               shadowElevation:
-                  SmoothCardWithRoundedHeaderTopShadowProvider.of(context)
-                          ?.shadow ??
-                      0.0,
+                  SmoothCardWithRoundedHeaderTopShadowProvider.of(
+                    context,
+                  )?.shadow ??
+                  0.0,
             ),
             child: Padding(
-              padding: titlePadding ??
+              padding:
+                  titlePadding ??
                   (trailing != null
                       ? const EdgeInsetsDirectional.only(
                           top: 2.0,
@@ -264,34 +276,37 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
               child: Row(
                 children: <Widget>[
                   if (leading != null)
-                    IconTheme(
-                      data: IconThemeData(
-                        color: titleBackgroundColor,
-                        size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
-                      ),
-                      child: DecoratedBox(
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
+                    Container(
+                      margin: leadingMargin,
+                      child: IconTheme(
+                        data: IconThemeData(
+                          color: titleBackgroundColor,
+                          size: leadingIconSize ?? _DEFAULT_LEADING_ICON_SIZE,
                         ),
-                        child: Padding(
-                          padding: leadingPadding ??
-                              const EdgeInsetsDirectional.all(6.0),
-                          child: leading,
+                        child: DecoratedBox(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                            padding:
+                                leadingPadding ??
+                                const EdgeInsetsDirectional.all(6.0),
+                            child: leading,
+                          ),
                         ),
                       ),
                     ),
-                  const SizedBox(width: MEDIUM_SPACE),
+                  SizedBox(width: titleSpacing ?? MEDIUM_SPACE),
                   Expanded(
                     child: Text(
                       title,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: (titleTextStyle ??
-                              Theme.of(context).textTheme.displaySmall)
-                          ?.copyWith(
-                        color: Colors.white,
-                      ),
+                      style:
+                          (titleTextStyle ??
+                                  Theme.of(context).textTheme.displaySmall)
+                              ?.copyWith(color: Colors.white),
                     ),
                   ),
                   if (trailing != null) ...<Widget>[
@@ -314,8 +329,8 @@ class SmoothCardWithRoundedHeaderTop extends StatelessWidget {
   }
 
   static Color getHeaderColor(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     return context.lightTheme(listen: false)
         ? extension.primaryBlack
         : Colors.black;
@@ -332,16 +347,19 @@ class SmoothCardWithRoundedHeaderTopShadowProvider extends InheritedWidget {
   final double shadow;
 
   static SmoothCardWithRoundedHeaderTopShadowProvider? of(
-      BuildContext context) {
-    final SmoothCardWithRoundedHeaderTopShadowProvider? result =
-        context.dependOnInheritedWidgetOfExactType<
-            SmoothCardWithRoundedHeaderTopShadowProvider>();
+    BuildContext context,
+  ) {
+    final SmoothCardWithRoundedHeaderTopShadowProvider? result = context
+        .dependOnInheritedWidgetOfExactType<
+          SmoothCardWithRoundedHeaderTopShadowProvider
+        >();
     return result;
   }
 
   @override
   bool updateShouldNotify(
-      SmoothCardWithRoundedHeaderTopShadowProvider oldWidget) {
+    SmoothCardWithRoundedHeaderTopShadowProvider oldWidget,
+  ) {
     return oldWidget.shadow != shadow;
   }
 }
@@ -352,28 +370,30 @@ class SmoothCardWithRoundedHeaderBody extends StatelessWidget {
     this.contentPadding,
     this.contentBackgroundColor,
     this.borderRadius,
+    this.clipBehavior,
   });
 
   final Widget child;
   final EdgeInsetsGeometry? contentPadding;
   final Color? contentBackgroundColor;
   final BorderRadius? borderRadius;
+  final Clip? clipBehavior;
 
   @override
   Widget build(BuildContext context) {
     return SmoothCard(
-      margin: EdgeInsets.zero,
-      padding: contentPadding ??
-          const EdgeInsetsDirectional.only(
-            top: MEDIUM_SPACE,
-          ),
+      margin: EdgeInsetsDirectional.zero,
+      padding:
+          contentPadding ?? const EdgeInsetsDirectional.only(top: MEDIUM_SPACE),
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-      color: contentBackgroundColor ??
+      color:
+          contentBackgroundColor ??
           (context.darkTheme()
               ? context
-                  .extension<SmoothColorsThemeExtension>()
-                  .primaryUltraBlack
+                    .extension<SmoothColorsThemeExtension>()
+                    .primaryUltraBlack
               : null),
+      clipBehavior: clipBehavior,
       child: child,
     );
   }
@@ -414,11 +434,7 @@ class _SmoothCardWithRoundedHeaderBackgroundPainter extends CustomPainter {
         clockwise: false,
       )
       ..lineTo(radius.x, 0)
-      ..arcToPoint(
-        Offset(0, radius.y),
-        radius: radius,
-        clockwise: false,
-      )
+      ..arcToPoint(Offset(0, radius.y), radius: radius, clockwise: false)
       ..close();
 
     if (shadowElevation > 0.0) {
@@ -435,14 +451,12 @@ class _SmoothCardWithRoundedHeaderBackgroundPainter extends CustomPainter {
   @override
   bool shouldRepaint(
     _SmoothCardWithRoundedHeaderBackgroundPainter oldDelegate,
-  ) =>
-      shadowElevation != oldDelegate.shadowElevation;
+  ) => shadowElevation != oldDelegate.shadowElevation;
 
   @override
   bool shouldRebuildSemantics(
     _SmoothCardWithRoundedHeaderBackgroundPainter oldDelegate,
-  ) =>
-      false;
+  ) => false;
 }
 
 class SmoothCardHeaderButton extends StatelessWidget {
@@ -450,6 +464,7 @@ class SmoothCardHeaderButton extends StatelessWidget {
     required this.tooltip,
     required this.child,
     required this.onTap,
+    this.circled = false,
     this.padding,
     super.key,
   });
@@ -457,10 +472,26 @@ class SmoothCardHeaderButton extends StatelessWidget {
   final String tooltip;
   final Widget child;
   final VoidCallback onTap;
+  final bool circled;
   final EdgeInsetsGeometry? padding;
 
   @override
   Widget build(BuildContext context) {
+    Widget child = Padding(
+      padding: padding ?? const EdgeInsetsDirectional.all(MEDIUM_SPACE),
+      child: this.child,
+    );
+
+    if (circled) {
+      child = Material(
+        color: Colors.transparent,
+        shape: const CircleBorder(
+          side: BorderSide(width: 1.0, color: Colors.white),
+        ),
+        child: child,
+      );
+    }
+
     return Material(
       type: MaterialType.transparency,
       child: Semantics(
@@ -472,10 +503,7 @@ class SmoothCardHeaderButton extends StatelessWidget {
           child: InkWell(
             customBorder: const CircleBorder(),
             onTap: onTap,
-            child: Padding(
-              padding: padding ?? const EdgeInsetsDirectional.all(MEDIUM_SPACE),
-              child: child,
-            ),
+            child: child,
           ),
         ),
       ),

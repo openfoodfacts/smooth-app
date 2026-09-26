@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/currency_extension.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_extensions.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 /// Helper for currency selection.
 class CurrencySelectorHelper {
@@ -38,72 +39,66 @@ class CurrencySelectorHelper {
         return StatefulBuilder(
           builder:
               (BuildContext context, void Function(VoidCallback fn) setState) {
-            const double horizontalPadding = 16.0 + SMALL_SPACE;
+                const double horizontalPadding = 16.0 + SMALL_SPACE;
 
-            return SmoothListAlertDialog(
-              title: appLocalizations.currency_selector_title,
-              header: SmoothTextFormField(
-                type: TextFieldTypes.PLAIN_TEXT,
-                prefixIcon: const Icon(Icons.search),
-                controller: currencyController,
-                onChanged: (String? query) {
-                  query = query!.trim().getComparisonSafeString();
+                return SmoothListAlertDialog(
+                  title: appLocalizations.currency_selector_title,
+                  header: SmoothTextFormField(
+                    type: TextFieldTypes.PLAIN_TEXT,
+                    prefixIcon: const Icon(Icons.search),
+                    controller: currencyController,
+                    onChanged: (String? query) {
+                      query = query!.trim().getComparisonSafeString();
 
-                  setState(
-                    () {
-                      filteredList = _currencyList
-                          .where(
-                            (Currency item) => item
-                                .getFullName()
-                                .getComparisonSafeString()
-                                .contains(
-                                  query!,
-                                ),
-                          )
-                          .toList(growable: false);
+                      setState(() {
+                        filteredList = _currencyList
+                            .where(
+                              (Currency item) => item
+                                  .getFullName()
+                                  .getComparisonSafeString()
+                                  .contains(query!),
+                            )
+                            .toList(growable: false);
+                      });
                     },
-                  );
-                },
-                hintText: appLocalizations.search,
-              ),
-              scrollController: scrollController,
-              list: ListView.separated(
-                controller: scrollController,
-                itemBuilder: (BuildContext context, int index) {
-                  final Currency currency = filteredList[index];
-                  final bool isSelected = currency == selected;
-                  return ListTile(
-                    dense: true,
-                    contentPadding: const EdgeInsets.symmetric(
-                      horizontal: horizontalPadding,
-                    ),
-                    trailing: isSelected ? const Icon(Icons.check) : null,
-                    title: TextHighlighter(
-                      text: currency.getFullName(),
-                      filter: currencyController.text,
-                      selected: isSelected,
-                    ),
-                    onTap: () {
-                      Navigator.of(context).pop(currency);
+                    hintText: appLocalizations.search,
+                  ),
+                  scrollController: scrollController,
+                  list: ListView.separated(
+                    controller: scrollController,
+                    itemBuilder: (BuildContext context, int index) {
+                      final Currency currency = filteredList[index];
+                      final bool isSelected = currency == selected;
+                      return ListTile(
+                        dense: true,
+                        contentPadding: const EdgeInsets.symmetric(
+                          horizontal: horizontalPadding,
+                        ),
+                        trailing: isSelected ? const Icon(Icons.check) : null,
+                        title: TextHighlighter(
+                          text: currency.getFullName(),
+                          filter: currencyController.text,
+                          selected: isSelected,
+                        ),
+                        onTap: () {
+                          Navigator.of(context).pop(currency);
+                          currencyController.clear();
+                        },
+                      );
+                    },
+                    separatorBuilder: (_, _) => const Divider(height: 1.0),
+                    itemCount: filteredList.length,
+                    shrinkWrap: true,
+                  ),
+                  positiveAction: SmoothActionButton(
+                    onPressed: () {
+                      Navigator.pop(context);
                       currencyController.clear();
                     },
-                  );
-                },
-                separatorBuilder: (_, __) => const Divider(
-                  height: 1.0,
-                ),
-                itemCount: filteredList.length,
-                shrinkWrap: true,
-              ),
-              positiveAction: SmoothActionButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  currencyController.clear();
-                },
-                text: appLocalizations.cancel,
-              ),
-            );
-          },
+                    text: appLocalizations.cancel,
+                  ),
+                );
+              },
         );
       },
     );
@@ -122,16 +117,14 @@ class CurrencySelectorHelper {
 
   /// Reorder currencies alphabetically, bring user's selected one to top.
   void _reorderCurrencies(final Currency selected) {
-    _currencyList.sort(
-      (final Currency a, final Currency b) {
-        if (a == selected) {
-          return -1;
-        }
-        if (b == selected) {
-          return 1;
-        }
-        return a.name.compareTo(b.name);
-      },
-    );
+    _currencyList.sort((final Currency a, final Currency b) {
+      if (a == selected) {
+        return -1;
+      }
+      if (b == selected) {
+        return 1;
+      }
+      return a.name.compareTo(b.name);
+    });
   }
 }

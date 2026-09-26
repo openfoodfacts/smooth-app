@@ -3,10 +3,7 @@ import 'package:smooth_app/database/dao_string.dart';
 
 /// Downloadable String that may be stored (and compared to the previous value).
 class DownloadableString {
-  DownloadableString(
-    this.uri, {
-    this.dao,
-  });
+  DownloadableString(this.uri, {this.dao});
 
   final Uri uri;
   final DaoString? dao;

@@ -1,8 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:iso_countries/iso_countries.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -11,25 +9,30 @@ import 'package:smooth_app/data_models/product_list_supplier.dart';
 import 'package:smooth_app/data_models/product_query_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/animations/smooth_reveal_animation.dart';
-import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_error_card.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
+import 'package:smooth_app/pages/preferences/country_selector/country.dart';
 import 'package:smooth_app/pages/product/common/loading_status.dart';
 import 'package:smooth_app/pages/product/common/product_list_item_simple.dart';
 import 'package:smooth_app/pages/product/common/product_query_page_helper.dart';
 import 'package:smooth_app/pages/product/common/search_app_bar_title.dart';
 import 'package:smooth_app/pages/product/common/search_empty_screen.dart';
 import 'package:smooth_app/pages/product/common/search_loading_screen.dart';
+import 'package:smooth_app/pages/product/query_results_banner.dart';
 import 'package:smooth_app/query/paged_product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/ranking_floating_action_button.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 /// A page that can be used like a screen, if [includeAppBar] is true.
 /// Otherwise, it can be embedded in another screen.
@@ -119,9 +122,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
             );
           case LoadingStatus.LOADING:
             if (_model.isEmpty()) {
-              return SearchLoadingScreen(
-                title: widget.name,
-              );
+              return SearchLoadingScreen(title: widget.name);
             }
             break;
           case LoadingStatus.LOADED:
@@ -132,7 +133,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
                 includeAppBar: widget.includeAppBar,
                 emptiness: _getEmptyText(
                   themeData,
-                  appLocalizations.no_product_found,
+                  appLocalizations.no_product_found_explanation(widget.name),
                 ),
               );
             }
@@ -145,11 +146,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         // Now used in two cases.
         // 1. we have data downloaded and we display it (normal mode)
         // 2. we are downloading extra data, and display what we already knew
-        return _getNotEmptyScreen(
-          screenSize,
-          themeData,
-          appLocalizations,
-        );
+        return _getNotEmptyScreen(screenSize, themeData, appLocalizations);
       },
     );
   }
@@ -169,63 +166,8 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final int itemCount = _getItemCount();
 
     return SmoothScaffold(
-      floatingActionButton: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          Expanded(
-            child: RankingFloatingActionButton(
-              onPressed: () =>
-                  Navigator.of(context, rootNavigator: true).push<Widget>(
-                MaterialPageRoute<Widget>(
-                  builder: (BuildContext context) => PersonalizedRankingPage(
-                    barcodes: _model.displayBarcodes,
-                    title: widget.name,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          Visibility(
-            visible: _showBackToTopButton,
-            child: AnimatedOpacity(
-              duration: SmoothAnimationsDuration.short,
-              opacity: _showBackToTopButton ? 1.0 : 0.0,
-              child: SmoothRevealAnimation(
-                animationCurve: Curves.easeInOutBack,
-                startOffset: const Offset(0.0, 1.0),
-                child: Padding(
-                  padding: const EdgeInsetsDirectional.only(
-                    start: SMALL_SPACE,
-                  ),
-                  child: SizedBox(
-                    height: MINIMUM_TOUCH_SIZE,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        _scrollToTop();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: themeData.colorScheme.secondary,
-                        foregroundColor: themeData.colorScheme.onSecondary,
-                        shape: const CircleBorder(),
-                        padding: EdgeInsets.zero,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          Icons.arrow_upward,
-                          color: themeData.colorScheme.onSecondary,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
       appBar: widget.includeAppBar
           ? SmoothAppBar(
-              backgroundColor: themeData.scaffoldBackgroundColor,
               elevation: 2,
               automaticallyImplyLeading: false,
               leading: const SmoothBackButton(),
@@ -243,7 +185,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
         onRefresh: () async => _refreshList(),
         child: ListView.separated(
           controller: _scrollController,
-          padding: widget.includeAppBar ? null : EdgeInsets.zero,
+          padding: widget.includeAppBar ? null : EdgeInsetsDirectional.zero,
           // To allow refresh even when not the whole page is filled
           physics: const AlwaysScrollableScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
@@ -300,6 +242,59 @@ class _ProductQueryPageState extends State<ProductQueryPage>
           },
         ),
       ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Expanded(
+            child: RankingFloatingActionButton(
+              onPressed: () =>
+                  Navigator.of(context, rootNavigator: true).push<Widget>(
+                    MaterialPageRoute<Widget>(
+                      builder: (BuildContext context) =>
+                          PersonalizedRankingPage(
+                            barcodes: _model.displayBarcodes,
+                            title: widget.name,
+                          ),
+                    ),
+                  ),
+            ),
+          ),
+          Visibility(
+            visible: _showBackToTopButton,
+            child: AnimatedOpacity(
+              duration: SmoothAnimationsDuration.short,
+              opacity: _showBackToTopButton ? 1.0 : 0.0,
+              child: SmoothRevealAnimation(
+                animationCurve: Curves.easeInOutBack,
+                startOffset: const Offset(0.0, 1.0),
+                child: Padding(
+                  padding: const EdgeInsetsDirectional.only(start: SMALL_SPACE),
+                  child: SizedBox(
+                    height: MINIMUM_TOUCH_SIZE,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _scrollToTop();
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: themeData.colorScheme.secondary,
+                        foregroundColor: themeData.colorScheme.onSecondary,
+                        shape: const CircleBorder(),
+                        padding: EdgeInsetsDirectional.zero,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          Icons.arrow_upward,
+                          color: themeData.colorScheme.onSecondary,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -326,7 +321,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       name: widget.name,
       includeAppBar: false,
       emptiness: Padding(
-        padding: const EdgeInsets.all(SMALL_SPACE),
+        padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
         child: SmoothErrorCard(
           errorMessage: errorMessage,
           tryAgainFunction: retryConnection,
@@ -335,37 +330,141 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     );
   }
 
-  Widget _getEmptyText(
-    final ThemeData themeData,
-    final String message,
-  ) {
+  Widget _getEmptyText(final ThemeData themeData, final String message) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
 
-    return Padding(
-      padding: const EdgeInsets.all(SMALL_SPACE),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
-            child: Text(
-              message,
-              textAlign: TextAlign.center,
-              style: themeData.textTheme.titleMedium!.copyWith(fontSize: 18.0),
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    return Column(
+      mainAxisAlignment: .center,
+      crossAxisAlignment: .center,
+      children: <Widget>[
+        Expanded(
+          child: FractionallySizedBox(
+            widthFactor: 0.75,
+            child: Column(
+              mainAxisAlignment: .center,
+              spacing: LARGE_SPACE,
+              children: <Widget>[
+                Material(
+                  color: theme.errorBackground,
+                  shape: const CircleBorder(),
+                  child: Padding(
+                    padding: const EdgeInsetsDirectional.symmetric(
+                      horizontal: 40.0,
+                      vertical: 35.0,
+                    ),
+                    child: Column(
+                      spacing: LARGE_SPACE,
+                      children: <Widget>[
+                        icons.Milk.unhappy(size: 65.0, color: theme.error),
+                      ],
+                    ),
+                  ),
+                ),
+                TextWithBoldParts(
+                  text: message,
+                  textAlign: TextAlign.center,
+                  textStyle: const TextStyle(fontSize: 15.5),
+                ),
+              ],
             ),
           ),
-          if (worldQuery != null)
-            _getLargeButtonWithIcon(
-              _getWorldAction(
-                appLocalizations,
-                worldQuery,
-                widget.includeAppBar,
+        ),
+        if (worldQuery != null)
+          Material(
+            color: lightTheme ? theme.primaryBlack : theme.primaryUltraBlack,
+            elevation: 4.0,
+            child: SafeArea(
+              child: Padding(
+                padding: const EdgeInsetsDirectional.symmetric(
+                  horizontal: MEDIUM_SPACE,
+                  vertical: LARGE_SPACE,
+                ),
+                child: Column(
+                  spacing: VERY_LARGE_SPACE,
+                  children: <Widget>[
+                    Row(
+                      crossAxisAlignment: .start,
+                      spacing: LARGE_SPACE,
+                      children: <Widget>[
+                        Material(
+                          shape: const CircleBorder(),
+                          color: theme.secondaryVibrant,
+                          child: const Padding(
+                            padding: EdgeInsetsDirectional.all(SMALL_SPACE),
+                            child: icons.LightBulb(color: Colors.white),
+                          ),
+                        ),
+                        Expanded(
+                          child: TextWithBoldParts(
+                            text: appLocalizations
+                                .no_product_found_try_world_results,
+                            textStyle: const TextStyle(
+                              fontSize: 15.0,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    FractionallySizedBox(
+                      widthFactor: 0.9,
+                      child: Material(
+                        type: MaterialType.button,
+                        color: lightTheme ? theme.primaryBlack : Colors.black26,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: ROUNDED_BORDER_RADIUS,
+                          side: BorderSide(color: Colors.white54),
+                        ),
+                        child: InkWell(
+                          borderRadius: ROUNDED_BORDER_RADIUS,
+                          onTap: () async =>
+                              ProductQueryPageHelper.openBestChoice(
+                                productQuery: worldQuery,
+                                localDatabase: context.read<LocalDatabase>(),
+                                name: widget.name,
+                                context: context,
+                                editableAppBarTitle: widget.includeAppBar,
+                              ),
+                          child: Padding(
+                            padding: const EdgeInsetsDirectional.symmetric(
+                              horizontal: LARGE_SPACE,
+                              vertical: SMALL_SPACE,
+                            ),
+                            child: Row(
+                              children: <Widget>[
+                                Expanded(
+                                  child: Text(
+                                    appLocalizations.world_results_action,
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                                icons.CircledArrow.horizontalDirectional(
+                                  context,
+                                  type: icons.CircledArrowType.thin,
+                                  size: 30.0,
+                                  color: Colors.white,
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-        ],
-      ),
+          ),
+      ],
     );
   }
 
@@ -373,103 +472,69 @@ class _ProductQueryPageState extends State<ProductQueryPage>
     final PagedProductQuery pagedProductQuery = _model.supplier.productQuery;
     final PagedProductQuery? worldQuery = pagedProductQuery.getWorldQuery();
 
-    return FutureBuilder<String?>(
-      future: _getTranslatedCountry(),
-      builder: (
-        final BuildContext context,
-        final AsyncSnapshot<String?> snapshot,
-      ) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        final List<String> messages = <String>[];
-        String counting = appLocalizations.user_list_length(
-          _model.supplier.partialProductList.totalSize,
-        );
-        if (pagedProductQuery.hasDifferentCountryWorldData()) {
-          if (pagedProductQuery.world) {
-            counting += ' (${appLocalizations.world_results_label})';
-          } else {
-            if (snapshot.data != null) {
-              counting += ' (${snapshot.data})';
-            }
-          }
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    String counting = appLocalizations.user_list_length(
+      _model.supplier.partialProductList.totalSize,
+    );
+    if (pagedProductQuery.hasDifferentCountryWorldData()) {
+      if (pagedProductQuery.world) {
+        counting += ' (${appLocalizations.world_results_label})';
+      } else {
+        final String? countryName = _country?.localizedName;
+        if (countryName != null) {
+          counting += ' ($countryName)';
         }
-        messages.add(counting);
-        final int? lastUpdate = _model.supplier.timestamp;
-        if (lastUpdate != null) {
-          final String lastTime =
-              ProductQueryPageHelper.getDurationStringFromTimestamp(
-                  lastUpdate, context);
-          messages.add('${appLocalizations.cached_results_from} $lastTime');
-        }
-        return SizedBox(
-          width: double.infinity,
-          child: SmoothCard(
-            child: Padding(
-              padding: const EdgeInsets.all(SMALL_SPACE),
-              child: Row(
-                children: <Widget>[
-                  Expanded(child: Text(messages.join('\n'))),
-                  if (pagedProductQuery.getWorldQuery() != null)
-                    _getIconButton(
-                      _getWorldAction(
-                        appLocalizations,
-                        worldQuery!,
-                        widget.includeAppBar,
-                      ),
-                    ),
-                ],
+      }
+    }
+
+    final List<String> messages = <String>[];
+    final int? lastUpdate = _model.supplier.timestamp;
+    if (lastUpdate != null) {
+      final String lastTime =
+          ProductQueryPageHelper.getDurationStringFromTimestamp(
+            lastUpdate,
+            context,
+          );
+      messages.add('${appLocalizations.cached_results_from}\n$lastTime');
+    }
+
+    return QueryResultsBanner(
+      mainText: counting,
+      extraLines: messages,
+      trailing: pagedProductQuery.getWorldQuery() != null
+          ? _getIconButton(
+              _getWorldAction(
+                appLocalizations,
+                worldQuery!,
+                widget.includeAppBar,
               ),
-            ),
-          ),
-        );
-      },
+            )
+          : null,
     );
   }
 
-  Future<String?> _getTranslatedCountry() async {
-    if (_country == null) {
-      return null;
-    }
-    final String locale = Localizations.localeOf(context).languageCode;
-    final List<Country> localizedCountries =
-        await IsoCountries.isoCountriesForLocale(locale);
-    for (final Country country in localizedCountries) {
-      if (country.countryCode.toLowerCase() == _country?.offTag.toLowerCase()) {
-        return country.name;
-      }
-    }
-    return null;
-  }
-
-  Widget _getLargeButtonWithIcon(final _Action action) =>
-      SmoothLargeButtonWithIcon(
-        text: action.text,
-        leadingIcon: Icon(action.iconData),
-        onPressed: action.onPressed,
-      );
-
   Widget _getIconButton(final _Action action) => IconButton(
-        tooltip: action.text,
-        icon: Icon(action.iconData),
-        onPressed: action.onPressed,
-      );
+    tooltip: action.text,
+    icon: Icon(action.iconData),
+    onPressed: action.onPressed,
+  );
 
   _Action _getWorldAction(
     final AppLocalizations appLocalizations,
     final PagedProductQuery worldQuery,
     final bool editableAppBarTitle,
-  ) =>
-      _Action(
-        text: appLocalizations.world_results_action,
-        iconData: Icons.public,
-        onPressed: () async => ProductQueryPageHelper.openBestChoice(
-          productQuery: worldQuery,
-          localDatabase: context.read<LocalDatabase>(),
-          name: widget.name,
-          context: context,
-          editableAppBarTitle: editableAppBarTitle,
-        ),
-      );
+  ) => _Action(
+    text: appLocalizations.world_results_action,
+    iconData: const icons.World.help().icon,
+    onPressed: () async => ProductQueryPageHelper.openBestChoice(
+      productQuery: worldQuery,
+      localDatabase: context.read<LocalDatabase>(),
+      name: widget.name,
+      context: context,
+      editableAppBarTitle: editableAppBarTitle,
+    ),
+  );
 
   void retryConnection() {
     if (mounted) {
@@ -486,10 +551,7 @@ class _ProductQueryPageState extends State<ProductQueryPage>
       successfullyLoaded = await _model.loadFromTop();
     } catch (e) {
       if (mounted) {
-        await LoadingDialog.error(
-          context: context,
-          title: _model.loadingError,
-        );
+        await LoadingDialog.error(context: context, title: _model.loadingError);
       }
     } finally {
       if (successfullyLoaded) {

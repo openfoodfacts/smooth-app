@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_details.dart';
@@ -7,6 +6,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/input/unfocus_field_when_tap_outside.dart';
 import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_name.dart';
 import 'package:smooth_app/pages/product/add_basic_details/add_basic_details_quantity.dart';
@@ -20,7 +20,6 @@ import 'package:smooth_app/pages/product/simple_input/simple_input_page_helpers.
 import 'package:smooth_app/pages/product/simple_input/simple_input_widget.dart';
 import 'package:smooth_app/pages/text_field_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -31,10 +30,7 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 /// The product name input is either monolingual or multilingual, depending on
 /// the product data version.
 class AddBasicDetailsPage extends StatefulWidget {
-  const AddBasicDetailsPage(
-    this.product, {
-    required this.isLoggedInMandatory,
-  });
+  const AddBasicDetailsPage(this.product, {required this.isLoggedInMandatory});
 
   final Product product;
   final bool isLoggedInMandatory;
@@ -107,12 +103,9 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
               ),
             ),
             bottomNavigationBar: ProductBottomButtonsBar(
-              onSave: () async => _exitPage(
-                await _mayExitPage(saving: true),
-              ),
-              onCancel: () async => _exitPage(
-                await _mayExitPage(saving: false),
-              ),
+              onSave: () async => _exitPage(await _mayExitPage(saving: true)),
+              onCancel: () async =>
+                  _exitPage(await _mayExitPage(saving: false)),
             ),
           ),
         ),
@@ -155,8 +148,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
                     product: widget.product,
                     onShowImagePreview: (_, OpenFoodFactsLanguage language) =>
                         setState(() {
-                      _imageLanguagePreview = language;
-                    }),
+                          _imageLanguagePreview = language;
+                        }),
                   ),
                   SizedBox(height: _heightSpace),
                   _ProductBrandsInputWidget(
@@ -197,8 +190,8 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(context);
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(context);
       if (pleaseSave == null) {
         _brandsHelper.restoreItemsBeforeLastAddition();
         return false;
@@ -241,9 +234,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   }
 
   void _onValueChanged() {
-    onNextFrame(
-      () => _willPopScope2Controller.canPop(!_hasProductChanged()),
-    );
+    onNextFrame(() => _willPopScope2Controller.canPop(!_hasProductChanged()));
   }
 
   bool _hasProductChanged() =>
@@ -272,8 +263,11 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
 
     if (_productNameEditorProvider.hasChanged()) {
       hasChanged = true;
-      result.productNameInLanguages =
-          _productNameEditorProvider.getChangedProductNames();
+      result.lang =
+          _productNameEditorProvider.value.defaultLanguageOverride ??
+          _product.lang;
+      result.productNameInLanguages = _productNameEditorProvider
+          .getChangedProductNames();
     }
 
     if (hasChanged) {
@@ -286,8 +280,7 @@ class _AddBasicDetailsPageState extends State<AddBasicDetailsPage> {
   bool _isOwnerField(
     final ProductField productField, {
     final OpenFoodFactsLanguage? language,
-  }) =>
-      _product.hasOwnerField(productField, language: language);
+  }) => _product.hasOwnerField(productField, language: language);
 }
 
 class _ProductBrandsInputWidget extends StatelessWidget {

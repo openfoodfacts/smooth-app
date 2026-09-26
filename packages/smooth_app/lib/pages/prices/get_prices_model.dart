@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/product_price_add_page.dart';
@@ -10,11 +10,11 @@ import 'package:smooth_app/query/product_query.dart';
 class GetPricesModel {
   const GetPricesModel({
     required this.parameters,
+    required this.uri,
+    required this.title,
     this.displayEachOwner = true,
     this.displayEachProduct = true,
     this.displayEachLocation = true,
-    required this.uri,
-    required this.title,
     this.lazyCounterPrices,
     this.enableCountButton = true,
     this.subtitle,
@@ -25,24 +25,22 @@ class GetPricesModel {
   factory GetPricesModel.product({
     required final PriceMetaProduct product,
     required final BuildContext context,
-  }) =>
-      GetPricesModel(
-        parameters: getStandardPricesParameters()
-          ..productCode = product.barcode,
-        displayEachProduct: false,
-        uri: OpenPricesAPIClient.getUri(
-          path: 'products/${product.barcode}',
-          uriHelper: ProductQuery.uriPricesHelper,
-        ),
-        title: product.getName(AppLocalizations.of(context)),
-        subtitle: product.barcode,
-        addButton: () async => ProductPriceAddPage.showProductPage(
-          context: context,
-          product: product,
-          proofType: ProofType.priceTag,
-        ),
-        enableCountButton: false,
-      );
+  }) => GetPricesModel(
+    parameters: getStandardPricesParameters()..productCode = product.barcode,
+    displayEachProduct: false,
+    uri: OpenPricesAPIClient.getUri(
+      path: 'products/${product.barcode}',
+      uriHelper: ProductQuery.uriPricesHelper,
+    ),
+    title: product.getName(AppLocalizations.of(context)),
+    subtitle: product.barcode,
+    addButton: () async => ProductPriceAddPage.showProductPage(
+      context: context,
+      product: product,
+      proofType: ProofType.priceTag,
+    ),
+    enableCountButton: false,
+  );
 
   static GetPricesParameters getStandardPricesParameters() =>
       GetPricesParameters()

@@ -9,25 +9,32 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
     this.keywords, {
     required super.productType,
     super.world,
+    this.unwantedIngredients = const <String>[],
   });
 
   final String keywords;
+  final List<String> unwantedIngredients;
 
   @override
   Parameter getParameter() => SearchTerms(terms: <String>[keywords]);
 
   @override
-  ProductList getProductList() => ProductList.keywordSearch(
-        keywords,
-        pageSize: pageSize,
-        pageNumber: pageNumber,
-        language: language,
-        country: country,
-        productType: productType,
-      );
+  IngredientsUnwantedParameter getUnwantedIngredientsParameter() =>
+      IngredientsUnwantedParameter(unwantedIngredients);
 
   @override
-  String toString() => 'KeywordsProductQuery('
+  ProductList getProductList() => ProductList.keywordSearch(
+    keywords,
+    pageSize: pageSize,
+    pageNumber: pageNumber,
+    language: language,
+    country: country,
+    productType: productType,
+  );
+
+  @override
+  String toString() =>
+      'KeywordsProductQuery('
       '"$keywords"'
       ', $pageSize'
       ', $pageNumber'
@@ -39,11 +46,7 @@ class KeywordsProductQuery extends PagedSearchProductQuery {
   @override
   PagedProductQuery? getWorldQuery() => world
       ? null
-      : KeywordsProductQuery(
-          keywords,
-          productType: productType,
-          world: true,
-        );
+      : KeywordsProductQuery(keywords, productType: productType, world: true);
 
   @override
   bool hasDifferentCountryWorldData() => true;

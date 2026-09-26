@@ -14,9 +14,8 @@ class TooltipShapeBorder extends ShapeBorder {
   final double radius;
 
   @override
-  EdgeInsetsGeometry get dimensions => EdgeInsetsDirectional.only(
-        top: arrowHeight,
-      );
+  EdgeInsetsGeometry get dimensions =>
+      EdgeInsetsDirectional.only(top: arrowHeight);
 
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {

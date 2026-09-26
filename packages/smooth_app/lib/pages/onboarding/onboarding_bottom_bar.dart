@@ -85,28 +85,29 @@ class OnboardingBottomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ConstrainedBox(
-        constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
-        child: ElevatedButton(
-          key: nextKey,
-          onPressed: onPressed,
-          style: ButtonStyle(
-            backgroundColor: WidgetStateProperty.all(backgroundColor),
-            overlayColor: backgroundColor == Colors.white
-                ? WidgetStateProperty.all<Color>(Theme.of(context).splashColor)
-                : null,
-            shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-              const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(40))),
-            ),
-          ),
-          child: Text(
-            label,
-            style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                  color: foregroundColor,
-                ),
+    constraints: const BoxConstraints.tightFor(height: MINIMUM_TOUCH_SIZE),
+    child: ElevatedButton(
+      key: nextKey,
+      onPressed: onPressed,
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.all(backgroundColor),
+        overlayColor: backgroundColor == Colors.white
+            ? WidgetStateProperty.all<Color>(Theme.of(context).splashColor)
+            : null,
+        shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+          const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(40)),
           ),
         ),
-      );
+      ),
+      child: Text(
+        label,
+        style: Theme.of(
+          context,
+        ).textTheme.displaySmall?.copyWith(color: foregroundColor),
+      ),
+    ),
+  );
 }
 
 /// Onboarding Bottom Icon, e.g. arrow for "next" or "previous".
@@ -127,17 +128,14 @@ class OnboardingBottomIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: const CircleBorder(),
-          padding: const EdgeInsets.all(MEDIUM_SPACE),
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          iconColor: foregroundColor,
-        ),
-        onPressed: onPressed,
-        child: Padding(
-          padding: iconPadding ?? EdgeInsets.zero,
-          child: icon,
-        ),
-      );
+    style: ElevatedButton.styleFrom(
+      shape: const CircleBorder(),
+      padding: const EdgeInsets.all(MEDIUM_SPACE),
+      backgroundColor: backgroundColor,
+      foregroundColor: foregroundColor,
+      iconColor: foregroundColor,
+    ),
+    onPressed: onPressed,
+    child: Padding(padding: iconPadding ?? EdgeInsets.zero, child: icon),
+  );
 }

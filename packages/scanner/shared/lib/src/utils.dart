@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-const Widget EMPTY_WIDGET = SizedBox.shrink();
+const Widget SCANNER_EMPTY_WIDGET = SizedBox.shrink();

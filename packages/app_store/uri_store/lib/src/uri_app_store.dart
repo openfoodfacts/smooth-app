@@ -4,10 +4,7 @@ import 'package:app_store_shared/app_store_shared.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class URIAppStore extends AppStore {
-  const URIAppStore(
-    this.appUri, {
-    this.appReviewUri,
-  });
+  const URIAppStore(this.appUri, {this.appReviewUri});
 
   final Uri appUri;
   final Uri? appReviewUri;

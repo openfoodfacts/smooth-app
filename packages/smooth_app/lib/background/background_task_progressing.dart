@@ -16,13 +16,13 @@ abstract class BackgroundTaskProgressing extends BackgroundTaskPaged {
   });
 
   BackgroundTaskProgressing.fromJson(super.json)
-      : work = json[_jsonTagWork] as String,
-        totalSize = json[_jsonTagTotalSize] as int,
-        productType =
-            ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
-// for legacy reason (not refreshed products = no product type)
-                ProductType.food,
-        super.fromJson();
+    : work = json[_jsonTagWork] as String,
+      totalSize = json[_jsonTagTotalSize] as int,
+      productType =
+          ProductType.fromOffTag(json[_jsonTagProductType] as String?) ??
+          // for legacy reason (not refreshed products = no product type)
+          ProductType.food,
+      super.fromJson();
 
   final String work;
   final int totalSize;
@@ -42,9 +42,8 @@ abstract class BackgroundTaskProgressing extends BackgroundTaskPaged {
   }
 
   @protected
-  UriProductHelper get uriProductHelper => ProductQuery.getUriProductHelper(
-        productType: productType,
-      );
+  UriProductHelper get uriProductHelper =>
+      ProductQuery.getUriProductHelper(productType: productType);
 
   static const String noBarcode = 'NO_BARCODE';
 }

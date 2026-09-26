@@ -38,10 +38,7 @@ class UpToDateProductListProvider {
   String _getKey(final ProductList productList) =>
       DaoProductList.getKey(productList);
 
-  void setLocalUpToDate(
-    final String key,
-    final List<String> barcodes,
-  ) {
+  void setLocalUpToDate(final String key, final List<String> barcodes) {
     if (!_interest.containsKey(key)) {
       return;
     }

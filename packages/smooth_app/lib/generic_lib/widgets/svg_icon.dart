@@ -14,17 +14,17 @@ class SvgIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => SvgPicture.asset(
-        assetName,
-        height: DEFAULT_ICON_SIZE,
-        width: DEFAULT_ICON_SIZE,
-        colorFilter: dontAddColor
-            ? null
-            : ui.ColorFilter.mode(
-                _iconColor(Theme.of(context)),
-                ui.BlendMode.srcIn,
-              ),
-        package: AppHelper.APP_PACKAGE,
-      );
+    assetName,
+    height: DEFAULT_ICON_SIZE,
+    width: DEFAULT_ICON_SIZE,
+    colorFilter: dontAddColor
+        ? null
+        : ui.ColorFilter.mode(
+            _iconColor(Theme.of(context)),
+            ui.BlendMode.srcIn,
+          ),
+    package: AppHelper.APP_PACKAGE,
+  );
 
   /// Returns the standard icon color in a [ListTile].
   ///

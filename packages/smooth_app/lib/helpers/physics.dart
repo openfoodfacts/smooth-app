@@ -1,3 +1,4 @@
+// ignore_for_file: must_be_immutable
 import 'dart:io';
 import 'dart:math' as math;
 
@@ -35,9 +36,7 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
   Widget build(BuildContext context) {
     return ScrollConfiguration(
       behavior: _CustomScrollBehavior(
-        VerticalSnapScrollPhysics.get(
-          steps: widget.steps,
-        ),
+        VerticalSnapScrollPhysics.get(steps: widget.steps),
       ),
       child: NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification notif) {
@@ -88,10 +87,10 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
           if (context.mounted) {
             // ignore: use_build_context_synchronously
             context.read<ScrollController>().animateTo(
-                  scrollTo!,
-                  curve: Curves.easeOutCubic,
-                  duration: const Duration(milliseconds: 500),
-                );
+              scrollTo!,
+              curve: Curves.easeOutCubic,
+              duration: const Duration(milliseconds: 500),
+            );
           }
         });
       }
@@ -110,7 +109,10 @@ class _VerticalClampScrollState extends State<VerticalClampScroll> {
 
     for (int i = 0; i != _reversedSteps.length; i++) {
       if (_blockScrollIfNecessary(
-          notif, _reversedSteps.elementAt(i), i == _reversedSteps.length - 1)) {
+        notif,
+        _reversedSteps.elementAt(i),
+        i == _reversedSteps.length - 1,
+      )) {
         break;
       }
     }
@@ -159,19 +161,44 @@ class VerticalSnapScrollPhysics extends ScrollPhysics {
       );
     }
   }
+
+  static double fixInconsistency(
+    List<double> steps,
+    double proposedPixels,
+    double initialPixelPosition,
+  ) {
+    final int newPosition = _getStepPosition(steps, proposedPixels);
+    final int oldPosition = _getStepPosition(steps, initialPixelPosition);
+
+    if (newPosition - oldPosition >= 2) {
+      return steps[math.min(newPosition - 1, 0)];
+    } else if (newPosition - oldPosition <= -2) {
+      return steps[math.min(newPosition + 1, steps.length - 1)];
+    }
+
+    return proposedPixels;
+  }
+
+  static int _getStepPosition(List<double> steps, double pixels) {
+    for (int i = steps.length - 1; i >= 0; i--) {
+      final double step = steps.elementAt(i);
+
+      if (pixels >= step) {
+        return i;
+      }
+    }
+
+    return 0;
+  }
 }
 
-//ignore: must_be_immutable
 class _VerticalSnapClampingScrollPhysics extends ClampingScrollPhysics
     with _VerticalSnapScrollPhysicsHelper {
   _VerticalSnapClampingScrollPhysics({
     required List<double> steps,
     bool lastStepBlocking = true,
   }) {
-    _init(
-      steps: steps,
-      lastStepBlocking: lastStepBlocking,
-    );
+    _init(steps: steps, lastStepBlocking: lastStepBlocking);
   }
 
   @override
@@ -191,17 +218,13 @@ class _VerticalSnapClampingScrollPhysics extends ClampingScrollPhysics
   }
 }
 
-//ignore: must_be_immutable
 class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
     with _VerticalSnapScrollPhysicsHelper {
   _VerticalSnapBouncingScrollPhysics({
     required List<double> steps,
     bool lastStepBlocking = true,
   }) {
-    _init(
-      steps: steps,
-      lastStepBlocking: lastStepBlocking,
-    );
+    _init(steps: steps, lastStepBlocking: lastStepBlocking);
   }
 
   @override
@@ -222,12 +245,8 @@ class _VerticalSnapBouncingScrollPhysics extends BouncingScrollPhysics
 }
 
 /// A custom [ScrollPhysics] that snaps to specific [steps].
-/// ignore: must_be_immutable
 mixin _VerticalSnapScrollPhysicsHelper on ScrollPhysics {
-  void _init({
-    required List<double> steps,
-    bool lastStepBlocking = true,
-  }) {
+  void _init({required List<double> steps, bool lastStepBlocking = true}) {
     _steps = steps.toList()..sort();
     _lastStepBlocking = lastStepBlocking;
     _ignoreNextScroll = false;
@@ -259,8 +278,10 @@ mixin _VerticalSnapScrollPhysicsHelper on ScrollPhysics {
       return null;
     }
 
-    final Simulation? simulation =
-        super.createBallisticSimulation(position, velocity);
+    final Simulation? simulation = super.createBallisticSimulation(
+      position,
+      velocity,
+    );
     double? proposedPixels = simulation?.x(double.infinity);
 
     if (simulation == null || proposedPixels == null) {
@@ -378,14 +399,16 @@ class _CustomScrollBehavior extends ScrollBehavior {
 }
 
 class HorizontalSnapScrollPhysics extends ScrollPhysics {
-  const HorizontalSnapScrollPhysics({super.parent, required this.snapSize});
+  const HorizontalSnapScrollPhysics({required this.snapSize, super.parent});
 
   final double snapSize;
 
   @override
   HorizontalSnapScrollPhysics applyTo(ScrollPhysics? ancestor) {
     return HorizontalSnapScrollPhysics(
-        parent: buildParent(ancestor), snapSize: snapSize);
+      parent: buildParent(ancestor),
+      snapSize: snapSize,
+    );
   }
 
   double _getPage(ScrollMetrics position) {
@@ -397,7 +420,10 @@ class HorizontalSnapScrollPhysics extends ScrollPhysics {
   }
 
   double _getTargetPixels(
-      ScrollMetrics position, Tolerance tolerance, double velocity) {
+    ScrollMetrics position,
+    Tolerance tolerance,
+    double velocity,
+  ) {
     double page = _getPage(position);
     if (velocity < -tolerance.velocity) {
       page -= 0.5;
@@ -421,8 +447,13 @@ class HorizontalSnapScrollPhysics extends ScrollPhysics {
     final Tolerance tolerance = toleranceFor(position);
     final double target = _getTargetPixels(position, tolerance, velocity);
     if (target != position.pixels) {
-      return ScrollSpringSimulation(spring, position.pixels, target, velocity,
-          tolerance: tolerance);
+      return ScrollSpringSimulation(
+        spring,
+        position.pixels,
+        target,
+        velocity,
+        tolerance: tolerance,
+      );
     }
     return null;
   }

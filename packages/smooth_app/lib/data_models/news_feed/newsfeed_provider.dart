@@ -9,6 +9,7 @@ import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/services/smooth_services.dart';
@@ -23,12 +24,14 @@ part 'newsfeed_json.dart';
 /// particularly to the [state] property.
 class AppNewsProvider extends ChangeNotifier {
   AppNewsProvider(UserPreferences preferences)
-      : _state = const AppNewsStateLoading(),
-        _preferences = preferences,
-        _uriOverride = preferences.getDevModeString(
-            UserPreferencesDevMode.userPreferencesCustomNewsJSONURI),
-        _prodEnv = preferences
-            .getFlag(UserPreferencesDevMode.userPreferencesFlagProd) {
+    : _state = const AppNewsStateLoading(),
+      _preferences = preferences,
+      _uriOverride = preferences.getDevModeString(
+        UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
+      ),
+      _prodEnv = preferences.getFlag(
+        UserPreferencesDevMode.userPreferencesFlagProd,
+      ) {
     _preferences.addListener(_onPreferencesChanged);
     loadLatestNews();
   }
@@ -154,8 +157,9 @@ class AppNewsProvider extends ChangeNotifier {
     }
   }
 
-  Future<File> get _newsCacheFile => getApplicationCacheDirectory()
-      .then((Directory dir) => File(join(dir.path, 'tagline.json')));
+  Future<File> get _newsCacheFile => getApplicationCacheDirectory().then(
+    (Directory dir) => File(join(dir.path, 'tagline.json')),
+  );
 
   Future<File> _saveNewsToCache(final String json) async {
     final File file = await _newsCacheFile;
@@ -165,9 +169,9 @@ class AppNewsProvider extends ChangeNotifier {
   bool _isNewsCacheValid(File file) =>
       file.existsSync() &&
       file.lengthSync() > 0 &&
-      file
-          .lastModifiedSync()
-          .isAfter(DateTime.now().add(const Duration(days: -1)));
+      file.lastModifiedSync().isAfter(
+        DateTime.now().add(const Duration(days: -1)),
+      );
 
   bool? _prodEnv;
   String? _uriOverride;
@@ -175,12 +179,14 @@ class AppNewsProvider extends ChangeNotifier {
   /// [ProductQuery._uriProductHelper] is not synced yet,
   /// so we have to check it manually
   Future<void> _onPreferencesChanged() async {
-    final String jsonURI = _preferences.getDevModeString(
-            UserPreferencesDevMode.userPreferencesCustomNewsJSONURI) ??
+    final String jsonURI =
+        _preferences.getDevModeString(
+          UserPreferencesDevMode.userPreferencesCustomNewsJSONURI,
+        ) ??
         '';
     final bool prodEnv =
         _preferences.getFlag(UserPreferencesDevMode.userPreferencesFlagProd) ??
-            true;
+        true;
 
     if (prodEnv != _prodEnv || jsonURI != _uriOverride) {
       _prodEnv = prodEnv;

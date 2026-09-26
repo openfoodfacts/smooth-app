@@ -45,8 +45,10 @@ class UserManagementProvider with ChangeNotifier {
   /// Mounts already stored credentials, called at app startup
   ///
   /// We can use optional parameters to mock in tests
-  static Future<void> mountCredentials(
-      {String? userId, String? password}) async {
+  static Future<void> mountCredentials({
+    String? userId,
+    String? password,
+  }) async {
     String? effectiveUserId;
     String? effectivePassword;
     String? effectiveCookie;
@@ -87,19 +89,10 @@ class UserManagementProvider with ChangeNotifier {
   /// Saves user to storage
   Future<void> putUser(User user) async {
     OpenFoodAPIConfiguration.globalUser = user;
-    await DaoSecuredString.put(
-      key: _USER_ID,
-      value: user.userId,
-    );
-    await DaoSecuredString.put(
-      key: _PASSWORD,
-      value: user.password,
-    );
+    await DaoSecuredString.put(key: _USER_ID, value: user.userId);
+    await DaoSecuredString.put(key: _PASSWORD, value: user.password);
     if (user.cookie != null) {
-      await DaoSecuredString.put(
-        key: _COOKIE,
-        value: user.cookie!,
-      );
+      await DaoSecuredString.put(key: _COOKIE, value: user.cookie!);
     } else {
       DaoSecuredString.remove(key: _COOKIE);
     }
@@ -114,10 +107,7 @@ class UserManagementProvider with ChangeNotifier {
     }
     final User user = ProductQuery.getWriteUser();
     final LoginResult loginResult = await LoginResult.getLoginResult(
-      User(
-        userId: user.userId,
-        password: user.password,
-      ),
+      User(userId: user.userId, password: user.password),
       preferences,
     );
 

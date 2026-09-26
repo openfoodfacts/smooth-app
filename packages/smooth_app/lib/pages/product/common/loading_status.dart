@@ -1,6 +1,2 @@
 /// Common loading status.
-enum LoadingStatus {
-  LOADING,
-  LOADED,
-  ERROR,
-}
+enum LoadingStatus { LOADING, LOADED, ERROR }

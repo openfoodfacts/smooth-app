@@ -7,10 +7,7 @@ import 'package:smooth_app/services/logs/fimber/trees/base_fimber_tree.dart';
 /// Single file fimber implementation
 /// When the maxDataSize is reached, half of the content is removed
 class FileFimberTree extends BaseFimberTree {
-  FileFimberTree({
-    required super.logLevels,
-    required this.outputFile,
-  }) {
+  FileFimberTree({required super.logLevels, required this.outputFile}) {
     outputFile.createSync();
   }
 
@@ -61,10 +58,7 @@ class FileFimberTree extends BaseFimberTree {
         mode: FileMode.writeOnly,
       );
     } else {
-      outputFile.writeAsStringSync(
-        content,
-        mode: FileMode.writeOnlyAppend,
-      );
+      outputFile.writeAsStringSync(content, mode: FileMode.writeOnlyAppend);
     }
   }
 }

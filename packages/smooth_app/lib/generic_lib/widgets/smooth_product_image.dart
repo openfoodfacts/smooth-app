@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/cards/product_cards/smooth_product_image.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/database/transient_file.dart';
-import 'package:smooth_app/generic_lib/widgets/images/smooth_image.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Main product image on a product card.
@@ -32,13 +33,15 @@ class SmoothMainProductImage extends StatelessWidget {
       final String? url = product.imageFrontUrl;
       if (url != null) {
         imageProvider = NetworkImage(url);
+      } else {
+        return EMPTY_WIDGET;
       }
     }
 
-    return SmoothImage(
-      width: width,
-      height: height,
+    return ProductPicture.fromImageProvider(
+      size: Size(width, height),
       imageProvider: imageProvider,
+      borderRadius: ROUNDED_BORDER_RADIUS,
     );
   }
 }

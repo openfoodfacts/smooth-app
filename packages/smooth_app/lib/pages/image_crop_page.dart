@@ -4,7 +4,6 @@ import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -17,14 +16,40 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_page.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/product_crop_helper.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+
+/// Image picker constants.
+///
+/// In order to avoid OOM. And for performances too.
+class ImagePickerConstants {
+  ImagePickerConstants._();
+
+  /// Notoriously good enough.
+  static const int imageQuality = 80;
+
+  /// Good enough for 8"x10" prints (something like A4 sheet).
+  ///
+  /// cf. https://www.adobe.com/fr/creativecloud/photography/discover/standard-photo-sizes.html?msockid=0619d51777586f491e57c06c76ec6e77
+  static const num maxSize = 3000;
+
+  /// In case [maxSize] was too big.
+  static const num maxSizeFallback = 2000;
+
+  // According to https://github.com/openfoodfacts/smooth-app/issues/7773,
+  // Android doesn't deal correctly with quality or max size parameters, which
+  // causes memory crashes.
+  static int? get imagePickerQuality =>
+      Platform.isAndroid ? null : ImagePickerConstants.imageQuality;
+
+  static double? get imagePickerMaxSize =>
+      Platform.isAndroid ? null : ImagePickerConstants.maxSize.toDouble();
+}
 
 /// Safely picks an image file from gallery or camera, regarding access denied.
 Future<XFile?> pickImageFile(
@@ -48,7 +73,12 @@ Future<XFile?> pickImageFile(
     final ImagePicker picker = ImagePicker();
     if (source == UserPictureSource.GALLERY) {
       try {
-        return picker.pickImage(source: ImageSource.gallery);
+        return picker.pickImage(
+          imageQuality: ImagePickerConstants.imagePickerQuality,
+          maxHeight: ImagePickerConstants.imagePickerMaxSize,
+          maxWidth: ImagePickerConstants.imagePickerMaxSize,
+          source: ImageSource.gallery,
+        );
       } on PlatformException catch (e) {
         // On debug builds this catch won't work.
         // Please run on profile/release modes to test it
@@ -61,7 +91,12 @@ Future<XFile?> pickImageFile(
         }
       }
     }
-    return picker.pickImage(source: ImageSource.camera);
+    return picker.pickImage(
+      imageQuality: ImagePickerConstants.imagePickerQuality,
+      maxHeight: ImagePickerConstants.imagePickerMaxSize,
+      maxWidth: ImagePickerConstants.imagePickerMaxSize,
+      source: ImageSource.camera,
+    );
   }
 
   try {
@@ -78,10 +113,7 @@ Future<XFile?> pickImageFile(
     if (!context.mounted) {
       return null;
     }
-    return innerPickImageFile(
-      context,
-      ignorePlatformException: true,
-    );
+    return innerPickImageFile(context, ignorePlatformException: true);
   }
 }
 
@@ -99,23 +131,24 @@ Future<UserPictureSource?> _getUserPictureSource(
   }
 
   return showSmoothModalSheet<UserPictureSource>(
-      context: context,
-      builder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
-        return SmoothModalSheet(
-          title: appLocalizations.choose_image_source_title,
-          closeButton: true,
-          closeButtonSemanticsOrder: 5.0,
-          body: const _ImageSourcePicker(),
-          bodyPadding: const EdgeInsetsDirectional.only(
-            start: BALANCED_SPACE,
-            end: MEDIUM_SPACE,
-            top: LARGE_SPACE,
-            bottom: MEDIUM_SPACE,
-          ),
-        );
-      });
+      return SmoothModalSheet(
+        title: appLocalizations.choose_image_source_title,
+        closeButton: true,
+        closeButtonSemanticsOrder: 5.0,
+        body: const _ImageSourcePicker(),
+        bodyPadding: const EdgeInsetsDirectional.only(
+          start: BALANCED_SPACE,
+          end: MEDIUM_SPACE,
+          top: LARGE_SPACE,
+          bottom: MEDIUM_SPACE,
+        ),
+      );
+    },
+  );
 }
 
 class _ImageSourcePicker extends StatefulWidget {
@@ -192,14 +225,13 @@ class _ImageSourcePickerState extends State<_ImageSourcePicker> {
                       activeColor: Theme.of(context).primaryColor,
                       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       value: rememberChoice,
-                      onChanged: (final bool? value) => setState(
-                        () => rememberChoice = value ?? false,
-                      ),
+                      onChanged: (final bool? value) =>
+                          setState(() => rememberChoice = value ?? false),
                     ),
                   ),
                   Expanded(
                     child: Text(appLocalizations.user_picture_source_remember),
-                  )
+                  ),
                 ],
               ),
             ),
@@ -244,8 +276,8 @@ class _ImageSourceButton extends StatelessWidget {
               color: context.lightTheme()
                   ? primaryColor
                   : context
-                      .extension<SmoothColorsThemeExtension>()
-                      .primaryLight,
+                        .extension<SmoothColorsThemeExtension>()
+                        .primaryLight,
             ),
           ),
           padding: const WidgetStatePropertyAll<EdgeInsetsGeometry>(
@@ -281,18 +313,17 @@ Future<CropParameters?> confirmAndUploadNewPicture(
   required final OpenFoodFactsLanguage language,
   required final bool isLoggedInMandatory,
   final UserPictureSource? forcedSource,
-}) async =>
-    confirmAndUploadNewImage(
-      context,
-      cropHelper: ProductCropNewHelper(
-        imageField: imageField,
-        language: language,
-        barcode: barcode,
-        productType: productType,
-      ),
-      isLoggedInMandatory: isLoggedInMandatory,
-      forcedSource: forcedSource,
-    );
+}) async => confirmAndUploadNewImage(
+  context,
+  cropHelper: ProductCropNewHelper(
+    imageField: imageField,
+    language: language,
+    barcode: barcode,
+    productType: productType,
+  ),
+  isLoggedInMandatory: isLoggedInMandatory,
+  forcedSource: forcedSource,
+);
 
 /// Lets the user pick a picture, crop it, and save it.
 Future<CropParameters?> confirmAndUploadNewImage(
@@ -330,31 +361,32 @@ Future<CropParameters?> confirmAndUploadNewImage(
 
 Future<bool?> _onGalleryAccessDenied(final BuildContext context) {
   return showDialog<bool>(
-      context: context,
-      builder: (BuildContext context) {
-        final AppLocalizations appLocalizations = AppLocalizations.of(context);
-        return SmoothSimpleErrorAlertDialog(
-          title: appLocalizations.gallery_source_access_denied_dialog_title,
-          message:
-              appLocalizations.gallery_source_access_denied_dialog_message_ios,
-          positiveAction: SmoothActionButton(
-            text: appLocalizations.gallery_source_access_denied_dialog_button,
-            onPressed: () async {
-              await AppSettings.openAppSettings();
-              if (context.mounted) {
-                Navigator.of(context).maybePop(true);
-              }
-            },
-          ),
-          negativeAction: SmoothActionButton(
-            text: appLocalizations.close,
-            onPressed: () {
-              Navigator.of(context).maybePop(false);
-            },
-          ),
-          actionsAxis: Axis.vertical,
-        );
-      });
+    context: context,
+    builder: (BuildContext context) {
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+      return SmoothSimpleErrorAlertDialog(
+        title: appLocalizations.gallery_source_access_denied_dialog_title,
+        message:
+            appLocalizations.gallery_source_access_denied_dialog_message_ios,
+        positiveAction: SmoothActionButton(
+          text: appLocalizations.gallery_source_access_denied_dialog_button,
+          onPressed: () async {
+            await AppSettings.openAppSettings();
+            if (context.mounted) {
+              Navigator.of(context).maybePop(true);
+            }
+          },
+        ),
+        negativeAction: SmoothActionButton(
+          text: appLocalizations.close,
+          onPressed: () {
+            Navigator.of(context).maybePop(false);
+          },
+        ),
+        actionsAxis: Axis.vertical,
+      );
+    },
+  );
 }
 
 /// Downloads an image URL into a file, with a dialog.
@@ -401,8 +433,9 @@ Future<File?> _downloadImageFile(DaoInt daoInt, String url) async {
 
   const String CROP_IMAGE_SEQUENCE_KEY = 'crop_image_sequence';
 
-  final int sequenceNumber =
-      await getNextSequenceNumber(daoInt, CROP_IMAGE_SEQUENCE_KEY);
+  final int sequenceNumber = await daoInt.getNextSequenceNumber(
+    CROP_IMAGE_SEQUENCE_KEY,
+  );
 
   final File file = File('${tempDirectory.path}/editing_image_$sequenceNumber');
 

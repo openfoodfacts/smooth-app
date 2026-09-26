@@ -28,5 +28,4 @@ extension GradeExtension on Grade? {
 
 CardEvaluation getCardEvaluationFromKnowledgePanelTitleElement(
   TitleElement titleElement,
-) =>
-    titleElement.grade.getCardEvaluation();
+) => titleElement.grade.getCardEvaluation();

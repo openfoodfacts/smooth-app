@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -7,8 +6,10 @@ import 'package:smooth_app/data_models/fetched_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// A page to show when a [Product] is not in the database
 /// This page shouldn't be opened directly, it's only for deep links
@@ -44,11 +45,11 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
       _state = _ProductLoaderState.loading;
     });
 
-    final FetchedProduct fetchedProduct =
-        await ProductRefresher().silentFetchAndRefresh(
-      barcode: widget.barcode,
-      localDatabase: context.read<LocalDatabase>(),
-    );
+    final FetchedProduct fetchedProduct = await ProductRefresher()
+        .silentFetchAndRefresh(
+          barcode: widget.barcode,
+          localDatabase: context.read<LocalDatabase>(),
+        );
 
     if (mounted) {
       if (fetchedProduct.product != null) {
@@ -62,9 +63,7 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
           );
         } else if (widget.mode == ProductLoaderMode.editProduct) {
           navigator.pushReplacement(
-            AppRoutes.PRODUCT_EDITOR(
-              widget.barcode,
-            ),
+            AppRoutes.PRODUCT_EDITOR(widget.barcode),
             extra: fetchedProduct.product,
           );
         }
@@ -92,20 +91,14 @@ class _ProductLoaderPageState extends State<ProductLoaderPage> {
         child = const _ProductLoaderLoadingState();
         break;
       case _ProductLoaderState.productNotFound:
-        child = _ProductLoaderNotFoundState(
-          barcode: widget.barcode,
-        );
+        child = _ProductLoaderNotFoundState(barcode: widget.barcode);
         break;
       case _ProductLoaderState.serverError:
-        child = _ProductLoaderNetworkErrorState(
-          onRetry: () => _loadProduct(),
-        );
+        child = _ProductLoaderNetworkErrorState(onRetry: () => _loadProduct());
         break;
     }
 
-    return Scaffold(
-      body: Center(child: child),
-    );
+    return SmoothScaffold(body: Center(child: child));
   }
 }
 
@@ -119,9 +112,7 @@ class _ProductLoaderLoadingState extends StatelessWidget {
 }
 
 class _ProductLoaderNotFoundState extends StatelessWidget {
-  const _ProductLoaderNotFoundState({
-    required this.barcode,
-  });
+  const _ProductLoaderNotFoundState({required this.barcode});
 
   final String barcode;
 
@@ -152,11 +143,11 @@ class _ProductLoaderNotFoundState extends StatelessWidget {
             leadingIcon: const Icon(Icons.add),
             padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
             onPressed: () {
-              AppNavigator.of(context).pushReplacement(
-                AppRoutes.PRODUCT_CREATOR(barcode),
-              );
+              AppNavigator.of(
+                context,
+              ).pushReplacement(AppRoutes.PRODUCT_CREATOR(barcode));
             },
-          )
+          ),
         ],
       ),
     );
@@ -164,9 +155,7 @@ class _ProductLoaderNotFoundState extends StatelessWidget {
 }
 
 class _ProductLoaderNetworkErrorState extends StatelessWidget {
-  const _ProductLoaderNetworkErrorState({
-    required this.onRetry,
-  });
+  const _ProductLoaderNetworkErrorState({required this.onRetry});
 
   final VoidCallback onRetry;
 
@@ -197,20 +186,13 @@ class _ProductLoaderNetworkErrorState extends StatelessWidget {
             leadingIcon: const Icon(Icons.sync),
             padding: const EdgeInsets.symmetric(vertical: LARGE_SPACE),
             onPressed: onRetry,
-          )
+          ),
         ],
       ),
     );
   }
 }
 
-enum _ProductLoaderState {
-  loading,
-  productNotFound,
-  serverError;
-}
+enum _ProductLoaderState { loading, productNotFound, serverError }
 
-enum ProductLoaderMode {
-  viewProduct,
-  editProduct,
-}
+enum ProductLoaderMode { viewProduct, editProduct }

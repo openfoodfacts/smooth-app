@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// Display of the typical Yes / No / Maybe options for Robotoff
 class ProductQuestionAnswersOptions extends StatelessWidget {
   const ProductQuestionAnswersOptions(
     this.question, {
-    super.key,
     required this.onAnswer,
+    super.key,
   });
 
   final RobotoffQuestion question;
@@ -22,7 +22,7 @@ class ProductQuestionAnswersOptions extends StatelessWidget {
     const Color yesNoTextColor = Colors.white;
     final Color maybeTextColor = Colors.grey.shade700;
 
-    final double yesNoHeight = MediaQuery.sizeOf(context).width / (6);
+    final double yesNoHeight = MediaQuery.sizeOf(context).width / 6;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

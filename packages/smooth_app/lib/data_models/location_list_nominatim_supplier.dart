@@ -24,7 +24,8 @@ class LocationListNominatimSupplier extends LocationListSupplier {
           scheme: 'https',
           host: 'nominatim.openstreetmap.org',
           path: 'lookup',
-          query: 'osm_ids=${queries.join(',')}'
+          query:
+              'osm_ids=${queries.join(',')}'
               '&format=json'
               '&accept-language=${ProductQuery.getLanguage().offTag}',
         ),
@@ -35,7 +36,8 @@ class LocationListNominatimSupplier extends LocationListSupplier {
       final List<dynamic> list = json.decode(response.body);
       for (final Map<String, dynamic> item in list) {
         final LocationOSMType? osmType = LocationOSMType.fromOffTag(
-            (item['osm_type'] as String).toUpperCase());
+          (item['osm_type'] as String).toUpperCase(),
+        );
         if (osmType == null) {
           continue;
         }

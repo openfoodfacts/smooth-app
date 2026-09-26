@@ -4,12 +4,11 @@ import 'package:smooth_app/query/product_query.dart';
 
 /// Back-end paged queries around search.
 abstract class PagedSearchProductQuery extends PagedProductQuery {
-  PagedSearchProductQuery({
-    required super.productType,
-    super.world,
-  });
+  PagedSearchProductQuery({required super.productType, super.world});
 
   Parameter getParameter();
+
+  IngredientsUnwantedParameter getUnwantedIngredientsParameter();
 
   @override
   AbstractQueryConfiguration getQueryConfiguration() =>
@@ -19,9 +18,11 @@ abstract class PagedSearchProductQuery extends PagedProductQuery {
           PageSize(size: pageSize),
           PageNumber(page: pageNumber),
           getParameter(),
+          getUnwantedIngredientsParameter(),
         ],
         language: language,
         country: country,
         version: ProductQuery.productQueryVersion,
+        activateKnowledgePanelsSimplified: true,
       );
 }

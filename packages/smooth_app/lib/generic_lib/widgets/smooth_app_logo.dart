@@ -5,10 +5,7 @@ import 'package:smooth_app/themes/theme_provider.dart';
 /// An animated logo which can depend on [SmoothSharedAnimationController]
 /// to ensure animations are synced
 class SmoothAnimatedLogo extends StatefulWidget {
-  const SmoothAnimatedLogo({
-    this.opacityMax = 0.65,
-    this.opacityMin = 0.2,
-  });
+  const SmoothAnimatedLogo({this.opacityMax = 0.65, this.opacityMin = 0.2});
 
   final double opacityMin;
   final double opacityMax;
@@ -31,8 +28,10 @@ class _SmoothAnimatedLogoState extends State<SmoothAnimatedLogo>
       vsync: this,
     )..addListener(_onAnimationChanged);
 
-    _animation = Tween<double>(begin: widget.opacityMin, end: widget.opacityMax)
-        .animate(_controller!);
+    _animation = Tween<double>(
+      begin: widget.opacityMin,
+      end: widget.opacityMax,
+    ).animate(_controller!);
 
     _controller!.repeat(reverse: true);
   }

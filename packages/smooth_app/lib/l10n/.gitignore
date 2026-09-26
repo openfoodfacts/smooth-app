@@ -1,4 +1,4 @@
-
+app_localizations_*.dart
 
 # Unsupported locales
 app_ach.arb

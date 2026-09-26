@@ -41,7 +41,7 @@ updates:
       include: "scope"
       
   - package-ecosystem: "pub"
-    directory: "/packages/scanner/mlkit/"
+    directory: "/packages/scanner/ml_kit/"
     schedule:
       interval: "daily"
     commit-message:

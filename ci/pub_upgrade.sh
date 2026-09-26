@@ -4,6 +4,9 @@
 # found in the LICENSE file.
 
 # A script that will run pub upgrade for each package in the repo.
+# NOTE: This script updates dependencies and modifies lockfiles.
+# For CI/CD workflows, use pub_get.sh instead to ensure reproducible builds.
+# This script is intended for manual dependency updates by developers.
 set -e
 
 if [[ -n '$CI' ]]; then

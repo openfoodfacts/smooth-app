@@ -13,13 +13,19 @@ class MockedScanner extends Scanner {
     required Future<bool> Function(String) onScan,
     required Future<void> Function() hapticFeedback,
     required Function(BuildContext)? onCameraFlashError,
-    required Function(String msg, String category,
-            {int? eventValue, String? barcode})
-        trackCustomEvent,
+    required Function(
+      String msg,
+      String category, {
+      int? eventValue,
+      String? barcode,
+    })
+    trackCustomEvent,
     required bool hasMoreThanOneCamera,
+    required Widget barcodeScannerIcon,
+    required Widget torchOnIcon,
+    required Widget torchOffIcon,
     String? toggleCameraModeTooltip,
     String? toggleFlashModeTooltip,
     EdgeInsetsGeometry? contentPadding,
-  }) =>
-      Container();
+  }) => const SizedBox.shrink();
 }

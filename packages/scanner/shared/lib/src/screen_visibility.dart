@@ -3,10 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ScreenVisibilityDetector extends StatefulWidget {
-  const ScreenVisibilityDetector({
-    required this.child,
-    super.key,
-  });
+  const ScreenVisibilityDetector({required this.child, super.key});
 
   final Widget child;
 

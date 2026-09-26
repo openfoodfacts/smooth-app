@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// A button with the following layout:
@@ -9,7 +8,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 class SmoothButtonWithArrow extends StatelessWidget {
   const SmoothButtonWithArrow({
     required this.text,
-    required this.onTap,
+    this.onTap,
     this.padding,
     this.backgroundColor,
     this.textColor,
@@ -26,8 +25,8 @@ class SmoothButtonWithArrow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension theme =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension theme = context
+        .extension<SmoothColorsThemeExtension>();
 
     return Align(
       alignment: AlignmentDirectional.centerEnd,
@@ -45,9 +44,7 @@ class SmoothButtonWithArrow extends StatelessWidget {
                 ),
           ),
           shape: const WidgetStatePropertyAll<OutlinedBorder>(
-            RoundedRectangleBorder(
-              borderRadius: CIRCULAR_BORDER_RADIUS,
-            ),
+            RoundedRectangleBorder(borderRadius: CIRCULAR_BORDER_RADIUS),
           ),
         ),
         child: Row(

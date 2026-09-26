@@ -104,9 +104,4 @@ class SmoothResponsiveBuilder extends StatelessWidget {
   }
 }
 
-enum DeviceType {
-  small,
-  smartphone,
-  tablet,
-  large,
-}
+enum DeviceType { small, smartphone, tablet, large }

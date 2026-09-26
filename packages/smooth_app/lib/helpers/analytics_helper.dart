@@ -23,7 +23,12 @@ enum AnalyticsCategory {
   list(tag: 'list'),
   deepLink(tag: 'deep link'),
   hungerGame(tag: 'hunger game'),
-  appRating(tag: 'app rating');
+  appRating(tag: 'app rating'),
+  taglineFeed(tag: 'tagline feed'),
+  donation(tag: 'donation'),
+  lifecycle(tag: 'lifecycle'),
+  onboarding(tag: 'onboarding'),
+  knowledgePanel(tag: 'knowledge panel');
 
   const AnalyticsCategory({required this.tag});
 
@@ -41,6 +46,10 @@ enum AnalyticsEvent {
   loginAction(tag: 'logged in', category: AnalyticsCategory.userManagement),
   registerAction(tag: 'register', category: AnalyticsCategory.userManagement),
   logoutAction(tag: 'logged out', category: AnalyticsCategory.userManagement),
+  producerSignup(
+    tag: 'signed up as producer',
+    category: AnalyticsCategory.userManagement,
+  ),
   couldNotScanProduct(
     tag: 'could not scan product',
     category: AnalyticsCategory.couldNotFindProduct,
@@ -121,14 +130,8 @@ enum AnalyticsEvent {
     tag: 'closed new product page without any input',
     category: AnalyticsCategory.newProduct,
   ),
-  shareList(
-    tag: 'shared a list',
-    category: AnalyticsCategory.list,
-  ),
-  openListWeb(
-    tag: 'open a list in wbe',
-    category: AnalyticsCategory.list,
-  ),
+  shareList(tag: 'shared a list', category: AnalyticsCategory.list),
+  openListWeb(tag: 'open a list in wbe', category: AnalyticsCategory.list),
   productDeepLink(
     tag: 'open a product from an URL',
     category: AnalyticsCategory.deepLink,
@@ -149,17 +152,40 @@ enum AnalyticsEvent {
     tag: 'hunger game opened',
     category: AnalyticsCategory.hungerGame,
   ),
-  appRatingSatisfied(
-    tag: 'satisfied',
-    category: AnalyticsCategory.appRating,
-  ),
-  appRatingNeutral(
-    tag: 'neutral',
-    category: AnalyticsCategory.appRating,
-  ),
+  appRatingSatisfied(tag: 'satisfied', category: AnalyticsCategory.appRating),
+  appRatingNeutral(tag: 'neutral', category: AnalyticsCategory.appRating),
   appRatingNotSatisfied(
     tag: 'not satisfied',
     category: AnalyticsCategory.appRating,
+  ),
+  taglineNewsDisplayed(
+    tag: 'tagline news displayed',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  taglineNewsClicked(
+    tag: 'tagline news clicked',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  donationPageOpened(
+    tag: 'donation page opened',
+    category: AnalyticsCategory.donation,
+  ),
+  donationHandoff(
+    tag: 'donation handoff',
+    category: AnalyticsCategory.donation,
+  ),
+  donationAlreadyDonated(
+    tag: 'donation already donated',
+    category: AnalyticsCategory.donation,
+  ),
+  appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
+  onboardingPageVisited(
+    tag: 'onboarding page visited',
+    category: AnalyticsCategory.onboarding,
+  ),
+  knowledgePanelOpen(
+    tag: 'knowledge panel open',
+    category: AnalyticsCategory.knowledgePanel,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -169,15 +195,9 @@ enum AnalyticsEvent {
 }
 
 enum AnalyticsRobotoffEvents {
-  robotoffNutritionExtracted(
-    name: 'robotoff nutrition extracted',
-  ),
-  robotoffNutritionInsightAccepted(
-    name: 'robotoff nutrition insight accepted',
-  ),
-  robotoffNutritionInsightRejected(
-    name: 'robotoff nutrition insight rejected',
-  );
+  robotoffNutritionExtracted(name: 'robotoff nutrition extracted'),
+  robotoffNutritionInsightAccepted(name: 'robotoff nutrition insight accepted'),
+  robotoffNutritionInsightRejected(name: 'robotoff nutrition insight rejected');
 
   const AnalyticsRobotoffEvents({required this.name});
 
@@ -228,6 +248,8 @@ class AnalyticsHelper {
   static late int _uniqueRandom;
 
   static Future<void> linkPreferences(UserPreferences userPreferences) async {
+    _uniqueRandom = await userPreferences.getUniqueRandom();
+
     // Init the value
     _setAnalyticsReports(userPreferences.onAnalyticsChanged.value);
     _setCrashReports(userPreferences.onCrashReportingChanged.value);
@@ -240,39 +262,21 @@ class AnalyticsHelper {
     userPreferences.onCrashReportingChanged.addListener(() {
       _setCrashReports(userPreferences.onCrashReportingChanged.value);
     });
-
-    _uniqueRandom = await userPreferences.getUniqueRandom();
   }
 
-  static Future<void> initSentry({
-    required Function()? appRunner,
-  }) async {
-    await SentryFlutter.init(
-      (SentryOptions options) {
-        options
-          ..dsn =
-              'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
-          ..beforeSend = (
-            SentryEvent event,
-            Hint hint,
-          ) async {
-            return event.copyWith(
-              tags: <String, String>{
-                'store': GlobalVars.storeLabel.name,
-                'scanner': GlobalVars.scannerLabel.name,
-              },
-            );
-          };
+  static Future<void> initSentry({required Function()? appRunner}) async {
+    await SentryFlutter.init((SentryFlutterOptions options) {
+      options
+        ..dsn =
+            'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         // To set a uniform sample rate
-        options
-          ..tracesSampleRate = 1.0
-          ..beforeSend = _beforeSend
-          ..captureFailedRequests = false
-          ..environment =
-              '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
-      },
-      appRunner: appRunner,
-    );
+        ..tracesSampleRate = 1.0
+        ..enableTombstone = true
+        ..beforeSend = _beforeSend
+        ..captureFailedRequests = false
+        ..environment =
+            '${GlobalVars.storeLabel.name}-${GlobalVars.scannerLabel.name}';
+    }, appRunner: appRunner);
   }
 
   /// Don't call this method directly, it is automatically updated via the
@@ -282,7 +286,7 @@ class AnalyticsHelper {
 
   /// Don't call this method directly, it is automatically updated via the
   /// [UserPreferences]
-  static Future<void> _setAnalyticsReports(final bool allow) async {
+  static void _setAnalyticsReports(final bool allow) {
     if (allow) {
       _analyticsReporting = _AnalyticsTrackingMode.enabled;
     } else {
@@ -298,21 +302,28 @@ class AnalyticsHelper {
   static bool get isEnabled =>
       _analyticsReporting == _AnalyticsTrackingMode.enabled;
 
-  static FutureOr<SentryEvent?> _beforeSend(
-    SentryEvent event,
-    dynamic hint,
-  ) async {
+  static FutureOr<SentryEvent?> _beforeSend(SentryEvent event, Hint hint) {
     if (!_crashReports) {
       return null;
     }
-    return event;
+    return event
+      ..tags = <String, String>{
+        ...?event.tags,
+        'store': GlobalVars.storeLabel.name,
+        'scanner': GlobalVars.scannerLabel.name,
+      };
   }
 
   static late PackageInfo _packageInfo;
 
+  /// Undispatched actions survive a restart for a day, and no longer: the
+  /// default [PersistenceFilter] of [DispatchSettings.persistent] drops
+  /// anything older than 23h59m59s when the queue is loaded.
   static Future<void> initMatomo(
-    final bool screenshotMode,
-  ) async {
+    final bool screenshotMode, {
+    final DispatchSettings dispatchSettings =
+        const DispatchSettings.persistent(),
+  }) async {
     _packageInfo = await PackageInfo.fromPlatform();
     if (screenshotMode) {
       _setCrashReports(false);
@@ -324,6 +335,7 @@ class AnalyticsHelper {
         url: 'https://analytics.openfoodfacts.org/matomo.php',
         siteId: '2',
         visitorId: _visitorId,
+        dispatchSettings: dispatchSettings,
       );
     } catch (err) {
       // With Hot Reload, this may trigger a late field already initialized
@@ -358,13 +370,14 @@ class AnalyticsHelper {
     AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
-  }) =>
-      trackCustomEvent(
-        msg.name,
-        msg.category.tag,
-        eventValue: eventValue,
-        barcode: barcode,
-      );
+    String? action,
+  }) => trackCustomEvent(
+    msg.name,
+    msg.category.tag,
+    eventValue: eventValue,
+    barcode: barcode,
+    action: action,
+  );
 
   // Used by code which is outside of the core:smooth_app code
   // e.g. the scanner implementation
@@ -376,6 +389,9 @@ class AnalyticsHelper {
     String? action,
     ProductType? productType,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final Map<String, String> dimensions = <String, String>{
       'dimension1': ProductQuery.getLanguage().offTag,
       'dimension2': ProductQuery.getCountry().offTag,
@@ -398,54 +414,54 @@ class AnalyticsHelper {
     AnalyticsRobotoffEvents event,
     Nutrient nutrient,
     Product product,
-  ) =>
-      trackCustomEvent(
-        event.name,
-        AnalyticsCategory.robotoff.tag,
-        action: nutrient.name,
-        barcode: product.barcode,
-        productType: product.productType ?? ProductType.food,
-      );
+  ) => trackCustomEvent(
+    event.name,
+    AnalyticsCategory.robotoff.tag,
+    action: nutrient.name,
+    barcode: product.barcode,
+    productType: product.productType ?? ProductType.food,
+  );
 
   static void trackProductEdit(
     AnalyticsEditEvents editEventName,
     Product product, [
     bool saved = false,
-  ]) =>
-      trackCustomEvent(
-        saved ? '${editEventName.name}-saved' : editEventName.name,
-        AnalyticsCategory.productEdit.tag,
-        action: editEventName.name,
-        barcode: product.barcode,
-        productType: product.productType ?? ProductType.food,
-      );
+  ]) => trackCustomEvent(
+    saved ? '${editEventName.name}-saved' : editEventName.name,
+    AnalyticsCategory.productEdit.tag,
+    action: editEventName.name,
+    barcode: product.barcode,
+    productType: product.productType ?? ProductType.food,
+  );
 
   static void trackProductEvent(
     AnalyticsEvent msg, {
-    int? eventValue,
     required Product product,
-  }) =>
-      trackCustomEvent(
-        msg.name,
-        msg.category.tag,
-        eventValue: eventValue,
-        barcode: product.barcode,
-        productType: product.productType ?? ProductType.food,
-      );
+    int? eventValue,
+  }) => trackCustomEvent(
+    msg.name,
+    msg.category.tag,
+    eventValue: eventValue,
+    barcode: product.barcode,
+    productType: product.productType ?? ProductType.food,
+  );
+
+  static void trackTaglineNewsEvent(AnalyticsEvent msg, String newsId) =>
+      trackCustomEvent(msg.name, msg.category.tag, action: newsId);
 
   static void trackSearch({
     required String search,
     String? searchCategory,
     int? searchCount,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final String searchString = '$search,$searchCategory,$searchCount';
-
     if (searchString == latestSearch) {
       return;
     }
-
     latestSearch = searchString;
-
     MatomoTracker.instance.trackSearch(
       searchKeyword: search,
       searchCount: searchCount,
@@ -453,8 +469,12 @@ class AnalyticsHelper {
     );
   }
 
-  static void trackOutlink({required String url}) =>
-      MatomoTracker.instance.trackOutlink(link: url);
+  static void trackOutlink({required String url}) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
+    MatomoTracker.instance.trackOutlink(link: url);
+  }
 
   static int? _formatBarcode(String? barcode) {
     if (barcode == null) {
@@ -470,10 +490,8 @@ class AnalyticsHelper {
   }
 
   static void sendException(dynamic throwable, {dynamic stackTrace}) {
-    Sentry.captureException(throwable, stackTrace: stackTrace);
+    unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
   }
-
-  static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
 }
 
 enum _AnalyticsTrackingMode {

@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task_details.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/edit_ocr/ocr_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -13,24 +13,19 @@ class OcrIngredientsHelper extends OcrHelper {
   String? getMonolingualText(final Product product) => product.ingredientsText;
 
   @override
-  void setMonolingualText(
-    final Product product,
-    final String text,
-  ) =>
+  void setMonolingualText(final Product product, final String text) =>
       product.ingredientsText = text;
 
   @override
   Map<OpenFoodFactsLanguage, String>? getMultilingualTexts(
     final Product product,
-  ) =>
-      product.ingredientsTextInLanguages;
+  ) => product.ingredientsTextInLanguages;
 
   @override
   void setMultilingualTexts(
     final Product product,
     final Map<OpenFoodFactsLanguage, String> texts,
-  ) =>
-      product.ingredientsTextInLanguages = texts;
+  ) => product.ingredientsTextInLanguages = texts;
 
   @override
   String? getImageUrl(final Product product) => product.imageIngredientsUrl;
@@ -113,13 +108,13 @@ class OcrIngredientsHelper extends OcrHelper {
   ) async {
     final OcrIngredientsResult result =
         await OpenFoodAPIClient.extractIngredients(
-      getUser(),
-      product.barcode!,
-      language,
-      uriHelper: ProductQuery.getUriProductHelper(
-        productType: product.productType,
-      ),
-    );
+          getUser(),
+          product.barcode!,
+          language,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: product.productType,
+          ),
+        );
     return result.ingredientsTextFromImage;
   }
 

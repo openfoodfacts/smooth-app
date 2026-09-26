@@ -1,7 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_simple_button.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 
 class SmoothLargeButtonWithIcon extends StatelessWidget {
   const SmoothLargeButtonWithIcon({
@@ -51,11 +51,11 @@ class SmoothLargeButtonWithIcon extends StatelessWidget {
       onPressed: onPressed,
       elevation: elevation,
       borderRadius: borderRadius ?? ROUNDED_BORDER_RADIUS,
-      buttonColor: _getBackgroundColor(themeData),
+      buttonColor: _getBackgroundColor(
+        themeData,
+      ).withValues(alpha: onPressed == null ? 0.5 : 1.0),
       child: IconTheme(
-        data: IconThemeData(
-          color: _getForegroundColor(themeData),
-        ),
+        data: IconThemeData(color: _getForegroundColor(themeData)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[

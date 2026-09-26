@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/question_card.dart';
 
 const Color _yesBackground = Colors.lightGreen;
@@ -14,8 +14,8 @@ const Color _maybeTextColor = Colors.black;
 class QuestionAnswersOptions extends StatelessWidget {
   const QuestionAnswersOptions(
     this.question, {
-    super.key,
     required this.onAnswer,
+    super.key,
   });
 
   final RobotoffQuestion question;
@@ -110,16 +110,10 @@ class QuestionAnswersOptions extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: WidgetStateProperty.all(backgroundColor),
             shape: WidgetStateProperty.all(
-              const RoundedRectangleBorder(
-                borderRadius: ROUNDED_BORDER_RADIUS,
-              ),
+              const RoundedRectangleBorder(borderRadius: ROUNDED_BORDER_RADIUS),
             ),
           ),
-          icon: Icon(
-            iconData,
-            color: contentColor,
-            size: 36,
-          ),
+          icon: Icon(iconData, color: contentColor, size: 36),
           label: Text(
             buttonText,
             style: theme.textTheme.displayMedium!.apply(color: contentColor),

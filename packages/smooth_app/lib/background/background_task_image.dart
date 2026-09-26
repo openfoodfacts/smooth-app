@@ -5,9 +5,10 @@ import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:path/path.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/background/background_crop_result.dart';
 import 'package:smooth_app/background/background_task_barcode.dart';
 import 'package:smooth_app/background/background_task_price.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
@@ -17,7 +18,9 @@ import 'package:smooth_app/background/operation_type.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_compute_container.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
+import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/prices/eraser_model.dart';
 import 'package:smooth_app/pages/prices/eraser_painter.dart';
 
@@ -42,10 +45,11 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   });
 
   BackgroundTaskImage.fromJson(super.json)
-      : fullPath = json[_jsonTagImagePath] as String,
-        eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
-            json[_jsonTagEraserCoordinates]),
-        super.fromJson();
+    : fullPath = json[_jsonTagImagePath] as String,
+      eraserCoordinates = BackgroundTaskPrice.fromJsonListDouble(
+        json[_jsonTagEraserCoordinates],
+      ),
+      super.fromJson();
 
   static const String _jsonTagImagePath = 'imagePath';
   static const String _jsonTagEraserCoordinates = 'eraserCoordinates';
@@ -83,6 +87,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     required final List<double> eraserCoordinates,
     required final BuildContext context,
   }) async {
+    if (BackgroundTaskBarcode.isBarcodeToBeIgnored(barcode, context)) {
+      return;
+    }
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final String uniqueId = await _operationType.getNewKey(
       localDatabase,
@@ -115,8 +122,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
   @override
   (String, AlignmentGeometry)? getFloatingMessage(
-          final AppLocalizations appLocalizations) =>
-      null;
+    final AppLocalizations appLocalizations,
+  ) => null;
 
   /// Returns a new background task about changing a product.
   static BackgroundTaskImage _getNewTask(
@@ -133,28 +140,27 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final int cropX2,
     final int cropY2,
     final List<double>? eraserCoordinates,
-  ) =>
-      BackgroundTaskImage._(
-        uniqueId: uniqueId,
-        barcode: barcode,
-        productType: productType,
-        processName: _operationType.processName,
-        imageField: imageField.offTag,
-        fullPath: fullFile.path,
-        croppedPath: croppedFile.path,
-        rotationDegrees: rotationDegrees,
-        cropX1: cropX1,
-        cropY1: cropY1,
-        cropX2: cropX2,
-        cropY2: cropY2,
-        eraserCoordinates: eraserCoordinates,
-        language: language,
-        stamp: BackgroundTaskUpload.getStamp(
-          barcode,
-          imageField.offTag,
-          language.code,
-        ),
-      );
+  ) => BackgroundTaskImage._(
+    uniqueId: uniqueId,
+    barcode: barcode,
+    productType: productType,
+    processName: _operationType.processName,
+    imageField: imageField.offTag,
+    fullPath: fullFile.path,
+    croppedPath: croppedFile.path,
+    rotationDegrees: rotationDegrees,
+    cropX1: cropX1,
+    cropY1: cropY1,
+    cropX2: cropX2,
+    cropY2: cropY2,
+    eraserCoordinates: eraserCoordinates,
+    language: language,
+    stamp: BackgroundTaskUpload.getStamp(
+      barcode,
+      imageField.offTag,
+      language.code,
+    ),
+  );
 
   /// Returns a fake value that means: "remove the previous value when merging".
   ///
@@ -164,10 +170,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// cf. [UpToDateChanges._overwrite] regarding `images` field.
   @override
   ProductImage getProductImageChange() => ProductImage(
-        field: ImageField.fromOffTag(imageField)!,
-        language: getLanguage(),
-        size: ImageSize.ORIGINAL,
-      );
+    field: ImageField.fromOffTag(imageField)!,
+    language: getLanguage(),
+    size: ImageSize.ORIGINAL,
+  );
 
   // TODO(monsieurtanuki): we may also need to remove old files that were not removed from some reason
   @override
@@ -187,8 +193,9 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       // not likely, but let's not spoil the task for that either.
     }
     try {
-      (await BackgroundTaskUpload.getFile(getCroppedPath(fullPath)))
-          .deleteSync();
+      (await BackgroundTaskUpload.getFile(
+        await getCroppedPath(fullPath),
+      )).deleteSync();
     } catch (e) {
       // possible, but let's not spoil the task for that either.
     }
@@ -210,10 +217,7 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   }
 
   /// Returns [source] with all corners multiplied by a [factor].
-  static Rect getResizedRect(
-    final Rect source,
-    final num factor,
-  ) =>
+  static Rect getResizedRect(final Rect source, final num factor) =>
       Rect.fromLTRB(
         source.left * factor,
         source.top * factor,
@@ -229,16 +233,15 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
     final int cropY1,
     final int cropX2,
     final int cropY2,
-  ) =>
-      getResizedRect(
-        Rect.fromLTRB(
-          cropX1.toDouble(),
-          cropY1.toDouble(),
-          cropX2.toDouble(),
-          cropY2.toDouble(),
-        ),
-        1 / _cropConversionFactor,
-      );
+  ) => getResizedRect(
+    Rect.fromLTRB(
+      cropX1.toDouble(),
+      cropY1.toDouble(),
+      cropX2.toDouble(),
+      cropY2.toDouble(),
+    ),
+    1 / _cropConversionFactor,
+  );
 
   /// Conversion factor to `int` from / to UI / background task.
   static const int _cropConversionFactor = 1000000;
@@ -248,35 +251,37 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
   /// Returns directly the original [fullPath] if no crop operation was needed.
   /// Returns the path of the cropped file if relevant.
   /// Returns null if the image (cropped or not) is too small.
-  static Future<String?> cropIfNeeded({
+  /// [maxSize] is the max pixel size for width or height (e.g. 2000)
+  static Future<BackgroundCropResult> cropIfNeeded({
     required final String fullPath,
     required final int rotationDegrees,
     required final int cropX1,
     required final int cropY1,
     required final int cropX2,
     required final int cropY2,
-    required final int compressQuality,
     required final bool forceCompression,
     required final List<double>? eraserCoordinates,
+    final int? maxSize,
   }) async {
-    final String croppedPath = getCroppedPath(fullPath);
+    final String croppedPath = await getCroppedPath(fullPath);
+
     final CustomPainter? overlayPainter =
         eraserCoordinates == null || eraserCoordinates.isEmpty
-            ? null
-            : EraserPainter(
-                eraserModel: EraserModel(
-                  rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
-                  offsets: CropHelper.getOffsets(eraserCoordinates),
-                ),
-                cropRect: BackgroundTaskImage.getDownsizedRect(
-                  cropX1,
-                  cropY1,
-                  cropX2,
-                  cropY2,
-                ),
-              );
-    final ui.Image full = await loadUiImage(
-        await (await BackgroundTaskUpload.getFile(fullPath)).readAsBytes());
+        ? null
+        : EraserPainter(
+            eraserModel: EraserModel(
+              rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+              offsets: CropHelper.getOffsets(eraserCoordinates),
+            ),
+            cropRect: BackgroundTaskImage.getDownsizedRect(
+              cropX1,
+              cropY1,
+              cropX2,
+              cropY2,
+            ),
+          );
+    final File fullFile = await BackgroundTaskUpload.getFile(fullPath);
+    final ui.Image full = await loadUiImage(await fullFile.readAsBytes());
     if (!forceCompression) {
       if (cropX1 == 0 &&
           cropY1 == 0 &&
@@ -284,11 +289,19 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           cropY2 == _cropConversionFactor &&
           rotationDegrees == 0) {
         if (!isPictureBigEnough(full.width, full.height)) {
-          return null;
+          return BackgroundCropResult.error(
+            'Picture too small (${full.width} x ${full.height})',
+          );
         }
         // in that case, no need to crop
         if (overlayPainter == null) {
-          return fullPath;
+          return BackgroundCropResult.success(
+            filePath: fullPath,
+            fileSize: await fullFile.length(),
+            width: full.width,
+            height: full.height,
+            message: 'Full image "as-is"',
+          );
         }
       }
     }
@@ -313,83 +326,161 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
 
     final Size croppedSize = getCroppedSize();
     if (!isPictureBigEnough(croppedSize.width, croppedSize.height)) {
-      return null;
+      return BackgroundCropResult.error(
+        'Cropped picture too small (${croppedSize.width} x ${croppedSize.height})',
+      );
     }
     final ui.Image cropped = await CropController.getCroppedBitmap(
       crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
       rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
       image: full,
-      maxSize: null,
+      maxSize: maxSize?.toDouble(),
       quality: FilterQuality.high,
       overlayPainter: overlayPainter,
     );
+    final File croppedFile = await BackgroundTaskUpload.getFile(croppedPath);
     await saveJpeg(
-      file: await BackgroundTaskUpload.getFile(croppedPath),
+      file: croppedFile,
       source: cropped,
-      quality: compressQuality,
+      quality: ImagePickerConstants.imageQuality,
     );
-    return croppedPath;
+    return BackgroundCropResult.success(
+      filePath: croppedPath,
+      fileSize: await croppedFile.length(),
+      width: cropped.width,
+      height: cropped.height,
+      message: 'Cropped',
+    );
   }
 
-  static String getCroppedPath(final String fullPath) =>
-      '$fullPath.cropped.jpg';
+  static Future<String> getCroppedPath(final String fullPath) async {
+    final String croppedPath = '$fullPath.cropped.jpg';
+
+    if (_isFileWritable(File(croppedPath))) {
+      return croppedPath;
+    }
+
+    // In some cases, the location of the directory from
+    // [BackgroundTaskUpload.getDirectory()] (= "application support" dir)
+    // may have changed
+    //
+    // This issue is mainly on iOS devices, when a support directory can become
+    // not writable anymore, but is still readable.
+    return join(
+      (await BackgroundTaskUpload.getDirectory()).path,
+      Uri.file(croppedPath).pathSegments.last,
+    );
+  }
 
   /// Uploads the product image.
   @override
-  Future<void> upload() async {
-    final String? path = await cropIfNeeded(
-      fullPath: fullPath,
-      rotationDegrees: rotationDegrees,
-      cropX1: cropX1,
-      cropY1: cropY1,
-      cropX2: cropX2,
-      cropY2: cropY2,
-      compressQuality: 100,
-      forceCompression: false,
-      eraserCoordinates: eraserCoordinates,
+  Future<void> upload(final LocalDatabase localDatabase) async {
+    final UriProductHelper uriProductHelper = await getUriProductHelper(
+      localDatabase,
     );
-    if (path == null) {
-      // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
-      return;
-    }
-    final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
-    final OpenFoodFactsLanguage language = getLanguage();
-    final User user = getUser();
-    final SendImage image = SendImage(
-      lang: language,
-      barcode: barcode,
-      imageField: imageField,
-      imageUri: Uri.parse(path),
-    );
+    SendImage? image;
+    BackgroundCropResult? cropResult;
+    try {
+      final ImageField imageField = ImageField.fromOffTag(this.imageField)!;
+      final OpenFoodFactsLanguage language = getLanguage();
+      final User user = getUser();
 
-    final Status status = await OpenFoodAPIClient.addProductImage(
-      user,
-      image,
-      uriHelper: uriProductHelper,
-    );
-    if (status.status == 'status ok') {
-      // successfully uploaded a new picture and set it as field+language
-      return;
-    }
-    final int? imageId = status.imageId;
-    if (status.status == 'status not ok' && imageId != null) {
-      // The very same image was already uploaded and therefore was rejected.
-      // We just have to select this image, with no angle.
-      final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
-        barcode: barcode,
-        imageField: imageField,
-        language: language,
-        imgid: '$imageId',
-        angle: ImageAngle.NOON,
-        user: user,
-        uriHelper: uriProductHelper,
-      );
-      if (imageUrl == null) {
-        throw Exception('Could not select picture');
+      Future<Status> addImage({
+        required bool force,
+        required int maxSize,
+      }) async {
+        cropResult = await cropIfNeeded(
+          fullPath: fullPath,
+          rotationDegrees: rotationDegrees,
+          cropX1: cropX1,
+          cropY1: cropY1,
+          cropX2: cropX2,
+          cropY2: cropY2,
+          forceCompression: force,
+          eraserCoordinates: eraserCoordinates,
+          maxSize: maxSize,
+        );
+        final String? path = cropResult!.filePath;
+        if (path == null) {
+          // TODO(monsieurtanuki): maybe something more refined when we dismiss the picture, like alerting the user, though it's not supposed to happen anymore from upstream.
+          throw Exception('Could not get image path after compression');
+        }
+        image = SendImage(
+          lang: language,
+          barcode: barcode,
+          imageField: imageField,
+          imageUri: Uri.parse(path),
+        );
+        return OpenFoodAPIClient.addProductImage(
+          user,
+          image!,
+          uriHelper: uriProductHelper,
+        );
       }
-      return;
+
+      Status status;
+      try {
+        status = await addImage(
+          force: false,
+          maxSize: ImagePickerConstants.maxSize.toInt(),
+        );
+      } catch (e) {
+        if (e.toString().contains('413') ||
+            e.toString().contains('Request Entity Too Large')) {
+          status = await addImage(
+            force: true,
+            maxSize: ImagePickerConstants.maxSizeFallback.toInt(),
+          );
+        } else {
+          rethrow;
+        }
+      }
+      if (status.status == 'status ok') {
+        // successfully uploaded a new picture and set it as field+language
+        return;
+      }
+      final int? imageId = status.imageId;
+      if (status.status == 'status not ok' && imageId != null) {
+        // The very same image was already uploaded and therefore was rejected.
+        // We just have to select this image, with no angle.
+        if (imageField == ImageField.OTHER) {
+          // we're done here: all we wanted was to have the image uploaded, and
+          // it is. And the server rejects "set as" operation for OTHER images.
+          return;
+        }
+        final String? imageUrl = await OpenFoodAPIClient.setProductImageAngle(
+          barcode: barcode,
+          imageField: imageField,
+          language: language,
+          imgid: '$imageId',
+          angle: ImageAngle.NOON,
+          user: user,
+          uriHelper: uriProductHelper,
+        );
+        if (imageUrl == null) {
+          throw Exception('Could not select picture');
+        }
+        return;
+      }
+      throw Exception(
+        'Could not upload picture: ${status.status} / ${status.error}',
+      );
+    } catch (e) {
+      throw Exception('$e $cropResult - ${image?.toJson()}');
     }
-    throw Exception(
-        'Could not upload picture: ${status.status} / ${status.error}');
+  }
+
+  static bool _isFileWritable(File file) {
+    try {
+      final FileStat stat = file.statSync();
+
+      final bool isOwnerWritable = (stat.mode & 0x0080) != 0;
+      final bool isGroupWritable = (stat.mode & 0x0010) != 0;
+      final bool isOtherWritable = (stat.mode & 0x0002) != 0;
+
+      return isOwnerWritable || isGroupWritable || isOtherWritable;
+    } catch (_) {
+      return false;
+    }
   }
 }

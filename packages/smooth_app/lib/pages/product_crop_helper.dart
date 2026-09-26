@@ -1,10 +1,8 @@
 import 'dart:async';
 import 'dart:io';
-import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_crop.dart';
@@ -12,8 +10,10 @@ import 'package:smooth_app/background/background_task_image.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 /// Crop Helper for product images.
 abstract class ProductCropHelper extends CropHelper {
@@ -34,7 +34,7 @@ abstract class ProductCropHelper extends CropHelper {
       imageField.getImagePageTitle(appLocalizations);
 
   @override
-  IconData getProcessIcon() => Icons.send;
+  Widget getProcessIcon() => const icons.Send();
 
   @override
   String getProcessLabel(final AppLocalizations appLocalizations) =>
@@ -71,8 +71,9 @@ class ProductCropNewHelper extends ProductCropHelper {
   Future<CropParameters?> process({
     required final BuildContext context,
     required final CropController controller,
-    required final ui.Image image,
     required final File inputFile,
+    required final int inputFullWidth,
+    required final int inputFullHeight,
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
@@ -139,8 +140,9 @@ class ProductCropAgainHelper extends ProductCropHelper {
   Future<CropParameters?> process({
     required final BuildContext context,
     required final CropController controller,
-    required final ui.Image image,
     required final File inputFile,
+    required final int inputFullWidth,
+    required final int inputFullHeight,
     required final File smallCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
@@ -150,7 +152,11 @@ class ProductCropAgainHelper extends ProductCropHelper {
     // we let the server do everything: better performance, and no privacy
     // issue here (we're cropping from an allegedly already privacy compliant
     // picture).
-    final Rect cropRect = _getServerCropRect(controller, image);
+    final Rect cropRect = _getServerCropRect(
+      controller,
+      inputFullWidth,
+      inputFullHeight,
+    );
     await BackgroundTaskCrop.addTask(
       barcode,
       productType: productType,
@@ -179,17 +185,20 @@ class ProductCropAgainHelper extends ProductCropHelper {
   /// Returns the crop rect according to server cropping method.
   Rect _getServerCropRect(
     final CropController controller,
-    final ui.Image image,
+    final int inputFullWidth,
+    final int inputFullHeight,
   ) {
     final Offset center = _getRotatedOffsetForOff(
       controller.crop.center,
       controller,
-      image,
+      inputFullWidth,
+      inputFullHeight,
     );
     final Offset topLeft = _getRotatedOffsetForOff(
       controller.crop.topLeft,
       controller,
-      image,
+      inputFullWidth,
+      inputFullHeight,
     );
     double width = 2 * (center.dx - topLeft.dx);
     if (width < 0) {
@@ -210,14 +219,14 @@ class ProductCropAgainHelper extends ProductCropHelper {
   Offset _getRotatedOffsetForOff(
     final Offset offset,
     final CropController controller,
-    final ui.Image image,
-  ) =>
-      _getRotatedOffsetForOffHelper(
-        controller.rotation,
-        offset,
-        image.width.toDouble(),
-        image.height.toDouble(),
-      );
+    final int inputFullWidth,
+    final int inputFullHeight,
+  ) => _getRotatedOffsetForOffHelper(
+    controller.rotation,
+    offset,
+    inputFullWidth.toDouble(),
+    inputFullHeight.toDouble(),
+  );
 
   /// Returns the offset as rotated, for the OFF-dart rotation/crop tool.
   Offset _getRotatedOffsetForOffHelper(
@@ -229,16 +238,10 @@ class ProductCropAgainHelper extends ProductCropHelper {
     switch (rotation) {
       case CropRotation.up:
       case CropRotation.down:
-        return Offset(
-          noonWidth * offset01.dx,
-          noonHeight * offset01.dy,
-        );
+        return Offset(noonWidth * offset01.dx, noonHeight * offset01.dy);
       case CropRotation.right:
       case CropRotation.left:
-        return Offset(
-          noonHeight * offset01.dx,
-          noonWidth * offset01.dy,
-        );
+        return Offset(noonHeight * offset01.dx, noonWidth * offset01.dy);
     }
   }
 }

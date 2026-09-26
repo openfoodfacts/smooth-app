@@ -4,6 +4,8 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_page.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
@@ -14,11 +16,13 @@ class KnowledgePanelCard extends StatelessWidget {
     required this.panelId,
     required this.product,
     required this.isClickable,
+    required this.simplified,
   });
 
   final String panelId;
   final Product product;
   final bool isClickable;
+  final bool simplified;
 
   static const String PANEL_NUTRITION_TABLE_ID = 'nutrition_facts_table';
   static const String PANEL_INGREDIENTS_ID = 'ingredients';
@@ -29,8 +33,10 @@ class KnowledgePanelCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final UserPreferences userPreferences = context.watch<UserPreferences>();
-    final KnowledgePanel? panel =
-        KnowledgePanelsBuilder.getKnowledgePanel(product, panelId);
+    final KnowledgePanel? panel = KnowledgePanelsBuilder.getKnowledgePanel(
+      product,
+      panelId,
+    );
 
     if (panel == null) {
       return EMPTY_WIDGET;
@@ -41,44 +47,49 @@ class KnowledgePanelCard extends StatelessWidget {
         product: product,
         isInitiallyExpanded: false,
         isClickable: isClickable,
+        roundedIcons: true,
+        overrideStyle: false,
+        simplified: simplified,
       );
     }
 
     // in some cases there's nothing to click about.
     // cf. https://github.com/openfoodfacts/smooth-app/issues/5700
-    final bool improvedIsClickable = isClickable &&
-        KnowledgePanelsBuilder.hasSomethingToDisplay(
-          product,
-          panelId,
-        );
-    return Padding(
-      padding: const EdgeInsetsDirectional.symmetric(
-        vertical: SMALL_SPACE,
-      ),
-      child: InkWell(
-        borderRadius: ANGULAR_BORDER_RADIUS,
-        onTap: !improvedIsClickable
-            ? null
-            : () async => Navigator.push<Widget>(
-                  context,
-                  MaterialPageRoute<Widget>(
-                    builder: (BuildContext context) => SmoothBrightnessOverride(
-                      brightness:
-                          SmoothBrightnessOverride.of(context)?.brightness,
-                      child: KnowledgePanelPage(
-                        panelId: panelId,
-                        product: product,
-                      ),
+    final bool improvedIsClickable =
+        isClickable &&
+        KnowledgePanelsBuilder.hasSomethingToDisplay(product, panelId);
+    return InkWell(
+      borderRadius: ANGULAR_BORDER_RADIUS,
+      onTap: !improvedIsClickable
+          ? null
+          : () async {
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.knowledgePanelOpen,
+                action: panelId,
+              );
+              await Navigator.push<Widget>(
+                context,
+                MaterialPageRoute<Widget>(
+                  builder: (BuildContext context) => SmoothBrightnessOverride(
+                    brightness: SmoothBrightnessOverride.of(
+                      context,
+                    )?.brightness,
+                    child: KnowledgePanelPage(
+                      panelId: panelId,
+                      product: product,
                     ),
                   ),
                 ),
-        child: KnowledgePanelsBuilder.getPanelSummaryWidget(
-              panel,
-              isClickable: improvedIsClickable,
-              margin: EdgeInsets.zero,
-            ) ??
-            const SizedBox(),
-      ),
+              );
+            },
+      child:
+          panel.getPanelSummaryWidget(
+            product,
+            isClickable: improvedIsClickable,
+            margin: EdgeInsetsDirectional.zero,
+            simplified: simplified,
+          ) ??
+          EMPTY_WIDGET,
     );
   }
 
@@ -93,9 +104,10 @@ class KnowledgePanelCard extends StatelessWidget {
     for (final String panelId in expandedPanelIds) {
       if (panel.titleElement != null &&
           panel.titleElement!.title ==
-              KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)
-                  ?.titleElement
-                  ?.title) {
+              KnowledgePanelsBuilder.getKnowledgePanel(
+                product,
+                panelId,
+              )?.titleElement?.title) {
         if (userPreferences.getFlag(getExpandFlagTag(panelId)) ?? false) {
           return true;
         }

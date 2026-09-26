@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_add_other_price.dart';
 import 'package:smooth_app/background/background_task_add_price.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
 import 'package:smooth_app/pages/prices/price_amount_model.dart';
@@ -15,27 +15,33 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 /// Price Model (checks and background task call) for price adding.
 class PriceModel with ChangeNotifier {
   PriceModel({
-    required final ProofType proofType,
-    required final List<OsmLocation>? locations,
-    required final Currency currency,
-    final PriceMetaProduct? initialProduct,
+    required this._proofType,
+    required this._currency,
     required this.multipleProducts,
-  })  : _proof = null,
-        existingPrices = null,
-        _proofType = proofType,
-        _date = DateTime.now(),
-        _currency = currency,
-        _locations = locations,
-        _priceAmountModels = <PriceAmountModel>[
-          if (initialProduct != null) PriceAmountModel(product: initialProduct),
-        ];
+    final PriceMetaProduct? initialProduct,
+    this._readyForPriceTagValidation = false,
+  }) : _proof = null,
+       existingPrices = null,
+       _date = DateTime.now(),
+       _priceAmountModels = <PriceAmountModel>[
+         if (initialProduct != null) PriceAmountModel(product: initialProduct),
+       ];
 
-  PriceModel.proof({
-    required Proof proof,
-    this.existingPrices,
-  })  : multipleProducts = true,
-        _priceAmountModels = <PriceAmountModel>[] {
+  PriceModel.proof({required Proof proof, this.existingPrices})
+    : multipleProducts = true,
+      _readyForPriceTagValidation = false,
+      _priceAmountModels = <PriceAmountModel>[] {
     setProof(proof, init: true);
+  }
+
+  late bool _readyForPriceTagValidation;
+
+  bool get readyForPriceTagValidation => _readyForPriceTagValidation;
+
+  set readyForPriceTagValidation(final bool value) {
+    _hasChanged = true;
+    _readyForPriceTagValidation = value;
+    notifyListeners();
   }
 
   bool _hasChanged = false;
@@ -63,7 +69,6 @@ class PriceModel with ChangeNotifier {
     _cropParameters = null;
     _proofType = proof.type!;
     _date = proof.date!;
-    _locations = null;
     _currency = proof.currency!;
     if (!init) {
       notifyListeners();
@@ -106,11 +111,14 @@ class PriceModel with ChangeNotifier {
 
   void removeAt(final int index) {
     _hasChanged = true;
+    _priceAmountModels[index].dispose();
     _priceAmountModels.removeAt(index);
     notifyListeners();
   }
 
   PriceAmountModel elementAt(final int index) => _priceAmountModels[index];
+
+  List<PriceAmountModel> get priceAmountModels => _priceAmountModels;
 
   int get length => _priceAmountModels.length;
 
@@ -152,19 +160,17 @@ class PriceModel with ChangeNotifier {
   final DateTime today = DateTime.now();
   final DateTime firstDate = DateTime.utc(2020, 1, 1);
 
-  List<OsmLocation>? _locations;
+  OsmLocation? _location;
 
-  List<OsmLocation>? get locations => _locations;
-
-  set locations(final List<OsmLocation>? locations) {
+  set location(final OsmLocation location) {
     _hasChanged = true;
-    _locations = locations;
+    _location = location;
     notifyListeners();
   }
 
   OsmLocation? get location => proof?.location?.osmId != null
       ? OsmLocation.fromPrice(proof!.location!)
-      : _locations!.firstOrNull;
+      : _location;
 
   late Currency _currency;
 
@@ -206,16 +212,30 @@ class PriceModel with ChangeNotifier {
   }
 
   /// Adds the related background task.
-  Future<void> addTask(final BuildContext context) async {
+  Future<void> addTask(
+    final BuildContext context, {
+    required final bool displaySnackbar,
+  }) async {
     final List<String> barcodes = <String>[];
+    final List<String> categories = <String>[];
+    final List<List<String>> origins = <List<String>>[];
+    final List<List<String>> labels = <List<String>>[];
+    final List<String> pricePers = <String>[];
     final List<bool> pricesAreDiscounted = <bool>[];
     final List<double> prices = <double>[];
     final List<double?> pricesWithoutDiscount = <double?>[];
+    final List<String> discountTypes = <String>[];
     for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
       barcodes.add(priceAmountModel.product.barcode);
+      categories.add(priceAmountModel.product.categoryTag);
+      origins.add(priceAmountModel.product.originTags);
+      // TODO(monsieurtanuki): to be implemented when supported by "prices"
+      labels.add(<String>[]);
+      pricePers.add(priceAmountModel.product.pricePer.offTag);
       pricesAreDiscounted.add(priceAmountModel.promo);
       prices.add(priceAmountModel.checkedPaidPrice);
       pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
+      discountTypes.add(priceAmountModel.discountType?.offTag ?? '');
     }
     if (proof != null) {
       return BackgroundTaskAddOtherPrice.addTask(
@@ -228,9 +248,14 @@ class PriceModel with ChangeNotifier {
         proofId: proof!.id,
         // per item
         barcodes: barcodes,
+        categories: categories,
+        origins: origins,
+        labels: labels,
+        pricePers: pricePers,
         pricesAreDiscounted: pricesAreDiscounted,
         prices: prices,
         pricesWithoutDiscount: pricesWithoutDiscount,
+        discountTypes: discountTypes,
       );
     }
     return BackgroundTaskAddPrice.addTask(
@@ -245,9 +270,24 @@ class PriceModel with ChangeNotifier {
       currency: currency,
       // per item
       barcodes: barcodes,
+      categories: categories,
+      origins: origins,
+      labels: labels,
+      pricePers: pricePers,
       pricesAreDiscounted: pricesAreDiscounted,
       prices: prices,
       pricesWithoutDiscount: pricesWithoutDiscount,
+      displaySnackbar: displaySnackbar,
+      readyForPriceTagValidation: readyForPriceTagValidation,
+      discountTypes: discountTypes,
     );
+  }
+
+  @override
+  void dispose() {
+    for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
+      priceAmountModel.dispose();
+    }
+    super.dispose();
   }
 }

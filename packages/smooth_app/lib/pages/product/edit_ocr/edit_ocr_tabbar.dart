@@ -27,12 +27,14 @@ class EditOcrTabBar extends StatelessWidget implements PreferredSizeWidget {
 
   List<ProductLanguageWithState> productLanguages(Product product) {
     return getProductImageLanguages(product, imageField)
-        .map((OpenFoodFactsLanguage l) => ProductLanguageWithState(
-              language: l,
-              state: languagesWithText.contains(l)
-                  ? OpenFoodFactsLanguageState.normal
-                  : OpenFoodFactsLanguageState.warning,
-            ))
+        .map(
+          (OpenFoodFactsLanguage l) => ProductLanguageWithState(
+            language: l,
+            state: languagesWithText.contains(l)
+                ? OpenFoodFactsLanguageState.normal
+                : OpenFoodFactsLanguageState.warning,
+          ),
+        )
         .toList(growable: false);
   }
 

@@ -1,19 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
-        <color android:color="@color/background_splashscreen"/>
+        <color android:color="@color/background_splashscreen" />
     </item>
 
     <item>
         <bitmap
-                android:src="@drawable/ic_launcher_foreground"
-                android:gravity="center"/>
+            android:gravity="center"
+            android:src="@drawable/ic_launcher_foreground" />
     </item>
 
-    <item android:bottom="20dp">
+    <item
+        android:width="200dp"
+        android:height="80dp"
+        android:bottom="20dp">
         <bitmap
-                android:src="@drawable/logo_text"
-                android:gravity="bottom"/>
+            android:gravity="bottom"
+            android:src="@drawable/logo_text" />
     </item>
 
 </layer-list>
