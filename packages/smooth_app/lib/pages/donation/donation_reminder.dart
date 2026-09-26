@@ -75,15 +75,20 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
     final UserPreferences preferences = context.read<UserPreferences>();
     unawaited(preferences.countProductLookedUp(widget.barcode));
 
-    final AppNewsState? state = context.read<AppNewsProvider?>()?.state;
-    final AppNewsItem? donation = state is AppNewsStateLoaded
-        ? state.content.donation
-        : null;
-    _offer = DonationOffer.fromNews(donation);
+    _offer = DonationOffer.fromNews(_liveDonation());
+    _eligible = _isEligibleNow();
+  }
 
+  AppNewsItem? _liveDonation() {
+    final AppNewsState? state = context.read<AppNewsProvider?>()?.state;
+    return state is AppNewsStateLoaded ? state.content.donation : null;
+  }
+
+  bool _isEligibleNow() {
+    final UserPreferences preferences = context.read<UserPreferences>();
     final DateTime now = DateTime.now();
-    _eligible = DonationReminderConditions(
-      campaignLive: donation != null,
+    return DonationReminderConditions(
+      campaignLive: _liveDonation() != null,
       productsLookedUp: preferences.productsLookedUpSinceAsk,
       every: _offer.reminderEvery,
       muted: preferences.donationAsksMuted(now),
@@ -102,6 +107,13 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
           return;
         }
         _asked = true;
+
+        // A product page opened from this one may have shown the sheet (or
+        // muted it) since [initState].
+        if (!_isEligibleNow()) {
+          Navigator.of(context).pop();
+          return;
+        }
 
         final UserPreferences preferences = context.read<UserPreferences>();
         AnalyticsHelper.trackEvent(

@@ -634,6 +634,42 @@ void main() {
       await _leaveProductPage(tester);
       expect(find.byType(DonationReminderSheet), findsOneWidget);
     });
+
+    testWidgets('a product opened from a product: one sheet, not two', (
+      WidgetTester tester,
+    ) async {
+      final (
+        UserPreferences userPreferences,
+        ProductPreferences productPreferences,
+      ) = await _preparePreferences();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_tagProductsLookedUp, 9);
+
+      final NavigatorState navigator = await _pumpHomeAndFiller(
+        tester,
+        userPreferences: userPreferences,
+        productPreferences: productPreferences,
+        donation: _donationItem(),
+      );
+      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
+      await _pushProductPage(
+        tester,
+        navigator,
+        barcode: 'barcode_11',
+        child: const _Marker('INNER'),
+      );
+
+      await _leaveProductPage(tester);
+      expect(find.byType(DonationReminderSheet), findsOneWidget);
+      await tester.tap(find.text(_notNow));
+      await tester.pumpAndSettle();
+      expect(find.text('PRODUCT'), findsOneWidget);
+
+      await _leaveProductPage(tester);
+      expect(find.byType(DonationReminderSheet), findsNothing);
+      _expectPoppedOnce(tester);
+      expect(_eventsNamed('donationReminderShown'), hasLength(1));
+    });
   });
 
   group('sheet content', () {
