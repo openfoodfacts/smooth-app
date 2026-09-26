@@ -41,20 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "8.0.3"
-  app_store_apple_store:
-    dependency: "direct main"
-    description:
-      path: "../app_store/apple_app_store"
-      relative: true
-    source: path
-    version: "0.0.1"
-  app_store_google_play:
-    dependency: "direct main"
-    description:
-      path: "../app_store/google_play"
-      relative: true
-    source: path
-    version: "0.0.1"
   app_store_shared:
     dependency: "direct main"
     description:
@@ -771,14 +757,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.2"
-  gs1_barcode_parser_plus:
-    dependency: "direct main"
-    description:
-      name: gs1_barcode_parser_plus
-      sha256: a881fe33b9a6ac65c94a3068e7dedf52b57be92d82118642074d86ddbee571d9
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   hashcodes:
     dependency: transitive
     description:
@@ -915,22 +893,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.1"
-  in_app_review:
-    dependency: transitive
-    description:
-      name: in_app_review
-      sha256: ab26ac54dbd802896af78c670b265eaeab7ecddd6af4d0751e9604b60574817f
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.11"
-  in_app_review_platform_interface:
-    dependency: transitive
-    description:
-      name: in_app_review_platform_interface
-      sha256: fed2c755f2125caa9ae10495a3c163aa7fab5af3585a9c62ef4a6920c5b45f10
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.0.5"
   integration_test:
     dependency: "direct dev"
     description: flutter
@@ -1065,13 +1027,13 @@ packages:
     source: hosted
     version: "2.0.0"
   mobile_scanner:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: mobile_scanner
-      sha256: "5a51ea79f0cf8293f616a5d08baae185b59b5e6bb24df01f2a63037ade0bade0"
+      sha256: ce3f059ebd6dbfab7292bba0e893e354b46730636820d3c9ef69005ce2d55bce
       url: "https://pub.dev"
     source: hosted
-    version: "7.4.2"
+    version: "7.4.0"
   mobkit_dashed_border:
     dependency: "direct main"
     description:
@@ -1393,13 +1355,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.28.0"
-  scanner_ml_kit:
-    dependency: "direct main"
-    description:
-      path: "../scanner/ml_kit"
-      relative: true
-    source: path
-    version: "1.0.0"
   scanner_shared:
     dependency: "direct main"
     description:
