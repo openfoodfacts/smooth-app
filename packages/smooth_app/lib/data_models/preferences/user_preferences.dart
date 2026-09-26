@@ -144,6 +144,10 @@ class UserPreferences extends ChangeNotifier {
 
   /// Donation asks (home card, reminders)
   static const String _TAG_DONATION_ASKS_MUTED_UNTIL = 'donationAsksMutedUntil';
+  static const String _TAG_PRODUCTS_LOOKED_UP_SINCE_ASK =
+      'productsLookedUpSinceAsk';
+  static const String _TAG_LAST_COUNTED_BARCODE = 'lastCountedBarcode';
+  static const String _TAG_LAST_REMINDER_SHOWN_AT = 'lastReminderShownAt';
 
   /// Info messages
   static const String _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME =
@@ -718,6 +722,44 @@ class UserPreferences extends ChangeNotifier {
   bool donationAsksMuted(final DateTime now) {
     final DateTime? mutedUntil = donationAsksMutedUntil;
     return mutedUntil != null && now.isBefore(mutedUntil);
+  }
+
+  int get productsLookedUpSinceAsk =>
+      _sharedPreferences.getInt(_TAG_PRODUCTS_LOOKED_UP_SINCE_ASK) ?? 0;
+
+  String? get lastCountedBarcode =>
+      _sharedPreferences.getString(_TAG_LAST_COUNTED_BARCODE);
+
+  DateTime? get lastReminderShownAt {
+    final int? millis = _sharedPreferences.getInt(_TAG_LAST_REMINDER_SHOWN_AT);
+    return millis == null ? null : DateTime.fromMillisecondsSinceEpoch(millis);
+  }
+
+  /// No-op for the barcode the page before it already counted. Both writes
+  /// below happen synchronously as this runs (no `await` ahead of them), so a
+  /// caller that reads [productsLookedUpSinceAsk] right after, without
+  /// awaiting the returned future, already sees the incremented value.
+  Future<void> countProductLookedUp(final String barcode) async {
+    if (barcode == lastCountedBarcode) {
+      return;
+    }
+    await Future.wait<bool>(<Future<bool>>[
+      _sharedPreferences.setString(_TAG_LAST_COUNTED_BARCODE, barcode),
+      _sharedPreferences.setInt(
+        _TAG_PRODUCTS_LOOKED_UP_SINCE_ASK,
+        productsLookedUpSinceAsk + 1,
+      ),
+    ]);
+  }
+
+  Future<void> markDonationReminderShown() async {
+    await Future.wait<bool>(<Future<bool>>[
+      _sharedPreferences.setInt(
+        _TAG_LAST_REMINDER_SHOWN_AT,
+        DateTime.now().millisecondsSinceEpoch,
+      ),
+      _sharedPreferences.setInt(_TAG_PRODUCTS_LOOKED_UP_SINCE_ASK, 0),
+    ]);
   }
 
   bool showInputProductNameBanner() =>

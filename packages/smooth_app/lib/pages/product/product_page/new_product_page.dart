@@ -17,6 +17,7 @@ import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/donation/donation_reminder.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
@@ -100,27 +101,35 @@ class ProductPageState extends State<ProductPage>
       localDatabase,
     ).hasNotTerminatedOperations(upToDateProduct.barcode!);
 
-    return MultiProvider(
-      providers: <SingleChildWidget>[
-        Provider<Product>.value(value: upToDateProduct),
-        Provider<ProductPageState>.value(value: this),
-        Provider<ProductPageCompatibility>.value(
-          value: ProductPageCompatibility(
-            color: ProductCompatibilityHelper.product(
-              matchedProductV2,
-            ).getColor(context),
-            matchedProductV2: matchedProductV2,
+    return DonationReminderScope(
+      barcode: barcode,
+      child: MultiProvider(
+        providers: <SingleChildWidget>[
+          Provider<Product>.value(value: upToDateProduct),
+          Provider<ProductPageState>.value(value: this),
+          Provider<ProductPageCompatibility>.value(
+            value: ProductPageCompatibility(
+              color: ProductCompatibilityHelper.product(
+                matchedProductV2,
+              ).getColor(context),
+              matchedProductV2: matchedProductV2,
+            ),
           ),
+          ChangeNotifierProvider<ScrollController>.value(
+            value: _scrollController,
+          ),
+        ],
+        child: ProductPageTabController(
+          product: upToDateProduct,
+          childBuilder:
+              (List<ProductPageTab> tabs, TabController tabController) {
+                return _buildTabLayout(
+                  hasPendingOperations,
+                  tabs,
+                  tabController,
+                );
+              },
         ),
-        ChangeNotifierProvider<ScrollController>.value(
-          value: _scrollController,
-        ),
-      ],
-      child: ProductPageTabController(
-        product: upToDateProduct,
-        childBuilder: (List<ProductPageTab> tabs, TabController tabController) {
-          return _buildTabLayout(hasPendingOperations, tabs, tabController);
-        },
       ),
     );
   }

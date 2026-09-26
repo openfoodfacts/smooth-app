@@ -5964,5 +5964,51 @@
   "donation_already_donated_thanks": "Thank you! We won't ask again for a year.",
   "@donation_already_donated_thanks": {
     "description": "Confirmation shown after tapping 'I already donated'"
+  },
+  "donation_reminder_title": "{count, plural, one{Join the {count} person keeping Open Food Facts free.} other{Join the {count} people keeping Open Food Facts free.}}",
+  "@donation_reminder_title": {
+    "description": "Headline of the donation reminder sheet, with the number of donors from the feed",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "768"
+      }
+    }
+  },
+  "donation_reminder_title_generic": "Join the people keeping Open Food Facts free.",
+  "@donation_reminder_title_generic": {
+    "description": "Headline of the donation reminder sheet when the feed carries no usable donor count"
+  },
+  "donation_reminder_body": "A non-profit, built by volunteers, with no ads and no investors. A small monthly gift keeps it free for everyone.",
+  "@donation_reminder_body": {
+    "description": "Body line of the donation reminder sheet"
+  },
+  "donation_reminder_not_now": "Not now",
+  "@donation_reminder_not_now": {
+    "description": "Quiet button on the donation reminder sheet that closes it without changing anything"
+  },
+  "donation_reminder_cta": "Give {amount} a month",
+  "@donation_reminder_cta": {
+    "description": "Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_tier_scans_short": "{scans} scans",
+  "@donation_tier_scans_short": {
+    "description": "Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers",
+    "placeholders": {
+      "scans": {
+        "type": "String",
+        "example": "1,300"
+      }
+    }
+  },
+  "donation_tier_per_month": "/month",
+  "@donation_tier_per_month": {
+    "description": "Small suffix after the amount on a tier chip of the donation reminder sheet, e.g. '€5 /month'"
   }
 }
