@@ -4,9 +4,11 @@ on:
      branches:
        - develop
 
+permissions:
+  contents: write
+
 env:
   RUBY_VERSION: 3.2.0
-    
 
 jobs:
   release-please:
