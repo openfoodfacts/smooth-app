@@ -190,6 +190,57 @@ void main() {
   });
 
   group('normalizeScannedBarcode', () {
+    for (final String code in <String>[
+      '21000003',
+      '210000000010',
+      '2100000000005',
+    ]) {
+      test('Checksum-valid UPC/EAN $code takes precedence over AI 21', () {
+        // Each value is also a valid GS1 serial number, so parsing alone
+        // cannot distinguish its symbology.
+        expect(tryParseGs1Barcode(code)!.getAIRawData('21'), code.substring(2));
+        final NormalizedBarcode normalized = normalizeScannedBarcode(
+          '  $code  ',
+        );
+        expect(normalized.key, code == '210000000010' ? '0210000000010' : code);
+        expect(normalized.gs1Barcode, isNull);
+      });
+
+      for (final String explicitGs1 in <String>[
+        '(21)${code.substring(2)}',
+        ']C1$code',
+        '^$code',
+        '\x1D$code',
+        '\u241D$code',
+      ]) {
+        test('Explicit GS1 $explicitGs1 overrides UPC/EAN ambiguity', () {
+          final NormalizedBarcode normalized = normalizeScannedBarcode(
+            explicitGs1,
+          );
+          expect(normalized.gs1Barcode, isNotNull);
+          expect(normalized.gs1Barcode!.gtin, isNull);
+          expect(normalized.gs1Barcode!.getAIRawData('21'), code.substring(2));
+        });
+      }
+    }
+
+    for (final String code in <String>[
+      '17270101',
+      '101234567890',
+      '2112345678901',
+    ]) {
+      test('Numeric GS1 $code without AI 01 keeps its value', () {
+        final NormalizedBarcode normalized = normalizeScannedBarcode(code);
+        expect(normalized.key, code);
+        expect(normalized.gs1Barcode, isNotNull);
+        expect(normalized.gs1Barcode!.gtin, isNull);
+        expect(
+          normalized.gs1Barcode!.getAIRawData(code.substring(0, 2)),
+          code.substring(2),
+        );
+      });
+    }
+
     test('GS1 barcode is keyed by normalized GTIN', () {
       final NormalizedBarcode normalized = normalizeScannedBarcode(
         '010426039255010117270101',
