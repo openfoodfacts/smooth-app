@@ -44,7 +44,7 @@ class AccountRoot extends PreferencesRoot {
       leading: const icons.Profile(),
       title: appLocalizations.view_profile,
       subtitleText: appLocalizations.preferences_on_off_website_subtitle,
-      url: 'https://world.openfoodfacts.org/editor/$userId',
+      url: 'https://world.openfoodfacts.org/facets/editors/$userId',
     );
   }
 

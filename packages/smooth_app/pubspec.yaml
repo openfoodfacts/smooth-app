@@ -93,7 +93,7 @@ dependencies:
   # We use two different scanning engines, 
   # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
   # but qr_code_scanner which uses the open source ZXing for F-Droid
-  mobile_scanner: 7.4.0
+  mobile_scanner: 7.4.2
 
   scanner_shared:
     path: ../scanner/shared

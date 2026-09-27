@@ -154,12 +154,12 @@ Product addition:
       - any-glob-to-any-file: 'packages/smooth_app/lib/cards/product_cards/knowledge_panels/**/*'
       - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_card.dart'
       - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_page.dart'
-      - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart'
+      - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/table/scrollable_table_widget.dart'
       - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart'
 
 📖 Knowledge panels - Table widget:
   - changed-files:
-      - any-glob-to-any-file: 'packages/smooth_app/lib/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart'
+      - any-glob-to-any-file: 'packages/smooth_app/lib/widgets/table/scrollable_table_widget.dart'
 
 📖 Knowledge panels - Map widget:
   - changed-files:

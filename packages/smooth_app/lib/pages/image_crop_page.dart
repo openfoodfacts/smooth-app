@@ -28,6 +28,8 @@ import 'package:smooth_app/themes/theme_provider.dart';
 ///
 /// In order to avoid OOM. And for performances too.
 class ImagePickerConstants {
+  ImagePickerConstants._();
+
   /// Notoriously good enough.
   static const int imageQuality = 80;
 
@@ -38,6 +40,15 @@ class ImagePickerConstants {
 
   /// In case [maxSize] was too big.
   static const num maxSizeFallback = 2000;
+
+  // According to https://github.com/openfoodfacts/smooth-app/issues/7773,
+  // Android doesn't deal correctly with quality or max size parameters, which
+  // causes memory crashes.
+  static int? get imagePickerQuality =>
+      Platform.isAndroid ? null : ImagePickerConstants.imageQuality;
+
+  static double? get imagePickerMaxSize =>
+      Platform.isAndroid ? null : ImagePickerConstants.maxSize.toDouble();
 }
 
 /// Safely picks an image file from gallery or camera, regarding access denied.
@@ -63,9 +74,9 @@ Future<XFile?> pickImageFile(
     if (source == UserPictureSource.GALLERY) {
       try {
         return picker.pickImage(
-          imageQuality: ImagePickerConstants.imageQuality,
-          maxHeight: ImagePickerConstants.maxSize.toDouble(),
-          maxWidth: ImagePickerConstants.maxSize.toDouble(),
+          imageQuality: ImagePickerConstants.imagePickerQuality,
+          maxHeight: ImagePickerConstants.imagePickerMaxSize,
+          maxWidth: ImagePickerConstants.imagePickerMaxSize,
           source: ImageSource.gallery,
         );
       } on PlatformException catch (e) {
@@ -81,9 +92,9 @@ Future<XFile?> pickImageFile(
       }
     }
     return picker.pickImage(
-      imageQuality: ImagePickerConstants.imageQuality,
-      maxHeight: ImagePickerConstants.maxSize.toDouble(),
-      maxWidth: ImagePickerConstants.maxSize.toDouble(),
+      imageQuality: ImagePickerConstants.imagePickerQuality,
+      maxHeight: ImagePickerConstants.imagePickerMaxSize,
+      maxWidth: ImagePickerConstants.imagePickerMaxSize,
       source: ImageSource.camera,
     );
   }

@@ -1500,11 +1500,17 @@ abstract class AppLocalizations {
   /// **'Choose what information about food matters most to you.'**
   String get myPreferences_food_subtitle;
 
-  /// No description provided for @myPreferences_food_comment.
+  /// No description provided for @myPreferences_food_compatibility_explainer.
   ///
   /// In en, this message translates to:
-  /// **'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary. Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.'**
-  String get myPreferences_food_comment;
+  /// **'Choose what information about food matters most to you, in order to rank food according to your preferences, see the information you care about first, and get a compatibility summary.'**
+  String get myPreferences_food_compatibility_explainer;
+
+  /// Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page
+  ///
+  /// In en, this message translates to:
+  /// **'Those food preferences stay on your device, and are not associated with your Open Food Facts contributor account if you have one.'**
+  String get myPreferences_food_privacy;
 
   /// No description provided for @myPreferences_beauty_title.
   ///
@@ -11067,6 +11073,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{percent}%'**
   String percent_value(String percent);
+
+  /// Headline at the top of the donation page
+  ///
+  /// In en, this message translates to:
+  /// **'Open Food Facts is funded by the people who use it'**
+  String get donation_page_headline;
+
+  /// Title of the block listing what a donation pays for
+  ///
+  /// In en, this message translates to:
+  /// **'Where it goes'**
+  String get donation_where_it_goes_title;
+
+  /// First thing a donation pays for
+  ///
+  /// In en, this message translates to:
+  /// **'Servers and storage'**
+  String get donation_where_it_goes_servers;
+
+  /// Second thing a donation pays for
+  ///
+  /// In en, this message translates to:
+  /// **'One full-time engineer'**
+  String get donation_where_it_goes_engineer;
+
+  /// Third thing a donation pays for
+  ///
+  /// In en, this message translates to:
+  /// **'Services and tooling'**
+  String get donation_where_it_goes_services;
+
+  /// Title of the block listing the monthly donation amounts
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly, cancel any time'**
+  String get donation_tiers_title;
+
+  /// A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} a month'**
+  String donation_tier_amount_monthly(String amount);
+
+  /// How many product scans a monthly donation covers, as an approximation
+  ///
+  /// In en, this message translates to:
+  /// **'pays for {scans} scans'**
+  String donation_tier_scans(String scans);
+
+  /// Hint of the field where a donor types an amount of their own instead of picking one of the offered ones
+  ///
+  /// In en, this message translates to:
+  /// **'Custom amount'**
+  String get donation_custom_amount_hint;
+
+  /// Error shown under the donation amount field when what the donor typed cannot be read as an amount
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an amount'**
+  String get donation_custom_amount_error;
+
+  /// Main button of the donation page, opens the donation form with the selected monthly amount
+  ///
+  /// In en, this message translates to:
+  /// **'Support monthly'**
+  String get donation_cta_monthly;
+
+  /// Secondary link of the donation page, opens the donation form for a single gift
+  ///
+  /// In en, this message translates to:
+  /// **'Give once instead'**
+  String get donation_cta_one_off;
+
+  /// Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year
+  ///
+  /// In en, this message translates to:
+  /// **'I already donated'**
+  String get donation_already_donated;
+
+  /// Confirmation shown after tapping 'I already donated'
+  ///
+  /// In en, this message translates to:
+  /// **'Thank you! We won\'t ask again for a year.'**
+  String get donation_already_donated_thanks;
 }
 
 class _AppLocalizationsDelegate
