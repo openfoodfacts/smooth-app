@@ -126,7 +126,7 @@ class RiveAnimationsLoader extends StatelessWidget {
     return Provider<FileLoader>(
       create: (_) => FileLoader.fromAsset(
         'assets/animations/off.riv',
-        riveFactory: Factory.rive,
+        riveFactory: Factory.flutter,
       ),
       dispose: (_, FileLoader fileLoader) => fileLoader.dispose(),
       child: child,

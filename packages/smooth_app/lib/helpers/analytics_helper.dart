@@ -23,7 +23,12 @@ enum AnalyticsCategory {
   list(tag: 'list'),
   deepLink(tag: 'deep link'),
   hungerGame(tag: 'hunger game'),
-  appRating(tag: 'app rating');
+  appRating(tag: 'app rating'),
+  taglineFeed(tag: 'tagline feed'),
+  donation(tag: 'donation'),
+  lifecycle(tag: 'lifecycle'),
+  onboarding(tag: 'onboarding'),
+  knowledgePanel(tag: 'knowledge panel');
 
   const AnalyticsCategory({required this.tag});
 
@@ -152,6 +157,35 @@ enum AnalyticsEvent {
   appRatingNotSatisfied(
     tag: 'not satisfied',
     category: AnalyticsCategory.appRating,
+  ),
+  taglineNewsDisplayed(
+    tag: 'tagline news displayed',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  taglineNewsClicked(
+    tag: 'tagline news clicked',
+    category: AnalyticsCategory.taglineFeed,
+  ),
+  donationPageOpened(
+    tag: 'donation page opened',
+    category: AnalyticsCategory.donation,
+  ),
+  donationHandoff(
+    tag: 'donation handoff',
+    category: AnalyticsCategory.donation,
+  ),
+  donationAlreadyDonated(
+    tag: 'donation already donated',
+    category: AnalyticsCategory.donation,
+  ),
+  appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
+  onboardingPageVisited(
+    tag: 'onboarding page visited',
+    category: AnalyticsCategory.onboarding,
+  ),
+  knowledgePanelOpen(
+    tag: 'knowledge panel open',
+    category: AnalyticsCategory.knowledgePanel,
   );
 
   const AnalyticsEvent({required this.tag, required this.category});
@@ -231,12 +265,13 @@ class AnalyticsHelper {
   }
 
   static Future<void> initSentry({required Function()? appRunner}) async {
-    await SentryFlutter.init((SentryOptions options) {
+    await SentryFlutter.init((SentryFlutterOptions options) {
       options
         ..dsn =
             'https://22ec5d0489534b91ba455462d3736680@o241488.ingest.sentry.io/5376745'
         // To set a uniform sample rate
         ..tracesSampleRate = 1.0
+        ..enableTombstone = true
         ..beforeSend = _beforeSend
         ..captureFailedRequests = false
         ..environment =
@@ -335,11 +370,13 @@ class AnalyticsHelper {
     AnalyticsEvent msg, {
     int? eventValue,
     String? barcode,
+    String? action,
   }) => trackCustomEvent(
     msg.name,
     msg.category.tag,
     eventValue: eventValue,
     barcode: barcode,
+    action: action,
   );
 
   // Used by code which is outside of the core:smooth_app code
@@ -352,6 +389,9 @@ class AnalyticsHelper {
     String? action,
     ProductType? productType,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final Map<String, String> dimensions = <String, String>{
       'dimension1': ProductQuery.getLanguage().offTag,
       'dimension2': ProductQuery.getCountry().offTag,
@@ -406,19 +446,22 @@ class AnalyticsHelper {
     productType: product.productType ?? ProductType.food,
   );
 
+  static void trackTaglineNewsEvent(AnalyticsEvent msg, String newsId) =>
+      trackCustomEvent(msg.name, msg.category.tag, action: newsId);
+
   static void trackSearch({
     required String search,
     String? searchCategory,
     int? searchCount,
   }) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
     final String searchString = '$search,$searchCategory,$searchCount';
-
     if (searchString == latestSearch) {
       return;
     }
-
     latestSearch = searchString;
-
     MatomoTracker.instance.trackSearch(
       searchKeyword: search,
       searchCount: searchCount,
@@ -426,8 +469,12 @@ class AnalyticsHelper {
     );
   }
 
-  static void trackOutlink({required String url}) =>
-      MatomoTracker.instance.trackOutlink(link: url);
+  static void trackOutlink({required String url}) {
+    if (!MatomoTracker.instance.initialized) {
+      return;
+    }
+    MatomoTracker.instance.trackOutlink(link: url);
+  }
 
   static int? _formatBarcode(String? barcode) {
     if (barcode == null) {
@@ -445,8 +492,6 @@ class AnalyticsHelper {
   static void sendException(dynamic throwable, {dynamic stackTrace}) {
     unawaited(Sentry.captureException(throwable, stackTrace: stackTrace));
   }
-
-  static String? get matomoVisitorId => MatomoTracker.instance.visitor.id;
 }
 
 enum _AnalyticsTrackingMode {

@@ -54,7 +54,12 @@ class ScanBottomCard extends StatelessWidget {
               return switch (state) {
                 ScanTagLineStateLoading() => const ScanBottomCardLoading(),
                 ScanTagLineStateNoContent() => EMPTY_WIDGET,
-                ScanTagLineStateLoaded() => ScanNewsCard(news: state.tagLine),
+                // Keyed on the state: the card keeps its rotation index across
+                // rebuilds, and a shorter list would index past its end.
+                ScanTagLineStateLoaded() => KeyedSubtree(
+                  key: ObjectKey(state),
+                  child: ScanNewsCard(news: state.tagLine),
+                ),
               };
             },
       ),

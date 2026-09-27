@@ -33,10 +33,10 @@ class _EditProductFooterState extends State<EditProductFooter>
   late AnimationController _menuController;
   late AnimationController _loadingController;
   late Animation<double> _menuAnimation;
-  late Animation<double> _loadingAnimation;
-  late double _menuOffsetX = -1.0;
-  late double _loadingOffsetY;
-  late double _height = 0.0;
+  Animation<double>? _loadingAnimation;
+  double _menuOffsetX = -1.0;
+  double? _loadingOffsetY;
+  double _height = 0.0;
   late DragStartDetails _dragStartDetails;
 
   @override
@@ -70,7 +70,7 @@ class _EditProductFooterState extends State<EditProductFooter>
           vsync: this,
           duration: SmoothAnimationsDuration.long,
         )..addListener(() {
-          setState(() => _loadingOffsetY = _loadingAnimation.value);
+          setState(() => _loadingOffsetY = _loadingAnimation?.value);
         });
 
     if (widget.uploadIndicator) {
@@ -105,6 +105,7 @@ class _EditProductFooterState extends State<EditProductFooter>
 
     final double width = MediaQuery.sizeOf(context).width;
 
+    final double loadingOffsetY = _loadingOffsetY ?? 0;
     return Stack(
       children: <Widget>[
         PositionedDirectional(
@@ -113,11 +114,11 @@ class _EditProductFooterState extends State<EditProductFooter>
           end: BUTTON_WIDTH - 20.0,
           bottom: 0.0,
           child: Offstage(
-            offstage: _loadingOffsetY == _height,
+            offstage: loadingOffsetY == _height,
             child: Opacity(
-              opacity: 1 - _loadingOffsetY.progressAndClamp(0.0, _height, 1.0),
+              opacity: 1 - loadingOffsetY.progressAndClamp(0.0, _height, 1.0),
               child: Transform.translate(
-                offset: Offset(0.0, _loadingOffsetY),
+                offset: Offset(0.0, loadingOffsetY),
                 child: const _EditPageLoadingIndicator(),
               ),
             ),

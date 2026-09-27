@@ -6,11 +6,12 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_image_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_square/knowledge_panel_square_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
 import 'package:smooth_app/services/smooth_services.dart';
+import 'package:smooth_app/widgets/table/scrollable_table_widget.dart';
+import 'package:smooth_app/widgets/table/smooth_table.dart';
 
 /// Extension on KnowledgePanelElement.
 extension KnowledgePanelElementExtension on KnowledgePanelElement {
@@ -110,11 +111,7 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
         );
 
       case KnowledgePanelElementType.TABLE:
-        return KnowledgePanelTableCard(
-          tableElement: tableElement!,
-          isInitiallyExpanded: isInitiallyExpanded,
-          product: product,
-        );
+        return ScrollableTableWidget(SmoothTable.fromKP(tableElement!));
 
       case KnowledgePanelElementType.MAP:
         return KnowledgePanelWorldMapCard(mapElement!);
