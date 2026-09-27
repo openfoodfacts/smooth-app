@@ -97,7 +97,14 @@ class ScanProductCardNotFound extends StatelessWidget {
           if (dense) {
             return SingleChildScrollView(child: clickableChild);
           } else {
-            return clickableChild;
+            return CustomScrollView(
+              slivers: <Widget>[
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: clickableChild,
+                ),
+              ],
+            );
           }
         },
       ),
