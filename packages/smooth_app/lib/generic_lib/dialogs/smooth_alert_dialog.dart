@@ -157,11 +157,11 @@ class SmoothAlertDialog extends StatelessWidget {
     ),
   );
 
-  static EdgeInsetsDirectional defaultContentPadding(BuildContext context) {
-    return (SmoothResponsive(context).deviceType == DeviceType.small
-        ? _smallContentPadding
-        : _contentPadding);
-  }
+  static EdgeInsetsDirectional defaultContentPadding(BuildContext context) =>
+    switch (SmoothResponsive(context).deviceType) {
+      DeviceType.small => _smallContentPadding,
+      _ => _contentPadding,
+    };
 }
 
 class _SmoothDialogTitle extends StatelessWidget {
