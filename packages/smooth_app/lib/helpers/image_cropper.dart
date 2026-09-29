@@ -145,5 +145,6 @@ class ImageCropper {
     bytes: rawData.buffer,
     format: image.Format.uint8,
     order: image.ChannelOrder.rgba,
+    numChannels: 4,
   );
 }
