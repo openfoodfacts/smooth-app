@@ -279,16 +279,20 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
             ),
           );
     final File fullFile = await BackgroundTaskUpload.getFile(fullPath);
+    // TODO(monsieurtanuki): send full image width and height instead of recomputing them
     final ui.Image full = await loadUiImage(await fullFile.readAsBytes());
+    final int fullWidth = full.width;
+    final int fullHeight = full.height;
+    full.dispose();
     if (!forceCompression) {
       if (cropX1 == 0 &&
           cropY1 == 0 &&
           cropX2 == _cropConversionFactor &&
           cropY2 == _cropConversionFactor &&
           rotationDegrees == 0) {
-        if (!isPictureBigEnough(full.width, full.height)) {
+        if (!isPictureBigEnough(fullWidth, fullHeight)) {
           return BackgroundCropResult.error(
-            'Picture too small (${full.width} x ${full.height})',
+            'Picture too small ($fullWidth x $fullHeight)',
           );
         }
         // in that case, no need to crop
@@ -296,8 +300,8 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
           return BackgroundCropResult.success(
             filePath: fullPath,
             fileSize: await fullFile.length(),
-            width: full.width,
-            height: full.height,
+            width: fullWidth,
+            height: fullHeight,
             message: 'Full image "as-is"',
           );
         }
@@ -309,16 +313,10 @@ class BackgroundTaskImage extends BackgroundTaskUpload {
       switch (CropRotationExtension.fromDegrees(rotationDegrees)!) {
         case CropRotation.up:
         case CropRotation.down:
-          return Size(
-            cropRect.width * full.height,
-            cropRect.height * full.width,
-          );
+          return Size(cropRect.width * fullHeight, cropRect.height * fullWidth);
         case CropRotation.left:
         case CropRotation.right:
-          return Size(
-            cropRect.width * full.width,
-            cropRect.height * full.height,
-          );
+          return Size(cropRect.width * fullWidth, cropRect.height * fullHeight);
       }
     }
 

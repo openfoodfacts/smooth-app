@@ -82,14 +82,7 @@ class ProductCropNewHelper extends ProductCropHelper {
     // in this case, it's a brand new picture, with crop parameters.
     // for privacy reasons, we won't send the full image to the server and
     // let it crop it: we'll send the cropped image directly.
-    final File fullFile = await copyFullImageFile(
-      directory,
-      sequenceNumber,
-      smallCroppedFile,
-    );
-    if (!context.mounted) {
-      return null;
-    }
+
     // here we already have a full size cropped image, in smallCroppedFile
     final Rect cropRect = CropHelper.getFullLocalCropRect();
     await BackgroundTaskImage.addTask(
@@ -113,9 +106,9 @@ class ProductCropNewHelper extends ProductCropHelper {
     }
     return getCropParameters(
       controller: controller,
-      fullFile: fullFile,
+      fullFile: smallCroppedFile,
       smallCroppedFile: smallCroppedFile,
-      offsets: offsets,
+      offsets: <Offset>[],
     );
   }
 }
