@@ -80,32 +80,31 @@ class ProductCropNewHelper extends ProductCropHelper {
     required final List<Offset> offsets,
   }) async {
     // in this case, it's a brand new picture, with crop parameters.
-    // for performance reasons, we do not crop the image full-size here,
-    // but in the background task.
     // for privacy reasons, we won't send the full image to the server and
     // let it crop it: we'll send the cropped image directly.
     final File fullFile = await copyFullImageFile(
       directory,
       sequenceNumber,
-      inputFile,
+      smallCroppedFile,
     );
-    final Rect cropRect = getLocalCropRect(controller);
     if (!context.mounted) {
       return null;
     }
+    // here we already have a full size cropped image, in smallCroppedFile
+    final Rect cropRect = CropHelper.getFullLocalCropRect();
     await BackgroundTaskImage.addTask(
       barcode,
       productType: productType,
       language: language,
       imageField: imageField,
-      fullFile: fullFile,
+      fullFile: smallCroppedFile,
       croppedFile: smallCroppedFile,
-      rotation: controller.rotation.degrees,
+      rotation: 0,
       x1: cropRect.left.ceil(),
       y1: cropRect.top.ceil(),
       x2: cropRect.right.floor(),
       y2: cropRect.bottom.floor(),
-      eraserCoordinates: CropHelper.getEraserCoordinates(offsets),
+      eraserCoordinates: <double>[],
       context: context,
     );
 

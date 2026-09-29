@@ -105,9 +105,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final Directory directory = await BackgroundTaskUpload.getDirectory();
     const String BULK_PROOF_IMAGE_SEQUENCE_KEY = 'bulk_proof_image_sequence';
-    final Rect cropRect = CropHelper.getLocalCropRectFromRect(
-      CropHelper.fullImageCropRect,
-    );
+    final Rect cropRect = CropHelper.getFullLocalCropRect();
 
     _setText(appLocalizations.prices_bulk_proof_upload_step_selecting);
     final List<XFile> xFiles = await ImagePicker().pickMultiImage(

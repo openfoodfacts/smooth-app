@@ -37,13 +37,16 @@ abstract class CropHelper {
   /// Should we display the eraser with the crop grid?
   bool get enableEraser;
 
-  static Rect getLocalCropRectFromRect(final Rect crop) =>
+  static Rect _getLocalCropRectFromRect(final Rect crop) =>
       BackgroundTaskImage.getUpsizedRect(crop);
+
+  static Rect getFullLocalCropRect() =>
+      _getLocalCropRectFromRect(CropHelper.fullImageCropRect);
 
   /// Returns the crop rect according to local cropping method * factor.
   @protected
   Rect getLocalCropRect(final CropController controller) =>
-      getLocalCropRectFromRect(controller.crop);
+      _getLocalCropRectFromRect(controller.crop);
 
   @protected
   CropParameters getCropParameters({
