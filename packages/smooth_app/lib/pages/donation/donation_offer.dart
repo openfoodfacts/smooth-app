@@ -1,9 +1,11 @@
+import 'package:intl/intl.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 
 /// Entry point the donation page was opened from.
 enum DonationSource {
   settings(analyticsValue: 1),
-  tagline(analyticsValue: 2);
+  tagline(analyticsValue: 2),
+  reminder(analyticsValue: 3);
 
   const DonationSource({required this.analyticsValue});
 
@@ -33,6 +35,10 @@ class DonationOffer {
     required this.amounts,
     required this.scansPerUnit,
     required this.whereItGoes,
+    required this.reminderEvery,
+    required this.donorCount,
+    required this.funding,
+    required this.monthsLeft,
   });
 
   /// Falls back field by field, so a feed carrying none of this renders the
@@ -41,6 +47,8 @@ class DonationOffer {
     final String? currency = item?.currency;
     final List<int> amounts = _ladder(item?.donationAmounts);
     final num? scansPerUnit = item?.donationScansPerUnit;
+    final num? reminderEvery = item?.donationReminderEvery;
+    final num? donorCount = item?.count;
 
     return DonationOffer(
       currency: currency != null && currency.length == 3
@@ -51,6 +59,14 @@ class DonationOffer {
           ? scansPerUnit.toInt()
           : _fallbackScansPerUnit,
       whereItGoes: item?.donationWhereItGoes ?? const <String>[],
+      reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
+          ? reminderEvery.toInt()
+          : _fallbackReminderEvery,
+      donorCount: donorCount != null && _isUsableCount(donorCount)
+          ? donorCount.toInt()
+          : null,
+      funding: item?.funding,
+      monthsLeft: item?.monthsLeft,
     );
   }
 
@@ -68,6 +84,8 @@ class DonationOffer {
   /// published 2026 infrastructure budget over their published scan volume.
   static const int _fallbackScansPerUnit = 270;
 
+  static const int _fallbackReminderEvery = 10;
+
   /// Sorted and deduplicated: the slider walks the ladder by index, so an
   /// unordered feed makes dragging right ask for less money, and a repeated
   /// amount selects two rows at once.
@@ -82,6 +100,11 @@ class DonationOffer {
   /// to, the same guard [AppNewsFunding.tryFrom] carries.
   static bool _isUsable(num amount) => amount.isFinite && amount > 0;
 
+  /// Stricter than [_isUsable]: a count is read out loud as a whole number,
+  /// so `0.5` (which `_isUsable` would accept) must not truncate to a
+  /// displayed `0`.
+  static bool _isUsableCount(num value) => value.isFinite && value >= 1;
+
   final String currency;
   final List<int> amounts;
   final int scansPerUnit;
@@ -89,6 +112,17 @@ class DonationOffer {
   /// Empty when the feed says nothing, in which case the page keeps its own
   /// translated lines.
   final List<String> whereItGoes;
+
+  final int reminderEvery;
+
+  /// Donors so far, for the reminder sheet's headline. Null when the feed
+  /// carries nothing usable, which falls back to a generic headline.
+  final int? donorCount;
+
+  /// The campaign meter as the home card shows it; null when the feed carries
+  /// no usable figures, and the reminder sheet then shows no meter.
+  final AppNewsFunding? funding;
+  final int? monthsLeft;
 
   List<DonationTier> get tiers => amounts.map(tier).toList(growable: false);
 
@@ -104,6 +138,22 @@ class DonationOffer {
   /// one-time default.
   String oneOffUrl({DonationSource? source}) =>
       '$_campaignUrl?currency=${currency.toLowerCase()}&${_utm(source)}';
+
+  /// [AppLocalizations.localeName] rather than [ProductQuery]: it is the
+  /// locale the sentence itself is in. `intl` ships no number symbols for 46
+  /// of the app's 128 locales and both constructors throw there, so fall back
+  /// rather than lose the tier picker to an ErrorWidget.
+  String _usableLocale(String localeName) =>
+      NumberFormat.localeExists(localeName) ? localeName : 'en';
+
+  NumberFormat amountFormat(String localeName) => NumberFormat.simpleCurrency(
+    locale: _usableLocale(localeName),
+    name: currency,
+    decimalDigits: 0,
+  );
+
+  NumberFormat numberFormat(String localeName) =>
+      NumberFormat.decimalPattern(_usableLocale(localeName));
 }
 
 class DonationTier {

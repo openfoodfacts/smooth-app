@@ -11157,6 +11157,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Thank you! We won\'t ask again for a year.'**
   String get donation_already_donated_thanks;
+
+  /// Headline of the donation reminder sheet, with the number of donors from the feed
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, one{Join the {count} person keeping Open Food Facts free.} other{Join the {count} people keeping Open Food Facts free.}}'**
+  String donation_reminder_title(int count);
+
+  /// Headline of the donation reminder sheet when the feed carries no usable donor count
+  ///
+  /// In en, this message translates to:
+  /// **'Join the people keeping Open Food Facts free.'**
+  String get donation_reminder_title_generic;
+
+  /// Body line of the donation reminder sheet
+  ///
+  /// In en, this message translates to:
+  /// **'A non-profit, built by volunteers, with no ads and no investors. A small monthly gift keeps it free for everyone.'**
+  String get donation_reminder_body;
+
+  /// Quiet button on the donation reminder sheet that closes it without changing anything
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get donation_reminder_not_now;
+
+  /// Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency
+  ///
+  /// In en, this message translates to:
+  /// **'Give {amount} a month'**
+  String donation_reminder_cta(String amount);
+
+  /// Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers
+  ///
+  /// In en, this message translates to:
+  /// **'{scans} scans'**
+  String donation_tier_scans_short(String scans);
+
+  /// Small suffix after the amount on a tier chip of the donation reminder sheet, e.g. '€5 /month'
+  ///
+  /// In en, this message translates to:
+  /// **'/month'**
+  String get donation_tier_per_month;
 }
 
 class _AppLocalizationsDelegate
