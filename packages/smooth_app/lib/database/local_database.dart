@@ -9,6 +9,7 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/up_to_date_product_list_provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/dao_autocomplete.dart';
 import 'package:smooth_app/database/dao_folksonomy.dart';
 import 'package:smooth_app/database/dao_hive_product.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
@@ -78,7 +79,7 @@ class LocalDatabase extends ChangeNotifier {
     final String databasePath = join(databasesRootPath, 'smoothie.db');
     final Database database = await openDatabase(
       databasePath,
-      version: 9,
+      version: 10,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -125,5 +126,7 @@ class LocalDatabase extends ChangeNotifier {
     await DaoProductLastAccess.onUpgrade(db, oldVersion, newVersion);
     await DaoOsmLocation.onUpgrade(db, oldVersion, newVersion);
     await DaoFolksonomy.onUpgrade(db, oldVersion, newVersion);
+    await DaoNamespace.onUpgrade(db, oldVersion, newVersion);
+    await DaoAutocompleteCache.onUpgrade(db, oldVersion, newVersion);
   }
 }
