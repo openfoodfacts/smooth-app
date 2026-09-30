@@ -84,17 +84,27 @@ class ScanProductCardNotFound extends StatelessWidget {
               spacer,
               ScanProductBaseCardButton(
                 text: appLocalizations.carousel_unknown_product_button,
-                onTap: !dense ? () => _onTap(context) : null,
+                onTap: null,
               ),
             ],
           );
 
+          final Widget clickableChild = InkWell(
+            onTap: () => _onTap(context),
+            child: child,
+          );
+
           if (dense) {
-            return SingleChildScrollView(
-              child: InkWell(onTap: () => _onTap(context), child: child),
-            );
+            return SingleChildScrollView(child: clickableChild);
           } else {
-            return child;
+            return CustomScrollView(
+              slivers: <Widget>[
+                SliverFillRemaining(
+                  hasScrollBody: false,
+                  child: clickableChild,
+                ),
+              ],
+            );
           }
         },
       ),
