@@ -46,6 +46,7 @@ AppNewsItem _donationItem({
   num? goal,
   String? currency,
   DateTime? endDate,
+  num? reminderEvery,
 }) => AppNewsItem(
   id: 'donation_campaign_2026',
   title: 'title',
@@ -56,6 +57,7 @@ AppNewsItem _donationItem({
   goal: goal,
   currency: currency,
   endDate: endDate,
+  donationReminderEvery: reminderEvery,
 );
 
 /// Serves one donation news item, mirroring `donation_page_test.dart`'s
@@ -63,7 +65,13 @@ AppNewsItem _donationItem({
 class _FeedNewsProvider extends AppNewsProvider {
   _FeedNewsProvider(super.preferences, this._donation);
 
-  final AppNewsItem? _donation;
+  AppNewsItem? _donation;
+
+  /// Stands in for a feed refresh landing while a page is open.
+  void reload(AppNewsItem donation) {
+    _donation = donation;
+    notifyListeners();
+  }
 
   @override
   AppNewsState get state => _donation == null
@@ -72,7 +80,7 @@ class _FeedNewsProvider extends AppNewsProvider {
           AppNews(
             news: const AppNewsList(<String, AppNewsItem>{}),
             feed: AppNewsFeed(<AppNewsFeedItem>[
-              AppNewsFeedItem(news: _donation),
+              AppNewsFeedItem(news: _donation!),
             ]),
           ),
           DateTime(2026),
@@ -669,6 +677,63 @@ void main() {
       expect(find.byType(DonationReminderSheet), findsNothing);
       _expectPoppedOnce(tester);
       expect(_eventsNamed('donationReminderShown'), hasLength(1));
+    });
+  });
+
+  group('the feed reloads while the product page is open', () {
+    Future<void> openThenReload(
+      WidgetTester tester, {
+      required AppNewsItem before,
+      required AppNewsItem after,
+    }) async {
+      final (
+        UserPreferences userPreferences,
+        ProductPreferences productPreferences,
+      ) = await _preparePreferences();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_tagProductsLookedUp, 9);
+
+      final NavigatorState navigator = await _pumpHomeAndFiller(
+        tester,
+        userPreferences: userPreferences,
+        productPreferences: productPreferences,
+        donation: before,
+      );
+      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
+      (tester.element(find.text('PRODUCT')).read<AppNewsProvider?>()!
+              as _FeedNewsProvider)
+          .reload(after);
+      await tester.pump();
+      await _leaveProductPage(tester);
+    }
+
+    testWidgets('a raised threshold is read at exit: plain pop, no sheet', (
+      WidgetTester tester,
+    ) async {
+      await openThenReload(
+        tester,
+        before: _donationItem(reminderEvery: 10),
+        after: _donationItem(reminderEvery: 20),
+      );
+
+      expect(find.byType(DonationReminderSheet), findsNothing);
+      _expectPoppedOnce(tester);
+      expect(_eventsNamed('donationReminderShown'), isEmpty);
+    });
+
+    testWidgets('the sheet and its event carry the reloaded figures', (
+      WidgetTester tester,
+    ) async {
+      await openThenReload(
+        tester,
+        before: _donationItem(count: 768, reminderEvery: 10),
+        after: _donationItem(count: 855, reminderEvery: 9),
+      );
+
+      expect(find.byType(DonationReminderSheet), findsOneWidget);
+      expect(find.textContaining('855'), findsOneWidget);
+      expect(find.textContaining('768'), findsNothing);
+      expect(_eventsNamed('donationReminderShown').single['e_v'], '9');
     });
   });
 

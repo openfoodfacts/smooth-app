@@ -65,7 +65,6 @@ class DonationReminderScope extends StatefulWidget {
 
 class _DonationReminderScopeState extends State<DonationReminderScope> {
   late final bool _eligible;
-  late final DonationOffer _offer;
   bool _asked = false;
 
   @override
@@ -75,8 +74,7 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
     final UserPreferences preferences = context.read<UserPreferences>();
     unawaited(preferences.countProductLookedUp(widget.barcode));
 
-    _offer = DonationOffer.fromNews(_liveDonation());
-    _eligible = _isEligibleNow();
+    _eligible = _isEligibleNow(DonationOffer.fromNews(_liveDonation()));
   }
 
   AppNewsItem? _liveDonation() {
@@ -84,13 +82,13 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
     return state is AppNewsStateLoaded ? state.content.donation : null;
   }
 
-  bool _isEligibleNow() {
+  bool _isEligibleNow(DonationOffer offer) {
     final UserPreferences preferences = context.read<UserPreferences>();
     final DateTime now = DateTime.now();
     return DonationReminderConditions(
       campaignLive: _liveDonation() != null,
       productsLookedUp: preferences.productsLookedUpSinceAsk,
-      every: _offer.reminderEvery,
+      every: offer.reminderEvery,
       muted: preferences.donationAsksMuted(now),
       appLaunches: preferences.appLaunches,
       lastShownAt: preferences.lastReminderShownAt,
@@ -109,8 +107,9 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
         _asked = true;
 
         // A product page opened from this one may have shown the sheet (or
-        // muted it) since [initState].
-        if (!_isEligibleNow()) {
+        // muted it) since [initState], and the feed may have reloaded.
+        final DonationOffer offer = DonationOffer.fromNews(_liveDonation());
+        if (!_isEligibleNow(offer)) {
           Navigator.of(context).pop();
           return;
         }
@@ -118,7 +117,7 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
         final UserPreferences preferences = context.read<UserPreferences>();
         AnalyticsHelper.trackEvent(
           AnalyticsEvent.donationReminderShown,
-          eventValue: _offer.reminderEvery,
+          eventValue: offer.reminderEvery,
         );
         await preferences.markDonationReminderShown();
         if (!context.mounted) {
@@ -126,7 +125,7 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
         }
         await showSmoothModalSheet<void>(
           context: context,
-          builder: (BuildContext _) => DonationReminderSheet(offer: _offer),
+          builder: (BuildContext _) => DonationReminderSheet(offer: offer),
         );
         if (!context.mounted) {
           return;
