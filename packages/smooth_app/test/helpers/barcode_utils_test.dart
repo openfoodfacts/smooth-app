@@ -49,27 +49,28 @@ void main() {
   group('isBarcode - GS1 barcodes with FNC1 characters', () {
     test(
       r'Valid GS1 barcode with \x1D FNC1 character',
-      () => expect('01123456789012\x1D17270101'.isBarcode, isTrue),
+      () => expect('0104260392550101\x1D17270101'.isBarcode, isTrue),
     );
 
     test(
       r'Valid GS1 barcode with \u241D FNC1 character',
-      () => expect('01123456789012\u241D17270101'.isBarcode, isTrue),
+      () => expect('0104260392550101\u241D17270101'.isBarcode, isTrue),
     );
 
     test(
       'Valid GS1 barcode with multiple FNC1 characters',
-      () => expect('01123456789012\x1D17270101\x1D10ABC123'.isBarcode, isTrue),
+      () =>
+          expect('0104260392550101\x1D17270101\x1D10ABC123'.isBarcode, isTrue),
     );
 
     test(
-      'Valid short string with FNC1 character',
-      () => expect('01\x1D17'.isBarcode, isTrue),
+      'Invalid GS1 data with FNC1 character',
+      () => expect('01\x1D17'.isBarcode, isFalse),
     );
 
     test(
       'Valid GS1 barcode with mixed FNC1 characters',
-      () => expect('01123456789012\x1D17270101\u241D10ABC'.isBarcode, isTrue),
+      () => expect('0104260392550101\x1D17270101\u241D10ABC'.isBarcode, isTrue),
     );
   });
 
@@ -85,13 +86,13 @@ void main() {
     );
 
     test(
-      'Valid bracketed AI with 3-digit AI',
-      () => expect('(310)123456'.isBarcode, isTrue),
+      'Invalid bracketed AI with malformed 3-digit AI data',
+      () => expect('(310)123456'.isBarcode, isFalse),
     );
 
     test(
-      'Valid bracketed AI with 4-digit AI',
-      () => expect('(8005)12345'.isBarcode, isTrue),
+      'Invalid bracketed AI with malformed 4-digit AI data',
+      () => expect('(8005)12345'.isBarcode, isFalse),
     );
 
     test(
@@ -171,13 +172,13 @@ void main() {
     );
 
     test(
-      'Valid Digital Link with 3-digit AI',
-      () => expect('https://example.com/310/123456'.isBarcode, isTrue),
+      'Invalid Digital Link with malformed 3-digit AI data',
+      () => expect('https://example.com/310/123456'.isBarcode, isFalse),
     );
 
     test(
-      'Valid Digital Link with 4-digit AI',
-      () => expect('https://example.com/8005/12345'.isBarcode, isTrue),
+      'Invalid Digital Link with malformed 4-digit AI data',
+      () => expect('https://example.com/8005/12345'.isBarcode, isFalse),
     );
 
     test(
