@@ -92,9 +92,25 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
           }
           final List<Widget> rowWidgets = <Widget>[];
           rowWidgets.add(const SizedBox(width: _dividerSize));
-          int colIndex = 0;
           final HtmlTagRemover htmlTagRemover = HtmlTagRemover();
-          for (final SmoothTableCell cell in row) {
+          for (
+            int colIndex = 0;
+            colIndex < _columnsMaxLength.length;
+            colIndex++
+          ) {
+            if (colIndex >= row.length) {
+              rowWidgets.add(
+                SizedBox(
+                  width: widths[colIndex],
+                  height: 48,
+                  child: ColoredBox(color: color!),
+                ),
+              );
+              rowWidgets.add(const SizedBox(width: _dividerSize));
+              continue;
+            }
+
+            final SmoothTableCell cell = row[colIndex];
             final String withoutHtml = htmlTagRemover.extract(cell.text);
             rowWidgets.add(
               Tooltip(
@@ -119,8 +135,6 @@ class _ScrollableTableWidgetState extends State<ScrollableTableWidget> {
               ),
             );
             rowWidgets.add(const SizedBox(width: _dividerSize));
-
-            colIndex++;
           }
           widgets.add(rowWidgets);
           widgets.add(<Widget>[
