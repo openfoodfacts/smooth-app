@@ -56,6 +56,11 @@ platform :android do
       package_name = ENV["PACKAGE_NAME"] || "org.openfoodfacts.scanner"
       puts "Releasing to package: #{package_name}"
       
+      # Determine the API JSON file path
+      # For now all apps use the same OFF API JSON file
+      # TODO: Support different API JSON files per package when available
+      api_json_file = "./fastlane/envfiles/api-4712693179220384697-162836-33ea08672303.json"
+      
       #gradle(task: "clean")
       #gradle(
       #  task: "bundle",
@@ -66,6 +71,7 @@ platform :android do
         aab: '../build/app/outputs/bundle/release/app-release.aab',
         skip_upload_metadata: true,
         package_name: package_name,
+        json_key: api_json_file,
         skip_upload_images: true,
         skip_upload_screenshots: true,
         skip_upload_changelogs: true,

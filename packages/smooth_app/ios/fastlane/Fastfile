@@ -67,6 +67,13 @@ platform :ios do
     
     puts "Releasing beta version for identifier #{APP_IDENTIFIER}"
 
+    # Update the bundle identifier in the Xcode project
+    update_app_identifier(
+      xcodeproj: "Runner.xcodeproj",
+      plist_path: "Runner/Info.plist",
+      app_identifier: APP_IDENTIFIER
+    )
+
     sync_code_signing(
       type: "appstore", 
       readonly: is_ci, 
