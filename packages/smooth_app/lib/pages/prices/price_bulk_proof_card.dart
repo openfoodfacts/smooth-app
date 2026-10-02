@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +12,6 @@ import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dar
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/image_crop_page.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
@@ -105,9 +103,6 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final Directory directory = await BackgroundTaskUpload.getDirectory();
     const String BULK_PROOF_IMAGE_SEQUENCE_KEY = 'bulk_proof_image_sequence';
-    final Rect cropRect = CropHelper.getLocalCropRectFromRect(
-      CropHelper.fullImageCropRect,
-    );
 
     _setText(appLocalizations.prices_bulk_proof_upload_step_selecting);
     final List<XFile> xFiles = await ImagePicker().pickMultiImage(
@@ -156,13 +151,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
             count,
           ),
         );
-        model.cropParameters = CropParameters(
-          fullFile: toBeUploadedFile,
-          smallCroppedFile: null,
-          rotation: CropRotation.up.degrees,
-          cropRect: cropRect,
-          eraserCoordinates: null,
-        );
+        model.cropParameters = CropParameters.asIs(fullFile: toBeUploadedFile);
         if (!mounted) {
           return null;
         }
