@@ -68,7 +68,7 @@ class ProductCropNewHelper extends ProductCropHelper {
   bool get enableEraser => productType == ProductType.product;
 
   @override
-  Future<CropParameters?> process({
+  Future<CropParameters> process({
     required final BuildContext context,
     required final CropController controller,
     required final File inputFile,
@@ -90,7 +90,6 @@ class ProductCropNewHelper extends ProductCropHelper {
       productType: productType,
       language: language,
       imageField: imageField,
-      fullFile: smallCroppedFile,
       croppedFile: smallCroppedFile,
       rotation: 0,
       x1: cropRect.left.ceil(),
@@ -104,12 +103,7 @@ class ProductCropNewHelper extends ProductCropHelper {
     if (context.mounted) {
       await refresh(context);
     }
-    return getCropParameters(
-      controller: controller,
-      fullFile: smallCroppedFile,
-      smallCroppedFile: smallCroppedFile,
-      offsets: <Offset>[],
-    );
+    return CropParameters.asIs(fullFile: smallCroppedFile);
   }
 }
 
@@ -129,7 +123,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
   bool isNewImage() => false;
 
   @override
-  Future<CropParameters?> process({
+  Future<CropParameters> process({
     required final BuildContext context,
     required final CropController controller,
     required final File inputFile,
@@ -166,11 +160,28 @@ class ProductCropAgainHelper extends ProductCropHelper {
     if (context.mounted) {
       await refresh(context);
     }
-    return getCropParameters(
+    return _getCropParameters(
       controller: controller,
-      fullFile: null,
       smallCroppedFile: smallCroppedFile,
       offsets: offsets,
+    );
+  }
+
+  CropParameters _getCropParameters({
+    required final CropController controller,
+    required final File smallCroppedFile,
+    required final List<Offset> offsets,
+  }) {
+    final Rect cropRect = getLocalCropRect(controller);
+    final List<double> eraserCoordinates = CropHelper.getEraserCoordinates(
+      offsets,
+    );
+    return CropParameters(
+      fullFile: null,
+      smallCroppedFile: smallCroppedFile,
+      rotation: controller.rotation.degrees,
+      cropRect: cropRect,
+      eraserCoordinates: eraserCoordinates,
     );
   }
 

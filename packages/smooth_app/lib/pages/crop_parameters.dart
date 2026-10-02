@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'dart:ui';
 
+import 'package:crop_image/crop_image.dart';
+import 'package:smooth_app/pages/crop_helper.dart';
+
 /// Parameters of the crop operation.
 class CropParameters {
   CropParameters({
@@ -13,6 +16,13 @@ class CropParameters {
        y1 = cropRect.top.ceil(),
        x2 = cropRect.right.floor(),
        y2 = cropRect.bottom.floor();
+
+  factory CropParameters.asIs({required File fullFile}) => CropParameters(
+    fullFile: fullFile,
+    smallCroppedFile: null,
+    rotation: CropRotation.up.degrees,
+    cropRect: CropHelper.getFullLocalCropRect(),
+  );
 
   /// File of the full image.
   final File? fullFile;

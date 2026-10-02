@@ -22,7 +22,7 @@ abstract class CropHelper {
   String getProcessLabel(final AppLocalizations appLocalizations);
 
   /// Processes the crop operation.
-  Future<CropParameters?> process({
+  Future<CropParameters> process({
     required final BuildContext context,
     required final CropController controller,
     required final File inputFile,
@@ -48,24 +48,6 @@ abstract class CropHelper {
   Rect getLocalCropRect(final CropController controller) =>
       _getLocalCropRectFromRect(controller.crop);
 
-  @protected
-  CropParameters getCropParameters({
-    required final CropController controller,
-    required final File? fullFile,
-    required final File smallCroppedFile,
-    required final List<Offset> offsets,
-  }) {
-    final Rect cropRect = getLocalCropRect(controller);
-    final List<double> eraserCoordinates = getEraserCoordinates(offsets);
-    return CropParameters(
-      fullFile: fullFile,
-      smallCroppedFile: smallCroppedFile,
-      rotation: controller.rotation.degrees,
-      cropRect: cropRect,
-      eraserCoordinates: eraserCoordinates,
-    );
-  }
-
   /// Full-size crop, aka no crop.
   static const Rect fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
 
@@ -90,21 +72,5 @@ abstract class CropHelper {
       }
     }
     return offsets;
-  }
-
-  /// Returns a copy of a file with the full image (no cropping here).
-  ///
-  /// To be sent to the server, as well as the crop parameters and the rotation.
-  /// It's faster for us to let the server do the actual cropping full size.
-  @protected
-  Future<File> copyFullImageFile(
-    final Directory directory,
-    final int sequenceNumber,
-    final File inputFile,
-  ) async {
-    final File result;
-    final String fullPath = '${directory.path}/full_image_$sequenceNumber.jpeg';
-    result = inputFile.copySync(fullPath);
-    return result;
   }
 }
