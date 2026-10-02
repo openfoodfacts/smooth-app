@@ -22,14 +22,20 @@ class ScanProductCardFound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductCompatibilityHelper helper =
-        ProductCompatibilityHelper.product(
-          MatchedProductV2(product, context.watch<ProductPreferences>()),
-        );
-
     final ProductPreferences productPreferences = context
         .watch<ProductPreferences>();
-    final String? compatibilityScore = helper.getFormattedScore();
+    final ProductCompatibilityHelper helper =
+        ProductCompatibilityHelper.product(
+          MatchedProductV2(
+            product,
+            productPreferences.getManagerForProduct(product),
+          ),
+        );
+
+    final String? compatibilityScore =
+        (product.productType == null || product.productType == ProductType.food)
+        ? helper.getFormattedScore()
+        : null;
 
     return GestureDetector(
       onTap: () => _openProductPage(context),
