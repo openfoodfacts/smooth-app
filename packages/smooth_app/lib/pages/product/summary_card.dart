@@ -317,6 +317,8 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       );
     }
     // Then, all groups, each with very important and important attributes
+    final ProductPreferencesManager manager = widget._productPreferences
+        .getManagerForProduct(upToDateProduct);
     for (final String groupId in _ATTRIBUTE_GROUP_ORDER) {
       if (upToDateProduct.attributeGroups == null) {
         continue;
@@ -334,7 +336,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
           group,
           PreferenceImportance.ID_VERY_IMPORTANT,
           _attributesToExcludeIfStatusIsUnknown,
-          widget._productPreferences,
+          manager,
         ),
         padding,
       );
@@ -344,7 +346,7 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
             group,
             PreferenceImportance.ID_IMPORTANT,
             _attributesToExcludeIfStatusIsUnknown,
-            widget._productPreferences,
+            manager,
           ),
           padding,
         ),
