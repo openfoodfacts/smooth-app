@@ -374,8 +374,8 @@ class _CropPageState extends State<CropPage> {
     );
   }
 
-  /// Returns a small file with the cropped image, for the transient image.
-  Future<File> _getSmallCroppedImageFile(
+  /// Returns a file with the cropped image + max size, for the transient image.
+  Future<File> _getPreCroppedImageFile(
     final Directory directory,
     final int sequenceNumber,
   ) async {
@@ -472,7 +472,7 @@ class _CropPageState extends State<CropPage> {
     );
     final Directory directory = await BackgroundTaskUpload.getDirectory();
 
-    final File smallCroppedFile = await _getSmallCroppedImageFile(
+    final File preCroppedFile = await _getPreCroppedImageFile(
       directory,
       sequenceNumber,
     );
@@ -486,7 +486,7 @@ class _CropPageState extends State<CropPage> {
       controller: _controller,
       inputFullWidth: _fullImageWidth,
       inputFullHeight: _fullImageHeight,
-      smallCroppedFile: smallCroppedFile,
+      preCroppedFile: preCroppedFile,
       directory: directory,
       inputFile: widget.inputFile,
       sequenceNumber: sequenceNumber,

@@ -28,7 +28,7 @@ abstract class CropHelper {
     required final File inputFile,
     required final int inputFullWidth,
     required final int inputFullHeight,
-    required final File smallCroppedFile,
+    required final File preCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
     required final List<Offset> offsets,
@@ -50,15 +50,6 @@ abstract class CropHelper {
 
   /// Full-size crop, aka no crop.
   static const Rect fullImageCropRect = Rect.fromLTRB(0, 0, 1, 1);
-
-  static List<double> getEraserCoordinates(final List<Offset> offsets) {
-    final List<double> eraserCoordinates = <double>[];
-    for (final Offset offset in offsets) {
-      eraserCoordinates.add(offset.dx);
-      eraserCoordinates.add(offset.dy);
-    }
-    return eraserCoordinates;
-  }
 
   static List<Offset> getOffsets(final List<double>? eraserCoordinates) {
     final List<Offset> offsets = <Offset>[];

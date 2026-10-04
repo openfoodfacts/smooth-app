@@ -151,7 +151,7 @@ class _PriceBulkProofCardState extends State<PriceBulkProofCard> {
             count,
           ),
         );
-        model.cropParameters = CropParameters.asIs(fullFile: toBeUploadedFile);
+        model.cropParameters = CropParameters.asIs(toBeUploadedFile);
         if (!mounted) {
           return null;
         }

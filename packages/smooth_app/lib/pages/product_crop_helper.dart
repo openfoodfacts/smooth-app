@@ -74,7 +74,7 @@ class ProductCropNewHelper extends ProductCropHelper {
     required final File inputFile,
     required final int inputFullWidth,
     required final int inputFullHeight,
-    required final File smallCroppedFile,
+    required final File preCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
     required final List<Offset> offsets,
@@ -90,7 +90,7 @@ class ProductCropNewHelper extends ProductCropHelper {
       productType: productType,
       language: language,
       imageField: imageField,
-      croppedFile: smallCroppedFile,
+      croppedFile: preCroppedFile,
       rotation: 0,
       x1: cropRect.left.ceil(),
       y1: cropRect.top.ceil(),
@@ -103,7 +103,7 @@ class ProductCropNewHelper extends ProductCropHelper {
     if (context.mounted) {
       await refresh(context);
     }
-    return CropParameters.asIs(fullFile: smallCroppedFile);
+    return CropParameters.asIs(preCroppedFile);
   }
 }
 
@@ -129,7 +129,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
     required final File inputFile,
     required final int inputFullWidth,
     required final int inputFullHeight,
-    required final File smallCroppedFile,
+    required final File preCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
     required final List<Offset> offsets,
@@ -149,7 +149,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
       language: language,
       imageField: imageField,
       imageId: imageId,
-      croppedFile: smallCroppedFile,
+      croppedFile: preCroppedFile,
       rotation: controller.rotation.degrees,
       x1: cropRect.left.ceil(),
       y1: cropRect.top.ceil(),
@@ -160,28 +160,10 @@ class ProductCropAgainHelper extends ProductCropHelper {
     if (context.mounted) {
       await refresh(context);
     }
-    return _getCropParameters(
-      controller: controller,
-      smallCroppedFile: smallCroppedFile,
-      offsets: offsets,
-    );
-  }
-
-  CropParameters _getCropParameters({
-    required final CropController controller,
-    required final File smallCroppedFile,
-    required final List<Offset> offsets,
-  }) {
-    final Rect cropRect = getLocalCropRect(controller);
-    final List<double> eraserCoordinates = CropHelper.getEraserCoordinates(
-      offsets,
-    );
-    return CropParameters(
-      fullFile: null,
-      smallCroppedFile: smallCroppedFile,
+    return CropParameters.withoutFullFile(
+      preCroppedFile: preCroppedFile,
       rotation: controller.rotation.degrees,
-      cropRect: cropRect,
-      eraserCoordinates: eraserCoordinates,
+      cropRect: getLocalCropRect(controller),
     );
   }
 

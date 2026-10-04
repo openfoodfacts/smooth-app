@@ -40,7 +40,7 @@ class ProofCropHelper extends CropHelper {
     required final File inputFile,
     required final int inputFullWidth,
     required final int inputFullHeight,
-    required final File smallCroppedFile,
+    required final File preCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
     required final List<Offset> offsets,
@@ -50,6 +50,6 @@ class ProofCropHelper extends CropHelper {
     // let it crop it: we'll send the cropped image directly.
 
     // here we already have a full size cropped image, in smallCroppedFile
-    return CropParameters.asIs(fullFile: smallCroppedFile);
+    return CropParameters.asIs(preCroppedFile);
   }
 }
