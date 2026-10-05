@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/emoji_helper.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
+import 'package:smooth_app/pages/prices/price_header_container.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -15,19 +16,78 @@ class PriceLocationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final String? title = getLocationTitle(location);
-    return ListTile(
-      leading: const icons.Location(),
-      title: title == null
-          ? null
-          : Text(title, maxLines: 1, overflow: TextOverflow.ellipsis),
-      subtitle: location.displayName == null
-          ? null
-          : Text(
-              location.displayName!,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
+    final String name =
+        location.name ?? title ?? appLocalizations.prices_entry_shop_not_found;
+    final String? city = location.city;
+    final String? country = location.country;
+    final String? countryEmoji = EmojiHelper.getCountryEmoji(
+      _getCountry(location),
+    );
+
+    final StringBuffer line2Buffer = StringBuffer();
+    if (city != null && city.isNotEmpty) {
+      line2Buffer.write(city);
+    }
+    if (country != null && country.isNotEmpty) {
+      if (line2Buffer.isNotEmpty) {
+        line2Buffer.write(', ');
+      }
+      line2Buffer.write(country);
+    }
+    if (countryEmoji != null) {
+      if (line2Buffer.isNotEmpty) {
+        line2Buffer.write('  ');
+      }
+      line2Buffer.write(countryEmoji);
+    }
+    final String? line2 = line2Buffer.isNotEmpty
+        ? line2Buffer.toString()
+        : null;
+
+    final String? line3 =
+        location.displayName != null &&
+            location.displayName != name &&
+            location.displayName != line2
+        ? location.displayName
+        : null;
+
+    final int? priceCount = location.priceCount;
+
+    return PriceHeaderContainer(
+      placeholder: const icons.Shop(size: 32.0),
+      line1: name,
+      line2: line2,
+      line3: line3,
+      count: priceCount,
+      semanticsLabel: _generateSemanticsLabel(
+        appLocalizations,
+        name,
+        line2,
+        line3,
+        priceCount,
+      ),
+    );
+  }
+
+  String _generateSemanticsLabel(
+    AppLocalizations appLocalizations,
+    String name,
+    String? line2,
+    String? line3,
+    int? priceCount,
+  ) {
+    final StringBuffer result = StringBuffer(name);
+    if (line2 != null) {
+      result.write(' - $line2');
+    }
+    if (line3 != null) {
+      result.write(' ($line3)');
+    }
+    return appLocalizations.prices_product_accessibility_summary(
+      priceCount ?? 0,
+      result.toString(),
     );
   }
 

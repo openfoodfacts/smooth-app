@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
@@ -13,6 +14,8 @@ import 'package:smooth_app/pages/prices/price_meta_product.dart';
 import 'package:smooth_app/pages/prices/price_product_widget.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -33,8 +36,12 @@ class _PricesProductsPageState extends State<PricesProductsPage>
   @override
   Widget build(final BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     return SmoothScaffold(
+      backgroundColor: lightTheme ? extension.primaryLight : null,
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
@@ -99,8 +106,22 @@ class _InfiniteScrollProductManager
     required BuildContext context,
     required PriceProduct item,
   }) {
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     return SmoothCard(
+      elevation: 5.0,
+      elevationColor: Colors.black26,
+      margin: const EdgeInsetsDirectional.only(
+        top: MEDIUM_SPACE,
+        start: 8.0,
+        end: 8.0,
+      ),
+      padding: EdgeInsetsDirectional.zero,
+      color: lightTheme ? null : extension.primaryUltraBlack,
       child: InkWell(
+        borderRadius: ROUNDED_BORDER_RADIUS,
         onTap: () async => Navigator.of(context).push<void>(
           MaterialPageRoute<void>(
             builder: (BuildContext context) => PricesPage(
@@ -111,7 +132,10 @@ class _InfiniteScrollProductManager
             ),
           ),
         ),
-        child: PriceProductWidget(item),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+          child: PriceProductWidget(item),
+        ),
       ),
     );
   }

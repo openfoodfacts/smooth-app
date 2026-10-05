@@ -9,9 +9,12 @@ import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_list.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
-import 'package:smooth_app/pages/prices/price_count_widget.dart';
+import 'package:smooth_app/pages/prices/price_header_container.dart';
 import 'package:smooth_app/pages/prices/price_user_button.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:vector_graphics/vector_graphics.dart';
@@ -31,8 +34,12 @@ class _PricesUsersPageState extends State<PricesUsersPage>
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
 
     return SmoothScaffold(
+      backgroundColor: lightTheme ? extension.primaryLight : null,
       appBar: SmoothAppBar(
         centerTitle: false,
         leading: const SmoothBackButton(),
@@ -92,20 +99,38 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
 
   @override
   Widget buildItem({required BuildContext context, required PriceUser item}) {
-    final int priceCount = item.priceCount ?? 0;
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
     return SmoothCard(
-      child: Wrap(
-        spacing: VERY_SMALL_SPACE,
-        children: <Widget>[
-          PriceUserButton(item.userId),
-          PriceCountWidget(
-            count: priceCount,
-            onPressed: () async => PriceUserButton.showUserPrices(
-              user: item.userId,
-              context: context,
-            ),
+      elevation: 5.0,
+      elevationColor: Colors.black26,
+      margin: const EdgeInsetsDirectional.only(
+        top: MEDIUM_SPACE,
+        start: 8.0,
+        end: 8.0,
+      ),
+      padding: EdgeInsetsDirectional.zero,
+      color: lightTheme ? null : extension.primaryUltraBlack,
+      child: InkWell(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        onTap: () async =>
+            PriceUserButton.showUserPrices(user: item.userId, context: context),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+          child: PriceHeaderContainer(
+            placeholder: const icons.Profile(size: 32.0),
+            line1: item.userId,
+            count: item.priceCount,
+            semanticsLabel: appLocalizations
+                .prices_product_accessibility_summary(
+                  item.priceCount ?? 0,
+                  item.userId,
+                ),
           ),
-        ],
+        ),
       ),
     );
   }
