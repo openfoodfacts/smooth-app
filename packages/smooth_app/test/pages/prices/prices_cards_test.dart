@@ -101,7 +101,56 @@ void main() {
       expect(find.text('Monoprix, Lyon, France'), findsOneWidget);
       expect(find.text('15'), findsOneWidget);
       expect(find.byType(icons.Shop), findsOneWidget);
+      expect(
+        find.bySemanticsLabel(
+          '15 prices for Monoprix - Lyon, France  🇫🇷 (Monoprix, Lyon, France)',
+        ),
+        findsOneWidget,
+      );
     });
+
+    testWidgets('renders Location semantics label with singular price count', (
+      WidgetTester tester,
+    ) async {
+      final Location location = Location()
+        ..locationId = 102
+        ..name = 'Carrefour'
+        ..city = 'Paris'
+        ..country = 'France'
+        ..countryCode = 'fr'
+        ..priceCount = 1;
+
+      await tester.pumpWidget(_wrapWithApp(PriceLocationWidget(location)));
+
+      expect(find.text('Carrefour'), findsOneWidget);
+      expect(find.text('1'), findsOneWidget);
+      expect(
+        find.bySemanticsLabel('1 price for Carrefour - Paris, France  🇫🇷'),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets(
+      'renders assembled location text directly when priceCount is null',
+      (WidgetTester tester) async {
+        final Location location = Location()
+          ..locationId = 103
+          ..name = "Bio c' Bon"
+          ..city = 'Nice'
+          ..country = 'France'
+          ..countryCode = 'fr'
+          ..priceCount = null;
+
+        await tester.pumpWidget(_wrapWithApp(PriceLocationWidget(location)));
+
+        expect(find.text("Bio c' Bon"), findsOneWidget);
+        expect(find.text('Nice, France  🇫🇷'), findsOneWidget);
+        expect(
+          find.bySemanticsLabel("Bio c' Bon - Nice, France  🇫🇷"),
+          findsOneWidget,
+        );
+      },
+    );
   });
 
   group('PriceProductWidget tests', () {
@@ -122,7 +171,120 @@ void main() {
       expect(find.text('Lactel'), findsOneWidget);
       expect(find.text('1 L'), findsOneWidget);
       expect(find.text('8'), findsOneWidget);
+      expect(
+        find.bySemanticsLabel('8 prices for Organic Milk - Lactel (1 L)'),
+        findsOneWidget,
+      );
     });
+
+    testWidgets('renders PriceProduct semantics label with singular count', (
+      WidgetTester tester,
+    ) async {
+      final PriceProduct product = PriceProduct()
+        ..code = '9876543210987'
+        ..name = 'Oat Milk'
+        ..brands = 'Oatly'
+        ..quantity = 1
+        ..quantityUnit = 'L'
+        ..priceCount = 1;
+
+      await tester.pumpWidget(_wrapWithApp(PriceProductWidget(product)));
+
+      expect(find.text('Oat Milk'), findsOneWidget);
+      expect(find.text('1'), findsOneWidget);
+      expect(
+        find.bySemanticsLabel('1 price for Oat Milk - Oatly (1 L)'),
+        findsOneWidget,
+      );
+    });
+  });
+
+  group('User / contributor accessibility semantics tests', () {
+    testWidgets(
+      'renders user header with plural prices_user_accessibility_summary',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          _wrapWithApp(
+            Builder(
+              builder: (BuildContext context) {
+                final AppLocalizations appLocalizations = AppLocalizations.of(
+                  context,
+                );
+                return PriceHeaderContainer(
+                  placeholder: const icons.Profile(size: 32.0),
+                  line1: 'alex_contributor',
+                  count: 10,
+                  semanticsLabel: appLocalizations
+                      .prices_user_accessibility_summary(
+                        10,
+                        'alex_contributor',
+                      ),
+                );
+              },
+            ),
+          ),
+        );
+
+        expect(find.text('alex_contributor'), findsOneWidget);
+        expect(find.text('10'), findsOneWidget);
+        expect(find.byType(icons.Profile), findsOneWidget);
+        expect(
+          find.bySemanticsLabel('10 prices for alex_contributor'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'renders user header with singular prices_user_accessibility_summary',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          _wrapWithApp(
+            Builder(
+              builder: (BuildContext context) {
+                final AppLocalizations appLocalizations = AppLocalizations.of(
+                  context,
+                );
+                return PriceHeaderContainer(
+                  placeholder: const icons.Profile(size: 32.0),
+                  line1: 'sam_shopper',
+                  count: 1,
+                  semanticsLabel: appLocalizations
+                      .prices_user_accessibility_summary(1, 'sam_shopper'),
+                );
+              },
+            ),
+          ),
+        );
+
+        expect(find.text('sam_shopper'), findsOneWidget);
+        expect(find.text('1'), findsOneWidget);
+        expect(find.byType(icons.Profile), findsOneWidget);
+        expect(
+          find.bySemanticsLabel('1 price for sam_shopper'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'renders user header with username directly when priceCount is null',
+      (WidgetTester tester) async {
+        await tester.pumpWidget(
+          _wrapWithApp(
+            const PriceHeaderContainer(
+              placeholder: icons.Profile(size: 32.0),
+              line1: 'anonymous_user',
+              semanticsLabel: 'anonymous_user',
+            ),
+          ),
+        );
+
+        expect(find.text('anonymous_user'), findsOneWidget);
+        expect(find.byType(icons.Profile), findsOneWidget);
+        expect(find.bySemanticsLabel('anonymous_user'), findsOneWidget);
+      },
+    );
   });
 
   group('Theme variations and dark mode', () {
