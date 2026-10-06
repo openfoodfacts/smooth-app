@@ -124,11 +124,12 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
             placeholder: const icons.Profile(size: 32.0),
             line1: item.userId,
             count: item.priceCount,
-            semanticsLabel: appLocalizations
-                .prices_product_accessibility_summary(
-                  item.priceCount ?? 0,
-                  item.userId,
-                ),
+            semanticsLabel: item.priceCount != null
+                ? appLocalizations.prices_user_accessibility_summary(
+                    item.priceCount!,
+                    item.userId,
+                  )
+                : item.userId,
           ),
         ),
       ),

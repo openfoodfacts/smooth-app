@@ -85,8 +85,11 @@ class PriceLocationWidget extends StatelessWidget {
     if (line3 != null) {
       result.write(' ($line3)');
     }
-    return appLocalizations.prices_product_accessibility_summary(
-      priceCount ?? 0,
+    if (priceCount == null) {
+      return result.toString();
+    }
+    return appLocalizations.prices_location_accessibility_summary(
+      priceCount,
       result.toString(),
     );
   }
