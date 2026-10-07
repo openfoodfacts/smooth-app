@@ -4,10 +4,13 @@ import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
 import 'package:smooth_app/helpers/strings_helper.dart';
 import 'package:smooth_app/pages/input/debounced_text_editing_controller.dart';
+import 'package:smooth_app/pages/input/suggestion_cache.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 
 /// Autocomplete text field.
@@ -211,12 +214,9 @@ class _SmoothAutocompleteTextFieldState
       return _SearchResults.empty();
     }
 
-    final DateTime start = DateTime.now();
-
     if (_suggestions[search] != null) {
       return _suggestions[search]!;
-    } else if (widget.manager == null ||
-        search.length < widget.minLengthForSuggestions) {
+    } else if (search.length < widget.minLengthForSuggestions) {
       _suggestions[search] = _SearchResults.empty();
       return _suggestions[search]!;
     }
@@ -224,22 +224,27 @@ class _SmoothAutocompleteTextFieldState
     _setLoading(true);
 
     try {
-      _suggestions[search] = _SearchResults(
-        await widget.manager!.getSuggestions(search),
-      );
-    } catch (_) {}
+      final List<String> results;
 
-    if (_suggestions[search]?.isEmpty ?? true && search == _searchInput) {
+      if (widget.suggestionCache != null) {
+        results = await widget.suggestionCache!.getSuggestions(search);
+      } else if (widget.manager != null) {
+        results = await widget.manager!.getSuggestions(search);
+      } else {
+        results = <String>[];
+      }
+
+      _suggestions[search] = _SearchResults(results);
+    } catch (_) {
+      return _SearchResults.empty();
+    } finally {
       _setLoading(false);
     }
+    // if (_suggestions[search]?.isEmpty ?? true && search == _searchInput) {
+    //   _setLoading(false);
+    // }
 
-    if (_searchInput != search &&
-        start.difference(DateTime.now()).inSeconds > 5) {
-      // Ignore this request, it's too long and this is not even the current search
-      return _SearchResults.empty();
-    } else {
-      return _suggestions[search] ?? _SearchResults.empty();
-    }
+    return _suggestions[search] ?? _SearchResults.empty();
   }
 }
 
