@@ -1,0 +1,174 @@
+name: 📱 Generate Signed PR APK
+
+on:
+  # Automatic trigger for PRs opened/updated by trusted maintainers
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+  # On-demand trigger by trusted maintainers commenting `/build-apk` on any PR
+  issue_comment:
+    types: [created]
+  # Manual dispatch trigger
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: 'PR number to build signed APK for'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: pr-signed-apk-${{ github.event.issue.number || github.event.pull_request.number || inputs.pr_number }}
+  cancel-in-progress: true
+
+jobs:
+  build-signed-apk:
+    name: Build Signed APK
+    # Restrict execution to trusted maintainers to safeguard signing secrets:
+    # 1. PRs authored by teolemon, monsieurtanuki, or g123k
+    # 2. Comments with '/build-apk' posted by teolemon, monsieurtanuki, or g123k on any PR
+    # 3. Manual dispatch by teolemon, monsieurtanuki, or g123k
+    if: |
+      (github.event_name == 'pull_request_target' && (
+        github.event.pull_request.user.login == 'teolemon' ||
+        github.event.pull_request.user.login == 'monsieurtanuki' ||
+        github.event.pull_request.user.login == 'g123k'
+      )) ||
+      (github.event_name == 'issue_comment' &&
+       github.event.issue.pull_request &&
+       startsWith(trim(github.event.comment.body), '/build-apk') && (
+        github.event.comment.user.login == 'teolemon' ||
+        github.event.comment.user.login == 'monsieurtanuki' ||
+        github.event.comment.user.login == 'g123k'
+       )
+      ) ||
+      (github.event_name == 'workflow_dispatch' && (
+        github.actor == 'teolemon' ||
+        github.actor == 'monsieurtanuki' ||
+        github.actor == 'g123k'
+      ))
+    runs-on: ubuntu-latest
+    env:
+      JAVA_VERSION: 21
+
+    steps:
+      - name: 👀 Acknowledge comment
+        if: github.event_name == 'issue_comment'
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          reactions: eyes
+
+      - name: Determine PR number
+        id: pr-context
+        run: |
+          PR_NUM="${{ github.event.issue.number || github.event.pull_request.number || inputs.pr_number }}"
+          echo "pr_number=$PR_NUM" >> $GITHUB_OUTPUT
+
+      - name: 📂 Checkout PR code
+        uses: actions/checkout@v7
+        with:
+          ref: refs/pull/${{ steps.pr-context.outputs.pr_number }}/head
+
+      - name: 🏷️ Get commit info
+        id: commit-info
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+          echo "short_sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - name: ☕ Setup Java JDK
+        uses: actions/setup-java@v6.0.1
+        with:
+          distribution: 'zulu'
+          java-version: ${{ env.JAVA_VERSION }}
+
+      - name: 🏷️ Get Flutter version
+        id: flutter-version
+        run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+
+      - name: 🪺 Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages/smooth_app/pubspec.lock')}}
+
+      - name: 🔍 Enable scanner dependency (ML Kit)
+        run: chmod +x ci/dependencies/scanner/enable_mlkit_dependency.sh && ci/dependencies/scanner/enable_mlkit_dependency.sh
+
+      - name: 🏪 Enable app store review dependency (Google Play)
+        run: chmod +x ci/dependencies/app_store/enable_google_play_dependency.sh && ci/dependencies/app_store/enable_google_play_dependency.sh
+
+      - name: 📦 Get dependencies
+        run: ci/pub_get.sh
+
+      - name: 🔐 Decrypt Android keystore
+        run: |
+          gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.NEW_CYPHER }}" \
+            --output packages/smooth_app/android/fastlane/envfiles/keystore.jks \
+            packages/smooth_app/android/fastlane/envfiles/keystore.jks.gpg
+
+      - name: 🔨 Build signed APK
+        working-directory: ./packages/smooth_app
+        run: flutter build apk --release -t lib/entrypoints/android/main_google_play.dart --target-platform android-arm,android-arm64
+        env:
+          SIGN_STORE_PATH: ${{ github.workspace }}/packages/smooth_app/android/fastlane/envfiles/keystore.jks
+          SIGN_STORE_PASSWORD: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
+          SIGN_KEY_ALIAS: ${{ secrets.ALIAS_FOR_SCANNER }}
+          SIGN_KEY_PASSWORD: ${{ secrets.KEY_FOR_SCANNER }}
+
+      - name: 🧹 Clean up decrypted keystore
+        if: always()
+        run: rm -f packages/smooth_app/android/fastlane/envfiles/keystore.jks
+
+      - name: 📋 Prepare APK for upload
+        id: prepare-apk
+        run: |
+          APK_FILENAME="smooth-app-pr-${{ steps.pr-context.outputs.pr_number }}-${{ steps.commit-info.outputs.short_sha }}-signed.apk"
+          cp packages/smooth_app/build/app/outputs/flutter-apk/app-release.apk "$APK_FILENAME"
+          echo "apk_filename=$APK_FILENAME" >> $GITHUB_OUTPUT
+
+      - name: ⬆️ Upload APK artifact
+        id: upload-artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: smooth-app-pr-${{ steps.pr-context.outputs.pr_number }}-signed-apk
+          path: ${{ steps.prepare-apk.outputs.apk_filename }}
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 14
+
+      - name: 🔍 Find existing PR comment
+        uses: peter-evans/find-comment@v4
+        id: find-comment
+        with:
+          issue-number: ${{ steps.pr-context.outputs.pr_number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: 'Signed APK ready for testing!'
+
+      - name: 💬 Post or update PR comment
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ steps.find-comment.outputs.comment-id }}
+          issue-number: ${{ steps.pr-context.outputs.pr_number }}
+          edit-mode: replace
+          body: |
+            ### 📱 Signed APK ready for testing!
+
+            A signed release APK has been generated for PR #${{ steps.pr-context.outputs.pr_number }} at commit `${{ steps.commit-info.outputs.short_sha }}`.
+
+            - 📥 **[Download Signed APK](${{ steps.upload-artifact.outputs.artifact-url }})**
+            - 📦 **Artifact file:** `${{ steps.prepare-apk.outputs.apk_filename }}` (in zip archive)
+            - 🔗 **[View Workflow Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})**
+
+            > _Note: You must be logged into GitHub to download the build artifact. Extract the downloaded zip file to install the APK._
+
+      - name: 🚀 Add rocket reaction to comment
+        if: github.event_name == 'issue_comment' && success()
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          reactions: rocket
