@@ -34,35 +34,22 @@ class ProofCropHelper extends CropHelper {
   bool get enableEraser => true;
 
   @override
-  Future<CropParameters?> process({
+  Future<CropParameters> process({
     required final BuildContext context,
     required final CropController controller,
     required final File inputFile,
     required final int inputFullWidth,
     required final int inputFullHeight,
-    required final File smallCroppedFile,
+    required final File preCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
     required final List<Offset> offsets,
   }) async {
     // It's a brand new picture, with crop parameters.
-    // For performance reasons, we do not crop the image full-size here,
-    // but in the background task.
     // For privacy reasons, we won't send the full image to the server and
     // let it crop it: we'll send the cropped image directly.
-    final File fullFile = await copyFullImageFile(
-      directory,
-      sequenceNumber,
-      inputFile,
-    );
-    if (!context.mounted) {
-      return null;
-    }
-    return getCropParameters(
-      controller: controller,
-      fullFile: fullFile,
-      smallCroppedFile: smallCroppedFile,
-      offsets: offsets,
-    );
+
+    // here we already have a full size cropped image, in smallCroppedFile
+    return CropParameters.asIs(preCroppedFile);
   }
 }

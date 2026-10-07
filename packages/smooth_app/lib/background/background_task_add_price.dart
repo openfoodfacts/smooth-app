@@ -196,7 +196,7 @@ class BackgroundTaskAddPrice extends BackgroundTaskPrice {
     currency: currency,
     locationOSMId: locationOSMId,
     locationOSMType: locationOSMType,
-    eraserCoordinates: cropObject.eraserCoordinates,
+    eraserCoordinates: null,
     barcodes: barcodes,
     categories: categories,
     origins: origins,
