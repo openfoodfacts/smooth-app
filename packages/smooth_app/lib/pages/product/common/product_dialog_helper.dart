@@ -144,7 +144,7 @@ class ProductDialogHelper {
                   ),
                   SizedBox(
                     height:
-                        MediaQuery.of(context).viewPadding.bottom + SMALL_SPACE,
+                        MediaQuery.viewPaddingOf(context).bottom + SMALL_SPACE,
                   ),
                 ],
               ),

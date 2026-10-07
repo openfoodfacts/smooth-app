@@ -355,7 +355,7 @@ class SliverListBldr extends StatelessWidget {
           padding: const EdgeInsets.only(left: 10.0, bottom: 20, right: 10),
           child: SizedBox(
             height: 200,
-            width: MediaQuery.of(context).size.width,
+            width: MediaQuery.widthOf(context),
             child: const Text('Text'),
           ),
         );
