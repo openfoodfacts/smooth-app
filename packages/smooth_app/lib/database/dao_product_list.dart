@@ -51,6 +51,12 @@ class _BarcodeListAdapter extends TypeAdapter<_BarcodeList> {
     } catch (e) {
       totalSize = _uselessTotalSizeValue;
     }
+    try {
+      // Discard legacy API barcodes written by older versions.
+      reader.readString();
+    } catch (e) {
+      // Older records don't contain API barcodes.
+    }
     return _BarcodeList(timestamp, barcodes, totalSize);
   }
 
