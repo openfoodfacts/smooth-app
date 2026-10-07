@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
@@ -39,6 +40,12 @@ class AppBarStatisticsCard extends StatefulWidget {
 
 class _AppBarStatisticsCardState extends State<AppBarStatisticsCard> {
   bool _loading = false;
+
+  @override
+  void initState() {
+    super.initState();
+    unawaited(_asyncLoad());
+  }
 
   @override
   Widget build(BuildContext context) {
