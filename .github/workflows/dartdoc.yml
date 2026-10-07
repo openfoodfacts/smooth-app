@@ -1,42 +1,61 @@
-#permissions:
-#  contents: read
-#  pages: write
 name: GitHub Pages Deploy Action
+
 on:
-    push:
-        branches:
-           - "develop"
+  push:
+    branches:
+      - "develop"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
 jobs:
-    deploy-pages:
-        name: Deploy to GitHub Pages
-        runs-on: ubuntu-latest
-        defaults:
-          run:
-            working-directory: ./packages/smooth_app
-        steps:
-            - name: Checkout code	
-              uses: actions/checkout@v7	
-            - name: Setup Flutter	
-              uses: actions/cache@v6	
-              with:	
-                path: ${{ runner.tool_cache }}/flutter	
-                key: flutter-2.5.0-stable	
-            - uses: subosito/flutter-action@v2	
-              with:	
-                channel: stable	
-                flutter-version: 2.5.0	
-            - name: Run Dartdoc
-              run: pub global activate dartdoc && dartdoc
-            - name: Install mkdocs and mkdocs-material
-              run: |
-                python -m pip install --upgrade pip
-                pip install mkdocs mkdocs-material mdx_truly_sane_lists pymdown-extensions mkdocs-awesome-pages-plugin
-            - name: Build documentation using mkdocs
-              run: mkdocs build
-            - name: Deploy smooth_app documentation to Github Pages
-              uses: JamesIves/github-pages-deploy-action@v4.9.0	
-              with:
-                BRANCH: gh-pages
-                FOLDER: packages/smooth_app/gh_pages/
-#Deploy scanner documentation to Github Pages
-#Deploy API documentation to Github Pages
+  deploy-pages:
+    name: Deploy to GitHub Pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
+
+      # Get the Flutter version from ./flutter-version.txt
+      - name: Get Flutter version
+        run: echo "FLUTTER_VERSION=$(cat flutter-version.txt)" >> $GITHUB_OUTPUT
+        id: flutter-version
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          cache: true
+          flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
+          cache-key: flutter-${{ hashFiles('flutter-version.txt') }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
+
+      - name: Verify Flutter version
+        run: flutter --version
+
+      - name: Get dependencies
+        run: ci/pub_get.sh
+
+      - name: Run Dartdoc
+        run: dart doc .
+        working-directory: ./packages/smooth_app
+
+      - name: Install mkdocs and mkdocs-material
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs mkdocs-material mdx_truly_sane_lists pymdown-extensions mkdocs-awesome-pages-plugin
+        working-directory: ./packages/smooth_app
+
+      - name: Build documentation using mkdocs
+        run: mkdocs build
+        working-directory: ./packages/smooth_app
+
+      - name: Deploy smooth_app documentation to Github Pages
+        uses: JamesIves/github-pages-deploy-action@v4.9.0
+        with:
+          BRANCH: gh-pages
+          FOLDER: packages/smooth_app/gh_pages/
