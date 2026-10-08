@@ -720,7 +720,7 @@
   "@new_product_found_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "new_product_found_button": "添加该商品",
+  "new_product_found_button": "添加该产品",
   "new_product_leave_title": "离开此页面吗？",
   "@new_product_leave_title": {
     "description": "Alert dialog title when a user landed on the 'add new product' page, didn't input anything and tried to leave the page."
@@ -4608,7 +4608,7 @@
   "@carousel_unknown_product_text": {
     "description": "Please keep the ** syntax to make the text bold"
   },
-  "carousel_unknown_product_button": "添加该商品",
+  "carousel_unknown_product_button": "添加该产品",
   "carousel_loading_header": "正在加载信息...",
   "@carousel_loading_header": {
     "description": "A label on top of the carousel card when data about the product is loading"
