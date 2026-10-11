@@ -198,6 +198,7 @@ class _CropPageState extends State<CropPage> {
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final Widget processIcon = widget.cropHelper.getProcessIcon();
     return WillPopScope2(
       onWillPop: _onWillPop,
       child: SmoothScaffold(
@@ -346,7 +347,12 @@ class _CropPageState extends State<CropPage> {
                               appLocalizations,
                             ),
                             onPressed: () async => _saveImageAndPop(),
-                            child: widget.cropHelper.getProcessIcon(),
+                            child: Transform.translate(
+                              offset: processIcon is icons.Check
+                                  ? const Offset(-3.0, 0.0)
+                                  : Offset.zero,
+                              child: processIcon,
+                            ),
                           ),
                         ],
                       ),
