@@ -98,43 +98,8 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
   }
 
   @override
-  Widget buildItem({required BuildContext context, required PriceUser item}) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final SmoothColorsThemeExtension extension = context
-        .extension<SmoothColorsThemeExtension>();
-    final bool lightTheme = context.lightTheme();
-
-    return SmoothCard(
-      elevation: 5.0,
-      elevationColor: Colors.black26,
-      margin: const EdgeInsetsDirectional.only(
-        top: MEDIUM_SPACE,
-        start: 8.0,
-        end: 8.0,
-      ),
-      padding: EdgeInsetsDirectional.zero,
-      color: lightTheme ? null : extension.primaryUltraBlack,
-      child: InkWell(
-        borderRadius: ROUNDED_BORDER_RADIUS,
-        onTap: () async =>
-            PriceUserButton.showUserPrices(user: item.userId, context: context),
-        child: Padding(
-          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-          child: PriceHeaderContainer(
-            placeholder: const icons.Profile(size: 32.0),
-            line1: item.userId,
-            count: item.priceCount,
-            semanticsLabel: item.priceCount != null
-                ? appLocalizations.prices_user_accessibility_summary(
-                    item.priceCount!,
-                    item.userId,
-                  )
-                : item.userId,
-          ),
-        ),
-      ),
-    );
-  }
+  Widget buildItem({required BuildContext context, required PriceUser item}) =>
+      PriceUserCard(item);
 
   @override
   String formattedItemCount(
@@ -162,4 +127,50 @@ class _InfiniteScrollUserManager extends InfiniteScrollManager<PriceUser> {
   @override
   String emptyListExplanation(AppLocalizations appLocalizations) =>
       appLocalizations.prices_users_empty_explanation;
+}
+
+/// Card displaying a single contributor in the top users list.
+class PriceUserCard extends StatelessWidget {
+  const PriceUserCard(this.user);
+
+  final PriceUser user;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
+    final bool lightTheme = context.lightTheme();
+
+    return SmoothCard(
+      elevation: 5.0,
+      elevationColor: Colors.black26,
+      margin: const EdgeInsetsDirectional.only(
+        top: MEDIUM_SPACE,
+        start: 8.0,
+        end: 8.0,
+      ),
+      padding: EdgeInsetsDirectional.zero,
+      color: lightTheme ? null : extension.primaryUltraBlack,
+      child: InkWell(
+        borderRadius: ROUNDED_BORDER_RADIUS,
+        onTap: () async =>
+            PriceUserButton.showUserPrices(user: user.userId, context: context),
+        child: Padding(
+          padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
+          child: PriceHeaderContainer(
+            placeholder: const icons.Profile(size: 32.0),
+            line1: user.userId,
+            count: user.priceCount,
+            semanticsLabel: user.priceCount != null
+                ? appLocalizations.prices_user_accessibility_summary(
+                    user.priceCount!,
+                    user.userId,
+                  )
+                : user.userId,
+          ),
+        ),
+      ),
+    );
+  }
 }

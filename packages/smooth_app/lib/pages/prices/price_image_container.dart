@@ -44,14 +44,7 @@ class PriceImageContainer extends StatelessWidget {
                 borderRadius: ANGULAR_BORDER_RADIUS,
               )
             else if (placeholder != null)
-              SizedBox.expand(
-                child: DecoratedBox(
-                  decoration: const BoxDecoration(
-                    borderRadius: ANGULAR_BORDER_RADIUS,
-                  ),
-                  child: Center(child: placeholder),
-                ),
-              )
+              Center(child: placeholder)
             else
               const PictureNotFound.ink(
                 backgroundDecoration: BoxDecoration(

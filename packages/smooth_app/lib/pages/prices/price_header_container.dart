@@ -86,7 +86,12 @@ class PriceHeaderContainer extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                         style: Theme.of(context).textTheme.bodyMedium,
                       ),
-                    if (line3 != null) Text(line3!),
+                    if (line3 != null)
+                      Text(
+                        line3!,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                   ],
                 ),
               ),

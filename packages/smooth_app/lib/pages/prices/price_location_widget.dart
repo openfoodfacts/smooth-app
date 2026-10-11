@@ -17,9 +17,13 @@ class PriceLocationWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final String? websiteDomain = getWebsiteDomain(location.websiteUrl);
     final String? title = getLocationTitle(location);
     final String name =
-        location.name ?? title ?? appLocalizations.prices_entry_shop_not_found;
+        (location.name != null && location.name!.trim().isNotEmpty)
+        ? location.name!.trim()
+        : (websiteDomain ??
+              (title ?? appLocalizations.prices_entry_shop_not_found));
     final String? city = location.city;
     final String? country = location.country;
     final String? countryEmoji = EmojiHelper.getCountryEmoji(
@@ -121,6 +125,31 @@ class PriceLocationWidget extends StatelessWidget {
       return null;
     }
     return result.toString();
+  }
+
+  static String? getWebsiteDomain(final String? rawUrl) {
+    if (rawUrl == null || rawUrl.trim().isEmpty) {
+      return null;
+    }
+    final String trimmed = rawUrl.trim();
+    try {
+      final Uri? uri = Uri.tryParse(
+        trimmed.contains('://') ? trimmed : 'https://$trimmed',
+      );
+      if (uri == null) {
+        return null;
+      }
+      final String host = uri.host.trim();
+      if (host.isNotEmpty) {
+        return host.startsWith('www.') ? host.substring(4) : host;
+      }
+      if (!trimmed.contains('/') && trimmed.contains('.')) {
+        return trimmed.startsWith('www.') ? trimmed.substring(4) : trimmed;
+      }
+    } catch (_) {
+      return null;
+    }
+    return null;
   }
 
   static OpenFoodFactsCountry? _getCountry(final Location location) =>
