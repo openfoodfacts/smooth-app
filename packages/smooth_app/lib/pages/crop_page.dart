@@ -323,15 +323,6 @@ class _CropPageState extends State<CropPage> {
                                 _eraserModel.rotation = _controller.rotation;
                               }),
                             ),
-                          if (!_isErasing)
-                            _IconButton(
-                              icon: const icons.Rotate.clockwise(),
-                              tooltip: appLocalizations.photo_rotate_right,
-                              onPressed: () => setState(() {
-                                _controller.rotateRight();
-                                _eraserModel.rotation = _controller.rotation;
-                              }),
-                            ),
                           if (widget.cropHelper.enableEraser)
                             _IconButton(
                               icon: _isErasing
