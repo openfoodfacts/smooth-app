@@ -198,7 +198,6 @@ class _CropPageState extends State<CropPage> {
     }
 
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final Widget processIcon = widget.cropHelper.getProcessIcon();
     return WillPopScope2(
       onWillPop: _onWillPop,
       child: SmoothScaffold(
@@ -324,6 +323,15 @@ class _CropPageState extends State<CropPage> {
                                 _eraserModel.rotation = _controller.rotation;
                               }),
                             ),
+                          if (!_isErasing)
+                            _IconButton(
+                              icon: const icons.Rotate.clockwise(),
+                              tooltip: appLocalizations.photo_rotate_right,
+                              onPressed: () => setState(() {
+                                _controller.rotateRight();
+                                _eraserModel.rotation = _controller.rotation;
+                              }),
+                            ),
                           if (widget.cropHelper.enableEraser)
                             _IconButton(
                               icon: _isErasing
@@ -342,17 +350,11 @@ class _CropPageState extends State<CropPage> {
                             ),
                           const Spacer(),
                           FloatingActionButton(
-                            heroTag: null,
                             tooltip: widget.cropHelper.getProcessLabel(
                               appLocalizations,
                             ),
                             onPressed: () async => _saveImageAndPop(),
-                            child: Transform.translate(
-                              offset: processIcon is icons.Check
-                                  ? const Offset(-3.0, 0.0)
-                                  : Offset.zero,
-                              child: processIcon,
-                            ),
+                            child: widget.cropHelper.getProcessIcon(),
                           ),
                         ],
                       ),
