@@ -212,7 +212,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
 
   /// Exits the page if the [flag] is `true`.
   void _exitPage(final bool flag) {
-    if (flag) {
+    if (flag && mounted) {
       Navigator.of(context).pop();
     }
   }
