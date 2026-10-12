@@ -71,8 +71,9 @@ class SmoothHapticFeedback {
   }
 
   static Future<bool> _areHapticFeedbackEnabled() async {
-    return UserPreferences.getUserPreferences()
-        .then((UserPreferences userPreferences) {
+    return UserPreferences.getUserPreferences().then((
+      UserPreferences userPreferences,
+    ) {
       return userPreferences.hapticFeedbackEnabled;
     });
   }

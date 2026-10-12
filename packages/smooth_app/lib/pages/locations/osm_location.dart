@@ -19,18 +19,18 @@ class OsmLocation {
   });
 
   OsmLocation.fromPrice(final Location location)
-      : osmId = location.osmId!,
-        osmType = location.type!,
-        longitude = location.longitude ?? 0,
-        latitude = location.latitude ?? 0,
-        name = location.name,
-        street = null,
-        city = location.city,
-        postcode = location.postcode,
-        country = location.country,
-        countryCode = location.countryCode,
-        osmKey = location.osmKey,
-        osmValue = location.osmValue;
+    : osmId = location.osmId!,
+      osmType = location.type!,
+      longitude = location.longitude ?? 0,
+      latitude = location.latitude ?? 0,
+      name = location.name,
+      street = null,
+      city = location.city,
+      postcode = location.postcode,
+      country = location.country,
+      countryCode = location.countryCode,
+      osmKey = location.osmKey,
+      osmValue = location.osmValue;
 
   final int osmId;
   final LocationOSMType osmType;

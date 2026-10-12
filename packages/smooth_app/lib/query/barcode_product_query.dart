@@ -19,11 +19,11 @@ class BarcodeProductQuery {
 
   Future<FetchedProduct> getFetchedProduct() async {
     ProductQuery.setUserAgentComment(isScanned ? 'scan' : 'search');
-    final FetchedProduct fetchedProduct =
-        await ProductRefresher().silentFetchAndRefresh(
-      barcode: barcode,
-      localDatabase: daoProduct.localDatabase,
-    );
+    final FetchedProduct fetchedProduct = await ProductRefresher()
+        .silentFetchAndRefresh(
+          barcode: barcode,
+          localDatabase: daoProduct.localDatabase,
+        );
     ProductQuery.setUserAgentComment('');
     if (fetchedProduct.product != null) {
       if (fetchedProduct.product!.obsolete == true) {

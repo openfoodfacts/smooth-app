@@ -46,14 +46,6 @@ class AppReviewProvider extends ValueNotifier<AppReviewState> {
   }
 }
 
-enum AppReviewState {
-  checking,
-  askForReview,
-  ignore,
-}
+enum AppReviewState { checking, askForReview, ignore }
 
-enum AppReviewResult {
-  satisfied,
-  neutral,
-  unsatisfied,
-}
+enum AppReviewResult { satisfied, neutral, unsatisfied }

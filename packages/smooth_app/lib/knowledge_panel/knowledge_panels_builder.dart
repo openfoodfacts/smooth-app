@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/cards/data_cards/score_card.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_action_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_image_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_table_card.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panel_element_extension.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_title_card.dart';
-import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_world_map_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
 import 'package:smooth_app/pages/product/add_ocr_button.dart';
@@ -27,13 +21,20 @@ class KnowledgePanelsBuilder {
     required KnowledgePanelElement panelElement,
     required Product product,
     required bool onboardingMode,
+    required bool simplified,
   }) {
     final String? panelId = panelElement.panelElement?.panelId;
-    final KnowledgePanel? rootPanel =
-        panelId == null ? null : getKnowledgePanel(product, panelId);
+    final KnowledgePanel? rootPanel = panelId == null
+        ? null
+        : getKnowledgePanel(product, panelId);
     final List<Widget> children = <Widget>[];
     if (rootPanel != null) {
-      children.add(KnowledgePanelTitle(title: rootPanel.titleElement!.title));
+      children.add(
+        KnowledgePanelTitle(
+          title: rootPanel.titleElement!.title ?? '',
+          topics: rootPanel.topics,
+        ),
+      );
       if (rootPanel.elements != null) {
         for (int i = 0; i < rootPanel.elements!.length; i++) {
           final KnowledgePanelElement element = rootPanel.elements![i];
@@ -44,6 +45,7 @@ class KnowledgePanelsBuilder {
             isClickable: true,
             isTextSelectable: !onboardingMode,
             position: i,
+            simplified: simplified,
           );
           if (widget != null) {
             children.add(widget);
@@ -53,8 +55,10 @@ class KnowledgePanelsBuilder {
     }
     if (!onboardingMode) {
       if (panelId == 'health_card') {
-        final bool nutritionAddOrUpdate = product.statesTags?.contains(
-                ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag) ??
+        final bool nutritionAddOrUpdate =
+            product.statesTags?.contains(
+              ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag,
+            ) ??
             false;
         if (nutritionAddOrUpdate) {
           if (AddNutritionButton.acceptsNutritionFacts(product)) {
@@ -62,10 +66,10 @@ class KnowledgePanelsBuilder {
           }
         }
 
-        final bool needEditIngredients = context
-                .read<UserPreferences>()
-                .getFlag(UserPreferencesDevMode
-                    .userPreferencesFlagEditIngredients) ??
+        final bool needEditIngredients =
+            context.read<UserPreferences>().getFlag(
+              UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+            ) ??
             false;
         if ((product.ingredientsText == null ||
                 product.ingredientsText!.isEmpty) &&
@@ -83,9 +87,20 @@ class KnowledgePanelsBuilder {
     }
     if (children.isEmpty) {
       Logs.e(
-          'Unexpected empty panel data for product "${product.barcode}" and panelId "$panelId"');
+        'Unexpected empty panel data for product "${product.barcode}" and panelId "$panelId"',
+      );
     }
     return children;
+  }
+
+  static bool supportsSimplifiedPanels(final Product product) =>
+      (product.productType ?? ProductType.food) == ProductType.food;
+
+  static bool needsSimplifiedPanelsRefresh(final Product product) {
+    if (supportsSimplifiedPanels(product)) {
+      return getRootKnowledgePanel(product, simplified: true) == null;
+    }
+    return false;
   }
 
   /// Returns all the panel elements from "root".
@@ -94,10 +109,15 @@ class KnowledgePanelsBuilder {
   /// In option, only the one matching [panelId].
   static List<KnowledgePanelElement> getRootPanelElements(
     final Product product, {
+    required final bool simplified,
     final String? panelId,
   }) {
     final List<KnowledgePanelElement> result = <KnowledgePanelElement>[];
-    final KnowledgePanel? root = getKnowledgePanel(product, 'root');
+    final KnowledgePanel? root = getRootKnowledgePanel(
+      product,
+      simplified: simplified,
+    );
+
     if (root == null) {
       return result;
     }
@@ -121,12 +141,17 @@ class KnowledgePanelsBuilder {
     return result;
   }
 
+  /// Returns the root KP.
+  static KnowledgePanel? getRootKnowledgePanel(
+    final Product product, {
+    required final bool simplified,
+  }) => getKnowledgePanel(product, simplified ? 'simplified_root' : 'root');
+
   /// Returns the KP that matches the [panelId].
   static KnowledgePanel? getKnowledgePanel(
     final Product product,
     final String panelId,
-  ) =>
-      product.knowledgePanels?.panelIdToPanelMap[panelId];
+  ) => product.knowledgePanels?.panelIdToPanelMap[panelId];
 
   /// Returns the unique "root" panel element that matches [panelId], or `null`.
   static KnowledgePanelElement? getRootPanelElement(
@@ -136,6 +161,7 @@ class KnowledgePanelsBuilder {
     final List<KnowledgePanelElement> elements = getRootPanelElements(
       product,
       panelId: panelId,
+      simplified: false,
     );
     if (elements.length != 1) {
       return null;
@@ -148,17 +174,11 @@ class KnowledgePanelsBuilder {
     final Product product,
     final String panelId,
   ) {
-    final KnowledgePanel panel =
-        KnowledgePanelsBuilder.getKnowledgePanel(product, panelId)!;
-    if (panel.elements == null) {
-      return false;
-    }
-    for (final KnowledgePanelElement element in panel.elements!) {
-      if (_hasSomethingToDisplay(element: element, product: product)) {
-        return true;
-      }
-    }
-    return false;
+    final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
+      product,
+      panelId,
+    )!;
+    return panel.hasSomethingToDisplay(product);
   }
 
   /// Returns a padded widget that displays the KP element, or rarely null.
@@ -169,14 +189,15 @@ class KnowledgePanelsBuilder {
     required final bool isClickable,
     required final bool isTextSelectable,
     required final int position,
+    required final bool simplified,
   }) {
-    final Widget? result = _getElementWidget(
-      element: knowledgePanelElement,
+    final Widget? result = knowledgePanelElement.getElementWidget(
       product: product,
       isInitiallyExpanded: isInitiallyExpanded,
       isClickable: isClickable,
       isTextSelectable: isTextSelectable,
       position: position,
+      simplified: simplified,
     );
     if (result == null) {
       return null;
@@ -188,159 +209,23 @@ class KnowledgePanelsBuilder {
       return result;
     }
 
-    if (result is KnowledgePanelTextCard) {
+    if (result is KnowledgePanelTextCard ||
+        knowledgePanelElement.elementType == KnowledgePanelElementType.TABLE) {
       return result;
-    } else {
-      return Padding(
-        padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
-        child: result,
-      );
-    }
-  }
-
-  /// Returns the widget that displays the KP element, or rarely null.
-  ///
-  /// cf. [_hasSomethingToDisplay].
-  static Widget? _getElementWidget({
-    required final KnowledgePanelElement element,
-    required final Product product,
-    required final bool isInitiallyExpanded,
-    required final bool isClickable,
-    required final bool isTextSelectable,
-    required final int position,
-  }) {
-    switch (element.elementType) {
-      case KnowledgePanelElementType.TEXT:
-        return KnowledgePanelTextCard(
-          textElement: element.textElement!,
-        );
-
-      case KnowledgePanelElementType.IMAGE:
-        return KnowledgePanelImageCard(
-          imageElement: element.imageElement!,
-        );
-
-      case KnowledgePanelElementType.PANEL:
-        final String panelId = element.panelElement!.panelId;
-        final KnowledgePanel? panel = getKnowledgePanel(product, panelId);
-        if (panel == null) {
-          // happened in https://github.com/openfoodfacts/smooth-app/issues/2682
-          // due to some inconsistencies in the data sent by the server
-          if (panelId == 'ecoscore' &&
-              (product.productType ?? ProductType.food) != ProductType.food) {
-            // just ignore
-          } else {
-            Logs.w(
-              'unknown panel "$panelId" for barcode "${product.barcode}"',
-            );
-          }
-          return null;
-        }
-        return KnowledgePanelCard(
-          panelId: panelId,
-          product: product,
-          isClickable: isClickable,
-        );
-
-      case KnowledgePanelElementType.PANEL_GROUP:
-        return KnowledgePanelGroupCard(
-          groupElement: element.panelGroupElement!,
-          product: product,
-          isClickable: isClickable,
-          isTextSelectable: isTextSelectable,
-          position: position,
-        );
-
-      case KnowledgePanelElementType.TABLE:
-        return KnowledgePanelTableCard(
-          tableElement: element.tableElement!,
-          isInitiallyExpanded: isInitiallyExpanded,
-          product: product,
-        );
-
-      case KnowledgePanelElementType.MAP:
-        return KnowledgePanelWorldMapCard(element.mapElement!);
-
-      case KnowledgePanelElementType.UNKNOWN:
-        return null;
-
-      case KnowledgePanelElementType.ACTION:
-        return KnowledgePanelActionCard(
-          element.actionElement!,
-          product,
-        );
-    }
-  }
-
-  /// Returns true if the element has something to display.
-  ///
-  /// cf. [_getElementWidget].
-  static bool _hasSomethingToDisplay({
-    required final KnowledgePanelElement element,
-    required final Product product,
-  }) {
-    switch (element.elementType) {
-      case KnowledgePanelElementType.TEXT:
-      case KnowledgePanelElementType.IMAGE:
-      case KnowledgePanelElementType.PANEL_GROUP:
-      case KnowledgePanelElementType.TABLE:
-      case KnowledgePanelElementType.MAP:
-      case KnowledgePanelElementType.ACTION:
-        return true;
-      case KnowledgePanelElementType.UNKNOWN:
-        return false;
-      case KnowledgePanelElementType.PANEL:
-        final String panelId = element.panelElement!.panelId;
-        final KnowledgePanel? panel = getKnowledgePanel(product, panelId);
-        if (panel == null) {
-          return false;
-        }
-        return true;
-    }
-  }
-
-  /// Title card of a knowledge panel, like a one-line score widget, or title.
-  static Widget? getPanelSummaryWidget(
-    final KnowledgePanel knowledgePanel, {
-    required final bool isClickable,
-    final EdgeInsetsGeometry? margin,
-    final EdgeInsetsGeometry? padding,
-  }) {
-    if (knowledgePanel.titleElement == null) {
-      return null;
     }
 
-    switch (knowledgePanel.titleElement!.type) {
-      case TitleElementType.GRADE:
-        return ScoreCard.titleElement(
-          titleElement: knowledgePanel.titleElement!,
-          isClickable: isClickable,
-          margin: margin,
-        );
-
-      case null:
-      case TitleElementType.UNKNOWN:
-        return Padding(
-          padding: const EdgeInsetsDirectional.symmetric(
-            horizontal: SMALL_SPACE,
-          ).add(padding ?? EdgeInsets.zero),
-          child: KnowledgePanelTitleCard(
-            knowledgePanelTitleElement: knowledgePanel.titleElement!,
-            evaluation: knowledgePanel.evaluation,
-            isClickable: isClickable,
-          ),
-        );
-    }
+    return Padding(
+      padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+      child: result,
+    );
   }
 }
 
 class KnowledgePanelTitle extends StatelessWidget {
-  const KnowledgePanelTitle({
-    required this.title,
-    super.key,
-  });
+  const KnowledgePanelTitle({required this.title, this.topics, super.key});
 
   final String title;
+  final List<String>? topics;
 
   @override
   Widget build(BuildContext context) {
@@ -348,10 +233,7 @@ class KnowledgePanelTitle extends StatelessWidget {
       padding: const EdgeInsetsDirectional.symmetric(
         vertical: VERY_SMALL_SPACE,
       ),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.displaySmall,
-      ),
+      child: Text(title, style: Theme.of(context).textTheme.displaySmall),
     );
   }
 }

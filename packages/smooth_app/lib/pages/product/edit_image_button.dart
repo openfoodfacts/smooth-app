@@ -1,29 +1,20 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 
 /// Standard text button for the "edit image" pages.
 class EditImageButton extends StatelessWidget {
   const EditImageButton({
-    required this.iconData,
+    required this.icon,
     required this.label,
     required this.onPressed,
     this.borderWidth,
-  }) : _centerContent = false;
+  });
 
-  /// Centered version of the button.
-  const EditImageButton.center({
-    required this.iconData,
-    required this.label,
-    required this.onPressed,
-    this.borderWidth,
-  }) : _centerContent = true;
-
-  final IconData iconData;
+  final Widget icon;
   final String label;
   final VoidCallback onPressed;
   final double? borderWidth;
-  final bool _centerContent;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +22,10 @@ class EditImageButton extends StatelessWidget {
     return Tooltip(
       message: label,
       child: OutlinedButton.icon(
-        icon: Icon(iconData),
+        icon: IconTheme.merge(
+          data: const IconThemeData(size: 15.0),
+          child: icon,
+        ),
         style: ButtonStyle(
           backgroundColor: WidgetStateProperty.all(colorScheme.onPrimary),
           shape: WidgetStateProperty.all(
@@ -45,20 +39,15 @@ class EditImageButton extends StatelessWidget {
                     width: borderWidth!,
                   ),
                 ),
-          padding: _centerContent
-              ? WidgetStateProperty.all(
-                  const EdgeInsets.symmetric(
-                    vertical: LARGE_SPACE,
-                  ),
-                )
-              : null,
-          alignment: _centerContent ? AlignmentDirectional.center : null,
         ),
         onPressed: onPressed,
         label: SizedBox(
-          width: !_centerContent ? double.infinity : null,
+          width: double.infinity,
           child: Padding(
-            padding: EdgeInsets.all(borderWidth ?? 0),
+            padding: EdgeInsetsDirectional.symmetric(
+              horizontal: borderWidth ?? 0.0,
+              vertical: borderWidth ?? 0.0,
+            ),
             child: AutoSizeText(
               label,
               maxLines: 2,

@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 
 class SmoothScaffold extends Scaffold {
   const SmoothScaffold({
-    this.brightness,
     this.statusBarBackgroundColor,
     this.contentBehindStatusBar = false,
     this.spaceBehindStatusBar = false,
@@ -38,9 +37,10 @@ class SmoothScaffold extends Scaffold {
     super.endDrawerEnableOpenDragGesture = true,
     super.restorationId,
   }) : super(
-          resizeToAvoidBottomInset:
-              fixKeyboard ? false : resizeToAvoidBottomInset,
-        );
+         resizeToAvoidBottomInset: fixKeyboard
+             ? false
+             : resizeToAvoidBottomInset,
+       );
 
   static Color get semiTranslucentStatusBar {
     if (Platform.isIOS || Platform.isMacOS) {
@@ -50,7 +50,6 @@ class SmoothScaffold extends Scaffold {
     }
   }
 
-  final Brightness? brightness;
   final Color? statusBarBackgroundColor;
   final bool contentBehindStatusBar;
   final bool spaceBehindStatusBar;
@@ -74,8 +73,8 @@ class SmoothScaffoldState extends ScaffoldState {
     if (_contentBehindStatusBar) {
       final Color statusBarColor =
           (widget as SmoothScaffold).statusBarBackgroundColor ??
-              AppBarTheme.of(context).backgroundColor ??
-              SmoothScaffold.semiTranslucentStatusBar;
+          AppBarTheme.of(context).backgroundColor ??
+          SmoothScaffold.semiTranslucentStatusBar;
 
       if (_spaceBehindStatusBar) {
         child = Column(
@@ -83,16 +82,9 @@ class SmoothScaffoldState extends ScaffoldState {
             SizedBox(
               width: double.infinity,
               height: viewPadding.top,
-              child: ColoredBox(
-                color: statusBarColor,
-              ),
+              child: ColoredBox(color: statusBarColor),
             ),
-            Expanded(
-              child: SafeArea(
-                top: false,
-                child: child,
-              ),
-            ),
+            Expanded(child: SafeArea(top: false, child: child)),
           ],
         );
       } else {
@@ -102,9 +94,7 @@ class SmoothScaffoldState extends ScaffoldState {
             SizedBox(
               width: double.infinity,
               height: viewPadding.top,
-              child: ColoredBox(
-                color: statusBarColor,
-              ),
+              child: ColoredBox(color: statusBarColor),
             ),
           ],
         );
@@ -112,7 +102,8 @@ class SmoothScaffoldState extends ScaffoldState {
     }
 
     if ((widget as SmoothScaffold).fixKeyboard) {
-      final double padding = MediaQuery.viewInsetsOf(context).bottom -
+      final double padding =
+          MediaQuery.viewInsetsOf(context).bottom -
           MediaQuery.viewPaddingOf(context).bottom;
 
       if (padding > 0.0) {
@@ -131,9 +122,9 @@ class SmoothScaffoldState extends ScaffoldState {
       value: _overlayStyle,
       child: Theme(
         data: Theme.of(context).copyWith(
-          appBarTheme: AppBarTheme.of(context).copyWith(
-            systemOverlayStyle: _overlayStyle,
-          ),
+          appBarTheme: AppBarTheme.of(
+            context,
+          ).copyWith(systemOverlayStyle: _overlayStyle),
         ),
         child: child,
       ),
@@ -150,8 +141,7 @@ class SmoothScaffoldState extends ScaffoldState {
       (widget as SmoothScaffold).changeStatusBarBrightness == true;
 
   Brightness? get _brightness =>
-      (widget as SmoothScaffold).brightness ??
-      SmoothBrightnessOverride.of(context)?.brightness;
+      SmoothBrightnessOverride.of(context)?.brightness ?? Brightness.light;
 
   SystemUiOverlayStyle get _overlayStyle {
     final Brightness? brightness;
@@ -174,8 +164,9 @@ class SmoothScaffoldState extends ScaffoldState {
         return SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.dark,
           statusBarBrightness: Brightness.light,
-          systemNavigationBarContrastEnforced:
-              !Platform.isAndroid ? false : null,
+          systemNavigationBarContrastEnforced: !Platform.isAndroid
+              ? false
+              : null,
         );
 
       case Brightness.light:
@@ -183,8 +174,9 @@ class SmoothScaffoldState extends ScaffoldState {
         return SystemUiOverlayStyle(
           statusBarIconBrightness: Brightness.light,
           statusBarBrightness: Brightness.dark,
-          systemNavigationBarContrastEnforced:
-              !Platform.isAndroid ? false : null,
+          systemNavigationBarContrastEnforced: !Platform.isAndroid
+              ? false
+              : null,
         );
     }
   }

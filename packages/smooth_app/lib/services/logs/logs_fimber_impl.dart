@@ -21,24 +21,14 @@ class FimberLogImpl implements AppLogService {
   @override
   Future<void> init() async {
     if (kReleaseMode) {
-      Fimber.plantTree(
-        DebugTree(
-          logLevels: <String>['E'],
-        ),
-      );
+      Fimber.plantTree(DebugTree(logLevels: <String>['E']));
       _fileTree = FileFimberTree(
         outputFile: await _fileName,
         logLevels: LogLevels.prodLogLevels,
       );
-      Fimber.plantTree(
-        SentryFimberTree(logLevels: LogLevels.allLogLevels),
-      );
+      Fimber.plantTree(SentryFimberTree(logLevels: LogLevels.allLogLevels));
     } else {
-      Fimber.plantTree(
-        DebugFimberTree(
-          logLevels: LogLevels.allLogLevels,
-        ),
-      );
+      Fimber.plantTree(DebugFimberTree(logLevels: LogLevels.allLogLevels));
 
       _fileTree = FileFimberTree(
         outputFile: await _fileName,
@@ -51,8 +41,9 @@ class FimberLogImpl implements AppLogService {
     log(LogLevel.info, 'New app session started');
   }
 
-  Future<File> get _fileName => _filesDirectory
-      .then((Directory dir) => File(join(dir.absolute.path, 'app_logs.log')));
+  Future<File> get _fileName => _filesDirectory.then(
+    (Directory dir) => File(join(dir.absolute.path, 'app_logs.log')),
+  );
 
   Future<Directory> get _filesDirectory => getApplicationSupportDirectory()
       .then((Directory dir) => Directory(join(dir.absolute.path, 'logs')))
@@ -88,8 +79,13 @@ class FimberLogImpl implements AppLogService {
 
   @override
   void e(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) {
-    Fimber.log('E', message,
-        tag: tag ?? _defaultTag, ex: ex, stacktrace: stacktrace);
+    Fimber.log(
+      'E',
+      message,
+      tag: tag ?? _defaultTag,
+      ex: ex,
+      stacktrace: stacktrace,
+    );
   }
 
   @override
@@ -128,8 +124,10 @@ class FimberLogImpl implements AppLogService {
   String _getFimberLogLevel(LogLevel level) => level.fimberLevel;
 
   String get _defaultTag {
-    final String tag =
-        StackTrace.current.toString().split('\n')[4].split('.')[0];
+    final String tag = StackTrace.current
+        .toString()
+        .split('\n')[4]
+        .split('.')[0];
 
     // Some tags looks like "#1    some text" -> we only use "some text"
     if (tag.startsWith('#')) {
@@ -141,8 +139,6 @@ class FimberLogImpl implements AppLogService {
 
   @override
   List<String> get logFilesPaths {
-    return <String>[
-      _fileTree.outputFile.absolute.path,
-    ];
+    return <String>[_fileTree.outputFile.absolute.path];
   }
 }

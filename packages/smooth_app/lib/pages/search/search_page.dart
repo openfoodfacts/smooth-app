@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/pages/product/common/search_helper.dart';
 import 'package:smooth_app/pages/product/common/search_preloaded_item.dart';
+import 'package:smooth_app/pages/search/search_app_bar.dart';
 import 'package:smooth_app/pages/search/search_field.dart';
 import 'package:smooth_app/pages/search/search_history_view.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -19,20 +20,23 @@ class SearchPage extends StatefulWidget {
     this.preloadedList,
     this.autofocus = true,
     this.heroTag,
+    this.backButtonType,
   });
 
   SearchPage.fromExtra(SearchPageExtra extra)
-      : this(
-          extra.searchHelper,
-          preloadedList: extra.preloadedList,
-          autofocus: extra.autofocus ?? true,
-          heroTag: extra.heroTag,
-        );
+    : this(
+        extra.searchHelper,
+        preloadedList: extra.preloadedList,
+        autofocus: extra.autofocus ?? true,
+        heroTag: extra.heroTag,
+        backButtonType: extra.backButtonType,
+      );
 
   final SearchHelper searchHelper;
   final List<SearchPreloadedItem>? preloadedList;
   final bool autofocus;
   final String? heroTag;
+  final BackButtonType? backButtonType;
 
   @override
   State<SearchPage> createState() => _SearchPageState();
@@ -44,6 +48,7 @@ class SearchPageExtra {
     this.preloadedList,
     this.autofocus,
     this.heroTag,
+    this.backButtonType,
   });
 
   final SearchHelper searchHelper;
@@ -52,6 +57,8 @@ class SearchPageExtra {
   /// If not passed, will default to [false]
   final bool? autofocus;
   final String? heroTag;
+
+  final BackButtonType? backButtonType;
 }
 
 class _SearchPageState extends State<SearchPage> {
@@ -82,44 +89,35 @@ class _SearchPageState extends State<SearchPage> {
           ),
         ],
         child: SmoothScaffold(
+          appBar: SearchAppBar(
+            searchBar: ValueNotifierListener<SearchHelper, SearchQuery?>(
+              listener: _onSearchChanged,
+              child: SearchField(
+                autofocus: widget.autofocus,
+                focusNode: _searchFocusNode,
+                searchHelper: widget.searchHelper,
+                heroTag: widget.heroTag,
+                height: 42.0,
+              ),
+            ),
+            backButtonType: widget.backButtonType,
+          ),
           body: Column(
             children: <Widget>[
-              ValueNotifierListener<SearchHelper, SearchQuery?>(
-                listener: _onSearchChanged,
-                child: SafeArea(
-                  bottom: false,
-                  child: Padding(
-                    padding: const EdgeInsetsDirectional.symmetric(
-                      vertical: SMALL_SPACE,
-                      horizontal: BALANCED_SPACE,
-                    ),
-                    child: SearchField(
-                      autofocus: widget.autofocus,
-                      focusNode: _searchFocusNode,
-                      searchHelper: widget.searchHelper,
-                      heroTag: widget.heroTag,
-                    ),
-                  ),
-                ),
-              ),
               Expanded(
                 child: Consumer<SearchHelper>(
-                  builder: (
-                    BuildContext context,
-                    SearchHelper searchHelper,
-                    _,
-                  ) {
+                  builder: (BuildContext context, SearchHelper searchHelper, _) {
                     /// Show the history when there is no search
                     if (searchHelper.value == null) {
                       return SearchHistoryView(
                         focusNode: _searchFocusNode,
                         onTap: (String query) =>
                             widget.searchHelper.searchWithController(
-                          context,
-                          query,
-                          _searchTextController,
-                          _searchFocusNode,
-                        ),
+                              context,
+                              query,
+                              _searchTextController,
+                              _searchFocusNode,
+                            ),
                         searchHelper: widget.searchHelper,
                         preloadedList:
                             widget.preloadedList ?? <SearchPreloadedItem>[],
@@ -131,9 +129,7 @@ class _SearchPageState extends State<SearchPage> {
                       return Navigator(
                         key: _navigatorKey,
                         pages: <MaterialPage<dynamic>>[
-                          MaterialPage<void>(
-                            child: searchHelper.value!.widget,
-                          ),
+                          MaterialPage<void>(child: searchHelper.value!.widget),
                         ],
                         onDidRemovePage: (_) {
                           /// Mandatory to provide this method

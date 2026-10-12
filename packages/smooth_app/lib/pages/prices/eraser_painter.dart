@@ -5,10 +5,7 @@ import 'package:smooth_app/pages/prices/eraser_model.dart';
 
 /// Painter of the eraser tool: displaying thick lines.
 class EraserPainter extends CustomPainter {
-  EraserPainter({
-    required this.eraserModel,
-    this.cropRect,
-  });
+  EraserPainter({required this.eraserModel, this.cropRect});
 
   final EraserModel eraserModel;
   final Rect? cropRect;
@@ -38,7 +35,8 @@ class EraserPainter extends CustomPainter {
     if (cropRect == null) {
       _paint.strokeWidth = _strokeWidthFactor * sqrt(size.width * size.height);
     } else {
-      _paint.strokeWidth = _strokeWidthFactor *
+      _paint.strokeWidth =
+          _strokeWidthFactor *
           sqrt(size.width * size.height / cropRect!.width / cropRect!.height);
     }
 

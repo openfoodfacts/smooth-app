@@ -13,6 +13,8 @@ class SimpleInputTextField extends StatefulWidget {
     required this.tagType,
     required this.hintText,
     required this.controller,
+    required this.productType,
+    this.autofocus = false,
     this.autocompleteManager,
     this.withClearButton = false,
     this.minLengthForSuggestions = 1,
@@ -20,14 +22,16 @@ class SimpleInputTextField extends StatefulWidget {
     this.shapeProvider,
     this.margin,
     this.padding,
-    required this.productType,
     this.suffixIcon,
     this.borderRadius,
     this.textCapitalization,
     this.allowEmojis,
+    this.maxLines = 1,
+    this.enabled,
   });
 
   final FocusNode focusNode;
+  final bool autofocus;
   final Key autocompleteKey;
   final AutocompleteManager? autocompleteManager;
   final BoxConstraints constraints;
@@ -45,6 +49,8 @@ class SimpleInputTextField extends StatefulWidget {
   final BorderRadius? borderRadius;
   final TextCapitalization? textCapitalization;
   final bool? allowEmojis;
+  final int? maxLines;
+  final bool? enabled;
 
   @override
   State<SimpleInputTextField> createState() => _SimpleInputTextFieldState();
@@ -56,7 +62,8 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
   @override
   void initState() {
     super.initState();
-    _manager = widget.autocompleteManager ??
+    _manager =
+        widget.autocompleteManager ??
         (widget.tagType == null
             ? null
             : AutocompleteManager(
@@ -89,6 +96,7 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
           Expanded(
             child: SmoothAutocompleteTextField(
               focusNode: widget.focusNode,
+              autofocus: widget.autofocus,
               controller: widget.controller,
               autocompleteKey: widget.autocompleteKey,
               textCapitalization: widget.textCapitalization,
@@ -99,6 +107,8 @@ class _SimpleInputTextFieldState extends State<SimpleInputTextField> {
               suffixIcon: widget.suffixIcon,
               borderRadius: widget.borderRadius,
               padding: widget.padding,
+              enabled: widget.enabled,
+              maxLines: widget.maxLines,
             ),
           ),
           if (widget.withClearButton)

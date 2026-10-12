@@ -14,137 +14,137 @@ abstract class AttributeIcon extends StatelessWidget {
   }) {
     return switch (attribute.id) {
       'additives' => _AttributeAdditivesIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_celery' => _AttributeCeleryIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_crustaceans' => _AttributeCrustaceansIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_eggs' => _AttributeEggsIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_fish' => _AttributeFishIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_gluten' => _AttributeGlutenIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_lupin' => _AttributeLupinIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_milk' => _AttributeMilkIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_molluscs' => _AttributeMolluscsIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_mustard' => _AttributeMustardIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_nuts' => _AttributeNutsIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_peanuts' => _AttributePeanutsIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_sesame_seeds' => _AttributeSesameSeedsIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_soybeans' => _AttributeSoybeansIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'allergens_no_sulphur_dioxide_and_sulphites' => _AttributeSulphitesIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'forest_footprint' => _AttributeForestFootprintIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'labels_fair_trade' => _AttributeFairTradeIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'labels_organic' => _AttributeOrganicFarmingIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'low_fat' => _AttributeFatIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'low_salt' => _AttributeSaltIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'low_saturated_fat' => _AttributeSaturatedFatIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'low_sugars' => _AttributeSugarIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'nova' when attribute.iconUrl?.endsWith('nova-group-1.svg') == true =>
         _AttributeNOVAIcon.group1(
           backgroundColor: backgroundColor,
@@ -174,29 +174,29 @@ abstract class AttributeIcon extends StatelessWidget {
           semanticsLabel: semanticsLabel,
         ),
       'nova' => _AttributeNOVAIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'palm_oil_free' => _AttributePalmOilIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'vegan' => _AttributeVeganIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
       'vegetarian' => _AttributeVegetarianIcon(
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor,
-          size: size,
-          semanticsLabel: semanticsLabel,
-        ),
+        backgroundColor: backgroundColor,
+        foregroundColor: foregroundColor,
+        size: size,
+        semanticsLabel: semanticsLabel,
+      ),
 
       /*'nutriscore' => EMPTY_WIDGET,
       'ecoscore' => EMPTY_WIDGET,*/
@@ -249,10 +249,7 @@ abstract class AttributeIcon extends StatelessWidget {
               : EdgeInsets.zero,
           child: Transform.translate(
             offset: offsetFactor != null
-                ? Offset(
-                    size * offsetFactor!.dx,
-                    size * offsetFactor!.dy,
-                  )
+                ? Offset(size * offsetFactor!.dx, size * offsetFactor!.dy)
                 : Offset.zero,
             child: AppIconTheme(
               color: foregroundColor,
@@ -265,22 +262,14 @@ abstract class AttributeIcon extends StatelessWidget {
     );
 
     if (angle != null) {
-      child = Transform.rotate(
-        angle: angle!,
-        child: child,
-      );
+      child = Transform.rotate(angle: angle!, child: child);
     }
 
     if (clip == true) {
-      child = ClipOval(
-        child: child,
-      );
+      child = ClipOval(child: child);
     }
 
-    return SizedBox.square(
-      dimension: size,
-      child: child,
-    );
+    return SizedBox.square(dimension: size, child: child);
   }
 }
 
@@ -291,10 +280,10 @@ class _AttributeAdditivesIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.additives(),
-          iconSizeFactor: 0.58,
-          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.05),
-        );
+         icon: const FoodIcons.additives(),
+         iconSizeFactor: 0.58,
+         paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.05),
+       );
 }
 
 class _AttributeCeleryIcon extends AttributeIcon {
@@ -304,12 +293,12 @@ class _AttributeCeleryIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.celery(),
-          iconSizeFactor: 0.95,
-          offsetFactor: const Offset(-0.1, 0.0),
-          clip: true,
-          paddingFactor: const EdgeInsetsDirectional.only(top: 0.15),
-        );
+         icon: const FoodIcons.celery(),
+         iconSizeFactor: 0.95,
+         offsetFactor: const Offset(-0.1, 0.0),
+         clip: true,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.15),
+       );
 }
 
 class _AttributeCrustaceansIcon extends AttributeIcon {
@@ -319,11 +308,11 @@ class _AttributeCrustaceansIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.crustaceans(),
-          iconSizeFactor: 0.95,
-          clip: true,
-          paddingFactor: const EdgeInsetsDirectional.only(top: 0.18),
-        );
+         icon: const FoodIcons.crustaceans(),
+         iconSizeFactor: 0.95,
+         clip: true,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.18),
+       );
 }
 
 class _AttributeEggsIcon extends AttributeIcon {
@@ -333,10 +322,10 @@ class _AttributeEggsIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.eggs(),
-          iconSizeFactor: 0.65,
-          paddingFactor: const EdgeInsetsDirectional.only(top: 0.01),
-        );
+         icon: const FoodIcons.eggs(),
+         iconSizeFactor: 0.65,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.01),
+       );
 }
 
 class _AttributeFishIcon extends AttributeIcon {
@@ -346,13 +335,13 @@ class _AttributeFishIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.fish(),
-          iconSizeFactor: 0.75,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.06,
-            start: 0.02,
-          ),
-        );
+         icon: const FoodIcons.fish(),
+         iconSizeFactor: 0.75,
+         paddingFactor: const EdgeInsetsDirectional.only(
+           top: 0.06,
+           start: 0.02,
+         ),
+       );
 }
 
 class _AttributeGlutenIcon extends AttributeIcon {
@@ -362,13 +351,10 @@ class _AttributeGlutenIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.gluten(),
-          iconSizeFactor: 0.6,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.04,
-            end: 0.01,
-          ),
-        );
+         icon: const FoodIcons.gluten(),
+         iconSizeFactor: 0.6,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.04, end: 0.01),
+       );
 }
 
 class _AttributeFairTradeIcon extends AttributeIcon {
@@ -378,13 +364,13 @@ class _AttributeFairTradeIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.fairTrade(),
-          iconSizeFactor: 0.75,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.1,
-            start: 0.015,
-          ),
-        );
+         icon: const FoodIcons.fairTrade(),
+         iconSizeFactor: 0.75,
+         paddingFactor: const EdgeInsetsDirectional.only(
+           top: 0.1,
+           start: 0.015,
+         ),
+       );
 }
 
 class _AttributeFatIcon extends AttributeIcon {
@@ -394,12 +380,10 @@ class _AttributeFatIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.fat(),
-          iconSizeFactor: 0.7,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            end: 0.02,
-          ),
-        );
+         icon: const FoodIcons.fat(),
+         iconSizeFactor: 0.7,
+         paddingFactor: const EdgeInsetsDirectional.only(end: 0.02),
+       );
 }
 
 class _AttributeForestFootprintIcon extends AttributeIcon {
@@ -408,10 +392,7 @@ class _AttributeForestFootprintIcon extends AttributeIcon {
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
-  }) : super._(
-          icon: const FoodIcons.forestFootprint(),
-          iconSizeFactor: 0.65,
-        );
+  }) : super._(icon: const FoodIcons.forestFootprint(), iconSizeFactor: 0.65);
 }
 
 class _AttributeLupinIcon extends AttributeIcon {
@@ -421,13 +402,13 @@ class _AttributeLupinIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.lupin(),
-          iconSizeFactor: 0.7,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            start: 0.05,
-            top: 0.06,
-          ),
-        );
+         icon: const FoodIcons.lupin(),
+         iconSizeFactor: 0.7,
+         paddingFactor: const EdgeInsetsDirectional.only(
+           start: 0.05,
+           top: 0.06,
+         ),
+       );
 }
 
 class _AttributeMilkIcon extends AttributeIcon {
@@ -437,13 +418,11 @@ class _AttributeMilkIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.milk(),
-          iconSizeFactor: 1.0,
-          clip: true,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.25,
-          ),
-        );
+         icon: const FoodIcons.milk(),
+         iconSizeFactor: 1.0,
+         clip: true,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.25),
+       );
 }
 
 class _AttributeMolluscsIcon extends AttributeIcon {
@@ -452,10 +431,7 @@ class _AttributeMolluscsIcon extends AttributeIcon {
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
-  }) : super._(
-          icon: const FoodIcons.molluscs(),
-          iconSizeFactor: 0.65,
-        );
+  }) : super._(icon: const FoodIcons.molluscs(), iconSizeFactor: 0.65);
 }
 
 class _AttributeMustardIcon extends AttributeIcon {
@@ -465,16 +441,13 @@ class _AttributeMustardIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.mustard(),
-          iconSizeFactor: 1.2,
-          angle: math.pi / 6,
-          offsetFactor: const Offset(-0.1, 0.0),
-          clip: true,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.12,
-            end: 0.1,
-          ),
-        );
+         icon: const FoodIcons.mustard(),
+         iconSizeFactor: 1.2,
+         angle: math.pi / 6,
+         offsetFactor: const Offset(-0.1, 0.0),
+         clip: true,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.12, end: 0.1),
+       );
 }
 
 class _AttributeNutsIcon extends AttributeIcon {
@@ -484,10 +457,10 @@ class _AttributeNutsIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.nuts(),
-          iconSizeFactor: 0.7,
-          paddingFactor: const EdgeInsetsDirectional.only(top: 0.005),
-        );
+         icon: const FoodIcons.nuts(),
+         iconSizeFactor: 0.7,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.005),
+       );
 }
 
 class _AttributeNOVAIcon extends AttributeIcon {
@@ -496,10 +469,7 @@ class _AttributeNOVAIcon extends AttributeIcon {
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
-  }) : super._(
-          icon: const FoodIcons.nova(),
-          iconSizeFactor: 0.75,
-        );
+  }) : super._(icon: const FoodIcons.nova(), iconSizeFactor: 0.75);
 
   const _AttributeNOVAIcon.group1({
     required super.backgroundColor,
@@ -507,13 +477,13 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.nova1(),
-          iconSizeFactor: 0.68,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.12,
-            start: 0.025,
-          ),
-        );
+         icon: const FoodIcons.nova1(),
+         iconSizeFactor: 0.68,
+         paddingFactor: const EdgeInsetsDirectional.only(
+           top: 0.12,
+           start: 0.025,
+         ),
+       );
 
   const _AttributeNOVAIcon.group2({
     required super.backgroundColor,
@@ -521,13 +491,13 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.nova2(),
-          iconSizeFactor: 0.64,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.05,
-            start: 0.025,
-          ),
-        );
+         icon: const FoodIcons.nova2(),
+         iconSizeFactor: 0.64,
+         paddingFactor: const EdgeInsetsDirectional.only(
+           top: 0.05,
+           start: 0.025,
+         ),
+       );
 
   const _AttributeNOVAIcon.group3({
     required super.backgroundColor,
@@ -535,13 +505,13 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.nova3(),
-          iconSizeFactor: 0.64,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.07,
-            start: 0.025,
-          ),
-        );
+         icon: const FoodIcons.nova3(),
+         iconSizeFactor: 0.64,
+         paddingFactor: const EdgeInsetsDirectional.only(
+           top: 0.07,
+           start: 0.025,
+         ),
+       );
 
   const _AttributeNOVAIcon.group4({
     required super.backgroundColor,
@@ -549,13 +519,13 @@ class _AttributeNOVAIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.nova4(),
-          iconSizeFactor: 0.64,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.07,
-            start: 0.02,
-          ),
-        );
+         icon: const FoodIcons.nova4(),
+         iconSizeFactor: 0.64,
+         paddingFactor: const EdgeInsetsDirectional.only(
+           top: 0.07,
+           start: 0.02,
+         ),
+       );
 }
 
 class _AttributeOrganicFarmingIcon extends AttributeIcon {
@@ -565,11 +535,11 @@ class _AttributeOrganicFarmingIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.organicFarming(),
-          iconSizeFactor: 0.8,
-          clip: true,
-          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.1),
-        );
+         icon: const FoodIcons.organicFarming(),
+         iconSizeFactor: 0.8,
+         clip: true,
+         paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.1),
+       );
 }
 
 class _AttributePalmOilIcon extends AttributeIcon {
@@ -579,10 +549,10 @@ class _AttributePalmOilIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.palmOil(),
-          iconSizeFactor: 0.7,
-          paddingFactor: const EdgeInsetsDirectional.only(top: 0.04),
-        );
+         icon: const FoodIcons.palmOil(),
+         iconSizeFactor: 0.7,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.04),
+       );
 }
 
 class _AttributePeanutsIcon extends AttributeIcon {
@@ -592,10 +562,10 @@ class _AttributePeanutsIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.peanuts(),
-          iconSizeFactor: 0.7,
-          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.03),
-        );
+         icon: const FoodIcons.peanuts(),
+         iconSizeFactor: 0.7,
+         paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.03),
+       );
 }
 
 class _AttributeSaltIcon extends AttributeIcon {
@@ -605,11 +575,11 @@ class _AttributeSaltIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.salt(),
-          iconSizeFactor: 1.1,
-          clip: true,
-          offsetFactor: const Offset(-0.3, -0.3),
-        );
+         icon: const FoodIcons.salt(),
+         iconSizeFactor: 1.1,
+         clip: true,
+         offsetFactor: const Offset(-0.3, -0.3),
+       );
 }
 
 class _AttributeSaturatedFatIcon extends AttributeIcon {
@@ -618,10 +588,7 @@ class _AttributeSaturatedFatIcon extends AttributeIcon {
     required super.size,
     super.foregroundColor,
     super.semanticsLabel,
-  }) : super._(
-          icon: const FoodIcons.saturatedFat(),
-          iconSizeFactor: 0.70,
-        );
+  }) : super._(icon: const FoodIcons.saturatedFat(), iconSizeFactor: 0.70);
 }
 
 class _AttributeSesameSeedsIcon extends AttributeIcon {
@@ -631,10 +598,10 @@ class _AttributeSesameSeedsIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.sesameSeeds(),
-          iconSizeFactor: 0.80,
-          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.02),
-        );
+         icon: const FoodIcons.sesameSeeds(),
+         iconSizeFactor: 0.80,
+         paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.02),
+       );
 }
 
 class _AttributeSoybeansIcon extends AttributeIcon {
@@ -644,13 +611,10 @@ class _AttributeSoybeansIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.soybeans(),
-          iconSizeFactor: 0.7,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            top: 0.05,
-            end: 0.07,
-          ),
-        );
+         icon: const FoodIcons.soybeans(),
+         iconSizeFactor: 0.7,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.05, end: 0.07),
+       );
 }
 
 class _AttributeSugarIcon extends AttributeIcon {
@@ -660,10 +624,10 @@ class _AttributeSugarIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.sugar(),
-          iconSizeFactor: 0.60,
-          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.05),
-        );
+         icon: const FoodIcons.sugar(),
+         iconSizeFactor: 0.60,
+         paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.05),
+       );
 }
 
 class _AttributeSulphitesIcon extends AttributeIcon {
@@ -673,11 +637,11 @@ class _AttributeSulphitesIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.sulphites(),
-          iconSizeFactor: 0.76,
-          clip: true,
-          paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.02),
-        );
+         icon: const FoodIcons.sulphites(),
+         iconSizeFactor: 0.76,
+         clip: true,
+         paddingFactor: const EdgeInsetsDirectional.only(bottom: 0.02),
+       );
 }
 
 class _AttributeVeganIcon extends AttributeIcon {
@@ -687,10 +651,10 @@ class _AttributeVeganIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.vegan(),
-          iconSizeFactor: 0.62,
-          paddingFactor: const EdgeInsetsDirectional.only(top: 0.07),
-        );
+         icon: const FoodIcons.vegan(),
+         iconSizeFactor: 0.62,
+         paddingFactor: const EdgeInsetsDirectional.only(top: 0.07),
+       );
 }
 
 class _AttributeVegetarianIcon extends AttributeIcon {
@@ -700,10 +664,8 @@ class _AttributeVegetarianIcon extends AttributeIcon {
     super.foregroundColor,
     super.semanticsLabel,
   }) : super._(
-          icon: const FoodIcons.vegetarian(),
-          iconSizeFactor: 0.62,
-          paddingFactor: const EdgeInsetsDirectional.only(
-            end: 0.06,
-          ),
-        );
+         icon: const FoodIcons.vegetarian(),
+         iconSizeFactor: 0.62,
+         paddingFactor: const EdgeInsetsDirectional.only(end: 0.06),
+       );
 }

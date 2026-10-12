@@ -6,9 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
+import 'package:smooth_app/pages/product/product_page/tabs/for_me/attributes/filters/product_for_me_collection.dart';
 import 'package:smooth_app/themes/color_schemes.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
@@ -31,14 +34,14 @@ enum UserPictureSource {
 
   static UserPictureSource get defaultValue => UserPictureSource.SELECT;
 
-  static UserPictureSource fromString(final String tag) =>
-      UserPictureSource.values
-          .firstWhere((final UserPictureSource source) => source.tag == tag);
+  static UserPictureSource fromString(final String tag) => UserPictureSource
+      .values
+      .firstWhere((final UserPictureSource source) => source.tag == tag);
 }
 
 class UserPreferences extends ChangeNotifier {
   UserPreferences._shared(final SharedPreferences sharedPreferences)
-      : _sharedPreferences = sharedPreferences {
+    : _sharedPreferences = sharedPreferences {
     onCrashReportingChanged = ValueNotifier<bool>(crashReports);
     onAnalyticsChanged = ValueNotifier<bool>(userTracking);
     _incrementAppLaunches();
@@ -69,7 +72,7 @@ class UserPreferences extends ChangeNotifier {
 
   /// The current version of preferences
   static const String _TAG_VERSION = 'prefs_version';
-  static const int _PREFS_CURRENT_VERSION = 3;
+  static const int _PREFS_CURRENT_VERSION = 4;
   static const String _TAG_APP_LAUNCHES = 'appLaunches';
   static const String _TAG_PREFIX_IMPORTANCE = 'IMPORTANCE_AS_STRING';
   static const String _TAG_CURRENT_THEME_MODE = 'currentThemeMode';
@@ -84,16 +87,25 @@ class UserPreferences extends ChangeNotifier {
   static const String _TAG_PREFIX_FLAG = 'FLAG_PREFIX_';
   static const String _TAG_DEV_MODE = 'devMode';
   static const String _TAG_USER_TRACKING = 'user_tracking';
+  static const String _TAG_FIRST_OPEN_TRACKED = 'firstOpenTracked';
   static const String _TAG_CRASH_REPORTS = 'crash_reports';
   static const String _TAG_PRICES_FEEDBACK_FORM = 'prices_feedback_form';
   static const String _TAG_EXCLUDED_ATTRIBUTE_IDS = 'excluded_attributes';
+  static const String _TAG_UNWANTED_INGREDIENTS = 'unwanted_ingredients';
   static const String _TAG_UNIQUE_RANDOM = '_unique_random';
   static const String _TAG_LAZY_COUNT_PREFIX = '_lazy_count_prefix';
   static const String _TAG_LATEST_PRODUCT_TYPE = '_latest_product_type';
-  static const String _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER =
-      '_search_show_product_type_filter';
   static const String _TAG_PRODUCT_PAGE_ACTIONS = '_product_page_actions';
   static const String _TAG_LANGUAGES_USAGE = '_languages_usage';
+  static const String _TAG_PRODUCT_PAGE_TABS = '_product_page_tabs';
+  static const String _TAG_PRODUCT_PAGE_FOR_ME_FILTER =
+      '_product_page_for_me_filter';
+  static const String _TAG_READY_FOR_PRICE_TAG_VALIDATION =
+      'ready_for_price_tag_validation';
+  static const String _TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD =
+      '_show_folksonomy_explanation_card';
+  static const String _TAG_SHOW_PRICES_EXPLANATION_CARD =
+      '_show_prices_explanation_card';
 
   /// Camera preferences
 
@@ -130,6 +142,9 @@ class UserPreferences extends ChangeNotifier {
       'taglineFeedNewsDisplayed';
   static const String _TAG_TAGLINE_FEED_NEWS_CLICKED = 'taglineFeedNewsClicked';
 
+  /// Donation asks (home card, reminders)
+  static const String _TAG_DONATION_ASKS_MUTED_UNTIL = 'donationAsksMutedUntil';
+
   /// Info messages
   static const String _TAG_SHOW_BANNER_INPUT_PRODUCT_NAME =
       'bannerInputProductName';
@@ -142,6 +157,21 @@ class UserPreferences extends ChangeNotifier {
     }
     await productPreferences.resetImportances();
     await _sharedPreferences.setBool(_TAG_INIT, true);
+  }
+
+  /// Tracks the first app open, once the user has given tracking consent.
+  ///
+  /// Deliberately not called by [init]: on a brand new install [init] runs
+  /// before the onboarding consent tap, and we do not track before consent.
+  /// Called from the onboarding welcome page, right after consent is stored.
+  Future<void> trackFirstOpenAfterConsent() async {
+    if (_sharedPreferences.getBool(_TAG_FIRST_OPEN_TRACKED) == true) {
+      return;
+    }
+    // `setBool` writes the in-memory cache before it awaits the platform, so
+    // the undebounced consent button cannot get two events out of a double tap.
+    await _sharedPreferences.setBool(_TAG_FIRST_OPEN_TRACKED, true);
+    AnalyticsHelper.trackEvent(AnalyticsEvent.appFirstOpen);
   }
 
   /// Allow to migrate between versions
@@ -168,18 +198,64 @@ class UserPreferences extends ChangeNotifier {
   String _getImportanceTag(final String variable) =>
       _TAG_PREFIX_IMPORTANCE + variable;
 
+  String _getImportancePrefixForProject(
+    final PreferencesPageProjects project,
+  ) => '$_TAG_PREFIX_IMPORTANCE${project.projectKey}_';
+
+  String _getImportanceTagForProject(
+    final String variable,
+    final PreferencesPageProjects project,
+  ) => '${_getImportancePrefixForProject(project)}$variable';
+
   Future<void> setImportance(
     final String attributeId,
     final String importanceId,
   ) async {
     await _sharedPreferences.setString(
-        _getImportanceTag(attributeId), importanceId);
+      _getImportanceTag(attributeId),
+      importanceId,
+    );
+    notifyListeners();
+  }
+
+  /// Sets the importance for an attribute for a specific project.
+  Future<void> setImportanceForProject(
+    final String attributeId,
+    final String importanceId,
+    final PreferencesPageProjects project,
+  ) async {
+    await _sharedPreferences.setString(
+      _getImportanceTagForProject(attributeId, project),
+      importanceId,
+    );
     notifyListeners();
   }
 
   String getImportance(final String attributeId) =>
       _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
       PreferenceImportance.ID_NOT_IMPORTANT;
+
+  /// Gets the importance for an attribute for a specific project.
+  String getImportanceForProject(
+    final String attributeId,
+    final PreferencesPageProjects project,
+  ) =>
+      _sharedPreferences.getString(
+        _getImportanceTagForProject(attributeId, project),
+      ) ??
+      PreferenceImportance.ID_NOT_IMPORTANT;
+
+  /// Are the preferences set for this project?
+  bool arePreferencesSetForProject(final PreferencesPageProjects project) {
+    final Set<String> keys = _sharedPreferences.getKeys();
+    final String prefix = _getImportancePrefixForProject(project);
+    for (final String key in keys) {
+      if (key.startsWith(prefix)) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   Future<void> setTheme(final String theme) async {
     await _sharedPreferences.setString(_TAG_CURRENT_THEME_MODE, theme);
@@ -193,7 +269,9 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setContrastScheme(final String contrastLevel) async {
     await _sharedPreferences.setString(
-        _TAG_CURRENT_CONTRAST_MODE, contrastLevel);
+      _TAG_CURRENT_CONTRAST_MODE,
+      contrastLevel,
+    );
     notifyListeners();
   }
 
@@ -255,6 +333,31 @@ class UserPreferences extends ChangeNotifier {
   bool get shouldShowPricesFeedbackForm =>
       _sharedPreferences.getBool(_TAG_PRICES_FEEDBACK_FORM) ?? true;
 
+  Future<void> setReadyForPriceTagValidation(final bool state) async =>
+      _sharedPreferences.setBool(_TAG_READY_FOR_PRICE_TAG_VALIDATION, state);
+
+  bool get readyForPriceTagValidation =>
+      _sharedPreferences.getBool(_TAG_READY_FOR_PRICE_TAG_VALIDATION) ?? false;
+
+  Future<void> hideFolksonomyExplanationCard() async {
+    await _sharedPreferences.setBool(
+      _TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD,
+      false,
+    );
+    notifyListeners();
+  }
+
+  bool get shouldShowFolksonomyExplanationCard =>
+      _sharedPreferences.getBool(_TAG_SHOW_FOLKSONOMY_EXPLANATION_CARD) ?? true;
+
+  Future<void> hidePricesExplanationCard() async {
+    await _sharedPreferences.setBool(_TAG_SHOW_PRICES_EXPLANATION_CARD, false);
+    notifyListeners();
+  }
+
+  bool get shouldShowPricesExplanationCard =>
+      _sharedPreferences.getBool(_TAG_SHOW_PRICES_EXPLANATION_CARD) ?? true;
+
   String get currentTheme =>
       _sharedPreferences.getString(_TAG_CURRENT_THEME_MODE) ??
       THEME_SYSTEM_DEFAULT;
@@ -288,9 +391,19 @@ class UserPreferences extends ChangeNotifier {
   String? get userCurrencyCode =>
       _sharedPreferences.getString(_TAG_USER_CURRENCY_CODE);
 
+  /// ⚠️ This reports the onboarding funnel, so it must stay AFTER consent.
+  /// It is today: the first call comes from the welcome page's tap handler,
+  /// which awaits `setUserTracking(true)` first. A new entry point that
+  /// navigated before that tap would report before consent.
   Future<void> setLastVisitedOnboardingPage(final OnboardingPage page) async {
     await _sharedPreferences.setInt(
-        _TAG_LAST_VISITED_ONBOARDING_PAGE, page.index);
+      _TAG_LAST_VISITED_ONBOARDING_PAGE,
+      page.index,
+    );
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.onboardingPageVisited,
+      action: page.name,
+    );
     notifyListeners();
   }
 
@@ -303,12 +416,15 @@ class UserPreferences extends ChangeNotifier {
   }
 
   OnboardingPage get lastVisitedOnboardingPage {
-    final int? pageIndex =
-        _sharedPreferences.getInt(_TAG_LAST_VISITED_ONBOARDING_PAGE);
+    final int? pageIndex = _sharedPreferences.getInt(
+      _TAG_LAST_VISITED_ONBOARDING_PAGE,
+    );
     return pageIndex == null
         ? OnboardingPage.NOT_STARTED
-        : OnboardingPage
-            .values[math.min(pageIndex, OnboardingPage.values.length - 1)];
+        : OnboardingPage.values[math.min(
+            pageIndex,
+            OnboardingPage.values.length - 1,
+          )];
   }
 
   Future<void> incrementScanCount() async {
@@ -332,11 +448,14 @@ class UserPreferences extends ChangeNotifier {
   /// Please use [ProductQuery.setLanguage] as interface
   Future<void> setAppLanguageCode(String? languageCode) async {
     if (languageCode == null) {
-      await _sharedPreferences
-          .remove(UserPreferencesDevMode.userPreferencesAppLanguageCode);
+      await _sharedPreferences.remove(
+        UserPreferencesDevMode.userPreferencesAppLanguageCode,
+      );
     } else {
       await setDevModeString(
-          UserPreferencesDevMode.userPreferencesAppLanguageCode, languageCode);
+        UserPreferencesDevMode.userPreferencesAppLanguageCode,
+        languageCode,
+      );
     }
     notifyListeners();
   }
@@ -347,10 +466,7 @@ class UserPreferences extends ChangeNotifier {
 
   String _getFlagTag(final String key) => _TAG_PREFIX_FLAG + key;
 
-  Future<void> setFlag(
-    final String key,
-    final bool? value,
-  ) async {
+  Future<void> setFlag(final String key, final bool? value) async {
     value == null
         ? await _sharedPreferences.remove(_getFlagTag(key))
         : await _sharedPreferences.setBool(_getFlagTag(key), value);
@@ -366,6 +482,96 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setExcludedAttributeIds(final List<String> value) async {
     await _sharedPreferences.setStringList(_TAG_EXCLUDED_ATTRIBUTE_IDS, value);
+    notifyListeners();
+  }
+
+  /// Returns the unwanted ingredients map where keys are user-facing names
+  /// and values are canonical tags.
+  Map<String, String> _getUnwantedIngredientsMap() {
+    final String? jsonString = _sharedPreferences.getString(
+      _TAG_UNWANTED_INGREDIENTS,
+    );
+    if (jsonString?.isNotEmpty != true) {
+      return <String, String>{};
+    }
+    try {
+      final Map<String, dynamic> decoded =
+          jsonDecode(jsonString!) as Map<String, dynamic>;
+      return decoded.map(
+        (String key, dynamic value) =>
+            MapEntry<String, String>(key, value as String),
+      );
+    } catch (e) {
+      return <String, String>{};
+    }
+  }
+
+  /// Returns the unwanted ingredients map for a specific project.
+  Map<String, String> _getUnwantedIngredientsMapForProject(
+    final PreferencesPageProjects project,
+  ) {
+    final String? jsonString = _sharedPreferences.getString(
+      '${_TAG_UNWANTED_INGREDIENTS}_${project.projectKey}',
+    );
+    if (jsonString == null || jsonString.isEmpty) {
+      return <String, String>{};
+    }
+    try {
+      final Map<String, dynamic> decoded =
+          jsonDecode(jsonString) as Map<String, dynamic>;
+      return decoded.map(
+        (String key, dynamic value) =>
+            MapEntry<String, String>(key, value as String),
+      );
+    } catch (e) {
+      return <String, String>{};
+    }
+  }
+
+  /// Returns the list of canonical tags for unwanted ingredients.
+  /// Use this when making API calls that require canonical tags.
+  List<String> getUnwantedIngredientTags() {
+    return _getUnwantedIngredientsMap().values.toList(growable: false);
+  }
+
+  /// Returns the list of canonical tags for unwanted ingredients for a specific project.
+  List<String> getUnwantedIngredientTagsForProject(
+    final PreferencesPageProjects project,
+  ) => _getUnwantedIngredientsMapForProject(project).values.toList();
+
+  /// Returns the list of user-facing names for unwanted ingredients.
+  /// Use this for display purposes.
+  List<String> getUnwantedIngredients() {
+    return _getUnwantedIngredientsMap().keys.toList(growable: false);
+  }
+
+  /// Returns the list of user-facing names for unwanted ingredients for a specific project.
+  List<String> getUnwantedIngredientsForProject(
+    final PreferencesPageProjects project,
+  ) => _getUnwantedIngredientsMapForProject(project).keys.toList();
+
+  /// Sets the unwanted ingredients map.
+  /// [ingredientsMap] is a map where keys are user-facing names and values are
+  /// canonical tags.
+  Future<void> setUnwantedIngredients(
+    Map<String, String> ingredientsMap,
+  ) async {
+    await _sharedPreferences.setString(
+      _TAG_UNWANTED_INGREDIENTS,
+      jsonEncode(ingredientsMap),
+    );
+    notifyListeners();
+  }
+
+  /// Sets the unwanted ingredients map for a specific project.
+  Future<void> setUnwantedIngredientsForProject(
+    Map<String, String> ingredientsMap,
+    final PreferencesPageProjects project,
+  ) async {
+    await _sharedPreferences.setString(
+      '${_TAG_UNWANTED_INGREDIENTS}_${project.projectKey}',
+      jsonEncode(ingredientsMap),
+    );
     notifyListeners();
   }
 
@@ -418,9 +624,9 @@ class UserPreferences extends ChangeNotifier {
       AttributeGroup.ATTRIBUTE_GROUP_NUTRITIONAL_QUALITY;
 
   UserPictureSource get userPictureSource => UserPictureSource.fromString(
-        _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
-            UserPictureSource.defaultValue.tag,
-      );
+    _sharedPreferences.getString(_TAG_USER_PICTURE_SOURCE) ??
+        UserPictureSource.defaultValue.tag,
+  );
 
   Future<void> setUserPictureSource(final UserPictureSource source) async {
     await _sharedPreferences.setString(_TAG_USER_PICTURE_SOURCE, source.tag);
@@ -433,7 +639,9 @@ class UserPreferences extends ChangeNotifier {
 
   Future<void> setUserKnowledgePanelOrder(final List<String> source) async {
     await _sharedPreferences.setStringList(
-        _TAG_USER_KNOWLEDGE_PANEL_ORDER, source);
+      _TAG_USER_KNOWLEDGE_PANEL_ORDER,
+      source,
+    );
     notifyListeners();
   }
 
@@ -444,6 +652,9 @@ class UserPreferences extends ChangeNotifier {
   List<String> get taglineFeedClickedNews =>
       _sharedPreferences.getStringList(_TAG_TAGLINE_FEED_NEWS_CLICKED) ??
       <String>[];
+
+  final Set<String> taglineFeedSessionImpressions = <String>{};
+  final Set<String> taglineFeedSessionClicks = <String>{};
 
   // This method voluntarily does not notify listeners (not needed)
   Future<void> taglineFeedMarkNewsAsDisplayed(final String ids) async {
@@ -489,6 +700,26 @@ class UserPreferences extends ChangeNotifier {
     }
   }
 
+  DateTime? get donationAsksMutedUntil {
+    final int? millis = _sharedPreferences.getInt(
+      _TAG_DONATION_ASKS_MUTED_UNTIL,
+    );
+    return millis == null ? null : DateTime.fromMillisecondsSinceEpoch(millis);
+  }
+
+  Future<void> muteDonationAsks(final Duration duration) async {
+    await _sharedPreferences.setInt(
+      _TAG_DONATION_ASKS_MUTED_UNTIL,
+      DateTime.now().add(duration).millisecondsSinceEpoch,
+    );
+    notifyListeners();
+  }
+
+  bool donationAsksMuted(final DateTime now) {
+    final DateTime? mutedUntil = donationAsksMutedUntil;
+    return mutedUntil != null && now.isBefore(mutedUntil);
+  }
+
   bool showInputProductNameBanner() =>
       _sharedPreferences.getBool(_TAG_SHOW_BANNER_INPUT_PRODUCT_NAME) ?? true;
 
@@ -502,28 +733,21 @@ class UserPreferences extends ChangeNotifier {
 
   ProductType get latestProductType =>
       ProductType.fromOffTag(
-          _sharedPreferences.getString(_TAG_LATEST_PRODUCT_TYPE)) ??
+        _sharedPreferences.getString(_TAG_LATEST_PRODUCT_TYPE),
+      ) ??
       ProductType.food;
 
-  set latestProductType(final ProductType value) => unawaited(
-        _sharedPreferences.setString(
-          _TAG_LATEST_PRODUCT_TYPE,
-          value.offTag,
-        ),
-      );
-
-  Future<void> setSearchProductTypeFilter(final bool visible) async {
-    await _sharedPreferences.setBool(
-        _TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER, visible);
+  set latestProductType(final ProductType value) {
+    unawaited(
+      _sharedPreferences.setString(_TAG_LATEST_PRODUCT_TYPE, value.offTag),
+    );
     notifyListeners();
   }
 
-  bool get searchProductTypeFilterVisible =>
-      _sharedPreferences.getBool(_TAG_SEARCH_SHOW_PRODUCT_TYPE_FILTER) ?? false;
-
   List<ProductFooterActionBar> get productPageActions {
-    final List<String>? actions =
-        _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_ACTIONS);
+    final List<String>? actions = _sharedPreferences.getStringList(
+      _TAG_PRODUCT_PAGE_ACTIONS,
+    );
 
     if (actions == null) {
       return ProductFooterActionBar.defaultOrder();
@@ -558,10 +782,7 @@ class UserPreferences extends ChangeNotifier {
 
     languages[language.code] = (languages[language.code] ?? 0) + 1;
     unawaited(
-      _sharedPreferences.setString(
-        _TAG_LANGUAGES_USAGE,
-        jsonEncode(languages),
-      ),
+      _sharedPreferences.setString(_TAG_LANGUAGES_USAGE, jsonEncode(languages)),
     );
   }
 
@@ -571,5 +792,33 @@ class UserPreferences extends ChangeNotifier {
       return <String, int>{};
     }
     return Map<String, int>.from(jsonDecode(usage));
+  }
+
+  List<String> get productPageTabs =>
+      _sharedPreferences.getStringList(_TAG_PRODUCT_PAGE_TABS) ?? <String>[];
+
+  Future<void> setProductPageTabs(final List<String> value) async {
+    await _sharedPreferences.setStringList(_TAG_PRODUCT_PAGE_TABS, value);
+    notifyListeners();
+  }
+
+  ForMeAttributesFilterType? get forMeAttributesFilterType {
+    final String? key = _sharedPreferences.getString(
+      _TAG_PRODUCT_PAGE_FOR_ME_FILTER,
+    );
+    if (key?.isNotEmpty != true) {
+      return null;
+    }
+    return ForMeAttributesFilterType.fromKey(key!);
+  }
+
+  Future<void> setForMeAttributesFilterType(
+    final ForMeAttributesFilterType filter,
+  ) async {
+    await _sharedPreferences.setString(
+      _TAG_PRODUCT_PAGE_FOR_ME_FILTER,
+      filter.key,
+    );
+    notifyListeners();
   }
 }

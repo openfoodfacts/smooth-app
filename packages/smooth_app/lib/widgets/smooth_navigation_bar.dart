@@ -4,8 +4,8 @@ import 'dart:math' as math;
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/helpers/collections_helper.dart';
 import 'package:smooth_app/helpers/num_utils.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
@@ -19,7 +19,7 @@ class SmoothNavigationBar extends StatefulWidget {
   }) : assert(selectedIndex >= 0 && selectedIndex < destinations.length);
 
   final int selectedIndex;
-  final List<SmoothNavigationDestination> destinations;
+  final Iterable<SmoothNavigationDestination> destinations;
   final ValueChanged<int> onDestinationSelected;
 
   @override
@@ -50,49 +50,56 @@ class _SmoothNavigationBarState extends State<SmoothNavigationBar> {
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: widget.destinations.mapIndexed((
-                int position,
-                SmoothNavigationDestination destination,
-              ) {
-                final int index = widget.destinations.indexOf(destination);
-                return Expanded(
-                  child: Material(
-                    type: MaterialType.transparency,
-                    child: Listener(
-                      onPointerDown: (PointerDownEvent event) =>
-                          _lastEvent = event,
-                      child: InkWell(
-                        onTap: () => widget.onDestinationSelected(index),
-                        customBorder: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(
-                              MediaQuery.sizeOf(context).width / 2,
+              children: widget.destinations
+                  .mapIndexed((
+                    int position,
+                    SmoothNavigationDestination destination,
+                  ) {
+                    if (!destination.visible) {
+                      return EMPTY_WIDGET;
+                    }
+
+                    final int index = widget.destinations.indexOf(destination);
+                    return Expanded(
+                      child: Material(
+                        type: MaterialType.transparency,
+                        child: Listener(
+                          onPointerDown: (PointerDownEvent event) =>
+                              _lastEvent = event,
+                          child: InkWell(
+                            onTap: () => widget.onDestinationSelected(index),
+                            customBorder: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(
+                                  MediaQuery.sizeOf(context).width / 2,
+                                ),
+                              ),
+                            ),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: _SmoothNavigationBarItem(
+                                destination: destination,
+                                selected: index == widget.selectedIndex,
+                                lastPointerEvent: _lastEvent,
+                                coordinates: _size != null
+                                    ? Rect.fromLTWH(
+                                        position *
+                                            _size!.width /
+                                            widget.destinations.length,
+                                        0.0,
+                                        _size!.width /
+                                            widget.destinations.length,
+                                        _size!.height,
+                                      )
+                                    : null,
+                              ),
                             ),
                           ),
                         ),
-                        child: SizedBox(
-                          width: double.infinity,
-                          child: _SmoothNavigationBarItem(
-                            destination: destination,
-                            selected: index == widget.selectedIndex,
-                            lastPointerEvent: _lastEvent,
-                            coordinates: _size != null
-                                ? Rect.fromLTWH(
-                                    position *
-                                        _size!.width /
-                                        widget.destinations.length,
-                                    0.0,
-                                    _size!.width / widget.destinations.length,
-                                    _size!.height,
-                                  )
-                                : null,
-                          ),
-                        ),
                       ),
-                    ),
-                  ),
-                );
-              }).toList(growable: false),
+                    );
+                  })
+                  .toList(growable: false),
             ),
           ),
         ),
@@ -139,8 +146,8 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     _iconColorAnimation = ColorTween(
@@ -172,8 +179,8 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
 
     return Padding(
@@ -187,10 +194,7 @@ class _SmoothNavigationBarItemState extends State<_SmoothNavigationBarItem>
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           IconTheme(
-            data: IconThemeData(
-              color: _iconColorAnimation.value,
-              size: 24.0,
-            ),
+            data: IconThemeData(color: _iconColorAnimation.value, size: 24.0),
             child: SizedBox(
               width: 64.0,
               height: 32.0,
@@ -343,8 +347,10 @@ class SmoothNavigationDestination {
   const SmoothNavigationDestination({
     required this.icon,
     required this.label,
+    this.visible = true,
   });
 
   final Widget icon;
   final String label;
+  final bool visible;
 }

@@ -27,10 +27,7 @@ class SmoothSimpleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
-      constraints: BoxConstraints(
-        minWidth: minWidth,
-        minHeight: height,
-      ),
+      constraints: BoxConstraints(minWidth: minWidth, minHeight: height),
       child: ElevatedButton(
         style: ButtonStyle(
           elevation: elevation,
@@ -45,10 +42,9 @@ class SmoothSimpleButton extends StatelessWidget {
           overlayColor: context.read<ThemeProvider>().isAmoledTheme
               ? WidgetStateProperty.resolveWith((Set<WidgetState> states) {
                   return states.contains(WidgetState.pressed)
-                      ? Theme.of(context)
-                          .colorScheme
-                          .primary
-                          .withValues(alpha: 0.3)
+                      ? Theme.of(
+                          context,
+                        ).colorScheme.primary.withValues(alpha: 0.3)
                       : null;
                 })
               : null,
@@ -59,10 +55,7 @@ class SmoothSimpleButton extends StatelessWidget {
               : null,
         ),
         onPressed: onPressed,
-        child: Padding(
-          padding: padding,
-          child: child,
-        ),
+        child: Padding(padding: padding, child: child),
       ),
     );
   }

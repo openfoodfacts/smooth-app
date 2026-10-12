@@ -1,0 +1,2 @@
+dartdoc:
+  nodoc: ['lib/l10n/app_localizations_*.dart']

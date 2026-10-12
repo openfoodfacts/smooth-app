@@ -9,6 +9,7 @@ import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/up_to_date_product_list_provider.dart';
 import 'package:smooth_app/data_models/up_to_date_product_provider.dart';
 import 'package:smooth_app/database/abstract_dao.dart';
+import 'package:smooth_app/database/dao_folksonomy.dart';
 import 'package:smooth_app/database/dao_hive_product.dart';
 import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
@@ -19,6 +20,7 @@ import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/dao_string_list_map.dart';
+import 'package:smooth_app/database/dao_transient_folksonomy.dart';
 import 'package:smooth_app/database/dao_transient_operation.dart';
 import 'package:smooth_app/database/dao_work_barcode.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
@@ -36,6 +38,7 @@ class LocalDatabase extends ChangeNotifier {
   Database get database => _database;
 
   UpToDateProductProvider get upToDate => _upToDateProductProvider;
+
   UpToDateProductListProvider get upToDateProductList =>
       _upToDateProductListProvider;
 
@@ -75,7 +78,7 @@ class LocalDatabase extends ChangeNotifier {
     final String databasePath = join(databasesRootPath, 'smoothie.db');
     final Database database = await openDatabase(
       databasePath,
-      version: 7,
+      version: 9,
       singleInstance: true,
       onUpgrade: _onUpgrade,
     );
@@ -93,6 +96,7 @@ class LocalDatabase extends ChangeNotifier {
       DaoInt(localDatabase),
       DaoStringListMap(localDatabase),
       DaoTransientOperation(localDatabase),
+      DaoTransientFolksonomy(localDatabase),
     ];
     for (final AbstractDao dao in daos) {
       dao.registerAdapter();
@@ -120,5 +124,6 @@ class LocalDatabase extends ChangeNotifier {
     await DaoWorkBarcode.onUpgrade(db, oldVersion, newVersion);
     await DaoProductLastAccess.onUpgrade(db, oldVersion, newVersion);
     await DaoOsmLocation.onUpgrade(db, oldVersion, newVersion);
+    await DaoFolksonomy.onUpgrade(db, oldVersion, newVersion);
   }
 }

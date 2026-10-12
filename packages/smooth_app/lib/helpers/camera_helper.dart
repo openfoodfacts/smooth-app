@@ -1,38 +1,43 @@
 import 'dart:io';
 
-import 'package:camera/camera.dart';
-import 'package:flutter/foundation.dart';
+import 'package:mobile_scanner/mobile_scanner.dart';
 
 class CameraHelper {
   const CameraHelper._();
 
-  static List<CameraDescription>? _cameras;
+  static Set<CameraLensType>? _cameraLensTypesBack;
+  static Set<CameraLensType>? _cameraLensTypesFront;
 
-  /// Mandatory method to call before [findBestCamera]
+  /// Mandatory method to call.
   static Future<void> init() async {
     if (!isSupported) {
-      _cameras = <CameraDescription>[];
-    } else {
-      _cameras = await availableCameras();
+      _cameraLensTypesBack = <CameraLensType>{};
+      _cameraLensTypesFront = <CameraLensType>{};
+      return;
     }
+    _cameraLensTypesBack = await MobileScannerPlatform.instance
+        .getSupportedLenses(facing: CameraFacing.back);
+    _cameraLensTypesFront = await MobileScannerPlatform.instance
+        .getSupportedLenses(facing: CameraFacing.front);
   }
 
   /// Returns if the device has more than one camera
   static bool get hasMoreThanOneCamera {
-    if (_cameras == null) {
+    if (_cameraLensTypesBack == null) {
       throw Exception('Please call [init] before!');
     }
-    return _cameras!.length > 1;
+    return _cameraLensTypesBack!.isNotEmpty &&
+        _cameraLensTypesFront!.isNotEmpty;
   }
 
   /// Returns if the device has at least one camera
   static bool get hasACamera {
-    if (_cameras == null) {
+    if (_cameraLensTypesBack == null) {
       throw Exception('Please call [init] before!');
-    } else {
-      return _cameras!.isNotEmpty;
     }
+    return _cameraLensTypesBack!.isNotEmpty ||
+        _cameraLensTypesFront!.isNotEmpty;
   }
 
-  static bool get isSupported => kIsWeb || Platform.isAndroid || Platform.isIOS;
+  static bool get isSupported => Platform.isAndroid || Platform.isIOS;
 }

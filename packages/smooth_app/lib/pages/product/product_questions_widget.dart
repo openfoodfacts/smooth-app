@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -10,6 +9,7 @@ import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/robotoff_insight_helper.dart';
 import 'package:smooth_app/helpers/robotoff_question_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/hunger_games/question_page.dart';
 import 'package:smooth_app/query/product_questions_query.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -51,8 +51,9 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final bool shouldKeepWidgetAlive =
-        KeepQuestionWidgetAlive.shouldKeepAlive(context);
+    final bool shouldKeepWidgetAlive = KeepQuestionWidgetAlive.shouldKeepAlive(
+      context,
+    );
 
     // Force the Widget to reload questions only when transitioning
     // from not kept alive (false) to keep alive (true)
@@ -82,8 +83,7 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
       MaterialPageRoute<int>(
         builder: (BuildContext context) => QuestionsPage(
           product: widget.product,
-          questions: (_state as _ProductQuestionsWithQuestions)
-              .questions
+          questions: (_state as _ProductQuestionsWithQuestions).questions
               .toList(growable: false),
         ),
       ),
@@ -103,8 +103,8 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   }) async {
     final List<RobotoffQuestion>? currentQuestions =
         _state is _ProductQuestionsWithQuestions
-            ? (_state as _ProductQuestionsWithQuestions).questions
-            : null;
+        ? (_state as _ProductQuestionsWithQuestions).questions
+        : null;
 
     setState(() => _state = const _ProductQuestionsLoading());
 
@@ -117,16 +117,19 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
 
     if (updateInsightAnnotations) {
       final LocalDatabase localDatabase = context.read<LocalDatabase>();
-      final RobotoffInsightHelper robotoffInsightHelper =
-          RobotoffInsightHelper(localDatabase);
+      final RobotoffInsightHelper robotoffInsightHelper = RobotoffInsightHelper(
+        localDatabase,
+      );
 
       if (questions.isEmpty) {
-        await robotoffInsightHelper
-            .removeInsightAnnotationsSavedForProduct(widget.product.barcode!);
+        await robotoffInsightHelper.removeInsightAnnotationsSavedForProduct(
+          widget.product.barcode!,
+        );
       }
 
-      _annotationVoted =
-          await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
+      _annotationVoted = await robotoffInsightHelper.areQuestionsAlreadyVoted(
+        questions,
+      );
     }
 
     if (questions.isNotEmpty == true && !_annotationVoted) {
@@ -144,27 +147,29 @@ class _ProductQuestionsWidgetState extends State<ProductQuestionsWidget>
   }
 
   void _trackEvent(AnalyticsEvent event) => AnalyticsHelper.trackProductEvent(
-        event,
-        eventValue: 1,
-        product: widget.product,
-      );
+    event,
+    eventValue: 1,
+    product: widget.product,
+  );
 
   Future<List<RobotoffQuestion>?> _loadProductQuestions() async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
 
     try {
-      final List<RobotoffQuestion> questions =
-          await ProductQuestionsQuery(widget.product.barcode!)
-              .getQuestions(localDatabase, 3);
+      final List<RobotoffQuestion> questions = await ProductQuestionsQuery(
+        widget.product.barcode!,
+      ).getQuestions(localDatabase, 3);
 
       if (!mounted) {
         return null;
       }
 
-      final RobotoffInsightHelper robotoffInsightHelper =
-          RobotoffInsightHelper(localDatabase);
-      _annotationVoted =
-          await robotoffInsightHelper.areQuestionsAlreadyVoted(questions);
+      final RobotoffInsightHelper robotoffInsightHelper = RobotoffInsightHelper(
+        localDatabase,
+      );
+      _annotationVoted = await robotoffInsightHelper.areQuestionsAlreadyVoted(
+        questions,
+      );
       return questions;
     } catch (_) {
       return null;
@@ -197,10 +202,7 @@ class _ProductQuestionBanner extends StatelessWidget {
 
     final Widget child;
     if (state is! _ProductQuestionsWithQuestions) {
-      child = const BlockSemantics(
-        blocking: true,
-        child: EMPTY_WIDGET,
-      );
+      child = const BlockSemantics(blocking: true, child: EMPTY_WIDGET);
     } else {
       child = DecoratedBox(
         decoration: BoxDecoration(
@@ -226,10 +228,6 @@ class _ProductQuestionBanner extends StatelessWidget {
                 padding: const EdgeInsetsDirectional.symmetric(
                   vertical: SMALL_SPACE,
                   horizontal: MEDIUM_SPACE,
-                ).add(
-                  EdgeInsetsDirectional.only(
-                    bottom: MediaQuery.viewPaddingOf(context).bottom,
-                  ),
                 ),
                 child: Row(
                   children: <Widget>[
@@ -246,10 +244,8 @@ class _ProductQuestionBanner extends StatelessWidget {
                           children: <TextSpan>[
                             TextSpan(
                               text: appLocalizations.contribute_to_get_rewards,
-                              style:
-                                  theme.primaryTextTheme.bodyMedium!.copyWith(
-                                color: contentColor,
-                              ),
+                              style: theme.primaryTextTheme.bodyMedium!
+                                  .copyWith(color: contentColor),
                             ),
                           ],
                         ),
@@ -259,7 +255,7 @@ class _ProductQuestionBanner extends StatelessWidget {
                       Icons.arrow_circle_right_outlined,
                       color: contentColor,
                       size: 20.0,
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -326,16 +322,16 @@ class _ProductQuestionsWithoutQuestions extends _ProductQuestionsState {
 /// to keep its state or not
 class KeepQuestionWidgetAlive extends InheritedWidget {
   const KeepQuestionWidgetAlive({
-    super.key,
     required this.keepWidgetAlive,
     required super.child,
+    super.key,
   });
 
   final bool keepWidgetAlive;
 
   static bool shouldKeepAlive(BuildContext context) {
-    final KeepQuestionWidgetAlive? result =
-        context.dependOnInheritedWidgetOfExactType<KeepQuestionWidgetAlive>();
+    final KeepQuestionWidgetAlive? result = context
+        .dependOnInheritedWidgetOfExactType<KeepQuestionWidgetAlive>();
 
     return result?.keepWidgetAlive ?? false;
   }

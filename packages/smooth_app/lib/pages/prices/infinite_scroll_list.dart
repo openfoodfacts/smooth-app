@@ -1,15 +1,15 @@
 import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/generic_lib/empty_screen_layout.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/prices/infinite_scroll_manager.dart';
+import 'package:smooth_app/pages/product/query_results_banner.dart';
 
 /// A generic stateful widget for infinite scrolling lists that works with InfiniteScrollManager.
 class InfiniteScrollList<T> extends StatefulWidget {
-  const InfiniteScrollList({
-    required this.manager,
-  });
+  const InfiniteScrollList({required this.manager});
 
   /// Manager for handling the infinite scroll behavior
   final InfiniteScrollManager<T> manager;
@@ -24,6 +24,7 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   late final ScrollController _scrollController;
   Object? _error;
   bool _isInitialLoading = false;
+  bool _isLoadingMore = false;
 
   @override
   void initState() {
@@ -60,108 +61,90 @@ class _InfiniteScrollListState<T> extends State<InfiniteScrollList<T>> {
   }
 
   void _scrollListener() {
-    if (!widget.manager.canLoadMore()) {
+    if (_isLoadingMore || !widget.manager.canLoadMore()) {
       return;
     }
 
     final double maxScroll = _scrollController.position.maxScrollExtent;
     final double currentScroll = _scrollController.position.pixels;
 
-    if (currentScroll > maxScroll - _loadMoreTriggerOffset) {
+    if (currentScroll >= maxScroll - _loadMoreTriggerOffset) {
       unawaited(_loadMoreItems());
     }
   }
 
   Future<void> _loadMoreItems() async {
-    if (mounted) {
-      setState(() {});
-      await widget.manager.loadMore(context);
+    if (_isLoadingMore || !mounted) {
+      return;
+    }
+    setState(() => _isLoadingMore = true);
+    await widget.manager.loadMore(context);
+    if (!mounted) {
+      return;
+    }
+    setState(() => _isLoadingMore = false);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (mounted) {
-        setState(() {});
+        _scrollListener();
       }
-    }
+    });
   }
 
-  Widget _buildLoadingState(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
-  }
-
-  Widget _buildErrorState(BuildContext context, dynamic error) {
-    return Text(error.toString());
-  }
-
-  Widget _buildEmptyState(BuildContext context) {
-    return Text(AppLocalizations.of(context).prices_no_result);
-  }
-
-  Widget _buildLoadingMoreIndicator(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: 16.0),
-      child: Center(child: CircularProgressIndicator()),
-    );
-  }
-
-  Widget _buildFooter(BuildContext context) {
-    return const SizedBox(height: MINIMUM_TOUCH_SIZE * 2);
-  }
-
-  Widget _buildHeader(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    String title;
-    final int totalPages = widget.manager.totalPages ?? 1;
-    final int currentPage = widget.manager.currentPage;
-    final int itemsCount = widget.manager.items.length;
-    final int totalItems = widget.manager.totalItems ?? itemsCount;
-
-    if (totalPages > 1) {
-      title = appLocalizations.prices_list_length_many_pages(
-        itemsCount,
-        totalItems,
+  String _getItemCount(BuildContext context) =>
+      widget.manager.formattedItemCount(
+        context,
+        widget.manager.items.length,
+        widget.manager.totalItems,
       );
-      title = '$title ($currentPage / $totalPages)';
-    } else {
-      title = appLocalizations.prices_list_length_one_page(
-        itemsCount,
-      );
-    }
-
-    return SmoothCard(child: ListTile(title: Text(title)));
-  }
 
   @override
   Widget build(BuildContext context) {
     if (_isInitialLoading) {
-      return _buildLoadingState(context);
+      return const Center(child: CircularProgressIndicator.adaptive());
     }
 
     if (_error != null) {
-      return _buildErrorState(context, _error);
+      return Center(child: Text(_error.toString()));
     }
 
     if (widget.manager.items.isEmpty) {
-      return _buildEmptyState(context);
+      final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+      return EmptyScreenLayout(
+        icon: widget.manager.emptyListIcon,
+        title: widget.manager.emptyListTitle(appLocalizations),
+        explanation: widget.manager.emptyListExplanation(appLocalizations),
+      );
     }
 
     final List<Widget> children = <Widget>[];
 
-    children.add(_buildHeader(context));
+    children.add(
+      QueryResultsBanner(
+        mainText: _getItemCount(context),
+        margin: const EdgeInsetsDirectional.only(top: BALANCED_SPACE),
+      ),
+    );
 
     for (final T item in widget.manager.items) {
-      children.add(widget.manager.getItemWidget(
-        context: context,
-        item: item,
-      ));
+      children.add(widget.manager.buildItem(context: context, item: item));
     }
 
     if (widget.manager.isLoading) {
-      children.add(_buildLoadingMoreIndicator(context));
+      children.add(
+        const Padding(
+          padding: EdgeInsetsDirectional.symmetric(vertical: LARGE_SPACE),
+          child: Center(child: CircularProgressIndicator.adaptive()),
+        ),
+      );
     }
 
-    children.add(_buildFooter(context));
+    children.add(const SizedBox(height: MINIMUM_TOUCH_SIZE * 2));
 
-    return ListView(
+    return ListView.builder(
       controller: _scrollController,
-      children: children,
+      itemCount: children.length,
+      itemBuilder: (BuildContext context, int index) => children[index],
     );
   }
 }

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 /// and persists the previous value.
 class TextEditingControllerWithHistory extends TextEditingController {
   TextEditingControllerWithHistory({super.text})
-      : _initialValue = text,
-        _previousValue = text;
+    : _initialValue = text,
+      _previousValue = text;
 
   final String? _initialValue;
   String? _previousValue;

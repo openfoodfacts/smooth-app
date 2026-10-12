@@ -7,10 +7,11 @@ class UserPreferencesMigrationTool {
 
   static final Iterable<UserPreferencesMigration> _versions =
       <UserPreferencesMigration>[
-    const _UserPreferencesMigrationV1(),
-    const _UserPreferencesMigrationV2(),
-    const _UserPreferencesMigrationV3(),
-  ];
+        const _UserPreferencesMigrationV1(),
+        const _UserPreferencesMigrationV2(),
+        const _UserPreferencesMigrationV3(),
+        const _UserPreferencesMigrationV4(),
+      ];
 
   static Future<void> onUpgrade(
     UserPreferences preferences,
@@ -52,8 +53,9 @@ class _UserPreferencesMigrationV1 extends UserPreferencesMigration {
     int? oldVersion,
     int newVersion,
   ) async {
-    final bool? crashReporting = preferences._sharedPreferences
-        .getBool(UserPreferences._TAG_CRASH_REPORTS);
+    final bool? crashReporting = preferences._sharedPreferences.getBool(
+      UserPreferences._TAG_CRASH_REPORTS,
+    );
     if (crashReporting != null) {
       await preferences.setUserTracking(crashReporting);
     }
@@ -95,4 +97,29 @@ class _UserPreferencesMigrationV3 extends UserPreferencesMigration {
 
   @override
   int get version => 3;
+}
+
+class _UserPreferencesMigrationV4 extends UserPreferencesMigration {
+  const _UserPreferencesMigrationV4();
+
+  @override
+  Future<void> onUpgrade(
+    UserPreferences preferences,
+    int? oldVersion,
+    int newVersion,
+  ) async {
+    /// An install that predates the first-open event has already opened the
+    /// app: latch it so that re-running the onboarding (sign-up, dev mode)
+    /// cannot report a first open. A fresh install has no [_TAG_INIT] yet.
+    if (preferences._sharedPreferences.getBool(UserPreferences._TAG_INIT) !=
+        null) {
+      await preferences._sharedPreferences.setBool(
+        UserPreferences._TAG_FIRST_OPEN_TRACKED,
+        true,
+      );
+    }
+  }
+
+  @override
+  int get version => 4;
 }

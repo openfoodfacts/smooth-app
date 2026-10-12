@@ -1,3 +1,3 @@
-library scanner_mlkit;
+library;
 
 export 'src/google_play.dart';

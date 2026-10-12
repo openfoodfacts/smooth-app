@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
@@ -8,17 +7,15 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/personalized_ranking_page.dart';
 import 'package:smooth_app/pages/product/compare_products3_page.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_menu_button.dart';
 
 /// Popup menu item entries for the product list page, for selected items.
-enum ProductListItemPopupMenuEntry {
-  compareSideBySide,
-  rank,
-  delete,
-}
+enum ProductListItemPopupMenuEntry { compareSideBySide, rank, delete }
 
 /// Popup menu items for the product list page, for selected items.
 abstract class ProductListItemPopupItem {
@@ -26,7 +23,7 @@ abstract class ProductListItemPopupItem {
   String getTitle(final AppLocalizations appLocalizations);
 
   /// IconData of the popup menu item.
-  IconData getIconData();
+  Widget getIcon();
 
   /// Is-it a destructive action?
   bool isDestructive() => false;
@@ -45,23 +42,22 @@ abstract class ProductListItemPopupItem {
   SmoothPopupMenuItem<ProductListItemPopupItem> getMenuItem(
     final AppLocalizations appLocalizations,
     final bool enabled,
-  ) =>
-      SmoothPopupMenuItem<ProductListItemPopupItem>(
-        value: this,
-        icon: getIconData(),
-        label: getTitle(appLocalizations),
-        enabled: enabled,
-      );
+  ) => SmoothPopupMenuItem<ProductListItemPopupItem>(
+    value: this,
+    icon: getIcon(),
+    label: getTitle(appLocalizations),
+    enabled: enabled,
+  );
 }
 
 /// Popup menu item for the product list page: compare side by side selected items.
 class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
   @override
   String getTitle(final AppLocalizations appLocalizations) =>
-      'Compare side by side';
+      appLocalizations.product_list_compare_side_by_side;
 
   @override
-  IconData getIconData() => Icons.difference_outlined;
+  Widget getIcon() => const icons.Compare.alt();
 
   @override
   Future<bool> doSomething({
@@ -70,8 +66,11 @@ class ProductListItemPopupSideBySide extends ProductListItemPopupItem {
     required final BuildContext context,
     required final Set<String> selectedBarcodes,
   }) async {
-    final OrderedNutrientsCache? cache =
-        await OrderedNutrientsCache.getCache(context);
+    final OrderedNutrientsCache? cache = await OrderedNutrientsCache.getCache(
+      context,
+      // TODO(monsieurtanuki): implement for other types
+      ProductType.food,
+    );
     if (context.mounted) {
       if (cache == null) {
         ScaffoldMessenger.of(context).showSnackBar(
@@ -111,7 +110,7 @@ class ProductListItemPopupRank extends ProductListItemPopupItem {
       appLocalizations.compare_products_mode;
 
   @override
-  IconData getIconData() => Icons.compare_arrows;
+  Widget getIcon() => const icons.Compare.alt();
 
   @override
   Future<bool> doSomething({
@@ -140,7 +139,7 @@ class ProductListItemPopupDelete extends ProductListItemPopupItem {
       appLocalizations.delete_products_mode;
 
   @override
-  IconData getIconData() => Icons.delete;
+  Widget getIcon() => const icons.Trash.delete();
 
   @override
   bool isDestructive() => true;
@@ -199,7 +198,7 @@ class ProductListItemPopupSelectAll extends ProductListItemPopupItem {
       appLocalizations.select_all_products_mode;
 
   @override
-  IconData getIconData() => Icons.check_box;
+  Widget getIcon() => const icons.CheckBox.filled();
 
   @override
   Future<bool> doSomething({
@@ -220,7 +219,7 @@ class ProductListItemPopupUnselectAll extends ProductListItemPopupItem {
       appLocalizations.select_none_products_mode;
 
   @override
-  IconData getIconData() => Icons.check_box_outline_blank;
+  Widget getIcon() => const icons.CheckBox();
 
   @override
   Future<bool> doSomething({

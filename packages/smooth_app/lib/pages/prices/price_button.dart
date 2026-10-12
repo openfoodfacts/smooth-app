@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 /// Simple price button: displaying data with optional action.
 class PriceButton extends StatelessWidget {
   const PriceButton({
+    required this.onPressed,
     this.title,
     this.iconData,
     this.buttonStyle,
     this.tooltip,
-    required this.onPressed,
   });
 
   final String? title;
@@ -19,7 +19,6 @@ class PriceButton extends StatelessWidget {
   static const IconData priceIconData = Icons.label;
   static const IconData userIconData = Icons.account_box;
   static const IconData proofIconData = Icons.image;
-  static const IconData locationIconData = Icons.location_on;
   static const IconData historyIconData = Icons.history;
   static const IconData productIconData = Icons.category;
   static const IconData warningIconData = Icons.warning;
@@ -61,10 +60,7 @@ class PriceButton extends StatelessWidget {
         value: tooltip,
         button: true,
         excludeSemantics: true,
-        child: Tooltip(
-          message: tooltip,
-          child: widget,
-        ),
+        child: Tooltip(message: tooltip, child: widget),
       );
     }
     return widget;

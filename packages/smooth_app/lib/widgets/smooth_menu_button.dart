@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 
 /// A Button similar to a [PopupMenuButton] for non Apple platforms.
 /// On iOS and macOS, it's still an [IconButton], but that opens a
@@ -13,12 +12,12 @@ class SmoothPopupMenuButton<T> extends StatefulWidget {
     this.actionsTitle,
     this.buttonIcon,
     this.buttonLabel,
-  })  : assert(buttonLabel == null || buttonLabel.length > 0),
-        assert(actionsTitle == null || actionsTitle.length > 0);
+  }) : assert(buttonLabel == null || buttonLabel.length > 0),
+       assert(actionsTitle == null || actionsTitle.length > 0);
 
   final void Function(T value) onSelected;
   final Iterable<SmoothPopupMenuItem<T>> Function(BuildContext context)
-      itemBuilder;
+  itemBuilder;
   final String? actionsTitle;
   final Icon? buttonIcon;
   final String? buttonLabel;
@@ -32,8 +31,9 @@ class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      icon: widget.buttonIcon ?? Icon(Icons.adaptive.more),
-      tooltip: widget.buttonLabel ??
+      icon: widget.buttonIcon ?? const Icon(Icons.more_vert_rounded),
+      tooltip:
+          widget.buttonLabel ??
           MaterialLocalizations.of(context).showMenuTooltip,
       onPressed: _openModalSheet,
     );
@@ -49,7 +49,8 @@ class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
             .where((SmoothPopupMenuItem<T> item) => item.enabled);
 
         return SmoothModalSheet(
-          title: widget.actionsTitle ??
+          title:
+              widget.actionsTitle ??
               AppLocalizations.of(context).menu_button_list_actions,
           prefixIndicator: true,
           bodyPadding: EdgeInsets.zero,
@@ -63,11 +64,14 @@ class _SmoothPopupMenuButtonState<T> extends State<SmoothPopupMenuButton<T>> {
               final SmoothPopupMenuItem<T> item = list.elementAt(index);
 
               return ListTile(
-                leading: item.icon != null ? Icon(item.icon) : null,
-                title: Text(item.label),
+                leading: item.icon,
+                title: Text(
+                  item.label,
+                  style: const TextStyle(fontWeight: FontWeight.w500),
+                ),
                 onTap: () {
                   Navigator.of(context).pop();
-                  widget.onSelected(item.value);
+                  widget.onSelected.call(item.value);
                 },
               );
             },
@@ -90,6 +94,6 @@ class SmoothPopupMenuItem<T> {
 
   final T value;
   final String label;
-  final IconData? icon;
+  final Widget? icon;
   final bool enabled;
 }

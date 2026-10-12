@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/locations/osm_location.dart';
+import 'package:smooth_app/pages/prices/add_product/price_add_product_card.dart';
 import 'package:smooth_app/pages/prices/price_add_helper.dart';
-import 'package:smooth_app/pages/prices/price_add_product_card.dart';
 import 'package:smooth_app/pages/prices/price_amount_card.dart';
-import 'package:smooth_app/pages/prices/price_currency_card.dart';
 import 'package:smooth_app/pages/prices/price_date_card.dart';
 import 'package:smooth_app/pages/prices/price_existing_amount_card.dart';
 import 'package:smooth_app/pages/prices/price_location_card.dart';
@@ -19,7 +18,7 @@ import 'package:smooth_app/pages/prices/price_model.dart';
 import 'package:smooth_app/pages/prices/price_proof_card.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -29,16 +28,14 @@ import 'package:smooth_app/widgets/will_pop_scope.dart';
 
 /// Single page that displays all the elements of price adding.
 class ProductPriceAddPage extends StatefulWidget {
-  const ProductPriceAddPage(
-    this.model,
-  );
+  const ProductPriceAddPage(this.model);
 
   final PriceModel model;
 
   static Future<void> showProductPage({
     required final BuildContext context,
-    final PriceMetaProduct? product,
     required final ProofType proofType,
+    final PriceMetaProduct? product,
   }) async {
     if (!await ProductRefresher().checkIfLoggedIn(
       context,
@@ -51,21 +48,16 @@ class ProductPriceAddPage extends StatefulWidget {
     }
 
     final PriceAddHelper priceAddHelper = PriceAddHelper(context);
-    final List<OsmLocation> osmLocations = await priceAddHelper.getLocations();
-    if (!context.mounted) {
-      return;
-    }
 
     final Currency currency = priceAddHelper.getCurrency();
 
     final bool multipleProducts = product == null;
 
-    await Navigator.of(context).push(
+    await Navigator.of(context, rootNavigator: true).push(
       MaterialPageRoute<void>(
         builder: (BuildContext context) => ProductPriceAddPage(
           PriceModel(
             proofType: proofType,
-            locations: osmLocations,
             initialProduct: product,
             currency: currency,
             multipleProducts: multipleProducts,
@@ -96,25 +88,18 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PriceModel>.value(
       value: widget.model,
-      builder: (
-        final BuildContext context,
-        final Widget? child,
-      ) {
+      builder: (final BuildContext context, final Widget? child) {
         final AppLocalizations appLocalizations = AppLocalizations.of(context);
         final PriceModel model = Provider.of<PriceModel>(context);
+
         return ChangeNotifierListener<PriceModel>(
           listener: (BuildContext context, PriceModel model) {
             _willPopScope2Controller.canPop(!model.hasChanged);
           },
           child: WillPopScope2(
             controller: _willPopScope2Controller,
-            onWillPop: () async => (
-              await _mayExitPage(
-                saving: false,
-                model: model,
-              ),
-              null
-            ),
+            onWillPop: () async =>
+                (await _mayExitPage(saving: false, model: model), null),
             child: Form(
               key: _formKey,
               child: SmoothScaffold(
@@ -122,77 +107,94 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
                   centerTitle: false,
                   leading: const SmoothBackButton(),
                   title: Text(
-                    appLocalizations.prices_add_n_prices(
-                      model.length,
-                    ),
+                    appLocalizations.prices_add_n_prices(model.length),
                   ),
+                  subTitle: _generateSubtitle(appLocalizations),
                   actions: <Widget>[
                     IconButton(
-                      icon: const Icon(Icons.info),
-                      onPressed: () async => PriceAddHelper(context)
-                          .doesAcceptWarning(justInfo: true),
+                      icon: const icons.Info(),
+                      onPressed: () async => PriceAddHelper(
+                        context,
+                      ).doesAcceptWarning(justInfo: true),
                     ),
                   ],
                 ),
                 backgroundColor: context.lightTheme()
                     ? context
-                        .extension<SmoothColorsThemeExtension>()
-                        .primaryLight
+                          .extension<SmoothColorsThemeExtension>()
+                          .primaryLight
                     : null,
-                body: SingleChildScrollView(
+                body: CustomScrollView(
                   controller: _scrollController,
-                  padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-                  child: Column(
-                    children: <Widget>[
-                      const PriceProofCard(),
-                      const SizedBox(height: LARGE_SPACE),
-                      const PriceDateCard(),
-                      const SizedBox(height: LARGE_SPACE),
-                      PriceLocationCard(
-                        onLocationChanged: (
-                          OsmLocation? oldLocation,
-                          OsmLocation location,
-                        ) =>
-                            PriceAddHelper(context).updateCurrency(
-                          oldLocation,
-                          location,
-                          model,
+                  slivers: <Widget>[
+                    SliverPadding(
+                      padding: const EdgeInsetsDirectional.only(
+                        start: LARGE_SPACE,
+                        end: LARGE_SPACE,
+                        top: LARGE_SPACE,
+                      ),
+                      sliver: SliverToBoxAdapter(
+                        child: Column(
+                          children: <Widget>[
+                            const PriceProofCard(),
+                            const SizedBox(height: LARGE_SPACE),
+                            const PriceDateCard(),
+                            const SizedBox(height: LARGE_SPACE),
+                            PriceLocationCard(
+                              onLocationChanged: (OsmLocation location) =>
+                                  PriceAddHelper(
+                                    context,
+                                  ).updateCurrency(location, model),
+                            ),
+
+                            if (model.existingPrices != null) ...<Widget>[
+                              const SizedBox(height: LARGE_SPACE),
+                              for (final Price price in model.existingPrices!)
+                                PriceExistingAmountCard(price),
+                            ],
+                          ],
                         ),
                       ),
-                      const SizedBox(height: LARGE_SPACE),
-                      const PriceCurrencyCard(),
-                      const SizedBox(height: LARGE_SPACE),
-                      if (model.existingPrices != null)
-                        for (final Price price in model.existingPrices!)
-                          PriceExistingAmountCard(price),
-                      for (int i = 0; i < model.length; i++)
-                        PriceAmountCard(
-                          key: Key(model.elementAt(i).product.barcode),
-                          index: i,
+                    ),
+                    if (model.length > 0)
+                      SliverPadding(
+                        padding: const EdgeInsetsDirectional.symmetric(
+                          horizontal: LARGE_SPACE,
                         ),
-                      const SizedBox(height: LARGE_SPACE),
-                      if (model.multipleProducts) const PriceAddProductCard(),
-                      // so that the last items don't get hidden by the FAB
-                      const SizedBox(height: MINIMUM_TOUCH_SIZE * 2),
-                    ],
-                  ),
+                        sliver: PriceAmountCard(key: UniqueKey()),
+                      ),
+                    if (model.multipleProducts)
+                      const SliverPadding(
+                        padding: EdgeInsetsDirectional.only(
+                          top: LARGE_SPACE,
+                          start: LARGE_SPACE,
+                          end: LARGE_SPACE,
+                        ),
+                        sliver: SliverToBoxAdapter(
+                          child: PriceAddProductCard(),
+                        ),
+                      ),
+                    // so that the last items don't get hidden by the FAB
+                    const SliverPadding(
+                      padding: EdgeInsetsDirectional.only(
+                        bottom: MINIMUM_TOUCH_SIZE * 2,
+                      ),
+                    ),
+                  ],
                 ),
                 floatingActionButton: SmoothExpandableFloatingActionButton(
                   scrollController: _scrollController,
-                  onPressed: () async => _exitPage(
-                    await _mayExitPage(
-                      saving: true,
-                      model: model,
-                    ),
-                  ),
-                  icon: const Icon(Icons.send),
-                  label: Text(
-                    appLocalizations.prices_send_n_prices(
-                      model.length,
-                    ),
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 15.0,
+                  onPressed: () async =>
+                      _exitPage(await _mayExitPage(saving: true, model: model)),
+                  icon: const icons.Send(size: 18.0),
+                  label: Padding(
+                    padding: const EdgeInsetsDirectional.only(bottom: 2.0),
+                    child: Text(
+                      appLocalizations.prices_send_n_prices(model.length),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 15.0,
+                      ),
                     ),
                   ),
                 ),
@@ -228,13 +230,13 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
     }
 
     if (!saving) {
-      final bool? pleaseSave =
-          await MayExitPageHelper().openSaveBeforeLeavingDialog(
-        context,
-        title: AppLocalizations.of(context).prices_add_n_prices(
-          model.length,
-        ),
-      );
+      final bool? pleaseSave = await MayExitPageHelper()
+          .openSaveBeforeLeavingDialog(
+            context,
+            title: AppLocalizations.of(
+              context,
+            ).prices_add_n_prices(model.length),
+          );
       if (pleaseSave == null) {
         return false;
       }
@@ -261,7 +263,7 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
       return true;
     }
 
-    await model.addTask(context);
+    await model.addTask(context, displaySnackbar: true);
 
     return true;
   }
@@ -270,5 +272,20 @@ class _ProductPriceAddPageState extends State<ProductPriceAddPage>
   void dispose() {
     _willPopScope2Controller.dispose();
     super.dispose();
+  }
+
+  Text? _generateSubtitle(AppLocalizations appLocalizations) {
+    if (widget.model.length == 0) {
+      return null;
+    }
+
+    final String text;
+    if (!widget.model.multipleProducts && widget.model.length > 0) {
+      text = widget.model.elementAt(0).product.getName(appLocalizations);
+    } else {
+      text = appLocalizations.prices_button_count_product(widget.model.length);
+    }
+
+    return Text(text);
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/up_to_date_mixin.dart';
@@ -9,6 +8,7 @@ import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/pages/product/product_image_viewer.dart';
 import 'package:smooth_app/query/product_query.dart';
@@ -19,19 +19,19 @@ import 'package:smooth_app/widgets/smooth_scaffold.dart';
 class ProductImageSwipeableView extends StatefulWidget {
   /// Version with the 4 main [ImageField].
   const ProductImageSwipeableView({
-    super.key,
     required this.product,
     required this.initialImageIndex,
     required this.isLoggedInMandatory,
+    super.key,
     this.initialLanguage,
   }) : imageField = null;
 
   /// Version with only one main [ImageField].
   const ProductImageSwipeableView.imageField({
-    super.key,
     required this.product,
     required this.imageField,
     required this.isLoggedInMandatory,
+    super.key,
     this.initialLanguage,
   }) : initialImageIndex = 0;
 
@@ -59,9 +59,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
   void initState() {
     super.initState();
     initUpToDate(widget.product, context.read<LocalDatabase>());
-    _controller = PageController(
-      initialPage: widget.initialImageIndex,
-    );
+    _controller = PageController(initialPage: widget.initialImageIndex);
     _currentImageDataIndex = ValueNotifier<int>(widget.initialImageIndex);
     _currentLanguage = widget.initialLanguage ?? ProductQuery.getLanguage();
     if (widget.imageField != null) {
@@ -89,7 +87,7 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         centerTitle: false,
         title: ValueListenableBuilder<int>(
           valueListenable: _currentImageDataIndex,
-          builder: (_, int index, __) => Text(
+          builder: (_, int index, _) => Text(
             _imageFields[index].getImagePageTitle(appLocalizations),
             maxLines: 2,
           ),
@@ -100,10 +98,11 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
         ),
         actions: <Widget>[
           ValueListenableBuilder<int>(
-              valueListenable: _currentImageDataIndex,
-              builder: (_, int index, __) {
-                return _lockedIcon(_imageFields[index]);
-              })
+            valueListenable: _currentImageDataIndex,
+            builder: (_, int index, _) {
+              return _lockedIcon(_imageFields[index]);
+            },
+          ),
         ],
       ),
       body: PageView.builder(
@@ -135,35 +134,34 @@ class _ProductImageSwipeableViewState extends State<ProductImageSwipeableView>
       return IconButton(
         onPressed: () {
           showSmoothModalSheet(
-              context: context,
-              builder: (BuildContext context) {
-                return SmoothModalSheet(
-                  title: appLocalizations.owner_field_info_title,
-                  prefixIndicator: true,
-                  body: SafeArea(
-                    top: false,
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).colorScheme.secondary,
-                            shape: BoxShape.circle,
-                          ),
-                          padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
-                          child: const OwnerFieldIcon(
-                            size: 30.0,
-                          ),
+            context: context,
+            builder: (BuildContext context) {
+              return SmoothModalSheet(
+                title: appLocalizations.owner_field_info_title,
+                prefixIndicator: true,
+                body: SafeArea(
+                  top: false,
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Theme.of(context).colorScheme.secondary,
+                          shape: BoxShape.circle,
                         ),
-                        const SizedBox(height: MEDIUM_SPACE),
-                        Text(
-                          appLocalizations.owner_field_info_message,
-                          style: const TextStyle(fontSize: 15.0),
-                        ),
-                      ],
-                    ),
+                        padding: const EdgeInsetsDirectional.all(LARGE_SPACE),
+                        child: const OwnerFieldIcon(size: 30.0),
+                      ),
+                      const SizedBox(height: MEDIUM_SPACE),
+                      Text(
+                        appLocalizations.owner_field_info_message,
+                        style: const TextStyle(fontSize: 15.0),
+                      ),
+                    ],
                   ),
-                );
-              });
+                ),
+              );
+            },
+          );
         },
         tooltip: appLocalizations.owner_field_info_title,
         icon: const OwnerFieldIcon(),

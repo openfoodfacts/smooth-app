@@ -5,9 +5,7 @@ import 'package:smooth_app/generic_lib/html/smooth_html_marker_chip.dart';
 import 'package:smooth_app/generic_lib/html/smooth_html_marker_decimal.dart';
 
 class SmoothHtmlWidgetFactory extends WidgetFactory {
-  SmoothHtmlWidgetFactory({
-    required this.onLinkClicked,
-  });
+  SmoothHtmlWidgetFactory({required this.onLinkClicked});
 
   final Function(String link) onLinkClicked;
 
@@ -27,9 +25,7 @@ class SmoothHtmlWidgetFactory extends WidgetFactory {
         child: SelectableText.rich(
           TextSpan(
             children: <InlineSpan>[text],
-            style: resolved.prepareTextStyle().copyWith(
-                  height: 1.6,
-                ),
+            style: resolved.prepareTextStyle().copyWith(height: 1.6),
           ),
         ),
       );

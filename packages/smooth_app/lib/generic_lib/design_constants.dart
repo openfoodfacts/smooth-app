@@ -25,8 +25,9 @@ const BorderRadius ROUNDED_BORDER_RADIUS = BorderRadius.all(ROUNDED_RADIUS);
 /// Topbar…
 const Radius HEADER_ROUNDED_RADIUS = Radius.circular(30.0);
 //ignore: non_constant_identifier_names
-const BorderRadius HEADER_BORDER_RADIUS =
-    BorderRadius.all(HEADER_ROUNDED_RADIUS);
+const BorderRadius HEADER_BORDER_RADIUS = BorderRadius.all(
+  HEADER_ROUNDED_RADIUS,
+);
 
 /// Full screen button, e.g. KnowledgePanel
 const Radius ANGULAR_RADIUS = Radius.circular(8.0);
@@ -37,6 +38,8 @@ const BorderRadius ANGULAR_BORDER_RADIUS = BorderRadius.all(ANGULAR_RADIUS);
 const Radius CIRCULAR_RADIUS = Radius.circular(40.0);
 //ignore: non_constant_identifier_names
 const BorderRadius CIRCULAR_BORDER_RADIUS = BorderRadius.all(CIRCULAR_RADIUS);
+
+const BorderRadius MAX_BORDER_RADIUS = BorderRadius.all(Radius.circular(100.0));
 
 /// Widget Colors
 const MaterialColor WARNING_COLOR = Colors.deepOrange;

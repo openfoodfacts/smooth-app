@@ -46,30 +46,32 @@ class DaoOsmLocation extends AbstractSqlDao {
     final int newVersion,
   ) async {
     if (oldVersion < 6) {
-      await db.execute('create table $_table('
-          ' $_columnId INT NOT NULL'
-          ',$_columnType TEXT NOT NULL'
-          ',$_columnLongitude REAL NOT NULL'
-          ',$_columnLatitude REAL NOT NULL'
-          ',$_columnName TEXT'
-          ',$_columnStreet TEXT'
-          ',$_columnCity TEXT'
-          ',$_columnPostCode TEXT'
-          ',$_columnCountry TEXT'
-          ',$_columnCountryCode TEXT'
-          ',$_columnLastAccess INT NOT NULL'
-          // cf. https://www.sqlite.org/lang_conflict.html
-          ',PRIMARY KEY($_columnId,$_columnType) on conflict replace'
-          ')');
+      await db.execute(
+        'create table $_table('
+        ' $_columnId INT NOT NULL'
+        ',$_columnType TEXT NOT NULL'
+        ',$_columnLongitude REAL NOT NULL'
+        ',$_columnLatitude REAL NOT NULL'
+        ',$_columnName TEXT'
+        ',$_columnStreet TEXT'
+        ',$_columnCity TEXT'
+        ',$_columnPostCode TEXT'
+        ',$_columnCountry TEXT'
+        ',$_columnCountryCode TEXT'
+        ',$_columnLastAccess INT NOT NULL'
+        // cf. https://www.sqlite.org/lang_conflict.html
+        ',PRIMARY KEY($_columnId,$_columnType) on conflict replace'
+        ')',
+      );
     }
 
     /// Not brilliant, but for historical reasons we have to catch that here.
     bool isDuplicateColumnException(
       final DatabaseException e,
       final String column,
-    ) =>
-        e.toString().startsWith(
-            'DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR');
+    ) => e.toString().startsWith(
+      'DatabaseException(duplicate column name: $column (code 1 SQLITE_ERROR',
+    );
 
     if (oldVersion < 7) {
       try {
@@ -80,8 +82,9 @@ class DaoOsmLocation extends AbstractSqlDao {
         }
       }
       try {
-        await db
-            .execute('alter table $_table add column $_columnOsmValue TEXT');
+        await db.execute(
+          'alter table $_table add column $_columnOsmValue TEXT',
+        );
       } on DatabaseException catch (e) {
         if (!isDuplicateColumnException(e, _columnOsmValue)) {
           rethrow;
@@ -101,12 +104,8 @@ class DaoOsmLocation extends AbstractSqlDao {
   /// Returns all the [OsmLocation]s, ordered by descending last access.
   Future<List<OsmLocation>> getAll() async {
     final List<OsmLocation> result = <OsmLocation>[];
-    final List<Map<String, dynamic>> queryResults =
-        await localDatabase.database.query(
-      _table,
-      columns: _columns,
-      orderBy: '$_columnLastAccess DESC',
-    );
+    final List<Map<String, dynamic>> queryResults = await localDatabase.database
+        .query(_table, columns: _columns, orderBy: '$_columnLastAccess DESC');
     for (final Map<String, dynamic> row in queryResults) {
       final OsmLocation? item = _getItemFromQueryResult(row);
       if (item != null) {
@@ -117,28 +116,26 @@ class DaoOsmLocation extends AbstractSqlDao {
   }
 
   Future<int> put(final OsmLocation osmLocation) async =>
-      localDatabase.database.insert(
-        _table,
-        <String, Object?>{
-          _columnId: osmLocation.osmId,
-          _columnType: osmLocation.osmType.offTag,
-          _columnLongitude: osmLocation.longitude,
-          _columnLatitude: osmLocation.latitude,
-          _columnName: osmLocation.name,
-          _columnStreet: osmLocation.street,
-          _columnCity: osmLocation.city,
-          _columnPostCode: osmLocation.postcode,
-          _columnCountry: osmLocation.country,
-          _columnCountryCode: osmLocation.countryCode,
-          _columnOsmKey: osmLocation.osmKey,
-          _columnOsmValue: osmLocation.osmValue,
-          _columnLastAccess: LocalDatabase.nowInMillis(),
-        },
-      );
+      localDatabase.database.insert(_table, <String, Object?>{
+        _columnId: osmLocation.osmId,
+        _columnType: osmLocation.osmType.offTag,
+        _columnLongitude: osmLocation.longitude,
+        _columnLatitude: osmLocation.latitude,
+        _columnName: osmLocation.name,
+        _columnStreet: osmLocation.street,
+        _columnCity: osmLocation.city,
+        _columnPostCode: osmLocation.postcode,
+        _columnCountry: osmLocation.country,
+        _columnCountryCode: osmLocation.countryCode,
+        _columnOsmKey: osmLocation.osmKey,
+        _columnOsmValue: osmLocation.osmValue,
+        _columnLastAccess: LocalDatabase.nowInMillis(),
+      });
 
   OsmLocation? _getItemFromQueryResult(final Map<String, dynamic> row) {
-    final LocationOSMType? type =
-        LocationOSMType.fromOffTag(row[_columnType] as String);
+    final LocationOSMType? type = LocationOSMType.fromOffTag(
+      row[_columnType] as String,
+    );
     if (type == null) {
       // very very unlikely
       return null;

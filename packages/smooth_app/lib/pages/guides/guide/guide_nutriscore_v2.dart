@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/cards/category_cards/svg_cache.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_content.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_footer.dart';
 import 'package:smooth_app/pages/guides/helpers/guides_header.dart';
-import 'package:smooth_app/resources/app_icons.dart';
+import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 
 class GuideNutriscoreV2 extends StatelessWidget {
   const GuideNutriscoreV2({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final AppLocalizations appLocalizations = AppLocalizations.of(context);
-
     return GuidesPage(
       pageName: 'NutriscoreV2',
       header: const _NutriscoreHeader(),
@@ -26,8 +25,9 @@ class GuideNutriscoreV2 extends StatelessWidget {
       ],
       footer: SliverToBoxAdapter(
         child: GuidesFooter(
-          shareMessage: appLocalizations.guide_nutriscore_v2_share_message,
-          shareUrl: appLocalizations.guide_nutriscore_v2_share_link,
+          shareUrl: ProductQuery.replaceSubdomain(
+            'https://world.openfoodfacts.org/nutriscore-v2',
+          ),
         ),
       ),
     );
@@ -61,12 +61,7 @@ class _NutriScoreHeaderIllustration extends StatelessWidget {
             SvgCache.getAssetsCacheForNutriscore(NutriScoreValue.a, false),
           ),
         ),
-        const Expanded(
-          flex: 28,
-          child: Arrow.down(
-            color: Colors.white,
-          ),
-        ),
+        const Expanded(flex: 28, child: icons.Arrow.down(color: Colors.white)),
         Expanded(
           flex: 40,
           child: SvgPicture.asset(
@@ -119,32 +114,30 @@ class _NutriScoreSection2 extends StatelessWidget {
     return GuidesParagraph(
       title: appLocalizations.guide_nutriscore_v2_why_v2_title,
       content: <Widget>[
-        GuidesText(
-          text: appLocalizations.guide_nutriscore_v2_why_v2_intro,
-        ),
+        GuidesText(text: appLocalizations.guide_nutriscore_v2_why_v2_intro),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg1_title,
-          icon: const Milk(),
+          icon: const icons.Milk.happy(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg1_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg2_title,
-          icon: const Soda.unhappy(),
+          icon: const icons.Soda.unhappy(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg2_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg3_title,
-          icon: const Salt(),
+          icon: const icons.Salt(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg3_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg4_title,
-          icon: const Fish(),
+          icon: const icons.Fish(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg4_text,
         ),
         GuidesTitleWithText(
           title: appLocalizations.guide_nutriscore_v2_why_v2_arg5_title,
-          icon: const Chicken(),
+          icon: const icons.Chicken(),
           text: appLocalizations.guide_nutriscore_v2_why_v2_arg5_text,
         ),
       ],
@@ -162,9 +155,7 @@ class _NutriScoreSection3 extends StatelessWidget {
     return GuidesParagraph(
       title: appLocalizations.guide_nutriscore_v2_new_logo_title,
       content: <Widget>[
-        GuidesText(
-          text: appLocalizations.guide_nutriscore_v2_new_logo_text,
-        ),
+        GuidesText(text: appLocalizations.guide_nutriscore_v2_new_logo_text),
         GuidesImage(
           imagePath: SvgCache.getAssetsCacheForNutriscore(
             NutriScoreValue.a,
@@ -194,7 +185,7 @@ class _NutriScoreSection4 extends StatelessWidget {
           text: appLocalizations.guide_nutriscore_v2_where_paragraph3,
           imagePath: 'assets/app/release_icon_light_transparent_no_border.svg',
           desiredWidthPercent: 0.15,
-        )
+        ),
       ],
     );
   }

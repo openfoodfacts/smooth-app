@@ -1,12 +1,13 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:crop_image/crop_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:image_size_getter/file_input.dart';
+import 'package:image_size_getter/image_size_getter.dart' as size_getter;
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/background/background_task_image.dart';
@@ -16,15 +17,15 @@ import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/database_helper.dart';
-import 'package:smooth_app/helpers/image_compute_container.dart';
+import 'package:smooth_app/helpers/image_cropper.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/prices/eraser_model.dart';
 import 'package:smooth_app/pages/prices/eraser_painter.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -65,15 +66,18 @@ class CropPage extends StatefulWidget {
 
 class _CropPageState extends State<CropPage> {
   late CropController _controller;
-  late ui.Image _image;
+  late final int _fullImageWidth;
+  late final int _fullImageHeight;
+  int? _cacheImageWidth;
+  int? _cacheImageHeight;
 
-  /// The screen size, used as a maximum size for the transient image.
+  /// The longest screen side, used as a maximum size for the visible image.
   ///
   /// We need this info:
-  /// * we experienced performance issues when cropping the full size
-  /// * it's much faster to create a smaller file
+  /// * we experienced performance issues when displaying the full size
+  /// * it's much faster to display a smaller file
   /// * the size of the screen is a good approximation of "how big is enough?"
-  late Size _screenSize;
+  late double _longestSide;
 
   /// Progress text, if we are processing data. `null` means we're done.
   String? _progress = '';
@@ -81,15 +85,13 @@ class _CropPageState extends State<CropPage> {
   late Rect _initialCrop;
   late CropRotation _initialRotation;
 
-  late Uint8List _data;
-
   /// True if we switched to the "erase" mode, and not the "crop grid" mode.
   bool _isErasing = false;
 
   final EraserModel _eraserModel = EraserModel();
 
-  Future<void> _load(final Uint8List list) async {
-    _image = await BackgroundTaskImage.loadUiImage(list);
+  Future<void> _load() async {
+    await _retrieveSize();
     _initialCrop = _getInitialRect();
     _initialRotation = widget.initialRotation ?? CropRotation.up;
     _controller = CropController(
@@ -101,6 +103,31 @@ class _CropPageState extends State<CropPage> {
       return;
     }
     setState(() {});
+  }
+
+  Future<void> _retrieveSize() async {
+    try {
+      // may fail, cf. https://github.com/fluttercandies/dart_image_size_getter/pull/56
+      final size_getter.Size imageSize =
+          size_getter.ImageSizeGetter.getSizeResult(
+            FileInput(widget.inputFile),
+          ).size;
+      if (imageSize.needRotate) {
+        _fullImageWidth = imageSize.height;
+        _fullImageHeight = imageSize.width;
+      } else {
+        _fullImageWidth = imageSize.width;
+        _fullImageHeight = imageSize.height;
+      }
+    } catch (e) {
+      // as a fallback; should take more memory and a bit longer (syllepsis)
+      final ui.Image image = await BackgroundTaskImage.loadUiImage(
+        await widget.inputFile.readAsBytes(),
+      );
+      _fullImageWidth = image.width;
+      _fullImageHeight = image.height;
+      image.dispose();
+    }
   }
 
   Rect _getInitialRect() {
@@ -120,19 +147,19 @@ class _CropPageState extends State<CropPage> {
       case CropRotation.up:
       case CropRotation.down:
         result = Rect.fromLTRB(
-          widget.initialCropRect!.left / _image.width,
-          widget.initialCropRect!.top / _image.height,
-          widget.initialCropRect!.right / _image.width,
-          widget.initialCropRect!.bottom / _image.height,
+          widget.initialCropRect!.left / _fullImageWidth,
+          widget.initialCropRect!.top / _fullImageHeight,
+          widget.initialCropRect!.right / _fullImageWidth,
+          widget.initialCropRect!.bottom / _fullImageHeight,
         );
         break;
       case CropRotation.right:
       case CropRotation.left:
         result = Rect.fromLTRB(
-          widget.initialCropRect!.left / _image.height,
-          widget.initialCropRect!.top / _image.width,
-          widget.initialCropRect!.right / _image.height,
-          widget.initialCropRect!.bottom / _image.width,
+          widget.initialCropRect!.left / _fullImageHeight,
+          widget.initialCropRect!.top / _fullImageWidth,
+          widget.initialCropRect!.right / _fullImageHeight,
+          widget.initialCropRect!.bottom / _fullImageWidth,
         );
         break;
     }
@@ -148,17 +175,28 @@ class _CropPageState extends State<CropPage> {
   @override
   void initState() {
     super.initState();
-    _initLoad();
-  }
-
-  Future<void> _initLoad() async {
-    _data = await widget.inputFile.readAsBytes();
-    await _load(_data);
+    unawaited(_load());
   }
 
   @override
   Widget build(final BuildContext context) {
-    _screenSize = MediaQuery.sizeOf(context);
+    if (_progress == null && _cacheImageWidth == null) {
+      final Size screenSize = MediaQuery.sizeOf(context);
+      final double pixelRatio = MediaQuery.devicePixelRatioOf(context);
+      _longestSide = screenSize.longestSide * pixelRatio;
+
+      final int longestSide = _longestSide.floor();
+      if (_fullImageWidth > _fullImageHeight) {
+        _cacheImageWidth = min(_fullImageWidth, longestSide);
+        _cacheImageHeight =
+            (_cacheImageWidth! * _fullImageHeight) ~/ _fullImageWidth;
+      } else {
+        _cacheImageHeight = min(_fullImageHeight, longestSide);
+        _cacheImageWidth =
+            (_cacheImageHeight! * _fullImageWidth) ~/ _fullImageHeight;
+      }
+    }
+
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     return WillPopScope2(
       onWillPop: _onWillPop,
@@ -170,6 +208,7 @@ class _CropPageState extends State<CropPage> {
             widget.cropHelper.getPageTitle(appLocalizations),
             maxLines: 2,
           ),
+          leading: const SmoothBackButton(backButtonType: BackButtonType.close),
           actions: <Widget>[
             if (widget.onRetakePhoto != null)
               Padding(
@@ -210,55 +249,6 @@ class _CropPageState extends State<CropPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        top: SMALL_SPACE,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          if (!_isErasing)
-                            _IconButton(
-                              iconData: Icons.rotate_90_degrees_ccw_outlined,
-                              tooltip: appLocalizations.photo_rotate_left,
-                              onPressed: () => setState(
-                                () {
-                                  _controller.rotateLeft();
-                                  _eraserModel.rotation = _controller.rotation;
-                                },
-                              ),
-                            ),
-                          if (widget.cropHelper.enableEraser)
-                            _IconButton(
-                              iconData: _isErasing ? Icons.crop : Icons.brush,
-                              onPressed: () => setState(
-                                () => _isErasing = !_isErasing,
-                              ),
-                            ),
-                          if (_isErasing)
-                            _IconButton(
-                              iconData: Icons.undo,
-                              tooltip: appLocalizations.photo_undo_action,
-                              onPressed: _eraserModel.isEmpty
-                                  ? null
-                                  : () => setState(
-                                        () => _eraserModel.undo(),
-                                      ),
-                            ),
-                          if (!_isErasing)
-                            _IconButton(
-                              iconData: Icons.rotate_90_degrees_cw_outlined,
-                              tooltip: appLocalizations.photo_rotate_right,
-                              onPressed: () => setState(
-                                () {
-                                  _controller.rotateRight();
-                                  _eraserModel.rotation = _controller.rotation;
-                                },
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
                     Expanded(
                       child: Stack(
                         children: <Widget>[
@@ -266,7 +256,11 @@ class _CropPageState extends State<CropPage> {
                             ignoring: _isErasing,
                             child: CropImage(
                               controller: _controller,
-                              image: Image.memory(_data),
+                              image: Image.file(
+                                widget.inputFile,
+                                cacheWidth: _cacheImageWidth,
+                                cacheHeight: _cacheImageHeight,
+                              ),
                               minimumImageSize: MINIMUM_TOUCH_SIZE,
                               gridCornerSize: MINIMUM_TOUCH_SIZE * .75,
                               touchSize: MINIMUM_TOUCH_SIZE,
@@ -274,58 +268,86 @@ class _CropPageState extends State<CropPage> {
                               alwaysMove: true,
                               overlayPainter: !widget.cropHelper.enableEraser
                                   ? null
-                                  : EraserPainter(
-                                      eraserModel: _eraserModel,
-                                    ),
+                                  : EraserPainter(eraserModel: _eraserModel),
                             ),
                           ),
                           if (_isErasing)
                             LayoutBuilder(
-                              builder: (
-                                final BuildContext context,
-                                final BoxConstraints constraints,
-                              ) =>
-                                  Center(
-                                child: GestureDetector(
-                                  onPanStart:
-                                      (final DragStartDetails details) =>
-                                          setState(
-                                    () => _eraserModel.panStart(
-                                      details.localPosition,
-                                      constraints,
+                              builder:
+                                  (
+                                    final BuildContext context,
+                                    final BoxConstraints constraints,
+                                  ) => Center(
+                                    child: GestureDetector(
+                                      onPanStart:
+                                          (final DragStartDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panStart(
+                                                  details.localPosition,
+                                                  constraints,
+                                                ),
+                                              ),
+                                      onPanUpdate:
+                                          (final DragUpdateDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panUpdate(
+                                                  details.localPosition,
+                                                  constraints,
+                                                ),
+                                              ),
+                                      onPanEnd:
+                                          (final DragEndDetails details) =>
+                                              setState(
+                                                () => _eraserModel.panEnd(),
+                                              ),
                                     ),
                                   ),
-                                  onPanUpdate:
-                                      (final DragUpdateDetails details) =>
-                                          setState(
-                                    () => _eraserModel.panUpdate(
-                                      details.localPosition,
-                                      constraints,
-                                    ),
-                                  ),
-                                  onPanEnd: (final DragEndDetails details) =>
-                                      setState(
-                                    () => _eraserModel.panEnd(),
-                                  ),
-                                ),
-                              ),
                             ),
                         ],
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: VERY_SMALL_SPACE,
+                        horizontal: SMALL_SPACE,
                         vertical: SMALL_SPACE,
                       ),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: EditImageButton.center(
-                          iconData: widget.cropHelper.getProcessIcon(),
-                          label: widget.cropHelper
-                              .getProcessLabel(appLocalizations),
-                          onPressed: () async => _saveImageAndPop(),
-                        ),
+                      child: Row(
+                        spacing: SMALL_SPACE,
+                        children: <Widget>[
+                          if (!_isErasing)
+                            _IconButton(
+                              icon: const icons.Rotate.antiClockwise(),
+                              tooltip: appLocalizations.photo_rotate_left,
+                              onPressed: () => setState(() {
+                                _controller.rotateLeft();
+                                _eraserModel.rotation = _controller.rotation;
+                              }),
+                            ),
+                          if (widget.cropHelper.enableEraser)
+                            _IconButton(
+                              icon: _isErasing
+                                  ? const icons.Crop()
+                                  : const icons.Brush(),
+                              onPressed: () =>
+                                  setState(() => _isErasing = !_isErasing),
+                            ),
+                          if (_isErasing)
+                            _IconButton(
+                              icon: const icons.Undo(),
+                              tooltip: appLocalizations.photo_undo_action,
+                              onPressed: _eraserModel.isEmpty
+                                  ? null
+                                  : () => setState(() => _eraserModel.undo()),
+                            ),
+                          const Spacer(),
+                          FloatingActionButton(
+                            tooltip: widget.cropHelper.getProcessLabel(
+                              appLocalizations,
+                            ),
+                            onPressed: () async => _saveImageAndPop(),
+                            child: widget.cropHelper.getProcessIcon(),
+                          ),
+                        ],
                       ),
                     ),
                   ],
@@ -335,43 +357,39 @@ class _CropPageState extends State<CropPage> {
     );
   }
 
-  /// Returns a small file with the cropped image, for the transient image.
-  ///
-  /// Here we use BMP format as it's faster to encode.
-  Future<File> _getSmallCroppedImageFile(
+  /// Returns a file with the cropped image + max size, for the transient image.
+  Future<File> _getPreCroppedImageFile(
     final Directory directory,
     final int sequenceNumber,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.bmp';
+    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.jpeg';
     final File result = File(croppedPath);
     setState(() => _progress = appLocalizations.crop_page_action_cropping);
-    final ui.Image cropped = await CropController.getCroppedBitmap(
-      image: _image,
-      maxSize: _screenSize.longestSide,
-      crop: _controller.crop,
-      rotation: _controller.rotation,
-      overlayPainter: !widget.cropHelper.enableEraser
-          ? null
-          : EraserPainter(
-              eraserModel: EraserModel(
-                rotation: _controller.rotation,
-                offsets: _eraserModel.offsets,
-              ),
-              cropRect: _controller.crop,
-            ),
-    );
-    setState(() => _progress = appLocalizations.crop_page_action_local);
 
     try {
-      await saveBmp(file: result, source: cropped)
-          .timeout(const Duration(seconds: 10));
+      final ImageCropper imageCropper = ImageCropper(
+        inputFile: widget.inputFile,
+        outputFile: result,
+        crop: _controller.crop,
+        rotation: _controller.rotation,
+        overlayPainter: !widget.cropHelper.enableEraser
+            ? null
+            : EraserPainter(
+                eraserModel: EraserModel(
+                  rotation: _controller.rotation,
+                  offsets: _eraserModel.offsets,
+                ),
+                cropRect: _controller.crop,
+              ),
+      );
+      await imageCropper.saveCroppedJpeg();
+
+      return result;
     } catch (e, trace) {
       AnalyticsHelper.sendException(e, stackTrace: trace);
       rethrow;
     }
-
-    return result;
   }
 
   Future<CropParameters?> _saveImageAndExitTry() async {
@@ -385,14 +403,14 @@ class _CropPageState extends State<CropPage> {
           case CropRotation.up:
           case CropRotation.down:
             return Size(
-              _controller.crop.width * _image.width,
-              _controller.crop.height * _image.height,
+              _controller.crop.width * _fullImageWidth,
+              _controller.crop.height * _fullImageHeight,
             );
           case CropRotation.left:
           case CropRotation.right:
             return Size(
-              _controller.crop.width * _image.height,
-              _controller.crop.height * _image.width,
+              _controller.crop.width * _fullImageHeight,
+              _controller.crop.height * _fullImageWidth,
             );
         }
       }
@@ -432,26 +450,26 @@ class _CropPageState extends State<CropPage> {
     }
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
     final DaoInt daoInt = DaoInt(localDatabase);
-    final int sequenceNumber =
-        await getNextSequenceNumber(daoInt, _CROP_PAGE_SEQUENCE_KEY);
+    final int sequenceNumber = await daoInt.getNextSequenceNumber(
+      _CROP_PAGE_SEQUENCE_KEY,
+    );
     final Directory directory = await BackgroundTaskUpload.getDirectory();
 
-    final File smallCroppedFile = await _getSmallCroppedImageFile(
+    final File preCroppedFile = await _getPreCroppedImageFile(
       directory,
       sequenceNumber,
     );
 
-    setState(
-      () => _progress = appLocalizations.crop_page_action_server,
-    );
+    setState(() => _progress = appLocalizations.crop_page_action_server);
     if (!mounted) {
       return null;
     }
     return widget.cropHelper.process(
       context: context,
       controller: _controller,
-      image: _image,
-      smallCroppedFile: smallCroppedFile,
+      inputFullWidth: _fullImageWidth,
+      inputFullHeight: _fullImageHeight,
+      preCroppedFile: preCroppedFile,
       directory: directory,
       inputFile: widget.inputFile,
       sequenceNumber: sequenceNumber,
@@ -520,11 +538,11 @@ class _CropPageState extends State<CropPage> {
     }
 
     // the cropped image has changed, but the user went back without saving
-    final bool? pleaseSave =
-        await MayExitPageHelper().openSaveBeforeLeavingDialog(
-      context,
-      title: widget.cropHelper.getPageTitle(AppLocalizations.of(context)),
-    );
+    final bool? pleaseSave = await MayExitPageHelper()
+        .openSaveBeforeLeavingDialog(
+          context,
+          title: widget.cropHelper.getPageTitle(AppLocalizations.of(context)),
+        );
     if (pleaseSave == null) {
       return (false, null);
     }
@@ -580,33 +598,27 @@ class _CropPageState extends State<CropPage> {
 /// Standard icon button for this page.
 class _IconButton extends StatelessWidget {
   const _IconButton({
-    required this.iconData,
+    required this.icon,
     required this.onPressed,
     this.tooltip,
   });
 
-  final IconData iconData;
+  final Widget icon;
   final VoidCallback? onPressed;
   final String? tooltip;
 
   @override
   Widget build(BuildContext context) {
-    final Widget icon = ElevatedButton(
+    final Widget iconWidget = ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(shape: const CircleBorder()),
-      child: Icon(
-        iconData,
-        semanticLabel: tooltip,
-      ),
+      child: icons.AppIconTheme(semanticLabel: tooltip, child: icon),
     );
 
     if (tooltip != null) {
-      return Tooltip(
-        message: tooltip,
-        child: icon,
-      );
+      return Tooltip(message: tooltip, child: iconWidget);
     } else {
-      return icon;
+      return iconWidget;
     }
   }
 }

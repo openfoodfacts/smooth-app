@@ -17,11 +17,13 @@ class DaoProductLastAccess extends AbstractSqlDao {
     final int newVersion,
   ) async {
     if (oldVersion < 5) {
-      await db.execute('create table $TABLE('
-          // cf. https://www.sqlite.org/lang_conflict.html
-          '$COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace'
-          ',$COLUMN_LAST_ACCESS INT NOT NULL'
-          ')');
+      await db.execute(
+        'create table $TABLE('
+        // cf. https://www.sqlite.org/lang_conflict.html
+        '$COLUMN_BARCODE TEXT PRIMARY KEY on conflict replace'
+        ',$COLUMN_LAST_ACCESS INT NOT NULL'
+        ')',
+      );
     }
   }
 
@@ -29,10 +31,7 @@ class DaoProductLastAccess extends AbstractSqlDao {
       localDatabase.database.rawInsert(
         'insert into $TABLE($COLUMN_BARCODE, $COLUMN_LAST_ACCESS) '
         'values(?, ?)',
-        <Object>[
-          barcode,
-          LocalDatabase.nowInMillis(),
-        ],
+        <Object>[barcode, LocalDatabase.nowInMillis()],
       );
 
   /// Delete all items from the database

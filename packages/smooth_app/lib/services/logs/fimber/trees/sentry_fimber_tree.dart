@@ -4,9 +4,7 @@ import 'package:smooth_app/services/logs/fimber/trees/base_fimber_tree.dart';
 
 /// Custom Fimber [LogTree] that send logs to Sentry
 class SentryFimberTree extends BaseFimberTree {
-  SentryFimberTree({
-    required super.logLevels,
-  });
+  SentryFimberTree({required super.logLevels});
 
   @override
   void log(

@@ -1,7 +1,9 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
+import 'package:smooth_app/query/product_query.dart';
 
 /// Nutrition data, for nutrient order and conversions.
 class NutritionContainerHelper extends ChangeNotifier {
@@ -17,8 +19,8 @@ class NutritionContainerHelper extends ChangeNotifier {
       _loadValues(product.nutriments!);
     }
     setServingText(product.servingSize);
-    _initialNoNutritionData =
-        _noNutritionData = product.noNutritionData ?? false;
+    _initialNoNutritionData = _noNutritionData =
+        product.noNutritionData ?? false;
   }
 
   /// Returns the [Nutrient] that matches the [orderedNutrient].
@@ -95,7 +97,10 @@ class NutritionContainerHelper extends ChangeNotifier {
     notifyListeners();
 
     final RobotoffNutrientExtractionResult extractionResult =
-        await RobotoffAPIClient.getNutrientExtraction(product.barcode!);
+        await RobotoffAPIClient.getNutrientExtraction(
+          product.barcode!,
+          uriHelper: ProductQuery.uriRobotoffHelper,
+        );
 
     final bool extractionSuccessful = extractionResult.status == 'found';
 
@@ -103,10 +108,31 @@ class NutritionContainerHelper extends ChangeNotifier {
       // When using Robotoff extraction we enforce the perSize to 100g
       perSize = PerSize.oneHundredGrams;
 
+      Set<String> extractedNutrients =
+          extractionResult.latestInsight?.data?.nutrients?.keys.toSet() ??
+          <String>{};
+
+      extractedNutrients = extractedNutrients
+          .where((String nutrient) => !nutrient.contains('_serving'))
+          .map((String key) => key.replaceAll('_100g', ''))
+          .toSet();
+
+      for (final String nutrientOffTag in extractedNutrients) {
+        // If the nutrient is not in the list of nutrients, we add it
+        final OrderedNutrient? missingNutrient = getLeftoverNutrients()
+            .firstWhereOrNull((final OrderedNutrient orderedNutrient) {
+              return orderedNutrient.nutrient?.offTag == nutrientOffTag;
+            });
+
+        if (missingNutrient != null) {
+          add(missingNutrient);
+        }
+      }
+
       for (final OrderedNutrient orderedNutrient in _nutrients) {
         final Nutrient nutrient = getNutrient(orderedNutrient)!;
-        final RobotoffNutrientEntity? robotoffNutrientEntity =
-            extractionResult.getNutrientEntity(nutrient, perSize);
+        final RobotoffNutrientEntity? robotoffNutrientEntity = extractionResult
+            .getNutrientEntity(nutrient, perSize);
         if (robotoffNutrientEntity != null) {
           AnalyticsHelper.trackRobotoffExtraction(
             AnalyticsRobotoffEvents.robotoffNutritionExtracted,
@@ -127,13 +153,13 @@ class NutritionContainerHelper extends ChangeNotifier {
 
   /// Returns the not interesting nutrients, for a "Please add me!" list.
   Iterable<OrderedNutrient> getLeftoverNutrients() => _nutrients.where(
-        (final OrderedNutrient element) => _isNotRelevant(element),
-      );
+    (final OrderedNutrient element) => _isNotRelevant(element),
+  );
 
   /// Returns the interesting nutrients that need to be displayed.
   Iterable<OrderedNutrient> getDisplayableNutrients() => _nutrients.where(
-        (final OrderedNutrient element) => !_isNotRelevant(element),
-      );
+    (final OrderedNutrient element) => !_isNotRelevant(element),
+  );
 
   /// Returns true if the [OrderedNutrient] is not relevant.
   bool _isNotRelevant(final OrderedNutrient orderedNutrient) {
@@ -193,11 +219,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   }
 
   List<Unit> getUnits(final Nutrient nutrient) {
-    final List<Unit> units = <Unit>[
-      Unit.G,
-      Unit.MILLI_G,
-      Unit.MICRO_G,
-    ];
+    final List<Unit> units = <Unit>[Unit.G, Unit.MILLI_G, Unit.MICRO_G];
 
     if (units.contains(getUnit(nutrient))) {
       return units;
@@ -236,9 +258,7 @@ class NutritionContainerHelper extends ChangeNotifier {
   /// For some countries, there's energy or energyKJ, or both
   /// cf. https://github.com/openfoodfacts/openfoodfacts-server/blob/main/lib/ProductOpener/Food.pm
   /// Regarding our list of nutrients here, we need one and only one of them.
-  void _loadNutrients(
-    final List<OrderedNutrient> nutrients,
-  ) {
+  void _loadNutrients(final List<OrderedNutrient> nutrients) {
     bool alreadyEnergyKJ = false;
 
     // inner method, in order to use alreadyEnergyKJ without a private variable.

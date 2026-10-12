@@ -1,25 +1,21 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_news_card.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_news_provider.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_app_review_card.dart';
-import 'package:smooth_app/resources/app_icons.dart';
-import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
+import 'package:smooth_app/widgets/autosize_text.dart';
 
 class ScanBottomCard extends StatelessWidget {
-  const ScanBottomCard({
-    required this.dense,
-    super.key,
-  });
+  const ScanBottomCard({required this.dense, super.key});
 
   final bool dense;
 
@@ -37,40 +33,41 @@ class ScanBottomCard extends StatelessWidget {
         ),
       ],
       child: Consumer2<ScanNewsFeedProvider, AppReviewProvider>(
-        builder: (
-          BuildContext context,
-          ScanNewsFeedProvider scanTagLineProvider,
-          AppReviewProvider appReviewProvider,
-          Widget? child,
-        ) {
-          switch (appReviewProvider.value) {
-            case AppReviewState.checking:
-              return const ScanBottomCardLoading();
-            case AppReviewState.askForReview:
-              return const ScanAppReview();
-            default:
-            // Nothing (-> news)
-          }
+        builder:
+            (
+              BuildContext context,
+              ScanNewsFeedProvider scanTagLineProvider,
+              AppReviewProvider appReviewProvider,
+              Widget? child,
+            ) {
+              switch (appReviewProvider.value) {
+                case AppReviewState.checking:
+                  return const ScanBottomCardLoading();
+                case AppReviewState.askForReview:
+                  return const ScanAppReview();
+                default:
+                // Nothing (-> news)
+              }
 
-          final ScanTagLineState state = scanTagLineProvider.value;
+              final ScanTagLineState state = scanTagLineProvider.value;
 
-          return switch (state) {
-            ScanTagLineStateLoading() => const ScanBottomCardLoading(),
-            ScanTagLineStateNoContent() => EMPTY_WIDGET,
-            ScanTagLineStateLoaded() => ScanNewsCard(
-                news: state.tagLine,
-              ),
-          };
-        },
+              return switch (state) {
+                ScanTagLineStateLoading() => const ScanBottomCardLoading(),
+                ScanTagLineStateNoContent() => EMPTY_WIDGET,
+                // Keyed on the state: the card keeps its rotation index across
+                // rebuilds, and a shorter list would index past its end.
+                ScanTagLineStateLoaded() => KeyedSubtree(
+                  key: ObjectKey(state),
+                  child: ScanNewsCard(news: state.tagLine),
+                ),
+              };
+            },
       ),
     );
   }
 }
 
-enum ScanBottomCardDensity {
-  dense,
-  normal,
-}
+enum ScanBottomCardDensity { dense, normal }
 
 class ScanBottomCardLoading extends StatelessWidget {
   const ScanBottomCardLoading({super.key});
@@ -86,8 +83,9 @@ class ScanBottomCardLoading extends StatelessWidget {
         margin: EdgeInsets.zero,
         child: SizedBox(
           width: double.infinity,
-          height:
-              density == ScanBottomCardDensity.dense ? 200.0 : double.infinity,
+          height: density == ScanBottomCardDensity.dense
+              ? 200.0
+              : double.infinity,
         ),
       ),
     );
@@ -119,8 +117,8 @@ class ScanBottomCardContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     final bool dense =
         context.read<ScanBottomCardDensity>() == ScanBottomCardDensity.dense;
@@ -129,7 +127,8 @@ class ScanBottomCardContainer extends StatelessWidget {
       children: <Widget>[
         DecoratedBox(
           decoration: BoxDecoration(
-            color: titleBackgroundColor ??
+            color:
+                titleBackgroundColor ??
                 (context.lightTheme()
                     ? extension.primarySemiDark
                     : extension.secondaryVibrant),
@@ -154,11 +153,7 @@ class ScanBottomCardContainer extends StatelessWidget {
             ),
           ),
         ),
-        _buildBody(
-          context: context,
-          dense: dense,
-          extension: extension,
-        ),
+        _buildBody(context: context, dense: dense, extension: extension),
       ],
     );
   }
@@ -170,7 +165,8 @@ class ScanBottomCardContainer extends StatelessWidget {
   }) {
     final Widget child = Material(
       type: MaterialType.card,
-      color: backgroundColor ??
+      color:
+          backgroundColor ??
           (context.lightTheme()
               ? extension.primaryMedium
               : extension.primaryUltraBlack),
@@ -246,11 +242,12 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                   onTap: onClose,
                   customBorder: const CircleBorder(),
                   child: Tooltip(
-                    message:
-                        MaterialLocalizations.of(context).closeButtonTooltip,
+                    message: MaterialLocalizations.of(
+                      context,
+                    ).closeButtonTooltip,
                     child: Padding(
                       padding: const EdgeInsetsDirectional.all(SMALL_SPACE),
-                      child: Close(
+                      child: icons.Close.bold(
                         size: 11.0,
                         color: titleColor ?? Colors.white,
                       ),
@@ -258,7 +255,7 @@ class _ScanBottomCardContainerTitle extends StatelessWidget {
                   ),
                 ),
               ),
-            ]
+            ],
           ],
         ),
       ),

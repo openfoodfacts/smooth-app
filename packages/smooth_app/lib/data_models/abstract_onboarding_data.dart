@@ -67,7 +67,8 @@ abstract class AbstractOnboardingData<T> {
   String getAssetPath();
 
   /// Database key used to store the string.
-  String _getDatabaseKey() => '${getAssetPath()}'
+  String _getDatabaseKey() =>
+      '${getAssetPath()}'
       '/${ProductQuery.getLanguage()}'
       '/${ProductQuery.getCountry()}';
 }

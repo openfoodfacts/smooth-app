@@ -52,6 +52,10 @@ platform :android do
   desc "Deploy to internal"
   lane :release do
     begin
+      # Use PACKAGE_NAME from environment if available, otherwise default to org.openfoodfacts.scanner
+      package_name = ENV["PACKAGE_NAME"] || "org.openfoodfacts.scanner"
+      puts "Releasing to package: #{package_name}"
+      
       #gradle(task: "clean")
       #gradle(
       #  task: "bundle",
@@ -61,7 +65,7 @@ platform :android do
         track: 'internal',
         aab: '../build/app/outputs/bundle/release/app-release.aab',
         skip_upload_metadata: true,
-        package_name: "org.openfoodfacts.scanner",
+        package_name: package_name,
         skip_upload_images: true,
         skip_upload_screenshots: true,
         skip_upload_changelogs: true,

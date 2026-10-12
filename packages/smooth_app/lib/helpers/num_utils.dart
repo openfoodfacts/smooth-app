@@ -12,6 +12,10 @@ extension DoubleExtension on double {
   double progressAndClamp(num min, double max, double clamp) {
     return progress(min, max).clamp(0.0, clamp);
   }
+
+  double progress2(num min, num max) {
+    return this * (max - min) + min;
+  }
 }
 
 extension IntExtension on int {

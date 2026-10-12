@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
-import 'package:smooth_app/widgets/smooth_text.dart';
+import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 /// The default Material-style Autocomplete options.
 ///
@@ -10,15 +10,15 @@ import 'package:smooth_app/widgets/smooth_text.dart';
 /// Inspiration was found in https://stackoverflow.com/questions/66935362
 class AutocompleteOptions<T extends Object> extends StatelessWidget {
   const AutocompleteOptions({
-    super.key,
     required this.displayStringForOption,
     required this.onSelected,
     required this.options,
     required this.maxOptionsHeight,
     required this.maxOptionsWidth,
+    super.key,
     this.search,
-  })  : assert(maxOptionsHeight >= 0),
-        assert(maxOptionsWidth >= 0);
+  }) : assert(maxOptionsHeight >= 0),
+       assert(maxOptionsWidth >= 0);
 
   final AutocompleteOptionToString<T> displayStringForOption;
   final AutocompleteOnSelected<T> onSelected;
@@ -59,9 +59,7 @@ class AutocompleteOptions<T extends Object> extends StatelessWidget {
                   displayStringForOption: displayStringForOption,
                 );
               },
-              separatorBuilder: (_, __) => const Divider(
-                height: 1.0,
-              ),
+              separatorBuilder: (_, _) => const Divider(height: 1.0),
             ),
           ),
         ),

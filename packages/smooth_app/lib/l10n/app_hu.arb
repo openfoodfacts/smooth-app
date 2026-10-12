@@ -1,5 +1,6 @@
 {
-  "@Utils": {},
+  "app_name": "Open Food Facts",
+  "open_prices": "Open Prices",
   "sep": "",
   "@sep": {
     "description": "Separator just before a colon (':'). Probably only populated in French and empty in other languages."
@@ -8,6 +9,10 @@
   "@yes": {},
   "add": "Hozzáadás",
   "@add": {},
+  "edit": "Szerkesztés",
+  "@edit": {
+    "description": "Generic edit button label"
+  },
   "account_delete_message": "Biztosan törölni szeretné a fiókját?\nHa van konkrét oka, kérjük ossza meg alább",
   "@account_delete_message": {},
   "reason": "Ok",
@@ -63,14 +68,100 @@
     "description": "'Calculate' button. Typical use case: the user inputs data then clicks on the 'calculate' button."
   },
   "reset_food_prefs": "Preferált ételek visszaállítása",
-  "@reset": {
+  "@reset_food_prefs": {
     "description": "Button label, clicking on the button will reset user's food preferences."
+  },
+  "food_preferences_page_title_introduction": "Personalize the app",
+  "@food_preferences_page_title_introduction": {
+    "description": "Title for the introduction page of the food preferences wizard"
+  },
+  "food_preferences_page_title_diets": "Diets",
+  "@food_preferences_page_title_diets": {
+    "description": "Title for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_title_allergies": "Allergies",
+  "@food_preferences_page_title_allergies": {
+    "description": "Title for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_title_unwanted_foods": "What I don't eat",
+  "@food_preferences_page_title_unwanted_foods": {
+    "description": "Title for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_title_foods_to_avoid": "What I prefer to avoid",
+  "@food_preferences_page_title_foods_to_avoid": {
+    "description": "Title for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_title_environment": "Environmental preferences",
+  "@food_preferences_page_title_environment": {
+    "description": "Title for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_page_title_summary": "Profile ready",
+  "@food_preferences_page_title_summary": {
+    "description": "Title for the summary/confirmation page of the food preferences wizard"
+  },
+  "food_preferences_step_prefix": "Step {stepNumber}: ",
+  "@food_preferences_step_prefix": {
+    "description": "Step number prefix shown before the page title in the food preferences wizard",
+    "placeholders": {
+      "stepNumber": {
+        "type": "int",
+        "example": "1"
+      }
+    }
+  },
+  "food_preferences_no_selection": "No selection",
+  "@food_preferences_no_selection": {
+    "description": "Text shown when no preferences are selected in a category on the summary page"
+  },
+  "food_preferences_empty_state": "No attributes available for this category.",
+  "@food_preferences_empty_state": {
+    "description": "Text shown when a preference category has no attributes available"
+  },
+  "food_preferences_error_loading": "Failed to load preferences. Please check your internet connection.",
+  "@food_preferences_error_loading": {
+    "description": "Error message shown when the food preferences fail to load from the server"
+  },
+  "food_preferences_summary_description": "Here is your profile:",
+  "@food_preferences_summary_description": {
+    "description": "Description text shown at the top of the preferences summary page"
+  },
+  "food_preferences_introduction_description": "In the following steps, you can **personalize the app** by indicating your preferences:",
+  "@food_preferences_introduction_description": {
+    "description": "Description shown on the introduction page of the food preferences wizard."
+  },
+  "food_preferences_page_description_diets": "Select the diets you follow to personalize your recommendations.",
+  "@food_preferences_page_description_diets": {
+    "description": "Description for the diets page of the food preferences wizard"
+  },
+  "food_preferences_page_description_allergies": "Select the allergens you need to avoid for your food safety.",
+  "@food_preferences_page_description_allergies": {
+    "description": "Description for the allergies page of the food preferences wizard"
+  },
+  "food_preferences_page_description_unwanted_foods": "Indicate the foods or ingredients you don't eat.",
+  "@food_preferences_page_description_unwanted_foods": {
+    "description": "Description for the unwanted foods page of the food preferences wizard"
+  },
+  "food_preferences_page_description_foods_to_avoid": "Select the foods you prefer to avoid without it being a strict prohibition.",
+  "@food_preferences_page_description_foods_to_avoid": {
+    "description": "Description for the foods to avoid page of the food preferences wizard"
+  },
+  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "@food_preferences_page_description_environment": {
+    "description": "Description for the environment preferences page of the food preferences wizard"
+  },
+  "food_preferences_search_ingredients_hint": "Search for ingredients",
+  "@food_preferences_search_ingredients_hint": {
+    "description": "Hint text for the search field when adding unwanted ingredients in food preferences"
+  },
+  "food_preferences_ingredient_already_added": "Ingredient already added",
+  "@food_preferences_ingredient_already_added": {
+    "description": "Snackbar message shown when user tries to add an ingredient that is already in the list"
   },
   "error": "Valami hiba történt",
   "@error": {},
   "error_occurred": "Hiba történt",
   "@error_occurred": {},
-  "featureInProgress": "Még dolgozunk ezen a funkción, maradjon velünk",
+  "featureInProgress": "Még dolgozunk ezen a funkción, nézzen vissza később",
   "@featureInProgress": {},
   "label_web": "Megtekintés az interneten",
   "@label_web": {},
@@ -128,7 +219,7 @@
   "@match_short_unknown": {
     "description": "Short label for product list view regarding product compatibility with the user preferences: unknown match"
   },
-  "licenses": "Licences",
+  "licenses": "Licencek",
   "@licenses": {},
   "looking_for": "Keresés",
   "@looking_for": {
@@ -145,7 +236,7 @@
   "@productDataUtility": {
     "description": "Description of what a user can use the product data for."
   },
-  "healthCardUtility": "Válasszon olyan élelmiszereket, amelyek jók Önnek.",
+  "healthCardUtility": "Válasszon olyan élelmiszereket, amelyek jót tesznek Önnek.",
   "@healthCardUtility": {
     "description": "Description of what a user can use the health data in a product for."
   },
@@ -202,6 +293,7 @@
   "@forgot_password": {
     "description": "Button label: Opens a page where a password reset e-mail can be requested"
   },
+  "forgot_password_question": "Elfelejtette a jelszavát?",
   "view_profile": "Profil megtekintése",
   "@view_profile": {
     "description": "Button label: For to show your account"
@@ -210,7 +302,7 @@
   "@reset_password": {
     "description": "Forgot password page title"
   },
-  "reset_password_explanation_text": "Elfelejtett jelszó esetén adja meg felhasználónevét vagy e-mail címét, hogy megkapja a jelszó visszaállítására vonatkozó utasításokat. Ne felejtse el ellenőrizni a Spam mappát is.",
+  "reset_password_explanation_text": "Elfelejtett jelszó esetén adja meg felhasználónevét vagy e-mail címét, hogy megkapja a jelszó visszaállítására vonatkozó utasításokat. Ne felejtse el ellenőrizni a Spam mappát sem.",
   "username_or_email": "Felhasználónév vagy e-mail cím",
   "@username_or_email": {
     "description": "Text field hint for password reset"
@@ -240,8 +332,8 @@
   "sign_up_page_display_name_hint": "Név",
   "sign_up_page_display_name_error_empty": "Kérjük, adja meg felhasználónevét",
   "sign_up_page_email_hint": "E-mail",
-  "sign_up_page_email_error_empty": "E-mail szükséges",
-  "sign_up_page_email_error_invalid": "Érvénytelen e-mail",
+  "sign_up_page_email_error_empty": "E-mail is required",
+  "sign_up_page_email_error_invalid": "Érvénytelen e-mail cím",
   "sign_up_page_username_hint": "Felhasználónév: Nyilvánosan látható",
   "sign_up_page_username_error_empty": "Adjon meg egy felhasználónevet",
   "sign_up_page_username_error_invalid": "Adjon meg egy érvényes felhasználónevet",
@@ -267,10 +359,6 @@
   "sign_up_page_terms_text": "felhasználási és hozzájárulási feltételeivel",
   "@sign_up_page_terms_text": {
     "description": "terms of use and contribution is preceded by sign_up_page_agree_text"
-  },
-  "sign_up_page_agree_url": "https://hu.openfoodfacts.org/terms-of-use",
-  "@sign_up_page_agree_url": {
-    "description": "Please insert the right url here. Go to the Open Food Facts homepage, switch to your country and then on the bottom left footer is Terms of use from which the url should be taken"
   },
   "donate_url": "https://hu.openfoodfacts.org/donate-to-open-food-facts",
   "@donate_url": {
@@ -370,8 +458,6 @@
   "@contribute_donate_title": {},
   "contribute_donate_header": "Adományozzon az Open Food Facts számára",
   "@contribute_donate_header": {},
-  "contribute_enroll_alpha": "Feliratkozás a belső alfa verzióra",
-  "@contribute_enroll_alpha": {},
   "contribute_enroll_alpha_warning": "Vegye figyelembe, hogy a belső alfa verzióval a teljes adatvesztés is előfordulhat, és az alkalmazás bármikor használhatatlanná válhat!",
   "@contribute_enroll_alpha_warning": {},
   "contribute_improve_ProductsToBeCompleted": "Kiegészítendő termékek",
@@ -388,7 +474,7 @@
   "@contribute_translate_header": {
     "description": "Button label + pop up window title: Shows information about helping by translating"
   },
-  "contribute_data_quality": "Data Quality",
+  "contribute_data_quality": "Adatminőség",
   "@contribute_data_quality": {
     "description": "label for a tile that is on the contribute page linking to the Data Quality wiki page"
   },
@@ -437,7 +523,7 @@
   "question_skip_button_accessibility_value": "Kérdés kihagyása",
   "tap_to_edit_search": "Koppintson a keresés szerkesztéséhez",
   "@Personal preferences": {},
-  "myPreferences": "Saját beállítások",
+  "myPreferences": "Beállításaim",
   "@myPreferences": {
     "description": "Page title: Page where the ranking preferences can be changed"
   },
@@ -453,14 +539,22 @@
   "myPreferences_profile_subtitle": "Kezelje OpenFoodFacts-közreműködői fiókját.",
   "myPreferences_settings_title": "Alkalmazás beállításai",
   "myPreferences_settings_subtitle": "Sötét mód, nyelvek…",
+  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
   "myPreferences_food_title": "Élelmiszer-preferenciák",
   "myPreferences_food_subtitle": "Válassza ki, hogy mely élelmiszerekkel kapcsolatos információk a legfontosabbak az Ön számára.",
-  "myPreferences_food_comment": "Válassza ki, hogy az élelmiszerekkel kapcsolatban mely információk a legfontosabbak az Ön számára, hogy az élelmiszereket a preferenciái szerint rangsorolja, az Ön számára fontos információkat lássa elsőként, és kapjon egy megfelelőségi összefoglalót. Ezek az élelmiszer-preferenciák az Ön készülékén maradnak, és nem kapcsolódnak az Open Food Facts közreműködői fiókjához, ha rendelkezik ilyennel.",
+  "myPreferences_food_compatibility_explainer": "Válassza ki, hogy az élelmiszerekkel kapcsolatban mely információk a legfontosabbak az Ön számára, hogy az élelmiszereket a preferenciái szerint rangsorolja, az Ön számára fontos információkat lássa elsőként, és kapjon egy megfelelőségi összefoglalót.",
+  "myPreferences_food_privacy": "Ezek az élelmiszer-preferenciák az Ön készülékén maradnak, és nem kapcsolódnak az Open Food Facts közreműködői fiókjához, ha rendelkezik ilyennel.",
+  "myPreferences_beauty_title": "Preferences for cosmetics",
+  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
+  "myPreferences_product_title": "Preferences for other products",
+  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
+  "myPreferences_pet_food_title": "Preferences for pet food",
+  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
   "confirmResetPreferences": "Visszaállítja az élelmiszer-preferenciáit?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
   },
-  "myPersonalizedRanking": "Személyre szabott rendezés",
+  "myPersonalizedRanking": "Személyre szabott rangsorom",
   "@myPersonalizedRanking": {
     "description": "When you press this button, all products (in list or category) are sorted according to your preferences."
   },
@@ -477,7 +571,7 @@
     "description": "Snackbar title: Shows that the modified settings have been applied"
   },
   "@other": {},
-  "profile_navbar_label": "Profil",
+  "profile_navbar_label": "Közösség",
   "@profile_navbar_label": {
     "description": "BottomNavigationBarLabel: For the profile and personal preferences page"
   },
@@ -498,7 +592,7 @@
     "description": "From a product list, there's a category filter: this is its title"
   },
   "category_all": "Összes",
-  "@category_al": {
+  "@category_all": {
     "description": "Top meta-entry on a category filter"
   },
   "category_search": "(kategória keresés)",
@@ -518,18 +612,39 @@
   "@search": {
     "description": "Hint text of a search text input field"
   },
+  "search_product_help": "Keressen egy terméket,\negy márkát vagy vonalkódot",
+  "@search_product_help": {
+    "description": "Help text of a search text input field. Please respect the line break."
+  },
+  "search_filter": "Keresési szűrő",
+  "@search_filter": {
+    "description": "Title of the OxF selector."
+  },
+  "search_history": "Keresési előzmények",
   "search_store": "Üzlet keresése",
   "@search_store": {
     "description": "Hint text of a search store text input field"
+  },
+  "search_store_help": "Tipp: adja meg a várost vagy az országot",
+  "@search_store_help": {
+    "description": "Help text of a search store text input field. Please inject a line break if suitable."
   },
   "tap_for_more": "Koppintson a további információkért…",
   "@Product": {},
   "product": "Termék",
   "@product": {},
   "unknownBrand": "Ismeretlen márka",
-  "@unknownBrand": {},
+  "@unknownBrand": {
+    "description": "Message when the brand is not available"
+  },
+  "unknownQuantity": "Ismeretlen mennyiség",
+  "@unknownQuantity": {
+    "description": "Message when the quantity is not available"
+  },
   "unknownProductName": "Ismeretlen terméknév",
-  "@unknownProductName": {},
+  "@unknownProductName": {
+    "description": "Message when the product name is not available"
+  },
   "label_refresh": "Frissítés",
   "@label_refresh": {
     "description": "Refresh the cached product"
@@ -578,11 +693,11 @@
   "@nutrition_facts_editing_title": {
     "description": "Title of the button where users can edit the nutrition facts of a product"
   },
-  "packaging_information": "Csomagolási információk",
+  "packaging_information": "Újrahasznosítási utasítások",
   "@packaging_information": {
     "description": "Button label: For adding a picture of the packaging of a product"
   },
-  "packaging_information_photo": "Csomagolási információk fényképe",
+  "packaging_information_photo": "Újrahasznosítási utasítások fényképe",
   "@packaging_information_photo": {},
   "missing_product": "Új terméket talált!",
   "@missing_product": {},
@@ -680,7 +795,7 @@
   "front_packaging_photo_title": "Csomagolás fényképe szemből",
   "ingredients_photo_title": "Összetevők fényképe",
   "nutritional_facts_photo_title": "Tápértékadatok fényképe",
-  "recycling_photo_title": "Újrahasznosítási fénykép",
+  "recycling_photo_title": "Újrahasznosítási utasítások Fotó",
   "take_photo_title": "Fénykép készítése",
   "take_more_photo_title": "Készítsen további képeket",
   "front_photo_uploaded": "Szemből készült kép feltöltve",
@@ -704,7 +819,7 @@
   "new_product_subtitle_nova": "Az élelmiszerkategória és az összetevők kitöltésével megtudhatja",
   "new_product_desc_nova_unknown": "Az élelmiszer-feldolgozottság szintje ismeretlen",
   "new_product_title_pictures": "Új termék",
-  "new_product_title_pictures_details": "Készítse el az alábbi fotókat, és az OpenFoodFacts motorja elvégzi a többi munkát!",
+  "new_product_title_pictures_details": "Készítse el az alábbi fotókat, és az Open Food Facts motorja elvégzi a többi munkát!",
   "new_product_title_misc": "És pár alapvető adat…",
   "new_product_done_msg": "Köszönjük a közreműködését, {username}!",
   "@new_product_done_msg": {
@@ -721,7 +836,7 @@
   "@new_product_done_button_label": {
     "description": "Button at the end of new product page, that takes you to completed product"
   },
-  "hey_incomplete_product_message": "Válaszoljon meg 3 kérdést MOST a Nutri-Score, Green Score és a feldolgozottság (NOVA) kiszámításához!",
+  "hey_incomplete_product_message": "Válaszoljon meg 3 kérdést MOST a Nutri-Score, Green Score és az ultrafeldolgozottság (NOVA) kiszámításához!",
   "hey_incomplete_product_message_beauty": "Válaszoljon meg 2 kérdést, és segítsen elemezni ezt a kozmetikumot!",
   "hey_incomplete_product_message_pet_food": "Válaszoljon meg 3 kérdést, és segítsen elemezni ezt az állateledelt!",
   "hey_incomplete_product_message_product": "Segítsen befejezni a terméket!",
@@ -776,6 +891,7 @@
   "score_add_missing_nutrition_facts": "Hiányzó tápértékadatok hozzáadása",
   "score_add_missing_product_traces": "Hiányzó összetevőnyom hozzáadása",
   "score_add_missing_product_category": "Kategória kiválasztása",
+  "score_add_missing_precise_product_category": "Válasszon pontosabb kategóriát",
   "score_add_missing_product_countries": "Termék országainak pótlása",
   "score_add_missing_product_emb": "Hiányzó üzemkódok hozzáadása",
   "score_add_missing_product_labels": "Hiányzó címkék hozzáadása",
@@ -866,8 +982,21 @@
   "@more_photos": {},
   "view_more_photo_button": "Termék meglévő fotóinak megtekintése",
   "@view_more_photo_button": {},
+  "no_settings_found": "No settings found",
+  "@no_settings_found": {},
   "no_product_found": "Nem található termék",
   "@no_product_found": {},
+  "no_product_found_explanation": "A(z)\n**\"{search}\"**\nkifejezésre keresve nincsen találat.",
+  "@no_product_found_explanation": {
+    "description": "Explanation shown when no product is found for a search",
+    "placeholders": {
+      "search": {
+        "type": "String",
+        "example": "chocolate"
+      }
+    }
+  },
+  "no_product_found_try_world_results": "Szeretné ugyanezt a keresést inkább a **globális adatbázisunkban** futtatni?",
   "no_location_found": "Hely nem található",
   "not_found": "nem található:",
   "refreshing_product": "Termék frissítése",
@@ -898,7 +1027,7 @@
   },
   "product_image_outdated": "Ez a kép elavult lehet",
   "product_image_outdated_explanations_title": "Ez a kép elavult lehet",
-  "product_image_outdated_explanations_content": "Ez a kép több mint egy éve készült.\n**Ellenőrizze, hogy még mindig naprakész-e**.\n\nEz **csak figyelmeztetés**. Ha a tartalom nem változott, figyelmen kívül hagyhatja ezt az üzenetet.",
+  "product_image_outdated_explanations_content": "This image was taken more than a year ago.\n**Please check that it's still up-to-date**.\n\nThis is **just a warning**. If the content is still the same, you can ignore this message.",
   "@product_image_outdated_explanations_content": {
     "description": "Please keep the ** syntax to make the text bold"
   },
@@ -989,6 +1118,36 @@
   "tagline_app_review_button_negative": "Nem igazán…",
   "tagline_app_review_button_later": "Kérdezzen rá később",
   "tagline_feed_news_button": "Tudjon meg többet",
+  "tagline_feed_funding_goal": "of {goal}",
+  "@tagline_feed_funding_goal": {
+    "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
+    "placeholders": {
+      "goal": {
+        "type": "String",
+        "example": "170,000 €"
+      }
+    }
+  },
+  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "@tagline_feed_funding_shortfall": {
+    "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
+    "placeholders": {
+      "shortfall": {
+        "type": "String",
+        "example": "125,941 €"
+      }
+    }
+  },
+  "tagline_feed_funding_months_left": "{months,plural, =1{one month left} other{{months} months left}}",
+  "@tagline_feed_funding_months_left": {
+    "description": "How long a funding campaign still runs, shown on the home news card next to the missing amount.",
+    "placeholders": {
+      "months": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
   "app_review_negative_modal_title": "Nem tetszik az alkalmazásunk?",
   "app_review_negative_modal_text": "Rászánna pár másodpercet, hogy elmondja nekünk, miért?",
   "app_review_negative_modal_positive_button": "Igen, feltétlenül!",
@@ -1015,15 +1174,19 @@
   "@no_product_tags_found_message": {
     "description": "Message to show if there are no product properties found"
   },
+  "product_tags_empty": "Nincsenek tulajdonságok",
+  "product_tags_explanation": "A termékhez tulajdonságok (kulcs/érték) hozzáadásával hozzájárulhat annak gazdagításához.",
   "add_tag": "Tulajdonság hozzáadása",
   "add_tags": "Tulajdonságok hozzáadása",
   "add_edit_tags": "Tulajdonságok hozzáadása vagy szerkesztése",
   "edit_tag": "Tulajdonság szerkesztése",
   "remove_tag": "Tulajdonság eltávolítása",
   "tag_key": "Tulajdonság",
+  "tag_keys": "Tulajdonságok",
   "tag_key_uneditable": "Tulajdonság (nem szerkeszthető)",
   "tag_key_input_hint": "Adjon meg egy tulajdonságot",
   "tag_value": "Érték",
+  "tag_values": "Értékek",
   "tag_value_input_hint": "Adjon meg egy értéket",
   "tag_key_item": "Tulajdonság:",
   "tag_value_item": "Érték:",
@@ -1043,7 +1206,7 @@
     "description": "Cached results from: x time ago (time ago should not be added to the string)"
   },
   "@Product Addition": {},
-  "product_search_same_category": "Összehasonlítás kategóriával",
+  "product_search_same_category": "Alternatívák keresése",
   "@product_search_same_category": {
     "description": "Button looking for the other products within the same category. Less than 30 characters"
   },
@@ -1142,7 +1305,6 @@
     "description": "Could not remove product from a list"
   },
   "@Lists": {},
-  "no_prodcut_in_list": "Nincs termék ezen a listán",
   "no_product_in_section": "Nincs termék ebben a szekcióban",
   "recently_seen_products": "Összes megtekintett termék",
   "clear": "Törlés",
@@ -1372,6 +1534,10 @@
   "@onboarding_welcome_loading_dialog_title": {
     "description": "Title for the onboarding loading dialog"
   },
+  "onboarding_welcome_warning": "Sajnálom, ez a példatermékünk, nem szerkeszthető :)",
+  "@onboarding_welcome_warning": {
+    "description": "Warning message displayed in the rare cases when the users try to edit the onboarding example product"
+  },
   "product_list_your_ranking": "Az Ön helyezése",
   "@product_list_your_ranking": {
     "description": "Your ranking screen title"
@@ -1402,6 +1568,7 @@
       "count": {}
     }
   },
+  "product_list_compare_side_by_side": "Hasonlítsa össze egymás mellett",
   "loading_dialog_default_title": "Adatok letöltése",
   "@loading_dialog_default_title": {
     "description": "Default loading dialog title"
@@ -1414,20 +1581,20 @@
   "@account_delete": {
     "description": "Delete account button (user profile)"
   },
-  "account_deletion_subject": "Fiókom törlése",
-  "@account_deletion_subject": {
+  "account_delete_title": "Fiókom törlése",
+  "@account_delete_title": {
     "description": "Subject of the webview open when the user wants to delete his account"
   },
   "user_profile": "Fiók",
   "@user_profile": {
     "description": "User account (if connected)"
   },
-  "user_profile_title_guest": "Üdvözlünk!",
+  "user_profile_title_guest": "Üdvözöljük!",
   "@user_profile_title_guest": {
     "description": "When the user is not connected"
   },
   "user_profile_subtitle_guest": "Jelentkezzen be vagy regisztráljon, és csatlakozzon az Open Food Facts közösséghez",
-  "user_profile_title_id_email": "Open Food Facts bejelentkezés: {email}",
+  "user_profile_title_id_email": "Open Food Facts bejelentkezés: {email}",
   "@user_profile_title_id_email": {
     "description": "User login (when it's an email)",
     "placeholders": {
@@ -2148,6 +2315,10 @@
   "@dev_preferences_screen_title": {
     "description": "User dev preferences - Title"
   },
+  "dev_preferences_screen_subtitle": "Hozzáférés kísérleti funkciókhoz és fejlesztőeszközökhöz",
+  "@dev_preferences_screen_subtitle": {
+    "description": "User dev preferences - Subtitle"
+  },
   "dev_preferences_reset_onboarding_title": "Bemutatkozás újrakezdése",
   "@dev_preferences_reset_onboarding_title": {
     "description": "User dev preferences - Reset onboarding - Title"
@@ -2269,6 +2440,7 @@
   "product_type_label_beauty": "Testápolás",
   "product_type_label_pet_food": "Állateledel",
   "product_type_label_product": "Egyéb",
+  "product_type_label_unknown": "Ismeretlen",
   "product_type_selection_title": "Terméktípus",
   "product_type_selection_subtitle": "Válassza ki a termék típusát",
   "product_type_selection_empty": "Először ki kell választania a termék típusát!",
@@ -2286,10 +2458,51 @@
   },
   "prices_app_dev_mode_flag": "Árak alkalmazásra mutató gomb a termékoldalon",
   "prices_app_button": "Tovább az Árak appba",
+  "prices_website_button": "Megnyitás az Open Prices weboldalán",
   "prices_bulk_proof_upload_select": "Árcédulák hozzáadása a galériából",
   "prices_bulk_proof_upload_warning": "Miután kiválasztotta a képeket, nem fogja tudni szerkeszteni őket!",
+  "prices_bulk_proof_upload_warning_ai": "A mesterséges intelligencia a bizonyításaidon fog futni az árak kinyeréséhez.",
+  "prices_bulk_proof_upload_community_switch": "Lehetővé teszi a közösség számára a mesterséges intelligencia által kinyert árak validálását.",
   "prices_bulk_proof_upload_subtitle": "Több árcédula",
   "prices_bulk_proof_upload_title": "Tömeges bizonylatfeltöltés",
+  "prices_bulk_proof_upload_step_selecting": "Fájlok kiválasztása",
+  "prices_bulk_proof_upload_step_starting": "A feltöltés indítása",
+  "prices_bulk_proof_upload_step_copying": "Fájl helyi másolása #{index}/{count}",
+  "@prices_bulk_proof_upload_step_copying": {
+    "description": "A message stating the current copy step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_preparing": "Feltöltés előkészítése #{index}/{count}",
+  "@prices_bulk_proof_upload_step_preparing": {
+    "description": "A message stating the current upload step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "prices_bulk_proof_upload_step_error": "Hiba a következő képnél: #{index}/{count}",
+  "@prices_bulk_proof_upload_step_error": {
+    "description": "A message stating the current error step",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "prices_generic_title": "Árak",
   "prices_add_n_prices": "{count,plural, =1{Ár hozzáadása} other{{count} ár hozzáadása}}",
   "prices_send_n_prices": "{count,plural,=1{Ár beküldése} other{{count} ár beküldése}}",
@@ -2318,8 +2531,57 @@
     }
   },
   "prices_barcode_enter": "Vonalkód beírása",
+  "prices_category_enter": "Vonalkód nélküli tétel",
+  "prices_per_kilogram": "Kilogrammonkénti ár",
+  "@prices_per_kilogram": {
+    "description": "Title for PricePer.kilogram"
+  },
+  "prices_per_unit": "Egységár",
+  "@prices_per_unit": {
+    "description": "Title for PricePer.unit"
+  },
+  "prices_per_kilogram_short": " / kg",
+  "@prices_per_kilogram_short": {
+    "description": "Short title for PricePer.kilogram"
+  },
+  "prices_per_unit_short": " / egység",
+  "@prices_per_unit_short": {
+    "description": "Short title for PricePer.unit"
+  },
+  "prices_category_title": "Kategória",
+  "prices_category_mandatory": "Kötelező",
+  "prices_category_optional": "Opcionális",
+  "prices_origins_title": "Származás",
+  "prices_category_error_mandatory": "A kategória kitöltése kötelező",
   "prices_barcode_reader_action": "Vonalkódolvasó",
   "prices_view_prices": "Árak megtekintése",
+  "prices_list_title": "Árlista",
+  "prices_list_count": "\nár száma",
+  "@prices_list_count": {
+    "description": "Label for the number of prices in the list (please inject the line break at the middle)"
+  },
+  "prices_list_add_new_price": "Adj hozzá\núj árat",
+  "@prices_list_add_new_price": {
+    "description": "Button to add a new price in the list (please inject the line break at the middle)"
+  },
+  "prices_list_empty_title": "Még nincsenek árak!",
+  "prices_list_empty_subtitle": "Legyen az első, aki hozzáad egyet:\n**Blokk** vagy **árcédula** beolvasásával!",
+  "prices_entry_shop_not_found": "Ismeretlen üzlet",
+  "prices_entry_menu_title": "Ár megadása \"{user}\"-tól",
+  "@prices_entry_menu_title": {
+    "description": "Title of the menu for a price entry",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_entry_menu_open_product": "Termékadatok megtekintése",
+  "prices_entry_menu_open_product_prices": "Tekintse meg a termék összes árát",
+  "prices_entry_menu_open_proof": "Nézetbizonyítás",
+  "prices_entry_menu_my_prices": "Tekintse meg további áraimat",
+  "prices_entry_menu_author_prices": "Tekintse meg a szerző további árait",
+  "prices_entry_menu_shop_prices": "Tekintse meg az üzlet további árait",
   "prices_product_accessibility_summary": "{count,plural,=1{1 ár} other{{count} ár}} ehhez: {product}",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
@@ -2405,6 +2667,8 @@
       }
     }
   },
+  "prices_users_empty_title": "Még nincsenek közreműködők!",
+  "prices_users_empty_explanation": "Legyen az első, aki árat ad hozzá!",
   "prices_users_list_length_many_pages": "Top {pageSize} közreműködő (összes: {total})",
   "@prices_users_list_length_many_pages": {
     "description": "Number of users for one-page result",
@@ -2417,6 +2681,8 @@
       }
     }
   },
+  "prices_locations_empty_title": "Még nincsenek boltok!",
+  "prices_locations_empty_explanation": "Legyen az első, aki árat ad hozzá!",
   "prices_locations_list_length_many_pages": "Legnépszerűbb {pageSize} hely (összesen: {total})",
   "@prices_locations_list_length_many_pages": {
     "description": "Number of locations for one-page result",
@@ -2465,6 +2731,7 @@
       }
     }
   },
+  "prices_amount_existing_subtitle": "Korábban hozzáadott ár",
   "prices_amount_subtitle": "Mennyiség",
   "prices_amount_is_discounted": "Akciós?",
   "prices_amount_price_normal": "Ár",
@@ -2473,14 +2740,20 @@
   "prices_amount_no_product": "Egy termék hiányzik!",
   "prices_amount_price_incorrect": "Hibás érték",
   "prices_amount_price_mandatory": "Kötelező érték",
+  "prices_amount_update_currency": "Update currency",
   "prices_currency_subtitle": "Pénznem",
   "prices_date_subtitle": "Dátum",
   "prices_location_subtitle": "Bolt",
   "prices_location_find": "Bolt keresése",
   "prices_location_mandatory": "Ki kell választani egy boltot!",
   "prices_location_search_broader": "Nem találta, amit keresett? Próbáljunk meg egy átfogóbb keresést!",
+  "prices_location_open_map": "View the shop on the map",
+  "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Bizonylat",
+  "prices_proof_empty_title": "Még nincsenek bizonylatok!",
+  "prices_proof_empty_explanation": "Kezdje egy **nyugta** vagy egy **árcédula** fotójának hozzáadásával!",
   "prices_proof_find": "Bizonylat kiválasztása",
+  "prices_proof_change": "Bizonylat módosítása",
   "prices_proof_receipt": "Nyugta",
   "prices_proof_price_tag": "Árcédula",
   "prices_proof_mandatory": "Ki kell választani egy bizonylatot!",
@@ -2527,6 +2800,19 @@
   "@prices_unknown_product": {
     "description": "Very small text, in the context of prices, to say that the product is unknown"
   },
+  "prices_menu_know_more": "Tudjon meg többet az Open Prices-ról",
+  "@prices_menu_know_more": {
+    "description": "Menu item to open the Open Prices guide"
+  },
+  "prices_discount_type": "Discount type",
+  "prices_discount_type_quantity": "Quantity discount",
+  "prices_discount_type_sale": "Sale",
+  "prices_discount_type_seasonal": "Seasonal",
+  "prices_discount_type_loyalty_program": "Loyalty program",
+  "prices_discount_type_expires_soon": "Expires soon",
+  "prices_discount_type_pick_it_yourself": "Pick it yourself",
+  "prices_discount_type_second_hand": "Second hand",
+  "prices_discount_type_other": "Egyéb",
   "dev_preferences_import_history_result_success": "Kész",
   "@dev_preferences_import_history_result_success": {
     "description": "User dev preferences - Import history - Result successful"
@@ -2535,12 +2821,7 @@
   "dev_mode_section_news": "Hírszolgáltató konfigurációja",
   "dev_mode_section_product_page": "Termékoldal",
   "dev_mode_section_ui": "Felhasználói felület",
-  "dev_mode_section_data": "Adatok",
   "dev_mode_section_experimental_features": "Kísérleti funkciók",
-  "dev_preferences_show_folksonomy_title": "Folksonomy kizárása",
-  "@dev_preferences_show_folksonomy_title": {
-    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
-  },
   "dev_mode_hide_environmental_score_title": "Green Score kizárása",
   "@dev_mode_hide_environmental_score_title": {
     "description": "User dev preferences - Disable Green Score - Title"
@@ -2553,9 +2834,25 @@
   "@dev_mode_spellchecker_for_ocr_subtitle": {
     "description": "User dev preferences - Enable Spellchecker on OCR screens - Subtitle"
   },
+  "dev_mode_reset_app_language_title": "Alkalmazás nyelvének visszaállítása",
+  "@dev_mode_reset_app_language_title": {
+    "description": "User dev preferences - Reset app language - Title"
+  },
+  "dev_mode_add_demo_cards_language_title": "Kártyák hozzáadása",
+  "@dev_mode_add_demo_cards_language_title": {
+    "description": "User dev preferences - Add cards - Title"
+  },
+  "dev_mode_openprices_switch_env_title": "Váltás a prices.openfoodfacts.org (PROD) és a tesztkörnyezet között",
+  "@dev_mode_openprices_switch_env_title": {
+    "description": "User dev preferences - Switch server environment (Open Prices) - Title"
+  },
   "search_history_item_edit_tooltip": "Használja újra és szerkessze ezt a keresést",
   "@search_history_item_edit_tooltip": {
     "description": "A tooltip to explain the Pen button near a search term -> it allows to reuse the item"
+  },
+  "search_history_item_remove_tooltip": "Eltávolítás",
+  "@search_history_item_remove_tooltip": {
+    "description": "A tooltip to explain the Remove button near a search term"
   },
   "product_search_no_more_results": "Letöltötte mind a(z) {totalSize} terméket.",
   "@product_search_no_more_results": {
@@ -2616,9 +2913,23 @@
   "@user_search_proof_title": {
     "description": "User proof: page title"
   },
-  "user_any_search_prices_title": "Közreműködői árak",
+  "search_proof_title": "„{user}” bizonylata",
+  "@search_proof_title": {
+    "description": "Proof viewer: page title (when not the user proof)",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "user_any_search_prices_title": "Közreműködői árak: {user}",
   "@user_any_search_prices_title": {
-    "description": "User prices (everybody except me): list tile title"
+    "description": "User prices (everybody except me): list tile title",
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
   },
   "all_search_prices_latest_title": "Legutóbb hozzáadott árak",
   "@all_search_prices_latest_title": {
@@ -2633,11 +2944,11 @@
     "description": "Top price locations: list tile title"
   },
   "prices_contribution_assistant": "Árhozzájárulási asszisztens",
-  "prices_validation_assistant": "Price Validation Assistant",
+  "prices_validation_assistant": "Árérvényesítési asszisztens",
   "@prices_validation_assistant": {
     "description": "List of prices to validate"
   },
-  "prices_challenges_page": "Challenges",
+  "prices_challenges_page": "Kihívások",
   "@prices_challenges_page": {
     "description": "Community challenges of open prices"
   },
@@ -2772,6 +3083,19 @@
   "add_basic_details_product_name_hint": "Adja meg a termék nevét (pl.: Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
+  },
+  "add_basic_details_product_name_change_main_language_title": "Módosítsa az alapértelmezett nyelvet?",
+  "@add_basic_details_product_name_change_main_language_title": {
+    "description": "Title of the dialog to change the main language of the product name"
+  },
+  "add_basic_details_product_name_change_main_language_text": "Szeretné, hogy a termék alapértelmezett nyelve a következő legyen: '{language}'?",
+  "@add_basic_details_product_name_change_main_language_text": {
+    "description": "Content of the dialog to change the main language of the product name. Please keep the language surrounded by ** and \"",
+    "placeholders": {
+      "language": {
+        "type": "String"
+      }
+    }
   },
   "explanation_section_good_examples": "Jó példák",
   "@explanation_section_good_examples": {
@@ -3105,6 +3429,10 @@
   "@background_task_title_full_refresh": {
     "description": "Snackbar message when a full refresh is started"
   },
+  "background_task_title_folksonomy": "A helyileg tárolt folksonomy-frissítésekhez kapcsolódó kiszolgálói műveletek végrehajtásának megkezdése",
+  "@background_task_title_folksonomy": {
+    "description": "Snackbar message when server action for folksonomy updates is started"
+  },
   "background_task_title_top_n": "A legnépszerűbb termékek letöltésének megkezdése",
   "@background_task_title_top_n": {
     "description": "Snackbar message when a download of the most popular products is started"
@@ -3119,11 +3447,6 @@
     "description": "Label for expanding nutrition facts table in application setting"
   },
   "expand_ingredients_body": "Nyitva tartja az összetevők paneljét",
-  "search_product_filter_visibility_title": "Szűrő megjelenítése a keresőben",
-  "search_product_filter_visibility_subtitle": "Keresőoldal kiválasztása: Open Food Facts, Open Beauty Facts, Open Pet Food Facts vagy Open Products Facts",
-  "@search_product_filter_visibility_subtitle": {
-    "description": "Label for showing the product type filter in the search bar"
-  },
   "no_internet_connection": "Nincs internetkapcsolat",
   "@no_internet_connection": {
     "description": "Message when there is no internet connection"
@@ -3432,7 +3755,7 @@
     "description": "Button: Copy the email adress to the clipboard. Shown when an automatic opening of an email application is not possible"
   },
   "please_send_us_an_email_to": "Kérjük, manuálisan küldjön e-mailt a címre",
-  "email_copied_to_clip_board": "E-mail vágólapra másolva",
+  "email_copied_to_clip_board": "E-mail copied to clipboard!",
   "select_accent_color": "Kiemelt szín kiválasztása",
   "@select_accent_color": {
     "description": "Accent Color for the application in AMOLED mode."
@@ -3622,7 +3945,7 @@
   "@offline_product_data_title": {
     "description": "Offline Product Data"
   },
-  "available_for_download": "{num} termék elérhető azonnali leolvasáshoz",
+  "available_for_download": "{num} products available for immediate scanning",
   "@available_for_download": {
     "description": "text to show details of products available for download",
     "placeholders": {
@@ -3687,15 +4010,15 @@
   "nutriscore_unknown_new_formula": "Ismeretlen Nutri-Score (új számítás)",
   "nutriscore_not_applicable": "A Nutri-Score nem alkalmazható",
   "nutriscore_not_applicable_new_formula": "A Nutri-Score nem alkalmazható (új számítás)",
-  "environmental_score_generic": "Green Score",
-  "environmental_score_a": "Green Score A",
-  "environmental_score_b": "Green Score B",
-  "environmental_score_c": "Green Score C",
-  "environmental_score_d": "Green Score D",
-  "environmental_score_e": "Green Score E",
-  "environmental_score_unknown": "Ismeretlen Green Score",
-  "environmental_score_not_applicable": "A Green Score nem alkalmazható",
-  "nova_group_generic": "Többszörös feldolgozottság – NOVA-csoportok",
+  "environmental_score_generic_new": "Green-Score",
+  "environmental_score_a_new": "Green-Score A",
+  "environmental_score_b_new": "Green-Score B",
+  "environmental_score_c_new": "Green-Score C",
+  "environmental_score_d_new": "Green-Score D",
+  "environmental_score_e_new": "Green-Score E",
+  "environmental_score_unknown_new": "Ismeretlen Green-Score",
+  "environmental_score_not_applicable_new": "A Green-Score nem alkalmazható",
+  "nova_group_generic_new": "Ultrafeldolgozott élelmiszerek – NOVA csoportok",
   "nova_group_1": "1. NOVA-csoport",
   "nova_group_2": "2. NOVA-csoport",
   "nova_group_3": "3. NOVA-csoport",
@@ -3752,51 +4075,297 @@
     "description": "A title for a guide"
   },
   "guide_share_label": "Megosztás",
-  "guide_nutriscore_v2_enabled": "true",
-  "@guide_nutriscore_v2_enabled": {
-    "description": "Please NEVER touch this value and let the OFF team change it!"
-  },
-  "guide_nutriscore_v2_title": "The Nutri-Score is evolving: explanations!",
+  "guide_nutriscore_v2_title": "A Nutri-Score folyamatosan fejlődik: magyarázatok!",
   "@guide_nutriscore_v2_title": {
     "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
   "guide_nutriscore_v2_what_is_nutriscore_title": "Mi az a Nutri-Score?",
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "The Nutri-Score is a logo which aims to inform you about the **nutritional quality of foods**.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph1": "A Nutri-Score egy logó, amelynek célja, hogy tájékoztasson az **élelmiszerek tápértékéről**.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph1": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "The color code varies from dark green (**A**) for the **healthiest** products to dark red (**E**) for the **less healthy** ones.",
+  "guide_nutriscore_v2_what_is_nutriscore_paragraph2": "A színkód a sötétzöldtől (**A**) a **legegészségesebb** termékekhez a sötétvörösig (**E**) a **kevésbé egészséges** termékekhez tartozik.",
   "@guide_nutriscore_v2_what_is_nutriscore_paragraph2": {
     "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
   },
-  "guide_nutriscore_v2_nutriscore_a_caption": "The Nutri-Score A logo",
-  "guide_nutriscore_v2_why_v2_title": "Why is Nutri-Score evolving?",
-  "guide_nutriscore_v2_why_v2_intro": "The Nutri-Score formula **is evolving** to provide better recommendations:",
-  "guide_nutriscore_v2_why_v2_arg1_title": "Better evaluate all drinks",
-  "guide_nutriscore_v2_why_v2_arg1_text": "The comparative notes of **milk**, **dairy drinks** with added sugar and **vegetable** drinks were better differentiated in the new algorithm.",
-  "guide_nutriscore_v2_why_v2_arg2_title": "Better ranking of drinks",
-  "guide_nutriscore_v2_why_v2_arg2_text": "The **sugar content** is better taken into account and favors **lowly sweetened** drinks.\\n**Sweeteners will also be penalized**: diet sodas will be downgraded from a B rating to between C and E. Water remains the recommended drink.",
-  "guide_nutriscore_v2_why_v2_arg3_title": "Salt and sugar penalized",
-  "guide_nutriscore_v2_why_v2_arg3_text": "Products **too sweet** or **too salty** will see their **rating further downgraded**.",
-  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchy within oils and fishes",
-  "guide_nutriscore_v2_why_v2_arg4_text": "The rating of certain **fatty fish** and **oils rich in good fats** will improve.",
-  "guide_nutriscore_v2_why_v2_arg5_title": "Limit red meat",
-  "guide_nutriscore_v2_why_v2_arg5_text": "Consumption of **red meat should be limited**. This is why **poultry will be comparatively better ranked**.",
-  "guide_nutriscore_v2_new_logo_title": "How to differentiate old Nutri-Score and new calculation?",
-  "guide_nutriscore_v2_new_logo_text": "From now on, the logo can display a mention \"**New calculation**\" to clarify that this is indeed the new calculation.",
-  "guide_nutriscore_v2_new_logo_image_caption": "The logo of the new Nutri-Score",
+  "guide_nutriscore_v2_nutriscore_a_caption": "A Nutri-Score A logó",
+  "guide_nutriscore_v2_why_v2_title": "Miért fejlődik a Nutri-Score?",
+  "guide_nutriscore_v2_why_v2_intro": "A Nutri-Score képlet **fejlődik**, hogy jobb ajánlásokat nyújthasson:",
+  "guide_nutriscore_v2_why_v2_arg1_title": "Jobban értékelje az összes italt",
+  "guide_nutriscore_v2_why_v2_arg1_text": "A **tej**, a **hozzáadott cukrot tartalmazó tejitalok** és a **zöldség** italok összehasonlító jegyei jobban megkülönböztethetők voltak az új algoritmusban.",
+  "guide_nutriscore_v2_why_v2_arg2_title": "Az italok jobb rangsorolása",
+  "guide_nutriscore_v2_why_v2_arg2_text": "A **cukortartalmat** jobban figyelembe veszik, és az **alacsony cukortartalmú** italokat részesítik előnyben.\\n**Az édesítőszereket is büntetni fogják**: a diétás üdítők B besorolásról C és E közé kerülnek. A víz továbbra is az ajánlott ital.",
+  "guide_nutriscore_v2_why_v2_arg3_title": "Büntetik a sót és a cukrot",
+  "guide_nutriscore_v2_why_v2_arg3_text": "A **túl édes** vagy **túl sós** termékek **további besorolást** kapnak.",
+  "guide_nutriscore_v2_why_v2_arg4_title": "Hierarchia az olajokon és halakon belül",
+  "guide_nutriscore_v2_why_v2_arg4_text": "Bizonyos **zsíros halak** és **jó zsírokban gazdag olajok** értékelése javulni fog.",
+  "guide_nutriscore_v2_why_v2_arg5_title": "Korlátozza a vörös húsok fogyasztását",
+  "guide_nutriscore_v2_why_v2_arg5_text": "A **vörös hús fogyasztását korlátozni kell**. Ezért a **baromfi viszonylag előrébb fog szerepelni**.",
+  "guide_nutriscore_v2_new_logo_title": "Hogyan lehet megkülönböztetni a régi és az új Nutri-Score számítást?",
+  "guide_nutriscore_v2_new_logo_text": "Mostantól a logó megjelenítheti az „**Új számítás**” megjegyzést, hogy egyértelművé tegye, hogy valóban az új számításról van szó.",
+  "guide_nutriscore_v2_new_logo_image_caption": "Az új Nutri-Score logója",
   "guide_nutriscore_v2_where_title": "Hol található meg az új Nutri-Score számítás?",
   "guide_nutriscore_v2_where_paragraph1": "A Nutri-Score-t hét országban használják: Franciaországban, Németországban, Belgiumban, Spanyolországban, Luxemburgban, Hollandiában és Svájcban.",
   "guide_nutriscore_v2_where_paragraph2": "A gyártóknak a rendelet aláírásától számítva legfeljebb **két év** áll rendelkezésükre, hogy a régi számítást az újra cseréljék.",
-  "guide_nutriscore_v2_where_paragraph3": "Without waiting, you **will already find in the OpenFoodFacts application**, the new calculation, including if the manufacturers have not updated the score.",
-  "guide_nutriscore_v2_unchanged_title": "What doesn't change",
-  "guide_nutriscore_v2_unchanged_paragraph1": "The Nutri-Score is a score designed to **measure nutritional quality**. It is **complementary to the NOVA group** on **ultra-processed foods** (also present in the application).",
-  "guide_nutriscore_v2_unchanged_paragraph2": "For manufacturers, the display of the Nutri-Score **remains optional**.",
-  "guide_nutriscore_v2_share_link": "https://hu.openfoodfacts.org/nutriscore-v2",
-  "guide_nutriscore_v2_share_message": "",
-  "@guide_nutriscore_v2_share_message": {
-    "description": "Please let empty for now (maybe use in the future)"
+  "guide_nutriscore_v2_where_paragraph3": "Várakozás nélkül, **az OpenFoodFacts alkalmazásban** már megtalálod az új számítást, beleértve azt is, ha a gyártók nem frissítették a pontszámot.",
+  "guide_nutriscore_v2_unchanged_title": "Ami nem változik",
+  "guide_nutriscore_v2_unchanged_paragraph1": "A Nutri-Score egy olyan pontszám, amely a **tápanyagminőség mérésére** szolgál. **Kiegészíti a NOVA csoport** adatait az **ultra feldolgozott élelmiszerekről** (szintén szerepel az alkalmazásban).**.",
+  "guide_nutriscore_v2_unchanged_paragraph2": "A gyártók számára a Nutri-Score megjelenítése **továbbra is opcionális**.",
+  "guide_greenscore_title": "Green-Score",
+  "@guide_greenscore_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
   },
+  "guide_greenscore_what_is_greenscore_title": "Mi a zöld Green Score?",
+  "guide_greenscore_what_is_greenscore_paragraph1": "A Green-Score egy logó, amelynek célja, hogy tájékoztasson az **élelmiszerek környezeti hatásáról**.",
+  "@guide_greenscore_what_is_greenscore_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_what_is_greenscore_paragraph2": "A színkód a **legkevésbé hatással bíró** termékek sötétzöld (**A+**) színétől a **legnagyobb hatással bíró** termékek sötétvörös (**F**) színéig terjed.",
+  "@guide_greenscore_what_is_greenscore_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_greenscore_logos_caption": "A Green-Score logók",
+  "guide_greenscore_lca_title": "A lényeg: Életciklus-értékelés (LCA)",
+  "guide_greenscore_lca_arg1_title": "Az élelmiszer-kategóriák tudományos értékelése",
+  "guide_greenscore_lca_arg1_text1": "Minden termékkategóriára vonatkozóan **referenciaérték** kerül megállapításra az Agribalyse környezetvédelmi adatbázis (az ADEME és az INRAE által kidolgozott) adatai alapján.",
+  "guide_greenscore_lca_arg1_text2": "Az **életciklus-elemzés** egy szabványosított értékelési módszer többlépcsős és többkritériumos környezeti értékelés elvégzésére.",
+  "guide_greenscore_lca_arg1_text3": "**A következőket méri:**",
+  "guide_greenscore_lca_arg2_title": "6 gyártási lépés",
+  "guide_greenscore_lca_arg2_agriculture": "Mezőgazdaság",
+  "guide_greenscore_lca_arg2_processing": "Feldolgozás",
+  "guide_greenscore_lca_arg2_packaging": "Csomagolás",
+  "guide_greenscore_lca_arg2_transportation": "Szállítás",
+  "guide_greenscore_lca_arg2_distribution": "Elosztás",
+  "guide_greenscore_lca_arg2_consumption": "Fogyasztás",
+  "guide_greenscore_lca_arg3_title": "14 környezeti hatásmutató",
+  "guide_greenscore_lca_arg3_text1": "Klímaváltozás/karbonlábnyom",
+  "guide_greenscore_lca_arg3_text2": "Az ózonréteg elvékonyodása",
+  "guide_greenscore_lca_arg3_text3": "Ionizáló sugárzás",
+  "guide_greenscore_lca_arg3_text4": "Föld",
+  "guide_greenscore_lca_arg3_text5": "Víz- és energiafelhasználás",
+  "guide_greenscore_lca_arg3_text6": "A levegő szennyezése",
+  "guide_greenscore_lca_arg3_text7": "Tenger és édesvíz (részecskék, savasodás, eutrofizáció)",
+  "guide_greenscore_lca_arg3_text8": "Erőforrások kimerülése.",
+  "guide_greenscore_bonuses_penalties_title": "Bónuszok és büntetések",
+  "guide_greenscore_bonuses_penalties_intro": "A kategórián belüli jobb termékek jutalmazása érdekében **bónuszokat és büntetéseket alkalmazunk számos kritérium alapján**:",
+  "guide_greenscore_bonuses_penalties_arg1_title": "Termelési mód",
+  "guide_greenscore_bonuses_penalties_arg1_text": "**Bónuszt** azok a termékek kapnak, amelyek **hivatalos címkével, környezeti előnyöket garantáló címkével vagy tanúsítvánnyal** rendelkeznek (bio, fair trade, HVE, Label Rouge, Bleu Blanc Cœur, MSC/ASC).",
+  "guide_greenscore_bonuses_penalties_arg2_title": "Összetevők eredete",
+  "guide_greenscore_bonuses_penalties_arg2_text": "A **bónuszt** az összetevők származása alapján ítélik oda. Ez a bónusz figyelembe veszi a **szállításra gyakorolt hatást**, valamint az egyes termelők országának **környezetvédelmi politikáját** is.",
+  "guide_greenscore_bonuses_penalties_arg3_title": "Veszélyeztetett fajok",
+  "guide_greenscore_bonuses_penalties_arg3_text": "**Büntetést** szabnak ki azokra a termékekre, amelyek olyan összetevőket tartalmaznak, amelyek jelentős **negatív hatással vannak a biológiai sokféleségre és az ökoszisztémákra**, például a pálmaolajat, amelynek termelése tömeges erdőirtásért felelős.",
+  "guide_greenscore_bonuses_penalties_arg4_title": "Csomagolás",
+  "guide_greenscore_bonuses_penalties_arg4_text": "A **büntetés** kiszámításakor figyelembe vesszük a **csomagolás körforgását** (újrahasznosított alapanyagok használata és újrahasznosíthatósága), valamint a túlcsomagolást.",
+  "guide_greenscore_transparency_title": "Fokozott igény az átláthatóságra a környezeti hatások jobb mérése és csökkentése érdekében",
+  "guide_greenscore_transparency_intro1": "A Green-Score pontos kiszámításához olyan információkra van szükség, **amelyek nem feltétlenül szerepelnek a csomagoláson** (például az egyes összetevők eredete és pontos százalékos aránya), vagy amelyek ritkán állnak rendelkezésre használható formában (például a csomagolás összes összetevőjének listája a felhasznált műanyagok pontos típusaival).",
+  "guide_greenscore_transparency_intro2": "**Átlagos értékeket használunk, ha ez az információ még nem áll rendelkezésre**, de most mindenkit arra kérünk, hogy segítsen nekünk összegyűjteni ezeket az információkat, amelyek nagyon hasznosak lesznek a Green-Score, de sok más célra is.",
+  "guide_greenscore_transparency_arg1_title": "Hogyan segíthetnek a polgárok?",
+  "guide_greenscore_transparency_arg1_text": "Minden állampolgár segíthet nekünk a termékeken található vagy azokból kikövetkeztethető információk összegyűjtésében és rendszerezésében, például a **csomagoláson** található információkban: „Mission Emballages”: nagyszabású, közösen készített leltár az összes élelmiszertermék csomagolásáról (francia nyelven).",
+  "guide_greenscore_transparency_arg2_title": "Hogyan segíthetnek a gyártók",
+  "guide_greenscore_transparency_arg2_text": "A gyártók közvetlenül elküldhetik nekünk adataikat az ingyenes platformunkon keresztül.",
+  "guide_greenscore_better_product_title": "Melyik termék jobb a bolygónak?",
+  "guide_greenscore_better_product_arg1_title": "Nehéz lehet megmondani",
+  "guide_greenscore_better_product_arg1_text": "A fenntartható élelmiszerek választása az egyik leghatékonyabb dolog, amit a klímavédelemért tehetünk, mivel **globális élelmiszerrendszerünk az összes üvegházhatású gázkibocsátás több mint negyedéért felelős**.\n(Forrás: Poore & Nemecek, Science, 2018).",
+  "guide_greenscore_better_product_arg2_title": "A hatalom az Ön kezében van!",
+  "guide_greenscore_better_product_arg2_text": "A jó hír az, hogy ez hatékony módszert kínál a változás előidézésére.\n**Mindannyian évente körülbelül 1000 étkezést fogyasztunk**. Ez 1000 lehetőséget ad arra, hogy **jobb jövőt válasszunk a bolygó számára**!",
+  "guide_greenscore_better_product_arg3_title": "Segít felelősségteljesen dönteni",
+  "guide_greenscore_better_product_arg3_text": "A fenntartható élelmiszerek kiválasztása bonyolultnak tűnhet. A címkék zavarosak lehetnek, és gyakran hiányoznak bizonyos információk. A Green-Score rendszer azért jött létre, hogy ezt egyszerűbbé, és **egyértelmű**, **tudományosan megalapozott** és **átlátható** környezetvédelmi besorolást adjon az élelmiszeripari termékeknek, pont ott, ahol szüksége van rá: vásárlás közben.",
+  "guide_greenscore_better_product_arg4_title": "Átláthatóság",
+  "guide_greenscore_better_product_arg4_text": "A zárt, céghez kötődő címkékkel ellentétben a Green-Score számítás **teljesen nyílt**, és **bárki által ellenőrizhető**.",
+  "guide_nova_title": "Ultrafeldolgozott élelmiszerek",
+  "@guide_nova_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_nova_what_is_nova_title": "Mi az az ultrafeldolgozás?",
+  "guide_nova_what_is_nova_paragraph1": "A NOVA csoportok tájékoztatják Önt az élelmiszer-feldolgozás szintjéről.",
+  "@guide_nova_what_is_nova_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_what_is_nova_paragraph2": "A NOVA osztályozás lehetővé teszi az élelmiszerek **4 csoportba** sorolását az **ipari feldolgozottságuk mértéke** alapján (minimálisan feldolgozott vagy feldolgozatlan élelmiszerek, konyhai összetevők, feldolgozott élelmiszerek, ultrafeldolgozott élelmiszerek).",
+  "@guide_nova_what_is_nova_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_nova_logos_caption": "A NOVA logók",
+  "guide_nova_groups_title": "A 4 NOVA-csoport",
+  "guide_nova_groups_intro": "4 NOVA-csoport létezik. A problémás a 4. csoport, az ultrafeldolgozott élelmiszereké.",
+  "guide_nova_groups_arg1_title": "Minimálisan feldolgozott vagy feldolgozatlan élelmiszerek",
+  "guide_nova_groups_arg1_text": "A feldolgozatlan (vagy természetes) élelmiszerek a **növények** (magvak, gyümölcsök, levelek, szárak, gyökerek) **vagy állatok ehető részei** (izom, belsőségek, tojás, tej), valamint gombák, algák és víz, miután elválasztották őket a természetből.",
+  "guide_nova_groups_arg2_title": "Feldolgozott konyhai alapanyagok",
+  "guide_nova_groups_arg2_text": "A feldolgozott konyhai összetevők, mint például az **olaj, vaj, cukor és só** olyan, az 1. csoportba tartozó élelmiszerekből vagy a természetből származó anyagok, amelyeket préseléssel, finomítással, őrléssel, darálással, szárítással állítanak elő.",
+  "guide_nova_groups_arg3_title": "Feldolgozott élelmiszerek",
+  "guide_nova_groups_arg3_text": "PROCESSED foods, such as bottled vegetables, canned fish, fruits in syrup, cheeses, and freshly made breads, are **primarily made by adding salt, oil, sugar, or other substances from group 2 to Group 1** foods. processes include various Preservation or cooking methods, and in the case of breads and cheese, non-alcoholic fermentation. most processed foods have TWO or three ingredients and are recognizable as modified versions of group 1 foods. they can be eaten On their own or, more commonly, in combination with other foods.",
+  "guide_nova_groups_arg4_title": "Ultrafeldolgozott élelmiszerek",
+  "guide_nova_groups_arg4_text": "Ultra-processed foods, such as soft drinks, sweet or savory packaged snacks, reconstituted meat products, and pre-prepared frozen dishes, **are not merely modified foods but formulations made mostly or entirely from substances derived from foods and additives**, with little to no intact group 1 food. ingredients in these formulations usually include those also found in processed foods, such as sugars, oils, fats, Or salt. however, ultra-processed products also contain other sources of energy and nutrients not typically used In culinary preparations. some of these are directly extracted from foods, such as casein, lactose, whey, and gluten.",
+  "guide_nova_explanations_title": "Az ultrafeldolgozással kapcsolatos problémák",
+  "guide_nova_explanations_arg1_title": "Az élelmiszer-összetevők extrém feldolgozása",
+  "guide_nova_explanations_arg1_text": "Sokuk **élelmiszer-összetevők további feldolgozásából származik**, például hidrogénezett vagy interészterezett olajok, hidrolizált fehérjék, szójafehérje-izolátum, maltodextrin, invertcukor és magas fruktóztartalmú kukoricaszirup.",
+  "guide_nova_explanations_arg2_title": "Adalékanyagok, amelyek túlmutatnak a puszta élelmiszer-biztonságon",
+  "guide_nova_explanations_arg2_text": "Az ultrafeldolgozott élelmiszerekben található adalékanyagok között vannak olyanok, amelyeket a feldolgozott élelmiszerekben is használnak, például tartósítószerek, antioxidánsok és stabilizátorok. Az adalékanyagok azon osztályai, amelyek csak az ultrafeldolgozott termékekben találhatók, magukban foglalják azokat, amelyeket **az élelmiszerek érzékszervi tulajdonságainak utánzására vagy fokozására, illetve a végtermék kellemetlen tulajdonságainak elrejtésére** használnak. Ezek az adalékanyagok közé tartoznak a színezékek és egyéb színezékek, színstabilizátorok; aromák, ízfokozók, nem cukor alapú édesítőszerek; és feldolgozási segédanyagok, például szénsavasító, szilárdító, tömegnövelő és térfogatnövelő szerek, habzásgátló, csomósodást gátló és fényező anyagok, emulgeálószerek, komplexképzők és nedvesítőszerek.",
+  "guide_nova_explanations_arg3_title": "Otthon nem elvégezhető feldolgozás",
+  "guide_nova_explanations_arg3_text": "**Számos folyamatot alkalmaznak** a rendszerint sok összetevő kombinálására és a végtermék előállítására (innen az „ultrafeldolgozott” kifejezés). A folyamatok között számos olyan eljárás is szerepel, melynek **nincsen otthoni megfelelője**, például hidrogénezés és hidrolízis, extrudálás és formázás, valamint a sütéshez való előfeldolgozás.",
+  "guide_nova_explanations_arg4_title": "Az ultrafeldolgozás fosztogató pénzügyi vonatkozásai",
+  "guide_nova_explanations_arg4_text": "**Az ultrafeldolgozott élelmiszerek átfogó célja márkás**, **kényelmes** (tartós, fogyasztásra kész), **vonzó** (hiperízletes) és **rendkívül jövedelmező** (alacsony költségű összetevőkből készült) élelmiszerek létrehozása, amelyek célja, hogy kiszorítsanak minden más élelmiszercsoportot. Az ultrafeldolgozott élelmiszereket általában vonzó csomagolásban csomagolják és intenzíven reklámozva forgalmazzák.",
+  "guide_nova_explanations_arg5_title": "Egészségügyi kockázat",
+  "guide_nova_explanations_arg5_text": "2018 óta a NutriNet-Santé programnak köszönhetően először mutattak ki összefüggéseket **az ultrafeldolgozott élelmiszerek fogyasztása és a rák, a szív- és érrendszeri betegségek, valamint a cukorbetegség fokozott kockázata között**. Ma már több mint 90 tanulmány erősíti meg ezeket a megállapításokat világszerte.\nA legerősebb összefüggés az **elhízáshoz, a szív- és érrendszeri halálozáshoz és a depressziós tünetekhez** kapcsolódik. Gyermekeknél a hatások elsősorban a testsúlyban és a lipidegyensúly felborulásában figyelhetők meg.",
+  "guide_nova_explanations_arg6_title": "Az országok a korlátozásukat javasolják",
+  "guide_nova_explanations_arg6_text": "Néhány ország a NOVA csoportokat használja étkezési irányelveihez vagy céljaihoz, például:\n\n- **🇧🇷 Brazília** étkezési irányelvei **a feldolgozott élelmiszerek fogyasztásának korlátozását** és az ultrafeldolgozott élelmiszerek kerülését javasolják.\n\n- **🇫🇷 Franciaország** 2018-2022 közötti közegészségügyi táplálkozáspolitikai céljai a **4. csoportba tartozó ultrafeldolgozott élelmiszerek fogyasztásának 20%-kal történő csökkentése**.",
+  "guide_nova_share_link": "https://world-hu.openfoodfacts.org/nova",
+  "@guide_nova_share_link": {
+    "comment": "Make sure the link exists before adding a translation"
+  },
+  "guide_open_food_facts_title": "Üdvözli az Open Food Facts!",
+  "@guide_open_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_food_facts_what_is_open_food_facts_title": "Mi az az Open Food Facts?",
+  "guide_open_food_facts_what_is_open_food_facts_paragraph1": "Az Open Food Facts egy **együttműködésen alapuló**, **ingyenes** és **nyílt** adatbázis, amely a világ minden tájáról származó élelmiszertermékeket tartalmaz.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_what_is_open_food_facts_paragraph2": "Úgy gondoljuk, hogy mindenkinek hozzáférése kell legyen az információkhoz arról, hogy mit eszik. Az összetevőkre, allergénekre, tápértékre és egyebekre vonatkozó adatok gyűjtésével **felhatalmazzuk a fogyasztókat a megalapozott döntések meghozatalára**, és az élelmiszeripart **nagyobb átláthatóság** felé tereljük.",
+  "@guide_open_food_facts_what_is_open_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_food_facts_features_title": "Az Open Food Facts jellemzői",
+  "guide_open_food_facts_features_arg1_title": "Kérjen értesítést a nem kívánt összetevőkről",
+  "guide_open_food_facts_tips_title": "Tippek remek fotók készítéséhez",
+  "guide_open_food_facts_tips_arg1_title": "Kerülendők",
+  "guide_open_food_facts_tips_arg1_text1": "Kerülje az árnyékokat és a tükröződést.",
+  "guide_open_food_facts_tips_arg1_text2": "Ne legyen a szöveg elmosódott vagy életlen.",
+  "guide_open_food_facts_tips_arg1_text3": "Ne vágja le a szöveg egyes részeit.",
+  "guide_open_food_facts_tips_arg1_text4": "Kerülje a zsúfolt háttereket.",
+  "guide_open_food_facts_tips_arg2_title": "Teendők",
+  "guide_open_food_facts_tips_arg2_text1": "Használjon jó, egyenletes megvilágítást.",
+  "guide_open_food_facts_tips_arg2_text2": "Ügyeljen arra, hogy a szöveg éles és olvasható legyen.",
+  "guide_open_food_facts_tips_arg2_text3": "Rögzítse a teljes összetevőlistát.",
+  "guide_open_food_facts_tips_arg2_text4": "Helyezze a terméket sík felületre.",
+  "guide_open_food_facts_scores_title": "Segíts nekünk felépíteni az \"Ételek Wikipédiáját\"!",
+  "guide_open_food_facts_scores_arg1_title": "Pontszám a tápértékre vonatkozóan",
+  "guide_open_food_facts_scores_arg2_title": "Egy pontszám az ultrafeldolgozott élelmiszerek elkerülésére",
+  "guide_open_food_facts_scores_arg3_title": "Egy pont a bolygónak",
+  "guide_open_food_facts_share_link": "https://world-hu.openfoodfacts.org/discover",
+  "guide_open_pet_food_facts_title": "Üdvözöli az Open Pet Food Facts!",
+  "@guide_open_pet_food_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_title": "Mi az az Open Pet Food Facts?",
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": "Az Open Pet Food Facts kiterjeszti küldetésünket szőrös barátainkra! Ez egy **macskák, kutyák és más társak számára készült állateledel-termékek adatbázisa**.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": "Információkat gyűjtünk az **összetevőkről**, a **tápanyag-összetételről** és az etetési irányelvekről, hogy segítsük a gazdiknak kiválasztani az állataik igényeinek leginkább megfelelő eledelt.",
+  "@guide_open_pet_food_facts_what_is_open_pet_food_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_pet_food_facts_features_title": "Az Open Pet Food Facts jellemzői",
+  "guide_open_pet_food_facts_features_arg1_title": "Kérjen értesítést a nem kívánt összetevőkről",
+  "guide_open_pet_food_facts_features_arg1_paragraph1": "Allergiás bármilyen összetevőre a házi kedvence? Az alkalmazásban beállíthatja a kerülendő kozmetikai összetevőket!",
+  "guide_open_pet_food_facts_tips_title": "Tippek remek fotók készítéséhez",
+  "guide_open_pet_food_facts_tips_arg1_title": "Kerülendők",
+  "guide_open_pet_food_facts_tips_arg1_text1": "Kerülje az árnyékokat és a tükröződést.",
+  "guide_open_pet_food_facts_tips_arg1_text2": "Ne legyen a szöveg elmosódott vagy életlen.",
+  "guide_open_pet_food_facts_tips_arg1_text3": "Ne vágja le a szöveg egyes részeit.",
+  "guide_open_pet_food_facts_tips_arg1_text4": "Kerülje a zsúfolt háttereket.",
+  "guide_open_pet_food_facts_tips_arg2_title": "Teendők",
+  "guide_open_pet_food_facts_tips_arg2_text1": "Használjon jó, egyenletes megvilágítást.",
+  "guide_open_pet_food_facts_tips_arg2_text2": "Ügyeljen arra, hogy a szöveg éles és olvasható legyen.",
+  "guide_open_pet_food_facts_tips_arg2_text3": "Rögzítse a teljes összetevőlistát.",
+  "guide_open_pet_food_facts_tips_arg2_text4": "Helyezze a terméket sík felületre.",
+  "guide_open_pet_food_facts_scores_title": "Megjegyzés a pontozásról",
+  "guide_open_pet_food_facts_scores_paragraph1": "Egy állateledel pontozási rendszerének kidolgozása **jelenleg nem prioritás**. A módszertan összetett lenne, mivel a táplálkozási igények fajonként, koronként és egészségi állapotonként nagymértékben eltérnek. Még nem találtunk független tudományos csapatot, amely képes lenne ilyen pontozást kidolgozni.",
+  "guide_open_pet_food_facts_share_link": "https://world-hu.openpetfoodfacts.org/discover",
+  "guide_open_beauty_facts_title": "Üdvözli az Open Beauty Facts!",
+  "@guide_open_beauty_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_title": "Mi az az Open Beauty Facts?",
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": "Az Open Beauty Facts **kozmetikai termékek** kollaboratív adatbázisa.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": "Célunk az összetevők listájának megfejtése, hogy segítsünk megérteni, **mi van a testápolási termékekben**. A hidratálókrémektől a sminkekig adatokat gyűjtünk az összetevőkről, allergénekről és a csomagolásról, hogy elősegítsük az átláthatóságot a kozmetikai iparban.",
+  "@guide_open_beauty_facts_what_is_open_beauty_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_beauty_facts_features_title": "Az Open Beauty Facts jellemzői",
+  "guide_open_beauty_facts_features_arg1_title": "Kérjen értesítést a nem kívánt összetevőkről",
+  "guide_open_beauty_facts_features_arg1_paragraph1": "Allergiás valamelyik összetevőre? El szeretné kerülni a komedogén anyagokat vagy a vitatott összetevőket? Beállíthatja a kerülendő kozmetikai összetevőket közvetlenül az alkalmazásban!",
+  "guide_open_beauty_facts_tips_title": "Tippek remek fotók készítéséhez",
+  "guide_open_beauty_facts_tips_arg1_title": "Kerülendők",
+  "guide_open_beauty_facts_tips_arg1_text1": "Kerülje az árnyékokat és a tükröződést.",
+  "guide_open_beauty_facts_tips_arg1_text2": "Ne legyen a szöveg elmosódott vagy életlen.",
+  "guide_open_beauty_facts_tips_arg1_text3": "Ne vágja le a szöveg egyes részeit.",
+  "guide_open_beauty_facts_tips_arg1_text4": "Kerülje a zsúfolt háttereket.",
+  "guide_open_beauty_facts_tips_arg2_title": "Teendők",
+  "guide_open_beauty_facts_tips_arg2_text1": "Használjon jó, egyenletes megvilágítást.",
+  "guide_open_beauty_facts_tips_arg2_text2": "Ügyeljen arra, hogy a szöveg éles és olvasható legyen.",
+  "guide_open_beauty_facts_tips_arg2_text3": "Rögzítse a teljes összetevőlistát.",
+  "guide_open_beauty_facts_tips_arg2_text4": "Készítsen annyi képet, amennyire szüksége van, ha az üveg íves.",
+  "guide_open_beauty_facts_tips_arg2_text5": "Lehet, hogy le kell húznia a címkét az összetevők listájának megtekintéséhez.",
+  "guide_open_beauty_facts_tips_arg2_text6": "Helyezze a terméket sík felületre.",
+  "guide_open_beauty_facts_scores_title": "Megjegyzés a pontozásról",
+  "guide_open_beauty_facts_scores_paragraph1": "Az élelmiszerekkel ellentétben a kozmetikumok világában **nincs egyetemesen elismert, kormány által támogatott pontozási rendszer, mint a Nutri-Score**. Az összetevők hatásai nagyon személyesek lehetnek, és függhetnek a bőrtípustól, az allergiáktól és az egyéni aggályoktól.",
+  "guide_open_beauty_facts_share_link": "https://world-hu.openbeautyfacts.org/discover",
+  "guide_open_prices_title": "Üdvözöli az Open Prices!",
+  "@guide_open_prices_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_prices_what_is_open_prices_title": "Mi az az Open Prices?",
+  "guide_open_prices_what_is_open_prices_paragraph1": "Az Open Prices egy olyan projekt, amelynek célja a **világ minden tájáról származó termékek árainak gyűjtése és megosztása**. Ez egy nyilvánosan elérhető adathalmaz, amely kutatásra, elemzésre és egyebekre felhasználható. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.",
+  "@guide_open_prices_what_is_open_prices_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_what_is_open_prices_paragraph2": "Jelenleg kevés olyan vállalat van, amely vonalkód szintű termékárakat tartalmazó nagy adatbázissal rendelkezik. Ezek az árak nem szabadon elérhetők, hanem magas áron értékesítik azokat magánszereplőknek, kutatóknak és más szervezeteknek, amelyek megengedhetik maguknak.",
+  "@guide_open_prices_what_is_open_prices_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_prices_how_title": "Hogyan működnek az Open Prices?",
+  "guide_open_prices_how_paragraph1": "**Nyílt forráskódú közösségi áradatbázist gyűjtünk**. Az árakat a felhasználók ezen a webes alkalmazáson vagy a hivatalos Open Food Facts mobilalkalmazáson keresztül adhatják meg. Kiskereskedők vagy harmadik féltől származó alkalmazások is hozzájárulhatnak az API-nk használatával.",
+  "guide_open_prices_how_arg1_title": "Gyűjtsön fotókat az árcédulákról a polcokon",
+  "guide_open_prices_how_arg2_title": "Gyűjtse össze a nyugták fotóit",
+  "guide_open_prices_why_title": "Miért csinálja ezt az Open Food Facts?",
+  "guide_open_prices_why_paragraph1": "Az árinformációk kiemelkedően fontosak az élelmiszerrendszerek megértéséhez. Kulcsfontosságú tényezők az élelmiszerek költségeinek megértésében és az egészségesebb étrend előmozdításában. Az áradatok megnyitása megkönnyíti a kutatók, újságírók és polgárok számára, hogy **jobban megértsék az élelmiszerárak földrajzi és időbeli változását**.",
+  "guide_open_prices_why_arg1_title": "Az árak időbeli alakulásának nyomon követése",
+  "guide_open_prices_why_arg1_text": "Nézze meg az **árak alakulását**: zsugorodási infláció, olcsósítási infláció, együtt nyomon követhetjük őket!",
+  "guide_open_prices_why_arg2_title": "Hasonlítsa össze az árakat a közelében",
+  "guide_open_prices_why_arg2_text": "Ahogy egyre több árat kapunk, megtalálhatja **a környékén a legolcsóbb üzleteket**.",
+  "guide_open_prices_scrapping_title": "Fontolóra vette már az árak lemásolását a kiskereskedők weboldalairól?",
+  "guide_open_prices_scrapping_paragraph1": "Jogi és technikai okokból **nem tekintjük érvényes módnak az árak kiskereskedők weboldalairól történő lekérdezését az Open Priceshoz való hozzájárulásra**. Biztosak akarunk lenni abban, hogy az általunk gyűjtött árak pontosak és naprakészek, és a közreműködőktől lemásolt árak fogadása ezt nem teszi lehetővé számunkra.",
+  "guide_open_prices_scrapping_paragraph2": "Az árak kinyerése a weboldalakról egy fontolóra vett lehetőség az Open Prices jövőbeli verzióiban, de ezt maga az Open Prices végezné el, hogy a HTML oldal alapján bizonyítékot kaphassunk az árról.",
+  "guide_open_prices_retailers_title": "Kiskereskedő vagyok, és szeretnék hozzájárulni az árakhoz. Hogyan tehetem ezt meg?",
+  "guide_open_prices_retailers_paragraph1": "Az árakhoz az API-nkon keresztül is hozzájárulhat.\nHa nagyobb mennyiségben szeretne árakat megadni, kérjük, vegye fel velünk a kapcsolatot a prices@openfoodfacts.org címen.",
+  "guide_open_prices_share_link": "https://prices.openfoodfacts.org/about",
+  "guide_open_products_facts_title": "Üdvözöli az Open Products Facts!",
+  "@guide_open_products_facts_title": {
+    "description": "The title of the guide (please don't forget the use of non-breaking spaces)"
+  },
+  "guide_open_products_facts_what_is_open_products_facts_title": "Mi az az Open Products Facts?",
+  "guide_open_products_facts_what_is_open_products_facts_paragraph1": "Az Open Products Facts egy hatalmas, nyílt adatbázis, amely olyan **vonalkóddal ellátott termékekre vonatkozik, amelyek nem élelmiszerek, kozmetikumok vagy állateledelek**.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph1": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_what_is_open_products_facts_paragraph2": "Az **elektronikától** a **játékokon** át a **ruhákon** át a **tisztítószerekig**, ha van vonalkódjuk, az hozzáadható. Ez a projekt egy „dolgok internetének” létrehozását célozza a mindennapi tárgyak számára, így a róluk szóló információk univerzálisan hozzáférhetőek.",
+  "@guide_open_products_facts_what_is_open_products_facts_paragraph2": {
+    "description": "Text between asterisks (eg: **My Text**) means text in bold. Please try to keep it."
+  },
+  "guide_open_products_facts_features_title": "Az Open Products Facts jellemzői",
+  "guide_open_products_facts_features_text": "Az Open Products Facts célja, hogy a fogyasztók számára **meghosszabbítsák tárgyaik élettartamát** körforgásos megoldások biztosításával, amelyekkel karbantarthatják, **javíthatják**, **újrahasznosíthatják** tárgyaikat, vagy új tulajdonoshoz juthatnak.",
+  "guide_open_products_facts_features_arg1_title": "Egyes termékek karbonlábnyoma",
+  "guide_open_products_facts_features_arg1_text": "A Francia Környezetvédelmi Hatóság ADEME **CO2 hatás** listája számos kategória **karbonlábnyomát** tartalmazza, ezért ügyeljen arra, hogy a termékeket pontosan kategorizálja.",
+  "guide_open_products_facts_features_arg2_title": "Javíthatósági index számos termék esetében",
+  "guide_open_products_facts_features_arg2_text": "Amikor elérhetővé válik egy francia javíthatósági index, megjelenítjük. Ezenkívül **elkezdheti a változók gyűjtését a Folksonomy Engine segítségével**; így a jövőben mi magunk is újra tudjuk számolni, még azokban az országokban is, ahol nem érhető el.",
+  "guide_open_products_facts_features_arg3_title": "Találjon módokat termékének adományozására/újraértékesítésére",
+  "guide_open_products_facts_features_arg3_text": "Linkeket biztosítunk **harmadik féltől származó, körforgásbarát szolgáltatásokhoz**, amelyek segítenek abban, hogy a keresett terméket használtként szerezze be, hogy kíméletesebb legyen a bolygó erőforrásaival.\nFontos megjegyezni, hogy ezért nem fizetnek nekünk, és a rendszer csak példaként működik két franciaországi weboldal esetében. A rendszer bővítésében Ön is segíthet, ha további oldalakat dokumentál a wikin.",
+  "guide_open_products_facts_information_title": "Milyen információk hasznosak?",
+  "guide_open_products_facts_information_text": "Az ennyire széles termékválaszték miatt **az általunk gyűjtött adatok rugalmasak**. Ehhez **létrehoztuk a Folksonomy Engine-t**.",
+  "guide_open_products_facts_folksonomy_title": "A Folksonomy Engine",
+  "guide_open_products_facts_folksonomy_paragraph1": "A Folksonomy Engine egy olyan eszköz, amely segít releváns tulajdonságokkal rendelkező termékeket létrehozni. Ez segít javítani a keresést és a felfedezhetőséget, valamint a jövőben érdekes dolgok kiszámítását és megjelenítését is lehetővé teszi.",
+  "guide_open_products_facts_folksonomy_paragraph2": "Bármilyen kulcsot és értéket hozzáadhat, például: **compatibility_with_5G_mobile_network: yes**",
+  "guide_open_products_facts_folksonomy_paragraph3": "Automatikus javaslatokat kapsz a lehetséges tulajdonságokra, és szívesen látunk, ha újakat adsz hozzá és dokumentálsz a kedvenc termékeidhez.",
+  "guide_open_products_facts_share_link": "https://world-hu.openproductsfacts.org/discover",
+  "guide_open_preferences_button_title": "Ételbeállítások megnyitása",
+  "guide_coming_soon_button_title": "Hamarosan érkezik",
+  "guide_learn_more_subtitle": "Koppintson a további információkért",
   "preview_badge": "Előnézet",
   "@preview_badge": {
     "description": "Badge to indicate that the product is in preview mode (Be careful with this translation)"
@@ -3869,6 +4438,10 @@
   "photo_viewer_details_url_title": "URL",
   "@photo_viewer_details_url_title": {
     "description": "Label for the link of a photo"
+  },
+  "photo_viewer_details_original_title": "View original image",
+  "@photo_viewer_details_original_title": {
+    "description": "Label for the button to view the original full resolution image in browser"
   },
   "product_page_compatibility_score": "egyezés",
   "@product_page_compatibility_score": {
@@ -3995,6 +4568,10 @@
       }
     }
   },
+  "barcode_probably_invalid": "Probably invalid barcode",
+  "@barcode_probably_invalid": {
+    "description": "Warning message. Keep it short."
+  },
   "carousel_close_tooltip": "Termék eltávolítása a lapozóból",
   "@carousel_close_tooltip": {
     "description": "A message explaining the goal of the Close button on a card of the carousel"
@@ -4057,7 +4634,7 @@
   "photo_field_front": "Termékfotó",
   "photo_field_ingredients": "Összetevők fényképe",
   "photo_field_nutrition": "Tápértékadatok fényképe",
-  "photo_field_packaging": "Csomagolási információk fényképe",
+  "photo_field_packaging": "Újrahasznosítási utasítások fényképe",
   "photo_already_exists": "Ez a fénykép már létezik",
   "photo_missing": "Ez a fénykép hiányzik",
   "date": "Dátum",
@@ -4139,6 +4716,88 @@
   "@product_footer_action_data_quality_tags": {
     "description": "Action to view data quality warnings"
   },
+  "product_page_tab_for_me": "Számomra",
+  "@product_page_tab_for_me": {
+    "description": "Label of the for me tab on the product page"
+  },
+  "product_page_for_me_compatibility_score_title": "A kompatibilitásom",
+  "@product_page_for_me_compatibility_score_title": {
+    "description": "Title for the compatibility score"
+  },
+  "product_page_for_me_compatibility_score_value": "{value}%-ban kompatibilis",
+  "@product_page_for_me_compatibility_score_value": {
+    "description": "Compatibility score value in the For me tab on the product page",
+    "placeholders": {
+      "value": {
+        "type": "int"
+      }
+    }
+  },
+  "product_page_for_me_compatibility_score_uncomputable": "Nincs elegendő adat a kompatibilitási pontszám kiszámításához.",
+  "@product_page_for_me_compatibility_score_uncomputable": {
+    "description": "Message displayed when there is not enough data to compute a compatibility score for a product"
+  },
+  "product_page_for_me_compatibility_score_unsupported": "„{productType}” típusú termékhez nem számítható ki pontszám.",
+  "@product_page_for_me_compatibility_score_unsupported": {
+    "description": "Message displayed when a compatibility score can't be computed for a product",
+    "placeholders": {
+      "productType": {
+        "type": "String"
+      }
+    }
+  },
+  "product_page_for_me_attributes_order_importance": "Fontosság",
+  "@product_page_for_me_attributes_order_importance": {
+    "description": "Button to order the attributes by importance in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_order_evaluation": "Egyezések",
+  "@product_page_for_me_attributes_order_evaluation": {
+    "description": "Button to order the attributes by evaluation score in the For me tab on the product page"
+  },
+  "product_page_for_me_attributes_group_good_matches": "Jó egyezés",
+  "@product_page_for_me_attributes_group_good_matches": {
+    "description": "Title for the group of attributes that are good matches for the user"
+  },
+  "product_page_for_me_attributes_group_average_matches": "Átlagos egyezés",
+  "@product_page_for_me_attributes_group_average_matches": {
+    "description": "Title for the group of attributes that are average matches for the user"
+  },
+  "product_page_for_me_attributes_group_bad_matches": "Rossz egyezés",
+  "@product_page_for_me_attributes_group_bad_matches": {
+    "description": "Title for the group of attributes that are bad matches for the user"
+  },
+  "product_page_for_me_attributes_group_unknown_matches": "Ismeretlen egyezés",
+  "@product_page_for_me_attributes_group_unknown_matches": {
+    "description": "Title for the group of attributes that are unknown matches for the user"
+  },
+  "product_page_tab_website": "Weboldal",
+  "@product_page_tab_website": {
+    "description": "Label of the website tab on the product page"
+  },
+  "product_page_tab_prices": "Árak",
+  "@product_page_tab_prices": {
+    "description": "Label of the prices tab on the product page"
+  },
+  "prices_explanation_card_title": "Miért az árak?",
+  "prices_explanation_card_line1": "Az **Open Prices** egy olyan projekt, amelynek célja a világ minden tájáról származó termékek árainak összegyűjtése és megosztása 🌍. Az Open Prices-t az Open Food Facts fejleszti és tartja karban.",
+  "explanation_card_learn_more_button": "További információk",
+  "product_page_tab_folksonomy": "Folksonomia",
+  "@product_page_tab_folksonomy": {
+    "description": "Label of the folksonomy tab on the product page"
+  },
+  "folksonomy_explanation_card_title": "Mik a folksonomia attribútumai?",
+  "folksonomy_explanation_card_line1": "Az attribútumok **kulcs-érték** alapúak.",
+  "folksonomy_explanation_card_line2": "Ezeket a tulajdonságokat a közreműködők hozzák létre és iktatják bármilyen felhasználásra.",
+  "folksonomy_action_external_link_title": "Külső hivatkozás megnyitása",
+  "@folksonomy_action_external_link_title": {
+    "description": "Label of the 'open external link' action on a folksonomy entry"
+  },
+  "folksonomy_action_external_link_warning": "A külső linkek nem feltétlenül biztonságosak. Biztosan meg szeretné nyitni?",
+  "@folksonomy_action_external_link_warning": {
+    "description": "Warning about the 'open external link' action on a folksonomy entry"
+  },
+  "prices_products_empty_title": "Nincs elérhető ár",
+  "prices_products_empty_explanation": "Legyen Ön az első közreműködő!",
   "prices_products_list_length_many_pages": "Legnépszerűbb {pageSize} termék (összesen: {total})",
   "@prices_products_list_length_many_pages": {
     "description": "Number of products for one-page result",
@@ -4191,9 +4850,13 @@
   "@nutrition_facts_extract_button_text": {
     "description": "Button to extraction of nutrients from a picture"
   },
-  "nutrition_facts_extract_succesful": "A kiolvasás sikeres",
-  "@nutrition_facts_extract_succesful": {
-    "description": "Message to indicate that the extraction of nutrients from a picture was succesful"
+  "nutrition_facts_extract_in_progress": "Kinyerés folyamatban…",
+  "@nutrition_facts_extract_in_progress": {
+    "description": "Message to indicate that the extraction of nutrients from a picture is in progress"
+  },
+  "nutrition_facts_extract_successful": "A kinyerés sikeres",
+  "@nutrition_facts_extract_successful": {
+    "description": "Message to indicate that the extraction of nutrients from a picture was successful"
   },
   "nutrition_facts_extract_failed": "Nem sikerült a tápanyagokat kiolvasni a képről",
   "@nutrition_facts_extract_failed": {
@@ -4231,7 +4894,7 @@
   "@prices_stats_contributors_section": {
     "description": "Title for the contributors section"
   },
-  "prices_stats_experiments_section": "Experiments",
+  "prices_stats_experiments_section": "Kísérletek",
   "@prices_stats_experiments_section": {
     "description": "Title for the experiments section"
   },
@@ -4363,6 +5026,587 @@
   "@product_edit_robotoff_proof": {
     "description": "Title of the image section of the Robotoff question"
   },
+  "preferences_card_general": "Általános",
+  "@preferences_card_general": {
+    "description": "Title for the general preferences card"
+  },
+  "preferences_prices_title": "Árak",
+  "@preferences_prices_title": {
+    "description": "Title for the prices preferences title"
+  },
+  "preferences_prices_subtitle": "Árbeállítások kezelése",
+  "@preferences_prices_subtitle": {
+    "description": "Subtitle for the prices preferences title"
+  },
+  "preferences_card_project": "Az Open Food Facts projekt",
+  "@preferences_card_project": {
+    "description": "Title for the project preferences card"
+  },
+  "preferences_contribute_title": "Hozzájárulás",
+  "@preferences_contribute_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_my_contributions_title": "Hozzájárulásaim",
+  "@preferences_my_contributions_title": {
+    "description": "Title for my contributions preferences tile"
+  },
+  "preferences_my_stats_title": "Statisztikáim",
+  "@preferences_my_stats_title": {
+    "description": "Title for my stats preferences tile"
+  },
+  "preferences_contribute_subtitle": "Fordítás, eszközeink fejlesztése…",
+  "@preferences_contribute_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_connect_title": "Csatlakozás",
+  "@preferences_connect_title": {
+    "description": "Title for the contribution preferences tile"
+  },
+  "preferences_connect_subtitle": "Keressen minket, vagy kövessen minket a közösségi médiában",
+  "@preferences_connect_subtitle": {
+    "description": "Subtitle for the contribution preferences tile"
+  },
+  "preferences_support_title": "Támogass",
+  "@preferences_support_title": {
+    "description": "Title for the support preferences tile"
+  },
+  "preferences_support_subtitle": "Segítsen nekünk tájékoztatni több millió fogyasztót világszerte",
+  "@preferences_support_subtitle": {
+    "description": "Subtitle for the support preferences tile"
+  },
+  "preferences_card_help": "Súgó és támogatás",
+  "@preferences_card_help": {
+    "description": "Title for the help and support preferences card"
+  },
+  "preferences_faq_title": "GYIK",
+  "@preferences_faq_title": {
+    "description": "Title for the faq preferences tile"
+  },
+  "preferences_faq_subtitle": "Kapj választ a kérdéseidre",
+  "@preferences_faq_subtitle": {
+    "description": "Subtitle for the faq preferences tile"
+  },
+  "logged_out": "Kijelentkezve",
+  "@logged_out": {
+    "description": "Text to show when the user is logged out"
+  },
+  "preferences_app_bar_message": "Köszönjük, hogy tagjaink közé tartozol!",
+  "@preferences_app_bar_message": {
+    "description": "Message to show in the preferences app bar when the user is logged in"
+  },
+  "preferences_app_bar_products_modified": "Módosított termékek",
+  "@preferences_app_bar_products_modified": {
+    "description": "Preferences app bar products modified card"
+  },
+  "preferences_app_bar_prices_added": "Prices added",
+  "@preferences_app_bar_prices_added": {
+    "description": "Preferences app bar prices added card"
+  },
+  "preferences_app_bar_see_all_stats": "Az összes statisztika megtekintése",
+  "@preferences_app_bar_see_all_stats": {
+    "description": "Preferences app bar see all stats button"
+  },
+  "external_search_tile_title": "Keresés {provider} kifejezésre: „{keyword}”",
+  "@external_search_tile_title": {
+    "description": "External search preference tile title",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      },
+      "keyword": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_app_bar_search_hint": "Beállítás keresése (pl. Nutri-Score)",
+  "@preferences_app_bar_search_hint": {
+    "description": "Preferences app bar search bar hint"
+  },
+  "preferences_accessibility_show_emoji": "Akadálymentesítés: Emojik megjelenítése",
+  "@preferences_accessibility_show_emoji": {
+    "description": "Preferences dev mode tile for showing emoji"
+  },
+  "preferences_accessibility_remove_colors": "Akadálymentesítés: Színek eltávolítása",
+  "@preferences_accessibility_remove_colors": {
+    "description": "Preferences dev mode tile for removing colors"
+  },
+  "preferences_app_settings_products": "Termékek",
+  "@preferences_app_settings_products": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_card_about": "Névjegy",
+  "@preferences_card_about": {
+    "description": "Title for the app settings products card"
+  },
+  "preferences_legal_information_title": "Jogi információk",
+  "@preferences_legal_information_title": {
+    "description": "Title for the preferences legal information card"
+  },
+  "preferences_legal_information_subtitle": "Felhasználási feltételek, adatvédelmi irányelvek és egyebek",
+  "@preferences_legal_information_subtitle": {
+    "description": "Subtitle for the preferences legal information card"
+  },
+  "preferences_terms_of_use": "Felhasználási feltételek",
+  "@preferences_terms_of_use": {
+    "description": "Title for the terms of use tile "
+  },
+  "preferences_legal_mentions": "Jogi közlemény",
+  "@preferences_legal_mentions": {
+    "description": "Title for the preferences legal mentions card"
+  },
+  "preferences_legal_header": "Az Open Food Facts élelmiszeripari termékek adatbázisa, amelyet **mindenki készít, mindenki számára**. Használhatja jobb ételválasztásra, és mivel **nyílt adatról** van szó, bárki **bármilyen célra felhasználhatja**.",
+  "@preferences_legal_header": {
+    "description": "This is the same text as the Discover banner on the website. Please keep the ** syntax to make the text bold."
+  },
+  "preferences_privacy_policy": "Adatvédelmi Irányelvek",
+  "@preferences_privacy_policy": {
+    "description": "Title for the preferences privacy policy tile"
+  },
+  "preferences_licenses": "Licencek",
+  "@preferences_licenses": {
+    "description": "Title for the preferences licenses tile"
+  },
+  "preferences_about_app_title": "Az alkalmazásról",
+  "@preferences_about_app_title": {
+    "description": "Title for the preferences about app card"
+  },
+  "preferences_about_app_subtitle": "Technikai információk, fejlesztői információk és egyebek",
+  "@preferences_about_app_subtitle": {
+    "description": "Subtitle for the preferences about app card"
+  },
+  "preferences_card_information": "Információ",
+  "@preferences_card_information": {
+    "description": "Title for the preferences information card"
+  },
+  "preferences_version_number_title": "Verziószám",
+  "@preferences_version_number_title": {
+    "description": "Title for the preferences version number tile"
+  },
+  "preferences_scanner_title": "Szkenner",
+  "@preferences_scanner_title": {
+    "description": "Title for the preferences scanner tile"
+  },
+  "preferences_app_store": "Alkalmazásbolt",
+  "@preferences_app_store": {
+    "description": "Title for the preferences app store tile"
+  },
+  "preferences_app_system_settings": "Rendszerbeállítások",
+  "@preferences_app_system_settings": {
+    "description": "Title for the preferences app system settings tile"
+  },
+  "preferences_source_code": "Forráskód elérése",
+  "@preferences_source_code": {
+    "description": "Title for the preferences source code tile"
+  },
+  "preferences_source_code_subtitle": "És kezdjen el hatást gyakorolni milliók életére",
+  "@preferences_source_code_subtitle": {
+    "description": "Subtitle for the preferences source code tile"
+  },
+  "preferences_add_prices": "Add prices",
+  "@preferences_add_prices": {
+    "description": "Title for the preferences add prices contribution tile"
+  },
+  "preferences_complete_products": "Termékek kiegészítése",
+  "@preferences_complete_products": {
+    "description": "Title for the preferences complete products contribution tile"
+  },
+  "preferences_tips": "Tippek",
+  "@preferences_tips": {
+    "description": "Title for the preferences tips header"
+  },
+  "tips_discover_nutriscore": "Fedezze fel az új Nutri-Score-t",
+  "@tips_discover_nutriscore": {
+    "description": "Title for the tips discover nutriscore header"
+  },
+  "preferences_on_off_website_subtitle": "Az Open Food Facts weboldalán",
+  "@preferences_on_off_website_subtitle": {
+    "description": "Subtitle for preferences tiles leading to the Open Food Facts website"
+  },
+  "preferences_manage_account_title": "Fiókom kezelése",
+  "@preferences_manage_account_title": {
+    "description": "Title for the preferences manage account tile"
+  },
+  "preferences_manage_account_tooltip": "Fiók kezelése",
+  "@preferences_manage_account_tooltip": {
+    "description": "Tooltip for a button that lets the user manage his account"
+  },
+  "preferences_change_password_title": "Jelszó módosítása",
+  "@preferences_change_password_title": {
+    "description": "Title for the preferences change password tile"
+  },
+  "preferences_danger_zone": "Veszélyes zóna",
+  "@preferences_danger_zone": {
+    "description": "Title for the preferences danger zone tile"
+  },
+  "preferences_account_deletion_subtitle": "Minden hozzájárulása elveszik",
+  "@preferences_account_deletion_subtitle": {
+    "description": "Subtitle for the preferences account deletion tile"
+  },
+  "preferences_contributions_title": "Hozzájárulások",
+  "@preferences_contributions_title": {
+    "description": "Title of the contributions preferences tile"
+  },
+  "preferences_dev_mode_app_settings_title": "Alkalmazásbeállítások",
+  "@preferences_dev_mode_app_settings_title": {
+    "description": "Title for the dev mode app settings card"
+  },
+  "preferences_dev_mode_offline_data_subtitle": "Nagyon kísérleti módszer a termékek offline szkennelésére",
+  "@preferences_dev_mode_offline_data_subtitle": {
+    "description": "Subtitle for the offline data tile in dev mode"
+  },
+  "preferences_dev_mode_refresh_products_title": "Az összes termék frissítése a szerverről",
+  "@preferences_dev_mode_refresh_products_title": {
+    "description": "Title for refreshing all products from server"
+  },
+  "preferences_dev_mode_refresh_products_subtitle": "Kerülje ezt el, hacsak nem feltétlenül szükséges",
+  "@preferences_dev_mode_refresh_products_subtitle": {
+    "description": "Subtitle warning for refreshing all products"
+  },
+  "preferences_dev_mode_demo_mode_title": "Demó mód",
+  "@preferences_dev_mode_demo_mode_title": {
+    "description": "Title for the demo mode card in dev mode"
+  },
+  "preferences_dev_mode_add_cards_title": "Kártyák hozzáadása a szkennerhez",
+  "@preferences_dev_mode_add_cards_title": {
+    "description": "Title for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_add_cards_subtitle": "3 mintaterméket ad a szkennerhez",
+  "@preferences_dev_mode_add_cards_subtitle": {
+    "description": "Subtitle for adding cards to scanner in demo mode"
+  },
+  "preferences_dev_mode_folksonomy_host_title": "Folksonomy-kiszolgáló",
+  "@preferences_dev_mode_folksonomy_host_title": {
+    "description": "Title for folksonomy host setting"
+  },
+  "preferences_dev_mode_folksonomy_host_subtitle": "Kiszolgáló: {host}",
+  "@preferences_dev_mode_folksonomy_host_subtitle": {
+    "description": "Subtitle for folksonomy host setting",
+    "placeholders": {
+      "host": {
+        "type": "String"
+      }
+    }
+  },
+  "preferences_dev_mode_accessibility_experiments_title": "Akadálymentesítési kísérletek",
+  "@preferences_dev_mode_accessibility_experiments_title": {
+    "description": "Title for accessibility experiments card"
+  },
+  "preferences_dev_mode_multi_products_selection_title": "Több termék kiválasztása az áraknál",
+  "@preferences_dev_mode_multi_products_selection_title": {
+    "description": "Title for multi-products selection feature"
+  },
+  "preferences_dev_mode_user_ordered_kp_title": "Felhasználó által rendezett tudáspanelek",
+  "@preferences_dev_mode_user_ordered_kp_title": {
+    "description": "Title for user ordered knowledge panels feature"
+  },
+  "preferences_dev_mode_location_search_title": "Ideiglenes hozzáférés a helymeghatározáshoz",
+  "@preferences_dev_mode_location_search_title": {
+    "description": "Title for temporary location search access"
+  },
+  "preferences_dev_mode_comparison_title": "2 vagy 3 termék egymás melletti összehasonlítása",
+  "@preferences_dev_mode_comparison_title": {
+    "description": "Title for side by side comparison feature"
+  },
+  "preferences_dev_mode_product_list_import_title": "Terméklista importálása",
+  "@preferences_dev_mode_product_list_import_title": {
+    "description": "Title for product list import feature"
+  },
+  "preferences_faq_scores_methodologies_title": "Pontszámok és módszertanok",
+  "@preferences_faq_scores_methodologies_title": {
+    "description": "Title for scores and methodologies card in FAQ"
+  },
+  "preferences_faq_nutriscore_subtitle": "Ismerje meg a Nutri-Score kiszámításának módszerét",
+  "@preferences_faq_nutriscore_subtitle": {
+    "description": "Subtitle for Nutri-Score in FAQ"
+  },
+  "preferences_faq_nutriscore_v2_subtitle": "Ismerje meg a módszertan főbb változásait",
+  "@preferences_faq_nutriscore_v2_subtitle": {
+    "description": "Subtitle for Nutri-Score V2 in FAQ"
+  },
+  "preferences_faq_discover_project_title": "Fedezze fel a projektet",
+  "@preferences_faq_discover_project_title": {
+    "description": "Title for discover the project card in FAQ"
+  },
+  "preferences_faq_discover_off_title": "Fedezze fel az Open Food Factset",
+  "@preferences_faq_discover_off_title": {
+    "description": "Title for discover Open Food Facts tile"
+  },
+  "preferences_faq_discover_obf_title": "Fedezze fel az Open Beauty Facts-ot",
+  "@preferences_faq_discover_obf_title": {
+    "description": "Title for discover Open Beauty Facts tile"
+  },
+  "preferences_faq_discover_opff_title": "Fedezze fel az Open Pet Food Facts-ot",
+  "@preferences_faq_discover_opff_title": {
+    "description": "Title for discover Open Pet Food Facts tile"
+  },
+  "preferences_faq_discover_op_title": "Fedezze fel az Open Prices-t",
+  "@preferences_faq_discover_op_title": {
+    "description": "Title for discover Open Prices tile"
+  },
+  "preferences_faq_discover_opf_title": "Fedezze fel a nyílt termékekre vonatkozó tényeket",
+  "@preferences_faq_discover_opf_title": {
+    "description": "Title for discover Open Products Facts tile"
+  },
+  "preferences_faq_faq_title": "GYIK – Gyakran Ismételt Kérdések",
+  "@preferences_faq_faq_title": {
+    "description": "Title for FAQ tile"
+  },
+  "preferences_faq_off_ngo_title": "Az Open Food Facts nem kormányzati szervezet",
+  "@preferences_faq_off_ngo_title": {
+    "description": "Title for Open Food Facts NGO card"
+  },
+  "preferences_about_information_title": "Információ",
+  "@preferences_about_information_title": {
+    "description": "Title for information card in about app"
+  },
+  "preferences_connect_community_updates_title": "Közösségi frissítések fogadása",
+  "@preferences_connect_community_updates_title": {
+    "description": "Title for community updates card"
+  },
+  "preferences_connect_newsletter_subtitle": "Maradjon naprakész az alkalmazás és a közösség híreivel",
+  "@preferences_connect_newsletter_subtitle": {
+    "description": "Subtitle for newsletter tile"
+  },
+  "preferences_connect_community_calendar_title": "Iratkozzon fel közösségi naptárunkra",
+  "@preferences_connect_community_calendar_title": {
+    "description": "Title for community calendar tile"
+  },
+  "preferences_connect_community_calendar_subtitle": "Csatlakozzon virtuális eseményeink egyikéhez",
+  "@preferences_connect_community_calendar_subtitle": {
+    "description": "Subtitle for community calendar tile"
+  },
+  "preferences_connect_blog_title": "Az Open Food Facts blog",
+  "@preferences_connect_blog_title": {
+    "description": "Title for blog tile"
+  },
+  "preferences_connect_blog_subtitle": "Értesüljön a legfrissebb hírekről",
+  "@preferences_connect_blog_subtitle": {
+    "description": "Subtitle for blog tile"
+  },
+  "preferences_connect_community_help_title": "Kérjen segítséget a közösségtől",
+  "@preferences_connect_community_help_title": {
+    "description": "Title for community help card"
+  },
+  "preferences_connect_improve_app_title": "Segítsen nekünk fejleszteni az alkalmazást",
+  "@preferences_connect_improve_app_title": {
+    "description": "Title for improve app card"
+  },
+  "preferences_connect_debug_info_title": "Küldjön nekünk hibakeresési információkat",
+  "@preferences_connect_debug_info_title": {
+    "description": "Title for debug information tile"
+  },
+  "preferences_connect_debug_info_subtitle": "Küldjön nekünk egy e-mailt részletes hibakeresési információkkal",
+  "@preferences_connect_debug_info_subtitle": {
+    "description": "Subtitle for debug information tile"
+  },
+  "preferences_connect_feedback_title": "Visszajelzés küldése az alkalmazásról",
+  "@preferences_connect_feedback_title": {
+    "description": "Title for feedback tile"
+  },
+  "preferences_connect_feedback_subtitle": "Segítsen alakítani az alkalmazás jövőjét",
+  "@preferences_connect_feedback_subtitle": {
+    "description": "Subtitle for feedback tile"
+  },
+  "preferences_connect_survey_title": "Töltse ki az alkalmazás kérdőívét",
+  "@preferences_connect_survey_title": {
+    "description": "Title for survey tile"
+  },
+  "preferences_connect_survey_subtitle": "Segíts megérteni, hogy mit kellene legközelebb építenünk",
+  "@preferences_connect_survey_subtitle": {
+    "description": "Subtitle for survey tile"
+  },
+  "preferences_connect_professionals_title": "Szakemberek",
+  "@preferences_connect_professionals_title": {
+    "description": "Title for professionals card"
+  },
+  "preferences_connect_pro_subtitle": "Teljesen ingyenes, pontos adatokat biztosít 500 alkalmazás és több millió fogyasztó számára. Önkiszolgáló, kompatibilis a PIM-mel vagy táblázatokkal (XLSX)",
+  "@preferences_connect_pro_subtitle": {
+    "description": "Subtitle for professional contact tile"
+  },
+  "preferences_connect_pro_email_subtitle": "Lépjen kapcsolatba velünk a kezdéshez",
+  "@preferences_connect_pro_email_subtitle": {
+    "description": "Subtitle for professional email tile"
+  },
+  "preferences_connect_press_title": "Sajtó",
+  "@preferences_connect_press_title": {
+    "description": "Title for press card"
+  },
+  "preferences_connect_press_page_subtitle": "Szerezd meg az összes szükséges anyagot a jelentéshez",
+  "@preferences_connect_press_page_subtitle": {
+    "description": "Subtitle for press page tile"
+  },
+  "preferences_connect_press_email_subtitle": "Sajtómegkeresésekkel vagy a jelentéssel kapcsolatos információkkal forduljon hozzánk",
+  "@preferences_connect_press_email_subtitle": {
+    "description": "Subtitle for press email tile"
+  },
+  "preferences_contribute_active_volunteer_title": "Legyen aktív önkéntes",
+  "@preferences_contribute_active_volunteer_title": {
+    "description": "Title for active volunteer card"
+  },
+  "preferences_contribute_skill_pool_subtitle": "Fejlesztés, Kommunikáció, Design… bármilyen önkéntes munkát vagy szakértelmet szívesen látunk!",
+  "@preferences_contribute_skill_pool_subtitle": {
+    "description": "Subtitle for skill pool tile"
+  },
+  "preferences_contribute_how_to_subtitle": "Fedezze fel a számos módot, ahogyan hozzájárulhat",
+  "@preferences_contribute_how_to_subtitle": {
+    "description": "Subtitle for how to contribute tile"
+  },
+  "preferences_contribute_mobile_dev_title": "Mobilalkalmazás-fejlesztés",
+  "@preferences_contribute_mobile_dev_title": {
+    "description": "Title for mobile app development card"
+  },
+  "preferences_contribute_sw_dev_subtitle": "Tanuld meg, hogyan járulhatsz hozzá a szoftverfejlesztéshez",
+  "@preferences_contribute_sw_dev_subtitle": {
+    "description": "Subtitle for software development tile"
+  },
+  "preferences_contribute_alpha_subtitle": "Napi instabil buildek, vadonatúj funkciók",
+  "@preferences_contribute_alpha_subtitle": {
+    "description": "Subtitle for alpha enrollment tile"
+  },
+  "preferences_contribute_local_community_title": "Növeld a helyi közösségedet",
+  "@preferences_contribute_local_community_title": {
+    "description": "Title for local community card"
+  },
+  "preferences_contribute_translate_subtitle": "Segítsen a szoftver, a tartalmak, az összetevők elemzésének fordításában",
+  "@preferences_contribute_translate_subtitle": {
+    "description": "Subtitle for translate tile"
+  },
+  "preferences_contribute_share_subtitle": "Készítettünk egy kis sablont segítségül :-)",
+  "@preferences_contribute_share_subtitle": {
+    "description": "Subtitle for share tile"
+  },
+  "preferences_contribute_country_subtitle": "Egyszerű lépések az élelmiszer-átláthatóság növeléséhez az Ön országában",
+  "@preferences_contribute_country_subtitle": {
+    "description": "Subtitle for improve country tile"
+  },
+  "preferences_contribute_data_quality_title": "Adatminőség",
+  "@preferences_contribute_data_quality_title": {
+    "description": "Title for data quality card"
+  },
+  "preferences_contribute_data_quality_team_title": "Csatlakozz az adatminőségi csapathoz",
+  "@preferences_contribute_data_quality_team_title": {
+    "description": "Title for data quality team tile"
+  },
+  "preferences_contribute_data_quality_team_subtitle": "Csatlakozzon erőfeszítéseinkhez, hogy az adatbázis teljes és pontos legyen",
+  "@preferences_contribute_data_quality_team_subtitle": {
+    "description": "Subtitle for data quality team tile"
+  },
+  "preferences_contributions_products_added_title": "Hozzáadott termékek",
+  "@preferences_contributions_products_added_title": {
+    "description": "Title for new products added tile"
+  },
+  "preferences_contributions_new_products_subtitle": "Új termékek, amiket hozzáadtam az Open Food Facts oldalhoz",
+  "@preferences_contributions_new_products_subtitle": {
+    "description": "Subtitle for new products added subtile"
+  },
+  "preferences_contributions_to_be_completed_title": "Termékek, amiket el kell végeznem",
+  "@preferences_contributions_to_be_completed_title": {
+    "description": "Title for products to be completed tile"
+  },
+  "preferences_contributions_all_incomplete_title": "Minden befejezetlen termék",
+  "@preferences_contributions_all_incomplete_title": {
+    "description": "Title for all incomplete products tile"
+  },
+  "preferences_my_contributions_prices_title": "Árak",
+  "@preferences_my_contributions_prices_title": {
+    "description": "Title for a container linking to user prices"
+  },
+  "preferences_my_contributions_my_prices_title": "Áraim",
+  "@preferences_my_contributions_my_prices_title": {
+    "description": "Title for opening prices stats"
+  },
+  "preferences_my_contributions_my_prices_subtitle": "Saját árak és bizonylatok…",
+  "@preferences_my_contributions_my_prices_subtitle": {
+    "description": "Subtitle for opening prices stats"
+  },
+  "preferences_contributions_all_incomplete_subtitle": "Termékek, amelyek elkészítésében segíthetsz",
+  "@preferences_contributions_all_incomplete_subtitle": {
+    "description": "Subtitle for all incomplete products tile"
+  },
+  "preferences_contributions_categorize_subtitle": "Segítsen kiszámítani az Ön országában érvényes Nutri-Score és Green-Score értékeket",
+  "@preferences_contributions_categorize_subtitle": {
+    "description": "Subtitle for categorize products tile"
+  },
+  "preferences_prices_user_prices_subtitle": "Általam megadott árak",
+  "@preferences_prices_user_prices_subtitle": {
+    "description": "Subtitle for user prices tile"
+  },
+  "preferences_prices_proofs_subtitle": "Árcédulák és nyugták",
+  "@preferences_prices_proofs_subtitle": {
+    "description": "Subtitle for proofs tile"
+  },
+  "preferences_prices_add_receipt_subtitle": "Készítsen fotókat a nyugtáiról, és olvassa be a hozzájuk tartozó vonalkódokat",
+  "@preferences_prices_add_receipt_subtitle": {
+    "description": "Subtitle for add receipt tile"
+  },
+  "preferences_prices_add_price_tags_subtitle": "Készítsen fotókat az árakról egy üzletben",
+  "@preferences_prices_add_price_tags_subtitle": {
+    "description": "Subtitle for add price tags tile"
+  },
+  "preferences_prices_newest_title": "Legújabb árak",
+  "@preferences_prices_newest_title": {
+    "description": "Title for newest prices tile"
+  },
+  "preferences_prices_newest_subtitle": "A Open Prices közössége által hozzáadott legújabb árak",
+  "@preferences_prices_newest_subtitle": {
+    "description": "Subtitle for newest prices tile"
+  },
+  "preferences_prices_top_contributors_title": "A legtöbb árat kínáló közreműködők",
+  "@preferences_prices_top_contributors_title": {
+    "description": "Title for top contributors tile"
+  },
+  "preferences_prices_metrics_title": "Open Prices mutatói",
+  "@preferences_prices_metrics_title": {
+    "description": "Title for price metrics tile"
+  },
+  "preferences_prices_metrics_subtitle": "Kövesd nyomon a projekt alakulását",
+  "@preferences_prices_metrics_subtitle": {
+    "description": "Subtitle for price metrics tile"
+  },
+  "preferences_prices_ways_contribute_title": "Hozzájárulási módok",
+  "@preferences_prices_ways_contribute_title": {
+    "description": "Title for ways to contribute card"
+  },
+  "preferences_prices_validation_assistant_subtitle": "Mesterséges intelligencia segítségével erősítse meg az Ön vagy mások által hozzáadott árakat",
+  "@preferences_prices_validation_assistant_subtitle": {
+    "description": "Subtitle for validation assistant tile"
+  },
+  "preferences_prices_multiple_proof_subtitle": "Gyorsan hozzáadhat sok nyugtát vagy polcok fotóit a galériából",
+  "@preferences_prices_multiple_proof_subtitle": {
+    "description": "Subtitle for multiple proof addition tile"
+  },
+  "preferences_prices_challenges_title": "Havi kihívások",
+  "@preferences_prices_challenges_title": {
+    "description": "Title for monthly challenges tile"
+  },
+  "preferences_prices_challenges_subtitle": "Vegyen részt havi tematikus küldetésekben, hogy díjakat gyűjtsön",
+  "@preferences_prices_challenges_subtitle": {
+    "description": "Subtitle for monthly challenges tile"
+  },
+  "preferences_prices_loyalty_data_title": "Szerezze vissza hűségadataidat",
+  "@preferences_prices_loyalty_data_title": {
+    "description": "Title for loyalty data card"
+  },
+  "preferences_prices_gdpr_subtitle": "Tudja meg, hogyan kérheti ki adatait",
+  "@preferences_prices_gdpr_subtitle": {
+    "description": "Subtitle for GDPR tile"
+  },
+  "preferences_page_customize_app_title": "Az alkalmazás testreszabása",
+  "@preferences_page_customize_app_title": {
+    "description": "Title for the customize app card on preferences page"
+  },
+  "preferences_page_contribute_project_title": "Közreműködés a projektben",
+  "@preferences_page_contribute_project_title": {
+    "description": "Title for the contribute to project navigation tile"
+  },
+  "preferences_page_contribute_project_subtitle": "Az Open Food Facts segítésének egyszerű módjai",
+  "@preferences_page_contribute_project_subtitle": {
+    "description": "Subtitle for the contribute to project navigation tile"
+  },
+  "preferences_page_faq_subtitle": "Pontozási módszerek, segítség és további információk a projektről",
+  "@preferences_page_faq_subtitle": {
+    "description": "Subtitle for the FAQ navigation tile on preferences page"
+  },
   "product_edit_robotoff_positive_button": "Javaslat elfogadása",
   "@product_edit_robotoff_positive_button": {
     "description": "Tooltip for the button to accept the suggestion of the Robotoff question"
@@ -4371,15 +5615,19 @@
   "@product_edit_robotoff_negative_button": {
     "description": "Tooltip for the button to reject the suggestion of the Robotoff question"
   },
-  "product_edit_robotoff_show_proof": "Bizonyíték bemutatása",
+  "product_edit_robotoff_show_proof": "Bizonylat megjelenítése",
   "@product_edit_robotoff_show_proof": {
     "description": "Button to show the proof related to a suggestion"
   },
-  "product_edit_robotoff_expand_proof": "Kibontási bizonyítás",
+  "product_edit_robotoff_expand_proof": "Bizonylat kibontása",
   "@product_edit_robotoff_expand_proof": {
     "description": "Button to open in fullscreen the proof"
   },
-  "page_indicator_with_total": "Oldal {current} / {total}",
+  "product_page_tab_raw_data": "Nyers adatok",
+  "@product_page_tab_raw_data": {
+    "description": "Label of the raw data tab on the product page"
+  },
+  "page_indicator_with_total": "{current} / {total} oldal",
   "@page_indicator_with_total": {
     "description": "Page indicator showing current page and total pages",
     "placeholders": {
@@ -4393,7 +5641,7 @@
       }
     }
   },
-  "page_indicator": "Oldal {current}",
+  "page_indicator": "{current}. oldal",
   "@page_indicator": {
     "description": "Page indicator showing only current page when total is unknown",
     "placeholders": {
@@ -4403,7 +5651,7 @@
       }
     }
   },
-  "item_count_with_total": "{count} a {total} elemből",
+  "item_count_with_total": "{count} a(z) {total} elemből",
   "@item_count_with_total": {
     "description": "Item count showing current number of items and total items",
     "placeholders": {
@@ -4413,6 +5661,20 @@
       },
       "total": {
         "type": "int",
+        "description": "Total number of items available"
+      }
+    }
+  },
+  "item_count_with_total_string": "{count} a(z) {total} elemből",
+  "@item_count_with_total_string": {
+    "description": "Item count showing current number of items and total items",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      },
+      "total": {
+        "type": "String",
         "description": "Total number of items available"
       }
     }
@@ -4427,6 +5689,16 @@
       }
     }
   },
+  "item_count_string": "{count} elem",
+  "@item_count_string": {
+    "description": "Item count showing only current number of items when total is unknown",
+    "placeholders": {
+      "count": {
+        "type": "String",
+        "description": "Current number of items loaded"
+      }
+    }
+  },
   "prices_no_result": "Nem található árstatisztika.",
   "@prices_no_result": {
     "description": "Message shown when there are no price statistics available to display"
@@ -4435,8 +5707,193 @@
   "@prices_error_loading_more_items": {
     "description": "Error message shown when additional items fail to load"
   },
-  "prices_proof_error": "A hitelesítés sikertelen, a bizonyítékok nem kérhetők le.",
+  "prices_proof_error": "A hitelesítés sikertelen, a bizonylatok nem kérhetők le",
   "@prices_proof_error": {
     "description": "Error message shown when unable to fetch proofs"
+  },
+  "proofs_count_with_total": "{count} a(z) {total} bizonyításból",
+  "@proofs_count_with_total": {
+    "description": "Number of proofs",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of proofs"
+      }
+    }
+  },
+  "proof_count": "{count} proofs",
+  "@proof_count": {
+    "description": "Number of proofs (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded proofs"
+      }
+    }
+  },
+  "contributors_count_with_total": "{count} a(z) {total} közreműködőből",
+  "@contributors_count_with_total": {
+    "description": "Number of contributors",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of contributors"
+      }
+    }
+  },
+  "contributors_count": "{count} contributors",
+  "@contributors_count": {
+    "description": "Number of contributors (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded contributors"
+      }
+    }
+  },
+  "prices_locations_count_with_total": "{count} a(z) {total} helyszínből",
+  "@prices_locations_count_with_total": {
+    "description": "Number of locations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      },
+      "total": {
+        "type": "int",
+        "description": "Total number of locations"
+      }
+    }
+  },
+  "prices_locations_count": "{count} helyszínek",
+  "@prices_locations_count": {
+    "description": "Number of locations (when we don't know the total)",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "description": "Current number of loaded locations"
+      }
+    }
+  },
+  "restart_to_apply_message": "Kérjük, indítsa újra az alkalmazást a módosítások érvénybe léptetéséhez.",
+  "@restart_to_apply_message": {
+    "description": "Message to restart the app to apply changes, used in the preferences screen"
+  },
+  "preferences_app_settings_graphical_interface_title": "Grafikus felület",
+  "@preferences_app_settings_graphical_interface_title": {
+    "description": "Title for the graphical interface preferences card in app settings"
+  },
+  "preferences_app_settings_media_title": "Média",
+  "@preferences_app_settings_media_title": {
+    "description": "Title for the media preferences card in app settings"
+  },
+  "preferences_about_app_development_title": "Fejlesztés",
+  "@preferences_about_app_development_title": {
+    "description": "Title for the development preferences card in about app section"
+  },
+  "preferences_page_open_food_facts_labs_title": "Open Food Facts Labs",
+  "@preferences_page_open_food_facts_labs_title": {
+    "description": "Title for the Open Food Facts Labs navigation tile in preferences page"
+  },
+  "preferences_root_account_title": "Fiók",
+  "@preferences_root_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "preferences_contribute_translate_header": "Segítsen az Open Food Facts lefordításában",
+  "@preferences_contribute_translate_header": {
+    "description": "Button label + pop up window title: Shows information about helping by translating"
+  },
+  "preferences_contribute_enroll_alpha": "Regisztráljon az alkalmazás alfa verziójára",
+  "@preferences_contribute_enroll_alpha": {},
+  "preferences_dev_mode_section_data": "Hozzájárulások és termékadatok",
+  "@preferences_dev_mode_section_data": {
+    "description": "Title for the contributions and product data preferences card in dev mode"
+  },
+  "preferences_dev_preferences_show_folksonomy_title": "Ne mutassa a Folksonomy-t",
+  "@preferences_dev_preferences_show_folksonomy_title": {
+    "description": "Title for switch toggle to show or hide folksonomy, product tags on product details page"
+  },
+  "preferences_account_title": "Fiók",
+  "@preferences_account_title": {
+    "description": "Title for the account preferences root"
+  },
+  "prices_adding_timestamp_tooltip": "Hozzáadva ekkor: {created}",
+  "@prices_adding_timestamp_tooltip": {
+    "description": "Tooltip to show the timestamp on which price was added",
+    "placeholders": {
+      "created": {
+        "type": "String"
+      }
+    }
+  },
+  "location_map_details_title": "Helyszín részletei",
+  "location_map_details_name": "Név",
+  "location_map_details_street": "Utca",
+  "location_map_details_city": "Város",
+  "location_map_details_postcode": "Irányítószám",
+  "location_map_details_country": "Ország",
+  "location_map_details_coordinates": "Koordináták",
+  "location_map_details_osm_id": "OSM-azonosító",
+  "homepage_scanner_back_to_home_button": "Vissza a kezdőlapra",
+  "@homepage_scanner_back_to_home_button": {
+    "description": "Button to go back to home from the scanner page"
+  },
+  "homepage_scanner_toggle_camera_tooltip": "Kamera be- és kikapcsolása",
+  "@homepage_scanner_toggle_camera_tooltip": {
+    "description": "Tooltip for the button to toggle the camera on the scanner page"
+  },
+  "homepage_header_barcode_tooltip": "Vonalkódolvasó megjelenítése",
+  "@homepage_header_barcode_tooltip": {
+    "description": "Tooltip for the button to open the barcode scanner from the homepage"
+  },
+  "homepage_scanner_overlay_message": "Koppintson a **vonalkód**\nbeolvasásához, és derítse ki, hogy **jó-e Önnek**!",
+  "@homepage_scanner_overlay_message": {
+    "description": "Message visible above the camera."
+  },
+  "homepage_scanner_toggle_torch_tooltip": "Zseblámpa be- és kikapcsolása",
+  "@homepage_scanner_toggle_torch_tooltip": {
+    "description": "Tooltip for the button to toggle the torch on the scanner page"
+  },
+  "homepage_scanner_banner_start_scanning": "Szkenneljen be egy terméket a vonalkódjához közelítve",
+  "@homepage_scanner_banner_start_scanning": {
+    "description": "Banner text shown on the scanner page to prompt user to start scanning a product"
+  },
+  "homepage_scanner_banner_invalid_barcode": "A következő vonalkódot észleltük: {barcode}, de úgy tűnik, ez érvénytelen.",
+  "@homepage_scanner_banner_invalid_barcode": {
+    "description": "Banner text shown on the scanner page when an invalid barcode is detected",
+    "placeholders": {
+      "barcode": {
+        "type": "String"
+      }
+    }
+  },
+  "homepage_horizontal_list_view_more_button": "Továbbiak megtekintése…",
+  "@homepage_horizontal_list_view_more_button": {
+    "description": "Button to see all items in a horizontal list on the homepage"
+  },
+  "homepage_list_most_scanned_title": "Legtöbbször leolvasott termékek",
+  "@homepage_list_most_scanned_title": {
+    "description": "Title for the most scanned products horizontal list on the homepage"
+  },
+  "homepage_list_last_scanned_title": "Utoljára leolvasott termékek",
+  "@homepage_list_last_scanned_title": {
+    "description": "Title for the last scanned products horizontal list on the homepage"
+  },
+  "percent_value": "{percent}%",
+  "@percent_value": {
+    "description": "A percentage value (you may insert a space before the % sign if needed)",
+    "placeholders": {
+      "percent": {
+        "type": "String"
+      }
+    }
   }
 }

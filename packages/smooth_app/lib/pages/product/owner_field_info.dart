@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/widgets/smooth_banner.dart';
 import 'package:smooth_app/widgets/widget_height.dart';
@@ -39,22 +39,18 @@ class OwnerFieldBanner extends StatelessWidget {
 
 /// Standard icon about "owner fields".
 class OwnerFieldIcon extends StatelessWidget {
-  const OwnerFieldIcon({
-    this.size,
-    this.color,
-    super.key,
-  });
+  const OwnerFieldIcon({this.size, this.color, super.key});
 
   final double? size;
   final Color? color;
 
   @override
   Widget build(BuildContext context) => Icon(
-        _ownerFieldIconData,
-        size: size,
-        color: color,
-        semanticLabel: AppLocalizations.of(context).owner_field_info_title,
-      );
+    _ownerFieldIconData,
+    size: size,
+    color: color,
+    semanticLabel: AppLocalizations.of(context).owner_field_info_title,
+  );
 }
 
 class AnimatedOwnerFieldBanner extends StatefulWidget {

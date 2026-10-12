@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smooth_app/generic_lib/buttons/smooth_large_button_with_icon.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
+import 'package:smooth_app/widgets/smooth_scaffold.dart';
 
 /// Similar to a 404 page
 class ErrorPage extends StatelessWidget {
-  const ErrorPage({
-    required this.url,
-    super.key,
-  });
+  const ErrorPage({required this.url, super.key});
 
   final String url;
 
@@ -18,7 +16,7 @@ class ErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final AppLocalizations localizations = AppLocalizations.of(context);
 
-    return Scaffold(
+    return SmoothScaffold(
       body: Center(
         child: FractionallySizedBox(
           widthFactor: 0.8,
@@ -33,10 +31,7 @@ class ErrorPage extends StatelessWidget {
                 style: Theme.of(context).textTheme.displayMedium,
               ),
               const SizedBox(height: LARGE_SPACE),
-              Text(
-                url,
-                textAlign: TextAlign.center,
-              ),
+              Text(url, textAlign: TextAlign.center),
               const SizedBox(height: VERY_LARGE_SPACE * 2),
               SmoothLargeButtonWithIcon(
                 text: localizations.page_not_found_button,
@@ -45,7 +40,7 @@ class ErrorPage extends StatelessWidget {
                 onPressed: () {
                   AppNavigator.of(context).pop();
                 },
-              )
+              ),
             ],
           ),
         ),

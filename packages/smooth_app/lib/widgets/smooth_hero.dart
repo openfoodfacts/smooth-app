@@ -26,8 +26,9 @@ class SmoothHero extends StatelessWidget {
       enabled: enabled,
       child: Hero(
         tag: tag ?? '',
-        flightShuttleBuilder:
-            onAnimationEnded == null ? null : _flightShuttleBuilder,
+        flightShuttleBuilder: onAnimationEnded == null
+            ? null
+            : _flightShuttleBuilder,
         child: child,
       ),
     );
@@ -48,8 +49,9 @@ class SmoothHero extends StatelessWidget {
     final Hero toHero = toHeroContext.widget as Hero;
 
     final MediaQueryData? toMediaQueryData = MediaQuery.maybeOf(toHeroContext);
-    final MediaQueryData? fromMediaQueryData =
-        MediaQuery.maybeOf(fromHeroContext);
+    final MediaQueryData? fromMediaQueryData = MediaQuery.maybeOf(
+      fromHeroContext,
+    );
 
     if (toMediaQueryData == null || fromMediaQueryData == null) {
       return toHero.child;
@@ -59,27 +61,30 @@ class SmoothHero extends StatelessWidget {
     final EdgeInsets toHeroPadding = toMediaQueryData.padding;
 
     return AnimatedBuilder(
-        animation: animation,
-        builder: (BuildContext context, Widget? child) {
-          return MediaQuery(
-            data: toMediaQueryData.copyWith(
-              padding: (flightDirection == HeroFlightDirection.push)
-                  ? EdgeInsetsTween(
-                      begin: fromHeroPadding,
-                      end: toHeroPadding,
-                    ).evaluate(animation)
-                  : EdgeInsetsTween(
-                      begin: toHeroPadding,
-                      end: fromHeroPadding,
-                    ).evaluate(animation),
-            ),
-            child: toHero.child,
-          );
-        });
+      animation: animation,
+      builder: (BuildContext context, Widget? child) {
+        return MediaQuery(
+          data: toMediaQueryData.copyWith(
+            padding: (flightDirection == HeroFlightDirection.push)
+                ? EdgeInsetsTween(
+                    begin: fromHeroPadding,
+                    end: toHeroPadding,
+                  ).evaluate(animation)
+                : EdgeInsetsTween(
+                    begin: toHeroPadding,
+                    end: fromHeroPadding,
+                  ).evaluate(animation),
+          ),
+          child: toHero.child,
+        );
+      },
+    );
   }
 
   void _onAnimationStatusChanged(
-      AnimationStatus status, HeroFlightDirection direction) {
+    AnimationStatus status,
+    HeroFlightDirection direction,
+  ) {
     if (status == AnimationStatus.completed) {
       onAnimationEnded?.call(direction);
     }

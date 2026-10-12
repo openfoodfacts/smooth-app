@@ -11,16 +11,28 @@ import 'package:smooth_app/helpers/provider_helper.dart';
 /// randomly sorted by unread, then displayed and clicked news.
 class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
   ScanNewsFeedProvider(BuildContext context)
-      : _newsFeedProvider = context.read<AppNewsProvider>(),
-        _userPreferences = context.read<UserPreferences>(),
-        super(const ScanTagLineStateLoading()) {
+    : _newsFeedProvider = context.read<AppNewsProvider>(),
+      _userPreferences = context.read<UserPreferences>(),
+      super(const ScanTagLineStateLoading()) {
     _newsFeedProvider.addListener(_onNewsFeedStateChanged);
+    _userPreferences.addListener(_onPreferencesChanged);
     // Refresh with the current state
     _onNewsFeedStateChanged();
   }
 
   final AppNewsProvider _newsFeedProvider;
   final UserPreferences _userPreferences;
+
+  bool _donationMuted = false;
+
+  bool get _donationMutedNow =>
+      _userPreferences.donationAsksMuted(DateTime.now());
+
+  void _onPreferencesChanged() {
+    if (_donationMutedNow != _donationMuted) {
+      _onNewsFeedStateChanged();
+    }
+  }
 
   void _onNewsFeedStateChanged() {
     switch (_newsFeedProvider.state) {
@@ -30,12 +42,20 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
         emit(const ScanTagLineStateNoContent());
       case AppNewsStateLoaded():
         _onTagLineContentAvailable(
-            (_newsFeedProvider.state as AppNewsStateLoaded).content);
+          (_newsFeedProvider.state as AppNewsStateLoaded).content,
+        );
     }
   }
 
   Future<void> _onTagLineContentAvailable(AppNews tagLine) async {
-    if (!tagLine.feed.isNotEmpty) {
+    _donationMuted = _donationMutedNow;
+    final List<AppNewsFeedItem> feed = tagLine.feed.news
+        .where(
+          (AppNewsFeedItem feedItem) =>
+              !_donationMuted || !feedItem.news.isDonation,
+        )
+        .toList();
+    if (feed.isEmpty) {
       emit(const ScanTagLineStateNoContent());
       return;
     }
@@ -49,7 +69,7 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
     final List<String> taglineFeedAlreadyDisplayedNews =
         _userPreferences.taglineFeedDisplayedNews;
 
-    for (final AppNewsFeedItem feedItem in tagLine.feed.news) {
+    for (final AppNewsFeedItem feedItem in feed) {
       if (taglineFeedAlreadyClickedNews.contains(feedItem.id)) {
         clickedNews.add(feedItem.news);
       } else if (taglineFeedAlreadyDisplayedNews.contains(feedItem.id)) {
@@ -60,19 +80,18 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
     }
 
     emit(
-      ScanTagLineStateLoaded(
-        <AppNewsItem>[
-          ...unreadNews..shuffle(),
-          ...displayedNews..shuffle(),
-          ...clickedNews..shuffle(),
-        ],
-      ),
+      ScanTagLineStateLoaded(<AppNewsItem>[
+        ...unreadNews..shuffle(),
+        ...displayedNews..shuffle(),
+        ...clickedNews..shuffle(),
+      ]),
     );
   }
 
   @override
   void dispose() {
     _newsFeedProvider.removeListener(_onNewsFeedStateChanged);
+    _userPreferences.removeListener(_onPreferencesChanged);
     super.dispose();
   }
 }

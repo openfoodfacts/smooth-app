@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/category_cards/asset_cache_helper.dart';
 import 'package:smooth_app/cards/category_cards/svg_async_asset.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/edit_new_packagings_helper.dart';
 import 'package:smooth_app/pages/product/explanation_widget.dart';
 import 'package:smooth_app/pages/product/simple_input/simple_input_text_field.dart';
@@ -103,22 +103,27 @@ class _EditNewPackagingsComponentState
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        ListTile(
-          leading: Icon(
-            widget.helper.expanded
-                ? Icons.keyboard_arrow_up
-                : Icons.keyboard_arrow_down,
-          ),
-          title: Text(title ?? widget.title),
-          subtitle: title == null ? null : Text(widget.title),
-          trailing: widget.helper.expanded
-              ? IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: widget.deleteCallback,
-                )
-              : null,
-          onTap: () => setState(
-            () => widget.helper.expanded = !widget.helper.expanded,
+        InkWell(
+          borderRadius: ROUNDED_BORDER_RADIUS,
+          onTap: () =>
+              setState(() => widget.helper.expanded = !widget.helper.expanded),
+          child: Padding(
+            padding: const EdgeInsetsDirectional.all(5.0),
+            child: ListTile(
+              leading: Icon(
+                widget.helper.expanded
+                    ? Icons.keyboard_arrow_up
+                    : Icons.keyboard_arrow_down,
+              ),
+              title: Text(title ?? widget.title),
+              subtitle: title == null ? null : Text(widget.title),
+              trailing: widget.helper.expanded
+                  ? IconButton(
+                      icon: const Icon(Icons.delete),
+                      onPressed: widget.deleteCallback,
+                    )
+                  : null,
+            ),
           ),
         ),
         ...expandedChildren,
@@ -134,12 +139,12 @@ class _EditTextLine extends StatefulWidget {
     required this.controller,
     required this.iconName,
     required this.iconColor,
+    required this.productType,
     this.hint,
     this.tagType,
     this.minLengthForSuggestions = 1,
     this.categories,
     this.shapeProvider,
-    required this.productType,
   });
 
   final String title;
@@ -175,45 +180,45 @@ class _EditTextLineState extends State<_EditTextLine> {
 
   @override
   Widget build(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            leading: SvgAsyncAsset(
-              AssetCacheHelper(
-                <String>['assets/packagings/${widget.iconName}.svg'],
-                'no url for packagings/${widget.iconName}',
-                color: widget.iconColor,
-                width: MINIMUM_TOUCH_SIZE,
-              ),
-            ),
-            title: Text(widget.title),
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      ListTile(
+        leading: SvgAsyncAsset(
+          AssetCacheHelper(
+            <String>['assets/packagings/${widget.iconName}.svg'],
+            'no url for packagings/${widget.iconName}',
+            color: widget.iconColor,
+            width: MINIMUM_TOUCH_SIZE,
           ),
-          LayoutBuilder(
-            builder: (_, BoxConstraints constraints) => SizedBox(
-              width: constraints.maxWidth,
-              child: SimpleInputTextField(
-                focusNode: _focusNode,
-                autocompleteKey: _autocompleteKey,
-                constraints: constraints,
-                tagType: widget.tagType,
-                hintText: '',
-                controller: widget.controller,
-                withClearButton: true,
-                minLengthForSuggestions: widget.minLengthForSuggestions,
-                categories: widget.categories,
-                shapeProvider: widget.shapeProvider,
-                productType: widget.productType,
-              ),
-            ),
+        ),
+        title: Text(widget.title),
+      ),
+      LayoutBuilder(
+        builder: (_, BoxConstraints constraints) => SizedBox(
+          width: constraints.maxWidth,
+          child: SimpleInputTextField(
+            focusNode: _focusNode,
+            autocompleteKey: _autocompleteKey,
+            constraints: constraints,
+            tagType: widget.tagType,
+            hintText: '',
+            controller: widget.controller,
+            withClearButton: true,
+            minLengthForSuggestions: widget.minLengthForSuggestions,
+            categories: widget.categories,
+            shapeProvider: widget.shapeProvider,
+            productType: widget.productType,
           ),
-          if (widget.hint != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-              child: ExplanationWidget(widget.hint!),
-            ),
-        ],
-      );
+        ),
+      ),
+      if (widget.hint != null)
+        Padding(
+          padding: const EdgeInsets.only(bottom: LARGE_SPACE),
+          child: ExplanationWidget(widget.hint!),
+        ),
+    ],
+  );
 }
 
 /// Edit display of a _number_ inside a [ProductPackaging], e.g. its weight.
@@ -257,42 +262,42 @@ class _EditNumberLineState extends State<_EditNumberLine> {
 
   @override
   Widget build(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ListTile(
-            leading: SvgAsyncAsset(
-              AssetCacheHelper(
-                <String>['assets/packagings/${widget.iconName}.svg'],
-                'no url for packagings/${widget.iconName}',
-                color: widget.iconColor,
-                width: MINIMUM_TOUCH_SIZE,
-              ),
-            ),
-            title: Text(widget.title),
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: <Widget>[
+      ListTile(
+        leading: SvgAsyncAsset(
+          AssetCacheHelper(
+            <String>['assets/packagings/${widget.iconName}.svg'],
+            'no url for packagings/${widget.iconName}',
+            color: widget.iconColor,
+            width: MINIMUM_TOUCH_SIZE,
           ),
-          LayoutBuilder(
-            builder: (_, BoxConstraints constraints) => SizedBox(
-              width: constraints.maxWidth,
-              child: SimpleInputNumberField(
-                focusNode: _focusNode,
-                constraints: constraints,
-                hintText: '',
-                controller: widget.controller,
-                decimal: widget.decimal,
-                withClearButton: true,
-                numberFormat: widget.numberFormat,
-                numberRegExp: SimpleInputNumberField.getNumberRegExp(
-                  decimal: widget.decimal,
-                ),
-              ),
+        ),
+        title: Text(widget.title),
+      ),
+      LayoutBuilder(
+        builder: (_, BoxConstraints constraints) => SizedBox(
+          width: constraints.maxWidth,
+          child: SimpleInputNumberField(
+            focusNode: _focusNode,
+            constraints: constraints,
+            hintText: '',
+            controller: widget.controller,
+            decimal: widget.decimal,
+            withClearButton: true,
+            numberFormat: widget.numberFormat,
+            numberRegExp: SimpleInputNumberField.getNumberRegExp(
+              decimal: widget.decimal,
             ),
           ),
-          if (widget.hint != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: LARGE_SPACE),
-              child: ExplanationWidget(widget.hint!),
-            ),
-        ],
-      );
+        ),
+      ),
+      if (widget.hint != null)
+        Padding(
+          padding: const EdgeInsets.only(bottom: LARGE_SPACE),
+          child: ExplanationWidget(widget.hint!),
+        ),
+    ],
+  );
 }

@@ -23,31 +23,30 @@ class EditNewPackagingsHelper {
     required final NumberFormat decimalNumberFormat,
     required final NumberFormat unitNumberFormat,
   }) : this._(
-          controllerUnits: TextEditingController(
-            text: packaging.numberOfUnits == null
-                ? null
-                : unitNumberFormat.format(packaging.numberOfUnits),
-          ),
-          controllerShape: TextEditingController(
-            text: packaging.shape?.lcName,
-          ),
-          controllerMaterial: TextEditingController(
-            text: packaging.material?.lcName,
-          ),
-          controllerRecycling: TextEditingController(
-            text: packaging.recycling?.lcName,
-          ),
-          controllerQuantity:
-              TextEditingController(text: packaging.quantityPerUnit),
-          controllerWeight: TextEditingController(
-            text: packaging.weightMeasured == null
-                ? null
-                : decimalNumberFormat.format(packaging.weightMeasured),
-          ),
-          expanded: initiallyExpanded,
-          decimalNumberFormat: decimalNumberFormat,
-          unitNumberFormat: unitNumberFormat,
-        );
+         controllerUnits: TextEditingController(
+           text: packaging.numberOfUnits == null
+               ? null
+               : unitNumberFormat.format(packaging.numberOfUnits),
+         ),
+         controllerShape: TextEditingController(text: packaging.shape?.lcName),
+         controllerMaterial: TextEditingController(
+           text: packaging.material?.lcName,
+         ),
+         controllerRecycling: TextEditingController(
+           text: packaging.recycling?.lcName,
+         ),
+         controllerQuantity: TextEditingController(
+           text: packaging.quantityPerUnit,
+         ),
+         controllerWeight: TextEditingController(
+           text: packaging.weightMeasured == null
+               ? null
+               : decimalNumberFormat.format(packaging.weightMeasured),
+         ),
+         expanded: initiallyExpanded,
+         decimalNumberFormat: decimalNumberFormat,
+         unitNumberFormat: unitNumberFormat,
+       );
 
   final TextEditingController controllerUnits;
   final TextEditingController controllerShape;

@@ -3,7 +3,7 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 class Tag extends StatelessWidget {
-  const Tag({super.key, required this.text});
+  const Tag({required this.text, super.key});
   final String text;
 
   @override
@@ -22,8 +22,8 @@ class Tag extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                color: context.darkTheme() ? Colors.white : Colors.black,
-              ),
+            color: context.darkTheme() ? Colors.white : Colors.black,
+          ),
         ),
       ),
     );

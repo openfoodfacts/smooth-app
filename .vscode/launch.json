@@ -19,16 +19,10 @@
       "program": "packages/smooth_app/lib/entrypoints/android/main_fdroid.dart"
     },
     {
-      "name": "Android - Amazon App Store",
+      "name": "Android - Samsung Gallery",
       "type": "dart",
       "request": "launch",
-      "program": "packages/smooth_app/lib/entrypoints/android/main_amazon_appstore.dart"
-    },
-    {
-      "name": "Android - Huawei App Gallery",
-      "type": "dart",
-      "request": "launch",
-      "program": "packages/smooth_app/lib/entrypoints/android/main_huawei_appgallery.dart"
+      "program": "packages/smooth_app/lib/entrypoints/android/main_samsung_gallery.dart"
     }
   ]
 }

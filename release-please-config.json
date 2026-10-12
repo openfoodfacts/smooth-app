@@ -1,0 +1,17 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "changelog-path": "CHANGELOG.md",
+      "changelog-sections": [
+        {"type": "feat", "section": "🚀 Features", "hidden": false},
+        {"type": "fix", "section": "🐛 Bug Fixes", "hidden": false},
+        {"type": "docs", "section": "📖 Documentation", "hidden": false},
+        {"type": "ci", "section": "🤖 Automation", "hidden": false},
+        {"type": "refactor", "section": "👷 Refactoring", "hidden": false},
+        {"type": "chore", "section": "🛠 Miscellaneous", "hidden": false},
+        {"type": "l10n", "section": "🌍 Translations", "hidden": false}
+      ]
+    }
+  }
+}

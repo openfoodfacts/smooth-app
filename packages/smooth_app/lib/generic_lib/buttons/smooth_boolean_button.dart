@@ -3,7 +3,6 @@ import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/duration_constants.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
-import 'package:smooth_app/themes/smooth_theme.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 class SmoothTriStatesButton extends StatefulWidget {
@@ -12,8 +11,8 @@ class SmoothTriStatesButton extends StatefulWidget {
     required this.onChanged,
     required this.positiveTooltip,
     required this.negativeTooltip,
-  })  : assert(positiveTooltip.length > 0),
-        assert(negativeTooltip.length > 0);
+  }) : assert(positiveTooltip.length > 0),
+       assert(negativeTooltip.length > 0);
 
   final bool? value;
   final Function(bool?) onChanged;
@@ -98,8 +97,8 @@ class _SmoothTriStatesButtonState extends State<SmoothTriStatesButton>
 
   @override
   Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension extension =
-        context.extension<SmoothColorsThemeExtension>();
+    final SmoothColorsThemeExtension extension = context
+        .extension<SmoothColorsThemeExtension>();
 
     return CustomPaint(
       painter: _SmoothTriStateItemBackgroundBorderPainter(
@@ -190,7 +189,8 @@ class _SmoothTriStatesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 12.0 * MediaQuery.textScalerOf(context).scale(1.0) +
+      width:
+          12.0 * MediaQuery.textScalerOf(context).scale(1.0) +
           (LARGE_SPACE * 2) +
           2.0,
       child: Material(
@@ -230,10 +230,7 @@ class _SmoothTriStatesItem extends StatelessWidget {
   }
 }
 
-enum SmoothTriStateButtonPosition {
-  start,
-  end,
-}
+enum SmoothTriStateButtonPosition { start, end }
 
 class _SmoothTriStateItemBackgroundBorderPainter extends CustomPainter {
   _SmoothTriStateItemBackgroundBorderPainter({
@@ -272,11 +269,7 @@ class _SmoothTriStateItemBackgroundBorderPainter extends CustomPainter {
     );
     canvas.drawRRect(roundedRect, paint);
 
-    paint.color = _getColor(
-      endDefaultColor,
-      endSelectedColor,
-      endPercent,
-    );
+    paint.color = _getColor(endDefaultColor, endSelectedColor, endPercent);
 
     roundedRect = RRect.fromRectAndCorners(
       Rect.fromLTWH(size.width / 2, 0.0, size.width / 2, size.height),
@@ -292,8 +285,12 @@ class _SmoothTriStateItemBackgroundBorderPainter extends CustomPainter {
         horizontalPercent,
       )!;
       roundedRect = RRect.fromRectAndCorners(
-        Rect.fromLTWH((size.width / 2) * horizontalPercent, 0.0, size.width / 2,
-            size.height),
+        Rect.fromLTWH(
+          (size.width / 2) * horizontalPercent,
+          0.0,
+          size.width / 2,
+          size.height,
+        ),
         topLeft: Radius.circular(LARGE_SPACE * (1 - horizontalPercent)),
         bottomLeft: Radius.circular(LARGE_SPACE * (1 - horizontalPercent)),
         topRight: Radius.circular(LARGE_SPACE * horizontalPercent),
@@ -306,11 +303,7 @@ class _SmoothTriStateItemBackgroundBorderPainter extends CustomPainter {
   Color _getColor(Color defaultColor, Color selectedColor, double percent) {
     if (percent > 0.0 &&
         (horizontalPercent == 0.0 || horizontalPercent == 1.0)) {
-      return Color.lerp(
-        defaultColor,
-        selectedColor,
-        percent,
-      )!;
+      return Color.lerp(defaultColor, selectedColor, percent)!;
     } else {
       return defaultColor;
     }
@@ -324,14 +317,12 @@ class _SmoothTriStateItemBackgroundBorderPainter extends CustomPainter {
 
   @override
   bool shouldRebuildSemantics(
-          _SmoothTriStateItemBackgroundBorderPainter oldDelegate) =>
-      false;
+    _SmoothTriStateItemBackgroundBorderPainter oldDelegate,
+  ) => false;
 }
 
 class _SmoothTriStateItemForegroundBorderPainter extends CustomPainter {
-  _SmoothTriStateItemForegroundBorderPainter({
-    required this.borderColor,
-  });
+  _SmoothTriStateItemForegroundBorderPainter({required this.borderColor});
 
   final Color borderColor;
 
@@ -343,8 +334,11 @@ class _SmoothTriStateItemForegroundBorderPainter extends CustomPainter {
       ..strokeWidth = 1.0;
 
     // Separator
-    canvas.drawLine(Offset(size.width / 2, 0.0),
-        Offset(size.width / 2, size.height), paint);
+    canvas.drawLine(
+      Offset(size.width / 2, 0.0),
+      Offset(size.width / 2, size.height),
+      paint,
+    );
 
     // Rounded borders
     final RRect roundedRect = RRect.fromRectAndRadius(
@@ -360,6 +354,6 @@ class _SmoothTriStateItemForegroundBorderPainter extends CustomPainter {
 
   @override
   bool shouldRebuildSemantics(
-          _SmoothTriStateItemForegroundBorderPainter oldDelegate) =>
-      false;
+    _SmoothTriStateItemForegroundBorderPainter oldDelegate,
+  ) => false;
 }

@@ -1,3 +1,3 @@
-library app_store_uri;
+library;
 
 export 'src/uri_app_store.dart';

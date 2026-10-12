@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/product/product_page/footer/new_product_footer.dart';
 import 'package:smooth_app/pages/product/product_type_extensions.dart';
@@ -21,9 +21,11 @@ class ProductFooterOpenWebsiteButton extends StatelessWidget {
       semanticsLabel: appLocalizations.product_footer_action_open_website,
       icon: const icons.ExternalLink(),
       onTap: () => AppNavigator.of(context).push(
-        AppRoutes.EXTERNAL('https://'
-            '${ProductQuery.getCountry().offTag}.${(product.productType ?? ProductType.food).getDomain()}.org'
-            '/product/${product.barcode}'),
+        AppRoutes.EXTERNAL(
+          'https://'
+          '${ProductQuery.getCountry().offTag}.${(product.productType ?? ProductType.food).getDomain()}.org'
+          '/product/${product.barcode}',
+        ),
       ),
     );
   }

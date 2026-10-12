@@ -4,18 +4,17 @@ version: 1.0.0
 publish_to: "none"
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.12.2
 
 dependencies:
   flutter:
     sdk: flutter
 
-  visibility_detector: 0.4.0+2
-  async: 2.11.0
-  provider: 6.1.4
+  visibility_detector: ^0.4.0+2
+  async: ^2.13.1
+  provider: ^6.1.5+1
 
-  mobile_scanner: 6.0.2
-  torch_light: 1.1.0
+  mobile_scanner: ^7.4.2
 
   scanner_shared:
     path: ../shared
@@ -23,6 +22,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: 4.0.0
+  flutter_lints: 6.0.0
   openfoodfacts_flutter_lints:
     git: https://github.com/openfoodfacts/openfoodfacts_flutter_lints.git

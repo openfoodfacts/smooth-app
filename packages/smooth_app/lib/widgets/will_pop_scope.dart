@@ -23,7 +23,7 @@ class WillPopScope2 extends StatelessWidget {
     return ChangeNotifierProvider<WillPopScope2Controller?>.value(
       value: controller,
       child: Consumer<WillPopScope2Controller?>(
-        builder: (_, WillPopScope2Controller? controller, __) {
+        builder: (_, WillPopScope2Controller? controller, _) {
           return PopScope(
             canPop: controller?.value ?? false,
             onPopInvokedWithResult: (bool didPop, dynamic result) async {
@@ -32,18 +32,23 @@ class WillPopScope2 extends StatelessWidget {
               }
 
               final (bool shouldClose, dynamic res) = await onWillPop.call();
-              if (shouldClose == true) {
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  try {
-                    GoRouter.of(context).pop(res);
-                  } on GoError catch (error) {
-                    if (error.message == 'There is nothing to pop') {
-                      // Force to kill the app
-                      SystemNavigator.pop();
-                    }
-                  }
-                });
+              if (!shouldClose) {
+                return;
               }
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                final GoRouter goRouter = GoRouter.of(context);
+                if (goRouter.canPop()) {
+                  goRouter.pop(res);
+                  return;
+                }
+                final NavigatorState navigatorState = Navigator.of(context);
+                if (navigatorState.canPop()) {
+                  navigatorState.pop(res);
+                  return;
+                }
+                // Force to kill the app
+                SystemNavigator.pop();
+              });
             },
             child: child,
           );

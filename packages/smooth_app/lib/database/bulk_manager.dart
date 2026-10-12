@@ -36,7 +36,8 @@ class BulkManager {
     }
     if (parameters.length % numCols != 0) {
       throw Exception(
-          'Parameter list size (${parameters.length}) cannot be divided by $numCols');
+        'Parameter list size (${parameters.length}) cannot be divided by $numCols',
+      );
     }
     final String variables = '?${',?' * (columnNames.length - 1)}';
     final int maxSlice = (SQLITE_MAX_VARIABLE_NUMBER ~/ numCols) * numCols;

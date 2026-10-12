@@ -22,8 +22,8 @@ class TransientFile {
     this.barcode,
     this.language, [
     this.uploadedDate,
-  ])  : imageField = productImageData.imageField,
-        url = productImageData.imageUrl;
+  ]) : imageField = productImageData.imageField,
+       url = productImageData.imageUrl;
 
   factory TransientFile.fromProduct(
     final Product product,
@@ -60,18 +60,13 @@ class TransientFile {
   static final Map<String, String> _transientFiles = <String, String>{};
 
   /// Stores locally [file] as a transient image for [imageField] and [barcode].
-  void putImage(
-    final LocalDatabase localDatabase,
-    final File file,
-  ) {
+  void putImage(final LocalDatabase localDatabase, final File file) {
     _transientFiles[_getImageKey()] = file.path;
     localDatabase.notifyListeners();
   }
 
   /// Removes the current transient image for [imageField] and [barcode].
-  void removeImage(
-    final LocalDatabase localDatabase,
-  ) {
+  void removeImage(final LocalDatabase localDatabase) {
     _transientFiles.remove(_getImageKey());
     localDatabase.notifyListeners();
   }
@@ -93,8 +88,7 @@ class TransientFile {
   static String _getImageKeyPrefix(
     final ImageField imageField,
     final String barcode,
-  ) =>
-      '$barcode;$imageField;';
+  ) => '$barcode;$imageField;';
 
   /// Returns a way to display the image, either locally or from the server.
   ImageProvider? getImageProvider() {
