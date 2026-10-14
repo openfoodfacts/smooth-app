@@ -41,9 +41,12 @@ void main() {
         expect(AnalyticsCategory.knowledgePanel.tag, 'knowledge panel');
 
         const List<AnalyticsEvent> events = AnalyticsEvent.values;
-        expect(events[events.length - 3], AnalyticsEvent.appFirstOpen);
-        expect(events[events.length - 2], AnalyticsEvent.onboardingPageVisited);
-        expect(events.last, AnalyticsEvent.knowledgePanelOpen);
+        expect(events[events.length - 4], AnalyticsEvent.appFirstOpen);
+        expect(events[events.length - 3], AnalyticsEvent.onboardingPageVisited);
+        expect(events[events.length - 2], AnalyticsEvent.knowledgePanelOpen);
+        expect(events.last, AnalyticsEvent.appOpen);
+        expect(AnalyticsEvent.appOpen.tag, 'app open');
+        expect(AnalyticsEvent.appOpen.category, AnalyticsCategory.lifecycle);
         expect(AnalyticsEvent.appFirstOpen.tag, 'app first open');
         expect(
           AnalyticsEvent.appFirstOpen.category,
@@ -86,6 +89,70 @@ void main() {
       final Map<String, String> event = MatomoTracker.instance.queue.single;
       expect(event['e_c'], 'knowledge panel');
       expect(event['e_a'], 'nutriscore');
+    });
+  });
+
+  group('trackAppOpen', () {
+    List<Map<String, String>> appOpenEvents() => MatomoTracker.instance.queue
+        .where((Map<String, String> event) => event['e_n'] == 'appOpen')
+        .toList();
+
+    test(
+      'a cold start after consent fires one event with dimensions',
+      () async {
+        await userPreferences.setLastVisitedOnboardingPage(
+          OnboardingPage.WELCOME,
+        );
+
+        AnalyticsHelper.trackAppOpen(userPreferences);
+
+        final List<Map<String, String>> events = appOpenEvents();
+        expect(events, hasLength(1));
+        expect(events.single['e_c'], 'lifecycle');
+        expect(events.single['dimension4'], isNotEmpty);
+      },
+    );
+
+    test('a return after 30 minutes or more fires', () async {
+      await userPreferences.setLastVisitedOnboardingPage(
+        OnboardingPage.WELCOME,
+      );
+
+      AnalyticsHelper.trackAppOpen(
+        userPreferences,
+        backgroundedFor: const Duration(minutes: 30),
+      );
+      AnalyticsHelper.trackAppOpen(
+        userPreferences,
+        backgroundedFor: const Duration(hours: 2),
+      );
+
+      expect(appOpenEvents(), hasLength(2));
+    });
+
+    test('a return after less than 30 minutes fires nothing', () async {
+      await userPreferences.setLastVisitedOnboardingPage(
+        OnboardingPage.WELCOME,
+      );
+
+      AnalyticsHelper.trackAppOpen(
+        userPreferences,
+        backgroundedFor: const Duration(minutes: 29, seconds: 59),
+      );
+
+      expect(appOpenEvents(), isEmpty);
+    });
+
+    test('nothing fires before consent', () async {
+      await userPreferences.resetOnboarding();
+
+      AnalyticsHelper.trackAppOpen(userPreferences);
+      AnalyticsHelper.trackAppOpen(
+        userPreferences,
+        backgroundedFor: const Duration(hours: 2),
+      );
+
+      expect(appOpenEvents(), isEmpty);
     });
   });
 

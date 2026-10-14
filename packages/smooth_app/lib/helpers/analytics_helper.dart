@@ -7,6 +7,7 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
+import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Category for Matomo Events
@@ -186,7 +187,8 @@ enum AnalyticsEvent {
   knowledgePanelOpen(
     tag: 'knowledge panel open',
     category: AnalyticsCategory.knowledgePanel,
-  );
+  ),
+  appOpen(tag: 'app open', category: AnalyticsCategory.lifecycle);
 
   const AnalyticsEvent({required this.tag, required this.category});
 
@@ -365,6 +367,24 @@ class AnalyticsHelper {
   /// Returns a letter between A and Z, depending on [_uniqueRandom].
   static String get _uniqueLetter =>
       String.fromCharCode('A'.codeUnitAt(0) + _uniqueRandom % 26);
+
+  static const Duration _visitTimeout = Duration(minutes: 30);
+
+  /// Tracks the start of a Matomo visit: never before consent, and on a
+  /// return from the background only after [_visitTimeout].
+  static void trackAppOpen(
+    final UserPreferences userPreferences, {
+    final Duration? backgroundedFor,
+  }) {
+    if (userPreferences.lastVisitedOnboardingPage ==
+        OnboardingPage.NOT_STARTED) {
+      return;
+    }
+    if (backgroundedFor != null && backgroundedFor < _visitTimeout) {
+      return;
+    }
+    trackEvent(AnalyticsEvent.appOpen);
+  }
 
   static void trackEvent(
     AnalyticsEvent msg, {
