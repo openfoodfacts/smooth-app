@@ -369,8 +369,6 @@ class AnalyticsHelper {
 
   static const Duration _visitTimeout = Duration(minutes: 30);
 
-  /// Tracks the start of a Matomo visit: never before consent, and on a
-  /// return from the background only after [_visitTimeout].
   static void trackAppOpen(
     final UserPreferences userPreferences, {
     final Duration? backgroundedFor,
