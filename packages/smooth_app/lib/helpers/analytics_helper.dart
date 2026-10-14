@@ -7,7 +7,6 @@ import 'package:package_info_plus/package_info_plus.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
-import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 /// Category for Matomo Events
@@ -376,8 +375,7 @@ class AnalyticsHelper {
     final UserPreferences userPreferences, {
     final Duration? backgroundedFor,
   }) {
-    if (userPreferences.lastVisitedOnboardingPage ==
-        OnboardingPage.NOT_STARTED) {
+    if (userPreferences.lastVisitedOnboardingPage.isOnboardingNotStarted()) {
       return;
     }
     if (backgroundedFor != null && backgroundedFor < _visitTimeout) {

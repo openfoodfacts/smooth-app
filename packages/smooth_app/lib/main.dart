@@ -187,7 +187,6 @@ class _SmoothAppState extends State<SmoothApp> {
     await AnalyticsHelper.initMatomo(_screenshots);
     if (!_screenshots) {
       await _userPreferences.init(_productPreferences);
-      AnalyticsHelper.trackAppOpen(_userPreferences);
       _lifecycleListener = AppLifecycleListener(
         onPause: () => _pausedAt = DateTime.now(),
         onResume: () {

@@ -104,11 +104,13 @@ void main() {
           OnboardingPage.WELCOME,
         );
 
+        ProductQuery.setLanguage(null, userPreferences, languageCode: 'de');
         AnalyticsHelper.trackAppOpen(userPreferences);
 
         final List<Map<String, String>> events = appOpenEvents();
         expect(events, hasLength(1));
         expect(events.single['e_c'], 'lifecycle');
+        expect(events.single['dimension1'], 'de');
         expect(events.single['dimension4'], isNotEmpty);
       },
     );
