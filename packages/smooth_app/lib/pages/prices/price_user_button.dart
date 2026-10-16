@@ -3,15 +3,12 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/prices/get_prices_model.dart';
-import 'package:smooth_app/pages/prices/price_button.dart';
 import 'package:smooth_app/pages/prices/prices_page.dart';
 import 'package:smooth_app/query/product_query.dart';
 
-/// Widget that displays a user, for Prices.
-class PriceUserButton extends StatelessWidget {
-  const PriceUserButton(this.user);
-
-  final String user;
+/// Helper methods for displaying a user, for Prices.
+class PriceUserButton {
+  const PriceUserButton._();
 
   static String showUserTitle({
     required final String user,
@@ -40,13 +37,5 @@ class PriceUserButton extends StatelessWidget {
         ),
       ),
     ),
-  );
-
-  @override
-  Widget build(BuildContext context) => PriceButton(
-    tooltip: AppLocalizations.of(context).prices_open_user_proofs(user),
-    title: user,
-    iconData: PriceButton.userIconData,
-    onPressed: () async => showUserPrices(user: user, context: context),
   );
 }
