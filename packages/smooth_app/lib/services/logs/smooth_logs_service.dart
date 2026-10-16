@@ -32,11 +32,11 @@ class LogsService extends SmoothService<AppLogService> {
 
   /// Write a verbose log
   void v(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) =>
-      log(LogLevel.info, message, tag: tag, ex: ex, stacktrace: stacktrace);
+      log(LogLevel.verbose, message, tag: tag, ex: ex, stacktrace: stacktrace);
 
   /// Write a warning log
   void w(String message, {String? tag, dynamic ex, StackTrace? stacktrace}) =>
-      log(LogLevel.info, message, tag: tag, ex: ex, stacktrace: stacktrace);
+      log(LogLevel.warning, message, tag: tag, ex: ex, stacktrace: stacktrace);
 
   List<String> get logFilesPaths {
     final List<String> files = <String>[];
