@@ -24,8 +24,8 @@ Release:
 
 
 PR Signed APK:
- Automatically builds and signs a release APK for pull requests opened or updated by maintainers (`teolemon`, `monsieurtanuki`, or `g123k`).
- Can also be triggered on-demand on ANY pull request by maintainers (`teolemon`, `monsieurtanuki`, or `g123k`) posting a `/build-apk` comment.
+ Automatically builds and signs a release APK for same-repository pull requests opened or updated by maintainers (`teolemon`, `monsieurtanuki`, or `g123k`).
+ Can also be triggered on-demand on repository pull requests by maintainers (`teolemon`, `monsieurtanuki`, or `g123k`) posting a `/build-apk` comment (for fork PRs, push the branch to the repository first to safeguard signing secrets).
  Can also be manually triggered via `workflow_dispatch` with a PR number.
  Uploads the APK as an artifact and automatically posts or updates a comment on the PR containing direct download links.
  [PR Signed APK workflow](https://github.com/openfoodfacts/smooth-app/blob/develop/.github/workflows/pr-signed-apk.yml)

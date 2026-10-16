@@ -20,19 +20,22 @@ permissions:
   pull-requests: write
   issues: write
 
-concurrency:
-  group: pr-signed-apk-${{ github.event.issue.number || github.event.pull_request.number || inputs.pr_number }}
-  cancel-in-progress: true
-
 jobs:
   build-signed-apk:
     name: Build Signed APK
+    concurrency:
+      group: pr-signed-apk-${{ github.event.issue.number || github.event.pull_request.number || inputs.pr_number }}
+      cancel-in-progress: true
     # Restrict execution to trusted maintainers to safeguard signing secrets:
-    # 1. PRs authored by teolemon, monsieurtanuki, or g123k
-    # 2. Comments with '/build-apk' posted by teolemon, monsieurtanuki, or g123k on any PR
+    # 1. PRs authored by teolemon, monsieurtanuki, or g123k on repository branches
+    # 2. Comments with '/build-apk' posted by teolemon, monsieurtanuki, or g123k
     # 3. Manual dispatch by teolemon, monsieurtanuki, or g123k
     if: |
-      (github.event_name == 'pull_request_target' && (
+      (github.event_name == 'pull_request_target' &&
+       github.event.pull_request.head.repo.full_name == github.repository && (
+        github.actor == 'teolemon' ||
+        github.actor == 'monsieurtanuki' ||
+        github.actor == 'g123k' ||
         github.event.pull_request.user.login == 'teolemon' ||
         github.event.pull_request.user.login == 'monsieurtanuki' ||
         github.event.pull_request.user.login == 'g123k'
@@ -40,9 +43,9 @@ jobs:
       (github.event_name == 'issue_comment' &&
        github.event.issue.pull_request &&
        startsWith(github.event.comment.body, '/build-apk') && (
-        github.event.comment.user.login == 'teolemon' ||
-        github.event.comment.user.login == 'monsieurtanuki' ||
-        github.event.comment.user.login == 'g123k'
+        github.actor == 'teolemon' ||
+        github.actor == 'monsieurtanuki' ||
+        github.actor == 'g123k'
        )
       ) ||
       (github.event_name == 'workflow_dispatch' && (
@@ -62,16 +65,30 @@ jobs:
           comment-id: ${{ github.event.comment.id }}
           reactions: eyes
 
-      - name: Determine PR number
+      - name: 🔍 Determine PR context and validate repository
         id: pr-context
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PR_NUM="${{ github.event.issue.number || github.event.pull_request.number || inputs.pr_number }}"
           echo "pr_number=$PR_NUM" >> $GITHUB_OUTPUT
 
+          PR_DATA=$(gh pr view "$PR_NUM" --repo "${{ github.repository }}" --json headRepositoryOwner,isCrossRepository,headRefOid)
+          IS_CROSS_REPO=$(echo "$PR_DATA" | jq -r '.isCrossRepository')
+          HEAD_SHA=$(echo "$PR_DATA" | jq -r '.headRefOid')
+
+          if [ "$IS_CROSS_REPO" = "true" ]; then
+            echo "::error::Signed APK builds are only permitted for same-repository branches to safeguard signing credentials."
+            exit 1
+          fi
+
+          echo "head_sha=$HEAD_SHA" >> $GITHUB_OUTPUT
+
       - name: 📂 Checkout PR code
         uses: actions/checkout@v7
         with:
-          ref: refs/pull/${{ steps.pr-context.outputs.pr_number }}/head
+          ref: ${{ steps.pr-context.outputs.head_sha }}
+          persist-credentials: false
 
       - name: 🏷️ Get commit info
         id: commit-info
