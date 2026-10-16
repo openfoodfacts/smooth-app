@@ -19,6 +19,20 @@ enum PreferencesPageProjects {
     PreferencesPageProjects.pets => ProductType.petFood,
   };
 
+  static PreferencesPageProjects? fromProductType(
+    final ProductType? productType,
+  ) {
+    if (productType == null) {
+      return null;
+    }
+    return switch (productType) {
+      ProductType.food => PreferencesPageProjects.food,
+      ProductType.product => PreferencesPageProjects.products,
+      ProductType.beauty => PreferencesPageProjects.beauty,
+      ProductType.petFood => PreferencesPageProjects.pets,
+    };
+  }
+
   String get projectKey => switch (this) {
     PreferencesPageProjects.food => 'food',
     PreferencesPageProjects.products => 'products',
