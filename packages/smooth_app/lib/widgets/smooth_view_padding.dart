@@ -10,7 +10,7 @@ class SmoothViewPadding extends SingleChildStatelessWidget {
   @override
   Widget buildWithChild(BuildContext context, Widget? child) {
     return Provider<_ViewPadding>.value(
-      value: _ViewPadding.fromEdgeInsets(MediaQuery.of(context).viewPadding),
+      value: _ViewPadding.fromEdgeInsets(MediaQuery.viewPaddingOf(context)),
       child: child,
     );
   }
