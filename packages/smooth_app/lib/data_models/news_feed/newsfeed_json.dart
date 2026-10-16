@@ -126,6 +126,8 @@ class _TagLineItemNewsItem {
     required this.currency,
     required this.donationAmounts,
     required this.donationScansPerUnit,
+    required this.count,
+    required this.donationReminderEvery,
     this.minLaunches,
     this.startDate,
     this.endDate,
@@ -162,6 +164,8 @@ class _TagLineItemNewsItem {
       currency = json['currency'],
       donationAmounts = DonationOffer.feedList<num>(json['donation_amounts']),
       donationScansPerUnit = json['donation_scans_per_unit'] as num?,
+      count = json['count'] as num?,
+      donationReminderEvery = json['donation_reminder_every'] as num?,
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
       minVersion = json['min_version'],
@@ -184,6 +188,8 @@ class _TagLineItemNewsItem {
   final String? currency;
   final List<num>? donationAmounts;
   final num? donationScansPerUnit;
+  final num? count;
+  final num? donationReminderEvery;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -224,6 +230,8 @@ class _TagLineItemNewsItem {
       currency: currency,
       donationAmounts: donationAmounts,
       donationScansPerUnit: donationScansPerUnit,
+      count: count,
+      donationReminderEvery: donationReminderEvery,
       donationWhereItGoes: translation.donationWhereItGoes,
       image: translation.image?.overridesContent == true
           ? translation.image?.toTagLineImage()
@@ -248,6 +256,8 @@ class _TagLineItemNewsItem {
     String? currency,
     List<num>? donationAmounts,
     num? donationScansPerUnit,
+    num? count,
+    num? donationReminderEvery,
   }) {
     return _TagLineItemNewsItem._(
       id: id,
@@ -265,6 +275,9 @@ class _TagLineItemNewsItem {
       currency: currency ?? this.currency,
       donationAmounts: donationAmounts ?? this.donationAmounts,
       donationScansPerUnit: donationScansPerUnit ?? this.donationScansPerUnit,
+      count: count ?? this.count,
+      donationReminderEvery:
+          donationReminderEvery ?? this.donationReminderEvery,
     );
   }
 }

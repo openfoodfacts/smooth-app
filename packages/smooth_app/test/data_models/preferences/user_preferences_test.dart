@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -5,6 +7,9 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import '../../tests_utils/mocks.dart';
 
 const String _tagMutedUntil = 'donationAsksMutedUntil';
+const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
+const String _tagLastCountedBarcode = 'lastCountedBarcode';
+const String _tagLastReminderShownAt = 'lastReminderShownAt';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +25,9 @@ void main() {
 
   setUp(() async {
     await sharedPreferences.remove(_tagMutedUntil);
+    await sharedPreferences.remove(_tagProductsLookedUp);
+    await sharedPreferences.remove(_tagLastCountedBarcode);
+    await sharedPreferences.remove(_tagLastReminderShownAt);
   });
 
   group('donationAsksMuted', () {
@@ -68,5 +76,50 @@ void main() {
       isFalse,
     );
     expect(notified, 1);
+  });
+
+  group('countProductLookedUp', () {
+    test('the same barcode ten times counts once', () async {
+      for (int i = 0; i < 10; i++) {
+        await userPreferences.countProductLookedUp('3017620422003');
+      }
+      expect(userPreferences.productsLookedUpSinceAsk, 1);
+      expect(userPreferences.lastCountedBarcode, '3017620422003');
+    });
+
+    test(
+      'A, B, A counts three: only the immediately last one dedupes',
+      () async {
+        await userPreferences.countProductLookedUp('A');
+        await userPreferences.countProductLookedUp('B');
+        await userPreferences.countProductLookedUp('A');
+        expect(userPreferences.productsLookedUpSinceAsk, 3);
+        expect(userPreferences.lastCountedBarcode, 'A');
+      },
+    );
+
+    test('a fired-but-unawaited call still lands synchronously', () {
+      expect(userPreferences.productsLookedUpSinceAsk, 0);
+      // Deliberately not awaited: `DonationReminderScope.initState` cannot
+      // await, so a synchronous read right after must already see it.
+      unawaited(userPreferences.countProductLookedUp('3017620422003'));
+      expect(userPreferences.productsLookedUpSinceAsk, 1);
+    });
+  });
+
+  test('markDonationReminderShown resets the counter and stamps now', () async {
+    await userPreferences.countProductLookedUp('3017620422003');
+    expect(userPreferences.productsLookedUpSinceAsk, 1);
+
+    final DateTime before = DateTime.now();
+    await userPreferences.markDonationReminderShown();
+
+    expect(userPreferences.productsLookedUpSinceAsk, 0);
+    final DateTime? shownAt = userPreferences.lastReminderShownAt;
+    expect(shownAt, isNotNull);
+    expect(
+      shownAt!.difference(before).abs(),
+      lessThan(const Duration(seconds: 5)),
+    );
   });
 }
