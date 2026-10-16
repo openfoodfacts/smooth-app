@@ -298,8 +298,7 @@ class DaoProductList extends AbstractDao {
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
       final String tmp = key.toString();
-      final ProductListType productListType = getProductListType(tmp);
-      if (productListType != ProductListType.USER) {
+      if (!tmp.startsWith('${ProductListType.USER.key}$_keySeparator')) {
         continue;
       }
       result.add(getProductListParameters(tmp));
@@ -314,8 +313,7 @@ class DaoProductList extends AbstractDao {
     final List<String> result = <String>[];
     for (final dynamic key in _getBox().keys) {
       final String tmp = key.toString();
-      final ProductListType productListType = getProductListType(tmp);
-      if (productListType != ProductListType.USER) {
+      if (!tmp.startsWith('${ProductListType.USER.key}$_keySeparator')) {
         continue;
       }
       final _BarcodeList? barcodeList = await _getBox().get(key);
