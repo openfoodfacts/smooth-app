@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the cropIfNeeded method from the BackgroundTaskImage class, for the Dart programming language.">
+  <title>cropIfNeeded method - BackgroundTaskImage class - background_task_image library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../background_background_task_image/">background&#47;background_task_image.dart</a></li>
+    <li><a href="../../background_background_task_image/BackgroundTaskImage-class.html">BackgroundTaskImage</a></li>
+    <li class="self-crumb">cropIfNeeded static method</li>
+  </ol>
+  <div class="self-name">cropIfNeeded</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="background_background_task_image&#47;BackgroundTaskImage-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">cropIfNeeded</span> static method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../../background_background_crop_result/BackgroundCropResult-class.html">BackgroundCropResult</a></span>&gt;</span></span>
+<span class="name ">cropIfNeeded</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="cropIfNeeded-param-fullPath"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">fullPath</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-rotationDegrees"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">rotationDegrees</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-cropX1"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropX1</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-cropY1"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropY1</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-cropX2"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropX2</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-cropY2"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">cropY2</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-forceCompression"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceCompression</span>, </span></li>
+<li><span class="parameter" id="cropIfNeeded-param-eraserCoordinates"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span>?</span> <span class="parameter-name">eraserCoordinates</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Returns the file path of a crop operation.</p>
+<p>Returns directly the original <code>fullPath</code> if no crop operation was needed.
+Returns the path of the cropped file if relevant.
+Returns null if the image (cropped or not) is too small.
+<code>maxSize</code> is the max pixel size for width or height (e.g. 2000)</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static Future&lt;BackgroundCropResult&gt; cropIfNeeded({
+  required final String fullPath,
+  required final int rotationDegrees,
+  required final int cropX1,
+  required final int cropY1,
+  required final int cropX2,
+  required final int cropY2,
+  required final bool forceCompression,
+  required final List&lt;double&gt;? eraserCoordinates,
+}) async {
+  final String croppedPath = await getCroppedPath(fullPath);
+
+  final CustomPainter? overlayPainter =
+      eraserCoordinates == null || eraserCoordinates.isEmpty
+      ? null
+      : EraserPainter(
+          eraserModel: EraserModel(
+            rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+            offsets: CropHelper.getOffsets(eraserCoordinates),
+          ),
+          cropRect: BackgroundTaskImage.getDownsizedRect(
+            cropX1,
+            cropY1,
+            cropX2,
+            cropY2,
+          ),
+        );
+  final File fullFile = await BackgroundTaskUpload.getFile(fullPath);
+  &#47;&#47; TODO(monsieurtanuki): send full image width and height instead of recomputing them
+  final ui.Image full = await loadUiImage(await fullFile.readAsBytes());
+  final int fullWidth = full.width;
+  final int fullHeight = full.height;
+  full.dispose();
+  if (!forceCompression) {
+    if (cropX1 == 0 &amp;&amp;
+        cropY1 == 0 &amp;&amp;
+        cropX2 == _cropConversionFactor &amp;&amp;
+        cropY2 == _cropConversionFactor &amp;&amp;
+        rotationDegrees == 0) {
+      if (!isPictureBigEnough(fullWidth, fullHeight)) {
+        return BackgroundCropResult.error(
+          &#39;Picture too small ($fullWidth x $fullHeight)&#39;,
+        );
+      }
+      &#47;&#47; in that case, no need to crop
+      if (overlayPainter == null) {
+        return BackgroundCropResult.success(
+          filePath: fullPath,
+          fileSize: await fullFile.length(),
+          width: fullWidth,
+          height: fullHeight,
+          message: &#39;Full image &quot;as-is&quot;&#39;,
+        );
+      }
+    }
+  }
+
+  Size getCroppedSize() {
+    final Rect cropRect = getDownsizedRect(cropX1, cropY1, cropX2, cropY2);
+    switch (CropRotationExtension.fromDegrees(rotationDegrees)!) {
+      case CropRotation.up:
+      case CropRotation.down:
+        return Size(cropRect.width * fullHeight, cropRect.height * fullWidth);
+      case CropRotation.left:
+      case CropRotation.right:
+        return Size(cropRect.width * fullWidth, cropRect.height * fullHeight);
+    }
+  }
+
+  final Size croppedSize = getCroppedSize();
+  if (!isPictureBigEnough(croppedSize.width, croppedSize.height)) {
+    return BackgroundCropResult.error(
+      &#39;Cropped picture too small (${croppedSize.width} x ${croppedSize.height})&#39;,
+    );
+  }
+  final File croppedFile = await BackgroundTaskUpload.getFile(croppedPath);
+  final ImageCropper imageCropper = ImageCropper(
+    inputFile: fullFile,
+    outputFile: croppedFile,
+    crop: getDownsizedRect(cropX1, cropY1, cropX2, cropY2),
+    rotation: CropRotationExtension.fromDegrees(rotationDegrees)!,
+    overlayPainter: overlayPainter,
+  );
+  final (int, int) size = await imageCropper.saveCroppedJpeg();
+  return BackgroundCropResult.success(
+    filePath: croppedPath,
+    fileSize: await croppedFile.length(),
+    width: size.$1,
+    height: size.$2,
+    message: &#39;Cropped&#39;,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../background_background_task_image/">background_task_image</a></li>
+    <li><a href="../../background_background_task_image/BackgroundTaskImage-class.html">BackgroundTaskImage</a></li>
+    <li class="self-crumb">cropIfNeeded static method</li>
+</ol>
+
+    <h5>BackgroundTaskImage class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

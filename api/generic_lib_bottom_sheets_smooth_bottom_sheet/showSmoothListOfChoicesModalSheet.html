@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the showSmoothListOfChoicesModalSheet function from the smooth_bottom_sheet library, for the Dart programming language.">
+  <title>showSmoothListOfChoicesModalSheet function - smooth_bottom_sheet library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../generic_lib_bottom_sheets_smooth_bottom_sheet/">generic_lib&#47;bottom_sheets&#47;smooth_bottom_sheet.dart</a></li>
+    <li class="self-crumb">showSmoothListOfChoicesModalSheet&lt;<wbr><span class="type-parameter">T</span>&gt; function</li>
+  </ol>
+  <div class="self-name">showSmoothListOfChoicesModalSheet</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+  <div
+      id="dartdoc-main-content"
+      class="main-content"
+      data-above-sidebar="generic_lib_bottom_sheets_smooth_bottom_sheet&#47;generic_lib_bottom_sheets_smooth_bottom_sheet-library-sidebar.html"
+      data-below-sidebar="">
+      <div>
+<h1><span class="kind-function">showSmoothListOfChoicesModalSheet&lt;<wbr><span class="type-parameter">T</span>&gt;</span> function 
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">T?</span>&gt;</span></span>
+<span class="name ">showSmoothListOfChoicesModalSheet</span>&lt;<wbr><span class="type-parameter">T</span>&gt;(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-context"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-title"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">title</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-labels"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span></span> <span class="parameter-name">labels</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-values"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span> <span class="parameter-name">values</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-dynamicSize"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">dynamicSize</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-subtitles"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>&gt;</span>?</span> <span class="parameter-name">subtitles</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-addEndArrowToItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">addEndArrowToItems</span> = <span class="default-value">false</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-header"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">header</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-footer"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">footer</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIcons"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>&gt;</span>?</span> <span class="parameter-name">prefixIcons</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIconTint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">prefixIconTint</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-suffixIcons"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Iterable-class.html">Iterable</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>&gt;</span>?</span> <span class="parameter-name">suffixIcons</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-suffixIconTint"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">suffixIconTint</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-padding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">padding</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-contentPadding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">contentPadding</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-dividerPadding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a>?</span> <span class="parameter-name">dividerPadding</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-textStyle"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">textStyle</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-headerBackgroundColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">headerBackgroundColor</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-footerBackgroundColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">footerBackgroundColor</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-prefixIndicatorColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">prefixIndicatorColor</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-footerSpace"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">footerSpace</span> = <span class="default-value">0.0</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-type"><span class="type-annotation"><a href="../generic_lib_bottom_sheets_smooth_bottom_sheet/SmoothModalSheetType.html">SmoothModalSheetType</a></span> <span class="parameter-name">type</span> = <span class="default-value">SmoothModalSheetType.info</span>, </span></li>
+<li><span class="parameter" id="showSmoothListOfChoicesModalSheet-param-useRootNavigator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">useRootNavigator</span>, </span></li>
+</ol>})
+
+        
+
+    </section>
+    
+<section class="desc markdown">
+  <p>A modal sheet with a limited list (no scroll)</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;T?&gt; showSmoothListOfChoicesModalSheet&lt;T&gt;({
+  required BuildContext context,
+  required String title,
+  required Iterable&lt;String&gt; labels,
+  required Iterable&lt;T&gt; values,
+  &#47;&#47; If the size may change once the modal is shown
+  bool dynamicSize = false,
+  Iterable&lt;String&gt;? subtitles,
+  bool addEndArrowToItems = false,
+  Widget? header,
+  Widget? footer,
+  Iterable&lt;Widget&gt;? prefixIcons,
+  Color? prefixIconTint,
+  Iterable&lt;Widget&gt;? suffixIcons,
+  Color? suffixIconTint,
+  EdgeInsetsGeometry? padding,
+  EdgeInsetsGeometry? contentPadding,
+  EdgeInsetsGeometry? dividerPadding,
+  TextStyle? textStyle,
+  Color? headerBackgroundColor,
+  Color? footerBackgroundColor,
+  Color? prefixIndicatorColor,
+  double footerSpace = 0.0,
+  SmoothModalSheetType type = SmoothModalSheetType.info,
+  bool? useRootNavigator,
+}) {
+  assert(labels.length == values.length);
+  assert(prefixIcons == null || values.length == prefixIcons.length);
+  assert(suffixIcons == null || values.length == suffixIcons.length);
+  assert(prefixIconTint == null || prefixIcons != null);
+  assert(suffixIconTint == null || suffixIcons != null);
+
+  final List&lt;Widget&gt; items = &lt;Widget&gt;[];
+
+  if (header != null) {
+    items.add(header);
+  }
+
+  for (int i = 0; i &lt; labels.length; i++) {
+    items.add(
+      ListTile(
+        leading: prefixIcons != null
+            ? IconTheme.merge(
+                data: IconThemeData(color: prefixIconTint),
+                child: prefixIcons.elementAt(i),
+              )
+            : null,
+        title: Text(
+          labels.elementAt(i),
+          style:
+              textStyle ??
+              TextStyle(
+                fontWeight: subtitles != null
+                    ? FontWeight.bold
+                    : FontWeight.w500,
+              ),
+        ),
+        subtitle: subtitles != null ? Text(subtitles.elementAt(i)) : null,
+        contentPadding:
+            contentPadding ??
+            EdgeInsetsDirectional.only(
+              start: LARGE_SPACE,
+              end: addEndArrowToItems ? 16.25 : LARGE_SPACE,
+            ),
+        trailing: (suffixIcons != null
+            ? IconTheme.merge(
+                data: IconThemeData(color: suffixIconTint),
+                child: suffixIcons.elementAt(i),
+              )
+            : (addEndArrowToItems
+                  ? const _SmoothListOfChoicesEndArrow()
+                  : null)),
+        onTap: () =&gt; Navigator.of(context).pop(values.elementAt(i)),
+      ),
+    );
+
+    if (i &lt; labels.length - 1) {
+      const Widget divider = Divider(height: 1.0);
+
+      if (dividerPadding != null) {
+        items.add(Padding(padding: dividerPadding, child: divider));
+      } else {
+        items.add(divider);
+      }
+    }
+  }
+
+  if (footer != null) {
+    if (footerSpace &gt; 0.0) {
+      items.add(SizedBox(height: footerSpace));
+    }
+
+    Widget footerChild = footer;
+
+    if (footerBackgroundColor != null) {
+      footerChild = ColoredBox(
+        color: footerBackgroundColor,
+        child: footerChild,
+      );
+    }
+
+    items.add(footerChild);
+  }
+
+  if (dynamicSize) {
+    return showSmoothModalSheet&lt;T&gt;(
+      context: context,
+      useRootNavigator: useRootNavigator ?? false,
+      builder: (_) =&gt; SafeArea(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: &lt;Widget&gt;[
+            SmoothModalSheetHeader(
+              title: title,
+              prefix: SmoothModalSheetHeaderPrefixIndicator(
+                color: prefixIndicatorColor,
+              ),
+              backgroundColor: headerBackgroundColor,
+              type: type,
+            ),
+            ...items,
+          ],
+        ),
+      ),
+    );
+  }
+
+  return showSmoothAutoSizeModalSheet&lt;T&gt;(
+    context: context,
+    useRootNavigator: useRootNavigator ?? false,
+    useSafeArea: false,
+    header: SmoothModalSheetHeader(
+      title: title,
+      prefix: SmoothModalSheetHeaderPrefixIndicator(
+        color: prefixIndicatorColor,
+      ),
+      backgroundColor: headerBackgroundColor,
+      type: type,
+    ),
+    bodyBuilder: (_) =&gt; SafeArea(
+      child: Column(mainAxisSize: MainAxisSize.min, children: items),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../generic_lib_bottom_sheets_smooth_bottom_sheet/">smooth_bottom_sheet</a></li>
+    <li class="self-crumb">showSmoothListOfChoicesModalSheet&lt;<wbr><span class="type-parameter">T</span>&gt; function</li>
+</ol>
+
+    <h5>smooth_bottom_sheet library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-left-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

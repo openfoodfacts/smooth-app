@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the shouldRepaint method from the DashedBorderPainter class, for the Dart programming language.">
+  <title>shouldRepaint method - DashedBorderPainter class - paint_helper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../helpers_paint_helper/">helpers&#47;paint_helper.dart</a></li>
+    <li><a href="../../helpers_paint_helper/DashedBorderPainter-class.html">DashedBorderPainter</a></li>
+    <li class="self-crumb">shouldRepaint method</li>
+  </ol>
+  <div class="self-name">shouldRepaint</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="helpers_paint_helper&#47;DashedBorderPainter-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">shouldRepaint</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+<span class="name ">shouldRepaint</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="shouldRepaint-param-oldDelegate"><span>covariant</span> <span class="type-annotation"><a href="../../helpers_paint_helper/DashedBorderPainter-class.html">DashedBorderPainter</a></span> <span class="parameter-name">oldDelegate</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Called whenever a new instance of the custom painter delegate class is
+provided to the <a href="https://api.flutter.dev/flutter/rendering/RenderCustomPaint-class.html">RenderCustomPaint</a> object, or any time that a new
+<a href="https://api.flutter.dev/flutter/widgets/CustomPaint-class.html">CustomPaint</a> object is created with a new instance of the custom painter
+delegate class (which amounts to the same thing, because the latter is
+implemented in terms of the former).</p>
+<p>If the new instance represents different information than the old
+instance, then the method should return true, otherwise it should return
+false.</p>
+<p>If the method returns false, then the <a href="../../helpers_paint_helper/DashedBorderPainter/paint.html">paint</a> call might be optimized
+away.</p>
+<p>It's possible that the <a href="../../helpers_paint_helper/DashedBorderPainter/paint.html">paint</a> method will get called even if
+<a href="../../helpers_paint_helper/DashedBorderPainter/shouldRepaint.html">shouldRepaint</a> returns false (e.g. if an ancestor or descendant needed to
+be repainted). It's also possible that the <a href="../../helpers_paint_helper/DashedBorderPainter/paint.html">paint</a> method will get called
+without <a href="../../helpers_paint_helper/DashedBorderPainter/shouldRepaint.html">shouldRepaint</a> being called at all (e.g. if the box changes
+size).</p>
+<p>If a custom delegate has a particularly expensive paint function such that
+repaints should be avoided as much as possible, a <a href="https://api.flutter.dev/flutter/widgets/RepaintBoundary-class.html">RepaintBoundary</a> or
+<a href="https://api.flutter.dev/flutter/rendering/RenderRepaintBoundary-class.html">RenderRepaintBoundary</a> (or other render object with
+<a href="https://api.flutter.dev/flutter/rendering/RenderObject/isRepaintBoundary.html">RenderObject.isRepaintBoundary</a> set to true) might be helpful.</p>
+<p>The <code>oldDelegate</code> argument will never be null.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+bool shouldRepaint(DashedBorderPainter oldDelegate) =&gt;
+    dashGap != oldDelegate.dashGap ||
+    dashSpace != oldDelegate.dashSpace ||
+    borderRadius != oldDelegate.borderRadius ||
+    sides != oldDelegate.sides;</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../helpers_paint_helper/">paint_helper</a></li>
+    <li><a href="../../helpers_paint_helper/DashedBorderPainter-class.html">DashedBorderPainter</a></li>
+    <li class="self-crumb">shouldRepaint method</li>
+</ol>
+
+    <h5>DashedBorderPainter class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

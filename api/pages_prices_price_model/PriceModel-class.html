@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the PriceModel class from the price_model library, for the Dart programming language.">
+  <title>PriceModel class - price_model library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../pages_prices_price_model/">pages&#47;prices&#47;price_model.dart</a></li>
+    <li class="self-crumb">PriceModel class</li>
+  </ol>
+  <div class="self-name">PriceModel</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="pages_prices_price_model&#47;pages_prices_price_model-library-sidebar.html"
+    data-below-sidebar="pages_prices_price_model&#47;PriceModel-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">PriceModel</span> class 
+ 
+</h1></div>
+
+    
+<section class="desc markdown">
+  <p>Price Model (checks and background task call) for price adding.</p>
+</section>
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+
+        
+        
+  <dt>Mixed-in types</dt>
+  <dd>
+    <ul class="comma-separated clazz-relationships">
+        <li><a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html">ChangeNotifier</a></li>
+    </ul>
+  </dd>
+
+
+        
+  <dt>Available extensions</dt>
+  <dd><ul class="comma-separated clazz-relationships">
+      <li><a href="../helpers_provider_helper/ChangeNotifierExtensions.html">ChangeNotifierExtensions</a></li>
+  </ul></dd>
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="PriceModel.new" class="callable">
+          <span class="name"><a href="../pages_prices_price_model/PriceModel/PriceModel.html">PriceModel</a></span><span class="signature">({<span class="parameter" id="param-proofType"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/ProofType.html">ProofType</a></span> <span class="parameter-name">proofType</span>, </span><span class="parameter" id="param-currency"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Currency.html">Currency</a></span> <span class="parameter-name">currency</span>, </span><span class="parameter" id="param-multipleProducts"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">multipleProducts</span>, </span><span class="parameter" id="param-initialProduct"><span class="type-annotation"><a href="../pages_prices_price_meta_product/PriceMetaProduct-class.html">PriceMetaProduct</a>?</span> <span class="parameter-name">initialProduct</span>, </span><span class="parameter" id="param-readyForPriceTagValidation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">readyForPriceTagValidation</span> = <span class="default-value">false</span></span>})</span>
+        </dt>
+        <dd>
+          
+        </dd>
+        <dt id="PriceModel.proof" class="callable">
+          <span class="name"><a href="../pages_prices_price_model/PriceModel/PriceModel.proof.html">PriceModel.proof</a></span><span class="signature">({<span class="parameter" id="proof-param-proof"><span>required</span> <span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Proof-class.html">Proof</a></span> <span class="parameter-name">proof</span>, </span><span class="parameter" id="proof-param-existingPrices"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Price-class.html">Price</a></span>&gt;</span>?</span> <span class="parameter-name">existingPrices</span></span>})</span>
+        </dt>
+        <dd>
+          
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="cropParameters" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/cropParameters.html">cropParameters</a></span>
+  <span class="signature">&#8596; <a href="../pages_crop_parameters/CropParameters-class.html">CropParameters</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+        <dt id="currency" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/currency.html">currency</a></span>
+  <span class="signature">&#8596; <a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Currency.html">Currency</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+        <dt id="date" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/date.html">date</a></span>
+  <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+        <dt id="existingPrices" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/existingPrices.html">existingPrices</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Price-class.html">Price</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="firstDate" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/firstDate.html">firstDate</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hasChanged" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/hasChanged.html">hasChanged</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="hasImage" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/hasImage.html">hasImage</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="hasListeners" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier/hasListeners.html">hasListeners</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether any listeners are currently registered.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="length" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/length.html">length</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="location" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/location.html">location</a></span>
+  <span class="signature">&#8596; <a href="../pages_locations_osm_location/OsmLocation-class.html">OsmLocation</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+        <dt id="multipleProducts" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/multipleProducts.html">multipleProducts</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  "Should we support multiple products?" (instead of a single product).
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="priceAmountModels" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/priceAmountModels.html">priceAmountModels</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_prices_price_amount_model/PriceAmountModel-class.html">PriceAmountModel</a></span>&gt;</span></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="proof" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/proof.html">proof</a></span>
+  <span class="signature">&#8594; <a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Proof-class.html">Proof</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="proofType" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/proofType.html">proofType</a></span>
+  <span class="signature">&#8596; <a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/ProofType.html">ProofType</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+        <dt id="readyForPriceTagValidation" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/readyForPriceTagValidation.html">readyForPriceTagValidation</a></span>
+  <span class="signature">&#8596; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">getter/setter pair</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="today" class="property">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/today.html">today</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/DateTime-class.html">DateTime</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="add" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/add.html">add</a></span><span class="signature">(<wbr><span class="parameter" id="add-param-priceAmountModel"><span class="type-annotation"><a href="../pages_prices_price_amount_model/PriceAmountModel-class.html">PriceAmountModel</a></span> <span class="parameter-name">priceAmountModel</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="addListener" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier/addListener.html">addListener</a></span><span class="signature">(<wbr><span class="parameter" id="addListener-param-listener"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Register a closure to be called when the object changes.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="addTask" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/addTask.html">addTask</a></span><span class="signature">(<wbr><span class="parameter" id="addTask-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, {</span><span class="parameter" id="addTask-param-displaySnackbar"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">displaySnackbar</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Adds the related background task.
+  
+
+</dd>
+
+        <dt id="checkParameters" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/checkParameters.html">checkParameters</a></span><span class="signature">(<wbr><span class="parameter" id="checkParameters-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Returns the error message of the parameter check, or null if OK.
+  
+
+</dd>
+
+        <dt id="clearProof" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/clearProof.html">clearProof</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="dispose" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/dispose.html">dispose</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Discards any resources used by the object.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="elementAt" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/elementAt.html">elementAt</a></span><span class="signature">(<wbr><span class="parameter" id="elementAt-param-index"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">index</span></span>)
+    <span class="returntype parameter">&#8594; <a href="../pages_prices_price_amount_model/PriceAmountModel-class.html">PriceAmountModel</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="notifyListeners" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/notifyListeners.html">notifyListeners</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  Call all the registered listeners.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="removeAt" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/removeAt.html">removeAt</a></span><span class="signature">(<wbr><span class="parameter" id="removeAt-param-index"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">index</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="removeListener" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier/removeListener.html">removeListener</a></span><span class="signature">(<wbr><span class="parameter" id="removeListener-param-listener"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Remove a previously registered closure from the list of closures that are
+notified when the object changes.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="replaceListener" class="callable">
+  <span class="name"><a href="../helpers_provider_helper/ChangeNotifierExtensions/replaceListener.html">replaceListener</a></span><span class="signature">(<wbr><span class="parameter" id="replaceListener-param-listener"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/VoidCallback.html">VoidCallback</a></span> <span class="parameter-name">listener</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+      <p class="from-extension">
+        <span>Available on <a href="https://api.flutter.dev/flutter/foundation/ChangeNotifier-class.html">ChangeNotifier</a>,
+        provided by the <a href="../helpers_provider_helper/ChangeNotifierExtensions.html">ChangeNotifierExtensions</a> extension</span>
+      </p>
+  
+  
+
+</dd>
+
+        <dt id="setProof" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/setProof.html">setProof</a></span><span class="signature">(<wbr><span class="parameter" id="setProof-param-proof"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Proof-class.html">Proof</a></span> <span class="parameter-name">proof</span>, {</span><span class="parameter" id="setProof-param-init"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">init</span> = <span class="default-value">false</span></span>})
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/toString.html">toString</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+  <section class="summary offset-anchor" id="static-methods">
+    <h2>Static Methods</h2>
+    <dl class="callables">
+        <dt id="isProofNotGoodEnough" class="callable">
+  <span class="name"><a href="../pages_prices_price_model/PriceModel/isProofNotGoodEnough.html">isProofNotGoodEnough</a></span><span class="signature">(<wbr><span class="parameter" id="isProofNotGoodEnough-param-proof"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/Proof-class.html">Proof</a></span> <span class="parameter-name">proof</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Checks if a proof cannot be reused for prices adding.
+  
+
+</dd>
+
+    </dl>
+  </section>
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../pages_prices_price_model/">price_model</a></li>
+    <li class="self-crumb">PriceModel class</li>
+</ol>
+
+    <h5>price_model library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

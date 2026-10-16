@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the SmoothScaffold class from the smooth_scaffold library, for the Dart programming language.">
+  <title>SmoothScaffold class - smooth_scaffold library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../widgets_smooth_scaffold/">widgets&#47;smooth_scaffold.dart</a></li>
+    <li class="self-crumb">SmoothScaffold class</li>
+  </ol>
+  <div class="self-name">SmoothScaffold</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets_smooth_scaffold&#47;widgets_smooth_scaffold-library-sidebar.html"
+    data-below-sidebar="widgets_smooth_scaffold&#47;SmoothScaffold-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">SmoothScaffold</span> class 
+ 
+</h1></div>
+
+    
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
+        <li><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+        <li><a href="https://api.flutter.dev/flutter/material/Scaffold-class.html">Scaffold</a></li>
+      <li>SmoothScaffold</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="SmoothScaffold.new" class="callable">
+          <span class="name"><a href="../widgets_smooth_scaffold/SmoothScaffold/SmoothScaffold.html">SmoothScaffold</a></span><span class="signature">({<span class="parameter" id="param-statusBarBackgroundColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">statusBarBackgroundColor</span>, </span><span class="parameter" id="param-contentBehindStatusBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">contentBehindStatusBar</span> = <span class="default-value">false</span>, </span><span class="parameter" id="param-spaceBehindStatusBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">spaceBehindStatusBar</span> = <span class="default-value">false</span>, </span><span class="parameter" id="param-fixKeyboard"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">fixKeyboard</span> = <span class="default-value">false</span>, </span><span class="parameter" id="param-changeStatusBarBrightness"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">changeStatusBarBrightness</span> = <span class="default-value">true</span>, </span><span class="parameter" id="param-resizeToAvoidBottomInset"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">resizeToAvoidBottomInset</span>, </span><span class="parameter" id="param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="param-appBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/PreferredSizeWidget-class.html">PreferredSizeWidget</a>?</span> <span class="parameter-name">appBar</span>, </span><span class="parameter" id="param-body"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">body</span>, </span><span class="parameter" id="param-floatingActionButton"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">floatingActionButton</span>, </span><span class="parameter" id="param-floatingActionButtonLocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/FloatingActionButtonLocation-class.html">FloatingActionButtonLocation</a>?</span> <span class="parameter-name">floatingActionButtonLocation</span>, </span><span class="parameter" id="param-floatingActionButtonAnimator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/FloatingActionButtonAnimator-class.html">FloatingActionButtonAnimator</a>?</span> <span class="parameter-name">floatingActionButtonAnimator</span>, </span><span class="parameter" id="param-persistentFooterButtons"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>&gt;</span>?</span> <span class="parameter-name">persistentFooterButtons</span>, </span><span class="parameter" id="param-persistentFooterAlignment"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/AlignmentDirectional-class.html">AlignmentDirectional</a></span> <span class="parameter-name">persistentFooterAlignment</span> = <span class="default-value">AlignmentDirectional.centerEnd</span>, </span><span class="parameter" id="param-drawer"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">drawer</span>, </span><span class="parameter" id="param-onDrawerChanged"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/DrawerCallback.html">DrawerCallback</a>?</span> <span class="parameter-name">onDrawerChanged</span>, </span><span class="parameter" id="param-endDrawer"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">endDrawer</span>, </span><span class="parameter" id="param-onEndDrawerChanged"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/material/DrawerCallback.html">DrawerCallback</a>?</span> <span class="parameter-name">onEndDrawerChanged</span>, </span><span class="parameter" id="param-bottomNavigationBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">bottomNavigationBar</span>, </span><span class="parameter" id="param-bottomSheet"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">bottomSheet</span>, </span><span class="parameter" id="param-backgroundColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">backgroundColor</span>, </span><span class="parameter" id="param-primary"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">primary</span> = <span class="default-value">true</span>, </span><span class="parameter" id="param-drawerDragStartBehavior"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/gestures/DragStartBehavior.html">DragStartBehavior</a></span> <span class="parameter-name">drawerDragStartBehavior</span> = <span class="default-value">DragStartBehavior.start</span>, </span><span class="parameter" id="param-extendBody"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">extendBody</span> = <span class="default-value">false</span>, </span><span class="parameter" id="param-extendBodyBehindAppBar"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">extendBodyBehindAppBar</span> = <span class="default-value">false</span>, </span><span class="parameter" id="param-drawerScrimColor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span> <span class="parameter-name">drawerScrimColor</span>, </span><span class="parameter" id="param-drawerEdgeDragWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span> <span class="parameter-name">drawerEdgeDragWidth</span>, </span><span class="parameter" id="param-drawerEnableOpenDragGesture"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">drawerEnableOpenDragGesture</span> = <span class="default-value">true</span>, </span><span class="parameter" id="param-endDrawerEnableOpenDragGesture"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">endDrawerEnableOpenDragGesture</span> = <span class="default-value">true</span>, </span><span class="parameter" id="param-restorationId"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">restorationId</span></span>})</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="appBar" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/appBar.html">appBar</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/PreferredSizeWidget-class.html">PreferredSizeWidget</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  An app bar to display at the top of the scaffold.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="backgroundColor" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/backgroundColor.html">backgroundColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The color of the <a href="https://api.flutter.dev/flutter/material/Material-class.html">Material</a> widget that underlies the entire Scaffold.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="body" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/body.html">body</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The primary content of the scaffold.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="bottomNavigationBar" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/bottomNavigationBar.html">bottomNavigationBar</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  A bottom navigation bar to display at the bottom of the scaffold.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="bottomSheet" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/bottomSheet.html">bottomSheet</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The persistent bottom sheet to display.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="bottomSheetScrimBuilder" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/bottomSheetScrimBuilder.html">bottomSheetScrimBuilder</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>? Function<span class="signature">(<span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span>, </span><span class="parameter" id="param-"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span>&gt;</span></span></span>)</span></span>
+  
+
+</dt>
+<dd class="inherited">
+  A builder for the widget that obscures primary content while a bottom sheet is open.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="changeStatusBarBrightness" class="property">
+  <span class="name"><a href="../widgets_smooth_scaffold/SmoothScaffold/changeStatusBarBrightness.html">changeStatusBarBrightness</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="contentBehindStatusBar" class="property">
+  <span class="name"><a href="../widgets_smooth_scaffold/SmoothScaffold/contentBehindStatusBar.html">contentBehindStatusBar</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="drawer" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/drawer.html">drawer</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  A panel displayed to the side of the <a href="https://api.flutter.dev/flutter/material/Scaffold/body.html">body</a>, often hidden on mobile
+devices. Swipes in from either left-to-right (<a href="https://api.flutter.dev/flutter/dart-ui/TextDirection.html">TextDirection.ltr</a>) or
+right-to-left (<a href="https://api.flutter.dev/flutter/dart-ui/TextDirection.html">TextDirection.rtl</a>)
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="drawerBarrierDismissible" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/drawerBarrierDismissible.html">drawerBarrierDismissible</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether the drawer can be dismissed by tapping on the barrier.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="drawerDragStartBehavior" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/drawerDragStartBehavior.html">drawerDragStartBehavior</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/gestures/DragStartBehavior.html">DragStartBehavior</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Determines the way that drag start behavior is handled.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="drawerEdgeDragWidth" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/drawerEdgeDragWidth.html">drawerEdgeDragWidth</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The width of the area within which a horizontal swipe will open the
+drawer.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="drawerEnableOpenDragGesture" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/drawerEnableOpenDragGesture.html">drawerEnableOpenDragGesture</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Determines if the <a href="https://api.flutter.dev/flutter/material/Scaffold/drawer.html">Scaffold.drawer</a> can be opened with a drag
+gesture on mobile.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="drawerScrimColor" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/drawerScrimColor.html">drawerScrimColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  The color to use for the scrim that obscures primary content while a drawer is open.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="endDrawer" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/endDrawer.html">endDrawer</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  A panel displayed to the side of the <a href="https://api.flutter.dev/flutter/material/Scaffold/body.html">body</a>, often hidden on mobile
+devices. Swipes in from right-to-left (<a href="https://api.flutter.dev/flutter/dart-ui/TextDirection.html">TextDirection.ltr</a>) or
+left-to-right (<a href="https://api.flutter.dev/flutter/dart-ui/TextDirection.html">TextDirection.rtl</a>)
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="endDrawerEnableOpenDragGesture" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/endDrawerEnableOpenDragGesture.html">endDrawerEnableOpenDragGesture</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Determines if the <a href="https://api.flutter.dev/flutter/material/Scaffold/endDrawer.html">Scaffold.endDrawer</a> can be opened with a
+gesture on mobile.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="extendBody" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/extendBody.html">extendBody</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  If true, and <a href="https://api.flutter.dev/flutter/material/Scaffold/bottomNavigationBar.html">bottomNavigationBar</a> or <a href="https://api.flutter.dev/flutter/material/Scaffold/persistentFooterButtons.html">persistentFooterButtons</a>
+is specified, then the <a href="https://api.flutter.dev/flutter/material/Scaffold/body.html">body</a> extends to the bottom of the Scaffold,
+instead of only extending to the top of the <a href="https://api.flutter.dev/flutter/material/Scaffold/bottomNavigationBar.html">bottomNavigationBar</a>
+or the <a href="https://api.flutter.dev/flutter/material/Scaffold/persistentFooterButtons.html">persistentFooterButtons</a>.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="extendBodyBehindAppBar" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/extendBodyBehindAppBar.html">extendBodyBehindAppBar</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  If true, and an <a href="https://api.flutter.dev/flutter/material/Scaffold/appBar.html">appBar</a> is specified, then the height of the <a href="https://api.flutter.dev/flutter/material/Scaffold/body.html">body</a> is
+extended to include the height of the app bar and the top of the body
+is aligned with the top of the app bar.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="fixKeyboard" class="property">
+  <span class="name"><a href="../widgets_smooth_scaffold/SmoothScaffold/fixKeyboard.html">fixKeyboard</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  On some screens an extra padding maybe wrongly added when the keyboard is
+visible
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="floatingActionButton" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/floatingActionButton.html">floatingActionButton</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  A button displayed floating above <a href="https://api.flutter.dev/flutter/material/Scaffold/body.html">body</a>, in the bottom right corner.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="floatingActionButtonAnimator" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/floatingActionButtonAnimator.html">floatingActionButtonAnimator</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/material/FloatingActionButtonAnimator-class.html">FloatingActionButtonAnimator</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Animator to move the <a href="https://api.flutter.dev/flutter/material/Scaffold/floatingActionButton.html">floatingActionButton</a> to a new <a href="https://api.flutter.dev/flutter/material/Scaffold/floatingActionButtonLocation.html">floatingActionButtonLocation</a>.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="floatingActionButtonLocation" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/floatingActionButtonLocation.html">floatingActionButtonLocation</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/material/FloatingActionButtonLocation-class.html">FloatingActionButtonLocation</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Responsible for determining where the <a href="https://api.flutter.dev/flutter/material/Scaffold/floatingActionButton.html">floatingActionButton</a> should go.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="onDrawerChanged" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/onDrawerChanged.html">onDrawerChanged</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/material/DrawerCallback.html">DrawerCallback</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Optional callback that is called when the <a href="https://api.flutter.dev/flutter/material/Scaffold/drawer.html">Scaffold.drawer</a> is opened or closed.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="onEndDrawerChanged" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/onEndDrawerChanged.html">onEndDrawerChanged</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/material/DrawerCallback.html">DrawerCallback</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Optional callback that is called when the <a href="https://api.flutter.dev/flutter/material/Scaffold/endDrawer.html">Scaffold.endDrawer</a> is opened or closed.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="persistentFooterAlignment" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/persistentFooterAlignment.html">persistentFooterAlignment</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/AlignmentDirectional-class.html">AlignmentDirectional</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The alignment of the <a href="https://api.flutter.dev/flutter/material/Scaffold/persistentFooterButtons.html">persistentFooterButtons</a> inside the <a href="https://api.flutter.dev/flutter/widgets/OverflowBar-class.html">OverflowBar</a>.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="persistentFooterButtons" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/persistentFooterButtons.html">persistentFooterButtons</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>&gt;</span>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  A set of buttons that are displayed at the bottom of the scaffold.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="persistentFooterDecoration" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/persistentFooterDecoration.html">persistentFooterDecoration</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/BoxDecoration-class.html">BoxDecoration</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Decoration for the container that holds the <a href="https://api.flutter.dev/flutter/material/Scaffold/persistentFooterButtons.html">persistentFooterButtons</a>.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="primary" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/primary.html">primary</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  Whether this scaffold is being displayed at the top of the screen.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="resizeToAvoidBottomInset" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/resizeToAvoidBottomInset.html">resizeToAvoidBottomInset</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  If true the <a href="https://api.flutter.dev/flutter/material/Scaffold/body.html">body</a> and the scaffold's floating widgets should size
+themselves to avoid the onscreen keyboard whose height is defined by the
+ambient <a href="https://api.flutter.dev/flutter/widgets/MediaQuery-class.html">MediaQuery</a>'s <a href="https://api.flutter.dev/flutter/widgets/MediaQueryData/viewInsets.html">MediaQueryData.viewInsets</a> <code>bottom</code> property.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="restorationId" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/material/Scaffold/restorationId.html">restorationId</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Restoration ID to save and restore the state of the <a href="https://api.flutter.dev/flutter/material/Scaffold-class.html">Scaffold</a>.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="spaceBehindStatusBar" class="property">
+  <span class="name"><a href="../widgets_smooth_scaffold/SmoothScaffold/spaceBehindStatusBar.html">spaceBehindStatusBar</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="statusBarBackgroundColor" class="property">
+  <span class="name"><a href="../widgets_smooth_scaffold/SmoothScaffold/statusBarBackgroundColor.html">statusBarBackgroundColor</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates a <a href="https://api.flutter.dev/flutter/widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="../widgets_smooth_scaffold/SmoothScaffold/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/material/ScaffoldState-class.html">ScaffoldState</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section class="summary offset-anchor" id="static-properties">
+    <h2>Static Properties</h2>
+    <dl class="properties">
+        <dt id="semiTranslucentStatusBar" class="property">
+  <span class="name"><a href="../widgets_smooth_scaffold/SmoothScaffold/semiTranslucentStatusBar.html">semiTranslucentStatusBar</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-ui/Color-class.html">Color</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../widgets_smooth_scaffold/">smooth_scaffold</a></li>
+    <li class="self-crumb">SmoothScaffold class</li>
+</ol>
+
+    <h5>smooth_scaffold library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

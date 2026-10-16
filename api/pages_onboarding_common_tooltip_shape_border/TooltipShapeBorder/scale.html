@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the scale method from the TooltipShapeBorder class, for the Dart programming language.">
+  <title>scale method - TooltipShapeBorder class - tooltip_shape_border library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_onboarding_common_tooltip_shape_border/">pages&#47;onboarding&#47;common&#47;tooltip_shape_border.dart</a></li>
+    <li><a href="../../pages_onboarding_common_tooltip_shape_border/TooltipShapeBorder-class.html">TooltipShapeBorder</a></li>
+    <li class="self-crumb">scale method</li>
+  </ol>
+  <div class="self-name">scale</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="pages_onboarding_common_tooltip_shape_border&#47;TooltipShapeBorder-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">scale</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/painting/ShapeBorder-class.html">ShapeBorder</a></span>
+<span class="name ">scale</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="scale-param-t"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">t</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Creates a copy of this border, scaled by the factor <code>t</code>.</p>
+<p>Typically this means scaling the width of the border's side, but it can
+also include scaling other artifacts of the border, e.g. the border radius
+of a <a href="https://api.flutter.dev/flutter/painting/RoundedRectangleBorder-class.html">RoundedRectangleBorder</a>.</p>
+<p>The <code>t</code> argument represents the multiplicand, or the position on the
+timeline for an interpolation from nothing to <code>this</code>, with 0.0 meaning
+that the object returned should be the nil variant of this object, 1.0
+meaning that no change should be applied, returning <code>this</code> (or something
+equivalent to <code>this</code>), and other values meaning that the object should be
+multiplied by <code>t</code>. Negative values are allowed but may be meaningless
+(they correspond to extrapolating the interpolation from this object to
+nothing, and going beyond nothing)</p>
+<p>Values for <code>t</code> are usually obtained from an <a href="https://api.flutter.dev/flutter/animation/Animation-class.html">Animation&lt;double&gt;</a>, such as
+an <a href="https://api.flutter.dev/flutter/animation/AnimationController-class.html">AnimationController</a>.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/painting/BorderSide/scale.html">BorderSide.scale</a>, which most <a href="https://api.flutter.dev/flutter/painting/ShapeBorder-class.html">ShapeBorder</a> subclasses defer to for
+the actual computation.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+ShapeBorder scale(double t) =&gt; this;</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_onboarding_common_tooltip_shape_border/">tooltip_shape_border</a></li>
+    <li><a href="../../pages_onboarding_common_tooltip_shape_border/TooltipShapeBorder-class.html">TooltipShapeBorder</a></li>
+    <li class="self-crumb">scale method</li>
+</ol>
+
+    <h5>TooltipShapeBorder class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

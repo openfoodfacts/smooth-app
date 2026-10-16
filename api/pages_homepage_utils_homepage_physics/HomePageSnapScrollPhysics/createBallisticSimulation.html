@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the createBallisticSimulation method from the HomePageSnapScrollPhysics class, for the Dart programming language.">
+  <title>createBallisticSimulation method - HomePageSnapScrollPhysics class - homepage_physics library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_homepage_utils_homepage_physics/">pages&#47;homepage&#47;utils&#47;homepage_physics.dart</a></li>
+    <li><a href="../../pages_homepage_utils_homepage_physics/HomePageSnapScrollPhysics-class.html">HomePageSnapScrollPhysics</a></li>
+    <li class="self-crumb">createBallisticSimulation method</li>
+  </ol>
+  <div class="self-name">createBallisticSimulation</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="pages_homepage_utils_homepage_physics&#47;HomePageSnapScrollPhysics-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">createBallisticSimulation</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/physics/Simulation-class.html">Simulation</a>?</span>
+<span class="name ">createBallisticSimulation</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="createBallisticSimulation-param-position"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollMetrics-mixin.html">ScrollMetrics</a></span> <span class="parameter-name">position</span>, </span></li>
+<li><span class="parameter" id="createBallisticSimulation-param-velocity"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">velocity</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Returns a simulation for ballistic scrolling starting from the given
+position with the given velocity.</p>
+<p>This is used by <a href="https://api.flutter.dev/flutter/widgets/ScrollPositionWithSingleContext-class.html">ScrollPositionWithSingleContext</a> in the
+<a href="https://api.flutter.dev/flutter/widgets/ScrollPositionWithSingleContext/goBallistic.html">ScrollPositionWithSingleContext.goBallistic</a> method. If the result
+is non-null, <a href="https://api.flutter.dev/flutter/widgets/ScrollPositionWithSingleContext-class.html">ScrollPositionWithSingleContext</a> will begin a
+<a href="https://api.flutter.dev/flutter/widgets/BallisticScrollActivity-class.html">BallisticScrollActivity</a> with the returned value. Otherwise, it will
+begin an idle activity instead.</p>
+<p>The given <code>position</code> is only valid during this method call. Do not keep a
+reference to it to use later, as the values may update, may not update, or
+may update to reflect an entirely unrelated scrollable.</p>
+<p>This method can potentially be called in every frame, even in the middle
+of what the user perceives as a single ballistic scroll.  For example, in
+a <a href="https://api.flutter.dev/flutter/widgets/ListView-class.html">ListView</a> when previously off-screen items come into view and are laid
+out, this method may be called with a new <a href="https://api.flutter.dev/flutter/widgets/ScrollMetrics/maxScrollExtent.html">ScrollMetrics.maxScrollExtent</a>.
+The method implementation should ensure that when the same ballistic
+scroll motion is still intended, these calls have no side effects on the
+physics beyond continuing that motion.</p>
+<p>Generally this is ensured by having the <a href="https://api.flutter.dev/flutter/physics/Simulation-class.html">Simulation</a> conform to a physical
+metaphor of a particle in ballistic flight, where the forces on the
+particle depend only on its position, velocity, and environment, and not
+on the current time or any internal state.  This means that the
+time-derivative of <a href="https://api.flutter.dev/flutter/physics/Simulation/dx.html">Simulation.dx</a> should be possible to write
+mathematically as a function purely of the values of <a href="https://api.flutter.dev/flutter/physics/Simulation/x.html">Simulation.x</a>,
+<a href="https://api.flutter.dev/flutter/physics/Simulation/dx.html">Simulation.dx</a>, and the parameters used to construct the <a href="https://api.flutter.dev/flutter/physics/Simulation-class.html">Simulation</a>,
+independent of the time.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Simulation? createBallisticSimulation(
+  ScrollMetrics position,
+  double velocity,
+) {
+  final Tolerance tolerance = toleranceFor(position);
+  if (velocity.abs() &lt; tolerance.velocity) {
+    return null;
+  }
+  if (velocity &gt; 0.0 &amp;&amp; position.pixels &gt;= position.maxScrollExtent) {
+    ignoreNextScroll = false;
+    return null;
+  }
+  if (velocity &lt; 0.0 &amp;&amp; position.pixels &lt;= position.minScrollExtent) {
+    ignoreNextScroll = false;
+    return null;
+  }
+
+  final Simulation? simulation = super.createBallisticSimulation(
+    position,
+    velocity,
+  );
+  final double? simulationX = simulation?.x(double.infinity);
+  double? proposedPixels = simulationX;
+
+  if (simulation == null || proposedPixels == null) {
+    final (double? min, _) = _getRange(steps, position.pixels);
+
+    if (min != null &amp;&amp; min != steps.last &amp;&amp; ignoreNextScroll) {
+      return ScrollSpringSimulation(
+        spring,
+        position.pixels,
+        min,
+        velocity,
+        tolerance: toleranceFor(position),
+      );
+    } else {
+      ignoreNextScroll = false;
+      return null;
+    }
+  }
+
+  ignoreNextScroll = false;
+  final (double? min, double? max) = _getRange(steps, position.pixels);
+  bool hasChanged = false;
+  if (min != null &amp;&amp; max == null) {
+    if (proposedPixels &lt; min) {
+      proposedPixels = min;
+      hasChanged = true;
+    }
+  } else if (min != null &amp;&amp; max != null) {
+    if (position.pixels - proposedPixels &gt; 0) {
+      proposedPixels = min;
+    } else {
+      proposedPixels = max;
+    }
+    hasChanged = true;
+  }
+
+  if (_lastPixels == null) {
+    _lastPixels = proposedPixels;
+  } else {
+    _lastPixels = _fixInconsistency(proposedPixels);
+  }
+
+  &#47;&#47;&#47; Smooth scroll to a step
+  if (hasChanged &amp;&amp; (lastStepBlocking || position.pixels &lt; steps.last)) {
+    return ScrollSpringSimulation(
+      spring,
+      position.pixels,
+      _lastPixels!,
+      velocity,
+      tolerance: tolerance,
+    );
+  }
+
+  &#47;&#47;&#47; Normal scrolling
+  return super.createBallisticSimulation(position, velocity);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_homepage_utils_homepage_physics/">homepage_physics</a></li>
+    <li><a href="../../pages_homepage_utils_homepage_physics/HomePageSnapScrollPhysics-class.html">HomePageSnapScrollPhysics</a></li>
+    <li class="self-crumb">createBallisticSimulation method</li>
+</ol>
+
+    <h5>HomePageSnapScrollPhysics class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

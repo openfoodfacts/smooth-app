@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the ProductHeaderDelegate class, for the Dart programming language.">
+  <title>build method - ProductHeaderDelegate class - new_product_header library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_product_product_page_new_product_header/">pages&#47;product&#47;product_page&#47;new_product_header.dart</a></li>
+    <li><a href="../../pages_product_product_page_new_product_header/ProductHeaderDelegate-class.html">ProductHeaderDelegate</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="pages_product_product_page_new_product_header&#47;ProductHeaderDelegate-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">build</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="build-param-shrinkOffset"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/double-class.html">double</a></span> <span class="parameter-name">shrinkOffset</span>, </span></li>
+<li><span class="parameter" id="build-param-overlapsContent"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">overlapsContent</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>The widget to place inside the <a href="https://api.flutter.dev/flutter/widgets/SliverPersistentHeader-class.html">SliverPersistentHeader</a>.</p>
+<p>The <code>context</code> is the <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> of the sliver.</p>
+<p>The <code>shrinkOffset</code> is a distance from <a href="../../pages_product_product_page_new_product_header/ProductHeaderDelegate/maxExtent.html">maxExtent</a> towards <a href="../../pages_product_product_page_new_product_header/ProductHeaderDelegate/minExtent.html">minExtent</a>
+representing the current amount by which the sliver has been shrunk. When
+the <code>shrinkOffset</code> is zero, the contents will be rendered with a dimension
+of <a href="../../pages_product_product_page_new_product_header/ProductHeaderDelegate/maxExtent.html">maxExtent</a> in the main axis. When <code>shrinkOffset</code> equals the difference
+between <a href="../../pages_product_product_page_new_product_header/ProductHeaderDelegate/maxExtent.html">maxExtent</a> and <a href="../../pages_product_product_page_new_product_header/ProductHeaderDelegate/minExtent.html">minExtent</a> (a positive number), the contents will
+be rendered with a dimension of <a href="../../pages_product_product_page_new_product_header/ProductHeaderDelegate/minExtent.html">minExtent</a> in the main axis. The
+<code>shrinkOffset</code> will always be a positive number in that range.</p>
+<p>The <code>overlapsContent</code> argument is true if subsequent slivers (if any) will
+be rendered beneath this one, and false if the sliver will not have any
+contents below it. Typically this is used to decide whether to draw a
+shadow to simulate the sliver being above the contents below it. Typically
+this is true when <code>shrinkOffset</code> is at its greatest value and false
+otherwise, but that is not guaranteed. See <a href="https://api.flutter.dev/flutter/widgets/NestedScrollView-class.html">NestedScrollView</a> for an
+example of a case where <code>overlapsContent</code>'s value can be unrelated to
+<code>shrinkOffset</code>.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(
+  BuildContext context,
+  double shrinkOffset,
+  bool overlapsContent,
+) {
+  return _ProductHeader(backButtonType: backButtonType);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_product_product_page_new_product_header/">new_product_header</a></li>
+    <li><a href="../../pages_product_product_page_new_product_header/ProductHeaderDelegate-class.html">ProductHeaderDelegate</a></li>
+    <li class="self-crumb">build method</li>
+</ol>
+
+    <h5>ProductHeaderDelegate class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

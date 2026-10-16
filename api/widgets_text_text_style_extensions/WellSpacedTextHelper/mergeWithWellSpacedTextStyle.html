@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the mergeWithWellSpacedTextStyle method from the WellSpacedTextHelper class, for the Dart programming language.">
+  <title>mergeWithWellSpacedTextStyle method - WellSpacedTextHelper class - text_style_extensions library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../widgets_text_text_style_extensions/">widgets&#47;text&#47;text_style_extensions.dart</a></li>
+    <li><a href="../../widgets_text_text_style_extensions/WellSpacedTextHelper-class.html">WellSpacedTextHelper</a></li>
+    <li class="self-crumb">mergeWithWellSpacedTextStyle static method</li>
+  </ol>
+  <div class="self-name">mergeWithWellSpacedTextStyle</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="widgets_text_text_style_extensions&#47;WellSpacedTextHelper-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">mergeWithWellSpacedTextStyle</span> static method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">mergeWithWellSpacedTextStyle</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-child"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span> <span class="parameter-name">child</span>, </span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-style"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/TextStyle-class.html">TextStyle</a>?</span> <span class="parameter-name">style</span>, </span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-textAlign"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/TextAlign.html">TextAlign</a>?</span> <span class="parameter-name">textAlign</span>, </span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-softWrap"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a>?</span> <span class="parameter-name">softWrap</span>, </span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-overflow"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/TextOverflow.html">TextOverflow</a>?</span> <span class="parameter-name">overflow</span>, </span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-maxLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxLines</span>, </span></li>
+<li><span class="parameter" id="mergeWithWellSpacedTextStyle-param-textWidthBasis"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/TextWidthBasis.html">TextWidthBasis</a>?</span> <span class="parameter-name">textWidthBasis</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static Widget mergeWithWellSpacedTextStyle({
+  required Widget child,
+  Key? key,
+  TextStyle? style,
+  TextAlign? textAlign,
+  bool? softWrap,
+  TextOverflow? overflow,
+  int? maxLines,
+  TextWidthBasis? textWidthBasis,
+}) =&gt; DefaultTextStyle.merge(
+  child: child,
+  key: key,
+  style: style ?? const TextStyle(height: _WELL_SPACED_TEXT_HEIGHT),
+  textAlign: textAlign,
+  softWrap: softWrap,
+  overflow: overflow,
+  maxLines: maxLines,
+  textWidthBasis: textWidthBasis,
+);</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../widgets_text_text_style_extensions/">text_style_extensions</a></li>
+    <li><a href="../../widgets_text_text_style_extensions/WellSpacedTextHelper-class.html">WellSpacedTextHelper</a></li>
+    <li class="self-crumb">mergeWithWellSpacedTextStyle static method</li>
+</ol>
+
+    <h5>WellSpacedTextHelper class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

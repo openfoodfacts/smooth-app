@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the getThemeData method from the SmoothTheme class, for the Dart programming language.">
+  <title>getThemeData method - SmoothTheme class - smooth_theme library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../themes_smooth_theme/">themes&#47;smooth_theme.dart</a></li>
+    <li><a href="../../themes_smooth_theme/SmoothTheme-class.html">SmoothTheme</a></li>
+    <li class="self-crumb">getThemeData static method</li>
+  </ol>
+  <div class="self-name">getThemeData</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="themes_smooth_theme&#47;SmoothTheme-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">getThemeData</span> static method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/material/ThemeData-class.html">ThemeData</a></span>
+<span class="name ">getThemeData</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="getThemeData-param-brightness"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Brightness.html">Brightness</a></span> <span class="parameter-name">brightness</span>, </span></li>
+<li><span class="parameter" id="getThemeData-param-themeProvider"><span class="type-annotation"><a href="../../themes_theme_provider/ThemeProvider-class.html">ThemeProvider</a></span> <span class="parameter-name">themeProvider</span>, </span></li>
+<li><span class="parameter" id="getThemeData-param-colorProvider"><span class="type-annotation"><a href="../../themes_color_provider/ColorProvider-class.html">ColorProvider</a></span> <span class="parameter-name">colorProvider</span>(), </span></li>
+<li><span class="parameter" id="getThemeData-param-textContrastProvider"><span class="type-annotation"><a href="../../themes_contrast_provider/TextContrastProvider-class.html">TextContrastProvider</a></span> <span class="parameter-name">textContrastProvider</span>(), </span></li>
+</ol>)
+
+      
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static ThemeData getThemeData(
+  final Brightness brightness,
+  final ThemeProvider themeProvider,
+  final ColorProvider Function() colorProvider,
+  final TextContrastProvider Function() textContrastProvider,
+) {
+  final bool lightTheme = brightness == Brightness.light;
+  ColorScheme myColorScheme;
+
+  if (lightTheme) {
+    myColorScheme = lightColorScheme;
+  } else {
+    if (themeProvider.currentTheme == THEME_AMOLED) {
+      final ColorProvider colorNotifier = colorProvider();
+
+      myColorScheme = trueDarkColorScheme.copyWith(
+        primary: getColorValue(colorNotifier.currentColor),
+        secondary: getShade(
+          getColorValue(colorNotifier.currentColor),
+          darker: true,
+          value: SECONDARY_COLOR_SHADE_VALUE,
+        ),
+      );
+    } else {
+      myColorScheme = darkColorScheme;
+    }
+  }
+
+  final SmoothColorsThemeExtension smoothExtension =
+      SmoothColorsThemeExtension.defaultValues(lightTheme);
+
+  final TextTheme textTheme = brightness == Brightness.dark
+      ? getTextTheme(themeProvider, textContrastProvider)
+      : _TEXT_THEME;
+
+  return ThemeData(
+    fontFamily: &#39;OpenSans&#39;,
+    primaryColor: DARK_BROWN_COLOR,
+    extensions: &lt;ThemeExtension&lt;dynamic&gt;&gt;[smoothExtension],
+    colorScheme: myColorScheme,
+    canvasColor: themeProvider.currentTheme == THEME_AMOLED
+        ? myColorScheme.surface
+        : null,
+    scaffoldBackgroundColor:
+        themeProvider.currentTheme == THEME_DARK ||
+            (!lightTheme &amp;&amp; themeProvider.currentTheme != THEME_AMOLED)
+        ? const Color(0xFF303030)
+        : null,
+    shadowColor: brightness == Brightness.light
+        ? Colors.black54
+        : Colors.white12,
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStateProperty.resolveWith&lt;Color?&gt;(
+          (Set&lt;WidgetState&gt; states) =&gt; states.contains(WidgetState.disabled)
+              ? Colors.grey
+              : myColorScheme.primary,
+        ),
+        foregroundColor: WidgetStateProperty.resolveWith&lt;Color?&gt;(
+          (Set&lt;WidgetState&gt; states) =&gt; states.contains(WidgetState.disabled)
+              ? Colors.white
+              : myColorScheme.onPrimary,
+        ),
+        iconColor: WidgetStateProperty.all&lt;Color&gt;(myColorScheme.onPrimary),
+      ),
+    ),
+    floatingActionButtonTheme: FloatingActionButtonThemeData(
+      backgroundColor: lightTheme
+          ? smoothExtension.primaryDark
+          : myColorScheme.primary,
+      foregroundColor: myColorScheme.onPrimary,
+    ),
+    textTheme: textTheme,
+    appBarTheme: AppBarTheme(
+      centerTitle: false,
+      backgroundColor: myColorScheme.surface,
+      foregroundColor: myColorScheme.onSurface,
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+      titleTextStyle: textTheme.titleLarge,
+    ),
+    dividerTheme: const DividerThemeData(
+      color: Color(0xFFECECEC),
+      space: 1.0,
+    ),
+    dividerColor: const Color(0xFFDFDFDF),
+    inputDecorationTheme: InputDecorationTheme(
+      fillColor: myColorScheme.secondary,
+    ),
+    iconTheme: IconThemeData(color: myColorScheme.onSurface),
+    snackBarTheme: SnackBarThemeData(
+      contentTextStyle: _TEXT_THEME.bodyMedium?.copyWith(
+        color: Colors.white,
+        fontWeight: FontWeight.w500,
+      ),
+      actionTextColor: Colors.white,
+      actionBackgroundColor: smoothExtension.primaryDark,
+      backgroundColor: smoothExtension.primaryBlack,
+    ),
+    bannerTheme: MaterialBannerThemeData(
+      contentTextStyle: TextStyle(color: myColorScheme.onSecondary),
+      backgroundColor: myColorScheme.secondary,
+    ),
+    checkboxTheme: CheckboxThemeData(
+      fillColor: WidgetStateProperty.resolveWith&lt;Color?&gt;((
+        Set&lt;WidgetState&gt; states,
+      ) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return lightTheme
+              ? smoothExtension.primarySemiDark
+              : smoothExtension.primaryNormal;
+        }
+        return null;
+      }),
+      side: BorderSide(
+        color: lightTheme
+            ? smoothExtension.primaryBlack
+            : smoothExtension.primarySemiDark,
+        width: 2.0,
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3.0)),
+      checkColor: const WidgetStatePropertyAll&lt;Color&gt;(Colors.white),
+    ),
+    radioTheme: RadioThemeData(
+      fillColor: WidgetStateProperty.resolveWith&lt;Color?&gt;((
+        Set&lt;WidgetState&gt; states,
+      ) {
+        if (states.contains(WidgetState.disabled)) {
+          return null;
+        }
+        if (states.contains(WidgetState.selected)) {
+          return myColorScheme.primary;
+        }
+        return null;
+      }),
+    ),
+    switchTheme: SwitchThemeData(
+      thumbColor: WidgetStateProperty.resolveWith&lt;Color?&gt;((
+        Set&lt;WidgetState&gt; states,
+      ) {
+        if (states.contains(WidgetState.selected)) {
+          if (lightTheme) {
+            return smoothExtension.primaryDark;
+          } else {
+            return smoothExtension.primarySemiDark;
+          }
+        } else if (states.contains(WidgetState.disabled)) {
+          if (lightTheme) {
+            return const Color(0xFFC2B5B0);
+          } else {
+            return smoothExtension.primaryNormal;
+          }
+        } else {
+          return null;
+        }
+      }),
+      trackColor: WidgetStateProperty.resolveWith&lt;Color?&gt;((
+        Set&lt;WidgetState&gt; states,
+      ) {
+        if (lightTheme) {
+          return smoothExtension.primaryMedium;
+        } else {
+          return const Color(0xFFEDE0DB);
+        }
+      }),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../themes_smooth_theme/">smooth_theme</a></li>
+    <li><a href="../../themes_smooth_theme/SmoothTheme-class.html">SmoothTheme</a></li>
+    <li class="self-crumb">getThemeData static method</li>
+</ol>
+
+    <h5>SmoothTheme class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

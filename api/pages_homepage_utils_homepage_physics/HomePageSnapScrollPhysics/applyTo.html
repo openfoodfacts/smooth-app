@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the applyTo method from the HomePageSnapScrollPhysics class, for the Dart programming language.">
+  <title>applyTo method - HomePageSnapScrollPhysics class - homepage_physics library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_homepage_utils_homepage_physics/">pages&#47;homepage&#47;utils&#47;homepage_physics.dart</a></li>
+    <li><a href="../../pages_homepage_utils_homepage_physics/HomePageSnapScrollPhysics-class.html">HomePageSnapScrollPhysics</a></li>
+    <li class="self-crumb">applyTo method</li>
+  </ol>
+  <div class="self-name">applyTo</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="pages_homepage_utils_homepage_physics&#47;HomePageSnapScrollPhysics-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">applyTo</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+    </ol>
+  </div>
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/ClampingScrollPhysics-class.html">ClampingScrollPhysics</a></span>
+<span class="name ">applyTo</span>(<wbr><ol class="parameter-list single-line"> <li><span class="parameter" id="applyTo-param-ancestor"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a>?</span> <span class="parameter-name">ancestor</span></span></li>
+</ol>)
+
+      <div class="features"><span class="feature">override</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Combines this <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a> instance with the given physics.</p>
+<p>The returned object uses this instance's physics when it has an
+opinion, and defers to the given <code>ancestor</code> object's physics
+when it does not.</p>
+<p>If <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/parent.html">parent</a> is null then this returns a <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a> with the
+same <a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a>, but where the <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/parent.html">parent</a> has been replaced
+with the <code>ancestor</code>.</p>
+<p>If this scroll physics object already has a parent, then this
+method is applied recursively and ancestor will appear at the
+end of the existing chain of parents.</p>
+<p>Calling this method with a null argument will copy the current
+object. This is inefficient.</p>
+<p>{@tool snippet}</p>
+<p>In the following example, the <a href="../../pages_homepage_utils_homepage_physics/HomePageSnapScrollPhysics/applyTo.html">applyTo</a> method is used to combine the
+scroll physics of two <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a> objects. The resulting <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a>
+<code>x</code> has the same behavior as <code>y</code>.</p>
+<pre class="language-dart"><code class="language-dart">final FooScrollPhysics x = const FooScrollPhysics().applyTo(const BarScrollPhysics());
+const FooScrollPhysics y = FooScrollPhysics(parent: BarScrollPhysics());
+</code></pre>
+<p>{@end-tool}</p>
+<h2 id="implementing-applyto">Implementing <a href="../../pages_homepage_utils_homepage_physics/HomePageSnapScrollPhysics/applyTo.html">applyTo</a></h2>
+<p>When creating a custom <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a> subclass, this method
+must be implemented. If the physics class has no constructor
+arguments, then implementing this method is merely a matter of
+calling the constructor with a <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/parent.html">parent</a> constructed using
+<a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/buildParent.html">buildParent</a>, as follows:</p>
+<pre class="language-dart"><code class="language-dart">class MyScrollPhysics extends ScrollPhysics {
+  const MyScrollPhysics({ super.parent });
+
+  @override
+  MyScrollPhysics applyTo(ScrollPhysics? ancestor) {
+    return MyScrollPhysics(parent: buildParent(ancestor));
+  }
+
+  // ...
+}
+</code></pre>
+<p>If the physics class has constructor arguments, they must be passed to
+the constructor here as well, so as to create a clone.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics/buildParent.html">buildParent</a>, a utility method that's often used to define <a href="../../pages_homepage_utils_homepage_physics/HomePageSnapScrollPhysics/applyTo.html">applyTo</a>
+methods for <a href="https://api.flutter.dev/flutter/widgets/ScrollPhysics-class.html">ScrollPhysics</a> subclasses.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+ClampingScrollPhysics applyTo(ScrollPhysics? ancestor) {
+  return HomePageSnapScrollPhysics(
+    parent: buildParent(ancestor),
+    steps: steps,
+    lastStepBlocking: lastStepBlocking,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_homepage_utils_homepage_physics/">homepage_physics</a></li>
+    <li><a href="../../pages_homepage_utils_homepage_physics/HomePageSnapScrollPhysics-class.html">HomePageSnapScrollPhysics</a></li>
+    <li class="self-crumb">applyTo method</li>
+</ol>
+
+    <h5>HomePageSnapScrollPhysics class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

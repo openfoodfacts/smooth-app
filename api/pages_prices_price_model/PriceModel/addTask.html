@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the addTask method from the PriceModel class, for the Dart programming language.">
+  <title>addTask method - PriceModel class - price_model library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_prices_price_model/">pages&#47;prices&#47;price_model.dart</a></li>
+    <li><a href="../../pages_prices_price_model/PriceModel-class.html">PriceModel</a></li>
+    <li class="self-crumb">addTask method</li>
+  </ol>
+  <div class="self-name">addTask</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="pages_prices_price_model&#47;PriceModel-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">addTask</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter">void</span>&gt;</span></span>
+<span class="name ">addTask</span>(<wbr><ol class="parameter-list"> <li><span class="parameter" id="addTask-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, {</span></li>
+<li><span class="parameter" id="addTask-param-displaySnackbar"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">displaySnackbar</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Adds the related background task.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;void&gt; addTask(
+  final BuildContext context, {
+  required final bool displaySnackbar,
+}) async {
+  final List&lt;String&gt; barcodes = &lt;String&gt;[];
+  final List&lt;String&gt; categories = &lt;String&gt;[];
+  final List&lt;List&lt;String&gt;&gt; origins = &lt;List&lt;String&gt;&gt;[];
+  final List&lt;List&lt;String&gt;&gt; labels = &lt;List&lt;String&gt;&gt;[];
+  final List&lt;String&gt; pricePers = &lt;String&gt;[];
+  final List&lt;bool&gt; pricesAreDiscounted = &lt;bool&gt;[];
+  final List&lt;double&gt; prices = &lt;double&gt;[];
+  final List&lt;double?&gt; pricesWithoutDiscount = &lt;double?&gt;[];
+  final List&lt;String&gt; discountTypes = &lt;String&gt;[];
+  for (final PriceAmountModel priceAmountModel in _priceAmountModels) {
+    barcodes.add(priceAmountModel.product.barcode);
+    categories.add(priceAmountModel.product.categoryTag);
+    origins.add(priceAmountModel.product.originTags);
+    &#47;&#47; TODO(monsieurtanuki): to be implemented when supported by &quot;prices&quot;
+    labels.add(&lt;String&gt;[]);
+    pricePers.add(priceAmountModel.product.pricePer.offTag);
+    pricesAreDiscounted.add(priceAmountModel.promo);
+    prices.add(priceAmountModel.checkedPaidPrice);
+    pricesWithoutDiscount.add(priceAmountModel.checkedPriceWithoutDiscount);
+    discountTypes.add(priceAmountModel.discountType?.offTag ?? &#39;&#39;);
+  }
+  if (proof != null) {
+    return BackgroundTaskAddOtherPrice.addTask(
+      context: context,
+      &#47;&#47; per receipt
+      locationOSMId: proof!.locationOSMId!,
+      locationOSMType: proof!.locationOSMType!,
+      date: proof!.date!,
+      currency: proof!.currency!,
+      proofId: proof!.id,
+      &#47;&#47; per item
+      barcodes: barcodes,
+      categories: categories,
+      origins: origins,
+      labels: labels,
+      pricePers: pricePers,
+      pricesAreDiscounted: pricesAreDiscounted,
+      prices: prices,
+      pricesWithoutDiscount: pricesWithoutDiscount,
+      discountTypes: discountTypes,
+    );
+  }
+  return BackgroundTaskAddPrice.addTask(
+    context: context,
+    &#47;&#47; proof display
+    cropObject: cropParameters!,
+    &#47;&#47; per receipt
+    locationOSMId: location!.osmId,
+    locationOSMType: location!.osmType,
+    date: date,
+    proofType: proofType,
+    currency: currency,
+    &#47;&#47; per item
+    barcodes: barcodes,
+    categories: categories,
+    origins: origins,
+    labels: labels,
+    pricePers: pricePers,
+    pricesAreDiscounted: pricesAreDiscounted,
+    prices: prices,
+    pricesWithoutDiscount: pricesWithoutDiscount,
+    displaySnackbar: displaySnackbar,
+    readyForPriceTagValidation: readyForPriceTagValidation,
+    discountTypes: discountTypes,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../pages_prices_price_model/">price_model</a></li>
+    <li><a href="../../pages_prices_price_model/PriceModel-class.html">PriceModel</a></li>
+    <li class="self-crumb">addTask method</li>
+</ol>
+
+    <h5>PriceModel class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

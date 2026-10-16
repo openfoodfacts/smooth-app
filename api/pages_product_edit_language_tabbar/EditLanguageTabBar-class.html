@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the EditLanguageTabBar class from the edit_language_tabbar library, for the Dart programming language.">
+  <title>EditLanguageTabBar class - edit_language_tabbar library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../pages_product_edit_language_tabbar/">pages&#47;product&#47;edit_language_tabbar.dart</a></li>
+    <li class="self-crumb">EditLanguageTabBar class</li>
+  </ol>
+  <div class="self-name">EditLanguageTabBar</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="pages_product_edit_language_tabbar&#47;pages_product_edit_language_tabbar-library-sidebar.html"
+    data-below-sidebar="pages_product_edit_language_tabbar&#47;EditLanguageTabBar-class-sidebar.html">
+    <div>
+<h1><span class="kind-class">EditLanguageTabBar</span> class 
+ 
+</h1></div>
+
+    
+
+
+    <section>
+      <dl class="dl-horizontal">
+        
+  <dt>Inheritance</dt>
+  <dd>
+    <ul class="gt-separated dark clazz-relationships">
+      <li><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></li>
+        <li><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree-class.html">DiagnosticableTree</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></li>
+        <li><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a></li>
+      <li>EditLanguageTabBar</li>
+    </ul>
+  </dd>
+
+        
+        
+
+
+        
+        
+
+
+      </dl>
+    </section>
+
+    
+  <section class="summary offset-anchor" id="constructors">
+    <h2>Constructors</h2>
+    <dl class="constructor-summary-list">
+        <dt id="EditLanguageTabBar.new" class="callable">
+          <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/EditLanguageTabBar.html">EditLanguageTabBar</a></span><span class="signature">({<span class="parameter" id="param-productEquality"><span>required</span> <span class="type-annotation"><a href="../pages_product_edit_language_tabbar/DidProductChanged.html">DidProductChanged</a></span> <span class="parameter-name">productEquality</span>, </span><span class="parameter" id="param-productLanguages"><span>required</span> <span class="type-annotation"><a href="../pages_product_edit_language_tabbar/ProductLanguagesProvider.html">ProductLanguagesProvider</a></span> <span class="parameter-name">productLanguages</span>, </span><span class="parameter" id="param-onTabChanged"><span>required</span> <span class="type-annotation">void</span> <span class="parameter-name">onTabChanged</span>(<span class="parameter" id="param-language"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span></span>), </span><span class="parameter" id="param-forceUserLanguage"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceUserLanguage</span>, </span><span class="parameter" id="param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="param-defaultLanguageMissingState"><span class="type-annotation"><a href="../pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a></span> <span class="parameter-name">defaultLanguageMissingState</span> = <span class="default-value">OpenFoodFactsLanguageState.warning</span>, </span><span class="parameter" id="param-mainLanguageMissingState"><span class="type-annotation"><a href="../pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a></span> <span class="parameter-name">mainLanguageMissingState</span> = <span class="default-value">OpenFoodFactsLanguageState.warning</span>, </span><span class="parameter" id="param-userLanguageMissingState"><span class="type-annotation"><a href="../pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a>?</span> <span class="parameter-name">userLanguageMissingState</span>, </span><span class="parameter" id="param-languageIndicatorNormal"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">languageIndicatorNormal</span>, </span><span class="parameter" id="param-languageIndicatorWarning"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">languageIndicatorWarning</span>, </span><span class="parameter" id="param-languageIndicatorError"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span> <span class="parameter-name">languageIndicatorError</span>, </span><span class="parameter" id="param-showLanguageIndicator"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">showLanguageIndicator</span> = <span class="default-value">true</span>, </span><span class="parameter" id="param-padding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a></span> <span class="parameter-name">padding</span> = <span class="default-value">const EdgeInsetsDirectional.only(start: 55.0)</span></span>})</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">const</div>
+        </dd>
+        <dt id="EditLanguageTabBar.noIndicator" class="callable">
+          <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/EditLanguageTabBar.noIndicator.html">EditLanguageTabBar.noIndicator</a></span><span class="signature">({<span class="parameter" id="noIndicator-param-productEquality"><span>required</span> <span class="type-annotation"><a href="../pages_product_edit_language_tabbar/DidProductChanged.html">DidProductChanged</a></span> <span class="parameter-name">productEquality</span>, </span><span class="parameter" id="noIndicator-param-productLanguages"><span>required</span> <span class="type-annotation"><a href="../pages_product_edit_language_tabbar/ProductLanguagesProvider.html">ProductLanguagesProvider</a></span> <span class="parameter-name">productLanguages</span>, </span><span class="parameter" id="noIndicator-param-onTabChanged"><span>required</span> <span class="type-annotation">void</span> <span class="parameter-name">onTabChanged</span>(<span class="parameter" id="param-language"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span></span>), </span><span class="parameter" id="noIndicator-param-forceUserLanguage"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span> <span class="parameter-name">forceUserLanguage</span>, </span><span class="parameter" id="noIndicator-param-key"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span> <span class="parameter-name">key</span>, </span><span class="parameter" id="noIndicator-param-padding"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a></span> <span class="parameter-name">padding</span> = <span class="default-value">const EdgeInsetsDirectional.only(start: 55.0)</span></span>})</span>
+        </dt>
+        <dd>
+          
+            <div class="constructor-modifier features">const</div>
+        </dd>
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-properties">
+    <h2>Properties</h2>
+    <dl class="properties">
+        <dt id="defaultLanguageMissingState" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/defaultLanguageMissingState.html">defaultLanguageMissingState</a></span>
+  <span class="signature">&#8594; <a href="../pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a></span>
+  
+
+</dt>
+<dd>
+  When a language is added (= incomplete), how should it be considered?
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="forceUserLanguage" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/forceUserLanguage.html">forceUserLanguage</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Force the user language even if it is not in the list
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="hashCode" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  The hash code for this object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="key" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/foundation/Key-class.html">Key</a>?</span>
+  
+
+</dt>
+<dd class="inherited">
+  Controls how one widget replaces another widget in the tree.
+  <div class="features"><span class="feature">final</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="languageIndicatorError" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/languageIndicatorError.html">languageIndicatorError</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="languageIndicatorNormal" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/languageIndicatorNormal.html">languageIndicatorNormal</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="languageIndicatorWarning" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/languageIndicatorWarning.html">languageIndicatorWarning</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a>?</span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="mainLanguageMissingState" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/mainLanguageMissingState.html">mainLanguageMissingState</a></span>
+  <span class="signature">&#8594; <a href="../pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a></span>
+  
+
+</dt>
+<dd>
+  When the main language is missing, how should it be displayed (normal/error/warning)
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="onTabChanged" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/onTabChanged.html">onTabChanged</a></span>
+  <span class="signature">&#8594; void Function<span class="signature">(<span class="parameter" id="param-language"><span class="type-annotation"><a href="https://pub.dev/documentation/openfoodfacts/3.30.2/openfoodfacts/OpenFoodFactsLanguage.html">OpenFoodFactsLanguage</a></span> <span class="parameter-name">language</span></span>)</span></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="padding" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/padding.html">padding</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/painting/EdgeInsetsGeometry-class.html">EdgeInsetsGeometry</a></span>
+  
+
+</dt>
+<dd>
+  
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="productEquality" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/productEquality.html">productEquality</a></span>
+  <span class="signature">&#8594; <a href="../pages_product_edit_language_tabbar/DidProductChanged.html">DidProductChanged</a></span>
+  
+
+</dt>
+<dd>
+  Compare two products to know if they are the same
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="productLanguages" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/productLanguages.html">productLanguages</a></span>
+  <span class="signature">&#8594; <a href="../pages_product_edit_language_tabbar/ProductLanguagesProvider.html">ProductLanguagesProvider</a></span>
+  
+
+</dt>
+<dd>
+  Return all languages of a product (eg: a gallery may return all languages
+of its images)
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="runtimeType" class="property inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/Type-class.html">Type</a></span>
+  
+
+</dt>
+<dd class="inherited">
+  A representation of the runtime type of the object.
+  <div class="features"><span class="feature">no setter</span><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="showLanguageIndicator" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/showLanguageIndicator.html">showLanguageIndicator</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  
+
+</dt>
+<dd>
+  Show an indicator next to the language only if
+<a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/languageIndicatorNormal.html">languageIndicatorNormal</a>, <a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/languageIndicatorWarning.html">languageIndicatorWarning</a> or
+<a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/languageIndicatorError.html">languageIndicatorError</a> are not null
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+        <dt id="userLanguageMissingState" class="property">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/userLanguageMissingState.html">userLanguageMissingState</a></span>
+  <span class="signature">&#8594; <a href="../pages_product_edit_language_tabbar/OpenFoodFactsLanguageState.html">OpenFoodFactsLanguageState</a>?</span>
+  
+
+</dt>
+<dd>
+  When the user language is missing, how should it be displayed (normal/error/warning)
+  <div class="features"><span class="feature">final</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+
+    
+  <section
+      class="summary offset-anchor"
+      id="instance-methods">
+    <h2>Methods</h2>
+    <dl class="callables">
+        <dt id="createElement" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/StatefulWidget/createElement.html">createElement</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/StatefulElement-class.html">StatefulElement</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Creates a <a href="https://api.flutter.dev/flutter/widgets/StatefulElement-class.html">StatefulElement</a> to manage this widget's location in the tree.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="createState" class="callable">
+  <span class="name"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/createState.html">createState</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar-class.html">EditLanguageTabBar</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Creates the mutable state for this widget at a given location in the tree.
+  <div class="features"><span class="feature">override</span></div>
+
+</dd>
+
+        <dt id="debugDescribeChildren" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>&gt;</span></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a list of <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a> objects describing this node's
+children.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="debugFillProperties" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></span><span class="signature">(<wbr><span class="parameter" id="debugFillProperties-param-properties"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticPropertiesBuilder-class.html">DiagnosticPropertiesBuilder</a></span> <span class="parameter-name">properties</span></span>)
+    <span class="returntype parameter">&#8594; void</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Add additional properties associated with the node.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="noSuchMethod" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></span><span class="signature">(<wbr><span class="parameter" id="noSuchMethod-param-invocation"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Invocation-class.html">Invocation</a></span> <span class="parameter-name">invocation</span></span>)
+    <span class="returntype parameter">&#8594; dynamic</span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Invoked when a nonexistent method or property is accessed.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toDiagnosticsNode" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></span><span class="signature">(<wbr>{<span class="parameter" id="toDiagnosticsNode-param-name"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">name</span>, </span><span class="parameter" id="toDiagnosticsNode-param-style"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticsTreeStyle.html">DiagnosticsTreeStyle</a>?</span> <span class="parameter-name">style</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode-class.html">DiagnosticsNode</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a debug representation of the object that is used by debugging
+tools and by <a href="https://api.flutter.dev/flutter/foundation/DiagnosticsNode/toStringDeep.html">DiagnosticsNode.toStringDeep</a>.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toString" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></span><span class="signature">(<wbr>{<span class="parameter" id="toString-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.info</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A string representation of this object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringDeep" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringDeep-param-prefixLineOne"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">prefixLineOne</span> = <span class="default-value">&#39;&#39;</span>, </span><span class="parameter" id="toStringDeep-param-prefixOtherLines"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a>?</span> <span class="parameter-name">prefixOtherLines</span>, </span><span class="parameter" id="toStringDeep-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span>, </span><span class="parameter" id="toStringDeep-param-wrapWidth"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">wrapWidth</span> = <span class="default-value">65</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a string representation of this node and its descendants.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShallow" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></span><span class="signature">(<wbr>{<span class="parameter" id="toStringShallow-param-joiner"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">joiner</span> = <span class="default-value">&#39;, &#39;</span>, </span><span class="parameter" id="toStringShallow-param-minLevel"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticLevel.html">DiagnosticLevel</a></span> <span class="parameter-name">minLevel</span> = <span class="default-value">DiagnosticLevel.debug</span></span>})
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  Returns a one-line detailed description of the object.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+        <dt id="toStringShort" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></span><span class="signature">(<wbr>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  A short, textual description of this widget.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+  <section
+      class="summary offset-anchor inherited"
+      id="operators">
+    <h2>Operators</h2>
+    <dl class="callables">
+        <dt id="operator ==" class="callable inherited">
+  <span class="name"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></span><span class="signature">(<wbr><span class="parameter" id="==-param-other"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/Object-class.html">Object</a></span> <span class="parameter-name">other</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>
+  </span>
+  
+
+</dt>
+<dd class="inherited">
+  The equality operator.
+  <div class="features"><span class="feature">inherited</span></div>
+
+</dd>
+
+    </dl>
+  </section>
+    
+    
+    
+
+  <section class="summary offset-anchor" id="constants">
+    <h2>Constants</h2>
+    <dl class="properties">
+        <dt id="PREFERRED_SIZE" class="constant">
+    <span class="name "><a href="../pages_product_edit_language_tabbar/EditLanguageTabBar/PREFERRED_SIZE-constant.html">PREFERRED_SIZE</a></span>
+  <span class="signature">&#8594; const <a href="https://api.flutter.dev/flutter/dart-ui/Size-class.html">Size</a></span>
+  
+
+</dt>
+<dd>
+  
+  
+
+</dd>
+
+    </dl>
+  </section>
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../index.html">smooth_app</a></li>
+    <li><a href="../pages_product_edit_language_tabbar/">edit_language_tabbar</a></li>
+    <li class="self-crumb">EditLanguageTabBar class</li>
+</ol>
+
+    <h5>edit_language_tabbar library</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div>
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

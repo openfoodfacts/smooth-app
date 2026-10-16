@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the fromDirectional method from the BorderRadiusHelper class, for the Dart programming language.">
+  <title>fromDirectional method - BorderRadiusHelper class - border_radius_helper library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../helpers_border_radius_helper/">helpers&#47;border_radius_helper.dart</a></li>
+    <li><a href="../../helpers_border_radius_helper/BorderRadiusHelper-class.html">BorderRadiusHelper</a></li>
+    <li class="self-crumb">fromDirectional static method</li>
+  </ol>
+  <div class="self-name">fromDirectional</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="helpers_border_radius_helper&#47;BorderRadiusHelper-class-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">fromDirectional</span> static method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<span class="returntype"><a href="https://api.flutter.dev/flutter/painting/BorderRadius-class.html">BorderRadius</a></span>
+<span class="name ">fromDirectional</span>(<wbr>{<ol class="parameter-list"> <li><span class="parameter" id="fromDirectional-param-context"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="fromDirectional-param-topStart"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Radius-class.html">Radius</a>?</span> <span class="parameter-name">topStart</span>, </span></li>
+<li><span class="parameter" id="fromDirectional-param-topEnd"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Radius-class.html">Radius</a>?</span> <span class="parameter-name">topEnd</span>, </span></li>
+<li><span class="parameter" id="fromDirectional-param-bottomStart"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Radius-class.html">Radius</a>?</span> <span class="parameter-name">bottomStart</span>, </span></li>
+<li><span class="parameter" id="fromDirectional-param-bottomEnd"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-ui/Radius-class.html">Radius</a>?</span> <span class="parameter-name">bottomEnd</span>, </span></li>
+</ol>})
+
+      
+
+    </section>
+    
+<section class="desc markdown">
+  <p><a href="https://api.flutter.dev/flutter/material/InkWell-class.html">InkWell</a> only supports <a href="https://api.flutter.dev/flutter/painting/BorderRadius-class.html">BorderRadius</a>.
+This helps to create a <a href="https://api.flutter.dev/flutter/painting/BorderRadius-class.html">BorderRadius</a> from a <a href="https://api.flutter.dev/flutter/painting/BorderRadiusDirectional-class.html">BorderRadiusDirectional</a>.</p>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">static BorderRadius fromDirectional({
+  required BuildContext context,
+  Radius? topStart,
+  Radius? topEnd,
+  Radius? bottomStart,
+  Radius? bottomEnd,
+}) {
+  final TextDirection textDirection = Directionality.of(context);
+
+  return BorderRadius.only(
+    topLeft: textDirection == TextDirection.ltr
+        ? topStart ?? Radius.zero
+        : topEnd ?? Radius.zero,
+    topRight: textDirection == TextDirection.ltr
+        ? topEnd ?? Radius.zero
+        : topStart ?? Radius.zero,
+    bottomLeft: textDirection == TextDirection.ltr
+        ? bottomStart ?? Radius.zero
+        : bottomEnd ?? Radius.zero,
+    bottomRight: textDirection == TextDirection.ltr
+        ? bottomEnd ?? Radius.zero
+        : bottomStart ?? Radius.zero,
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../helpers_border_radius_helper/">border_radius_helper</a></li>
+    <li><a href="../../helpers_border_radius_helper/BorderRadiusHelper-class.html">BorderRadiusHelper</a></li>
+    <li class="self-crumb">fromDirectional static method</li>
+</ol>
+
+    <h5>BorderRadiusHelper class</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+

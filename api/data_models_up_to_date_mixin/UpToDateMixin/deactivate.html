@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the deactivate method from the UpToDateMixin mixin, for the Dart programming language.">
+  <title>deactivate method - UpToDateMixin mixin - up_to_date_mixin library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+  
+</head>
+
+<body data-base-href="../../" data-using-base-href="false" class="light-theme">
+<div id="overlay-under-drawer"></div>
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../data_models_up_to_date_mixin/">data_models&#47;up_to_date_mixin.dart</a></li>
+    <li><a href="../../data_models_up_to_date_mixin/UpToDateMixin-mixin.html">UpToDateMixin<span class="signature">&lt;<wbr><span class="type-parameter">T extends StatefulWidget</span>&gt;</span></a></li>
+    <li class="self-crumb">deactivate method</li>
+  </ol>
+  <div class="self-name">deactivate</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <button class="toggle" id="theme-button" title="Toggle between light and dark mode" aria-label="Light and dark mode toggle">
+    <span id="dark-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      dark_mode
+    </span>
+    <span id="light-theme-button" class="material-symbols-outlined" aria-hidden="true">
+      light_mode
+    </span>
+  </button>
+</header>
+<main>
+<div
+    id="dartdoc-main-content"
+    class="main-content"
+    data-above-sidebar="data_models_up_to_date_mixin&#47;UpToDateMixin-mixin-sidebar.html"
+    data-below-sidebar="">
+    <div>
+<h1><span class="kind-method">deactivate</span> method 
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+  <div>
+    <ol class="annotation-list">
+        <li>@<a href="https://api.flutter.dev/flutter/meta/protected-constant.html">protected</a></li>
+        <li>@<a href="https://api.flutter.dev/flutter/meta/mustCallSuper-constant.html">mustCallSuper</a></li>
+    </ol>
+  </div>
+<span class="returntype">void</span>
+<span class="name ">deactivate</span>(<wbr>)
+
+      <div class="features"><span class="feature">inherited</span></div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Called when this object is removed from the tree.</p>
+<p>The framework calls this method whenever it removes this <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object
+from the tree. In some cases, the framework will reinsert the <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a>
+object into another part of the tree (e.g., if the subtree containing this
+<a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object is grafted from one location in the tree to another due to
+the use of a <a href="https://api.flutter.dev/flutter/widgets/GlobalKey-class.html">GlobalKey</a>). If that happens, the framework will call
+<a href="https://api.flutter.dev/flutter/widgets/State/activate.html">activate</a> to give the <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object a chance to reacquire any resources
+that it released in <a href="https://api.flutter.dev/flutter/widgets/State/deactivate.html">deactivate</a>. It will then also call <a href="https://api.flutter.dev/flutter/widgets/State/build.html">build</a> to give
+the <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> object a chance to adapt to its new location in the tree. If
+the framework does reinsert this subtree, it will do so before the end of
+the animation frame in which the subtree was removed from the tree. For
+this reason, <a href="https://api.flutter.dev/flutter/widgets/State-class.html">State</a> objects can defer releasing most resources until the
+framework calls their <a href="https://api.flutter.dev/flutter/widgets/State/dispose.html">dispose</a> method.</p>
+<p>Subclasses should override this method to clean up any links between
+this object and other elements in the tree (e.g. if you have provided an
+ancestor with a pointer to a descendant's <a href="https://api.flutter.dev/flutter/rendering/RenderObject-class.html">RenderObject</a>).</p>
+<p>Implementations of this method should end with a call to the inherited
+method, as in <code>super.deactivate()</code>.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/State/dispose.html">dispose</a>, which is called after <a href="https://api.flutter.dev/flutter/widgets/State/deactivate.html">deactivate</a> if the widget is removed
+from the tree permanently.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@protected
+@mustCallSuper
+void deactivate() {}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li><a href="../../index.html">smooth_app</a></li>
+    <li><a href="../../data_models_up_to_date_mixin/">up_to_date_mixin</a></li>
+    <li><a href="../../data_models_up_to_date_mixin/UpToDateMixin-mixin.html">UpToDateMixin<span class="signature">&lt;<wbr><span class="type-parameter">T extends StatefulWidget</span>&gt;</span></a></li>
+    <li class="self-crumb">deactivate method</li>
+</ol>
+
+    <h5>UpToDateMixin mixin</h5>
+    <div id="dartdoc-sidebar-left-content"></div>
+  </div><!--/.sidebar-offcanvas-->
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+</div><!--/.sidebar-offcanvas-->
+</main>
+<footer>
+  <span class="no-break">
+    smooth_app
+      0.0.0+734
+  </span>
+  
+</footer>
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+</body>
+</html>
+
