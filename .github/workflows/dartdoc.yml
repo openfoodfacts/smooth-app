@@ -40,6 +40,11 @@ jobs:
       - name: Get dependencies
         run: ci/pub_get.sh
 
+      # Generated localization files (120+ language files with >120,000 getters)
+      # bloat the dartdoc search index (index.json) to >100MB, which exceeds GitHub's 100MB file limit.
+      - name: Remove generated localization files before dartdoc
+        run: rm -f packages/smooth_app/lib/l10n/app_localizations_*.dart
+
       - name: Run Dartdoc
         run: dart doc .
         working-directory: ./packages/smooth_app
@@ -53,6 +58,25 @@ jobs:
       - name: Build documentation using mkdocs
         run: mkdocs build
         working-directory: ./packages/smooth_app
+
+      # Ensure no generated artifacts exceed GitHub's 100MB file limit (e.g. search indices)
+      - name: Verify documentation file sizes
+        run: |
+          python3 -c "
+          import os
+          folder = 'packages/smooth_app/gh_pages'
+          max_size = 95 * 1024 * 1024
+          for root, _, files in os.walk(folder):
+              for f in files:
+                  fp = os.path.join(root, f)
+                  size = os.path.getsize(fp)
+                  if size > max_size:
+                      print(f'Warning: {fp} is {size / (1024*1024):.2f} MB (exceeds limit)')
+                      if fp.endswith('api/index.json'):
+                          print('Replacing oversized api/index.json with empty index')
+                          with open(fp, 'w') as out:
+                              out.write('[]')
+          "
 
       - name: Deploy smooth_app documentation to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.9.0
