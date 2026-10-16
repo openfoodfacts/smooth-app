@@ -30,10 +30,14 @@ class KnowledgePanelExpandedCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
+    final KnowledgePanel? panel = KnowledgePanelsBuilder.getKnowledgePanel(
       product,
       panelId,
-    )!;
+    );
+
+    if (panel == null) {
+      return EMPTY_WIDGET;
+    }
 
     final List<Widget> elementWidgets = <Widget>[];
 
