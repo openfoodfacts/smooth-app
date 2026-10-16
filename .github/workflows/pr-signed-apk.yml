@@ -17,16 +17,14 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
-  issues: write
 
 jobs:
-  build-signed-apk:
-    name: Build Signed APK
+  build-unsigned-apk:
+    name: Build Unsigned APK
     concurrency:
       group: pr-signed-apk-${{ github.event.issue.number || github.event.pull_request.number || inputs.pr_number }}
       cancel-in-progress: true
-    # Restrict execution to trusted maintainers to safeguard signing secrets:
+    # Restrict execution to trusted maintainers:
     # 1. PRs authored by teolemon, monsieurtanuki, or g123k on repository branches
     # 2. Comments with '/build-apk' posted by teolemon, monsieurtanuki, or g123k
     # 3. Manual dispatch by teolemon, monsieurtanuki, or g123k
@@ -54,17 +52,16 @@ jobs:
         github.actor == 'g123k'
       ))
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    outputs:
+      pr_number: ${{ steps.pr-context.outputs.pr_number }}
+      short_sha: ${{ steps.commit-info.outputs.short_sha }}
+      comment_id: ${{ steps.pr-context.outputs.comment_id }}
     env:
       JAVA_VERSION: 21
 
     steps:
-      - name: 👀 Acknowledge comment
-        if: github.event_name == 'issue_comment'
-        uses: peter-evans/create-or-update-comment@v5
-        with:
-          comment-id: ${{ github.event.comment.id }}
-          reactions: eyes
-
       - name: 🔍 Determine PR context and validate repository
         id: pr-context
         env:
@@ -72,6 +69,7 @@ jobs:
         run: |
           PR_NUM="${{ github.event.issue.number || github.event.pull_request.number || inputs.pr_number }}"
           echo "pr_number=$PR_NUM" >> $GITHUB_OUTPUT
+          echo "comment_id=${{ github.event.comment.id }}" >> $GITHUB_OUTPUT
 
           PR_DATA=$(gh pr view "$PR_NUM" --repo "${{ github.repository }}" --json headRepositoryOwner,isCrossRepository,headRefOid)
           IS_CROSS_REPO=$(echo "$PR_DATA" | jq -r '.isCrossRepository')
@@ -122,38 +120,90 @@ jobs:
       - name: 📦 Get dependencies
         run: ci/pub_get.sh
 
+      - name: 🔨 Build unsigned APK
+        working-directory: ./packages/smooth_app
+        run: flutter build apk --release -t lib/entrypoints/android/main_google_play.dart --target-platform android-arm,android-arm64
+
+      - name: 📋 Prepare unsigned APK for upload
+        run: |
+          UNSIGNED_APK=$(find packages/smooth_app/build/app/outputs/flutter-apk -name "*.apk" | head -n 1)
+          cp "$UNSIGNED_APK" app-release-unsigned.apk
+
+      - name: ⬆️ Upload unsigned APK artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: unsigned-apk
+          path: app-release-unsigned.apk
+          if-no-files-found: error
+          overwrite: true
+          retention-days: 1
+
+  sign-apk:
+    name: Sign APK and Publish
+    needs: build-unsigned-apk
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    steps:
+      - name: 👀 Acknowledge comment
+        if: github.event_name == 'issue_comment' && needs.build-unsigned-apk.outputs.comment_id != ''
+        uses: peter-evans/create-or-update-comment@v5
+        with:
+          comment-id: ${{ needs.build-unsigned-apk.outputs.comment_id }}
+          reactions: eyes
+
+      - name: 📂 Checkout base repository for signing assets
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: ☕ Setup Java JDK
+        uses: actions/setup-java@v6.0.1
+        with:
+          distribution: 'zulu'
+          java-version: 21
+
+      - name: ⬇️ Download unsigned APK artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: unsigned-apk
+
       - name: 🔐 Decrypt Android keystore
         run: |
           gpg --quiet --batch --yes --decrypt --passphrase="${{ secrets.NEW_CYPHER }}" \
             --output packages/smooth_app/android/fastlane/envfiles/keystore.jks \
             packages/smooth_app/android/fastlane/envfiles/keystore.jks.gpg
 
-      - name: 🔨 Build signed APK
-        working-directory: ./packages/smooth_app
-        run: flutter build apk --release -t lib/entrypoints/android/main_google_play.dart --target-platform android-arm,android-arm64
+      - name: ✍️ Sign APK
+        id: sign-apk
         env:
-          SIGN_STORE_PATH: ${{ github.workspace }}/packages/smooth_app/android/fastlane/envfiles/keystore.jks
           SIGN_STORE_PASSWORD: ${{ secrets.DECRYPT_FOR_SCANNER_FILE }}
           SIGN_KEY_ALIAS: ${{ secrets.ALIAS_FOR_SCANNER }}
           SIGN_KEY_PASSWORD: ${{ secrets.KEY_FOR_SCANNER }}
+        run: |
+          APK_FILENAME="smooth-app-pr-${{ needs.build-unsigned-apk.outputs.pr_number }}-${{ needs.build-unsigned-apk.outputs.short_sha }}-signed.apk"
+          APKSIGNER=$(find "$ANDROID_SDK_ROOT/build-tools" -name apksigner | sort -V | tail -n 1)
+          "$APKSIGNER" sign \
+            --ks packages/smooth_app/android/fastlane/envfiles/keystore.jks \
+            --ks-key-alias "$SIGN_KEY_ALIAS" \
+            --ks-pass "pass:$SIGN_STORE_PASSWORD" \
+            --key-pass "pass:$SIGN_KEY_PASSWORD" \
+            --out "$APK_FILENAME" \
+            app-release-unsigned.apk
+          echo "apk_filename=$APK_FILENAME" >> $GITHUB_OUTPUT
 
       - name: 🧹 Clean up decrypted keystore
         if: always()
         run: rm -f packages/smooth_app/android/fastlane/envfiles/keystore.jks
 
-      - name: 📋 Prepare APK for upload
-        id: prepare-apk
-        run: |
-          APK_FILENAME="smooth-app-pr-${{ steps.pr-context.outputs.pr_number }}-${{ steps.commit-info.outputs.short_sha }}-signed.apk"
-          cp packages/smooth_app/build/app/outputs/flutter-apk/app-release.apk "$APK_FILENAME"
-          echo "apk_filename=$APK_FILENAME" >> $GITHUB_OUTPUT
-
-      - name: ⬆️ Upload APK artifact
+      - name: ⬆️ Upload signed APK artifact
         id: upload-artifact
         uses: actions/upload-artifact@v7
         with:
-          name: smooth-app-pr-${{ steps.pr-context.outputs.pr_number }}-signed-apk
-          path: ${{ steps.prepare-apk.outputs.apk_filename }}
+          name: smooth-app-pr-${{ needs.build-unsigned-apk.outputs.pr_number }}-signed-apk
+          path: ${{ steps.sign-apk.outputs.apk_filename }}
           if-no-files-found: error
           overwrite: true
           retention-days: 14
@@ -162,7 +212,7 @@ jobs:
         uses: peter-evans/find-comment@v4
         id: find-comment
         with:
-          issue-number: ${{ steps.pr-context.outputs.pr_number }}
+          issue-number: ${{ needs.build-unsigned-apk.outputs.pr_number }}
           comment-author: 'github-actions[bot]'
           body-includes: 'Signed APK ready for testing!'
 
@@ -170,22 +220,22 @@ jobs:
         uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
-          issue-number: ${{ steps.pr-context.outputs.pr_number }}
+          issue-number: ${{ needs.build-unsigned-apk.outputs.pr_number }}
           edit-mode: replace
           body: |
             ### 📱 Signed APK ready for testing!
 
-            A signed release APK has been generated for PR #${{ steps.pr-context.outputs.pr_number }} at commit `${{ steps.commit-info.outputs.short_sha }}`.
+            A signed release APK has been generated for PR #${{ needs.build-unsigned-apk.outputs.pr_number }} at commit `${{ needs.build-unsigned-apk.outputs.short_sha }}`.
 
             - 📥 **[Download Signed APK](${{ steps.upload-artifact.outputs.artifact-url }})**
-            - 📦 **Artifact file:** `${{ steps.prepare-apk.outputs.apk_filename }}` (in zip archive)
+            - 📦 **Artifact file:** `${{ steps.sign-apk.outputs.apk_filename }}` (in zip archive)
             - 🔗 **[View Workflow Run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})**
 
             > _Note: You must be logged into GitHub to download the build artifact. Extract the downloaded zip file to install the APK._
 
       - name: 🚀 Add rocket reaction to comment
-        if: github.event_name == 'issue_comment' && success()
+        if: github.event_name == 'issue_comment' && success() && needs.build-unsigned-apk.outputs.comment_id != ''
         uses: peter-evans/create-or-update-comment@v5
         with:
-          comment-id: ${{ github.event.comment.id }}
+          comment-id: ${{ needs.build-unsigned-apk.outputs.comment_id }}
           reactions: rocket
