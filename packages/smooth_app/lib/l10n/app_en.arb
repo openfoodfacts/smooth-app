@@ -1327,49 +1327,49 @@
       "percent": {}
     }
   },
-  "plural_ago_days": "{count,plural,  =1{one day ago} other{{count} days ago}}",
+  "plural_ago_days": "{count,plural,  one {{count}</span> days ago}  =1{one day ago} other{{count}</span> days ago}}",
   "@plural_ago_days": {
     "description": "Cached results from: x days ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_hours": "{count,plural,  =1{one hour ago} other{{count} hours ago}}",
+  "plural_ago_hours": "{count,plural,  one {{count}</span> hours ago}  =1{one hour ago} other{{count}</span> hours ago}}",
   "@plural_ago_hours": {
     "description": "Cached results from: x hours ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_minutes": "{count,plural,  =0{less than a minute ago} =1{one minute ago} other{{count} minutes ago}}",
+  "plural_ago_minutes": "{count,plural,  one {{count}</span> minutes ago}  =0{less than a minute ago} =1{one minute ago} other{{count}</span> minutes ago}}",
   "@plural_ago_minutes": {
     "description": "Cached results from: x minutes ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_months": "{count,plural,  =1{one month ago} other{{count} months ago}}",
+  "plural_ago_months": "{count,plural,  one {{count}</span> months ago}  =1{one month ago} other{{count}</span> months ago}}",
   "@plural_ago_months": {
     "description": "Cached results from: x months ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_ago_weeks": "{count,plural,  =1{one week ago} other{{count} weeks ago}}",
+  "plural_ago_weeks": "{count,plural,  one {{count}</span> weeks ago}  =1{one week ago} other{{count}</span> weeks ago}}",
   "@plural_ago_weeks": {
     "description": "Cached results from: x weeks ago",
     "placeholders": {
       "count": {}
     }
   },
-  "plural_compare_x_products": "{count,plural, =1{Compare one Product} other{Compare {count} Products}}",
+  "plural_compare_x_products": "{count,plural, one {Compare {count}</span> Products} =1{Compare one Product} other{Compare {count}</span> Products}}",
   "@plural_compare_x_products": {
     "description": "Button label to open a page to compare all selected products to each other",
     "placeholders": {
       "count": {}
     }
   },
-  "multiselect_title": "{count,plural, =0{No selected product} =1{One selected product} other{{count} selected products}}",
+  "multiselect_title": "{count,plural, one {{count}</span> selected products} =0{No selected product} =1{One selected product} other{{count}</span> selected products}}",
   "@multiselect_title": {
     "description": "Page title with the number of selected items",
     "placeholders": {
@@ -1557,14 +1557,14 @@
   "@product_list_empty_message": {
     "description": "When the history list is empty, body of the message explaining to start scanning"
   },
-  "product_list_reloading_in_progress_multiple": "Refreshing {count,plural,  =0{product} =1{product} other{products}} in your history",
+  "product_list_reloading_in_progress_multiple": "Refreshing {count,plural,  one {products}  =0{product} =1{product} other{products}} in your history",
   "@product_list_reloading_in_progress_multiple": {
     "description": "Message to show while loading previous scanned items",
     "placeholders": {
       "count": {}
     }
   },
-  "product_list_reloading_success_multiple": "{count,plural,  =0{Product} =1{Product} other{Products}} refresh complete",
+  "product_list_reloading_success_multiple": "{count,plural,  one {Products}  =0{Product} =1{Product} other{Products}} refresh complete",
   "@product_list_reloading_success_multiple": {
     "description": "Message to show once previous scanned items are loaded",
     "placeholders": {
@@ -2387,7 +2387,7 @@
   "@dev_preferences_export_history_dialog_title": {
     "description": "User dev preferences - Export history - Dialog title"
   },
-  "dev_preferences_button_positive": "OK",
+  "dev_preferences_button_positive": "Ok",
   "@dev_preferences_button_positive": {
     "description": "User dev preferences - Positive button label"
   },
@@ -2507,8 +2507,8 @@
     }
   },
   "prices_generic_title": "Prices",
-  "prices_add_n_prices": "{count,plural, =1{Add a price} other{Add {count} prices}}",
-  "prices_send_n_prices": "{count,plural, =1{Send the price} other{Send {count} prices}}",
+  "prices_add_n_prices": "{count,plural, one {Add {count}</span> prices} =1{Add a price} other{Add {count}</span> prices}}",
+  "prices_send_n_prices": "{count,plural, one {Send {count}</span> prices} =1{Send the price} other{Send {count}</span> prices}}",
   "prices_add_an_item": "Add an item",
   "prices_add_a_price": "Add a price",
   "prices_add_a_receipt": "Add a receipt",
@@ -2585,7 +2585,7 @@
   "prices_entry_menu_my_prices": "View my other prices",
   "prices_entry_menu_author_prices": "View other prices by the author",
   "prices_entry_menu_shop_prices": "View other prices from the shop",
-  "prices_product_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {product}",
+  "prices_product_accessibility_summary": "{count,plural, one {{count}</span> prices} =1{1 price} other{{count}</span> prices}} for {product}</span>",
   "@prices_product_accessibility_summary": {
     "description": "A card summarizing the number of prices for a product",
     "placeholders": {
@@ -2597,7 +2597,7 @@
       }
     }
   },
-  "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
+  "prices_list_length_one_page": "{count,plural, one {All {count}</span> prices} =0{No price yet} =1{Only one price} other{All {count}</span> prices}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",
     "placeholders": {
@@ -2649,7 +2649,7 @@
   "@prices_open_proof": {
     "description": "Button to open a proof"
   },
-  "prices_proofs_list_length_one_page": "{count,plural, =0{No proof yet} =1{Only one proof} other{All {count} proofs}}",
+  "prices_proofs_list_length_one_page": "{count,plural, one {All {count}</span> proofs} =0{No proof yet} =1{Only one proof} other{All {count}</span> proofs}}",
   "@prices_proofs_list_length_one_page": {
     "description": "Number of proofs for one-page result",
     "placeholders": {
@@ -2698,7 +2698,7 @@
       }
     }
   },
-  "prices_button_count_proof": "{count,plural, =0{No proof} =1{One proof} other{{count} proofs}}",
+  "prices_button_count_proof": "{count,plural, one {{count}</span> proofs} =0{No proof} =1{One proof} other{{count}</span> proofs}}",
   "@prices_button_count_proof": {
     "description": "Number of proofs, for a button",
     "placeholders": {
@@ -2707,7 +2707,7 @@
       }
     }
   },
-  "prices_button_count_product": "{count,plural, =0{No product} =1{One product} other{{count} products}}",
+  "prices_button_count_product": "{count,plural, one {{count}</span> products} =0{No product} =1{One product} other{{count}</span> products}}",
   "@prices_button_count_product": {
     "description": "Number of products, for a button",
     "placeholders": {
@@ -2716,7 +2716,7 @@
       }
     }
   },
-  "prices_button_count_user": "{count,plural, =0{No user} =1{One user} other{{count} users}}",
+  "prices_button_count_user": "{count,plural, one {{count}</span> users} =0{No user} =1{One user} other{{count}</span> users}}",
   "@prices_button_count_user": {
     "description": "Number of users, for a button",
     "placeholders": {
@@ -2725,7 +2725,7 @@
       }
     }
   },
-  "prices_button_count_price": "{count,plural, =0{No price} =1{One price} other{{count} prices}}",
+  "prices_button_count_price": "{count,plural, one {{count}</span> prices} =0{No price} =1{One price} other{{count}</span> prices}}",
   "@prices_button_count_price": {
     "description": "Number of prices, for a button",
     "placeholders": {
@@ -3300,7 +3300,7 @@
   "@product_list_select": {
     "description": "Top title for the selection of a list"
   },
-  "user_list_length": "{count,plural, =0{Empty list} =1{One product} other{{count} products}}",
+  "user_list_length": "{count,plural, one {{count}</span> products} =0{Empty list} =1{One product} other{{count}</span> products}}",
   "@user_list_length": {
     "description": "Length of a user product list",
     "placeholders": {
@@ -3633,7 +3633,7 @@
   "@robotoff_continue": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering"
   },
-  "robotoff_next_n_questions": "Next {count,plural,  =1{question} other{{count} questions}}",
+  "robotoff_next_n_questions": "Next {count,plural,  one {{count} questions}  =1{question} other{{count} questions}}",
   "@robotoff_next_n_questions": {
     "description": "Shown when robotoff question are all answered and user wants to continue answering",
     "placeholders": {
@@ -3886,7 +3886,7 @@
   "@download_top_products": {
     "description": "Download the top 1000 products in your country for instant scanning"
   },
-  "download_top_n_products": "Download the top {count,plural,  other{{count} products}} in your country for instant scanning",
+  "download_top_n_products": "Download the top {count,plural,  one {{count} products}  other{{count} products}} in your country for instant scanning",
   "@download_top_n_products": {
     "placeholders": {
       "count": {
@@ -3932,7 +3932,7 @@
       }
     }
   },
-  "loading": "Loading…",
+  "loading": "Loading...",
   "@loading": {
     "description": "Loading…"
   },
