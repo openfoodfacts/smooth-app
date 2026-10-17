@@ -2971,7 +2971,7 @@
   "@all_search_to_be_completed_title": {
     "description": "All products to be completed: list tile title"
   },
-  "categorize_products_country_title": "Help categorise products in your country",
+  "categorize_products_country_title": "Help categorize products in your country",
   "@categorize_products_country_title": {
     "description": "Help categorize products in your country: list tile title"
   },
@@ -3083,7 +3083,7 @@
   "@add_basic_details_product_name_take_photo": {
     "description": "Button to take a photo of the front of the product (when there is no photo yet)"
   },
-  "add_basic_details_product_name_hint": "Input the name of the product (eg: Nutella)",
+  "add_basic_details_product_name_hint": "Input the name of the product (e.g.: Nutella)",
   "@add_basic_details_product_name_hint": {
     "description": "Placeholder when the product name text-field is empty"
   },
@@ -3156,7 +3156,7 @@
   "brand_name": "Brand name",
   "brand_names": "Brand names",
   "add_basic_details_brand_name_error": "Please enter the brand name",
-  "add_basic_details_brand_names_hint": "Input brands (eg: Ferrero)",
+  "add_basic_details_brand_names_hint": "Input brands (e.g.: Ferrero)",
   "add_basic_details_product_brand_help_title": "Good practices: Brands",
   "@add_basic_details_product_brand_help_title": {
     "description": "Title for the help section about the product brands"
@@ -3202,7 +3202,7 @@
     "description": "A 2nd good example for the brand name (you can change it if necessary)"
   },
   "quantity": "Quantity and weight",
-  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (eg : 4x100g)",
+  "add_basic_details_quantity_hint": "Input the weight and if needed the quantity (e.g. : 4x100g)",
   "add_basic_details_product_quantity_help_title": "Good practices: Quantity",
   "@add_basic_details_product_quantity_help_title": {
     "description": "Title for the help section about the product quantity"
