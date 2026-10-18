@@ -56,6 +56,7 @@ jobs:
       contents: read
     outputs:
       pr_number: ${{ steps.pr-context.outputs.pr_number }}
+      head_sha: ${{ steps.commit-info.outputs.sha }}
       short_sha: ${{ steps.commit-info.outputs.short_sha }}
       comment_id: ${{ steps.pr-context.outputs.comment_id }}
     env:
@@ -141,6 +142,9 @@ jobs:
   sign-apk:
     name: Sign APK and Publish
     needs: build-unsigned-apk
+    concurrency:
+      group: pr-signed-apk-sign-${{ needs.build-unsigned-apk.outputs.pr_number }}
+      cancel-in-progress: false
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -216,13 +220,39 @@ jobs:
           comment-author: 'github-actions[bot]'
           body-includes: 'Signed APK ready for testing!'
 
+      - name: 🔍 Verify APK is current before publishing
+        id: publish-check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ needs.build-unsigned-apk.outputs.pr_number }}
+          BUILT_HEAD_SHA: ${{ needs.build-unsigned-apk.outputs.head_sha }}
+          COMMENT_BODY: ${{ steps.find-comment.outputs.comment-body }}
+        run: |
+          CURRENT_HEAD_SHA=$(gh pr view "$PR_NUMBER" --repo "$GITHUB_REPOSITORY" --json headRefOid --jq '.headRefOid')
+          if [ "$CURRENT_HEAD_SHA" != "$BUILT_HEAD_SHA" ]; then
+            echo "::notice::Skipping comment publication because the PR head has changed."
+            exit 0
+          fi
+
+          # Concurrency queues are unordered; don't replace a newer run's links.
+          RUN_NUMBER_PATTERN='<!-- signed-apk-run: ([0-9]+) -->'
+          if [[ "$COMMENT_BODY" =~ $RUN_NUMBER_PATTERN ]] && (( BASH_REMATCH[1] > GITHUB_RUN_NUMBER )); then
+            echo "::notice::Skipping comment publication because a newer run has already published."
+            exit 0
+          fi
+
+          echo "publish=true" >> "$GITHUB_OUTPUT"
+
       - name: 💬 Post or update PR comment
+        if: steps.publish-check.outputs.publish == 'true'
         uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ steps.find-comment.outputs.comment-id }}
           issue-number: ${{ needs.build-unsigned-apk.outputs.pr_number }}
           edit-mode: replace
           body: |
+            <!-- signed-apk-run: ${{ github.run_number }} -->
+
             ### 📱 Signed APK ready for testing!
 
             A signed release APK has been generated for PR #${{ needs.build-unsigned-apk.outputs.pr_number }} at commit `${{ needs.build-unsigned-apk.outputs.short_sha }}`.
@@ -234,7 +264,7 @@ jobs:
             > _Note: You must be logged into GitHub to download the build artifact. Extract the downloaded zip file to install the APK._
 
       - name: 🚀 Add rocket reaction to comment
-        if: github.event_name == 'issue_comment' && success() && needs.build-unsigned-apk.outputs.comment_id != ''
+        if: github.event_name == 'issue_comment' && success() && needs.build-unsigned-apk.outputs.comment_id != '' && steps.publish-check.outputs.publish == 'true'
         uses: peter-evans/create-or-update-comment@v5
         with:
           comment-id: ${{ needs.build-unsigned-apk.outputs.comment_id }}
