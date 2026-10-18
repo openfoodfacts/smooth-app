@@ -30,6 +30,9 @@ class PricesRoot extends PreferencesRoot {
   const PricesRoot({required super.title});
 
   @override
+  String get actionName => 'Opened prices_settings_page';
+
+  @override
   SmoothPopupMenuButton<dynamic>? actions(BuildContext context) {
     return SmoothPopupMenuButton<void>(
       onSelected: (_) =>
