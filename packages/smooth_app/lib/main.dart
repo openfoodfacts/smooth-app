@@ -169,6 +169,8 @@ class _SmoothAppState extends State<SmoothApp> {
   // subsequent builds. This enables hot reloading. See
   // https://github.com/openfoodfacts/smooth-app/issues/473
   late Future<void> _initFuture;
+  AppLifecycleListener? _lifecycleListener;
+  DateTime? _pausedAt;
 
   @override
   void initState() {
@@ -186,8 +188,27 @@ class _SmoothAppState extends State<SmoothApp> {
     await AnalyticsHelper.initMatomo(_screenshots);
     if (!_screenshots) {
       await _userPreferences.init(_productPreferences);
+      _lifecycleListener = AppLifecycleListener(
+        onPause: () => _pausedAt = DateTime.now(),
+        onResume: () {
+          final DateTime? pausedAt = _pausedAt;
+          _pausedAt = null;
+          if (pausedAt != null) {
+            AnalyticsHelper.trackAppOpen(
+              _userPreferences,
+              backgroundedFor: DateTime.now().difference(pausedAt),
+            );
+          }
+        },
+      );
     }
     return true;
+  }
+
+  @override
+  void dispose() {
+    _lifecycleListener?.dispose();
+    super.dispose();
   }
 
   @override

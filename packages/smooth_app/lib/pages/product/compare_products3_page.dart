@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
@@ -40,7 +41,11 @@ class CompareProducts3Page extends StatefulWidget {
   State<CompareProducts3Page> createState() => _CompareProducts3PageState();
 }
 
-class _CompareProducts3PageState extends State<CompareProducts3Page> {
+class _CompareProducts3PageState extends State<CompareProducts3Page>
+    with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened compare_products_page';
+
   final Set<String> _attributesToExcludeIfStatusIsUnknown = <String>{};
 
   static const List<String> _sortedImportances = <String>[
