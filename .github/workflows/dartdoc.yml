@@ -78,6 +78,9 @@ jobs:
                               out.write('[]')
           "
 
+      - name: Add .nojekyll
+        run: touch packages/smooth_app/gh_pages/.nojekyll
+
       - name: Deploy smooth_app documentation to Github Pages
         uses: JamesIves/github-pages-deploy-action@v4.9.0
         with:
