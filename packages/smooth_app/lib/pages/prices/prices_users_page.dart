@@ -26,6 +26,9 @@ class PricesUsersPage extends StatefulWidget {
 
 class _PricesUsersPageState extends State<PricesUsersPage>
     with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened prices_users_page';
+
   final _InfiniteScrollUserManager _userManager = _InfiniteScrollUserManager();
 
   @override
