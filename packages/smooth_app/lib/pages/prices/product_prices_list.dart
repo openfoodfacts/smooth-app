@@ -42,6 +42,9 @@ class ProductPricesList extends StatefulWidget {
 
 class _ProductPricesListState extends State<ProductPricesList>
     with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened prices_list_page';
+
   late final _InfiniteScrollPriceManager _priceManager;
 
   @override

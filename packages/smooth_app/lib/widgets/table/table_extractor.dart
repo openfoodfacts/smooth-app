@@ -1,15 +1,16 @@
 import 'package:html/dom.dart';
 import 'package:html/dom_parsing.dart';
 import 'package:html/parser.dart';
+import 'package:smooth_app/widgets/table/smooth_table.dart';
 import 'package:smooth_app/widgets/table/smooth_table_cell.dart';
 
 /// Extractor of an HTML table into a grid of cells.
 class TableExtractor extends TreeVisitor {
-  List<List<SmoothTableCell>> extract(String html) {
+  SmoothTable extract(String html) {
     _cells.clear();
     final Document document = parse(html);
     visit(document);
-    return _cells;
+    return SmoothTable(_cells);
   }
 
   final List<List<SmoothTableCell>> _cells = <List<SmoothTableCell>>[];
@@ -72,11 +73,7 @@ class TableExtractor extends TreeVisitor {
     if (isTh) {
       _addThText = false;
       _currentRow.add(
-        SmoothTableCell(
-          text: _buffer.toString(),
-          isHeader: true,
-          leftAlign: true,
-        ),
+        SmoothTableCell(text: _buffer.toString(), isHeader: true),
       );
     }
   }

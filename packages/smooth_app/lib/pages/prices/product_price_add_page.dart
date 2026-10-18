@@ -51,18 +51,16 @@ class ProductPriceAddPage extends StatefulWidget {
 
     final Currency currency = priceAddHelper.getCurrency();
 
-    final bool multipleProducts = product == null;
+    final PriceModel model = PriceModel(
+      proofType: proofType,
+      initialProduct: product,
+      currency: currency,
+      multipleProducts: product == null,
+    );
 
     await Navigator.of(context, rootNavigator: true).push(
       MaterialPageRoute<void>(
-        builder: (BuildContext context) => ProductPriceAddPage(
-          PriceModel(
-            proofType: proofType,
-            initialProduct: product,
-            currency: currency,
-            multipleProducts: multipleProducts,
-          ),
-        ),
+        builder: (BuildContext context) => ProductPriceAddPage(model),
       ),
     );
   }

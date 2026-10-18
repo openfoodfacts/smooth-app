@@ -32,7 +32,7 @@ class KnowledgePanelTextCard extends StatelessWidget {
         text: textElement.html.replaceFirst(regExp, '').trim(),
       );
     } else if (textElement.html.startsWith('<table')) {
-      return ScrollableTableWidget(textElement.html);
+      return ScrollableTableWidget.fromHtml(textElement.html);
     } else {
       text = Padding(
         padding: const EdgeInsetsDirectional.only(
