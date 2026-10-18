@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
+  camera: ^0.12.1
+  flutter_zxing: ^3.1.0
   visibility_detector: ^0.4.0+2
   scanner_shared:
     path: ../shared
