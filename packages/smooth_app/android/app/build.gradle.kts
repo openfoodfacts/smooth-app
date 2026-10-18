@@ -49,7 +49,11 @@ android {
             signingConfig = signingConfigs.getByName("debug")
         }
         release {
-            signingConfig = signingConfigs.getByName("release")
+            signingConfig = if (System.getenv("SIGN_STORE_PATH") != null) {
+                signingConfigs.getByName("release")
+            } else {
+                null
+            }
         }
     }
 }
