@@ -426,7 +426,9 @@ class _SmoothGoRouter {
   Future<void> _initAppLanguage(BuildContext context) {
     // Must be set first to ensure the method is only called once
     _appLanguageInitialized = true;
-    ProductQuery.setLanguage(context, context.read<UserPreferences>());
+    final UserPreferences userPreferences = context.read<UserPreferences>();
+    ProductQuery.setLanguage(context, userPreferences);
+    AnalyticsHelper.trackAppOpen(userPreferences);
     context.read<AppNewsProvider>().loadLatestNews();
     return context.read<ProductPreferences>().refresh();
   }

@@ -235,7 +235,7 @@ class _ProofImagePreview extends StatelessWidget {
           );
 
           return Image.file(
-            File(model.cropParameters!.smallCroppedFile!.path),
+            File(model.cropParameters!.fullFile!.path),
             width: imageSize,
             height: imageSize,
           );

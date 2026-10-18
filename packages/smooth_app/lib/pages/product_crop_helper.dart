@@ -68,56 +68,42 @@ class ProductCropNewHelper extends ProductCropHelper {
   bool get enableEraser => productType == ProductType.product;
 
   @override
-  Future<CropParameters?> process({
+  Future<CropParameters> process({
     required final BuildContext context,
     required final CropController controller,
     required final File inputFile,
     required final int inputFullWidth,
     required final int inputFullHeight,
-    required final File smallCroppedFile,
+    required final File preCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
     required final List<Offset> offsets,
   }) async {
     // in this case, it's a brand new picture, with crop parameters.
-    // for performance reasons, we do not crop the image full-size here,
-    // but in the background task.
     // for privacy reasons, we won't send the full image to the server and
     // let it crop it: we'll send the cropped image directly.
-    final File fullFile = await copyFullImageFile(
-      directory,
-      sequenceNumber,
-      inputFile,
-    );
-    final Rect cropRect = getLocalCropRect(controller);
-    if (!context.mounted) {
-      return null;
-    }
+
+    // here we already have a full size cropped image, in smallCroppedFile
+    final Rect cropRect = CropHelper.getFullLocalCropRect();
     await BackgroundTaskImage.addTask(
       barcode,
       productType: productType,
       language: language,
       imageField: imageField,
-      fullFile: fullFile,
-      croppedFile: smallCroppedFile,
-      rotation: controller.rotation.degrees,
+      croppedFile: preCroppedFile,
+      rotation: 0,
       x1: cropRect.left.ceil(),
       y1: cropRect.top.ceil(),
       x2: cropRect.right.floor(),
       y2: cropRect.bottom.floor(),
-      eraserCoordinates: CropHelper.getEraserCoordinates(offsets),
+      eraserCoordinates: <double>[],
       context: context,
     );
 
     if (context.mounted) {
       await refresh(context);
     }
-    return getCropParameters(
-      controller: controller,
-      fullFile: fullFile,
-      smallCroppedFile: smallCroppedFile,
-      offsets: offsets,
-    );
+    return CropParameters.asIs(preCroppedFile);
   }
 }
 
@@ -137,13 +123,13 @@ class ProductCropAgainHelper extends ProductCropHelper {
   bool isNewImage() => false;
 
   @override
-  Future<CropParameters?> process({
+  Future<CropParameters> process({
     required final BuildContext context,
     required final CropController controller,
     required final File inputFile,
     required final int inputFullWidth,
     required final int inputFullHeight,
-    required final File smallCroppedFile,
+    required final File preCroppedFile,
     required final Directory directory,
     required final int sequenceNumber,
     required final List<Offset> offsets,
@@ -163,7 +149,7 @@ class ProductCropAgainHelper extends ProductCropHelper {
       language: language,
       imageField: imageField,
       imageId: imageId,
-      croppedFile: smallCroppedFile,
+      croppedFile: preCroppedFile,
       rotation: controller.rotation.degrees,
       x1: cropRect.left.ceil(),
       y1: cropRect.top.ceil(),
@@ -174,11 +160,10 @@ class ProductCropAgainHelper extends ProductCropHelper {
     if (context.mounted) {
       await refresh(context);
     }
-    return getCropParameters(
-      controller: controller,
-      fullFile: null,
-      smallCroppedFile: smallCroppedFile,
-      offsets: offsets,
+    return CropParameters.withoutFullFile(
+      preCroppedFile: preCroppedFile,
+      rotation: controller.rotation.degrees,
+      cropRect: getLocalCropRect(controller),
     );
   }
 
