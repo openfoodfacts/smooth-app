@@ -211,10 +211,11 @@ class _SmoothBarcodeScannerZXingState
     if (controller == null || !controller.value.isInitialized) {
       return;
     }
+    final bool torchOn = !_torchOn;
     try {
-      await controller.setFlashMode(_torchOn ? FlashMode.off : FlashMode.torch);
-      if (mounted) {
-        setState(() => _torchOn = !_torchOn);
+      await controller.setFlashMode(torchOn ? FlashMode.torch : FlashMode.off);
+      if (mounted && identical(controller, _controller)) {
+        setState(() => _torchOn = torchOn);
       }
     } catch (_) {
       if (mounted) {
