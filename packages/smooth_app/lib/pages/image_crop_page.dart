@@ -36,19 +36,15 @@ class ImagePickerConstants {
   /// Good enough for 8"x10" prints (something like A4 sheet).
   ///
   /// cf. https://www.adobe.com/fr/creativecloud/photography/discover/standard-photo-sizes.html?msockid=0619d51777586f491e57c06c76ec6e77
-  static const num maxSize = 3000;
-
-  /// In case [maxSize] was too big.
-  static const num maxSizeFallback = 2000;
+  static const double maxSize = 3000;
 
   // According to https://github.com/openfoodfacts/smooth-app/issues/7773,
   // Android doesn't deal correctly with quality or max size parameters, which
   // causes memory crashes.
   static int? get imagePickerQuality =>
-      Platform.isAndroid ? null : ImagePickerConstants.imageQuality;
+      Platform.isAndroid ? null : imageQuality;
 
-  static double? get imagePickerMaxSize =>
-      Platform.isAndroid ? null : ImagePickerConstants.maxSize.toDouble();
+  static double? get imagePickerMaxSize => Platform.isAndroid ? null : maxSize;
 }
 
 /// Safely picks an image file from gallery or camera, regarding access denied.

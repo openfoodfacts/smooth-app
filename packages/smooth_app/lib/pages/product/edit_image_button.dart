@@ -9,21 +9,12 @@ class EditImageButton extends StatelessWidget {
     required this.label,
     required this.onPressed,
     this.borderWidth,
-  }) : _centerContent = false;
-
-  /// Centered version of the button.
-  const EditImageButton.center({
-    required this.icon,
-    required this.label,
-    required this.onPressed,
-    this.borderWidth,
-  }) : _centerContent = true;
+  });
 
   final Widget icon;
   final String label;
   final VoidCallback onPressed;
   final double? borderWidth;
-  final bool _centerContent;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +23,7 @@ class EditImageButton extends StatelessWidget {
       message: label,
       child: OutlinedButton.icon(
         icon: IconTheme.merge(
-          data: IconThemeData(size: !_centerContent ? 15.0 : null),
+          data: const IconThemeData(size: 15.0),
           child: icon,
         ),
         style: ButtonStyle(
@@ -48,29 +39,19 @@ class EditImageButton extends StatelessWidget {
                     width: borderWidth!,
                   ),
                 ),
-          padding: _centerContent
-              ? WidgetStateProperty.all(
-                  const EdgeInsetsDirectional.symmetric(vertical: LARGE_SPACE),
-                )
-              : null,
-          alignment: _centerContent ? AlignmentDirectional.center : null,
         ),
         onPressed: onPressed,
         label: SizedBox(
-          width: !_centerContent ? double.infinity : null,
+          width: double.infinity,
           child: Padding(
             padding: EdgeInsetsDirectional.symmetric(
-              horizontal:
-                  (borderWidth ?? 0.0) + (_centerContent ? SMALL_SPACE : 0.0),
+              horizontal: borderWidth ?? 0.0,
               vertical: borderWidth ?? 0.0,
             ),
             child: AutoSizeText(
               label,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: _centerContent
-                  ? const TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold)
-                  : null,
             ),
           ),
         ),

@@ -19,14 +19,13 @@ import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_back_button.dart';
 import 'package:smooth_app/helpers/analytics_helper.dart';
-import 'package:smooth_app/helpers/image_compute_container.dart';
+import 'package:smooth_app/helpers/image_cropper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/crop_helper.dart';
 import 'package:smooth_app/pages/crop_parameters.dart';
 import 'package:smooth_app/pages/prices/eraser_model.dart';
 import 'package:smooth_app/pages/prices/eraser_painter.dart';
 import 'package:smooth_app/pages/product/common/product_refresher.dart';
-import 'package:smooth_app/pages/product/edit_image_button.dart';
 import 'package:smooth_app/pages/product/may_exit_page_helper.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
@@ -72,11 +71,11 @@ class _CropPageState extends State<CropPage> {
   int? _cacheImageWidth;
   int? _cacheImageHeight;
 
-  /// The longest screen side, used as a maximum size for the transient image.
+  /// The longest screen side, used as a maximum size for the visible image.
   ///
   /// We need this info:
-  /// * we experienced performance issues when cropping the full size
-  /// * it's much faster to create a smaller file
+  /// * we experienced performance issues when displaying the full size
+  /// * it's much faster to display a smaller file
   /// * the size of the screen is a good approximation of "how big is enough?"
   late double _longestSide;
 
@@ -106,9 +105,6 @@ class _CropPageState extends State<CropPage> {
     setState(() {});
   }
 
-  Future<ui.Image> _loadFullImage() async =>
-      BackgroundTaskImage.loadUiImage(await widget.inputFile.readAsBytes());
-
   Future<void> _retrieveSize() async {
     try {
       // may fail, cf. https://github.com/fluttercandies/dart_image_size_getter/pull/56
@@ -125,9 +121,12 @@ class _CropPageState extends State<CropPage> {
       }
     } catch (e) {
       // as a fallback; should take more memory and a bit longer (syllepsis)
-      final ui.Image image = await _loadFullImage();
+      final ui.Image image = await BackgroundTaskImage.loadUiImage(
+        await widget.inputFile.readAsBytes(),
+      );
       _fullImageWidth = image.width;
       _fullImageHeight = image.height;
+      image.dispose();
     }
   }
 
@@ -250,50 +249,6 @@ class _CropPageState extends State<CropPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsetsDirectional.only(
-                        top: SMALL_SPACE,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          if (!_isErasing)
-                            _IconButton(
-                              icon: const icons.Rotate.antiClockwise(),
-                              tooltip: appLocalizations.photo_rotate_left,
-                              onPressed: () => setState(() {
-                                _controller.rotateLeft();
-                                _eraserModel.rotation = _controller.rotation;
-                              }),
-                            ),
-                          if (widget.cropHelper.enableEraser)
-                            _IconButton(
-                              icon: _isErasing
-                                  ? const icons.Crop()
-                                  : const icons.Brush(),
-                              onPressed: () =>
-                                  setState(() => _isErasing = !_isErasing),
-                            ),
-                          if (_isErasing)
-                            _IconButton(
-                              icon: const icons.Undo(),
-                              tooltip: appLocalizations.photo_undo_action,
-                              onPressed: _eraserModel.isEmpty
-                                  ? null
-                                  : () => setState(() => _eraserModel.undo()),
-                            ),
-                          if (!_isErasing)
-                            _IconButton(
-                              icon: const icons.Rotate.clockwise(),
-                              tooltip: appLocalizations.photo_rotate_right,
-                              onPressed: () => setState(() {
-                                _controller.rotateRight();
-                                _eraserModel.rotation = _controller.rotation;
-                              }),
-                            ),
-                        ],
-                      ),
-                    ),
                     Expanded(
                       child: Stack(
                         children: <Widget>[
@@ -353,18 +308,46 @@ class _CropPageState extends State<CropPage> {
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: VERY_SMALL_SPACE,
+                        horizontal: SMALL_SPACE,
                         vertical: SMALL_SPACE,
                       ),
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: EditImageButton.center(
-                          icon: widget.cropHelper.getProcessIcon(),
-                          label: widget.cropHelper.getProcessLabel(
-                            appLocalizations,
+                      child: Row(
+                        spacing: SMALL_SPACE,
+                        children: <Widget>[
+                          if (!_isErasing)
+                            _IconButton(
+                              icon: const icons.Rotate.antiClockwise(),
+                              tooltip: appLocalizations.photo_rotate_left,
+                              onPressed: () => setState(() {
+                                _controller.rotateLeft();
+                                _eraserModel.rotation = _controller.rotation;
+                              }),
+                            ),
+                          if (widget.cropHelper.enableEraser)
+                            _IconButton(
+                              icon: _isErasing
+                                  ? const icons.Crop()
+                                  : const icons.Brush(),
+                              onPressed: () =>
+                                  setState(() => _isErasing = !_isErasing),
+                            ),
+                          if (_isErasing)
+                            _IconButton(
+                              icon: const icons.Undo(),
+                              tooltip: appLocalizations.photo_undo_action,
+                              onPressed: _eraserModel.isEmpty
+                                  ? null
+                                  : () => setState(() => _eraserModel.undo()),
+                            ),
+                          const Spacer(),
+                          FloatingActionButton(
+                            tooltip: widget.cropHelper.getProcessLabel(
+                              appLocalizations,
+                            ),
+                            onPressed: () async => _saveImageAndPop(),
+                            child: widget.cropHelper.getProcessIcon(),
                           ),
-                          onPressed: () async => _saveImageAndPop(),
-                        ),
+                        ],
                       ),
                     ),
                   ],
@@ -374,25 +357,20 @@ class _CropPageState extends State<CropPage> {
     );
   }
 
-  /// Returns a small file with the cropped image, for the transient image.
-  ///
-  /// Here we use BMP format as it's faster to encode.
-  Future<File> _getSmallCroppedImageFile(
+  /// Returns a file with the cropped image + max size, for the transient image.
+  Future<File> _getPreCroppedImageFile(
     final Directory directory,
     final int sequenceNumber,
   ) async {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
-    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.bmp';
+    final String croppedPath = '${directory.path}/cropped_$sequenceNumber.jpeg';
     final File result = File(croppedPath);
     setState(() => _progress = appLocalizations.crop_page_action_cropping);
-    ui.Image? image;
-    ui.Image? cropped;
+
     try {
-      // TODO(monsieurtanuki): optim - we may even load a smaller image
-      image = await _loadFullImage();
-      cropped = await CropController.getCroppedBitmap(
-        image: image,
-        maxSize: _longestSide,
+      final ImageCropper imageCropper = ImageCropper(
+        inputFile: widget.inputFile,
+        outputFile: result,
         crop: _controller.crop,
         rotation: _controller.rotation,
         overlayPainter: !widget.cropHelper.enableEraser
@@ -405,25 +383,13 @@ class _CropPageState extends State<CropPage> {
                 cropRect: _controller.crop,
               ),
       );
-      setState(() => _progress = appLocalizations.crop_page_action_local);
+      await imageCropper.saveCroppedJpeg();
 
-      Future<void> safeSaveBmp() async {
-        try {
-          await saveBmp(file: result, source: cropped!);
-        } finally {
-          cropped!.dispose();
-        }
-      }
-
-      await safeSaveBmp().timeout(const Duration(seconds: 10));
+      return result;
     } catch (e, trace) {
       AnalyticsHelper.sendException(e, stackTrace: trace);
       rethrow;
-    } finally {
-      image?.dispose();
     }
-
-    return result;
   }
 
   Future<CropParameters?> _saveImageAndExitTry() async {
@@ -489,7 +455,7 @@ class _CropPageState extends State<CropPage> {
     );
     final Directory directory = await BackgroundTaskUpload.getDirectory();
 
-    final File smallCroppedFile = await _getSmallCroppedImageFile(
+    final File preCroppedFile = await _getPreCroppedImageFile(
       directory,
       sequenceNumber,
     );
@@ -503,7 +469,7 @@ class _CropPageState extends State<CropPage> {
       controller: _controller,
       inputFullWidth: _fullImageWidth,
       inputFullHeight: _fullImageHeight,
-      smallCroppedFile: smallCroppedFile,
+      preCroppedFile: preCroppedFile,
       directory: directory,
       inputFile: widget.inputFile,
       sequenceNumber: sequenceNumber,

@@ -92,7 +92,7 @@ Future<File?> _selectPictureFromProductGallery({
         isLoggedInMandatory: true,
       );
 
-  return parameters?.smallCroppedFile;
+  return parameters?.preCroppedFile;
 }
 
 Future<PhotoRowActions?> _showPhotoBanner({
