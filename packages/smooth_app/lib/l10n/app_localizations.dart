@@ -11194,11 +11194,17 @@ abstract class AppLocalizations {
   /// **'{scans} scans'**
   String donation_tier_scans_short(String scans);
 
-  /// Small suffix after the amount on a tier chip of the donation reminder sheet, e.g. '€5 /month'
+  /// Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.
   ///
   /// In en, this message translates to:
-  /// **'/month'**
-  String get donation_tier_per_month;
+  /// **'**{amount}** /month'**
+  String donation_tier_chip_amount(String amount);
+
+  /// Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.
+  ///
+  /// In en, this message translates to:
+  /// **'**{raised}** of {goal}'**
+  String donation_reminder_funding(String raised, String goal);
 }
 
 class _AppLocalizationsDelegate

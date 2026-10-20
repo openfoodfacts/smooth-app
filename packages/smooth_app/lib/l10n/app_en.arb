@@ -6007,8 +6007,28 @@
       }
     }
   },
-  "donation_tier_per_month": "/month",
-  "@donation_tier_per_month": {
-    "description": "Small suffix after the amount on a tier chip of the donation reminder sheet, e.g. '€5 /month'"
+  "donation_tier_chip_amount": "**{amount}** /month",
+  "@donation_tier_chip_amount": {
+    "description": "Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.",
+    "placeholders": {
+      "amount": {
+        "type": "String",
+        "example": "€5"
+      }
+    }
+  },
+  "donation_reminder_funding": "**{raised}** of {goal}",
+  "@donation_reminder_funding": {
+    "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",
+    "placeholders": {
+      "raised": {
+        "type": "String",
+        "example": "€47,673"
+      },
+      "goal": {
+        "type": "String",
+        "example": "€170,000"
+      }
+    }
   }
 }
