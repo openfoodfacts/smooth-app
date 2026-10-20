@@ -105,6 +105,12 @@ void main() {
       unawaited(userPreferences.countProductLookedUp('3017620422003'));
       expect(userPreferences.productsLookedUpSinceAsk, 1);
     });
+
+    test('two unawaited calls for one barcode count once', () {
+      unawaited(userPreferences.countProductLookedUp('3017620422003'));
+      unawaited(userPreferences.countProductLookedUp('3017620422003'));
+      expect(userPreferences.productsLookedUpSinceAsk, 1);
+    });
   });
 
   test('markDonationReminderShown resets the counter and stamps now', () async {

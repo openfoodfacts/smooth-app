@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
-import 'package:smooth_app/pages/donation/donation_tier_row.dart';
+import 'package:smooth_app/pages/donation/donation_ladder_outline.dart';
 import 'package:smooth_app/widgets/text/text_highlighter.dart';
 
 class DonationTierChip extends StatelessWidget {

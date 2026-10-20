@@ -735,19 +735,23 @@ class UserPreferences extends ChangeNotifier {
     return millis == null ? null : DateTime.fromMillisecondsSinceEpoch(millis);
   }
 
-  /// No-op for the barcode the page before it already counted. The counter
-  /// is written before the first `await`, so a caller that reads
-  /// [productsLookedUpSinceAsk] right after, without awaiting, already sees
-  /// the incremented value.
+  /// No-op for the barcode the page before it already counted. Both values
+  /// are written before the first `await`, so a caller that reads them right
+  /// after, without awaiting, already sees the new count and barcode.
   Future<void> countProductLookedUp(final String barcode) async {
     if (barcode == lastCountedBarcode) {
       return;
     }
-    await _sharedPreferences.setInt(
+    final Future<bool> countSaved = _sharedPreferences.setInt(
       _TAG_PRODUCTS_LOOKED_UP_SINCE_ASK,
       productsLookedUpSinceAsk + 1,
     );
-    await _sharedPreferences.setString(_TAG_LAST_COUNTED_BARCODE, barcode);
+    final Future<bool> barcodeSaved = _sharedPreferences.setString(
+      _TAG_LAST_COUNTED_BARCODE,
+      barcode,
+    );
+    await countSaved;
+    await barcodeSaved;
   }
 
   Future<void> markDonationReminderShown() async {
