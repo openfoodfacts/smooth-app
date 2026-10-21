@@ -1105,7 +1105,7 @@ packages:
     source: hosted
     version: "2.0.0"
   mobile_scanner:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: mobile_scanner
       sha256: "5a51ea79f0cf8293f616a5d08baae185b59b5e6bb24df01f2a63037ade0bade0"
