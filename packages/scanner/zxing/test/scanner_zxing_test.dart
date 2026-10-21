@@ -67,4 +67,55 @@ void main() {
       await tearDownScanner(tester);
     });
   }
+
+  group('getController', () {
+    test('starts stopped and notifies once per change', () async {
+      final CustomScannerController controller = const ScannerZXing()
+          .getController();
+      int notifications = 0;
+      controller.hasTorchState.addListener(() => notifications++);
+
+      expect(controller.isStarted, isFalse);
+      expect(controller.hasTorch, isFalse);
+
+      await controller.start();
+      await controller.start();
+      expect(controller.isStarted, isTrue);
+      expect(notifications, 1);
+
+      await controller.stop();
+      await controller.stop();
+      expect(controller.isStarted, isFalse);
+      expect(notifications, 2);
+
+      controller.toggleCamera();
+      expect(notifications, 3);
+    });
+
+    testWidgets('camera view mounts the reader only while started', (
+      WidgetTester tester,
+    ) async {
+      final CustomScannerController controller = const ScannerZXing()
+          .getController();
+      final List<String> scanned = <String>[];
+      await tester.pumpWidget(
+        MaterialApp(home: controller.buildCameraView(onScan: scanned.add)),
+      );
+      expect(find.byType(ReaderWidget), findsNothing);
+
+      await controller.start();
+      await tester.pump();
+      final ReaderWidget reader = tester.widget<ReaderWidget>(
+        find.byType(ReaderWidget),
+      );
+
+      reader.onScan!(Code(text: '3017620422003', isValid: true));
+      reader.onScan!(Code(text: '', isValid: true));
+      expect(scanned, <String>['3017620422003']);
+
+      await controller.stop();
+      await tester.pump();
+      expect(find.byType(ReaderWidget), findsNothing);
+    });
+  });
 }
