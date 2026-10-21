@@ -139,8 +139,12 @@ class MLKitScannerController implements CustomScannerController {
         controller: _controller,
         placeholderBuilder: (_) =>
             const SizedBox.expand(child: ColoredBox(color: Colors.black)),
-        onDetect: (BarcodeCapture capture) =>
-            onScan(capture.barcodes.first.rawValue!),
+        onDetect: (BarcodeCapture capture) {
+          final String? value = capture.barcodes.firstOrNull?.rawValue;
+          if (value != null) {
+            onScan(value);
+          }
+        },
       );
 }
 
