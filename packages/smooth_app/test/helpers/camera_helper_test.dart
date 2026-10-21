@@ -3,7 +3,6 @@ import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/helpers/global_vars.dart';
 
-/// Back camera query throws, front camera exists.
 class _BackCameraThrowsScanner extends MockedScanner {
   const _BackCameraThrowsScanner();
 

@@ -69,8 +69,6 @@ void main() {
   }
 
   group('getController', () {
-    // The app puts the controller in a plain Provider, which throws on a
-    // Listenable value in debug builds.
     test('is not a Listenable', () {
       expect(const ScannerZXing().getController(), isNot(isA<Listenable>()));
     });
@@ -98,30 +96,31 @@ void main() {
       expect(notifications, 3);
     });
 
-    testWidgets('camera view mounts the reader only while started', (
-      WidgetTester tester,
-    ) async {
-      final CustomScannerController controller = const ScannerZXing()
-          .getController();
-      final List<String> scanned = <String>[];
-      await tester.pumpWidget(
-        MaterialApp(home: controller.buildCameraView(onScan: scanned.add)),
-      );
-      expect(find.byType(ReaderWidget), findsNothing);
+    testWidgets(
+      'camera view forwards non-empty scans and mounts the reader only while started',
+      (WidgetTester tester) async {
+        final CustomScannerController controller = const ScannerZXing()
+            .getController();
+        final List<String> scanned = <String>[];
+        await tester.pumpWidget(
+          MaterialApp(home: controller.buildCameraView(onScan: scanned.add)),
+        );
+        expect(find.byType(ReaderWidget), findsNothing);
 
-      await controller.start();
-      await tester.pump();
-      final ReaderWidget reader = tester.widget<ReaderWidget>(
-        find.byType(ReaderWidget),
-      );
+        await controller.start();
+        await tester.pump();
+        final ReaderWidget reader = tester.widget<ReaderWidget>(
+          find.byType(ReaderWidget),
+        );
 
-      reader.onScan!(Code(text: '3017620422003', isValid: true));
-      reader.onScan!(Code(text: '', isValid: true));
-      expect(scanned, <String>['3017620422003']);
+        reader.onScan!(Code(text: '3017620422003', isValid: true));
+        reader.onScan!(Code(text: '', isValid: true));
+        expect(scanned, <String>['3017620422003']);
 
-      await controller.stop();
-      await tester.pump();
-      expect(find.byType(ReaderWidget), findsNothing);
-    });
+        await controller.stop();
+        await tester.pump();
+        expect(find.byType(ReaderWidget), findsNothing);
+      },
+    );
   });
 }
