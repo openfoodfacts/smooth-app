@@ -62,7 +62,7 @@ class ExternalScanCarouselManagerState
   }
 
   // With an animation
-  void animatePageTo(int page) => _controller.animateToPage(page);
+  Future<void> animatePageTo(int page) => _controller.animateToPage(page);
 
   // Without an animation
   void moveToSearchCard() => _controller.jumpToPage(0);
