@@ -69,6 +69,12 @@ void main() {
   }
 
   group('getController', () {
+    // The app puts the controller in a plain Provider, which throws on a
+    // Listenable value in debug builds.
+    test('is not a Listenable', () {
+      expect(const ScannerZXing().getController(), isNot(isA<Listenable>()));
+    });
+
     test('starts stopped and notifies once per change', () async {
       final CustomScannerController controller = const ScannerZXing()
           .getController();

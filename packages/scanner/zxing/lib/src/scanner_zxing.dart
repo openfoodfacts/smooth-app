@@ -62,8 +62,9 @@ class ScannerZXing extends Scanner {
   }
 }
 
-class _ZXingController extends ChangeNotifier
-    implements CustomScannerController {
+/// Not a [Listenable] itself: the app hands it to a plain `Provider`, which
+/// rejects listenables. Changes go through [hasTorchState] instead.
+class _ZXingController implements CustomScannerController {
   static const int _formats =
       Format.code39 |
       Format.code93 |
@@ -77,6 +78,7 @@ class _ZXingController extends ChangeNotifier
       Format.dataMatrix |
       Format.qrCode;
 
+  final _Changes _changes = _Changes();
   bool _started = false;
   bool _disposed = false;
   CameraLensDirection _lensDirection = CameraLensDirection.back;
@@ -89,7 +91,7 @@ class _ZXingController extends ChangeNotifier
   bool get isStarted => _started;
 
   @override
-  Listenable get hasTorchState => this;
+  Listenable get hasTorchState => _changes;
 
   @override
   bool get hasTorch =>
@@ -163,20 +165,19 @@ class _ZXingController extends ChangeNotifier
 
   void _notify() {
     if (!_disposed) {
-      notifyListeners();
+      _changes.notify();
     }
   }
 
-  @override
   void dispose() {
     _disposed = true;
-    super.dispose();
+    _changes.dispose();
   }
 
   @override
   Widget buildCameraView({required void Function(String barcode) onScan}) =>
       ListenableBuilder(
-        listenable: this,
+        listenable: _changes,
         builder: (BuildContext context, _) {
           if (!_started) {
             return SCANNER_EMPTY_WIDGET;
@@ -279,7 +280,7 @@ class _SmoothBarcodeScannerZXingState
               SmoothBarcodeScannerVisor.CORNER_PADDING,
             ),
             child: ListenableBuilder(
-              listenable: _controller,
+              listenable: _controller.hasTorchState,
               builder: (BuildContext context, _) => Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -332,4 +333,8 @@ class _SmoothBarcodeScannerZXingState
       }
     }
   }
+}
+
+class _Changes extends ChangeNotifier {
+  void notify() => notifyListeners();
 }
