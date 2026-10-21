@@ -145,7 +145,7 @@
   "@food_preferences_page_description_foods_to_avoid": {
     "description": "Description for the foods to avoid page of the food preferences wizard"
   },
-  "food_preferences_page_description_environment": "Indicate your environmental preferences for more sustainable recommendations.",
+  "food_preferences_page_description_environment": "Teilen Sie uns Ihre Umweltpräferenzen mit, um nachhaltigere Empfehlungen zu erhalten.",
   "@food_preferences_page_description_environment": {
     "description": "Description for the environment preferences page of the food preferences wizard"
   },
@@ -539,7 +539,7 @@
   "myPreferences_profile_subtitle": "Verwalten Sie Ihr Open Food Facts Konto.",
   "myPreferences_settings_title": "App-Einstellungen",
   "myPreferences_settings_subtitle": "Dunkler Modus, Sprachen…",
-  "myPreferences_not_configured_yet": "You haven't set any preference yet.",
+  "myPreferences_not_configured_yet": "Sie haben noch keine Präferenz gesetzt.",
   "myPreferences_food_title": "Lebensmittelvorlieben",
   "myPreferences_food_subtitle": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind.",
   "myPreferences_food_compatibility_explainer": "Wählen Sie aus, welche Informationen über Lebensmittel für Sie am wichtigsten sind, um Lebensmittel nach Ihren Vorlieben zu ordnen, die für Sie wichtigen Informationen zuerst zu sehen und eine Kompatibilitätsübersicht zu erhalten.",
@@ -547,12 +547,12 @@
   "@myPreferences_food_privacy": {
     "description": "Privacy reassurance, shown next to a lock icon under the food preferences explanation, both in the onboarding and in the food preferences page"
   },
-  "myPreferences_beauty_title": "Preferences for cosmetics",
-  "myPreferences_beauty_subtitle": "Choose what information about cosmetics products matters most to you.",
-  "myPreferences_product_title": "Preferences for other products",
-  "myPreferences_product_subtitle": "Choose what information about other products matters most to you.",
-  "myPreferences_pet_food_title": "Preferences for pet food",
-  "myPreferences_pet_food_subtitle": "Choose what information about pet food matters most to you.",
+  "myPreferences_beauty_title": "Kosmetikvorlieben",
+  "myPreferences_beauty_subtitle": "Wählen Sie aus, welche Informationen über Kosmetikprodukte Ihnen am wichtigsten sind.",
+  "myPreferences_product_title": "Vorlieben für sonstige Produkte",
+  "myPreferences_product_subtitle": "Wählen Sie aus, welche Informationen über sonstige Produkte Ihnen am wichtigsten sind.",
+  "myPreferences_pet_food_title": "Tierfuttervorlieben",
+  "myPreferences_pet_food_subtitle": "Wählen Sie aus, welche Informationen über Tierfutter Ihnen am wichtigsten sind.",
   "confirmResetPreferences": "Lebensmittelvorlieben zurücksetzen?",
   "@confirmResetPreferences": {
     "description": "Pop up title: Reassuring if the food preferences should really be reset"
@@ -985,7 +985,7 @@
   "@more_photos": {},
   "view_more_photo_button": "Alle vorhandenen Fotos für dieses Produkt anzeigen",
   "@view_more_photo_button": {},
-  "no_settings_found": "No settings found",
+  "no_settings_found": "Keine Einstellungen gefunden",
   "@no_settings_found": {},
   "no_product_found": "Keine Produkte gefunden",
   "@no_product_found": {},
@@ -1121,7 +1121,7 @@
   "tagline_app_review_button_negative": "Nicht wirklich …",
   "tagline_app_review_button_later": "Später erneut fragen",
   "tagline_feed_news_button": "Mehr erfahren",
-  "tagline_feed_funding_goal": "of {goal}",
+  "tagline_feed_funding_goal": "von {goal}",
   "@tagline_feed_funding_goal": {
     "description": "Second line of the home news card when a funding campaign publishes its figures: the campaign goal. The value arrives already formatted by the app, so do not add currency symbols, digits or separators.",
     "placeholders": {
@@ -1131,7 +1131,7 @@
       }
     }
   },
-  "tagline_feed_funding_shortfall": "{shortfall} short",
+  "tagline_feed_funding_shortfall": "{shortfall} fehlen",
   "@tagline_feed_funding_shortfall": {
     "description": "Third line of the home news card when a funding campaign publishes its figures: how much money is still missing. The amount arrives already formatted by the app.",
     "placeholders": {
@@ -2743,14 +2743,14 @@
   "prices_amount_no_product": "Ein Produkt fehlt!",
   "prices_amount_price_incorrect": "Ungültiger Wert",
   "prices_amount_price_mandatory": "Notwendiger Wert",
-  "prices_amount_update_currency": "Update currency",
+  "prices_amount_update_currency": "Währung aktualisieren",
   "prices_currency_subtitle": "Währung",
   "prices_date_subtitle": "Datum",
   "prices_location_subtitle": "Laden",
   "prices_location_find": "Einen Laden finden",
   "prices_location_mandatory": "Sie müssen einen Laden auswählen!",
   "prices_location_search_broader": "Sie haben nicht gefunden, wonach Sie gesucht haben? Versuchen Sie es mit einer allgemeineren Suchanfrage!",
-  "prices_location_open_map": "View the shop on the map",
+  "prices_location_open_map": "Den Laden auf der Karte ansehen",
   "prices_location_edit": "Select another shop",
   "prices_proof_subtitle": "Nachweis",
   "prices_proof_empty_title": "Noch keine Beweise!",
@@ -4727,7 +4727,7 @@
   "@product_page_for_me_compatibility_score_title": {
     "description": "Title for the compatibility score"
   },
-  "product_page_for_me_compatibility_score_value": "{value}% ckompatibel",
+  "product_page_for_me_compatibility_score_value": "{value}% kompatibel",
   "@product_page_for_me_compatibility_score_value": {
     "description": "Compatibility score value in the For me tab on the product page",
     "placeholders": {
@@ -5907,7 +5907,7 @@
   "@donation_where_it_goes_title": {
     "description": "Title of the block listing what a donation pays for"
   },
-  "donation_where_it_goes_servers": "Servers and storage",
+  "donation_where_it_goes_servers": "Server und Speicher",
   "@donation_where_it_goes_servers": {
     "description": "First thing a donation pays for"
   },
@@ -5919,11 +5919,11 @@
   "@donation_where_it_goes_services": {
     "description": "Third thing a donation pays for"
   },
-  "donation_tiers_title": "Monthly, cancel any time",
+  "donation_tiers_title": "Monatlich, jederzeit kündbar",
   "@donation_tiers_title": {
     "description": "Title of the block listing the monthly donation amounts"
   },
-  "donation_tier_amount_monthly": "{amount} a month",
+  "donation_tier_amount_monthly": "{amount} pro Monat",
   "@donation_tier_amount_monthly": {
     "description": "A monthly donation amount, already formatted with its currency - or, on the custom-amount field, just the currency symbol on its own",
     "placeholders": {
@@ -5961,7 +5961,7 @@
   "@donation_already_donated": {
     "description": "Quiet link under the donation buttons; tapping it stops the app asking for a donation for a year"
   },
-  "donation_already_donated_thanks": "Thank you! We won't ask again for a year.",
+  "donation_already_donated_thanks": "Vielen Dank! Wir werden ein Jahr lang nicht mehr fragen.",
   "@donation_already_donated_thanks": {
     "description": "Confirmation shown after tapping 'I already donated'"
   }
