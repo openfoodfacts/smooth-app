@@ -14,11 +14,45 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 import 'package:smooth_app/widgets/smooth_segmented_control.dart';
 
+bool hasProductMatchingAttributes(Product product, ProductPreferences prefs) {
+  final List<AttributeGroup>? attributeGroups = product.attributeGroups;
+  if (attributeGroups == null || attributeGroups.isEmpty) {
+    return false;
+  }
+  final ProductPreferencesManager manager = prefs.getManagerForProduct(product);
+  for (final AttributeGroup group in attributeGroups) {
+    if (group.attributes == null) {
+      continue;
+    }
+    for (final Attribute attribute in group.attributes!) {
+      final String? attributeId = attribute.id;
+      if (attributeId != null) {
+        final String importance = manager.getImportanceIdForAttributeId(
+          attributeId,
+        );
+        if (importance != PreferenceImportance.ID_NOT_IMPORTANT) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}
+
 class ProductForMeAttributes extends StatelessWidget {
   const ProductForMeAttributes({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final Product? product = context.watchSafe<Product>();
+    final ProductPreferences productPreferences = context
+        .watch<ProductPreferences>();
+
+    if (product != null &&
+        !hasProductMatchingAttributes(product, productPreferences)) {
+      return EMPTY_WIDGET;
+    }
+
     final SmoothColorsThemeExtension theme = context
         .extension<SmoothColorsThemeExtension>();
     final bool lightTheme = context.lightTheme();
@@ -88,9 +122,13 @@ class _ProductForMeAttributesList extends StatelessWidget {
           return EMPTY_WIDGET;
         }
 
+        final ProductPreferencesManager manager = prefs.getManagerForProduct(
+          product,
+        );
+
         final ForMeAttributesFilter groups = switch (filterType) {
           ForMeAttributesFilterType.importance => AttributesImportanceCollector(
-            prefs,
+            manager,
           ),
           ForMeAttributesFilterType.evaluation =>
             AttributesEvaluationCollector(),
@@ -101,7 +139,7 @@ class _ProductForMeAttributesList extends StatelessWidget {
             continue;
           }
           for (final Attribute attribute in group.attributes!) {
-            final String importance = prefs.getImportanceIdForAttributeId(
+            final String importance = manager.getImportanceIdForAttributeId(
               attribute.id!,
             );
             if (importance == PreferenceImportance.ID_NOT_IMPORTANT) {

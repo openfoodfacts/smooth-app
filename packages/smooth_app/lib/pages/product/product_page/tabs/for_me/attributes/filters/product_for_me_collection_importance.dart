@@ -1,5 +1,4 @@
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/product_page/tabs/for_me/attributes/filters/product_for_me_collection.dart';
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
@@ -8,7 +7,7 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 final class AttributesImportanceCollector implements ForMeAttributesFilter {
   AttributesImportanceCollector(this.preferences);
 
-  final ProductPreferences preferences;
+  final ProductPreferencesManager preferences;
 
   final List<Attribute> mandatoryAttributes = <Attribute>[];
   final List<Attribute> veryImportantAttributes = <Attribute>[];
@@ -88,7 +87,7 @@ enum _AttributesImportance {
   important,
   notImportant;
 
-  String label(ProductPreferences preferences) {
+  String label(ProductPreferencesManager preferences) {
     final String importanceId = switch (this) {
       _AttributesImportance.mandatory => PreferenceImportance.ID_MANDATORY,
       _AttributesImportance.veryImportant =>

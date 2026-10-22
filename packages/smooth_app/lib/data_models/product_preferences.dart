@@ -3,14 +3,21 @@ import 'dart:async' show Future;
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/downloadable_string.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_string.dart';
 import 'package:smooth_app/helpers/app_helper.dart';
+import 'package:smooth_app/pages/food_preferences/preferences_page_projects.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
-  ProductPreferences(super.productPreferencesSelection, {this.daoString});
+  ProductPreferences(
+    super.productPreferencesSelection, {
+    this.daoString,
+    this.userPreferences,
+  });
 
   final DaoString? daoString;
+  final UserPreferences? userPreferences;
 
   /// Where we keep the language of the latest successful download.
   static const String _DAO_STRING_KEY_LANGUAGE = 'latest_language';
@@ -276,4 +283,84 @@ class ProductPreferences extends ProductPreferencesManager with ChangeNotifier {
     }
     return result;
   }
+
+  @override
+  String getImportanceIdForAttributeId(
+    String attributeId, {
+    ProductType? productType,
+  }) {
+    if (productType != null && userPreferences != null) {
+      final PreferencesPageProjects? project =
+          PreferencesPageProjects.fromProductType(productType);
+      if (project != null) {
+        return userPreferences!.getImportanceForProject(attributeId, project);
+      }
+    }
+    return super.getImportanceIdForAttributeId(attributeId);
+  }
+
+  ProductPreferencesManager getManagerForProductType(ProductType? productType) {
+    if (userPreferences == null) {
+      return this;
+    }
+    return ScopedProductPreferencesManager(this, productType, userPreferences);
+  }
+
+  ProductPreferencesManager getManagerForProduct(Product product) =>
+      getManagerForProductType(product.productType);
+}
+
+/// A [ProductPreferencesManager] scoped to a specific [ProductType] so that
+/// project-specific preferences (food, beauty, pets, products) are resolved.
+class ScopedProductPreferencesManager extends ProductPreferencesManager {
+  ScopedProductPreferencesManager(
+    this._parent,
+    ProductType? productType,
+    UserPreferences? userPreferences,
+  ) : super(
+        ProductPreferencesSelection(
+          setImportance: (String attributeId, String importanceId) async {
+            final PreferencesPageProjects? project =
+                PreferencesPageProjects.fromProductType(productType);
+            if (userPreferences != null && project != null) {
+              await userPreferences.setImportanceForProject(
+                attributeId,
+                importanceId,
+                project,
+              );
+              if (project == PreferencesPageProjects.food) {
+                await userPreferences.setImportance(attributeId, importanceId);
+              }
+            } else {
+              await _parent.setImportance(attributeId, importanceId);
+            }
+          },
+          getImportance: (String attributeId) {
+            final PreferencesPageProjects? project =
+                PreferencesPageProjects.fromProductType(productType);
+            if (userPreferences != null && project != null) {
+              return userPreferences.getImportanceForProject(
+                attributeId,
+                project,
+              );
+            }
+            return _parent.getImportanceIdForAttributeId(attributeId);
+          },
+          notify: () => _parent.notifyListeners(),
+        ),
+      );
+
+  final ProductPreferences _parent;
+
+  @override
+  List<AttributeGroup>? get attributeGroups => _parent.attributeGroups;
+
+  @override
+  PreferenceImportance? getPreferenceImportanceFromImportanceId(
+    final String importanceId,
+  ) => _parent.getPreferenceImportanceFromImportanceId(importanceId);
+
+  @override
+  int? getImportanceIndex(final String importanceId) =>
+      _parent.getImportanceIndex(importanceId);
 }

@@ -231,19 +231,42 @@ class UserPreferences extends ChangeNotifier {
     notifyListeners();
   }
 
-  String getImportance(final String attributeId) =>
-      _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
-      PreferenceImportance.ID_NOT_IMPORTANT;
+  String getImportance(
+    final String attributeId, {
+    final PreferencesPageProjects? project,
+    final ProductType? productType,
+  }) {
+    final PreferencesPageProjects? resolvedProject =
+        project ?? PreferencesPageProjects.fromProductType(productType);
+    if (resolvedProject != null) {
+      return getImportanceForProject(attributeId, resolvedProject);
+    }
+    return _sharedPreferences.getString(_getImportanceTag(attributeId)) ??
+        PreferenceImportance.ID_NOT_IMPORTANT;
+  }
 
   /// Gets the importance for an attribute for a specific project.
   String getImportanceForProject(
     final String attributeId,
     final PreferencesPageProjects project,
-  ) =>
-      _sharedPreferences.getString(
-        _getImportanceTagForProject(attributeId, project),
-      ) ??
-      PreferenceImportance.ID_NOT_IMPORTANT;
+  ) {
+    final String? projectValue = _sharedPreferences.getString(
+      _getImportanceTagForProject(attributeId, project),
+    );
+    if (projectValue != null) {
+      return projectValue;
+    }
+    // If food project and not set specifically under food prefix, fallback to legacy key
+    if (project == PreferencesPageProjects.food) {
+      final String? legacyValue = _sharedPreferences.getString(
+        _getImportanceTag(attributeId),
+      );
+      if (legacyValue != null) {
+        return legacyValue;
+      }
+    }
+    return PreferenceImportance.ID_NOT_IMPORTANT;
+  }
 
   /// Are the preferences set for this project?
   bool arePreferencesSetForProject(final PreferencesPageProjects project) {
@@ -252,6 +275,24 @@ class UserPreferences extends ChangeNotifier {
     for (final String key in keys) {
       if (key.startsWith(prefix)) {
         return true;
+      }
+    }
+    if (project == PreferencesPageProjects.food) {
+      for (final String key in keys) {
+        if (key.startsWith(_TAG_PREFIX_IMPORTANCE)) {
+          bool otherProject = false;
+          for (final PreferencesPageProjects other
+              in PreferencesPageProjects.values) {
+            if (other != PreferencesPageProjects.food &&
+                key.startsWith(_getImportancePrefixForProject(other))) {
+              otherProject = true;
+              break;
+            }
+          }
+          if (!otherProject) {
+            return true;
+          }
+        }
       }
     }
     return false;
