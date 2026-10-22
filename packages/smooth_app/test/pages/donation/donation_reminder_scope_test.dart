@@ -1,0 +1,635 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:matomo_tracker/matomo_tracker.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/product_preferences.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/pages/donation/donation_reminder_scope.dart';
+import 'package:smooth_app/pages/donation/donation_reminder_sheet.dart';
+import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/themes/color_provider.dart';
+import 'package:smooth_app/themes/contrast_provider.dart';
+import 'package:smooth_app/themes/theme_provider.dart';
+
+import '../../tests_utils/local_database_mock.dart';
+import '../../tests_utils/mocks.dart';
+
+const String _tagMutedUntil = 'donationAsksMutedUntil';
+const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
+const String _tagLastCountedBarcode = 'lastCountedBarcode';
+const String _tagLastReminderShownAt = 'lastReminderShownAt';
+const String _tagAppLaunches = 'appLaunches';
+
+const String _notNow = 'Not now';
+const String _alreadyDonated = 'I already donated';
+
+AppNewsItem _donationItem({
+  num? count,
+  num? raised,
+  num? goal,
+  String? currency,
+  DateTime? endDate,
+  num? reminderEvery,
+}) => AppNewsItem(
+  id: 'donation_campaign_2026',
+  title: 'title',
+  message: 'message',
+  url: 'https://world.openfoodfacts.org/',
+  count: count,
+  raised: raised,
+  goal: goal,
+  currency: currency,
+  endDate: endDate,
+  donationReminderEvery: reminderEvery,
+);
+
+/// Serves one donation news item, mirroring `donation_page_test.dart`'s
+/// `_FeedNewsProvider`; the real fetch never starts under the test harness.
+class _FeedNewsProvider extends AppNewsProvider {
+  _FeedNewsProvider(super.preferences, this._donation);
+
+  AppNewsItem? _donation;
+
+  /// Stands in for a feed refresh landing while a page is open.
+  void reload(AppNewsItem donation) {
+    _donation = donation;
+    notifyListeners();
+  }
+
+  @override
+  AppNewsState get state => _donation == null
+      ? const AppNewsStateLoading()
+      : AppNewsStateLoaded(
+          AppNews(
+            news: const AppNewsList(<String, AppNewsItem>{}),
+            feed: AppNewsFeed(<AppNewsFeedItem>[
+              AppNewsFeedItem(news: _donation!),
+            ]),
+          ),
+          DateTime(2026),
+        );
+}
+
+class _Marker extends StatelessWidget {
+  const _Marker(this.label);
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(body: Center(child: Text(label)));
+  }
+}
+
+List<Map<String, String>> _eventsNamed(String name) => MatomoTracker
+    .instance
+    .queue
+    .where((Map<String, String> event) => event['e_n'] == name)
+    .toList();
+
+/// Records what the `url_launcher` method channel is asked to open - the
+/// platform-interface default under the test harness, since no plugin
+/// registrant runs. Without this, a tier tap's future never completes.
+List<Map<Object?, Object?>> _recordLaunches() {
+  final List<Map<Object?, Object?>> launches = <Map<Object?, Object?>>[];
+  const MethodChannel channel = MethodChannel(
+    'plugins.flutter.io/url_launcher',
+  );
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(channel, (MethodCall call) async {
+        if (call.method == 'launch') {
+          launches.add(
+            Map<Object?, Object?>.from(call.arguments as Map<Object?, Object?>),
+          );
+          return true;
+        }
+        if (call.method == 'canLaunch') {
+          return true;
+        }
+        return null;
+      });
+  addTearDown(
+    () => TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+        .setMockMethodCallHandler(channel, null),
+  );
+  return launches;
+}
+
+Future<(UserPreferences, ProductPreferences)> _preparePreferences({
+  String theme = 'Light',
+  int appLaunches = 2,
+}) async {
+  final UserPreferences userPreferences =
+      await UserPreferences.getUserPreferences();
+  userPreferences.setTheme(theme);
+
+  late ProductPreferences productPreferences;
+  productPreferences = ProductPreferences(
+    ProductPreferencesSelection(
+      setImportance: userPreferences.setImportance,
+      getImportance: userPreferences.getImportance,
+      notify: () => productPreferences.notifyListeners(),
+    ),
+  );
+  await productPreferences.init(PlatformAssetBundle());
+  await userPreferences.init(productPreferences);
+  await ProductQuery.initCountry(userPreferences);
+
+  final SharedPreferences sharedPreferences =
+      await SharedPreferences.getInstance();
+  await sharedPreferences.setInt(_tagAppLaunches, appLaunches);
+
+  return (userPreferences, productPreferences);
+}
+
+/// Pumps `[home, filler]` already on the stack; the product route is pushed
+/// separately so a test can assert on the state right before it.
+Future<NavigatorState> _pumpHomeAndFiller(
+  WidgetTester tester, {
+  required UserPreferences userPreferences,
+  required ProductPreferences productPreferences,
+  AppNewsItem? donation,
+}) async {
+  tester.view.physicalSize = const Size(1080, 2424);
+  tester.view.devicePixelRatio = 2.625;
+  addTearDown(tester.view.reset);
+
+  Widget app = MockSmoothApp(
+    userPreferences,
+    UserManagementProvider(),
+    productPreferences,
+    ThemeProvider(userPreferences),
+    TextContrastProvider(userPreferences),
+    ColorProvider(userPreferences),
+    const _Marker('HOME'),
+    localDatabase: MockLocalDatabase(),
+  );
+
+  // Above `MockSmoothApp`, not below it: every route later pushed on its
+  // single Navigator is a sibling subtree of `home`, not a descendant, so the
+  // feed has to sit above the Navigator to reach them all.
+  final AppNewsProvider news = _FeedNewsProvider(userPreferences, donation);
+  addTearDown(news.dispose);
+  app = ChangeNotifierProvider<AppNewsProvider?>.value(value: news, child: app);
+
+  await tester.pumpWidget(app);
+  await tester.pump();
+
+  final NavigatorState navigator = Navigator.of(
+    tester.element(find.text('HOME')),
+  );
+  navigator.push(
+    MaterialPageRoute<void>(builder: (_) => const _Marker('FILLER')),
+  );
+  await tester.pumpAndSettle();
+  return navigator;
+}
+
+Future<void> _pushProductPage(
+  WidgetTester tester,
+  NavigatorState navigator, {
+  required String barcode,
+  Widget child = const _Marker('PRODUCT'),
+}) async {
+  navigator.push(
+    MaterialPageRoute<void>(
+      builder: (_) => DonationReminderScope(barcode: barcode, child: child),
+    ),
+  );
+  await tester.pumpAndSettle();
+}
+
+/// Simulates leaving the product page (system back, app-bar back or a swipe
+/// all reach `PopScope` the same way) without depending on any one gesture.
+Future<void> _leaveProductPage(WidgetTester tester) async {
+  await tester.binding.handlePopRoute();
+  await tester.pumpAndSettle();
+}
+
+/// Reaches the 10th product page (campaign live, 2nd launch, never shown)
+/// and leaves it, so the reminder sheet is showing - the setup every test in
+/// `group('leaving an eligible product page')` needs before its own
+/// assertions. [extraSetup] runs after the products-looked-up counter is
+/// seeded but before the product page is pushed.
+Future<(UserPreferences, ProductPreferences, NavigatorState)>
+_reachEligibleSheet(
+  WidgetTester tester, {
+  AppNewsItem? donation,
+  Widget child = const _Marker('PRODUCT'),
+  Future<void> Function(SharedPreferences prefs)? extraSetup,
+}) async {
+  final (
+    UserPreferences userPreferences,
+    ProductPreferences productPreferences,
+  ) = await _preparePreferences();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setInt(_tagProductsLookedUp, 9);
+  if (extraSetup != null) {
+    await extraSetup(prefs);
+  }
+
+  final NavigatorState navigator = await _pumpHomeAndFiller(
+    tester,
+    userPreferences: userPreferences,
+    productPreferences: productPreferences,
+    donation: donation ?? _donationItem(),
+  );
+  await _pushProductPage(
+    tester,
+    navigator,
+    barcode: 'barcode_10',
+    child: child,
+  );
+  await _leaveProductPage(tester);
+
+  return (userPreferences, productPreferences, navigator);
+}
+
+void _expectPoppedOnce(WidgetTester tester) {
+  expect(find.text('PRODUCT'), findsNothing);
+  expect(find.text('FILLER'), findsOneWidget);
+  expect(find.text('HOME'), findsNothing);
+  expect(find.byType(DonationReminderSheet), findsNothing);
+}
+
+void main() {
+  setUpAll(() async {
+    SharedPreferences.setMockInitialValues(mockSharedPreferences());
+    await mockMatomo();
+  });
+
+  setUp(() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_tagMutedUntil);
+    await prefs.remove(_tagProductsLookedUp);
+    await prefs.remove(_tagLastCountedBarcode);
+    await prefs.remove(_tagLastReminderShownAt);
+    await prefs.remove(_tagAppLaunches);
+    MatomoTracker.instance.dropActions();
+  });
+
+  group('leaving an eligible product page', () {
+    testWidgets('shows the sheet, prefs updated before it renders', (
+      WidgetTester tester,
+    ) async {
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
+        tester,
+        donation: _donationItem(count: 768),
+        extraSetup: (SharedPreferences prefs) =>
+            prefs.setString(_tagLastCountedBarcode, 'barcode_9'),
+      );
+
+      expect(find.byType(DonationReminderSheet), findsOneWidget);
+      // The 10th lookup landed and the reminder was marked shown before the
+      // sheet was even asked to build.
+      expect(userPreferences.productsLookedUpSinceAsk, 0);
+      expect(userPreferences.lastReminderShownAt, isNotNull);
+
+      final List<Map<String, String>> events = _eventsNamed(
+        'donationReminderShown',
+      );
+      expect(events, hasLength(1));
+      expect(events.single['e_v'], '10');
+    });
+
+    testWidgets('no product data leaks into the sheet', (
+      WidgetTester tester,
+    ) async {
+      await _reachEligibleSheet(tester, child: const _Marker('Zzz Brand'));
+
+      expect(
+        find.descendant(
+          of: find.byType(DonationReminderSheet),
+          matching: find.textContaining('Zzz'),
+        ),
+        findsNothing,
+      );
+      expect(
+        find.descendant(
+          of: find.byType(DonationReminderSheet),
+          matching: find.byType(Image),
+        ),
+        findsNothing,
+      );
+    });
+
+    for (final String action in <String>[
+      'close button',
+      'scrim tap',
+      'system back',
+      'not now',
+      'already donated',
+    ]) {
+      testWidgets('"$action" closes the sheet, product pops exactly once', (
+        WidgetTester tester,
+      ) async {
+        await _reachEligibleSheet(tester);
+        expect(find.byType(DonationReminderSheet), findsOneWidget);
+
+        switch (action) {
+          case 'close button':
+            await tester.tap(find.byTooltip('Close'));
+          case 'scrim tap':
+            await tester.tapAt(const Offset(20.0, 20.0));
+          case 'system back':
+            await _leaveProductPage(tester);
+          case 'not now':
+            await tester.tap(find.text(_notNow));
+          case 'already donated':
+            await tester.tap(find.text(_alreadyDonated));
+        }
+        await tester.pumpAndSettle();
+
+        _expectPoppedOnce(tester);
+        if (action == 'close button' ||
+            action == 'scrim tap' ||
+            action == 'system back') {
+          expect(_eventsNamed('donationReminderNotNow'), isEmpty);
+          expect(_eventsNamed('donationAlreadyDonated'), isEmpty);
+        }
+      });
+    }
+
+    testWidgets('"Not now" changes nothing beyond the show itself', (
+      WidgetTester tester,
+    ) async {
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
+        tester,
+      );
+
+      await tester.tap(find.text(_notNow));
+      await tester.pumpAndSettle();
+
+      expect(_eventsNamed('donationReminderNotNow'), hasLength(1));
+      expect(userPreferences.donationAsksMutedUntil, isNull);
+    });
+
+    testWidgets('"I already donated" mutes for a year, value 3', (
+      WidgetTester tester,
+    ) async {
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
+        tester,
+      );
+
+      final DateTime before = DateTime.now();
+      await tester.tap(find.text(_alreadyDonated));
+      await tester.pumpAndSettle();
+
+      final List<Map<String, String>> events = _eventsNamed(
+        'donationAlreadyDonated',
+      );
+      expect(events, hasLength(1));
+      expect(events.single['e_v'], '3');
+      expect(
+        userPreferences.donationAsksMutedUntil!
+            .difference(before.add(const Duration(days: 365)))
+            .abs(),
+        lessThan(const Duration(seconds: 5)),
+      );
+    });
+
+    testWidgets('a tier tap hands off with the reminder URL and mutes 90d', (
+      WidgetTester tester,
+    ) async {
+      final List<Map<Object?, Object?>> launches = _recordLaunches();
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
+        tester,
+      );
+
+      final DateTime before = DateTime.now();
+      await tester.tap(find.byType(ElevatedButton));
+      await tester.pumpAndSettle();
+
+      _expectPoppedOnce(tester);
+
+      final List<Map<String, String>> handoffEvents = _eventsNamed(
+        'donationReminderHandoff',
+      );
+      expect(handoffEvents, hasLength(1));
+      expect(handoffEvents.single['e_v'], '5');
+      expect(_eventsNamed('donationHandoff'), isEmpty);
+
+      expect(launches, hasLength(1));
+      expect(
+        launches.single['url'],
+        endsWith('utm_content=donation-screen-reminder'),
+      );
+      expect(
+        userPreferences.donationAsksMutedUntil!
+            .difference(before.add(const Duration(days: 90)))
+            .abs(),
+        lessThan(const Duration(seconds: 5)),
+      );
+    });
+    testWidgets('"Give once instead" hands off to the one-off form, value 0', (
+      WidgetTester tester,
+    ) async {
+      final List<Map<Object?, Object?>> launches = _recordLaunches();
+      final (UserPreferences userPreferences, _, _) = await _reachEligibleSheet(
+        tester,
+      );
+
+      final DateTime before = DateTime.now();
+      await tester.tap(find.text('Give once instead'));
+      await tester.pumpAndSettle();
+
+      _expectPoppedOnce(tester);
+
+      final List<Map<String, String>> events = _eventsNamed(
+        'donationReminderHandoff',
+      );
+      expect(events, hasLength(1));
+      expect(events.single['e_v'], '0');
+
+      expect(launches, hasLength(1));
+      final String url = launches.single['url']! as String;
+      expect(url, isNot(contains('amount=')));
+      expect(url, isNot(contains('default_interval=')));
+      expect(url, endsWith('utm_content=donation-screen-reminder'));
+      expect(
+        userPreferences.donationAsksMutedUntil!
+            .difference(before.add(const Duration(days: 90)))
+            .abs(),
+        lessThan(const Duration(seconds: 5)),
+      );
+    });
+  });
+
+  group('not eligible', () {
+    testWidgets('muted -> plain pop, no sheet', (WidgetTester tester) async {
+      final (
+        UserPreferences userPreferences,
+        ProductPreferences productPreferences,
+      ) = await _preparePreferences();
+      await userPreferences.muteDonationAsks(const Duration(days: 365));
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_tagProductsLookedUp, 9);
+
+      final NavigatorState navigator = await _pumpHomeAndFiller(
+        tester,
+        userPreferences: userPreferences,
+        productPreferences: productPreferences,
+        donation: _donationItem(),
+      );
+      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
+
+      await _leaveProductPage(tester);
+
+      _expectPoppedOnce(tester);
+    });
+
+    testWidgets('campaign not live -> plain pop, no sheet', (
+      WidgetTester tester,
+    ) async {
+      final (
+        UserPreferences userPreferences,
+        ProductPreferences productPreferences,
+      ) = await _preparePreferences();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_tagProductsLookedUp, 20);
+
+      final NavigatorState navigator = await _pumpHomeAndFiller(
+        tester,
+        userPreferences: userPreferences,
+        productPreferences: productPreferences,
+        donation: null,
+      );
+      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
+
+      await _leaveProductPage(tester);
+
+      _expectPoppedOnce(tester);
+    });
+
+    testWidgets('a forward push does not trigger it; the eventual back does', (
+      WidgetTester tester,
+    ) async {
+      final (
+        UserPreferences userPreferences,
+        ProductPreferences productPreferences,
+      ) = await _preparePreferences();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_tagProductsLookedUp, 9);
+
+      final NavigatorState navigator = await _pumpHomeAndFiller(
+        tester,
+        userPreferences: userPreferences,
+        productPreferences: productPreferences,
+        donation: _donationItem(),
+      );
+      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
+
+      navigator.push(
+        MaterialPageRoute<void>(builder: (_) => const _Marker('EDIT')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.byType(DonationReminderSheet), findsNothing);
+
+      await _leaveProductPage(tester);
+      expect(find.text('PRODUCT'), findsOneWidget);
+      expect(find.byType(DonationReminderSheet), findsNothing);
+
+      await _leaveProductPage(tester);
+      expect(find.byType(DonationReminderSheet), findsOneWidget);
+    });
+
+    testWidgets('a product opened from a product: one sheet, not two', (
+      WidgetTester tester,
+    ) async {
+      final (
+        UserPreferences userPreferences,
+        ProductPreferences productPreferences,
+      ) = await _preparePreferences();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_tagProductsLookedUp, 9);
+
+      final NavigatorState navigator = await _pumpHomeAndFiller(
+        tester,
+        userPreferences: userPreferences,
+        productPreferences: productPreferences,
+        donation: _donationItem(),
+      );
+      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
+      await _pushProductPage(
+        tester,
+        navigator,
+        barcode: 'barcode_11',
+        child: const _Marker('INNER'),
+      );
+
+      await _leaveProductPage(tester);
+      expect(find.byType(DonationReminderSheet), findsOneWidget);
+      await tester.tap(find.text(_notNow));
+      await tester.pumpAndSettle();
+      expect(find.text('PRODUCT'), findsOneWidget);
+
+      await _leaveProductPage(tester);
+      expect(find.byType(DonationReminderSheet), findsNothing);
+      _expectPoppedOnce(tester);
+      expect(_eventsNamed('donationReminderShown'), hasLength(1));
+    });
+  });
+
+  group('the feed reloads while the product page is open', () {
+    Future<void> openThenReload(
+      WidgetTester tester, {
+      required AppNewsItem before,
+      required AppNewsItem after,
+    }) async {
+      final (
+        UserPreferences userPreferences,
+        ProductPreferences productPreferences,
+      ) = await _preparePreferences();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_tagProductsLookedUp, 9);
+
+      final NavigatorState navigator = await _pumpHomeAndFiller(
+        tester,
+        userPreferences: userPreferences,
+        productPreferences: productPreferences,
+        donation: before,
+      );
+      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
+      (tester.element(find.text('PRODUCT')).read<AppNewsProvider?>()!
+              as _FeedNewsProvider)
+          .reload(after);
+      await tester.pump();
+      await _leaveProductPage(tester);
+    }
+
+    testWidgets('a raised threshold is read at exit: plain pop, no sheet', (
+      WidgetTester tester,
+    ) async {
+      await openThenReload(
+        tester,
+        before: _donationItem(reminderEvery: 10),
+        after: _donationItem(reminderEvery: 20),
+      );
+
+      expect(find.byType(DonationReminderSheet), findsNothing);
+      _expectPoppedOnce(tester);
+      expect(_eventsNamed('donationReminderShown'), isEmpty);
+    });
+
+    testWidgets('the sheet and its event carry the reloaded figures', (
+      WidgetTester tester,
+    ) async {
+      await openThenReload(
+        tester,
+        before: _donationItem(count: 768, reminderEvery: 10),
+        after: _donationItem(count: 855, reminderEvery: 9),
+      );
+
+      expect(find.byType(DonationReminderSheet), findsOneWidget);
+      expect(find.textContaining('855'), findsOneWidget);
+      expect(find.textContaining('768'), findsNothing);
+      expect(_eventsNamed('donationReminderShown').single['e_v'], '9');
+    });
+  });
+}
