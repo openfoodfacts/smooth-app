@@ -7,6 +7,20 @@ import 'package:scanner_ml_kit/src/mobile_scanner_controller.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
+  BarcodeFormat.code39,
+  BarcodeFormat.code93,
+  BarcodeFormat.code128,
+  BarcodeFormat.ean8,
+  BarcodeFormat.ean13,
+  BarcodeFormat.itf14,
+  BarcodeFormat.upcA,
+  BarcodeFormat.upcE,
+  // 2D formats for GS1 Sunrise 2027
+  BarcodeFormat.dataMatrix,
+  BarcodeFormat.qrCode,
+];
+
 /// Scanner implementation using ML Kit
 class ScannerMLKit extends Scanner {
   const ScannerMLKit();
@@ -15,8 +29,9 @@ class ScannerMLKit extends Scanner {
   String getType() => 'ML Kit';
 
   @override
-  CustomScannerController getController() =>
-      MLKitScannerController(MobileScannerController(autoStart: false));
+  CustomScannerController getController() => MLKitScannerController(
+    MobileScannerController(autoStart: false, formats: _barcodeFormats),
+  );
 
   @override
   Future<bool> hasCamera({required bool front}) async =>
@@ -103,20 +118,6 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
 
 class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     with SingleTickerProviderStateMixin {
-  static const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
-    BarcodeFormat.code39,
-    BarcodeFormat.code93,
-    BarcodeFormat.code128,
-    BarcodeFormat.ean8,
-    BarcodeFormat.ean13,
-    BarcodeFormat.itf14,
-    BarcodeFormat.upcA,
-    BarcodeFormat.upcE,
-    // 2D formats for GS1 Sunrise 2027
-    BarcodeFormat.dataMatrix,
-    BarcodeFormat.qrCode,
-  ];
-
   static const ValueKey<String> _visibilityKey = ValueKey<String>(
     'VisibilityDetector',
   );
