@@ -71,6 +71,8 @@ screen exactly as it shipped.</p>
   final String? currency = item?.currency;
   final List&lt;int&gt; amounts = _ladder(item?.donationAmounts);
   final num? scansPerUnit = item?.donationScansPerUnit;
+  final num? reminderEvery = item?.donationReminderEvery;
+  final num? donorCount = item?.count;
 
   return DonationOffer(
     currency: currency != null &amp;&amp; currency.length == 3
@@ -81,6 +83,14 @@ screen exactly as it shipped.</p>
         ? scansPerUnit.toInt()
         : _fallbackScansPerUnit,
     whereItGoes: item?.donationWhereItGoes ?? const &lt;String&gt;[],
+    reminderEvery: reminderEvery != null &amp;&amp; _isUsableCount(reminderEvery)
+        ? reminderEvery.toInt()
+        : _fallbackReminderEvery,
+    donorCount: donorCount != null &amp;&amp; _isUsableCount(donorCount)
+        ? donorCount.toInt()
+        : null,
+    funding: item?.funding,
+    monthsLeft: item?.monthsLeft,
   );
 }</code></pre>
 </section>

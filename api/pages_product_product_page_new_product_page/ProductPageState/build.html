@@ -193,27 +193,35 @@ Widget build(BuildContext context) {
     localDatabase,
   ).hasNotTerminatedOperations(upToDateProduct.barcode!);
 
-  return MultiProvider(
-    providers: &lt;SingleChildWidget&gt;[
-      Provider&lt;Product&gt;.value(value: upToDateProduct),
-      Provider&lt;ProductPageState&gt;.value(value: this),
-      Provider&lt;ProductPageCompatibility&gt;.value(
-        value: ProductPageCompatibility(
-          color: ProductCompatibilityHelper.product(
-            matchedProductV2,
-          ).getColor(context),
-          matchedProductV2: matchedProductV2,
+  return DonationReminderScope(
+    barcode: barcode,
+    child: MultiProvider(
+      providers: &lt;SingleChildWidget&gt;[
+        Provider&lt;Product&gt;.value(value: upToDateProduct),
+        Provider&lt;ProductPageState&gt;.value(value: this),
+        Provider&lt;ProductPageCompatibility&gt;.value(
+          value: ProductPageCompatibility(
+            color: ProductCompatibilityHelper.product(
+              matchedProductV2,
+            ).getColor(context),
+            matchedProductV2: matchedProductV2,
+          ),
         ),
+        ChangeNotifierProvider&lt;ScrollController&gt;.value(
+          value: _scrollController,
+        ),
+      ],
+      child: ProductPageTabController(
+        product: upToDateProduct,
+        childBuilder:
+            (List&lt;ProductPageTab&gt; tabs, TabController tabController) {
+              return _buildTabLayout(
+                hasPendingOperations,
+                tabs,
+                tabController,
+              );
+            },
       ),
-      ChangeNotifierProvider&lt;ScrollController&gt;.value(
-        value: _scrollController,
-      ),
-    ],
-    child: ProductPageTabController(
-      product: upToDateProduct,
-      childBuilder: (List&lt;ProductPageTab&gt; tabs, TabController tabController) {
-        return _buildTabLayout(hasPendingOperations, tabs, tabController);
-      },
     ),
   );
 }</code></pre>

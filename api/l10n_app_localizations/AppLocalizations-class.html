@@ -3692,6 +3692,42 @@ property.</p>
 
 </dd>
 
+        <dt id="donation_reminder_body" class="property">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_reminder_body.html">donation_reminder_body</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Body line of the donation reminder sheet
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="donation_reminder_not_now" class="property">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_reminder_not_now.html">donation_reminder_not_now</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Quiet button on the donation reminder sheet that closes it without changing anything
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
+        <dt id="donation_reminder_title_generic" class="property">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_reminder_title_generic.html">donation_reminder_title_generic</a></span>
+  <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  
+
+</dt>
+<dd>
+  Headline of the donation reminder sheet when the feed carries no usable donor count
+  <div class="features"><span class="feature">no setter</span></div>
+
+</dd>
+
         <dt id="donation_tiers_title" class="property">
   <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_tiers_title.html">donation_tiers_title</a></span>
   <span class="signature">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
@@ -20390,6 +20426,45 @@ property.</p>
 
 </dd>
 
+        <dt id="donation_reminder_cta" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_reminder_cta.html">donation_reminder_cta</a></span><span class="signature">(<wbr><span class="parameter" id="donation_reminder_cta-param-amount"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">amount</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Primary button on the donation reminder sheet; amount is the selected tier, already formatted with its currency
+  
+
+</dd>
+
+        <dt id="donation_reminder_funding" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_reminder_funding.html">donation_reminder_funding</a></span><span class="signature">(<wbr><span class="parameter" id="donation_reminder_funding-param-raised"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">raised</span>, </span><span class="parameter" id="donation_reminder_funding-param-goal"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">goal</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.
+  
+
+</dd>
+
+        <dt id="donation_reminder_title" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_reminder_title.html">donation_reminder_title</a></span><span class="signature">(<wbr><span class="parameter" id="donation_reminder_title-param-count"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a></span> <span class="parameter-name">count</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Headline of the donation reminder sheet, with the number of donors from the feed
+  
+
+</dd>
+
         <dt id="donation_tier_amount_monthly" class="callable">
   <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_tier_amount_monthly.html">donation_tier_amount_monthly</a></span><span class="signature">(<wbr><span class="parameter" id="donation_tier_amount_monthly-param-amount"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">amount</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
@@ -20403,6 +20478,19 @@ property.</p>
 
 </dd>
 
+        <dt id="donation_tier_chip_amount" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_tier_chip_amount.html">donation_tier_chip_amount</a></span><span class="signature">(<wbr><span class="parameter" id="donation_tier_chip_amount-param-amount"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">amount</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Tier chip on the donation reminder sheet: a monthly amount, already formatted with its currency. The part between ** is shown large; keep the ** around the amount.
+  
+
+</dd>
+
         <dt id="donation_tier_scans" class="callable">
   <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_tier_scans.html">donation_tier_scans</a></span><span class="signature">(<wbr><span class="parameter" id="donation_tier_scans-param-scans"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">scans</span></span>)
     <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
@@ -20412,6 +20500,19 @@ property.</p>
 </dt>
 <dd>
   How many product scans a monthly donation covers, as an approximation
+  
+
+</dd>
+
+        <dt id="donation_tier_scans_short" class="callable">
+  <span class="name"><a href="../l10n_app_localizations/AppLocalizations/donation_tier_scans_short.html">donation_tier_scans_short</a></span><span class="signature">(<wbr><span class="parameter" id="donation_tier_scans_short-param-scans"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">scans</span></span>)
+    <span class="returntype parameter">&#8594; <a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span>
+  </span>
+  
+
+</dt>
+<dd>
+  Second line of a tier chip on the donation reminder sheet: how many scans a month the amount above it covers
   
 
 </dd>
