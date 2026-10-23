@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
@@ -176,6 +177,24 @@ Future<void> _pumpMainCard(
     ),
   );
   await tester.pump();
+}
+
+/// WCAG contrast ratio of [text]'s colour against the strip's background.
+double _stripContrast(WidgetTester tester, String text) {
+  final Finder label = find.text(text);
+  final Color background = tester
+      .widget<Material>(
+        find.ancestor(of: label, matching: find.byType(Material)).first,
+      )
+      .color!;
+  final Color foreground = tester
+      .renderObject<RenderParagraph>(label)
+      .text
+      .style!
+      .color!;
+  final double a = foreground.computeLuminance() + 0.05;
+  final double b = background.computeLuminance() + 0.05;
+  return a > b ? a / b : b / a;
 }
 
 ScanSearchCard _searchCard(WidgetTester tester) =>
@@ -520,6 +539,12 @@ void main() {
           expect(find.text('30%'), findsOneWidget);
           expect(tester, meetsGuideline(textContrastGuideline));
           expect(tester, meetsGuideline(labeledTapTargetGuideline));
+          // The guideline skips text merged into the strip's tap target.
+          expect(
+            _stripContrast(tester, _stripHeadline),
+            greaterThanOrEqualTo(4.5),
+          );
+          expect(_stripContrast(tester, '30%'), greaterThanOrEqualTo(4.5));
         });
       }
     }
