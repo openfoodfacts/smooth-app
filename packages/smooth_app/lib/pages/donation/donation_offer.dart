@@ -13,8 +13,8 @@ enum DonationSource {
   final int analyticsValue;
 }
 
-/// The two sides of the home donation test, tagged as the events and the
-/// Donorbox links name them.
+/// Which side of the home donation test an install is on; [tag] goes into
+/// event actions and utm_content.
 enum DonationTestArm {
   homeCard(tag: 'old'),
   reminder(tag: 'new');
@@ -23,7 +23,6 @@ enum DonationTestArm {
 
   final String tag;
 
-  /// Matomo event action: the entry that opened the screen, then the arm.
   String action(DonationSource? source) => '${source?.name ?? 'none'}:$tag';
 }
 

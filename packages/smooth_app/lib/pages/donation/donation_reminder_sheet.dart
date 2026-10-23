@@ -36,9 +36,9 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
     ),
   );
 
-  /// The sheet only shows on the reminder side of the home donation test.
   static const DonationTestArm _arm = DonationTestArm.reminder;
-  static final String _action = _arm.action(DonationSource.reminder);
+
+  String get _action => _arm.action(DonationSource.reminder);
 
   late int _selected;
 

@@ -131,7 +131,6 @@ class ScanTagLineStateLoaded extends ScanTagLineState {
 
   final Iterable<AppNewsItem> tagLine;
 
-  /// The home strip replaces the donation card for the reminder side of the
-  /// donation test.
+  /// Whether to show the donation strip above the feed.
   final bool donationStrip;
 }

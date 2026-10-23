@@ -55,6 +55,17 @@ const AppNewsItem _donationReminderArm = AppNewsItem(
   donationAbNewPercent: 100,
 );
 
+const AppNewsItem _donationWithFigures = AppNewsItem(
+  id: 'donation_campaign_2026',
+  title: 'Our application needs you!',
+  message: 'Help us inform millions of consumers on what they eat!',
+  url: 'https://world.openfoodfacts.org/donate-to-open-food-facts',
+  donationAbNewPercent: 100,
+  raised: 51000,
+  goal: 170000,
+  currency: 'EUR',
+);
+
 const AppNewsItem _other = AppNewsItem(
   id: 'news-0',
   title: 'First news',
@@ -399,16 +410,7 @@ void main() {
       WidgetTester tester,
     ) async {
       await _pumpMainCard(tester, userPreferences, <AppNewsItem>[
-        const AppNewsItem(
-          id: 'donation_campaign_2026',
-          title: 'Our application needs you!',
-          message: 'Help us inform millions of consumers on what they eat!',
-          url: 'https://world.openfoodfacts.org/donate-to-open-food-facts',
-          donationAbNewPercent: 100,
-          raised: 51000,
-          goal: 170000,
-          currency: 'EUR',
-        ),
+        _donationWithFigures,
       ]);
 
       expect(find.byType(LinearProgressIndicator), findsOneWidget);
@@ -499,19 +501,28 @@ void main() {
       expect(_searchCard(tester).expandedMode, isTrue);
     });
 
-    testWidgets('the strip does not overflow at textScaler 2.0', (
-      WidgetTester tester,
-    ) async {
-      tester.platformDispatcher.textScaleFactorTestValue = 2.0;
-      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+    for (final double scaler in <double>[1.3, 2.0]) {
+      for (final String theme in <String>['Light', 'Dark', 'AMOLED']) {
+        testWidgets('the strip at a text scale of $scaler in $theme', (
+          WidgetTester tester,
+        ) async {
+          tester.platformDispatcher.textScaleFactorTestValue = scaler;
+          addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+          final String previousTheme = userPreferences.currentTheme;
+          addTearDown(() => userPreferences.setTheme(previousTheme));
+          await userPreferences.setTheme(theme);
 
-      await _pumpMainCard(tester, userPreferences, <AppNewsItem>[
-        _donationReminderArm,
-      ]);
+          await _pumpMainCard(tester, userPreferences, <AppNewsItem>[
+            _donationWithFigures,
+          ]);
 
-      expect(tester.takeException(), isNull);
-      expect(find.text(_stripHeadline), findsOneWidget);
-    });
+          expect(tester.takeException(), isNull);
+          expect(find.text('30%'), findsOneWidget);
+          expect(tester, meetsGuideline(textContrastGuideline));
+          expect(tester, meetsGuideline(labeledTapTargetGuideline));
+        });
+      }
+    }
   });
 
   group('The home card after "I already donated"', () {

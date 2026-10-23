@@ -71,16 +71,16 @@ class _DonationStrip extends StatefulWidget {
 }
 
 class _DonationStripState extends State<_DonationStrip> {
-  static final String _action = DonationTestArm.reminder.action(
-    DonationSource.strip,
-  );
+  static const BorderRadius _radius = BorderRadius.all(Radius.circular(16.0));
+
+  String get _action => DonationTestArm.reminder.action(DonationSource.strip);
 
   @override
   void initState() {
     super.initState();
 
-    // On the preferences rather than this State: the carousel disposes
-    // off-screen pages, so a swipe away and back would count twice.
+    // Session set, not State: the carousel disposes off-screen pages, a swipe
+    // back would recount.
     if (context.read<UserPreferences>().taglineFeedSessionImpressions.add(
       _DonationStrip._impressionId,
     )) {
@@ -100,14 +100,15 @@ class _DonationStripState extends State<_DonationStrip> {
         ? news.content.donation
         : null;
     final AppNewsFunding? funding = donation?.funding;
+    final DonationOffer offer = DonationOffer.fromNews(donation);
 
     return Material(
       color: context.lightTheme()
           ? extension.primaryMedium
           : extension.primaryUltraBlack,
-      borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+      borderRadius: _radius,
       child: InkWell(
-        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+        borderRadius: _radius,
         onTap: () => AppNavigator.of(
           context,
         ).push(AppRoutes.DONATE(DonationSource.strip)),
@@ -138,7 +139,7 @@ class _DonationStripState extends State<_DonationStrip> {
                       context,
                     ).closeButtonTooltip,
                     icon: const icons.Close(size: 14.0),
-                    onPressed: () => _close(context),
+                    onPressed: () => _close(context, offer),
                   ),
                 ],
               ),
@@ -163,7 +164,7 @@ class _DonationStripState extends State<_DonationStrip> {
                         ),
                       ),
                       Text(
-                        DonationOffer.fromNews(donation)
+                        offer
                             .percentFormat(
                               AppLocalizations.of(context).localeName,
                             )
@@ -180,14 +181,10 @@ class _DonationStripState extends State<_DonationStrip> {
     );
   }
 
-  Future<void> _close(BuildContext context) {
+  Future<void> _close(BuildContext context, DonationOffer offer) {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationStripClosed,
       action: _action,
-    );
-    final AppNewsState news = context.read<AppNewsProvider>().state;
-    final DonationOffer offer = DonationOffer.fromNews(
-      news is AppNewsStateLoaded ? news.content.donation : null,
     );
     return context.read<UserPreferences>().hideDonationStrip(
       Duration(days: offer.stripHideDays),
