@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
@@ -130,14 +132,25 @@ class ProductImageOtherPage extends StatefulWidget {
 }
 
 class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
-  late PageController _pageController;
+  late final PageController _pageController;
+  late final ValueNotifier<int> _pageIndex;
 
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(
-      initialPage: widget.images.indexOf(widget.currentImage),
-    );
+    final int initialIndex = widget.images
+        .indexOf(widget.currentImage)
+        .clamp(0, widget.images.length - 1);
+
+    _pageController = PageController(initialPage: initialIndex);
+    _pageIndex = ValueNotifier<int>(initialIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    _pageIndex.dispose();
+    super.dispose();
   }
 
   @override
@@ -163,29 +176,86 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
           alignment: Alignment.bottomCenter,
           children: <Widget>[
             Positioned.fill(
-              child: PageView(
-                controller: _pageController,
-                children: widget.images
-                    .map((final ProductImage image) {
-                      return _ProductImageViewer(
-                        image: image,
-                        barcode: widget.product.barcode!,
-                        language: widget.language,
-                        heroTag: widget.currentImage == image
-                            ? widget.heroTag
-                            : null,
-                        productType: widget.product.productType,
-                      );
-                    })
-                    .toList(growable: false),
+              child: PhotoViewGallery.builder(
+                backgroundDecoration: const .new(color: Colors.transparent),
+                itemCount: widget.images.length,
+                pageController: _pageController,
+                onPageChanged: (int index) => _pageIndex.value = index,
+                builder: (_, int index) {
+                  final ProductImage image = widget.images[index];
+
+                  return _buildProductImageViewer(image, index);
+                },
+                loadingBuilder: (_, _) =>
+                    const Center(child: CircularProgressIndicator.adaptive()),
               ),
             ),
+
             Positioned(
               top: SMALL_SPACE,
               child: _ProductImagePageIndicator(items: widget.images.length),
             ),
+            Positioned(
+              bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
+              left: SMALL_SPACE,
+              right: SMALL_SPACE,
+              child: ValueListenableBuilder<int>(
+                valueListenable: _pageIndex,
+                builder: (_, int index, _) {
+                  final ProductImage image = widget.images[index];
+                  final SmoothColorsThemeExtension colors = Theme.of(
+                    context,
+                  ).extension<SmoothColorsThemeExtension>()!;
+
+                  return IntrinsicHeight(
+                    child: Row(
+                      children: <Widget>[
+                        _ProductImageDetailsButton(
+                          image: image,
+                          barcode: widget.product.barcode!,
+                          productType: widget.product.productType,
+                        ),
+                        const Spacer(),
+                        if (image.expired)
+                          _ProductImageOutdatedLabel(colors: colors),
+                      ],
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
+      ),
+    );
+  }
+
+  PhotoViewGalleryPageOptions _buildProductImageViewer(
+    ProductImage image,
+    int index,
+  ) {
+    return PhotoViewGalleryPageOptions(
+      imageProvider: NetworkImage(
+        image.getUrl(
+          widget.product.barcode!,
+          uriHelper: ProductQuery.getUriProductHelper(
+            productType: widget.product.productType,
+          ),
+        ),
+      ),
+
+      heroAttributes: widget.currentImage == image && widget.heroTag != null
+          ? PhotoViewHeroAttributes(tag: widget.heroTag ?? '')
+          : null,
+      minScale: PhotoViewComputedScale.contained,
+      maxScale: PhotoViewComputedScale.covered * 3,
+      errorBuilder: (_, _, _) => Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          const icons.Warning(size: 48.0, color: Colors.red),
+          const SizedBox(height: SMALL_SPACE),
+          Text(AppLocalizations.of(context).error_loading_photo),
+        ],
       ),
     );
   }
@@ -201,93 +271,6 @@ class _ProductImageOtherPageState extends State<ProductImageOtherPage> {
     if (mounted && res != null) {
       Navigator.of(context).pop<ProductImagePageResult>(res);
     }
-  }
-}
-
-class _ProductImageViewer extends StatelessWidget {
-  const _ProductImageViewer({
-    required this.image,
-    required this.barcode,
-    required this.language,
-    required this.productType,
-    this.heroTag,
-  });
-
-  final ProductImage image;
-  final String barcode;
-  final OpenFoodFactsLanguage language;
-  final String? heroTag;
-  final ProductType? productType;
-
-  @override
-  Widget build(BuildContext context) {
-    final SmoothColorsThemeExtension colors = Theme.of(
-      context,
-    ).extension<SmoothColorsThemeExtension>()!;
-
-    return Stack(
-      children: <Widget>[
-        Positioned.fill(
-          child: HeroMode(
-            enabled: heroTag?.isNotEmpty == true,
-            child: Hero(
-              tag: heroTag ?? '',
-              child: Image(
-                image: NetworkImage(
-                  image.getUrl(
-                    barcode,
-                    uriHelper: ProductQuery.getUriProductHelper(
-                      productType: productType,
-                    ),
-                  ),
-                ),
-                fit: BoxFit.contain,
-                loadingBuilder:
-                    (
-                      _,
-                      final Widget child,
-                      final ImageChunkEvent? loadingProgress,
-                    ) {
-                      if (loadingProgress != null) {
-                        return const Center(
-                          child: CircularProgressIndicator.adaptive(),
-                        );
-                      } else {
-                        return child;
-                      }
-                    },
-                errorBuilder: (_, _, _) => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    const icons.Warning(size: 48.0, color: Colors.red),
-                    const SizedBox(height: SMALL_SPACE),
-                    Text(AppLocalizations.of(context).error_loading_photo),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: SMALL_SPACE + MediaQuery.viewPaddingOf(context).bottom,
-          left: SMALL_SPACE,
-          right: SMALL_SPACE,
-          child: IntrinsicHeight(
-            child: Row(
-              children: <Widget>[
-                _ProductImageDetailsButton(
-                  image: image,
-                  barcode: barcode,
-                  productType: productType,
-                ),
-                const Spacer(),
-                if (image.expired) _ProductImageOutdatedLabel(colors: colors),
-              ],
-            ),
-          ),
-        ),
-      ],
-    );
   }
 }
 
