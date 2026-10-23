@@ -74,11 +74,10 @@
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static bool get hasMoreThanOneCamera {
-  if (_cameraLensTypesBack == null) {
+  if (_hasBackCamera == null) {
     throw Exception(&#39;Please call [init] before!&#39;);
   }
-  return _cameraLensTypesBack!.isNotEmpty &amp;&amp;
-      _cameraLensTypesFront!.isNotEmpty;
+  return _hasBackCamera! &amp;&amp; _hasFrontCamera!;
 }</code></pre>
 </section>
 

@@ -71,14 +71,12 @@
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">static Future&lt;void&gt; init() async {
   if (!isSupported) {
-    _cameraLensTypesBack = &lt;CameraLensType&gt;{};
-    _cameraLensTypesFront = &lt;CameraLensType&gt;{};
+    _hasBackCamera = false;
+    _hasFrontCamera = false;
     return;
   }
-  _cameraLensTypesBack = await MobileScannerPlatform.instance
-      .getSupportedLenses(facing: CameraFacing.back);
-  _cameraLensTypesFront = await MobileScannerPlatform.instance
-      .getSupportedLenses(facing: CameraFacing.front);
+  _hasBackCamera = await _hasCamera(front: false);
+  _hasFrontCamera = await _hasCamera(front: true);
 }</code></pre>
 </section>
 

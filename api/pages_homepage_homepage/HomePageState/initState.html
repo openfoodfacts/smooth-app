@@ -102,9 +102,7 @@ void initState() {
   super.initState();
 
   _controller = ScrollController();
-  _cameraController = CustomScannerController(
-    MobileScannerController(autoStart: false),
-  );
+  _cameraController = GlobalVars.barcodeScanner.getController();
   _lifecycleListener = AppLifecycleListener(
     onPause: _onPause,
     onResume: _onResume,

@@ -70,7 +70,9 @@
     
 <section class="summary source-code" id="source">
   <h2><span>Implementation</span></h2>
-  <pre class="language-dart"><code class="language-dart">static bool get isSupported =&gt; Platform.isAndroid || Platform.isIOS;</code></pre>
+  <pre class="language-dart"><code class="language-dart">static bool get isSupported =&gt;
+    defaultTargetPlatform == TargetPlatform.android ||
+    defaultTargetPlatform == TargetPlatform.iOS;</code></pre>
 </section>
 
   </section>
