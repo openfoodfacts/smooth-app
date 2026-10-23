@@ -5,11 +5,26 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 enum DonationSource {
   settings(analyticsValue: 1),
   tagline(analyticsValue: 2),
-  reminder(analyticsValue: 3);
+  reminder(analyticsValue: 3),
+  strip(analyticsValue: 4);
 
   const DonationSource({required this.analyticsValue});
 
   final int analyticsValue;
+}
+
+/// The two sides of the home donation test, tagged as the events and the
+/// Donorbox links name them.
+enum DonationTestArm {
+  homeCard(tag: 'old'),
+  reminder(tag: 'new');
+
+  const DonationTestArm({required this.tag});
+
+  final String tag;
+
+  /// Matomo event action: the entry that opened the screen, then the arm.
+  String action(DonationSource? source) => '${source?.name ?? 'none'}:$tag';
 }
 
 /// `/embed/` rather than the hosted campaign page: same Donorbox campaign, but
@@ -20,9 +35,10 @@ const String _campaignUrl =
 
 /// Built by hand rather than with [Uri]: the parameter order is part of the
 /// contract and [Uri] both reorders and re-encodes the query.
-String _utm(DonationSource? source) =>
+String _utm(DonationSource? source, DonationTestArm? arm) =>
     'utm_source=off&utm_medium=smooth-app&utm_campaign=donation-2026'
-    '&utm_content=donation-screen${source == null ? '' : '-${source.name}'}';
+    '&utm_content=donation-screen${source == null ? '' : '-${source.name}'}'
+    '${arm == null ? '' : ':${arm.tag}'}';
 
 /// What the donation page offers, as the news feed declares it.
 ///
@@ -36,6 +52,8 @@ class DonationOffer {
     required this.scansPerUnit,
     required this.whereItGoes,
     required this.reminderEvery,
+    required this.newArmPercent,
+    required this.stripHideDays,
     required this.donorCount,
     required this.funding,
     required this.monthsLeft,
@@ -49,6 +67,8 @@ class DonationOffer {
     final num? scansPerUnit = item?.donationScansPerUnit;
     final num? reminderEvery = item?.donationReminderEvery;
     final num? donorCount = item?.count;
+    final num? newArmPercent = item?.donationAbNewPercent;
+    final num? stripHideDays = item?.donationStripHideDays;
 
     return DonationOffer(
       currency: currency != null && currency.length == 3
@@ -62,6 +82,12 @@ class DonationOffer {
       reminderEvery: reminderEvery != null && _isUsableCount(reminderEvery)
           ? reminderEvery.toInt()
           : _fallbackReminderEvery,
+      newArmPercent: newArmPercent != null && newArmPercent.isFinite
+          ? newArmPercent.toInt()
+          : 0,
+      stripHideDays: stripHideDays != null && _isUsableCount(stripHideDays)
+          ? stripHideDays.toInt()
+          : _fallbackStripHideDays,
       donorCount: donorCount != null && _isUsableCount(donorCount)
           ? donorCount.toInt()
           : null,
@@ -85,6 +111,8 @@ class DonationOffer {
   static const int _fallbackScansPerUnit = 270;
 
   static const int _fallbackReminderEvery = 10;
+
+  static const int _fallbackStripHideDays = 14;
 
   /// Sorted and deduplicated: the slider walks the ladder by index, so an
   /// unordered feed makes dragging right ask for less money, and a repeated
@@ -115,6 +143,15 @@ class DonationOffer {
 
   final int reminderEvery;
 
+  /// Share of installs, in percent, on the reminder side of the home test.
+  final int newArmPercent;
+
+  final int stripHideDays;
+
+  DonationTestArm arm(int bucket) => bucket < newArmPercent
+      ? DonationTestArm.reminder
+      : DonationTestArm.homeCard;
+
   /// Donors so far, for the reminder sheet's headline. Null when the feed
   /// carries nothing usable, which falls back to a generic headline.
   final int? donorCount;
@@ -136,8 +173,8 @@ class DonationOffer {
 
   /// Donation form with no amount and no interval, so it opens on its own
   /// one-time default.
-  String oneOffUrl({DonationSource? source}) =>
-      '$_campaignUrl?currency=${currency.toLowerCase()}&${_utm(source)}';
+  String oneOffUrl({DonationSource? source, DonationTestArm? arm}) =>
+      '$_campaignUrl?currency=${currency.toLowerCase()}&${_utm(source, arm)}';
 
   /// [AppLocalizations.localeName] rather than [ProductQuery]: it is the
   /// locale the sentence itself is in. `intl` ships no number symbols for 46
@@ -171,7 +208,7 @@ class DonationTier {
   /// and always understates what the money covers.
   int get scans => amount * scansPerUnit ~/ 100 * 100;
 
-  String url({DonationSource? source}) =>
+  String url({DonationSource? source, DonationTestArm? arm}) =>
       '$_campaignUrl?amount=$amount&default_interval=m'
-      '&currency=${currency.toLowerCase()}&${_utm(source)}';
+      '&currency=${currency.toLowerCase()}&${_utm(source, arm)}';
 }

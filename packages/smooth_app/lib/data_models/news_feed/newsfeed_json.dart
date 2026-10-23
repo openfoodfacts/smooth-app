@@ -128,6 +128,8 @@ class _TagLineItemNewsItem {
     required this.donationScansPerUnit,
     required this.count,
     required this.donationReminderEvery,
+    required this.donationAbNewPercent,
+    required this.donationStripHideDays,
     this.minLaunches,
     this.startDate,
     this.endDate,
@@ -166,6 +168,8 @@ class _TagLineItemNewsItem {
       donationScansPerUnit = json['donation_scans_per_unit'] as num?,
       count = json['count'] as num?,
       donationReminderEvery = json['donation_reminder_every'] as num?,
+      donationAbNewPercent = json['donation_ab_new_percent'] as num?,
+      donationStripHideDays = json['donation_strip_hide_days'] as num?,
       startDate = DateTime.tryParse(json['start_date']),
       endDate = DateTime.tryParse(json['end_date']),
       minVersion = json['min_version'],
@@ -190,6 +194,8 @@ class _TagLineItemNewsItem {
   final num? donationScansPerUnit;
   final num? count;
   final num? donationReminderEvery;
+  final num? donationAbNewPercent;
+  final num? donationStripHideDays;
 
   _TagLineItemNewsTranslation loadTranslation(String locale) {
     _TagLineItemNewsTranslation? translation;
@@ -232,6 +238,8 @@ class _TagLineItemNewsItem {
       donationScansPerUnit: donationScansPerUnit,
       count: count,
       donationReminderEvery: donationReminderEvery,
+      donationAbNewPercent: donationAbNewPercent,
+      donationStripHideDays: donationStripHideDays,
       donationWhereItGoes: translation.donationWhereItGoes,
       image: translation.image?.overridesContent == true
           ? translation.image?.toTagLineImage()
@@ -258,6 +266,8 @@ class _TagLineItemNewsItem {
     num? donationScansPerUnit,
     num? count,
     num? donationReminderEvery,
+    num? donationAbNewPercent,
+    num? donationStripHideDays,
   }) {
     return _TagLineItemNewsItem._(
       id: id,
@@ -278,6 +288,9 @@ class _TagLineItemNewsItem {
       count: count ?? this.count,
       donationReminderEvery:
           donationReminderEvery ?? this.donationReminderEvery,
+      donationAbNewPercent: donationAbNewPercent ?? this.donationAbNewPercent,
+      donationStripHideDays:
+          donationStripHideDays ?? this.donationStripHideDays,
     );
   }
 }
