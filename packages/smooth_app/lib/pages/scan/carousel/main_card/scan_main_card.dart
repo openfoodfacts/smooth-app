@@ -1,7 +1,9 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
@@ -12,6 +14,7 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_news_provider.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/top_card/scan_search_card.dart';
+import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -94,6 +97,10 @@ class _DonationStripState extends State<_DonationStrip> {
   Widget build(BuildContext context) {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
+    final AppNewsState news = context.watch<AppNewsProvider>().state;
+    final AppNewsFunding? funding = news is AppNewsStateLoaded
+        ? news.content.donation?.funding
+        : null;
 
     return Material(
       color: context.lightTheme()
@@ -110,23 +117,61 @@ class _DonationStripState extends State<_DonationStrip> {
             start: MEDIUM_SPACE,
             end: VERY_SMALL_SPACE,
           ),
-          child: Row(
-            spacing: SMALL_SPACE,
+          child: Column(
             children: <Widget>[
-              const icons.Heart.filled(size: 18.0),
-              Expanded(
-                child: Text(
-                  AppLocalizations.of(context).donation_page_headline,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
+              Row(
+                spacing: SMALL_SPACE,
+                children: <Widget>[
+                  icons.Heart.filled(
+                    size: 18.0,
+                    color: extension.secondaryVibrant,
+                  ),
+                  Expanded(
+                    child: Text(
+                      AppLocalizations.of(context).donation_page_headline,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  const icons.Chevron.right(size: 14.0),
+                  IconButton(
+                    tooltip: MaterialLocalizations.of(
+                      context,
+                    ).closeButtonTooltip,
+                    icon: const icons.Close(size: 14.0),
+                    onPressed: () => _close(context),
+                  ),
+                ],
+              ),
+              if (funding != null)
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(
+                    end: MEDIUM_SPACE,
+                    bottom: MEDIUM_SPACE,
+                  ),
+                  child: Row(
+                    spacing: SMALL_SPACE,
+                    children: <Widget>[
+                      Expanded(
+                        child: LinearProgressIndicator(
+                          value: funding.progress,
+                          semanticsValue: (funding.ratio * 100)
+                              .round()
+                              .toString(),
+                          minHeight: VERY_SMALL_SPACE,
+                          borderRadius: MAX_BORDER_RADIUS,
+                          color: extension.secondaryVibrant,
+                        ),
+                      ),
+                      Text(
+                        NumberFormat.percentPattern(
+                          ProductQuery.getLocaleString(),
+                        ).format(funding.ratio),
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const icons.Chevron.right(size: 14.0),
-              IconButton(
-                tooltip: MaterialLocalizations.of(context).closeButtonTooltip,
-                icon: const icons.Close(size: 14.0),
-                onPressed: () => _close(context),
-              ),
             ],
           ),
         ),

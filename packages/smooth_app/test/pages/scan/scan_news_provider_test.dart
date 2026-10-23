@@ -395,6 +395,37 @@ void main() {
       expect(_titleFinder(_other.title), findsOneWidget);
     });
 
+    testWidgets('the strip shows the campaign progress when the feed has it', (
+      WidgetTester tester,
+    ) async {
+      await _pumpMainCard(tester, userPreferences, <AppNewsItem>[
+        const AppNewsItem(
+          id: 'donation_campaign_2026',
+          title: 'Our application needs you!',
+          message: 'Help us inform millions of consumers on what they eat!',
+          url: 'https://world.openfoodfacts.org/donate-to-open-food-facts',
+          donationAbNewPercent: 100,
+          raised: 51000,
+          goal: 170000,
+          currency: 'EUR',
+        ),
+      ]);
+
+      expect(find.byType(LinearProgressIndicator), findsOneWidget);
+      expect(find.text('30%'), findsOneWidget);
+    });
+
+    testWidgets('the strip has no progress line without figures', (
+      WidgetTester tester,
+    ) async {
+      await _pumpMainCard(tester, userPreferences, <AppNewsItem>[
+        _donationReminderArm,
+      ]);
+
+      expect(find.text(_stripHeadline), findsOneWidget);
+      expect(find.byType(LinearProgressIndicator), findsNothing);
+    });
+
     testWidgets('closing the strip hides it for 14 days and only it', (
       WidgetTester tester,
     ) async {
