@@ -41,6 +41,7 @@ class _DonationPageState extends State<DonationPage> {
   /// Read once: a feed arriving mid-visit would move the ladder under the
   /// donor's current selection.
   late final DonationOffer _offer;
+  late final DonationTestArm _arm;
 
   int? _selectedAmount;
   int? _customAmount;
@@ -54,9 +55,12 @@ class _DonationPageState extends State<DonationPage> {
       news is AppNewsStateLoaded ? news.content.donation : null,
     );
 
+    _arm = _offer.arm(context.read<UserPreferences>().getDonationTestBucket());
+
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationPageOpened,
       eventValue: widget.source?.analyticsValue,
+      action: _arm.action(widget.source),
     );
   }
 
@@ -103,7 +107,12 @@ class _DonationPageState extends State<DonationPage> {
                   onSelected: _select,
                   onCustomAmount: _setCustomAmount,
                 ),
-                _Ctas(offer: _offer, amount: amount, source: widget.source),
+                _Ctas(
+                  offer: _offer,
+                  amount: amount,
+                  source: widget.source,
+                  arm: _arm,
+                ),
               ],
             ),
           ),
@@ -379,11 +388,13 @@ class _Ctas extends StatelessWidget {
     required this.offer,
     required this.amount,
     required this.source,
+    required this.arm,
   });
 
   final DonationOffer offer;
   final int amount;
   final DonationSource? source;
+  final DonationTestArm arm;
 
   @override
   Widget build(BuildContext context) {
@@ -395,10 +406,10 @@ class _Ctas extends StatelessWidget {
           text: appLocalizations.donation_cta_monthly,
           leadingIcon: const icons.Donate(),
           onPressed: () =>
-              _open(offer.tier(amount).url(source: source), amount),
+              _open(offer.tier(amount).url(source: source, arm: arm), amount),
         ),
         TextButton(
-          onPressed: () => _open(offer.oneOffUrl(source: source), 0),
+          onPressed: () => _open(offer.oneOffUrl(source: source, arm: arm), 0),
           style: TextButton.styleFrom(
             minimumSize: const Size.fromHeight(MINIMUM_TOUCH_SIZE),
           ),
@@ -419,6 +430,7 @@ class _Ctas extends StatelessWidget {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationAlreadyDonated,
       eventValue: source?.analyticsValue,
+      action: arm.action(source),
     );
     await context.read<UserPreferences>().muteDonationAsks(
       const Duration(days: 365),
@@ -438,6 +450,7 @@ class _Ctas extends StatelessWidget {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationHandoff,
       eventValue: monthlyAmount,
+      action: arm.action(source),
     );
 
     return LaunchUrlHelper.launchURLInBrowserView(url);

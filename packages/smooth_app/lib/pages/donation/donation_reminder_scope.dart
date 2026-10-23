@@ -46,15 +46,17 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
   bool _isEligibleNow(DonationOffer offer) {
     final UserPreferences preferences = context.read<UserPreferences>();
     final DateTime now = DateTime.now();
-    return DonationReminderConditions(
-      campaignLive: _liveDonation() != null,
-      productsLookedUp: preferences.productsLookedUpSinceAsk,
-      every: offer.reminderEvery,
-      muted: preferences.donationAsksMuted(now),
-      appLaunches: preferences.appLaunches,
-      lastShownAt: preferences.lastReminderShownAt,
-      now: now,
-    ).eligible;
+    return offer.arm(preferences.getDonationTestBucket()) ==
+            DonationTestArm.reminder &&
+        DonationReminderConditions(
+          campaignLive: _liveDonation() != null,
+          productsLookedUp: preferences.productsLookedUpSinceAsk,
+          every: offer.reminderEvery,
+          muted: preferences.donationAsksMuted(now),
+          appLaunches: preferences.appLaunches,
+          lastShownAt: preferences.lastReminderShownAt,
+          now: now,
+        ).eligible;
   }
 
   @override
@@ -79,6 +81,7 @@ class _DonationReminderScopeState extends State<DonationReminderScope> {
         AnalyticsHelper.trackEvent(
           AnalyticsEvent.donationReminderShown,
           eventValue: offer.reminderEvery,
+          action: DonationTestArm.reminder.action(DonationSource.reminder),
         );
         await preferences.markDonationReminderShown();
         if (!context.mounted) {

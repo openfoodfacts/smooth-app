@@ -36,6 +36,10 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
     ),
   );
 
+  static const DonationTestArm _arm = DonationTestArm.reminder;
+
+  String get _action => _arm.action(DonationSource.reminder);
+
   late int _selected;
 
   @override
@@ -118,14 +122,16 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
               ),
               onPressed: () => _handoff(
                 context,
-                offer.tier(_selected).url(source: DonationSource.reminder),
+                offer
+                    .tier(_selected)
+                    .url(source: DonationSource.reminder, arm: _arm),
                 _selected,
               ),
             ),
             TextButton(
               onPressed: () => _handoff(
                 context,
-                offer.oneOffUrl(source: DonationSource.reminder),
+                offer.oneOffUrl(source: DonationSource.reminder, arm: _arm),
                 0,
               ),
               style: TextButton.styleFrom(
@@ -170,6 +176,7 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationReminderHandoff,
       eventValue: monthlyAmount,
+      action: _action,
     );
     final UserPreferences preferences = context.read<UserPreferences>();
     Navigator.of(context).pop();
@@ -178,7 +185,10 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
   }
 
   void _notNow(BuildContext context) {
-    AnalyticsHelper.trackEvent(AnalyticsEvent.donationReminderNotNow);
+    AnalyticsHelper.trackEvent(
+      AnalyticsEvent.donationReminderNotNow,
+      action: _action,
+    );
     Navigator.of(context).pop();
   }
 
@@ -186,6 +196,7 @@ class _DonationReminderSheetState extends State<DonationReminderSheet> {
     AnalyticsHelper.trackEvent(
       AnalyticsEvent.donationAlreadyDonated,
       eventValue: DonationSource.reminder.analyticsValue,
+      action: _action,
     );
     final UserPreferences preferences = context.read<UserPreferences>();
     Navigator.of(context).pop();

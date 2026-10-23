@@ -7,6 +7,8 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import '../../tests_utils/mocks.dart';
 
 const String _tagMutedUntil = 'donationAsksMutedUntil';
+const String _tagBucket = 'donationTestBucket';
+const String _tagStripHiddenUntil = 'donationStripHiddenUntil';
 const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
 const String _tagLastCountedBarcode = 'lastCountedBarcode';
 const String _tagLastReminderShownAt = 'lastReminderShownAt';
@@ -25,6 +27,8 @@ void main() {
 
   setUp(() async {
     await sharedPreferences.remove(_tagMutedUntil);
+    await sharedPreferences.remove(_tagBucket);
+    await sharedPreferences.remove(_tagStripHiddenUntil);
     await sharedPreferences.remove(_tagProductsLookedUp);
     await sharedPreferences.remove(_tagLastCountedBarcode);
     await sharedPreferences.remove(_tagLastReminderShownAt);
@@ -76,6 +80,37 @@ void main() {
       isFalse,
     );
     expect(notified, 1);
+  });
+
+  group('getDonationTestBucket', () {
+    test('draws once in 0..99 and answers the same afterwards', () {
+      final int bucket = userPreferences.getDonationTestBucket();
+
+      expect(bucket, inInclusiveRange(0, 99));
+      expect(sharedPreferences.getInt(_tagBucket), bucket);
+      expect(userPreferences.getDonationTestBucket(), bucket);
+    });
+
+    test('keeps a stored bucket', () async {
+      await sharedPreferences.setInt(_tagBucket, 42);
+
+      expect(userPreferences.getDonationTestBucket(), 42);
+    });
+  });
+
+  test('hideDonationStrip hides only the strip, for the given days', () async {
+    expect(userPreferences.donationStripHidden(DateTime.now()), isFalse);
+
+    await userPreferences.hideDonationStrip(const Duration(days: 14));
+
+    expect(userPreferences.donationStripHidden(DateTime.now()), isTrue);
+    expect(
+      userPreferences.donationStripHidden(
+        DateTime.now().add(const Duration(days: 15)),
+      ),
+      isFalse,
+    );
+    expect(userPreferences.donationAsksMutedUntil, isNull);
   });
 
   group('countProductLookedUp', () {
