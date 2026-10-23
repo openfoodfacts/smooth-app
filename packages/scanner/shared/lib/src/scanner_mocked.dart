@@ -9,6 +9,12 @@ class MockedScanner extends Scanner {
   String getType() => 'Mocked';
 
   @override
+  CustomScannerController getController() => _MockedScannerController();
+
+  @override
+  Future<bool> hasCamera({required bool front}) async => true;
+
+  @override
   Widget getScanner({
     required Future<bool> Function(String) onScan,
     required Future<void> Function() hapticFeedback,
@@ -28,4 +34,40 @@ class MockedScanner extends Scanner {
     String? toggleFlashModeTooltip,
     EdgeInsetsGeometry? contentPadding,
   }) => const SizedBox.shrink();
+}
+
+class _MockedScannerController implements CustomScannerController {
+  @override
+  bool get isStarted => false;
+
+  @override
+  Future<void> start() async {}
+
+  @override
+  Future<void> stop() async {}
+
+  @override
+  void onPause() {}
+
+  @override
+  void toggleCamera() {}
+
+  @override
+  Listenable get hasTorchState => ChangeNotifier();
+
+  @override
+  bool get hasTorch => false;
+
+  @override
+  bool get isTorchOn => false;
+
+  @override
+  void turnTorchOn() {}
+
+  @override
+  void turnTorchOff() {}
+
+  @override
+  Widget buildCameraView({required void Function(String barcode) onScan}) =>
+      const SizedBox.shrink();
 }

@@ -12,8 +12,6 @@ dependencies:
   flutter_svg: ^2.2.3
   visibility_detector: ^0.4.0+2
   provider: ^6.1.5+1
-  # waiting for a solution with zxing
-  mobile_scanner: ^7.4.2
 
 dev_dependencies:
   flutter_test:

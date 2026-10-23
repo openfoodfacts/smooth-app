@@ -3,8 +3,23 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
+import 'package:scanner_ml_kit/src/mobile_scanner_controller.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+
+const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
+  BarcodeFormat.code39,
+  BarcodeFormat.code93,
+  BarcodeFormat.code128,
+  BarcodeFormat.ean8,
+  BarcodeFormat.ean13,
+  BarcodeFormat.itf14,
+  BarcodeFormat.upcA,
+  BarcodeFormat.upcE,
+  // 2D formats for GS1 Sunrise 2027
+  BarcodeFormat.dataMatrix,
+  BarcodeFormat.qrCode,
+];
 
 /// Scanner implementation using ML Kit
 class ScannerMLKit extends Scanner {
@@ -12,6 +27,17 @@ class ScannerMLKit extends Scanner {
 
   @override
   String getType() => 'ML Kit';
+
+  @override
+  CustomScannerController getController() => MLKitScannerController(
+    MobileScannerController(autoStart: false, formats: _barcodeFormats),
+  );
+
+  @override
+  Future<bool> hasCamera({required bool front}) async =>
+      (await MobileScannerPlatform.instance.getSupportedLenses(
+        facing: front ? CameraFacing.front : CameraFacing.back,
+      )).isNotEmpty;
 
   @override
   Widget getScanner({
@@ -92,25 +118,11 @@ class _SmoothBarcodeScannerMLKit extends StatefulWidget {
 
 class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
     with SingleTickerProviderStateMixin {
-  static const List<BarcodeFormat> _barcodeFormats = <BarcodeFormat>[
-    BarcodeFormat.code39,
-    BarcodeFormat.code93,
-    BarcodeFormat.code128,
-    BarcodeFormat.ean8,
-    BarcodeFormat.ean13,
-    BarcodeFormat.itf14,
-    BarcodeFormat.upcA,
-    BarcodeFormat.upcE,
-    // 2D formats for GS1 Sunrise 2027
-    BarcodeFormat.dataMatrix,
-    BarcodeFormat.qrCode,
-  ];
-
   static const ValueKey<String> _visibilityKey = ValueKey<String>(
     'VisibilityDetector',
   );
 
-  late CustomScannerController _cameraController;
+  late MLKitScannerController _cameraController;
   late final AppLifecycleListener _lifecycleListener;
   bool _screenVisible = false;
 
@@ -118,7 +130,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
   void initState() {
     super.initState();
 
-    _cameraController = CustomScannerController(
+    _cameraController = MLKitScannerController(
       MobileScannerController(
         autoStart: false,
         torchEnabled: false,
@@ -146,7 +158,7 @@ class _SmoothBarcodeScannerMLKitState extends State<_SmoothBarcodeScannerMLKit>
 
   @override
   Widget build(BuildContext context) {
-    return Provider<CustomScannerController>.value(
+    return Provider<MLKitScannerController>.value(
       value: _cameraController,
       child: VisibilityDetector(
         key: _visibilityKey,
@@ -246,14 +258,14 @@ class _TorchIconState extends State<_TorchIcon> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<TorchState?>(
-      valueListenable: context.watch<CustomScannerController>().hasTorchState,
+      valueListenable: context.watch<MLKitScannerController>().hasTorchState,
       builder: (BuildContext context, TorchState? hasTorch, _) {
         if (hasTorch == null) {
           return SCANNER_EMPTY_WIDGET;
         }
 
-        final CustomScannerController controller = context
-            .watch<CustomScannerController>();
+        final MLKitScannerController controller = context
+            .watch<MLKitScannerController>();
         final bool isTorchOn = controller.isTorchOn;
 
         return VisorButton(
@@ -264,7 +276,7 @@ class _TorchIconState extends State<_TorchIcon> {
             widget.hapticFeedback.call();
 
             try {
-              context.read<CustomScannerController>().toggleTorch();
+              context.read<MLKitScannerController>().toggleTorch();
             } catch (err) {
               if (context.mounted) {
                 widget.onCameraFlashError?.call(context);
@@ -292,8 +304,8 @@ class _ToggleCameraIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final CustomScannerController controller = context
-        .watch<CustomScannerController>();
+    final MLKitScannerController controller = context
+        .watch<MLKitScannerController>();
 
     return ValueListenableBuilder<int>(
       valueListenable: controller.availableCameras,
