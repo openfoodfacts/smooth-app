@@ -2,6 +2,8 @@ setup_travis
 default_platform(:ios)
 
 before_all do
+  ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "60"
+  ENV["FASTLANE_XCODEBUILD_SETTINGS_RETRIES"] = "5"
   xcodes(
     version: '26.3',
     select_for_current_build_only: true,
