@@ -85,7 +85,10 @@ class DonationOffer {
       newArmPercent: newArmPercent != null && newArmPercent.isFinite
           ? newArmPercent.toInt()
           : 0,
-      stripHideDays: stripHideDays != null && _isUsableCount(stripHideDays)
+      stripHideDays:
+          stripHideDays != null &&
+              _isUsableCount(stripHideDays) &&
+              stripHideDays <= 365
           ? stripHideDays.toInt()
           : _fallbackStripHideDays,
       donorCount: donorCount != null && _isUsableCount(donorCount)
@@ -191,6 +194,9 @@ class DonationOffer {
 
   NumberFormat numberFormat(String localeName) =>
       NumberFormat.decimalPattern(_usableLocale(localeName));
+
+  NumberFormat percentFormat(String localeName) =>
+      NumberFormat.percentPattern(_usableLocale(localeName));
 }
 
 class DonationTier {

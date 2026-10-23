@@ -1,7 +1,6 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
@@ -14,7 +13,6 @@ import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/news/scan_news_provider.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/bottom_cards/scan_bottom_card.dart';
 import 'package:smooth_app/pages/scan/carousel/main_card/top_card/scan_search_card.dart';
-import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -98,9 +96,10 @@ class _DonationStripState extends State<_DonationStrip> {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
     final AppNewsState news = context.watch<AppNewsProvider>().state;
-    final AppNewsFunding? funding = news is AppNewsStateLoaded
-        ? news.content.donation?.funding
+    final AppNewsItem? donation = news is AppNewsStateLoaded
+        ? news.content.donation
         : null;
+    final AppNewsFunding? funding = donation?.funding;
 
     return Material(
       color: context.lightTheme()
@@ -164,9 +163,11 @@ class _DonationStripState extends State<_DonationStrip> {
                         ),
                       ),
                       Text(
-                        NumberFormat.percentPattern(
-                          ProductQuery.getLocaleString(),
-                        ).format(funding.ratio),
+                        DonationOffer.fromNews(donation)
+                            .percentFormat(
+                              AppLocalizations.of(context).localeName,
+                            )
+                            .format(funding.ratio),
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                     ],

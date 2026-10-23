@@ -189,7 +189,7 @@ void main() {
 
   group('DonationOffer.stripHideDays', () {
     test('falls back to 14 for every unusable value', () {
-      for (final num? value in <num?>[null, 0, -3, 0.5, double.infinity]) {
+      for (final num? value in <num?>[null, 0, -3, 0.5, 366, double.infinity]) {
         expect(
           DonationOffer.fromNews(
             _newsItem(donationStripHideDays: value),
@@ -371,12 +371,13 @@ void main() {
     });
   });
 
-  group('DonationOffer.amountFormat / numberFormat', () {
+  group('DonationOffer.amountFormat / numberFormat / percentFormat', () {
     test('falls back to en for a locale intl ships no symbols for', () {
       final DonationOffer offer = DonationOffer.fromNews(null);
 
       expect(offer.amountFormat('brx').format(3), '€3');
       expect(offer.numberFormat('brx').format(1300), '1,300');
+      expect(offer.percentFormat('brx').format(0.3), '30%');
     });
 
     test('uses the locale intl does support', () {
