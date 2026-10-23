@@ -2597,6 +2597,30 @@
       }
     }
   },
+  "prices_location_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {location}",
+  "@prices_location_accessibility_summary": {
+    "description": "A card summarizing the number of prices for a location",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "location": {
+        "type": "String"
+      }
+    }
+  },
+  "prices_user_accessibility_summary": "{count,plural, =1{1 price} other{{count} prices}} for {user}",
+  "@prices_user_accessibility_summary": {
+    "description": "A card summarizing the number of prices for a user",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "user": {
+        "type": "String"
+      }
+    }
+  },
   "prices_list_length_one_page": "{count,plural, =0{No price yet} =1{Only one price} other{All {count} prices}}",
   "@prices_list_length_one_page": {
     "description": "Number of prices for one-page result",

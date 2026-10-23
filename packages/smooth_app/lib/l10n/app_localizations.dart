@@ -5184,6 +5184,18 @@ abstract class AppLocalizations {
   /// **'{count,plural, =1{1 price} other{{count} prices}} for {product}'**
   String prices_product_accessibility_summary(int count, String product);
 
+  /// A card summarizing the number of prices for a location
+  ///
+  /// In en, this message translates to:
+  /// **'{count,plural, =1{1 price} other{{count} prices}} for {location}'**
+  String prices_location_accessibility_summary(int count, String location);
+
+  /// A card summarizing the number of prices for a user
+  ///
+  /// In en, this message translates to:
+  /// **'{count,plural, =1{1 price} other{{count} prices}} for {user}'**
+  String prices_user_accessibility_summary(int count, String user);
+
   /// Number of prices for one-page result
   ///
   /// In en, this message translates to:
