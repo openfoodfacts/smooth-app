@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
+import 'package:smooth_app/pages/locations/favorite_locations_page.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter.dart';
 import 'package:smooth_app/pages/preferences/lazy_counter_widget.dart';
@@ -70,6 +71,7 @@ class PricesRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           _buildAddReceiptTile(context, appLocalizations),
           _buildAddPriceTagsTile(context, appLocalizations),
+          _buildFavoriteStoresTile(context, appLocalizations),
         ],
       ),
       PreferenceCard(
@@ -167,6 +169,22 @@ class PricesRoot extends PreferencesRoot {
       onTap: () async => ProductPriceAddPage.showProductPage(
         context: context,
         proofType: ProofType.priceTag,
+      ),
+    );
+  }
+
+  PreferenceTile _buildFavoriteStoresTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+  ) {
+    return PreferenceTile(
+      icon: const icons.Heart.filled(),
+      title: appLocalizations.prices_favorite_stores,
+      subtitleText: appLocalizations.prices_favorite_stores_subtitle,
+      onTap: () async => Navigator.of(context).push(
+        MaterialPageRoute<void>(
+          builder: (BuildContext context) => const FavoriteLocationsPage(),
+        ),
       ),
     );
   }
