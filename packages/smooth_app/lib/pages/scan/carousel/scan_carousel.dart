@@ -24,7 +24,6 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
   static const double HORIZONTAL_SPACE_BETWEEN_CARDS = 5.0;
 
   List<String> barcodes = <String>[];
-  String? _lastConsultedBarcode;
   int? _carrouselMovingTo;
   int _lastIndex = 0;
 
@@ -35,51 +34,42 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
     super.didChangeDependencies();
     _model = context.watch<ContinuousScanModel>();
 
+    // Wait for the carousel to attach its controller and update its item count.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (mounted) {
+        _scrollToConsultedBarcode();
+      }
+    });
+  }
+
+  void _scrollToConsultedBarcode() {
     if (!ExternalScanCarouselManager.read(context).controller.ready) {
       return;
     }
 
-    barcodes = _model.getBarcodes();
-
-    if (barcodes.isEmpty) {
-      // Ensure to reset all variables
-      _lastConsultedBarcode = null;
-      _carrouselMovingTo = null;
-      _lastIndex = 0;
-      return;
-    } else if (_lastConsultedBarcode == _model.latestConsultedBarcode) {
-      // Prevent multiple irrelevant movements
-      return;
+    int page = 0;
+    final String? barcode = _model.latestConsultedBarcode;
+    if (barcode != null && barcode.isNotEmpty) {
+      final int index = barcodes.indexOf(barcode);
+      page = index >= 0 ? index + 1 : _lastIndex.clamp(0, barcodes.length);
     }
-
-    _lastConsultedBarcode = _model.latestConsultedBarcode;
-    final int cardsCount = barcodes.length + 1;
-
-    if (_model.latestConsultedBarcode != null &&
-        _model.latestConsultedBarcode!.isNotEmpty) {
-      final int indexBarcode = barcodes.indexOf(_model.latestConsultedBarcode!);
-      if (indexBarcode >= 0) {
-        final int indexCarousel = indexBarcode + 1;
-        _moveControllerTo(indexCarousel);
-      } else {
-        if (_lastIndex > cardsCount) {
-          _moveControllerTo(cardsCount);
-        } else {
-          _moveControllerTo(_lastIndex);
-        }
-      }
-    } else {
-      _moveControllerTo(0);
-    }
+    _moveControllerTo(page);
   }
 
   Future<void> _moveControllerTo(int page) async {
-    if (_carrouselMovingTo == null && _lastIndex != page) {
-      widget.onPageChangedTo?.call(page, page >= 1 ? barcodes[page - 1] : null);
+    if (_carrouselMovingTo == page ||
+        (_carrouselMovingTo == null && _lastIndex == page)) {
+      return;
+    }
 
-      _carrouselMovingTo = page;
-      ExternalScanCarouselManager.read(context).animatePageTo(page);
-      _carrouselMovingTo = null;
+    widget.onPageChangedTo?.call(page, page >= 1 ? barcodes[page - 1] : null);
+    _carrouselMovingTo = page;
+    try {
+      await ExternalScanCarouselManager.read(context).animatePageTo(page);
+    } finally {
+      if (_carrouselMovingTo == page) {
+        _carrouselMovingTo = null;
+      }
     }
   }
 
@@ -115,14 +105,14 @@ class _ScanPageCarouselState extends State<ScanPageCarousel> {
             onPageChanged: (int index, CarouselPageChangedReason reason) {
               _lastIndex = index;
 
-              if (index > 0) {
-                if (reason == CarouselPageChangedReason.manual) {
-                  _model.lastConsultedBarcode = barcodes[index - 1];
-                  _lastConsultedBarcode = _model.latestConsultedBarcode;
-                }
-              } else if (index == 0) {
+              if (reason == CarouselPageChangedReason.manual &&
+                  index <= barcodes.length) {
+                _carrouselMovingTo = null;
+                _model.lastConsultedBarcode = index > 0
+                    ? barcodes[index - 1]
+                    : null;
+              } else if (index == 0 && _carrouselMovingTo == null) {
                 _model.lastConsultedBarcode = null;
-                _lastConsultedBarcode = null;
               }
             },
           ),
