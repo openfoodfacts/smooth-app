@@ -151,7 +151,29 @@ class KnowledgePanelsBuilder {
   static KnowledgePanel? getKnowledgePanel(
     final Product product,
     final String panelId,
-  ) => product.knowledgePanels?.panelIdToPanelMap[panelId];
+  ) {
+    KnowledgePanel? panel = product.knowledgePanels?.panelIdToPanelMap[panelId];
+    if (panel != null) {
+      return panel;
+    }
+    if (panelId.contains('_')) {
+      panel = product
+          .knowledgePanels
+          ?.panelIdToPanelMap[panelId.replaceAll('_', '-')];
+      if (panel != null) {
+        return panel;
+      }
+    }
+    if (panelId.contains('-')) {
+      panel = product
+          .knowledgePanels
+          ?.panelIdToPanelMap[panelId.replaceAll('-', '_')];
+      if (panel != null) {
+        return panel;
+      }
+    }
+    return null;
+  }
 
   /// Returns the unique "root" panel element that matches [panelId], or `null`.
   static KnowledgePanelElement? getRootPanelElement(
@@ -174,10 +196,13 @@ class KnowledgePanelsBuilder {
     final Product product,
     final String panelId,
   ) {
-    final KnowledgePanel panel = KnowledgePanelsBuilder.getKnowledgePanel(
+    final KnowledgePanel? panel = KnowledgePanelsBuilder.getKnowledgePanel(
       product,
       panelId,
-    )!;
+    );
+    if (panel == null) {
+      return false;
+    }
     return panel.hasSomethingToDisplay(product);
   }
 
