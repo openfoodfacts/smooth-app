@@ -62,4 +62,36 @@ void main() {
     await daoProductList.get(restoredScanSession);
     expect(restoredScanSession.barcodes, isEmpty);
   });
+
+  test('migrates legacy raw GS1 keys to normalized GTIN on load', () async {
+    const String rawGs1 = '010426039255010117270101';
+    const String gtin = '4260392550101';
+    final ProductList scanSession = ProductList.scanSession();
+
+    // Simulate a list persisted before GS1 normalization (push stores as-is).
+    await daoProductList.push(scanSession, rawGs1);
+
+    final ProductList restoredScanSession = ProductList.scanSession();
+    await daoProductList.get(restoredScanSession);
+
+    expect(restoredScanSession.barcodes, <String>[gtin]);
+
+    // Migration is persisted: a fresh load sees the normalized key directly.
+    final ProductList reloadedScanSession = ProductList.scanSession();
+    await daoProductList.get(reloadedScanSession);
+    expect(reloadedScanSession.barcodes, <String>[gtin]);
+  });
+
+  test('migration collapses raw GS1 and GTIN duplicates', () async {
+    const String rawGs1 = '010426039255010117270101';
+    const String gtin = '4260392550101';
+    final ProductList scanSession = ProductList.scanSession();
+
+    await daoProductList.bulkSet(scanSession, <String>[rawGs1, gtin]);
+
+    final ProductList restoredScanSession = ProductList.scanSession();
+    await daoProductList.get(restoredScanSession);
+
+    expect(restoredScanSession.barcodes, <String>[gtin]);
+  });
 }

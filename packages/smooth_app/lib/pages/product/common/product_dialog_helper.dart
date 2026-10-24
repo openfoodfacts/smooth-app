@@ -25,8 +25,7 @@ class ProductDialogHelper {
     required String barcode,
     required this.context,
     required this.localDatabase,
-  }) : _gs1Barcode = barcode,
-       barcode = normalizeScannedBarcode(barcode).key;
+  }) : barcode = normalizeScannedBarcode(barcode).key;
 
   static const String unknownSvgNutriscore =
       'https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg';
@@ -34,10 +33,6 @@ class ProductDialogHelper {
       'https://static.openfoodfacts.org/images/attributes/dist/green-score-unknown.svg';
   static const String unknownSvgNova =
       'https://static.openfoodfacts.org/images/attributes/dist/nova-group-unknown.svg';
-
-  // Raw scanned value, retained for debugging and future GS1 extra-data use.
-  // ignore: unused_field
-  final String _gs1Barcode;
 
   /// Normalized barcode used for lookups, API queries, barcode widget and
   /// product creation: the normalized GTIN for GS1 barcodes, the fixed
