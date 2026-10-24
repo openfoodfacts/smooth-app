@@ -206,12 +206,17 @@ class DaoProductList extends AbstractDao {
       _getBox().containsKey(getKey(productList));
 
   /// Returns the number of barcodes quickly but without product check.
+  ///
+  /// Reports the post-migration count, so a raw GS1 key and its GTIN that
+  /// are about to collapse on the next [get] are not double-counted.
+  /// Persisting the migration is left to [get], keeping this a read-only
+  /// fast path.
   Future<int> getLength(final ProductList productList) async {
     final _BarcodeList? list = await _get(productList);
     if (list == null || list.barcodes.isEmpty) {
       return 0;
     }
-    return list.barcodes.length;
+    return _migratedBarcodes(list.barcodes)?.length ?? list.barcodes.length;
   }
 
   /// Moves a barcode to the end of the list.

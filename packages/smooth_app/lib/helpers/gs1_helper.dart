@@ -149,15 +149,20 @@ class NormalizedBarcode {
   final GS1Barcode? gs1Barcode;
 }
 
-/// Normalizes a scanned [code] into a [NormalizedBarcode].
+/// Bare numeric lengths that may select a traditional UPC-A, EAN-8 or EAN-13
+/// barcode over GS1 parsing when the check digit is valid.
 ///
 /// The scanner callback supplies no symbology metadata. For ambiguous bare
 /// numeric input, a UPC-A, EAN-8 or EAN-13 with a valid check digit takes
 /// precedence over GS1 parsing. Explicit GS1 formatting (e.g. `(21)`, `]C1`
 /// or FNC1) bypasses this rule. Length alone never selects a traditional code.
+final RegExp _traditionalLengthRegExp = RegExp(
+  r'^(?:[0-9]{8}|[0-9]{12}|[0-9]{13})$',
+);
+
 NormalizedBarcode normalizeScannedBarcode(final String code) {
   final String trimmed = code.trim();
-  if (RegExp(r'^(?:[0-9]{8}|[0-9]{12}|[0-9]{13})$').hasMatch(trimmed) &&
+  if (_traditionalLengthRegExp.hasMatch(trimmed) &&
       _isValidEan13(trimmed.padLeft(13, '0'))) {
     return NormalizedBarcode(key: fixTraditionalBarcode(code));
   }
