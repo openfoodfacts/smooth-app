@@ -8,6 +8,7 @@ import 'package:smooth_app/generic_lib/buttons/smooth_button_with_arrow.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/generic_lib/loading_dialog.dart';
+import 'package:smooth_app/helpers/gs1_helper.dart';
 import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
@@ -21,10 +22,10 @@ import 'package:smooth_app/widgets/text/text_highlighter.dart';
 /// Dialog helper for product barcode search
 class ProductDialogHelper {
   ProductDialogHelper({
-    required this.barcode,
+    required String barcode,
     required this.context,
     required this.localDatabase,
-  });
+  }) : barcode = normalizeScannedBarcode(barcode).key;
 
   static const String unknownSvgNutriscore =
       'https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg';
@@ -33,12 +34,16 @@ class ProductDialogHelper {
   static const String unknownSvgNova =
       'https://static.openfoodfacts.org/images/attributes/dist/nova-group-unknown.svg';
 
+  /// Normalized barcode used for lookups, API queries, barcode widget and
+  /// product creation: the normalized GTIN for GS1 barcodes, the fixed
+  /// barcode (trimmed, dash-free, UPC-A padded) otherwise.
   final String barcode;
   final BuildContext context;
   final LocalDatabase localDatabase;
 
   Future<FetchedProduct> openBestChoice() async {
-    final Product? product = await DaoProduct(localDatabase).get(barcode);
+    final DaoProduct daoProduct = DaoProduct(localDatabase);
+    final Product? product = await daoProduct.get(barcode);
     if (product != null) {
       return FetchedProduct.found(product);
     }
