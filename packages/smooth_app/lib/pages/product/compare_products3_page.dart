@@ -13,6 +13,7 @@ import 'package:smooth_app/helpers/product_compatibility_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/product/nutrition_page/widgets/nutrition_container_helper.dart';
 import 'package:smooth_app/pages/product/ordered_nutrients_cache.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
@@ -269,7 +270,10 @@ class _CompareProducts3PageState extends State<CompareProducts3Page>
       child = Expanded(
         child: Container(
           height: 36,
-          color: getAttributeDisplayBackgroundColor(attribute),
+          color: getAttributeDisplayBackgroundColor(
+            attribute,
+            context.extension<SmoothColorsThemeExtension>(),
+          ),
           child: child,
         ),
       );

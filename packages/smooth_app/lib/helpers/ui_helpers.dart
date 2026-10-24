@@ -2,7 +2,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 /// Contains UI related constant that are shared across the entire app.
 
@@ -33,19 +33,22 @@ class IconWidgetSizer {
   }
 }
 
-Color? getTextColorFromKnowledgePanelElementEvaluation(Evaluation evaluation) {
+Color? getTextColorFromKnowledgePanelElementEvaluation(
+  Evaluation evaluation,
+  SmoothColorsThemeExtension colors,
+) {
   switch (evaluation) {
     case Evaluation.UNKNOWN:
       // Use default color for unknown.
       return null;
     case Evaluation.AVERAGE:
-      return GREY_COLOR;
+      return colors.greyUltraLight;
     case Evaluation.NEUTRAL:
-      return DARK_ORANGE_COLOR;
+      return colors.scoreDarkOrange;
     case Evaluation.BAD:
-      return RED_COLOR;
+      return colors.error;
     case Evaluation.GOOD:
-      return DARK_GREEN_COLOR;
+      return colors.success;
   }
 }
 
