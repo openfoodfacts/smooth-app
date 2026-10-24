@@ -162,9 +162,10 @@ final RegExp _traditionalLengthRegExp = RegExp(
 
 NormalizedBarcode normalizeScannedBarcode(final String code) {
   final String trimmed = code.trim();
-  if (_traditionalLengthRegExp.hasMatch(trimmed) &&
-      _isValidEan13(trimmed.padLeft(13, '0'))) {
-    return NormalizedBarcode(key: fixTraditionalBarcode(code));
+  final String traditionalBarcode = fixTraditionalBarcode(code);
+  if (_traditionalLengthRegExp.hasMatch(traditionalBarcode) &&
+      _isValidEan13(traditionalBarcode.padLeft(13, '0'))) {
+    return NormalizedBarcode(key: traditionalBarcode);
   }
   final GS1Barcode? gs1Barcode = tryParseGs1Barcode(code);
   if (gs1Barcode != null) {
