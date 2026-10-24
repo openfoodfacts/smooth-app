@@ -33,6 +33,7 @@ import 'package:smooth_app/pages/scan/carousel/scan_carousel_manager.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/query/search_products_manager.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/autosize_text.dart';
 import 'package:smooth_app/widgets/smooth_app_bar.dart';
 import 'package:smooth_app/widgets/smooth_expandable_floating_action_button.dart';
@@ -372,7 +373,7 @@ class _ProductListPageState extends State<ProductListPage>
         direction: DismissDirection.endToStart,
         background: Container(
           alignment: AlignmentDirectional.centerEnd,
-          color: RED_COLOR,
+          color: context.extension<SmoothColorsThemeExtension>().error,
           padding: const EdgeInsetsDirectional.only(end: 30.0),
           child: const icons.Trash(size: 20.0, color: Colors.white),
         ),

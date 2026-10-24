@@ -432,7 +432,10 @@ class _SummaryCardState extends State<SummaryCard> with UpToDateMixin {
       return null;
     }
     final String? attributeDisplayTitle = getDisplayTitle(attribute);
-    final Widget attributeIcon = getAttributeDisplayIcon(attribute);
+    final Widget attributeIcon = getAttributeDisplayIcon(
+      attribute,
+      context: context,
+    );
     if (attributeDisplayTitle == null) {
       return null;
     }

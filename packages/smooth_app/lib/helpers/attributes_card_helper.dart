@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/cards/data_cards/score_card.dart';
-import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/product/attribute_extensions.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 // TODO(Stephane): Evaluation should come directly from the BE.
 enum AttributeEvaluation {
@@ -35,33 +35,38 @@ enum AttributeEvaluation {
 
 Widget getAttributeDisplayIcon(
   final Attribute attribute, {
+  required BuildContext context,
   bool? isFoodPreferences = false,
   double? size,
   Color? backgroundColor,
   Color? foregroundColor,
-  BuildContext? context,
 }) {
   return attribute.getCircledIcon(
     backgroundColor:
         backgroundColor ??
         (isFoodPreferences!
-            ? Theme.of(context!).primaryColor
-            : getAttributeDisplayBackgroundColor(attribute)),
+            ? Theme.of(context).primaryColor
+            : getAttributeDisplayBackgroundColor(
+                attribute,
+                context.extension<SmoothColorsThemeExtension>(),
+              )),
     foregroundColor: foregroundColor,
     size: size ?? 32.0,
   );
 }
 
-Color getAttributeDisplayBackgroundColor(final Attribute attribute) =>
-    _attributeMatchComparison<Color>(
-      attribute,
-      FAIR_GREY_COLOR,
-      RED_COLOR,
-      LIGHT_ORANGE_COLOR,
-      LIGHT_ORANGE_COLOR,
-      LIGHT_GREEN_COLOR,
-      LIGHT_GREEN_COLOR,
-    );
+Color getAttributeDisplayBackgroundColor(
+  final Attribute attribute,
+  final SmoothColorsThemeExtension colors,
+) => _attributeMatchComparison<Color>(
+  attribute,
+  colors.greyFair,
+  colors.error,
+  colors.secondaryNormal,
+  colors.secondaryNormal,
+  colors.scoreLightGreen,
+  colors.scoreLightGreen,
+);
 
 IconData getAttributeDisplayIconData(final Attribute attribute) =>
     _attributeMatchComparison<IconData>(

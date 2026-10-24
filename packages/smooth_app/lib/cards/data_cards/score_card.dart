@@ -7,31 +7,33 @@ import 'package:smooth_app/helpers/score_card_helper.dart';
 import 'package:smooth_app/helpers/ui_helpers.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 
 enum CardEvaluation {
-  UNKNOWN(backgroundColor: GREY_COLOR, textColor: PRIMARY_GREY_COLOR),
-  VERY_BAD(backgroundColor: RED_BACKGROUND_COLOR, textColor: RED_COLOR),
-  BAD(backgroundColor: ORANGE_BACKGROUND_COLOR, textColor: LIGHT_ORANGE_COLOR),
-  NEUTRAL(
-    backgroundColor: YELLOW_BACKGROUND_COLOR,
-    textColor: DARK_YELLOW_COLOR,
-  ),
-  GOOD(
-    backgroundColor: LIGHT_GREEN_BACKGROUND_COLOR,
-    textColor: LIGHT_GREEN_COLOR,
-  ),
-  VERY_GOOD(
-    backgroundColor: DARK_GREEN_BACKGROUND_COLOR,
-    textColor: DARK_GREEN_COLOR,
-  );
+  UNKNOWN,
+  VERY_BAD,
+  BAD,
+  NEUTRAL,
+  GOOD,
+  VERY_GOOD;
 
-  const CardEvaluation({
-    required this.backgroundColor,
-    required this.textColor,
-  });
+  Color backgroundColor(SmoothColorsThemeExtension colors) => switch (this) {
+    UNKNOWN => colors.greyUltraLight,
+    VERY_BAD => colors.scoreRedBackground,
+    BAD => colors.scoreOrangeBackground,
+    NEUTRAL => colors.scoreYellowBackground,
+    GOOD => colors.scoreLightGreenBackground,
+    VERY_GOOD => colors.scoreDarkGreenBackground,
+  };
 
-  final Color backgroundColor;
-  final Color textColor;
+  Color textColor(SmoothColorsThemeExtension colors) => switch (this) {
+    UNKNOWN => colors.greyUltraDark,
+    VERY_BAD => colors.error,
+    BAD => colors.secondaryNormal,
+    NEUTRAL => colors.scoreDarkYellow,
+    GOOD => colors.scoreLightGreen,
+    VERY_GOOD => colors.success,
+  };
 }
 
 class ScoreCard extends StatelessWidget {
@@ -69,12 +71,14 @@ class ScoreCard extends StatelessWidget {
     final double opacity = themeData.brightness == Brightness.light
         ? 1
         : SmoothTheme.ADDITIONAL_OPACITY_FOR_DARK;
-    final Color backgroundColor = cardEvaluation.backgroundColor.withValues(
-      alpha: opacity,
-    );
+    final SmoothColorsThemeExtension colors = context
+        .extension<SmoothColorsThemeExtension>();
+    final Color backgroundColor = cardEvaluation
+        .backgroundColor(colors)
+        .withValues(alpha: opacity);
     final Color textColor = themeData.brightness == Brightness.dark
         ? Colors.white
-        : cardEvaluation.textColor.withValues(alpha: opacity);
+        : cardEvaluation.textColor(colors).withValues(alpha: opacity);
     final SvgIconChip? iconChip = iconUrl == null
         ? null
         : SvgIconChip(iconUrl!, height: iconHeight);

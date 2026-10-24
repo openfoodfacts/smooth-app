@@ -22,6 +22,7 @@ import 'package:smooth_app/pages/product/simple_input_number_field.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/color_schemes.dart';
+import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/will_pop_scope.dart';
 
@@ -364,23 +365,28 @@ class _EditNewPackagingsState extends State<EditNewPackagings>
   }
 }
 
-Color _getSmoothCardColor(final BuildContext context) =>
-    Theme.of(context).brightness == Brightness.light
-    ? GREY_COLOR
-    : PRIMARY_GREY_COLOR;
+Color _getSmoothCardColor(final BuildContext context) {
+  final SmoothColorsThemeExtension colors = context
+      .extension<SmoothColorsThemeExtension>();
+  return Theme.of(context).brightness == Brightness.light
+      ? colors.greyUltraLight
+      : colors.greyUltraDark;
+}
 
 Color _getSmoothCardColorAlternate(final BuildContext context, int index) {
   final bool lightTheme = Theme.of(context).brightness == Brightness.light;
+  final SmoothColorsThemeExtension colors = context
+      .extension<SmoothColorsThemeExtension>();
   Color cardColor = Colors.white;
   if (lightTheme) {
     if (index.isOdd) {
-      cardColor = GREY_COLOR;
+      cardColor = colors.greyUltraLight;
     } else {
-      cardColor = LIGHT_GREY_COLOR;
+      cardColor = colors.greySemiLight;
     }
   } else {
     if (index.isOdd) {
-      cardColor = PRIMARY_GREY_COLOR;
+      cardColor = colors.greyUltraDark;
     } else {
       cardColor = darkColorScheme.surface;
     }
