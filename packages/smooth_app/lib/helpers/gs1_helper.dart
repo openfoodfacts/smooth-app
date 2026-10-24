@@ -70,7 +70,8 @@ String? _cleanGs1Input(final String input) {
     return null;
   }
 
-  if (!normalized.startsWith('http://') && !normalized.startsWith('https://')) {
+  final String lower = normalized.toLowerCase();
+  if (!lower.startsWith('http://') && !lower.startsWith('https://')) {
     if (normalized.contains('(') || normalized.contains(')')) {
       final String? elementString = _bracketedHriToElementString(normalized);
       if (elementString != null) {
@@ -94,6 +95,11 @@ String? _cleanGs1Input(final String input) {
   return normalized;
 }
 
+/// Cached default GS1 parser: construction allocates element-parser maps,
+/// so reuse a single instance instead of rebuilding it per barcode scanned
+/// or per search keystroke.
+final GS1BarcodeParser _gs1Parser = GS1BarcodeParser.defaultParser();
+
 /// Tries to parse [input] as a GS1 barcode, returning null when it isn't one.
 ///
 /// The underlying parser handles raw GS1 element strings (with optional FNC1
@@ -110,7 +116,7 @@ GS1Barcode? tryParseGs1Barcode(final String input) {
   }
 
   try {
-    return GS1BarcodeParser.defaultParser().parse(normalized);
+    return _gs1Parser.parse(normalized);
   } on GS1Exception catch (_) {
     // The parser throws GS1Exception subclasses (GS1ParseException,
     // GS1DataException) for invalid data.

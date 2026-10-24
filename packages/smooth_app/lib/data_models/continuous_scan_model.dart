@@ -136,7 +136,11 @@ class ContinuousScanModel with ChangeNotifier {
     if (barcode == null) {
       return false;
     }
-    return _addBarcode(normalizeScannedBarcode(barcode).key);
+    final String normalized = normalizeScannedBarcode(barcode).key;
+    if (normalized.length < 4) {
+      return false;
+    }
+    return _addBarcode(normalized);
   }
 
   Future<void> retryBarcodeFetch(String barcode) async {

@@ -22,10 +22,11 @@ import 'package:smooth_app/widgets/text/text_highlighter.dart';
 /// Dialog helper for product barcode search
 class ProductDialogHelper {
   ProductDialogHelper({
-    required this.barcode,
+    required String barcode,
     required this.context,
     required this.localDatabase,
-  });
+  }) : _gs1Barcode = barcode,
+       barcode = normalizeScannedBarcode(barcode).key;
 
   static const String unknownSvgNutriscore =
       'https://static.openfoodfacts.org/images/attributes/dist/nutriscore-unknown.svg';
@@ -34,24 +35,25 @@ class ProductDialogHelper {
   static const String unknownSvgNova =
       'https://static.openfoodfacts.org/images/attributes/dist/nova-group-unknown.svg';
 
+  // Raw scanned value, retained for debugging and future GS1 extra-data use.
+  // ignore: unused_field
+  final String _gs1Barcode;
+
+  /// Normalized barcode used for lookups, API queries, barcode widget and
+  /// product creation: the normalized GTIN for GS1 barcodes, the fixed
+  /// barcode (trimmed, dash-free, UPC-A padded) otherwise.
   final String barcode;
   final BuildContext context;
   final LocalDatabase localDatabase;
 
-  /// Barcode used for lookups, API queries, barcode widget and
-  /// product creation: the normalized GTIN for GS1 barcodes, the raw value
-  /// otherwise.
-  String get localBarcode =>
-      tryParseGs1Barcode(barcode)?.normalizedGtin ?? barcode;
-
   Future<FetchedProduct> openBestChoice() async {
     final DaoProduct daoProduct = DaoProduct(localDatabase);
-    final Product? product = await daoProduct.get(localBarcode);
+    final Product? product = await daoProduct.get(barcode);
     if (product != null) {
       return FetchedProduct.found(product);
     }
-    if (localDatabase.upToDate.hasPendingChanges(localBarcode)) {
-      return FetchedProduct.found(Product(barcode: localBarcode));
+    if (localDatabase.upToDate.hasPendingChanges(barcode)) {
+      return FetchedProduct.found(Product(barcode: barcode));
     }
     return openUniqueProductSearch();
   }
@@ -60,11 +62,11 @@ class ProductDialogHelper {
       await LoadingDialog.run<FetchedProduct>(
         context: context,
         future: BarcodeProductQuery(
-          barcode: localBarcode,
+          barcode: barcode,
           daoProduct: DaoProduct(localDatabase),
           isScanned: false,
         ).getFetchedProduct(),
-        title: '${AppLocalizations.of(context).looking_for}: $localBarcode',
+        title: '${AppLocalizations.of(context).looking_for}: $barcode',
       ) ??
       const FetchedProduct.userCancelled();
 
@@ -130,7 +132,7 @@ class ProductDialogHelper {
                         horizontal: VERY_LARGE_SPACE,
                       ),
                       child: SmoothBarcodeWidget(
-                        barcode: localBarcode,
+                        barcode: barcode,
                         height: 75.0,
                       ),
                     ),
@@ -143,7 +145,7 @@ class ProductDialogHelper {
                       onTap: () async {
                         await AppNavigator.of(
                           context,
-                        ).push(AppRoutes.PRODUCT_CREATOR(localBarcode));
+                        ).push(AppRoutes.PRODUCT_CREATOR(barcode));
                         if (context.mounted) {
                           Navigator.of(context).pop();
                         }
