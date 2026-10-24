@@ -36,6 +36,9 @@ class PricesProofsPage extends StatefulWidget {
 
 class _PricesProofsPageState extends State<PricesProofsPage>
     with TraceableClientMixin {
+  @override
+  String get actionName => 'Opened prices_proofs_page';
+
   late final _InfiniteScrollProofManager _proofManager =
       _InfiniteScrollProofManager(selectProof: widget.selectProof);
 

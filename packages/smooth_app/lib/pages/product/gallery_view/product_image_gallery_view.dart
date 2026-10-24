@@ -59,7 +59,7 @@ class ProductImageGalleryView extends StatefulWidget {
       forcedSource: pictureSource,
     );
 
-    return cropParameters?.smallCroppedFile;
+    return cropParameters?.preCroppedFile;
   }
 }
 

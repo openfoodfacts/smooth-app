@@ -214,20 +214,6 @@ class BackgroundTaskDetails extends BackgroundTaskBarcode
 
   String _getIncompleteUserData() {
     final User user = getUser();
-    final StringBuffer result = StringBuffer();
-    result.write(' [user:');
-    result.write(user.userId);
-    final int length = user.password.length;
-    result.write(' (');
-    if (length >= 8) {
-      result.write(user.password.substring(0, 2));
-      result.write('*' * (length - 4));
-      result.write(user.password.substring(length - 2));
-    } else {
-      result.write('passwordLength:$length');
-    }
-    result.write(')');
-    result.write('] ');
-    return result.toString();
+    return ' [user:${user.userId} (passwordEmpty:${user.password.isEmpty})] ';
   }
 }

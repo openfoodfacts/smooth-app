@@ -422,12 +422,6 @@ class _SignUpPageState extends State<SignUpPage> with TraceableClientMixin {
     if (!mounted) {
       return;
     }
-    final UserPreferences userPreferences =
-        await UserPreferences.getUserPreferences();
-    userPreferences.resetOnboarding();
-    if (!mounted) {
-      return;
-    }
     await showDialog<void>(
       context: context,
       builder: (BuildContext context) => SmoothAlertDialog(

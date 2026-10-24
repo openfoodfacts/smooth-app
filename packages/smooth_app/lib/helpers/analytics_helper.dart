@@ -178,6 +178,18 @@ enum AnalyticsEvent {
     tag: 'donation already donated',
     category: AnalyticsCategory.donation,
   ),
+  donationReminderShown(
+    tag: 'donation reminder shown',
+    category: AnalyticsCategory.donation,
+  ),
+  donationReminderHandoff(
+    tag: 'donation reminder handoff',
+    category: AnalyticsCategory.donation,
+  ),
+  donationReminderNotNow(
+    tag: 'donation reminder not now',
+    category: AnalyticsCategory.donation,
+  ),
   appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
   onboardingPageVisited(
     tag: 'onboarding page visited',
@@ -186,7 +198,8 @@ enum AnalyticsEvent {
   knowledgePanelOpen(
     tag: 'knowledge panel open',
     category: AnalyticsCategory.knowledgePanel,
-  );
+  ),
+  appOpen(tag: 'app open', category: AnalyticsCategory.lifecycle);
 
   const AnalyticsEvent({required this.tag, required this.category});
 
@@ -365,6 +378,21 @@ class AnalyticsHelper {
   /// Returns a letter between A and Z, depending on [_uniqueRandom].
   static String get _uniqueLetter =>
       String.fromCharCode('A'.codeUnitAt(0) + _uniqueRandom % 26);
+
+  static const Duration _visitTimeout = Duration(minutes: 30);
+
+  static void trackAppOpen(
+    final UserPreferences userPreferences, {
+    final Duration? backgroundedFor,
+  }) {
+    if (userPreferences.lastVisitedOnboardingPage.isOnboardingNotStarted()) {
+      return;
+    }
+    if (backgroundedFor != null && backgroundedFor < _visitTimeout) {
+      return;
+    }
+    trackEvent(AnalyticsEvent.appOpen);
+  }
 
   static void trackEvent(
     AnalyticsEvent msg, {

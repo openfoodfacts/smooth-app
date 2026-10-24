@@ -56,6 +56,8 @@ class AppNewsItem {
     this.currency,
     this.donationAmounts,
     this.donationScansPerUnit,
+    this.count,
+    this.donationReminderEvery,
     this.donationWhereItGoes,
   });
 
@@ -77,6 +79,8 @@ class AppNewsItem {
   final String? currency;
   final List<num>? donationAmounts;
   final num? donationScansPerUnit;
+  final num? count;
+  final num? donationReminderEvery;
   final List<String>? donationWhereItGoes;
 
   AppNewsFunding? get funding => AppNewsFunding.tryFrom(raised, goal, currency);
@@ -114,6 +118,8 @@ class AppNewsItem {
         ',currency:$currency'
         ',donationAmounts:$donationAmounts'
         ',donationScansPerUnit:$donationScansPerUnit'
+        ',count:$count'
+        ',donationReminderEvery:$donationReminderEvery'
         ',donationWhereItGoes:$donationWhereItGoes)';
   }
 }

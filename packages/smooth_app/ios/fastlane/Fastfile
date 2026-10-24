@@ -1,7 +1,43 @@
 setup_travis
 default_platform(:ios)
 
+require "base64"
+
+def clean_git_url(raw_url)
+  url = (raw_url || "https://github.com/openfoodfacts/ios-certificates").strip.chomp("/")
+  url.end_with?(".git") ? url : "#{url}.git"
+end
+
+def clean_git_auth(raw_auth)
+  return nil if raw_auth.nil?
+  str = raw_auth.strip
+  str = str.sub(/\A(Basic|Bearer)\s+/i, "").strip
+  return nil if str.empty?
+
+  if str.start_with?("ghp_", "github_pat_", "gho_")
+    return Base64.strict_encode64("x-access-token:#{str}")
+  end
+
+  begin
+    decoded = Base64.decode64(str).strip
+    if decoded.include?(":")
+      return Base64.strict_encode64(decoded)
+    elsif decoded.start_with?("ghp_", "github_pat_", "gho_")
+      return Base64.strict_encode64("x-access-token:#{decoded}")
+    end
+  rescue
+  end
+
+  if str.include?(":")
+    return Base64.strict_encode64(str)
+  end
+
+  Base64.strict_encode64("x-access-token:#{str}")
+end
+
 before_all do
+  ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "60"
+  ENV["FASTLANE_XCODEBUILD_SETTINGS_RETRIES"] = "5"
   xcodes(
     version: '26.3',
     select_for_current_build_only: true,
@@ -18,7 +54,13 @@ platform :ios do
     
     puts "Releasing beta version for identifier #{APP_IDENTIFIER}"
 
-    sync_code_signing(type: "appstore", readonly: is_ci, clone_branch_directly: false)
+    sync_code_signing(
+      type: "appstore",
+      readonly: is_ci,
+      clone_branch_directly: false,
+      git_url: clean_git_url(ENV["MATCH_GIT_URL"]),
+      git_basic_authorization: clean_git_auth(ENV["MATCH_GIT_BASIC_AUTHORIZATION"])
+    )
     update_code_signing_settings(
       path: "Runner.xcodeproj",
       use_automatic_signing: false,
@@ -71,6 +113,8 @@ platform :ios do
       type: "appstore", 
       readonly: is_ci, 
       clone_branch_directly: false,
+      git_url: clean_git_url(ENV["MATCH_GIT_URL"]),
+      git_basic_authorization: clean_git_auth(ENV["MATCH_GIT_BASIC_AUTHORIZATION"]),
       app_identifier: APP_IDENTIFIER
     )
     update_code_signing_settings(

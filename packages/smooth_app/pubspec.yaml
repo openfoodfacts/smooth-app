@@ -90,11 +90,8 @@ dependencies:
   app_store_uri:
     path: ../app_store/uri_store
 
-  # We use two different scanning engines, 
-  # mobile scanner powered by ML Kit for the Play Store and Apple App Store,
-  # but qr_code_scanner which uses the open source ZXing for F-Droid
-  mobile_scanner: 7.4.2
-
+  # Two scanning engines: ML Kit (scanner_ml_kit) for the Play Store and Apple
+  # App Store, ZXing (scanner_zxing) for F-Droid.
   scanner_shared:
     path: ../scanner/shared
 

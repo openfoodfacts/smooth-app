@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:provider/provider.dart';
 import 'package:scanner_shared/scanner_shared.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
@@ -85,15 +84,15 @@ class _TorchIcon extends StatefulWidget {
 class _TorchIconState extends State<_TorchIcon> {
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<TorchState?>(
-      valueListenable: context.watch<CustomScannerController>().hasTorchState,
-      builder: (BuildContext context, TorchState? hasTorch, _) {
-        if (hasTorch == null) {
+    final CustomScannerController controller = context
+        .watch<CustomScannerController>();
+    return ListenableBuilder(
+      listenable: controller.hasTorchState,
+      builder: (BuildContext context, _) {
+        if (!controller.hasTorch) {
           return EMPTY_WIDGET;
         }
 
-        final CustomScannerController controller = context
-            .watch<CustomScannerController>();
         final bool isTorchOn = controller.isTorchOn;
         final Color color = context.lightTheme() ? Colors.black : Colors.white;
 
