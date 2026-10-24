@@ -161,7 +161,6 @@ final RegExp _traditionalLengthRegExp = RegExp(
 );
 
 NormalizedBarcode normalizeScannedBarcode(final String code) {
-  final String trimmed = code.trim();
   final String traditionalBarcode = fixTraditionalBarcode(code);
   if (_traditionalLengthRegExp.hasMatch(traditionalBarcode) &&
       _isValidEan13(traditionalBarcode.padLeft(13, '0'))) {
