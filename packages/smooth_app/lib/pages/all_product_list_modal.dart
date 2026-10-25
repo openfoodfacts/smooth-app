@@ -8,6 +8,7 @@ import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/common/product_list_popup_items.dart';
@@ -17,12 +18,21 @@ import 'package:smooth_app/themes/smooth_theme_colors.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
 
 /// Page that lists all product lists.
-class AllProductsListModal extends StatelessWidget {
-  AllProductsListModal({required this.currentList});
+class AllProductsListModal extends StatefulWidget {
+  const AllProductsListModal({
+    required this.currentList,
+    required this.onHistoriesCleared,
+  });
 
   final ProductList currentList;
+  final VoidCallback onHistoriesCleared;
 
-  final List<ProductList> _hardcodedProductLists = <ProductList>[
+  @override
+  State<AllProductsListModal> createState() => _AllProductsListModalState();
+}
+
+class _AllProductsListModalState extends State<AllProductsListModal> {
+  final List<ProductList> _defaultProductLists = <ProductList>[
     ProductList.scanSession(),
     ProductList.scanHistory(),
     ProductList.history(),
@@ -47,6 +57,7 @@ class AllProductsListModal extends StatelessWidget {
             return _buildList(
               context,
               productLists,
+              daoProductList,
               productLists.fold(0, (int previousValue, ProductList element) {
                 return math.max(previousValue, element.barcodes.length);
               }),
@@ -64,7 +75,7 @@ class AllProductsListModal extends StatelessWidget {
       list.add(ProductList.user(userList));
     }
 
-    list.addAll(_hardcodedProductLists);
+    list.addAll(_defaultProductLists);
 
     /// Update lists information from database
     for (final ProductList productList in list) {
@@ -77,28 +88,93 @@ class AllProductsListModal extends StatelessWidget {
   Widget _buildList(
     BuildContext context,
     List<ProductList> productLists,
+    DaoProductList daoProductList,
     int maxItemCount,
   ) {
-    return SliverList.separated(
-      itemCount: productLists.length,
-      separatorBuilder: (BuildContext context, int index) =>
-          const Divider(height: 1.0),
-      itemBuilder: (BuildContext context, int index) {
-        final ProductList productList = productLists[index];
-        return ConstrainedBox(
-          constraints: BoxConstraints(
-            minHeight: MediaQuery.textScalerOf(context).scale(65.0),
-          ),
-          child: _ModalProductListItem(
-            productList: productList,
-            selected:
-                productList.listType == currentList.listType &&
-                productList.parameters == currentList.parameters,
-            counterDigits: maxItemCount.toString().length,
-          ),
-        );
-      },
+    final bool hasDefaultHistories = _defaultProductLists.any(
+      (ProductList list) => list.barcodes.isNotEmpty,
     );
+
+    return SliverMainAxisGroup(
+      slivers: <Widget>[
+        if (hasDefaultHistories) ...<Widget>[
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: MEDIUM_SPACE,
+                vertical: VERY_SMALL_SPACE,
+              ),
+              child: Align(
+                alignment: AlignmentDirectional.centerEnd,
+                child: TextButton.icon(
+                  onPressed: () =>
+                      _clearDefaultHistories(context, daoProductList),
+                  icon: const Icon(Icons.delete_sweep_outlined),
+                  label: Text(
+                    AppLocalizations.of(context).clear_default_list_histories,
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SliverToBoxAdapter(child: Divider(height: 1.0)),
+        ],
+        SliverList.separated(
+          itemCount: productLists.length,
+          separatorBuilder: (BuildContext context, int index) =>
+              const Divider(height: 1.0),
+          itemBuilder: (BuildContext context, int index) {
+            final ProductList productList = productLists[index];
+            return ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: MediaQuery.textScalerOf(context).scale(65.0),
+              ),
+              child: _ModalProductListItem(
+                productList: productList,
+                selected:
+                    productList.listType == widget.currentList.listType &&
+                    productList.parameters == widget.currentList.parameters,
+                counterDigits: maxItemCount.toString().length,
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+
+  Future<void> _clearDefaultHistories(
+    BuildContext context,
+    DaoProductList daoProductList,
+  ) async {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+    final bool? confirmed = await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) => SmoothAlertDialog(
+        title: appLocalizations.clear_default_list_histories,
+        body: Text(appLocalizations.confirm_clear_default_list_histories),
+        positiveAction: SmoothActionButton(
+          onPressed: () => Navigator.of(context).pop(true),
+          text: appLocalizations.yes,
+        ),
+        negativeAction: SmoothActionButton(
+          onPressed: () => Navigator.of(context).pop(false),
+          text: appLocalizations.no,
+        ),
+      ),
+    );
+    if (confirmed != true || !context.mounted) {
+      return;
+    }
+    for (final ProductList productList in _defaultProductLists) {
+      await daoProductList.clear(productList);
+      await daoProductList.get(productList);
+    }
+    if (!mounted) {
+      return;
+    }
+    setState(() {});
+    widget.onHistoriesCleared();
   }
 }
 
