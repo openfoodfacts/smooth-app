@@ -220,6 +220,14 @@ class _TapirscanCameraViewState extends State<_TapirscanCameraView>
   /// cameras never opens the new one before the old one is released.
   static Future<void> _transition = Future<void>.value();
 
+  /// Queues [task] after the previous transitions. A failing task is logged,
+  /// so that it cannot stop the transitions queued after it.
+  static void _enqueue(Future<void> Function() task) {
+    _transition = _transition.then((_) => task()).catchError((Object error) {
+      debugPrint('Tapirscan camera transition failed: $error');
+    });
+  }
+
   CameraController? _camera;
   ts.Scanner? _scanner;
 
@@ -262,7 +270,7 @@ class _TapirscanCameraViewState extends State<_TapirscanCameraView>
   /// Releases the camera and, if still wanted, opens it again.
   void _reconcile() {
     final int generation = ++_generation;
-    _transition = _transition.then((_) async {
+    _enqueue(() async {
       await _release(notify: true);
       if (!mounted || generation != _generation || !_active) {
         return;
@@ -361,7 +369,11 @@ class _TapirscanCameraViewState extends State<_TapirscanCameraView>
     } catch (error) {
       debugPrint('Camera cleanup failed: $error');
     }
-    scanner?.dispose();
+    try {
+      scanner?.dispose();
+    } catch (error) {
+      debugPrint('Tapirscan cleanup failed: $error');
+    }
   }
 
   @override
@@ -391,7 +403,7 @@ class _TapirscanCameraViewState extends State<_TapirscanCameraView>
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     ++_generation;
-    _transition = _transition.then((_) => _release(notify: false));
+    _enqueue(() => _release(notify: false));
     super.dispose();
   }
 }
