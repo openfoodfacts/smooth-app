@@ -43,7 +43,7 @@ void main() {
     expect(find.text('Paris'), findsOneWidget);
     expect(
       find.text(
-        'Saved on this device only. Not synced or shared with Open Food Facts.',
+        'Saved on this device only. Used to prefill Open Prices store search and sent to OpenStreetMap only when you submit a search.',
       ),
       findsOneWidget,
     );
@@ -81,7 +81,7 @@ Future<void> _pumpTile(
       ],
       child: MaterialApp(
         localizationsDelegates: AppLocalizations.localizationsDelegates,
-        locale: const Locale('fr'),
+        locale: const Locale('en'),
         supportedLocales: AppLocalizations.supportedLocales,
         theme: ThemeData(
           extensions: <ThemeExtension<dynamic>>[
