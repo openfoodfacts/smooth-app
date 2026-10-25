@@ -124,14 +124,12 @@ class _MessageOverlay extends StatelessWidget {
           );
         }
 
-        final BoxConstraints constraints = BoxConstraints(
-          maxHeight: MediaQuery.heightOf(context) * 0.35,
-        );
-
         return Provider<ScanCardDensity>.value(
-          value: ScanCardDensity.getDensity(context, constraints),
+          value: ScanCardDensity.NORMAL,
           child: ConstrainedBox(
-            constraints: constraints,
+            constraints: BoxConstraints(
+              maxHeight: MediaQuery.heightOf(context) * 0.35,
+            ),
             child: FractionallySizedBox(
               widthFactor: 0.9,
               child: switch (model.getBarcodeState(
