@@ -367,19 +367,21 @@ class _TapirscanCameraViewState extends State<_TapirscanCameraView>
   @override
   Widget build(BuildContext context) {
     final CameraController? camera = _camera;
-    final Size? size = camera?.value.previewSize;
-    if (camera == null || !camera.value.isInitialized || size == null) {
+    if (camera == null || !camera.value.isInitialized) {
       return SCANNER_EMPTY_WIDGET;
     }
-    // Fill the scanner area like the other scanners: crop, do not stretch.
-    // The preview size is in sensor (landscape) orientation.
-    return ClipRect(
-      child: FittedBox(
-        fit: BoxFit.cover,
-        child: SizedBox(
-          width: size.height,
-          height: size.width,
-          child: CameraPreview(camera),
+    // Fill the scanner box and crop, as flutter_zxing's ReaderWidget does:
+    // the preview gets a width only and keeps its own aspect ratio.
+    return SizedBox.expand(
+      child: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) => ClipRect(
+          child: FittedBox(
+            fit: BoxFit.cover,
+            child: SizedBox(
+              width: constraints.maxWidth,
+              child: CameraPreview(camera),
+            ),
+          ),
         ),
       ),
     );
