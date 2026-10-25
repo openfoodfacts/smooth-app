@@ -7,6 +7,7 @@ import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/onboarding/currency_selector_helper.dart';
 import 'package:smooth_app/pages/preferences_v2/cards/preference_card.dart';
 import 'package:smooth_app/pages/preferences_v2/roots/preferences_root.dart';
+import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/city_postcode_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/country_selector/country_selector_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/app_settings_tiles/language_selector/language_selector_tile.dart';
 import 'package:smooth_app/pages/preferences_v2/tiles/multiple_choices_tile.dart';
@@ -48,6 +49,9 @@ class AppSettingsRoot extends PreferencesRoot {
         tiles: <PreferenceTile>[
           _buildLanguageTile(appLocalizations),
           _buildCountryTile(appLocalizations),
+          CityPostcodeTile(
+            title: appLocalizations.preferences_city_or_postcode_title,
+          ),
           _buildCurrencyTile(
             appLocalizations,
             selectedCurrency,

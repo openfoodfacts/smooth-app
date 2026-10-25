@@ -5137,6 +5137,14 @@
   "@preferences_app_settings_products": {
     "description": "Title for the app settings products card"
   },
+  "preferences_city_or_postcode_title": "Your city or postcode",
+  "@preferences_city_or_postcode_title": {
+    "description": "Title for the setting to save a city or postcode on the device"
+  },
+  "preferences_city_or_postcode_privacy": "Saved on this device only. Not synced or shared with Open Food Facts.",
+  "@preferences_city_or_postcode_privacy": {
+    "description": "Privacy explanation for the locally saved city or postcode"
+  },
   "preferences_card_about": "About",
   "@preferences_card_about": {
     "description": "Title for the app settings products card"
