@@ -90,13 +90,17 @@ dependencies:
   app_store_uri:
     path: ../app_store/uri_store
 
-  # Two scanning engines: ML Kit (scanner_ml_kit) for the Play Store and Apple
-  # App Store, ZXing (scanner_zxing) for F-Droid.
+  # Scanning engines: ML Kit (scanner_ml_kit) for the Play Store and Apple
+  # App Store, ZXing (scanner_zxing) for F-Droid, Tapirscan (scanner_tapirscan,
+  # Android only) for comparison builds.
   scanner_shared:
     path: ../scanner/shared
 
   scanner_ml_kit:
     path: ../scanner/ml_kit
+
+  #scanner_tapirscan:
+    #path: ../scanner/tapirscan
 
   scanner_zxing:
     path: ../scanner/zxing

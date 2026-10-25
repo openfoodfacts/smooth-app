@@ -14,3 +14,6 @@ sed $SEDOPTION 's|^  scanner_ml_kit|  #scanner_ml_kit|g' packages/smooth_app/pub
 sed $SEDOPTION 's|^    path: ../scanner/ml_kit|    #path: ../scanner/ml_kit|g' packages/smooth_app/pubspec.yaml
 sed $SEDOPTION 's|^  #scanner_zxing|  scanner_zxing|g' packages/smooth_app/pubspec.yaml
 sed $SEDOPTION 's|^    #path: ../scanner/zxing|    path: ../scanner/zxing|g' packages/smooth_app/pubspec.yaml
+sed $SEDOPTION 's|^  scanner_tapirscan|  #scanner_tapirscan|g' packages/smooth_app/pubspec.yaml
+sed $SEDOPTION 's|^    path: ../scanner/tapirscan|    #path: ../scanner/tapirscan|g' packages/smooth_app/pubspec.yaml
+rm -f packages/smooth_app/lib/entrypoints/android/main_tapirscan.dart
