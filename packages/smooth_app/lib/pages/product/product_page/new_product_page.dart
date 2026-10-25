@@ -5,6 +5,7 @@ import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/data_models/up_to_date_changes.dart';
@@ -212,7 +213,9 @@ class ProductPageState extends State<ProductPage>
     final BuildContext context,
   ) async {
     final LocalDatabase localDatabase = context.read<LocalDatabase>();
-    await DaoProductList(localDatabase).push(ProductList.history(), barcode);
+    if (context.read<UserPreferences>().trackScannedAndViewedProducts) {
+      await DaoProductList(localDatabase).push(ProductList.history(), barcode);
+    }
     localDatabase.notifyListeners();
   }
 

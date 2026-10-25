@@ -6017,6 +6017,14 @@
       }
     }
   },
+  "track_scanned_and_viewed_products": "Track scanned and viewed products",
+  "@track_scanned_and_viewed_products": {
+    "description": "App setting that controls automatic tracking in the scan session, scan history, and viewed products lists."
+  },
+  "track_scanned_and_viewed_products_body": "When disabled, products are not added to your scan session, scan history, or viewed products lists. Your own lists are not affected.",
+  "@track_scanned_and_viewed_products_body": {
+    "description": "Description for the setting that controls automatic product tracking."
+  },
   "donation_reminder_funding": "**{raised}** of {goal}",
   "@donation_reminder_funding": {
     "description": "Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.",

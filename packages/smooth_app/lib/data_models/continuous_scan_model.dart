@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/fetched_product.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/product_list.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/dao_product_list.dart';
@@ -274,9 +275,12 @@ class ContinuousScanModel with ChangeNotifier {
   ) async {
     if (_latestFoundBarcode != barcode) {
       _latestFoundBarcode = barcode;
-      await _daoProductList.push(productList, _latestFoundBarcode!);
-      await _daoProductList.push(_scanHistory, _latestFoundBarcode!);
-      await _daoProductList.push(_history, _latestFoundBarcode!);
+      if (UserPreferences.getUserPreferencesSync()
+          .trackScannedAndViewedProducts) {
+        await _daoProductList.push(productList, _latestFoundBarcode!);
+        await _daoProductList.push(_scanHistory, _latestFoundBarcode!);
+        await _daoProductList.push(_history, _latestFoundBarcode!);
+      }
       _daoProductList.localDatabase.notifyListeners();
     }
     _setBarcodeState(barcode, state);

@@ -11200,6 +11200,18 @@ abstract class AppLocalizations {
   /// **'**{amount}** /month'**
   String donation_tier_chip_amount(String amount);
 
+  /// App setting that controls automatic tracking in the scan session, scan history, and viewed products lists.
+  ///
+  /// In en, this message translates to:
+  /// **'Track scanned and viewed products'**
+  String get track_scanned_and_viewed_products;
+
+  /// Description for the setting that controls automatic product tracking.
+  ///
+  /// In en, this message translates to:
+  /// **'When disabled, products are not added to your scan session, scan history, or viewed products lists. Your own lists are not affected.'**
+  String get track_scanned_and_viewed_products_body;
+
   /// Campaign meter on the donation reminder sheet: how much has been raised out of the goal. Both values arrive already formatted with their currency. The part between ** is shown in bold; keep the ** around the raised amount.
   ///
   /// In en, this message translates to:
