@@ -5,6 +5,7 @@ import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panel_element_extension.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panel_extension.dart';
+import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_text_card.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
@@ -15,6 +16,19 @@ import 'package:smooth_app/services/smooth_services.dart';
 /// "Knowledge Panel" builder
 class KnowledgePanelsBuilder {
   const KnowledgePanelsBuilder._();
+
+  static const String _healthCardId = 'health_card';
+  static const String _simplifiedHealthCardId = 'health_card_simplified';
+
+  /// Panels of the full health card that we add to the simplified one.
+  ///
+  /// Otherwise they would be two levels below (tab, then "learn more"), and so
+  /// would the "expand" preferences, cf. [KnowledgePanelCard.getExpandFlagTag].
+  /// cf. https://github.com/openfoodfacts/smooth-app/issues/7728
+  static const List<String> _simplifiedHealthCardExtraPanelIds = <String>[
+    KnowledgePanelCard.PANEL_NUTRITION_TABLE_ID,
+    KnowledgePanelCard.PANEL_INGREDIENTS_ID,
+  ];
 
   static List<Widget> getChildren(
     BuildContext context, {
@@ -35,9 +49,13 @@ class KnowledgePanelsBuilder {
           topics: rootPanel.topics,
         ),
       );
-      if (rootPanel.elements != null) {
-        for (int i = 0; i < rootPanel.elements!.length; i++) {
-          final KnowledgePanelElement element = rootPanel.elements![i];
+      final List<KnowledgePanelElement>? elements =
+          panelId == _simplifiedHealthCardId
+          ? _getSimplifiedHealthCardElements(product, rootPanel)
+          : rootPanel.elements;
+      if (elements != null) {
+        for (int i = 0; i < elements.length; i++) {
+          final KnowledgePanelElement element = elements[i];
           final Widget? widget = getElementWidget(
             knowledgePanelElement: element,
             product: product,
@@ -54,7 +72,7 @@ class KnowledgePanelsBuilder {
       }
     }
     if (!onboardingMode) {
-      if (panelId == 'health_card') {
+      if (panelId == _healthCardId || panelId == _simplifiedHealthCardId) {
         final bool nutritionAddOrUpdate =
             product.statesTags?.contains(
               ProductState.NUTRITION_FACTS_COMPLETED.toBeCompletedTag,
@@ -62,7 +80,7 @@ class KnowledgePanelsBuilder {
             false;
         if (nutritionAddOrUpdate) {
           if (AddNutritionButton.acceptsNutritionFacts(product)) {
-            children.add(AddNutritionButton(product));
+            children.add(_getPaddedButton(AddNutritionButton(product)));
           }
         }
 
@@ -77,9 +95,11 @@ class KnowledgePanelsBuilder {
           // When the flag is removed, this should be the following:
           // if (product.statesTags?.contains('en:ingredients-to-be-completed') ?? false) {
           children.add(
-            AddOcrButton(
-              product: product,
-              editor: ProductFieldOcrIngredientEditor(),
+            _getPaddedButton(
+              AddOcrButton(
+                product: product,
+                editor: ProductFieldOcrIngredientEditor(),
+              ),
             ),
           );
         }
@@ -91,6 +111,54 @@ class KnowledgePanelsBuilder {
       );
     }
     return children;
+  }
+
+  /// Returns the [button] with the same side padding as the KP action buttons.
+  static Widget _getPaddedButton(final Widget button) => Padding(
+    padding: const EdgeInsetsDirectional.symmetric(horizontal: SMALL_SPACE),
+    child: button,
+  );
+
+  /// Returns the elements of the simplified health card, with the extra panels.
+  ///
+  /// The extra panels are added right after the nutrient levels, as a group,
+  /// unless they are missing or already displayed.
+  /// cf. [_simplifiedHealthCardExtraPanelIds].
+  static List<KnowledgePanelElement> _getSimplifiedHealthCardElements(
+    final Product product,
+    final KnowledgePanel panel,
+  ) {
+    final List<KnowledgePanelElement> elements = <KnowledgePanelElement>[
+      ...?panel.elements,
+    ];
+    final Set<String> displayedPanelIds = <String>{
+      for (final KnowledgePanelElement element in elements)
+        ...element.getPanelIds(),
+    };
+    final List<String> extraPanelIds = <String>[
+      for (final String panelId in _simplifiedHealthCardExtraPanelIds)
+        if (!displayedPanelIds.contains(panelId) &&
+            getKnowledgePanel(product, panelId) != null)
+          panelId,
+    ];
+    if (extraPanelIds.isEmpty) {
+      return elements;
+    }
+    final int nutrientLevelsIndex = elements.indexWhere(
+      (final KnowledgePanelElement element) =>
+          element.getPanelIds().contains('nutrient_levels'),
+    );
+    elements.insert(
+      nutrientLevelsIndex < 0 ? elements.length : nutrientLevelsIndex + 1,
+      KnowledgePanelElement(
+        elementType: KnowledgePanelElementType.PANEL_GROUP,
+        panelGroupElement: KnowledgePanelPanelGroupElement(
+          title: null,
+          panelIds: extraPanelIds,
+        ),
+      ),
+    );
+    return elements;
   }
 
   static bool supportsSimplifiedPanels(final Product product) =>
