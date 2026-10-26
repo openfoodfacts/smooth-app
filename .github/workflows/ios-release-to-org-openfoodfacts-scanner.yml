@@ -150,9 +150,7 @@ jobs:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
 
       - name: Release ipa
-        run: |
-          git config --global --unset-all http.https://github.com/.extraheader 2>/dev/null || true
-          cd ./packages/smooth_app/ios && bundle exec fastlane beta
+        run: cd ./packages/smooth_app/ios && bundle exec fastlane beta_multi
         env:
           FASTLANE_VERBOSE: "1"
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
