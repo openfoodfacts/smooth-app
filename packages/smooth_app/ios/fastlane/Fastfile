@@ -54,10 +54,6 @@ platform :ios do
     
     puts "Releasing beta version for identifier #{APP_IDENTIFIER}"
 
-    if is_ci && ENV["MATCH_GIT_BASIC_AUTHORIZATION"].to_s.strip.empty?
-      UI.user_error!("MATCH_GIT_BASIC_AUTHORIZATION is missing in CI environment.")
-    end
-
     sync_code_signing(
       type: "appstore",
       readonly: is_ci,
