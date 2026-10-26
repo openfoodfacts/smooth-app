@@ -55,9 +55,17 @@ jobs:
         #channel: stable
         cache: true
         flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
-        cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+        cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages/smooth_app/pubspec.lock')}}
 
     - run: flutter --version
+
+    - name: Cache Pub dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.pub-cache
+        key: pub-cache-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
+        restore-keys: |
+          pub-cache-${{ runner.os }}-
 
       # Get dependencies
     - name: Get dependencies
@@ -176,9 +184,17 @@ jobs:
         #channel: stable
         cache: true
         flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
-        cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+        cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages/smooth_app/pubspec.lock')}}
 
     - run: flutter --version
+
+    - name: Cache Pub dependencies
+      uses: actions/cache@v4
+      with:
+        path: ~/.pub-cache
+        key: pub-cache-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
+        restore-keys: |
+          pub-cache-${{ runner.os }}-
 
       # Get dependencies
     - name: Get dependencies

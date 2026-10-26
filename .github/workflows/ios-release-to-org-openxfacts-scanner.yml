@@ -78,10 +78,26 @@ jobs:
           #channel: stable
           cache: true
           flutter-version: ${{ steps.flutter-version.outputs.FLUTTER_VERSION }}
-          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages\smooth_app\pubspec.lock')}}
+          cache-key: flutter-${{ hashFiles('flutter-version.txt')}}-${{ hashFiles('packages/smooth_app/pubspec.lock')}}
 
       - name: Flutter version    
         run: flutter --version
+
+      - name: Cache Pub dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: pub-cache-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
+          restore-keys: |
+            pub-cache-${{ runner.os }}-
+
+      - name: Cache SwiftPM
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/org.swift.swiftpm
+          key: spm-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
+          restore-keys: |
+            spm-${{ runner.os }}-
 
       - name: Enable MLKit dependency
         run: chmod +x ci/dependencies/scanner/enable_mlkit_dependency.sh && ci/dependencies/scanner/enable_mlkit_dependency.sh
