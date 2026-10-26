@@ -10,7 +10,9 @@ import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_card
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_expanded_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels/knowledge_panel_group_card.dart';
 import 'package:smooth_app/knowledge_panel/knowledge_panels_builder.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/pages/product/add_nutrition_button.dart';
+import 'package:smooth_app/pages/product/add_ocr_button.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
 import 'package:smooth_app/themes/theme_provider.dart';
@@ -59,6 +61,10 @@ void main() {
   setUp(() async {
     await userPreferences.setFlag(expandNutritionFlag, null);
     await userPreferences.setFlag(expandIngredientsFlag, null);
+    await userPreferences.setFlag(
+      UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+      null,
+    );
   });
 
   Widget wrap(Widget child) => MockSmoothApp(
@@ -267,6 +273,38 @@ void main() {
       expect(findCard(nutritionTableId), findsOneWidget);
     });
 
+    testWidgets('looks for duplicates in expanded panels only', (
+      WidgetTester tester,
+    ) async {
+      final Product product = buildProduct(
+        healthCardElements: <KnowledgePanelElement>[
+          panelGroupElement(<String>['nutriscore_2023', 'nutrient_levels']),
+          panelElement('expanded'),
+          panelElement('collapsed'),
+          panelGroupElement(<String>['nova', 'additives']),
+        ],
+      );
+      final Map<String, KnowledgePanel> panels =
+          product.knowledgePanels!.panelIdToPanelMap;
+      panels['expanded'] = KnowledgePanel(
+        expanded: true,
+        elements: <KnowledgePanelElement>[panelElement(nutritionTableId)],
+      );
+      panels['collapsed'] = KnowledgePanel(
+        titleElement: const TitleElement(title: 'Collapsed'),
+        elements: <KnowledgePanelElement>[panelElement(ingredientsId)],
+      );
+      final List<Widget> children = await pumpCard(tester, product);
+
+      expect(getPanelGroups(children), <List<String>>[
+        <String>['nutriscore_2023', 'nutrient_levels'],
+        <String>[ingredientsId],
+        <String>['nova', 'additives'],
+      ]);
+      expect(findCard(nutritionTableId), findsOneWidget);
+      expect(findCard(ingredientsId), findsOneWidget);
+    });
+
     testWidgets('has the extra panels at the end without nutrient levels', (
       WidgetTester tester,
     ) async {
@@ -316,6 +354,20 @@ void main() {
         ),
       );
       expect(find.byType(AddNutritionButton), findsOneWidget);
+    });
+
+    testWidgets('has the "add ingredients" button in dev mode', (
+      WidgetTester tester,
+    ) async {
+      await pumpCard(tester, buildProduct());
+      expect(find.byType(AddOcrButton), findsNothing);
+
+      await userPreferences.setFlag(
+        UserPreferencesDevMode.userPreferencesFlagEditIngredients,
+        true,
+      );
+      await pumpCard(tester, buildProduct());
+      expect(find.byType(AddOcrButton), findsOneWidget);
     });
   });
 

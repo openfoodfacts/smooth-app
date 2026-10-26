@@ -131,10 +131,10 @@ class KnowledgePanelsBuilder {
     final List<KnowledgePanelElement> elements = <KnowledgePanelElement>[
       ...?panel.elements,
     ];
-    final Set<String> displayedPanelIds = <String>{
-      for (final KnowledgePanelElement element in elements)
-        ...element.getPanelIds(),
-    };
+    final Set<String> displayedPanelIds = _getDisplayedPanelIds(
+      product,
+      elements,
+    );
     final List<String> extraPanelIds = <String>[
       for (final String panelId in _simplifiedHealthCardExtraPanelIds)
         if (!displayedPanelIds.contains(panelId) &&
@@ -159,6 +159,34 @@ class KnowledgePanelsBuilder {
       ),
     );
     return elements;
+  }
+
+  /// Returns the ids of the panels displayed by [elements].
+  ///
+  /// That includes the panels displayed inside expanded panels, but not the
+  /// ones inside collapsed panels.
+  static Set<String> _getDisplayedPanelIds(
+    final Product product,
+    final Iterable<KnowledgePanelElement> elements,
+  ) {
+    final Set<String> result = <String>{};
+    void addPanelIds(final Iterable<KnowledgePanelElement> children) {
+      for (final KnowledgePanelElement child in children) {
+        for (final String panelId in child.getPanelIds()) {
+          // already seen, which also prevents infinite loops
+          if (!result.add(panelId)) {
+            continue;
+          }
+          final KnowledgePanel? panel = getKnowledgePanel(product, panelId);
+          if (panel != null && panel.expanded == true) {
+            addPanelIds(panel.elements ?? const <KnowledgePanelElement>[]);
+          }
+        }
+      }
+    }
+
+    addPanelIds(elements);
+    return result;
   }
 
   static bool supportsSimplifiedPanels(final Product product) =>
