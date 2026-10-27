@@ -134,11 +134,31 @@ jobs:
       - name: cat Podfile
         run: cd ./packages/smooth_app/ios && cat Podfile
  
+      - name: Verify Match Git access
+        run: |
+          if [ -z "$MATCH_GIT_BASIC_AUTHORIZATION" ]; then
+            echo "::error::MATCH_GIT_BASIC_AUTHORIZATION secret is empty!"
+            exit 1
+          fi
+          AUTH_HEADER=$(echo -n "$MATCH_GIT_BASIC_AUTHORIZATION" | sed -E 's/^(Basic|Bearer) *//I')
+          HTTP_STATUS=$(curl -s -o /tmp/gh_api_resp.json -w "%{http_code}" -H "Authorization: Basic $AUTH_HEADER" https://api.github.com/repos/openfoodfacts/ios-certificates)
+          echo "GitHub API HTTP Status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "GitHub API error response:"
+            cat /tmp/gh_api_resp.json
+            echo ""
+          else
+            echo "GitHub API verified access to openfoodfacts/ios-certificates successfully."
+          fi
+        env:
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+
       - name: Release ipa
         run: |
           git config --global --unset-all http.https://github.com/.extraheader 2>/dev/null || true
           cd ./packages/smooth_app/ios && bundle exec fastlane beta_multi
         env:
+          FASTLANE_VERBOSE: "1"
           GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
