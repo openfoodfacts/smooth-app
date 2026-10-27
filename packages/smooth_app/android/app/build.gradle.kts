@@ -33,6 +33,9 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled = true
+        // Custom scheme for the Keycloak OIDC redirect
+        // (must match KeycloakAuthService.redirectUrl).
+        manifestPlaceholders["appAuthRedirectScheme"] = "org.openfoodfacts.app"
     }
 
     signingConfigs {

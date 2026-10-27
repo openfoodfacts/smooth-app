@@ -138,13 +138,20 @@ class BackgroundTaskUnselect extends BackgroundTaskBarcode
     );
     final OpenFoodFactsLanguage language = getLanguage();
     try {
-      return OpenFoodAPIClient.unselectProductImage(
+      final ProductResultV3 result =
+          await OpenFoodAPIClient.unselectProductImage(
         barcode: barcode,
         imageField: ImageField.fromOffTag(imageField)!,
         language: language,
         user: getUser(),
         uriHelper: uriProductHelper,
       );
+      if (result.status != ProductResultV3.statusSuccess &&
+          result.status != ProductResultV3.statusWarning) {
+        throw Exception(
+          'Could not unselect image (status=${result.status} - errors=${result.errors})',
+        );
+      }
     } catch (e) {
       throw Exception('$e (${language.offTag} $imageField $barcode)');
     }

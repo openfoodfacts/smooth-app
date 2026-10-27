@@ -34,6 +34,7 @@ import 'package:smooth_app/pages/app_review.dart';
 import 'package:smooth_app/pages/navigator/app_navigator.dart';
 import 'package:smooth_app/pages/onboarding/onboarding_flow_navigator.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/keycloak_auth_service.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 import 'package:smooth_app/themes/color_provider.dart';
 import 'package:smooth_app/themes/contrast_provider.dart';
@@ -132,6 +133,9 @@ Future<bool> _init1() async {
   await SmoothServices().init(GlobalVars.appStore);
   await setupAppNetworkConfig();
   await UserManagementProvider.mountCredentials();
+  // Registers the Keycloak access token as fallback bearer for all
+  // ProductOpener calls; harmless when logged out (returns null).
+  KeycloakAuthService.instance.wireAsBearerProvider();
   _userPreferences = await UserPreferences.getUserPreferences();
   _localDatabase = await LocalDatabase.getLocalDatabase();
   await _continuousScanModel.load(_localDatabase);

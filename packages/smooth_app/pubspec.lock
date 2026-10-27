@@ -538,6 +538,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.1"
+  flutter_appauth:
+    dependency: "direct main"
+    description:
+      name: flutter_appauth
+      sha256: "9bacc200937c61c7ed4e64ecee3fc0d4042133405a00b56de8fbe401aa16d228"
+      url: "https://pub.dev"
+    source: hosted
+    version: "12.1.0"
+  flutter_appauth_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_appauth_platform_interface
+      sha256: c88f8edf43bf3b2c8fed73a04ba78309f00c549306a27f5ef818d767701a6eb6
+      url: "https://pub.dev"
+    source: hosted
+    version: "12.1.0"
   flutter_cache_manager:
     dependency: transitive
     description:
@@ -1171,11 +1187,10 @@ packages:
   openfoodfacts:
     dependency: "direct main"
     description:
-      name: openfoodfacts
-      sha256: "51bb760342865523a207d1df72e0a022d131a10a9ea0b5b663ed7be93837c561"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.30.2"
+      path: "../../../openfoodfacts-dart"
+      relative: true
+    source: path
+    version: "3.31.1"
   openfoodfacts_flutter_lints:
     dependency: "direct dev"
     description:
