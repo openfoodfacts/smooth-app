@@ -16,17 +16,11 @@ import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
 import '../../tests_utils/mocks.dart';
 
 void main() {
-  testWidgets('the zoom button opens the full size photo', (
-    WidgetTester tester,
-  ) async {
+  Future<void> pumpPage(WidgetTester tester, final ProductImage image) async {
     SharedPreferences.setMockInitialValues(mockSharedPreferences());
     final UserPreferences prefs = await UserPreferences.getUserPreferences();
     ProductQuery.setQueryType(prefs);
     final ThemeProvider themeProvider = ThemeProvider(prefs);
-    final ProductImage image = ProductImage.raw(
-      imgid: '2',
-      size: ImageSize.DISPLAY,
-    );
 
     await tester.pumpWidget(
       ChangeNotifierProvider<ThemeProvider>.value(
@@ -49,6 +43,15 @@ void main() {
       ),
     );
     await tester.pump();
+  }
+
+  testWidgets('the zoom button opens the full size photo', (
+    WidgetTester tester,
+  ) async {
+    await pumpPage(
+      tester,
+      ProductImage.raw(imgid: '2', size: ImageSize.DISPLAY),
+    );
 
     await tester.tap(find.byTooltip('Zoom in on the full size photo'));
     await tester.pump();
@@ -62,4 +65,27 @@ void main() {
     );
     expect((fullSize.image as NetworkImage).url, endsWith('/0123/2.jpg'));
   });
+
+  for (final double textScale in <double>[1.0, 1.3]) {
+    testWidgets('an outdated photo fits a small screen at $textScale', (
+      WidgetTester tester,
+    ) async {
+      tester.view.physicalSize = const Size(1080.0, 2400.0);
+      tester.view.devicePixelRatio = 3.0;
+      tester.platformDispatcher.textScaleFactorTestValue = textScale;
+      addTearDown(tester.view.reset);
+      addTearDown(tester.platformDispatcher.clearTextScaleFactorTestValue);
+
+      await pumpPage(
+        tester,
+        ProductImage.raw(
+          imgid: '2',
+          size: ImageSize.DISPLAY,
+          uploaded: DateTime(2020),
+        ),
+      );
+
+      expect(tester.takeException(), isNull);
+    });
+  }
 }

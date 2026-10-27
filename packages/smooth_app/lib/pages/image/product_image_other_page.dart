@@ -288,8 +288,13 @@ class _ProductImageViewer extends StatelessWidget {
                   barcode: barcode,
                   productType: productType,
                 ),
-                const Spacer(),
-                if (image.expired) _ProductImageOutdatedLabel(colors: colors),
+                if (image.expired)
+                  Expanded(
+                    child: Align(
+                      alignment: AlignmentDirectional.centerEnd,
+                      child: _ProductImageOutdatedLabel(colors: colors),
+                    ),
+                  ),
               ],
             ),
           ),
@@ -317,12 +322,17 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(SMALL_SPACE),
             child: Row(
+              mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 const icons.Outdated(size: 18.0, color: Colors.white),
                 const SizedBox(width: SMALL_SPACE),
-                Text(
-                  AppLocalizations.of(context).product_image_outdated,
-                  style: const TextStyle(fontSize: 13.0, color: Colors.white),
+                Flexible(
+                  child: Text(
+                    AppLocalizations.of(context).product_image_outdated,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(fontSize: 13.0, color: Colors.white),
+                  ),
                 ),
               ],
             ),
@@ -352,6 +362,11 @@ class _ProductImageZoomButton extends StatelessWidget {
         shape: BoxShape.circle,
       ),
       child: IconButton(
+        padding: const EdgeInsets.all(SMALL_SPACE),
+        constraints: const BoxConstraints(),
+        style: const ButtonStyle(
+          tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+        ),
         tooltip: AppLocalizations.of(context).photo_viewer_zoom_button,
         icon: const icons.Zoom(size: 18.0, color: Colors.white),
         onPressed: () => Navigator.push<void>(
@@ -373,7 +388,6 @@ class _ProductImageZoomButton extends StatelessWidget {
   }
 }
 
-/// Zoomable full page display of a full size product image.
 class _ProductImageZoomPage extends StatelessWidget {
   const _ProductImageZoomPage({required this.url});
 
