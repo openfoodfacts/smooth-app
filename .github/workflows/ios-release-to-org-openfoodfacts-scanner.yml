@@ -18,6 +18,8 @@ on:
         required: true
       MATCH_GIT_BASIC_AUTHORIZATION: 
         required: true
+      MATCH_GIT_BASIC_AUTHORIZATION_2: 
+        required: true
       MATCH_GIT_URL:
         required: true
       MATCH_KEYCHAIN_PASSWORD: 
@@ -38,13 +40,12 @@ env:
   RUBY_VERSION: 3.2.0
  
 jobs:
-  testflight-release:
+  testflight-release:  
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
     runs-on: macos-26
     steps:
       - name: Checkout sources
         uses: actions/checkout@v7
-
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -115,7 +116,7 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION_2 }}
           MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
           MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
@@ -135,7 +136,7 @@ jobs:
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
           FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
-          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION_2 }}
           MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
           MATCH_KEYCHAIN_PASSWORD: ${{ secrets.MATCH_KEYCHAIN_PASSWORD }}
           MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
