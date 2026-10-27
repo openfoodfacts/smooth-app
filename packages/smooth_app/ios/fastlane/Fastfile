@@ -71,7 +71,7 @@ platform :ios do
       type: "appstore", 
       readonly: is_ci, 
       clone_branch_directly: false,
-      app_identifier: APP_IDENTIFIER
+      app_identifier: APP_IDENTIFIER,
       git_basic_authorization: ENV["MATCH_GIT_BASIC_AUTHORIZATION"]
     )
     update_code_signing_settings(
