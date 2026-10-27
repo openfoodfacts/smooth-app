@@ -64,7 +64,7 @@ class UserPreferencesFood {
         ),
       ),
     ),
-    ..._getOnboardingBody(collapsed: false),
+    ..._getOnboardingBody(),
   ];
 
   List<AttributeGroup> _reorderGroups(List<AttributeGroup> groups) {

@@ -46,7 +46,7 @@ class UserPreferencesAttributeGroup {
   List<UserPreferencesItem> getItems({bool? collapsed}) {
     final SmoothColorsThemeExtension extension = context
         .extension<SmoothColorsThemeExtension>();
-    collapsed ??= _isCollapsed;
+    final bool isCollapsed = collapsed ?? _isCollapsed;
     final List<UserPreferencesItem> result = <UserPreferencesItem>[];
     result.add(
       UserPreferencesItemSimple(
@@ -59,9 +59,9 @@ class UserPreferencesAttributeGroup {
             padding: const EdgeInsetsDirectional.only(top: SMALL_SPACE),
             child: InkWell(
               borderRadius: const BorderRadius.vertical(top: ROUNDED_RADIUS),
-              onTap: () => collapsed == true
-                  ? userPreferences.setActiveAttributeGroup(group.id!)
-                  : null,
+              onTap: () => userPreferences.setActiveAttributeGroup(
+                isCollapsed ? group.id : null,
+              ),
               child: ListTile(
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadiusDirectional.vertical(
@@ -99,7 +99,7 @@ class UserPreferencesAttributeGroup {
                   child: icons.AppIconTheme(
                     size: 10.0,
                     color: Colors.white,
-                    child: collapsed!
+                    child: isCollapsed
                         ? const icons.Chevron.up()
                         : const icons.Chevron.down(),
                   ),
@@ -110,7 +110,7 @@ class UserPreferencesAttributeGroup {
         ),
       ),
     );
-    if (collapsed) {
+    if (isCollapsed) {
       return result;
     }
     if (group.warning != null) {
