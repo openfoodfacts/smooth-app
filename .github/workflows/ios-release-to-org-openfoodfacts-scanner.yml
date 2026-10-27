@@ -38,13 +38,30 @@ env:
   RUBY_VERSION: 3.2.0
  
 jobs:
-  testflight-release:
+  testflight-release:  
     name: Build and deploy to TestFlight testers (org.openfoodfacts.scanner)
     runs-on: macos-26
     steps:
       - name: Checkout sources
         uses: actions/checkout@v7
-
+      - name: Verify Match Git access
+        run: |
+          if [ -z "$MATCH_GIT_BASIC_AUTHORIZATION" ]; then
+            echo "::error::MATCH_GIT_BASIC_AUTHORIZATION secret is empty!"
+            exit 1
+          fi
+          AUTH_HEADER=$(echo -n "$MATCH_GIT_BASIC_AUTHORIZATION" | sed -E 's/^(Basic|Bearer) *//I')
+          HTTP_STATUS=$(curl -s -o /tmp/gh_api_resp.json -w "%{http_code}" -H "Authorization: Basic $AUTH_HEADER" https://api.github.com/repos/openfoodfacts/ios-certificates)
+          echo "GitHub API HTTP Status: $HTTP_STATUS"
+          if [ "$HTTP_STATUS" != "200" ]; then
+            echo "GitHub API error response:"
+            cat /tmp/gh_api_resp.json
+            echo ""
+          else
+            echo "GitHub API verified access to openfoodfacts/ios-certificates successfully."
+          fi
+        env:
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
