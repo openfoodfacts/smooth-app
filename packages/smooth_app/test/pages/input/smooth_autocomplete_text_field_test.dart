@@ -4,6 +4,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/pages/input/smooth_autocomplete_text_field.dart';
 import 'package:smooth_app/pages/product/autocomplete.dart';
 import 'package:smooth_app/themes/color_provider.dart';
@@ -20,13 +21,17 @@ class _FakeAutocompleter implements Autocompleter {
 }
 
 void main() {
-  testWidgets('options do not cover the bottom bar', (
-    WidgetTester tester,
-  ) async {
+  const Key barKey = Key('bar');
+
+  /// Returns the options box, for a field [top] pixels down the list.
+  Future<Rect> showOptions(WidgetTester tester, final double top) async {
     SharedPreferences.setMockInitialValues(mockSharedPreferences());
     final UserPreferences prefs = await UserPreferences.getUserPreferences();
     final ThemeProvider themeProvider = ThemeProvider(prefs);
-    const Key barKey = Key('bar');
+    final FocusNode focusNode = FocusNode();
+    final TextEditingController controller = TextEditingController();
+    addTearDown(focusNode.dispose);
+    addTearDown(controller.dispose);
 
     await tester.pumpWidget(
       ChangeNotifierProvider<ThemeProvider>.value(
@@ -41,12 +46,12 @@ void main() {
           home: Scaffold(
             body: ListView(
               children: <Widget>[
-                const SizedBox(height: 350.0),
+                SizedBox(height: top),
                 LayoutBuilder(
                   builder: (_, BoxConstraints constraints) =>
                       SmoothAutocompleteTextField(
-                        focusNode: FocusNode(),
-                        controller: TextEditingController(),
+                        focusNode: focusNode,
+                        controller: controller,
                         autocompleteKey: UniqueKey(),
                         hintText: 'category',
                         constraints: constraints,
@@ -72,9 +77,23 @@ void main() {
         )
         .first;
     expect(options, findsOneWidget);
+    return tester.getRect(options);
+  }
+
+  testWidgets('options do not cover the bottom bar', (
+    WidgetTester tester,
+  ) async {
+    final Rect options = await showOptions(tester, 350.0);
     expect(
-      tester.getRect(options).bottom,
+      options.bottom,
       lessThanOrEqualTo(tester.getRect(find.byKey(barKey)).top),
     );
+  });
+
+  testWidgets('options show two rows when the field is near the bar', (
+    WidgetTester tester,
+  ) async {
+    final Rect options = await showOptions(tester, 440.0);
+    expect(options.height, greaterThanOrEqualTo(MINIMUM_TOUCH_SIZE * 2));
   });
 }

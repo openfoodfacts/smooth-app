@@ -193,22 +193,27 @@ class _SmoothAutocompleteTextFieldState
     );
   }
 
-  /// Options height that stays above the bottom of the scrollable (e.g. "Save").
+  /// Max height that keeps the options above the bottom of the scrollable.
   double _getMaxOptionsHeight() {
     final double maxHeight = MediaQuery.sizeOf(context).height / 3;
     final RenderBox? field = context.findRenderObject() as RenderBox?;
     final RenderBox? scrollable =
-        Scrollable.maybeOf(context)?.context.findRenderObject() as RenderBox?;
+        Scrollable.maybeOf(
+              context,
+              axis: Axis.vertical,
+            )?.context.findRenderObject()
+            as RenderBox?;
     if (field == null || scrollable == null) {
       return maxHeight;
     }
-    final double fieldBottom = field
-        .localToGlobal(field.size.bottomLeft(Offset.zero))
-        .dy;
-    final double scrollableBottom = scrollable
-        .localToGlobal(scrollable.size.bottomLeft(Offset.zero))
-        .dy;
-    return (scrollableBottom - fieldBottom).clamp(0.0, maxHeight);
+    final double available =
+        (scrollable.localToGlobal(Offset.zero) & scrollable.size).bottom -
+        (field.localToGlobal(Offset.zero) & field.size).bottom;
+    // Not even two rows: overlapping what's below beats unusable options.
+    if (available < MINIMUM_TOUCH_SIZE * 2) {
+      return maxHeight;
+    }
+    return available > maxHeight ? maxHeight : available;
   }
 
   String get _searchInput => widget.controller.text.trim();
