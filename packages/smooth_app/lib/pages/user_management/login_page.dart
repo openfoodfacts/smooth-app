@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/data_models/user_management_provider.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_text_form_field.dart';
@@ -59,6 +60,32 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
     setState(() => _runningQuery = false);
 
     if (_loginResult!.type != LoginResultType.successful) {
+      return;
+    }
+
+    AnalyticsHelper.trackEvent(AnalyticsEvent.loginAction);
+    if (!context.mounted) {
+      return;
+    }
+    Navigator.pop(context);
+  }
+
+  Future<void> _loginWithKeycloak(BuildContext context) async {
+    setState(() {
+      _runningQuery = true;
+      _loginResult = null;
+    });
+
+    final bool success = await context
+        .read<UserManagementProvider>()
+        .loginWithKeycloak(context.read<LocalDatabase>());
+
+    if (!context.mounted) {
+      return;
+    }
+    setState(() => _runningQuery = false);
+
+    if (!success) {
       return;
     }
 
@@ -301,6 +328,49 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                                 : Colors.white,
                                           ),
                                         ],
+                                      ),
+                                    ),
+
+                                  const SizedBox(height: LARGE_SPACE),
+
+                                  // Keycloak SSO sign in button.
+                                  // TODO(off): remove once the Keycloak client
+                                  // is registered and password login retired.
+                                  if (_runningQuery)
+                                    const CircularProgressIndicator.adaptive()
+                                  else
+                                    OutlinedButton(
+                                      onPressed: () =>
+                                          _loginWithKeycloak(context),
+                                      style: ButtonStyle(
+                                        minimumSize:
+                                            WidgetStateProperty.all<Size>(
+                                              Size(
+                                                size.width * 0.5,
+                                                theme.buttonTheme.height,
+                                              ),
+                                            ),
+                                        shape:
+                                            WidgetStateProperty.all<
+                                              RoundedRectangleBorder
+                                            >(
+                                              const RoundedRectangleBorder(
+                                                borderRadius:
+                                                    CIRCULAR_BORDER_RADIUS,
+                                              ),
+                                            ),
+                                      ),
+                                      child: Text(
+                                        // TODO(off): localize with the
+                                        // sign-in flow.
+                                        'Sign in with Open Food Facts account',
+                                        style: theme.textTheme.bodyMedium
+                                            ?.copyWith(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: theme.colorScheme.primary,
+                                            ),
+                                        textAlign: TextAlign.center,
                                       ),
                                     ),
                                 ],

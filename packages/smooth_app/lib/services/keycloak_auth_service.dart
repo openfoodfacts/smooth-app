@@ -3,6 +3,22 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
+/// Thrown when a stored Keycloak session is definitively dead.
+///
+/// Unlike a missing session (never logged in → provider returns null and the
+/// dart package falls back to password/anonymous auth), a dead session must
+/// be loud: callers quarantine the failing work instead of retrying it
+/// silently (see `BackgroundTaskManager` auth-blocked tasks).
+class KeycloakSessionExpiredException implements Exception {
+  const KeycloakSessionExpiredException([this.details]);
+
+  final Object? details;
+
+  @override
+  String toString() =>
+      'KeycloakSessionExpiredException${details == null ? '' : ' ($details)'}';
+}
+
 /// Keycloak (OIDC) authentication for ProductOpener write/read calls.
 ///
 /// Smooth-app is a public client (no backend, no secret): it uses the
@@ -25,8 +41,7 @@ class KeycloakAuthService {
   static const String issuer =
       'https://auth.openfoodfacts.org/realms/openfoodfacts';
 
-  static const String discoveryUrl =
-      '$issuer/.well-known/openid-configuration';
+  static const String discoveryUrl = '$issuer/.well-known/openid-configuration';
 
   // TODO(off): register `smooth-app` as a public Keycloak client (standard
   // flow + PKCE, valid redirect `redirectUrl`) and replace if named
@@ -69,10 +84,37 @@ class KeycloakAuthService {
     _wired = true;
   }
 
+  /// Whether Keycloak tokens are stored locally (logged in at some point).
+  ///
+  /// Says nothing about validity; use [validateSession] for that.
+  Future<bool> hasStoredSession() async =>
+      await DaoSecuredString.get(_refreshTokenKey) != null ||
+      await DaoSecuredString.get(_accessTokenKey) != null;
+
+  /// Checks the stored session and purges it when definitively dead.
+  ///
+  /// Returns true when a usable token exists (refreshing if needed),
+  /// false when logged out or the session was purged. Transient (e.g.
+  /// network) failures rethrow so callers can retry later.
+  Future<bool> validateSession() async {
+    if (!await hasStoredSession()) {
+      return false;
+    }
+    try {
+      return await getValidAccessToken() != null;
+    } on KeycloakSessionExpiredException {
+      // Purged inside getValidAccessToken.
+      return false;
+    }
+  }
+
   /// Returns a usable access token, refreshing it when needed.
   ///
-  /// Returns null when logged out or when refresh fails (callers then fall
-  /// back to password auth or anonymous, per the dart package behavior).
+  /// Returns null when never logged in via Keycloak (callers fall back to
+  /// password/anonymous auth). Throws [KeycloakSessionExpiredException]
+  /// when a stored session is definitively dead (the stored tokens are
+  /// purged first) so the failure is loud instead of silently downgrading.
+  /// Transient errors (e.g. no network) propagate unchanged for retry.
   Future<String?> getValidAccessToken() async {
     try {
       final String? accessToken = await DaoSecuredString.get(_accessTokenKey);
@@ -83,11 +125,14 @@ class KeycloakAuthService {
             DateTime.now().isBefore(expiry.subtract(_expiryTolerance))) {
           return accessToken;
         }
-      }
-      final String? refreshToken =
-          await DaoSecuredString.get(_refreshTokenKey);
-      if (refreshToken == null) {
+      } else if (accessToken != null) {
+        // No recorded expiry (shouldn't happen): use once, refresh next time.
         return accessToken;
+      }
+      final String? refreshToken = await DaoSecuredString.get(_refreshTokenKey);
+      if (refreshToken == null) {
+        // Never logged in, or already purged: quiet fallback.
+        return null;
       }
       final TokenResponse response = await _appAuth.token(
         TokenRequest(
@@ -98,36 +143,41 @@ class KeycloakAuthService {
           scopes: scopes,
         ),
       );
-      if (response.accessToken != null) {
-        await _persist(response);
-        return response.accessToken;
+      if (response.accessToken == null) {
+        await purgeTokens();
+        throw const KeycloakSessionExpiredException('empty refresh response');
       }
-      return accessToken;
-    } catch (e) {
-      Logs.e('Keycloak token refresh failed', ex: e);
-      return null;
+      await _persist(response);
+      return response.accessToken;
+    } on FlutterAppAuthPlatformException catch (e) {
+      if (e.platformErrorDetails.error ==
+          FlutterAppAuthOAuthError.invalidGrant) {
+        // Refresh token rejected: session is over (logout, expiry, password
+        // change, …). Purge so we never present it again.
+        await purgeTokens();
+        throw KeycloakSessionExpiredException(e.platformErrorDetails);
+      }
+      rethrow;
     }
   }
 
   /// Whether tokens for a Keycloak session are stored locally.
-  Future<bool> isLoggedIn() async =>
-      await DaoSecuredString.get(_refreshTokenKey) != null ||
-      await DaoSecuredString.get(_accessTokenKey) != null;
+  Future<bool> isLoggedIn() => hasStoredSession();
 
   /// Interactive login in the system browser. Returns true on success.
   ///
   /// Throws [FlutterAppAuthUserCancelledException] when the user cancels;
   /// callers should treat that as a graceful abort, not an error.
   Future<bool> login() async {
-    final AuthorizationTokenResponse result =
-        await _appAuth.authorizeAndExchangeCode(
-      AuthorizationTokenRequest(
-        clientId,
-        redirectUrl,
-        discoveryUrl: discoveryUrl,
-        scopes: scopes,
-      ),
-    );
+    final AuthorizationTokenResponse result = await _appAuth
+        .authorizeAndExchangeCode(
+          AuthorizationTokenRequest(
+            clientId,
+            redirectUrl,
+            discoveryUrl: discoveryUrl,
+            scopes: scopes,
+          ),
+        );
     if (result.accessToken == null) {
       return false;
     }
@@ -150,6 +200,11 @@ class KeycloakAuthService {
       // Best effort: still clear local tokens below.
       Logs.e('Keycloak end session failed', ex: e);
     }
+    await purgeTokens();
+  }
+
+  /// Deletes all stored Keycloak tokens.
+  Future<void> purgeTokens() async {
     await DaoSecuredString.remove(key: _accessTokenKey);
     await DaoSecuredString.remove(key: _refreshTokenKey);
     await DaoSecuredString.remove(key: _expiryKey);

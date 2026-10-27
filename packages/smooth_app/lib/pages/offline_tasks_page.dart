@@ -163,6 +163,9 @@ class _OfflineTaskState extends State<OfflineTaskPage> {
         return appLocalizations.background_task_error_no_internet;
       case BackgroundTaskManager.taskStatusStopAsap:
         return appLocalizations.background_task_run_to_be_deleted;
+      case BackgroundTaskManager.taskStatusAuthFailure:
+        // TODO(off): localize once the sign-in flow is finalized.
+        return 'Sign-in expired — paused until you sign in again';
     }
     // "startsWith" because there's some kind of "chr(13)" at the end.
     if (status.startsWith(

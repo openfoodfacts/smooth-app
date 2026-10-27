@@ -2,11 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/background/background_task_manager.dart';
 import 'package:smooth_app/data_models/login_result.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
+import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/query/product_query.dart';
+import 'package:smooth_app/services/keycloak_auth_service.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 class UserManagementProvider with ChangeNotifier {
@@ -34,6 +38,7 @@ class UserManagementProvider with ChangeNotifier {
   /// Deletes saved credentials from storage
   Future<bool> logout() async {
     OpenFoodAPIConfiguration.globalUser = null;
+    await KeycloakAuthService.instance.logout();
     DaoSecuredString.remove(key: _USER_ID);
     DaoSecuredString.remove(key: _PASSWORD);
     DaoSecuredString.remove(key: _COOKIE);
@@ -99,9 +104,36 @@ class UserManagementProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  /// Signs in through Keycloak (system browser, PKCE).
+  ///
+  /// Returns true on success; resumes auth-blocked background tasks.
+  /// A user-cancelled browser flow returns false (no error).
+  Future<bool> loginWithKeycloak(final LocalDatabase localDatabase) async {
+    try {
+      if (!await KeycloakAuthService.instance.login()) {
+        return false;
+      }
+    } on FlutterAppAuthUserCancelledException {
+      return false;
+    }
+    await BackgroundTaskManager.resumeAuthBlockedTasks(localDatabase);
+    notifyListeners();
+    return true;
+  }
+
   /// Check if the user is still logged in and the credentials are still valid
   /// If not, the user is logged out
   Future<void> checkUserLoginValidity(UserPreferences preferences) async {
+    // Keycloak session first: purge it when definitively dead. The password
+    // user (if any) is left alone and keeps working as fallback.
+    if (await KeycloakAuthService.instance.hasStoredSession()) {
+      try {
+        await KeycloakAuthService.instance.validateSession();
+      } catch (e) {
+        // Transient (e.g. no network): leave tokens for a later attempt.
+        Logs.e('Keycloak session validation failed', ex: e);
+      }
+    }
     if (!ProductQuery.isLoggedIn()) {
       return;
     }

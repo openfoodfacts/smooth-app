@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:flutter/rendering.dart';
+import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/background/background_task.dart';
 import 'package:smooth_app/background/background_task_queue.dart';
 import 'package:smooth_app/background/background_task_refresh_later.dart';
@@ -11,6 +12,7 @@ import 'package:smooth_app/database/dao_instant_string.dart';
 import 'package:smooth_app/database/dao_int.dart';
 import 'package:smooth_app/database/dao_string_list.dart';
 import 'package:smooth_app/database/local_database.dart';
+import 'package:smooth_app/services/keycloak_auth_service.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Management of background tasks: single thread, block, restart, display.
@@ -236,6 +238,13 @@ class BackgroundTaskManager {
           _debugPrint('stale task $taskId');
           continue;
         }
+        final String? errorStatus = DaoInstantString(
+          localDatabase,
+        ).get(taskIdToErrorDaoInstantStringKey(taskId));
+        if (errorStatus == taskStatusAuthFailure) {
+          _debugPrint('auth-blocked task $taskId');
+          continue;
+        }
         try {
           await _setTaskErrorStatus(taskId, taskStatusStarted);
           await task.execute(localDatabase);
@@ -243,16 +252,36 @@ class BackgroundTaskManager {
           if (task.hasImmediateNextTask) {
             runAgain = true;
           }
-        } catch (e) {
-          // Most likely, no internet, no reason to go on.
-          if (LoginResult.isNoNetworkException(e.toString())) {
-            await _setTaskErrorStatus(taskId, taskStatusNoInternet);
-            await _justFinished();
+        } on KeycloakSessionExpiredException catch (e) {
+          // Definitive: retrying is pointless, quarantine until sign-in.
+          debugPrint('Background task auth error ($e)');
+          Logs.e('Background task auth error', ex: e);
+          await _setTaskErrorStatus(
+            taskId,
+            taskStatusAuthFailure,
+            countFailure: false,
+          );
+        } on HttpStatusException catch (e) {
+          if (e.statusCode == 401) {
+            // Token rejected server-side (expiry race, revocation,
+            // introspection): purge + quarantine until sign-in.
+            await KeycloakAuthService.instance.purgeTokens();
+            debugPrint('Background task 401 ($e)');
+            Logs.e('Background task 401', ex: e);
+            await _setTaskErrorStatus(
+              taskId,
+              taskStatusAuthFailure,
+              countFailure: false,
+            );
+            continue;
+          }
+          if (await _handleTaskError(taskId, e)) {
             return;
           }
-          debugPrint('Background task error ($e)');
-          Logs.e('Background task error', ex: e);
-          await _setTaskErrorStatus(taskId, '$e');
+        } catch (e) {
+          if (await _handleTaskError(taskId, e)) {
+            return;
+          }
         }
       }
       await _justFinished();
@@ -266,10 +295,27 @@ class BackgroundTaskManager {
     _running = false;
   }
 
+  /// Handles a generic task failure.
+  ///
+  /// Returns true when the whole run must stop (no internet).
+  Future<bool> _handleTaskError(final String taskId, final Object e) async {
+    // Most likely, no internet, no reason to go on.
+    if (LoginResult.isNoNetworkException(e.toString())) {
+      await _setTaskErrorStatus(taskId, taskStatusNoInternet);
+      await _justFinished();
+      return true;
+    }
+    debugPrint('Background task error ($e)');
+    Logs.e('Background task error', ex: e);
+    await _setTaskErrorStatus(taskId, '$e');
+    return false;
+  }
+
   Future<void> _setTaskErrorStatus(
     final String taskId,
-    final String status,
-  ) async {
+    final String status, {
+    final bool countFailure = true,
+  }) async {
     _debugPrint('setStatus - $taskId: $status');
 
     final DaoInstantString daoInstantString = DaoInstantString(localDatabase);
@@ -282,7 +328,10 @@ class BackgroundTaskManager {
       return;
     }
     await daoInstantString.put(key, status);
-    if (status != taskStatusStarted && status != taskStatusNoInternet) {
+    if (status != taskStatusStarted &&
+        status != taskStatusNoInternet &&
+        status != taskStatusAuthFailure &&
+        countFailure) {
       final int count = await daoInt.getNextSequenceNumber(
         taskIdToCountDaoIntKey(taskId),
       );
@@ -319,6 +368,42 @@ class BackgroundTaskManager {
 
   /// Forged task status: "No internet, try later!".
   static const String taskStatusNoInternet = 'X';
+
+  /// Forged task status: "Authentication dead, paused until next sign-in!".
+  ///
+  /// Dead-letter queue: unlike generic failures (retried, then "stale" after
+  /// 50 attempts), auth-blocked tasks are never retried nor staled. They wait
+  /// for [resumeAuthBlockedTasks], typically after a successful sign-in.
+  static const String taskStatusAuthFailure = 'A';
+
+  /// Resumes tasks quarantined with [taskStatusAuthFailure].
+  ///
+  /// Call after a successful sign-in so paused uploads run again.
+  static Future<void> resumeAuthBlockedTasks(
+    final LocalDatabase localDatabase,
+  ) async {
+    bool resumed = false;
+    for (final BackgroundTaskQueue queue in BackgroundTaskQueue.values) {
+      final List<String> taskIds = localDatabase.getAllTaskIds(
+        queue.tagTaskQueue,
+      );
+      for (final String taskId in taskIds) {
+        final String? status = DaoInstantString(
+          localDatabase,
+        ).get(taskIdToErrorDaoInstantStringKey(taskId));
+        if (status == taskStatusAuthFailure) {
+          await DaoInstantString(
+            localDatabase,
+          ).put(taskIdToErrorDaoInstantStringKey(taskId), null);
+          resumed = true;
+        }
+      }
+    }
+    if (resumed) {
+      localDatabase.notifyListeners();
+      runAgain(localDatabase, forceNowIfPossible: true);
+    }
+  }
 
   // TODO(monsieurtanuki): get rid of this once we're relaxed about the tasks.
   void _debugPrint(final String message) {
