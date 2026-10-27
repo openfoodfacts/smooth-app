@@ -8960,6 +8960,12 @@ abstract class AppLocalizations {
   /// **'Details of this photo'**
   String get photo_viewer_details_button_accessibility_label;
 
+  /// Tooltip of the button that opens the full size photo, to zoom in on it
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom in on the full size photo'**
+  String get photo_viewer_zoom_button;
+
   /// Title of the photo details dialog
   ///
   /// In en, this message translates to:

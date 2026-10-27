@@ -16,6 +16,8 @@ import 'package:smooth_app/pages/product/owner_field_info.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
 import 'package:smooth_app/themes/smooth_theme_colors.dart';
+import 'package:smooth_app/widgets/smooth_app_bar.dart';
+import 'package:smooth_app/widgets/smooth_interactive_viewer.dart';
 import 'package:smooth_app/widgets/smooth_scaffold.dart';
 import 'package:smooth_app/widgets/text/text_extensions.dart';
 
@@ -280,6 +282,12 @@ class _ProductImageViewer extends StatelessWidget {
                   barcode: barcode,
                   productType: productType,
                 ),
+                const SizedBox(width: SMALL_SPACE),
+                _ProductImageZoomButton(
+                  image: image,
+                  barcode: barcode,
+                  productType: productType,
+                ),
                 const Spacer(),
                 if (image.expired) _ProductImageOutdatedLabel(colors: colors),
               ],
@@ -316,6 +324,84 @@ class _ProductImageOutdatedLabel extends StatelessWidget {
                   AppLocalizations.of(context).product_image_outdated,
                   style: const TextStyle(fontSize: 13.0, color: Colors.white),
                 ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _ProductImageZoomButton extends StatelessWidget {
+  const _ProductImageZoomButton({
+    required this.image,
+    required this.barcode,
+    required this.productType,
+  });
+
+  final ProductImage image;
+  final String barcode;
+  final ProductType? productType;
+
+  @override
+  Widget build(BuildContext context) {
+    return DecoratedBox(
+      decoration: const BoxDecoration(
+        color: Colors.black45,
+        shape: BoxShape.circle,
+      ),
+      child: IconButton(
+        tooltip: AppLocalizations.of(context).photo_viewer_zoom_button,
+        icon: const icons.Zoom(size: 18.0, color: Colors.white),
+        onPressed: () => Navigator.push<void>(
+          context,
+          MaterialPageRoute<void>(
+            builder: (_) => _ProductImageZoomPage(
+              url: image.getUrl(
+                barcode,
+                uriHelper: ProductQuery.getUriProductHelper(
+                  productType: productType,
+                ),
+                imageSize: ImageSize.ORIGINAL,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// Zoomable full page display of a full size product image.
+class _ProductImageZoomPage extends StatelessWidget {
+  const _ProductImageZoomPage({required this.url});
+
+  final String url;
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations appLocalizations = AppLocalizations.of(context);
+
+    return SmoothScaffold(
+      appBar: SmoothAppBar(
+        title: Text(appLocalizations.edit_product_form_item_photos_title),
+      ),
+      body: SmoothInteractiveViewer(
+        child: Center(
+          child: Image.network(
+            url,
+            fit: BoxFit.contain,
+            loadingBuilder: (_, Widget child, ImageChunkEvent? progress) =>
+                progress == null
+                ? child
+                : const Center(child: CircularProgressIndicator.adaptive()),
+            errorBuilder: (_, _, _) => Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const icons.Warning(size: 48.0, color: Colors.red),
+                const SizedBox(height: SMALL_SPACE),
+                Text(appLocalizations.error_loading_photo),
               ],
             ),
           ),
