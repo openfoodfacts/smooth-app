@@ -18,6 +18,8 @@ on:
         required: true
       MATCH_GIT_BASIC_AUTHORIZATION: 
         required: true
+      MATCH_GIT_BASIC_AUTHORIZATION_2: 
+        required: true
       MATCH_GIT_URL:
         required: true
       MATCH_KEYCHAIN_PASSWORD: 
