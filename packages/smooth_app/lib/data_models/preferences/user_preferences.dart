@@ -144,6 +144,9 @@ class UserPreferences extends ChangeNotifier {
 
   /// Donation asks (home card, reminders)
   static const String _TAG_DONATION_ASKS_MUTED_UNTIL = 'donationAsksMutedUntil';
+  static const String _TAG_DONATION_TEST_BUCKET = 'donationTestBucket';
+  static const String _TAG_DONATION_STRIP_HIDDEN_UNTIL =
+      'donationStripHiddenUntil';
   static const String _TAG_PRODUCTS_LOOKED_UP_SINCE_ASK =
       'productsLookedUpSinceAsk';
   static const String _TAG_LAST_COUNTED_BARCODE = 'lastCountedBarcode';
@@ -722,6 +725,36 @@ class UserPreferences extends ChangeNotifier {
   bool donationAsksMuted(final DateTime now) {
     final DateTime? mutedUntil = donationAsksMutedUntil;
     return mutedUntil != null && now.isBefore(mutedUntil);
+  }
+
+  /// This install's draw in 0..99, made once and kept.
+  int getDonationTestBucket() {
+    int? bucket = _sharedPreferences.getInt(_TAG_DONATION_TEST_BUCKET);
+    if (bucket == null) {
+      bucket = math.Random().nextInt(100);
+      unawaited(_sharedPreferences.setInt(_TAG_DONATION_TEST_BUCKET, bucket));
+    }
+    return bucket;
+  }
+
+  DateTime? get donationStripHiddenUntil {
+    final int? millis = _sharedPreferences.getInt(
+      _TAG_DONATION_STRIP_HIDDEN_UNTIL,
+    );
+    return millis == null ? null : DateTime.fromMillisecondsSinceEpoch(millis);
+  }
+
+  Future<void> hideDonationStrip(final Duration duration) async {
+    await _sharedPreferences.setInt(
+      _TAG_DONATION_STRIP_HIDDEN_UNTIL,
+      DateTime.now().add(duration).millisecondsSinceEpoch,
+    );
+    notifyListeners();
+  }
+
+  bool donationStripHidden(final DateTime now) {
+    final DateTime? hiddenUntil = donationStripHiddenUntil;
+    return hiddenUntil != null && now.isBefore(hiddenUntil);
   }
 
   int get productsLookedUpSinceAsk =>

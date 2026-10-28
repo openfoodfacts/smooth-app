@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:provider/single_child_widget.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/widgets/smooth_card.dart';
@@ -21,17 +20,9 @@ class ScanBottomCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: <SingleChildWidget>[
-        ChangeNotifierProvider<ScanNewsFeedProvider>(
-          create: (BuildContext context) => ScanNewsFeedProvider(context),
-        ),
-        Provider<ScanBottomCardDensity>(
-          create: (_) => dense
-              ? ScanBottomCardDensity.dense
-              : ScanBottomCardDensity.normal,
-        ),
-      ],
+    return Provider<ScanBottomCardDensity>(
+      create: (_) =>
+          dense ? ScanBottomCardDensity.dense : ScanBottomCardDensity.normal,
       child: Consumer2<ScanNewsFeedProvider, AppReviewProvider>(
         builder:
             (

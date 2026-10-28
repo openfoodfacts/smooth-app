@@ -190,6 +190,14 @@ enum AnalyticsEvent {
     tag: 'donation reminder not now',
     category: AnalyticsCategory.donation,
   ),
+  donationStripShown(
+    tag: 'donation strip shown',
+    category: AnalyticsCategory.donation,
+  ),
+  donationStripClosed(
+    tag: 'donation strip closed',
+    category: AnalyticsCategory.donation,
+  ),
   appFirstOpen(tag: 'app first open', category: AnalyticsCategory.lifecycle),
   onboardingPageVisited(
     tag: 'onboarding page visited',
