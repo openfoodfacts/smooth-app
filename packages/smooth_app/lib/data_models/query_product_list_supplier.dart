@@ -24,14 +24,13 @@ class QueryProductListSupplier extends ProductListSupplier {
             (final Product product) => product.barcode!,
           ),
         );
-        // Search results come without knowledge panels: we don't overwrite
-        // local products that have some.
+        // Search results come without knowledge panels: we keep the local ones.
+        for (final Product product in searchResult.products!) {
+          product.knowledgePanels ??=
+              localProducts[product.barcode]?.knowledgePanels;
+        }
         await daoProduct.putAll(
-          searchResult.products!.where(
-            (final Product product) =>
-                product.knowledgePanels != null ||
-                localProducts[product.barcode]?.knowledgePanels == null,
-          ),
+          searchResult.products!,
           productQuery.language,
           productType: productQuery.productType,
         );
