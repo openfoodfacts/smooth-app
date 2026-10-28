@@ -18,8 +18,20 @@ class QueryProductListSupplier extends ProductListSupplier {
         productList.setAll(searchResult.products!);
         productList.totalSize = searchResult.count ?? 0;
         partialProductList.add(productList);
-        await DaoProduct(localDatabase).putAll(
-          searchResult.products!,
+        final DaoProduct daoProduct = DaoProduct(localDatabase);
+        final Map<String, Product> localProducts = await daoProduct.getAll(
+          searchResult.products!.map(
+            (final Product product) => product.barcode!,
+          ),
+        );
+        // Search results come without knowledge panels: we don't overwrite
+        // local products that have some.
+        await daoProduct.putAll(
+          searchResult.products!.where(
+            (final Product product) =>
+                product.knowledgePanels != null ||
+                localProducts[product.barcode]?.knowledgePanels == null,
+          ),
           productQuery.language,
           productType: productQuery.productType,
         );
