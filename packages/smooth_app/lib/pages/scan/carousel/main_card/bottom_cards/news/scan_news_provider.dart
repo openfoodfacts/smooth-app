@@ -6,6 +6,7 @@ import 'package:smooth_app/data_models/news_feed/newsfeed_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
+import 'package:smooth_app/pages/donation/donation_offer.dart';
 
 /// Listen to [AppNewsProvider] feed and provide a list of [AppNewsItem]
 /// randomly sorted by unread, then displayed and clicked news.
@@ -24,12 +25,17 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
   final UserPreferences _userPreferences;
 
   bool _donationMuted = false;
+  bool _donationStripHidden = false;
 
   bool get _donationMutedNow =>
       _userPreferences.donationAsksMuted(DateTime.now());
 
+  bool get _donationStripHiddenNow =>
+      _userPreferences.donationStripHidden(DateTime.now());
+
   void _onPreferencesChanged() {
-    if (_donationMutedNow != _donationMuted) {
+    if (_donationMutedNow != _donationMuted ||
+        _donationStripHiddenNow != _donationStripHidden) {
       _onNewsFeedStateChanged();
     }
   }
@@ -49,13 +55,25 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
 
   Future<void> _onTagLineContentAvailable(AppNews tagLine) async {
     _donationMuted = _donationMutedNow;
+    _donationStripHidden = _donationStripHiddenNow;
+    final AppNewsItem? donation = tagLine.donation;
+    final bool reminderArm =
+        DonationOffer.fromNews(
+          donation,
+        ).arm(_userPreferences.getDonationTestBucket()) ==
+        DonationTestArm.reminder;
+    final bool donationStrip =
+        reminderArm &&
+        donation != null &&
+        !_donationMuted &&
+        !_donationStripHidden;
     final List<AppNewsFeedItem> feed = tagLine.feed.news
         .where(
           (AppNewsFeedItem feedItem) =>
-              !_donationMuted || !feedItem.news.isDonation,
+              !(_donationMuted || reminderArm) || !feedItem.news.isDonation,
         )
         .toList();
-    if (feed.isEmpty) {
+    if (feed.isEmpty && !donationStrip) {
       emit(const ScanTagLineStateNoContent());
       return;
     }
@@ -84,7 +102,7 @@ class ScanNewsFeedProvider extends ValueNotifier<ScanTagLineState> {
         ...unreadNews..shuffle(),
         ...displayedNews..shuffle(),
         ...clickedNews..shuffle(),
-      ]),
+      ], donationStrip: donationStrip),
     );
   }
 
@@ -109,7 +127,10 @@ class ScanTagLineStateNoContent extends ScanTagLineState {
 }
 
 class ScanTagLineStateLoaded extends ScanTagLineState {
-  const ScanTagLineStateLoaded(this.tagLine);
+  const ScanTagLineStateLoaded(this.tagLine, {this.donationStrip = false});
 
   final Iterable<AppNewsItem> tagLine;
+
+  /// Whether to show the donation strip above the feed.
+  final bool donationStrip;
 }

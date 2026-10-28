@@ -24,6 +24,9 @@ class DevModeRoot extends PreferencesRoot {
   const DevModeRoot({required super.title});
 
   @override
+  String get actionName => 'Opened dev_mode_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();

@@ -41,7 +41,7 @@ class KnowledgePanelCard extends StatelessWidget {
     if (panel == null) {
       return EMPTY_WIDGET;
     }
-    if (_isExpandedByUser(panel, userPreferences) || (panel.expanded == true)) {
+    if (_isExpandedByUser(userPreferences) || (panel.expanded == true)) {
       return KnowledgePanelExpandedCard(
         panelId: panelId,
         product: product,
@@ -93,27 +93,13 @@ class KnowledgePanelCard extends StatelessWidget {
     );
   }
 
-  bool _isExpandedByUser(
-    final KnowledgePanel panel,
-    final UserPreferences userPreferences,
-  ) {
+  bool _isExpandedByUser(final UserPreferences userPreferences) {
     final List<String> expandedPanelIds = <String>[
       PANEL_NUTRITION_TABLE_ID,
       PANEL_INGREDIENTS_ID,
     ];
-    for (final String panelId in expandedPanelIds) {
-      if (panel.titleElement != null &&
-          panel.titleElement!.title ==
-              KnowledgePanelsBuilder.getKnowledgePanel(
-                product,
-                panelId,
-              )?.titleElement?.title) {
-        if (userPreferences.getFlag(getExpandFlagTag(panelId)) ?? false) {
-          return true;
-        }
-      }
-    }
-    return false;
+    return expandedPanelIds.contains(panelId) &&
+        (userPreferences.getFlag(getExpandFlagTag(panelId)) ?? false);
   }
 
   @override

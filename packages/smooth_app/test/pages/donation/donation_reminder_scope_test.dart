@@ -25,6 +25,7 @@ const String _tagProductsLookedUp = 'productsLookedUpSinceAsk';
 const String _tagLastCountedBarcode = 'lastCountedBarcode';
 const String _tagLastReminderShownAt = 'lastReminderShownAt';
 const String _tagAppLaunches = 'appLaunches';
+const String _tagStripHiddenUntil = 'donationStripHiddenUntil';
 
 const String _notNow = 'Not now';
 const String _alreadyDonated = 'I already donated';
@@ -36,6 +37,7 @@ AppNewsItem _donationItem({
   String? currency,
   DateTime? endDate,
   num? reminderEvery,
+  num newArmPercent = 100,
 }) => AppNewsItem(
   id: 'donation_campaign_2026',
   title: 'title',
@@ -47,6 +49,7 @@ AppNewsItem _donationItem({
   currency: currency,
   endDate: endDate,
   donationReminderEvery: reminderEvery,
+  donationAbNewPercent: newArmPercent,
 );
 
 /// Serves one donation news item, mirroring `donation_page_test.dart`'s
@@ -271,6 +274,7 @@ void main() {
     await prefs.remove(_tagLastCountedBarcode);
     await prefs.remove(_tagLastReminderShownAt);
     await prefs.remove(_tagAppLaunches);
+    await prefs.remove(_tagStripHiddenUntil);
     MatomoTracker.instance.dropActions();
   });
 
@@ -296,6 +300,7 @@ void main() {
       );
       expect(events, hasLength(1));
       expect(events.single['e_v'], '10');
+      expect(events.single['e_a'], 'reminder:new');
     });
 
     testWidgets('no product data leaks into the sheet', (
@@ -356,6 +361,20 @@ void main() {
       });
     }
 
+    testWidgets('a hidden strip leaves the sheet eligible', (
+      WidgetTester tester,
+    ) async {
+      await _reachEligibleSheet(
+        tester,
+        extraSetup: (SharedPreferences prefs) => prefs.setInt(
+          _tagStripHiddenUntil,
+          DateTime.now().add(const Duration(days: 7)).millisecondsSinceEpoch,
+        ),
+      );
+
+      expect(find.byType(DonationReminderSheet), findsOneWidget);
+    });
+
     testWidgets('"Not now" changes nothing beyond the show itself', (
       WidgetTester tester,
     ) async {
@@ -367,6 +386,10 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(_eventsNamed('donationReminderNotNow'), hasLength(1));
+      expect(
+        _eventsNamed('donationReminderNotNow').single['e_a'],
+        'reminder:new',
+      );
       expect(userPreferences.donationAsksMutedUntil, isNull);
     });
 
@@ -413,12 +436,13 @@ void main() {
       );
       expect(handoffEvents, hasLength(1));
       expect(handoffEvents.single['e_v'], '5');
+      expect(handoffEvents.single['e_a'], 'reminder:new');
       expect(_eventsNamed('donationHandoff'), isEmpty);
 
       expect(launches, hasLength(1));
       expect(
         launches.single['url'],
-        endsWith('utm_content=donation-screen-reminder'),
+        endsWith('utm_content=donation-screen-reminder:new'),
       );
       expect(
         userPreferences.donationAsksMutedUntil!
@@ -451,7 +475,7 @@ void main() {
       final String url = launches.single['url']! as String;
       expect(url, isNot(contains('amount=')));
       expect(url, isNot(contains('default_interval=')));
-      expect(url, endsWith('utm_content=donation-screen-reminder'));
+      expect(url, endsWith('utm_content=donation-screen-reminder:new'));
       expect(
         userPreferences.donationAsksMutedUntil!
             .difference(before.add(const Duration(days: 90)))
@@ -462,6 +486,30 @@ void main() {
   });
 
   group('not eligible', () {
+    testWidgets('home card side of the test -> plain pop, no sheet', (
+      WidgetTester tester,
+    ) async {
+      final (
+        UserPreferences userPreferences,
+        ProductPreferences productPreferences,
+      ) = await _preparePreferences();
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt(_tagProductsLookedUp, 9);
+
+      final NavigatorState navigator = await _pumpHomeAndFiller(
+        tester,
+        userPreferences: userPreferences,
+        productPreferences: productPreferences,
+        donation: _donationItem(newArmPercent: 0),
+      );
+      await _pushProductPage(tester, navigator, barcode: 'barcode_10');
+
+      await _leaveProductPage(tester);
+
+      _expectPoppedOnce(tester);
+      expect(_eventsNamed('donationReminderShown'), isEmpty);
+    });
+
     testWidgets('muted -> plain pop, no sheet', (WidgetTester tester) async {
       final (
         UserPreferences userPreferences,
