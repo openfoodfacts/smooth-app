@@ -83,12 +83,9 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-
-      - name: bundle install
-        run: bundle install
-        working-directory: ./packages/smooth_app/android/
+          bundler-cache: true
+          working-directory: packages/smooth_app/android
 
       - name: Decrypt API JSON file and keystore
         run: cd ./packages/smooth_app/android/fastlane/envfiles && chmod +x ./decrypt_secrets_multi.sh && ./decrypt_secrets_multi.sh

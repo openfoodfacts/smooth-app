@@ -14,6 +14,23 @@ end
 
 platform :ios do
 
+  desc "Set's version to env:VERSION_NAME and the version code env:VERSION_CODE used for android + iOS"
+  lane :setVersion do
+      begin
+          version_code = ENV["VERSION_CODE"]
+          puts "version_code: " + version_code.to_s
+
+          new_version_name = ENV["VERSION_NAME"]
+          puts new_version_name
+
+          flutter_set_version(
+            path_to_yaml: "../pubspec.yaml",
+            version_name: new_version_name.to_s,
+            version_code: version_code.to_s,
+          )
+      end
+  end
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
 
