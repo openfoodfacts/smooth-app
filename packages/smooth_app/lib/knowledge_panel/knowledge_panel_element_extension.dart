@@ -156,4 +156,11 @@ extension KnowledgePanelElementExtension on KnowledgePanelElement {
 
     return panel.getSquarePanels(product);
   }
+
+  /// Returns the ids of the panels this element directly refers to.
+  List<String> getPanelIds() => switch (elementType) {
+    KnowledgePanelElementType.PANEL => <String>[panelElement!.panelId],
+    KnowledgePanelElementType.PANEL_GROUP => panelGroupElement!.panelIds,
+    _ => const <String>[],
+  };
 }
