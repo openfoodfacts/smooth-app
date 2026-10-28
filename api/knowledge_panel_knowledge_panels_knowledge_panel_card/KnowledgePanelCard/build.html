@@ -118,7 +118,7 @@ Widget build(BuildContext context) {
   if (panel == null) {
     return EMPTY_WIDGET;
   }
-  if (_isExpandedByUser(panel, userPreferences) || (panel.expanded == true)) {
+  if (_isExpandedByUser(userPreferences) || (panel.expanded == true)) {
     return KnowledgePanelExpandedCard(
       panelId: panelId,
       product: product,
