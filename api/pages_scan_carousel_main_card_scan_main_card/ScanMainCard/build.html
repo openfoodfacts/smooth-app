@@ -109,37 +109,41 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return ConsumerFilter&lt;AppNewsProvider&gt;(
-    buildWhen:
-        (AppNewsProvider? previousValue, AppNewsProvider currentValue) {
-          return previousValue?.hasContent != currentValue.hasContent;
-        },
-    builder: (BuildContext context, AppNewsProvider newsFeed, _) {
-      if (!newsFeed.hasContent) {
-        return const ScanSearchCard(expandedMode: true);
-      }
-      return Semantics(
-        explicitChildNodes: true,
-        child: LayoutBuilder(
-          builder: (_, BoxConstraints constraints) =&gt; ListView(
-            padding: EdgeInsetsDirectional.zero,
-            children: &lt;Widget&gt;[
-              ConstrainedBox(
-                constraints: BoxConstraints(
-                  minHeight: math.max(
-                    ScanSearchCard.computeMinSize(context),
-                    constraints.maxHeight * 0.5,
+  return ChangeNotifierProvider&lt;ScanNewsFeedProvider&gt;(
+    create: (BuildContext context) =&gt; ScanNewsFeedProvider(context),
+    child: Consumer&lt;ScanNewsFeedProvider&gt;(
+      builder: (BuildContext context, ScanNewsFeedProvider provider, _) {
+        final ScanTagLineState state = provider.value;
+        if (state is! ScanTagLineStateLoaded) {
+          return const ScanSearchCard(expandedMode: true);
+        }
+        return Semantics(
+          explicitChildNodes: true,
+          child: LayoutBuilder(
+            builder: (_, BoxConstraints constraints) =&gt; ListView(
+              padding: EdgeInsetsDirectional.zero,
+              children: &lt;Widget&gt;[
+                ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: math.max(
+                      ScanSearchCard.computeMinSize(context),
+                      constraints.maxHeight * 0.5,
+                    ),
                   ),
+                  child: const ScanSearchCard(expandedMode: false),
                 ),
-                child: const ScanSearchCard(expandedMode: false),
-              ),
-              const SizedBox(height: SMALL_SPACE),
-              const ScanBottomCard(dense: true),
-            ],
+                const SizedBox(height: SMALL_SPACE),
+                if (state.donationStrip) ...const &lt;Widget&gt;[
+                  _DonationStrip(),
+                  SizedBox(height: SMALL_SPACE),
+                ],
+                const ScanBottomCard(dense: true),
+              ],
+            ),
           ),
-        ),
-      );
-    },
+        );
+      },
+    ),
   );
 }</code></pre>
 </section>

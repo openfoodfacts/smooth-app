@@ -73,6 +73,8 @@ screen exactly as it shipped.</p>
   final num? scansPerUnit = item?.donationScansPerUnit;
   final num? reminderEvery = item?.donationReminderEvery;
   final num? donorCount = item?.count;
+  final num? newArmPercent = item?.donationAbNewPercent;
+  final num? stripHideDays = item?.donationStripHideDays;
 
   return DonationOffer(
     currency: currency != null &amp;&amp; currency.length == 3
@@ -86,6 +88,15 @@ screen exactly as it shipped.</p>
     reminderEvery: reminderEvery != null &amp;&amp; _isUsableCount(reminderEvery)
         ? reminderEvery.toInt()
         : _fallbackReminderEvery,
+    newArmPercent: newArmPercent != null &amp;&amp; newArmPercent.isFinite
+        ? newArmPercent.toInt()
+        : 0,
+    stripHideDays:
+        stripHideDays != null &amp;&amp;
+            _isUsableCount(stripHideDays) &amp;&amp;
+            stripHideDays &lt;= 365
+        ? stripHideDays.toInt()
+        : _fallbackStripHideDays,
     donorCount: donorCount != null &amp;&amp; _isUsableCount(donorCount)
         ? donorCount.toInt()
         : null,
