@@ -106,7 +106,7 @@ jobs:
           VERSION_NAME: ${{ inputs.VERSION_NAME }}
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
 
-      - name: Enable Rive dependency
+      - name: Enable the Rive dependency
         run: cd ./packages/smooth_app && dart run rive_native:setup --verbose --clean --platform ios
 
       - name: Build app
@@ -126,9 +126,6 @@ jobs:
           SPACESHIP_CONNECT_API_KEY_FILEPATH: ./fastlane/envfiles/AuthKey_KDAUTTM76R.p8
           CI_RELEASE: true
 
-      - name: cat Podfile
-        run: cd ./packages/smooth_app/ios && cat Podfile
- 
       - name: Release ipa
         run: cd ./packages/smooth_app/ios && bundle exec fastlane beta
         env:
