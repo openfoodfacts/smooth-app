@@ -106,6 +106,10 @@ enum AnalyticsEvent {
     tag: 'closed new product page without any input',
     category: AnalyticsCategory.productFastTrackEdit,
   ),
+  closeFastTrackProductPage(
+    tag: 'closed fast-track product edit page',
+    category: AnalyticsCategory.productFastTrackEdit,
+  ),
   openNewProductPage(
     tag: 'opened new product page',
     category: AnalyticsCategory.newProduct,
@@ -128,6 +132,10 @@ enum AnalyticsEvent {
   ),
   closeEmptyNewProductPage(
     tag: 'closed new product page without any input',
+    category: AnalyticsCategory.newProduct,
+  ),
+  closeNewProductPage(
+    tag: 'closed new product page',
     category: AnalyticsCategory.newProduct,
   ),
   shareList(tag: 'shared a list', category: AnalyticsCategory.list),
