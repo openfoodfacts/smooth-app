@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
@@ -64,6 +65,41 @@ void main() {
       ),
     );
     expect((fullSize.image as NetworkImage).url, endsWith('/0123/2.jpg'));
+  });
+
+  testWidgets('the full size photo page copies the photo URL', (
+    WidgetTester tester,
+  ) async {
+    String? copied;
+    tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+      SystemChannels.platform,
+      (final MethodCall call) async {
+        if (call.method == 'Clipboard.setData') {
+          copied = (call.arguments as Map<Object?, Object?>)['text'] as String?;
+        }
+        return null;
+      },
+    );
+    addTearDown(
+      () => tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
+        SystemChannels.platform,
+        null,
+      ),
+    );
+
+    await pumpPage(
+      tester,
+      ProductImage.raw(imgid: '2', size: ImageSize.DISPLAY),
+    );
+    await tester.tap(find.byTooltip('Zoom in on the full size photo'));
+    await tester.pump();
+    await tester.pump(const Duration(seconds: 1));
+
+    await tester.tap(find.byTooltip('Copy the photo URL'));
+    await tester.pump();
+
+    expect(copied, endsWith('/0123/2.jpg'));
+    expect(find.text('Photo URL copied to the clipboard!'), findsOneWidget);
   });
 
   for (final double textScale in <double>[1.0, 1.3]) {

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/database/transient_file.dart';
 import 'package:smooth_app/generic_lib/bottom_sheets/smooth_bottom_sheet.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
+import 'package:smooth_app/generic_lib/widgets/smooth_snackbar.dart';
+import 'package:smooth_app/helpers/haptic_feedback_helper.dart';
 import 'package:smooth_app/helpers/image_field_extension.dart';
 import 'package:smooth_app/helpers/launch_url_helper.dart';
 import 'package:smooth_app/helpers/product_cards_helper.dart';
@@ -400,6 +403,22 @@ class _ProductImageZoomPage extends StatelessWidget {
     return SmoothScaffold(
       appBar: SmoothAppBar(
         title: Text(appLocalizations.edit_product_form_item_photos_title),
+        actions: <Widget>[
+          IconButton(
+            tooltip: appLocalizations.photo_viewer_copy_url,
+            icon: const icons.Copy(),
+            onPressed: () {
+              Clipboard.setData(ClipboardData(text: url));
+              SmoothHapticFeedback.click();
+              ScaffoldMessenger.of(context).showSnackBar(
+                SmoothFloatingSnackbar.positive(
+                  context: context,
+                  text: appLocalizations.photo_viewer_url_copied,
+                ),
+              );
+            },
+          ),
+        ],
       ),
       body: SmoothInteractiveViewer(
         child: Center(
