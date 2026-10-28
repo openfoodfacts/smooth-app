@@ -69,6 +69,7 @@
     events = const &lt;EditProductAction, AnalyticsEvent&gt;{
       EditProductAction.openPage: AnalyticsEvent.openNewProductPage,
       EditProductAction.leaveEmpty: AnalyticsEvent.closeEmptyNewProductPage,
+      EditProductAction.leave: AnalyticsEvent.closeNewProductPage,
       EditProductAction.ingredients: AnalyticsEvent.ingredientsNewProductPage,
       EditProductAction.category: AnalyticsEvent.categoriesNewProductPage,
       EditProductAction.nutritionFacts:
