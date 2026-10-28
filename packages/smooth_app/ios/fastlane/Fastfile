@@ -6,7 +6,10 @@ before_all do
     version: '26.3',
     select_for_current_build_only: true,
   )
-  sh("xcodebuild -downloadPlatform iOS")
+  has_ios_sdk = system("xcodebuild -showsdks | grep -q 'iOS SDKs:'")
+  unless has_ios_sdk
+    sh("xcodebuild -downloadPlatform iOS")
+  end
 end
 
 platform :ios do
@@ -38,6 +41,7 @@ platform :ios do
       configuration: "Release",
       workspace: "Runner.xcworkspace",
       scheme: "Runner",
+      clean: false,
       export_method: "app-store",
       export_options: {
           provisioningProfiles: {
@@ -93,6 +97,7 @@ platform :ios do
       configuration: "Release",
       workspace: "Runner.xcworkspace",
       scheme: "Runner",
+      clean: false,
       export_method: "app-store",
       export_options: {
           provisioningProfiles: {
