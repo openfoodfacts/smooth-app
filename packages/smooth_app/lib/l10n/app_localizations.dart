@@ -8960,6 +8960,24 @@ abstract class AppLocalizations {
   /// **'Details of this photo'**
   String get photo_viewer_details_button_accessibility_label;
 
+  /// Tooltip of the button that opens the full size photo, to zoom in on it
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom in on the full size photo'**
+  String get photo_viewer_zoom_button;
+
+  /// Tooltip of the button on the full size photo page that copies the URL of the full size photo to the clipboard
+  ///
+  /// In en, this message translates to:
+  /// **'Copy the photo URL'**
+  String get photo_viewer_copy_url;
+
+  /// Snackbar message shown after copying the URL of the full size photo to the clipboard
+  ///
+  /// In en, this message translates to:
+  /// **'Photo URL copied to the clipboard!'**
+  String get photo_viewer_url_copied;
+
   /// Title of the photo details dialog
   ///
   /// In en, this message translates to:

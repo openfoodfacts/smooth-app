@@ -18,6 +18,9 @@ class AccountRoot extends PreferencesRoot {
   const AccountRoot({required super.title});
 
   @override
+  String get actionName => 'Opened account_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 

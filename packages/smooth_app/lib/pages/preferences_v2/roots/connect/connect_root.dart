@@ -20,6 +20,9 @@ class ConnectRoot extends PreferencesRoot {
   const ConnectRoot({required super.title});
 
   @override
+  String get actionName => 'Opened connect_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
 
