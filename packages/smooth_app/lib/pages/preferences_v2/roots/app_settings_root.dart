@@ -20,6 +20,9 @@ class AppSettingsRoot extends PreferencesRoot {
   const AppSettingsRoot({required super.title});
 
   @override
+  String get actionName => 'Opened app_settings_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final UserPreferences userPreferences = context.watch<UserPreferences>();

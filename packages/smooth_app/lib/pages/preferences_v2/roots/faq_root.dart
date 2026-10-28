@@ -18,6 +18,9 @@ class FaqRoot extends PreferencesRoot {
   const FaqRoot({required super.title});
 
   @override
+  String get actionName => 'Opened faq_page';
+
+  @override
   List<PreferenceCard> getCards(BuildContext context) {
     final AppLocalizations appLocalizations = AppLocalizations.of(context);
     final bool lightTheme = context.lightTheme();
