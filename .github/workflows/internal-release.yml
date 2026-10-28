@@ -20,14 +20,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1.321.0
+        uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-          #working-directory: packages/smooth_app/android
-      - name: bundle install
-        run: bundle install
-        working-directory: ./packages/smooth_app/android/
+          bundler-cache: true
+          working-directory: packages/smooth_app/android
       # Get the latest version name from file
       - name: Set VERSION_NAME env
         run: echo "VERSION_NAME=$(cat version.txt)">> $GITHUB_ENV

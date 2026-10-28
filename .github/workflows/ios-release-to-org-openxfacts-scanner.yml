@@ -54,14 +54,9 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          bundler-cache: true
           ruby-version: ${{ env.RUBY_VERSION }}
-      - name: bundle install
-        run: bundle install
-        working-directory: ./packages/smooth_app/ios/
-      - name: bundle install
-        run: bundle install
-        working-directory: ./packages/smooth_app/android/
+          bundler-cache: true
+          working-directory: packages/smooth_app/ios
       - name: Setup Java JDK
         uses: actions/setup-java@v6.1.0
         with:
@@ -108,9 +103,6 @@ jobs:
       - name: Get dependencies
         run: ci/pub_get.sh
       
-      - name: Bundle install
-        run: cd ./packages/smooth_app/ios && gem install bundler:1.17.3 && bundle install
-
       - name: Decrypt iOS AuthKey file
         run: cd ./packages/smooth_app/ios/fastlane/envfiles && chmod +x decrypt_secrets.sh && ./decrypt_secrets.sh
         env:
@@ -122,7 +114,7 @@ jobs:
         uses: maierj/fastlane-action@v3.2.0
         with:
           lane: setVersion
-          subdirectory: ./packages/smooth_app/android/
+          subdirectory: ./packages/smooth_app/ios/
         env:
           VERSION_NAME: ${{ inputs.VERSION_NAME }}
           VERSION_CODE: ${{ inputs.VERSION_CODE }}
