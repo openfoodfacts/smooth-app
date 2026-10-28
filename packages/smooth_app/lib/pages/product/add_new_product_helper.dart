@@ -16,13 +16,13 @@ class AnalyticsProductTracker {
     required this.analyticsEvent,
     required this.barcode,
     required this.check,
-  });
+  }) : _already = check();
 
   final AnalyticsEvent analyticsEvent;
   final String barcode;
   final bool Function() check;
 
-  bool _already = false;
+  bool _already;
 
   void track() {
     if (_already) {
@@ -192,6 +192,7 @@ class AddNewProductHelper {
 enum EditProductAction {
   openPage,
   leaveEmpty,
+  leave,
   ingredients,
   category,
   nutritionFacts,
