@@ -2,12 +2,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:matomo_tracker/matomo_tracker.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:scanner_shared/scanner_shared.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/helpers/camera_helper.dart';
+import 'package:smooth_app/helpers/global_vars.dart';
 import 'package:smooth_app/helpers/permission_helper.dart';
 import 'package:smooth_app/query/product_query.dart';
 
 import '../tests_utils/mocks.dart';
+
+class _CameraScanner extends MockedScanner {
+  const _CameraScanner();
+
+  @override
+  Future<bool> hasCamera({required bool front}) async => true;
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -20,6 +30,8 @@ void main() {
   setUpAll(() async {
     SharedPreferences.setMockInitialValues(<String, Object>{});
     await mockMatomo();
+    GlobalVars.barcodeScanner = const _CameraScanner();
+    await CameraHelper.init();
     await ProductQuery.setCountry(
       await UserPreferences.getUserPreferences(),
       'fr',
@@ -35,6 +47,10 @@ void main() {
               return false;
             case 'requestPermissions':
               return <int, int>{Permission.camera.value: answer.index};
+            case 'checkPermissionStatus':
+              return answer.index;
+            case 'openAppSettings':
+              return true;
           }
           return null;
         });
@@ -65,6 +81,18 @@ void main() {
       expect(event['e_c'], 'scanning');
       expect(event['e_a'], status.name);
     }
+  });
+
+  test('a refusal after a trip to the settings sends one event', () async {
+    answer = PermissionStatus.permanentlyDenied;
+
+    await PermissionListener(
+      permission: Permission.camera,
+    ).askPermission(onRationaleNotAvailable: () async => true);
+
+    final Map<String, String> event = MatomoTracker.instance.queue.single;
+    expect(event['e_n'], 'cameraPermissionRefused');
+    expect(event['e_a'], 'permanentlyDenied');
   });
 
   test('a granted camera permission sends nothing', () async {
