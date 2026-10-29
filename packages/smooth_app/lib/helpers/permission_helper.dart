@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/camera_helper.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
@@ -83,6 +84,12 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
     final PermissionStatus status = await permission.request();
 
     value = DevicePermission._fromPermissionStatus(permission, status);
+    if (!value.isGranted) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.cameraPermissionRefused,
+        action: value.status.name,
+      );
+    }
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/pages/product/product_page/header/product_page_tabs.dart';
 
 class ProductPageTabController extends StatefulWidget {
@@ -32,7 +33,7 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
         length: _tabs.length,
         vsync: this,
         initialIndex: 0,
-      );
+      )..addListener(_onTabChanged);
       _isInitialized = true;
     }
   }
@@ -53,8 +54,17 @@ class _ProductPageTabControllerState extends State<ProductPageTabController>
           length: _tabs.length,
           vsync: this,
           initialIndex: oldIndex < _tabs.length ? oldIndex : 0,
-        );
+        )..addListener(_onTabChanged);
       });
+    }
+  }
+
+  void _onTabChanged() {
+    if (!_tabController.indexIsChanging) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.productPageTabSelected,
+        action: _tabs[_tabController.index].id,
+      );
     }
   }
 
