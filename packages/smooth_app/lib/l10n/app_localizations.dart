@@ -10288,6 +10288,18 @@ abstract class AppLocalizations {
   /// **'Host: {host}'**
   String preferences_dev_mode_folksonomy_host_subtitle(String host);
 
+  /// Title for the Keycloak issuer override setting
+  ///
+  /// In en, this message translates to:
+  /// **'Keycloak issuer URL (TEST only)'**
+  String get dev_preferences_keycloak_issuer_title;
+
+  /// Subtitle for the Keycloak issuer override setting
+  ///
+  /// In en, this message translates to:
+  /// **'Issuer: {issuer} (empty = default)'**
+  String dev_preferences_keycloak_issuer_subtitle(String issuer);
+
   /// Title for accessibility experiments card
   ///
   /// In en, this message translates to:

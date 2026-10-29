@@ -2,6 +2,7 @@ class UserPreferencesDevMode {
   static const String userPreferencesFlagProd = '__devWorkingOnProd';
   static const String userPreferencesFlagPriceProd = '__devWorkingOnPricesProd';
   static const String userPreferencesTestEnvDomain = '__testEnvHost';
+  static const String userPreferencesKeycloakIssuer = '__keycloakIssuer';
   static const String userPreferencesFolksonomyHost = '__folksonomyHost';
   static const String userPreferencesFlagEditIngredients = '__editIngredients';
   static const String userPreferencesFlagBoostedComparison =

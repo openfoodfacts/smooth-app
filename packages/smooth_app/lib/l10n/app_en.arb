@@ -5290,6 +5290,19 @@
       }
     }
   },
+  "dev_preferences_keycloak_issuer_title": "Keycloak issuer URL (TEST only)",
+  "@dev_preferences_keycloak_issuer_title": {
+    "description": "Title for the Keycloak issuer override setting"
+  },
+  "dev_preferences_keycloak_issuer_subtitle": "Issuer: {issuer} (empty = default)",
+  "@dev_preferences_keycloak_issuer_subtitle": {
+    "description": "Subtitle for the Keycloak issuer override setting",
+    "placeholders": {
+      "issuer": {
+        "type": "String"
+      }
+    }
+  },
   "preferences_dev_mode_accessibility_experiments_title": "Accessibility experiments",
   "@preferences_dev_mode_accessibility_experiments_title": {
     "description": "Title for accessibility experiments card"

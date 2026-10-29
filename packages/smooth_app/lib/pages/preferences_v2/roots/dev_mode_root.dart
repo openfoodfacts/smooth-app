@@ -64,6 +64,15 @@ class DevModeRoot extends PreferencesRoot {
               appLocalizations,
               userPreferences,
             ),
+          if (userPreferences.getFlag(
+                UserPreferencesDevMode.userPreferencesFlagProd,
+              ) ==
+              false)
+            _buildKeycloakIssuerTile(
+              context,
+              appLocalizations,
+              userPreferences,
+            ),
           _buildPriceEnvironmentSwitchTile(appLocalizations, userPreferences),
           _buildFolksonomyHostTile(context, appLocalizations, userPreferences),
         ],
@@ -221,6 +230,29 @@ class DevModeRoot extends PreferencesRoot {
           newServer,
         );
         ProductQuery.setQueryType(userPreferences);
+      },
+    );
+  }
+
+  /// TEST-only: override the Keycloak issuer (e.g. a local instance).
+  ///
+  /// Empty resets to the default `auth.openfoodfacts.net` issuer.
+  PreferenceTile _buildKeycloakIssuerTile(
+    BuildContext context,
+    AppLocalizations appLocalizations,
+    UserPreferences userPreferences,
+  ) {
+    return ValueEditionPreferenceTile(
+      title: appLocalizations.dev_preferences_keycloak_issuer_title,
+      dialogAction: appLocalizations.dev_preferences_keycloak_issuer_subtitle(
+        KeycloakAuthService.instance.issuer,
+      ),
+      onNewValue: (String newIssuer) async {
+        await userPreferences.setDevModeString(
+          UserPreferencesDevMode.userPreferencesKeycloakIssuer,
+          newIssuer,
+        );
+        KeycloakAuthService.instance.syncEnvironment(userPreferences);
       },
     );
   }

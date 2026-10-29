@@ -54,22 +54,53 @@ class KeycloakAuthService {
   /// Synced from the dev-mode PROD/TEST switch via [syncEnvironment].
   bool _useProd = true;
 
-  String get issuer =>
-      'https://auth.${_useProd ? _prodDomain : _testDomain}/realms/$_realm';
+  /// Custom issuer override for TEST builds (dev-mode option).
+  ///
+  /// Lets a custom test environment point at its own Keycloak instance
+  /// (e.g. a local `http://auth.openfoodfacts.localhost:5600`
+  /// from openfoodfacts-auth `make up`). Ignored for PROD builds.
+  String? _customIssuer;
+
+  String get issuer {
+    if (_useProd) {
+      return 'https://auth.$_prodDomain/realms/$_realm';
+    }
+    final String? custom = _customIssuer;
+    if (custom != null && custom.isNotEmpty) {
+      return custom;
+    }
+    return 'https://auth.$_testDomain/realms/$_realm';
+  }
 
   String get discoveryUrl => '$issuer/.well-known/openid-configuration';
 
   /// Points the service at the current ProductOpener environment.
   ///
-  /// Call at startup and whenever the dev-mode PROD/TEST switch changes.
-  /// Stored tokens are namespaced per environment, so switching never leaks
-  /// one issuer's tokens to the other backend.
+  /// Call at startup and whenever the dev-mode PROD/TEST switch (or the
+  /// custom issuer) changes. Stored tokens are namespaced per environment,
+  /// so switching never leaks one issuer's tokens to the other backend.
+  /// A custom issuer additionally namespaces its own token set.
   void syncEnvironment(final UserPreferences userPreferences) {
     _useProd =
         userPreferences.getFlag(
           UserPreferencesDevMode.userPreferencesFlagProd,
         ) ??
         true;
+    _customIssuer = _normalizeIssuer(
+      userPreferences.getDevModeString(
+        UserPreferencesDevMode.userPreferencesKeycloakIssuer,
+      ),
+    );
+  }
+
+  /// Normalizes a user-entered issuer: trims, drops trailing slashes, and
+  /// defaults to https (local `http://…` issuers work for Android dev builds).
+  static String? _normalizeIssuer(final String? value) {
+    final String trimmed = (value ?? '').trim().replaceAll(RegExp(r'/+$'), '');
+    if (trimmed.isEmpty) {
+      return null;
+    }
+    return trimmed.contains('://') ? trimmed : 'https://$trimmed';
   }
 
   // TODO(off): register `smooth-app` as a public Keycloak client (standard
@@ -103,8 +134,23 @@ class KeycloakAuthService {
   String get _expiryKey => _key(_expirySuffix);
   String get _idTokenKey => _key(_idTokenSuffix);
 
-  String _key(final String suffix) =>
-      'keycloak_${_useProd ? 'prod' : 'test'}_$suffix';
+  String _key(final String suffix) => 'keycloak_${_scope}_$suffix';
+
+  /// Token namespace: prod, test, or the sanitized custom issuer.
+  String get _scope {
+    if (_useProd) {
+      return 'prod';
+    }
+    final String? custom = _customIssuer;
+    if (custom == null) {
+      return 'test';
+    }
+    String scope = 'custom_${custom.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_')}';
+    if (scope.length > 64) {
+      scope = scope.substring(scope.length - 64);
+    }
+    return scope;
+  }
 
   /// Refresh a minute before actual expiry (clock skew + latency).
   static const Duration _expiryTolerance = Duration(minutes: 1);
