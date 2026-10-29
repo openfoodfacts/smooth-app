@@ -585,13 +585,18 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
 
     _fakeStateChange(listId, selected);
 
-    if (selected) {
+    final bool changed = await dao.set(
+      ProductList.user(listId),
+      barcode,
+      selected,
+    );
+    if (changed && selected) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.userListProductAdded,
         eventValue: 1,
       );
     }
-    return dao.set(ProductList.user(listId), barcode, selected);
+    return changed;
   }
 
   /// Create a new user list and add the product to it
@@ -605,12 +610,15 @@ class _ProductUserListsProvider extends ValueNotifier<_ProductUserListsState> {
     return addAProductToAList(listId);
   }
 
-  Future<bool> addAProductToAList(String listId) {
-    AnalyticsHelper.trackEvent(
-      AnalyticsEvent.userListProductAdded,
-      eventValue: 1,
-    );
-    return dao.set(ProductList.user(listId), barcode, true);
+  Future<bool> addAProductToAList(String listId) async {
+    final bool added = await dao.set(ProductList.user(listId), barcode, true);
+    if (added) {
+      AnalyticsHelper.trackEvent(
+        AnalyticsEvent.userListProductAdded,
+        eventValue: 1,
+      );
+    }
+    return added;
   }
 
   /// Force reload the UI.

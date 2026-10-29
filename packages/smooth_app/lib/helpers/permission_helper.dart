@@ -72,24 +72,29 @@ class PermissionListener extends ValueNotifier<DevicePermission> {
 
         if (!value.isGranted) {
           await _requestPermission();
+          _trackRefusal();
           return;
         }
       }
     }
 
+    _trackRefusal();
     _status = _DevicePermissionStatus.answered;
   }
 
-  Future<void> _requestPermission() async {
-    final PermissionStatus status = await permission.request();
-
-    value = DevicePermission._fromPermissionStatus(permission, status);
+  void _trackRefusal() {
     if (!value.isGranted) {
       AnalyticsHelper.trackEvent(
         AnalyticsEvent.cameraPermissionRefused,
         action: value.status.name,
       );
     }
+  }
+
+  Future<void> _requestPermission() async {
+    final PermissionStatus status = await permission.request();
+
+    value = DevicePermission._fromPermissionStatus(permission, status);
   }
 
   @override

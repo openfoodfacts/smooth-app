@@ -187,7 +187,11 @@ class _QuestionsPageState extends State<QuestionsPage>
         onAnswer: (InsightAnnotation answer) async {
           AnalyticsHelper.trackEvent(
             AnalyticsEvent.questionAnswered,
-            action: answer.name,
+            action: switch (answer) {
+              InsightAnnotation.YES => 'yes',
+              InsightAnnotation.NO => 'no',
+              InsightAnnotation.MAYBE => 'skip',
+            },
           );
           await _saveAnswer(question, answer);
           setState(() {
