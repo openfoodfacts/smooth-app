@@ -319,6 +319,7 @@ abstract class ProductQuery {
     ProductField.ECOSCORE_GRADE,
     ProductField.ECOSCORE_SCORE,
     ProductField.KNOWLEDGE_PANELS,
+    ProductField.LAST_MODIFIED,
     ProductField.COUNTRIES,
     ProductField.COUNTRIES_TAGS,
     ProductField.COUNTRIES_TAGS_IN_LANGUAGES,

@@ -20,4 +20,17 @@ void main() {
   test('The product page still downloads knowledge panels', () {
     expect(ProductQuery.fields, contains(ProductField.KNOWLEDGE_PANELS));
   });
+
+  test('Search results carry the last change date', () {
+    final AbstractQueryConfiguration configuration = KeywordsProductQuery(
+      'chocolate',
+      productType: ProductType.food,
+      world: true,
+    ).getQueryConfiguration();
+
+    expect(
+      configuration.getParametersMap()['fields'],
+      contains('last_modified_t'),
+    );
+  });
 }
