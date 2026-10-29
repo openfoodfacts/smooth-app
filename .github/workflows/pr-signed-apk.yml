@@ -102,7 +102,7 @@ jobs:
           java-version: ${{ env.JAVA_VERSION }}
 
       - name: 🐘 Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
         with:
           build-root-directory: packages/smooth_app/android
 
