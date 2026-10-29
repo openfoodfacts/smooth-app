@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/provider_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
@@ -152,6 +153,13 @@ class PageManagerState extends State<PageManager> {
             if (_currentPage == BottomNavigationTab.Scan &&
                 _pageKeys[index] == BottomNavigationTab.Scan) {
               carouselManager.showSearchCard();
+            }
+
+            if (_pageKeys[index] != _currentPage) {
+              AnalyticsHelper.trackEvent(
+                AnalyticsEvent.bottomTabSelected,
+                action: _pageKeys[index].name,
+              );
             }
 
             _selectTab(_pageKeys[index], index);

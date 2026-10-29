@@ -3,6 +3,7 @@ import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/product_preferences.dart';
 import 'package:smooth_app/generic_lib/design_constants.dart';
 import 'package:smooth_app/generic_lib/dialogs/smooth_alert_dialog.dart';
+import 'package:smooth_app/helpers/analytics_helper.dart';
 import 'package:smooth_app/helpers/attributes_card_helper.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
@@ -91,6 +92,12 @@ class _AttributeButtonState extends State<AttributeButton> {
           InkWell(
             onTap: () async {
               setState(() => editMode = !editMode);
+              if (importanceId != currentImportanceId) {
+                AnalyticsHelper.trackEvent(
+                  AnalyticsEvent.foodPreferenceSaved,
+                  action: widget.attribute.id,
+                );
+              }
               widget.productPreferences.setImportance(
                 widget.attribute.id!,
                 importanceId,
