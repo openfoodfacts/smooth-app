@@ -124,7 +124,7 @@ jobs:
         run: chmod +x ci/dependencies/app_store/enable_google_play_dependency.sh && ci/dependencies/app_store/enable_google_play_dependency.sh
 
       - name: 📦 Cache Pub dependencies
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.pub-cache
           key: pub-cache-${{ runner.os }}-${{ hashFiles('packages/smooth_app/pubspec.lock') }}
