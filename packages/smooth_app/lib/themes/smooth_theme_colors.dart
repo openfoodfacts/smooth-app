@@ -135,13 +135,32 @@ class SmoothColorsThemeExtension
   final Color cellOdd;
   final Color cellEven;
 
+  /// Unknown score cards, text of average cells in panel tables, packaging
+  /// editor cards
   final Color greyUltraLight;
+
+  /// Loading product cards (light), onboarding bottom bar, packaging editor
+  /// cards
   final Color greySemiLight;
+
+  /// Background of unknown attribute icons
   final Color greyFair;
+
+  /// Unknown score text, loading product cards (dark), packaging editor cards
   final Color greyUltraDark;
+
+  // Reserved for scores, do not reuse elsewhere.
+
+  /// Text of good score cards, background of good attribute icons
   final Color scoreLightGreen;
+
+  /// Text of neutral score cards
   final Color scoreDarkYellow;
+
+  /// Text of neutral cells in panel tables
   final Color scoreDarkOrange;
+
+  /// Score card backgrounds, from very bad to very good
   final Color scoreRedBackground;
   final Color scoreOrangeBackground;
   final Color scoreYellowBackground;
