@@ -846,6 +846,12 @@ abstract class AppLocalizations {
   /// **'Please enter a password'**
   String get login_page_password_error_empty;
 
+  /// Button label: sign in through Open Food Facts single sign-on (Keycloak)
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in with Open Food Facts account'**
+  String get login_page_keycloak_sign_in;
+
   /// Button label: Opens a page where a new user can register
   ///
   /// In en, this message translates to:
@@ -6937,6 +6943,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Internet connection error. Try later.'**
   String get background_task_error_no_internet;
+
+  /// Shown for background tasks paused because the sign-in expired
+  ///
+  /// In en, this message translates to:
+  /// **'Sign-in expired — paused until you sign in again'**
+  String get background_task_error_auth_expired;
 
   /// No description provided for @background_task_operation_unknown.
   ///

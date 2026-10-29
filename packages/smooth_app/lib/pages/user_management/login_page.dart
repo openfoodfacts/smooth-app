@@ -361,9 +361,8 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                             ),
                                       ),
                                       child: Text(
-                                        // TODO(off): localize with the
-                                        // sign-in flow.
-                                        'Sign in with Open Food Facts account',
+                                        appLocalizations
+                                            .login_page_keycloak_sign_in,
                                         style: theme.textTheme.bodyMedium
                                             ?.copyWith(
                                               fontSize: 16.0,

@@ -264,6 +264,10 @@
   },
   "login_page_username_or_email": "Please enter username or e-mail",
   "login_page_password_error_empty": "Please enter a password",
+  "login_page_keycloak_sign_in": "Sign in with Open Food Facts account",
+  "@login_page_keycloak_sign_in": {
+    "description": "Button label: sign in through Open Food Facts single sign-on (Keycloak)"
+  },
   "create_account": "Create account",
   "@create_account": {
     "description": "Button label: Opens a page where a new user can register"
@@ -3743,6 +3747,10 @@
   "background_task_list_empty": "No Pending Background Tasks",
   "background_task_error_server_time_out": "Server timeout",
   "background_task_error_no_internet": "Internet connection error. Try later.",
+  "background_task_error_auth_expired": "Sign-in expired — paused until you sign in again",
+  "@background_task_error_auth_expired": {
+    "description": "Shown for background tasks paused because the sign-in expired"
+  },
   "background_task_operation_unknown": "unknown operation type",
   "background_task_operation_details": "detailed changes",
   "background_task_operation_image": "photo upload",
