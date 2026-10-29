@@ -148,6 +148,7 @@ Future<bool> _init1() async {
     daoString: DaoString(_localDatabase),
   );
   ProductQuery.setQueryType(_userPreferences);
+  KeycloakAuthService.instance.syncEnvironment(_userPreferences);
   UserManagementProvider().checkUserLoginValidity(_userPreferences);
 
   await AnalyticsHelper.linkPreferences(_userPreferences);

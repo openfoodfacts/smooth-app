@@ -19,6 +19,7 @@ import 'package:smooth_app/pages/preferences_v2/tiles/toggle_preference_tile.dar
 import 'package:smooth_app/pages/preferences_v2/tiles/value_edition_preference_tile.dart';
 import 'package:smooth_app/query/product_query.dart';
 import 'package:smooth_app/resources/app_icons.dart' as icons;
+import 'package:smooth_app/services/keycloak_auth_service.dart';
 
 class DevModeRoot extends PreferencesRoot {
   const DevModeRoot({required super.title});
@@ -192,6 +193,7 @@ class DevModeRoot extends PreferencesRoot {
             newValue,
           );
           ProductQuery.setQueryType(userPreferences);
+          KeycloakAuthService.instance.syncEnvironment(userPreferences);
         },
         items: const <DropdownMenuItem<bool>>[
           DropdownMenuItem<bool>(value: true, child: Text('PROD')),

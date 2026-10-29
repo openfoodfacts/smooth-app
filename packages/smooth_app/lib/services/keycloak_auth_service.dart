@@ -1,6 +1,8 @@
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
+import 'package:smooth_app/data_models/preferences/user_preferences.dart';
 import 'package:smooth_app/database/dao_secured_string.dart';
+import 'package:smooth_app/pages/preferences/user_preferences_dev_mode.dart';
 import 'package:smooth_app/services/smooth_services.dart';
 
 /// Thrown when a stored Keycloak session is definitively dead.
@@ -35,17 +37,44 @@ class KeycloakAuthService {
 
   static final KeycloakAuthService instance = KeycloakAuthService._();
 
-  /// Keycloak realm issuer. No client is pre-configured in production yet;
-  /// `clientId` below must be registered as a public client (standard flow,
-  /// PKCE) on this realm before interactive login can work.
-  static const String issuer =
-      'https://auth.openfoodfacts.org/realms/openfoodfacts';
+  /// Keycloak realm issuer, following the ProductOpener environment.
+  ///
+  /// PROD app builds talk to `openfoodfacts.org` and authenticate against
+  /// `auth.openfoodfacts.org`; TEST builds (`openfoodfacts.net`, including a
+  /// custom test-env domain) use `auth.openfoodfacts.net`. No Keycloak client
+  /// is pre-configured in production yet; `clientId` below must be registered
+  /// as a public client (standard flow, PKCE) on both realms before
+  /// interactive login can work.
+  static const String _prodDomain = 'openfoodfacts.org';
+  static const String _testDomain = 'openfoodfacts.net';
+  static const String _realm = 'openfoodfacts';
 
-  static const String discoveryUrl = '$issuer/.well-known/openid-configuration';
+  /// Whether ProductOpener requests currently target production.
+  ///
+  /// Synced from the dev-mode PROD/TEST switch via [syncEnvironment].
+  bool _useProd = true;
+
+  String get issuer =>
+      'https://auth.${_useProd ? _prodDomain : _testDomain}/realms/$_realm';
+
+  String get discoveryUrl => '$issuer/.well-known/openid-configuration';
+
+  /// Points the service at the current ProductOpener environment.
+  ///
+  /// Call at startup and whenever the dev-mode PROD/TEST switch changes.
+  /// Stored tokens are namespaced per environment, so switching never leaks
+  /// one issuer's tokens to the other backend.
+  void syncEnvironment(final UserPreferences userPreferences) {
+    _useProd =
+        userPreferences.getFlag(
+          UserPreferencesDevMode.userPreferencesFlagProd,
+        ) ??
+        true;
+  }
 
   // TODO(off): register `smooth-app` as a public Keycloak client (standard
-  // flow + PKCE, valid redirect `redirectUrl`) and replace if named
-  // differently.
+  // flow + PKCE, valid redirect `redirectUrl`) on both realms, keeping the
+  // client id in sync, and replace if named differently.
   static const String clientId = 'smooth-app';
 
   /// Custom scheme redirect; must match the Keycloak client's valid
@@ -63,10 +92,19 @@ class KeycloakAuthService {
     'products:write',
   ];
 
-  static const String _accessTokenKey = 'keycloak_access_token';
-  static const String _refreshTokenKey = 'keycloak_refresh_token';
-  static const String _expiryKey = 'keycloak_access_token_expiry_ms';
-  static const String _idTokenKey = 'keycloak_id_token';
+  static const String _accessTokenSuffix = 'access_token';
+  static const String _refreshTokenSuffix = 'refresh_token';
+  static const String _expirySuffix = 'access_token_expiry_ms';
+  static const String _idTokenSuffix = 'id_token';
+
+  /// Storage keys are namespaced per environment (prod vs test issuer).
+  String get _accessTokenKey => _key(_accessTokenSuffix);
+  String get _refreshTokenKey => _key(_refreshTokenSuffix);
+  String get _expiryKey => _key(_expirySuffix);
+  String get _idTokenKey => _key(_idTokenSuffix);
+
+  String _key(final String suffix) =>
+      'keycloak_${_useProd ? 'prod' : 'test'}_$suffix';
 
   /// Refresh a minute before actual expiry (clock skew + latency).
   static const Duration _expiryTolerance = Duration(minutes: 1);
