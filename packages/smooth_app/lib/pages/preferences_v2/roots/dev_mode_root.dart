@@ -6,6 +6,7 @@ import 'package:smooth_app/background/background_task_language_refresh.dart';
 import 'package:smooth_app/data_models/continuous_scan_model.dart';
 import 'package:smooth_app/data_models/news_feed/newsfeed_provider.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
+import 'package:smooth_app/data_models/user_management_provider.dart';
 import 'package:smooth_app/database/dao_product.dart';
 import 'package:smooth_app/database/local_database.dart';
 import 'package:smooth_app/l10n/app_localizations.dart';
@@ -54,7 +55,11 @@ class DevModeRoot extends PreferencesRoot {
       PreferenceCard(
         title: appLocalizations.dev_mode_section_server,
         tiles: <PreferenceTile>[
-          _buildEnvironmentSwitchTile(appLocalizations, userPreferences),
+          _buildEnvironmentSwitchTile(
+            context,
+            appLocalizations,
+            userPreferences,
+          ),
           if (userPreferences.getFlag(
                 UserPreferencesDevMode.userPreferencesFlagProd,
               ) ==
@@ -183,6 +188,7 @@ class DevModeRoot extends PreferencesRoot {
 
   // Server section methods
   PreferenceTile _buildEnvironmentSwitchTile(
+    BuildContext context,
     AppLocalizations appLocalizations,
     UserPreferences userPreferences,
   ) {
@@ -202,7 +208,17 @@ class DevModeRoot extends PreferencesRoot {
             newValue,
           );
           ProductQuery.setQueryType(userPreferences);
-          KeycloakAuthService.instance.syncEnvironment(userPreferences);
+          if (await KeycloakAuthService.instance.syncEnvironment(
+            userPreferences,
+          )) {
+            // Tokens belong to the other environment: dismiss them and the
+            // Keycloak-managed app user with them.
+            if (context.mounted) {
+              await context
+                  .read<UserManagementProvider>()
+                  .clearKeycloakManagedUser();
+            }
+          }
         },
         items: const <DropdownMenuItem<bool>>[
           DropdownMenuItem<bool>(value: true, child: Text('PROD')),
@@ -252,7 +268,15 @@ class DevModeRoot extends PreferencesRoot {
           UserPreferencesDevMode.userPreferencesKeycloakIssuer,
           newIssuer,
         );
-        KeycloakAuthService.instance.syncEnvironment(userPreferences);
+        if (await KeycloakAuthService.instance.syncEnvironment(
+          userPreferences,
+        )) {
+          if (context.mounted) {
+            await context
+                .read<UserManagementProvider>()
+                .clearKeycloakManagedUser();
+          }
+        }
       },
     );
   }

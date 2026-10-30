@@ -30,6 +30,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
   bool _runningQuery = false;
+  bool _runningKeycloakQuery = false;
   LoginResult? _loginResult;
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -72,7 +73,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
 
   Future<void> _loginWithKeycloak(BuildContext context) async {
     setState(() {
-      _runningQuery = true;
+      _runningKeycloakQuery = true;
       _loginResult = null;
     });
 
@@ -84,7 +85,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
       if (!context.mounted) {
         return;
       }
-      setState(() => _runningQuery = false);
+      setState(() => _runningKeycloakQuery = false);
 
       if (!success) {
         return;
@@ -102,7 +103,7 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
         return;
       }
       setState(() {
-        _runningQuery = false;
+        _runningKeycloakQuery = false;
         _loginResult = LoginResult(
           LoginResultType.exception,
           text: e.toString(),
@@ -299,7 +300,9 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                     const CircularProgressIndicator.adaptive()
                                   else
                                     ElevatedButton(
-                                      onPressed: () => _login(context),
+                                      onPressed: _runningKeycloakQuery
+                                          ? null
+                                          : () => _login(context),
                                       style: ButtonStyle(
                                         minimumSize:
                                             WidgetStateProperty.all<Size>(
@@ -351,12 +354,13 @@ class _LoginPageState extends State<LoginPage> with TraceableClientMixin {
                                   // Keycloak SSO sign in button.
                                   // TODO(off): remove once the Keycloak client
                                   // is registered and password login retired.
-                                  if (_runningQuery)
+                                  if (_runningKeycloakQuery)
                                     const CircularProgressIndicator.adaptive()
                                   else
                                     OutlinedButton(
-                                      onPressed: () =>
-                                          _loginWithKeycloak(context),
+                                      onPressed: _runningQuery
+                                          ? null
+                                          : () => _loginWithKeycloak(context),
                                       style: ButtonStyle(
                                         minimumSize:
                                             WidgetStateProperty.all<Size>(

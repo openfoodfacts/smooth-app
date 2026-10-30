@@ -131,6 +131,23 @@ class UserManagementProvider with ChangeNotifier {
     return true;
   }
 
+  /// Drops a Keycloak-managed app session without contacting Keycloak.
+  ///
+  /// Used when the environment (or issuer) changes: the stored tokens were
+  /// already purged as they belong to another issuer. Only acts when the
+  /// current user is a Keycloak marker; a password user is left alone.
+  Future<void> clearKeycloakManagedUser() async {
+    if (OpenFoodAPIConfiguration.globalUser?.comment !=
+        KeycloakAuthService.managedUserMarker) {
+      return;
+    }
+    OpenFoodAPIConfiguration.globalUser = null;
+    DaoSecuredString.remove(key: _USER_ID);
+    DaoSecuredString.remove(key: _PASSWORD);
+    DaoSecuredString.remove(key: _COOKIE);
+    notifyListeners();
+  }
+
   /// Check if the user is still logged in and the credentials are still valid
   /// If not, the user is logged out
   Future<void> checkUserLoginValidity(UserPreferences preferences) async {

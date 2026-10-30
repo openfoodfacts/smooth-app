@@ -79,20 +79,36 @@ class KeycloakAuthService {
   /// Points the service at the current ProductOpener environment.
   ///
   /// Call at startup and whenever the dev-mode PROD/TEST switch (or the
-  /// custom issuer) changes. Stored tokens are namespaced per environment,
-  /// so switching never leaks one issuer's tokens to the other backend.
+  /// custom issuer) changes. Returns true when the effective environment
+  /// changed (never on the first call): the old scope's tokens are purged
+  /// first, as they won't work against the other environment's
+  /// ProductOpener instance. Callers should also drop a Keycloak-managed
+  /// app user on change (see `UserManagementProvider`).
   /// A custom issuer additionally namespaces its own token set.
-  void syncEnvironment(final UserPreferences userPreferences) {
-    _useProd =
+  Future<bool> syncEnvironment(final UserPreferences userPreferences) async {
+    final bool newUseProd =
         userPreferences.getFlag(
           UserPreferencesDevMode.userPreferencesFlagProd,
         ) ??
         true;
-    _customIssuer = _normalizeIssuer(
+    final String? newCustomIssuer = _normalizeIssuer(
       userPreferences.getDevModeString(
         UserPreferencesDevMode.userPreferencesKeycloakIssuer,
       ),
     );
+    if (!_initialized) {
+      _useProd = newUseProd;
+      _customIssuer = newCustomIssuer;
+      _initialized = true;
+      return false;
+    }
+    if (newUseProd == _useProd && newCustomIssuer == _customIssuer) {
+      return false;
+    }
+    await _purgeScope(_scopeFor(_useProd, _customIssuer));
+    _useProd = newUseProd;
+    _customIssuer = newCustomIssuer;
+    return true;
   }
 
   /// Normalizes a user-entered issuer: trims, drops trailing slashes, and
@@ -145,19 +161,35 @@ class KeycloakAuthService {
   String _key(final String suffix) => 'keycloak_${_scope}_$suffix';
 
   /// Token namespace: prod, test, or the sanitized custom issuer.
-  String get _scope {
-    if (_useProd) {
+  String get _scope => _scopeFor(_useProd, _customIssuer);
+
+  static String _scopeFor(final bool useProd, final String? customIssuer) {
+    if (useProd) {
       return 'prod';
     }
-    final String? custom = _customIssuer;
-    if (custom == null) {
+    if (customIssuer == null) {
       return 'test';
     }
-    String scope = 'custom_${custom.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_')}';
+    String scope =
+        'custom_${customIssuer.replaceAll(RegExp(r'[^a-zA-Z0-9]'), '_')}';
     if (scope.length > 64) {
       scope = scope.substring(scope.length - 64);
     }
     return scope;
+  }
+
+  bool _initialized = false;
+
+  /// Deletes all stored tokens of the given namespace scope.
+  Future<void> _purgeScope(final String scope) async {
+    for (final String suffix in <String>[
+      _accessTokenSuffix,
+      _refreshTokenSuffix,
+      _expirySuffix,
+      _idTokenSuffix,
+    ]) {
+      await DaoSecuredString.remove(key: 'keycloak_${scope}_$suffix');
+    }
   }
 
   /// Refresh a minute before actual expiry (clock skew + latency).
@@ -325,13 +357,8 @@ class KeycloakAuthService {
     await purgeTokens();
   }
 
-  /// Deletes all stored Keycloak tokens.
-  Future<void> purgeTokens() async {
-    await DaoSecuredString.remove(key: _accessTokenKey);
-    await DaoSecuredString.remove(key: _refreshTokenKey);
-    await DaoSecuredString.remove(key: _expiryKey);
-    await DaoSecuredString.remove(key: _idTokenKey);
-  }
+  /// Deletes all stored tokens of the current scope.
+  Future<void> purgeTokens() => _purgeScope(_scope);
 
   Future<void> _persist(TokenResponse response) async {
     if (response.accessToken != null) {
