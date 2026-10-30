@@ -106,7 +106,8 @@ class UserManagementProvider with ChangeNotifier {
 
   /// Signs in through Keycloak (system browser, PKCE).
   ///
-  /// Returns true on success; resumes auth-blocked background tasks.
+  /// Returns true on success; installs a marker [User] so the app shows the
+  /// signed-in state, and resumes auth-blocked background tasks.
   /// A user-cancelled browser flow returns false (no error).
   Future<bool> loginWithKeycloak(final LocalDatabase localDatabase) async {
     try {
@@ -116,6 +117,15 @@ class UserManagementProvider with ChangeNotifier {
     } on FlutterAppAuthUserCancelledException {
       return false;
     }
+    final String userId =
+        await KeycloakAuthService.instance.getUsername() ?? 'keycloak-user';
+    await putUser(
+      User(
+        userId: userId,
+        password: '',
+        comment: KeycloakAuthService.managedUserMarker,
+      ),
+    );
     await BackgroundTaskManager.resumeAuthBlockedTasks(localDatabase);
     notifyListeners();
     return true;
@@ -138,6 +148,22 @@ class UserManagementProvider with ChangeNotifier {
       return;
     }
     final User user = ProductQuery.getWriteUser();
+    if (user.comment == KeycloakAuthService.managedUserMarker) {
+      // Keycloak-managed user: validate the OIDC session, never the
+      // (empty) password. A dead session logs out; a missing one keeps the
+      // marker so the next write surfaces the auth failure visibly.
+      try {
+        if (await KeycloakAuthService.instance.validateSession()) {
+          return;
+        }
+      } catch (e) {
+        // Transient (e.g. no network): leave everything for a later attempt.
+        Logs.e('Keycloak session validation failed', ex: e);
+        return;
+      }
+      await logout();
+      return;
+    }
     final LoginResult loginResult = await LoginResult.getLoginResult(
       User(userId: user.userId, password: user.password),
       preferences,

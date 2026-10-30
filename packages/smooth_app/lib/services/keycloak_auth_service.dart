@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:openfoodfacts/openfoodfacts.dart';
 import 'package:smooth_app/data_models/preferences/user_preferences.dart';
@@ -112,6 +114,14 @@ class KeycloakAuthService {
   /// redirect URIs and the Android `appAuthRedirectScheme` placeholder.
   static const String redirectUrl = 'org.openfoodfacts.app://oauth/callback';
 
+  /// Marker stored in [User.comment] for Keycloak-managed app users.
+  ///
+  /// The app keys "signed in" off `OpenFoodAPIConfiguration.globalUser`, so a
+  /// successful Keycloak login installs a marker [User] carrying the Keycloak
+  /// username and an empty password. Bearer tokens take precedence on every
+  /// request, so the empty password is never used while the session is alive.
+  static const String managedUserMarker = 'keycloak-sso';
+
   /// `offline_access` yields a refresh token; `products:*` are the
   /// ProductOpener scopes (openfoodfacts-auth#462).
   static const List<String> scopes = <String>[
@@ -119,8 +129,6 @@ class KeycloakAuthService {
     'profile',
     'email',
     'offline_access',
-    'products:read',
-    'products:write',
   ];
 
   static const String _accessTokenSuffix = 'access_token';
@@ -247,6 +255,36 @@ class KeycloakAuthService {
 
   /// Whether tokens for a Keycloak session are stored locally.
   Future<bool> isLoggedIn() => hasStoredSession();
+
+  /// Display username from the stored ID token (display only, unverified).
+  ///
+  /// Returns null when logged out. Prefers `preferred_username`, then
+  /// `name`, `email`, and finally the subject.
+  Future<String?> getUsername() async {
+    final String? idToken = await DaoSecuredString.get(_idTokenKey);
+    if (idToken == null) {
+      return null;
+    }
+    try {
+      final List<String> parts = idToken.split('.');
+      if (parts.length != 3) {
+        return null;
+      }
+      final Map<String, dynamic> payload =
+          jsonDecode(
+                utf8.decode(base64Url.decode(base64Url.normalize(parts[1]))),
+              )
+              as Map<String, dynamic>;
+      final dynamic name =
+          payload['preferred_username'] ??
+          payload['name'] ??
+          payload['email'] ??
+          payload['sub'];
+      return name?.toString();
+    } catch (_) {
+      return null;
+    }
+  }
 
   /// Interactive login in the system browser. Returns true on success.
   ///
