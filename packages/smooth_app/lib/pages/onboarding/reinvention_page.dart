@@ -85,45 +85,52 @@ class _OnboardingWelcomePageContent extends StatelessWidget {
         children: <Widget>[
           Expanded(
             flex: 15,
-            child: Text(
-              appLocalizations.onboarding_home_welcome_text1,
-              style: TextStyle(
-                fontSize: 45 * fontMultiplier,
-                fontWeight: FontWeight.bold,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.topCenter,
+              child: Text(
+                appLocalizations.onboarding_home_welcome_text1,
+                style: TextStyle(
+                  fontSize: 45 * fontMultiplier,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           const Expanded(flex: 37, child: _SunAndCloud()),
           Expanded(
             flex: 45,
-            child: FractionallySizedBox(
-              widthFactor: 0.65,
-              child: Align(
-                alignment: const Alignment(0, -0.2),
-                child: TextWithBubbleParts(
-                  text: appLocalizations.onboarding_home_welcome_text2,
-                  fontMultiplier: fontMultiplier,
-                  backgroundColor: context
-                      .extension<SmoothColorsThemeExtension>()
-                      .secondaryVibrant,
-                  textAlign: TextAlign.center,
-                  textStyle: const TextStyle(
-                    fontSize: 26,
-                    height: 1.48,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  bubblePadding: const EdgeInsetsDirectional.only(
-                    top: 1.0,
-                    bottom: 5.0,
-                    start: 15.0,
-                    end: 15.0,
-                  ),
-                  bubbleTextStyle: const TextStyle(
-                    fontSize: 22,
-                    height: 1.53,
-                    fontWeight: FontWeight.w700,
-                    color: Colors.white,
+            child: Align(
+              alignment: const Alignment(0, -0.2),
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
+                child: SizedBox(
+                  width: MediaQuery.sizeOf(context).width * 0.65,
+                  child: TextWithBubbleParts(
+                    text: appLocalizations.onboarding_home_welcome_text2,
+                    fontMultiplier: fontMultiplier,
+                    backgroundColor: context
+                        .extension<SmoothColorsThemeExtension>()
+                        .secondaryVibrant,
+                    textAlign: TextAlign.center,
+                    textStyle: const TextStyle(
+                      fontSize: 26,
+                      height: 1.48,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    bubblePadding: const EdgeInsetsDirectional.only(
+                      top: 1.0,
+                      bottom: 5.0,
+                      start: 15.0,
+                      end: 15.0,
+                    ),
+                    bubbleTextStyle: const TextStyle(
+                      fontSize: 22,
+                      height: 1.53,
+                      fontWeight: FontWeight.w700,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
               ),
