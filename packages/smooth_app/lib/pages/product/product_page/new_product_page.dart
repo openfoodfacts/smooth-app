@@ -145,44 +145,53 @@ class ProductPageState extends State<ProductPage>
       changeStatusBarBrightness: false,
       statusBarBackgroundColor: Colors.transparent,
       body: tabs.isNotEmpty
-          ? NestedScrollView(
-              controller: _scrollController,
-              headerSliverBuilder: (BuildContext context, bool value) {
-                return <Widget>[
-                  SliverPersistentHeader(
-                    delegate: ProductHeaderDelegate(
-                      statusBarHeight: MediaQuery.viewPaddingOf(context).top,
-                      backButtonType: widget.backButton,
+          ? RefreshIndicator(
+              // The tab lists, below the outer scroll view and the tab pages.
+              notificationPredicate: (ScrollNotification notification) =>
+                  notification.depth == 2,
+              onRefresh: () async => ProductRefresher().fetchAndRefresh(
+                barcode: barcode,
+                context: context,
+              ),
+              child: NestedScrollView(
+                controller: _scrollController,
+                headerSliverBuilder: (BuildContext context, bool value) {
+                  return <Widget>[
+                    SliverPersistentHeader(
+                      delegate: ProductHeaderDelegate(
+                        statusBarHeight: MediaQuery.viewPaddingOf(context).top,
+                        backButtonType: widget.backButton,
+                      ),
+                      pinned: true,
+                      floating: false,
                     ),
-                    pinned: true,
-                    floating: false,
-                  ),
-                  SliverToBoxAdapter(
-                    child: HeroMode(
-                      enabled:
-                          widget.withHeroAnimation &&
-                          widget.heroTag?.isNotEmpty == true,
-                      child: SummaryCard(
-                        upToDateProduct,
-                        _productPreferences,
-                        heroTag: widget.heroTag,
-                        isFullVersion: true,
-                        borderRadius: ROUNDED_BORDER_RADIUS,
-                        attributeGroupsVisible: false,
+                    SliverToBoxAdapter(
+                      child: HeroMode(
+                        enabled:
+                            widget.withHeroAnimation &&
+                            widget.heroTag?.isNotEmpty == true,
+                        child: SummaryCard(
+                          upToDateProduct,
+                          _productPreferences,
+                          heroTag: widget.heroTag,
+                          isFullVersion: true,
+                          borderRadius: ROUNDED_BORDER_RADIUS,
+                          attributeGroupsVisible: false,
+                        ),
                       ),
                     ),
-                  ),
-                  ProductPageTabBar(tabController: tabController, tabs: tabs),
-                ];
-              },
-              body: TabBarView(
-                controller: tabController,
-                children: tabs
-                    .map(
-                      (ProductPageTab tab) =>
-                          tab.builder(context, upToDateProduct),
-                    )
-                    .toList(growable: false),
+                    ProductPageTabBar(tabController: tabController, tabs: tabs),
+                  ];
+                },
+                body: TabBarView(
+                  controller: tabController,
+                  children: tabs
+                      .map(
+                        (ProductPageTab tab) =>
+                            tab.builder(context, upToDateProduct),
+                      )
+                      .toList(growable: false),
+                ),
               ),
             )
           : const Center(child: CircularProgressIndicator()),
