@@ -146,7 +146,7 @@ class ProductPageState extends State<ProductPage>
       statusBarBackgroundColor: Colors.transparent,
       body: tabs.isNotEmpty
           ? RefreshIndicator(
-              // The tab lists, below the outer scroll view and the tab pages.
+              // Tab lists only: NestedScrollView is depth 0, TabBarView depth 1.
               notificationPredicate: (ScrollNotification notification) =>
                   notification.depth == 2,
               onRefresh: () async => ProductRefresher().fetchAndRefresh(
