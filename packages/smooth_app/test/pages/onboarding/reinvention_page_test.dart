@@ -93,14 +93,42 @@ void main() {
       );
       await tester.pump();
 
-      final Iterable<RenderParagraph> paragraphs = tester
-          .renderObjectList<RenderParagraph>(find.byType(RichText));
-      expect(paragraphs, isNotEmpty);
-      for (final RenderParagraph paragraph in paragraphs) {
+      final Finder texts = find.descendant(
+        of: find.byType(Expanded),
+        matching: find.byType(RichText),
+      );
+      expect(texts, findsAtLeastNWidgets(2));
+      for (final Element text in texts.evaluate()) {
+        final RenderParagraph paragraph = text.renderObject! as RenderParagraph;
+        final String label = paragraph.text.toPlainText();
         expect(
           paragraph.getMaxIntrinsicHeight(paragraph.size.width),
           lessThanOrEqualTo(paragraph.size.height + 0.5),
-          reason: paragraph.text.toPlainText(),
+          reason: label,
+        );
+
+        // Painted inside its own slot, not over the sun or the hills.
+        final Rect slot = tester.getRect(
+          find
+              .ancestor(
+                of: find.byWidget(text.widget),
+                matching: find.byType(Expanded),
+              )
+              .first,
+        );
+        final Rect painted = MatrixUtils.transformRect(
+          paragraph.getTransformTo(null),
+          Offset.zero & paragraph.size,
+        );
+        expect(
+          slot.inflate(0.5).contains(painted.topLeft),
+          isTrue,
+          reason: label,
+        );
+        expect(
+          slot.inflate(0.5).contains(painted.bottomRight),
+          isTrue,
+          reason: label,
         );
       }
     });
